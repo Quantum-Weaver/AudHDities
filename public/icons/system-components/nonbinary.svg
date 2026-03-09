@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 256 256" role="img" aria-label="Non-binary identity icon – quantum fluidity and sovereign self-expression" class="cosmic-icon non-binary">
+  <defs>
+    <linearGradient id="nonbinary-gradient" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#6c5ce7"/>
+      <stop offset="50%" stopColor="#74b9ff"/>
+      <stop offset="100%" stopColor="#00cec9"/>
+    </linearGradient>
+    <filter id="nonbinary-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Original non-binary symbol path with quantum styling -->
+  <path d="M136,88.42383V59.01465l23.25049,15.625a7.99987,7.99987,0,1,0,8.9248-13.2793L142.34253,44l25.83276-17.36035a7.99987,7.99987,0,1,0-8.9248-13.2793L128,34.36133l-31.25049-21.001a7.99987,7.99987,0,1,0-8.9248,13.2793L113.65747,44,87.82471,61.36035a7.99987,7.99987,0,1,0,8.9248,13.2793L120,59.01465V88.42383a76,76,0,1,0,16,0ZM128,224a60,60,0,1,1,60-60A60.06812,60.06812,0,0,1,128,224Z" 
+        fill="url(#nonbinary-gradient)" 
+        stroke="#00cec9" 
+        strokeWidth="3" 
+        filter="url(#nonbinary-glow)"/>
+</svg>

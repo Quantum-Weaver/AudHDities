@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
-import MobileMenu from '@/components/ui/layout/MobileMenu';
-import Footer from '@/components/ui/layout/Footer';
+import MobileMenu from '@/components/layout/MobileMenu';
+import Footer from '@/components/layout/Footer';
 import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
 import AuthButton from '@/components/auth/AuthButton';
 

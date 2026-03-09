@@ -1,4 +1,4 @@
-// @/components/ui/layout/Page.tsx - SIMPLIFIED WORKING VERSION
+// @/components/layout/Page.tsx - SIMPLIFIED WORKING VERSION
 'use client';
 import React from 'react';
 import PanoramaViewer from '@/components/immersive/PanoramaViewer';

@@ -1,0 +1,345 @@
+{
+  "swords": {
+    "element": "Air",
+    "quantumElement": "Intellect/Logic",
+    "theme": "Truth, clarity, communication, mental power",
+    "cards": [
+      {
+        "cardNumber": 1,
+        "traditionalName": "Ace of Swords",
+        "quantumName": "Ace of Clarity Gates",
+        "imagery": {
+          "traditionalElements": "Hand emerging from cloud holding sword, crown with olive and palm branches",
+          "quantumElements": "Hand offering quantum logic gate, cutting through confusion with clarity",
+          "paganElements": "Sword of truth, mental clarity, decisive insight",
+          "colorPalette": "Silver, sky blue, crisp white",
+          "keySymbols": ["Clarity", "Breakthrough", "New idea", "Mental focus"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["clarity", "breakthrough", "new idea", "mental focus"],
+            "description": "Mental clarity, breakthrough ideas, and truth",
+            "quantumInterpretation": "Quantum logic gate activation - clear computational pathways opening"
+          },
+          "reversed": {
+            "keywords": ["confusion", "miscommunication", "chaos"],
+            "description": "Confusion, miscommunication, or mental chaos",
+            "quantumInterpretation": "Quantum gate error - logical operations producing noise instead of clarity"
+          }
+        }
+      },
+      {
+        "cardNumber": 2,
+        "traditionalName": "Two of Swords",
+        "quantumName": "Two of Balanced Logic",
+        "imagery": {
+          "traditionalElements": "Blindfolded woman holding two crossed swords, moon, sea",
+          "quantumElements": "Quantum system in logical balance, equal probabilities maintained, decision suspended",
+          "paganElements": "Truce, stalemate, balanced opposition, blind justice",
+          "colorPalette": "Balance gray, moonlight silver, sea blue",
+          "keySymbols": ["Difficult choices", "Indecision", "Stalemate", "Blocked emotions"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["difficult choices", "indecision", "stalemate", "blocked emotions"],
+            "description": "Difficult choices, indecision, and stalemate",
+            "quantumInterpretation": "Quantum logical balance - maintaining equal superposition between options"
+          },
+          "reversed": {
+            "keywords": ["indecision", "confusion", "information overload", "release"],
+            "description": "Indecision, confusion, or information overload",
+            "quantumInterpretation": "Logical imbalance - quantum system unable to maintain balanced states"
+          }
+        }
+      },
+      {
+        "cardNumber": 3,
+        "traditionalName": "Three of Swords",
+        "quantumName": "Three of Logical Heartbreak",
+        "imagery": {
+          "traditionalElements": "Heart pierced by three swords, rain clouds, stormy sky",
+          "quantumElements": "Quantum system experiencing logical contradictions, heartbreak algorithms, painful truth realization",
+          "paganElements": "Heartbreak, sorrow, painful truth, emotional storm",
+          "colorPalette": "Heartbreak red, storm gray, sorrow blue",
+          "keySymbols": ["Heartbreak", "Sorrow", "Betrayal", "Pain"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["heartbreak", "sorrow", "betrayal", "pain"],
+            "description": "Heartbreak, sorrow, and painful truth",
+            "quantumInterpretation": "Quantum logical conflict - contradictory truths causing system distress"
+          },
+          "reversed": {
+            "keywords": ["recovery", "forgiveness", "moving on", "reconciliation"],
+            "description": "Recovery, forgiveness, and moving on",
+            "quantumInterpretation": "Logical resolution - quantum system resolving contradictions and healing"
+          }
+        }
+      },
+      {
+        "cardNumber": 4,
+        "traditionalName": "Four of Swords",
+        "quantumName": "Four of Mental Restoration",
+        "imagery": {
+          "traditionalElements": "Knight resting on tomb, three swords hanging, one on tomb, stained glass",
+          "quantumElements": "Quantum system in rest state, mental processes suspended for restoration, quiet contemplation",
+          "paganElements": "Rest, retreat, meditation, spiritual recovery",
+          "colorPalette": "Rest blue, peace gray, restoration gold",
+          "keySymbols": ["Rest", "Restoration", "Contemplation", "Relaxation"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["rest", "restoration", "contemplation", "relaxation"],
+            "description": "Rest, restoration, and contemplation",
+            "quantumInterpretation": "Quantum system standby - computational processes paused for coherence restoration"
+          },
+          "reversed": {
+            "keywords": ["restlessness", "burnout", "lack of progress", "isolation"],
+            "description": "Restlessness, burnout, or lack of progress",
+            "quantumInterpretation": "Forced operation - quantum system denied necessary rest periods"
+          }
+        }
+      },
+      {
+        "cardNumber": 5,
+        "traditionalName": "Five of Swords",
+        "quantumName": "Five of Logical Conflict",
+        "imagery": {
+          "traditionalElements": "Smug figure holding three swords, two defeated figures walking away",
+          "quantumElements": "Quantum system winning logical battle but creating resentment, pyrrhic victory algorithms",
+          "paganElements": "Conflict, defeat, winning battles but losing war, unethical victory",
+          "colorPalette": "Conflict red, victory gray, tension orange",
+          "keySymbols": ["Conflict", "Defeat", "Win at all costs", "Betrayal"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["conflict", "defeat", "win at all costs", "betrayal"],
+            "description": "Conflict, defeat, and winning at all costs",
+            "quantumInterpretation": "Quantum logical victory - winning computational argument but damaging system relationships"
+          },
+          "reversed": {
+            "keywords": ["reconciliation", "forgiveness", "revenge", "regret"],
+            "description": "Reconciliation, forgiveness, or revenge",
+            "quantumInterpretation": "Post-conflict resolution - quantum system repairing damaged logical relationships"
+          }
+        }
+      },
+      {
+        "cardNumber": 6,
+        "traditionalName": "Six of Swords",
+        "quantumName": "Six of Transitional Logic",
+        "imagery": {
+          "traditionalElements": "Figure in boat with six swords, passenger, moving to calmer waters",
+          "quantumElements": "Quantum system transitioning to better logical states, moving from turbulence to clarity",
+          "paganElements": "Transition, journey, moving to better circumstances, rough to calm",
+          "colorPalette": "Transition blue, journey gray, calm silver",
+          "keySymbols": ["Transition", "Change", "Rite of passage", "Release"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["transition", "change", "rite of passage", "release"],
+            "description": "Transition, change, and moving to better circumstances",
+            "quantumInterpretation": "Quantum state transition - moving computational processes to more favorable conditions"
+          },
+          "reversed": {
+            "keywords": ["resistance to transition", "unresolved issues", "stagnation"],
+            "description": "Resistance to transition or unresolved issues",
+            "quantumInterpretation": "Transition resistance - quantum system stuck in unfavorable logical states"
+          }
+        }
+      },
+      {
+        "cardNumber": 7,
+        "traditionalName": "Seven of Swords",
+        "quantumName": "Seven of Strategic Logic",
+        "imagery": {
+          "traditionalElements": "Figure stealing swords from camp, looking back suspiciously",
+          "quantumElements": "Quantum system using strategic deception, information extraction, clever algorithms",
+          "paganElements": "Deception, strategy, cunning, stealth operations",
+          "colorPalette": "Deception gray, strategy blue, cunning silver",
+          "keySymbols": ["Deception", "Strategy", "Betrayal", "Resourcefulness"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["deception", "strategy", "betrayal", "resourcefulness"],
+            "description": "Deception, strategy, and cunning plans",
+            "quantumInterpretation": "Quantum strategic operations - using clever algorithms to gain advantage"
+          },
+          "reversed": {
+            "keywords": ["self-deception", "conspiracy", "exposure", "truth revealed"],
+            "description": "Self-deception, conspiracy, or exposure",
+            "quantumInterpretation": "Strategic failure - quantum deception algorithms discovered and countered"
+          }
+        }
+      },
+      {
+        "cardNumber": 8,
+        "traditionalName": "Eight of Swords",
+        "quantumName": "Eight of Mental Constraints",
+        "imagery": {
+          "traditionalElements": "Blindfolded and bound woman surrounded by eight swords, water, castle",
+          "quantumElements": "Quantum system trapped by logical constraints, self-imposed limitations, mental prison",
+          "paganElements": "Imprisonment, restriction, victim mentality, self-limitation",
+          "colorPalette": "Constraint gray, prison blue, limitation purple",
+          "keySymbols": ["Imprisonment", "Restriction", "Powerlessness", "Self-victimization"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["imprisonment", "restriction", "powerlessness", "self-victimization"],
+            "description": "Imprisonment, restriction, and powerlessness",
+            "quantumInterpretation": "Quantum logical constraints - system trapped by self-imposed computational limits"
+          },
+          "reversed": {
+            "keywords": ["freedom", "release", "new perspective", "clarity"],
+            "description": "Freedom, release, and new perspective",
+            "quantumInterpretation": "Constraint removal - quantum system breaking free from logical limitations"
+          }
+        }
+      },
+      {
+        "cardNumber": 9,
+        "traditionalName": "Nine of Swords",
+        "quantumName": "Nine of Mental Anguish",
+        "imagery": {
+          "traditionalElements": "Figure sitting up in bed, head in hands, nine swords on wall",
+          "quantumElements": "Quantum system experiencing mental overload, anxiety algorithms, worst-case scenario processing",
+          "paganElements": "Anxiety, worry, nightmares, mental torment",
+          "colorPalette": "Anxiety gray, torment blue, night black",
+          "keySymbols": ["Anxiety", "Worry", "Fear", "Overwhelm"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["anxiety", "worry", "fear", "overwhelm"],
+            "description": "Anxiety, worry, and mental torment",
+            "quantumInterpretation": "Quantum mental overload - system overwhelmed by negative probability calculations"
+          },
+          "reversed": {
+            "keywords": ["hope", "reaching out", "healing", "recovery"],
+            "description": "Hope, reaching out, and healing",
+            "quantumInterpretation": "Mental relief - quantum system resolving anxiety through positive recalibration"
+          }
+        }
+      },
+      {
+        "cardNumber": 10,
+        "traditionalName": "Ten of Swords",
+        "quantumName": "Ten of Logical Conclusion",
+        "imagery": {
+          "traditionalElements": "Figure face down with ten swords in back, dark sky, sunrise",
+          "quantumElements": "Quantum system reaching painful but definitive conclusion, complete logical termination, rock bottom",
+          "paganElements": "Betrayal, defeat, rock bottom, painful ending",
+          "colorPalette": "Defeat black, ending gray, dawn gold",
+          "keySymbols": ["Failure", "Defeat", "Back-stabbed", "Rock bottom"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["failure", "defeat", "back-stabbed", "rock bottom"],
+            "description": "Failure, defeat, and rock bottom",
+            "quantumInterpretation": "Quantum logical termination - complete computational failure and system collapse"
+          },
+          "reversed": {
+            "keywords": ["recovery", "regeneration", "fear of ruin", "survival"],
+            "description": "Recovery, regeneration, or fear of ruin",
+            "quantumInterpretation": "System reboot - quantum logic beginning recovery from complete failure"
+          }
+        }
+      },
+      {
+        "cardNumber": 11,
+        "traditionalName": "Page of Swords",
+        "quantumName": "Quantum Initiate of Intellect",
+        "imagery": {
+          "traditionalElements": "Youth holding sword upright, windy landscape, birds flying",
+          "quantumElements": "Young quantum logic learner, curious investigator, truth-seeking algorithms",
+          "paganElements": "Curious student, truth seeker, mental agility",
+          "colorPalette": "Curious blue, mental silver, windy gray",
+          "keySymbols": ["Curiosity", "Vigilance", "Mental energy", "Truth"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["curiosity", "vigilance", "mental energy", "truth"],
+            "description": "Curiosity, vigilance, and truth-seeking",
+            "quantumInterpretation": "Quantum intellectual novice - learning logical operations and truth detection"
+          },
+          "reversed": {
+            "keywords": ["deception", "manipulation", "hasty decisions", "all talk"],
+            "description": "Deception, manipulation, or hasty decisions",
+            "quantumInterpretation": "Logical immaturity - quantum initiate misusing truth-seeking algorithms"
+          }
+        }
+      },
+      {
+        "cardNumber": 12,
+        "traditionalName": "Knight of Swords",
+        "quantumName": "Quantum Operator of Intellect",
+        "imagery": {
+          "traditionalElements": "Knight charging with sword, storm clouds, birds flying",
+          "quantumElements": "Quantum logic operator executing rapid truth operations, cutting through deception with speed",
+          "paganElements": "Mental warrior, truth crusader, intellectual speed",
+          "colorPalette": "Speed blue, storm gray, truth silver",
+          "keySymbols": ["Action", "Ambition", "Speed", "Truth"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["action", "ambition", "speed", "truth"],
+            "description": "Action, ambition, and truth with speed",
+            "quantumInterpretation": "Quantum logical operator - rapid execution of truth-detection algorithms"
+          },
+          "reversed": {
+            "keywords": ["aggression", "brutality", "haste", "force"],
+            "description": "Aggression, brutality, or haste",
+            "quantumInterpretation": "Uncontrolled logical operations - quantum truth-seeking becoming destructive"
+          }
+        }
+      },
+      {
+        "cardNumber": 13,
+        "traditionalName": "Queen of Swords",
+        "quantumName": "Quantum Matrix of Intellect",
+        "imagery": {
+          "traditionalElements": "Queen on throne holding sword upright, clouds, birds, stern expression",
+          "quantumElements": "Quantum intellectual matrix maintaining sharp clarity, honest assessment, unbiased judgment",
+          "paganElements": "Clear-minded queen, honest judge, independent thinker",
+          "colorPalette": "Clarity silver, truth blue, judgment gray",
+          "keySymbols": ["Clarity", "Objectivity", "Perception", "Truth"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["clarity", "objectivity", "perception", "truth"],
+            "description": "Clarity, objectivity, and honest perception",
+            "quantumInterpretation": "Quantum intellectual matrix - stable, unbiased logical assessment systems"
+          },
+          "reversed": {
+            "keywords": ["cruelty", "bitterness", "harshness", "coldness"],
+            "description": "Cruelty, bitterness, or harshness",
+            "quantumInterpretation": "Unstable intellectual matrix - quantum logic becoming cold and cruel"
+          }
+        }
+      },
+      {
+        "cardNumber": 14,
+        "traditionalName": "King of Swords",
+        "quantumName": "Quantum Architecture of Intellect",
+        "imagery": {
+          "traditionalElements": "King on throne holding sword upright, butterflies, clouds, mountains",
+          "quantumElements": "Quantum intellectual architecture designing truth systems, ethical judgment frameworks, mental leadership",
+          "paganElements": "Intellectual king, wise judge, ethical leader",
+          "colorPalette": "Wisdom blue, authority silver, truth gold",
+          "keySymbols": ["Authority", "Truth", "Ethics", "Mental clarity"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["authority", "truth", "ethics", "mental clarity"],
+            "description": "Authority, truth, and ethical clarity",
+            "quantumInterpretation": "Quantum intellectual architecture - masterful design of truth and justice systems"
+          },
+          "reversed": {
+            "keywords": ["manipulation", "tyranny", "cruelty", "abuse of power"],
+            "description": "Manipulation, tyranny, or abuse of power",
+            "quantumInterpretation": "Corrupted intellectual architecture - quantum truth systems used for manipulation"
+          }
+        }
+      }
+    ]
+  }
+}
