@@ -1,0 +1,445 @@
+/* ==========================================================================
+   AUDHDITIES - OPTIMIZED GLOBAL CSS
+   Aligned with TypeScript Constants System
+   ========================================================================== */
+
+/* ================================================================================ */
+/* TAILWIND DIRECTIVES & BASE IMPORTS (MISSING - CRITICAL) */
+/* ================================================================================ */
+
+@import "tailwindcss";
+@import "tailwindcss/utilities" layer(utilities);
+
+/* ================================================================================ */
+/* QUANTUM DESIGN TOKENS - ALIGNED WITH CONSTANTS */
+/* ================================================================================ */
+
+:root {
+  /* Core Quantum Colors - Mapped to constants/colors.ts */
+  --quantum-purple: #6b46c1;
+  --torch-gold: #f6ad55;
+  --hearth-orange: #dd6b20;
+  --sanctuary-green: #38a169;
+  --cosmic-blue: #3182ce;
+  --neurospark: #ffd700;
+  --deep-space: #1a202c;
+  --star-dust: #f7fafc;
+  
+  /* Elemental Colors - Mapped to DOMAIN_COLORS */
+  --quantum: #9b59b6;
+  --quantum-light: #e8daef;
+  --quantum-dark: #764ba2;
+  --fire: #e74c3c;
+  --fire-light: #fadbd8;
+  --fire-dark: #c0392b;
+  --water: #3498db;
+  --water-light: #d6eaf8;
+  --water-dark: #2980b9;
+  --earth: #27ae60;
+  --earth-light: #d4efdf;
+  --earth-dark: #229954;
+  --air: #f39c12;
+  --air-light: #fdebd0;
+  --air-dark: #d68910;
+
+  /* Design Tokens - Mapped to dimensions/effects */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: #1a202c;
+  --text-light: #7f8c8d;
+  --border: #2d3748;
+
+  /* Effects - Mapped to effects.ts */
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 15px rgba(0,0,0,0.15);
+  --quantum-glow: 0 0 20px rgba(108, 92, 231, 0.5);
+  --torch-glow: rgba(246, 173, 85, 0.3);
+  --hearth-glow: rgba(221, 107, 32, 0.3);
+  --fire-flicker: 0 0 30px rgba(225, 112, 85, 0.7);
+
+  /* Border Radius - Mapped to dimensions.ts */
+  --radius: 10px;
+  --radius-sm: 5px;
+  --radius-lg: 16px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ================================================================================ */
+/* BASE RESETS & ACCESSIBILITY */
+/* ================================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, var(--deep-space) 0%, #2d3748 100%);
+  color: var(--star-dust);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-top: 80px; /* For fixed nav */
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  outline: 3px solid var(--neurospark);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast preferences */
+@media (prefers-contrast: high) {
+  :root {
+    --deep-space: #000000;
+    --star-dust: #ffffff;
+  }
+  
+  .energy-card {
+    border-width: 2px;
+    box-shadow: none;
+  }
+}
+
+/* ================================================================================ */
+/* TYPOGRAPHY SYSTEM - ALIGNED WITH CONSTANTS/TYPOGRAPHY */
+/* ================================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--torch-gold), var(--hearth-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  width: 100%;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+
+.text-white-90 { color: rgba(255, 255, 255, 0.9); }
+.text-white-80 { color: rgba(255, 255, 255, 0.8); }
+
+.cosmic-glow {
+  text-shadow: 
+    0 0 20px rgba(34, 211, 238, 0.3),
+    0 0 40px rgba(147, 51, 234, 0.2);
+}
+
+.text-3d {
+  text-shadow: 
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+}
+
+/* ================================================================================ */
+/* LAYOUT COMPONENTS - REPLACE WITH TAILWIND WHERE POSSIBLE */
+/* ================================================================================ */
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Section variants - mapped to SECTION_VARIANTS */
+.section-raised {
+  background: linear-gradient(145deg, #4a5568, #2d3748);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, var(--quantum-purple), var(--cosmic-blue));
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-emergency {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(236, 72, 153, 0.2));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+/* ================================================================================ */
+/* CARD COMPONENTS - ALIGNED WITH CARD_VARIANTS */
+/* ================================================================================ */
+
+.card-feature {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  min-height: 200px;
+}
+
+.card-portal {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.energy-card {
+  background: linear-gradient(145deg, #2d3748, #4a5568);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  margin: 1rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Energy card elemental variants */
+.energy-card.quantum { border-left: 4px solid var(--quantum-purple); }
+.energy-card.fire { border-left: 4px solid var(--hearth-orange); }
+.energy-card.water { border-left: 4px solid var(--cosmic-blue); }
+.energy-card.earth { border-left: 4px solid var(--sanctuary-green); }
+
+/* ================================================================================ */
+/* BUTTON COMPONENTS - ALIGNED WITH BUTTON_VARIANTS */
+/* ================================================================================ */
+
+.btn-cosmic {
+  background: linear-gradient(135deg, var(--cosmic-blue), #0ea5e9);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-emergency {
+  background: linear-gradient(135deg, #ef4444, #ec4899);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.sovereign-btn {
+  background: linear-gradient(135deg, var(--torch-gold), var(--hearth-orange));
+  color: var(--deep-space);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+/* ================================================================================ */
+/* ANIMATIONS - ALIGNED WITH ANIMATIONS CONSTANTS */
+/* ================================================================================ */
+
+@keyframes beamTravel {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes scan {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glitch {
+  0%, 100% { opacity: 0; }
+  2%, 64% { opacity: 0; }
+  4%, 60% { opacity: 0.1; }
+  62% { opacity: 0.05; }
+}
+
+.continuity-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neurospark), transparent);
+  animation: beamTravel 3s linear infinite;
+}
+
+/* ================================================================================ */
+/* GLOW EFFECTS - ALIGNED WITH GLOW_EFFECTS CONSTANTS */
+/* ================================================================================ */
+
+.glow-quantum {
+  box-shadow: 
+    0 0 20px rgba(107, 70, 193, 0.3),
+    0 0 40px rgba(107, 70, 193, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glow-fire {
+  box-shadow: 
+    0 0 20px rgba(221, 107, 32, 0.3),
+    0 0 40px rgba(221, 107, 32, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glow-common { box-shadow: 0 0 20px rgba(156, 163, 175, 0.3); }
+.glow-rare { box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); }
+.glow-epic { box-shadow: 0 0 30px rgba(139, 92, 246, 0.5); }
+
+/* ================================================================================ */
+/* RESPONSIVE DESIGN - MINIMAL, RELY ON TAILWIND */
+/* ================================================================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  
+  .section-raised,
+  .section-gradient,
+  .section-emergency {
+    padding: 1.5rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  .card-feature,
+  .card-portal {
+    padding: 1.5rem;
+  }
+}
+
+/* ================================================================================ */
+/* UTILITY CLASSES - MINIMAL, PREFER TAILWIND */
+/* ================================================================================ */
+
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.min-h-120 { min-height: 120px; }
+.min-h-200 { min-height: 200px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Add to your global CSS */
+.quantum-environment-stack {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure no parent containers are limiting height */
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* ================================================================================ */
+/* LEGACY CLEANUP - MARK FOR REMOVAL/TAILWIND MIGRATION */
+/* ================================================================================ */
+
+/* These should be migrated to Tailwind classes */
+/*
+.portal-grid {}
+.features-grid {} 
+.gaming-grid {}
+.social-platforms-grid {}
+.connection-forms {}
+.oracle-options {}
+*/
+
+/* These should use your component system */
+/*
+.council-oracle {}
+.feature-icon {}
+.community-hub {}
+.energy-exchange {}
+*/
+
+/* These should use your design token system */
+/*
+.prose-amber {}
+.holographic-display {}
+.display-panel {}
+*/
