@@ -1,0 +1,23 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twitch streaming platform" class="cosmic-icon social-twitch">
+  <defs>
+    <linearGradient id="twitch-gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#6c5ce7"/>
+      <stop offset="50%" stopColor="#9146FF"/> <!-- Twitch purple -->
+      <stop offset="100%" stopColor="#00cec9"/>
+    </linearGradient>
+    <filter id="twitch-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Original Twitch path structure with quantum styling -->
+  <path d="M31.16,12.16v8.19h2.47V12.16Zm-7.75,0v8.19H26V12.16ZM14.11,4.5,7.23,11.34l0,25.12h8.3l0,7,7.06-7H28.2L40.77,24V4.5Zm1.42,2.89H38v15.2L32.55,28H26.94l-5.12,5.13V28H15.53Z" 
+        fill="url(#twitch-gradient)" 
+        stroke="#00cec9" 
+        strokeWidth="0.5" 
+        filter="url(#twitch-glow)"/>
+</svg>

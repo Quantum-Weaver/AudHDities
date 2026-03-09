@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="councilTitle" role="img">
+  <title id="councilTitle">Council Rune: Wisdom + Collaboration</title>
+  <g fill="none" stroke="currentColor" strokeWidth="2" stroke-linecap="round" strokeLinejoin="round">
+    <!-- outer council ring -->
+    <circle cx="32" cy="32" r="26" />
+    <!-- hexagonal node network -->
+    <polygon points="32,10 46,18 46,34 32,42 18,34 18,18" />
+    <!-- stylized feather curve wrapping left -->
+    <path d="M12 28 C18 18, 26 14, 34 16" />
+    <!-- central eye (wisdom focus) -->
+    <circle cx="32" cy="32" r="5" />
+    <circle cx="32" cy="32" r="2" fill="currentColor" />
+    <!-- small nodes at hexagon corners -->
+    <circle cx="32" cy="10" r="1.6" fill="currentColor"/>
+    <circle cx="46" cy="18" r="1.6" fill="currentColor"/>
+    <circle cx="46" cy="34" r="1.6" fill="currentColor"/>
+    <circle cx="32" cy="42" r="1.6" fill="currentColor"/>
+    <circle cx="18" cy="34" r="1.6" fill="currentColor"/>
+    <circle cx="18" cy="18" r="1.6" fill="currentColor"/>
+  </g>
+</svg>

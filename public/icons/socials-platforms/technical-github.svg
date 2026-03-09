@@ -1,0 +1,45 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="GitHub" className="cosmic-icon social-github">
+    <defs>
+      <linearGradient id="github-simple-gradient" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#6e5494"/>
+        <stop offset="100%" stopColor="#4078c0"/>
+      </linearGradient>
+      
+      <filter id="github-simple-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    {/* GitHub octocat outline */}
+    <g fill="none" stroke="url(#github-simple-gradient)" strokeWidth="3" strokeLinecap="round" filter="url(#github-simple-glow)">
+      {/* Main body */}
+      <path d="M45 45C45 40.0294 49.0294 36 54 36H66C70.9706 36 75 40.0294 75 45V75C75 79.9706 70.9706 84 66 84H54C49.0294 84 45 79.9706 45 75V45Z"/>
+      
+      {/* Tail */}
+      <path d="M75 60C79.9706 60 84 64.0294 84 69V75C84 79.9706 79.9706 84 75 84"/>
+      
+      {/* Ears */}
+      <path d="M48 36C48 34.8954 48.8954 34 50 34C51.1046 34 52 34.8954 52 36V38C52 39.1046 51.1046 40 50 40C48.8954 40 48 39.1046 48 38V36Z"/>
+      <path d="M68 36C68 34.8954 68.8954 34 70 34C71.1046 34 72 34.8954 72 36V38C72 39.1046 71.1046 40 70 40C68.8954 40 68 39.1046 68 38V36Z"/>
+    </g>
+    
+    {/* Code branch symbol */}
+    <g fill="url(#github-simple-gradient)" opacity="0.9">
+      <circle cx="52" cy="52" r="2"/>
+      <circle cx="52" cy="68" r="2"/>
+      <circle cx="68" cy="60" r="2"/>
+      <line x1="52" y1="52" x2="52" y2="68" stroke="url(#github-simple-gradient)" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="68" y1="60" x2="52" y2="60" stroke="url(#github-simple-gradient)" strokeWidth="2" strokeLinecap="round"/>
+      <line x1="68" y1="60" x2="68" y2="68" stroke="url(#github-simple-gradient)" strokeWidth="2" strokeLinecap="round"/>
+    </g>
+    
+    {/* Quantum particles */}
+    <circle cx="40" cy="40" r="1.5" fill="#6cc644" opacity="0.7"/>
+    <circle cx="80" cy="40" r="1.5" fill="#6cc644" opacity="0.7"/>
+    <circle cx="40" cy="80" r="1.5" fill="#6cc644" opacity="0.7"/>
+    <circle cx="80" cy="80" r="1.5" fill="#6cc644" opacity="0.7"/>
+  </svg>
