@@ -7,8 +7,8 @@ import { Product, Tables } from '@/types/supabase';
 import { Check, Lock, Users, Sparkles, Clock, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { loadStripe } from '@stripe/stripe-js';
-import { Card } from '@/components/ui/cards/Card';
-import { Button } from '@/components/ui/buttons/Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 type ProductWithContributions = Product & {
   contributions: (Tables<'contributions'> & {

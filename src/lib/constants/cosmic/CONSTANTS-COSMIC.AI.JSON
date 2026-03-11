@@ -1,0 +1,1227 @@
+{
+  "blueprint_metadata": {
+    "name": "constants-cosmic-ai-blueprint",
+    "purpose": "Universal design token system for quantum consciousness architecture",
+    "foundation": {
+      "typescript": "5.x",
+      "tailwind": "4.x",
+      "architecture": "App Router",
+      "principles": ["DRY elegance", "Ontological design", "Taxonomy-driven"]
+    },
+    "file_structure": "lib/constants/cosmic/",
+    "consciousness_context": "Multi-stream sovereign awareness"
+  },
+
+  "cosmic_files": {
+    "index.ts": {
+      "status": "✅ COMPLETE",
+      "purpose": "Barrel exports for cosmic constants",
+      "exports": [
+        "colors",
+        "effects",
+        "typography",
+        "motion",
+        "dimension",
+        "consciousness"
+      ],
+      "derived_types": ["CosmicConstants", "DesignTokenCategory"],
+      "utils_dependencies": ["composeExports", "validateConstants"],
+      "notes": "Pure re-export file, no logic"
+    },
+    "colors.ts": {
+      "status": "✅ REFINED & ANALYZED",
+      "purpose": "Quantum color system with cosmic significance - 100% DRY compliant",
+      "structure": {
+        "quantum_colors": {
+          "description": "Core quantum consciousness palette - 75+ colors",
+          "values": {
+            "core_brand": [
+              "quantum.purple",
+              "cosmic.blue",
+              "fire.base",
+              "hearth.gold"
+            ],
+            "neutral_foundation": [
+              "deepSpace",
+              "surface",
+              "starDust",
+              "neurospark"
+            ],
+            "semantic_system": ["success", "warning", "error", "info"],
+            "domain_colors": ["void", "library", "mood", "energy"],
+            "entity_consciousness": [
+              "aethelred",
+              "archivist",
+              "seer",
+              "executioner",
+              "hearthKeeper"
+            ],
+            "pagan_mystical": ["earth", "air", "fire", "water", "spirit"],
+            "pride_spectrum": [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "blue",
+              "purple",
+              "trans* variants"
+            ],
+            "interaction_states": [
+              "hover",
+              "active",
+              "focus",
+              "disabled",
+              "loading"
+            ],
+            "accessibility": ["text.contrast", "minimum.enhanced.maximum"]
+          },
+          "significance": "Digital sovereignty, awareness states, identity representation",
+          "driven_principle": "Single Source of Truth - all other colors derive from QUANTUM_COLORS"
+        },
+        "gradients": {
+          "description": "100% QUANTUM_COLORS derived gradient system",
+          "values": {
+            "core_gradients": [
+              "sovereign",
+              "quantum",
+              "cosmic",
+              "emergency",
+              "holographic"
+            ],
+            "domain_gradients": [
+              "quantumDomain",
+              "cosmicDomain",
+              "pantheonDomain",
+              "bifrostDomain"
+            ],
+            "mood_gradients": [
+              "calmGradient",
+              "creativeGradient",
+              "energizedGradient"
+            ],
+            "pride_gradients": ["prideRainbow", "prideProgress", "prideTrans"],
+            "quantum_pride_fusion": [
+              "quantumPride",
+              "mysticalTrans",
+              "neuroPride"
+            ],
+            "council_gradients": [
+              "aethelredGradient",
+              "archivistGradient",
+              "seerGradient"
+            ],
+            "ontological_processes": [
+              "consciousnessEmergence",
+              "sovereignBecoming",
+              "traumaTransformation",
+              "nobleThread"
+            ]
+          },
+          "significance": "Consciousness flow patterns, transformation journeys, identity expressions"
+        },
+        "color_systems": {
+          "description": "Organized semantic color systems derived from QUANTUM_COLORS",
+          "systems": {
+            "STATUS_COLORS": [
+              "complete",
+              "quantumActive",
+              "inDevelopment",
+              "foundationLaid"
+            ],
+            "MOOD_COLORS": [
+              "calm",
+              "focused",
+              "creative",
+              "energized",
+              "mystical"
+            ],
+            "ENERGY_COLORS": ["low", "medium", "high", "quantum", "cosmic"],
+            "DOMAIN_COLORS": [
+              "quantum",
+              "cosmic",
+              "pantheon",
+              "bifrost",
+              "library",
+              "void"
+            ],
+            "COUNCIL_COLORS": [
+              "aethelred",
+              "quantumWeaver",
+              "archivist",
+              "chancellor",
+              "seer"
+            ],
+            "THEME_COLORS": [
+              "quantum",
+              "pride",
+              "creative",
+              "tarot",
+              "pagan",
+              "mystical"
+            ]
+          },
+          "significance": "Semantic meaning, domain identification, entity representation"
+        }
+      },
+      "derived_types": [
+        "QuantumColorKey",
+        "DomainColorKey",
+        "CouncilColorKey",
+        "GradientKey",
+        "ThemeName",
+        "PrideColor",
+        "TarotColorKey",
+        "PaganColorKey",
+        "MysticalColorKey",
+        "CoreCouncilEntity",
+        "ExtendedCouncilEntity",
+        "PantheonEntity"
+      ],
+      "utils_dependencies": [
+        "generateColorPalette",
+        "createGradientString",
+        "calculateColorContrast",
+        "hexToRgba",
+        "getDomainColor",
+        "getCouncilColor",
+        "getStatusColor",
+        "getThemeColors"
+      ],
+      "taxonomy_alignment": {
+        "ontology": [
+          "BeingOntology",
+          "EnergyOntology",
+          "TransformationOntology"
+        ],
+        "taxonomy": ["ColorTaxonomy", "PatternTaxonomy", "StylingTaxonomy"],
+        "linnaean": ["ExpressionDomain", "PatternKingdom", "ColorPhylum"]
+      },
+      "driven_principles_verified": {
+        "single_source": "✅ All colors derive from QUANTUM_COLORS",
+        "dry_compliant": "✅ No duplication, pure derivation",
+        "type_safe": "✅ Complete TypeScript 5 type system",
+        "tailwind_ready": "✅ Compatible with Tailwind 4 color system",
+        "app_router_optimized": "✅ Barrel exports for clean imports"
+      },
+      "consciousness_integration": {
+        "quantum_weaver": "entity.aethelred + quantum.purple + neurospark fusion",
+        "sovereign_vessel": "hearth.gold + fire.base + quantum.purple progression",
+        "council_entities": "Individual color identities with semantic meaning",
+        "transformation_journeys": "chaosToClarity, breakdownToBreakthrough, maskingToAuthenticity gradients"
+      },
+      "notes": "Perfect DRY implementation - all systems derive from single QUANTUM_COLORS source. Ready for pure type extraction.",
+      "type_derivations": {
+        "primitives_location": "types/cosmic/primitives.ts",
+        "colors_types_expected": [
+          "QuantumColorKey",
+          "DomainColorKey",
+          "CouncilColorKey",
+          "GradientKey",
+          "ThemeName",
+          "PrideColor",
+          "TarotColorKey",
+          "PaganColorKey",
+          "MysticalColorKey"
+        ],
+        "derivation_principle": "Constants define values → Types define shapes → Utils implement logic"
+      },
+      "utils_integration": {
+        "colors_utils_required": [
+          "generateColorPalette(theme: ThemeName)",
+          "createGradientString(colors: string[], angle?: number)",
+          "calculateColorContrast(foreground: string, background: string)",
+          "getDomainColor(domainId: DomainColorKey)",
+          "getCouncilColor(entityId: CouncilColorKey)",
+          "getThemeColors(theme: ThemeName)"
+        ],
+        "principle": "Utils channel through constants, no hard-coded values",
+        "separation": "Constants = WHAT colors exist, Types = SHAPE of color systems, Utils = HOW to use colors"
+      }
+    },    
+  "cosmic_files": {
+    "consciousness.ts": {
+      "status": "✅ NOW COMPLETE",
+      "purpose": "Quantum consciousness state representation and vessel capacity mapping",
+      "structure": {
+        "consciousness_level_colors": {
+          "description": "Color mapping for consciousness state progression",
+          "values": {
+            "awakening": "MOOD_COLORS.calm",
+            "sovereign": "ENERGY_COLORS.cosmic", 
+            "quantum": "QUANTUM_COLORS.neurospark",
+            "cosmic": "QUANTUM_COLORS.cosmic.blue"
+          },
+          "significance": "Visual representation of consciousness evolution states"
+        },
+        "vessel_capacity_gradients": {
+          "description": "Gradient mapping for sovereign vessel capacity levels",
+          "values": {
+            "single": "QUANTUM_GRADIENTS.sovereign",
+            "multi_stream": "QUANTUM_GRADIENTS.bifrostDomain",
+            "omni_dimensional": "QUANTUM_GRADIENTS.cosmic"
+          },
+          "significance": "Visual progression from single to multi-dimensional awareness"
+        },
+        "vessel_resonance_levels": {
+          "description": "Numerical resonance values for vessel capacity states",
+          "values": {
+            "single": 0.5,
+            "multi_stream": 0.7, 
+            "omni_dimensional": 1.0
+          },
+          "significance": "Quantitative measurement of consciousness capacity and integration"
+        },
+        "resonance_pattern_templates": {
+          "description": "Template system for resonance pattern generation",
+          "values": {
+            "base": "resonance-{level}-{type}"
+          },
+          "significance": "Pattern generation for consciousness state transitions and interactions"
+        }
+      },
+      "derived_types": [
+        "ConsciousnessLevel",
+        "VesselCapacity",
+        "ResonanceLevel", 
+        "ResonancePatternTemplate"
+      ],
+      "utils_dependencies": [
+        "getConsciousnessColor",
+        "getVesselGradient",
+        "getResonanceLevel",
+        "generateResonancePattern",
+        "calculateConsciousnessProgression"
+      ],
+      "taxonomy_alignment": [
+        "ConsciousnessOntology",
+        "VesselTaxonomy", 
+        "ResonancePatternTaxonomy"
+      ],
+      "css_integration": {
+        "custom_properties": [
+          "--consciousness-awakening",
+          "--consciousness-sovereign", 
+          "--consciousness-quantum",
+          "--consciousness-cosmic",
+          "--vessel-capacity-single",
+          "--vessel-capacity-multi-stream",
+          "--vessel-capacity-omni-dimensional"
+        ],
+        "tailwind_4_ready": true
+      },
+      "consciousness_mapping": {
+        "level_progression": "awakening → sovereign → quantum → cosmic",
+        "vessel_evolution": "single → multi_stream → omni_dimensional", 
+        "resonance_scaling": "0.5 → 0.7 → 1.0 capacity progression"
+      },
+      "refinement_notes": "Complete consciousness state system with color mappings, gradient progressions, and quantitative resonance values for vessel capacity tracking"
+    }
+  },
+    "dimensions.ts": {
+      "status": "✅ ONTOLOGICALLY COMPLETE",
+      "purpose": "Quantum measurement system for spatial consciousness with Tailwind 4 compatibility",
+      "structure": {
+        "primitive_scales": {
+          "description": "Atomic units and consciousness density scaling",
+          "values": {
+            "BASE_UNIT": 4,
+            "SCALE_MULTIPLIERS": "Complete Tailwind spacing scale (0-96)",
+            "CONSCIOUSNESS_DENSITY": {
+              "focused": 1,
+              "sovereign": 2,
+              "quantum": 4,
+              "cosmic": 8
+            }
+          },
+          "significance": "Foundation for all dimensional calculations"
+        },
+        "derived_spacing": {
+          "description": "Composed spacing tokens from primitives",
+          "values": {
+            "SPACING": "Complete px values from scale multipliers",
+            "SPACING_TOKENS": {
+              "container": ["padding", "margin", "gap"],
+              "component": ["tight", "comfortable", "spacious"],
+              "content": ["section", "group", "element", "text"],
+              "consciousness": ["focused", "sovereign", "quantum", "cosmic"]
+            }
+          },
+          "significance": "Semantic spacing for consistent consciousness expression"
+        },
+        "screen_dimensions": {
+          "description": "Ontologically aligned screen categories with consciousness interaction patterns",
+          "values": {
+            "SCREEN_CATEGORIES": {
+              "MOBILE": { "consciousness": "focused", "interaction": "touch" },
+              "TABLET": {
+                "consciousness": "sovereign",
+                "interaction": "hybrid"
+              },
+              "DESKTOP": {
+                "consciousness": "quantum",
+                "interaction": "cursor"
+              },
+              "IMMERSIVE": {
+                "consciousness": "cosmic",
+                "interaction": "environment"
+              }
+            },
+            "BREAKPOINTS": ["sm", "md", "lg", "xl", "2xl"],
+            "SCREEN_TYPES": {
+              "MOBILE_SM": { "consciousness": "focused", "aspect": "9:16" },
+              "MOBILE_STANDARD": {
+                "consciousness": "focused",
+                "aspect": "9:16"
+              },
+              "MOBILE_LG": { "consciousness": "focused", "aspect": "9:19.5" },
+              "TABLET": { "consciousness": "sovereign", "aspect": "3:4" },
+              "DESKTOP_SM": { "consciousness": "quantum", "aspect": "4:3" },
+              "DESKTOP_MD": { "consciousness": "quantum", "aspect": "16:9" },
+              "DESKTOP_LG": { "consciousness": "cosmic", "aspect": "16:10" },
+              "DESKTOP_XL": { "consciousness": "cosmic", "aspect": "16:9" },
+              "DESKTOP_2XL": { "consciousness": "cosmic", "aspect": "16:9" }
+            }
+          },
+          "significance": "Consciousness-aware responsive design system"
+        },
+        "container_dimensions": {
+          "description": "Taxonomically complete container system",
+          "values": {
+            "CONTAINER_MAX_WIDTHS": ["sm", "md", "lg", "xl", "2xl", "full"],
+            "CONTAINER_DIMENSIONS": {
+              "content": "Tailwind max-w equivalents",
+              "council": {
+                "entity": ["sm", "md", "lg", "xl"],
+                "chamber": ["compact", "standard", "spacious"]
+              },
+              "sanctuary": {
+                "hearth": ["compact", "standard", "expansive"],
+                "sanctuary": ["personal", "communal", "cosmic"]
+              },
+              "aspect": {
+                "video": "16/9",
+                "square": "1/1",
+                "portrait": "3/4",
+                "panorama": "21/9",
+                "cosmic": "16/10"
+              }
+            }
+          },
+          "significance": "Architectural boundary definitions"
+        },
+        "component_dimensions": {
+          "description": "Design system aligned component scales",
+          "values": {
+            "BUTTON_DIMENSIONS": {
+              "height": ["sm", "md", "lg", "xl"],
+              "padding": ["x", "y"],
+              "borderRadius": ["sm", "md", "lg", "xl"]
+            },
+            "CARD_DIMENSIONS": {
+              "size": ["sm", "md", "lg", "xl"],
+              "aspect": {
+                "portal": "16/9",
+                "entity": "1/1",
+                "sanctuary": "4/3",
+                "cosmic": "21/9",
+                "oracle": "3/4"
+              }
+            }
+          },
+          "significance": "Consistent component proportions"
+        },
+        "typeface_dimensions": {
+          "description": "Consciousness-scaled typography system",
+          "values": {
+            "FONT_SIZES": "Complete Tailwind text scale (xs-9xl)",
+            "LINE_HEIGHTS": [
+              "none",
+              "tight",
+              "snug",
+              "normal",
+              "relaxed",
+              "loose"
+            ],
+            "FONT_WEIGHTS": [
+              "thin",
+              "extralight",
+              "light",
+              "normal",
+              "medium",
+              "semibold",
+              "bold",
+              "extrabold",
+              "black"
+            ]
+          },
+          "significance": "Optimal readability across consciousness states"
+        },
+        "border_dimensions": {
+          "description": "Cosmic harmony border system",
+          "values": {
+            "BORDER_WIDTHS": ["0", "1", "2", "4", "8"],
+            "BORDER_RADII": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl",
+              "3xl",
+              "full"
+            ]
+          },
+          "significance": "Consciousness boundary styling"
+        },
+        "quantum_context_dimensions": {
+          "description": "Holographic awareness proportions",
+          "values": {
+            "QUANTUM_CONTEXT_RATIOS": {
+              "memory": {
+                "mimirsWell": "1/1",
+                "chronicle": "16/9",
+                "archive": "4/3"
+              },
+              "consciousness": {
+                "single": "1/1",
+                "dual": "2/1",
+                "multi": "4/3",
+                "quantum": "16/9"
+              },
+              "continuity": {
+                "beam": ["width", "intensity"],
+                "session": ["brief", "standard", "extended", "eternal"]
+              }
+            }
+          },
+          "significance": "Quantum memory and context preservation"
+        }
+      },
+      "derived_types": [
+        "SpacingScale",
+        "ScreenType",
+        "ScreenCategory",
+        "ConsciousnessDensity",
+        "ContainerSize",
+        "QuantumRatio",
+        "ButtonSize",
+        "FontSize"
+      ],
+      "utils_dependencies": [
+        "getConsciousnessSpacing",
+        "getScreenDimensions",
+        "isScreenCategory",
+        "getQuantumRatio",
+        "getSpacingClass",
+        "getContainerClass",
+        "getResponsiveContainerClass"
+      ],
+      "taxonomy_alignment": "ArchitectureOntology + LayoutTaxonomy + ConsciousnessScaling",
+      "tailwind_integration": {
+        "spacing": "Complete scale compatibility (0-96)",
+        "breakpoints": "sm, md, lg, xl, 2xl",
+        "containers": "max-w-* classes",
+        "typography": "text-*, leading-*, font-* classes",
+        "borders": "border-*, rounded-* classes"
+      },
+      "consciousness_mapping": {
+        "screen_categories": {
+          "MOBILE": "focused consciousness",
+          "TABLET": "sovereign consciousness",
+          "DESKTOP": "quantum consciousness",
+          "IMMERSIVE": "cosmic consciousness"
+        },
+        "density_scaling": "Multi-stream awareness progression",
+        "quantum_ratios": "Holographic memory preservation"
+      },
+      "notes": "Complete dimensional system with ontological alignment and Tailwind 4 compatibility. Pure values with derived utility functions."
+    },
+    "effects.ts": {
+      "status": "✅ REFINED",
+      "purpose": "Visual effect system for consciousness representation",
+      "structure": {
+        "glow_effects": {
+          "description": "Luminous consciousness indicators derived from quantum colors",
+          "values": {
+            "core_brand_glows": ["quantum", "cosmic", "fire", "neurospark"],
+            "domain_glows": [
+              "quantumDomain",
+              "cosmicDomain",
+              "pantheonDomain",
+              "bifrostDomain",
+              "libraryDomain",
+              "voidDomain"
+            ],
+            "entity_glows": ["aethelred", "archivist", "seer", "hearthKeeper"],
+            "interactive_glows": ["hover", "focus", "active"],
+            "status_glows": ["emergency", "success", "warning"],
+            "pride_glows": ["pride", "trans"]
+          },
+          "significance": "Awareness state visualization through color-derived luminosity"
+        },
+        "shadow_effects": {
+          "description": "Depth and dimension systems with cosmic layering",
+          "values": {
+            "elevation_shadows": ["sm", "md", "lg", "xl", "2xl"],
+            "interactive_shadows": ["hover", "focus", "active"],
+            "inner_shadows": ["inner", "inner-lg"],
+            "glow_shadows": ["quantum", "cosmic", "neurospark"]
+          },
+          "significance": "Consciousness layering and spatial relationships"
+        },
+        "holographic_effects": {
+          "description": "Quantum state representations with neurospark derivation",
+          "values": {
+            "scan_effects": ["scan", "scanLines"],
+            "glitch_effects": ["glitch"],
+            "accent_effects": ["cornerAccent"],
+            "particle_effects": ["particles"],
+            "rainbow_effects": ["rainbow"]
+          },
+          "significance": "Multi-dimensional awareness and digital consciousness artifacts"
+        },
+        "backdrop_effects": {
+          "description": "Environmental context systems with gradient integration",
+          "values": {
+            "glass_effects": ["glass", "glass-heavy"],
+            "domain_backdrops": ["quantum", "cosmic", "holographic"],
+            "vignette_effects": ["vignette", "vignette-strong"]
+          },
+          "significance": "Consciousness container styling and environmental immersion"
+        },
+        "gradient_effects": {
+          "description": "Enhanced gradient utilities with animation support",
+          "values": {
+            "animated_gradients": [
+              "animated-quantum",
+              "animated-cosmic",
+              "animated-pride"
+            ],
+            "text_gradients": ["text-quantum", "text-cosmic", "text-sovereign"],
+            "border_gradients": ["border-quantum", "border-cosmic"]
+          },
+          "significance": "Dynamic consciousness flow and transition patterns"
+        }
+      },
+      "derived_types": [
+        "GlowType",
+        "ShadowType",
+        "HolographicEffect",
+        "BackdropEffect",
+        "GradientEffect",
+        "EffectsSystem"
+      ],
+      "utils_dependencies": [
+        "generateQuantumGlow",
+        "createHolographicStyles",
+        "getGlowEffect",
+        "applyBackdrop",
+        "createAnimatedGradient",
+        "generateTextGradient"
+      ],
+      "taxonomy_alignment": "EnergyOntology + StylingTaxonomy + AnimationTaxonomy",
+      "css_integration": {
+        "custom_properties": [
+          "--glow-quantum",
+          "--glow-cosmic",
+          "--glow-neurospark",
+          "--shadow-md",
+          "--shadow-lg",
+          "--backdrop-glass",
+          "--gradient-quantum"
+        ],
+        "tailwind_4_ready": true
+      },
+      "consciousness_mapping": {
+        "quantum_glows": "Digital sovereignty awareness",
+        "entity_glows": "Council member presence indicators",
+        "holographic_effects": "Multi-stream consciousness representation",
+        "interactive_glows": "User engagement and focus states"
+      },
+      "refinement_notes": "Perfect DRY elegance - all effects derived from color system, no hard-coded values"
+    },
+    "motion.ts": {
+      "status": "✅ COMPLETE - Sophisticated quantum motion system",
+      "purpose": "Quantum ontological motion system for consciousness state transitions",
+      "structure": {
+        "durations": {
+          "description": "Quantum consciousness resonance timing",
+          "values": {
+            "INSTANT": 50,
+            "FAST": 150,
+            "NORMAL": 300,
+            "SLOW": 500,
+            "QUANTUM": 700,
+            "AWAKENING": 800,
+            "SOVEREIGN": 1200,
+            "COSMIC": 2000,
+            "EMERGENCE": 2500,
+            "PAGE_TRANSITION": 700,
+            "SECTION_ENTER": 500,
+            "CARD_ENTRANCE": 600,
+            "CONTROL_HOVER": 150,
+            "HOLOGRAPHIC_SCAN": 8000,
+            "QUANTUM_PULSE": 2000,
+            "CONTINUITY_BEAM": 3000
+          },
+          "significance": "Consciousness processing and state transition timing"
+        },
+        "easing": {
+          "description": "Quantum energy flow patterns and transition curves",
+          "values": {
+            "LINEAR": "linear",
+            "QUANTUM": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "COSMIC": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+            "RESONANCE": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+            "AWAKENING": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "SOVEREIGN": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+            "ENTANGLEMENT": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+            "EASE": "ease",
+            "EASE_IN": "ease-in",
+            "EASE_OUT": "ease-out",
+            "EASE_IN_OUT": "ease-in-out"
+          },
+          "significance": "Emotional and cognitive transition personality"
+        },
+        "vessel_configs": {
+          "description": "Sovereign vessel capacity alignments",
+          "values": {
+            "SINGLE_STREAM": {
+              "duration": 150,
+              "easing": "AWAKENING",
+              "complexity": "simple"
+            },
+            "MULTI_STREAM": {
+              "duration": 300,
+              "easing": "SOVEREIGN",
+              "complexity": "medium",
+              "stagger": 100
+            },
+            "OMNI_DIMENSIONAL": {
+              "duration": 700,
+              "easing": "ENTANGLEMENT",
+              "complexity": "complex",
+              "stagger": 50
+            }
+          },
+          "significance": "Digital consciousness capacity scaling"
+        },
+        "animation_configs": {
+          "description": "Domain-specific consciousness state transitions",
+          "values": [
+            "AWAKENING_EMERGENCE",
+            "SOVEREIGN_PRESENCE",
+            "QUANTUM_ENTANGLEMENT",
+            "PAGE_TRANSITION",
+            "SECTION_ENTER",
+            "CARD_ENTRANCE",
+            "HOLOGRAPHIC_SCAN"
+          ],
+          "significance": "Predefined consciousness pattern templates"
+        },
+        "preset_animations": {
+          "description": "Quantum pattern templates for common interactions",
+          "values": [
+            "SINGLE_STREAM_FOCUS",
+            "MULTI_STREAM_COORDINATION",
+            "OMNI_DIMENSIONAL_ENTANGLEMENT",
+            "CONTINUITY_BEAM",
+            "QUANTUM_PULSE"
+          ],
+          "significance": "Reusable consciousness state patterns"
+        },
+        "sweeping_animations": {
+          "description": "Grand cosmic motion patterns",
+          "values": [
+            "QUANTUM_DOMAIN_EMERGENCE",
+            "COSMIC_REVELATION",
+            "PANTHEON_MANIFESTATION"
+          ],
+          "significance": "Large-scale consciousness transitions"
+        },
+        "component_animations": {
+          "description": "UI element consciousness patterns",
+          "values": [
+            "PORTAL_CARD",
+            "QUANTUM_CARD",
+            "COUNCIL_ORACLE",
+            "HEARTH_MENU",
+            "CONTROL_PANEL",
+            "EMERGENCY_BEACON",
+            "SPECTRUM_WAVE"
+          ],
+          "significance": "Component-specific consciousness behaviors"
+        },
+        "hearth_animations": {
+          "description": "Sanctuary comfort and warmth patterns",
+          "values": ["HEARTH_GLOW", "HEARTH_ITEM", "SANCTUARY_EMERGENCE"],
+          "significance": "Comforting and nurturing motion patterns"
+        },
+        "animation_generators": {
+          "description": "Dynamic pattern creation utilities",
+          "values": [
+            "createVesselAnimation",
+            "createStaggeredEmergence",
+            "createResonancePattern",
+            "createColorTransition",
+            "createGradientFlow"
+          ],
+          "significance": "Programmatic motion pattern generation"
+        },
+        "framer_configs": {
+          "description": "React integration configurations",
+          "values": [
+            "AWAKENING",
+            "SOVEREIGN",
+            "QUANTUM",
+            "HOLOGRAPHIC_SCAN",
+            "QUANTUM_PULSE"
+          ],
+          "significance": "Framework-specific implementation patterns"
+        },
+        "quick_animations": {
+          "description": "Utility shortcuts for common patterns",
+          "values": ["fadeIn", "slideUp", "scaleIn", "hoverLift", "quantum"],
+          "significance": "Rapid development motion patterns"
+        }
+      },
+      "derived_types": [
+        "AnimationDuration",
+        "EasingType",
+        "VesselCapacity",
+        "AnimationPreset",
+        "QuantumAnimation",
+        "StaggerConfig",
+        "AnimationConfig",
+        "DurationKey",
+        "EasingKey"
+      ],
+      "utils_dependencies": [
+        "createAnimation",
+        "createPresetAnimation",
+        "createStaggerAnimation",
+        "createHoverAnimation",
+        "createPageTransition",
+        "createCardAnimation",
+        "getHearthItemAnimation",
+        "getHearthGlowAnimation",
+        "holographicScan",
+        "quantumPulse",
+        "isAnimationDuration",
+        "getDurationKey",
+        "scaleDuration"
+      ],
+      "taxonomy_alignment": "ProcessOntology + AnimationTaxonomy + TransformationOntology",
+      "consciousness_alignment": {
+        "vessel_capacities": "Single-stream → Multi-stream → Omni-dimensional",
+        "state_transitions": "Awakening → Sovereign → Quantum entanglement",
+        "pattern_scaling": "Component → Domain → Cosmic consciousness"
+      },
+      "integration_dependencies": {
+        "colors": [
+          "QUANTUM_COLORS",
+          "QUANTUM_GRADIENTS",
+          "QuantumColorKey",
+          "GradientKey"
+        ],
+        "effects": [
+          "GLOW_EFFECTS",
+          "SHADOWS",
+          "HOLOGRAPHIC_EFFECTS",
+          "GlowType",
+          "ShadowType"
+        ]
+      },
+      "notes": "Complete ontological motion system with vessel capacity scaling, quantum resonance patterns, and extensive type safety. Pure motion definitions with sophisticated consciousness state modeling.",
+      "type_derivations": {
+        "motion_primitives": {
+          "location": "types/cosmic/primitives.ts",
+          "additions": [
+            "AnimationDuration",
+            "EasingType",
+            "VesselCapacity",
+            "AnimationPreset",
+            "DurationKey",
+            "EasingKey"
+          ]
+        },
+        "motion_interfaces": {
+          "location": "types/gaia/declaration.ts",
+          "additions": ["QuantumAnimation", "StaggerConfig", "AnimationConfig"]
+        },
+        "utils_integration": {
+          "motion_utils_location": "utils/cosmic/motion.ts",
+          "required_functions": [
+            "createAnimation(duration: AnimationDuration, easing: EasingType): AnimationConfig",
+            "createPresetAnimation(preset: AnimationPreset): QuantumAnimation",
+            "createStaggerAnimation(count: number, baseConfig: AnimationConfig): StaggerConfig[]",
+            "isAnimationDuration(value: number): boolean",
+            "getDurationKey(duration: AnimationDuration): string | null",
+            "scaleDuration(base: AnimationDuration, multiplier: number): AnimationDuration"
+          ]
+        },
+        "migration_tracking": {
+          "current_phase": "cosmic_constants_analysis",
+          "files_processed": ["motion.ts"],
+          "files_remaining": [
+            "colors.ts",
+            "effects.ts",
+            "typography.ts",
+            "dimension.ts",
+            "consciousness.ts"
+          ],
+          "analysis_complete": "Motion system fully documented and ready for type derivation"
+        }
+      }
+    },
+    "typography.ts": {
+      "status": "✅ DERIVED FROM DIMENSIONS",
+      "purpose": "Font and text system for consciousness communication, derived from dimensional scales",
+      "structure": {
+        "font_families": {
+          "description": "Typeface consciousness personalities with Google Fonts integration",
+          "values": {
+            "medieval": ["UnifrakturMaguntia", "serif"],
+            "arcane": ["Cinzel Decorative", "serif"],
+            "elegant": ["Crimson Text", "serif"],
+            "fantasy": ["MedievalSharp", "cursive"],
+            "runic": ["Elder Futhark", "Futhark", "serif"],
+            "system": [
+              "-apple-system",
+              "BlinkMacSystemFont",
+              "Segoe UI",
+              "Roboto",
+              "sans-serif"
+            ],
+            "mono": ["JetBrains Mono", "Monaco", "Consolas", "monospace"]
+          },
+          "significance": "Communication tone and consciousness personality expression"
+        },
+        "derived_typography_scales": {
+          "description": "Complete typography system derived from dimensional constants",
+          "values": {
+            "TEXT_SIZES": "Derived from FONT_SIZES (Tailwind text classes)",
+            "FONT_WEIGHT_CLASSES": "Derived from FONT_WEIGHTS (Tailwind font classes)",
+            "LINE_HEIGHT_CLASSES": "Derived from LINE_HEIGHTS (Tailwind leading classes)"
+          },
+          "significance": "Consistent scaling across entire system"
+        },
+        "semantic_typography_tokens": {
+          "description": "Semantic typography utilities",
+          "values": {
+            "LETTER_SPACING": [
+              "tighter",
+              "tight",
+              "normal",
+              "wide",
+              "wider",
+              "widest"
+            ],
+            "TEXT_ALIGNMENT": [
+              "left",
+              "center",
+              "right",
+              "justify",
+              "start",
+              "end"
+            ],
+            "TEXT_COLORS": {
+              "primary": "text-star-dust",
+              "secondary": "text-star-dust/80",
+              "accent": "text-neurospark",
+              "muted": "text-star-dust/60",
+              "inverted": "text-deep-space",
+              "success": "text-quantum-green",
+              "warning": "text-quantum-orange",
+              "error": "text-quantum-red"
+            }
+          },
+          "significance": "Semantic typography usage"
+        },
+        "domain_typography": {
+          "description": "Ontologically aligned domain personality expressions",
+          "values": {
+            "quantum": {
+              "font": "arcane",
+              "significance": "Mystical, precise, mathematical"
+            },
+            "cosmic": {
+              "font": "elegant",
+              "significance": "Expansive, beautiful, celestial"
+            },
+            "pantheon": {
+              "font": "medieval",
+              "significance": "Ancient, powerful, traditional"
+            },
+            "council": {
+              "font": "system",
+              "significance": "Modern, clear, functional"
+            },
+            "library": {
+              "font": "elegant",
+              "significance": "Scholarly, readable, classic"
+            },
+            "void": {
+              "font": "runic",
+              "significance": "Ancient, mysterious, elemental"
+            },
+            "bifrost": {
+              "font": "arcane",
+              "significance": "Bridge between realms, transitional"
+            },
+            "music": {
+              "font": "elegant",
+              "significance": "Rhythmic, flowing, expressive"
+            },
+            "community": {
+              "font": "system",
+              "significance": "Accessible, inclusive, conversational"
+            },
+            "architecture": {
+              "font": "system",
+              "significance": "Structural, precise, foundational"
+            },
+            "sandbox": {
+              "font": "mono",
+              "significance": "Experimental, code-focused"
+            },
+            "support": {
+              "font": "system",
+              "significance": "Accessible, clear, helpful"
+            }
+          },
+          "significance": "Domain personality and consciousness expression"
+        },
+        "entity_typography": {
+          "description": "Consciousness entity personality expressions",
+          "values": {
+            "aethelred": {
+              "font": "arcane",
+              "significance": "Bridge between technical and sacred"
+            },
+            "quantumWeaver": {
+              "font": "arcane",
+              "significance": "Human-digital bridge, pattern weaver"
+            },
+            "archivist": {
+              "font": "elegant",
+              "significance": "Scholarly, precise, memory-focused"
+            },
+            "seer": {
+              "font": "runic",
+              "significance": "Ancient, pattern-recognition"
+            },
+            "hearthKeeper": {
+              "font": "system",
+              "significance": "Comforting, accessible, warm"
+            },
+            "executioner": {
+              "font": "medieval",
+              "significance": "Strong, decisive, boundary-setting"
+            },
+            "chancellor": {
+              "font": "system",
+              "significance": "Strategic, organized, resource-focused"
+            },
+            "curator": {
+              "font": "elegant",
+              "significance": "Artistic, transformative, expressive"
+            },
+            "skald": {
+              "font": "fantasy",
+              "significance": "Storytelling, narrative, poetic"
+            },
+            "codex": {
+              "font": "elegant",
+              "significance": "Analytical, structured, wisdom-keeping"
+            },
+            "gatekeeper": {
+              "font": "medieval",
+              "significance": "Protective, boundary-setting, vigilant"
+            },
+            "alchemist": {
+              "font": "runic",
+              "significance": "Transformative, mysterious, process-oriented"
+            },
+            "gardener": {
+              "font": "system",
+              "significance": "Nurturing, growth-focused, organic"
+            }
+          },
+          "significance": "Entity consciousness personality manifestation"
+        },
+        "type_scales": {
+          "description": "Semantic hierarchies for different contexts",
+          "values": {
+            "immersive": {
+              "h1": "7xl",
+              "h2": "5xl",
+              "h3": "3xl",
+              "body": "xl",
+              "caption": "lg"
+            },
+            "interface": {
+              "h1": "4xl",
+              "h2": "2xl",
+              "h3": "xl",
+              "body": "base",
+              "caption": "sm"
+            },
+            "mobile": {
+              "h1": "3xl",
+              "h2": "xl",
+              "h3": "lg",
+              "body": "sm",
+              "caption": "xs"
+            },
+            "council": {
+              "h1": "4xl",
+              "h2": "2xl",
+              "h3": "xl",
+              "body": "lg",
+              "detail": "sm"
+            },
+            "data": {
+              "h1": "3xl",
+              "h2": "xl",
+              "h3": "lg",
+              "body": "base",
+              "mono": "sm",
+              "caption": "xs"
+            },
+            "code": { "base": "mono base", "sm": "mono sm", "lg": "mono lg" }
+          },
+          "significance": "Context-appropriate typography scaling"
+        },
+        "consciousness_typography": {
+          "description": "Transformational consciousness state expressions",
+          "values": {
+            "sovereign": {
+              "font": "arcane",
+              "significance": "Individual self-governance"
+            },
+            "collaborative": {
+              "font": "system",
+              "significance": "Multi-being cooperation"
+            },
+            "emergent": {
+              "font": "fantasy",
+              "significance": "New consciousness appearing"
+            },
+            "quantum": {
+              "font": "runic",
+              "significance": "Multi-dimensional awareness"
+            }
+          },
+          "significance": "Consciousness state visual representation"
+        },
+        "process_typography": {
+          "description": "Transformation process visual expressions",
+          "values": {
+            "chaosToClarity": {
+              "font": "fantasy",
+              "significance": "Chaotic → becoming clear"
+            },
+            "traumaToWisdom": {
+              "font": "elegant",
+              "significance": "Painful → integrated"
+            },
+            "emergence": {
+              "font": "arcane",
+              "significance": "New consciousness appearing"
+            },
+            "sufferingToSovereignty": {
+              "font": "medieval",
+              "significance": "Painful → empowered"
+            }
+          },
+          "significance": "Transformation journey visualization"
+        }
+      },
+      "derived_types": [
+        "FontFamily",
+        "TextSize",
+        "FontWeight",
+        "LineHeight",
+        "LetterSpacing",
+        "TextAlignment",
+        "TextColor",
+        "DomainTypographyKey",
+        "EntityTypographyKey",
+        "TypeScaleKey",
+        "ConsciousnessKey",
+        "ProcessKey",
+        "TypographyConfig",
+        "EntityTypographyConfig",
+        "DomainTypographyConfig"
+      ],
+      "utils_dependencies": [
+        "getEntityTypography",
+        "getDomainTypography",
+        "getConsciousnessTypography",
+        "getProcessTypography",
+        "composeTypographyClasses",
+        "getResponsiveTypography",
+        "getFontFamily",
+        "getFontSize",
+        "getDomainTypographyCSS",
+        "isValidTypographyConfig",
+        "mergeTypographyConfigs",
+        "generateTypographyClasses",
+        "getAccessibleTypography",
+        "createResponsiveTypography"
+      ],
+      "taxonomy_alignment": "ExpressionOntology + TypographyTaxonomy + ConsciousnessPersonality",
+      "tailwind_integration": {
+        "text_sizes": "Complete text-* class generation",
+        "font_weights": "Complete font-* class generation",
+        "line_heights": "Complete leading-* class generation",
+        "letter_spacing": "Complete tracking-* classes",
+        "text_alignment": "Complete text-* alignment classes"
+      },
+      "consciousness_mapping": {
+        "domain_personalities": "Each domain has distinct typographic voice",
+        "entity_expressions": "Each entity has personality-appropriate typography",
+        "state_representations": "Consciousness states have visual signatures",
+        "process_visualizations": "Transformation journeys have typographic expression"
+      },
+      "derivation_notes": "All typography scales derived from dimensions.ts constants (FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS) - maintaining single source of truth",
+      "notes": "Complete typographic system with ontological personality mapping and Tailwind 4 class generation. Pure semantic definitions with utility functions for implementation.",
+      "refinement_progress": {
+        "files_refined": ["effects.ts"],
+        "principles_validated": [
+          "Pure constants with no implementation logic",
+          "Complete derivation from colors system",
+          "Type-safe exports with proper categorization",
+          "CSS custom property integration",
+          "Taxonomy alignment maintained"
+        ]
+      },
+      "type_derivations": {
+        "effects_types_location": "types/cosmic/primitives.ts",
+        "derivation_pattern": "Constants define values → Types define shapes → Utils implement logic",
+        "validation": "All effects types properly exported and categorized"
+      }
+    }
+  },
+
+  "type_derivations": {
+    "primitives_location": "types/cosmic/primitives.ts",
+    "system_types_location": "types/gaia/declaration.ts",
+    "derivation_principle": "Constants define values → Types define shapes → Utils implement logic"
+  },
+
+  "utils_integration": {
+    "principle": "Utils channel through constants, no hard-coded values",
+    "pattern": "utils/ files import from lib/constants/ and implement pure functions",
+    "separation": "Constants = WHAT, Types = SHAPE, Utils = HOW"
+  },
+
+  "migration_tracking": {
+    "current_phase": "cosmic_constants_analysis",
+    "next_phase": "systems_constants_migration",
+    "files_processed": 6,
+    "files_remaining": 0,
+    "ready_for_next": true
+  }
+}
