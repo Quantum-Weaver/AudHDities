@@ -14,7 +14,7 @@ import {
 import { useSupabase } from '@/utils/supabase/client';
 
 const NAV_ITEMS = [
-  { href: '/sanctuary', label: 'Sanctuary', icon: Home },
+  { href: '/', label: 'Sanctuary', icon: Home },
   { href: '/loom', label: 'Loom', icon: Compass },
   { href: '/profile', label: 'Vessel', icon: User },
 ];
