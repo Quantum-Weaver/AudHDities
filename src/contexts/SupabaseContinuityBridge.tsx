@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useSupabase } from '@/utils/supabase/client';
+import { useSupabase } from '@/lib/supabase/client';
 import { useContinuityBeam } from './ContinuityBeamContext'; // Your existing hook
 
 export function SupabaseContinuityBridge() {

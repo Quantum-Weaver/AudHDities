@@ -1,7 +1,9 @@
 'use client';
 
-import { Product, Profile } from '@/types/supabase';
-import { useSupabase } from '@/utils/supabase/client';
+import type { Database } from '@/types/supabase/database.types'
+export type Profile = Database['public']['Tables']['profiles']['Row']
+export type Product = Database['public']['Tables']['profiles']['Row']
+import { useSupabase } from '@/lib/supabase/client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 

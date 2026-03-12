@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useUser } from '@/hooks/useUser';
-import { Product, Tables } from '@/types/supabase';
+import type { Database, Tables } from '@/types/supabase/database.types'
+export type Product = Database['public']['Tables']['products']['Row']
 import { Check, Lock, Users, Sparkles, Clock, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { loadStripe } from '@stripe/stripe-js';
-import { Card } from '@/components/ui/cards/Card';
-import { Button } from '@/components/ui/buttons/Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 type ProductWithContributions = Product & {
   contributions: (Tables<'contributions'> & {
@@ -54,9 +55,9 @@ export default function TicketProduct({ product }: TicketProductProps) {
 
   const getPrice = () => {
     switch (userTier) {
-      case 'community': return product.price_community;
-      case 'corporate': return product.price_corporate;
-      default: return product.price_ally;
+      case 'community': return product.price_community_cents;
+      case 'corporate': return product.price_corporate_cents;
+      default: return product.price_ally_cents;
     };
   };
 

@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSupabase } from '@/utils/supabase/client';
-import { Profile } from '@/types/supabase';
+import { useSupabase } from '@/lib/supabase/client';
+import type { Database } from '@/types/supabase/database.types'
+export type Profile = Database['public']['Tables']['profiles']['Row']
 
 export function useUser() {
   const supabase = useSupabase();
