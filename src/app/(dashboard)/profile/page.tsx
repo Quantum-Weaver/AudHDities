@@ -36,7 +36,7 @@ export default function ProfilePage() {
           />
           
           {/* Avatar - positioned over banner */}
-          <div className="absolute -bottom-12 left-8">
+          <div className="absolute -bottom-7 left-8">
             <AvatarUpload 
               userId={user.id}
               currentAvatarUrl={avatarUrl}
@@ -50,7 +50,7 @@ export default function ProfilePage() {
       </section>
 
       {/* Rest of profile content */}
-      <div className="mt-16 px-8">
+      <section className="section-gradient opacity-.2 mt-16 px-8">
         <h1 className="text-2xl font-bold">
           {profile?.display_name || profile?.username || 'Anonymous'}
         </h1>
@@ -73,7 +73,7 @@ export default function ProfilePage() {
         {profile?.bio && (
           <p className="mt-4 text-TEXT-secondary">{profile.bio}</p>
         )}
-      </div>
+      </section>
     </div>
   )
 }
