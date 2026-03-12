@@ -17,38 +17,76 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
     }
 
-    // Get product
-    const { data: product } = await supabase
+    // Get product with all needed fields
+    const { data: product, error: productError } = await supabase
       .from('products')
       .select('*')
       .eq('id', productId)
       .single();
 
-    if (!product) {
+    if (productError || !product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
-    // Determine price
-    let unitAmount = 0;
+    // Determine price with null handling
+    let price: number | null = null;
     switch (tier) {
-      case 'community': unitAmount = Math.round(product.price_community * 100); break;
-      case 'ally': unitAmount = Math.round(product.price_ally * 100); break;
-      case 'corporate': unitAmount = Math.round(product.price_corporate * 100); break;
-      default: unitAmount = Math.round(product.price_ally * 100);
+      case 'community':
+        price = product.price_community_cents;
+        break;
+      case 'ally':
+        price = product.price_ally_cents;
+        break;
+      case 'corporate':
+        price = product.price_corporate_cents;
+        break;
+      default:
+        price = product.price_ally_cents;
     }
 
+    // Handle null price - maybe default to ally price or return error
+    if (price === null || price === undefined) {
+      // Try fallback to ally price
+      price = product.price_ally_cents;
+      
+      // If still null, return error
+      if (price === null || price === undefined) {
+        return NextResponse.json(
+          { error: `No price configured for ${tier} tier` },
+          { status: 400 }
+        );
+      }
+    }
+
+    // Convert to cents (Dollars to cents: multiply by 100)
+    const unitAmountCents = Math.round(price * 100);
+
     // Free checkout - skip Stripe
-    if (unitAmount === 0) {
-      // Create sale record directly
+    if (unitAmountCents === 0) {
+      // Calculate cents values for free product
+      const amountCents = 0;
+      const platformFeeCents = 0;
+      const creatorEarningsCents = 0;
+      
+      // Create sale record directly matching YOUR schema
       const { data: sale, error: saleError } = await supabase
         .from('sales')
         .insert({
           product_id: productId,
           buyer_id: user.id,
-          tier_applied: tier,
+          tier_applied: tier as any,
+          amount_cents: amountCents,
           gross_amount: 0,
           payment_processor_fee: 0,
-          payment_status: 'completed'
+          platform_fee_cents: platformFeeCents,
+          creator_earnings_cents: creatorEarningsCents,
+          payment_status: 'completed',
+          net_amount: 0,
+          to_creator_immediate: 0,
+          to_infrastructure: 0,
+          to_residual_pool: 0,
+          nd_price_applied: false,
+          bigot_tax_applied: false
         })
         .select()
         .single();
@@ -73,7 +111,7 @@ export async function POST(request: NextRequest) {
               name: product.title,
               description: `${tier} tier access`,
             },
-            unit_amount: unitAmount,
+            unit_amount: unitAmountCents,
           },
           quantity: 1,
         },

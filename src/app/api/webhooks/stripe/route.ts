@@ -30,16 +30,47 @@ export async function POST(request: NextRequest) {
     
     const supabase = await createServerSupabase();
     
-    // Create sale record (triggers residual calculation)
+    // Get the product to know platform fee
+    const { data: product, error: productError } = await supabase
+      .from('products')
+      .select('*')
+      .eq('id', productId)
+      .single();
+      
+    if (productError) {
+      console.error('Failed to fetch product:', productError);
+      return NextResponse.json({ error: 'Product not found' }, { status: 500 });
+    }
+    
+    // Calculate amounts in CENTS (as your schema uses amount_cents)
+    const amountCents = session.amount_total || 0; // Already in cents!
+    const grossAmount = amountCents / 100; // For your gross_amount field
+    const processorFeeCents = ((session.amount_total || 0) - (session.amount_subtotal || 0));
+    const platformFeeCents = Math.round(amountCents * (product.residual_pool_percent || 30) / 100);
+    const creatorEarningsCents = amountCents - platformFeeCents - processorFeeCents;
+    
+    // Create sale record matching YOUR schema
     const { error: saleError } = await supabase
       .from('sales')
       .insert({
         product_id: productId,
         buyer_id: userId,
-        tier_applied: tier,
-        gross_amount: (session.amount_total || 0) / 100,
-        payment_processor_fee: ((session.amount_total || 0) - (session.amount_subtotal || 0)) / 100,
-        payment_status: 'completed'
+        tier_applied: tier as any, // Type assertion for enum
+        amount_cents: amountCents,
+        gross_amount: grossAmount,
+        payment_processor_fee: processorFeeCents / 100, // Back to dollars for this field
+        platform_fee_cents: platformFeeCents,
+        creator_earnings_cents: creatorEarningsCents,
+        payment_status: 'completed',
+        // Optional fields
+        stripe_session_id: session.id,
+        stripe_payment_intent: session.payment_intent as string || null,
+        net_amount: (amountCents - processorFeeCents) / 100,
+        to_creator_immediate: creatorEarningsCents / 100,
+        to_infrastructure: platformFeeCents / 100,
+        to_residual_pool: platformFeeCents / 100, // Assuming platform fee = residual pool
+        nd_price_applied: false,
+        bigot_tax_applied: false
       });
 
     if (saleError) {
