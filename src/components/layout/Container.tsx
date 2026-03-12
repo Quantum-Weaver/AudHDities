@@ -1,4 +1,4 @@
-// components/layout/Container.tsx - NEW
+// components/ui/layout/Container.tsx - NEW
 'use client';
 import { ReactNode } from 'react';
 import { SCROLLING_SYSTEM, PAGE_LAYOUTS } from '@/lib/constants/systems/layout/grids';

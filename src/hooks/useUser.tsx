@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSupabase } from '@/lib/utils/supabase/client';
+import { useSupabase } from '@/utils/supabase/client';
 import { Profile } from '@/types/supabase';
 
 export function useUser() {

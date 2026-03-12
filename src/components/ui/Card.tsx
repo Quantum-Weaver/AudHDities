@@ -1,6 +1,6 @@
 // @/components/ui/Card.tsx
 import React from 'react';
-import { cardUtils } from '@/lib/utils/components/ui/card';
+import { cardUtils } from '@/utils/components/ui/card';
 import type { CardProps } from '@/types/components/ui/card';
 
 export const Card: React.FC<CardProps> = ({

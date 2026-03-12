@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import { User } from '@supabase/supabase-js';
-import { Profile } from '@/types/supabase'; // Import your Profile type from the types you just created
+import { Profile } from '@/types/supabase/supabase'; // Import your Profile type from the types you just created
 
 type BeamVariant = EnvironmentKey;
 interface BeamConfig {

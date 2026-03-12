@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { getButtonConfig, getButtonStyles, getButtonClasses, calculateButtonResonance } from '@/lib/utils/components/ui/button';
+import { getButtonConfig, getButtonStyles, getButtonClasses, calculateButtonResonance } from '@/utils/components/ui/button';
 import type { ButtonProps } from '@/types/components/ui/button';
 
 export const Button: React.FC<ButtonProps> = ({

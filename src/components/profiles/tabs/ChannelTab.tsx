@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSupabase } from '@/lib/utils/supabase/client';
+import { useSupabase } from '@/utils/supabase/client';
 import { Profile } from '@/types/supabase';
 import ChannelEditor from '../components/ChannelEditor';
 import { Channel } from '../ProfileDashboard';

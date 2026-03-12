@@ -33,6 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    ".next\\dev/types/**/*.ts",
     ".next/dev/types/**/*.ts"
 , "src/app/components/ui/icons/social/GitHubIcontsx", "src/scripts/sync-constants-index.js"  ],
   "exclude": [

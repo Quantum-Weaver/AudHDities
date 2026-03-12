@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSupabase } from '@/lib/utils/supabase/client';
+import { useSupabase } from '@/utils/supabase/client';
 import { Product } from '../ProfileDashboard';
 import { Package, Plus, Eye, Edit, DollarSign, Users, TrendingUp, Copy } from 'lucide-react';
 

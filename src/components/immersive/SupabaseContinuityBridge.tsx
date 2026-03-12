@@ -1,7 +1,7 @@
 // components/SupabaseContinuityBridge.tsx
 'use client';
 import { useEffect } from 'react';
-import { useSupabase } from '@/lib/utils/supabase/client';
+import { useSupabase } from '@/utils/supabase/client';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 
 export function SupabaseContinuityBridge() {

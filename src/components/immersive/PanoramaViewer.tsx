@@ -1,7 +1,7 @@
 // components/immersive/PanoramaViewer.tsx - CLEAN IMMERSIVE VERSION
 'use client';
 import { useEffect } from 'react';
-import { QuantumBackground } from '@/components/immersive/QuantumBackground';
+import { QuantumBackground } from '@/components/environment/QuantumBackground';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import Header from '../layout/Header';

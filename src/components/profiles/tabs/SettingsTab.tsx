@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useSupabase } from '@/lib/utils/supabase/client';
+import { useSupabase } from '@/utils/supabase/client';
 import { Profile } from '@/types/supabase';
 import { Palette, Accessibility, Coins, Save } from 'lucide-react';
 

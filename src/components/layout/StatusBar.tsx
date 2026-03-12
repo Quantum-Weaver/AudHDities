@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion'
 import { STATUS_BAR_CONSTANTS } from '@/lib/constants/components/immersive/status-bar'
 import type { StatusBarProps, StatusIndicator, ConsciousnessState } from '@/types/components/immersive/status-bar'
-import { statusBarUtils } from '@/lib/utils/components/immersive/status-bar'
+import { statusBarUtils } from '@/utils/components/immersive/status-bar'
 
 // Use the existing props interface from types
 export function StatusBar({

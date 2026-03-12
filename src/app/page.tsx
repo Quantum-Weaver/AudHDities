@@ -18,10 +18,10 @@ export default function Home() {
       <div className="section-emergency mt-4">
       <Grid columns={1}>
         <Link
-            href="/gateway"
+            href="/questionnaire"
           className="px-10 py-4 bg-purple-800 hover:bg-purple-500 text-white rounded-lg font-bold transition-all"
           >
-            The Gateway
+            The Test
         </Link>
         <Link
           href="/cure/tickets"

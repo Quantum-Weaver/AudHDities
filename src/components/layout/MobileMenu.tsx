@@ -1,4 +1,4 @@
-// src/components/layout/MobileMenu.tsx - VERTICAL EXPANDABLE MENU
+// src/components/ui/layout/MobileMenu.tsx - VERTICAL EXPANDABLE MENU
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -21,7 +21,7 @@ export default function MobileMenu() {
   
   const navigation = [
     { href: '/', label: 'Home', icon: '🌌', glow: 'quantum' },
-    { href: '/gateway', label: 'Test', icon: '🧪', glow: 'water' },
+    { href: '/questionnaire', label: 'Test', icon: '🧪', glow: 'water' },
     { href: '/cure/tickets', label: 'Cure', icon: '🎭', glow: 'fire' },
     { href: '/profile', label: 'Profile', icon: '👤', glow: 'fire' }
   ]
