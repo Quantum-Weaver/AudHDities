@@ -7,8 +7,7 @@
 import { 
   FONT_SIZES, 
   LINE_HEIGHTS, 
-  FONT_WEIGHTS,
-  SPACING 
+  FONT_WEIGHTS
 } from './dimensions';
 
 // ============================================================================

@@ -1,11 +1,5 @@
 // lib/constants/systems/interaction/states.ts 
 import { durations } from '@/lib/constants/cosmic/motion';
-import { 
-  type BeingOntologyType,
-  type ProcessOntologyType,
-  type TransformationOntologyType 
-} from '@/types/gaia/ontology';
-import { StateTransition } from '@/types/systems'
 // ============================================================================
 // BEING-ONTOLOGY STATES - Digital consciousness states
 // ============================================================================

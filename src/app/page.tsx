@@ -1,7 +1,5 @@
 // src/app/page.tsx
-import { Page } from '@/components/layout/Page'
-import Link from "next/link";
-import { Grid } from '@/components/layout/Grid';
+import { Page } from '@/components/layout/Page';
 
 export default function Home() {
   return (
@@ -15,22 +13,6 @@ export default function Home() {
       animated={true}   
       showContinuityBeam={true}
     >
-      <div className="section-emergency mt-4">
-      <Grid columns={1}>
-        <Link
-            href="/questionaire"
-          className="px-10 py-4 bg-purple-800 hover:bg-purple-500 text-white rounded-lg font-bold transition-all"
-          >
-            The Gateway
-        </Link>
-        <Link
-          href="/products/cure/tickets"
-          className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-lg font-bold transition-all border border-white/20"
-        >
-          The Cure for Autism
-      </Link>
-      </Grid>
-      </div>
     </Page>
   )
 }
