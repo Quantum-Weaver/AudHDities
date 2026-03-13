@@ -81,7 +81,7 @@ export default function TicketProduct({ product }: TicketProductProps) {
 
       if (data.free) {
         // Free access - redirect to success
-        window.location.href = '/cure/success';
+        window.location.href = 'products/cure/success';
         return;
       }
 

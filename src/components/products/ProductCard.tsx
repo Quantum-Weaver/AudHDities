@@ -2,7 +2,7 @@
 
 import type { Database } from '@/types/supabase/database.types'
 export type Profile = Database['public']['Tables']['profiles']['Row']
-export type Product = Database['public']['Tables']['profiles']['Row']
+export type Product = Database['public']['Tables']['products']['Row']
 import { useSupabase } from '@/lib/supabase/client';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
