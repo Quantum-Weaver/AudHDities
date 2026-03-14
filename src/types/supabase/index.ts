@@ -1,2 +1,2 @@
 // types/supabase/index.ts
-export * from './supabase'
+export * from './database.types'
