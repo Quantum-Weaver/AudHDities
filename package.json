@@ -1,12 +1,11 @@
 {
   "name": "audhdities",
-  "version": "0.5.0",
+  "version": "0.5.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "db:types": "supabase gen types typescript --linked > src/types/supabase/database.types.ts"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.7.0",
