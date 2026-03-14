@@ -1,18 +1,30 @@
-import { createBrowserClient } from '@supabase/ssr'
+// lib/supabase/client.ts
+'use client';
 
-export const createClient = () => {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+import { createBrowserClient } from '@supabase/ssr';
+import type { Database } from '@/types/supabase/database.types';
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Missing Supabase environment variables')
-  }
+// Singleton pattern to prevent multiple instances in React Strict Mode
+let clientInstance: ReturnType<typeof createBrowserClient<Database>> | null = null;
 
-  return createBrowserClient(
-    supabaseUrl,
-    supabaseAnonKey
-  )
+export function createClient() {
+  if (clientInstance) return clientInstance;
+  
+  clientInstance = createBrowserClient<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+  
+  return clientInstance;
 }
+
+// Hook for React components
+export const useSupabase = () => {
+  return createClient();
+};
+
+// Direct client for non-hook usage
+export const supabase = createClient();
 
 // Singleton instance for convenience
 let supabaseInstance: ReturnType<typeof createBrowserClient> | null = null
