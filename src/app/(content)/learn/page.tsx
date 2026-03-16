@@ -72,7 +72,7 @@ const colorMap: Record<string, string> = {
 export default function LearnPage() {
   return (
     <main className="min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="container max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <BookOpen className="inline-block text-cyan-400 mb-4" size={48} />
