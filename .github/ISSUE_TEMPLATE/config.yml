@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/quantum-weaver/audhdities/discussions
+    about: Please ask and answer questions here
+  - name: 📖 Read the Vision
+    url: https://github.com/quantum-weaver/audhdities/blob/main/README.md
+    about: Understand what this project is before opening an issue
+  - name: 🗺️ Check the Roadmap
+    url: https://github.com/quantum-weaver/audhdities/blob/main/ROADMAP.md
+    about: See if your idea is already planned
