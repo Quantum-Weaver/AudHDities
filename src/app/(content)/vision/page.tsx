@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function VisionPage() {
   return (
     <main className="min-h-screen py-20 px-6">
-      <div className="max-4xl mx-auto">
+      <div className="container max-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <Eye className="inline-block text-cyan-400 mb-4" size={48} />
