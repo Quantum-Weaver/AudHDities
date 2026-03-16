@@ -1,4 +1,5 @@
 // @/components/Page.tsx - ULTRA SIMPLE VERSION
+
 import React from 'react';
 
 interface PageProps {
@@ -13,11 +14,12 @@ export const Page: React.FC<PageProps> = ({
   className = '' 
 }) => {
   return (
-    <div className={`min-h-screen p-4 ${className}`}>
-      {title && (
-        <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      )}
-      {children}
+    <div className="relative z-10 text-center min-h-screen">
+      <div className="page-content px-6 pb-20">
+        <section className="page-title-section mb-8 pt-20 px-6">
+        {children}
+        </section>
+      </div>
     </div>
   );
 };
