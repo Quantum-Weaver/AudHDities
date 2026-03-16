@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header'
+import AuthButton from '@/components/auth/AuthButton';
+import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,11 +30,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">      
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>   
-        <Header />
-        {/* NO WRAPPERS - Each page handles its own layout */}
-        {children}
-        <Footer />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>        
+        <ContinuityBeamProvider>
+          <AuthButton />
+          <Header />
+          
+          {/* NO WRAPPERS - Each page handles its own layout */}
+          {children}
+          <Footer />
+        </ContinuityBeamProvider>
       </body>
     </html>
   )
