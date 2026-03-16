@@ -138,7 +138,7 @@ export default async function PathwayPage({ params }: PathwayPageProps) {
 
   return (
     <main className="min-h-screen py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="container max-w-4xl mx-auto">
         {/* Back Button */}
         <Link
           href="/learn"
