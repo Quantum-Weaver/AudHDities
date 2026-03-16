@@ -85,7 +85,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, var(--deep-space) 0%, #2d3748 100%);
+  background: linear-gradient(135deg, var(--deep-space) 0%, #8563ff 100%);
   color: var(--star-dust);
   font-family: 'Segoe UI', system-ui, sans-serif;
   line-height: 1.6;
