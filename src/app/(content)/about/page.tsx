@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <Page>
     <main className="min-h-screen py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="container max-w-4xl mx-auto">
         {/* Origin Story */}
         <section className="mb-20">
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12">
