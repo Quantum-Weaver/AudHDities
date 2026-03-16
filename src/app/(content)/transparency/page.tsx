@@ -37,7 +37,7 @@ export default async function TransparencyPage() {
 
   return (
     <main className="min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="container max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
