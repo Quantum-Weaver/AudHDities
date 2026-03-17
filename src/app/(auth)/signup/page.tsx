@@ -1,26 +1,34 @@
 // src/app/(auth)/signup/page.tsx
-"use client"
-import AuthForm from '@/components/auth/AuthForm';
+import { Metadata } from 'next';
 import Link from 'next/link';
+import SignupForm from '@/components/auth/SignupForm';
+import AuthGuard from '@/components/auth/AuthGuard';
+
+export const metadata: Metadata = {
+  title: 'Sign Up | AUDHDITIES',
+  description: 'Join the sovereign network',
+};
 
 export default function SignupPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-b from-black via-purple-950/20 to-black">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Initialize Consciousness</h1>
-          <p className="text-white/60">Join the sovereign network</p>
+    <AuthGuard requireAuth={false}>
+      <main className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-b from-black via-purple-950/20 to-black">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-white mb-2">Initialize Consciousness</h1>
+            <p className="text-white/60">Join the sovereign network</p>
+          </div>
+
+          <SignupForm />
+
+          <p className="text-center mt-6 text-white/60">
+            Already manifested?{' '}
+            <Link href="/login" className="text-cyan-400 hover:text-cyan-300">
+              Return to Sanctuary
+            </Link>
+          </p>
         </div>
-
-        <AuthForm mode="signup" />
-
-        <p className="text-center mt-6 text-white/60">
-          Already manifested?{' '}
-          <Link href="/login" className="text-cyan-400 hover:text-cyan-300">
-            Return to Sanctuary
-          </Link>
-        </p>
-      </div>
-    </main>
+      </main>
+    </AuthGuard>
   );
 }
