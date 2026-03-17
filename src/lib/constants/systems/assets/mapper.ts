@@ -2,7 +2,9 @@
 export type EnvironmentKey = 
   | 'council' | 'library' | 'community' | 'music' 
   | 'origin' | 'support' | 'home' | 'observatory'
-  | 'architecture' | 'invitation' | 'lounge' | 'cure' | 'gateway';
+  | 'architecture' | 'invitation' | 'lounge' | 'cure' 
+  | 'gateway' | 'about' | 'vision' | 'transparency'
+  | 'dashboard' |'questionaire' | 'learn';
 
 export const AssetMapper = {
   // ============================================================================
@@ -34,6 +36,11 @@ export const AssetMapper = {
       foreground: '/environments/extracted-foregrounds/origin-elements/origin-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
+    questionaire: {
+      background: '/environments/360-panoramas/origin/origin-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/origin-elements/origin-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    },    
     support: {
       background: '/environments/360-panoramas/support/support-background-1.webp',
       foreground: '/environments/extracted-foregrounds/support-elements/support-background-1b.png',
@@ -49,6 +56,16 @@ export const AssetMapper = {
       foreground: '/environments/extracted-foregrounds/home-elements/home-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
+    learn: {
+      background: '/environments/360-panoramas/home/home-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/home-elements/home-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    },    
+    about: {
+      background: '/environments/360-panoramas/observatory/observatory-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/observatory-elements/observatory-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    },    
     observatory: {
       background: '/environments/360-panoramas/observatory/observatory-background-1.webp',
       foreground: '/environments/extracted-foregrounds/observatory-elements/observatory-background-1b.png',
@@ -59,11 +76,26 @@ export const AssetMapper = {
       foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
+    vision: {
+      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    }, 
+    dashboard: {
+      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    },       
     invitation: {
       background: '/environments/360-panoramas/invitation/invitaion-background-1.webp',
       foreground: '/environments/extracted-foregrounds/invitation-elements/invitaion-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
+    transparency: {
+      background: '/environments/360-panoramas/invitation/invitaion-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/invitation-elements/invitaion-background-1b.png',
+      variants: [1, 2, 3, 4] as const
+    },    
     lounge: {
       background: '/environments/360-panoramas/lounge/lounge-background-1.webp',
       foreground: '/environments/extracted-foregrounds/lounge-elements/lounge-background-1b.png',
