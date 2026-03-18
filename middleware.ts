@@ -1,4 +1,4 @@
-// middleware.ts
+// app/middleware.ts
 import { type NextRequest } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 
@@ -15,6 +15,11 @@ export const config = {
      * - favicon.ico (favicon file)
      * Feel free to modify this pattern to include more paths.
      */
+    '/dashboard/:path*',
+    '/profile/edit/:path*',
+    '/creator/:path*',
+    '/vendor/:path*',
+    '/admin/:path*',
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
