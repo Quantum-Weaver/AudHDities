@@ -1,3 +1,4 @@
+// @/app/(content)/questionaire/page.tsx
 import AcidTest from '@/components/guild/AcidTest';
 import { Page } from '@/components/layout/Page'
 

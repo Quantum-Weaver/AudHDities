@@ -1,10 +1,10 @@
-// contexts/ContinuityBeamContext.tsx - UPDATED WITH SYNC
+// @/contexts/ContinuityBeamContext.tsx
 'use client';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import { User } from '@supabase/supabase-js';
-import type { Database } from '@/types/supabase/database.types'
-export type Profile = Database['public']['Tables']['profiles']['Row']
+import type { Database } from '@/types/supabase/database.types';
+export type Profile = Database['public']['Tables']['profiles']['Row'];
 
 type BeamVariant = EnvironmentKey;
 interface BeamConfig {
@@ -31,8 +31,8 @@ interface ContinuityBeamProviderProps {
 
 export function ContinuityBeamProvider({ children }: ContinuityBeamProviderProps) {
   const [beamConfig, setBeamConfig] = useState<BeamConfig>({
-    variant: 'QUANTUM',
-    intensity: 0.8,
+    variant: 'home',
+    intensity: 0.33,
     showQuantumSweep: true
   });
   
