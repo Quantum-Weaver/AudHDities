@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['react-syntax-highlighter'],
   async headers() {
     return [
       {
