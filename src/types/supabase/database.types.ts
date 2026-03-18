@@ -1,5 +1,3 @@
-// types/supabase/database.types.ts
-
 export type Json =
   | string
   | number
@@ -41,66 +39,1110 @@ export type Database = {
   }
   public: {
     Tables: {
+      acid_test_answers: {
+        Row: {
+          ally_tier_price: number | null
+          answer_text: string
+          id: string
+          indicates_nd: boolean | null
+          question_id: string | null
+          score_value: number | null
+        }
+        Insert: {
+          ally_tier_price?: number | null
+          answer_text: string
+          id?: string
+          indicates_nd?: boolean | null
+          question_id?: string | null
+          score_value?: number | null
+        }
+        Update: {
+          ally_tier_price?: number | null
+          answer_text?: string
+          id?: string
+          indicates_nd?: boolean | null
+          question_id?: string | null
+          score_value?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "acid_test_answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "acid_test_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      acid_test_questions: {
+        Row: {
+          id: string
+          is_active: boolean | null
+          order_index: number | null
+          question_text: string
+          question_type: string | null
+        }
+        Insert: {
+          id?: string
+          is_active?: boolean | null
+          order_index?: number | null
+          question_text: string
+          question_type?: string | null
+        }
+        Update: {
+          id?: string
+          is_active?: boolean | null
+          order_index?: number | null
+          question_text?: string
+          question_type?: string | null
+        }
+        Relationships: []
+      }
+      acid_test_results: {
+        Row: {
+          answers: Json | null
+          created_at: string | null
+          id: string
+          persona_label: string | null
+          suggested_tier: Database["public"]["Enums"]["user_tier"] | null
+          total_score: number | null
+          user_id: string | null
+        }
+        Insert: {
+          answers?: Json | null
+          created_at?: string | null
+          id?: string
+          persona_label?: string | null
+          suggested_tier?: Database["public"]["Enums"]["user_tier"] | null
+          total_score?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          answers?: Json | null
+          created_at?: string | null
+          id?: string
+          persona_label?: string | null
+          suggested_tier?: Database["public"]["Enums"]["user_tier"] | null
+          total_score?: number | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "acid_test_results_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      admin_logs: {
+        Row: {
+          action: string
+          admin_id: string
+          created_at: string | null
+          id: string
+          metadata: Json | null
+          public_note: string | null
+          target_id: string | null
+          target_type: string | null
+        }
+        Insert: {
+          action: string
+          admin_id: string
+          created_at?: string | null
+          id?: string
+          metadata?: Json | null
+          public_note?: string | null
+          target_id?: string | null
+          target_type?: string | null
+        }
+        Update: {
+          action?: string
+          admin_id?: string
+          created_at?: string | null
+          id?: string
+          metadata?: Json | null
+          public_note?: string | null
+          target_id?: string | null
+          target_type?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "admin_logs_admin_id_fkey"
+            columns: ["admin_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      community_profiles: {
+        Row: {
+          communication_notes: string | null
+          created_at: string | null
+          crisis_contact_email: string | null
+          crisis_contact_name: string | null
+          crisis_contact_phone: string | null
+          crisis_instructions: string | null
+          house_adept: boolean | null
+          house_initiate: boolean | null
+          house_joined_at: string | null
+          house_master: boolean | null
+          id: string
+          is_mentor: boolean | null
+          joined_house: string | null
+          mentee_count: number | null
+          mentor_since: string | null
+          nd_identity: string[] | null
+          peer_endorsements: number | null
+          sensory_accommodations: string[] | null
+          support_needs: string[] | null
+          updated_at: string | null
+        }
+        Insert: {
+          communication_notes?: string | null
+          created_at?: string | null
+          crisis_contact_email?: string | null
+          crisis_contact_name?: string | null
+          crisis_contact_phone?: string | null
+          crisis_instructions?: string | null
+          house_adept?: boolean | null
+          house_initiate?: boolean | null
+          house_joined_at?: string | null
+          house_master?: boolean | null
+          id: string
+          is_mentor?: boolean | null
+          joined_house?: string | null
+          mentee_count?: number | null
+          mentor_since?: string | null
+          nd_identity?: string[] | null
+          peer_endorsements?: number | null
+          sensory_accommodations?: string[] | null
+          support_needs?: string[] | null
+          updated_at?: string | null
+        }
+        Update: {
+          communication_notes?: string | null
+          created_at?: string | null
+          crisis_contact_email?: string | null
+          crisis_contact_name?: string | null
+          crisis_contact_phone?: string | null
+          crisis_instructions?: string | null
+          house_adept?: boolean | null
+          house_initiate?: boolean | null
+          house_joined_at?: string | null
+          house_master?: boolean | null
+          id?: string
+          is_mentor?: boolean | null
+          joined_house?: string | null
+          mentee_count?: number | null
+          mentor_since?: string | null
+          nd_identity?: string[] | null
+          peer_endorsements?: number | null
+          sensory_accommodations?: string[] | null
+          support_needs?: string[] | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_profiles_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      contributions: {
+        Row: {
+          contribution_type: Database["public"]["Enums"]["contribution_type"]
+          contributor_id: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          is_one_time: boolean | null
+          is_residual_eligible: boolean | null
+          percent_share: number
+          product_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          contribution_type: Database["public"]["Enums"]["contribution_type"]
+          contributor_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_one_time?: boolean | null
+          is_residual_eligible?: boolean | null
+          percent_share: number
+          product_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          contribution_type?: Database["public"]["Enums"]["contribution_type"]
+          contributor_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          is_one_time?: boolean | null
+          is_residual_eligible?: boolean | null
+          percent_share?: number
+          product_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contributions_contributor_id_fkey"
+            columns: ["contributor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "contributions_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      creator_profiles: {
+        Row: {
+          created_at: string | null
+          creative_categories: string[] | null
+          creative_description: string | null
+          default_residual_pool: number | null
+          id: string
+          portfolio_url: string | null
+          stripe_account_id: string | null
+          total_earnings: number | null
+          total_products: number | null
+          total_sales: number | null
+          updated_at: string | null
+          verification_status: string | null
+          verified_at: string | null
+          verified_badge: boolean | null
+          verified_by: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          creative_categories?: string[] | null
+          creative_description?: string | null
+          default_residual_pool?: number | null
+          id: string
+          portfolio_url?: string | null
+          stripe_account_id?: string | null
+          total_earnings?: number | null
+          total_products?: number | null
+          total_sales?: number | null
+          updated_at?: string | null
+          verification_status?: string | null
+          verified_at?: string | null
+          verified_badge?: boolean | null
+          verified_by?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          creative_categories?: string[] | null
+          creative_description?: string | null
+          default_residual_pool?: number | null
+          id?: string
+          portfolio_url?: string | null
+          stripe_account_id?: string | null
+          total_earnings?: number | null
+          total_products?: number | null
+          total_sales?: number | null
+          updated_at?: string | null
+          verification_status?: string | null
+          verified_at?: string | null
+          verified_badge?: boolean | null
+          verified_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "creator_profiles_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "creator_profiles_verified_by_fkey"
+            columns: ["verified_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          active: boolean | null
+          bigot_tax_cents: number | null
+          category: string[] | null
+          created_at: string | null
+          creator_id: string
+          description: string | null
+          download_url: string | null
+          id: string
+          is_published: boolean | null
+          is_recurring: boolean | null
+          media_urls: string[] | null
+          preview_image: string | null
+          price_ally: number
+          price_community: number | null
+          price_corporate: number | null
+          product_type: Database["public"]["Enums"]["product_type"]
+          recurring_interval: string | null
+          residual_pool_percent: number | null
+          sanctuary_infrastructure_percent: number | null
+          slug: string
+          stripe_price_id: string | null
+          stripe_product_id: string | null
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          bigot_tax_cents?: number | null
+          category?: string[] | null
+          created_at?: string | null
+          creator_id: string
+          description?: string | null
+          download_url?: string | null
+          id?: string
+          is_published?: boolean | null
+          is_recurring?: boolean | null
+          media_urls?: string[] | null
+          preview_image?: string | null
+          price_ally: number
+          price_community?: number | null
+          price_corporate?: number | null
+          product_type: Database["public"]["Enums"]["product_type"]
+          recurring_interval?: string | null
+          residual_pool_percent?: number | null
+          sanctuary_infrastructure_percent?: number | null
+          slug: string
+          stripe_price_id?: string | null
+          stripe_product_id?: string | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          bigot_tax_cents?: number | null
+          category?: string[] | null
+          created_at?: string | null
+          creator_id?: string
+          description?: string | null
+          download_url?: string | null
+          id?: string
+          is_published?: boolean | null
+          is_recurring?: boolean | null
+          media_urls?: string[] | null
+          preview_image?: string | null
+          price_ally?: number
+          price_community?: number | null
+          price_corporate?: number | null
+          product_type?: Database["public"]["Enums"]["product_type"]
+          recurring_interval?: string | null
+          residual_pool_percent?: number | null
+          sanctuary_infrastructure_percent?: number | null
+          slug?: string
+          stripe_price_id?: string | null
+          stripe_product_id?: string | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_creator_id_fkey"
+            columns: ["creator_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
+          acid_test_persona: string | null
+          acid_test_score: number | null
+          acid_test_taken_at: string | null
           avatar_url: string | null
+          badges: string[] | null
           banner_url: string | null
           bio: string | null
+          communication_style: string | null
           created_at: string | null
           display_name: string | null
           email: string
+          email_notifications: boolean | null
           id: string
           is_admin: boolean | null
+          is_creator: boolean | null
           is_quantum_weaver: boolean | null
+          is_vendor: boolean | null
+          nd_preferences: Json | null
+          notification_frequency: string | null
+          preferred_name: string | null
+          primary_house: string | null
+          public_slug: string | null
+          push_notifications: boolean | null
+          residual_pledge_percent: number | null
+          sensory_preferences: Json | null
+          sovereignty_score: number | null
           status: string | null
           updated_at: string | null
+          user_tier: string | null
           username: string | null
         }
         Insert: {
+          acid_test_persona?: string | null
+          acid_test_score?: number | null
+          acid_test_taken_at?: string | null
           avatar_url?: string | null
+          badges?: string[] | null
           banner_url?: string | null
           bio?: string | null
+          communication_style?: string | null
           created_at?: string | null
           display_name?: string | null
           email: string
+          email_notifications?: boolean | null
           id: string
           is_admin?: boolean | null
+          is_creator?: boolean | null
           is_quantum_weaver?: boolean | null
+          is_vendor?: boolean | null
+          nd_preferences?: Json | null
+          notification_frequency?: string | null
+          preferred_name?: string | null
+          primary_house?: string | null
+          public_slug?: string | null
+          push_notifications?: boolean | null
+          residual_pledge_percent?: number | null
+          sensory_preferences?: Json | null
+          sovereignty_score?: number | null
           status?: string | null
           updated_at?: string | null
+          user_tier?: string | null
           username?: string | null
         }
         Update: {
+          acid_test_persona?: string | null
+          acid_test_score?: number | null
+          acid_test_taken_at?: string | null
           avatar_url?: string | null
+          badges?: string[] | null
           banner_url?: string | null
           bio?: string | null
+          communication_style?: string | null
           created_at?: string | null
           display_name?: string | null
           email?: string
+          email_notifications?: boolean | null
           id?: string
           is_admin?: boolean | null
+          is_creator?: boolean | null
           is_quantum_weaver?: boolean | null
+          is_vendor?: boolean | null
+          nd_preferences?: Json | null
+          notification_frequency?: string | null
+          preferred_name?: string | null
+          primary_house?: string | null
+          public_slug?: string | null
+          push_notifications?: boolean | null
+          residual_pledge_percent?: number | null
+          sensory_preferences?: Json | null
+          sovereignty_score?: number | null
           status?: string | null
           updated_at?: string | null
+          user_tier?: string | null
           username?: string | null
         }
         Relationships: []
       }
+      quests: {
+        Row: {
+          description: string | null
+          house: Database["public"]["Enums"]["council_house"]
+          id: string
+          instructions: string | null
+          is_active: boolean | null
+          order_index: number | null
+          prerequisite_quest_id: string | null
+          required_sovereignty_score: number | null
+          residual_multiplier_bonus: number | null
+          sovereignty_reward: number | null
+          submission_type: string | null
+          title: string
+        }
+        Insert: {
+          description?: string | null
+          house: Database["public"]["Enums"]["council_house"]
+          id?: string
+          instructions?: string | null
+          is_active?: boolean | null
+          order_index?: number | null
+          prerequisite_quest_id?: string | null
+          required_sovereignty_score?: number | null
+          residual_multiplier_bonus?: number | null
+          sovereignty_reward?: number | null
+          submission_type?: string | null
+          title: string
+        }
+        Update: {
+          description?: string | null
+          house?: Database["public"]["Enums"]["council_house"]
+          id?: string
+          instructions?: string | null
+          is_active?: boolean | null
+          order_index?: number | null
+          prerequisite_quest_id?: string | null
+          required_sovereignty_score?: number | null
+          residual_multiplier_bonus?: number | null
+          sovereignty_reward?: number | null
+          submission_type?: string | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quests_prerequisite_quest_id_fkey"
+            columns: ["prerequisite_quest_id"]
+            isOneToOne: false
+            referencedRelation: "quests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      residual_payouts: {
+        Row: {
+          amount: number
+          calculation_note: string | null
+          contributor_id: string | null
+          created_at: string | null
+          id: string
+          paid_at: string | null
+          product_id: string | null
+          sale_id: string | null
+          status: Database["public"]["Enums"]["payout_status"] | null
+        }
+        Insert: {
+          amount: number
+          calculation_note?: string | null
+          contributor_id?: string | null
+          created_at?: string | null
+          id?: string
+          paid_at?: string | null
+          product_id?: string | null
+          sale_id?: string | null
+          status?: Database["public"]["Enums"]["payout_status"] | null
+        }
+        Update: {
+          amount?: number
+          calculation_note?: string | null
+          contributor_id?: string | null
+          created_at?: string | null
+          id?: string
+          paid_at?: string | null
+          product_id?: string | null
+          sale_id?: string | null
+          status?: Database["public"]["Enums"]["payout_status"] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "residual_payouts_contributor_id_fkey"
+            columns: ["contributor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "residual_payouts_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "residual_payouts_sale_id_fkey"
+            columns: ["sale_id"]
+            isOneToOne: false
+            referencedRelation: "public_ledger"
+            referencedColumns: ["sale_id"]
+          },
+          {
+            foreignKeyName: "residual_payouts_sale_id_fkey"
+            columns: ["sale_id"]
+            isOneToOne: false
+            referencedRelation: "sales"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sales: {
+        Row: {
+          amount_cents: number
+          bigot_tax_applied: boolean | null
+          buyer_id: string
+          created_at: string | null
+          creator_earnings_cents: number
+          gross_amount: number
+          id: string
+          nd_price_applied: boolean | null
+          net_amount: number | null
+          payment_processor_fee: number | null
+          payment_status: string | null
+          platform_fee_cents: number
+          product_id: string
+          stripe_payment_intent: string | null
+          stripe_session_id: string | null
+          tier_applied: Database["public"]["Enums"]["user_tier"]
+          to_creator_immediate: number | null
+          to_infrastructure: number | null
+          to_residual_pool: number | null
+        }
+        Insert: {
+          amount_cents: number
+          bigot_tax_applied?: boolean | null
+          buyer_id: string
+          created_at?: string | null
+          creator_earnings_cents: number
+          gross_amount: number
+          id?: string
+          nd_price_applied?: boolean | null
+          net_amount?: number | null
+          payment_processor_fee?: number | null
+          payment_status?: string | null
+          platform_fee_cents: number
+          product_id: string
+          stripe_payment_intent?: string | null
+          stripe_session_id?: string | null
+          tier_applied: Database["public"]["Enums"]["user_tier"]
+          to_creator_immediate?: number | null
+          to_infrastructure?: number | null
+          to_residual_pool?: number | null
+        }
+        Update: {
+          amount_cents?: number
+          bigot_tax_applied?: boolean | null
+          buyer_id?: string
+          created_at?: string | null
+          creator_earnings_cents?: number
+          gross_amount?: number
+          id?: string
+          nd_price_applied?: boolean | null
+          net_amount?: number | null
+          payment_processor_fee?: number | null
+          payment_status?: string | null
+          platform_fee_cents?: number
+          product_id?: string
+          stripe_payment_intent?: string | null
+          stripe_session_id?: string | null
+          tier_applied?: Database["public"]["Enums"]["user_tier"]
+          to_creator_immediate?: number | null
+          to_infrastructure?: number | null
+          to_residual_pool?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sales_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sales_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_badges: {
+        Row: {
+          badge: Database["public"]["Enums"]["badge_type"]
+          earned_at: string | null
+          earned_reason: string | null
+          id: string
+          user_id: string | null
+        }
+        Insert: {
+          badge: Database["public"]["Enums"]["badge_type"]
+          earned_at?: string | null
+          earned_reason?: string | null
+          id?: string
+          user_id?: string | null
+        }
+        Update: {
+          badge?: Database["public"]["Enums"]["badge_type"]
+          earned_at?: string | null
+          earned_reason?: string | null
+          id?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_badges_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_quests: {
+        Row: {
+          completed_at: string | null
+          id: string
+          quest_id: string | null
+          started_at: string | null
+          status: Database["public"]["Enums"]["quest_status"] | null
+          submitted_content: string | null
+          user_id: string | null
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          quest_id?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["quest_status"] | null
+          submitted_content?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          quest_id?: string | null
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["quest_status"] | null
+          submitted_content?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_quests_quest_id_fkey"
+            columns: ["quest_id"]
+            isOneToOne: false
+            referencedRelation: "quests"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_quests_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vendor_profiles: {
+        Row: {
+          business_description: string | null
+          business_logo_url: string | null
+          business_name: string
+          business_type: string | null
+          created_at: string | null
+          id: string
+          product_categories: string[] | null
+          stripe_account_id: string | null
+          total_earnings: number | null
+          total_products: number | null
+          total_sales: number | null
+          updated_at: string | null
+          verification_status: string | null
+          verified_at: string | null
+          verified_badge: boolean | null
+          verified_by: string | null
+        }
+        Insert: {
+          business_description?: string | null
+          business_logo_url?: string | null
+          business_name: string
+          business_type?: string | null
+          created_at?: string | null
+          id: string
+          product_categories?: string[] | null
+          stripe_account_id?: string | null
+          total_earnings?: number | null
+          total_products?: number | null
+          total_sales?: number | null
+          updated_at?: string | null
+          verification_status?: string | null
+          verified_at?: string | null
+          verified_badge?: boolean | null
+          verified_by?: string | null
+        }
+        Update: {
+          business_description?: string | null
+          business_logo_url?: string | null
+          business_name?: string
+          business_type?: string | null
+          created_at?: string | null
+          id?: string
+          product_categories?: string[] | null
+          stripe_account_id?: string | null
+          total_earnings?: number | null
+          total_products?: number | null
+          total_sales?: number | null
+          updated_at?: string | null
+          verification_status?: string | null
+          verified_at?: string | null
+          verified_badge?: boolean | null
+          verified_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vendor_profiles_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vendor_profiles_verified_by_fkey"
+            columns: ["verified_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
-      [_ in never]: never
+      my_residuals: {
+        Row: {
+          contributor_id: string | null
+          last_earning_date: string | null
+          number_of_sales: number | null
+          product_id: string | null
+          product_title: string | null
+          total_earned: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "residual_payouts_contributor_id_fkey"
+            columns: ["contributor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "residual_payouts_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      public_ledger: {
+        Row: {
+          created_at: string | null
+          creator_pool: number | null
+          gross_amount: number | null
+          product: string | null
+          residual_recipients: number | null
+          sale_id: string | null
+          to_infrastructure: number | null
+          to_residual_pool: number | null
+        }
+        Relationships: []
+      }
+      public_transparency: {
+        Row: {
+          action: string | null
+          created_at: string | null
+          public_note: string | null
+        }
+        Insert: {
+          action?: string | null
+          created_at?: string | null
+          public_note?: string | null
+        }
+        Update: {
+          action?: string | null
+          created_at?: string | null
+          public_note?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      award_badge: {
+        Args: { badge_name: string; user_id: string }
+        Returns: undefined
+      }
+      can_perform_action: {
+        Args: { required_role: string; user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
+      acid_persona:
+        | "masked_traveler"
+        | "tab_hoarder"
+        | "seam_warrior"
+        | "void_dweller"
+        | "pattern_seeker"
+        | "quantum_witness"
+      acid_question_type:
+        | "multiple_choice"
+        | "slider"
+        | "checkbox"
+        | "scale"
+        | "text"
+      archive_subtype:
+        | "zip"
+        | "tar"
+        | "gz"
+        | "bz2"
+        | "7z"
+        | "rar"
+        | "dmg"
+        | "pkg"
+      audio_subtype:
+        | "mp3"
+        | "wav"
+        | "flac"
+        | "aac"
+        | "ogg"
+        | "m4a"
+        | "wma"
+        | "aiff"
+        | "midi"
+        | "podcast"
+        | "audiobook"
       badge_type:
         | "quantum_weaver"
         | "founding_council"
         | "genesis_block"
+        | "sanctuary_guardian"
         | "verified_creator"
         | "verified_vendor"
         | "community_leader"
+        | "first_sale"
+        | "first_purchase"
+        | "first_quest"
+        | "quest_master"
+        | "sovereign_seeker"
+        | "sovereign_adept"
+        | "sovereign_master"
+        | "contributor_concept"
+        | "contributor_code"
+        | "contributor_design"
+        | "contributor_content"
+        | "contributor_testing"
+        | "hearth_keeper_initiate"
+        | "hearth_keeper_adept"
+        | "hearth_keeper_master"
+        | "chancellor_initiate"
+        | "chancellor_adept"
+        | "chancellor_master"
+        | "seer_initiate"
+        | "seer_adept"
+        | "seer_master"
+        | "aethelred_initiate"
+        | "aethelred_adept"
+        | "aethelred_master"
+        | "curator_initiate"
+        | "curator_adept"
+        | "curator_master"
+        | "archivist_initiate"
+        | "archivist_adept"
+        | "archivist_master"
+        | "skald_initiate"
+        | "skald_adept"
+        | "skald_master"
+        | "codex_initiate"
+        | "codex_adept"
+        | "codex_master"
+        | "executioner_initiate"
+        | "executioner_adept"
+        | "executioner_master"
+        | "bigot_tax_exempt"
+        | "data_sovereign"
+        | "privacy_pioneer"
+      binary_subtype:
+        | "executable"
+        | "library"
+        | "firmware"
+        | "game_asset"
+        | "application"
+        | "disk_image"
+        | "font"
+        | "3d_model"
+        | "cad_file"
+      business_type:
+        | "sole_proprietor"
+        | "llc"
+        | "nonprofit"
+        | "cooperative"
+        | "partnership"
+        | "other"
+      character_encoding:
+        | "UTF-8"
+        | "UTF-16"
+        | "GB2312"
+        | "GBK"
+        | "GB18030"
+        | "Big5"
+        | "Big5-HKSCS"
+        | "Shift-JIS"
+        | "EUC-KR"
+        | "ISO-8859-1"
+        | "Windows-1252"
+      code_subtype:
+        | "javascript"
+        | "python"
+        | "java"
+        | "c_cpp"
+        | "csharp"
+        | "go"
+        | "rust"
+        | "php"
+        | "ruby"
+        | "swift"
+        | "kotlin"
+        | "sql"
+        | "r"
+        | "matlab"
+        | "shell_script"
+        | "powershell"
+        | "dockerfile"
+        | "configuration"
+        | "markup"
+      comment_status: "visible" | "hidden" | "flagged" | "deleted_by_user"
+      communication_style: "direct" | "gentle" | "detailed" | "concise"
+      content_category:
+        | "text"
+        | "image"
+        | "audio"
+        | "video"
+        | "interactive"
+        | "binary"
+        | "archive"
+        | "document"
+        | "code"
+        | "data"
+      content_rating: "general" | "mature" | "triggering" | "explicit"
+      content_type: "text" | "image" | "audio" | "video" | "mixed"
+      contribution_type:
+        | "concept"
+        | "code"
+        | "design"
+        | "content"
+        | "testing"
+        | "promotion"
+        | "infrastructure"
       council_house:
         | "hearth_keeper"
         | "chancellor"
@@ -111,7 +1153,215 @@ export type Database = {
         | "skald"
         | "codex"
         | "executioner"
+      data_subtype:
+        | "structured_json"
+        | "structured_csv"
+        | "database_export"
+        | "statistical"
+        | "geospatial"
+        | "scientific"
+        | "financial"
+        | "log_file"
+        | "backup"
+      digest_frequency: "instant" | "daily" | "weekly" | "never"
+      document_subtype:
+        | "spreadsheet"
+        | "presentation"
+        | "word_processing"
+        | "database"
+        | "ebook"
+        | "comic"
+        | "sheet_music"
+        | "blueprint"
+        | "pattern"
+      emerald_status: "active" | "refunded" | "failed"
+      event_type:
+        | "view"
+        | "click"
+        | "impression"
+        | "share"
+        | "referral"
+        | "time_spent"
+        | "purchase_view"
+        | "search"
+      file_access:
+        | "public"
+        | "community"
+        | "ally"
+        | "subscribers"
+        | "purchasers"
+        | "private"
+        | "admin"
+      file_processing_status:
+        | "uploaded"
+        | "validating"
+        | "processing"
+        | "ready"
+        | "failed"
+        | "deleted"
+      folksonomy_status: "proposed" | "approved" | "rejected" | "merged"
+      image_subtype:
+        | "jpeg"
+        | "png"
+        | "gif"
+        | "webp"
+        | "svg"
+        | "bmp"
+        | "tiff"
+        | "heic"
+        | "avif"
+        | "psd"
+        | "ai"
+      interactive_subtype:
+        | "web_app"
+        | "mobile_app"
+        | "desktop_app"
+        | "game"
+        | "simulation"
+        | "quiz"
+        | "poll"
+        | "interactive_graph"
+        | "ar_experience"
+        | "vr_experience"
+        | "ai_model"
+      language_code:
+        | "en"
+        | "en-US"
+        | "en-GB"
+        | "en-AU"
+        | "en-CA"
+        | "es"
+        | "es-ES"
+        | "es-MX"
+        | "es-AR"
+        | "fr"
+        | "fr-FR"
+        | "fr-CA"
+        | "de"
+        | "de-DE"
+        | "de-AT"
+        | "de-CH"
+        | "zh"
+        | "zh-CN"
+        | "zh-Hans"
+        | "zh-SG"
+        | "zh-Hans-HK"
+        | "zh-TW"
+        | "zh-HK"
+        | "zh-MO"
+        | "zh-Hant"
+        | "zh-Hant-HK"
+        | "zh-Hant-MO"
+        | "zh-Hant-TW"
+        | "it"
+        | "pt"
+        | "pt-BR"
+        | "pt-PT"
+        | "nl"
+        | "pl"
+        | "ru"
+        | "ja"
+        | "ko"
+        | "ar"
+        | "hi"
+        | "tr"
+        | "vi"
+        | "th"
+        | "id"
+        | "he"
+        | "cs"
+        | "sv"
+        | "da"
+        | "fi"
+        | "no"
+        | "ro"
+        | "hu"
+        | "el"
+        | "uk"
+      localization_status:
+        | "pending"
+        | "in_progress"
+        | "reviewed"
+        | "published"
+        | "deprecated"
       payout_method: "stripe" | "paypal" | "bank" | "crypto"
+      payout_status: "pending" | "paid" | "failed"
+      post_visibility:
+        | "public"
+        | "subscribers"
+        | "tier_community"
+        | "tier_ally"
+        | "tier_corporate"
+        | "private"
+      product_type:
+        | "digital_course"
+        | "digital_download"
+        | "digital_membership"
+        | "digital_subscription"
+        | "digital_bundle"
+        | "physical_product"
+        | "physical_handmade"
+        | "physical_manufactured"
+        | "physical_custom"
+        | "audio"
+        | "video"
+        | "podcast"
+        | "music"
+        | "livestream"
+        | "event_live"
+        | "event_virtual"
+        | "workshop"
+        | "class"
+        | "consultation"
+        | "service"
+        | "commission"
+        | "contract"
+        | "sponsorship"
+        | "mutual_aid"
+        | "crowdfunding"
+        | "tip"
+        | "donation"
+        | "clothing"
+        | "accessory"
+        | "fabric"
+        | "pattern"
+        | "bundle"
+        | "kit"
+        | "subscription_box"
+      quest_status:
+        | "locked"
+        | "available"
+        | "in_progress"
+        | "completed"
+        | "mastered"
+      region_format:
+        | "YYYY-MM-DD"
+        | "MM/DD/YYYY"
+        | "DD/MM/YYYY"
+        | "YYYYσ╣┤MMµ£êDDµùÑ"
+        | "1,234.56"
+        | "1.234,56"
+        | "1 234,56"
+        | "$1,234.56"
+        | "Γé¼1.234,56"
+        | "┬Ñ1,234"
+        | "CN┬Ñ1,234.56"
+        | "NT$1,234"
+        | "HK$1,234"
+      script_type:
+        | "latin"
+        | "simplified_chinese"
+        | "traditional_chinese"
+        | "cyrillic"
+        | "arabic"
+        | "devanagari"
+        | "hebrew"
+        | "greek"
+        | "japanese"
+        | "korean"
+        | "thai"
+        | "vietnamese"
+      sensitivity_level: "low" | "medium" | "high" | "avoidant"
       social_platform:
         | "twitter"
         | "instagram"
@@ -122,7 +1372,55 @@ export type Database = {
         | "mastodon"
         | "bluesky"
         | "other"
+      submission_type:
+        | "text"
+        | "image"
+        | "file"
+        | "audio"
+        | "video"
+        | "link"
+        | "auto"
+      subscription_status: "active" | "paused" | "cancelled" | "expired"
+      subscription_tier: "community" | "ally" | "corporate" | "patron"
+      taxonomy_node_type:
+        | "domain"
+        | "category"
+        | "concept"
+        | "relationship"
+        | "attribute"
+      taxonomy_relationship:
+        | "parent_of"
+        | "related_to"
+        | "requires"
+        | "contradicts"
+        | "evolves_to"
+        | "inspired_by"
+      text_subtype:
+        | "plain"
+        | "rich_text"
+        | "markdown"
+        | "html"
+        | "xml"
+        | "json"
+        | "csv"
+        | "pdf"
+        | "epub"
+        | "subtitle"
+        | "lyrics"
       user_tier: "community" | "ally" | "corporate" | "council"
+      verification_status: "pending" | "verified" | "rejected" | "suspended"
+      video_subtype:
+        | "mp4"
+        | "webm"
+        | "avi"
+        | "mov"
+        | "mkv"
+        | "wmv"
+        | "flv"
+        | "m4v"
+        | "hls"
+        | "dash"
+        | "livestream"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -253,13 +1551,163 @@ export const Constants = {
   },
   public: {
     Enums: {
+      acid_persona: [
+        "masked_traveler",
+        "tab_hoarder",
+        "seam_warrior",
+        "void_dweller",
+        "pattern_seeker",
+        "quantum_witness",
+      ],
+      acid_question_type: [
+        "multiple_choice",
+        "slider",
+        "checkbox",
+        "scale",
+        "text",
+      ],
+      archive_subtype: ["zip", "tar", "gz", "bz2", "7z", "rar", "dmg", "pkg"],
+      audio_subtype: [
+        "mp3",
+        "wav",
+        "flac",
+        "aac",
+        "ogg",
+        "m4a",
+        "wma",
+        "aiff",
+        "midi",
+        "podcast",
+        "audiobook",
+      ],
       badge_type: [
         "quantum_weaver",
         "founding_council",
         "genesis_block",
+        "sanctuary_guardian",
         "verified_creator",
         "verified_vendor",
         "community_leader",
+        "first_sale",
+        "first_purchase",
+        "first_quest",
+        "quest_master",
+        "sovereign_seeker",
+        "sovereign_adept",
+        "sovereign_master",
+        "contributor_concept",
+        "contributor_code",
+        "contributor_design",
+        "contributor_content",
+        "contributor_testing",
+        "hearth_keeper_initiate",
+        "hearth_keeper_adept",
+        "hearth_keeper_master",
+        "chancellor_initiate",
+        "chancellor_adept",
+        "chancellor_master",
+        "seer_initiate",
+        "seer_adept",
+        "seer_master",
+        "aethelred_initiate",
+        "aethelred_adept",
+        "aethelred_master",
+        "curator_initiate",
+        "curator_adept",
+        "curator_master",
+        "archivist_initiate",
+        "archivist_adept",
+        "archivist_master",
+        "skald_initiate",
+        "skald_adept",
+        "skald_master",
+        "codex_initiate",
+        "codex_adept",
+        "codex_master",
+        "executioner_initiate",
+        "executioner_adept",
+        "executioner_master",
+        "bigot_tax_exempt",
+        "data_sovereign",
+        "privacy_pioneer",
+      ],
+      binary_subtype: [
+        "executable",
+        "library",
+        "firmware",
+        "game_asset",
+        "application",
+        "disk_image",
+        "font",
+        "3d_model",
+        "cad_file",
+      ],
+      business_type: [
+        "sole_proprietor",
+        "llc",
+        "nonprofit",
+        "cooperative",
+        "partnership",
+        "other",
+      ],
+      character_encoding: [
+        "UTF-8",
+        "UTF-16",
+        "GB2312",
+        "GBK",
+        "GB18030",
+        "Big5",
+        "Big5-HKSCS",
+        "Shift-JIS",
+        "EUC-KR",
+        "ISO-8859-1",
+        "Windows-1252",
+      ],
+      code_subtype: [
+        "javascript",
+        "python",
+        "java",
+        "c_cpp",
+        "csharp",
+        "go",
+        "rust",
+        "php",
+        "ruby",
+        "swift",
+        "kotlin",
+        "sql",
+        "r",
+        "matlab",
+        "shell_script",
+        "powershell",
+        "dockerfile",
+        "configuration",
+        "markup",
+      ],
+      comment_status: ["visible", "hidden", "flagged", "deleted_by_user"],
+      communication_style: ["direct", "gentle", "detailed", "concise"],
+      content_category: [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "interactive",
+        "binary",
+        "archive",
+        "document",
+        "code",
+        "data",
+      ],
+      content_rating: ["general", "mature", "triggering", "explicit"],
+      content_type: ["text", "image", "audio", "video", "mixed"],
+      contribution_type: [
+        "concept",
+        "code",
+        "design",
+        "content",
+        "testing",
+        "promotion",
+        "infrastructure",
       ],
       council_house: [
         "hearth_keeper",
@@ -272,7 +1720,229 @@ export const Constants = {
         "codex",
         "executioner",
       ],
+      data_subtype: [
+        "structured_json",
+        "structured_csv",
+        "database_export",
+        "statistical",
+        "geospatial",
+        "scientific",
+        "financial",
+        "log_file",
+        "backup",
+      ],
+      digest_frequency: ["instant", "daily", "weekly", "never"],
+      document_subtype: [
+        "spreadsheet",
+        "presentation",
+        "word_processing",
+        "database",
+        "ebook",
+        "comic",
+        "sheet_music",
+        "blueprint",
+        "pattern",
+      ],
+      emerald_status: ["active", "refunded", "failed"],
+      event_type: [
+        "view",
+        "click",
+        "impression",
+        "share",
+        "referral",
+        "time_spent",
+        "purchase_view",
+        "search",
+      ],
+      file_access: [
+        "public",
+        "community",
+        "ally",
+        "subscribers",
+        "purchasers",
+        "private",
+        "admin",
+      ],
+      file_processing_status: [
+        "uploaded",
+        "validating",
+        "processing",
+        "ready",
+        "failed",
+        "deleted",
+      ],
+      folksonomy_status: ["proposed", "approved", "rejected", "merged"],
+      image_subtype: [
+        "jpeg",
+        "png",
+        "gif",
+        "webp",
+        "svg",
+        "bmp",
+        "tiff",
+        "heic",
+        "avif",
+        "psd",
+        "ai",
+      ],
+      interactive_subtype: [
+        "web_app",
+        "mobile_app",
+        "desktop_app",
+        "game",
+        "simulation",
+        "quiz",
+        "poll",
+        "interactive_graph",
+        "ar_experience",
+        "vr_experience",
+        "ai_model",
+      ],
+      language_code: [
+        "en",
+        "en-US",
+        "en-GB",
+        "en-AU",
+        "en-CA",
+        "es",
+        "es-ES",
+        "es-MX",
+        "es-AR",
+        "fr",
+        "fr-FR",
+        "fr-CA",
+        "de",
+        "de-DE",
+        "de-AT",
+        "de-CH",
+        "zh",
+        "zh-CN",
+        "zh-Hans",
+        "zh-SG",
+        "zh-Hans-HK",
+        "zh-TW",
+        "zh-HK",
+        "zh-MO",
+        "zh-Hant",
+        "zh-Hant-HK",
+        "zh-Hant-MO",
+        "zh-Hant-TW",
+        "it",
+        "pt",
+        "pt-BR",
+        "pt-PT",
+        "nl",
+        "pl",
+        "ru",
+        "ja",
+        "ko",
+        "ar",
+        "hi",
+        "tr",
+        "vi",
+        "th",
+        "id",
+        "he",
+        "cs",
+        "sv",
+        "da",
+        "fi",
+        "no",
+        "ro",
+        "hu",
+        "el",
+        "uk",
+      ],
+      localization_status: [
+        "pending",
+        "in_progress",
+        "reviewed",
+        "published",
+        "deprecated",
+      ],
       payout_method: ["stripe", "paypal", "bank", "crypto"],
+      payout_status: ["pending", "paid", "failed"],
+      post_visibility: [
+        "public",
+        "subscribers",
+        "tier_community",
+        "tier_ally",
+        "tier_corporate",
+        "private",
+      ],
+      product_type: [
+        "digital_course",
+        "digital_download",
+        "digital_membership",
+        "digital_subscription",
+        "digital_bundle",
+        "physical_product",
+        "physical_handmade",
+        "physical_manufactured",
+        "physical_custom",
+        "audio",
+        "video",
+        "podcast",
+        "music",
+        "livestream",
+        "event_live",
+        "event_virtual",
+        "workshop",
+        "class",
+        "consultation",
+        "service",
+        "commission",
+        "contract",
+        "sponsorship",
+        "mutual_aid",
+        "crowdfunding",
+        "tip",
+        "donation",
+        "clothing",
+        "accessory",
+        "fabric",
+        "pattern",
+        "bundle",
+        "kit",
+        "subscription_box",
+      ],
+      quest_status: [
+        "locked",
+        "available",
+        "in_progress",
+        "completed",
+        "mastered",
+      ],
+      region_format: [
+        "YYYY-MM-DD",
+        "MM/DD/YYYY",
+        "DD/MM/YYYY",
+        "YYYYσ╣┤MMµ£êDDµùÑ",
+        "1,234.56",
+        "1.234,56",
+        "1 234,56",
+        "$1,234.56",
+        "Γé¼1.234,56",
+        "┬Ñ1,234",
+        "CN┬Ñ1,234.56",
+        "NT$1,234",
+        "HK$1,234",
+      ],
+      script_type: [
+        "latin",
+        "simplified_chinese",
+        "traditional_chinese",
+        "cyrillic",
+        "arabic",
+        "devanagari",
+        "hebrew",
+        "greek",
+        "japanese",
+        "korean",
+        "thai",
+        "vietnamese",
+      ],
+      sensitivity_level: ["low", "medium", "high", "avoidant"],
       social_platform: [
         "twitter",
         "instagram",
@@ -284,7 +1954,60 @@ export const Constants = {
         "bluesky",
         "other",
       ],
+      submission_type: [
+        "text",
+        "image",
+        "file",
+        "audio",
+        "video",
+        "link",
+        "auto",
+      ],
+      subscription_status: ["active", "paused", "cancelled", "expired"],
+      subscription_tier: ["community", "ally", "corporate", "patron"],
+      taxonomy_node_type: [
+        "domain",
+        "category",
+        "concept",
+        "relationship",
+        "attribute",
+      ],
+      taxonomy_relationship: [
+        "parent_of",
+        "related_to",
+        "requires",
+        "contradicts",
+        "evolves_to",
+        "inspired_by",
+      ],
+      text_subtype: [
+        "plain",
+        "rich_text",
+        "markdown",
+        "html",
+        "xml",
+        "json",
+        "csv",
+        "pdf",
+        "epub",
+        "subtitle",
+        "lyrics",
+      ],
       user_tier: ["community", "ally", "corporate", "council"],
+      verification_status: ["pending", "verified", "rejected", "suspended"],
+      video_subtype: [
+        "mp4",
+        "webm",
+        "avi",
+        "mov",
+        "mkv",
+        "wmv",
+        "flv",
+        "m4v",
+        "hls",
+        "dash",
+        "livestream",
+      ],
     },
   },
 } as const
