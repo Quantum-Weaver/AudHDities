@@ -4,16 +4,32 @@
 import { useState } from 'react';
 import { useSupabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { Edit2, Camera, Loader2, Shield, Award, Home, Heart } from 'lucide-react';
+import { Edit2, Camera, Loader2, Shield, Award, Home, Heart, Store, Users } from 'lucide-react';
 import Link from 'next/link';
-import type { Profile } from '@/types/hooks/profile';
+import type { Database } from '@/types/supabase/database.types';
+
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
+type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
 
 interface ProfileHeaderProps {
   profile: Profile;
+  communityProfile?: CommunityProfile | null;
+  creatorProfile?: CreatorProfile | null;
+  vendorProfile?: VendorProfile | null;
+  badges?: any[];
   isOwnProfile: boolean;
 }
 
-export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderProps) {
+export default function ProfileHeader({ 
+  profile, 
+  communityProfile,
+  creatorProfile,
+  vendorProfile,
+  badges = [],
+  isOwnProfile 
+}: ProfileHeaderProps) {
   const supabase = useSupabase();
   const router = useRouter();
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
@@ -98,7 +114,7 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
   };
 
   return (
-    <div className="relative">
+    <div className="wrapper relative">
       {/* Banner */}
       <div className="relative h-48 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-t-lg overflow-hidden">
         {profile.banner_url ? (
@@ -238,7 +254,23 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
                   Vendor
                 </span>
               )}
+
+              {/* Mentor Badge from community profile */}
+              {communityProfile?.is_mentor && (
+                <span className="flex items-center gap-1 px-2 py-0.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-400">
+                  <Users size={12} />
+                  Mentor
+                </span>
+              )}
             </div>
+
+            {/* Badge count */}
+            {badges.length > 0 && (
+              <div className="flex items-center gap-1 mt-2">
+                <Award size={14} className="text-purple-400" />
+                <span className="text-sm text-white/60">{badges.length} badges earned</span>
+              </div>
+            )}
           </div>
 
           {/* User Tier */}
@@ -254,10 +286,6 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
           </div>
         </div>
 
-        {/* Bio */}
-        {profile.bio && (
-          <p className="text-white/70 max-w-3xl mt-4">{profile.bio}</p>
-        )}
       </div>
     </div>
   );
