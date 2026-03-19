@@ -5,17 +5,23 @@ import { notFound, redirect } from 'next/navigation';
 import AuthGuard from '@/components/auth/AuthGuard';
 import ProfileHeader from '@/components/profiles/ProfileHeader';
 import ProfileTabs from '@/components/profiles/ProfileTabs';
-import { Calendar } from 'lucide-react';
+import ProfileOverview from '@/components/profiles/ProfileOverview';
+import type { Database } from '@/types/supabase/database.types';
 
 export const metadata: Metadata = {
   title: 'Profile | AUDHDITIES',
   description: 'View profile',
 };
 
+export type Profile = Database['public']['Tables']['profiles']['Row'];
+export type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
+export type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+export type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
+
 export default async function ProfilePage({
   params,
 }: {
-  params: { username?: string };
+  params: { id?: string };
 }) {
   const supabase = await createServerSupabase();
   
@@ -23,31 +29,30 @@ export default async function ProfilePage({
   const { data: { user } } = await supabase.auth.getUser();
   
   // Determine which profile to show
-  let profile;
+  let targetId = params?.id || user?.id;
   
-  if (params?.username) {
-    // Viewing someone else's profile by username
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('username', params.username)
-      .single();
-    profile = data;
-  } else if (user) {
-    // Viewing own profile
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', user.id)
-      .single();
-    profile = data;
-  } else {
+  if (!targetId) {
     redirect('/login');
   }
 
-  if (!profile) {
+  // Fetch profile with all related data in parallel
+  const [profileResult, communityResult, creatorResult, vendorResult, badgesResult] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', targetId).single(),
+    supabase.from('community_profiles').select('*').eq('id', targetId).maybeSingle(),
+    supabase.from('creator_profiles').select('*').eq('id', targetId).maybeSingle(),
+    supabase.from('vendor_profiles').select('*').eq('id', targetId).maybeSingle(),
+    supabase.from('user_badges').select('*, badge').eq('user_id', targetId)
+  ]);
+
+  if (profileResult.error || !profileResult.data) {
     notFound();
   }
+
+  const profile = profileResult.data;
+  const communityProfile = communityResult.data;
+  const creatorProfile = creatorResult.data;
+  const vendorProfile = vendorResult.data;
+  const badges = badgesResult.data || [];
 
   const isOwnProfile = user?.id === profile.id;
 
@@ -55,44 +60,35 @@ export default async function ProfilePage({
     <AuthGuard>
       <main className="min-h-screen pb-20">
         <ProfileHeader 
-          profile={profile} 
+          profile={profile}
+          communityProfile={communityProfile}
+          creatorProfile={creatorProfile}
+          vendorProfile={vendorProfile}
+          badges={badges}
           isOwnProfile={isOwnProfile}
         />
 
-        <div className="container max-w-7xl mx-auto px-6 mt-16">
-          {/* Profile Info */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-8 mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              {profile.display_name || profile.username}
-            </h1>
-            
-            <div className="flex flex-wrap gap-4 text-white/60 mb-6">
-              <span className="flex items-center gap-1 text-sm">
-                <Calendar size={14} />
-                Joined {new Date(profile.created_at!).toLocaleDateString()}
-              </span>
-              {profile.is_quantum_weaver && (
-                <span className="px-2 py-0.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-400">
-                  Quantum Weaver
-                </span>
-              )}
-              {profile.is_admin && (
-                <span className="px-2 py-0.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-xs text-cyan-400">
-                  Admin
-                </span>
-              )}
-            </div>
-
-            {profile.bio && (
-              <p className="text-white/80 max-w-2xl">{profile.bio}</p>
-            )}
-          </div>
-
+        <div className="container max-w-7xl mx-auto px-6 mt-8">
           {/* Tabs */}
           <ProfileTabs 
-            username={profile.username || 'user'}
+            profile={profile}
+            communityProfile={communityProfile}
+            creatorProfile={creatorProfile}
+            vendorProfile={vendorProfile}
             isOwnProfile={isOwnProfile}
           />
+
+          {/* Default Overview Tab Content */}
+          <div className="mt-8">
+            <ProfileOverview 
+              profile={profile}
+              communityProfile={communityProfile}
+              creatorProfile={creatorProfile}
+              vendorProfile={vendorProfile}
+              badges={badges}
+              isOwnProfile={isOwnProfile}
+            />
+          </div>
         </div>
       </main>
     </AuthGuard>
