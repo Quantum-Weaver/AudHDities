@@ -4,13 +4,94 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSupabase } from '@/lib/supabase/client';
-import { Save, Loader2, Heart, Eye, Ear, Users, Moon, Sun } from 'lucide-react';
-import type { Profile, NDPreferences, SensoryPreferences } from '@/types/hooks/profile';
+import { Save, Loader2, Heart, Eye, Ear, Users } from 'lucide-react';
+import type { Database } from '@/types/supabase/database.types';
+
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
+type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
 
 interface ProfileFormProps {
   initialProfile: Profile;
+  communityProfile?: CommunityProfile | null;
+  creatorProfile?: CreatorProfile | null;
+  vendorProfile?: VendorProfile | null;
   onSuccess?: () => void;
 }
+
+// Helper types for type safety in the form
+type NDPreferences = {
+  reduced_motion: boolean;
+  high_contrast: boolean;
+  focus_mode: boolean;
+  sound_notifications: boolean;
+  visual_timers: boolean;
+  tl_dr_enabled: boolean;
+  dyslexia_friendly: boolean;
+  adhd_friendly: boolean;
+  autism_friendly: boolean;
+};
+
+type SensoryPreferences = {
+  light_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  sound_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  crowd_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  touch_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  vestibular_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  olfactory_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+};
+
+const DEFAULT_ND: NDPreferences = {
+  reduced_motion: false,
+  high_contrast: false,
+  focus_mode: false,
+  sound_notifications: true,
+  visual_timers: true,
+  tl_dr_enabled: true,
+  dyslexia_friendly: false,
+  adhd_friendly: false,
+  autism_friendly: false,
+};
+
+const DEFAULT_SENSORY: SensoryPreferences = {
+  light_sensitivity: 'medium',
+  sound_sensitivity: 'medium',
+  crowd_sensitivity: 'medium',
+  touch_sensitivity: 'low',
+  vestibular_sensitivity: 'low',
+  olfactory_sensitivity: 'low',
+};
+
+// Safe parsers
+const parseNDPreferences = (json: unknown): NDPreferences => {
+  if (!json || typeof json !== 'object') return DEFAULT_ND;
+  const prefs = json as Partial<NDPreferences>;
+  return {
+    reduced_motion: prefs.reduced_motion ?? DEFAULT_ND.reduced_motion,
+    high_contrast: prefs.high_contrast ?? DEFAULT_ND.high_contrast,
+    focus_mode: prefs.focus_mode ?? DEFAULT_ND.focus_mode,
+    sound_notifications: prefs.sound_notifications ?? DEFAULT_ND.sound_notifications,
+    visual_timers: prefs.visual_timers ?? DEFAULT_ND.visual_timers,
+    tl_dr_enabled: prefs.tl_dr_enabled ?? DEFAULT_ND.tl_dr_enabled,
+    dyslexia_friendly: prefs.dyslexia_friendly ?? DEFAULT_ND.dyslexia_friendly,
+    adhd_friendly: prefs.adhd_friendly ?? DEFAULT_ND.adhd_friendly,
+    autism_friendly: prefs.autism_friendly ?? DEFAULT_ND.autism_friendly,
+  };
+};
+
+const parseSensoryPreferences = (json: unknown): SensoryPreferences => {
+  if (!json || typeof json !== 'object') return DEFAULT_SENSORY;
+  const prefs = json as Partial<SensoryPreferences>;
+  return {
+    light_sensitivity: prefs.light_sensitivity ?? DEFAULT_SENSORY.light_sensitivity,
+    sound_sensitivity: prefs.sound_sensitivity ?? DEFAULT_SENSORY.sound_sensitivity,
+    crowd_sensitivity: prefs.crowd_sensitivity ?? DEFAULT_SENSORY.crowd_sensitivity,
+    touch_sensitivity: prefs.touch_sensitivity ?? DEFAULT_SENSORY.touch_sensitivity,
+    vestibular_sensitivity: prefs.vestibular_sensitivity ?? DEFAULT_SENSORY.vestibular_sensitivity,
+    olfactory_sensitivity: prefs.olfactory_sensitivity ?? DEFAULT_SENSORY.olfactory_sensitivity,
+  };
+};
 
 export default function ProfileForm({ initialProfile, onSuccess }: ProfileFormProps) {
   const supabase = useSupabase();
@@ -19,7 +100,11 @@ export default function ProfileForm({ initialProfile, onSuccess }: ProfileFormPr
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'basic' | 'nd' | 'sensory'>('basic');
 
-  // Form state - expanded for all fields
+  // Parse JSON fields safely
+  const initialND = parseNDPreferences(initialProfile.nd_preferences);
+  const initialSensory = parseSensoryPreferences(initialProfile.sensory_preferences);
+
+  // Form state
   const [formData, setFormData] = useState({
     // Basic info
     display_name: initialProfile.display_name || '',
@@ -31,27 +116,10 @@ export default function ProfileForm({ initialProfile, onSuccess }: ProfileFormPr
     communication_style: initialProfile.communication_style || 'direct',
     
     // ND Preferences
-    nd_preferences: {
-      reduced_motion: initialProfile.nd_preferences?.reduced_motion || false,
-      high_contrast: initialProfile.nd_preferences?.high_contrast || false,
-      focus_mode: initialProfile.nd_preferences?.focus_mode || false,
-      sound_notifications: initialProfile.nd_preferences?.sound_notifications ?? true,
-      visual_timers: initialProfile.nd_preferences?.visual_timers ?? true,
-      tl_dr_enabled: initialProfile.nd_preferences?.tl_dr_enabled ?? true,
-      dyslexia_friendly: initialProfile.nd_preferences?.dyslexia_friendly || false,
-      adhd_friendly: initialProfile.nd_preferences?.adhd_friendly || false,
-      autism_friendly: initialProfile.nd_preferences?.autism_friendly || false,
-    },
+    nd_preferences: { ...initialND },
     
     // Sensory Preferences
-    sensory_preferences: {
-      light_sensitivity: initialProfile.sensory_preferences?.light_sensitivity || 'medium',
-      sound_sensitivity: initialProfile.sensory_preferences?.sound_sensitivity || 'medium',
-      crowd_sensitivity: initialProfile.sensory_preferences?.crowd_sensitivity || 'medium',
-      touch_sensitivity: initialProfile.sensory_preferences?.touch_sensitivity || 'low',
-      vestibular_sensitivity: initialProfile.sensory_preferences?.vestibular_sensitivity || 'low',
-      olfactory_sensitivity: initialProfile.sensory_preferences?.olfactory_sensitivity || 'low',
-    },
+    sensory_preferences: { ...initialSensory },
     
     // Notification settings
     notification_frequency: initialProfile.notification_frequency || 'instant',
@@ -106,8 +174,8 @@ export default function ProfileForm({ initialProfile, onSuccess }: ProfileFormPr
           username: formData.username || null,
           preferred_name: formData.preferred_name || null,
           communication_style: formData.communication_style,
-          nd_preferences: formData.nd_preferences,
-          sensory_preferences: formData.sensory_preferences,
+          nd_preferences: formData.nd_preferences as any,
+          sensory_preferences: formData.sensory_preferences as any,
           notification_frequency: formData.notification_frequency,
           email_notifications: formData.email_notifications,
           push_notifications: formData.push_notifications,
