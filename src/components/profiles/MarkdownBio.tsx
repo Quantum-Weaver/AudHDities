@@ -1,4 +1,4 @@
-// components/profiles/MarkdownBioSimple.tsx
+// components/profiles/MarkdownBio.tsx
 'use client';
 
 import ReactMarkdown from 'react-markdown';
@@ -8,7 +8,7 @@ interface MarkdownBioProps {
   content: string;
 }
 
-export function MarkdownBioSimple({ content }: MarkdownBioProps) {
+export function MarkdownBio({ content }: MarkdownBioProps) {
   return (
     <div className="prose prose-invert max-w-none">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>
