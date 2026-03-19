@@ -4,46 +4,53 @@
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuth } from './useAuth';
-import type { 
-  Profile as DatabaseProfile, 
-  NDPreferences, 
-  SensoryPreferences,
-  DEFAULT_ND_PREFERENCES,
-  DEFAULT_SENSORY_PREFERENCES 
-} from '@/types/hooks/profile';
+import type { Database } from '@/types/supabase/database.types';
 
+// Use the database type as the single source of truth
+export type Profile = Database['public']['Tables']['profiles']['Row'];
 
-// Extended Profile type matching your database schema
-export type Profile = DatabaseProfile & {
-  // These are already in DatabaseProfile, but we ensure they're properly typed
-  user_tier: 'community' | 'ally' | 'corporate' | null;
-  primary_house: 'hearth_keeper' | 'chancellor' | 'seer' | 'aethelred' | 
-                 'curator' | 'archivist' | 'skald' | 'codex' | 'executioner' | null;
-  communication_style: 'direct' | 'gentle' | 'detailed' | 'concise' | null;
-  notification_frequency: 'instant' | 'daily' | 'weekly' | 'never' | null;
-  status: 'active' | 'suspended' | 'deleted' | null;
-  
-  // JSON fields with proper typing
-  nd_preferences: {
-    reduced_motion: boolean;
-    high_contrast: boolean;
-    focus_mode: boolean;
-    sound_notifications: boolean;
-    visual_timers: boolean;
-    tl_dr_enabled: boolean;
-    dyslexia_friendly: boolean;
-    adhd_friendly: boolean;
-    autism_friendly: boolean;
-  } | null;
-  
-  sensory_preferences: {
-    light_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-    sound_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-    crowd_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-    touch_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-    vestibular_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-    olfactory_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  } | null;
+// Helper types for preferences (used for type safety in functions)
+export type NDPreferences = {
+  reduced_motion: boolean;
+  high_contrast: boolean;
+  focus_mode: boolean;
+  sound_notifications: boolean;
+  visual_timers: boolean;
+  tl_dr_enabled: boolean;
+  dyslexia_friendly: boolean;
+  adhd_friendly: boolean;
+  autism_friendly: boolean;
+};
+
+export type SensoryPreferences = {
+  light_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  sound_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  crowd_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  touch_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  vestibular_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  olfactory_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+};
+
+// Default empty objects for spreading
+export const DEFAULT_ND_PREFERENCES: NDPreferences = {
+  reduced_motion: false,
+  high_contrast: false,
+  focus_mode: false,
+  sound_notifications: true,
+  visual_timers: true,
+  tl_dr_enabled: true,
+  dyslexia_friendly: false,
+  adhd_friendly: false,
+  autism_friendly: false,
+};
+
+export const DEFAULT_SENSORY_PREFERENCES: SensoryPreferences = {
+  light_sensitivity: 'medium',
+  sound_sensitivity: 'medium',
+  crowd_sensitivity: 'medium',
+  touch_sensitivity: 'low',
+  vestibular_sensitivity: 'low',
+  olfactory_sensitivity: 'low',
 };
 
 interface UseProfileReturn {
@@ -57,8 +64,8 @@ interface UseProfileReturn {
   };
   updateProfile: (updates: Partial<Profile>) => Promise<Profile | null>;
   refreshProfile: () => Promise<void>;
-  updatePreferences: (preferences: Partial<Profile['nd_preferences']>) => Promise<void>;
-  updateSensory: (sensory: Partial<Profile['sensory_preferences']>) => Promise<void>;
+  updatePreferences: (preferences: Partial<NDPreferences>) => Promise<void>;
+  updateSensory: (preferences: Partial<SensoryPreferences>) => Promise<void>;
   awardBadge: (badgeName: string) => Promise<boolean>;
   hasBadge: (badgeName: string) => boolean;
 }
@@ -76,6 +83,36 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
   
   const supabase = createClient();
   const profileId = targetUserId || user?.id;
+
+  // Safe JSON parsers
+  const parseNDPreferences = (json: unknown): NDPreferences => {
+    if (!json || typeof json !== 'object') return DEFAULT_ND_PREFERENCES;
+    const prefs = json as Partial<NDPreferences>;
+    return {
+      reduced_motion: prefs.reduced_motion ?? DEFAULT_ND_PREFERENCES.reduced_motion,
+      high_contrast: prefs.high_contrast ?? DEFAULT_ND_PREFERENCES.high_contrast,
+      focus_mode: prefs.focus_mode ?? DEFAULT_ND_PREFERENCES.focus_mode,
+      sound_notifications: prefs.sound_notifications ?? DEFAULT_ND_PREFERENCES.sound_notifications,
+      visual_timers: prefs.visual_timers ?? DEFAULT_ND_PREFERENCES.visual_timers,
+      tl_dr_enabled: prefs.tl_dr_enabled ?? DEFAULT_ND_PREFERENCES.tl_dr_enabled,
+      dyslexia_friendly: prefs.dyslexia_friendly ?? DEFAULT_ND_PREFERENCES.dyslexia_friendly,
+      adhd_friendly: prefs.adhd_friendly ?? DEFAULT_ND_PREFERENCES.adhd_friendly,
+      autism_friendly: prefs.autism_friendly ?? DEFAULT_ND_PREFERENCES.autism_friendly,
+    };
+  };
+
+  const parseSensoryPreferences = (json: unknown): SensoryPreferences => {
+    if (!json || typeof json !== 'object') return DEFAULT_SENSORY_PREFERENCES;
+    const prefs = json as Partial<SensoryPreferences>;
+    return {
+      light_sensitivity: prefs.light_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.light_sensitivity,
+      sound_sensitivity: prefs.sound_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.sound_sensitivity,
+      crowd_sensitivity: prefs.crowd_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.crowd_sensitivity,
+      touch_sensitivity: prefs.touch_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.touch_sensitivity,
+      vestibular_sensitivity: prefs.vestibular_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.vestibular_sensitivity,
+      olfactory_sensitivity: prefs.olfactory_sensitivity ?? DEFAULT_SENSORY_PREFERENCES.olfactory_sensitivity,
+    };
+  };
 
   // Fetch profile data
   const fetchProfile = useCallback(async () => {
@@ -97,7 +134,7 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
 
       if (fetchError) throw fetchError;
 
-      setProfile(data as Profile);
+      setProfile(data);
       
       // Set permissions
       const isOwner = user?.id === profileId;
@@ -117,31 +154,10 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
     }
   }, [profileId, user, supabase]);
 
-  // Initial fetch and subscription to changes
+  // Initial fetch
   useEffect(() => {
     fetchProfile();
-
-    // Subscribe to realtime changes (optional - remove if not needed)
-    const channel = supabase
-      .channel(`profile-${profileId}`)
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'profiles',
-          filter: `id=eq.${profileId}`,
-        },
-        (payload) => {
-          setProfile(payload.new as Profile);
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [profileId, supabase, fetchProfile]);
+  }, [fetchProfile]);
 
   // Update profile
   const updateProfile = async (updates: Partial<Profile>): Promise<Profile | null> => {
@@ -162,8 +178,8 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
 
       if (updateError) throw updateError;
       
-      setProfile(data as Profile);
-      return data as Profile;
+      setProfile(data);
+      return data;
       
     } catch (err) {
       console.error('Error updating profile:', err);
@@ -171,36 +187,31 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
     }
   };
 
-  // Update ND preferences (neurodivergent settings)
-  const updatePreferences = async (preferences: Partial<Profile['nd_preferences']>) => {
-    if (!profile?.nd_preferences) return;
+  // Update ND preferences
+  const updatePreferences = async (preferences: Partial<NDPreferences>) => {
+    if (!profile) return;
     
-    const updatedPreferences = {
-      ...profile.nd_preferences,
-      ...preferences,
-    };
+    const current = parseNDPreferences(profile.nd_preferences);
+    const updated = { ...current, ...preferences };
     
-    await updateProfile({ nd_preferences: updatedPreferences as any });
+    await updateProfile({ nd_preferences: updated as any });
   };
 
   // Update sensory preferences
-  const updateSensory = async (sensory: Partial<Profile['sensory_preferences']>) => {
-    if (!profile?.sensory_preferences) return;
+  const updateSensory = async (preferences: Partial<SensoryPreferences>) => {
+    if (!profile) return;
     
-    const updatedSensory = {
-      ...profile.sensory_preferences,
-      ...sensory,
-    };
+    const current = parseSensoryPreferences(profile.sensory_preferences);
+    const updated = { ...current, ...preferences };
     
-    await updateProfile({ sensory_preferences: updatedSensory as any });
+    await updateProfile({ sensory_preferences: updated as any });
   };
 
-  // Award a badge to the user
+  // Award a badge
   const awardBadge = async (badgeName: string): Promise<boolean> => {
     if (!profileId || !permissions.canEdit) return false;
 
     try {
-      // Call the award_badge function (we created this earlier)
       const { error } = await supabase.rpc('award_badge', {
         user_id: profileId,
         badge_name: badgeName,
@@ -208,7 +219,6 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
 
       if (error) throw error;
       
-      // Refresh profile to get updated badges
       await fetchProfile();
       return true;
       
@@ -242,7 +252,7 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
   };
 }
 
-// Optional: Specialized hooks for common use cases
+// Specialized hooks
 export function useCurrentProfile() {
   return useProfile();
 }
@@ -258,7 +268,7 @@ export function useProfileByUsername(username: string) {
         .from('profiles')
         .select('id')
         .eq('username', username)
-        .single();
+        .maybeSingle();
       
       setProfileId(data?.id || null);
       setLoading(false);
@@ -288,7 +298,7 @@ export function useProfileByPublicSlug(slug: string) {
         .from('profiles')
         .select('id')
         .eq('public_slug', slug)
-        .single();
+        .maybeSingle();
       
       setProfileId(data?.id || null);
       setLoading(false);
