@@ -1,15 +1,14 @@
 {
   "name": "audhdities",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit",
     "generate:schema": "tsx scripts/generate-schema.ts",
-    "postinstall": "npm run generate:schema",
-    "prebuild": "npm run generate:schema",
-    "vercel-build": "npm run prepare && next build"
+    "vercel-build": "npm run generate:schema && next build",
+    "postinstall": "echo 'Installing dependencies...'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -38,6 +37,7 @@
     "sharp": "^0.34.5",
     "stripe": "^20.3.0",
     "tailwind-merge": "^3.5.0",
+    "tsx": "^4.19.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {
