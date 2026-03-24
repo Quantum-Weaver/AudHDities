@@ -79,8 +79,8 @@ Sale Price: $100
 ├── Platform Fee (your chosen %): $20
 ├── Your Immediate Payment: $56
 └── Contributor Pool: $24
-├── Contributor A: $12
-└── Contributor B: $12
+   ├── Contributor A: $12
+   └── Contributor B: $12
 
 
 You control the platform fee (0-50%). Higher fees mean more for contributors but less immediate payment.

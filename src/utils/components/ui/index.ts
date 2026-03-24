@@ -1,0 +1,13 @@
+// src/utils/components/ui/index.ts
+export * from './button'
+export * from './card'
+export * from './collaborative-space'
+export * from './emergency-beacon'
+export * from './emoji'
+export * from './error-boundary'
+export * from './footer'
+export * from './header'
+export * from './loading-indicator'
+export * from './pattern-recognition-orb'
+export * from './section'
+export * from './sovereign-entity'

@@ -1,4 +1,4 @@
-// @/lib/constants/components/immersive/continuity-beam.ts
+// src/lib/constants/components/immersive/continuity-beam.ts
 // ============================================================================
 // CONTINUITY BEAM CONSTANTS - CHANNELING FROM VARIANTS
 // ============================================================================
@@ -10,26 +10,63 @@ export const BEAM_SESSION_PRESERVATION = 'session_preservation';
 export const BEAM_EMOTIONAL_CONTEXT = 'emotional_context';
 export const BEAM_QUANTUM_ENTANGLEMENT = 'quantum_entanglement';
 
+// ============================================================================
+// COMPLETE ENVIRONMENT BEAM COLORS - ALL 32 KEYS MAPPED
+// ============================================================================
 export const BEAM_COLORS = {
-  council: QUANTUM_GRADIENTS.quantumDomain,
+  // Council Chamber - Quantum governance energy
+  council: QUANTUM_GRADIENTS.councilDomain,
+  admin: QUANTUM_GRADIENTS.councilDomain,
+  creator: QUANTUM_GRADIENTS.quantumWeaverGradient,
+  
+  // Library - Knowledge preservation
   library: QUANTUM_GRADIENTS.libraryDomain,
+  docs: QUANTUM_GRADIENTS.codexGradient,
+  ecosystem: QUANTUM_GRADIENTS.libraryDomain,
+  
+  // Community - Collective consciousness
   community: QUANTUM_GRADIENTS.communityDomain,
+  business: QUANTUM_GRADIENTS.communityDomain,
+  marketplace: QUANTUM_GRADIENTS.communityDomain,
+  
+  // Music - Creative expression
   music: QUANTUM_GRADIENTS.musicDomain,
-  origin: QUANTUM_GRADIENTS.voidDomain,
+  timer: QUANTUM_GRADIENTS.creativeGradient,
+  
+  // Origin - Source energy
+  origin: QUANTUM_GRADIENTS.mnemosyneGradient,
+  questionaire: QUANTUM_GRADIENTS.quantumWeaverGradient,
+  progress: QUANTUM_GRADIENTS.transformativeEnergy,
+  
+  // Support - Nurturing sanctuary
   support: QUANTUM_GRADIENTS.supportDomain,
+  contact: QUANTUM_GRADIENTS.supportDomain,
+  anon: QUANTUM_GRADIENTS.supportDomain,
+  
+  // Home - Fantasy sanctuary (WoW style)
   home: QUANTUM_GRADIENTS.alchemistGradient,
+  gateway: QUANTUM_GRADIENTS.gatekeeperGradient,
+  learn: QUANTUM_GRADIENTS.focusGradient,
+  seasonal: QUANTUM_GRADIENTS.elemental,
+  
+  // Observatory - Cosmic vision
   observatory: QUANTUM_GRADIENTS.cosmicDomain,
-  architecture: QUANTUM_GRADIENTS.architectureDomain,
-  invitation: QUANTUM_GRADIENTS.pantheonDomain,
-  lounge: QUANTUM_GRADIENTS.bifrostDomain,
-  about: QUANTUM_GRADIENTS.chancellorGradient,
+  about: QUANTUM_GRADIENTS.cosmicDomain,
   vision: QUANTUM_GRADIENTS.prideProgress,
-  transparency: QUANTUM_GRADIENTS.aethelredGradient,
+  
+  // Architecture - System foundations
+  architecture: QUANTUM_GRADIENTS.architectureDomain,
+  dashboard: QUANTUM_GRADIENTS.quantumDomain,
+  edit: QUANTUM_GRADIENTS.architectureDomain,
   cure: QUANTUM_GRADIENTS.hekateGradient,
-  dashboard: QUANTUM_GRADIENTS.quantumWeaverGradient,
-  questionaire: QUANTUM_GRADIENTS.hearthKeeperGradient,
-  learn: QUANTUM_GRADIENTS.focusGradient
-
+  
+  // Invitation - Threshold portal
+  invitation: QUANTUM_GRADIENTS.bifrostDomain,
+  transparency: QUANTUM_GRADIENTS.aethelredGradient,
+  
+  // Lounge - Social quantum space
+  lounge: QUANTUM_GRADIENTS.bifrostDomain
+  
 } as const;
 
 // Semantic beam types for different contexts
@@ -57,7 +94,7 @@ export const BEAM_GLOWS = {
 export const BEAM_ANIMATIONS = {
   quantumSweep: {
     animate: {
-      x: ['-100%', '100%'] as string[] // Mutable array
+      x: ['-100%', '100%'] as string[]
     },
     transition: {
       duration: 3,
@@ -115,8 +152,38 @@ export const BEAM_PURPOSES = {
   CROSS_DOMAIN_CONNECTION: 'cross_domain_connection' as const,
 } as const;
 
+// Environment-specific beam configurations
+export const ENVIRONMENT_BEAM_CONFIGS = {
+  // High-intensity quantum beams for council spaces
+  council: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  admin: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  creator: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  
+  // Medium-intensity creative beams for music/lounge
+  music: { intensity: 'high' as const, purpose: 'emotional_support' as const },
+  lounge: { intensity: 'high' as const, purpose: 'emotional_support' as const },
+  
+  // Gentle support beams for support/contact
+  support: { intensity: 'medium' as const, purpose: 'emotional_support' as const },
+  contact: { intensity: 'medium' as const, purpose: 'emotional_support' as const },
+  anon: { intensity: 'low' as const, purpose: 'memory_preservation' as const },
+  
+  // Memory preservation beams for library/docs
+  library: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
+  docs: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
+  ecosystem: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
+  
+  // Quantum entanglement for origin/vision
+  origin: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  vision: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  observatory: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
+  
+  // Default fallback
+  default: { intensity: 'medium' as const, purpose: 'emotional_support' as const }
+} as const;
+
 export const DEFAULT_BEAM_CONFIG = {
-  variant: 'council' as keyof typeof BEAM_COLORS,
+  variant: 'home' as keyof typeof BEAM_COLORS,
   intensity: 0.8,
   showQuantumSweep: true
 } as const;

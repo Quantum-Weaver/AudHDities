@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 32 32" role="img" aria-label="Decision System icon – structured choice pathways" class="cosmic-icon decision-system">
+  <defs>
+    <linearGradient id="decision-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#6c5ce7"/>
+      <stop offset="50%" stopColor="#74b9ff"/>
+      <stop offset="100%" stopColor="#00cec9"/>
+    </linearGradient>
+    <filter id="decision-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Original path structure with quantum styling - lines thinned -->
+  <path d="M28,22V12h-4.5L17,7.667V3h-2v4.667L8.5,12H4v10H0v7h10v-7H6v-8h2.5l6.5,4.333V22h-4v7h10v-7h-4 v-3.667L23.5,14H26v8h-4v7h10v-7H28z M7,27H3v-1h4V27z M7,24v1H3v-1H7z M18,27h-4v-1h4V27z M18,25h-4v-1h4V25z M18,15h-4v-1h4V15z M18,13h-4v-1h4V13z M29,27h-4v-1h4V27z M29,25h-4v-1h4V25z" 
+        fill="url(#decision-gradient)" 
+        stroke="#00cec9" 
+        strokeWidth="0.5"
+        filter="url(#decision-glow)"/>
+</svg>

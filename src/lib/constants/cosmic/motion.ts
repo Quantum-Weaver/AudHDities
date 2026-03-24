@@ -55,6 +55,72 @@ export const easing = {
 } as const;
 
 // ============================================================================
+// BUSINESS PAGE ANIMATIONS
+// ============================================================================
+
+export const BUSINESS_ANIMATIONS = {
+  // Hero entrance
+  heroEnter: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: easing.cosmic },
+  },
+  
+  // Floating orb
+  floatingOrb: {
+    animate: {
+      y: [0, -20, 0],
+      x: [0, 10, 0],
+      scale: [1, 1.05, 1],
+    },
+    transition: {
+      duration: 20,
+      repeat: Infinity,
+      ease: easing.resonance,
+    },
+  },
+  
+  // Stat card entrance
+  statCardEnter: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: easing.sovereign },
+  },
+  
+  // Value flow card
+  valueFlowCard: {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: easing.quantum },
+  },
+  
+  // Projection expand
+  projectionExpand: {
+    initial: { height: 0, opacity: 0 },
+    animate: { height: 'auto', opacity: 1 },
+    exit: { height: 0, opacity: 0 },
+    transition: { duration: 0.3, ease: easing.sovereign },
+  },
+  
+  // Call to action pulse
+  ctaPulse: {
+    animate: {
+      scale: [1, 1.02, 1],
+      boxShadow: [
+        '0 0 0 0 rgba(34, 211, 238, 0.4)',
+        '0 0 0 10px rgba(34, 211, 238, 0)',
+        '0 0 0 0 rgba(34, 211, 238, 0)',
+      ],
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: easing.resonance,
+    },
+  },
+} as const;
+
+// ============================================================================
 // VESSEL CAPACITY CONFIGURATIONS - Sovereign Alignment
 // ============================================================================
 
@@ -119,6 +185,7 @@ export const configs = {
 // ============================================================================
 
 export const presets = {
+  ...BUSINESS_ANIMATIONS,
   // Vessel capacity patterns
   singleStreamFocus: {
     enter: configs.awakeningEmergence,

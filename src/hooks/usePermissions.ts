@@ -11,6 +11,7 @@ export function usePermissions() {
   const { user } = useAuth();
   const [isAdmin, setIsAdmin] = useState(false);
   const [isCreator, setIsCreator] = useState(false);
+  const [isCommunity, setCommunity] = useState(false);
   const [isVendor, setIsVendor] = useState(false);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
@@ -51,5 +52,5 @@ export function usePermissions() {
     moderate: isAdmin,
   };
 
-  return { isAdmin, isCreator, isVendor, can, loading };
+  return { isAdmin, isCreator, isVendor, isCommunity, can, loading };
 }

@@ -223,6 +223,70 @@ export const SCREEN_TYPES = {
 } as const;
 
 // ============================================================================
+// ADD TO DIMENSIONS.TS - BUSINESS PAGE DIMENSIONS
+// ============================================================================
+
+export const BUSINESS_DIMENSIONS = {
+  // Hero dimensions
+  hero: {
+    minHeight: '70vh',
+    padding: {
+      mobile: SPACING_SCALE['8'],
+      desktop: SPACING_SCALE['16'],
+    },
+  },
+  
+  // Stat card dimensions
+  statCard: {
+    width: {
+      sm: '100%',
+      md: '280px',
+      lg: '320px',
+    },
+    padding: SPACING_SCALE['6'],
+    gap: SPACING_SCALE['4'],
+  },
+  
+  // Value flow dimensions
+  valueFlow: {
+    cardPadding: SPACING_SCALE['6'],
+    cardGap: SPACING_SCALE['6'],
+    arrowWidth: SPACING_SCALE['8'],
+  },
+  
+  // Projection table dimensions
+  projection: {
+    headerPadding: SPACING_SCALE['6'],
+    contentPadding: SPACING_SCALE['6'],
+    metricWidth: '200px',
+  },
+  
+  // Orb dimensions
+  orb: {
+    small: {
+      width: SPACING_SCALE['48'],
+      height: SPACING_SCALE['48'],
+    },
+    medium: {
+      width: SPACING_SCALE['80'],
+      height: SPACING_SCALE['80'],
+    },
+    large: {
+      width: SPACING_SCALE['96'],
+      height: SPACING_SCALE['96'],
+    },
+  },
+  
+  // Split view dimensions
+  splitView: {
+    minHeight: '600px',
+    collapsedWidth: '48px',
+    expandedWidth: '100%',
+    gap: SPACING_SCALE['6'],
+  },
+} as const;
+
+// ============================================================================
 // 4. CONTAINER DIMENSIONS - TAXONOMICALLY COMPLETE (Tailwind Max-Widths)
 // ============================================================================
 
@@ -238,6 +302,20 @@ export const CONTAINER_MAX_WIDTHS = {
 
 /** Container dimensions with semantic naming */
 export const CONTAINER_DIMENSIONS = {
+  business: {
+    hero: {
+      maxWidth: '800px',
+      padding: BUSINESS_DIMENSIONS.hero.padding,
+    },
+    content: {
+      maxWidth: '1200px',
+      padding: SPACING_SCALE['6'],
+    },
+    cards: {
+      gap: BUSINESS_DIMENSIONS.statCard.gap,
+      padding: BUSINESS_DIMENSIONS.statCard.padding,
+    },
+  },
   // Content containers (Tailwind max-w equivalents)
   content: CONTAINER_MAX_WIDTHS,
   

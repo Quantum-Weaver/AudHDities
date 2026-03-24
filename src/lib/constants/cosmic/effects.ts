@@ -4,6 +4,89 @@ import {
   QUANTUM_GRADIENTS
 } from './colors';
 // ============================================================================
+// BUSINESS PAGE EFFECTS
+// ============================================================================
+export const FLOATING_EFFECTS = {
+  // Floating animation variants
+  float1: {
+    animate: {
+      y: [0, -20, 0],
+      x: [0, 10, 0],
+    },
+    transition: {
+      duration: 20,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+  float2: {
+    animate: {
+      y: [0, -15, 0],
+      x: [0, -10, 0],
+    },
+    transition: {
+      duration: 18,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+  float3: {
+    animate: {
+      y: [0, -25, 0],
+      x: [0, 5, 0],
+    },
+    transition: {
+      duration: 22,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+} as const;
+
+export const VALUE_FLOW_EFFECTS = {
+  // Flow arrow pulse
+  arrowPulse: {
+    animate: {
+      opacity: [0.5, 1, 0.5],
+      x: [0, 5, 0],
+    },
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    },
+  },
+  
+  // Flow line sweep
+  lineSweep: {
+    animate: {
+      x: ['-100%', '100%'],
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: 'linear',
+    },
+  },
+  
+  // Card entrance sequence
+  cardEntrance: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+  
+  // Staggered children
+  staggerChildren: {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  },
+} as const;
+
+// ============================================================================
 // GLOW EFFECTS - PROPERLY DERIVED FROM QUANTUM_COLORS
 // ============================================================================
 
@@ -121,5 +204,7 @@ export const DESIGN_EFFECTS = {
   shadows: SHADOWS,
   holographic: HOLOGRAPHIC_EFFECTS,
   backdrop: BACKDROP_EFFECTS,
-  gradients: GRADIENT_EFFECTS
+  gradients: GRADIENT_EFFECTS,
+  floating: FLOATING_EFFECTS,
+  valueFlow: VALUE_FLOW_EFFECTS
 } as const;

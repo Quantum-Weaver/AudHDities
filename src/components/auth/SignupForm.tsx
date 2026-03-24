@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { useSupabase } from '@/lib/supabase/client';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function SignupForm() {
   const supabase = useSupabase();
@@ -125,6 +126,12 @@ export default function SignupForm() {
         {loading && <Loader2 size={18} className="animate-spin" />}
         Initialize Consciousness
       </button>
+      <p className="text-xs text-white/40">
+        By signing up, you agree to our{' '}
+        <Link href="/docs/terms" className="text-cyan-400 hover:underline">Terms of Service</Link>{' '}
+        and{' '}
+        <Link href="/docs/privacy" className="text-cyan-400 hover:underline">Privacy Policy</Link>.
+      </p>
     </form>
   );
 }

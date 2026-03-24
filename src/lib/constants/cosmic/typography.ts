@@ -7,8 +7,7 @@
 import { 
   FONT_SIZES, 
   LINE_HEIGHTS, 
-  FONT_WEIGHTS,
-  SPACING 
+  FONT_WEIGHTS
 } from './dimensions';
 
 // ============================================================================
@@ -295,6 +294,105 @@ export const ENTITY_TYPOGRAPHY = {
 } as const;
 
 // ============================================================================
+// BUSINESS PAGE TYPOGRAPHY
+// ============================================================================
+
+export const BUSINESS_TYPOGRAPHY = {
+  // Hero
+  hero: {
+    title: {
+      font: FONT_FAMILIES.arcane,
+      size: TEXT_SIZES['5xl'],
+      weight: FONT_WEIGHT_CLASSES.bold,
+      spacing: LETTER_SPACING.tight,
+      gradient: true,
+    },
+    subtitle: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.xl,
+      weight: FONT_WEIGHT_CLASSES.normal,
+      spacing: LETTER_SPACING.normal,
+    },
+    badge: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.sm,
+      weight: FONT_WEIGHT_CLASSES.medium,
+      spacing: LETTER_SPACING.wide,
+    },
+  },
+  
+  // Stat cards
+  stat: {
+    number: {
+      font: FONT_FAMILIES.arcane,
+      size: TEXT_SIZES['4xl'],
+      weight: FONT_WEIGHT_CLASSES.bold,
+      spacing: LETTER_SPACING.tight,
+      gradient: true,
+    },
+    label: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.sm,
+      weight: FONT_WEIGHT_CLASSES.medium,
+      spacing: LETTER_SPACING.wide,
+    },
+    description: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.xs,
+      weight: FONT_WEIGHT_CLASSES.normal,
+    },
+  },
+  
+  // Value flow
+  valueFlow: {
+    title: {
+      font: FONT_FAMILIES.arcane,
+      size: TEXT_SIZES.xl,
+      weight: FONT_WEIGHT_CLASSES.semibold,
+    },
+    description: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.base,
+      weight: FONT_WEIGHT_CLASSES.normal,
+    },
+  },
+  
+  // Pillars
+  pillar: {
+    title: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.lg,
+      weight: FONT_WEIGHT_CLASSES.semibold,
+    },
+    description: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.sm,
+      weight: FONT_WEIGHT_CLASSES.normal,
+    },
+  },
+  
+  // Projection
+  projection: {
+    year: {
+      font: FONT_FAMILIES.arcane,
+      size: TEXT_SIZES.xl,
+      weight: FONT_WEIGHT_CLASSES.bold,
+    },
+    phase: {
+      font: FONT_FAMILIES.system,
+      size: TEXT_SIZES.sm,
+      weight: FONT_WEIGHT_CLASSES.medium,
+    },
+    metricValue: {
+      font: FONT_FAMILIES.arcane,
+      size: TEXT_SIZES['2xl'],
+      weight: FONT_WEIGHT_CLASSES.bold,
+      gradient: true,
+    },
+  },
+} as const;
+
+// ============================================================================
 // 6. TYPE SCALES - SEMANTIC HIERARCHIES
 // ============================================================================
 
@@ -345,7 +443,13 @@ export const TYPE_SCALES = {
     base: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.base}`,
     sm: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.sm}`,
     lg: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.lg}`,
-  }
+  },
+  business: {
+    hero: BUSINESS_TYPOGRAPHY.hero.title.size,
+    subtitle: BUSINESS_TYPOGRAPHY.hero.subtitle.size,
+    statNumber: BUSINESS_TYPOGRAPHY.stat.number.size,
+    pillarTitle: BUSINESS_TYPOGRAPHY.pillar.title.size,
+  },
 } as const;
 
 // ============================================================================
@@ -598,6 +702,18 @@ export const createResponsiveTypography = (
     tablet: mergeTypographyConfigs(mobile, tablet),
     desktop: mergeTypographyConfigs(mobile, desktop),
   };
+};
+
+export const getBusinessTypography = (element: keyof typeof BUSINESS_TYPOGRAPHY, subElement?: string): string => {
+  const config = BUSINESS_TYPOGRAPHY[element as keyof typeof BUSINESS_TYPOGRAPHY];
+  if (!config) return '';
+  
+  if (subElement && config[subElement as keyof typeof config]) {
+    const subConfig = config[subElement as keyof typeof config];
+    return composeTypographyClasses(subConfig as TypographyConfig);
+  }
+  
+  return composeTypographyClasses(config as TypographyConfig);
 };
 
 /** Export all utilities as a single object for easy importing */

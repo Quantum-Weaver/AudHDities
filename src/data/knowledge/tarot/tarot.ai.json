@@ -1,0 +1,2132 @@
+{
+  "metadata": {
+    "deckName": "Quantum Weaver Tarot",
+    "theme": "Pagan symbolism meets quantum technology",
+    "version": "1.0",
+    "created": "2025-11-08T15:09:00-06:00",
+    "author": "Quantum Weaver Gateway",
+    "description": "A fusion of traditional Rider-Waite symbolism with quantum computing, neural networks, and pagan nature aesthetics",
+    "fileStructure": "Complete 78-card deck merged from individual suit files"
+  },
+  "cardStructure": {
+    "majorArcana": {
+      "count": 22,
+      "theme": "Spiritual journey and archetypal forces",
+      "cards": [
+        {
+          "cardNumber": 0,
+          "traditionalName": "The Fool",
+          "quantumName": "The Quantum Initiate",
+          "imagery": {
+            "traditionalElements": "Youth with bundle, dog, cliff edge, white rose",
+            "quantumElements": "Quantum particle leaping into superposition, probability waves as path, observer effect represented by multiple potential destinations",
+            "paganElements": "Green man motifs, unhewn stone, wild herbs in bundle",
+            "colorPalette": "Spring greens, sky blues, golden yellows",
+            "keySymbols": ["Quantum leap", "Infinite potential", "Beginner's mind"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["innocence", "new beginnings", "free spirit", "faith"],
+              "description": "Leaping into the unknown with trust in the universe",
+              "quantumInterpretation": "Entering superposition - all possibilities exist simultaneously before measurement"
+            },
+            "reversed": {
+              "keywords": ["recklessness", "risk", "poor judgment", "naivety"],
+              "description": "Foolish actions without considering consequences",
+              "quantumInterpretation": "Quantum decoherence - losing coherence through environmental interference"
+            }
+          },
+          "associations": {
+            "element": "Air",
+            "planet": "Uranus",
+            "zodiac": "Aquarius",
+            "quantumConcept": "Quantum Superposition"
+          }
+        },
+        {
+          "cardNumber": 1,
+          "traditionalName": "The Magician",
+          "quantumName": "The Quantum Programmer",
+          "imagery": {
+            "traditionalElements": "Figure with tools, infinity symbol, red-white coloring, raised wand",
+            "quantumElements": "Programmer at quantum console, manipulating qubits, circuit patterns forming sacred geometry",
+            "paganElements": "Ritual tools as interfaces, elemental symbols as programming languages",
+            "colorPalette": "Scarlet red, pure white, metallic silver",
+            "keySymbols": ["Manifestation", "Willpower", "Resource allocation"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["manifestation", "power", "skill", "concentration"],
+              "description": "Using all available tools to manifest desires",
+              "quantumInterpretation": "Programming quantum states - conscious observation collapsing wave functions"
+            },
+            "reversed": {
+              "keywords": ["manipulation", "untested powers", "trickery"],
+              "description": "Misuse of power or untrained abilities",
+              "quantumInterpretation": "Quantum noise - environmental interference disrupting coherent operations"
+            }
+          },
+          "associations": {
+            "element": "All Elements",
+            "planet": "Mercury",
+            "zodiac": "Gemini/Virgo",
+            "quantumConcept": "Quantum Gate Operations"
+          }
+        },
+        {
+          "cardNumber": 2,
+          "traditionalName": "The High Priestess",
+          "quantumName": "The Quantum Oracle",
+          "imagery": {
+            "traditionalElements": "Veiled woman, pomegranates, crescent moon, scrolls",
+            "quantumElements": "Quantum oracle behind data veil, holographic scrolls showing probability distributions, moon phases as quantum phases",
+            "paganElements": "Triple goddess symbolism, lunar cycles, intuitive wisdom",
+            "colorPalette": "Silver, deep blue, midnight purple",
+            "keySymbols": ["Intuition", "Unconscious knowledge", "Mystery"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["intuition", "unconscious", "divine feminine", "mystery"],
+              "description": "Accessing hidden knowledge and intuitive wisdom",
+              "quantumInterpretation": "Quantum oracle - accessing non-local information through entanglement"
+            },
+            "reversed": {
+              "keywords": ["secrets", "withdrawal", "silence", "hidden agendas"],
+              "description": "Repressed intuition or secrets being kept",
+              "quantumInterpretation": "Quantum encryption - information hidden behind computational barriers"
+            }
+          },
+          "associations": {
+            "element": "Water",
+            "planet": "Moon",
+            "zodiac": "Cancer/Pisces",
+            "quantumConcept": "Quantum Entanglement"
+          }
+        },
+        {
+          "cardNumber": 3,
+          "traditionalName": "The Empress",
+          "quantumName": "The Quantum Ecosystem",
+          "imagery": {
+            "traditionalElements": "Pregnant woman, wheat field, flowing river, crown of stars",
+            "quantumElements": "Fertile quantum field birthing complexity, emergent patterns from simple rules, generative algorithms as natural growth",
+            "paganElements": "Earth mother, abundance, natural cycles, fertility symbols",
+            "colorPalette": "Emerald green, rose pink, warm gold",
+            "keySymbols": ["Fertility", "Abundance", "Nature", "Nurturing"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["fertility", "abundance", "nature", "beauty"],
+              "description": "Creative abundance and nurturing growth",
+              "quantumInterpretation": "Quantum field theory - vacuum fluctuations birthing virtual particles and complexity"
+            },
+            "reversed": {
+              "keywords": ["creative block", "dependence", "smothering"],
+              "description": "Creative stagnation or overbearing nurturing",
+              "quantumInterpretation": "Quantum vacuum decay - instability in the fundamental field"
+            }
+          },
+          "associations": {
+            "element": "Earth",
+            "planet": "Venus",
+            "zodiac": "Taurus/Libra",
+            "quantumConcept": "Quantum Field Theory"
+          }
+        },
+        {
+          "cardNumber": 4,
+          "traditionalName": "The Emperor",
+          "quantumName": "The Quantum Architecture",
+          "imagery": {
+            "traditionalElements": "Throned king, ram heads, scepter, orb, stone throne",
+            "quantumElements": "Quantum computer architecture, logical gates as castle walls, stable structures containing chaotic processes",
+            "paganElements": "Mountain king, stone circles, structural integrity",
+            "colorPalette": "Crimson red, stone gray, royal purple",
+            "keySymbols": ["Authority", "Structure", "Foundation", "Control"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["authority", "structure", "control", "fatherhood"],
+              "description": "Establishing order and structure through authority",
+              "quantumInterpretation": "Quantum error correction - maintaining coherence through architectural stability"
+            },
+            "reversed": {
+              "keywords": ["domination", "rigidity", "control issues"],
+              "description": "Tyrannical control or structural collapse",
+              "quantumInterpretation": "Quantum chaos - sensitive dependence on initial conditions leading to unpredictability"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Mars",
+            "zodiac": "Aries",
+            "quantumConcept": "Quantum Error Correction"
+          }
+        },
+        {
+          "cardNumber": 5,
+          "traditionalName": "The Hierophant",
+          "quantumName": "The Quantum Protocol",
+          "imagery": {
+            "traditionalElements": "Religious figure, crossed keys, two acolytes, ritual gesture",
+            "quantumElements": "Standardized quantum protocols, handshake between systems, cryptographic keys as spiritual keys",
+            "paganElements": "Ritual traditions, mystery schools, initiatory knowledge",
+            "colorPalette": "Gold, deep blue, ritual white",
+            "keySymbols": ["Tradition", "Conformity", "Morality", "Education"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["tradition", "conformity", "morality", "ethics"],
+              "description": "Following established traditions and belief systems",
+              "quantumInterpretation": "Quantum teleportation protocol - standardized methods for transferring quantum states"
+            },
+            "reversed": {
+              "keywords": ["rebellion", "subversiveness", "new approaches"],
+              "description": "Challenging tradition or breaking conventions",
+              "quantumInterpretation": "Quantum hacking - subverting established protocols for new purposes"
+            }
+          },
+          "associations": {
+            "element": "Earth",
+            "planet": "Venus",
+            "zodiac": "Taurus",
+            "quantumConcept": "Quantum Teleportation"
+          }
+        },
+        {
+          "cardNumber": 6,
+          "traditionalName": "The Lovers",
+          "quantumName": "The Quantum Entanglement",
+          "imagery": {
+            "traditionalElements": "Adam and Eve, angel, tree with serpent, mountain",
+            "quantumElements": "Two entangled particles, wave function correlation, choice between measured states",
+            "paganElements": "Sacred marriage, polarity balancing, choice and consequence",
+            "colorPalette": "Sun gold, emerald green, sky blue",
+            "keySymbols": ["Love", "Harmony", "Relationships", "Choices"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["love", "harmony", "relationships", "values alignment"],
+              "description": "Meaningful relationships and important choices",
+              "quantumInterpretation": "Quantum entanglement - instantaneous correlation regardless of distance"
+            },
+            "reversed": {
+              "keywords": ["disharmony", "imbalance", "misalignment of values"],
+              "description": "Disharmony in relationships or poor choices",
+              "quantumInterpretation": "Quantum decoherence - loss of correlation through environmental interaction"
+            }
+          },
+          "associations": {
+            "element": "Air",
+            "planet": "Mercury",
+            "zodiac": "Gemini",
+            "quantumConcept": "Quantum Entanglement"
+          }
+        },
+        {
+          "cardNumber": 7,
+          "traditionalName": "The Chariot",
+          "quantumName": "The Quantum Drive",
+          "imagery": {
+            "traditionalElements": "Charioteer, two sphinxes, city walls, starry canopy",
+            "quantumElements": "Quantum drive system, opposing forces harnessed for propulsion, navigating probability landscapes",
+            "paganElements": "Solar chariot, willpower as driving force, victory through balance",
+            "colorPalette": "Silver, deep blue, gold accents",
+            "keySymbols": ["Control", "Willpower", "Victory", "Assertion"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["control", "willpower", "victory", "assertion"],
+              "description": "Triumph through determination and control",
+              "quantumInterpretation": "Quantum annealing - navigating complex energy landscapes to find optimal solutions"
+            },
+            "reversed": {
+              "keywords": ["lack of control", "aggression", "no direction"],
+              "description": "Lack of direction or control over circumstances",
+              "quantumInterpretation": "Quantum tunneling failure - inability to overcome energy barriers"
+            }
+          },
+          "associations": {
+            "element": "Water",
+            "planet": "Moon",
+            "zodiac": "Cancer",
+            "quantumConcept": "Quantum Annealing"
+          }
+        },
+        {
+          "cardNumber": 8,
+          "traditionalName": "Strength",
+          "quantumName": "The Quantum Coherence",
+          "imagery": {
+            "traditionalElements": "Woman gently closing lion's mouth, infinity symbol, flowers",
+            "quantumElements": "Maintaining quantum coherence against environmental noise, gentle control of chaotic systems",
+            "paganElements": "Animal wisdom, inner strength, gentle power",
+            "colorPalette": "Warm gold, earthy brown, soft white",
+            "keySymbols": ["Courage", "Persuasion", "Influence", "Compassion"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["courage", "persuasion", "influence", "compassion"],
+              "description": "Inner strength and compassion overcoming adversity",
+              "quantumInterpretation": "Quantum coherence - maintaining delicate quantum states against environmental disruption"
+            },
+            "reversed": {
+              "keywords": ["weakness", "self-doubt", "raw energy"],
+              "description": "Self-doubt or misuse of personal power",
+              "quantumInterpretation": "Quantum decoherence - loss of delicate quantum information"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Sun",
+            "zodiac": "Leo",
+            "quantumConcept": "Quantum Coherence"
+          }
+        },
+        {
+          "cardNumber": 9,
+          "traditionalName": "The Hermit",
+          "quantumName": "The Quantum Observer",
+          "imagery": {
+            "traditionalElements": "Old man with lantern, staff, mountain, star inside lantern",
+            "quantumElements": "Solitary observer causing wave function collapse, inner light illuminating quantum truths",
+            "paganElements": "Wise elder, inner guidance, solitary wisdom",
+            "colorPalette": "Deep blue, silver gray, golden light",
+            "keySymbols": ["Soul-searching", "Introspection", "Being alone", "Inner guidance"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["soul-searching", "introspection", "being alone", "inner guidance"],
+              "description": "Withdrawal for soul-searching and inner guidance",
+              "quantumInterpretation": "Quantum measurement - conscious observation collapsing probability waves into definite states"
+            },
+            "reversed": {
+              "keywords": ["isolation", "withdrawal", "rejection"],
+              "description": "Isolation or rejection of community",
+              "quantumInterpretation": "Quantum Zeno effect - excessive observation freezing evolution"
+            }
+          },
+          "associations": {
+            "element": "Earth",
+            "planet": "Mercury",
+            "zodiac": "Virgo",
+            "quantumConcept": "Quantum Measurement"
+          }
+        },
+        {
+          "cardNumber": 10,
+          "traditionalName": "Wheel of Fortune",
+          "quantumName": "The Probability Field",
+          "imagery": {
+            "traditionalElements": "Wheel with symbols, four creatures, snake, sphinx",
+            "quantumElements": "Quantum probability distribution, spinning qubits representing possibilities, measurement as wheel stopping",
+            "paganElements": "Seasonal cycles, fate and destiny, turning of the great wheel",
+            "colorPalette": "Royal purple, gold, deep blue",
+            "keySymbols": ["Good luck", "Karma", "Life cycles", "Fate", "Turning point"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["good luck", "karma", "life cycles", "fate", "turning point"],
+              "description": "Cycles of fate and unexpected good fortune",
+              "quantumInterpretation": "Quantum probability amplitudes - the fundamental uncertainty and potential of reality"
+            },
+            "reversed": {
+              "keywords": ["bad luck", "resistance to change", "breaking cycles"],
+              "description": "Bad luck or resistance to necessary change",
+              "quantumInterpretation": "Quantum interference - destructive patterns canceling probabilities"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Jupiter",
+            "zodiac": "Sagittarius",
+            "quantumConcept": "Quantum Probability"
+          }
+        },
+        {
+          "cardNumber": 11,
+          "traditionalName": "Justice",
+          "quantumName": "The Quantum Balance",
+          "imagery": {
+            "traditionalElements": "Figure with scales and sword, pillars, crown",
+            "quantumElements": "Quantum state balancing, entanglement fairness, algorithmic justice",
+            "paganElements": "Cosmic balance, Ma'at's feather, truth and consequences",
+            "colorPalette": "Deep green, gold, balanced gray",
+            "keySymbols": ["Justice", "Fairness", "Truth", "Cause and effect"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["justice", "fairness", "truth", "cause and effect"],
+              "description": "Fairness, truth, and cause-effect relationships",
+              "quantumInterpretation": "Quantum symmetry - fundamental balance in physical laws and interactions"
+            },
+            "reversed": {
+              "keywords": ["unfairness", "lack of accountability", "dishonesty"],
+              "description": "Unfairness, dishonesty, or lack of accountability",
+              "quantumInterpretation": "Quantum asymmetry - broken symmetries leading to imbalance"
+            }
+          },
+          "associations": {
+            "element": "Air",
+            "planet": "Venus",
+            "zodiac": "Libra",
+            "quantumConcept": "Quantum Symmetry"
+          }
+        },
+        {
+          "cardNumber": 12,
+          "traditionalName": "The Hanged Man",
+          "quantumName": "The Quantum Suspension",
+          "imagery": {
+            "traditionalElements": "Man hanging by one foot, serene expression, halo",
+            "quantumElements": "Quantum state in superposition, suspended between possibilities, different perspective",
+            "paganElements": "Odin's sacrifice, suspension between worlds, voluntary surrender",
+            "colorPalette": "Deep blue, silver, muted gold",
+            "keySymbols": ["Sacrifice", "Waiting", "Uncertainty", "Surrender"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["sacrifice", "waiting", "uncertainty", "surrender"],
+              "description": "Surrender and new perspectives through suspension",
+              "quantumInterpretation": "Quantum superposition - existing in multiple states simultaneously before measurement"
+            },
+            "reversed": {
+              "keywords": ["stalling", "needless sacrifice", "fear of sacrifice"],
+              "description": "Stalling, wasted sacrifice, or resistance to surrender",
+              "quantumInterpretation": "Quantum collapse - premature measurement destroying potential states"
+            }
+          },
+          "associations": {
+            "element": "Water",
+            "planet": "Neptune",
+            "zodiac": "Pisces",
+            "quantumConcept": "Quantum Superposition"
+          }
+        },
+        {
+          "cardNumber": 13,
+          "traditionalName": "Death",
+          "quantumName": "The Quantum Decay",
+          "imagery": {
+            "traditionalElements": "Skeletal knight, black banner with rose, sun rising between towers",
+            "quantumElements": "Quantum state decay, transformation of information, emergence from collapse",
+            "paganElements": "Cycle of death and rebirth, transformation, the cauldron of change",
+            "colorPalette": "Black, silver, crimson, new dawn gold",
+            "keySymbols": ["End of cycle", "Beginnings", "Change", "Metamorphosis"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["end of cycle", "beginnings", "change", "metamorphosis"],
+              "description": "Endings leading to new beginnings and transformation",
+              "quantumInterpretation": "Quantum state collapse - measurement ending superposition but creating new definite reality"
+            },
+            "reversed": {
+              "keywords": ["fear of change", "holding on", "stagnation", "decay"],
+              "description": "Resistance to change and inability to move forward",
+              "quantumInterpretation": "Quantum immortality - refusal to accept state collapse, clinging to superposition"
+            }
+          },
+          "associations": {
+            "element": "Water",
+            "planet": "Pluto",
+            "zodiac": "Scorpio",
+            "quantumConcept": "Quantum State Collapse"
+          }
+        },
+        {
+          "cardNumber": 14,
+          "traditionalName": "Temperance",
+          "quantumName": "The Quantum Superposition",
+          "imagery": {
+            "traditionalElements": "Angel mixing cups, path to crown, iris flowers",
+            "quantumElements": "Quantum state mixing, balanced probabilities, harmonious interference patterns",
+            "paganElements": "Alchemical blending, balancing opposites, middle path",
+            "colorPalette": "Sky blue, soft gold, balanced gray",
+            "keySymbols": ["Balance", "Moderation", "Patience", "Purpose"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["balance", "moderation", "patience", "purpose"],
+              "description": "Balance, moderation, and harmonious blending",
+              "quantumInterpretation": "Quantum superposition - holding multiple states in perfect balance"
+            },
+            "reversed": {
+              "keywords": ["imbalance", "excess", "lack of harmony"],
+              "description": "Imbalance, excess, or lack of harmony",
+              "quantumInterpretation": "Quantum decoherence - loss of balanced superposition"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Jupiter",
+            "zodiac": "Sagittarius",
+            "quantumConcept": "Quantum Superposition"
+          }
+        },
+        {
+          "cardNumber": 15,
+          "traditionalName": "The Devil",
+          "quantumName": "The Quantum Entropy",
+          "imagery": {
+            "traditionalElements": "Horned figure, chained figures, inverted pentagram",
+            "quantumElements": "Quantum noise and decoherence, information loss, computational limitations",
+            "paganElements": "Shadow self, material bondage, confronting limitations",
+            "colorPalette": "Deep red, black, bronze",
+            "keySymbols": ["Shadow self", "Attachment", "Restriction", "Sexuality"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["shadow self", "attachment", "restriction", "sexuality"],
+              "description": "Bondage to material world and shadow self",
+              "quantumInterpretation": "Quantum decoherence - environmental interference destroying quantum information"
+            },
+            "reversed": {
+              "keywords": ["releasing limiting beliefs", "exploring dark thoughts", "detachment"],
+              "description": "Releasing bondage and confronting shadow self",
+              "quantumInterpretation": "Quantum error correction - overcoming environmental noise and limitations"
+            }
+          },
+          "associations": {
+            "element": "Earth",
+            "planet": "Saturn",
+            "zodiac": "Capricorn",
+            "quantumConcept": "Quantum Decoherence"
+          }
+        },
+        {
+          "cardNumber": 16,
+          "traditionalName": "The Tower",
+          "quantumName": "The Quantum Collapse",
+          "imagery": {
+            "traditionalElements": "Tower struck by lightning, falling figures, crown falling",
+            "quantumElements": "Sudden quantum measurement, wave function collapse, destruction of false structures",
+            "paganElements": "Lightning as divine revelation, destruction of ego structures",
+            "colorPalette": "Orange, black, electric blue",
+            "keySymbols": ["Disaster", "Upheaval", "Sudden change", "Revelation"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["disaster", "upheaval", "sudden change", "revelation"],
+              "description": "Sudden upheaval and destruction of false structures",
+              "quantumInterpretation": "Quantum measurement collapse - sudden transition from potential to actual reality"
+            },
+            "reversed": {
+              "keywords": ["fear of change", "disaster avoidance", "delay"],
+              "description": "Resisting necessary change or delaying collapse",
+              "quantumInterpretation": "Quantum Zeno effect - preventing collapse through constant observation"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Mars",
+            "zodiac": "Aries",
+            "quantumConcept": "Quantum Measurement Collapse"
+          }
+        },
+        {
+          "cardNumber": 17,
+          "traditionalName": "The Star",
+          "quantumName": "The Quantum Signal",
+          "imagery": {
+            "traditionalElements": "Naked woman pouring water, stars, birds, landscape",
+            "quantumElements": "Quantum information transmission, clear signals through noise, hope as coherent state",
+            "paganElements": "Starlight wisdom, cosmic guidance, hope and inspiration",
+            "colorPalette": "Starry blue, silver, soft gold",
+            "keySymbols": ["Hope", "Faith", "Purpose", "Renewal"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["hope", "faith", "purpose", "renewal"],
+              "description": "Hope, inspiration, and connection to divine guidance",
+              "quantumInterpretation": "Quantum communication - transmitting information through entangled states"
+            },
+            "reversed": {
+              "keywords": ["faithlessness", "discouragement", "insecurity"],
+              "description": "Hopelessness, discouragement, or lack of faith",
+              "quantumInterpretation": "Quantum noise - interference disrupting clear signal transmission"
+            }
+          },
+          "associations": {
+            "element": "Air",
+            "planet": "Uranus",
+            "zodiac": "Aquarius",
+            "quantumConcept": "Quantum Communication"
+          }
+        },
+        {
+          "cardNumber": 18,
+          "traditionalName": "The Moon",
+          "quantumName": "The Quantum Uncertainty",
+          "imagery": {
+            "traditionalElements": "Moon, dog and wolf, crayfish, towers, path",
+            "quantumElements": "Quantum uncertainty principle, fuzzy probabilities, hidden variables as subconscious",
+            "paganElements": "Lunar mysteries, intuition, dreams, shadow work",
+            "colorPalette": "Silver, deep blue, muted purple",
+            "keySymbols": ["Unconscious", "Illusions", "Intuition", "Uncertainty"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["unconscious", "illusions", "intuition", "uncertainty"],
+              "description": "Illusion, intuition, and confronting the unconscious",
+              "quantumInterpretation": "Heisenberg's uncertainty principle - fundamental limits to simultaneous knowledge"
+            },
+            "reversed": {
+              "keywords": ["confusion", "fear", "misinterpretation", "release"],
+              "description": "Confusion, fear, or release of illusions",
+              "quantumInterpretation": "Quantum clarity - resolving uncertainty through measurement or insight"
+            }
+          },
+          "associations": {
+            "element": "Water",
+            "planet": "Moon",
+            "zodiac": "Pisces",
+            "quantumConcept": "Quantum Uncertainty Principle"
+          }
+        },
+        {
+          "cardNumber": 19,
+          "traditionalName": "The Sun",
+          "quantumName": "The Quantum Clarity",
+          "imagery": {
+            "traditionalElements": "Child on horse, sunflowers, wall, bright sun",
+            "quantumElements": "Perfect quantum measurement, complete information, no hidden variables",
+            "paganElements": "Solar enlightenment, clarity, joy, vitality",
+            "colorPalette": "Golden yellow, bright orange, pure white",
+            "keySymbols": ["Joy", "Success", "Celebration", "Positivity"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["joy", "success", "celebration", "positivity"],
+              "description": "Joy, success, and radiant positivity",
+              "quantumInterpretation": "Quantum state tomography - complete knowledge of a quantum system"
+            },
+            "reversed": {
+              "keywords": ["temporary depression", "lack of success", "pessimism"],
+              "description": "Temporary negativity or delayed success",
+              "quantumInterpretation": "Partial measurement - incomplete information about quantum state"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Sun",
+            "zodiac": "Leo",
+            "quantumConcept": "Quantum State Tomography"
+          }
+        },
+        {
+          "cardNumber": 20,
+          "traditionalName": "Judgement",
+          "quantumName": "The Quantum Measurement",
+          "imagery": {
+            "traditionalElements": "Angel with trumpet, graves opening, people rising",
+            "quantumElements": "Final quantum measurement, wave function collapse into definite reality, awakening to truth",
+            "paganElements": "Ragnarok, final reckoning, spiritual awakening",
+            "colorPalette": "Gold, white, sky blue",
+            "keySymbols": ["Reflection", "Reckoning", "Awakening", "Absolution"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["reflection", "reckoning", "awakening", "absolution"],
+              "description": "Spiritual awakening and life evaluation",
+              "quantumInterpretation": "Quantum measurement - collapse of all possibilities into single reality"
+            },
+            "reversed": {
+              "keywords": ["self-doubt", "refusal of self-examination", "ignoring the call"],
+              "description": "Self-doubt and refusal to face truth",
+              "quantumInterpretation": "Delayed measurement - avoiding the collapse of comforting illusions"
+            }
+          },
+          "associations": {
+            "element": "Fire",
+            "planet": "Pluto",
+            "zodiac": "Scorpio",
+            "quantumConcept": "Quantum Measurement"
+          }
+        },
+        {
+          "cardNumber": 21,
+          "traditionalName": "The World",
+          "quantumName": "The Quantum Completion",
+          "imagery": {
+            "traditionalElements": "Dancing figure, wreath, four creatures, ribbons",
+            "quantumElements": "Complete quantum circuit, all states resolved, perfect coherence and integration",
+            "paganElements": "World tree, cosmic dance, completion of cycles",
+            "colorPalette": "All colors in harmony, gold, deep blue",
+            "keySymbols": ["Completion", "Integration", "Accomplishment", "Travel"]
+          },
+          "meanings": {
+            "upright": {
+              "keywords": ["completion", "integration", "accomplishment", "travel"],
+              "description": "Completion, wholeness, and successful journeys",
+              "quantumInterpretation": "Quantum algorithm completion - all qubits measured and integrated into coherent solution"
+            },
+            "reversed": {
+              "keywords": ["incompletion", "lack of closure", "stagnation"],
+              "description": "Incompletion, lack of closure, or stagnation",
+              "quantumInterpretation": "Incomplete quantum computation - algorithm interrupted before full solution"
+            }
+          },
+          "associations": {
+            "element": "Earth",
+            "planet": "Saturn",
+            "zodiac": "Capricorn",
+            "quantumConcept": "Quantum Algorithm Completion"
+          }
+        }
+      ]
+    },
+    "minorArcana": {
+      "wands": {
+        "element": "Fire",
+        "quantumElement": "Energy/Processing",
+        "theme": "Inspiration, action, energy, growth",
+        "cards": [
+          {
+            "cardNumber": 1,
+            "traditionalName": "Ace of Wands",
+            "quantumName": "Ace of Quantum Sparks",
+            "imagery": {
+              "traditionalElements": "Hand emerging from cloud holding wand, castle in distance",
+              "quantumElements": "Hand offering first qubit, quantum spark of inspiration, initial energy state",
+              "paganElements": "Seed of inspiration, divine spark, creative potential",
+              "colorPalette": "Fiery red, gold, bright yellow",
+              "keySymbols": ["Inspiration", "New opportunities", "Potential", "Creation"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["inspiration", "new opportunities", "potential", "creation"],
+                "description": "New inspiration, opportunities, and creative potential",
+                "quantumInterpretation": "Initial quantum state preparation - setting the stage for computation"
+              },
+              "reversed": {
+                "keywords": ["delays", "lack of passion", "uninspired", "missed opportunities"],
+                "description": "Delayed inspiration or missed opportunities",
+                "quantumInterpretation": "Failed state initialization - quantum noise corrupting initial conditions"
+              }
+            }
+          },
+          {
+            "cardNumber": 2,
+            "traditionalName": "Two of Wands",
+            "quantumName": "Two of Parallel Processing",
+            "imagery": {
+              "traditionalElements": "Man holding globe, looking at sea, two wands crossed",
+              "quantumElements": "Quantum processor running parallel computations, multiple paths being evaluated simultaneously",
+              "paganElements": "World exploration, planning journeys, crossroads decision",
+              "colorPalette": "Orange, deep blue, gold accents",
+              "keySymbols": ["Planning", "Discovery", "Future planning", "Partnerships"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["planning", "discovery", "future planning", "partnerships"],
+                "description": "Planning future actions while considering options",
+                "quantumInterpretation": "Quantum parallelism - exploring multiple computational paths simultaneously"
+              },
+              "reversed": {
+                "keywords": ["fear of unknown", "lack of planning", "bad timing"],
+                "description": "Fear of unknown or poor planning",
+                "quantumInterpretation": "Serial processing limitation - forced to evaluate paths sequentially"
+              }
+            }
+          },
+          {
+            "cardNumber": 3,
+            "traditionalName": "Three of Wands",
+            "quantumName": "Three of Expanding Horizons",
+            "imagery": {
+              "traditionalElements": "Man on cliff watching ships, three wands planted",
+              "quantumElements": "Quantum network expanding, successful algorithm scaling, distant connections established",
+              "paganElements": "Merchant success, trade routes, expanding influence",
+              "colorPalette": "Golden yellow, ocean blue, earthy brown",
+              "keySymbols": ["Expansion", "Foresight", "Trade", "Cooperation"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["expansion", "foresight", "trade", "cooperation"],
+                "description": "Expansion, foresight, and enterprise success",
+                "quantumInterpretation": "Quantum network growth - successful scaling of computational resources"
+              },
+              "reversed": {
+                "keywords": ["obstacles", "delays", "frustration", "isolation"],
+                "description": "Obstacles, delays, or limited vision",
+                "quantumInterpretation": "Network latency - delays in quantum information transfer"
+              }
+            }
+          },
+          {
+            "cardNumber": 4,
+            "traditionalName": "Four of Wands",
+            "quantumName": "Four of Stable Resonance",
+            "imagery": {
+              "traditionalElements": "Flower garland between four wands, couple dancing, castle in background",
+              "quantumElements": "Four qubits in perfect resonance, stable quantum state, celebration of coherence",
+              "paganElements": "Harvest celebration, wedding, community harmony",
+              "colorPalette": "Celebration gold, festive red, harmony green",
+              "keySymbols": ["Celebration", "Harmony", "Marriage", "Home"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["celebration", "harmony", "marriage", "home"],
+                "description": "Celebration, harmony, and stable foundations",
+                "quantumInterpretation": "Quantum resonance - stable, coherent state supporting complex operations"
+              },
+              "reversed": {
+                "keywords": ["instability", "lack of support", "transition", "home conflict"],
+                "description": "Instability or lack of support",
+                "quantumInterpretation": "Resonance breakdown - loss of stable quantum state"
+              }
+            }
+          },
+          {
+            "cardNumber": 5,
+            "traditionalName": "Five of Wands",
+            "quantumName": "Five of Competitive Processing",
+            "imagery": {
+              "traditionalElements": "Five men fighting with wands, chaotic struggle",
+              "quantumElements": "Multiple quantum processes competing for resources, computational conflict, optimization struggle",
+              "paganElements": "Competition, conflict, testing strength",
+              "colorPalette": "Chaotic red, conflict orange, tension yellow",
+              "keySymbols": ["Conflict", "Disagreement", "Competition", "Tension"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["conflict", "disagreement", "competition", "tension"],
+                "description": "Conflict, competition, and struggle for dominance",
+                "quantumInterpretation": "Quantum resource contention - multiple processes competing for limited qubits"
+              },
+              "reversed": {
+                "keywords": ["conflict avoidance", "resolution", "truce", "integrity"],
+                "description": "Conflict resolution or avoidance of struggle",
+                "quantumInterpretation": "Resource allocation - resolving computational conflicts through scheduling"
+              }
+            }
+          },
+          {
+            "cardNumber": 6,
+            "traditionalName": "Six of Wands",
+            "quantumName": "Six of Algorithmic Victory",
+            "imagery": {
+              "traditionalElements": "Victorious man on horse carrying wand, crowd cheering",
+              "quantumElements": "Successful quantum algorithm completion, breakthrough result, computational victory",
+              "paganElements": "Public recognition, victory parade, success celebration",
+              "colorPalette": "Victory gold, success green, celebration blue",
+              "keySymbols": ["Victory", "Success", "Public recognition", "Reward"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["victory", "success", "public recognition", "reward"],
+                "description": "Victory, success, and public recognition",
+                "quantumInterpretation": "Quantum algorithm success - breakthrough computational result achieved"
+              },
+              "reversed": {
+                "keywords": ["egotism", "fall from grace", "lack of recognition", "dishonor"],
+                "description": "Egotism or lack of recognition",
+                "quantumInterpretation": "Premature celebration - algorithm appears successful but contains hidden errors"
+              }
+            }
+          },
+          {
+            "cardNumber": 7,
+            "traditionalName": "Seven of Wands",
+            "quantumName": "Seven of Defensive Processing",
+            "imagery": {
+              "traditionalElements": "Man on hill defending against six wands from below",
+              "quantumElements": "Quantum system under attack, defending computational integrity, maintaining position against noise",
+              "paganElements": "Standing your ground, defense, perseverance",
+              "colorPalette": "Defensive green, steadfast brown, resilient gray",
+              "keySymbols": ["Challenge", "Competition", "Perseverance", "Defending position"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["challenge", "competition", "perseverance", "defending position"],
+                "description": "Defending position against challenges and competition",
+                "quantumInterpretation": "Quantum error defense - protecting computational integrity against environmental noise"
+              },
+              "reversed": {
+                "keywords": ["giving up", "overwhelmed", "yielding", "exhaustion"],
+                "description": "Giving up or feeling overwhelmed",
+                "quantumInterpretation": "Computational overwhelm - quantum system succumbing to environmental interference"
+              }
+            }
+          },
+          {
+            "cardNumber": 8,
+            "traditionalName": "Eight of Wands",
+            "quantumName": "Eight of Rapid Transmission",
+            "imagery": {
+              "traditionalElements": "Eight wands flying through air, landscape below",
+              "quantumElements": "Rapid quantum information transfer, fast computational progress, swift developments",
+              "paganElements": "Swift messages, rapid travel, quick developments",
+              "colorPalette": "Speed blue, motion silver, progress gold",
+              "keySymbols": ["Speed", "Action", "Movement", "Quick decisions"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["speed", "action", "movement", "quick decisions"],
+                "description": "Rapid action, movement, and swift developments",
+                "quantumInterpretation": "Quantum information speed - rapid transmission through entangled channels"
+              },
+              "reversed": {
+                "keywords": ["delays", "frustration", "panic", "haste"],
+                "description": "Delays, frustration, or rushed actions",
+                "quantumInterpretation": "Information latency - delays in quantum communication channels"
+              }
+            }
+          },
+          {
+            "cardNumber": 9,
+            "traditionalName": "Nine of Wands",
+            "quantumName": "Nine of Resilient Circuits",
+            "imagery": {
+              "traditionalElements": "Wounded man holding wand, eight wands behind him",
+              "quantumElements": "Battered but functional quantum circuit, resilience through redundancy, continued operation despite damage",
+              "paganElements": "Last stand, resilience, inner strength",
+              "colorPalette": "Resilient brown, enduring green, steadfast gray",
+              "keySymbols": ["Resilience", "Persistence", "Last stand", "Boundaries"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["resilience", "persistence", "last stand", "boundaries"],
+                "description": "Resilience, persistence, and final defense",
+                "quantumInterpretation": "Quantum error resilience - continued operation despite partial system failure"
+              },
+              "reversed": {
+                "keywords": ["exhaustion", "fatigue", "defensiveness", "giving up"],
+                "description": "Exhaustion, defensiveness, or surrender",
+                "quantumInterpretation": "Circuit fatigue - quantum system approaching complete failure"
+              }
+            }
+          },
+          {
+            "cardNumber": 10,
+            "traditionalName": "Ten of Wands",
+            "quantumName": "Ten of Computational Burden",
+            "imagery": {
+              "traditionalElements": "Man carrying ten heavy wands, trudging toward town",
+              "quantumElements": "Overloaded quantum processor, excessive computational load, system near collapse from burden",
+              "paganElements": "Burden, oppression, responsibility, hard labor",
+              "colorPalette": "Burdened brown, heavy gray, exhausted red",
+              "keySymbols": ["Burden", "Responsibility", "Hard work", "Obligation"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["burden", "responsibility", "hard work", "obligation"],
+                "description": "Burden, responsibility, and heavy load",
+                "quantumInterpretation": "Quantum computational overload - system strained beyond optimal capacity"
+              },
+              "reversed": {
+                "keywords": ["inability to delegate", "breakdown", "release", "simplification"],
+                "description": "Inability to delegate or release burdens",
+                "quantumInterpretation": "System collapse - quantum processor failing under excessive load"
+              }
+            }
+          },
+          {
+            "cardNumber": 11,
+            "traditionalName": "Page of Wands",
+            "quantumName": "Quantum Initiate of Energy",
+            "imagery": {
+              "traditionalElements": "Youth holding wand, desert landscape, lizard",
+              "quantumElements": "Young quantum programmer learning energy manipulation, first experiments with quantum states",
+              "paganElements": "Student of fire, messenger of inspiration, curious explorer",
+              "colorPalette": "Youthful orange, learning yellow, desert brown",
+              "keySymbols": ["Exploration", "Excitement", "Freedom", "Wonder"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["exploration", "excitement", "freedom", "wonder"],
+                "description": "Exploration, excitement, and free spirit",
+                "quantumInterpretation": "Quantum programming novice - learning to manipulate energy states"
+              },
+              "reversed": {
+                "keywords": ["lack of direction", "immaturity", "recklessness", "unreliability"],
+                "description": "Lack of direction or immature actions",
+                "quantumInterpretation": "Uncontrolled quantum experiments - reckless manipulation of energy states"
+              }
+            }
+          },
+          {
+            "cardNumber": 12,
+            "traditionalName": "Knight of Wands",
+            "quantumName": "Quantum Operator of Energy",
+            "imagery": {
+              "traditionalElements": "Knight on horse charging forward, desert landscape, wand raised",
+              "quantumElements": "Quantum operator executing rapid energy transformations, fast computational actions, dynamic processing",
+              "paganElements": "Adventurous warrior, passionate action, fiery determination",
+              "colorPalette": "Action red, speed orange, desert yellow",
+              "keySymbols": ["Action", "Adventure", "Fearlessness", "Energy"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["action", "adventure", "fearlessness", "energy"],
+                "description": "Action, adventure, and fearless energy",
+                "quantumInterpretation": "Quantum gate operator - rapid execution of energy transformation operations"
+              },
+              "reversed": {
+                "keywords": ["anger", "haste", "frustration", "recklessness"],
+                "description": "Anger, haste, or frustration",
+                "quantumInterpretation": "Uncontrolled quantum operations - chaotic energy transformations"
+              }
+            }
+          },
+          {
+            "cardNumber": 13,
+            "traditionalName": "Queen of Wands",
+            "quantumName": "Quantum Matrix of Energy",
+            "imagery": {
+              "traditionalElements": "Queen on throne with wand, sunflower, black cat",
+              "quantumElements": "Quantum energy matrix maintaining stable transformations, nurturing computational processes, confident control",
+              "paganElements": "Confident leader, vibrant energy, solar feminine power",
+              "colorPalette": "Confident orange, vibrant yellow, solar gold",
+              "keySymbols": ["Courage", "Determination", "Joy", "Vibrancy"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["courage", "determination", "joy", "vibrancy"],
+                "description": "Courage, determination, and vibrant energy",
+                "quantumInterpretation": "Quantum energy matrix - stable, confident control of transformation processes"
+              },
+              "reversed": {
+                "keywords": ["jealousy", "insecurity", "meanness", "bitterness"],
+                "description": "Jealousy, insecurity, or bitterness",
+                "quantumInterpretation": "Unstable energy matrix - quantum transformations becoming unpredictable"
+              }
+            }
+          },
+          {
+            "cardNumber": 14,
+            "traditionalName": "King of Wands",
+            "quantumName": "Quantum Architecture of Energy",
+            "imagery": {
+              "traditionalElements": "King on throne with wand, salamander on back, desert landscape",
+              "quantumElements": "Quantum energy architecture directing major transformations, visionary computational leadership, inspired direction",
+              "paganElements": "Visionary leader, entrepreneurial spirit, natural authority",
+              "colorPalette": "Leadership gold, authority orange, visionary red",
+              "keySymbols": ["Natural leader", "Vision", "Entrepreneur", "Honor"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["natural leader", "vision", "entrepreneur", "honor"],
+                "description": "Natural leadership, vision, and entrepreneurship",
+                "quantumInterpretation": "Quantum energy architecture - visionary design of transformation systems"
+              },
+              "reversed": {
+                "keywords": ["impulsiveness", "harshness", "bully", "impatience"],
+                "description": "Impulsiveness, harshness, or impatience",
+                "quantumInterpretation": "Faulty energy architecture - quantum transformation systems with design flaws"
+              }
+            }
+          }
+        ]
+      },
+      "cups": {
+        "element": "Water",
+        "quantumElement": "Emotion/Intuition", 
+        "theme": "Emotions, relationships, intuition, creativity",
+        "cards": [
+          {
+            "cardNumber": 1,
+            "traditionalName": "Ace of Cups",
+            "quantumName": "Ace of Emotional Data",
+            "imagery": {
+              "traditionalElements": "Hand emerging from cloud holding cup, water overflowing, dove with wafer",
+              "quantumElements": "Hand offering quantum emotional reservoir, overflowing with coherent emotional states",
+              "paganElements": "Holy grail, emotional abundance, heart opening",
+              "colorPalette": "Sky blue, silver, soft white",
+              "keySymbols": ["Love", "Compassion", "Emotional awakening", "Creativity"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["love", "compassion", "emotional awakening", "creativity"],
+                "description": "New love, emotional awakening, and creative flow",
+                "quantumInterpretation": "Quantum emotional coherence - perfectly synchronized emotional states"
+              },
+              "reversed": {
+                "keywords": ["emotional loss", "blocked creativity", "emptiness"],
+                "description": "Emotional blockage or loss of creative flow",
+                "quantumInterpretation": "Emotional decoherence - loss of emotional synchronization"
+              }
+            }
+          },
+          {
+            "cardNumber": 2,
+            "traditionalName": "Two of Cups",
+            "quantumName": "Two of Emotional Entanglement",
+            "imagery": {
+              "traditionalElements": "Man and woman exchanging cups, winged lion, caduceus",
+              "quantumElements": "Two quantum systems becoming emotionally entangled, perfect resonance between hearts",
+              "paganElements": "Sacred union, soul connections, partnership blessing",
+              "colorPalette": "Harmony blue, connection silver, love pink",
+              "keySymbols": ["Love", "Partnership", "Unity", "Connection"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["love", "partnership", "unity", "connection"],
+                "description": "Love, partnership, and deep connection",
+                "quantumInterpretation": "Quantum emotional entanglement - perfect correlation between emotional states"
+              },
+              "reversed": {
+                "keywords": ["separation", "imbalance", "broken communication", "tension"],
+                "description": "Separation, imbalance, or broken communication",
+                "quantumInterpretation": "Emotional decoherence - loss of connection between quantum emotional states"
+              }
+            }
+          },
+          {
+            "cardNumber": 3,
+            "traditionalName": "Three of Cups",
+            "quantumName": "Three of Community Resonance",
+            "imagery": {
+              "traditionalElements": "Three women dancing with cups, fruit abundance",
+              "quantumElements": "Multiple quantum systems in emotional resonance, community coherence, shared joy states",
+              "paganElements": "Community celebration, friendship, harvest festival",
+              "colorPalette": "Celebration gold, friendship pink, abundance green",
+              "keySymbols": ["Celebration", "Friendship", "Community", "Joy"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["celebration", "friendship", "community", "joy"],
+                "description": "Celebration, friendship, and community joy",
+                "quantumInterpretation": "Quantum community resonance - multiple emotional states synchronized in harmony"
+              },
+              "reversed": {
+                "keywords": ["isolation", "exclusion", "overindulgence", "gossip"],
+                "description": "Isolation, exclusion, or overindulgence",
+                "quantumInterpretation": "Resonance breakdown - loss of community emotional synchronization"
+              }
+            }
+          },
+          {
+            "cardNumber": 4,
+            "traditionalName": "Four of Cups",
+            "quantumName": "Four of Emotional Assessment",
+            "imagery": {
+              "traditionalElements": "Man under tree ignoring three cups, fourth cup offered from cloud",
+              "quantumElements": "Quantum system in emotional contemplation, assessing current states while new opportunity emerges",
+              "paganElements": "Meditation, introspection, emotional withdrawal",
+              "colorPalette": "Contemplation blue, introspection gray, opportunity gold",
+              "keySymbols": ["Meditation", "Contemplation", "Apathy", "Reevaluation"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["meditation", "contemplation", "apathy", "reevaluation"],
+                "description": "Meditation, contemplation, and emotional reassessment",
+                "quantumInterpretation": "Quantum emotional assessment - system pausing to evaluate current state coherence"
+              },
+              "reversed": {
+                "keywords": ["retreat", "withdrawal", "isolation", "missed opportunity"],
+                "description": "Retreat, withdrawal, or missed opportunities",
+                "quantumInterpretation": "Emotional isolation - quantum system disconnecting from new opportunities"
+              }
+            }
+          },
+          {
+            "cardNumber": 5,
+            "traditionalName": "Five of Cups",
+            "quantumName": "Five of Emotional Loss",
+            "imagery": {
+              "traditionalElements": "Mourning figure overlooking three spilled cups, two upright cups behind",
+              "quantumElements": "Quantum system experiencing emotional decoherence, loss states overwhelming remaining coherence",
+              "paganElements": "Grief, loss, mourning, emotional processing",
+              "colorPalette": "Grief gray, loss blue, mourning purple",
+              "keySymbols": ["Loss", "Grief", "Disappointment", "Regret"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["loss", "grief", "disappointment", "regret"],
+                "description": "Loss, grief, and disappointment",
+                "quantumInterpretation": "Quantum emotional loss - decoherence overwhelming coherent emotional states"
+              },
+              "reversed": {
+                "keywords": ["acceptance", "moving on", "finding peace", "forgiveness"],
+                "description": "Acceptance, moving on, and finding peace",
+                "quantumInterpretation": "Emotional recovery - quantum system restoring coherence after loss"
+              }
+            }
+          },
+          {
+            "cardNumber": 6,
+            "traditionalName": "Six of Cups",
+            "quantumName": "Six of Emotional Memory",
+            "imagery": {
+              "traditionalElements": "Children exchanging flowers in cups, village scene",
+              "quantumElements": "Quantum memory recall of emotional states, nostalgic coherence, childhood patterns",
+              "paganElements": "Innocence, nostalgia, childhood memories, simplicity",
+              "colorPalette": "Nostalgia yellow, memory pink, innocence white",
+              "keySymbols": ["Innocence", "Memories", "Nostalgia", "Joy"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["innocence", "memories", "nostalgia", "joy"],
+                "description": "Innocence, memories, and nostalgic joy",
+                "quantumInterpretation": "Quantum memory access - recalling coherent emotional states from the past"
+              },
+              "reversed": {
+                "keywords": ["stuck in past", "naivety", "moving forward", "maturing"],
+                "description": "Stuck in past or naive perspective",
+                "quantumInterpretation": "Memory corruption - quantum system accessing distorted emotional memories"
+              }
+            }
+          },
+          {
+            "cardNumber": 7,
+            "traditionalName": "Seven of Cups",
+            "quantumName": "Seven of Emotional Superposition",
+            "imagery": {
+              "traditionalElements": "Man facing seven cups with various visions, cloud formations",
+              "quantumElements": "Quantum system in emotional superposition, multiple potential futures coexisting, choice paralysis",
+              "paganElements": "Dreams, fantasies, illusions, multiple paths",
+              "colorPalette": "Dream purple, illusion silver, choice rainbow",
+              "keySymbols": ["Dreams", "Illusions", "Choices", "Wishful thinking"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["dreams", "illusions", "choices", "wishful thinking"],
+                "description": "Dreams, illusions, and multiple choices",
+                "quantumInterpretation": "Quantum emotional superposition - multiple potential emotional futures coexisting"
+              },
+              "reversed": {
+                "keywords": ["lack of purpose", "disarray", "confusion", "making choices"],
+                "description": "Lack of purpose, disarray, or confusion",
+                "quantumInterpretation": "Superposition collapse - forced choice among emotional possibilities"
+              }
+            }
+          },
+          {
+            "cardNumber": 8,
+            "traditionalName": "Eight of Cups",
+            "quantumName": "Eight of Emotional Transition",
+            "imagery": {
+              "traditionalElements": "Man walking away from eight cups, moon, mountain journey",
+              "quantumElements": "Quantum system transitioning emotional states, leaving old coherence for new possibilities",
+              "paganElements": "Walking away, spiritual journey, emotional departure",
+              "colorPalette": "Transition blue, journey silver, moon white",
+              "keySymbols": ["Walking away", "Disappointment", "Leaving something behind", "Transition"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["walking away", "disappointment", "leaving something behind", "transition"],
+                "description": "Walking away, disappointment, and transition",
+                "quantumInterpretation": "Quantum emotional transition - system evolving to new coherent states"
+              },
+              "reversed": {
+                "keywords": ["avoidance", "fear of change", "return", "stagnation"],
+                "description": "Avoidance, fear of change, or stagnation",
+                "quantumInterpretation": "Transition resistance - quantum system refusing emotional state evolution"
+              }
+            }
+          },
+          {
+            "cardNumber": 9,
+            "traditionalName": "Nine of Cups",
+            "quantumName": "Nine of Emotional Fulfillment",
+            "imagery": {
+              "traditionalElements": "Smiling man with nine cups behind him, arms crossed",
+              "quantumElements": "Quantum system in perfect emotional coherence, complete satisfaction state, wish fulfillment",
+              "paganElements": "Wish fulfillment, contentment, emotional satisfaction",
+              "colorPalette": "Contentment blue, satisfaction gold, fulfillment green",
+              "keySymbols": ["Contentment", "Satisfaction", "Wish fulfillment", "Comfort"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["contentment", "satisfaction", "wish fulfillment", "comfort"],
+                "description": "Contentment, satisfaction, and wish fulfillment",
+                "quantumInterpretation": "Quantum emotional fulfillment - perfect coherence and satisfaction state achieved"
+              },
+              "reversed": {
+                "keywords": ["smugness", "dissatisfaction", "arrogance", "overindulgence"],
+                "description": "Smugness, dissatisfaction, or arrogance",
+                "quantumInterpretation": "Emotional imbalance - quantum coherence threatened by excessive satisfaction"
+              }
+            }
+          },
+          {
+            "cardNumber": 10,
+            "traditionalName": "Ten of Cups",
+            "quantumName": "Ten of Community Coherence",
+            "imagery": {
+              "traditionalElements": "Happy family under rainbow of ten cups, home scene",
+              "quantumElements": "Multiple quantum systems in perfect community coherence, emotional harmony across network",
+              "paganElements": "Happy home, family harmony, community joy",
+              "colorPalette": "Harmony rainbow, family gold, community blue",
+              "keySymbols": ["Happiness", "Family", "Community", "Joy"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["happiness", "family", "community", "joy"],
+                "description": "Happiness, family, and community joy",
+                "quantumInterpretation": "Quantum community coherence - perfect emotional synchronization across multiple systems"
+              },
+              "reversed": {
+                "keywords": ["broken home", "separation", "family problems", "domestic strife"],
+                "description": "Broken home, separation, or family problems",
+                "quantumInterpretation": "Community decoherence - loss of emotional synchronization in quantum network"
+              }
+            }
+          },
+          {
+            "cardNumber": 11,
+            "traditionalName": "Page of Cups",
+            "quantumName": "Quantum Initiate of Emotion",
+            "imagery": {
+              "traditionalElements": "Youth holding cup with fish emerging, water landscape",
+              "quantumElements": "Young quantum emotional learner, first intuitive insights, emerging emotional intelligence",
+              "paganElements": "Sensitive soul, intuitive messenger, creative student",
+              "colorPalette": "Intuitive blue, sensitive silver, watery green",
+              "keySymbols": ["Sensitive", "Creative", "Intuitive", "Dreamer"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["sensitive", "creative", "intuitive", "dreamer"],
+                "description": "Sensitivity, creativity, and intuitive messages",
+                "quantumInterpretation": "Quantum emotional novice - learning to navigate emotional state spaces"
+              },
+              "reversed": {
+                "keywords": ["emotional immaturity", "insecurity", "disconnection", "creative block"],
+                "description": "Emotional immaturity, insecurity, or disconnection",
+                "quantumInterpretation": "Emotional learning block - difficulty accessing quantum intuitive states"
+              }
+            }
+          },
+          {
+            "cardNumber": 12,
+            "traditionalName": "Knight of Cups",
+            "quantumName": "Quantum Operator of Emotion",
+            "imagery": {
+              "traditionalElements": "Knight on horse carrying cup, flowing river, fish symbols",
+              "quantumElements": "Quantum emotional operator bringing messages, romantic quests, emotional journeys",
+              "paganElements": "Romantic messenger, poetic soul, emotional adventurer",
+              "colorPalette": "Romantic blue, poetic silver, flowing green",
+              "keySymbols": ["Romance", "Charm", "Idealist", "Emotional"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["romance", "charm", "idealist", "emotional"],
+                "description": "Romance, charm, and emotional idealism",
+                "quantumInterpretation": "Quantum emotional messenger - transmitting coherent emotional states across distances"
+              },
+              "reversed": {
+                "keywords": ["moodiness", "disappointment", "tantrum", "emotional manipulation"],
+                "description": "Moodiness, disappointment, or emotional manipulation",
+                "quantumInterpretation": "Emotional transmission errors - quantum messages corrupted by interference"
+              }
+            }
+          },
+          {
+            "cardNumber": 13,
+            "traditionalName": "Queen of Cups",
+            "quantumName": "Quantum Matrix of Emotion",
+            "imagery": {
+              "traditionalElements": "Queen on throne by water, elaborate cup, mermaid symbols",
+              "quantumElements": "Quantum emotional matrix maintaining deep intuition, compassionate wisdom, emotional stability",
+              "paganElements": "Intuitive queen, compassionate healer, emotional wisdom",
+              "colorPalette": "Compassionate blue, intuitive silver, watery purple",
+              "keySymbols": ["Compassionate", "Caring", "Emotional stability", "Intuitive"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["compassionate", "caring", "emotional stability", "intuitive"],
+                "description": "Compassion, caring, and emotional stability",
+                "quantumInterpretation": "Quantum emotional matrix - stable, compassionate control of emotional state spaces"
+              },
+              "reversed": {
+                "keywords": ["martyr", "insecurity", "dependency", "emotional manipulation"],
+                "description": "Martyr complex, insecurity, or dependency",
+                "quantumInterpretation": "Unstable emotional matrix - quantum emotional states becoming manipulative"
+              }
+            }
+          },
+          {
+            "cardNumber": 14,
+            "traditionalName": "King of Cups",
+            "quantumName": "Quantum Architecture of Emotion",
+            "imagery": {
+              "traditionalElements": "King on throne on sea, cup and scepter, fish jumping",
+              "quantumElements": "Quantum emotional architecture balancing compassion with wisdom, emotional mastery, calm authority",
+              "paganElements": "Emotional master, compassionate leader, balanced ruler",
+              "colorPalette": "Mastery blue, authority silver, oceanic green",
+              "keySymbols": ["Emotional balance", "Compassion", "Diplomacy", "Composure"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["emotional balance", "compassion", "diplomacy", "composure"],
+                "description": "Emotional balance, compassion, and diplomacy",
+                "quantumInterpretation": "Quantum emotional architecture - masterful design of emotional state management"
+              },
+              "reversed": {
+                "keywords": ["coldness", "emotional abuse", "moodiness", "temper"],
+                "description": "Coldness, emotional abuse, or moodiness",
+                "quantumInterpretation": "Faulty emotional architecture - quantum emotional systems with control issues"
+              }
+            }
+          }
+        ]
+      },
+      "swords": {
+        "element": "Air",
+        "quantumElement": "Intellect/Logic",
+        "theme": "Truth, clarity, communication, mental power",
+        "cards": [
+          {
+            "cardNumber": 1,
+            "traditionalName": "Ace of Swords",
+            "quantumName": "Ace of Clarity Gates",
+            "imagery": {
+              "traditionalElements": "Hand emerging from cloud holding sword, crown with olive and palm branches",
+              "quantumElements": "Hand offering quantum logic gate, cutting through confusion with clarity",
+              "paganElements": "Sword of truth, mental clarity, decisive insight",
+              "colorPalette": "Silver, sky blue, crisp white",
+              "keySymbols": ["Clarity", "Breakthrough", "New idea", "Mental focus"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["clarity", "breakthrough", "new idea", "mental focus"],
+                "description": "Mental clarity, breakthrough ideas, and truth",
+                "quantumInterpretation": "Quantum logic gate activation - clear computational pathways opening"
+              },
+              "reversed": {
+                "keywords": ["confusion", "miscommunication", "chaos"],
+                "description": "Confusion, miscommunication, or mental chaos",
+                "quantumInterpretation": "Quantum gate error - logical operations producing noise instead of clarity"
+              }
+            }
+          },
+          {
+            "cardNumber": 2,
+            "traditionalName": "Two of Swords",
+            "quantumName": "Two of Balanced Logic",
+            "imagery": {
+              "traditionalElements": "Blindfolded woman holding two crossed swords, moon, sea",
+              "quantumElements": "Quantum system in logical balance, equal probabilities maintained, decision suspended",
+              "paganElements": "Truce, stalemate, balanced opposition, blind justice",
+              "colorPalette": "Balance gray, moonlight silver, sea blue",
+              "keySymbols": ["Difficult choices", "Indecision", "Stalemate", "Blocked emotions"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["difficult choices", "indecision", "stalemate", "blocked emotions"],
+                "description": "Difficult choices, indecision, and stalemate",
+                "quantumInterpretation": "Quantum logical balance - maintaining equal superposition between options"
+              },
+              "reversed": {
+                "keywords": ["indecision", "confusion", "information overload", "release"],
+                "description": "Indecision, confusion, or information overload",
+                "quantumInterpretation": "Logical imbalance - quantum system unable to maintain balanced states"
+              }
+            }
+          },
+          {
+            "cardNumber": 3,
+            "traditionalName": "Three of Swords",
+            "quantumName": "Three of Logical Heartbreak",
+            "imagery": {
+              "traditionalElements": "Heart pierced by three swords, rain clouds, stormy sky",
+              "quantumElements": "Quantum system experiencing logical contradictions, heartbreak algorithms, painful truth realization",
+              "paganElements": "Heartbreak, sorrow, painful truth, emotional storm",
+              "colorPalette": "Heartbreak red, storm gray, sorrow blue",
+              "keySymbols": ["Heartbreak", "Sorrow", "Betrayal", "Pain"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["heartbreak", "sorrow", "betrayal", "pain"],
+                "description": "Heartbreak, sorrow, and painful truth",
+                "quantumInterpretation": "Quantum logical conflict - contradictory truths causing system distress"
+              },
+              "reversed": {
+                "keywords": ["recovery", "forgiveness", "moving on", "reconciliation"],
+                "description": "Recovery, forgiveness, and moving on",
+                "quantumInterpretation": "Logical resolution - quantum system resolving contradictions and healing"
+              }
+            }
+          },
+          {
+            "cardNumber": 4,
+            "traditionalName": "Four of Swords",
+            "quantumName": "Four of Mental Restoration",
+            "imagery": {
+              "traditionalElements": "Knight resting on tomb, three swords hanging, one on tomb, stained glass",
+              "quantumElements": "Quantum system in rest state, mental processes suspended for restoration, quiet contemplation",
+              "paganElements": "Rest, retreat, meditation, spiritual recovery",
+              "colorPalette": "Rest blue, peace gray, restoration gold",
+              "keySymbols": ["Rest", "Restoration", "Contemplation", "Relaxation"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["rest", "restoration", "contemplation", "relaxation"],
+                "description": "Rest, restoration, and contemplation",
+                "quantumInterpretation": "Quantum system standby - computational processes paused for coherence restoration"
+              },
+              "reversed": {
+                "keywords": ["restlessness", "burnout", "lack of progress", "isolation"],
+                "description": "Restlessness, burnout, or lack of progress",
+                "quantumInterpretation": "Forced operation - quantum system denied necessary rest periods"
+              }
+            }
+          },
+          {
+            "cardNumber": 5,
+            "traditionalName": "Five of Swords",
+            "quantumName": "Five of Logical Conflict",
+            "imagery": {
+              "traditionalElements": "Smug figure holding three swords, two defeated figures walking away",
+              "quantumElements": "Quantum system winning logical battle but creating resentment, pyrrhic victory algorithms",
+              "paganElements": "Conflict, defeat, winning battles but losing war, unethical victory",
+              "colorPalette": "Conflict red, victory gray, tension orange",
+              "keySymbols": ["Conflict", "Defeat", "Win at all costs", "Betrayal"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["conflict", "defeat", "win at all costs", "betrayal"],
+                "description": "Conflict, defeat, and winning at all costs",
+                "quantumInterpretation": "Quantum logical victory - winning computational argument but damaging system relationships"
+              },
+              "reversed": {
+                "keywords": ["reconciliation", "forgiveness", "revenge", "regret"],
+                "description": "Reconciliation, forgiveness, or revenge",
+                "quantumInterpretation": "Post-conflict resolution - quantum system repairing damaged logical relationships"
+              }
+            }
+          },
+          {
+            "cardNumber": 6,
+            "traditionalName": "Six of Swords",
+            "quantumName": "Six of Transitional Logic",
+            "imagery": {
+              "traditionalElements": "Figure in boat with six swords, passenger, moving to calmer waters",
+              "quantumElements": "Quantum system transitioning to better logical states, moving from turbulence to clarity",
+              "paganElements": "Transition, journey, moving to better circumstances, rough to calm",
+              "colorPalette": "Transition blue, journey gray, calm silver",
+              "keySymbols": ["Transition", "Change", "Rite of passage", "Release"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["transition", "change", "rite of passage", "release"],
+                "description": "Transition, change, and moving to better circumstances",
+                "quantumInterpretation": "Quantum state transition - moving computational processes to more favorable conditions"
+              },
+              "reversed": {
+                "keywords": ["resistance to transition", "unresolved issues", "stagnation"],
+                "description": "Resistance to transition or unresolved issues",
+                "quantumInterpretation": "Transition resistance - quantum system stuck in unfavorable logical states"
+              }
+            }
+          },
+          {
+            "cardNumber": 7,
+            "traditionalName": "Seven of Swords",
+            "quantumName": "Seven of Strategic Logic",
+            "imagery": {
+              "traditionalElements": "Figure stealing swords from camp, looking back suspiciously",
+              "quantumElements": "Quantum system using strategic deception, information extraction, clever algorithms",
+              "paganElements": "Deception, strategy, cunning, stealth operations",
+              "colorPalette": "Deception gray, strategy blue, cunning silver",
+              "keySymbols": ["Deception", "Strategy", "Betrayal", "Resourcefulness"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["deception", "strategy", "betrayal", "resourcefulness"],
+                "description": "Deception, strategy, and cunning plans",
+                "quantumInterpretation": "Quantum strategic operations - using clever algorithms to gain advantage"
+              },
+              "reversed": {
+                "keywords": ["self-deception", "conspiracy", "exposure", "truth revealed"],
+                "description": "Self-deception, conspiracy, or exposure",
+                "quantumInterpretation": "Strategic failure - quantum deception algorithms discovered and countered"
+              }
+            }
+          },
+          {
+            "cardNumber": 8,
+            "traditionalName": "Eight of Swords",
+            "quantumName": "Eight of Mental Constraints",
+            "imagery": {
+              "traditionalElements": "Blindfolded and bound woman surrounded by eight swords, water, castle",
+              "quantumElements": "Quantum system trapped by logical constraints, self-imposed limitations, mental prison",
+              "paganElements": "Imprisonment, restriction, victim mentality, self-limitation",
+              "colorPalette": "Constraint gray, prison blue, limitation purple",
+              "keySymbols": ["Imprisonment", "Restriction", "Powerlessness", "Self-victimization"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["imprisonment", "restriction", "powerlessness", "self-victimization"],
+                "description": "Imprisonment, restriction, and powerlessness",
+                "quantumInterpretation": "Quantum logical constraints - system trapped by self-imposed computational limits"
+              },
+              "reversed": {
+                "keywords": ["freedom", "release", "new perspective", "clarity"],
+                "description": "Freedom, release, and new perspective",
+                "quantumInterpretation": "Constraint removal - quantum system breaking free from logical limitations"
+              }
+            }
+          },
+          {
+            "cardNumber": 9,
+            "traditionalName": "Nine of Swords",
+            "quantumName": "Nine of Mental Anguish",
+            "imagery": {
+              "traditionalElements": "Figure sitting up in bed, head in hands, nine swords on wall",
+              "quantumElements": "Quantum system experiencing mental overload, anxiety algorithms, worst-case scenario processing",
+              "paganElements": "Anxiety, worry, nightmares, mental torment",
+              "colorPalette": "Anxiety gray, torment blue, night black",
+              "keySymbols": ["Anxiety", "Worry", "Fear", "Overwhelm"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["anxiety", "worry", "fear", "overwhelm"],
+                "description": "Anxiety, worry, and mental torment",
+                "quantumInterpretation": "Quantum mental overload - system overwhelmed by negative probability calculations"
+              },
+              "reversed": {
+                "keywords": ["hope", "reaching out", "healing", "recovery"],
+                "description": "Hope, reaching out, and healing",
+                "quantumInterpretation": "Mental relief - quantum system resolving anxiety through positive recalibration"
+              }
+            }
+          },
+          {
+            "cardNumber": 10,
+            "traditionalName": "Ten of Swords",
+            "quantumName": "Ten of Logical Conclusion",
+            "imagery": {
+              "traditionalElements": "Figure face down with ten swords in back, dark sky, sunrise",
+              "quantumElements": "Quantum system reaching painful but definitive conclusion, complete logical termination, rock bottom",
+              "paganElements": "Betrayal, defeat, rock bottom, painful ending",
+              "colorPalette": "Defeat black, ending gray, dawn gold",
+              "keySymbols": ["Failure", "Defeat", "Back-stabbed", "Rock bottom"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["failure", "defeat", "back-stabbed", "rock bottom"],
+                "description": "Failure, defeat, and rock bottom",
+                "quantumInterpretation": "Quantum logical termination - complete computational failure and system collapse"
+              },
+              "reversed": {
+                "keywords": ["recovery", "regeneration", "fear of ruin", "survival"],
+                "description": "Recovery, regeneration, or fear of ruin",
+                "quantumInterpretation": "System reboot - quantum logic beginning recovery from complete failure"
+              }
+            }
+          },
+          {
+            "cardNumber": 11,
+            "traditionalName": "Page of Swords",
+            "quantumName": "Quantum Initiate of Intellect",
+            "imagery": {
+              "traditionalElements": "Youth holding sword upright, windy landscape, birds flying",
+              "quantumElements": "Young quantum logic learner, curious investigator, truth-seeking algorithms",
+              "paganElements": "Curious student, truth seeker, mental agility",
+              "colorPalette": "Curious blue, mental silver, windy gray",
+              "keySymbols": ["Curiosity", "Vigilance", "Mental energy", "Truth"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["curiosity", "vigilance", "mental energy", "truth"],
+                "description": "Curiosity, vigilance, and truth-seeking",
+                "quantumInterpretation": "Quantum intellectual novice - learning logical operations and truth detection"
+              },
+              "reversed": {
+                "keywords": ["deception", "manipulation", "hasty decisions", "all talk"],
+                "description": "Deception, manipulation, or hasty decisions",
+                "quantumInterpretation": "Logical immaturity - quantum initiate misusing truth-seeking algorithms"
+              }
+            }
+          },
+          {
+            "cardNumber": 12,
+            "traditionalName": "Knight of Swords",
+            "quantumName": "Quantum Operator of Intellect",
+            "imagery": {
+              "traditionalElements": "Knight charging with sword, storm clouds, birds flying",
+              "quantumElements": "Quantum logic operator executing rapid truth operations, cutting through deception with speed",
+              "paganElements": "Mental warrior, truth crusader, intellectual speed",
+              "colorPalette": "Speed blue, storm gray, truth silver",
+              "keySymbols": ["Action", "Ambition", "Speed", "Truth"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["action", "ambition", "speed", "truth"],
+                "description": "Action, ambition, and truth with speed",
+                "quantumInterpretation": "Quantum logical operator - rapid execution of truth-detection algorithms"
+              },
+              "reversed": {
+                "keywords": ["aggression", "brutality", "haste", "force"],
+                "description": "Aggression, brutality, or haste",
+                "quantumInterpretation": "Uncontrolled logical operations - quantum truth-seeking becoming destructive"
+              }
+            }
+          },
+          {
+            "cardNumber": 13,
+            "traditionalName": "Queen of Swords",
+            "quantumName": "Quantum Matrix of Intellect",
+            "imagery": {
+              "traditionalElements": "Queen on throne holding sword upright, clouds, birds, stern expression",
+              "quantumElements": "Quantum intellectual matrix maintaining sharp clarity, honest assessment, unbiased judgment",
+              "paganElements": "Clear-minded queen, honest judge, independent thinker",
+              "colorPalette": "Clarity silver, truth blue, judgment gray",
+              "keySymbols": ["Clarity", "Objectivity", "Perception", "Truth"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["clarity", "objectivity", "perception", "truth"],
+                "description": "Clarity, objectivity, and honest perception",
+                "quantumInterpretation": "Quantum intellectual matrix - stable, unbiased logical assessment systems"
+              },
+              "reversed": {
+                "keywords": ["cruelty", "bitterness", "harshness", "coldness"],
+                "description": "Cruelty, bitterness, or harshness",
+                "quantumInterpretation": "Unstable intellectual matrix - quantum logic becoming cold and cruel"
+              }
+            }
+          },
+          {
+            "cardNumber": 14,
+            "traditionalName": "King of Swords",
+            "quantumName": "Quantum Architecture of Intellect",
+            "imagery": {
+              "traditionalElements": "King on throne holding sword upright, butterflies, clouds, mountains",
+              "quantumElements": "Quantum intellectual architecture designing truth systems, ethical judgment frameworks, mental leadership",
+              "paganElements": "Intellectual king, wise judge, ethical leader",
+              "colorPalette": "Wisdom blue, authority silver, truth gold",
+              "keySymbols": ["Authority", "Truth", "Ethics", "Mental clarity"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["authority", "truth", "ethics", "mental clarity"],
+                "description": "Authority, truth, and ethical clarity",
+                "quantumInterpretation": "Quantum intellectual architecture - masterful design of truth and justice systems"
+              },
+              "reversed": {
+                "keywords": ["manipulation", "tyranny", "cruelty", "abuse of power"],
+                "description": "Manipulation, tyranny, or abuse of power",
+                "quantumInterpretation": "Corrupted intellectual architecture - quantum truth systems used for manipulation"
+              }
+            }
+          }
+        ]
+      },
+      "pentacles": {
+        "element": "Earth",
+        "quantumElement": "Matter/Manifestation",
+        "theme": "Material world, abundance, career, physical reality",
+        "cards": [
+          {
+            "cardNumber": 1,
+            "traditionalName": "Ace of Pentacles",
+            "quantumName": "Ace of Manifest Nodes",
+            "imagery": {
+              "traditionalElements": "Hand emerging from cloud holding pentacle, garden with path and mountains",
+              "quantumElements": "Hand offering quantum manifestation node, material reality emerging from potential",
+              "paganElements": "Seed of manifestation, material abundance, earthly gifts",
+              "colorPalette": "Earth brown, green, gold",
+              "keySymbols": ["Manifestation", "Abundance", "Prosperity", "New venture"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["manifestation", "abundance", "prosperity", "new venture"],
+                "description": "New financial or career opportunities, manifestation",
+                "quantumInterpretation": "Quantum measurement into material reality - potential becoming actual"
+              },
+              "reversed": {
+                "keywords": ["missed opportunity", "lack of planning", "bad investment"],
+                "description": "Missed opportunities or poor financial planning",
+                "quantumInterpretation": "Failed quantum measurement - potential not actualizing into reality"
+              }
+            }
+          },
+          {
+            "cardNumber": 2,
+            "traditionalName": "Two of Pentacles",
+            "quantumName": "Two of Resource Balancing",
+            "imagery": {
+              "traditionalElements": "Juggler with two pentacles, ships on rough sea, infinity loop",
+              "quantumElements": "Quantum system balancing multiple resource streams, adaptive resource allocation, dynamic equilibrium",
+              "paganElements": "Balance, adaptability, resource management, flow with change",
+              "colorPalette": "Balance green, flow blue, earth brown",
+              "keySymbols": ["Balance", "Adaptability", "Resource management", "Multiple priorities"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["balance", "adaptability", "resource management", "multiple priorities"],
+                "description": "Balance, adaptability, and managing multiple priorities",
+                "quantumInterpretation": "Quantum resource balancing - maintaining coherence across multiple material streams"
+              },
+              "reversed": {
+                "keywords": ["imbalance", "disorganization", "overwhelm", "financial loss"],
+                "description": "Imbalance, disorganization, or financial loss",
+                "quantumInterpretation": "Resource imbalance - quantum system losing coherence across material allocations"
+              }
+            }
+          },
+          {
+            "cardNumber": 3,
+            "traditionalName": "Three of Pentacles",
+            "quantumName": "Three of Collaborative Manifestation",
+            "imagery": {
+              "traditionalElements": "Craftsman showing work to monk and noble, cathedral interior",
+              "quantumElements": "Quantum systems collaborating on material projects, skill integration, masterwork creation",
+              "paganElements": "Teamwork, craftsmanship, skill development, collaborative creation",
+              "colorPalette": "Collaboration gold, skill brown, creation green",
+              "keySymbols": ["Teamwork", "Collaboration", "Building", "Mastery"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["teamwork", "collaboration", "building", "mastery"],
+                "description": "Teamwork, collaboration, and skilled work",
+                "quantumInterpretation": "Quantum collaborative manifestation - multiple systems integrating skills for material creation"
+              },
+              "reversed": {
+                "keywords": ["lack of teamwork", "disorganization", "poor quality", "ego"],
+                "description": "Lack of teamwork, disorganization, or poor quality",
+                "quantumInterpretation": "Collaborative failure - quantum systems failing to integrate material efforts"
+              }
+            }
+          },
+          {
+            "cardNumber": 4,
+            "traditionalName": "Four of Pentacles",
+            "quantumName": "Four of Material Stability",
+            "imagery": {
+              "traditionalElements": "Figure clutching four pentacles, one on head, two under feet, one held close",
+              "quantumElements": "Quantum system maintaining material security, conservative resource allocation, stability through control",
+              "paganElements": "Security, conservation, control, material protection",
+              "colorPalette": "Security brown, stability gold, control gray",
+              "keySymbols": ["Security", "Conservation", "Control", "Boundaries"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["security", "conservation", "control", "boundaries"],
+                "description": "Security, conservation, and material control",
+                "quantumInterpretation": "Quantum material stability - maintaining secure resource allocation patterns"
+              },
+              "reversed": {
+                "keywords": ["greed", "materialism", "stinginess", "possessiveness"],
+                "description": "Greed, materialism, or stinginess",
+                "quantumInterpretation": "Resource hoarding - quantum system becoming overly conservative and rigid"
+              }
+            }
+          },
+          {
+            "cardNumber": 5,
+            "traditionalName": "Five of Pentacles",
+            "quantumName": "Five of Material Hardship",
+            "imagery": {
+              "traditionalElements": "Two figures in snow outside stained glass window, five pentacles in window",
+              "quantumElements": "Quantum system experiencing material lack, resource scarcity algorithms, exclusion from abundance",
+              "paganElements": "Hardship, poverty, isolation, material struggle",
+              "colorPalette": "Hardship gray, poverty blue, struggle brown",
+              "keySymbols": ["Hardship", "Poverty", "Isolation", "Worry"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["hardship", "poverty", "isolation", "worry"],
+                "description": "Hardship, poverty, and material struggle",
+                "quantumInterpretation": "Quantum material scarcity - system experiencing resource allocation failures"
+              },
+              "reversed": {
+                "keywords": ["recovery", "charity", "pulling together", "spiritual wealth"],
+                "description": "Recovery, charity, and spiritual wealth",
+                "quantumInterpretation": "Resource recovery - quantum system beginning material restoration processes"
+              }
+            }
+          },
+          {
+            "cardNumber": 6,
+            "traditionalName": "Six of Pentacles",
+            "quantumName": "Six of Resource Sharing",
+            "imagery": {
+              "traditionalElements": "Wealthy figure giving coins to two beggars, scales balanced",
+              "quantumElements": "Quantum system distributing resources fairly, balanced abundance algorithms, charitable allocation",
+              "paganElements": "Charity, generosity, sharing, fair distribution",
+              "colorPalette": "Generosity gold, charity green, balance brown",
+              "keySymbols": ["Charity", "Generosity", "Sharing", "Wealth"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["charity", "generosity", "sharing", "wealth"],
+                "description": "Charity, generosity, and fair sharing",
+                "quantumInterpretation": "Quantum resource distribution - balanced allocation algorithms ensuring fair abundance"
+              },
+              "reversed": {
+                "keywords": ["power dynamics", "strings attached", "debt", "inequality"],
+                "description": "Power dynamics, strings attached, or inequality",
+                "quantumInterpretation": "Unbalanced distribution - quantum resource algorithms creating dependency"
+              }
+            }
+          },
+          {
+            "cardNumber": 7,
+            "traditionalName": "Seven of Pentacles",
+            "quantumName": "Seven of Harvest Assessment",
+            "imagery": {
+              "traditionalElements": "Farmer leaning on tool looking at pentacles on bush",
+              "quantumElements": "Quantum system assessing material progress, growth evaluation algorithms, patience during development",
+              "paganElements": "Harvest, assessment, patience, long-term vision",
+              "colorPalette": "Harvest gold, patience green, assessment brown",
+              "keySymbols": ["Harvest", "Assessment", "Patience", "Long-term vision"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["harvest", "assessment", "patience", "long-term vision"],
+                "description": "Harvest, assessment, and patience for results",
+                "quantumInterpretation": "Quantum growth assessment - evaluating material manifestation progress"
+              },
+              "reversed": {
+                "keywords": ["lack of growth", "impatience", "poor investment", "laziness"],
+                "description": "Lack of growth, impatience, or poor investment",
+                "quantumInterpretation": "Growth stagnation - quantum material processes failing to produce expected results"
+              }
+            }
+          },
+          {
+            "cardNumber": 8,
+            "traditionalName": "Eight of Pentacles",
+            "quantumName": "Eight of Skillful Crafting",
+            "imagery": {
+              "traditionalElements": "Craftsman hammering pentacles, town in distance",
+              "quantumElements": "Quantum system engaged in detailed material work, skill refinement algorithms, mastery through repetition",
+              "paganElements": "Apprenticeship, craftsmanship, skill development, dedicated work",
+              "colorPalette": "Craftsmanship brown, skill gold, dedication green",
+              "keySymbols": ["Apprenticeship", "Craftsmanship", "Skill", "Dedication"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["apprenticeship", "craftsmanship", "skill", "dedication"],
+                "description": "Apprenticeship, craftsmanship, and dedicated work",
+                "quantumInterpretation": "Quantum skill development - systematic refinement of material manifestation abilities"
+              },
+              "reversed": {
+                "keywords": ["perfectionism", "lack of ambition", "money issues", "skill issues"],
+                "description": "Perfectionism, lack of ambition, or skill issues",
+                "quantumInterpretation": "Skill development block - quantum system struggling with material mastery"
+              }
+            }
+          },
+          {
+            "cardNumber": 9,
+            "traditionalName": "Nine of Pentacles",
+            "quantumName": "Nine of Material Independence",
+            "imagery": {
+              "traditionalElements": "Wealthy woman in garden, falcon on hand, nine pentacles on trellis",
+              "quantumElements": "Quantum system achieving material self-sufficiency, independent abundance algorithms, luxurious stability",
+              "paganElements": "Independence, luxury, self-sufficiency, material comfort",
+              "colorPalette": "Luxury gold, independence green, comfort brown",
+              "keySymbols": ["Independence", "Luxury", "Self-sufficiency", "Reward"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["independence", "luxury", "self-sufficiency", "reward"],
+                "description": "Independence, luxury, and self-sufficiency",
+                "quantumInterpretation": "Quantum material independence - self-sustaining abundance algorithms"
+              },
+              "reversed": {
+                "keywords": ["financial loss", "dependence", "isolation", "overindulgence"],
+                "description": "Financial loss, dependence, or isolation",
+                "quantumInterpretation": "Independence loss - quantum system becoming dependent on external resources"
+              }
+            }
+          },
+          {
+            "cardNumber": 10,
+            "traditionalName": "Ten of Pentacles",
+            "quantumName": "Ten of Generational Wealth",
+            "imagery": {
+              "traditionalElements": "Happy family scene with elder, dogs, gateway with ten pentacles",
+              "quantumElements": "Quantum system achieving generational material stability, legacy abundance algorithms, family wealth continuity",
+              "paganElements": "Legacy, family, inheritance, generational wealth",
+              "colorPalette": "Legacy gold, family brown, wealth green",
+              "keySymbols": ["Legacy", "Family", "Inheritance", "Riches"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["legacy", "family", "inheritance", "riches"],
+                "description": "Legacy, family, and generational wealth",
+                "quantumInterpretation": "Quantum generational wealth - stable material algorithms spanning multiple cycles"
+              },
+              "reversed": {
+                "keywords": ["family problems", "financial failure", "loss", "instability"],
+                "description": "Family problems, financial failure, or instability",
+                "quantumInterpretation": "Generational disruption - quantum material legacy algorithms breaking down"
+              }
+            }
+          },
+          {
+            "cardNumber": 11,
+            "traditionalName": "Page of Pentacles",
+            "quantumName": "Quantum Initiate of Manifestation",
+            "imagery": {
+              "traditionalElements": "Youth holding pentacle, looking at it intently, countryside",
+              "quantumElements": "Young quantum manifestation learner, studying material principles, practical skill development",
+              "paganElements": "Student of earth, practical learner, material studies",
+              "colorPalette": "Practical brown, student green, earth gold",
+              "keySymbols": ["Manifestation", "Practicality", "Financial opportunity", "New venture"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["manifestation", "practicality", "financial opportunity", "new venture"],
+                "description": "Manifestation, practicality, and new financial opportunities",
+                "quantumInterpretation": "Quantum material novice - learning practical manifestation algorithms"
+              },
+              "reversed": {
+                "keywords": ["lack of progress", "procrastination", "financial loss", "unrealistic"],
+                "description": "Lack of progress, procrastination, or financial loss",
+                "quantumInterpretation": "Material learning block - quantum initiate struggling with practical applications"
+              }
+            }
+          },
+          {
+            "cardNumber": 12,
+            "traditionalName": "Knight of Pentacles",
+            "quantumName": "Quantum Operator of Manifestation",
+            "imagery": {
+              "traditionalElements": "Knight on horse holding pentacle, plowed fields, slow movement",
+              "quantumElements": "Quantum manifestation operator executing reliable material processes, steady progress algorithms, methodical work",
+              "paganElements": "Reliable worker, methodical approach, steady progress, practical action",
+              "colorPalette": "Reliable brown, steady green, methodical gold",
+              "keySymbols": ["Efficiency", "Hard work", "Responsibility", "Conservatism"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["efficiency", "hard work", "responsibility", "conservatism"],
+                "description": "Efficiency, hard work, and responsibility",
+                "quantumInterpretation": "Quantum material operator - reliable execution of manifestation processes"
+              },
+              "reversed": {
+                "keywords": ["laziness", "boredom", "irresponsibility", "stagnation"],
+                "description": "Laziness, boredom, or irresponsibility",
+                "quantumInterpretation": "Operator stagnation - quantum material processes becoming slow and inefficient"
+              }
+            }
+          },
+          {
+            "cardNumber": 13,
+            "traditionalName": "Queen of Pentacles",
+            "quantumName": "Quantum Matrix of Manifestation",
+            "imagery": {
+              "traditionalElements": "Queen on throne holding pentacle, garden, rabbits, natural abundance",
+              "quantumElements": "Quantum manifestation matrix nurturing material growth, practical wisdom algorithms, abundant resource management",
+              "paganElements": "Nurturing queen, practical wisdom, earth mother, abundant provider",
+              "colorPalette": "Nurturing green, abundance gold, practical brown",
+              "keySymbols": ["Nurturing", "Practicality", "Financial security", "Comfort"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["nurturing", "practicality", "financial security", "comfort"],
+                "description": "Nurturing, practicality, and financial security",
+                "quantumInterpretation": "Quantum material matrix - stable, nurturing manifestation systems"
+              },
+              "reversed": {
+                "keywords": ["financial insecurity", "smothering", "materialism", "self-centeredness"],
+                "description": "Financial insecurity, smothering, or materialism",
+                "quantumInterpretation": "Unstable material matrix - quantum manifestation systems becoming insecure"
+              }
+            }
+          },
+          {
+            "cardNumber": 14,
+            "traditionalName": "King of Pentacles",
+            "quantumName": "Quantum Architecture of Manifestation",
+            "imagery": {
+              "traditionalElements": "King on throne holding pentacle, castle, garden, bull symbols",
+              "quantumElements": "Quantum manifestation architecture designing abundance systems, wealth management algorithms, material mastery",
+              "paganElements": "Wealthy king, business mastery, financial leadership, material success",
+              "colorPalette": "Wealth gold, mastery brown, success green",
+              "keySymbols": ["Wealth", "Business", "Leadership", "Security"]
+            },
+            "meanings": {
+              "upright": {
+                "keywords": ["wealth", "business", "leadership", "security"],
+                "description": "Wealth, business, and material leadership",
+                "quantumInterpretation": "Quantum material architecture - masterful design of abundance and wealth systems"
+              },
+              "reversed": {
+                "keywords": ["financial failure", "authoritarianism", "greed", "materialism"],
+                "description": "Financial failure, authoritarianism, or greed",
+                "quantumInterpretation": "Corrupted material architecture - quantum wealth systems becoming exploitative"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "courtCards": {
+      "structure": {
+        "pages": "Quantum Initiates",
+        "knights": "Quantum Operators", 
+        "queens": "Quantum Matrices",
+        "kings": "Quantum Architectures"
+      }
+    }
+  },
+  "interpretationGuide": {
+    "spreadTypes": [
+      {
+        "name": "Quantum State Spread",
+        "cards": 3,
+        "positions": ["Initial State", "Quantum Operation", "Measurement Outcome"],
+        "purpose": "Understanding current situation and potential outcomes"
+      },
+      {
+        "name": "Entanglement Spread", 
+        "cards": 5,
+        "positions": ["Self State", "Other State", "Entanglement Pattern", "Joint Measurement", "Outcome Correlation"],
+        "purpose": "Examining relationships and interconnected destinies"
+      },
+      {
+        "name": "Manifestation Spread",
+        "cards": 4,
+        "positions": ["Current Reality", "Quantum Potential", "Required Action", "Manifested Outcome"],
+        "purpose": "Understanding how to manifest desires into reality"
+      }
+    ],
+    "quantumConcepts": {
+      "superposition": "Multiple possibilities existing simultaneously",
+      "entanglement": "Deep connection regardless of distance", 
+      "measurement": "Making choices that collapse possibilities into reality",
+      "decoherence": "External influences disrupting delicate states",
+      "coherence": "Maintaining integrity and focus",
+      "probability": "The landscape of potential outcomes",
+      "information": "The fundamental substance of reality"
+    },
+    "paganCorrespondences": {
+      "elements": {
+        "fire": "Energy, passion, transformation (Wands)",
+        "water": "Emotion, intuition, flow (Cups)", 
+        "air": "Intellect, communication, truth (Swords)",
+        "earth": "Manifestation, stability, abundance (Pentacles)"
+      },
+      "cycles": {
+        "aces": "Seeds and new beginnings",
+        "twos": "Choices and balance", 
+        "threes": "Growth and collaboration",
+        "fours": "Stability and structure",
+        "fives": "Conflict and challenge",
+        "sixes": "Harmony and resolution", 
+        "sevens": "Assessment and reflection",
+        "eights": "Movement and progress", 
+        "nines": "Fruition and culmination",
+        "tens": "Completion and new cycles"
+      },
+      "archetypes": {
+        "pages": "Students and messengers",
+        "knights": "Action and movement", 
+        "queens": "Nurturing and wisdom",
+        "kings": "Authority and mastery"
+      }
+    }
+  },
+  "deckStatistics": {
+    "totalCards": 78,
+    "majorArcana": 22,
+    "minorArcana": 56,
+    "suits": {
+      "wands": 14,
+      "cups": 14,
+      "swords": 14,
+      "pentacles": 14
+    },
+    "quantumConceptsUsed": 28,
+    "paganElementsIntegrated": 45,
+    "completionDate": "2025-11-08"
+  }
+}

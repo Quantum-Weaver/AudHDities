@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
 import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header'
-import AuthButton from '@/components/auth/AuthButton';
+import Header from '@/components/layout/Header';
+import { Navigation } from "@/components/layout/Navigation";
 import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
+import MobileMenu from "@/components/layout/MobileMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,14 +30,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">      
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>        
+    <html lang="en" className="h-full">
+      <head>
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
+        
         <ContinuityBeamProvider>
-          <AuthButton />
           <Header />
+          
           
           {/* NO WRAPPERS - Each page handles its own layout */}
           {children}
+          
           <Footer />
         </ContinuityBeamProvider>
       </body>

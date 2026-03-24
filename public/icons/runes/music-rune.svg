@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="musicTitle" role="img">
+  <title id="musicTitle">Music Rune: Sonic Consciousness</title>
+  <g fill="none" stroke="currentColor" strokeWidth="1.8" stroke-linecap="round" strokeLinejoin="round">
+    <!-- resonance field -->
+    <circle cx="32" cy="32" r="24" />
+    <!-- sine-like soundwave centered horizontally -->
+    <path d="M20 32 C24 28, 28 36, 32 32 C36 28, 40 36, 44 32" />
+    <!-- stylized heartbeat / heart arc below wave -->
+    <path d="M28 38 C26 42, 24 46, 32 52 C40 46, 38 42, 36 38" />
+    <!-- small radiating vibration arcs (top-left & top-right) -->
+    <path d="M12 22 A20 20 0 0 1 52 22" stroke-dasharray="2,4" strokeWidth="1" />
+  </g>
+</svg>

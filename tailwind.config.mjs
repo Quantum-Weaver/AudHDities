@@ -72,10 +72,23 @@ export default {
         'spell-cast': 'spellCast 1s ease-out',
         'rune-pulse': 'runePulse 3s ease-in-out infinite',
         'tome-levitate': 'tomeLevitate 8s ease-in-out infinite',
-        'parchment-crackle': 'parchmentCrackle 4s ease-in-out infinite'
+        'parchment-crackle': 'parchmentCrackle 4s ease-in-out infinite',
+        'spin-slow': 'spin 1.5s linear infinite',
+        'spin-fast': 'spin 0.75s linear infinite',
+        'bounce-slow': 'bounce 1.5s infinite',
+        'bounce-fast': 'bounce 0.75s infinite',
+        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'wave': 'wave 1.2s ease-in-out infinite',
+        'wave-slow': 'wave 1.8s ease-in-out infinite',
+        'wave-fast': 'wave 0.8s ease-in-out infinite',        
       },
 
       keyframes: {
+        wave: {
+          '0%, 100%': { transform: 'scaleY(0.5)' },
+          '50%': { transform: 'scaleY(1.5)' },
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' }

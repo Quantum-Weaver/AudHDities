@@ -1,0 +1,1 @@
+// src/app/(dashboard)/vendor/products/new/page.tsx

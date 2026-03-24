@@ -1,12 +1,29 @@
-// types/supabase/profiles.ts
+// src/types/supabase/profiles.ts
 import type { Database } from './database.types';
+import type { NDPreferences, SensoryPreferences } from '../nd-preferences';
 
 export type Profile = Database['public']['Tables']['profiles']['Row'];
 
-export type ProfileUpdate = Database['public']['Tables']['profiles']['Update'];
+// Import related table types
+export type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+export type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
+export type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
 
+// Create a fully typed Profile with relations
+export type ProfileWithRelations = Profile & {
+  creator_profiles?: CreatorProfile | null;
+  vendor_profiles?: VendorProfile | null;
+  community_profiles?: CommunityProfile | null;
+};
+export type ProfileWithPreferences = Profile & {
+  nd_preferences: NDPreferences | null;
+  sensory_preferences: SensoryPreferences | null;
+};
+
+export type ProfileUpdate = Database['public']['Tables']['profiles']['Update'];
 export type ProfileInsert = Database['public']['Tables']['profiles']['Insert'];
 
+// Your existing types remain the same
 export type SocialLinks = {
   twitter?: string | null;
   instagram?: string | null;
@@ -60,7 +77,8 @@ export type Preferences = {
   };
 };
 
-export type ProfileWithSocial = Profile & {
+// Combine everything for the most complete type
+export type ProfileWithSocial = ProfileWithRelations & {
   social_links?: SocialLinks;
   preferences?: Preferences;
 };

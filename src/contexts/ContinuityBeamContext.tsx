@@ -1,12 +1,13 @@
-// @/contexts/ContinuityBeamContext.tsx
+// src/contexts/ContinuityBeamContext.tsx (updated with safe defaults)
 'use client';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import { User } from '@supabase/supabase-js';
 import type { Database } from '@/types/supabase/database.types';
+import { DEFAULT_BEAM_CONFIG, ENVIRONMENT_BEAM_CONFIGS } from '@/lib/constants/components/immersive/continuity-beam';
+
 export type Profile = Database['public']['Tables']['profiles']['Row'];
 
-type BeamVariant = EnvironmentKey;
 interface BeamConfig {
   variant: string;
   intensity: number;
@@ -19,32 +20,58 @@ interface ContinuityBeamContextType {
   setEnvironment: (environment: EnvironmentKey) => void;
   isActive: boolean;
   setIsActive: (active: boolean) => void;
-  currentUser: Profile | null; // Changed from setUser to currentUser
-  setCurrentUser: (user: Profile | null) => void; // Added this function
+  currentUser: Profile | null;
+  setCurrentUser: (user: Profile | null) => void;
+  // Optional: Get environment-specific config
+  getEnvironmentConfig: (environment: EnvironmentKey) => { intensity: string; purpose: string };
 }
 
 const ContinuityBeamContext = createContext<ContinuityBeamContextType | undefined>(undefined);
 
 interface ContinuityBeamProviderProps {
   children: ReactNode;
+  defaultEnvironment?: EnvironmentKey;
 }
 
-export function ContinuityBeamProvider({ children }: ContinuityBeamProviderProps) {
+export function ContinuityBeamProvider({ 
+  children, 
+  defaultEnvironment = 'home' 
+}: ContinuityBeamProviderProps) {
   const [beamConfig, setBeamConfig] = useState<BeamConfig>({
-    variant: 'home',
-    intensity: 0.33,
-    showQuantumSweep: true
+    variant: defaultEnvironment,
+    intensity: 0.8,
+    showQuantumSweep: DEFAULT_BEAM_CONFIG.showQuantumSweep
   });
   
   const [isActive, setIsActive] = useState(true);
-  const [currentUser, setCurrentUser] = useState<Profile | null>(null); // Added user state
+  const [currentUser, setCurrentUser] = useState<Profile | null>(null);
 
   // Function to sync with current environment
-  const setEnvironment = (environment: EnvironmentKey) => {    
+  const setEnvironment = (environment: EnvironmentKey) => {
+    // Get environment-specific config if exists
+    const envConfig = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
+    
+    // Map string intensity to number (safe fallback)
+    let intensityValue = 0.8;
+    if (envConfig) {
+      const intensityMap = { low: 0.33, medium: 0.47, high: 0.66, quantum: 0.85 };
+      intensityValue = intensityMap[envConfig.intensity as keyof typeof intensityMap] || DEFAULT_BEAM_CONFIG.intensity;
+    }
+    
     setBeamConfig(prev => ({
       ...prev,
-      variant: environment
+      variant: environment,
+      intensity: intensityValue
     }));
+  };
+
+  // Helper to get environment config (for components that need it)
+  const getEnvironmentConfig = (environment: EnvironmentKey) => {
+    const config = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
+    return {
+      intensity: config?.intensity || 'medium',
+      purpose: config?.purpose || 'emotional_support'
+    };
   };
 
   return (
@@ -54,8 +81,9 @@ export function ContinuityBeamProvider({ children }: ContinuityBeamProviderProps
       setEnvironment,
       isActive,
       setIsActive,
-      currentUser, // Export user data
-      setCurrentUser, // Export setter for user
+      currentUser,
+      setCurrentUser,
+      getEnvironmentConfig
     }}>
       {children}
     </ContinuityBeamContext.Provider>

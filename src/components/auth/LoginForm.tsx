@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useSupabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function LoginForm() {
   const supabase = useSupabase();
@@ -88,6 +89,12 @@ export default function LoginForm() {
         {loading && <Loader2 size={18} className="animate-spin" />}
         Enter Sanctuary
       </button>
+      <p className="text-xs text-white/40">
+        By signing in, you agree to our{' '}
+        <Link href="/docs/terms" className="text-cyan-400 hover:underline">Terms of Service</Link>{' '}
+        and{' '}
+        <Link href="/docs/privacy" className="text-cyan-400 hover:underline">Privacy Policy</Link>.
+      </p>
     </form>
   );
 }

@@ -4,21 +4,32 @@
 import { useState } from 'react';
 import { useSupabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { Edit2, Camera, Loader2 } from 'lucide-react';
+import { Edit2, Camera, Loader2, Shield, Award, Home, Heart, Store, Users } from 'lucide-react';
 import Link from 'next/link';
+import type { Database } from '@/types/supabase/database.types';
+
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
+type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
 
 interface ProfileHeaderProps {
-  profile: {
-    id: string;
-    avatar_url: string | null;
-    banner_url: string | null;
-    display_name: string | null;
-    username: string | null;
-  };
+  profile: Profile;
+  communityProfile?: CommunityProfile | null;
+  creatorProfile?: CreatorProfile | null;
+  vendorProfile?: VendorProfile | null;
+  badges?: any[];
   isOwnProfile: boolean;
 }
 
-export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderProps) {
+export default function ProfileHeader({ 
+  profile, 
+  communityProfile,
+  creatorProfile,
+  vendorProfile,
+  badges = [],
+  isOwnProfile 
+}: ProfileHeaderProps) {
   const supabase = useSupabase();
   const router = useRouter();
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
@@ -94,8 +105,16 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
     }
   };
 
+  // Get house display name with proper formatting
+  const getHouseDisplay = (house: string | null) => {
+    if (!house) return null;
+    return house.split('_').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+  };
+
   return (
-    <div className="relative">
+    <div className="wrapper relative">
       {/* Banner */}
       <div className="relative h-48 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-t-lg overflow-hidden">
         {profile.banner_url ? (
@@ -132,7 +151,7 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
       </div>
 
       {/* Avatar - positioned absolutely */}
-      <div className="absolute -bottom-12 left-8">
+      <div className="absolute -bottom-12 left-8 flex items-end gap-4">
         <div className="relative">
           <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-black bg-white/5">
             {profile.avatar_url ? (
@@ -167,6 +186,13 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
             </label>
           )}
         </div>
+
+        {/* Sovereignty Score Badge */}
+        <div className="mb-2 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cyan-500/30">
+          <Shield size={14} className="text-cyan-400" />
+          <span className="text-sm font-medium text-white">{profile.sovereignty_score || 0}</span>
+          <span className="text-xs text-white/40">Sovereignty</span>
+        </div>
       </div>
 
       {/* Edit Profile Button (if own profile) */}
@@ -179,6 +205,88 @@ export default function ProfileHeader({ profile, isOwnProfile }: ProfileHeaderPr
           Edit Profile
         </Link>
       )}
+
+      {/* Profile Info Section - Now below avatar */}
+      <div className="pt-16 px-8 pb-6 border-b border-white/10">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-white">
+              {profile.display_name || profile.username}
+            </h1>
+            
+            <div className="flex flex-wrap items-center gap-3 mt-2">
+              {/* Username */}
+              <span className="text-white/40 text-sm">@{profile.username}</span>
+              
+              {/* Primary House */}
+              {profile.primary_house && (
+                <span className="flex items-center gap-1 px-2 py-0.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-400">
+                  <Home size={12} />
+                  House of {getHouseDisplay(profile.primary_house)}
+                </span>
+              )}
+              
+              {/* Quantum Weaver Badge */}
+              {profile.is_quantum_weaver && (
+                <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 rounded-full text-xs text-amber-400">
+                  <Award size={12} />
+                  Quantum Weaver
+                </span>
+              )}
+              
+              {/* Admin Badge */}
+              {profile.is_admin && (
+                <span className="px-2 py-0.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-xs text-cyan-400">
+                  Admin
+                </span>
+              )}
+              
+              {/* Creator Badge */}
+              {profile.is_creator && (
+                <span className="px-2 py-0.5 bg-green-500/20 border border-green-500/30 rounded-full text-xs text-green-400">
+                  Creator
+                </span>
+              )}
+              
+              {/* Vendor Badge */}
+              {profile.is_vendor && (
+                <span className="px-2 py-0.5 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs text-blue-400">
+                  Vendor
+                </span>
+              )}
+
+              {/* Mentor Badge from community profile */}
+              {communityProfile?.is_mentor && (
+                <span className="flex items-center gap-1 px-2 py-0.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-400">
+                  <Users size={12} />
+                  Mentor
+                </span>
+              )}
+            </div>
+
+            {/* Badge count */}
+            {badges.length > 0 && (
+              <div className="flex items-center gap-1 mt-2">
+                <Award size={14} className="text-purple-400" />
+                <span className="text-sm text-white/60">{badges.length} badges earned</span>
+              </div>
+            )}
+          </div>
+
+          {/* User Tier */}
+          <div className="text-right">
+            <span className={`
+              px-3 py-1 rounded-full text-xs font-medium
+              ${profile.user_tier === 'community' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : ''}
+              ${profile.user_tier === 'ally' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : ''}
+              ${profile.user_tier === 'corporate' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : ''}
+            `}>
+              {profile.user_tier?.toUpperCase() || 'COMMUNITY'}
+            </span>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -38,13 +38,13 @@ export default function Header() {
                   {subtitle}
                 </div>
               )}
-            </Link>
+            </Link>            
           </div>
         </div>
       </div>
-      
       {/* CONTINUITY BEAM - Now part of header */}
       <ContinuityBeam className="absolute bottom-0 left-0 right-0" />
+      
     </header>
   );
 }

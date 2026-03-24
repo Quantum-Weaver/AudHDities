@@ -1,10 +1,11 @@
+// src/app/(content)/learn/pathways/[slug]/page.tsx
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { 
-  ArrowLeft, Clock, Award, Users, BookOpen, CheckCircle, 
-  Lock, Sparkles, Brain, Target, Heart, Star 
-} from 'lucide-react';
+import { Page } from '@/components/layout/Page';
+import { PathwayHeader } from '@/components/learn/PathwayHeader';
+import { LessonModule } from '@/components/learn/LessonModule';
+import { PathwayCTA } from '@/components/learn/PathwayCTA';
+import { Sparkles, Brain, Target, Heart } from 'lucide-react';
 
 interface PathwayPageProps {
   params: {
@@ -12,18 +13,17 @@ interface PathwayPageProps {
   };
 }
 
-// Mock data - replace with database queries
+// Mock data - this would come from database in production
 const pathwaysData = {
   'becoming-quantum-weaver': {
     title: 'Becoming Quantum Weaver',
     description: 'Follow the founder\'s journey from survival to sovereignty. Learn how 47 years of undiagnosed autism became architectural advantage.',
-    longDescription: `This pathway traces the actual journey of Shawn Peters, the Quantum Weaver, from undiagnosed autism through homelessness, trafficking, and finally to sovereignty. Each module corresponds to a real phase of discovery.`,
     level: 'Beginner',
     duration: '6 weeks',
     totalLessons: 12,
     completedLessons: 0,
-    color: 'cyan',
-    icon: 'sparkles',
+    color: 'cyan' as const,
+    icon: <Sparkles size={28} />,
     modules: [
       {
         title: 'Phase 1: The Undiagnosed Years',
@@ -61,14 +61,13 @@ const pathwaysData = {
   },
   'neurodivergent-advantage': {
     title: 'The Neurodivergent Advantage',
-    description: 'Discover how different processing styles are evolutionary strengths.',
-    longDescription: `Learn to reframe your neurodivergence from "disorder" to "evolutionary advantage." This pathway helps you identify your unique cognitive patterns and leverage them as superpowers.`,
+    description: 'Discover how different processing styles are evolutionary strengths. Learn to reframe neurodivergence as superpower.',
     level: 'Intermediate',
     duration: '4 weeks',
     totalLessons: 8,
     completedLessons: 0,
-    color: 'purple',
-    icon: 'brain',
+    color: 'purple' as const,
+    icon: <Brain size={28} />,
     modules: [
       {
         title: 'Module 1: Rethinking Neurodivergence',
@@ -88,42 +87,26 @@ const pathwaysData = {
   },
   'consciousness-architecture': {
     title: 'Consciousness Architecture',
-    description: 'Build your own digital sanctuary.',
-    longDescription: `Learn the Landfill-to-Lighthouse methodology for organizing chaos into sovereignty. This technical pathway teaches you to build systems that respect human consciousness.`,
+    description: 'Build your own digital sanctuary. Learn the Landfill-to-Lighthouse methodology.',
     level: 'Advanced',
     duration: '8 weeks',
     totalLessons: 16,
     completedLessons: 0,
-    color: 'pink',
-    icon: 'target',
+    color: 'pink' as const,
+    icon: <Target size={28} />,
     modules: [],
   },
   'emergence-economics': {
     title: 'Emergence Economics',
-    description: 'Understand how value can flow without exploitation.',
-    longDescription: `Learn the residual systems that power AUDHDITIES. This pathway explains how money can flow to creators forever, not just once.`,
+    description: 'Understand how value can flow without exploitation. Learn the residual systems.',
     level: 'Intermediate',
     duration: '5 weeks',
     totalLessons: 10,
     completedLessons: 0,
-    color: 'orange',
-    icon: 'heart',
+    color: 'orange' as const,
+    icon: <Heart size={28} />,
     modules: [],
   },
-};
-
-const iconMap: Record<string, any> = {
-  sparkles: Sparkles,
-  brain: Brain,
-  target: Target,
-  heart: Heart,
-};
-
-const colorMap: Record<string, string> = {
-  cyan: 'from-cyan-500 to-cyan-600',
-  purple: 'from-purple-500 to-purple-600',
-  pink: 'from-pink-500 to-pink-600',
-  orange: 'from-orange-500 to-orange-600',
 };
 
 export default async function PathwayPage({ params }: PathwayPageProps) {
@@ -133,137 +116,54 @@ export default async function PathwayPage({ params }: PathwayPageProps) {
     notFound();
   }
 
-  const Icon = iconMap[pathway.icon];
-  const colors = colorMap[pathway.color];
+  const handleStartLesson = (lessonId: string) => {
+    // This would navigate to the lesson content
+    console.log('Start lesson:', lessonId);
+  };
 
   return (
-    <main className="min-h-screen py-20 px-6">
-      <div className="container max-w-4xl mx-auto">
-        {/* Back Button */}
-        <Link
-          href="/learn"
-          className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-8 transition-colors"
-        >
-          <ArrowLeft size={18} />
-          Back to Learning Hub
-        </Link>
+    <Page 
+      variant={1}
+      environment="learn"
+      showForeground={false}
+      animated={true}   
+      showContinuityBeam={true}
+    >
+      <main className="min-h-screen py-12 px-6">
+        <div className="container max-w-4xl mx-auto">
+          <PathwayHeader
+            title={pathway.title}
+            description={pathway.description}
+            level={pathway.level}
+            duration={pathway.duration}
+            totalLessons={pathway.totalLessons}
+            completedLessons={pathway.completedLessons}
+            color={pathway.color}
+            icon={pathway.icon}
+          />
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${colors} bg-opacity-20 flex items-center justify-center`}>
-              <Icon size={32} className="text-white" />
-            </div>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                {pathway.title}
-              </h1>
-              <p className="text-white/60">
-                {pathway.description}
-              </p>
-            </div>
-          </div>
-
-          {/* Metadata */}
-          <div className="flex flex-wrap gap-4 mt-6">
-            <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-              <Clock size={14} className="text-white/40" />
-              <span className="text-sm text-white/60">{pathway.duration}</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-              <BookOpen size={14} className="text-white/40" />
-              <span className="text-sm text-white/60">{pathway.totalLessons} lessons</span>
-            </div>
-            <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-              <Award size={14} className="text-white/40" />
-              <span className="text-sm text-white/60">{pathway.level}</span>
-            </div>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mt-8">
-            <div className="flex items-center justify-between text-sm mb-2">
-              <span className="text-white/60">Your Progress</span>
-              <span className="text-white">
-                {pathway.completedLessons}/{pathway.totalLessons} lessons
-              </span>
-            </div>
-            <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-              <div 
-                className={`h-full bg-gradient-to-r ${colors}`}
-                style={{ width: `${(pathway.completedLessons / pathway.totalLessons) * 100}%` }}
+          {/* Modules */}
+          <div className="space-y-4 mb-12">
+            <h2 className="text-2xl font-bold text-white mb-6">Pathway Modules</h2>
+            {pathway.modules.map((module, idx) => (
+              <LessonModule
+                key={idx}
+                title={module.title}
+                lessons={module.lessons}
+                color={pathway.color}
+                onStartLesson={handleStartLesson}
               />
-            </div>
+            ))}
           </div>
-        </div>
 
-        {/* Long Description */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-12">
-          <p className="text-white/80 leading-relaxed">
-            {pathway.longDescription}
-          </p>
+          {/* CTA */}
+          <PathwayCTA
+            hasStarted={false}
+            onStart={() => handleStartLesson('1-1')}
+            color={pathway.color}
+          />
         </div>
-
-        {/* Modules */}
-        <div className="space-y-8">
-          <h2 className="text-2xl font-bold text-white">Pathway Modules</h2>
-          
-          {pathway.modules.map((module, moduleIndex) => (
-            <div key={moduleIndex} className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-              <div className="bg-white/5 px-6 py-4 border-b border-white/10">
-                <h3 className="text-lg font-semibold text-white">{module.title}</h3>
-              </div>
-              
-              <div className="divide-y divide-white/5">
-                {module.lessons.map((lesson) => (
-                  <div
-                    key={lesson.id}
-                    className={`px-6 py-4 flex items-center justify-between ${
-                      lesson.locked ? 'opacity-50' : 'hover:bg-white/5 cursor-pointer'
-                    } transition-colors`}
-                  >
-                    <div className="flex items-center gap-3">
-                      {lesson.completed ? (
-                        <CheckCircle size={18} className="text-green-400" />
-                      ) : lesson.locked ? (
-                        <Lock size={18} className="text-white/20" />
-                      ) : (
-                        <Star size={18} className="text-cyan-400" />
-                      )}
-                      <div>
-                        <h4 className="text-white font-medium">{lesson.title}</h4>
-                        <p className="text-xs text-white/40">{lesson.duration}</p>
-                      </div>
-                    </div>
-                    
-                    {!lesson.locked && !lesson.completed && (
-                      <button className="text-sm text-cyan-400 hover:text-cyan-300">
-                        Start
-                      </button>
-                    )}
-                    
-                    {lesson.completed && (
-                      <span className="text-sm text-green-400">Completed</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <button
-            className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-purple-600 text-white rounded-lg font-bold hover:opacity-90 transition-opacity"
-          >
-            Begin First Lesson
-          </button>
-          <p className="text-sm text-white/40 mt-4">
-            All pathways are self-paced. No deadlines. No pressure.
-          </p>
-        </div>
-      </div>
-    </main>
+      </main>
+    </Page>
   );
 }

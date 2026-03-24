@@ -1,93 +1,118 @@
-// app/components/profiles/ProfileTabs.tsx
+// components/profiles/ProfileTabs.tsx (Updated)
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Tabs from '@/components/ui/Tabs';
+import { MarkdownBio } from './MarkdownBio';
+import { CreatorProfile } from './CreatorProfile';
+import VendorProfile from './VendorProfile';
+import { ActivityFeed } from '@/components/feed/ActivityFeed';
+import type { Database } from '@/types/supabase/database.types';
 
-interface Tab {
-  name: string;
-  href: string;
-  count?: number;
-}
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type CommunityProfile = Database['public']['Tables']['community_profiles']['Row'];
+type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
 
 interface ProfileTabsProps {
-  username: string;
-  isOwnProfile: boolean;
-  productCount?: number;
-  followerCount?: number;
-  followingCount?: number;
+  profile: Profile;
+  communityProfile?: CommunityProfile | null;
+  creatorProfile?: CreatorProfile | null;
+  vendorProfile?: VendorProfile | null;
+  isOwnProfile?: boolean;
 }
 
-export default function ProfileTabs({ 
-  username, 
-  isOwnProfile, 
-  productCount = 0,
-  followerCount = 0,
-  followingCount = 0
+export function ProfileTabs({ 
+  profile,
+  communityProfile,
+  creatorProfile,
+  vendorProfile,
+  isOwnProfile = false 
 }: ProfileTabsProps) {
-  const pathname = usePathname();
-  
-  const tabs: Tab[] = [
-    { 
-      name: 'Products', 
-      href: `/${username}/products`,
-      count: productCount 
-    },
-    { 
-      name: 'About', 
-      href: `/${username}/about` 
-    },
+  const [activeTab, setActiveTab] = useState('overview');
+
+  // Build tabs based on user roles
+  const tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'bio', label: 'Bio' },
+    { id: 'activity', label: 'Activity' },
   ];
 
+  // Add creator tab if user is a creator
+  if (profile.is_creator) {
+    tabs.push({ id: 'creator', label: 'Creator' });
+  }
+
+  // Add vendor tab if user is a vendor
+  if (profile.is_vendor) {
+    tabs.push({ id: 'vendor', label: 'Vendor' });
+  }
+
+  // Add badges tab (always present)
+  tabs.push({ id: 'badges', label: 'Badges' });
+
+  // Add settings tab only for own profile
   if (isOwnProfile) {
-    tabs.push(
-      { 
-        name: 'Followers', 
-        href: `/dashboard/followers`,
-        count: followerCount 
-      },
-      { 
-        name: 'Following', 
-        href: `/dashboard/following`,
-        count: followingCount 
-      }
-    );
+    tabs.push({ id: 'settings', label: 'Settings' });
   }
 
   return (
-    <div className="border-b border-white/10">
-      <nav className="flex gap-6" aria-label="Profile tabs">
-        {tabs.map((tab) => {
-          const isActive = pathname === tab.href;
-          return (
-            <Link
-              key={tab.name}
-              href={tab.href}
-              className={`
-                py-4 px-1 border-b-2 font-medium text-sm transition-colors
-                ${isActive 
-                  ? 'border-cyan-400 text-cyan-400' 
-                  : 'border-transparent text-white/60 hover:text-white hover:border-white/30'
-                }
-              `}
-            >
-              {tab.name}
-              {tab.count !== undefined && (
-                <span className={`
-                  ml-2 py-0.5 px-2 rounded-full text-xs
-                  ${isActive 
-                    ? 'bg-cyan-400/20 text-cyan-400' 
-                    : 'bg-white/10 text-white/60'
-                  }
-                `}>
-                  {tab.count}
-                </span>
-              )}
-            </Link>
-          );
-        })}
-      </nav>
+    <div className="mt-8">
+      <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
+      
+      <div className="mt-6">
+        {activeTab === 'overview' && (
+          <div className="space-y-4">
+            <p className="text-white/70">Sovereignty Score: {profile.sovereignty_score}</p>
+            <p className="text-white/70">House: {profile.primary_house || 'Unaffiliated'}</p>
+            <p className="text-white/70">Member since: {new Date(profile.created_at || '').toLocaleDateString()}</p>
+            
+            {/* Community Profile Info */}
+            {communityProfile && (
+              <>
+                {communityProfile.nd_identity && communityProfile.nd_identity.length > 0 && (
+                  <p className="text-white/70">Identity: {communityProfile.nd_identity.join(', ')}</p>
+                )}
+                {communityProfile.is_mentor && (
+                  <p className="text-green-400">✨ Mentor</p>
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'bio' && (
+          <MarkdownBio content={profile.bio || '*No bio yet*'} />
+        )}
+
+        {activeTab === 'activity' && (
+          <ActivityFeed userId={profile.id} />
+        )}
+
+        {activeTab === 'creator' && profile.is_creator && (
+          <CreatorProfile userId={profile.id} />
+        )}
+
+        {activeTab === 'vendor' && profile.is_vendor && (
+          <VendorProfile userId={profile.id} />
+        )}
+
+        {activeTab === 'badges' && (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* You'll need to pass badges from the parent */}
+            <div className="bg-white/5 p-4 rounded-lg text-center">
+              <div className="text-2xl mb-2">🏆</div>
+              <div className="text-sm text-white/60">Badges coming soon</div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'settings' && isOwnProfile && (
+          <div className="space-y-4">
+            <p className="text-white/70">Profile settings will go here</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
