@@ -225,6 +225,7 @@ export const QUANTUM_GRADIENTS = {
   // Pride Gradients
   'prideRainbow': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 20%, ${QUANTUM_COLORS['pride.yellow']} 40%, ${QUANTUM_COLORS['pride.green']} 60%, ${QUANTUM_COLORS['pride.blue']} 80%, ${QUANTUM_COLORS['pride.purple']} 100%)`,
   'prideProgress': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 12.5%, ${QUANTUM_COLORS['pride.yellow']} 25%, ${QUANTUM_COLORS['pride.green']} 37.5%, ${QUANTUM_COLORS['pride.blue']} 50%, ${QUANTUM_COLORS['pride.purple']} 62.5%, ${QUANTUM_COLORS['pride.black']} 75%, ${QUANTUM_COLORS['pride.brown']} 87.5%, ${QUANTUM_COLORS['pride.transBlue']} 93.75%, ${QUANTUM_COLORS['pride.transPink']} 100%)`,
+  'prideProgressReversed': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transPink']} 0%,   ${QUANTUM_COLORS['pride.transBlue']} 6.25%,   ${QUANTUM_COLORS['pride.brown']} 12.5%,   ${QUANTUM_COLORS['pride.black']} 25%,   ${QUANTUM_COLORS['pride.purple']} 37.5%,   ${QUANTUM_COLORS['pride.blue']} 50%,   ${QUANTUM_COLORS['pride.green']} 62.5%,   ${QUANTUM_COLORS['pride.yellow']} 75%,   ${QUANTUM_COLORS['pride.orange']} 87.5%,   ${QUANTUM_COLORS['pride.red']} 100%)`,
   'prideTrans': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transBlue']} 0%, ${QUANTUM_COLORS['pride.transPink']} 50%, ${QUANTUM_COLORS['pride.transWhite']} 100%)`,
 
   // Quantum-Pride Fusion Gradients

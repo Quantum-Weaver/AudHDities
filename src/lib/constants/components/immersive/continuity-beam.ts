@@ -17,11 +17,19 @@ export const BEAM_COLORS = {
   music: QUANTUM_GRADIENTS.musicDomain,
   origin: QUANTUM_GRADIENTS.voidDomain,
   support: QUANTUM_GRADIENTS.supportDomain,
-  home: QUANTUM_GRADIENTS.sovereign,
+  home: QUANTUM_GRADIENTS.alchemistGradient,
   observatory: QUANTUM_GRADIENTS.cosmicDomain,
   architecture: QUANTUM_GRADIENTS.architectureDomain,
   invitation: QUANTUM_GRADIENTS.pantheonDomain,
-  lounge: QUANTUM_GRADIENTS.bifrostDomain
+  lounge: QUANTUM_GRADIENTS.bifrostDomain,
+  about: QUANTUM_GRADIENTS.chancellorGradient,
+  vision: QUANTUM_GRADIENTS.prideProgress,
+  transparency: QUANTUM_GRADIENTS.aethelredGradient,
+  cure: QUANTUM_GRADIENTS.hekateGradient,
+  dashboard: QUANTUM_GRADIENTS.quantumWeaverGradient,
+  questionaire: QUANTUM_GRADIENTS.hearthKeeperGradient,
+  learn: QUANTUM_GRADIENTS.focusGradient
+
 } as const;
 
 // Semantic beam types for different contexts
