@@ -24,13 +24,7 @@ export const USER_TIERS: { value: UserTier; label: string; description: string; 
     label: 'Corporate', 
     description: 'Premium pricing for organizations',
     color: 'pink'
-  },
-  { 
-    value: 'council', 
-    label: 'Council', 
-    description: 'Core team and founders',
-    color: 'cyan'
-  },
+  }
 ];
 
 export const USER_TIER_MAP = new Map(

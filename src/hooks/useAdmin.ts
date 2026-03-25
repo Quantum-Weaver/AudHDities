@@ -1,26 +1,25 @@
-// src/hooks/useAdmin.ts
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuth } from './useAuth';
 import type { Database } from '@/types/supabase/database.types';
 
-// Types for admin data
-export type Profile = Database['public']['Tables']['profiles']['Row'];
-export type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
-export type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
-export type Application = Database['public']['Tables']['applications']['Row'];
-export type Product = Database['public']['Tables']['products']['Row'];
-export type ResidualPayout = Database['public']['Tables']['residual_payouts']['Row'];
-export type AdminLog = Database['public']['Tables']['admin_logs']['Row'];
+// Types from database.types.ts
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
+type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
+type Application = Database['public']['Tables']['applications']['Row'];
+type Product = Database['public']['Tables']['products']['Row'];
+type ResidualPayout = Database['public']['Tables']['residual_payouts']['Row'];
+type AdminLog = Database['public']['Tables']['admin_logs']['Row'];
 
 export type ApplicationWithUser = Application & {
-  user: Profile;
+  user: Pick<Profile, 'id' | 'username' | 'display_name' | 'email' | 'avatar_url'> | null;
 };
 
 export type ProductWithCreator = Product & {
-  creator: Pick<Profile, 'id' | 'username' | 'display_name' | 'avatar_url'>;
+  creator: Pick<Profile, 'id' | 'username' | 'display_name' | 'avatar_url'> | null;
 };
 
 export type UserWithRoles = Profile & {
@@ -29,6 +28,10 @@ export type UserWithRoles = Profile & {
 };
 
 interface UseAdminReturn {
+  // Status
+  isAdmin: boolean;
+  checkingAdmin: boolean;
+  
   // User Management
   users: UserWithRoles[];
   loadingUsers: boolean;
@@ -57,7 +60,7 @@ interface UseAdminReturn {
   markPayoutsPaid: (payoutIds: string[]) => Promise<boolean>;
   
   // Transparency Logs
-  addPublicNote: (action: string, publicNote: string, metadata?: Record<string, any>) => Promise<boolean>;
+  addPublicNote: (action: string, publicNote: string, metadata?: Record<string, unknown>) => Promise<boolean>;
   
   // Loading states
   loading: boolean;
@@ -67,10 +70,9 @@ interface UseAdminReturn {
 export function useAdmin(): UseAdminReturn {
   const { user } = useAuth();
   const supabase = createClient();
-  
-  // State
   const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [checkingAdmin, setCheckingAdmin] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   
   // User Management
@@ -89,50 +91,92 @@ export function useAdmin(): UseAdminReturn {
   const [pendingPayouts, setPendingPayouts] = useState<ResidualPayout[]>([]);
   const [loadingPayouts, setLoadingPayouts] = useState(false);
   
-  // Verify admin status on mount
+  // Check admin status on mount
   useEffect(() => {
     const checkAdminStatus = async () => {
-      if (!user) {
+      setCheckingAdmin(true);
+      
+      if (!user?.id) {
         setIsAdmin(false);
-        setLoading(false);
+        setCheckingAdmin(false);
         return;
       }
       
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('is_admin')
-        .eq('id', user.id)
-        .single();
-      
-      setIsAdmin(profile?.is_admin === true);
-      setLoading(false);
+      try {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('is_admin')
+          .eq('id', user.id)
+          .single();
+        
+        setIsAdmin(profile?.is_admin ?? false);
+      } catch {
+        setIsAdmin(false);
+      } finally {
+        setCheckingAdmin(false);
+      }
     };
     
     checkAdminStatus();
-  }, [user, supabase]);
+  }, [user?.id, supabase]);
   
   // Helper to check admin access
-  const requireAdmin = () => {
+  const requireAdmin = useCallback((): boolean => {
     if (!isAdmin) {
-      throw new Error('Admin access required');
+      setError(new Error('Admin access required'));
+      return false;
     }
-  };
+    return true;
+  }, [isAdmin]);
+  
+  // =====================================================
+  // TRANSPARENCY LOGS (defined first for use in other functions)
+  // =====================================================
+  
+  const addPublicNote = useCallback(async (
+    action: string,
+    publicNote: string,
+    metadata?: Record<string, unknown>
+  ): Promise<boolean> => {
+    if (!user?.id) return false;
+    if (!requireAdmin()) return false;
+    
+    try {
+      const { error: insertError } = await supabase
+        .from('admin_logs')
+        .insert({
+          admin_id: user.id,
+          action,
+          public_note: publicNote,
+          metadata: metadata ?? null,
+          created_at: new Date().toISOString(),
+        });
+      
+      if (insertError) throw insertError;
+      return true;
+    } catch (err) {
+      console.error('Error adding public note:', err);
+      return false;
+    }
+  }, [user?.id, supabase, requireAdmin]);
   
   // =====================================================
   // USER MANAGEMENT
   // =====================================================
   
   const fetchUsers = useCallback(async (options?: { limit?: number; role?: string; search?: string }) => {
+    if (!requireAdmin()) return;
+    
+    setLoadingUsers(true);
+    setError(null);
+    
     try {
-      requireAdmin();
-      setLoadingUsers(true);
-      
       let query = supabase
         .from('profiles')
         .select(`
           *,
-          creator_profile:creator_profiles(*),
-          vendor_profile:vendor_profiles(*)
+          creator_profile:creator_profiles!profiles_id_fkey1(*),
+          vendor_profile:vendor_profiles!profiles_id_fkey2(*)
         `);
       
       // Filter by role
@@ -158,22 +202,22 @@ export function useAdmin(): UseAdminReturn {
       
       if (fetchError) throw fetchError;
       
-      setUsers(data as UserWithRoles[]);
+      setUsers(data as UserWithRoles[] ?? []);
     } catch (err) {
       console.error('Error fetching users:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch users'));
     } finally {
       setLoadingUsers(false);
     }
-  }, [isAdmin, supabase]);
+  }, [supabase, requireAdmin]);
   
   const updateUserRole = useCallback(async (
     userId: string,
     updates: { is_creator?: boolean; is_vendor?: boolean; is_admin?: boolean }
   ): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    
     try {
-      requireAdmin();
-      
       const { error: updateError } = await supabase
         .from('profiles')
         .update(updates)
@@ -202,12 +246,12 @@ export function useAdmin(): UseAdminReturn {
       setError(err instanceof Error ? err : new Error('Failed to update user role'));
       return false;
     }
-  }, [isAdmin, supabase, fetchUsers]);
+  }, [supabase, requireAdmin, addPublicNote, fetchUsers]);
   
   const suspendUser = useCallback(async (userId: string, reason?: string): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    
     try {
-      requireAdmin();
-      
       const { error: updateError } = await supabase
         .from('profiles')
         .update({ status: 'suspended' })
@@ -227,12 +271,12 @@ export function useAdmin(): UseAdminReturn {
       console.error('Error suspending user:', err);
       return false;
     }
-  }, [isAdmin, supabase, fetchUsers]);
+  }, [supabase, requireAdmin, addPublicNote, fetchUsers]);
   
   const reinstateUser = useCallback(async (userId: string): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    
     try {
-      requireAdmin();
-      
       const { error: updateError } = await supabase
         .from('profiles')
         .update({ status: 'active' })
@@ -252,17 +296,19 @@ export function useAdmin(): UseAdminReturn {
       console.error('Error reinstating user:', err);
       return false;
     }
-  }, [isAdmin, supabase, fetchUsers]);
+  }, [supabase, requireAdmin, addPublicNote, fetchUsers]);
   
   // =====================================================
   // APPLICATION MANAGEMENT
   // =====================================================
   
   const fetchApplications = useCallback(async (status?: string) => {
+    if (!requireAdmin()) return;
+    
+    setLoadingApplications(true);
+    setError(null);
+    
     try {
-      requireAdmin();
-      setLoadingApplications(true);
-      
       let query = supabase
         .from('applications')
         .select(`
@@ -279,22 +325,33 @@ export function useAdmin(): UseAdminReturn {
       
       if (fetchError) throw fetchError;
       
-      setApplications(data as ApplicationWithUser[]);
+      setApplications(data as ApplicationWithUser[] ?? []);
     } catch (err) {
       console.error('Error fetching applications:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch applications'));
     } finally {
       setLoadingApplications(false);
     }
-  }, [isAdmin, supabase]);
+  }, [supabase, requireAdmin]);
   
   const approveApplication = useCallback(async (
     applicationId: string,
     type: 'creator' | 'vendor',
     notes?: string
   ): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    if (!user?.id) return false;
+    
     try {
-      requireAdmin();
+      // Get the user ID from the application
+      const { data: app, error: appFetchError } = await supabase
+        .from('applications')
+        .select('user_id')
+        .eq('id', applicationId)
+        .single();
+      
+      if (appFetchError) throw appFetchError;
+      if (!app?.user_id) throw new Error('Application has no user');
       
       // Update application status
       const { error: appError } = await supabase
@@ -302,42 +359,49 @@ export function useAdmin(): UseAdminReturn {
         .update({
           status: 'verified',
           reviewed_at: new Date().toISOString(),
-          reviewed_by: user?.id,
-          review_notes: notes,
+          reviewed_by: user.id,
+          review_notes: notes ?? null,
         })
         .eq('id', applicationId);
       
       if (appError) throw appError;
       
-      // Get the user ID from the application
-      const { data: app } = await supabase
-        .from('applications')
-        .select('user_id')
-        .eq('id', applicationId)
-        .single();
+      // Update user profile with creator/vendor role
+      const updateField = type === 'creator' ? { is_creator: true } : { is_vendor: true };
       
-      if (app?.user_id) {
-        // Update user profile with creator/vendor role
-        const updateField = type === 'creator' ? { is_creator: true } : { is_vendor: true };
-        
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .update(updateField)
-          .eq('id', app.user_id);
-        
-        if (profileError) throw profileError;
-        
-        // Award verification badge
-        const badgeName = type === 'creator' ? 'verified_creator' : 'verified_vendor';
-        await supabase.rpc('award_badge', {
-          user_id: app.user_id,
-          badge_name: badgeName,
-        });
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .update(updateField)
+        .eq('id', app.user_id);
+      
+      if (profileError) throw profileError;
+      
+      // Create/update profile extension
+      if (type === 'creator') {
+        await supabase
+          .from('creator_profiles')
+          .upsert({
+            id: app.user_id,
+            verified_badge: true,
+            verification_status: 'verified',
+            verified_at: new Date().toISOString(),
+            verified_by: user.id,
+          }, { onConflict: 'id' });
+      } else {
+        await supabase
+          .from('vendor_profiles')
+          .upsert({
+            id: app.user_id,
+            verified_badge: true,
+            verification_status: 'verified',
+            verified_at: new Date().toISOString(),
+            verified_by: user.id,
+          }, { onConflict: 'id' });
       }
       
       await addPublicNote(
         `application_approved_${type}`,
-        `Approved ${type} application for user ${app?.user_id}${notes ? `: ${notes}` : ''}`,
+        `Approved ${type} application for user ${app.user_id}${notes ? `: ${notes}` : ''}`,
         { applicationId, type, notes }
       );
       
@@ -345,20 +409,22 @@ export function useAdmin(): UseAdminReturn {
       return true;
     } catch (err) {
       console.error('Error approving application:', err);
+      setError(err instanceof Error ? err : new Error('Failed to approve application'));
       return false;
     }
-  }, [isAdmin, supabase, user, fetchApplications]);
+  }, [user?.id, supabase, requireAdmin, addPublicNote, fetchApplications]);
   
   const rejectApplication = useCallback(async (applicationId: string, reason: string): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    if (!user?.id) return false;
+    
     try {
-      requireAdmin();
-      
       const { error: appError } = await supabase
         .from('applications')
         .update({
           status: 'rejected',
           reviewed_at: new Date().toISOString(),
-          reviewed_by: user?.id,
+          reviewed_by: user.id,
           review_notes: reason,
         })
         .eq('id', applicationId);
@@ -375,19 +441,22 @@ export function useAdmin(): UseAdminReturn {
       return true;
     } catch (err) {
       console.error('Error rejecting application:', err);
+      setError(err instanceof Error ? err : new Error('Failed to reject application'));
       return false;
     }
-  }, [isAdmin, supabase, user, fetchApplications]);
+  }, [user?.id, supabase, requireAdmin, addPublicNote, fetchApplications]);
   
   // =====================================================
   // PRODUCT MODERATION
   // =====================================================
   
   const fetchProductsForModeration = useCallback(async (options?: { status?: string; search?: string }) => {
+    if (!requireAdmin()) return;
+    
+    setLoadingProducts(true);
+    setError(null);
+    
     try {
-      requireAdmin();
-      setLoadingProducts(true);
-      
       let query = supabase
         .from('products')
         .select(`
@@ -409,31 +478,32 @@ export function useAdmin(): UseAdminReturn {
       
       if (fetchError) throw fetchError;
       
-      setProducts(data as ProductWithCreator[]);
+      setProducts(data as ProductWithCreator[] ?? []);
     } catch (err) {
       console.error('Error fetching products for moderation:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch products'));
     } finally {
       setLoadingProducts(false);
     }
-  }, [isAdmin, supabase]);
+  }, [supabase, requireAdmin]);
   
   const moderateProduct = useCallback(async (
     productId: string,
     action: 'approve' | 'reject' | 'flag',
     notes?: string
   ): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    
     try {
-      requireAdmin();
-      
-      let updateData: any = {};
+      let updateData: Record<string, unknown> = {};
       
       if (action === 'approve') {
         updateData = { is_published: true, active: true };
       } else if (action === 'reject') {
         updateData = { is_published: false, active: false };
       } else if (action === 'flag') {
-        updateData = { flagged: true }; // You'd need to add flagged column if desired
+        // You'd need to add a flagged column if desired
+        updateData = {};
       }
       
       const { error: updateError } = await supabase
@@ -453,19 +523,22 @@ export function useAdmin(): UseAdminReturn {
       return true;
     } catch (err) {
       console.error('Error moderating product:', err);
+      setError(err instanceof Error ? err : new Error('Failed to moderate product'));
       return false;
     }
-  }, [isAdmin, supabase, fetchProductsForModeration]);
+  }, [supabase, requireAdmin, addPublicNote, fetchProductsForModeration]);
   
   // =====================================================
   // RESIDUAL MANAGEMENT
   // =====================================================
   
   const fetchPendingPayouts = useCallback(async () => {
+    if (!requireAdmin()) return;
+    
+    setLoadingPayouts(true);
+    setError(null);
+    
     try {
-      requireAdmin();
-      setLoadingPayouts(true);
-      
       const { data, error: fetchError } = await supabase
         .from('residual_payouts')
         .select('*')
@@ -474,19 +547,19 @@ export function useAdmin(): UseAdminReturn {
       
       if (fetchError) throw fetchError;
       
-      setPendingPayouts(data || []);
+      setPendingPayouts(data ?? []);
     } catch (err) {
       console.error('Error fetching pending payouts:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch pending payouts'));
     } finally {
       setLoadingPayouts(false);
     }
-  }, [isAdmin, supabase]);
+  }, [supabase, requireAdmin]);
   
   const markPayoutsPaid = useCallback(async (payoutIds: string[]): Promise<boolean> => {
+    if (!requireAdmin()) return false;
+    
     try {
-      requireAdmin();
-      
       const { error: updateError } = await supabase
         .from('residual_payouts')
         .update({
@@ -507,41 +580,16 @@ export function useAdmin(): UseAdminReturn {
       return true;
     } catch (err) {
       console.error('Error marking payouts as paid:', err);
+      setError(err instanceof Error ? err : new Error('Failed to process payouts'));
       return false;
     }
-  }, [isAdmin, supabase, fetchPendingPayouts]);
-  
-  // =====================================================
-  // TRANSPARENCY LOGS
-  // =====================================================
-  
-  const addPublicNote = useCallback(async (
-    action: string,
-    publicNote: string,
-    metadata?: Record<string, any>
-  ): Promise<boolean> => {
-    try {
-      if (!user) return false;
-      
-      const { error } = await supabase
-        .from('admin_logs')
-        .insert({
-          admin_id: user.id,
-          action,
-          public_note: publicNote,
-          metadata,
-        });
-      
-      if (error) throw error;
-      
-      return true;
-    } catch (err) {
-      console.error('Error adding public note:', err);
-      return false;
-    }
-  }, [user, supabase]);
+  }, [supabase, requireAdmin, addPublicNote, fetchPendingPayouts]);
   
   return {
+    // Status
+    isAdmin,
+    checkingAdmin,
+    
     // User Management
     users,
     loadingUsers,

@@ -1,391 +1,191 @@
-// src/(dashboard)/admin/applications/page.tsx
-'use client';
-
-import { useEffect, useState } from 'react';
+import { Metadata } from 'next';
+import { createServerSupabase } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import  Tabs from '@/components/ui/Tabs';
-import { TextArea } from '@/components/ui/TextArea';
-import { 
-  ClipboardList, 
-  CheckCircle, 
-  XCircle, 
-  Eye, 
-  User, 
-  Mail, 
-  Calendar,
-  FileText,
-  Link as LinkIcon,
-  Tag,
-  MessageSquare,
-  Loader2
-} from 'lucide-react';
-import { useAdmin } from '@/hooks/useAdmin';
-import { useRequireRole } from '@/hooks/useRequireRole';
-import { formatDistanceToNow } from 'date-fns';
+import { Button } from '@/components/ui/Button';
+import { ApplicationReview } from '@/components/admin/ApplicationReview';
+import Link from 'next/link';
+import { ArrowLeft, FileText, CheckCircle, XCircle, Clock } from 'lucide-react';
+import { formatRelativeTime } from '@/lib/stripe/formatting';
 
-// Status badge component
-const StatusBadge = ({ status }: { status: string }) => {
-  const variants: Record<string, { variant: 'warning' | 'success' | 'error' | 'outline'; label: string }> = {
-    pending: { variant: 'warning', label: 'Pending Review' },
-    verified: { variant: 'success', label: 'Approved' },
-    rejected: { variant: 'error', label: 'Rejected' },
-    suspended: { variant: 'error', label: 'Suspended' },
-  };
-  
-  const config = variants[status] || { variant: 'outline', label: status };
-  
-  return <Badge variant={config.variant}>{config.label}</Badge>;
+export const metadata: Metadata = {
+  title: 'Applications | Admin | AUDHDITIES',
+  description: 'Review creator and vendor applications',
 };
 
-export default function AdminApplicationsPage() {
-  const { loading: roleLoading } = useRequireRole('admin', '/dashboard');
+// Server-side admin check function
+async function requireAdmin() {
+  const supabase = await createServerSupabase();
   
-  const {
-    applications,
-    loadingApplications,
-    fetchApplications,
-    approveApplication,
-    rejectApplication,
-  } = useAdmin();
-
-  const [activeTab, setActiveTab] = useState('pending');
-  const [selectedApp, setSelectedApp] = useState<any>(null);
-  const [showReviewModal, setShowReviewModal] = useState(false);
-  const [reviewNotes, setReviewNotes] = useState('');
-  const [actionLoading, setActionLoading] = useState(false);
-  const [currentAction, setCurrentAction] = useState<'approve' | 'reject' | null>(null);
-
-  // Fetch applications on mount and when tab changes
-  useEffect(() => {
-    const loadApplications = async () => {
-      const status = activeTab === 'pending' ? 'pending' : activeTab === 'approved' ? 'verified' : 'rejected';
-      await fetchApplications(status);
-    };
-    loadApplications();
-  }, [fetchApplications, activeTab]);
-
-  // Open review modal
-  const openReviewModal = (app: any, action: 'approve' | 'reject') => {
-    setSelectedApp(app);
-    setCurrentAction(action);
-    setReviewNotes('');
-    setShowReviewModal(true);
-  };
-
-  // Handle approval
-  const handleApprove = async () => {
-    if (!selectedApp) return;
-    setActionLoading(true);
-    const success = await approveApplication(
-      selectedApp.id,
-      selectedApp.application_type,
-      reviewNotes || undefined
-    );
-    if (success) {
-      await fetchApplications(activeTab === 'pending' ? 'pending' : undefined);
-      setShowReviewModal(false);
-      setSelectedApp(null);
-    }
-    setActionLoading(false);
-  };
-
-  // Handle rejection
-  const handleReject = async () => {
-    if (!selectedApp || !reviewNotes.trim()) return;
-    setActionLoading(true);
-    const success = await rejectApplication(selectedApp.id, reviewNotes);
-    if (success) {
-      await fetchApplications(activeTab === 'pending' ? 'pending' : undefined);
-      setShowReviewModal(false);
-      setSelectedApp(null);
-    }
-    setActionLoading(false);
-  };
-
-  const tabs = [
-    { id: 'pending', label: 'Pending', icon: <ClipboardList size={14} /> },
-    { id: 'approved', label: 'Approved', icon: <CheckCircle size={14} /> },
-    { id: 'rejected', label: 'Rejected', icon: <XCircle size={14} /> },
-  ];
-
-  if (roleLoading) {
-    return (
-      <Page>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-white/60">Loading...</div>
-        </div>
-      </Page>
-    );
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    redirect('/login');
   }
+  
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('is_admin')
+    .eq('id', user.id)
+    .single();
+  
+  const isAdmin = profile?.is_admin ?? false;
+  
+  if (!isAdmin) {
+    redirect('/dashboard');
+  }
+  
+  return { user, supabase };
+}
 
+export default async function AdminApplicationsPage() {
+  // Run server-side admin check
+  const { supabase } = await requireAdmin();
+  
+  // Fetch pending applications with profile data
+  const { data: pendingApps } = await supabase
+    .from('applications')
+    .select(`
+      *,
+      profile:user_id (
+        username,
+        display_name,
+        avatar_url,
+        email
+      )
+    `)
+    .eq('status', 'pending')
+    .order('created_at', { ascending: false });
+  
+  // Fetch recently reviewed applications
+  const { data: reviewedApps } = await supabase
+    .from('applications')
+    .select(`
+      *,
+      profile:user_id (
+        username,
+        display_name,
+        avatar_url,
+        email
+      )
+    `)
+    .in('status', ['verified', 'rejected'])
+    .order('reviewed_at', { ascending: false })
+    .limit(10);
+  
+  const pendingCount = pendingApps?.length ?? 0;
+  
   return (
-    <Page>
-      <main className="min-h-screen py-12 px-6">
-        <div className="container max-w-6xl mx-auto">
+    <Page 
+      variant={1}
+      environment="dashboard"
+      showForeground={false}
+      animated={true}
+      showContinuityBeam={true}
+    >
+      <main className="min-h-screen py-12">
+        <div className="container max-w-6xl mx-auto px-6">
           
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
-              <ClipboardList size={28} className="text-cyan-400" />
-              Application Review
-            </h1>
-            <p className="text-white/60">
-              Review creator and vendor applications to welcome new members into the sanctuary
-            </p>
-          </div>
-
-          {/* Tabs */}
-          <div className="mb-6">
-            <Tabs 
-              tabs={tabs.map(tab => ({ id: tab.id, label: tab.label }))}
-              activeTab={activeTab}
-              onChange={setActiveTab}
-            />
-          </div>
-
-          {/* Applications List */}
-          {loadingApplications ? (
-            <div className="flex justify-center py-12">
-              <Loader2 className="animate-spin text-cyan-400" size={32} />
+          <div className="flex items-center gap-4 mb-8">
+            <Link href="/admin" className="text-white/60 hover:text-white">
+              <ArrowLeft size={20} />
+            </Link>
+            <div>
+              <h1 className="text-3xl font-bold text-white">Applications</h1>
+              <p className="text-white/60">Review creator and vendor applications</p>
             </div>
-          ) : applications.length === 0 ? (
-            <Card className="p-12 text-center">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ClipboardList className="text-white/20" size={32} />
+          </div>
+          
+          {/* Pending Applications */}
+          <section className="mb-12">
+            <div className="flex items-center gap-2 mb-4">
+              <Clock size={18} className="text-yellow-400" />
+              <h2 className="text-xl font-bold text-white">Pending Review</h2>
+              {pendingCount > 0 && (
+                <Badge variant="outline" className="text-yellow-400 border-yellow-500/30">
+                  {pendingCount}
+                </Badge>
+              )}
+            </div>
+            
+            {pendingApps && pendingApps.length > 0 ? (
+              <div className="space-y-4">
+                {pendingApps.map((app) => (
+                  <ApplicationReview key={app.id} application={app} />
+                ))}
               </div>
-              <h3 className="text-white font-bold mb-2">No applications</h3>
-              <p className="text-white/40">
-                {activeTab === 'pending' 
-                  ? 'No pending applications to review'
-                  : activeTab === 'approved' 
-                    ? 'No approved applications yet'
-                    : 'No rejected applications'}
-              </p>
-            </Card>
-          ) : (
-            <div className="space-y-4">
-              {applications.map((app) => (
-                <Card key={app.id} className="p-6 hover:border-cyan-500/30 transition-colors">
-                  <div className="flex flex-col md:flex-row justify-between gap-4">
-                    {/* Left side - User Info */}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                          <User size={18} className="text-white" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h3 className="text-lg font-bold text-white">
-                              {app.user?.display_name || app.user?.username || 'Anonymous'}
-                            </h3>
-                            <Badge variant="outline" className="capitalize">
-                              {app.application_type}
-                            </Badge>
-                            <StatusBadge status={app.status || 'pending'} />
-                          </div>
-                          <div className="flex items-center gap-3 text-sm text-white/40 mt-1">
-                            <span className="flex items-center gap-1">
-                              <Mail size={12} />
-                              {app.user?.email}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Calendar size={12} />
-                              Applied {formatDistanceToNow(new Date(app.created_at || ''), { addSuffix: true })}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Application Data */}
-                      <div className="grid md:grid-cols-2 gap-4 mt-4 text-sm">
-                        {app.form_data && (
-                          <>
-                            {/* Creative Categories */}
-                            {app.form_data.creative_categories && (
-                              <div>
-                                <div className="text-white/40 mb-1 flex items-center gap-1">
-                                  <Tag size={12} />
-                                  Categories
-                                </div>
-                                <div className="flex flex-wrap gap-1">
-                                  {app.form_data.creative_categories.map((cat: string) => (
-                                    <Badge key={cat} variant="outline" size="sm">
-                                      {cat}
-                                    </Badge>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Portfolio URL */}
-                            {app.form_data.portfolio_url && (
-                              <div>
-                                <div className="text-white/40 mb-1 flex items-center gap-1">
-                                  <LinkIcon size={12} />
-                                  Portfolio
-                                </div>
-                                <a 
-                                  href={app.form_data.portfolio_url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-cyan-400 hover:underline text-sm truncate block"
-                                >
-                                  {app.form_data.portfolio_url}
-                                </a>
-                              </div>
-                            )}
-                            
-                            {/* ND Identity */}
-                            {app.form_data.nd_identity && app.form_data.nd_identity.length > 0 && (
-                              <div>
-                                <div className="text-white/40 mb-1">Neurodivergent Identity</div>
-                                <div className="flex flex-wrap gap-1">
-                                  {app.form_data.nd_identity.map((id: string) => (
-                                    <Badge key={id} variant="outline" size="sm">
-                                      {id}
-                                    </Badge>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                            
-                            {/* Business Type */}
-                            {app.form_data.business_type && (
-                              <div>
-                                <div className="text-white/40 mb-1">Business Type</div>
-                                <div className="text-white/70">
-                                  {app.form_data.business_type.split('_').map((w: string) => 
-                                    w.charAt(0).toUpperCase() + w.slice(1)
-                                  ).join(' ')}
-                                </div>
-                              </div>
-                            )}
-                          </>
+            ) : (
+              <Card className="p-12 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/5 flex items-center justify-center">
+                  <CheckCircle size={32} className="text-green-400" />
+                </div>
+                <h3 className="text-white font-bold mb-2">No pending applications</h3>
+                <p className="text-white/40 text-sm">All caught up!</p>
+              </Card>
+            )}
+          </section>
+          
+          {/* Recently Reviewed */}
+          {reviewedApps && reviewedApps.length > 0 && (
+            <section>
+              <div className="flex items-center gap-2 mb-4">
+                <FileText size={18} className="text-white/40" />
+                <h2 className="text-xl font-bold text-white">Recently Reviewed</h2>
+              </div>
+              
+              <div className="space-y-2">
+                {reviewedApps.map((app) => (
+                  <Card key={app.id} className="p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                        {app.profile?.avatar_url ? (
+                          <img 
+                            src={app.profile.avatar_url} 
+                            alt="" 
+                            className="w-full h-full object-cover rounded-full"
+                          />
+                        ) : (
+                          <span className="text-white/40 text-sm">
+                            {app.profile?.display_name?.[0] || app.profile?.username?.[0] || '?'}
+                          </span>
                         )}
                       </div>
-                      
-                      {/* Description/Motivation */}
-                      {(app.form_data?.creative_description || app.form_data?.motivation) && (
-                        <div className="mt-4 p-3 bg-white/5 rounded-lg">
-                          <div className="text-white/40 text-xs mb-1 flex items-center gap-1">
-                            <FileText size={12} />
-                            {app.form_data?.creative_description ? 'About Their Work' : 'Motivation'}
-                          </div>
-                          <p className="text-white/70 text-sm line-clamp-2">
-                            {app.form_data?.creative_description || app.form_data?.motivation}
-                          </p>
-                        </div>
+                      <div>
+                        <p className="text-white font-medium">
+                          {app.profile?.display_name || app.profile?.username || 'User'}
+                        </p>
+                        <p className="text-xs text-white/40">
+                          {app.application_type} • {formatRelativeTime(app.created_at)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Badge variant={app.status === 'verified' ? 'success' : 'outline'}>
+                        {app.status === 'verified' ? (
+                          <span className="flex items-center gap-1">
+                            <CheckCircle size={12} /> Approved
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1">
+                            <XCircle size={12} /> Rejected
+                          </span>
+                        )}
+                      </Badge>
+                      {app.review_notes && (
+                        <span className="text-xs text-white/30 max-w-[200px] truncate">
+                          {app.review_notes}
+                        </span>
                       )}
                     </div>
-                    
-                    {/* Right side - Actions */}
-                    <div className="flex md:flex-col gap-2 justify-end md:justify-start">
-                      {app.status === 'pending' && (
-                        <>
-                          <Button
-                            variant="outline"
-                            onClick={() => openReviewModal(app, 'approve')}
-                            className="flex items-center gap-2"
-                          >
-                            <CheckCircle size={16} className="text-green-400" />
-                            Approve
-                          </Button>
-                          <Button
-                            variant="outline"
-                            onClick={() => openReviewModal(app, 'reject')}
-                            className="flex items-center gap-2 border-red-500/30 hover:border-red-500"
-                          >
-                            <XCircle size={16} className="text-red-400" />
-                            Reject
-                          </Button>
-                        </>
-                      )}
-                      {app.status !== 'pending' && app.review_notes && (
-                        <div className="text-xs text-white/40 mt-2 max-w-[200px]">
-                          <div className="font-medium mb-1">Review Notes:</div>
-                          <p className="italic">{app.review_notes}</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+                  </Card>
+                ))}
+              </div>
+            </section>
           )}
         </div>
       </main>
-
-      {/* Review Modal */}
-      {showReviewModal && selectedApp && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <Card className="max-w-lg w-full p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                {currentAction === 'approve' ? (
-                  <CheckCircle size={24} className="text-green-400" />
-                ) : (
-                  <XCircle size={24} className="text-red-400" />
-                )}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">
-                  {currentAction === 'approve' ? 'Approve Application' : 'Reject Application'}
-                </h3>
-                <p className="text-white/40 text-sm">
-                  {selectedApp.user?.display_name || selectedApp.user?.username} • {selectedApp.application_type}
-                </p>
-              </div>
-            </div>
-            
-            <div className="mb-4 p-3 bg-white/5 rounded-lg">
-              <p className="text-white/70 text-sm">
-                {currentAction === 'approve' 
-                  ? 'This user will be granted creator/vendor status and can start contributing to the sanctuary.'
-                  : 'This application will be declined. The user will be notified and may reapply in the future.'}
-              </p>
-            </div>
-            
-            <TextArea
-              label={currentAction === 'approve' ? 'Notes (Optional)' : 'Reason for Rejection (Required)'}
-              placeholder={currentAction === 'approve' 
-                ? 'Add any notes for the user (optional)'
-                : 'Please explain why this application is being rejected'}
-              value={reviewNotes}
-              onChange={(e) => setReviewNotes(e.target.value)}
-              rows={3}
-              required={currentAction === 'reject'}
-            />
-            
-            <div className="flex gap-3 justify-end mt-6">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setShowReviewModal(false);
-                  setSelectedApp(null);
-                  setReviewNotes('');
-                  setCurrentAction(null);
-                }}
-                disabled={actionLoading}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant={currentAction === 'approve' ? 'primary' : 'destructive'}
-                onClick={currentAction === 'approve' ? handleApprove : handleReject}
-                disabled={actionLoading || (currentAction === 'reject' && !reviewNotes.trim())}
-              >
-                {actionLoading ? (
-                  <Loader2 size={16} className="animate-spin mr-2" />
-                ) : null}
-                {currentAction === 'approve' ? 'Approve' : 'Reject'}
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
     </Page>
   );
 }

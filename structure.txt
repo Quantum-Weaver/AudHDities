@@ -112,14 +112,11 @@ AUDHDITIES/
 ⚪	│   │   │   │       ├── new/
 ✅	│   │   │   │       │   └── page.tsx       # New product
 ⚪	│   │   │   │       └── [id]/
-✅	│   │   │   │           ├── page.tsx       # Product detail
 ⚪	│   │   │   │           └── edit/
-❓	│   │   │   │               └── page.tsx   # Edit product
+✅	│   │   │   │               └── page.tsx   # Edit product
 ⚪	│   │   │   ├── dashboard/
 ✅	│   │   │   │   └── page.tsx               # Main dashboard
 ⚪	│   │   │   ├── profile/
-⚪	│   │   │   │   ├── [id]
-✅	│   │   │   │   │   └── page.tsx           # Public profile
 ✅	│   │   │   │   ├── page.tsx               # Profile view
 ⚪	│   │   │   │   └── edit/
 ✅	│   │   │   │       └── page.tsx           # Profile edit
@@ -143,7 +140,7 @@ AUDHDITIES/
 ⚪	│   │   │   │   ├── products/
 ✅	│   │   │   │   │   ├── page.tsx           # Product list
 ⚪	│   │   │   │   │   └── [id]/
-✅	│   │   │   │   │        └── page.tsx      # Product detail
+❓	│   │   │   │   │        └── page.tsx      # Product detail
 ⚪	│   │   │   │   │           
 ✅	│   │   │   │   └── page.tsx               # Vendor dashboard
 ⚪	│   │   │   └── settings/
@@ -187,7 +184,7 @@ AUDHDITIES/
 ⚪	│   │   │   ├── send-email/
 ✅	│   │   │   │   └── route.ts               # Resend configured email
 ⚪	│   │   │   ├── webhook/
-⚪	│   │   │   ├── stripe/
+⚪	│   │   │   │   ├── stripe/
 ✅	│   │   │   │   └── route.ts               # Stripe webhook
 ⚪	│   │   │   ├── products/
 ⚪	│   │   │   │   └── [id]/

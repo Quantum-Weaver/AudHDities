@@ -1,393 +1,196 @@
 // src/(dashboard)/admin/page.tsx
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { Metadata } from 'next';
+import { createServerSupabase } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { useAdmin } from '@/hooks/useAdmin';
-import { useRequireRole } from '@/hooks/useRequireRole';
+import Link from 'next/link';
 import { 
   Users, 
-  ClipboardList, 
+  FileText, 
   Package, 
   DollarSign, 
-  Clock, 
-  CheckCircle, 
-  XCircle, 
-  AlertCircle,
-  Eye,
+  Eye, 
+  Shield, 
   TrendingUp,
-  Shield,
-  Activity
+  CheckCircle,
+  Clock,
+  AlertCircle
 } from 'lucide-react';
 
-// Status badge component
-const StatusBadge = ({ status }: { status: string }) => {
-  const variants: Record<string, { variant: 'success' | 'warning' | 'error' | 'info' | 'outline'; label: string }> = {
-    pending: { variant: 'warning', label: 'Pending' },
-    verified: { variant: 'success', label: 'Verified' },
-    rejected: { variant: 'error', label: 'Rejected' },
-    suspended: { variant: 'error', label: 'Suspended' },
-    active: { variant: 'success', label: 'Active' },
-    published: { variant: 'success', label: 'Published' },
-  };
-  
-  const config = variants[status] || { variant: 'outline', label: status };
-  
-  return <Badge variant={config.variant}>{config.label}</Badge>;
+export const metadata: Metadata = {
+  title: 'Admin Dashboard | AUDHDITIES',
+  description: 'Sanctuary administration',
 };
 
-export default function AdminDashboardPage() {
-  const router = useRouter();
-  const { loading: roleLoading } = useRequireRole('admin', '/dashboard');
+// Server-side admin check function
+async function requireAdmin() {
+  const supabase = await createServerSupabase();
   
-  const {
-    users,
-    loadingUsers,
-    applications,
-    loadingApplications,
-    products,
-    loadingProducts,
-    pendingPayouts,
-    loadingPayouts,
-    fetchUsers,
-    fetchApplications,
-    fetchProductsForModeration,
-    fetchPendingPayouts,
-    addPublicNote,
-  } = useAdmin();
-
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    pendingApplications: 0,
-    pendingProducts: 0,
-    pendingPayoutsTotal: 0,
-    verifiedCreators: 0,
-    verifiedVendors: 0,
-  });
-
-  // Fetch all data on mount
-  useEffect(() => {
-    const loadData = async () => {
-      await fetchUsers({ limit: 5 });
-      await fetchApplications('pending');
-      await fetchProductsForModeration({ status: 'pending' });
-      await fetchPendingPayouts();
-    };
-    loadData();
-  }, [fetchUsers, fetchApplications, fetchProductsForModeration, fetchPendingPayouts]);
-
-  // Calculate stats when data changes
-  useEffect(() => {
-    setStats({
-      totalUsers: users.length,
-      pendingApplications: applications.length,
-      pendingProducts: products.filter(p => !p.is_published).length,
-      pendingPayoutsTotal: pendingPayouts.length,
-      verifiedCreators: users.filter(u => u.is_creator).length,
-      verifiedVendors: users.filter(u => u.is_vendor).length,
-    });
-  }, [users, applications, products, pendingPayouts]);
-
-  // Quick stats cards
-  const statCards = [
-    {
-      title: 'Total Users',
-      value: stats.totalUsers,
-      icon: Users,
-      color: 'cyan',
-      href: '/admin/users',
-    },
-    {
-      title: 'Pending Applications',
-      value: stats.pendingApplications,
-      icon: ClipboardList,
-      color: 'yellow',
-      href: '/admin/applications',
-    },
-    {
-      title: 'Products to Review',
-      value: stats.pendingProducts,
-      icon: Package,
-      color: 'purple',
-      href: '/admin/products',
-    },
-    {
-      title: 'Pending Payouts',
-      value: `$${stats.pendingPayoutsTotal}`,
-      icon: DollarSign,
-      color: 'green',
-      href: '/admin/residuals',
-    },
-  ];
-
-  if (roleLoading) {
-    return (
-        <Page 
-            variant={1}
-            environment="business"
-            showForeground={false}
-            animated={true}   
-            showContinuityBeam={true}
-        >
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-white/60">Loading sanctuary command center...</div>
-        </div>
-      </Page>
-    );
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    redirect('/login');
   }
+  
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('is_admin')
+    .eq('id', user.id)
+    .single();
+  
+  const isAdmin = profile?.is_admin ?? false;
+  
+  if (!isAdmin) {
+    redirect('/dashboard');
+  }
+  
+  return { user, supabase };
+}
 
+export default async function AdminDashboardPage() {
+  // Run server-side admin check
+  const { supabase } = await requireAdmin();
+  
+  // Fetch counts for dashboard (with null handling)
+  const [
+    { count: pendingApplications },
+    { count: totalUsers },
+    { count: pendingProducts },
+    { count: totalSales },
+    { count: pendingPayouts }
+  ] = await Promise.all([
+    supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+    supabase.from('profiles').select('*', { count: 'exact', head: true }),
+    supabase.from('products').select('*', { count: 'exact', head: true }).eq('is_published', false),
+    supabase.from('sales').select('*', { count: 'exact', head: true }),
+    supabase.from('residual_payouts').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+  ]);
+  
+  // Fetch recent admin logs
+  const { data: recentLogs } = await supabase
+    .from('admin_logs')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(5);
+  
+  // Stats cards with safe values
+  const stats = [
+    { label: 'Total Users', value: totalUsers ?? 0, icon: Users, color: 'cyan', href: '/admin/users' },
+    { label: 'Pending Apps', value: pendingApplications ?? 0, icon: FileText, color: 'yellow', href: '/admin/applications', badge: (pendingApplications ?? 0) > 0 },
+    { label: 'Pending Products', value: pendingProducts ?? 0, icon: Package, color: 'purple', href: '/admin/products', badge: (pendingProducts ?? 0) > 0 },
+    { label: 'Total Sales', value: totalSales ?? 0, icon: DollarSign, color: 'green', href: '/admin/transparency' },
+    { label: 'Pending Payouts', value: pendingPayouts ?? 0, icon: TrendingUp, color: 'pink', href: '/admin/residuals', badge: (pendingPayouts ?? 0) > 0 },
+  ];
+  
   return (
     <Page 
-        variant={1}
-        environment="business"
-        showForeground={false}
-        animated={true}   
-        showContinuityBeam={true}
+      variant={1}
+      environment="dashboard"
+      showForeground={false}
+      animated={true}
+      showContinuityBeam={true}
     >
-      <main className="min-h-screen py-12 px-6">
-        <div className="container max-w-7xl mx-auto">
+      <main className="min-h-screen py-12">
+        <div className="container max-w-7xl mx-auto px-6">
           
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">Sanctuary Command Center</h1>
+            <div className="flex items-center gap-3 mb-2">
+              <Shield className="text-cyan-400" size={28} />
+              <h1 className="text-3xl md:text-4xl font-bold text-white">
+                Admin Dashboard
+              </h1>
+            </div>
             <p className="text-white/60">
-              Governance tools for the sovereign sanctuary
+              Manage the sanctuary
             </p>
           </div>
-
+          
           {/* Stats Grid */}
-          <div className="grid md:grid-cols-4 gap-6 mb-12">
-            {statCards.map((stat) => (
-              <Link key={stat.title} href={stat.href}>
-                <Card className={`p-6 hover:border-${stat.color}-500/50 transition-all hover:scale-[1.02] cursor-pointer`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <stat.icon className={`text-${stat.color}-400`} size={24} />
-                    <span className="text-xs text-white/40">View all →</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+            {stats.map((stat) => (
+              <Link key={stat.label} href={stat.href}>
+                <Card className={`p-4 hover:border-${stat.color}-500/30 transition-all ${stat.badge ? `border-${stat.color}-500/30` : ''}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <stat.icon className={`text-${stat.color}-400`} size={20} />
+                    {stat.badge && (
+                      <Badge variant="outline" className="text-yellow-400 border-yellow-500/30 animate-pulse">
+                        Needs attention
+                      </Badge>
+                    )}
                   </div>
-                  <div className={`text-3xl font-bold text-white mb-1`}>
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-white/60">{stat.title}</div>
+                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-white/40">{stat.label}</div>
                 </Card>
               </Link>
             ))}
           </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            
-            {/* Left Column - Applications & Products */}
-            <div className="space-y-8">
-              
-              {/* Recent Applications */}
-              <Card className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                    <ClipboardList size={18} className="text-yellow-400" />
-                    Pending Applications
-                  </h2>
-                  <Link href="/admin/applications" className="text-sm text-cyan-400 hover:underline">
-                    View all
-                  </Link>
-                </div>
-                
-                {loadingApplications ? (
-                  <div className="text-center py-8 text-white/40">Loading applications...</div>
-                ) : applications.length === 0 ? (
-                  <div className="text-center py-8 text-white/40">
-                    <CheckCircle className="mx-auto mb-2 text-green-400" size={24} />
-                    No pending applications
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {applications.slice(0, 3).map((app) => (
-                      <div key={app.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <div>
-                          <div className="text-white font-medium">
-                            {app.user?.display_name || app.user?.username || 'Anonymous'}
-                          </div>
-                          <div className="text-xs text-white/40">
-                            {app.application_type === 'creator' ? 'Creator' : 'Vendor'} application
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <StatusBadge status={app.status || 'pending'} />
-                          <Link href={`/admin/applications/${app.id}`}>
-                            <Button variant="ghost" size="sm">
-                              Review
-                            </Button>
-                          </Link>
-                        </div>
+          
+          {/* Recent Admin Logs */}
+          <div className="mb-12">
+            <h2 className="text-xl font-bold text-white mb-4">Recent Admin Actions</h2>
+            <div className="space-y-2">
+              {recentLogs && recentLogs.length > 0 ? (
+                recentLogs.map((log) => (
+                  <Card key={log.id} className="p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                        <Eye size={14} className="text-white/40" />
                       </div>
-                    ))}
-                  </div>
-                )}
-              </Card>
-              
-              {/* Products to Moderate */}
-              <Card className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Package size={18} className="text-purple-400" />
-                    Products to Review
-                  </h2>
-                  <Link href="/admin/products" className="text-sm text-cyan-400 hover:underline">
-                    View all
-                  </Link>
-                </div>
-                
-                {loadingProducts ? (
-                  <div className="text-center py-8 text-white/40">Loading products...</div>
-                ) : products.filter(p => !p.is_published).length === 0 ? (
-                  <div className="text-center py-8 text-white/40">
-                    <CheckCircle className="mx-auto mb-2 text-green-400" size={24} />
-                    No pending products
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {products.filter(p => !p.is_published).slice(0, 3).map((product) => (
-                      <div key={product.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <div>
-                          <div className="text-white font-medium truncate max-w-[150px]">
-                            {product.title}
-                          </div>
-                          <div className="text-xs text-white/40">
-                            by {product.creator?.display_name || product.creator?.username || 'Unknown'}
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <StatusBadge status="pending" />
-                          <Link href={`/admin/products/${product.id}`}>
-                            <Button variant="ghost" size="sm">
-                              Review
-                            </Button>
-                          </Link>
-                        </div>
+                      <div>
+                        <p className="text-white text-sm">{log.action}</p>
+                        {log.public_note && (
+                          <p className="text-white/40 text-xs">{log.public_note}</p>
+                        )}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </Card>
-            </div>
-            
-            {/* Right Column - Payouts & Recent Users */}
-            <div className="space-y-8">
-              
-              {/* Pending Payouts */}
-              <Card className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                    <DollarSign size={18} className="text-green-400" />
-                    Pending Payouts
-                  </h2>
-                  <Link href="/admin/residuals" className="text-sm text-cyan-400 hover:underline">
-                    Process
-                  </Link>
-                </div>
-                
-                {loadingPayouts ? (
-                  <div className="text-center py-8 text-white/40">Loading payouts...</div>
-                ) : pendingPayouts.length === 0 ? (
-                  <div className="text-center py-8 text-white/40">
-                    <CheckCircle className="mx-auto mb-2 text-green-400" size={24} />
-                    No pending payouts
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {pendingPayouts.slice(0, 3).map((payout) => (
-                      <div key={payout.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <div>
-                          <div className="text-white font-medium">
-                            ${payout.amount.toFixed(2)}
-                          </div>
-                          <div className="text-xs text-white/40">
-                            {payout.calculation_note || 'Residual payment'}
-                          </div>
-                        </div>
-                        <StatusBadge status="pending" />
-                      </div>
-                    ))}
-                    {pendingPayouts.length > 3 && (
-                      <div className="text-center text-xs text-white/40 mt-2">
-                        +{pendingPayouts.length - 3} more
-                      </div>
-                    )}
-                  </div>
-                )}
-              </Card>
-              
-              {/* Recent Users */}
-              <Card className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                    <Users size={18} className="text-cyan-400" />
-                    Recent Users
-                  </h2>
-                  <Link href="/admin/users" className="text-sm text-cyan-400 hover:underline">
-                    View all
-                  </Link>
-                </div>
-                
-                {loadingUsers ? (
-                  <div className="text-center py-8 text-white/40">Loading users...</div>
-                ) : users.length === 0 ? (
-                  <div className="text-center py-8 text-white/40">No users yet</div>
-                ) : (
-                  <div className="space-y-3">
-                    {users.slice(0, 5).map((user) => (
-                      <div key={user.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <div>
-                          <div className="text-white font-medium">
-                            {user.display_name || user.username || user.email}
-                          </div>
-                          <div className="text-xs text-white/40">
-                            Joined {new Date(user.created_at || '').toLocaleDateString()}
-                          </div>
-                        </div>
-                        <div className="flex gap-1">
-                          {user.is_creator && <Badge variant="success" size="sm">C</Badge>}
-                          {user.is_vendor && <Badge variant="success" size="sm">V</Badge>}
-                          {user.is_admin && <Badge variant="primary" size="sm">A</Badge>}
-                          {user.status === 'suspended' && <Badge variant="error" size="sm">S</Badge>}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Card>
+                    </div>
+                    <div className="text-xs text-white/30">
+                      {log.created_at ? new Date(log.created_at).toLocaleDateString() : 'Unknown date'}
+                    </div>
+                  </Card>
+                ))
+              ) : (
+                <Card className="p-8 text-center">
+                  <p className="text-white/40">No admin actions logged yet</p>
+                </Card>
+              )}
             </div>
           </div>
           
           {/* Quick Actions */}
-          <div className="mt-8 grid md:grid-cols-4 gap-4">
-            <Link href="/admin/users">
-              <Button variant="outline" className="w-full justify-start">
-                <Users size={16} className="mr-2" />
-                Manage Users
-              </Button>
-            </Link>
-            <Link href="/admin/applications">
-              <Button variant="outline" className="w-full justify-start">
-                <ClipboardList size={16} className="mr-2" />
-                Review Applications
-              </Button>
-            </Link>
-            <Link href="/admin/products">
-              <Button variant="outline" className="w-full justify-start">
-                <Package size={16} className="mr-2" />
-                Moderate Products
-              </Button>
-            </Link>
-            <Link href="/admin/transparency">
-              <Button variant="outline" className="w-full justify-start">
-                <Activity size={16} className="mr-2" />
-                Transparency Log
-              </Button>
-            </Link>
+          <div>
+            <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/admin/applications">
+                <Card className="p-4 hover:border-cyan-500/30 transition-all">
+                  <FileText className="text-cyan-400 mb-2" size={20} />
+                  <h3 className="text-white font-bold">Review Applications</h3>
+                  <p className="text-xs text-white/40">Approve or reject creators/vendors</p>
+                </Card>
+              </Link>
+              <Link href="/admin/users">
+                <Card className="p-4 hover:border-purple-500/30 transition-all">
+                  <Users className="text-purple-400 mb-2" size={20} />
+                  <h3 className="text-white font-bold">Manage Users</h3>
+                  <p className="text-xs text-white/40">View and manage user accounts</p>
+                </Card>
+              </Link>
+              <Link href="/admin/products">
+                <Card className="p-4 hover:border-pink-500/30 transition-all">
+                  <Package className="text-pink-400 mb-2" size={20} />
+                  <h3 className="text-white font-bold">Moderate Products</h3>
+                  <p className="text-xs text-white/40">Review pending products</p>
+                </Card>
+              </Link>
+              <Link href="/admin/transparency">
+                <Card className="p-4 hover:border-green-500/30 transition-all">
+                  <Eye className="text-green-400 mb-2" size={20} />
+                  <h3 className="text-white font-bold">Add Transparency Note</h3>
+                  <p className="text-xs text-white/40">Log public admin actions</p>
+                </Card>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
