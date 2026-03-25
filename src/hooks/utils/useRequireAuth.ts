@@ -1,7 +1,7 @@
 // app/hooks/useRequireAuth.ts
 'use client';
 
-import { useAuth } from './useAuth';
+import { useAuth } from '../core/useAuth';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 

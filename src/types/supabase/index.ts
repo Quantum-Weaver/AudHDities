@@ -1,2 +1,5 @@
-// src/types/supabase/index.ts
-export * from './database.types'
+// types/supabase/index.ts
+// Main entry point for all Supabase types
+
+export * from './database.types';
+export * from './tables';

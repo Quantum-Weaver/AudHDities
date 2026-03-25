@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useApplicationSubmit } from '@/hooks/useApplicationSubmit';
+import { useApplicationSubmit } from '@/hooks/utils/useApplicationSubmit';
 import { Input } from '@/components/ui/Input';
 import { TextArea } from '@/components/ui/TextArea';
 import { Select } from '@/components/ui/Select';

@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import { useAuth } from './useAuth';
+import { useAuth } from '../core/useAuth';
 import type { Database } from '@/types/supabase/database.types';
 
 // Product type from database

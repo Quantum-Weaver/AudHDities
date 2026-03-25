@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import type { Product } from './useProducts';
+import type { Product } from '../commerce/useProducts';
 
 export interface VendorDetail {
   id: string;

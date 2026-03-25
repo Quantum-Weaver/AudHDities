@@ -2,7 +2,7 @@
 'use client';
 
 import { createClient } from '@/lib/supabase/client';
-import { useProfile } from './useProfile';
+import { useProfile } from '../core/useProfile';
 
 export function useBadgeManager() {
   const supabase = createClient();

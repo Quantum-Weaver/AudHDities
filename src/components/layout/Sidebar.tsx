@@ -8,8 +8,8 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import type { Database } from '@/types/supabase/database.types';
-import { usePermissions } from '@/hooks/usePermissions';
-import { useProfile } from '@/hooks/useProfile';
+import { usePermissions } from '@/hooks/core/usePermissions';
+import { useProfile } from '@/hooks/core/useProfile';
 import { createClient } from '@/lib/supabase/client';
 import { 
   Home,

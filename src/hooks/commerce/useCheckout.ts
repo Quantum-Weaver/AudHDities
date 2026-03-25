@@ -4,7 +4,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { useAuth } from './useAuth';
+import { useAuth } from '../core/useAuth';
 
 interface CheckoutParams {
   productId: string;

@@ -3,9 +3,9 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/useAuth';
-import { useProfile } from '@/hooks/useProfile';
-import { usePermissions } from '@/hooks/usePermissions';
+import { useAuth } from '@/hooks/core/useAuth';
+import { useProfile } from '@/hooks/core/useProfile';
+import { usePermissions } from '@/hooks/core/usePermissions';
 import { Page } from '@/components/layout/Page';
 import { Card } from '@/components/ui/Card';
 import Tabs from '@/components/ui/Tabs';

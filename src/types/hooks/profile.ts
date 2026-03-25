@@ -1,5 +1,5 @@
 // src/types/hooks/profile.ts
-import type { Profile as DatabaseProfile } from '@/types/supabase/profiles';
+import type { Profile as DatabaseProfile } from '@/types/supabase/tables/profiles';
 
 // Make these non-nullable with defaults
 export type NDPreferences = {

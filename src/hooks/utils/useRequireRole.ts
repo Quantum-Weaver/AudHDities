@@ -1,7 +1,7 @@
 // app/hooks/useRequireRole.ts
 'use client';
 
-import { usePermissions } from './usePermissions';
+import { usePermissions } from '../core/usePermissions';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 

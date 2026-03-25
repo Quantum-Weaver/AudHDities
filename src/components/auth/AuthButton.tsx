@@ -1,7 +1,7 @@
 // components/auth/AuthButton.tsx
 'use client';
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/core/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User, LogOut } from 'lucide-react';

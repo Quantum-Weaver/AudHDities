@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import AuthButton from '@/components/auth/AuthButton';
 import { useState, useEffect } from 'react'
-import { useProfile } from '@/hooks/useProfile';
+import { useProfile } from '@/hooks/core/useProfile';
 import { 
   Home, 
   BookOpen, 
