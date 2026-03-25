@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/VoidDomain.tsx
+// src/app/components/ui/icons/domains/VoidDomain.tsx
 export const VoidDomain = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 24 24" role="img" aria-label="Void Domain icon – gravitational singularity with quantum orbits">
     <defs>

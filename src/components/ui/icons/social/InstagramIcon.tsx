@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/InstagramIcon.tsx
+// src/app/components/ui/icons/social/InstagramIcon.tsx
 export const InstagramIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="Instagram" className="cosmic-icon social-instagram">
     <defs>

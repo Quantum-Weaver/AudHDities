@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button';
 import { TextArea } from '@/components/ui/TextArea';
 import { CheckCircle, XCircle, ChevronDown, ChevronUp, AlertCircle, User, Briefcase, Store } from 'lucide-react';
 import type { ApplicationWithProfile } from '@/types/supabase/admin';
-import type { AdminLogInsert } from '@/types/supabase/admin';
+import type { AdminLogInsert } from '@/types/supabase/tables/admin';
 
 interface ApplicationReviewProps {
   application: ApplicationWithProfile;

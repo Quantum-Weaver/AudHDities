@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/CognitiveLoomIcon.tsx
+// src/app/components/ui/icons/system/CognitiveLoomIcon.tsx
 export const CognitiveLoomIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 32 32" role="img" aria-label="Cognitive Loom icon – data weaving structure with quantum flow" className="cosmic-icon cognitive-loom">
     <defs>

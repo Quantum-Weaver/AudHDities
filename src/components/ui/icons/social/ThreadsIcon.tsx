@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/ThreadsIcon.tsx
+// src/app/components/ui/icons/social/ThreadsIcon.tsx
 export const ThreadsIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 512 512" role="img" aria-label="Threads" className="cosmic-icon social-threads">
     <defs>

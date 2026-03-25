@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/FrogIcon.tsx
+// src/app/components/ui/icons/misc/FrogIcon.tsx
 export const FrogIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 64 64" role="img" aria-label="Cosmic Frog - guardian of liminal spaces" className="cosmic-icon cosmic-frog">
     <defs>

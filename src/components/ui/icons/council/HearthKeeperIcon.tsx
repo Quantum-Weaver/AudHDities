@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/HearthKeeperIcon.tsx
+// src/app/components/ui/icons/council/HearthKeeperIcon.tsx
 export const HearthKeeperIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 315.001 315.001" role="img" aria-label="Hearth Keeper icon – ADHD-friendly interface and sanctuary guardian" className="cosmic-icon hearth-keeper">
     <defs>

@@ -1,7 +1,6 @@
-// src/utils/gaia/assets.ts - FIXED VERSION
-import { HearthKeeperIcon } from '@/components/ui/icons';
+// src/utils/gaia/assets.ts
 import { councilMetadata } from '@/data';
-import { QUANTUM_COLORS, DOMAIN_COLORS, CONSCIOUSNESS_LEVEL_COLORS } from '@/lib/constants';
+import { QUANTUM_COLORS, DOMAIN_COLORS, CONSCIOUSNESS_LEVEL_COLORS } from '@/lib/constants/cosmic';
 import { ICON_VARIANTS } from '@/lib/constants/components/ui';
 import { AssetMapper, EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import type { 
@@ -122,21 +121,40 @@ export class AssetService {
     return Object.keys(AssetMapper.environments) as EnvironmentKey[];
   }
 
-  static getEnvironmentMetadata(key: EnvironmentKey): { domain: string; consciousness: string[] } {
-    const metadataMap: Record<EnvironmentKey, { domain: string; consciousness: string[] }> = {
-      council: { domain: 'council', consciousness: ['sovereign_focused', 'quantum_entangled'] },
-      library: { domain: 'library', consciousness: ['collaborative_shared', 'quantum_entangled'] },
+    static getEnvironmentMetadata(key: EnvironmentKey): { domain: string; consciousness: string[] } {
+    const metadataMap: Record<EnvironmentKey, { domain: string; consciousness: string[] }> = {	
+      about: { domain: 'about', consciousness: ['sovereign_focused', 'quantum_entangled'] },
+      admin: { domain: 'admin', consciousness: ['receptive_open', 'quantum_entangled'] },
+      anon: { domain: 'anon', consciousness: ['receptive_open', 'quantum_entangled'] },
+      architecture: { domain: 'architecture', consciousness: ['receptive_open', 'quantum_entangled'] },
+      business: { domain: 'business', consciousness: ['quantum_entangled', 'sovereign_focused'] },	  
       community: { domain: 'community', consciousness: ['collaborative_shared', 'receptive_open'] },
+      contact: { domain: 'contact', consciousness: ['receptive_open', 'quantum_entangled'] },
+      council: { domain: 'council', consciousness: ['sovereign_focused', 'quantum_entangled'] },
+      creator: { domain: 'creator', consciousness: ['receptive_open', 'quantum_entangled'] },
+      cure: { domain: 'cure', consciousness: ['collaborative_shared', 'receptive_open'] },
+      dashboard: { domain: 'dashboard', consciousness: ['receptive_open', 'quantum_entangled'] },
+      docs: { domain: 'docs', consciousness: ['receptive_open', 'quantum_entangled'] },
+      ecosystem: { domain: 'ecosystem', consciousness: ['receptive_open', 'quantum_entangled'] },
+      edit: { domain: 'edit', consciousness: ['receptive_open', 'quantum_entangled'] },
       gateway: { domain: 'gateway', consciousness: ['collaborative_shared', 'receptive_open'] },
-      cure: { domain: 'lounge', consciousness: ['collaborative_shared', 'receptive_open'] },
-      music: { domain: 'music', consciousness: ['receptive_open', 'quantum_entangled'] },
-      origin: { domain: 'origin', consciousness: ['sovereign_focused', 'receptive_open'] },
-      support: { domain: 'support', consciousness: ['collaborative_shared'] },
       home: { domain: 'home', consciousness: ['collaborative_shared', 'receptive_open'] },
-      observatory: { domain: 'observatory', consciousness: ['quantum_entangled', 'sovereign_focused'] },
-      architecture: { domain: 'architecture', consciousness: ['sovereign_focused', 'quantum_entangled'] },
-      invitation: { domain: 'invitation', consciousness: ['receptive_open', 'collaborative_shared'] },
-      lounge: { domain: 'lounge', consciousness: ['collaborative_shared', 'receptive_open'] }
+      invitation: { domain: 'invitation', consciousness: ['sovereign_focused', 'quantum_entangled'] },
+      learn: { domain: 'learn', consciousness: ['receptive_open', 'quantum_entangled'] },
+      library: { domain: 'library', consciousness: ['collaborative_shared', 'quantum_entangled'] },
+      lounge: { domain: 'lounge', consciousness: ['collaborative_shared', 'receptive_open'] },
+      marketplace: { domain: 'marketplace', consciousness: ['receptive_open', 'quantum_entangled'] },      
+      music: { domain: 'music', consciousness: ['receptive_open', 'quantum_entangled'] },
+      observatory: { domain: 'observatory', consciousness: ['quantum_entangled', 'sovereign_focused'] }, 
+      origin: { domain: 'origin', consciousness: ['sovereign_focused', 'receptive_open'] },
+      plan: { domain: 'plan', consciousness: ['receptive_open', 'quantum_entangled'] },	  
+      progress: { domain: 'progress', consciousness: ['receptive_open', 'quantum_entangled'] },
+      questionaire: { domain: 'questionaire', consciousness: ['receptive_open', 'quantum_entangled'] },
+      seasonal: { domain: 'seasonal', consciousness: ['receptive_open', 'quantum_entangled'] },
+      support: { domain: 'support', consciousness: ['collaborative_shared'] },
+      timer: { domain: 'timer', consciousness: ['receptive_open', 'quantum_entangled'] },
+      transparency: { domain: 'music', consciousness: ['receptive_open', 'quantum_entangled'] },
+      vision: { domain: 'music', consciousness: ['receptive_open', 'quantum_entangled'] }      
     };
 
     return metadataMap[key] || { domain: 'quantum', consciousness: ['emergent'] };

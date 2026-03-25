@@ -17,6 +17,8 @@ export const TRANSITION_BACKGROUND_IMAGES = {
   council: '/environments/360-panoramas/council/council-background-1.webp',
   admin: '/environments/360-panoramas/council/council-background-1.webp',
   creator: '/environments/360-panoramas/council/council-background-1.webp',
+  business: '/environments/360-panoramas/community/community-background-1.webp',
+  plan: '/environments/360-panoramas/community/community-background-1.webp',
   
   // Library Theme
   library: '/environments/360-panoramas/library/library-background-1.webp',
@@ -26,7 +28,6 @@ export const TRANSITION_BACKGROUND_IMAGES = {
   
   // Community Theme
   community: '/environments/360-panoramas/community/community-background-1.webp',
-  business: '/environments/360-panoramas/community/community-background-1.webp',
   marketplace: '/environments/360-panoramas/community/community-background-1.webp',
   
   // Music Theme
@@ -224,6 +225,7 @@ export const getTransitionBackgroundForEnvironment = (environment: keyof typeof 
     // Library theme
     library: 'libraryThreshold',
     docs: 'libraryThreshold',
+	  plans: 'libraryThreshold',
     ecosystem: 'libraryThreshold',
     learn: 'libraryThreshold',
     // Community theme

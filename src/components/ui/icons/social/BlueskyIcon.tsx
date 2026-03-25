@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/BlueskyIcon.tsx
+// src/app/components/ui/icons/social/BlueskyIcon.tsx
 export const BlueskyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 64 64" role="img" aria-label="Bluesky decentralized social">
     <defs>

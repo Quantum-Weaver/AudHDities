@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/ExecutionerIcon.tsx
+// src/app/components/ui/icons/council/ExecutionerIcon.tsx
 export const ExecutionerIcon = () => (
   <svg width="128" height="128" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Executioner icon - workflow management and system enforcement" className="cosmic-icon executioner">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/BattleNetIcon.tsx
+// src/app/components/ui/icons/social/BattleNetIcon.tsx
 export const BattleNetIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 24 24" role="img" aria-label="Battle.net gaming platform">
     <defs>

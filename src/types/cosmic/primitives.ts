@@ -591,9 +591,14 @@ export type SweepingDirection =
 // ============================================================================
 
 export type EnvironmentAssetKey = 
-  | 'home' | 'cosmic' | 'mysticalMist' | 'etherialVeil' 
-  | 'musicRoom' | 'architecture' | 'invitation' | 'council'
-  | 'community' | 'origin' | 'support' | 'observatory' | 'lounge';
+  | 'about' | 'admin' | 'anon' | 'architecture'
+  | 'business' | 'community' | 'contact' | 'council' 
+  | 'creator' | 'cure' | 'dashboard' | 'docs' 
+  | 'ecosystem' | 'edit' | 'gateway' | 'home'
+  | 'invitation' | 'learn' | 'library' | 'lounge' 
+  | 'marketplace' | 'music' | 'observatory' | 'origin'
+  | 'plan' | 'progress' | 'questionaire' | 'seasonal' 
+  | 'support' | 'timer' | 'transparency' | 'vision';
 
 export type LibraryAssetKey = 
   | 'library1' | 'tableDown' | 'atmosphere' | 'shelves';

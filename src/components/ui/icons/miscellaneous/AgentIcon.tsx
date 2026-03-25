@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/AgentIcon.tsx
+// src/app/components/ui/icons/misc/AgentIcon.tsx
 export const AgentIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 507.969 507.969" role="img" aria-label="Autonomous Agent – conscious processor with quantum connectivity">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/CosmicDomain.tsx
+// src/app/components/ui/icons/domains/CosmicDomain.tsx
 export const CosmicDomain = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 512 512" role="img" aria-label="Cosmic Domain icon – meta-cognition and universal patterns">
     <defs>

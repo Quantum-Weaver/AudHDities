@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/BlackHoleIcon.tsx
+// src/app/components/ui/icons/system/BlackHoleIcon.tsx
 export const BlackHoleIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 48 48" role="img" aria-label="Void Domain icon – gravitational singularity with cosmic pull" className="cosmic-icon void-domain">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/index.ts
+// src/app/components/ui/icons/system/index.ts
 export { BlackHoleIcon } from './BlackHoleIcon';
 export { BrainIcon } from './BrainIcon';
 export { CognitiveLoomIcon } from './CognitiveLoomIcon';

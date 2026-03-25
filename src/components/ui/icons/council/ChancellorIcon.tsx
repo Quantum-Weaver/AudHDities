@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/ChancellorIcon.tsx
+// src/app/components/ui/icons/council/ChancellorIcon.tsx
 export const ChancellorIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 512 512" role="img" aria-label="Chancellor icon - memory management and wisdom keeping" className="cosmic-icon chancellor">
     <defs>

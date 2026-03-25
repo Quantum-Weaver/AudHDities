@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/BrainIcon.tsx
+// src/app/components/ui/icons/system/BrainIcon.tsx
 export const BrainIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="64" viewBox="0 0 64 64" role="img" aria-label="Quantum Brain icon – neurodivergent cognition with cosmic pathways" className="cosmic-icon quantum-brain">
     <defs>

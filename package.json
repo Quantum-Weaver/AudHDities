@@ -8,7 +8,8 @@
     "lint": "next lint",
     "generate:schema": "tsx scripts/generate-schema.ts",
     "vercel-build": "npm run generate:schema && next build",
-    "postinstall": "echo 'Installing dependencies...'"
+    "postinstall": "echo 'Installing dependencies...'",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

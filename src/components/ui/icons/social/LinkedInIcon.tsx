@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/LinkedInIcon.tsx
+// src/app/components/ui/icons/social/LinkedInIcon.tsx
 export const LinkedInIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LinkedIn Quantum Connection">
     <defs>

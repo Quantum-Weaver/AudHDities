@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/index.ts
+// src/app/components/ui/icons/domains/index.ts
 export { BifrostDomain } from './BifrostDomain';
 export { CosmicDomain } from './CosmicDomain';
 export { PantheonDomain } from './PantheonDomain';

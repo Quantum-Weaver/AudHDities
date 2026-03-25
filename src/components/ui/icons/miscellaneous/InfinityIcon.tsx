@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/InfinityIcon.tsx
+// src/app/components/ui/icons/misc/InfinityIcon.tsx
 export const InfinityIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 24 24" role="img" aria-label="Infinity icon – eternal flow and limitless potential" className="cosmic-icon infinity">
     <defs>

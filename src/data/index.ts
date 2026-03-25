@@ -23,10 +23,6 @@ export * from './creative/prophetic-themes'
 export * from './community/gaming-profiles' 
 export * from './community/social-platforms'
 
-// Knowledge Systems
-export * from './knowledge/library-content'
-
 // Interface Data
 export * from './interfaces/header-data'
 export * from './interfaces/navigation-data'
-export * from './interfaces/component-data'

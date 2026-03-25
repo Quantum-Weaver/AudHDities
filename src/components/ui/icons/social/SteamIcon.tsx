@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/SteamIcon.tsx
+// src/app/components/ui/icons/social/SteamIcon.tsx
 export const SteamIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 512 512" role="img" aria-label="Steam Gaming Platform">
     <defs>

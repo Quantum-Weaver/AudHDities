@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/index.ts
+// src/app/components/ui/icons/social/index.ts
 export { BattleNetIcon } from './BattleNetIcon';
 export { BlueskyIcon } from './BlueskyIcon';
 export { FacebookIcon } from './FacebookIcon';

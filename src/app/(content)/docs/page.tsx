@@ -38,8 +38,8 @@ const DOC_SECTIONS = [
     pages: [
       {
         title: 'Business Plan',
-        path: '/docs/business/business-plan',
-        description: 'Our vision for a new economy where value circulates, never extracts',
+        path: '/docs/business/plan',
+        description: 'A new economy where value circulates and dignity is guaranteed',
         icon: Map,
         badge: 'Vision',
         badgeColor: 'emerald',

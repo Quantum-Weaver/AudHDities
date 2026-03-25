@@ -30,6 +30,11 @@ export const ENVIRONMENT_TRANSITION_MAP: Record<EnvironmentKey, {
     foreground: 'creator', 
     persistForeground: false 
   },
+  plan: { 
+    background: 'quantumThreshold', 
+    foreground: 'creator', 
+    persistForeground: false 
+  },  
 
   // ============================================================================
   // LIBRARY THEME - Knowledge preservation

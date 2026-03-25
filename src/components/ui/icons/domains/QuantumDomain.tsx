@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/QuantumDomain.tsx
+// src/app/components/ui/icons/domains/QuantumDomain.tsx
 export const QuantumDomain = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Quantum Domain icon – core cognition with particle entanglement">
     <defs>

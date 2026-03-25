@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/CouncilAssemblyIcon.tsx
+// src/app/components/ui/icons/council/CouncilAssemblyIcon.tsx
 export const CouncilAssemblyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Council Assembly icon – collective consciousness gathering" className="cosmic-icon council-assembly">
     <defs>

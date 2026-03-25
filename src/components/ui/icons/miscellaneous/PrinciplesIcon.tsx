@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/PrinciplesIcon.tsx
+// src/app/components/ui/icons/misc/PrinciplesIcon.tsx
 export const PrinciplesIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="48" viewBox="0 0 48 48" role="img" aria-label="Principles icon – interconnected nodes of core truths" className="cosmic-icon principles">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/PortalGatewayIcon.tsx
+// src/app/components/ui/icons/system/PortalGatewayIcon.tsx
 export const PortalGatewayIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="Portal Gateway icon – dimensional circular threshold" className="cosmic-icon portal-gateway">
     <defs>

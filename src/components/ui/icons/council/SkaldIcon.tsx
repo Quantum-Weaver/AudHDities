@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/SkaldIcon.tsx
+// src/app/components/ui/icons/council/SkaldIcon.tsx
 export const SkaldIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 64 64" role="img" aria-label="Skald - Narrative Weaver">
     <defs>

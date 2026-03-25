@@ -55,6 +55,12 @@ export const productTypeLabels: Record<ProductType, string> = {
   subscription_box: 'Subscription Box',
 };
 
+// Helper function to get product type label
+export function getProductTypeLabel(productType: ProductType | string | null): string {
+  if (!productType) return 'Unknown';
+  return productTypeLabels[productType as ProductType] || productType.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
 export interface ProductWithRelations extends Product {
   creator?: Database['public']['Tables']['profiles']['Row'];
   contributions?: Database['public']['Tables']['contributions']['Row'][];
@@ -73,3 +79,4 @@ export const productDefaults = {
   media_urls: [],
   collaborators: [],
 } as const;
+

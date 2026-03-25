@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/index.ts
+// src/app/components/ui/icons/council/index.ts
 export { AethelredIcon } from './AethelredIcon';
 export { ArchivistIcon } from './ArchivistIcon';
 export { ChancellorIcon } from './ChancellorIcon';

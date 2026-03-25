@@ -1,4 +1,4 @@
-// src/components//ui/icons/miscellaneous/EmergencyIcon.tsx
+// src/app/components/ui/icons/miscellaneous/EmergencyIcon.tsx
 export const EmergencyIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 120 120" role="img" aria-label="Emergency - Crisis Response">
     <defs>

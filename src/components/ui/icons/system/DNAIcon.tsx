@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/DNAIcon.tsx
+// src/app/components/ui/icons/system/DNAIcon.tsx
 export const DNAIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 512 512" role="img" aria-label="DNA Helix icon – quantum biological consciousness" className="cosmic-icon dna-helix">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/CodexIcon.tsx
+// src/app/components/ui/icons/council/CodexIcon.tsx
 export const CodexIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 512 512" role="img" aria-label="Codex icon – knowledge preservation and analysis" className="cosmic-icon codex">
     <defs>

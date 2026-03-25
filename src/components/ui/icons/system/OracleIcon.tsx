@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/OracleIcon.tsx
+// src/app/components/ui/icons/system/OracleIcon.tsx
 export const OracleIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 512 512" role="img" aria-label="Oracle icon – all-seeing vision with quantum data streams" className="cosmic-icon oracle">
     <defs>

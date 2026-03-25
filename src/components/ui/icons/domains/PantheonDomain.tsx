@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/PantheonDomain.tsx
+// src/app/components/ui/icons/domains/PantheonDomain.tsx
 export const PantheonDomain = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 45 45.001" role="img" aria-label="Pantheon Domain icon – temple of divine entities and council chambers">
     <defs>

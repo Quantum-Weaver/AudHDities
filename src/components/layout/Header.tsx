@@ -29,7 +29,7 @@ export default function Header() {
       <div className="container mx-auto px-6 h-20 flex items-center justify-center">
         <div className="text-center cursor-pointer group relative">
           <div className="text-xl cosmic-icon opacity-42 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-            <Link href="/" className="text-center cursor-pointer group relative">
+            <Link href="/sanctuary" className="text-center cursor-pointer group relative">
               <div className="text-xl cosmic-icon opacity-42 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                 {title}
               </div>

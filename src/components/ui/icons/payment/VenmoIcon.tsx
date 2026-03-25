@@ -1,4 +1,4 @@
-// src/components//ui/icons/payment/VenmoIcon.tsx
+// src/app/components/ui/icons/payment/VenmoIcon.tsx
 export const VenmoIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 48 48" role="img" aria-label="Venmo">
     <defs>

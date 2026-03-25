@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/ConsciousnessNodeIcon.tsx
+// src/app/components/ui/icons/system/ConsciousnessNodeIcon.tsx
 export const ConsciousnessNodeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="Consciousness Node icon – central node with radiant connections" className="cosmic-icon consciousness-node">
     <defs>

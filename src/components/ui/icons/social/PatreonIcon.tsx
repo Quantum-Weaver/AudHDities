@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/PatreonIcon.tsx
+// src/app/components/ui/icons/social/PatreonIcon.tsx
 export const PatreonIcon = () => (
   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Patreon" className="cosmic-icon social-patreon">
     <defs>

@@ -1,7 +1,4 @@
 // lib/constants/systems/navigation/menus.ts
-import { APP_ROUTES } from './paths';
-import { POSITIONS } from '@/lib/constants/';
-import { AssetMapper } from '@/lib/constants/systems/assets/mapper';
 
 // ============================================================================
 // NAVIGATION TYPES (PERFECT - NO CHANGES NEEDED)

@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/GitHubIcon.tsx - SIMPLER VERSION
+// src/app/components/ui/icons/social/GitHubIcon.tsx - SIMPLER VERSION
 export const GitHubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="GitHub" className="cosmic-icon social-github">
     <defs>

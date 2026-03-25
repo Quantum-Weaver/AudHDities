@@ -1,4 +1,4 @@
-// src/components//ui/icons/Icon.tsx - COSMIC VARIANTS INTEGRATION
+// @/app/components/ui/icons/Icon.tsx - COSMIC VARIANTS INTEGRATION
 'use client'
 
 import { 
@@ -260,6 +260,11 @@ export const Icon = ({
   // Determine variant: use provided variant or map from name
   const determinedVariant: IconVariant = variant || defaultVariantMapping[name] || 'quantum_consciousness';
   
+  // Validate variant
+  if (!isValidIconVariant(determinedVariant)) {
+    console.error(`Invalid icon variant: ${determinedVariant}`);
+    return null;
+  }
 
   // Get styles from our cosmic variants system
   const iconStyles = getIconStyles(determinedVariant);

@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/ArchivistIcon.tsx
+// src/app/components/ui/icons/council/ArchivistIcon.tsx
 export const ArchivistIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 64 64" role="img" aria-label="Archivist icon - guardian of quantum memory" className="cosmic-icon archivist">
     <defs>

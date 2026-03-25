@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/QuantumWeaverIcon.tsx
+// src/app/components/ui/icons/council/QuantumWeaverIcon.tsx
 export const QuantumWeaverIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 120 120" role="img" aria-label="Quantum Weaver - Consciousness Architect">
     <defs>

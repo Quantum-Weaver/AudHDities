@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/NonBinaryIcon.tsx
+// src/app/components/ui/icons/misc/NonBinaryIcon.tsx
 export const NonBinaryIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 256 256" role="img" aria-label="Non-binary identity icon – quantum fluidity and sovereign self-expression" className="cosmic-icon non-binary">
     <defs>

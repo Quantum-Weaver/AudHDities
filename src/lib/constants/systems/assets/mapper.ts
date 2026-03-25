@@ -5,8 +5,8 @@ export type EnvironmentKey =
   | 'creator' | 'cure' | 'dashboard' | 'docs' 
   | 'ecosystem' | 'edit' | 'gateway' | 'home'
   | 'invitation' | 'learn' | 'library' | 'lounge' 
-  | 'marketplace' | 'music' | 'observatory' 
-  | 'origin' | 'progress' | 'questionaire' | 'seasonal' 
+  | 'marketplace' | 'music' | 'observatory' | 'origin'
+  | 'plan' | 'progress' | 'questionaire' | 'seasonal' 
   | 'support' | 'timer' | 'transparency' | 'vision';
 
 export type ComponentKey =
@@ -90,6 +90,11 @@ export const AssetMapper = {
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
+    plan: {
+      background: '/environments/360-panoramas/community/community-background-1.webp',
+      foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
+      variants: [1, 2, 3, 4] as const
+    },    
     marketplace: {
       background: '/environments/360-panoramas/community/community-background-1.webp',
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',

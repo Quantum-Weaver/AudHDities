@@ -6,6 +6,7 @@
 export const TRANSITION_FOREGROUND_IMAGES = {
   // Council Theme
   council: '/environments/360-panoramas/council/council-foreground-1.webp',
+  plan: '/environments/360-panoramas/council/council-foreground-1.webp',
   admin: '/environments/360-panoramas/council/council-foreground-1.webp',
   creator: '/environments/360-panoramas/council/council-foreground-1.webp',
   

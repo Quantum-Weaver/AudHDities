@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/CosmicLoomIcon.tsx
+// src/app/components/ui/icons/system/CosmicLoomIcon.tsx
 export const CosmicLoomIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="Cosmic Loom icon – interwoven mandala pattern" className="cosmic-icon cosmic-loom">
     <defs>

@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/CuratorIcon.tsx
+// src/app/components/ui/icons/council/CuratorIcon.tsx
 export const CuratorIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 32 32" role="img" aria-label="Curator icon – data transformation and organization" className="cosmic-icon curator">
     <defs>

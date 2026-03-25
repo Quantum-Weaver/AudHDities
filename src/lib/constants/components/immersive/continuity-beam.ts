@@ -27,6 +27,7 @@ export const BEAM_COLORS = {
   // Community - Collective consciousness
   community: QUANTUM_GRADIENTS.communityDomain,
   business: QUANTUM_GRADIENTS.communityDomain,
+  plan: QUANTUM_GRADIENTS.communityDomain,
   marketplace: QUANTUM_GRADIENTS.communityDomain,
   
   // Music - Creative expression

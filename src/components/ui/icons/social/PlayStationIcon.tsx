@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/PlayStationIcon.tsx
+// src/app/components/ui/icons/social/PlayStationIcon.tsx
 export const PlayStationIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="PlayStation integration – gaming platform connection">
     <defs>

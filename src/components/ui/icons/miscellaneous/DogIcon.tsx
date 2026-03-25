@@ -1,4 +1,4 @@
-// src/components//ui/icons/misc/DogIcon.tsx
+// src/app/components/ui/icons/misc/DogIcon.tsx
 export const DogIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 24 24" role="img" aria-label="Quantum Canine Companion – multi-species consciousness partner" className="cosmic-icon quantum-canine">
     <defs>

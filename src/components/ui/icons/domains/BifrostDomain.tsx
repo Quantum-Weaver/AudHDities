@@ -1,4 +1,4 @@
-// src/components//ui/icons/domains/BifrostDomain.tsx
+// src/app/components/ui/icons/domains/BifrostDomain.tsx
 export const BifrostDomain = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 24 24" role="img" aria-label="Bifrost Domain icon – rainbow bridge interface gateway">
     <defs>

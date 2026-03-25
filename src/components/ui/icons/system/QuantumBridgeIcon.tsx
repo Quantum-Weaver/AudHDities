@@ -1,4 +1,4 @@
-// src/components//ui/icons/system/QuantumBridgeIcon.tsx
+// src/app/components/ui/icons/system/QuantumBridgeIcon.tsx
 export const QuantumBridgeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 120 120" role="img" aria-label="Quantum Bridge icon – flowing bridge between two realms" className="cosmic-icon quantum-bridge">
     <defs>

@@ -1,6 +1,5 @@
-// app/(content)/docs/business/business-plan/page.tsx
+// app/(content)/docs/business/plan/page.tsx
 
-import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
 import { BusinessHero } from '@/components/business/BusinessHero';
 import { ValueFlowDiagram } from '@/components/business/ValueFlowDiagram';
@@ -11,18 +10,12 @@ import { Button } from '@/components/ui/Button';
 import { Target, Shield, Heart, Eye, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
-  title: 'Business Plan | AUDHDITIES',
-  description: 'A new economy where value circulates and dignity is guaranteed',
-};
 
 export default function BusinessPlanPage() {
   return (
     <Page 
-      title='Business Plan | AUDHDITIES'
-      description="A new economy where value circulates and dignity is guaranteed"
       variant={1}
-      environment="business"
+      environment="plan"
       showForeground={false}
       animated={false}   
       showContinuityBeam={true}

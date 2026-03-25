@@ -1,4 +1,4 @@
-// src/components//ui/icons/social/TwitterIcon.tsx
+// src/app/components/ui/icons/social/TwitterIcon.tsx
 export const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="-143 145 512 512" role="img" aria-label="Quantum Social Gateway icon – cosmic connection bridge" className="cosmic-icon quantum-social">
     <defs>

@@ -223,7 +223,7 @@ export const isValidEnvironment = (environment: string): environment is Environm
     'about', 'admin', 'anon', 'architecture', 'business', 'community', 'contact',
     'council', 'creator', 'cure', 'dashboard', 'docs', 'ecosystem', 'edit',
     'gateway', 'home', 'invitation', 'learn', 'library', 'lounge', 'marketplace',
-    'music', 'observatory', 'origin', 'progress', 'questionaire', 'seasonal',
+    'music', 'observatory', 'origin', 'plan', 'progress', 'questionaire', 'seasonal',
     'support', 'timer', 'transparency', 'vision'
   ];
   return validEnvironments.includes(environment as EnvironmentKey);

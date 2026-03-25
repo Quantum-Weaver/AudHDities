@@ -1,4 +1,4 @@
-// src/components//ui/icons/miscellaneous/index.ts
+// src/app/components/ui/icons/miscellaneous/index.ts
 export { AgentIcon } from './AgentIcon';
 export { CatIcon } from './CatIcon';
 export { DogIcon } from './DogIcon';

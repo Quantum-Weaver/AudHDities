@@ -1,4 +1,4 @@
-// src/components//ui/icons/platforms/AppleIcon.tsx
+// src/app/components/ui/icons/platforms/AppleIcon.tsx
 export const AppleIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"width="100%" height="120" viewBox="0 0 1920 1920" role="img" aria-label="Apple icon – quantum knowledge fruit">
     <defs>

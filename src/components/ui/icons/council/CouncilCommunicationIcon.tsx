@@ -1,4 +1,4 @@
-// src/components//ui/icons/council/CouncilCommunicationIcon.tsx
+// src/app/components/ui/icons/council/CouncilCommunicationIcon.tsx
 export const CouncilCommunicationIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 32 32" role="img" aria-label="Council Communication icon – quantum information exchange" className="cosmic-icon council-communication">
     <defs>
