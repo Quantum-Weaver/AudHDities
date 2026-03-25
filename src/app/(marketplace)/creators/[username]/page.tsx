@@ -4,17 +4,17 @@ import { notFound } from 'next/navigation';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { Page } from '@/components/layout/Page';
 import { ProductGrid } from '@/components/products/ProductGrid';
-import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { MarkdownBio } from '@/components/profiles/MarkdownBio';
-import { ArrowLeft, Package, Shield, Home, Award, Users, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Package, Shield, Home, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 
 interface CreatorPageProps {
-  params: { username: string };
+  params: Promise<{ username: string }> | { username: string };
 }
 
 export async function generateMetadata({ params }: CreatorPageProps): Promise<Metadata> {
+  const { username } = await params;
   const supabase = await createServerSupabase();
   
   const { data: creator } = await supabase
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: CreatorPageProps): Promise<Me
         creative_categories
       )
     `)
-    .eq('username', params.username)
+    .eq('username', username)
     .eq('is_creator', true)
     .maybeSingle();
   
@@ -41,10 +41,10 @@ export async function generateMetadata({ params }: CreatorPageProps): Promise<Me
 }
 
 export default async function CreatorPage({ params }: CreatorPageProps) {
+  const { username } = await params;
   const supabase = await createServerSupabase();
-  const { username } = params;
   
-  // Fetch creator profile using the same pattern as the API
+  // Fetch creator profile
   const { data: creator, error } = await supabase
     .from('profiles')
     .select(`
@@ -94,7 +94,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
   const creatorProfile = creator.creator_profiles;
   const hasProducts = products && products.length > 0;
   
-  // Helper for house display
   const getHouseDisplay = (house: string | null) => {
     if (!house) return null;
     return house.split('_').map(word => 
@@ -111,8 +110,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
       showContinuityBeam={true}
     >
       <main className="min-h-screen pb-20">
-        
-        {/* Back Button */}
         <div className="container max-w-7xl mx-auto px-6 pt-8">
           <Link href="/creators" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors">
             <ArrowLeft size={16} />
@@ -120,9 +117,7 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
           </Link>
         </div>
         
-        {/* Custom Creator Header (not using ProfileHeader to avoid type issues) */}
         <div className="relative mt-4">
-          {/* Banner */}
           <div className="relative h-48 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-t-lg overflow-hidden">
             {creator.banner_url ? (
               <img 
@@ -137,7 +132,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
             )}
           </div>
 
-          {/* Avatar - positioned absolutely */}
           <div className="absolute -bottom-12 left-8 flex items-end gap-4">
             <div className="relative">
               <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-black bg-white/5">
@@ -155,7 +149,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
               </div>
             </div>
 
-            {/* Sovereignty Score Badge */}
             <div className="mb-2 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cyan-500/30">
               <Shield size={14} className="text-cyan-400" />
               <span className="text-sm font-medium text-white">{creator.sovereignty_score || 0}</span>
@@ -163,7 +156,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
             </div>
           </div>
 
-          {/* Profile Info Section */}
           <div className="pt-16 px-8 pb-6 border-b border-white/10">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
@@ -177,10 +169,8 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
                 </div>
                 
                 <div className="flex flex-wrap items-center gap-3 mt-2">
-                  {/* Username */}
                   <span className="text-white/40 text-sm">@{creator.username}</span>
                   
-                  {/* Primary House */}
                   {creator.primary_house && (
                     <span className="flex items-center gap-1 px-2 py-0.5 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs text-purple-400">
                       <Home size={12} />
@@ -188,14 +178,12 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
                     </span>
                   )}
                   
-                  {/* Creator Badge */}
                   <span className="px-2 py-0.5 bg-green-500/20 border border-green-500/30 rounded-full text-xs text-green-400">
                     Creator
                   </span>
                 </div>
               </div>
 
-              {/* User Tier */}
               <div className="text-right">
                 <span className={`
                   px-3 py-1 rounded-full text-xs font-medium
@@ -210,10 +198,7 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
           </div>
         </div>
         
-        {/* Creator Content */}
         <div className="container max-w-7xl mx-auto px-6 mt-8">
-          
-          {/* Creative Description */}
           {creatorProfile?.creative_description && (
             <Card className="p-6 mb-8">
               <h2 className="text-xl font-bold text-white mb-4">About</h2>
@@ -223,7 +208,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
             </Card>
           )}
           
-          {/* Products Section */}
           <section>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-white">
@@ -255,7 +239,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
             )}
           </section>
           
-          {/* Creator Stats */}
           <Card className="p-6 mt-8">
             <h2 className="text-xl font-bold text-white mb-4">Creator Stats</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -278,7 +261,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
             </div>
           </Card>
           
-          {/* Portfolio Link */}
           {creatorProfile?.portfolio_url && (
             <div className="mt-6 text-center">
               <a 

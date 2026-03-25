@@ -23,18 +23,17 @@ import {
 } from 'lucide-react';
 
 interface CommunityProductPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }> | { id: string };
 }
 
 export async function generateMetadata({ params }: CommunityProductPageProps): Promise<Metadata> {
+  const { id } = await params;
   const supabase = await createServerSupabase();
   
   const { data: product } = await supabase
     .from('products')
     .select('title, description')
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   return {
@@ -83,6 +82,7 @@ const productTypeInfo: Record<string, { label: string; icon: React.ReactNode; co
 };
 
 export default async function CommunityProductDetailPage({ params }: CommunityProductPageProps) {
+  const { id } = await params;
   const supabase = await createServerSupabase();
   
   // Get current user
@@ -106,7 +106,7 @@ export default async function CommunityProductDetailPage({ params }: CommunityPr
         peer_endorsements
       )
     `)
-    .eq('id', params.id)
+    .eq('id', id)
     .single();
 
   if (error || !product) {
@@ -128,7 +128,7 @@ export default async function CommunityProductDetailPage({ params }: CommunityPr
     .eq('id', product.creator_id)
     .single();
 
-  // Calculate price information
+  // Calculate price information with null safety
   const validPrices = getValidPrices(product);
   const hasAnyPrice = validPrices.length > 0;
   const lowestPrice = hasAnyPrice ? Math.min(...validPrices) : null;
@@ -144,6 +144,16 @@ export default async function CommunityProductDetailPage({ params }: CommunityPr
     icon: <Shield size={16} />, 
     color: 'cyan' 
   };
+  
+  // Safe values with defaults
+  const creatorName = product.creator?.display_name ?? product.creator?.username ?? 'Community Member';
+  const creatorAvatar = product.creator?.avatar_url ?? null;
+  const creatorBio = product.creator?.bio ?? null;
+  const creatorUsername = product.creator?.username ?? null;
+  const creatorId = product.creator?.id ?? product.creator_id;
+  const communityMentor = communityProfile?.is_mentor ?? false;
+  const communityEndorsements = communityProfile?.peer_endorsements ?? 0;
+  const communityNDIdentity = communityProfile?.nd_identity ?? [];
 
   return (
     <AuthGuard>
@@ -318,63 +328,63 @@ export default async function CommunityProductDetailPage({ params }: CommunityPr
                 {/* Creator Card */}
                 <Card className="p-6 text-center">
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500/20 to-pink-500/20 flex items-center justify-center mx-auto mb-3">
-                    {product.creator?.avatar_url ? (
+                    {creatorAvatar ? (
                       <img 
-                        src={product.creator.avatar_url} 
-                        alt={product.creator.display_name || product.creator.username || 'Community Member'}
+                        src={creatorAvatar} 
+                        alt={creatorName}
                         className="w-full h-full object-cover rounded-full"
                       />
                     ) : (
                       <span className="text-2xl text-white">
-                        {product.creator?.display_name?.[0] || product.creator?.username?.[0] || '?'}
+                        {creatorName[0] || '?'}
                       </span>
                     )}
                   </div>
                   
                   <h3 className="text-lg font-bold text-white">
-                    {product.creator?.display_name || product.creator?.username || 'Community Member'}
+                    {creatorName}
                   </h3>
                   
-                  {communityProfile?.is_mentor && (
+                  {communityMentor && (
                     <Badge variant="success" className="mt-1 inline-flex items-center gap-1">
                       <Shield size={12} />
                       Community Mentor
                     </Badge>
                   )}
                   
-                  {communityProfile?.nd_identity && communityProfile.nd_identity.length > 0 && (
+                  {communityNDIdentity.length > 0 && (
                     <div className="flex flex-wrap gap-1 justify-center mt-2">
-                      {communityProfile.nd_identity.slice(0, 2).map((identity: string) => (
+                      {communityNDIdentity.slice(0, 2).map((identity: string) => (
                         <Badge key={identity} variant="outline" size="sm">
                           {identity}
                         </Badge>
                       ))}
-                      {communityProfile.nd_identity.length > 2 && (
-                        <Badge variant="outline" size="sm">+{communityProfile.nd_identity.length - 2}</Badge>
+                      {communityNDIdentity.length > 2 && (
+                        <Badge variant="outline" size="sm">+{communityNDIdentity.length - 2}</Badge>
                       )}
                     </div>
                   )}
                   
-                  {product.creator?.bio && (
+                  {creatorBio && (
                     <p className="text-white/60 text-sm mt-3 line-clamp-3">
-                      {product.creator.bio}
+                      {creatorBio}
                     </p>
                   )}
                   
                   <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-white/10">
                     <div>
-                      <div className="text-lg font-bold text-white">{communityProfile?.peer_endorsements || 0}</div>
+                      <div className="text-lg font-bold text-white">{communityEndorsements}</div>
                       <div className="text-xs text-white/40">Endorsements</div>
                     </div>
                     <div>
                       <div className="text-lg font-bold text-white">
-                        {communityProfile?.is_mentor ? 'Mentor' : 'Member'}
+                        {communityMentor ? 'Mentor' : 'Member'}
                       </div>
                       <div className="text-xs text-white/40">Status</div>
                     </div>
                   </div>
                   
-                  <Link href={`/community/${product.creator?.username || product.creator_id}`}>
+                  <Link href={`/community/${creatorUsername || creatorId}`}>
                     <Button variant="outline" className="w-full mt-4">
                       View Community Profile
                     </Button>
@@ -406,14 +416,14 @@ export default async function CommunityProductDetailPage({ params }: CommunityPr
                     <div className="flex justify-between">
                       <span className="text-white/40">Created</span>
                       <span className="text-white/60">
-                        {new Date(product.created_at || '').toLocaleDateString()}
+                        {product.created_at ? new Date(product.created_at).toLocaleDateString() : 'Unknown'}
                       </span>
                     </div>
-                    {product.updated_at !== product.created_at && (
+                    {product.updated_at && product.updated_at !== product.created_at && (
                       <div className="flex justify-between">
                         <span className="text-white/40">Updated</span>
                         <span className="text-white/60">
-                          {new Date(product.updated_at || '').toLocaleDateString()}
+                          {new Date(product.updated_at).toLocaleDateString()}
                         </span>
                       </div>
                     )}

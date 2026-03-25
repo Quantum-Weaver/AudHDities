@@ -15,7 +15,7 @@ import type {
 /**
  * Get complete button configuration for a variant
  * PURE: Takes variant, returns config - no side effects
- */
+ 
 export const getButtonConfig = (variant: ButtonVariant): ButtonConfig => {
   const variantConfig = BUTTON_VARIANTS[variant];
   
@@ -36,7 +36,7 @@ export const getButtonConfig = (variant: ButtonVariant): ButtonConfig => {
     consciousness: variantConfig.consciousness
   };
 };
-
+*/
 /**
  * Get button styles for current state
  * PURE: Takes config and state, returns styles - no side effects
@@ -64,7 +64,7 @@ export const getButtonStyles = (
   // Apply state-specific styles - ZERO HARCODING
   if (state === 'hover' && config.states.hover) {
     Object.assign(baseStyles, {
-      background: config.states.hover.background,
+      shadow: config.states.hover.background,
       boxShadow: config.states.hover,
       transform: config.states.hover
     });
@@ -72,7 +72,7 @@ export const getButtonStyles = (
 
   if (state === 'active' && config.states.active) {
     Object.assign(baseStyles, {
-      background: config.states.active.background,
+      shadow: config.states.active,
       boxShadow: config.states.active
     });
   }

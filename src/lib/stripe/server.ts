@@ -28,6 +28,9 @@ export async function createCheckoutSession({
   tier,
   imageUrl,
 }: CreateCheckoutSessionParams) {
+  // Convert price to cents for Stripe
+  const unitAmount = Math.round(price * 100);
+  
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
@@ -38,8 +41,11 @@ export async function createCheckoutSession({
             name: productTitle,
             description: productDescription,
             images: imageUrl ? [imageUrl] : undefined,
+            metadata: {
+              product_id: productId,
+            },
           },
-          unit_amount: Math.round(price * 100),
+          unit_amount: unitAmount,
         },
         quantity: 1,
       },
@@ -52,7 +58,19 @@ export async function createCheckoutSession({
       user_id: userId,
       tier,
     },
+    client_reference_id: userId,
   });
 
   return session;
+}
+
+/**
+ * Verify webhook signature
+ */
+export function verifyWebhookSignature(
+  payload: Buffer,
+  signature: string,
+  webhookSecret: string
+): Stripe.Event {
+  return stripe.webhooks.constructEvent(payload, signature, webhookSecret);
 }

@@ -38,7 +38,7 @@ export default function RootLayout({
         
         <ContinuityBeamProvider>
           <Header />
-          
+          <Navigation />
           
           {/* NO WRAPPERS - Each page handles its own layout */}
           {children}

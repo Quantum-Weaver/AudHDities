@@ -1,6 +1,6 @@
-// app/api/checkout/route.ts
+// src/app/api/checkout/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createCheckoutSession } from '@/lib/stripe/server';
+import { stripe } from '@/lib/stripe/server';
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,31 +15,39 @@ export async function POST(request: NextRequest) {
       imageUrl,
     } = body;
 
-    if (!productId || !productTitle || !price || !tier || !userId) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
-    }
-
-    // Determine success and cancel URLs
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-    const successUrl = `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`;
-    const cancelUrl = `${baseUrl}/checkout/cancel`;
-
-    const session = await createCheckoutSession({
-      productId,
-      productTitle,
-      productDescription,
-      price,
-      successUrl,
-      cancelUrl,
-      userId,
-      tier,
-      imageUrl,
+    // Create the checkout session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: productTitle,
+              description: productDescription,
+              images: imageUrl ? [imageUrl] : undefined,
+            },
+            unit_amount: Math.round(price * 100),
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/cancel`,
+      metadata: {
+        product_id: productId,
+        user_id: userId,
+        tier,
+      },
+      client_reference_id: userId,
     });
 
-    return NextResponse.json({ sessionId: session.id });
+    // Return the URL to redirect to
+    return NextResponse.json({ 
+      url: session.url,
+      sessionId: session.id 
+    });
     
   } catch (error) {
     console.error('Checkout API error:', error);
