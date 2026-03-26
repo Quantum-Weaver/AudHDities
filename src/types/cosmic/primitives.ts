@@ -3425,7 +3425,14 @@ export type IconDomain = 'void' | 'library' | 'pantheon' | 'bifrost' | 'quantum'
 export type ColorVariant = 'quantum' | 'cosmic' | 'void' | 'pantheon' | 'bifrost';
 export type SizeVariant = 'sm' | 'md' | 'lg' | 'xl';
 export type BackgroundVariant = 
-  | 'council' | 'library' | 'community' | 'music' | 'origin' | 'support' | 'home' | 'observatory' | 'architecture' | 'invitation' | 'lounge' | 'default' | 'hero';
+  | 'about' | 'admin' | 'anon' | 'architecture'
+  | 'business' | 'community' | 'contact' | 'council' 
+  | 'creator' | 'cure' | 'dashboard' | 'docs' 
+  | 'ecosystem' | 'edit' | 'gateway' | 'home'
+  | 'invitation' | 'learn' | 'library' | 'lounge' 
+  | 'marketplace' | 'music' | 'observatory' | 'origin'
+  | 'plan' | 'progress' | 'questionaire' | 'seasonal' 
+  | 'support' | 'timer' | 'transparency' | 'vision';
 export type RarityVariant = 'Common' | 'Rare' | 'Epic' | 'Legendary';
 
 // ============================================================================

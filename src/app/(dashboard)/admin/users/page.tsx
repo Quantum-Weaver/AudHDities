@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Search, User, Shield, Mail, Calendar, MoreVertical, Edit, Eye, UserCog } from 'lucide-react';
 import Link from 'next/link';
-import type { Profile } from '@/types/supabase/tables/profiles';
+import type UserCard from '@/components/admin/UserCard';
 import { USER_TIERS, getUserPermissions } from '@/types/roles';
 
 export const metadata: Metadata = {

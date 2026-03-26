@@ -43,6 +43,7 @@ export interface EnhancedSong extends SongBase {
   readonly councilInsights: readonly string[];
   readonly thematicConnections: readonly ThemeConnection[];
   readonly analysisVersion?: string;
+   readonly year: number;
   readonly lastAnalyzed?: string; // ISO timestamp
 }
 
@@ -161,7 +162,7 @@ export interface MusicLibraryMetadata {
   readonly totalSongs: number;
   readonly enhancedSongs: number;
   readonly basicSongs: number;
-  readonly yearsCovered: readonly [number, number];
+  readonly yearsCovered?: [number, number];
   readonly analyzedSongs: number;
   readonly propheticThemesCount: number;
   readonly uniqueThemesCount: number;

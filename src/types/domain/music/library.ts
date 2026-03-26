@@ -66,7 +66,7 @@ export interface Song {
   // CORE IDENTITY
   readonly id?: string;
   readonly title: string;
-  readonly year?: number;
+  readonly year: number;
   readonly url?: string;
   // CREATIVE ATTRIBUTES
   readonly attributes?: SongAttributes;

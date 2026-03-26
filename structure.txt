@@ -92,7 +92,7 @@ AUDHDITIES/
 ⚪	│   │   │
 ⚪	│   │   ├── (dashboard)/                   # Protected routes
 ⚪	│   │   │   ├── admin/
-❓	│   │   │   │   ├── page.tsx               # Admin dashboard
+✅	│   │   │   │   ├── page.tsx               # Admin dashboard
 ⚪	│   │   │   │   ├── users/
 ❓	│   │   │   │   │   └── page.tsx           # User management
 ⚪	│   │   │   │   ├── applications/
@@ -102,7 +102,7 @@ AUDHDITIES/
 ⚪	│   │   │   │   ├── residuals/
 ❓	│   │   │   │   │   └── page.tsx           # Residual management
 ⚪	│   │   │   │   └── transparency/
-❓	│   │   │   │       └── page.tsx           # Public transparency admin
+✅	│   │   │   │       └── page.tsx           # Public transparency admin
 ⚪	│   │   │   ├── creator/
 ✅	│   │   │   │   ├── page.tsx               # Creator dashboard
 ⚪	│   │   │   │   ├── apply/
