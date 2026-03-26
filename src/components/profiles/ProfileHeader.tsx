@@ -33,7 +33,7 @@ export default function ProfileHeader({
   const supabase = useSupabase();
   const router = useRouter();
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
-  const [uploadingBanner, setUploadingBanner] = useState(false);
+//  const [uploadingBanner, setUploadingBanner] = useState(false);
 
   const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -70,7 +70,7 @@ export default function ProfileHeader({
     }
   };
 
-  const handleBannerUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+/*  const handleBannerUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -104,6 +104,7 @@ export default function ProfileHeader({
       setUploadingBanner(false);
     }
   };
+*/  
 
   // Get house display name with proper formatting
   const getHouseDisplay = (house: string | null) => {
@@ -115,40 +116,6 @@ export default function ProfileHeader({
 
   return (
     <div className="wrapper relative">
-      {/* Banner */}
-      <div className="relative h-48 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-t-lg overflow-hidden">
-        {profile.banner_url ? (
-          <img 
-            src={profile.banner_url} 
-            alt="Banner" 
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-white/40">
-            No banner
-          </div>
-        )}
-
-        {isOwnProfile && (
-          <label className="absolute bottom-4 right-4 cursor-pointer">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-              onChange={handleBannerUpload}
-              className="hidden"
-              disabled={uploadingBanner}
-            />
-            <div className="px-4 py-2 bg-black/50 hover:bg-black/70 rounded-lg text-white text-sm flex items-center gap-2 transition-colors">
-              {uploadingBanner ? (
-                <Loader2 size={16} className="animate-spin" />
-              ) : (
-                <Camera size={16} />
-              )}
-              Change Banner
-            </div>
-          </label>
-        )}
-      </div>
 
       {/* Avatar - positioned absolutely */}
       <div className="absolute -bottom-12 left-8 flex items-end gap-4">

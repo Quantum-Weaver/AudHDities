@@ -1,6 +1,8 @@
 // src/app/api/products/[id]/route.ts// src/app/api/products/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import type { ProductWithCreator } from '@/types/supabase/tables/products';
+import { isUserAdmin } from '@/lib/auth/admin';
 
 // =====================================================
 // GET /api/products/[id]
@@ -50,7 +52,7 @@ export async function GET(
       );
     }
     
-    return NextResponse.json({ product });
+    return NextResponse.json({ product: product as ProductWithCreator });
     
   } catch (error) {
     console.error('Error fetching product:', error);
@@ -59,15 +61,4 @@ export async function GET(
       { status: 500 }
     );
   }
-}
-
-// Helper function to check if user is admin
-async function isUserAdmin(supabase: any, userId: string): Promise<boolean> {
-  const { data } = await supabase
-    .from('profiles')
-    .select('is_admin')
-    .eq('id', userId)
-    .single();
-  
-  return data?.is_admin === true;
 }

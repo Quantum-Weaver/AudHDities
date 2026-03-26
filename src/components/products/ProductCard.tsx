@@ -9,21 +9,13 @@ import { Eye, Edit, Package, Heart, DollarSign, Users, Star } from 'lucide-react
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { CheckoutButton } from '@/components/checkout/CheckoutButton';
 import { cn } from '@/lib/utils';
-import type { Database } from '@/types/supabase/database.types';
+import { formatPrice, formatPriceLocalized } from '@/lib/stripe/formatting';
+import { PRODUCT_CATEGORIES, getProductCategoryLabel } from '@/types/categories';
+import type { Product } from '@/types/supabase/tables/products';
 
-type Product = Database['public']['Tables']['products']['Row'];
-
-interface ProductCardProps {
-  product: Product;
-  variant?: 'marketplace' | 'dashboard' | 'admin';
-  showActions?: boolean;
-  onEdit?: (product: Product) => void;
-  onDelete?: (product: Product) => void;
-  onPublish?: (product: Product) => void;
-  className?: string;
-}
-
+// Derive product type icons from categories
 const productTypeIcons: Record<string, React.ReactNode> = {
   digital_course: <Package size={16} />,
   digital_download: <Package size={16} />,
@@ -40,38 +32,13 @@ const productTypeIcons: Record<string, React.ReactNode> = {
   tip: <Heart size={16} />,
 };
 
-const productTypeLabels: Record<string, string> = {
-  digital_course: 'Course',
-  digital_download: 'Digital',
-  audio: 'Audio',
-  video: 'Video',
-  music: 'Music',
-  physical_product: 'Physical',
-  clothing: 'Clothing',
-  accessory: 'Accessory',
-  consultation: 'Consultation',
-  service: 'Service',
-  mutual_aid: 'Mutual Aid',
-  donation: 'Donation',
-  tip: 'Tip',
-};
-
 const variantColors = {
   marketplace: 'from-cyan-500/20 to-purple-500/10 border-cyan-500/30',
   dashboard: 'from-purple-500/20 to-pink-500/10 border-purple-500/30',
   admin: 'from-pink-500/20 to-orange-500/10 border-pink-500/30',
 };
 
-const formatPrice = (price: number | null) => {
-  if (price === null || price === 0) return null;
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2,
-  }).format(price);
-};
-
-// Helper function to get valid price values array
+// Helper to get valid price values array
 const getValidPrices = (product: Product): number[] => {
   const prices: number[] = [];
   
@@ -88,6 +55,16 @@ const getValidPrices = (product: Product): number[] => {
   return prices;
 };
 
+interface ProductCardProps {
+  product: Product;
+  variant?: 'marketplace' | 'dashboard' | 'admin';
+  showActions?: boolean;
+  onEdit?: (product: Product) => void;
+  onDelete?: (product: Product) => void;
+  onPublish?: (product: Product) => void;
+  className?: string;
+}
+
 export function ProductCard({ 
   product, 
   variant = 'marketplace',
@@ -100,17 +77,16 @@ export function ProductCard({
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
   
-  const Icon = productTypeIcons[product.product_type] || <Package size={16} />;
-  const productLabel = productTypeLabels[product.product_type] || 'Product';
+  const productType = product.product_type;
+  const productLabel = getProductCategoryLabel(productType);
+  const Icon = productTypeIcons[productType] || <Package size={16} />;
   
-  // Get valid prices
   const validPrices = getValidPrices(product);
   const hasAnyPrice = validPrices.length > 0;
   const lowestPrice = hasAnyPrice ? Math.min(...validPrices) : null;
   const highestPrice = hasAnyPrice ? Math.max(...validPrices) : null;
   const hasPriceRange = hasAnyPrice && lowestPrice !== highestPrice;
   
-  // Individual price flags for badges
   const hasCommunityPrice = product.price_community !== null && product.price_community > 0;
   const hasAllyPrice = product.price_ally !== null && product.price_ally > 0;
   const hasCorporatePrice = product.price_corporate !== null && product.price_corporate > 0;
@@ -139,6 +115,18 @@ export function ProductCard({
     ? `/products/${product.id}` 
     : `/creator/products/${product.id}`;
   
+  // Determine default tier for checkout (lowest available price)
+  const defaultTier = product.price_ally ? 'ally' 
+    : product.price_community ? 'community' 
+    : product.price_corporate ? 'corporate' 
+    : 'ally';
+  
+  // Format price display using our formatter
+  const formatProductPrice = (price: number | null) => {
+    if (price === null || price === 0) return null;
+    return formatPrice(price);
+  };
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -148,7 +136,7 @@ export function ProductCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={productLink} className="block">
+      <div className="block">
         <Card className={cn(
           'overflow-hidden transition-all duration-300 h-full flex flex-col',
           variantColors[variant],
@@ -157,28 +145,32 @@ export function ProductCard({
         )}>
           {/* Image Preview */}
           {product.preview_image && !imageError ? (
-            <div className="relative aspect-video w-full overflow-hidden bg-black/40">
-              <Image
-                src={product.preview_image}
-                alt={product.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                onError={() => setImageError(true)}
-              />
-              {product.is_published === false && (
-                <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                  <Badge variant="outline" className="bg-black/80 text-yellow-400 border-yellow-500/50">
-                    Draft
-                  </Badge>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="aspect-video w-full bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                {Icon}
+            <Link href={productLink} className="block">
+              <div className="relative aspect-video w-full overflow-hidden bg-black/40">
+                <Image
+                  src={product.preview_image}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  onError={() => setImageError(true)}
+                />
+                {product.is_published === false && (
+                  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                    <Badge variant="outline" className="bg-black/80 text-yellow-400 border-yellow-500/50">
+                      Draft
+                    </Badge>
+                  </div>
+                )}
               </div>
-            </div>
+            </Link>
+          ) : (
+            <Link href={productLink} className="block">
+              <div className="aspect-video w-full bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  {Icon}
+                </div>
+              </div>
+            </Link>
           )}
           
           {/* Content */}
@@ -240,9 +232,11 @@ export function ProductCard({
             </div>
             
             {/* Title */}
-            <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
-              {product.title}
-            </h3>
+            <Link href={productLink} className="block">
+              <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+                {product.title}
+              </h3>
+            </Link>
             
             {/* Description */}
             {product.description && (
@@ -251,8 +245,8 @@ export function ProductCard({
               </p>
             )}
             
-            {/* Pricing */}
-            <div className="mt-auto pt-3 border-t border-white/10">
+            {/* Pricing and Checkout */}
+            <div className="mt-auto pt-3 border-t border-white/10 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <DollarSign size={14} className="text-cyan-400" />
@@ -262,11 +256,11 @@ export function ProductCard({
                     </span>
                   ) : hasPriceRange ? (
                     <span className="text-white font-medium">
-                      {formatPrice(lowestPrice)} - {formatPrice(highestPrice)}
+                      {formatProductPrice(lowestPrice)} - {formatProductPrice(highestPrice)}
                     </span>
                   ) : (
                     <span className="text-white font-medium">
-                      {formatPrice(lowestPrice)}
+                      {formatProductPrice(lowestPrice)}
                     </span>
                   )}
                 </div>
@@ -293,15 +287,28 @@ export function ProductCard({
               
               {/* Residual indicator */}
               {product.residual_pool_percent && product.residual_pool_percent > 0 && (
-                <div className="flex items-center gap-1 mt-2 text-xs text-white/30">
+                <div className="flex items-center gap-1 text-xs text-white/30">
                   <Star size={10} />
                   <span>{product.residual_pool_percent}% to contributors</span>
                 </div>
               )}
+              
+              {/* Checkout Button for marketplace variant */}
+              {variant === 'marketplace' && product.is_published && product.active && hasAnyPrice && (
+                <CheckoutButton
+                  product={product}
+                  variant="primary"
+                  size="sm"
+                  tier={defaultTier}
+                  className="w-full mt-2"
+                >
+                  Purchase
+                </CheckoutButton>
+              )}
             </div>
           </div>
         </Card>
-      </Link>
+      </div>
     </motion.div>
   );
 }

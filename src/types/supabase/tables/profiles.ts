@@ -1,4 +1,4 @@
-// src/types/supabase/profiles.ts
+// src/types/supabase/tables/profiles.ts
 import type { Database } from '../database.types';
 
 export type Profile = Database['public']['Tables']['profiles']['Row'];
@@ -59,6 +59,7 @@ export const profileDefaults = {
   notification_frequency: 'instant' as const,
   communication_style: 'direct' as const,
   badges: [],
+  
 } as const;
 
 export const defaultNDPreferences: NDPreferences = {

@@ -3,26 +3,26 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import type { Product } from '../commerce/useProducts';
+import type { Product } from './useProducts';
+import { CreatorProfile } from '@/types/supabase/tables';
 
-export interface Creator {
+
+export interface CreatorDetail {
   id: string;
   username: string | null;
   display_name: string | null;
   avatar_url: string | null;
-  banner_url: string | null;
   bio: string | null;
-  created_at: string | null;
+  created_at: string | null;  
   creator_profiles: {
-    verified_badge: boolean;
-    verification_status: string;
-    creative_categories: string[];
+    verified_badge: boolean | false;        // Convert null to false
+    verification_status: string | null;
+    creative_categories: string[] | null;
     creative_description: string | null;
-    portfolio_url: string | null;
-    total_products: number;
-    total_sales: number;
-    total_earnings: number;
-    default_residual_pool: number;
+    total_products: number;         // Convert null to 0
+    total_sales: number;            // Convert null to 0
+    total_earnings: number;         // Convert null to 0
+    default_residual_pool: number | 0;    
   };
 }
 
@@ -34,15 +34,36 @@ interface UseCreatorsOptions {
 }
 
 interface UseCreatorReturn {
-  creator: Creator | null;
+  creator: CreatorDetail | null;
   products: Product[];
   loading: boolean;
   error: Error | null;
-  refresh: () => Promise<void>;
+}
+
+// Helper to normalize creator data from database
+function normalizeCreatorDetail(data: any): CreatorDetail {
+  return {
+    id: data.id,
+    username: data.username,
+    display_name: data.display_name,
+    avatar_url: data.avatar_url,
+    bio: data.bio,
+    created_at: data.created_at,    
+    creator_profiles: {
+      verified_badge: data.creator_profiles?.verified_badge ?? false,
+      verification_status: data.creator_profiles?.verification_status ?? false,
+      creative_categories: data.creator_profiles?.creative_categories ?? [],
+      creative_description: data.creator_profiles?.creative_description ?? null,
+      total_products: data.creator_profiles?.total_products ?? 0,
+      total_sales: data.creator_profiles?.total_sales ?? 0,
+      total_earnings: data.creator_profiles?.total_earnings ?? 0,
+      default_residual_pool: data.default_residual_pool ?? 0
+    },    
+  };
 }
 
 export function useCreator(username: string): UseCreatorReturn {
-  const [creator, setCreator] = useState<Creator | null>(null);
+  const [creator, setCreator] = useState<CreatorDetail | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -62,34 +83,31 @@ export function useCreator(username: string): UseCreatorReturn {
           username,
           display_name,
           avatar_url,
-          banner_url,
           bio,
-          created_at,
+          created_at,          
           creator_profiles!inner (
-            verified_badge,
-            verification_status,
-            creative_categories,
-            creative_description,
-            portfolio_url,
-            total_products,
-            total_sales,
-            total_earnings,
-            default_residual_pool
+            default_residual_pool: 30,
+            total_products: 0,
+            total_sales: 0,
+            total_earnings: 0,
+            verified_badge: false,
+            verification_status: 'pending' as const,
+            creative_categories: [],          
           )
         `)
         .eq('username', username)
         .eq('is_creator', true)
         .single();
-      
+
       if (creatorError) throw creatorError;
-      
-      setCreator(creatorData);
+      const normalizeCreator = normalizeCreatorDetail(creatorData);
+      setCreator(normalizeCreator);
       
       // Fetch creator's products
       const { data: productsData, error: productsError } = await supabase
         .from('products')
         .select('*')
-        .eq('creator_id', creatorData.id)
+        .eq('creator_id', creatorData)
         .eq('is_published', true)
         .eq('active', true)
         .order('created_at', { ascending: false });
@@ -114,7 +132,6 @@ export function useCreator(username: string): UseCreatorReturn {
     creator,
     products,
     loading,
-    error,
-    refresh: fetchCreator,
+    error
   };
 }

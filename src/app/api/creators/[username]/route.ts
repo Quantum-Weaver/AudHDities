@@ -1,6 +1,14 @@
 // src/app/api/creators/[username]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
+import type { CreatorProfileWithRelations } from '@/types/supabase/tables/creator_profiles';
+import type { ProductWithCreator } from '@/types/supabase/tables/products';
+
+// Combined type for creator detail
+export type CreatorDetail = ProfileWithRelations & {
+  creator_profiles: CreatorProfileWithRelations | null;
+};
 
 export async function GET(
   request: NextRequest,
@@ -10,7 +18,7 @@ export async function GET(
     const supabase = await createServerSupabase();
     const { username } = params;
     
-    // Fetch creator profile
+    // Fetch creator profile with explicit foreign key
     const { data: creator, error } = await supabase
       .from('profiles')
       .select(`
@@ -21,7 +29,7 @@ export async function GET(
         banner_url,
         bio,
         created_at,
-        creator_profiles!inner (
+        creator_profiles!creator_profiles_id_fkey (
           verified_badge,
           verification_status,
           creative_categories,
@@ -35,7 +43,7 @@ export async function GET(
       `)
       .eq('username', username)
       .eq('is_creator', true)
-      .single();
+      .maybeSingle();  // Changed from .single()
     
     if (error || !creator) {
       return NextResponse.json(
@@ -45,7 +53,7 @@ export async function GET(
     }
     
     // Fetch creator's products
-    const { data: products } = await supabase
+    const { data: products, error: productsError } = await supabase
       .from('products')
       .select('*')
       .eq('creator_id', creator.id)
@@ -54,13 +62,22 @@ export async function GET(
       .order('created_at', { ascending: false })
       .limit(12);
     
+    if (productsError) {
+      console.error('Error fetching creator products:', productsError);
+      // Don't fail the request, just return empty products
+    }
+    
+    // Type-safe response
     return NextResponse.json({
-      creator,
-      products: products || [],
+      creator: creator as CreatorDetail,
+      products: (products || []) as ProductWithCreator[],
     });
     
   } catch (error) {
     console.error('Creator API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

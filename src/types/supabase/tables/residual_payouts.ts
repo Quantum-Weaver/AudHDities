@@ -8,9 +8,9 @@ export type ResidualPayoutUpdate = Database['public']['Tables']['residual_payout
 export type PayoutStatus = 'pending' | 'paid' | 'failed';
 
 export interface ResidualPayoutWithRelations extends ResidualPayout {
-  contributor?: Database['public']['Tables']['profiles']['Row'];
-  product?: Database['public']['Tables']['products']['Row'];
-  sale?: Database['public']['Tables']['sales']['Row'];
+  contributor?: Database['public']['Tables']['profiles']['Row'] | null;
+  product?: Database['public']['Tables']['products']['Row'] | null;
+  sale?: Database['public']['Tables']['sales']['Row'] | null;
 }
 
 export const residualPayoutDefaults = {

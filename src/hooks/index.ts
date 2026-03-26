@@ -27,7 +27,7 @@ export { useVendors } from './entities/useVendors';
 // =====================================================
 export { useCheckout } from './commerce/useCheckout';
 //export { useCart } from './commerce/useCart';
-//export { useResiduals } from './commerce/useResiduals';
+export { useResiduals } from './commerce/useResiduals';
 //export { useSale } from './commerce/useSale';
 //export { usePayouts } from './commerce/usePayouts';
 
@@ -53,6 +53,6 @@ export { useBadgeManager as useBadges } from './gamification/useBadgeManager';
 // =====================================================
 // Utility Hooks
 // =====================================================
-//export { useRequireAuth } from './utils/useRequireAuth';
-//export { useRequireRole } from './utils/useRequireRole';
-//export { useApplicationSubmit } from './utils/useApplicationSubmit';
+export { useRequireAuth } from './utils/useRequireAuth';
+export { useRequireRole } from './utils/useRequireRole';
+export { useApplicationSubmit } from './utils/useApplicationSubmit';

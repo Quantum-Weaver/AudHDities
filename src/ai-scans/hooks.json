@@ -1,0 +1,115 @@
+{
+  "folder": "hooks",
+  "scannedAt": "2026-03-26T21:28:24.496Z",
+  "totalFiles": 18,
+  "files": [
+    {
+      "path": "hooks\\commerce\\useCheckout.ts",
+      "relativePath": "commerce/useCheckout.ts",
+      "name": "useCheckout.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\commerce\\useContributions.ts",
+      "relativePath": "commerce/useContributions.ts",
+      "name": "useContributions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\commerce\\useProduct.ts",
+      "relativePath": "commerce/useProduct.ts",
+      "name": "useProduct.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\commerce\\useProducts.ts",
+      "relativePath": "commerce/useProducts.ts",
+      "name": "useProducts.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\commerce\\useResiduals.ts",
+      "relativePath": "commerce/useResiduals.ts",
+      "name": "useResiduals.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\core\\useAuth.ts",
+      "relativePath": "core/useAuth.ts",
+      "name": "useAuth.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\core\\usePermissions.ts",
+      "relativePath": "core/usePermissions.ts",
+      "name": "usePermissions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\core\\useProfile.ts",
+      "relativePath": "core/useProfile.ts",
+      "name": "useProfile.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\core\\useUser.ts",
+      "relativePath": "core/useUser.ts",
+      "name": "useUser.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\entities\\useCreator.ts",
+      "relativePath": "entities/useCreator.ts",
+      "name": "useCreator.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\entities\\useCreators.ts",
+      "relativePath": "entities/useCreators.ts",
+      "name": "useCreators.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\entities\\useVendor.ts",
+      "relativePath": "entities/useVendor.ts",
+      "name": "useVendor.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\entities\\useVendors.ts",
+      "relativePath": "entities/useVendors.ts",
+      "name": "useVendors.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\gamification\\useBadgeManager.ts",
+      "relativePath": "gamification/useBadgeManager.ts",
+      "name": "useBadgeManager.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\index.ts",
+      "relativePath": "index.ts",
+      "name": "index.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\utils\\useApplicationSubmit.ts",
+      "relativePath": "utils/useApplicationSubmit.ts",
+      "name": "useApplicationSubmit.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\utils\\useRequireAuth.ts",
+      "relativePath": "utils/useRequireAuth.ts",
+      "name": "useRequireAuth.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "hooks\\utils\\useRequireRole.ts",
+      "relativePath": "utils/useRequireRole.ts",
+      "name": "useRequireRole.ts",
+      "extension": ".ts"
+    }
+  ]
+}

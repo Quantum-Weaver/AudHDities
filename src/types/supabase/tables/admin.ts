@@ -1,4 +1,4 @@
-// src/types/supabase/admin.ts
+// src/types/supabase/tables/admin.ts
 import type { Database } from '../database.types';
 
 export type AdminLog = Database['public']['Tables']['admin_logs']['Row'];

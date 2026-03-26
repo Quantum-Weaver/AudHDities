@@ -1,6 +1,14 @@
 // src/app/api/vendors/[username]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
+import type { VendorProfileWithRelations } from '@/types/supabase/tables/vendor_profiles';
+import type { ProductWithCreator } from '@/types/supabase/tables/products';
+
+// Combined type for vendor detail
+export type VendorDetail = ProfileWithRelations & {
+  vendor_profiles: VendorProfileWithRelations | null;
+};
 
 export async function GET(
   request: NextRequest,
@@ -52,7 +60,7 @@ export async function GET(
     }
     
     // Fetch vendor's products (vendors use creator_id for products)
-    const { data: products } = await supabase
+    const { data: products, error: productsError } = await supabase
       .from('products')
       .select('*')
       .eq('creator_id', vendor.id)
@@ -61,13 +69,22 @@ export async function GET(
       .order('created_at', { ascending: false })
       .limit(12);
     
+    if (productsError) {
+      console.error('Error fetching vendor products:', productsError);
+      // Don't fail the request, just return empty products
+    }
+    
+    // Type-safe response
     return NextResponse.json({
-      vendor,
-      products: products || [],
+      vendor: vendor as VendorDetail,
+      products: (products || []) as ProductWithCreator[],
     });
     
   } catch (error) {
     console.error('Vendor API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

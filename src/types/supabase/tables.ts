@@ -170,12 +170,15 @@ export type {
   QuestInsert,
   QuestUpdate,
   QuestStatus,
-  CouncilHouse,
+  CouncilHouse
+} from './tables/quests';
+
+export type {
   UserQuest,
   UserQuestInsert,
   UserQuestUpdate,
-  UserQuestWithRelations,
-} from './tables/quests';
+  UserQuestWithRelations
+} from './tables/user_quests';
 
 export type {
   UserBadge,
@@ -278,7 +281,7 @@ export {
 
 export {
   userQuestDefaults,
-} from './tables/quests';
+} from './tables/user_quests';
 
 export {
   vendorProfileDefaults,

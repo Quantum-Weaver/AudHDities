@@ -3,7 +3,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import type { Product } from '../commerce/useProducts';
+import type { Product } from './useProducts';
+import type { VendorProfile } from '@/types/supabase/tables.ts'
 
 export interface VendorDetail {
   id: string;
@@ -19,7 +20,7 @@ export interface VendorDetail {
   user_tier: string | null;
   sovereignty_score: number | null;
   primary_house: string | null;
-  vendor_profiles: {
+  vendor_profiles: { 
     business_name: string;
     business_type: string | null;
     business_description: string | null;

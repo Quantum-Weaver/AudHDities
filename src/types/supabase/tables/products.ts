@@ -1,4 +1,4 @@
-// src/types/supabase/products.ts
+// src/types/supabase/tables/products.ts
 import type { Database } from '../database.types';
 
 export type Product = Database['public']['Tables']['products']['Row'];
@@ -79,4 +79,3 @@ export const productDefaults = {
   media_urls: [],
   collaborators: [],
 } as const;
-

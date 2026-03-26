@@ -1,4 +1,4 @@
-// src/hooks/useCheckout.ts
+// src/hooks/commerce/useCheckout.ts
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';

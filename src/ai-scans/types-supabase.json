@@ -1,0 +1,181 @@
+{
+  "folder": "types/supabase",
+  "scannedAt": "2026-03-26T21:28:24.470Z",
+  "totalFiles": 29,
+  "files": [
+    {
+      "path": "types\\supabase\\database.types.ts",
+      "relativePath": "database.types.ts",
+      "name": "database.types.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\enums.ts",
+      "relativePath": "enums.ts",
+      "name": "enums.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\index.ts",
+      "relativePath": "index.ts",
+      "name": "index.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables.ts",
+      "relativePath": "tables.ts",
+      "name": "tables.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\acid_test_answers.ts",
+      "relativePath": "tables/acid_test_answers.ts",
+      "name": "acid_test_answers.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\acid_test_questions.ts",
+      "relativePath": "tables/acid_test_questions.ts",
+      "name": "acid_test_questions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\acid_test_results.ts",
+      "relativePath": "tables/acid_test_results.ts",
+      "name": "acid_test_results.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\admin_logs.ts",
+      "relativePath": "tables/admin_logs.ts",
+      "name": "admin_logs.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\admin.ts",
+      "relativePath": "tables/admin.ts",
+      "name": "admin.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\applications.ts",
+      "relativePath": "tables/applications.ts",
+      "name": "applications.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\channels.ts",
+      "relativePath": "tables/channels.ts",
+      "name": "channels.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\comments.ts",
+      "relativePath": "tables/comments.ts",
+      "name": "comments.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\community_profiles.ts",
+      "relativePath": "tables/community_profiles.ts",
+      "name": "community_profiles.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\contact_submissions.ts",
+      "relativePath": "tables/contact_submissions.ts",
+      "name": "contact_submissions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\contributions.ts",
+      "relativePath": "tables/contributions.ts",
+      "name": "contributions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\creator_profiles.ts",
+      "relativePath": "tables/creator_profiles.ts",
+      "name": "creator_profiles.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\emeralds.ts",
+      "relativePath": "tables/emeralds.ts",
+      "name": "emeralds.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\feed.ts",
+      "relativePath": "tables/feed.ts",
+      "name": "feed.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\index.ts",
+      "relativePath": "tables/index.ts",
+      "name": "index.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\posts.ts",
+      "relativePath": "tables/posts.ts",
+      "name": "posts.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\products.ts",
+      "relativePath": "tables/products.ts",
+      "name": "products.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\profiles.ts",
+      "relativePath": "tables/profiles.ts",
+      "name": "profiles.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\quests.ts",
+      "relativePath": "tables/quests.ts",
+      "name": "quests.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\residual_payouts.ts",
+      "relativePath": "tables/residual_payouts.ts",
+      "name": "residual_payouts.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\sales.ts",
+      "relativePath": "tables/sales.ts",
+      "name": "sales.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\subscriptions.ts",
+      "relativePath": "tables/subscriptions.ts",
+      "name": "subscriptions.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\user_badges.ts",
+      "relativePath": "tables/user_badges.ts",
+      "name": "user_badges.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\user_quests.ts",
+      "relativePath": "tables/user_quests.ts",
+      "name": "user_quests.ts",
+      "extension": ".ts"
+    },
+    {
+      "path": "types\\supabase\\tables\\vendor_profiles.ts",
+      "relativePath": "tables/vendor_profiles.ts",
+      "name": "vendor_profiles.ts",
+      "extension": ".ts"
+    }
+  ]
+}

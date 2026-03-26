@@ -6,13 +6,22 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useCreatorProducts } from '@/hooks/commerce/useProducts';
+import { useCreatorProducts } from '@/hooks/entities/useProducts';
+import { PRODUCT_CATEGORIES } from '@/types/categories';
 import { Input } from '@/components/ui/Input';
 import { TextArea } from '@/components/ui/TextArea';
 import { Select } from '@/components/ui/Select';
 import { Button } from '@/components/ui/Button';
 import { Slider } from '@/components/ui/Slider';
 import { AlertCircle, CheckCircle, Info } from 'lucide-react';
+
+// Build product type options from source of truth
+const productTypeOptions = PRODUCT_CATEGORIES.map(cat => ({
+  value: cat.value,
+  label: cat.label
+}));
+
+const productTypeValues = PRODUCT_CATEGORIES.map(cat => cat.value);
 
 // Validation schema
 const productSchema = z.object({
@@ -22,33 +31,16 @@ const productSchema = z.object({
     .max(100, 'Slug must be less than 100 characters')
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
   description: z.string().optional(),
-  product_type: z.string().min(1, 'Please select a product type'),
-  price_community: z.coerce.number().min(0, 'Price cannot be negative').optional(),
+  product_type: z.enum(productTypeValues as [string, ...string[]]),
+  price_community: z.coerce.number().min(0, 'Price cannot be negative').optional().nullable(),
   price_ally: z.coerce.number().min(0, 'Price cannot be negative'),
-  price_corporate: z.coerce.number().min(0, 'Price cannot be negative').optional(),
+  price_corporate: z.coerce.number().min(0, 'Price cannot be negative').optional().nullable(),
   residual_pool_percent: z.coerce.number().min(0, 'Cannot be negative').max(50, 'Maximum 50%'),
   sanctuary_infrastructure_percent: z.coerce.number().min(0).max(100).optional(),
   is_published: z.boolean().optional().default(false),
 });
 
 type ProductFormData = z.infer<typeof productSchema>;
-
-// Product type options
-const productTypeOptions = [
-  { value: 'digital_download', label: 'Digital Download' },
-  { value: 'digital_course', label: 'Digital Course' },
-  { value: 'physical_product', label: 'Physical Product' },
-  { value: 'clothing', label: 'Clothing' },
-  { value: 'accessory', label: 'Accessory' },
-  { value: 'audio', label: 'Audio' },
-  { value: 'music', label: 'Music' },
-  { value: 'video', label: 'Video' },
-  { value: 'consultation', label: 'Consultation' },
-  { value: 'service', label: 'Service' },
-  { value: 'mutual_aid', label: 'Mutual Aid' },
-  { value: 'donation', label: 'Donation' },
-  { value: 'tip', label: 'Tip' },
-];
 
 interface ProductFormProps {
   mode?: 'create' | 'edit';

@@ -1,27 +1,20 @@
 // src/app/api/products/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import { createClient } from '@/lib/supabase/client';
+import { productTypeLabels } from '@/types/supabase/tables/products';
+import type { ProductWithCreator } from '@/types/supabase/tables/products';
 import { z } from 'zod';
+import { Database } from '@/types/supabase/database.types';
 
 // Validation schema for product creation
 const productCreateSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters").max(200),
   slug: z.string().min(3).max(100).regex(/^[a-z0-9-]+$/, "Slug must contain only lowercase letters, numbers, and hyphens"),
   description: z.string().optional(),
-  product_type: z.enum([
-    'digital_course', 'digital_download', 'digital_membership', 'digital_subscription', 'digital_bundle',
-    'physical_product', 'physical_handmade', 'physical_manufactured', 'physical_custom',
-    'audio', 'video', 'podcast', 'music', 'livestream',
-    'event_live', 'event_virtual', 'workshop', 'class', 'consultation',
-    'service', 'commission', 'contract', 'sponsorship',
-    'mutual_aid', 'crowdfunding', 'tip', 'donation',
-    'clothing', 'accessory', 'fabric', 'pattern',
-    'bundle', 'kit', 'subscription_box'
-  ]),
+  product_type: z.enum(Object.keys(productTypeLabels) as [string, ...string[]]),
   price_ally: z.number().min(0, "Price must be 0 or greater"),
-  price_community: z.number().min(0).optional().nullable(),
-  price_corporate: z.number().min(0).optional().nullable(),
+  price_community: z.number().min(0).optional().nullable().default(null),
+  price_corporate: z.number().min(0).optional().nullable().default(null),
   is_recurring: z.boolean().optional().default(false),
   recurring_interval: z.enum(['month', 'year']).optional().nullable(),
   residual_pool_percent: z.number().min(0).max(100).optional().default(30),
@@ -34,6 +27,9 @@ const productCreateSchema = z.object({
   bigot_tax_cents: z.number().min(0).optional().default(0),
   is_published: z.boolean().optional().default(false),
   active: z.boolean().optional().default(true),
+  collaborators: z.array(z.string()).optional().default([]),
+  stripe_product_id: z.string().optional().nullable(),
+  stripe_price_id: z.string().optional().nullable()
 });
 
 // Validation schema for product update
@@ -148,7 +144,7 @@ export async function GET(request: NextRequest) {
     }
     
     return NextResponse.json({
-      products: data,
+      products: data as ProductWithCreator[],
       pagination: {
         total: count || 0,
         limit,
@@ -201,7 +197,7 @@ export async function POST(request: NextRequest) {
     // Parse and validate request body
     const body = await request.json();
     const validationResult = productCreateSchema.safeParse(body);
-    
+
     if (!validationResult.success) {
       return NextResponse.json(
         { 
@@ -211,39 +207,37 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    
+
     const productData = validationResult.data;
-    
+
     // Check if slug already exists (for this creator)
     const { data: existingSlug } = await supabase
       .from('products')
       .select('slug')
       .eq('slug', productData.slug)
       .maybeSingle();
-    
+
     let finalSlug = productData.slug;
     if (existingSlug) {
       finalSlug = await generateUniqueSlug(supabase, productData.slug, user.id);
     }
-    
+
+    // Cast product_type to the correct enum type
+    const typedProductData = {
+      ...productData,
+      product_type: productData.product_type as Database['public']['Enums']['product_type'],
+    };
+
     // Create the product
     const { data, error } = await supabase
       .from('products')
       .insert({
-        ...productData,
+        ...typedProductData,
         slug: finalSlug,
         creator_id: user.id,
       })
       .select()
       .single();
-    
-    if (error) {
-      console.error('Error creating product:', error);
-      return NextResponse.json(
-        { error: 'Failed to create product' },
-        { status: 500 }
-      );
-    }
     
     // Update creator profile stats (total_products)
     const { data: creatorProfile } = await supabase

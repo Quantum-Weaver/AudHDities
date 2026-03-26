@@ -3,6 +3,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
+import type { Product } from './useProducts';
 
 export interface Creator {
   id: string;
@@ -156,6 +157,6 @@ export function useCreators(options: UseCreatorsOptions = {}): UseCreatorsReturn
     error,
     hasMore,
     loadMore,
-    refresh,
+    refresh
   };
 }

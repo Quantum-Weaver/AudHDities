@@ -7,10 +7,13 @@ import { ProductDetail } from '@/components/products/ProductDetail';
 import { ProductCard } from '@/components/products/ProductCard';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import type { Product, ProductWithCreator} from '@/types/supabase/tables/products';
+import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
 
 interface ProductPageProps {
   params: Promise<{ id: string }> | { id: string };
 }
+
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { id } = await params;
@@ -37,17 +40,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
   const supabase = await createServerSupabase();
   
-  // Fetch product with creator info
+  // Fetch product with creator info using explicit foreign key
   const { data: product, error } = await supabase
     .from('products')
     .select(`
       *,
-      creator:creator_id (
+      creator:profiles!products_creator_id_fkey (
         id,
         username,
         display_name,
         avatar_url,
-        creator_profiles (
+        creator_profiles!creator_profiles_id_fkey (
           verified_badge,
           creative_categories
         )
@@ -92,7 +95,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
           
           {/* Product Detail */}
-          <ProductDetail product={product} />
+          <ProductDetail product={product as ProductWithCreator} />
           
           {/* Related Products */}
           {relatedProducts && relatedProducts.length > 0 && (

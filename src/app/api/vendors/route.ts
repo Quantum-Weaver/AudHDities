@@ -1,6 +1,13 @@
 // src/app/api/vendors/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
+import type { VendorProfileWithRelations } from '@/types/supabase/tables/vendor_profiles';
+
+// Combined type for vendor with profile and vendor_profiles
+export type VendorWithRelations = ProfileWithRelations & {
+  vendor_profiles: VendorProfileWithRelations | null;
+};
 
 export async function GET(request: NextRequest) {
   try {
@@ -63,8 +70,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
     
+    // Type-safe response
     return NextResponse.json({
-      vendors: data || [],
+      vendors: (data || []) as VendorWithRelations[],
       pagination: {
         page,
         limit,

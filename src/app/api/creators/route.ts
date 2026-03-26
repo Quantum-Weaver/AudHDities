@@ -1,6 +1,13 @@
-// app/api/creators/route.ts
+// src/app/api/creators/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
+import type { CreatorProfileWithRelations } from '@/types/supabase/tables/creator_profiles';
+
+// Combined type for creator with profile and creator_profiles
+export type CreatorWithRelations = ProfileWithRelations & {
+  creator_profiles: CreatorProfileWithRelations | null;
+};
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,7 +22,7 @@ export async function GET(request: NextRequest) {
     
     const offset = (page - 1) * limit;
     
-    // FIXED: Use explicit foreign key reference with !fk
+    // Build query with explicit foreign key reference
     let query = supabase
       .from('profiles')
       .select(`
@@ -60,8 +67,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
     
+    // Type-safe response
     return NextResponse.json({
-      creators: data || [],
+      creators: (data || []) as CreatorWithRelations[],
       pagination: {
         page,
         limit,

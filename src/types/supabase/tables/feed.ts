@@ -1,4 +1,4 @@
-// src/types/supabase/feed.ts
+// src/types/supabase/tables/feed.ts
 import type { Database } from '../database.types';
 
 export type Post = Database['public']['Tables']['posts']['Row'];

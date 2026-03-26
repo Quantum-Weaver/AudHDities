@@ -3,15 +3,32 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Eye, Package, Grid3x3, LayoutList, ChevronDown, X } from 'lucide-react';
+import { Search, Filter, Grid3x3, Eye, LayoutList, ChevronDown, Package, X } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { cn } from '@/lib/utils';
-import type { Database } from '@/types/supabase/database.types';
+import { PRODUCT_CATEGORIES, getProductCategoryLabel } from '@/types/categories';
+import type { Product } from '@/types/supabase/tables/products';
 
-type Product = Database['public']['Tables']['products']['Row'];
+// Derive product type options from the source of truth
+const productTypeOptions = [
+  { value: 'all', label: 'All Types' },
+  ...PRODUCT_CATEGORIES.map(cat => ({ 
+    value: cat.value, 
+    label: cat.label 
+  })),
+];
+
+const sortOptions = [
+  { value: 'newest', label: 'Newest First' },
+  { value: 'oldest', label: 'Oldest First' },
+  { value: 'price_low', label: 'Price: Low to High' },
+  { value: 'price_high', label: 'Price: High to Low' },
+  { value: 'name_asc', label: 'Name: A to Z' },
+  { value: 'name_desc', label: 'Name: Z to A' },
+];
 
 interface ProductGridProps {
   products: Product[];
@@ -23,36 +40,10 @@ interface ProductGridProps {
   onPublish?: (product: Product) => void;
   emptyMessage?: string;
   className?: string;
-  // Filter options
   showFilters?: boolean;
   showSearch?: boolean;
   showViewToggle?: boolean;
 }
-
-const productTypeOptions = [
-  { value: 'all', label: 'All Types' },
-  { value: 'digital_download', label: 'Digital' },
-  { value: 'digital_course', label: 'Courses' },
-  { value: 'physical_product', label: 'Physical' },
-  { value: 'clothing', label: 'Clothing' },
-  { value: 'accessory', label: 'Accessories' },
-  { value: 'audio', label: 'Audio' },
-  { value: 'music', label: 'Music' },
-  { value: 'video', label: 'Video' },
-  { value: 'consultation', label: 'Consultations' },
-  { value: 'service', label: 'Services' },
-  { value: 'mutual_aid', label: 'Mutual Aid' },
-  { value: 'donation', label: 'Donations' },
-];
-
-const sortOptions = [
-  { value: 'newest', label: 'Newest First' },
-  { value: 'oldest', label: 'Oldest First' },
-  { value: 'price_low', label: 'Price: Low to High' },
-  { value: 'price_high', label: 'Price: High to Low' },
-  { value: 'name_asc', label: 'Name: A to Z' },
-  { value: 'name_desc', label: 'Name: Z to A' },
-];
 
 export function ProductGrid({ 
   products,
@@ -74,7 +65,6 @@ export function ProductGrid({
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showFiltersMobile, setShowFiltersMobile] = useState(false);
 
-  // Filter products
   const filteredProducts = products.filter(product => {
     // Search filter
     if (searchQuery) {
@@ -90,7 +80,6 @@ export function ProductGrid({
     return true;
   });
 
-  // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case 'newest':
@@ -116,7 +105,6 @@ export function ProductGrid({
     }
   });
 
-  // Loading skeleton
   if (loading) {
     return (
       <div className={cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6', className)}>
@@ -131,7 +119,6 @@ export function ProductGrid({
     );
   }
 
-  // Empty state
   if (sortedProducts.length === 0) {
     return (
       <div className="text-center py-16">
@@ -153,7 +140,6 @@ export function ProductGrid({
       {/* Filter Bar */}
       {(showFilters || showSearch) && (
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          {/* Search and Filter */}
           <div className="flex flex-1 gap-2 w-full md:w-auto">
             {showSearch && (
               <div className="relative flex-1 md:w-64">
@@ -176,7 +162,6 @@ export function ProductGrid({
               </div>
             )}
             
-            {/* Mobile Filter Toggle */}
             {showFilters && (
               <Button
                 variant="outline"
@@ -189,7 +174,6 @@ export function ProductGrid({
             )}
           </div>
           
-          {/* View Toggle and Sort */}
           <div className="flex items-center gap-2">
             {showViewToggle && (
               <div className="flex bg-white/5 rounded-lg p-1">
@@ -261,7 +245,7 @@ export function ProductGrid({
         </div>
       )}
       
-      {/* Filter Chips (Mobile - Expandable) */}
+      {/* Filter Chips (Mobile) */}
       {showFilters && showFiltersMobile && (
         <AnimatePresence>
           <motion.div

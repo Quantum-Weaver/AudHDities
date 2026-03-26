@@ -1,4 +1,4 @@
-// src/hooks/useProducts.ts
+// src/hooks/entities/useProducts.ts
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
@@ -14,6 +14,7 @@ export type ProductUpdate = Database['public']['Tables']['products']['Update'];
 // Extended product with creator info (for marketplace display)
 export interface ProductWithCreator extends Product {
   creator?: {
+    id: string;
     username: string | null;
     display_name: string | null;
     avatar_url: string | null;

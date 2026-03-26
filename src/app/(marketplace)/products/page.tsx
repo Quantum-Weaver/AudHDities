@@ -3,26 +3,34 @@ import { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { Page } from '@/components/layout/Page';
 import { ProductGrid } from '@/components/products/ProductGrid';
-import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { Search, Filter, Grid3x3, LayoutList } from 'lucide-react';
+import { Search } from 'lucide-react';
 import Link from 'next/link';
+import type { Product } from '@/types/supabase/tables/products';
 
 export const metadata: Metadata = {
   title: 'All Products | AUDHDITIES Marketplace',
   description: 'Discover creations from the neurodivergent community',
 };
 
-export default async function ProductsPage({
-  searchParams,
-}: {
-  searchParams: { q?: string; category?: string; sort?: string };
-}) {
+interface ProductsPageProps {
+  searchParams: Promise<{ q?: string; category?: string; sort?: string }> | { q?: string; category?: string; sort?: string };
+}
+
+async function getSearchParams(searchParams: ProductsPageProps['searchParams']): Promise<{ q?: string; category?: string; sort?: string }> {
+  if (searchParams instanceof Promise) {
+    return await searchParams;
+  }
+  return searchParams;
+}
+
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const params = await getSearchParams(searchParams);
   const supabase = await createServerSupabase();
   
-  const searchQuery = searchParams.q || '';
-  const categoryFilter = searchParams.category || '';
-  const sortBy = searchParams.sort || 'newest';
+  const searchQuery = params.q || '';
+  const categoryFilter = params.category || '';
+  const sortBy = params.sort || 'newest';
   
   // Build query
   let query = supabase
