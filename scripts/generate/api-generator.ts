@@ -103,7 +103,7 @@ export async function GET(
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data, error } = await supabase
       .from('${table.name}')
@@ -128,7 +128,7 @@ export async function PATCH(
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data: { user } } = await supabase.auth.getUser();
     
@@ -162,7 +162,7 @@ export async function DELETE(
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data: { user } } = await supabase.auth.getUser();
     

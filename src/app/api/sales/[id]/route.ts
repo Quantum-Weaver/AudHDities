@@ -4,11 +4,11 @@ import { createServerSupabase } from '@/lib/supabase/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     // Authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
