@@ -53,7 +53,6 @@ export default async function VendorPage({ params }: VendorPageProps) {
       username,
       display_name,
       avatar_url,
-      banner_url,
       bio,
       created_at,
       is_vendor,
@@ -89,7 +88,6 @@ export default async function VendorPage({ params }: VendorPageProps) {
   const vendorUsername = vendor.username ?? '';
   const vendorDisplayName = vendor.display_name ?? vendorUsername;
   const vendorAvatarUrl = vendor.avatar_url ?? null;
-  const vendorBannerUrl = vendor.banner_url ?? null;
   const vendorBio = vendor.bio ?? null;
   const vendorCreatedAt = vendor.created_at ?? null;
   const vendorIsVendor = vendor.is_vendor ?? false;
@@ -156,20 +154,7 @@ export default async function VendorPage({ params }: VendorPageProps) {
         </div>
         
         <div className="relative mt-4">
-          {/* Banner */}
-          <div className="relative h-48 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-t-lg overflow-hidden">
-            {vendorBannerUrl ? (
-              <img 
-                src={vendorBannerUrl} 
-                alt="Banner" 
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-white/40">
-                No banner
-              </div>
-            )}
-          </div>
+
 
           {/* Avatar */}
           <div className="absolute -bottom-12 left-8 flex items-end gap-4">

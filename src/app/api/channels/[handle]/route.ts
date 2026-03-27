@@ -9,7 +9,6 @@ const channelUpdateSchema = z.object({
   display_name: z.string().min(1).max(100).optional(),
   description: z.string().max(500).optional().nullable(),
   avatar_url: z.string().url().optional().nullable(),
-  banner_url: z.string().url().optional().nullable(),
   allow_subscriptions: z.boolean().optional(),
   subscription_price_community: z.number().min(0).optional().nullable(),
   subscription_price_ally: z.number().min(0).optional().nullable(),

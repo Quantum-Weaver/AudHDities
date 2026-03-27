@@ -26,7 +26,6 @@ export async function GET(
         username,
         display_name,
         avatar_url,
-        banner_url,
         bio,
         created_at,
         creator_profiles!creator_profiles_id_fkey (

@@ -52,7 +52,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
       username,
       display_name,
       avatar_url,
-      banner_url,
       bio,
       created_at,
       is_creator,
@@ -118,19 +117,6 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
         </div>
         
         <div className="relative mt-4">
-          <div className="relative h-48 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-t-lg overflow-hidden">
-            {creator.banner_url ? (
-              <img 
-                src={creator.banner_url} 
-                alt="Banner" 
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-white/40">
-                No banner
-              </div>
-            )}
-          </div>
 
           <div className="absolute -bottom-12 left-8 flex items-end gap-4">
             <div className="relative">

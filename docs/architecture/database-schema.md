@@ -17,7 +17,6 @@ Extends Supabase auth.users with application-specific user data.
 | `username` | TEXT | Unique public handle |
 | `display_name` | TEXT | Name shown in UI |
 | `avatar_url` | TEXT | Profile picture |
-| `banner_url` | TEXT | Profile header image |
 | `bio` | TEXT | User description |
 | `is_creator` | BOOLEAN | Can they list products? |
 | `is_vendor` | BOOLEAN | Can they sell? |
@@ -134,7 +133,6 @@ Extends Supabase auth.users with application-specific user data.
 | `username` | TEXT | Unique public handle |
 | `display_name` | TEXT | Name shown in UI |
 | `avatar_url` | TEXT | Profile picture |
-| `banner_url` | TEXT | Profile header image |
 | `bio` | TEXT | User description |
 | `is_creator` | BOOLEAN | Can they list products? |
 | `is_vendor` | BOOLEAN | Can they sell? |

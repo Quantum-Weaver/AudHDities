@@ -9,7 +9,6 @@ const profileUpdateSchema = z.object({
   username: z.string().min(3).max(30).regex(/^[a-zA-Z0-9_]+$/).optional(),
   bio: z.string().max(5000).optional(),
   avatar_url: z.string().url().optional().nullable(),
-  banner_url: z.string().url().optional().nullable(),
   user_tier: z.enum(['community', 'ally', 'corporate', 'council']).optional(),
   communication_style: z.enum(['direct', 'gentle', 'detailed', 'concise']).optional(),
   notification_frequency: z.enum(['instant', 'daily', 'weekly', 'never']).optional(),

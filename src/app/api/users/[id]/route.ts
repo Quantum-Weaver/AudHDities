@@ -18,7 +18,6 @@ export async function GET(
         username,
         display_name,
         avatar_url,
-        banner_url,
         bio,
         email,
         created_at,

@@ -11,7 +11,6 @@ export interface VendorDetail {
   username: string | null;
   display_name: string | null;
   avatar_url: string | null;
-  banner_url: string | null;
   bio: string | null;
   created_at: string | null;
   is_vendor: boolean;
@@ -49,7 +48,6 @@ function normalizeVendorDetail(data: any): VendorDetail {
     username: data.username,
     display_name: data.display_name,
     avatar_url: data.avatar_url,
-    banner_url: data.banner_url,
     bio: data.bio,
     created_at: data.created_at,
     is_vendor: data.is_vendor ?? false,
@@ -95,7 +93,6 @@ export function useVendor(username: string): UseVendorReturn {
           username,
           display_name,
           avatar_url,
-          banner_url,
           bio,
           created_at,
           is_vendor,

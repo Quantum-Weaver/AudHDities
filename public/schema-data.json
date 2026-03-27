@@ -29,12 +29,6 @@
           "description": "Profile picture URL"
         },
         {
-          "name": "banner_url",
-          "type": "TEXT",
-          "nullable": true,
-          "description": "Profile header image"
-        },
-        {
           "name": "bio",
           "type": "TEXT",
           "nullable": true,

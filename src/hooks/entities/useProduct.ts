@@ -1,4 +1,4 @@
-// src/hooks/entities/useProducts.ts
+// src/hooks/entities/useProduct.ts
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';

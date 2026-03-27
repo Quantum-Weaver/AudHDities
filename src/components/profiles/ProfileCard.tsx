@@ -31,17 +31,6 @@ export default function ProfileCard({
       href={`/profile/${profile.id}`}
       className="block bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all hover:scale-[1.02] hover:border-cyan-500/30 group"
     >
-      {/* Banner preview */}
-      <div className="h-20 bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
-        {profile.banner_url && (
-          <img 
-            src={profile.banner_url} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-        )}
-      </div>
-
       {/* Avatar - overlaps banner */}
       <div className="relative px-4 pb-4">
         <div className="absolute -top-8 left-4">
