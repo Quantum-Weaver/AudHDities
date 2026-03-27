@@ -54,7 +54,7 @@ export type {
   ModerationActionInsert,
   ModerationActionUpdate,
   ModerationActionWithRelations,
-} from './tables/moderation_actions';
+} from './tables/';
 
 // Add to DEFAULT VALUES section
 export {
@@ -67,7 +67,7 @@ export {
 
 export {
   moderationActionDefaults,
-} from './tables/moderation_actions';
+} from './tables/';
 // =====================================================
 // APPLICATIONS
 // =====================================================
