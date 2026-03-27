@@ -10,14 +10,16 @@ import type { Database } from '@/types/supabase/database.types';
 export type Product = Database['public']['Tables']['products']['Row'];
 export type ProductInsert = Database['public']['Tables']['products']['Insert'];
 export type ProductUpdate = Database['public']['Tables']['products']['Update'];
+export type Creator = Database['public']['Tables']['creator_profiles']['Update'];
 
 // Extended product with creator info (for marketplace display)
 export interface ProductWithCreator extends Product {
   creator?: {
     id: string;
     username: string | null;
-    display_name: string | null;
+    display_name?: string | null;
     avatar_url: string | null;
+    creator_profile: Creator;
   };
 }
 

@@ -21,7 +21,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedTier, setSelectedTier] = useState<'community' | 'ally' | 'corporate'>('ally');
   
   const creator = product.creator;
-  const creatorProfile = creator?.creator_profiles;
+  const creatorProfile = creator?.creator_profile;
   const productLabel = getProductCategoryLabel(product.product_type);
   
   const tiers = [

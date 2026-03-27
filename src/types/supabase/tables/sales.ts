@@ -1,4 +1,4 @@
-// src/types/supabase/sales.ts
+// src/types/supabase/tables/sales.ts
 import type { Database } from '../database.types';
 
 export type Sale = Database['public']['Tables']['sales']['Row'];

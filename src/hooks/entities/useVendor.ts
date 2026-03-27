@@ -1,10 +1,10 @@
-// src/hooks/useVendor.ts
+// hooks/entities/useVendor.ts
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { Product } from './useProducts';
-import type { VendorProfile } from '@/types/supabase/tables.ts'
+import type { VendorProfile } from '@/types/supabase/tables.ts';
 
 export interface VendorDetail {
   id: string;
@@ -71,7 +71,10 @@ function normalizeVendorDetail(data: any): VendorDetail {
   };
 }
 
-export function useVendor(username: string): UseVendorReturn {
+// =====================================================
+// useVendorByUsername - fetch vendor by username
+// =====================================================
+export function useVendorByUsername(username: string): UseVendorReturn {
   const [vendor, setVendor] = useState<VendorDetail | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -162,3 +165,103 @@ export function useVendor(username: string): UseVendorReturn {
     refresh: fetchVendor,
   };
 }
+
+// =====================================================
+// useVendorById - fetch vendor by user ID
+// =====================================================
+export function useVendorById(userId: string): UseVendorReturn {
+  const [vendor, setVendor] = useState<VendorDetail | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+  const supabase = createClient();
+
+  const fetchVendor = useCallback(async () => {
+    if (!userId) return;
+    
+    try {
+      setLoading(true);
+      setError(null);
+      
+      // Fetch vendor profile
+      const { data: vendorData, error: vendorError } = await supabase
+        .from('profiles')
+        .select(`
+          id,
+          username,
+          display_name,
+          avatar_url,
+          bio,
+          created_at,
+          is_vendor,
+          is_creator,
+          is_admin,
+          user_tier,
+          sovereignty_score,
+          primary_house,
+          vendor_profiles!vendor_profiles_id_fkey (
+            business_name,
+            business_type,
+            business_description,
+            business_logo_url,
+            verified_badge,
+            verification_status,
+            product_categories,
+            total_products,
+            total_sales,
+            total_earnings
+          )
+        `)
+        .eq('id', userId)
+        .eq('is_vendor', true)
+        .maybeSingle();
+      
+      if (vendorError) throw vendorError;
+      
+      if (!vendorData) {
+        setVendor(null);
+        setProducts([]);
+        return;
+      }
+      
+      const normalizedVendor = normalizeVendorDetail(vendorData);
+      setVendor(normalizedVendor);
+      
+      // Fetch vendor's products
+      const { data: productsData, error: productsError } = await supabase
+        .from('products')
+        .select('*')
+        .eq('creator_id', vendorData.id)
+        .eq('is_published', true)
+        .eq('active', true)
+        .order('created_at', { ascending: false });
+      
+      if (productsError) throw productsError;
+      
+      setProducts(productsData || []);
+      
+    } catch (err) {
+      console.error('Error fetching vendor:', err);
+      setError(err instanceof Error ? err : new Error('Vendor not found'));
+    } finally {
+      setLoading(false);
+    }
+  }, [userId, supabase]);
+
+  useEffect(() => {
+    fetchVendor();
+  }, [fetchVendor]);
+
+  return {
+    vendor,
+    products,
+    loading,
+    error,
+    refresh: fetchVendor,
+  };
+}
+
+// =====================================================
+// useVendor - main export (alias for useVendorByUsername)
+// =====================================================
+export const useVendor = useVendorByUsername;

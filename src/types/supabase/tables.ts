@@ -35,6 +35,39 @@ export type {
   AdminLogWithRelations,
 } from './tables/admin_logs';
 
+export type {
+  Report,
+  ReportInsert,
+  ReportUpdate,
+  ReportWithRelations,
+} from './tables/reports';
+
+export type {
+  Notification,
+  NotificationInsert,
+  NotificationUpdate,
+  NotificationWithRelations,
+} from './tables/notifications';
+
+export type {
+  ModerationAction,
+  ModerationActionInsert,
+  ModerationActionUpdate,
+  ModerationActionWithRelations,
+} from './tables/moderation_actions';
+
+// Add to DEFAULT VALUES section
+export {
+  reportDefaults,
+} from './tables/reports';
+
+export {
+  notificationDefaults,
+} from './tables/notifications';
+
+export {
+  moderationActionDefaults,
+} from './tables/moderation_actions';
 // =====================================================
 // APPLICATIONS
 // =====================================================

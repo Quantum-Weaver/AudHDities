@@ -82,9 +82,8 @@
 
 html {
   scroll-behavior: smooth;
+  [data-scroll-behavior="smooth"]{scroll-behavior: smooth;
 }
-[data-scroll-behavior="smooth"] {
-  scroll-behavior: smooth;
 }
 body {
   background: linear-gradient(135deg, var(--deep-space) 0%, #8563ff 100%);

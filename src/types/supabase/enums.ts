@@ -95,6 +95,14 @@ export type BusinessType = Database['public']['Enums']['business_type'];
 export type SocialPlatform = Database['public']['Enums']['social_platform'];
 
 // =====================================================
+// MODERATION & NOTIFICATION ENUMS
+// =====================================================
+
+export type ReportType = Database['public']['Enums']['report_type'];
+export type ReportStatus = Database['public']['Enums']['report_status'];
+export type NotificationType = Database['public']['Enums']['notification_type'];
+
+// =====================================================
 // HELPER FUNCTIONS FOR ENUM VALUES
 // =====================================================
 
@@ -124,6 +132,13 @@ export const ENUM_VALUES = {
   postVisibility: ['public', 'subscribers', 'tier_community', 'tier_ally', 'tier_corporate', 'private'] as const,
   businessType: ['sole_proprietor', 'llc', 'nonprofit', 'cooperative', 'partnership', 'other'] as const,
   acidPersona: ['masked_traveler', 'tab_hoarder', 'seam_warrior', 'void_dweller', 'pattern_seeker', 'quantum_witness'] as const,
+  reportType: ['inappropriate_content', 'harassment', 'spam', 'hate_speech', 'impersonation', 'copyright', 'other'] as const,
+  reportStatus: ['pending', 'reviewing', 'resolved', 'dismissed', 'escalated'] as const,
+  notificationType: [
+    'report_resolved', 'report_rejected', 'comment_reply', 'emerald_received',
+    'subscription_renewal', 'product_purchased', 'application_approved',
+    'application_rejected', 'system_announcement'
+  ] as const,
 } as const;
 
 // Helper to check if a value is a valid enum
@@ -153,6 +168,18 @@ export function isValidPayoutStatus(value: string): value is PayoutStatus {
 
 export function isValidVerificationStatus(value: string): value is VerificationStatus {
   return ENUM_VALUES.verificationStatus.includes(value as any);
+}
+
+export function isValidReportType(value: string): value is ReportType {
+  return ENUM_VALUES.reportType.includes(value as any);
+}
+
+export function isValidReportStatus(value: string): value is ReportStatus {
+  return ENUM_VALUES.reportStatus.includes(value as any);
+}
+
+export function isValidNotificationType(value: string): value is NotificationType {
+  return ENUM_VALUES.notificationType.includes(value as any);
 }
 
 // Display name helpers
@@ -185,6 +212,25 @@ export function getContributionTypeDisplay(type: ContributionType | string | nul
 export function getAcidPersonaDisplay(persona: AcidPersona | string | null): string {
   if (!persona) return '';
   return persona.split('_').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
+}
+
+export function getReportTypeDisplay(type: ReportType | string | null): string {
+  if (!type) return '';
+  return type.split('_').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
+}
+
+export function getReportStatusDisplay(status: ReportStatus | string | null): string {
+  if (!status) return '';
+  return status.charAt(0).toUpperCase() + status.slice(1);
+}
+
+export function getNotificationTypeDisplay(type: NotificationType | string | null): string {
+  if (!type) return '';
+  return type.split('_').map(word => 
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ');
 }
