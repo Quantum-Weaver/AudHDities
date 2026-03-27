@@ -16,7 +16,7 @@ export type CommunityProfile = Database['public']['Tables']['community_profiles'
 export type CreatorProfile = Database['public']['Tables']['creator_profiles']['Row'];
 export type VendorProfile = Database['public']['Tables']['vendor_profiles']['Row'];
 
-export default async function ProfilePage({ params }: { params: { id: string } }) {
+export default async function ProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createServerSupabase();
   const { data: { user } } = await supabase.auth.getUser();
 

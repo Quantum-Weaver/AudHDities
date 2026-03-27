@@ -1,6 +1,6 @@
 // types/supabase/tables/reports.ts
 import type { Database } from '../database.types';
-import type { ReportType, ReportStatus } from '../enums';
+export type { ReportType, ReportStatus } from '../enums';
 
 export type Report = Database['public']['Tables']['reports']['Row'];
 export type ReportInsert = Database['public']['Tables']['reports']['Insert'];

@@ -26,7 +26,6 @@ export { useCommunity } from './entities/useCommunity';
 // Commerce Hooks
 // =====================================================
 export { useCheckout } from './commerce/useCheckout';
-// export { useCart } from './commerce/useCart';
 export { useResiduals } from './commerce/useResiduals';
 export { useSale, useSaleByStripeSession,  } from './commerce/useSale';
 export { usePayouts } from './commerce/usePayouts';
@@ -47,7 +46,7 @@ export { useActivityFeed } from './gamification/useActivityFeed';
 export { useAdmin } from './admin/useAdmin';
 export { useApplications } from './admin/useApplications';
 // export { useModeration } from './admin/useModeration';
-// export { useReports } from './admin/useReports';
+export { useReports } from './admin/useReports';
 // export { useNotifications } from './admin/useNotifications';
 
 // =====================================================

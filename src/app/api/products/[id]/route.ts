@@ -10,11 +10,11 @@ import { isUserAdmin } from '@/lib/auth/admin';
 // =====================================================
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Fetch product with creator info using explicit foreign key
     const { data: product, error } = await supabase
