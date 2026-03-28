@@ -188,13 +188,13 @@ export async function GET(request: NextRequest) {
     
     // Search filter
     if (query.search) {
-      dbQuery = dbQuery.or(`
-        user.display_name.ilike.%${query.search}%,
-        user.username.ilike.%${query.search}%,
-        user.email.ilike.%${query.search}%,
-        form_data->>business_name.ilike.%${query.search}%,
-        form_data->>creative_categories.cs.{${query.search}}
-      `);
+    dbQuery = dbQuery.or(`
+      user.display_name.ilike.%${query.search}%,
+      user.username.ilike.%${query.search}%,
+      user.email.ilike.%${query.search}%,
+      form_data->>business_name.ilike.%${query.search}%,
+      form_data->>creative_categories.cs.${JSON.stringify([query.search])}
+    `);
     }
     
     // Order by newest first
