@@ -11,6 +11,7 @@ export interface ProductWithCreator extends Product {
     username: string | null;
     display_name: string | null;
     avatar_url: string | null;
+    owner_type: string | null;
   };
 }
 

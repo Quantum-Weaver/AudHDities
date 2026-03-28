@@ -61,6 +61,7 @@ export default async function VendorDashboardPage() {
     .from('products')
     .select('*')
     .eq('creator_id', user.id)
+    .eq('owner_type', 'vendor') 
     .order('created_at', { ascending: false });
 
   let recentSales: any[] = [];

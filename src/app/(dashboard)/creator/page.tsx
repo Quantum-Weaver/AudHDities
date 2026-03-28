@@ -86,6 +86,7 @@ export default async function CreatorDashboardPage() {
     .from('products')
     .select('*')
     .eq('creator_id', user.id)
+    .eq('owner_type', 'creator')
     .order('created_at', { ascending: false });
 
   let recentSales: any[] = [];
@@ -100,10 +101,10 @@ export default async function CreatorDashboardPage() {
   }
 
   const totalProducts = products?.length || 0;
-  const totalSales = creator?.total_sales || 0;
-  const totalEarnings = creator?.total_earnings || 0;
   const publishedProducts = products?.filter(p => p.is_published).length || 0;
   const draftProducts = products?.filter(p => !p.is_published).length || 0;
+  const totalSales = creator?.total_sales || 0;
+  const totalEarnings = creator?.total_earnings || 0;
 
   const formatDate = (dateString: string | null) => {
     if (!dateString) return 'Unknown';
