@@ -27,7 +27,7 @@ interface CommunityProductPageProps {
 }
 
 export async function generateMetadata({ params }: CommunityProductPageProps): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   const { data: product } = await supabase
@@ -82,7 +82,7 @@ const productTypeInfo: Record<string, { label: string; icon: React.ReactNode; co
 };
 
 export default async function CommunityProductDetailPage({ params }: CommunityProductPageProps) {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   // Get current user

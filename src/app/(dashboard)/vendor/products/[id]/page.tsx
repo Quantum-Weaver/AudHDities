@@ -13,7 +13,7 @@ interface VendorProductDetailPageProps {
 }
 
 export async function generateMetadata({ params }: VendorProductDetailPageProps): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   const { data: product } = await supabase
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: VendorProductDetailPageProps)
 }
 
 export default async function VendorProductDetailPage({ params }: VendorProductDetailPageProps) {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   // Fetch product

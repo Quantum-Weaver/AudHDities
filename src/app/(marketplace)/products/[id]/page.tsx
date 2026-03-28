@@ -16,7 +16,7 @@ interface ProductPageProps {
 
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   const { data: product } = await supabase
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = await params;
+  const { id } = params;
   const supabase = await createServerSupabase();
   
   // Fetch product with creator info using explicit foreign key

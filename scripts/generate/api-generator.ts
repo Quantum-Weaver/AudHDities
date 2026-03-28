@@ -99,11 +99,11 @@ import { createServerSupabase } from '@/lib/supabase/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+{ params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data, error } = await supabase
       .from('${table.name}')
@@ -124,11 +124,11 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+{ params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data: { user } } = await supabase.auth.getUser();
     
@@ -158,11 +158,11 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+{ params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     const { data: { user } } = await supabase.auth.getUser();
     

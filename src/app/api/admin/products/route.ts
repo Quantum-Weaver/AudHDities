@@ -111,11 +111,11 @@ export async function GET(request: NextRequest) {
 // =====================================================
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = await params;
+    const { id } = params;
     
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();

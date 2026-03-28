@@ -42,7 +42,7 @@ async function awardBadge(supabase: any, userId: string, badgeName: string, reas
 // =====================================================
 export async function POST(
   request: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: { id: string } }
 ) {
   try {
     const supabase = await createServerSupabase();
