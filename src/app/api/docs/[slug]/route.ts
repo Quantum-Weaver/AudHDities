@@ -1,15 +1,14 @@
 // app/api/docs/[slug]/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const slug = params.slug;
+    const { slug } = await params;
     
     // Security: Prevent directory traversal attacks
     const sanitized = path.basename(slug);
