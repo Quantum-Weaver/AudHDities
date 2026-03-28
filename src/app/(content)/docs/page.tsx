@@ -46,7 +46,7 @@ const DOC_SECTIONS = [
       },
       {
         title: 'Financial Ecosystem',
-        path: '/docs/business/financial-ecosystem',
+        path: '/docs/business/ecosystem',
         description: 'Granular, transparent, designed for dignity—see how value flows',
         icon: DollarSign,
         badge: 'Transparency',

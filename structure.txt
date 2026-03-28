@@ -1,7 +1,7 @@
 AUDHDITIES/
 ⚪	│
-⚪   ├── .github/                               # GitHub configuration
-⚪	│   ├── ISSUE_TEMPLATE/
+📁   ├── .github/                               # GitHub configuration
+📁	 │   ├── ISSUE_TEMPLATE/
 ✅	│   │   ├── 00-task.md                     # Internal task tracking
 ✅	│   │   ├── 01-bug-report.md               # Community bug reports
 ✅	│   │   ├── 02-feature-request.md          # Community ideas
@@ -9,10 +9,10 @@ AUDHDITIES/
 ✅	│   │   ├── 04-documentation.md            # Docs improvements
 ✅	│   │   ├── 05-question.md                 # General questions
 ✅	│   │   └── config.yml                     # Template configuration
-⚪	│   └── workflows/                         # GitHub Actions (future)
+📁   │   └── workflows/                         # GitHub Actions (future)
 ⚪	│       └── (to be added later)
 ⚪	│
-⚪	├── docs/                                  # Documentation
+📁   ├── docs/                                  # Documentation
 ⚪	│   ├── architecture/                      # System design docs
 ✅	│   │   ├── database-schema.md             # Explanation of tables
 ✅	│   │   ├── auth-flow.md                   # How authentication works
@@ -28,15 +28,22 @@ AUDHDITIES/
 ⚪	│   └── api/                               # API documentation
 ⚪	│       └── (generated later)
 ⚪	│
-⚪	├── public/                                # Static assets
+📁   ├── public/                                # Static assets
+✅	│   ├── animated/
+✅	│   ├── environments/
+⚪	│   ├── fonts/                             # Custom fonts (if needed)
+✅	│   ├── icons/
 ⚪	│   ├── images/
 ✅	│   │   ├── logo.svg                       # AUDHDITIES logo
 ✅	│   │   ├── favicon.ico                    # Browser icon
 ✅	│   │   └── og-image.png                   # Social sharing image
-⚪	│   ├── fonts/                             # Custom fonts (if needed)
+✅	│   ├── interactive/ 
+✅	│   ├── materials/
+✅	│   ├── structures/
+✅	│   ├── schema-data.json               
 ✅	│   └── site.webmanifest                   # PWA manifest
 ⚪	│
-⚪	├── src/                                   # Source code
+📁   ├── src/                                   # Source code
 ⚪	│   ├── app/                               # Next.js App Router
 ⚪	│   │   ├── (auth)/                        # Authentication routes
 ⚪	│   │   │   ├── callback/
@@ -47,14 +54,13 @@ AUDHDITIES/
 ✅	│   │   │   │   └── route.ts               # Logout handler
 ⚪	│   │   │   └── signup/
 ✅	│   │   │       └── page.tsx               # Signup page
-⚪	│   │   │ 
+⚪	│   │   │
 ⚪	│   │   ├── (content)/                     # Content routes
 ⚪	│   │   │   ├── about/
 ✅	│   │   │   │   └── page.tsx               # About page
 ⚪	│   │   │   ├── contact/
 ✅	│   │   │   │   └── page.tsx               # Contact page
 ⚪	│   │   │   ├── docs/
-✅	│   │   │   │   ├── page.tsx               # Document Library page
 ⚪	│   │   │   │   ├── architecture/
 ⚪	│   │   │   │   │   ├── auth-flow/           
 ✅	│   │   │   │   │   │   └── page.tsx       # Auth flow page
@@ -63,10 +69,10 @@ AUDHDITIES/
 ⚪	│   │   │   │   │   └── residual-system/           
 ✅	│   │   │   │   │       └── page.tsx       # residual system page
 ⚪	│   │   │   │   ├── business/
-⚪	│   │   │   │   │   ├── business-plan/
-✅	│   │   │   │   │   │   └── page.tsx       # Business Plan page
-⚪	│   │   │   │   │   └── financial-ecosystem/
-✅	│   │   │   │   │       └── page.tsx       # Financial Ecosystem page
+⚪	│   │   │   │   │   ├── ecosystem/
+✅	│   │   │   │   │   │   └── page.tsx       # Financial Ecosystem page
+⚪	│   │   │   │   │   └── plan/
+✅	│   │   │   │   │       └── page.tsx       # Business Plan page
 ⚪	│   │   │   │   ├── guides/
 ⚪	│   │   │   │   │   ├── creator-onboarding/           
 ✅	│   │   │   │   │   │   └── page.tsx       # Creator onboarding page
@@ -76,13 +82,14 @@ AUDHDITIES/
 ✅	│   │   │   │   │       └── page.tsx       # Vendor onboarding page
 ⚪	│   │   │   │   ├── privacy/
 ✅	│   │   │   │   │   └── page.tsx           # Privacy Policy page
-⚪	│   │   │   │   └──  terms/
-✅	│   │   │   │       └── page.tsx           # Terms and Conditions page
+⚪	│   │   │   │   ├── terms/
+✅	│   │   │   │   │   └── page.tsx           # Terms and Conditions page
+✅	│   │   │   │   └── page.tsx               # Document Library page
 ⚪	│   │   │   ├── learn/
-✅	│   │   │   │   ├── page.tsx               # Learning hub
-⚪	│   │   │   │   └── pathways/
-⚪	│   │   │   │       └── [slug]/
-❓	│   │   │   │           └── page.tsx       # Individual pathway
+⚪	│   │   │   │   ├── pathways/
+⚪	│   │   │   │   │   └── [slug]/
+❓	│   │   │   │   │       └── page.tsx       # Individual pathway
+✅	│   │   │   │   └── page.tsx               # Learning hub
 ⚪	│   │   │   ├── questionnaire/             
 ✅	│   │   │   │   └── page.tsx               # The Fun Questionnaire
 ⚪	│   │   │   ├── transparency/
@@ -92,156 +99,351 @@ AUDHDITIES/
 ⚪	│   │   │
 ⚪	│   │   ├── (dashboard)/                   # Protected routes
 ⚪	│   │   │   ├── admin/
-✅	│   │   │   │   ├── page.tsx               # Admin dashboard
-⚪	│   │   │   │   ├── users/
-❓	│   │   │   │   │   └── page.tsx           # User management
 ⚪	│   │   │   │   ├── applications/
 ❓	│   │   │   │   │   └── page.tsx           # Creator/vendor approvals
+⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── products/
 ❓	│   │   │   │   │   └── page.tsx           # Product moderation
+⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── residuals/
 ❓	│   │   │   │   │   └── page.tsx           # Residual management
-⚪	│   │   │   │   └── transparency/
-✅	│   │   │   │       └── page.tsx           # Public transparency admin
-⚪	│   │   │   ├── creator/
-✅	│   │   │   │   ├── page.tsx               # Creator dashboard
-⚪	│   │   │   │   ├── apply/
-✅	│   │   │   │   │   └── page.tsx           # Creator application
-⚪	│   │   │   │   └── products/
-✅	│   │   │   │       ├── page.tsx           # Product list
-⚪	│   │   │   │       ├── new/
-✅	│   │   │   │       │   └── page.tsx       # New product
-⚪	│   │   │   │       └── [id]/
-⚪	│   │   │   │           └── edit/
-✅	│   │   │   │               └── page.tsx   # Edit product
-⚪	│   │   │   ├── dashboard/
-✅	│   │   │   │   └── page.tsx               # Main dashboard
-⚪	│   │   │   ├── profile/
-✅	│   │   │   │   ├── page.tsx               # Profile view
-⚪	│   │   │   │   └── edit/
-✅	│   │   │   │       └── page.tsx           # Profile edit
-⚪	│   │   │   ├── vendor/
-⚪	│   │   │   │   ├── apply/
-✅	│   │   │   │   │   └── page.tsx           # Vendor application
-⚪	│   │   │   │   ├── edit/
-✅	│   │   │   │   │   └── page.tsx           # Edit Vendor profile
-⚪	│   │   │   │   ├── products/
-✅	│   │   │   │   │   ├── page.tsx           # Product list
-⚪	│   │   │   │   │   ├── new/
-✅	│   │   │   │   │   │   └── page.tsx       # New product
-⚪	│   │   │   │   │   └── [id]/
-✅	│   │   │   │   │        ├── page.tsx      # Product detail
-⚪	│   │   │   │   │        └── edit/
-❓	│   │   │   │   │            └── page.tsx  # Edit product
-✅	│   │   │   │   └── page.tsx               # Vendor dashboard
+⚪	│   │   │   │   │
+⚪	│   │   │   │   ├── transparency/
+❓	│   │   │   │   │   └── page.tsx           # Public transparency admin
+⚪	│   │   │   │   │
+⚪	│   │   │   │   ├── users/
+❓	│   │   │   │   │   └── page.tsx           # User management
+⚪	│   │   │   │   │
+✅	│   │   │   │   └── page.tsx               # Admin dashboard
 ⚪	│   │   │   ├── community/
 ⚪	│   │   │   │   ├── edit/
 ✅	│   │   │   │   │   └── page.tsx           # Edit community profile
+⚪	│   │   │   │   │ 
 ⚪	│   │   │   │   ├── products/
-✅	│   │   │   │   │   ├── page.tsx           # Product list
-⚪	│   │   │   │   │   └── [id]/
-❓	│   │   │   │   │        └── page.tsx      # Product detail
-⚪	│   │   │   │   │           
-✅	│   │   │   │   └── page.tsx               # Vendor dashboard
-⚪	│   │   │   └── settings/
-❓	│   │   │       ├── page.tsx               # User settings
-⚪	│   │   │       └── nd-preferences/
-❓	│   │   │           └── page.tsx           # Neurodivergent preferences
+⚪	│   │   │   │   │   ├── [id]/              # Product list
+✅	│   │   │   │   │   │   └── page.tsx       # Product detail
+⚪	│   │   │   │   │   └── page.tsx
+⚪	│   │   │   │   │
+✅	│   │   │   │   └── page.tsx               # Community dashboard
+⚪	│   │   │   ├── creator/
+⚪	│   │   │   │   ├── apply/
+✅	│   │   │   │   │   └── page.tsx           # Creator application
+⚪	│   │   │   │   │ 
+⚪	│   │   │   │   ├── edit/
+✅	│   │   │   │   │   └── page.tsx           # Edit creator profile
+⚪	│   │   │   │   │ 
+⚪	│   │   │   │   ├── products/
+⚪	│   │   │   │   │   ├── [id]/
+✅	│   │   │   │   │   │   └── page.tsx       # Edit product
+✅	│   │   │   │   │   │
+⚪	│   │   │   │   │   ├── new/
+✅	│   │   │   │   │   │   └── page.tsx       # New product
+⚪	│   │   │   │   │   │
+✅	│   │   │   │   │   └── page.tsx           # Product list
+⚪	│   │   │   │   │   
+✅	│   │   │   │   └── page.tsx               # Creator dashboard
+⚪	│   │   │   ├── dashboard/
+✅	│   │   │   │   └── page.tsx               # Main dashboard
+⚪	│   │   │   ├── profile/
+✅	│   │   │   │   ├── [id]/
+⚪	│   │   │   │   │   └── page.tsx
+⚪	│   │   │   │   │  
+⚪	│   │   │   │   ├── edit/
+✅	│   │   │   │   │   └── page.tsx           # Profile edit
+⚪	│   │   │   │   │  
+⚪	│   │   │   │   └── page.tsx 
+⚪	│   │   │   ├── settings/
+❓	│   │   │   │   ├── page.tsx               # User settings
+⚪	│   │   │   │   └── nd-preferences/
+❓	│   │   │   │       └── page.tsx           # Neurodivergent preferences
+⚪	│   │   │   └── vendor/
+⚪	│   │   │       ├── apply/
+✅	│   │   │       │   └── page.tsx           # Vendor application
+⚪	│   │   │       │ 
+⚪	│   │   │       ├── edit/
+✅	│   │   │       │   └── page.tsx           # Edit vendor profile
+⚪	│   │   │       │ 
+⚪	│   │   │       ├── products/
+⚪	│   │   │       │   ├── [id]/
+✅	│   │   │       │   │   └── page.tsx       # Edit product
+✅	│   │   │       │   │
+⚪	│   │   │       │   ├── new/
+✅	│   │   │       │   │   └── page.tsx       # New product
+⚪	│   │   │       │   │
+✅	│   │   │       │   └── page.tsx           # Product list
+⚪	│   │   │       │   
+✅	│   │   │       └── page.tsx               # Vendor dashboard
 ⚪	│   │   │
 ⚪	│   │   ├── (marketplace)/                 # Public routes
-✅	│   │   │   ├── page.tsx                   # Homepage / marketplace
+❓	│   │   │   ├── checkout/
+⚪	│   │   │   │   ├── success/
+✅	│   │   │   │   │   └── page.tsx           # Checkout success
+⚪	│   │   │   │   └── cancel/
+✅	│   │   │   │       └── page.tsx           # Checkout canceled
 ⚪	│   │   │   ├── creators/
-✅	│   │   │   │   ├── page.tsx               # Creator gallery
-⚪	│   │   │   │   └── [username]/
-✅	│   │   │   │       └── page.tsx           # Individual creator
-⚪	│   │   │   ├── vendors/
-✅	│   │   │   │   ├── page.tsx               # Vendor gallery
-⚪	│   │   │   │   └── [username]/
-✅	│   │   │   │       └── page.tsx           # Individual vendor
+⚪	│   │   │   │   ├── [username]/
+✅	│   │   │   │   │   └── page.tsx           # Individual creator
+✅	│   │   │   │   └── page.tsx               # Creator gallery
+⚪	│   │   │   ├── marketplace/
+✅	│   │   │   │   └── page.tsx               # Homepage / marketplace
 ⚪	│   │   │   ├── products/
 ✅	│   │   │   │   ├── page.tsx               # All products
 ⚪	│   │   │   │   └── [id]/
 ⚪	│   │   │   │       └── page.tsx           # Individual product
-❓	│   │   │   └── checkout/
-⚪	│   │   │       ├── success/
-✅	│   │   │       │   └── page.tsx           # Checkout success
-⚪	│   │   │       └── cancel/
-✅	│   │   │           └── page.tsx           # Checkout canceled
+⚪	│   │   │   └── vendors/
+⚪	│   │   │       ├── [username]/
+✅	│   │   │       │   └── page.tsx           # Individual vendor
+✅	│   │   │       └── page.tsx               # Vendor gallery
 ⚪	│   │   │    
-⚪	│   │   │
 ⚪	│   │   ├── api/                           # API routes
-⚪	│   │   │   ├── auth/
-❓	│   │   │   │   └── route.ts               # Auth helpers
-⚪	│   │   │   ├── checkout/
-✅	│   │   │   │   └── route.ts               # Create checkout session
+⚪	│   │   │   ├── acid-test/
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── admin/
+⚪	│   │   │   │   ├── applications/
+⚪	│   │   │   │   │   ├── [id]/
+✅	│   │   │   │   │   │   └── route.ts
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   ├── products/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   ├── stats/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   ├── transparency/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   └── users/
+✅	│   │   │   │       └── route.ts
+⚪	│   │   │   ├── auth/                      # Auth helpers
+⚪	│   │   │   │   ├── change-password/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   ├── session/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   ├── update-prodile/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   └── users/
+✅	│   │   │   │       └── me/
+✅	│   │   │   │           └── route.ts
+⚪	│   │   │   ├── badges/
+⚪	│   │   │   │   ├── check/
+✅	│   │   │   │   │   └── route.ts 
+⚪	│   │   │   │   ├── user/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── channels/
+⚪	│   │   │   │   ├── [handle]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts 
+⚪	│   │   │   ├── checkout/                  # Create checkout session
+⚪	│   │   │   │   ├── session/
+⚪	│   │   │   │   │   └── [id]/
+✅	│   │   │   │   │       └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── comments/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
 ⚪	│   │   │   ├── contact/
 ✅	│   │   │   │   └── route.ts               # Contact form
+⚪	│   │   │   ├── contributions/
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── creators/
+⚪	│   │   │   │   ├── [username]/
+✅	│   │   │   │   │   └── route.ts           # Creator API
+⚪	│   │   │   │   ├── apply/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   └── route.ts
 ⚪	│   │   │   ├── docs/
 ⚪	│   │   │   │   └── [slug]/
 ✅	│   │   │   │       └── route.ts           # Document formatting for display
+⚪	│   │   │   ├── emeralds/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── feed/           
+⚪	│   │   │   │   ├── discover/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
 ⚪	│   │   │   ├── incoming-email/
 ✅	│   │   │   │   └── route.ts               # Resend configured email
+⚪	│   │   │   ├── posts/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── products/                   # Products API
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── quests/
+⚪	│   │   │   │   ├── [id]/
+⚪	│   │   │   │   │   ├── complete/
+✅	│   │   │   │   │   │   └── route.ts 
+⚪	│   │   │   │   │   └── start/
+✅	│   │   │   │   │       └── route.ts 
+⚪	│   │   │   │   ├── user/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── residuals/           
+⚪	│   │   │   │   ├── my/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── sales/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
 ⚪	│   │   │   ├── send-email/
 ✅	│   │   │   │   └── route.ts               # Resend configured email
-⚪	│   │   │   ├── webhook/
-⚪	│   │   │   │   ├── stripe/
-✅	│   │   │   │   └── route.ts               # Stripe webhook
-⚪	│   │   │   ├── products/
-⚪	│   │   │   │   └── [id]/
-✅	│   │   │   │       └── route.ts           # Product API
-⚪	│   │   │   ├── creators/
-✅	│   │   │   │   └── route.ts               # Creators API
-⚪	│   │   │   │   └── [id]/
-✅	│   │   │   │       └── route.ts           # Creator API
+⚪	│   │   │   ├── subscriptions/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
+⚪	│   │   │   ├── users/           
+⚪	│   │   │   │   ├── [id]/
+✅	│   │   │   │   │   └── route.ts 
+✅	│   │   │   │   └── route.ts
 ⚪	│   │   │   ├── vendors/
-✅	│   │   │   │   └── route.ts               # Vendors API
-⚪	│   │   │   │   └── [id]/
-✅	│   │   │   │       └── route.ts           # Vendor API
-⚪	│   │   │   └── admin/
-❓	│   │   │       └── route.ts               # Admin API
+⚪	│   │   │   │   ├── [username]/
+✅	│   │   │   │   │   └── route.ts           # Vendor API
+⚪	│   │   │   │   ├── apply/
+✅	│   │   │   │   │   └── route.ts
+⚪	│   │   │   │   └── route.ts
+⚪	│   │   │   └── webhook/
+⚪	│   │   │       └── stripe/
+✅	│   │   │           └── route.ts           # Stripe webhook
 ⚪	│   │   │
-✅	│   │   ├── layout.tsx                     # Root layout
-✅	│   │   ├── page.tsx                       # Landing page
+⚪	│   │   ├── sanctuary/
+✅	│   │   │   └── page.tsx
+⚪	│   │   │ 
+✅	│   │   ├── error.tsx                      # Error boundary
+✅	│   │   ├── favicon.ico                    # Favicon
 ✅	│   │   ├── globals.css                    # Global styles
-✅	│   │   └── error.tsx                      # Error boundary
+✅	│   │   ├── layout.tsx                     # Root layout
+✅	│   │   └── page.tsx                       # Landing page
 ⚪	│   │
 ⚪	│   ├── components/                        # Reusable components
+⚪	│   │   ├── about/                         # About components
+✅	│   │   │   ├── AboutHero.tsx
+✅	│   │   │   ├── CouncilCard.tsx
+✅	│   │   │   ├── InvitationCard.tsx
+✅	│   │   │   ├── OriginStory.tsx
+✅	│   │   │   └── ValueCard.tsx
+⚪	│   │   │
+⚪	│   │   ├── admin/                        # Admin components
+❓	│   │   │   ├── ApplicationReview.tsx
+✅	│   │   │   ├── UserCard.tsx
+❓	│   │   │   ├── UserTable.tsx
+❓	│   │   │   └── TransparencyLog.tsx
+⚪	│   │   │
 ⚪	│   │   ├── apply/                         # Application components
 ✅	│   │   │   ├── CreatorApplicationForm.tsx
 ✅	│   │   │   └── VendorApplicationForm.tsx
+⚪	│   │   │
 ⚪	│   │   ├── auth/                          # Auth components
 ✅	│   │   │   ├── AuthButton.tsx	
 ✅	│   │   │   ├── AuthGuard.tsx
 ✅	│   │   │   ├── LoginForm.tsx
 ✅	│   │   │   ├── ProtectedRoute.tsx
 ✅	│   │   │   └── SignupForm.tsx
+⚪	│   │   │
 ⚪	│   │   ├── business/                          # business components
-✅	│   │   │   ├── BusinessHero.tsx	
-✅	│   │   │   ├── ProjectionTables.tsx
+✅	│   │   │   ├── BusinessHero.tsx
+✅	│   │   │   ├── DignityFloor.tsx
+✅	│   │   │   ├── FinancialEcosystemHero.tsx
+✅	│   │   │   ├── ProjectionTables.tsx	
+✅	│   │   │   ├── ResidualDistribution.tsx
 ✅	│   │   │   ├── StatCard.tsx
+✅	│   │   │   ├── SustainabilityMetrics.tsx
+✅	│   │   │   ├── TransparencyLedger.tsx
+✅	│   │   │   ├── TwoStreamFlow.tsx
 ✅	│   │   │   └── ValueFlowDiagram.tsx
+⚪	│   │   │
+⚪	│   │   ├── checkout/                     # Checkout components
+✅	│   │   │   ├── CheckoutButton.tsx
+✅	│   │   │   └── PriceBreakdown.tsx
+⚪	│   │   │
+⚪	│   │   ├── community/
+✅	│   │   │   ├── BreakthroughGrid.tsx
+✅	│   │   │   ├── CapacityBoundaries.tsx
+✅	│   │   │   ├── CommunityHero.tsx
+✅	│   │   │   ├── CouncilGallery.tsx	
+✅	│   │   │   ├── EvolutionTimeline.tsx
+✅	│   │   │   ├── InvitationCards.tsx
+✅	│   │   │   ├── MusicTimeline.tsx
+✅	│   │   │   ├── PrinciplesDisplay.tsx
+✅	│   │   │   ├── RandomQuote.tsx
+✅	│   │   │   └── SocialPlatformGrid.tsx
+⚪	│   │   │
 ⚪	│   │   ├── contact/                       # Contact components
 ✅	│   │   │   └── ContactForm.tsx
+⚪	│   │   │
 ⚪	│   │   ├── docs/                          # Document components
-✅	│   │   │   └── MarkdownViewer.tsx
+✅	│   │   │   ├── AuthFLowHero.tsx	
+✅	│   │   │   ├── CodeBlock.tsx
+✅	│   │   │   ├── DocsHero.tsx
+✅	│   │   │   ├── FlowDiagram.tsx
+✅	│   │   │   ├── MarkdownViewer.tsx
+✅	│   │   │   ├── ProtectedRoutesTable.tsx
+✅	│   │   │   └── StepCard.tsx
+⚪	│   │   │
 ⚪	│   │   ├── feed/                          # Activity feed components
 ✅	│   │   │   └── ActivityFeed.tsx
+⚪	│   │   │
 ⚪	│   │   ├── guild/                         # Guild components
 ✅	│   │   │   └── AcidTest.tsx
+⚪	│   │   │
 ⚪	│   │   ├── immersive/                     # Immersive components
 ✅	│   │   │   ├── ContinuityBeam.tsx	
-✅	│   │   │   ├── PanoramaViewer.tsx
-✅	│   │   │   └── QuantumBackground.tsx
+✅	│   │   │   ├── PanoramaViewer.tsx	
+✅	│   │   │   ├── QuantumBackground.tsx
+❓	│   │   │   └── StatusBar.tsx
+⚪	│   │   │
 ⚪	│   │   ├── layout/                        # Layout components
 ✅	│   │   │   ├── Footer.tsx
-✅	│   │   │   ├── Header.tsx
 ✅	│   │   │   ├── Grid.tsx
+✅	│   │   │   ├── Header.tsx
 ✅	│   │   │   ├── MobileMenu.tsx
 ✅	│   │   │   ├── Navigation.tsx
 ✅	│   │   │   ├── Page.tsx
-✅	│   │   │   └── Sidebar.tsx
+❓	│   │   │   └── Sidebar.tsx
+⚪	│   │   │
+⚪	│   │   ├── learn/ 
+✅	│   │   │   ├── LearnHero.tsx
+✅	│   │   │   ├── LessonModule.tsx
+✅	│   │   │   ├── PathwayCard.tsx
+✅	│   │   │   ├── PathwayCTA.tsx
+✅	│   │   │   └── PathwayHeader.tsx
+⚪	│   │   │
+⚪	│   │   ├── legal/ 
+✅	│   │   │   ├── ParsedPrivacyContent.tsx
+✅	│   │   │   ├── ParsedTermContent.tsx
+✅	│   │   │   ├── PrivacyHero.tsx
+✅	│   │   │   ├── PrivacyTable.tsx
+✅	│   │   │   ├── TermsFooter.tsx
+✅	│   │   │   ├── TermsHero.tsx
+✅	│   │   │   └── TermSection.tsx
+⚪	│   │   │
+⚪	│   │   ├── nd/                           # Neurodivergent components
+❓	│   │   │   ├── FocusMode.tsx
+❓	│   │   │   ├── TlDr.tsx
+❓	│   │   │   ├── VisualTimer.tsx
+❓	│   │   │   └── PreferenceToggle.tsx
+⚪	│   │   │
+⚪	│   │   ├── onboarding/ 
+✅	│   │   │   ├── ChecklistItem.tsx
+✅	│   │   │   ├── InfoTable.tsx
+✅	│   │   │   ├── NextSteps.tsx
+✅	│   │   │   ├── OnboardingHero.tsx
+✅	│   │   │   └── StepCard.tsx
+⚪	│   │   │
+⚪	│   │   ├── products/                     # Product components
+❓	│   │   │   ├── BigotTaxCalculator.tsx
+❓	│   │   │   ├── PriceDisplay.tsx
+✅	│   │   │   ├── ProductCard.tsx
+✅	│   │   │   ├── ProductDetail.tsx
+✅	│   │   │   ├── ProductForm.tsx
+✅	│   │   │   ├── ProductGrid.tsx
+❓	│   │   │   └── VendorProductForm.tsx
+⚪	│   │   │
 ⚪	│   │   ├── profiles/                     # Profile components
 ✅	│   │   │   ├── CommunityProfile.tsx
+✅	│   │   │   ├── CreatorCard.tsx
 ✅	│   │   │   ├── CreatorProfile.tsx
 ✅	│   │   │   ├── MarkdownBio.tsx
 ✅	│   │   │   ├── ProfileCard.tsx
@@ -249,8 +451,39 @@ AUDHDITIES/
 ✅	│   │   │   ├── ProfileHeader.tsx
 ✅	│   │   │   ├── ProfileOverview.tsx
 ✅	│   │   │   ├── ProfileTabs.tsx
+✅	│   │   │   ├── VendorCard.tsx
 ✅	│   │   │   └── VendorProfile.tsx
+⚪	│   │   │
+⚪	│   │   ├── residual/ 
+✅	│   │   │   ├── ContributionBreakdown.tsx
+✅	│   │   │   ├── ExampleSale.tsx
+✅	│   │   │   ├── FlowDiagram.tsx
+✅	│   │   │   ├── ResidualFAQ.tsx
+✅	│   │   │   ├── ResidualHero.tsx
+✅	│   │   │   └── SourceAttribution.tsx
+⚪	│   │   │
+⚪	│   │   ├── schema/ 
+✅	│   │   │   ├── SchemaEnumCard.tsx
+✅	│   │   │   ├── SchemaHero.tsx
+✅	│   │   │   └── SchemaTableCard.tsx
+⚪	│   │   │
+⚪	│   │   ├── shared/
+❓	│   │   │   ├── ThemeProvider.tsx
+❓	│   │   │   ├── AuthProvider.tsx
+❓	│   │   │   └── QueryProvider.tsx 
+⚪	│   │   │
 ⚪	│   │   ├── ui/      					   # Basic UI components
+⚪	│   │   │   ├── icons/
+✅	│   │   │   │   ├── council/
+✅	│   │   │   │   ├── domain/
+✅	│   │   │   │   ├── miscellaneous/
+✅	│   │   │   │   ├── pantheon/
+✅	│   │   │   │   ├── payment/
+✅	│   │   │   │   ├── platforms/
+✅	│   │   │   │   ├── social/
+✅	│   │   │   │   ├── Icon.tsx
+✅	│   │   │   │   └── index.ts
+⚪	│   │   │   │
 ✅	│   │   │   ├── Avatar.tsx		
 ✅	│   │   │   ├── AvatarUpload.tsx
 ✅	│   │   │   ├── Badge.tsx
@@ -267,155 +500,381 @@ AUDHDITIES/
 ✅	│   │   │   ├── Tabs.tsx	
 ✅	│   │   │   ├── TextArea.tsx
 ✅	│   │   │   ├── Toast.tsx
-✅	│   │   │   └── Toggle.tsx
+✅	│   │   │   ├── Toggle.tsx
+✅	│   │   │   └── Tooltip.tsx
 ⚪	│   │   │
-⚪	│   │   ├── products/                     # Product components
-✅	│   │   │   ├── ProductCard.tsx
-✅	│   │   │   ├── ProductGrid.tsx
-✅	│   │   │   ├── ProductForm.tsx
-❓	│   │   │   ├── PriceDisplay.tsx
-❓	│   │   │   └── BigotTaxCalculator.tsx
+⚪	│   │   ├── ux/
+✅	│   │   │   ├── CodePlayground.tsx
+✅	│   │   │   ├── FocusDemo.tsx	
+✅	│   │   │   ├── InteractiveChecklist.tsx
+✅	│   │   │   ├── PricipleCard.tsx
+✅	│   │   │   ├── SensoryDemo.tsx
+✅	│   │   │   └── UXHero.tsx
 ⚪	│   │   │
-⚪	│   │   ├── checkout/                     # Checkout components
-❓	│   │   │   ├── CheckoutButton.tsx
-❓	│   │   │   └── PriceBreakdown.tsx
-⚪	│   │   │
-⚪	│   │   ├── admin/                        # Admin components
-❓	│   │   │   ├── UserTable.tsx
-❓	│   │   │   ├── ApplicationReview.tsx
-❓	│   │   │   └── TransparencyLog.tsx
-⚪	│   │   │
-⚪	│   │   │
-⚪	│   │   │
-⚪	│   │   ├── nd/                           # Neurodivergent components
-❓	│   │   │   ├── FocusMode.tsx
-❓	│   │   │   ├── TlDr.tsx
-❓	│   │   │   ├── VisualTimer.tsx
-❓	│   │   │   └── PreferenceToggle.tsx
-⚪	│   │   │
-⚪	│   │   └── shared/                       # Shared utilities
-❓	│   │       ├── ThemeProvider.tsx
-❓	│   │       ├── AuthProvider.tsx
-❓	│   │       └── QueryProvider.tsx
+⚪	│   │   └── vision/                       # Vision components
+✅	│   │       ├── BigotTaxCard.tsx
+✅	│   │       ├── PillarCard.tsx
+✅	│   │       ├── VisionCTA.tsx
+✅	│   │       ├── VisionHero.tsx
+✅	│   │       └── WorldWithoutExploitation.tsx
 ⚪	│   │
 ⚪	│   ├── contexts/
 ✅	│   │   └── ContinuityBeamContext.tsx
 ⚪	│   │  
 ⚪	│   ├── data/
-⚪	│   │   └── interfaces/
-✅	│   │       └── header-data.ts
-⚪	│   │
+⚪	│   │   ├── community/
+✅	│   │   │    ├── audience-pathways-data.ts
+✅	│   │   │    ├── call-to-actions.ts
+✅	│   │   │    ├── capacity-boundaries.ts
+✅	│   │   │    ├── gaming-profiles.ts
+✅	│   │   │    ├── invitation-templates.ts
+✅	│   │   │    └── social-platforms.ts
+⚪	│   │   │
+⚪	│   │   ├── core/
+✅	│   │   │    ├── architecture-data.ts
+✅	│   │   │    ├── breakthrough-data.ts
+✅	│   │   │    ├── evolution-data.ts
+✅	│   │   │    └── principles-data.ts
+⚪	│   │   │
+⚪	│   │   ├── creative/
+✅	│   │   │    ├── music-library.ts
+✅	│   │   │    └── prophetic-themes.ts
+⚪	│   │   │
+⚪	│   │   ├── entities/
+✅	│   │   │    ├── council-entities.ts
+✅	│   │   │    └── quotes-data.ts
+⚪	│   │   │
+⚪	│   │   ├── interfaces/
+✅	│   │   │    ├── header-data.ts
+✅	│   │   │    └── navigation-data.ts
+⚪	│   │   │
+⚪	│   │   ├── knowledge/
+⚪	│   │   │   ├── grimoires/
+✅	│   │   │   │   ├── sample-grimoire.ai.json
+✅	│   │   │   │   └── sample-scroll.ai.json
+⚪	│   │   │   │
+⚪	│   │   │   ├── scrolls/
+✅	│   │   │   │   └── audhdities-scroll.ai.json
+⚪	│   │   │   │   
+⚪	│   │   │   └── tarot/
+✅	│   │   │       ├── tarot-air.ai.json
+✅	│   │   │       ├── tarot-earth.ai.json
+✅	│   │   │       ├── tarot-fire.ai.json
+✅	│   │   │       ├── tarot.ai.json
+✅	│   │   │       └── tarot-water.ai.json
+⚪	│   │   │   
+✅	│   │   └── index.ts
+⚪	│   │   
 ⚪	│   ├── hooks/                            # Custom React hooks
-✅	│   │   ├── useApplicationSubmit.ts
-✅	│   │   ├── useAuth.ts
-✅	│   │   ├── useBadgeManager.ts
-✅	│   │   ├── usePermissions.ts
-✅	│   │   ├── useProfile.ts
-✅	│   │   ├── useRequireAuth.ts
-✅	│   │   ├── useRequireRole.ts
-✅	│   │   ├── useUser.ts
-✅	│   │   ├── useCreator.ts
-✅	│   │   ├── useCreators.ts
-✅	│   │   ├── useVendor.ts
-✅	│   │   ├── useVendors.ts
-✅	│   │   ├── useProducts.ts
-✅	│   │   ├── useCheckout.ts
-❓	│   │   ├── useResiduals.ts
-❓	│   │   ├── useAdmin.ts
-❓	│   │   └── useNDPreferences.ts
+⚪	│   │   ├── admin/
+✅	│   │   │   ├── useAdmin.ts
+✅	│   │   │   ├── useApplications.ts
+✅	│   │   │   ├── useModeration.ts
+✅	│   │   │   └── useReports.ts
+⚪	│   │   │
+⚪	│   │   ├── commerce/
+✅	│   │   │   ├── useCheckout.ts
+✅	│   │   │   ├── useContributions.ts
+✅	│   │   │   ├── usePayouts.ts
+✅	│   │   │   ├── useResiduals.ts
+✅	│   │   │   └── useSales.ts
+⚪	│   │   │
+⚪	│   │   ├── core/
+✅	│   │   │   ├── useAuth.ts
+✅	│   │   │   ├── useNDPreferences.ts
+✅	│   │   │   ├── usePermissions.ts
+✅	│   │   │   ├── useProfile.ts
+✅	│   │   │   └── useUser.ts
+⚪	│   │   │
+⚪	│   │   ├── entities/
+✅	│   │   │   ├── useCommunity.ts
+✅	│   │   │   ├── useContibutions.ts
+✅	│   │   │   ├── useCreator.ts
+✅	│   │   │   ├── useCreators.ts
+✅	│   │   │   ├── useProduct.ts
+✅	│   │   │   ├── useProducts.ts
+✅	│   │   │   ├── useVendor.ts
+✅	│   │   │   └── useVendors.ts
+⚪	│   │   │
+⚪	│   │   ├── gamification/
+✅	│   │   │   ├── useActivityFeed.ts
+✅	│   │   │   ├── useBadgeManager.ts
+✅	│   │   │   ├── useChannels.ts
+✅	│   │   │   ├── useComments.ts
+✅	│   │   │   ├── usePosts.ts
+✅	│   │   │   └── useQuests.ts
+⚪	│   │   │
+⚪	│   │   ├── utils/
+✅	│   │   │   ├── useApplicationSubmit.ts
+✅	│   │   │   ├── useRequireAuth.ts
+✅	│   │   │   └── useRequireRole.ts
+⚪	│   │   │
+✅	│   │   └── index.ts
 ⚪	│   │
 ⚪	│   ├── lib/                              # Core libraries
-✅	│   │   ├── utils.ts
+⚪	│   │   ├── auth/
+✅	│   │   │   └── admin.ts
+⚪	│   │   │
+⚪	│   │   ├── constants/
+⚪	│   │	│	├── components/
+⚪	│   │	│	│	├── immersive/
+✅	│   │	│	│	│	├── continuity-beam.ts
+✅	│   │	│	│	│	├── panorama.ts
+✅	│   │	│	│	│	├── quantum-background.ts
+❓	│   │	│	│	│	└── status-bar.ts
+⚪	│   │	│	│   │
+⚪	│   │	│	│	└── ui/
+✅	│   │	│	│		├── continuity-beam.ts
+✅	│   │	│	│	 	└── variants.ts
+⚪	│   │	│	│   
+⚪	│   │	│	├── cosmic/
+✅	│   │	│	│	├── colors.ts
+✅	│   │	│	│	├── consciousness.ts
+✅	│   │	│	│	├── dimensions.ts
+✅	│   │	│	│	├── effects.ts	
+✅	│   │	│	│	├── index.ts	
+✅	│   │	│	│	├── motion.ts	
+✅	│   │	│	│	└── typography.ts
+⚪	│   │	│	│   
+⚪	│   │   │   ├── domain/
+⚪	│   │   │   │	├── architecture/
+✅	│   │   │   │	│   └── domains.ts
+⚪	│   │	│	│   │
+⚪	│   │   │   │	├── community/
+✅	│   │   │   │	│   ├── engagement.ts
+✅	│   │   │   │	│   ├── index.ts
+✅	│   │   │   │	│   └── pathways.ts
+⚪	│   │	│	│   │
+⚪	│   │   │   │	├── council/
+✅	│   │   │   │	│   ├── entities.ts
+✅	│   │   │   │	│   ├── index.ts
+✅	│   │   │   │	│   └── rituals.ts
+⚪	│   │	│	│   │
+⚪	│   │   │   │	├── music/
+✅	│   │   │   │	│   ├── analysis.ts
+✅	│   │   │   │	│   ├── index.ts
+✅	│   │   │   │	│   └── library.ts
+⚪	│   │	│	│   │
+⚪	│   │   │   │	├── sanctuary/
+✅	│   │   │   │	│   ├── environments.ts
+✅	│   │   │   │	│   ├── hearth.ts
+✅	│   │   │   │	│   ├── index.ts
+✅	│   │   │   │	│   └── sanctuary.ts
+⚪	│   │	│	│   │
+✅	│   │   │   │	└── index.ts
+⚪	│   │	│	│   
+⚪	│   │	│	├── systems/
+⚪	│   │	│	│	├── assets/
+✅	│   │	│	│	│	└── mapper.ts
+⚪	│   │	│	│   │
+⚪	│   │	│	│	├── immersive/
+✅	│   │	│	│   │	├── continuity.ts
+✅	│   │	│	│   │	├── environments.ts
+✅	│   │	│	│   │	├── index.ts
+✅	│   │	│	│   │	└── panorama.ts
+⚪	│   │	│	│   │
+⚪	│   │	│	│	├── interaction/
+✅	│   │	│	│   │	├── effects.ts
+✅	│   │	│	│   │	├── feedback.ts
+✅	│   │	│	│   │	├── index.ts
+✅	│   │	│	│   │	├── states.ts
+✅	│   │	│	│   │	└── variants.ts
+⚪	│   │	│	│   │
+⚪	│   │	│	│	├── layout/
+✅	│   │	│	│   │	├── breakpoints.ts
+✅	│   │	│	│   │	├── containers.ts
+✅	│   │	│	│   │	├── grids.ts
+✅	│   │	│	│   │	├── index.ts
+✅	│   │	│	│   │	├── pages.ts
+⚪	│   │	│	│   │  	└── spacing.ts
+⚪	│   │	│	│   │
+⚪	│   │	│	│	└── navigation/
+✅	│   │	│	│   	├── index.ts
+✅	│   │	│	│   	├── menus.ts
+✅	│   │	│	│   	└── paths.ts
+⚪	│   │	│	│ 
+⚪	│   │	│	├── transitions/
+✅	│   │	│	│  	├── environments.ts
+✅	│   │	│	│  	├── panorama.ts
+✅	│   │	│	│  	└── index.ts
+⚪	│   │   │   │
+❓	│   │   │   ├── categories.ts             # Product categories -we have one of these in our types, should it be here?
+❓	│   │   │   ├── roles.ts                  # User roles -we have one of these in our types, should it be here?
+❓	│   │   │   └── nd-preferences.ts         # ND preference options -we have one of these in our types, should it be here?
+⚪	│   │   │  
+⚪	│   │   ├── markdown/
+✅	│   │   │   ├── parsePrivacy.ts
+✅	│   │   │   └── parseTerms.ts      
+⚪	│   │   │  
+⚪	│   │   ├── schema/
+✅	│   │   │   └── parseDatabaseTypes.ts    
+⚪	│   │   │  
+⚪	│   │   ├── stripe/
+✅	│   │   │   ├── client.ts                 # Stripe browser
+✅	│   │   │   ├── formatting.ts
+✅	│   │   │   ├── server.ts                 # Stripe server
+❓	│   │   │   └── webhooks.ts               # Webhook handlers
+⚪	│   │   │   	
 ⚪	│   │   ├── supabase/
 ✅	│   │   │   ├── client.ts                 # Browser client
 ✅	│   │   │   ├── server.ts                 # Server client
 ✅	│   │   │   ├── middleware.ts             # Auth middleware
 ❓	│   │   │   └── types.ts                  # Database types
-⚪	│   │   │
-⚪	│   │   ├── stripe/
-✅	│   │   │   ├── client.ts                 # Stripe browser
-✅	│   │   │   ├── server.ts                 # Stripe server
-❓	│   │   │   └── webhooks.ts               # Webhook handlers
-⚪	│   │   │
-⚪	│   │   │
-⚪	│   │   └── constants/
-⚪	│   │		├── components/
-⚪	│   │		│	├── immersive/
-✅	│   │		│	│	├── continuity-beam.ts
-✅	│   │		│	│	├── panorama.ts
-✅	│   │		│	│	└── quantum-background.ts
-⚪	│   │		│	└── ui/
-✅	│   │		│	 	└── variants.ts
-⚪	│   │		├── cosmic/
-✅	│   │		│	├── colors.ts
-✅	│   │		│	├── consciousness.ts
-✅	│   │		│	├── dimensions.ts
-✅	│   │		│	├── effects.ts	
-✅	│   │		│	├── index.ts	
-✅	│   │		│	├── motion.ts	
-✅	│   │		│	└── typography.ts
-⚪	│   │       ├── domain/
-⚪	│   │       │	├── architecture/
-✅	│   │       │	│   └── domains.ts
-⚪	│   │       │	├── community/
-✅	│   │       │	│   ├── engagement.ts
-✅	│   │       │	│   ├── pathways.ts
-✅	│   │       │	│   └── index.ts
-⚪	│   │       │	├── council/
-✅	│   │       │	│   ├── entities.ts
-✅	│   │       │	│   ├── rituals.ts
-✅	│   │       │	│   └── index.ts
-⚪	│   │       │	├── music/
-✅	│   │       │	│   ├── analysis.ts
-✅	│   │       │	│   ├── library.ts
-✅	│   │       │	│   └── index.ts
-⚪	│   │       │	├── sanctuary/
-✅	│   │       │	│   ├── environments.ts
-✅	│   │       │	│   ├── hearth.ts
-✅	│   │       │	│   ├── sanctuary.ts
-✅	│   │       │	│   └── index.ts
-✅	│   │       │	└── index.ts 
-⚪	│   │		├── systems/
-⚪	│   │		│	├── assets/
-✅	│   │		│	│	└── mapper.ts
-⚪	│   │		│	├── immersive/
-✅	│   │		│   │	├── continuity.ts
-✅	│   │		│   │	├── environments.ts
-✅	│   │		│   │	├── panorama.ts
-✅	│   │		│   │	└── index.ts
-⚪	│   │		│	└── layout/
-⚪	│   │		│   	└── breakpoints.ts
-✅	│   │       ├── categories.ts             # Product categories
-✅	│   │       ├── roles.ts                  # User roles
-✅	│   │       └── nd-preferences.ts         # ND preference options
+⚪	│   │	│	   
+✅	│   │   └── utils.ts
 ⚪	│   │
 ⚪	│   ├── types/                            # TypeScript types
 ⚪	│   │	├── components/
-⚪	│   │   │	└── immersive/
-✅	│   │	│		├── panorama.ts
-✅	│   │	│		├── quantum-background.ts
-✅	│   │   │		└── continuity-beam.ts
+⚪	│   │   │	├── immersive/
+✅	│   │	│	│	├── continuity-beam.ts
+✅	│   │	│	│	├── panorama.ts
+✅	│   │   │	│	├── quantum-background.ts
+❓	│   │   │   │	└── status-bar.ts
+⚪	│   │   │   │
+⚪	│   │   │	├── ui/
+✅	│   │	│	│	├── button.ts
+✅	│   │	│	│	├── card.ts
+✅	│   │	│	│	├── carousel.ts
+✅	│   │	│	│	├── collaborative-space.ts
+✅	│   │	│	│	├── controls.ts
+✅	│   │	│	│	├── core.ts
+✅	│   │	│	│	├── display.ts
+✅	│   │	│	│	├── emergency-beacon.ts
+✅	│   │	│	│	├── emoji.ts
+✅	│   │	│	│	├── error-boundary.ts
+✅	│   │	│	│	├── footer.ts
+✅	│   │	│	│	├── header.ts
+✅	│   │	│	│	├── icon.ts
+✅	│   │	│	│	├── index.ts
+✅	│   │	│	│	├── layout.ts
+✅	│   │	│	│	├── loading-indicator.ts
+✅	│   │	│	│	├── page.ts
+✅	│   │	│	│	├── pattern-recognition-orb.ts
+✅	│   │	│	│	├── section.ts
+✅	│   │   │	│	└── sovereign-entity.ts
+⚪	│   │   │   │
+✅	│   │   │	└──  index.ts
 ⚪	│   │   ├── cosmic/
 ✅	│   │   │	├── consciousness.ts
 ✅	│   │   │	├── design.ts
 ✅	│   │   │	├── primitives.ts 
 ✅	│   │   │	├── index.ts 
-✅	│   │   │	└── motion.ts 
+✅	│   │   │	├── motion.ts 
+✅	│   │   │	└── primitives.ts
+⚪	│   │   │ 
+⚪	│   │   ├── domain/
+⚪	│   │   │   ├── community/
+✅	│   │	│	│	├── engagements.ts
+✅	│   │	│	│	├── index.ts
+✅	│   │	│	│	├── pathways.ts
+✅	│   │   │	│	└── platforms.ts
+⚪	│   │   │   │
+⚪	│   │   │   ├── core/
+✅	│   │   │	│	└── evolution.ts
+⚪	│   │   │   │
+⚪	│   │   │   ├── council/
+✅	│   │	│	│	├── entities.ts
+✅	│   │	│	│	├── index.ts
+✅	│   │	│	│	├── relationships.ts
+✅	│   │   │	│	└── rituals.ts
+⚪	│   │   │   │
+⚪	│   │   │   ├── music/
+✅	│   │	│	│	├── library.ts
+✅	│   │	│	│	├── index.ts
+✅	│   │   │	│	└── analysis.ts
+⚪	│   │   │   │
+⚪	│   │   │   ├── sanctuary/
+✅	│   │	│	│	├── environments.ts
+✅	│   │	│	│	├── hearth.ts
+✅	│   │	│	│	├── index.ts
+✅	│   │   │	│	└── sanctuary.ts
+⚪	│   │   │   │
+✅	│   │   │   └── index.ts
+⚪	│   │   │
 ⚪	│   │   ├── gaia/
 ✅	│   │   │	├── identification-key.ts
 ✅	│   │   │	├── index.ts
 ✅	│   │   │	├── linnean.ts
 ✅	│   │   │	├── ontology.ts
 ✅	│   │   │	└── taxonomy.ts
+⚪	│   │   │  
 ⚪	│   │   ├── hooks/
 ✅	│   │   │	└── profile.ts
+⚪	│   │   │   
+⚪	│   │   ├── stripe/
+✅	│   │   │	├── events.ts 
+✅	│   │   │	└── index.ts 
+⚪	│   │   │   
 ⚪	│   │   ├── supabase/
-✅	│   │   │ 	├── database.ts.              # Generated from Supabase
-✅	│   │   │	├── profiles.ts
-✅	│   │   │	├── products.ts
-✅	│   │   │	├── sales.ts
-❓	│   │   │	└── api.ts
-✅	│	│   └── react-syntax-highlighter.d.ts
+⚪	│   │   │   ├── tables/
+✅	│   │   │   │    ├── acid_test_answers.ts
+✅	│   │   │   │    ├── acid_test_questions.ts
+✅	│   │   │   │    ├── acid_test_results.ts
+✅	│   │   │   │    ├── admin_logs.ts
+✅	│   │   │   │    ├── api.ts
+✅	│   │   │   │    ├── applications.ts
+✅	│   │   │   │    ├── channels.ts
+✅	│   │   │   │    ├── comments.ts
+✅	│   │   │   │    ├── community_profiles.ts
+✅	│   │   │   │    ├── contact_submissions.ts
+✅	│   │   │   │    ├── contributions.ts
+✅	│   │   │   │    ├── creator_profiles.ts
+✅	│   │   │   │    ├── emeralds.ts
+✅	│   │   │   │    ├── feed.ts
+✅	│   │   │   │    ├── index.ts
+✅	│   │   │   │    ├── moderation_actions.ts
+✅	│   │   │   │    ├── notifications.ts
+✅	│   │   │   │    ├── posts.ts
+✅	│   │   │   │    ├── products.ts
+✅	│   │   │   │    ├── profiles.ts
+✅	│   │   │   │    ├── quests.ts
+✅	│   │   │   │    ├── reports.ts
+✅	│   │   │   │    ├── residual_payouts.ts
+✅	│   │   │   │    ├── sales.ts
+✅	│   │   │   │    ├── subscriptions.ts
+✅	│   │   │   │    ├── user_badges.ts
+✅	│   │   │   │    ├── user_quests.ts
+✅	│   │   │   │    └── vendor_profiles.ts
+⚪	│   │   │   │
+✅	│   │   │ 	├── database.types.ts              # Generated from Supabase✅	         	
+✅	│   │   │	├── enums.ts
+✅	│   │   │	├── index.ts
+✅	│   │   │	└── tables.ts
+⚪	│   │   │   
+⚪	│   │   ├── systems/
+⚪	│   │   │ 	├── data/
+✅	│	│   │   │   ├── api.ts
+✅	│	│   │   │   ├── architecture.ts
+✅	│	│   │   │   ├── core.ts
+✅	│	│   │   │   ├── creativity.ts
+✅	│	│   │   │   ├── entity.ts
+✅	│	│   │   │   ├── index.ts
+✅	│	│   │   │   ├── knowledge.ts
+✅	│	│   │   │   ├── trannsformation.ts
+✅	│	│   │   │   └── validation.ts
+⚪	│   │   │ 	├── interaction/
+✅	│	│   │   │   ├── events.ts
+✅	│	│   │   │   ├── feedback.ts
+✅	│	│   │   │   ├── forms.ts
+✅	│	│   │   │   ├── index.ts
+✅	│	│   │   │   ├── navigation.ts
+✅	│	│   │   │   ├── states.ts
+✅	│	│   │   │   └── variants.ts
+⚪	│   │   │ 	├── layout/
+✅	│	│   │   │   ├── contexts.ts
+✅	│	│   │   │   ├── hooks.ts
+✅	│	│   │   │   ├── index.ts
+✅	│	│   │   │   ├── store.ts
+✅	│	│   │   │   └── structure.ts
+⚪	│   │   │ 	├── state/
+✅	│	│   │   │   ├── index.ts
+✅	│	│   │   │   └── management.ts
+⚪	│   │   │   │
+✅	│   │   │ 	└── index.ts
+✅	│	│   ├── categories.ts
+✅	│	│   ├── nd-preferences.ts
+✅	│	│   ├── react-syntax-highlighter.d.ts
+✅	│	│   └── roles.ts
 ⚪	│   │
 ⚪	│   ├── styles/                           # Additional styles
 ⚪	│   │   ├── themes/
@@ -428,23 +887,82 @@ AUDHDITIES/
 ⚪	│	│
 ⚪	│	└── utils/
 ⚪	│       ├── components/
-⚪	│       │	├── immersive/	
+⚪	│       │	├── immersive/
+✅	│   	│	│	├── continuity-beam.ts	
+✅	│   	│	│	├── index.ts
 ✅	│   	│	│	├── panorama.ts
 ✅	│       │	│	├── quantum-background.ts
-✅	│       │   │	└── continuity-beam.ts
+❓	│       │   │	└── status-bar.ts
+⚪	│       │	├── ui/
+✅	│   	│	│	├── button.ts
+✅	│   	│	│	├── card.ts
+✅	│   	│	│	├── collaborative-space.ts
+✅	│   	│	│	├── emergency-beacon.ts
+✅	│   	│	│	├── emoji.ts
+✅	│   	│	│	├── error-boundary.ts
+✅	│   	│	│	├── footer.ts
+✅	│   	│	│	├── header.ts
+✅	│   	│	│	├── icon.ts
+✅	│   	│	│	├── index.ts
+✅	│   	│	│	├── loading-indicator.ts
+✅	│   	│	│	├── pattern-recognition.ts
+✅	│   	│	│	├── section.ts
+✅	│   	│	│	└──  sovereign-entity.ts
+✅	│       │	└── index.ts
+⚪	│       │
 ⚪	│       ├── cosmic/
 ✅	│       │	├── consciousness.ts
 ✅	│       │	├── design.ts
 ✅	│       │	├── effects.ts 
 ✅	│       │	├── index.ts 
-✅	│       │	└── motion.ts 
-⚪	│       └── gaia/
-❓   │       	├── pricing.ts                # Price calculations
-❓   │      		├── residuals.ts              # Residual formulas
-❓   │       	├── validation.ts             # Form validation
-❓   │       	└── formatting.ts             # Display formatting
+✅	│       │	└── motion.ts
+⚪	│       │
+⚪	│       ├── domain/
+⚪	│       │	├── community/
+✅	│       │	│    ├── evolution-integration.ts
+✅	│       │	│    ├── index.ts
+✅	│       │	│    ├── navigation.ts
+✅	│       │	│    ├── pathways.ts
+✅	│       │	│    └── platforms.ts 
+⚪	│       │	├── core/
+✅	│       │	│    ├── evoluion-navigation.ts
+✅	│       │	│    ├── evolution.ts
+✅	│       │	│    └── index.ts 
+⚪	│       │	├── music/
+✅	│       │	│    ├── analyzers.ts
+✅	│       │	│    ├── calcutators.ts
+✅	│       │	│    └── index.ts 
+✅	│       │   └── index.ts
+⚪	│       │
+⚪	│       ├── gaia/
+✅	│       │	├── assets.ts
+✅	│       │	├── classifier.ts
+✅	│       │	├── exporter.ts
+✅	│       │	├── formatters.ts             # Legacy file, should we move our pricing formatter from the stripe library folder
+✅	│       │	├── index.ts 
+✅	│       │	├── ontological-templates.ts 
+✅	│       │	├── formatters.ts             # Legacy file, not handling form validation at all
+✅	│       │	├── validation.ts
+❓   │       │	├── pricing.ts                # Price calculations
+❓   │      	│	├── residuals.ts              # Residual formulas
+❓   │       │	├── validation.ts             # Form validation
+❓   │       │	└── formatting.ts             # Display formatting
+⚪	│       │
+⚪	│       ├── systems/
+⚪	│       │	├── interaction/
+✅	│       │	│    ├── events.ts
+✅	│       │	│    └── index.ts
+⚪	│       │	├── layout/
+✅	│       │	│    ├── index.ts
+✅	│       │	│    └── store.ts
+⚪	│       │	├── state/
+✅	│       │	│    └── management.ts
+⚪	│       │   │
+✅	│       │   └── index.ts
+⚪	│       │
+✅	│       └── index.ts
 ⚪	│
-⚪	├── scripts/                              # Utility scripts
+📁   ├── scripts/                              # Utility scripts
 ⚪	│   ├── seed/
 ❓	│   │   ├── create-admin.sql              # Create admin user
 ❓	│   │   ├── sample-products.sql           # Sample products
@@ -452,13 +970,13 @@ AUDHDITIES/
 ⚪	│   └── deploy/
 ❓	│       └── setup-supabase.sh             # Run all SQL scripts
 ⚪	│
-⚪	├── tests/                                # Testing
+📁   ├── tests/                                # Testing
 ⚪	│   ├── unit/
 ⚪	│   ├── integration/
 ⚪	│   └── e2e/
 ⚪	│
 ✅	├── .env.local                            # Local environment variables
-❓	├── .env.example                          # Template for env vars
+✅	├── .env.example                          # Template for env vars
 ✅	├── .gitignore                            # Git ignore file
 ✅	├── CONTRIBUTING.md                       # Contribution guidelines
 ✅	├── eslint.config.mjs					  # ESlint configuration
@@ -474,7 +992,3 @@ AUDHDITIES/
 ✅	├── tailwind.config.mjs                   # Tailwind configuration
 ✅	├── tsconfig.json                         # TypeScript configuration
 ✅	└── vercel.json                           # Vercel configuration
-
-
-
-

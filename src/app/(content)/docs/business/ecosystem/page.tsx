@@ -1,4 +1,4 @@
-// app/(content)/docs/business/financial-ecosystem/page.tsx
+// app/(content)/docs/business/ecosystem/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
 import { FinancialEcosystemHero } from '@/components/business/FinancialEcosystemHero';
