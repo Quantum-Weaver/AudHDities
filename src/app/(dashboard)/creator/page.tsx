@@ -201,8 +201,8 @@ export default async function CreatorDashboardPage() {
                         <div className="flex justify-between items-center">
                           <span className="text-cyan-400 font-bold">${product.price_ally}</span>
                           <div className="flex gap-1">
-                            <Link href={`/creator/products/${product.id}`}><Button variant="ghost" size="sm"><Eye size={14} /></Button></Link>
-                            <Link href={`/creator/products/${product.id}/edit`}><Button variant="ghost" size="sm"><Edit size={14} /></Button></Link>
+                            <Link href={`/products/${product.id}`}><Button variant="ghost" size="sm"><Eye size={14} /></Button></Link>
+                            <Link href={`/creator/products/${product.id}`}><Button variant="ghost" size="sm"><Edit size={14} /></Button></Link>
                           </div>
                         </div>
                       </Card>

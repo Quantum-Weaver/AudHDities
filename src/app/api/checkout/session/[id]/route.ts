@@ -10,7 +10,7 @@ import { isUserAdmin } from '@/lib/auth/admin';
 // =====================================================
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();

@@ -101,56 +101,42 @@ AUDHDITIES/
 ⚪	│   │   │   ├── admin/
 ⚪	│   │   │   │   ├── applications/
 ❓	│   │   │   │   │   └── page.tsx           # Creator/vendor approvals
-⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── products/
 ❓	│   │   │   │   │   └── page.tsx           # Product moderation
-⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── residuals/
 ❓	│   │   │   │   │   └── page.tsx           # Residual management
-⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── transparency/
 ❓	│   │   │   │   │   └── page.tsx           # Public transparency admin
-⚪	│   │   │   │   │
 ⚪	│   │   │   │   ├── users/
 ❓	│   │   │   │   │   └── page.tsx           # User management
-⚪	│   │   │   │   │
 ✅	│   │   │   │   └── page.tsx               # Admin dashboard
 ⚪	│   │   │   ├── community/
 ⚪	│   │   │   │   ├── edit/
 ✅	│   │   │   │   │   └── page.tsx           # Edit community profile
-⚪	│   │   │   │   │ 
 ⚪	│   │   │   │   ├── products/
 ⚪	│   │   │   │   │   ├── [id]/              # Product list
 ✅	│   │   │   │   │   │   └── page.tsx       # Product detail
 ⚪	│   │   │   │   │   └── page.tsx
-⚪	│   │   │   │   │
 ✅	│   │   │   │   └── page.tsx               # Community dashboard
 ⚪	│   │   │   ├── creator/
 ⚪	│   │   │   │   ├── apply/
 ✅	│   │   │   │   │   └── page.tsx           # Creator application
-⚪	│   │   │   │   │ 
 ⚪	│   │   │   │   ├── edit/
 ✅	│   │   │   │   │   └── page.tsx           # Edit creator profile
-⚪	│   │   │   │   │ 
 ⚪	│   │   │   │   ├── products/
 ⚪	│   │   │   │   │   ├── [id]/
 ✅	│   │   │   │   │   │   └── page.tsx       # Edit product
-✅	│   │   │   │   │   │
 ⚪	│   │   │   │   │   ├── new/
 ✅	│   │   │   │   │   │   └── page.tsx       # New product
-⚪	│   │   │   │   │   │
 ✅	│   │   │   │   │   └── page.tsx           # Product list
-⚪	│   │   │   │   │   
 ✅	│   │   │   │   └── page.tsx               # Creator dashboard
 ⚪	│   │   │   ├── dashboard/
 ✅	│   │   │   │   └── page.tsx               # Main dashboard
 ⚪	│   │   │   ├── profile/
 ✅	│   │   │   │   ├── [id]/
 ⚪	│   │   │   │   │   └── page.tsx
-⚪	│   │   │   │   │  
 ⚪	│   │   │   │   ├── edit/
 ✅	│   │   │   │   │   └── page.tsx           # Profile edit
-⚪	│   │   │   │   │  
 ⚪	│   │   │   │   └── page.tsx 
 ⚪	│   │   │   ├── settings/
 ❓	│   │   │   │   ├── page.tsx               # User settings
@@ -159,23 +145,18 @@ AUDHDITIES/
 ⚪	│   │   │   └── vendor/
 ⚪	│   │   │       ├── apply/
 ✅	│   │   │       │   └── page.tsx           # Vendor application
-⚪	│   │   │       │ 
 ⚪	│   │   │       ├── edit/
 ✅	│   │   │       │   └── page.tsx           # Edit vendor profile
-⚪	│   │   │       │ 
 ⚪	│   │   │       ├── products/
 ⚪	│   │   │       │   ├── [id]/
-✅	│   │   │       │   │   └── page.tsx       # Edit product
-✅	│   │   │       │   │
+❓	│   │   │       │   │   └── page.tsx       # Edit product
 ⚪	│   │   │       │   ├── new/
 ✅	│   │   │       │   │   └── page.tsx       # New product
-⚪	│   │   │       │   │
 ✅	│   │   │       │   └── page.tsx           # Product list
-⚪	│   │   │       │   
 ✅	│   │   │       └── page.tsx               # Vendor dashboard
 ⚪	│   │   │
 ⚪	│   │   ├── (marketplace)/                 # Public routes
-❓	│   │   │   ├── checkout/
+⚪	│   │   │   ├── checkout/
 ⚪	│   │   │   │   ├── success/
 ✅	│   │   │   │   │   └── page.tsx           # Checkout success
 ⚪	│   │   │   │   └── cancel/

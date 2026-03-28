@@ -32,11 +32,11 @@ async function isPostOwner(supabase: any, postId: string, userId: string): Promi
 // =====================================================
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Get current user for visibility checks
     const { data: { user } } = await supabase.auth.getUser();
@@ -156,11 +156,11 @@ export async function GET(
 // =====================================================
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -250,11 +250,11 @@ export async function PATCH(
 // =====================================================
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
