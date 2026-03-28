@@ -4,11 +4,11 @@ import { createServerSupabase } from '@/lib/supabase/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Fetch user profile with all extensions
     const { data: user, error } = await supabase
@@ -87,11 +87,11 @@ export async function GET(
 // PATCH /api/users/[id] - Update user (admin only)
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Check authentication
     const { data: { user: currentUser } } = await supabase.auth.getUser();
@@ -174,11 +174,11 @@ export async function PATCH(
 // DELETE /api/users/[id] - Soft delete user (admin only)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { id } = params;
+    const { id } = await params;
     
     // Check authentication
     const { data: { user: currentUser } } = await supabase.auth.getUser();

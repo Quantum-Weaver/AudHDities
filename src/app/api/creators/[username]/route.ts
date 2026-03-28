@@ -12,11 +12,11 @@ export type CreatorDetail = ProfileWithRelations & {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { username: string } }
+  { params }: { params: Promise<{ username: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
-    const { username } = params;
+    const { username } = await params;
     
     // Fetch creator profile with explicit foreign key
     const { data: creator, error } = await supabase

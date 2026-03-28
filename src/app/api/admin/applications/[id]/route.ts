@@ -108,7 +108,7 @@ async function logAdminAction(
 // =====================================================
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
@@ -132,7 +132,7 @@ export async function GET(
       );
     }
     
-    const { id } = params;
+    const { id } = await params;
     
     // Fetch application with user details - use explicit foreign keys
     const { data: application, error } = await supabase
@@ -197,7 +197,7 @@ export async function GET(
 // =====================================================
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
@@ -221,7 +221,7 @@ export async function PATCH(
       );
     }
     
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
     const validationResult = applicationUpdateSchema.safeParse(body);
     
@@ -324,7 +324,7 @@ export async function PATCH(
 // =====================================================
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+{ params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createServerSupabase();
@@ -348,7 +348,7 @@ export async function DELETE(
       );
     }
     
-    const { id } = params;
+    const { id } = await params;
     
     // Fetch application for logging
     const { data: application } = await supabase
