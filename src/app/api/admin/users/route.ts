@@ -2,16 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { isUserAdmin } from '@/lib/auth/admin';
-import { z } from 'zod';
-
-// Validation schema for updating user (admin only)
-const userUpdateSchema = z.object({
-  is_admin: z.boolean().optional(),
-  is_creator: z.boolean().optional(),
-  is_vendor: z.boolean().optional(),
-  status: z.enum(['active', 'suspended', 'deleted']).optional(),
-  user_tier: z.enum(['community', 'ally', 'corporate', 'council']).optional(),
-});
 
 // =====================================================
 // GET /api/admin/users
@@ -100,101 +90,6 @@ export async function GET(request: NextRequest) {
     
   } catch (error) {
     console.error('Admin users API error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
-  }
-}
-
-// =====================================================
-// PATCH /api/admin/users
-// Update user (admin only)
-// =====================================================
-export async function PATCH(request: NextRequest) {
-  try {
-    const supabase = await createServerSupabase();
-    
-    // Check authentication
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
-      );
-    }
-    
-    // Check if user is admin
-    const isAdmin = await isUserAdmin(supabase, user.id);
-    if (!isAdmin) {
-      return NextResponse.json(
-        { error: 'Admin access required' },
-        { status: 403 }
-      );
-    }
-    
-    const body = await request.json();
-    const { user_id, ...updates } = body;
-    
-    if (!user_id) {
-      return NextResponse.json(
-        { error: 'user_id is required' },
-        { status: 400 }
-      );
-    }
-    
-    const validationResult = userUpdateSchema.safeParse(updates);
-    
-    if (!validationResult.success) {
-      return NextResponse.json(
-        { 
-          error: 'Invalid update data',
-          details: validationResult.error.flatten().fieldErrors
-        },
-        { status: 400 }
-      );
-    }
-    
-    // Update user
-    const { data, error } = await supabase
-      .from('profiles')
-      .update({
-        ...validationResult.data,
-        updated_at: new Date().toISOString(),
-      })
-      .eq('id', user_id)
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Error updating user:', error);
-      return NextResponse.json(
-        { error: 'Failed to update user' },
-        { status: 500 }
-      );
-    }
-    
-    // Log admin action
-    await supabase
-      .from('admin_logs')
-      .insert({
-        admin_id: user.id,
-        action: 'update_user',
-        target_id: user_id,
-        target_type: 'user',
-        public_note: `Updated user ${data.display_name || data.username || user_id}`,
-        metadata: validationResult.data,
-      });
-    
-    return NextResponse.json({
-      success: true,
-      user: data,
-      message: 'User updated successfully',
-    });
-    
-  } catch (error) {
-    console.error('Admin user update error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

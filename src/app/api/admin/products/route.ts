@@ -1,15 +1,7 @@
-// src/app/api/admin/products/route.ts
+// app/api/admin/products/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { isUserAdmin } from '@/lib/auth/admin';
-import { z } from 'zod';
-
-// Validation schema for product moderation
-const productModerationSchema = z.object({
-  is_published: z.boolean().optional(),
-  active: z.boolean().optional(),
-  flag_reason: z.string().optional(),
-});
 
 // =====================================================
 // GET /api/admin/products
@@ -68,10 +60,12 @@ export async function GET(request: NextRequest) {
       query = query.eq('is_published', true).eq('active', true);
     } else if (status === 'draft') {
       query = query.eq('is_published', false);
+    } else if (status === 'flagged') {
+      query = query.not('flag_reason', 'is', null);
     }
     
     if (search) {
-      query = query.or(`title.ilike.%${search}%,description.ilike.%${search}%,creator.display_name.ilike.%${search}%`);
+      query = query.or(`title.ilike.%${search}%,description.ilike.%${search}%`);
     }
     
     query = query.range(offset, offset + limit - 1);

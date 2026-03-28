@@ -185,12 +185,16 @@ AUDHDITIES/
 ✅	│   │   │   │   │   │   └── route.ts
 ✅	│   │   │   │   │   └── route.ts
 ⚪	│   │   │   │   ├── products/
+⚪	│   │   │   │   │   ├── [id]/
+✅	│   │   │   │   │   │   └── route.ts
 ✅	│   │   │   │   │   └── route.ts
 ⚪	│   │   │   │   ├── stats/
 ✅	│   │   │   │   │   └── route.ts
 ⚪	│   │   │   │   ├── transparency/
 ✅	│   │   │   │   │   └── route.ts
 ⚪	│   │   │   │   └── users/
+⚪	│   │   │   │       ├── [id]/
+✅	│   │   │   │       │   └── route.ts
 ✅	│   │   │   │       └── route.ts
 ⚪	│   │   │   ├── auth/                      # Auth helpers
 ⚪	│   │   │   │   ├── change-password/
