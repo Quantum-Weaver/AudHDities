@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { productTypeLabels, productOwnerTypeLabels } from '@/types/supabase/tables/products';
 import type { ProductWithCreator } from '@/types/supabase/tables/products';
+import { PRODUCT_CATEGORY_MAP } from '@/types/categories';
 import { z } from 'zod';
 import { Database } from '@/types/supabase/database.types';
 
@@ -14,8 +15,8 @@ const productCreateSchema = z.object({
   owner_type: z.enum(Object.keys(productOwnerTypeLabels) as [string, ...string[]]),
   product_type: z.enum(Object.keys(productTypeLabels) as [string, ...string[]]),
   price_ally: z.number().min(0, "Price must be 0 or greater"),
-  price_community: z.number().min(0).optional().nullable().default(null),
-  price_corporate: z.number().min(0).optional().nullable().default(null),
+  price_community: z.number().min(0, "Price must be 0 or greater"),
+  price_corporate: z.number().min(0, "Price must be 0 or greater"),
   is_recurring: z.boolean().optional().default(false),
   recurring_interval: z.enum(['month', 'year']).optional().nullable(),
   residual_pool_percent: z.number().min(0).max(100).optional().default(30),

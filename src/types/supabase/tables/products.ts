@@ -1,5 +1,6 @@
 // src/types/supabase/tables/products.ts
 import type { Database } from '../database.types';
+import { PRODUCT_CATEGORY_MAP} from '@/types/categories';
 
 export type Product = Database['public']['Tables']['products']['Row'];
 export type ProductInsert = Database['public']['Tables']['products']['Insert'];
