@@ -75,7 +75,7 @@ export default function UserCard({ user }: UserCardProps) {
             </div>
             <div className="flex items-end justify-end">
               <Link
-                href={`/profile/${user.username || user.id}`}
+                href={`/profile?id=${user.username || user.id}`}
                 className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 text-sm"
                 onClick={(e) => e.stopPropagation()}
               >

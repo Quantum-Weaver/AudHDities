@@ -39,6 +39,7 @@ export default function VendorProfile({
       const { count, error: countError } = await supabase
         .from('products')
         .select('*', { count: 'exact', head: true })
+        .eq('owner_type', 'vendor')
         .eq('creator_id', userId); // Note: products use creator_id, not vendor_id
 
       if (!countError && count !== null) {

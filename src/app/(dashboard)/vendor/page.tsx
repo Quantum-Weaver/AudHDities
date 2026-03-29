@@ -79,6 +79,7 @@ export default async function VendorDashboardPage() {
   const totalSales = vendor?.total_sales || 0;
   const totalEarnings = vendor?.total_earnings || 0;
   const publishedProducts = products?.filter(p => p.is_published).length || 0;
+  const draftProducts = products?.filter(p => !p.is_published).length || 0;
 
   const formatDate = (dateString: string | null) => {
     if (!dateString) return 'Unknown';
