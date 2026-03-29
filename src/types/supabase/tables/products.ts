@@ -11,13 +11,17 @@ export interface ProductWithCreator extends Product {
     username: string | null;
     display_name: string | null;
     avatar_url: string | null;
-    owner_type: string | null;
   };
 }
 
 // Product type enum as union
 export type ProductType = Database['public']['Enums']['product_type'];
+export type ProductOwner = Database['public']['Enums']['owner_type'];
 
+export const productOwnerTypeLabels: Record<ProductOwner, string> = {
+  creator: 'Creator',
+  vendor: 'Vendor',
+};
 // Helper for product type labels
 export const productTypeLabels: Record<ProductType, string> = {
   digital_course: 'Digital Course',
@@ -62,6 +66,12 @@ export function getProductTypeLabel(productType: ProductType | string | null): s
   return productTypeLabels[productType as ProductType] || productType.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 
+// Helper function to get product type label
+export function getProductOwnerTypeLabel(productOwner: ProductOwner | string | null): string {
+  if (!productOwner) return 'Unknown';
+  return productOwnerTypeLabels[productOwner as ProductOwner] || productOwner.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
 export interface ProductWithRelations extends Product {
   creator?: Database['public']['Tables']['profiles']['Row'];
   contributions?: Database['public']['Tables']['contributions']['Row'][];
@@ -70,8 +80,12 @@ export interface ProductWithRelations extends Product {
 
 export const productDefaults = {
   active: true,
+  owner_type: 'creator',
   is_published: false,
   is_recurring: false,
+  price_community: 5,
+  price_ally: 45,
+  price_corporate: 145,
   residual_pool_percent: 30,
   sanctuary_infrastructure_percent: 10,
   bigot_tax_cents: 0,

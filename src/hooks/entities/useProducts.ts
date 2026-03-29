@@ -72,11 +72,6 @@ export function useProducts(options: UseProductsOptions = {}): UseProductsReturn
         query = query.eq('is_published', isPublished);
       }
       
-      // Note: 'featured' field doesn't exist in schema yet, but keeping for future
-      if (featured) {
-        // query = query.eq('featured', true);
-      }
-      
       const { data, error: fetchError } = await query;
       
       if (fetchError) throw fetchError;

@@ -1,7 +1,7 @@
 // src/app/api/products/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import { productTypeLabels } from '@/types/supabase/tables/products';
+import { productTypeLabels, productOwnerTypeLabels } from '@/types/supabase/tables/products';
 import type { ProductWithCreator } from '@/types/supabase/tables/products';
 import { z } from 'zod';
 import { Database } from '@/types/supabase/database.types';
@@ -11,6 +11,7 @@ const productCreateSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters").max(200),
   slug: z.string().min(3).max(100).regex(/^[a-z0-9-]+$/, "Slug must contain only lowercase letters, numbers, and hyphens"),
   description: z.string().optional(),
+  owner_type: z.enum(Object.keys(productOwnerTypeLabels) as [string, ...string[]]),
   product_type: z.enum(Object.keys(productTypeLabels) as [string, ...string[]]),
   price_ally: z.number().min(0, "Price must be 0 or greater"),
   price_community: z.number().min(0).optional().nullable().default(null),

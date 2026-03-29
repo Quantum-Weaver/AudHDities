@@ -108,6 +108,7 @@ export type NotificationType = Database['public']['Enums']['notification_type'];
 
 export const ENUM_VALUES = {
   userTier: ['community', 'ally', 'corporate', 'council'] as const,
+  ownerType: ['creator', 'vendor'] as const,
   councilHouse: [
     'hearth_keeper', 'chancellor', 'seer', 'aethelred',
     'curator', 'archivist', 'skald', 'codex', 'executioner'
