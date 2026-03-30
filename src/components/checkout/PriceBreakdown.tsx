@@ -17,7 +17,7 @@ interface PriceBreakdownProps {
 
 export function PriceBreakdown({
   subtotal,
-  platformFeePercent = 30,
+  platformFeePercent = 10,  // Updated from 30% to 10%
   showResidualPool = true,
   residualPoolPercent = 50,
   showBigotTax = false,
@@ -50,7 +50,7 @@ export function PriceBreakdown({
                   <Info size={14} className="text-white/30" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p className="text-sm">Covers operations and the residual pool</p>
+                  <p className="text-sm">10% platform fee — the lowest in the industry. Covers operations and the residual pool.</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
@@ -75,7 +75,7 @@ export function PriceBreakdown({
                     <Info size={12} className="text-white/30" />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="text-sm">Shared with contributors forever</p>
+                    <p className="text-sm">Shared with contributors forever — the "background actor dividend"</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -101,7 +101,7 @@ export function PriceBreakdown({
                     <Info size={14} className="text-white/30" />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="text-sm">Additional fee for corporate/non-aligned purchases</p>
+                    <p className="text-sm">Additional fee for corporate/non-aligned purchases. Funds community access.</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -120,7 +120,7 @@ export function PriceBreakdown({
       {/* Note about residuals */}
       {showResidualPool && residualPoolPercent > 0 && (
         <p className="text-xs text-white/30 text-center mt-4">
-          * {residualPoolPercent}% of platform fees go to contributors who helped create this product
+          * {residualPoolPercent}% of platform fees go to contributors who helped create this product — forever
         </p>
       )}
     </Card>

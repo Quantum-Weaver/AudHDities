@@ -2,16 +2,15 @@
 import { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import fs from 'fs/promises';
-import path from 'path';
 import AuthGuard from '@/components/auth/AuthGuard';
 import VendorApplicationForm from '@/components/apply/VendorApplicationForm';
 import { Card } from '@/components/ui/Card';
-import { MarkdownBio } from '@/components/profiles/MarkdownBio';
-import { CollapsibleSplitView } from '@/components/ui/CollapsibleSplitView';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { BookOpen, Sparkles, ArrowRight, Store } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, Store, Heart, TrendingUp } from 'lucide-react';
+import { CollapsibleSplitView } from '@/components/ui/CollapsibleSplitView';
+import path from 'path';
+import fs from 'fs/promises';
 
 export const metadata: Metadata = {
   title: 'Apply to Become a Vendor | AUDHDITIES',
@@ -56,7 +55,7 @@ export default async function VendorApplyPage() {
               {existingApplication.status === 'verified' && (
                 <>
                   <p className="text-white/70 mb-4">
-                    You are already a verified vendor! Visit your vendor dashboard to manage your services.
+                    You are already a verified vendor! Visit your vendor dashboard to manage your products.
                   </p>
                   <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-6">
                     <p className="text-green-400">Status: Verified Vendor</p>
@@ -105,7 +104,7 @@ export default async function VendorApplyPage() {
     onboardingContent = await fs.readFile(filePath, 'utf-8');
   } catch (error) {
     console.error('Error reading onboarding doc:', error);
-    onboardingContent = '# Vendor Onboarding\n\nWelcome to the vendor application process. Please fill out the form below to begin your journey as a vendor.';
+    onboardingContent = '# Vendor Onboarding\n\nWelcome to the vendor application process. Please fill out the form below to begin your journey.';
   }
 
   return (
@@ -118,7 +117,7 @@ export default async function VendorApplyPage() {
               Become a Vendor
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Help creators share their gifts with the world through logistics, services, and infrastructure
+              Help creators share their gifts with the world. Keep <span className="text-purple-400 font-bold">90% of your earnings</span>.
             </p>
           </div>
 
@@ -127,33 +126,63 @@ export default async function VendorApplyPage() {
             leftLabel="Vendor Guide"
             rightLabel="Application Form"
             leftPanel={
-              <Card className="p-6 h-full bg-gradient-to-br from-cyan-500/5 to-blue-500/5 border-cyan-500/20">
+              <Card className="p-6 h-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 border-purple-500/20">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-                    <BookOpen size={20} className="text-cyan-400" />
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <Store size={20} className="text-purple-400" />
                   </div>
                   <h2 className="text-xl font-bold text-white">Your Journey as a Vendor</h2>
                 </div>
                 
                 <div className="space-y-4 text-white/70">
-                  <p className="text-sm">Becoming a vendor means joining a community of businesses and service providers who help creators bring their work to the world.</p>
+                  <p className="text-sm">As a vendor, you provide the services and infrastructure that help creators share their work with the world.</p>
                   
+                  {/* Economic Model */}
                   <div className="bg-white/5 rounded-lg p-4">
-                    <h3 className="text-cyan-400 font-medium mb-2">What you'll need:</h3>
-                    <ul className="space-y-1 text-sm">
-                      <li>✓ Business name and details</li>
-                      <li>✓ Description of your services</li>
-                      <li>✓ Categories you serve</li>
+                    <h3 className="text-cyan-400 font-medium mb-2 flex items-center gap-2">
+                      <TrendingUp size={14} />
+                      The Economics
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex justify-between">
+                        <span>Platform fee</span>
+                        <span className="text-cyan-400">10%</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Your share</span>
+                        <span className="text-purple-400">90%</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Residual pool (optional)</span>
+                        <span className="text-pink-400">0-50% of fee to contributors</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Covenant pledge (voluntary)</span>
+                        <span className="text-green-400">0-50% of earnings to community</span>
+                      </li>
                     </ul>
                   </div>
                   
                   <div className="bg-white/5 rounded-lg p-4">
-                    <h3 className="text-purple-400 font-medium mb-2">What you'll receive:</h3>
+                    <h3 className="text-purple-400 font-medium mb-2">What you'll need:</h3>
                     <ul className="space-y-1 text-sm">
-                      <li>✨ Connect with creators who need your services</li>
-                      <li>✨ Fair fees and transparent pricing</li>
+                      <li>✓ Business information</li>
+                      <li>✓ Service categories</li>
+                      <li>✓ Experience and qualifications</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <h3 className="text-green-400 font-medium mb-2 flex items-center gap-2">
+                      <Heart size={14} />
+                      What you'll receive:
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>✨ <span className="text-purple-400 font-bold">90%</span> of all sales</li>
+                      <li>✨ Forever residuals for your contributors</li>
+                      <li>✨ Direct customer relationship (with consent)</li>
                       <li>✨ Verified vendor badge</li>
-                      <li>✨ Community of ethical businesses</li>
+                      <li>✨ Option to pledge to community dignity fund</li>
                     </ul>
                   </div>
                 </div>
@@ -168,7 +197,7 @@ export default async function VendorApplyPage() {
                   </Button>
                 </Link>
               </Card>
-            }
+            }           
             rightPanel={
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-6">
@@ -188,7 +217,7 @@ export default async function VendorApplyPage() {
             All information is stored securely and will only be used to evaluate your application.
             <br />
             By submitting, you agree to our{' '}
-            <a href="/docs/terms" className="text-purple-400 hover:underline">Terms of Service</a>.
+            <a href="/docs/terms" className="text-cyan-400 hover:underline">Terms of Service</a>.
           </p>
         </div>
       </main>

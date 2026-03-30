@@ -131,6 +131,11 @@ export async function POST(request: NextRequest) {
     const amountInCents = Math.round(finalAmount * 100);
 
     // 8. Create sales record first
+    // Platform fee is now 10% (industry standard is 30-50%)
+    const PLATFORM_FEE_PERCENT = 10;
+    const platformFeeCents = Math.round(amountInCents * (PLATFORM_FEE_PERCENT / 100));
+    const creatorEarningsCents = amountInCents - platformFeeCents;
+
     const { data: sale, error: saleError } = await supabase
       .from('sales')
       .insert({
@@ -141,8 +146,8 @@ export async function POST(request: NextRequest) {
         tier_applied: tier as 'community' | 'ally' | 'corporate',
         nd_price_applied: tier === 'community',
         bigot_tax_applied: bigotTaxApplied,
-        platform_fee_cents: Math.round(amountInCents * 0.3), // 30% platform fee
-        creator_earnings_cents: Math.round(amountInCents * 0.7), // 70% creator earnings
+        platform_fee_cents: platformFeeCents,
+        creator_earnings_cents: creatorEarningsCents,
         payment_status: 'pending',
       })
       .select()

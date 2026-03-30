@@ -9,7 +9,7 @@ import { SustainabilityMetrics } from '@/components/business/SustainabilityMetri
 import { DignityFloor } from '@/components/business/DignityFloor';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { ArrowRight, Shield, Users, DollarSign, Heart } from 'lucide-react';
+import { ArrowRight, Shield, Users, DollarSign, Heart, TrendingUp, HandCoins } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -99,7 +99,7 @@ export default function FinancialEcosystemPage() {
               </div>
             </div>
             
-            <div className="grid md:grid-cols-4 gap-4 mb-8">
+            <div className="grid md:grid-cols-5 gap-3 mb-8">
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">1</div>
                 <div className="text-white text-sm">Purchase</div>
@@ -107,18 +107,23 @@ export default function FinancialEcosystemPage() {
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">2</div>
-                <div className="text-white text-sm">Creator</div>
-                <div className="text-white/40 text-xs">Immediate payment (50-70%)</div>
+                <div className="text-white text-sm">Platform Fee</div>
+                <div className="text-white/40 text-xs">Fixed at 10%</div>
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">3</div>
-                <div className="text-white text-sm">Platform Fee</div>
-                <div className="text-white/40 text-xs">Fixed, covers operations</div>
+                <div className="text-white text-sm">Creator Share</div>
+                <div className="text-white/40 text-xs">90% of sale</div>
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">4</div>
                 <div className="text-white text-sm">Residual Pool</div>
-                <div className="text-white/40 text-xs">0-50% adjustable by creator</div>
+                <div className="text-white/40 text-xs">0-50% of platform fee → Contributors</div>
+              </div>
+              <div className="bg-white/5 rounded-xl p-3 text-center">
+                <div className="text-purple-400 font-bold text-xl mb-1">5</div>
+                <div className="text-white text-sm">Covenant Pool</div>
+                <div className="text-white/40 text-xs">0-50% of earnings → Community</div>
               </div>
             </div>
             
@@ -206,15 +211,60 @@ export default function FinancialEcosystemPage() {
                 {/* Arrow down */}
                 <div className="text-white/30">▼</div>
                 
-                {/* Distribution */}
-                <div className="flex justify-center gap-8 flex-wrap">
+                {/* First Split: Platform Fee (10%) vs Creator (90%) */}
+                <div className="flex justify-center gap-8 flex-wrap w-full">
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-cyan-400 font-bold text-xl">10%</div>
+                    <div className="text-white/60 text-sm">Platform Fee</div>
+                  </div>
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-purple-400 font-bold text-xl">90%</div>
+                    <div className="text-white/60 text-sm">Creator Share</div>
+                  </div>
+                </div>
+                
+                {/* Arrow down */}
+                <div className="text-white/30">▼</div>
+                
+                {/* Platform Fee Split */}
+                <div className="flex justify-center gap-8 flex-wrap w-full">
                   <div className="text-center min-w-[100px]">
                     <div className="text-cyan-400 font-bold">Operations</div>
-                    <div className="text-white/40 text-xs">Servers, Tools, Development</div>
+                    <div className="text-white/40 text-xs">70% of fee</div>
+                  </div>
+                  <div className="text-center min-w-[100px]">
+                    <div className="text-pink-400 font-bold">Residual Pool</div>
+                    <div className="text-white/40 text-xs">30% of fee → Contributors</div>
+                  </div>
+                </div>
+                
+                {/* Arrow down */}
+                <div className="text-white/30">▼</div>
+                
+                {/* Creator Share Split */}
+                <div className="flex justify-center gap-8 flex-wrap w-full">
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-purple-400 font-bold">Immediate Payment</div>
+                    <div className="text-white/40 text-xs">80% of earnings (example)</div>
+                  </div>
+                  <div className="text-center min-w-[120px]">
+                    <div className="text-green-400 font-bold">Covenant Pool</div>
+                    <div className="text-white/40 text-xs">20% of earnings → Community</div>
+                  </div>
+                </div>
+                
+                {/* Arrow down */}
+                <div className="text-white/30">▼</div>
+                
+                {/* Final Distribution */}
+                <div className="flex justify-center gap-8 flex-wrap">
+                  <div className="text-center min-w-[100px]">
+                    <div className="text-cyan-400 font-bold">Servers & Tools</div>
+                    <div className="text-white/40 text-xs">Operational</div>
                   </div>
                   <div className="text-center min-w-[100px]">
                     <div className="text-purple-400 font-bold">Creators</div>
-                    <div className="text-white/40 text-xs">Immediate & Residual</div>
+                    <div className="text-white/40 text-xs">Immediate</div>
                   </div>
                   <div className="text-center min-w-[100px]">
                     <div className="text-pink-400 font-bold">Contributors</div>
@@ -222,7 +272,7 @@ export default function FinancialEcosystemPage() {
                   </div>
                   <div className="text-center min-w-[100px]">
                     <div className="text-green-400 font-bold">Community</div>
-                    <div className="text-white/40 text-xs">Dignity Share</div>
+                    <div className="text-white/40 text-xs">Equal Dignity Share</div>
                   </div>
                   <div className="text-center min-w-[100px]">
                     <div className="text-yellow-400 font-bold">Future Fund</div>
@@ -244,6 +294,39 @@ export default function FinancialEcosystemPage() {
             </div>
           </section>
           
+          {/* Economic Summary */}
+          <section className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 rounded-2xl p-6 md:p-8 border border-green-500/20">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 bg-green-500/10 px-4 py-2 rounded-full mb-4">
+                <TrendingUp size={14} className="text-green-400" />
+                <span className="text-green-400 text-sm">The Numbers</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">One Sale. Many Recipients.</h3>
+            </div>
+            <div className="grid md:grid-cols-4 gap-4 text-center">
+              <div className="p-4 bg-white/5 rounded-xl">
+                <div className="text-2xl font-bold text-cyan-400">10%</div>
+                <div className="text-white/60 text-sm">Platform Fee</div>
+                <div className="text-white/30 text-xs">Fixed</div>
+              </div>
+              <div className="p-4 bg-white/5 rounded-xl">
+                <div className="text-2xl font-bold text-purple-400">90%</div>
+                <div className="text-white/60 text-sm">Creator Share</div>
+                <div className="text-white/30 text-xs">Your work, your value</div>
+              </div>
+              <div className="p-4 bg-white/5 rounded-xl">
+                <div className="text-2xl font-bold text-pink-400">30-50%</div>
+                <div className="text-white/60 text-sm">of fee → Contributors</div>
+                <div className="text-white/30 text-xs">You choose per product</div>
+              </div>
+              <div className="p-4 bg-white/5 rounded-xl">
+                <div className="text-2xl font-bold text-green-400">0-50%</div>
+                <div className="text-white/60 text-sm">of earnings → Community</div>
+                <div className="text-white/30 text-xs">Voluntary covenant pledge</div>
+              </div>
+            </div>
+          </section>
+          
           {/* Call to Action */}
           <section className="text-center">
             <Card className="p-12 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border-white/20">
@@ -251,7 +334,7 @@ export default function FinancialEcosystemPage() {
                 See It in Action
               </h2>
               <p className="text-xl text-white/60 max-w-2xl mx-auto mb-8">
-                The public ledger is always visible. Every transaction, every payout, every residual.
+                The public ledger is always visible. Every transaction, every payout, every residual, every covenant distribution.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="/transparency">
@@ -268,6 +351,10 @@ export default function FinancialEcosystemPage() {
                 </Link>   
               </div>
               <p className="text-sm text-white/40 mt-8">
+                Platform fee: <span className="text-cyan-400">10%</span> (industry standard is 30-50%)<br />
+                Creator share: <span className="text-purple-400">90%</span><br />
+                Residual pool: <span className="text-pink-400">0-50%</span> of fee (you choose per product)<br />
+                Covenant pledge: <span className="text-green-400">0-50%</span> of earnings (you choose in profile)<br />
                 No hidden fees. No dark patterns. Just truth.
                 <br />
                 This is what an economy looks like when it serves life, not extraction.

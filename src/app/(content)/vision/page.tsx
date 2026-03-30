@@ -6,7 +6,7 @@ import { WorldWithoutExploitation } from '@/components/vision/WorldWithoutExploi
 import { PillarCard } from '@/components/vision/PillarCard';
 import { BigotTaxCard } from '@/components/vision/BigotTaxCard';
 import { VisionCTA } from '@/components/vision/VisionCTA';
-import { DollarSign, Heart, Shield, Globe } from 'lucide-react';
+import { DollarSign, Heart, Shield, Globe, TrendingUp, HandCoins } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Vision | AUDHDITIES',
@@ -45,7 +45,7 @@ export default function VisionPage() {
             <PillarCard
               icon={<DollarSign size={24} />}
               title="Emergence Economics"
-              description="Value is not extracted—it emerges. When a product sells, everyone who contributed gets paid. Forever. The platform takes a transparent cut, and all transactions are public."
+              description="Platform fee is fixed at 10% (industry standard is 30-50%). Creators keep 90%. Contributors earn forever from residual pools. A voluntary Covenant Pool lets creators support community dignity. Every transaction is public."
               color="cyan"
               delay={0}
             />

@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { DollarSign, Users, Palette, Heart, TrendingUp, Share2 } from 'lucide-react';
+import { DollarSign, Users, Palette, Heart, TrendingUp, Share2, Shield } from 'lucide-react';
 
 const streams = [
   {
@@ -22,17 +22,19 @@ const streams = [
     color: 'purple',
     description: 'Creator products and services',
     flow: [
-      { label: 'Creator', to: 'Immediate Payment', color: 'purple' },
-      { label: 'Platform Fee', to: 'Operations', color: 'cyan' },
-      { label: 'Residual Pool', to: 'Distributed Forever', color: 'pink' },
+      { label: 'Creator', to: '90% → Immediate + Covenant', color: 'purple' },
+      { label: 'Platform Fee', to: '10% → Operations + Residual', color: 'cyan' },
+      { label: 'Residual Pool', to: '30-50% of fee → Contributors', color: 'pink' },
+      { label: 'Covenant Pool', to: '0-50% of earnings → Community', color: 'green' },
     ],
   },
 ];
 
 const residualRecipients = [
-  { icon: Users, label: 'Contributors', description: 'Paid forever for past work', color: 'cyan' },
-  { icon: Heart, label: 'Community Members', description: 'Dignity share regardless of activity', color: 'pink' },
-  { icon: TrendingUp, label: 'Platform Fund', description: 'Future development & reserves', color: 'purple' },
+  { icon: Users, label: 'Contributors', description: 'Paid forever for past work (from residual pool)', color: 'cyan' },
+  { icon: Heart, label: 'Community Members', description: 'Dignity share from covenant pool (equal distribution)', color: 'pink' },
+  { icon: TrendingUp, label: 'Platform Fund', description: 'Operations & future development (from platform fee)', color: 'purple' },
+  { icon: Shield, label: 'Mutual Aid', description: 'Emergency support for members in crisis', color: 'green' },
 ];
 
 export function ValueFlowDiagram() {
@@ -88,24 +90,23 @@ export function ValueFlowDiagram() {
       >
         <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 rounded-full">
           <Share2 size={16} className="text-pink-400" />
-          <span className="text-white/60 text-sm">Value Merges Into</span>
+          <span className="text-white/60 text-sm">Value Flows Into Circulation</span>
         </div>
       </motion.div>
       
-      {/* Residual Pool */}
+      {/* Distribution Recipients */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30 rounded-2xl p-8 text-center"
       >
-        <h3 className="text-2xl font-bold text-white mb-2">The Residual Pool</h3>
+        <h3 className="text-2xl font-bold text-white mb-2">The Circulation Engine</h3>
         <p className="text-white/60 max-w-2xl mx-auto mb-8">
-          Where value becomes circulation. Every sale contributes to a pool
-          that flows forever to everyone who helped create it.
+          Every sale creates multiple streams of value that flow to everyone who helped build the sanctuary.
         </p>
         
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-4 gap-6">
           {residualRecipients.map((recipient) => (
             <div key={recipient.label} className={`bg-${recipient.color}-500/10 rounded-xl p-4 text-center`}>
               <div className={`w-12 h-12 rounded-full bg-${recipient.color}-500/20 flex items-center justify-center mx-auto mb-3`}>
@@ -115,6 +116,14 @@ export function ValueFlowDiagram() {
               <p className="text-xs text-white/40">{recipient.description}</p>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-8 pt-4 border-t border-white/10">
+          <p className="text-sm text-white/40">
+            ✦ Platform fee is fixed at 10% (industry standard is 30-50%)<br />
+            ✦ Creators set residual percentage (0-50% of fee) per product<br />
+            ✦ Creators set covenant pledge (0-50% of earnings) in profile
+          </p>
         </div>
       </motion.div>
     </div>

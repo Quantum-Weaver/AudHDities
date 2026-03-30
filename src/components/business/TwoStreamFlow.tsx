@@ -7,7 +7,7 @@ import { Shield, DollarSign, Users, Heart, ArrowRight } from 'lucide-react';
 export function TwoStreamFlow() {
   return (
     <div className="grid lg:grid-cols-2 gap-8">
-      {/* Advertising Stream */}
+      {/* Advertising Stream - UNCHANGED */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -54,7 +54,7 @@ export function TwoStreamFlow() {
         </div>
       </motion.div>
       
-      {/* Sales Stream */}
+      {/* Sales Stream - UPDATED with 10% fee + Covenant Pool */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -77,24 +77,54 @@ export function TwoStreamFlow() {
             color="purple"
             description="Tiered pricing based on Acid Test"
           />
-          <div className="grid grid-cols-3 gap-2 my-2">
-            <FlowItemMini label="Creator" percent="50-70%" color="purple" />
-            <FlowItemMini label="Platform Fee" percent="Fixed" color="cyan" />
-            <FlowItemMini label="Residual Pool" percent="0-50%" color="pink" />
+          
+          {/* UPDATED: 90% Creator, 10% Platform */}
+          <div className="grid grid-cols-2 gap-2 my-2">
+            <FlowItemMini label="Creator" percent="90%" color="purple" />
+            <FlowItemMini label="Platform Fee" percent="10%" color="cyan" />
           </div>
-          <FlowItem 
-            from="Residual Pool" 
-            to="Distributed" 
-            amount="Forever" 
-            color="pink"
-            description="Contributors, community, and future"
-          />
+          
+          {/* UPDATED: Platform Fee splits into Operations + Residual Pool */}
+          <div className="ml-4 pl-4 border-l-2 border-white/10">
+            <FlowItem 
+              from="Platform Fee (10%)" 
+              to="Operations" 
+              amount="50-70%" 
+              color="cyan"
+              description="Hosting, tools, development"
+            />
+            <FlowItem 
+              from="Platform Fee (10%)" 
+              to="Residual Pool" 
+              amount="30-50%" 
+              color="pink"
+              description="Shared with product contributors (creator sets per product)"
+            />
+          </div>
+          
+          {/* UPDATED: Creator Earnings splits into Immediate + Covenant Pool */}
+          <div className="ml-4 pl-4 border-l-2 border-white/10">
+            <FlowItem 
+              from="Creator Earnings (90%)" 
+              to="Immediate Payment" 
+              amount="50-100%" 
+              color="purple"
+              description="Creator keeps after covenant pledge"
+            />
+            <FlowItem 
+              from="Creator Earnings (90%)" 
+              to="Covenant Pool" 
+              amount="0-50%" 
+              color="green"
+              description="Voluntary pledge to community dignity fund (creator sets in profile)"
+            />
+          </div>
         </div>
         
         <div className="mt-6 pt-4 border-t border-purple-500/20">
           <p className="text-purple-400 text-sm flex items-center gap-2">
             <Heart size={12} />
-            Creators adjust their residual percentage (0-50%)
+            Creators set residual percentage (0-50% of platform fee) and covenant pledge (0-50% of earnings)
           </p>
         </div>
       </motion.div>
@@ -102,11 +132,12 @@ export function TwoStreamFlow() {
   );
 }
 
+// FlowItem component (unchanged)
 interface FlowItemProps {
   from: string;
   to: string;
   amount: string;
-  color: 'cyan' | 'purple' | 'pink';
+  color: 'cyan' | 'purple' | 'pink' | 'green';
   description?: string;
 }
 
@@ -115,6 +146,7 @@ function FlowItem({ from, to, amount, color, description }: FlowItemProps) {
     cyan: 'border-cyan-500/20 bg-cyan-500/5 text-cyan-400',
     purple: 'border-purple-500/20 bg-purple-500/5 text-purple-400',
     pink: 'border-pink-500/20 bg-pink-500/5 text-pink-400',
+    green: 'border-green-500/20 bg-green-500/5 text-green-400',
   };
   
   return (
@@ -130,10 +162,11 @@ function FlowItem({ from, to, amount, color, description }: FlowItemProps) {
   );
 }
 
+// FlowItemMini component (unchanged)
 interface FlowItemMiniProps {
   label: string;
   percent: string;
-  color: 'cyan' | 'purple' | 'pink';
+  color: 'cyan' | 'purple' | 'pink' | 'green';
 }
 
 function FlowItemMini({ label, percent, color }: FlowItemMiniProps) {
@@ -141,6 +174,7 @@ function FlowItemMini({ label, percent, color }: FlowItemMiniProps) {
     cyan: 'border-cyan-500/20 bg-cyan-500/5 text-cyan-400',
     purple: 'border-purple-500/20 bg-purple-500/5 text-purple-400',
     pink: 'border-pink-500/20 bg-pink-500/5 text-pink-400',
+    green: 'border-green-500/20 bg-green-500/5 text-green-400',
   };
   
   return (

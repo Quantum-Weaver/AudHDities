@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { DollarSign, Users, TrendingUp, Infinity, ArrowRight } from 'lucide-react';
+import { DollarSign, Users, TrendingUp, Infinity, ArrowRight, Heart } from 'lucide-react';
 
 interface FlowStepProps {
   label: string;
@@ -48,19 +48,19 @@ export function FlowDiagram() {
         <ArrowRight className="text-white/20 rotate-90 md:rotate-0" size={32} />
       </div>
 
-      {/* First Split */}
+      {/* First Split: 10% Platform / 90% Creator */}
       <div className="grid md:grid-cols-2 gap-6">
         <FlowStep 
           label="Platform Fee" 
-          amount="$30" 
-          description="30% of sale → Operations & Residual Pool"
+          amount="$10" 
+          description="10% of sale → Fixed platform fee"
           color="cyan"
           delay={0.2}
         />
         <FlowStep 
-          label="Creator Pool" 
-          amount="$70" 
-          description="70% of sale → Creator & Contributors"
+          label="Creator Earnings" 
+          amount="$90" 
+          description="90% of sale → Creator receives"
           color="purple"
           delay={0.3}
         />
@@ -71,19 +71,19 @@ export function FlowDiagram() {
         <ArrowRight className="text-white/20 rotate-90 md:rotate-0" size={32} />
       </div>
 
-      {/* Creator Pool Split */}
+      {/* Platform Fee Split */}
       <div className="grid md:grid-cols-2 gap-6">
         <FlowStep 
-          label="Creator Immediate" 
-          amount="$35" 
-          description="50% of creator pool → Instant payout"
-          color="purple"
+          label="Operations" 
+          amount="$7" 
+          description="70% of platform fee → Hosting, tools, development"
+          color="cyan"
           delay={0.4}
         />
         <FlowStep 
-          label="Contributor Pool" 
-          amount="$35" 
-          description="50% of creator pool → Shared forever"
+          label="Residual Pool" 
+          amount="$3" 
+          description="30% of platform fee → Shared with contributors"
           color="pink"
           delay={0.5}
         />
@@ -94,7 +94,30 @@ export function FlowDiagram() {
         <ArrowRight className="text-white/20 rotate-90 md:rotate-0" size={32} />
       </div>
 
-      {/* Contributor Split */}
+      {/* Creator Earnings Split */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <FlowStep 
+          label="Creator Immediate" 
+          amount="$72" 
+          description="80% of earnings → Instant payout"
+          color="purple"
+          delay={0.4}
+        />
+        <FlowStep 
+          label="Covenant Pool" 
+          amount="$18" 
+          description="20% of earnings → Community dignity fund"
+          color="green"
+          delay={0.5}
+        />
+      </div>
+
+      {/* Split Arrow */}
+      <div className="flex justify-center">
+        <ArrowRight className="text-white/20 rotate-90 md:rotate-0" size={32} />
+      </div>
+
+      {/* Residual Pool Distribution */}
       <div className="space-y-4">
         <div className="text-center text-white/60 text-sm mb-4">
           Distributed by contribution percentage
@@ -102,24 +125,54 @@ export function FlowDiagram() {
         <div className="grid md:grid-cols-3 gap-4">
           <FlowStep 
             label="Contributor A" 
-            amount="$14" 
-            description="40% of contributor pool"
+            amount="$1.20" 
+            description="40% of residual pool"
             color="pink"
             delay={0.6}
           />
           <FlowStep 
             label="Contributor B" 
-            amount="$12.25" 
-            description="35% of contributor pool"
+            amount="$1.05" 
+            description="35% of residual pool"
             color="pink"
             delay={0.7}
           />
           <FlowStep 
             label="Contributor C" 
-            amount="$8.75" 
-            description="25% of contributor pool"
+            amount="$0.75" 
+            description="25% of residual pool"
             color="pink"
             delay={0.8}
+          />
+        </div>
+      </div>
+
+      {/* Covenant Pool Distribution */}
+      <div className="space-y-4 mt-4">
+        <div className="text-center text-white/60 text-sm mb-4">
+          Distributed equally among active community members
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          <FlowStep 
+            label="Community Member" 
+            amount="$0.036" 
+            description="Equal share for 500 members"
+            color="green"
+            delay={0.9}
+          />
+          <FlowStep 
+            label="Community Member" 
+            amount="$0.036" 
+            description="Equal share for 500 members"
+            color="green"
+            delay={1.0}
+          />
+          <FlowStep 
+            label="Community Member" 
+            amount="$0.036" 
+            description="Equal share for 500 members"
+            color="green"
+            delay={1.1}
           />
         </div>
       </div>
@@ -133,7 +186,8 @@ export function FlowDiagram() {
       >
         <div className="inline-flex items-center gap-2 text-white/40 text-sm">
           <Infinity size={14} className="text-pink-400" />
-          <span>This flow repeats for every sale, forever</span>
+          <span>Residuals flow forever • Covenant flows to community</span>
+          <Heart size={12} className="text-green-400" />
         </div>
       </motion.div>
     </div>

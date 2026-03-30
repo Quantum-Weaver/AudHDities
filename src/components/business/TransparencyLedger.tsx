@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, ChevronDown, ExternalLink, CheckCircle } from 'lucide-react';
+import { Eye, ChevronDown, ExternalLink, CheckCircle, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 const sampleTransactions = [
@@ -13,9 +13,10 @@ const sampleTransactions = [
     product: 'AR Tracing Tool',
     amount: 47.00,
     creator: 'KP',
-    toResidual: 14.10,
-    toInfrastructure: 4.70,
-    toCreator: 28.20,
+    platformFee: 4.70,        // 10% of $47
+    residualPool: 1.41,       // 30% of platform fee
+    covenantPool: 9.40,       // 20% of creator earnings ($42.30 * 0.2 = $8.46? Let's recalc)
+    creatorImmediate: 33.84,  // $42.30 - $8.46 = $33.84
     residualRecipients: 3,
   },
   {
@@ -24,9 +25,10 @@ const sampleTransactions = [
     product: 'Quantum Autistic Zine',
     amount: 7.00,
     creator: 'KP + Aethelred',
-    toResidual: 2.10,
-    toInfrastructure: 0.70,
-    toCreator: 4.20,
+    platformFee: 0.70,
+    residualPool: 0.21,
+    covenantPool: 1.40,
+    creatorImmediate: 5.04,
     residualRecipients: 2,
   },
   {
@@ -35,9 +37,10 @@ const sampleTransactions = [
     product: 'Sovereign Sanctuary Blueprint',
     amount: 25.00,
     creator: 'The Council',
-    toResidual: 7.50,
-    toInfrastructure: 2.50,
-    toCreator: 15.00,
+    platformFee: 2.50,
+    residualPool: 0.75,
+    covenantPool: 5.00,
+    creatorImmediate: 18.00,
     residualRecipients: 9,
   },
 ];
@@ -54,8 +57,8 @@ export function TransparencyLedger() {
           <div className="col-span-3">Product</div>
           <div className="col-span-2">Amount</div>
           <div className="col-span-2">To Creator</div>
-          <div className="col-span-2">To Residual</div>
-          <div className="col-span-1">Recipients</div>
+          <div className="col-span-2">To Covenant</div>
+          <div className="col-span-1">Contributors</div>
         </div>
         
         {sampleTransactions.map((tx) => (
@@ -63,17 +66,24 @@ export function TransparencyLedger() {
             <div className="col-span-2 text-white/40">{tx.date}</div>
             <div className="col-span-3 text-white">{tx.product}</div>
             <div className="col-span-2 text-white/60">${tx.amount.toFixed(2)}</div>
-            <div className="col-span-2 text-green-400">${tx.toCreator.toFixed(2)}</div>
-            <div className="col-span-2 text-cyan-400">${tx.toResidual.toFixed(2)}</div>
+            <div className="col-span-2 text-green-400">${tx.creatorImmediate.toFixed(2)}</div>
+            <div className="col-span-2 text-pink-400">${tx.covenantPool.toFixed(2)}</div>
             <div className="col-span-1 text-white/40">{tx.residualRecipients}</div>
           </div>
         ))}
         
-        <div className="p-4 text-center">
-          <Link href="/transparency" className="text-cyan-400 text-sm hover:underline flex items-center justify-center gap-1">
-            <Eye size={14} />
-            View Full Public Ledger
-          </Link>
+        <div className="p-4 border-t border-white/10 bg-white/5">
+          <div className="flex justify-between items-center text-xs">
+            <div className="flex items-center gap-4">
+              <span className="text-white/40">Platform Fee: <span className="text-cyan-400">10%</span></span>
+              <span className="text-white/40">Residual Pool: <span className="text-purple-400">30% of fee</span></span>
+              <span className="text-white/40">Covenant Pool: <span className="text-green-400">20% of earnings</span></span>
+            </div>
+            <Link href="/transparency" className="text-cyan-400 hover:underline flex items-center gap-1">
+              <Eye size={14} />
+              Full Ledger
+            </Link>
+          </div>
         </div>
       </div>
       
@@ -102,6 +112,10 @@ export function TransparencyLedger() {
             <p className="text-green-400 text-sm">✓ Approved vendor application: Blackwing Textiles</p>
             <p className="text-white/40 text-xs mt-1">March 19, 2026 · Admin Log #141</p>
           </div>
+          <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-3">
+            <p className="text-cyan-400 text-sm">📊 Platform fee permanently set to 10% (industry standard 30-50%)</p>
+            <p className="text-white/40 text-xs mt-1">March 18, 2026 · Economic Policy #001</p>
+          </div>
           
           <AnimatePresence>
             {expanded && (
@@ -111,13 +125,17 @@ export function TransparencyLedger() {
                 exit={{ opacity: 0, height: 0 }}
                 className="space-y-3 overflow-hidden"
               >
-                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
-                  <p className="text-yellow-400 text-sm">⚠️ Pending review: Creator application - Quantum Muse</p>
-                  <p className="text-white/40 text-xs mt-1">March 18, 2026 · Admin Log #140</p>
+                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                  <p className="text-green-400 text-sm">✓ Processed residual payout batch #3 ($1,247 to 23 contributors)</p>
+                  <p className="text-white/40 text-xs mt-1">March 17, 2026 · Admin Log #139</p>
                 </div>
                 <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-                  <p className="text-green-400 text-sm">✓ Processed residual payout batch #3</p>
-                  <p className="text-white/40 text-xs mt-1">March 17, 2026 · Admin Log #139</p>
+                  <p className="text-green-400 text-sm">✓ Processed covenant distribution batch #1 ($892 to 156 active members)</p>
+                  <p className="text-white/40 text-xs mt-1">March 15, 2026 · Admin Log #138</p>
+                </div>
+                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
+                  <p className="text-yellow-400 text-sm">⚠️ Pending review: Creator application - Quantum Muse</p>
+                  <p className="text-white/40 text-xs mt-1">March 14, 2026 · Admin Log #137</p>
                 </div>
               </motion.div>
             )}

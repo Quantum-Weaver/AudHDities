@@ -10,7 +10,7 @@ interface StatCardProps {
   description: string;
   prefix?: string;
   suffix?: string;
-  color?: 'cyan' | 'purple' | 'pink' | 'green';
+  color?: 'cyan' | 'purple' | 'pink' | 'green' | 'yellow' | 'blue';
   delay?: number;
 }
 
@@ -19,6 +19,8 @@ const colorClasses = {
   purple: 'from-purple-500/20 to-transparent border-purple-500/30',
   pink: 'from-pink-500/20 to-transparent border-pink-500/30',
   green: 'from-green-500/20 to-transparent border-green-500/30',
+  yellow: 'from-yellow-500/20 to-transparent border-yellow-500/30',
+  blue: 'from-blue-500/20 to-transparent border-blue-500/30',
 };
 
 const textColors = {
@@ -26,6 +28,8 @@ const textColors = {
   purple: 'text-purple-400',
   pink: 'text-pink-400',
   green: 'text-green-400',
+  yellow: 'text-yellow-400',
+  blue: 'text-blue-400',
 };
 
 export function StatCard({ value, label, description, prefix = '', suffix = '', color = 'cyan', delay = 0 }: StatCardProps) {

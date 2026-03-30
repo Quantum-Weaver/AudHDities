@@ -9,6 +9,7 @@ export type ProductUpdate = Database['public']['Tables']['products']['Update'];
 export interface ProductWithCreator extends Product {
   creator?: {
     id: string;
+    creator_moniker: string;
     username: string | null;
     display_name: string | null;
     avatar_url: string | null;
@@ -77,11 +78,11 @@ export interface ProductWithRelations extends Product {
   creator?: Database['public']['Tables']['profiles']['Row'];
   contributions?: Database['public']['Tables']['contributions']['Row'][];
   sales?: Database['public']['Tables']['sales']['Row'][];
+  owner_type: Database['public']['Enums']['owner_type'];
 }
 
 export const productDefaults = {
   active: true,
-  owner_type: 'creator',
   is_published: false,
   is_recurring: false,
   price_community: 5,

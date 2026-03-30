@@ -12,6 +12,7 @@ export interface Creator {
   bio: string | null;
   created_at: string | null;
   creator_profiles: {
+    creator_moniker: string;
     verified_badge: boolean;        // Convert null to false
     verification_status: string | null;
     creative_categories: string[] | null;
@@ -49,6 +50,7 @@ function normalizeCreator(data: any): Creator {
     created_at: data.created_at,
     creator_profiles: {
       verified_badge: data.creator_profiles?.verified_badge ?? false,
+      creator_moniker: data.creator_profiles?.creator_moniker,
       verification_status: data.creator_profiles?.verification_status ?? null,
       creative_categories: data.creator_profiles?.creative_categories ?? [],
       creative_description: data.creator_profiles?.creative_description ?? null,

@@ -1,5 +1,4 @@
-## 🧬 **THE FINANCIAL ECOSYSTEM: GRANULAR FLOW**
-
+## 📁 **THE FINANCIAL ECOSYSTEM DOCUMENT (UPDATED)**
 
 ### **The Two Streams: Advertising & Sales**
 
@@ -118,42 +117,40 @@
 │  │       │                                                              │    │
 │  │       ├──▶ Creator (Immediate) ──────┐                               │    │
 │  │       │                              │                               │    │
-│  │       ├──▶ Platform Fee (Fixed) ─────┼──▶ Covers operational        │    │
+│  │       ├──▶ Platform Fee (10%) ───────┼──▶ Covers operational        │    │
 │  │       │                              │    costs (servers, etc.)      │    │
 │  │       │                              │                               │    │
 │  │       └──▶ Residual Pool ────────────┼──▶ Distributed to:           │    │
 │  │                                      │        • Contributors         │    │
-│  │                                      │        • Past collaborators   │    │
 │  │                                      │        • Community fund       │    │
 │  │                                      │        • Platform future      │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
-│  │                      RESIDUAL POOL FLOW                              │    │
+│  │                    TWO POOLS: RESIDUAL & COVENANT                    │    │
 │  │                                                                      │    │
-│  │  Residual Pool (adjustable by creator, 0-50%)                       │    │
+│  │  RESIDUAL POOL (from platform fee, 0-50% adjustable per product)    │    │
 │  │       │                                                              │    │
-│  │       ├──▶ Contributors (based on their percentage share)           │    │
-│  │       │         • Anyone who contributed to the product             │    │
-│  │       │         • Could be code, design, testing, ideas             │    │
-│  │       │         • Paid forever, for every sale                      │    │
+│  │       └──▶ Contributors (based on their percentage share)           │    │
+│  │             • Anyone who contributed to the product                 │    │
+│  │             • Paid forever, for every sale                          │    │
+│  │                                                                      │    │
+│  │  COVENANT POOL (from creator earnings, 0-50% adjustable in profile) │    │
 │  │       │                                                              │    │
-│  │       ├──▶ Community Pool                                           │    │
-│  │       │         • Distributed to all active community members       │    │
-│  │       │         • Including disabled members who cannot be active   │    │
-│  │       │         • Dignity for all, regardless of productivity       │    │
-│  │       │                                                              │    │
-│  │       └──▶ Platform Sustainability Fund                             │    │
-│  │                 • Future development                                │    │
-│  │                 • Emergency reserves                                 │    │
-│  │                 • Grants for creators                               │    │
+│  │       └──▶ Community Pool                                           │    │
+│  │             • Distributed equally to all active community members   │    │
+│  │             • Including disabled members who cannot be active       │    │
+│  │             • Dignity for all, regardless of productivity           │    │
+│  │                                                                      │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  KEY PRINCIPLES:                                                             │
-│  • Creators set their own residual percentage (0-50%)                       │
+│  • Platform fee is 10% (industry standard is 30-50%)                        │
+│  • Residual Pool: Creator sets per product (0-50% of platform fee)         │
+│  • Covenant Pool: Creator sets in profile (0-50% of creator earnings)      │
 │  • Contributors earn forever (the "background actor dividend")              │
-│  • Community members share in success regardless of activity level          │
-│  • Platform fee is fixed and transparent                                   │
+│  • Community members share dignity share regardless of activity level       │
+│  • All fees are fixed and transparent                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -177,76 +174,129 @@
    ║           ║               ║           ║               ║   MUTUAL  ║
    ║ Covers:   ║               ║ Pays:     ║               ║    AID    ║
    ║ • Servers ║               ║ • Creators║               ║           ║
-   ║ • Dev     ║               ║ • Contrib-║               ║ Direct    ║
-   ║ • Support ║               ║   utors   ║               ║ community ║
-   ╚═══════════╝               ║ • Platform║               ║ support   ║
-          │                    ║   Fund    ║               ╚═══════════╝
+   ║ • Dev     ║               ║   (90%)   ║               ║ Direct    ║
+   ║ • Support ║               ║ • Platform║               ║ community ║
+   ╚═══════════╝               ║   Fund    ║               ║ support   ║
+          │                    ║   (10%)   ║               ╚═══════════╝
           │                    ╚═══════════╝                      │
           │                           │                           │
           └───────────────────────────┼───────────────────────────┘
                                       │
                                       ▼
                     ┌─────────────────────────────────────┐
-                    │         RESIDUAL POOL               │
-                    │  (Value that keeps circulating)     │
+                    │         THE TWO POOLS                │
                     └─────────────────────────────────────┘
                                       │
           ┌───────────────────────────┼───────────────────────────┐
           │                           │                           │
           ▼                           ▼                           ▼
-   ╔═══════════╗               ╔═══════════╗               ╔═══════════╗
-   ║ OPT-IN    ║               ║ CONTRIB-  ║               ║ COMMUNITY ║
-   ║ USERS     ║               ║ UTORS     ║               ║ MEMBERS   ║
-   ║           ║               ║           ║               ║           ║
-   ║ Choose to ║               ║ Receive   ║               ║ Receive   ║
-   ║ see ads   ║               ║ residuals ║               ║ basic     ║
-   ║ Get paid  ║               ║ forever   ║               ║ dignity   ║
-   ║ equally   ║               ║ from work ║               ║ share     ║
-   ╚═══════════╝               ║ they did  ║               ╚═══════════╝
-                               ╚═══════════╝
+   ╔═══════════════════╗       ╔═══════════════════╗       ╔═══════════════════╗
+   ║   RESIDUAL POOL   ║       ║   COVENANT POOL   ║       ║   OPT-IN USERS    ║
+   ║ (0-50% of fee)    ║       ║ (0-50% of earnings)║       ║ (Ad viewers)      ║
+   ║                   ║       ║                   ║       ║                   ║
+   ║ Contributors      ║       ║ Community Members ║       ║ Choose to see ads ║
+   ║ (split by %)      ║       ║ (equal split)     ║       ║ Get paid equally  ║
+   ╚═══════════════════╝       ╚═══════════════════╝       ╚═══════════════════╝
 ```
 
 ---
 
-## 📊 **5-10 YEAR SUSTAINABILITY PROJECTIONS**
+### **Fee Structure**
 
-Instead of profit projections, let me show you **sustainability and distributed wealth** metrics.
+| Fee Type | Percentage | Notes |
+|----------|------------|-------|
+| **Platform Fee** | 10% of sale | Covers hosting, development, support |
+| **Creator Immediate** | 90% of sale (minus Covenant) | Paid at time of purchase |
+| **Residual Pool** | 0-50% of platform fee | Creator sets per product |
+| **Covenant Pool** | 0-50% of creator earnings | Creator sets in profile |
+| **Residual Distribution** | 100% of residual pool | Split among contributors |
+| **Covenant Distribution** | 100% of covenant pool | Split equally among community members |
 
 ---
 
-### **Year 1-2: Foundation Building**
+### **Example: $100 Sale with Both Pools Active**
+
+```
+$100 Sale
+    │
+    ├── $10 → Platform Fee (10%)
+    │       │
+    │       ├── $5 → Residual Pool (50% of fee, creator sets per product)
+    │       │      ├── Contributor A (40%): $2.00
+    │       │      ├── Contributor B (35%): $1.75
+    │       │      └── Contributor C (25%): $1.25
+    │       │
+    │       └── $5 → Operations
+    │
+    └── $90 → Creator Earnings (90%)
+            │
+            ├── $72 → Creator Immediate (80% after Covenant)
+            │
+            └── $18 → Covenant Pool (20% of earnings, creator sets in profile)
+                    │
+                    └── Distributed equally to all active community members
+                        (500 members = $0.036 each)
+```
+
+---
+
+### **Example: $100 Sale with No Contributors, Covenant Active**
+
+```
+$100 Sale
+    │
+    ├── $10 → Platform Fee (10%)
+    │       │
+    │       ├── $0 → Residual Pool (creator chose 0% for this product)
+    │       │
+    │       └── $10 → Operations
+    │
+    └── $90 → Creator Earnings (90%)
+            │
+            ├── $72 → Creator Immediate (80% after Covenant)
+            │
+            └── $18 → Covenant Pool (20% of earnings)
+                    │
+                    └── Distributed equally to all active community members
+```
+
+---
+
+### **5-10 YEAR SUSTAINABILITY PROJECTIONS**
+
+#### **Year 1-2: Foundation Building**
 
 | Metric | Target | Notes |
 |--------|--------|-------|
-| **Operational Sustainability** | 100% covered by ad revenue | Servers, domains, basic tools |
+| **Operational Sustainability** | 100% covered by platform fee | Servers, domains, basic tools |
 | **Creator Earnings Distributed** | $50,000 | First creators begin earning |
-| **Contributor Payouts** | $10,000 | Background actors paid |
-| **Community Distribution** | $5,000 | Even to inactive members |
-| **Residual Pool Size** | 10-20% of sales | Early adoption phase |
+| **Contributor Payouts (Residual)** | $10,000 | Background actors paid |
+| **Community Distribution (Covenant)** | $5,000 | Even to inactive members |
+| **Platform Fee** | 10% | Industry standard is 30-50% |
 
 ---
 
-### **Year 3-5: Growth Phase**
+#### **Year 3-5: Growth Phase**
 
 | Metric | Target | Notes |
 |--------|--------|-------|
 | **Operational Sustainability** | 100% + surplus for development | Platform self-sustaining |
 | **Creator Earnings Distributed** | $500,000 - $1M | Growing creator base |
-| **Contributor Payouts** | $100,000 - $250,000 | Long-tail residual income |
-| **Community Distribution** | $50,000 - $100,000 | Basic dignity for all members |
-| **Residual Pool Size** | 20-30% of sales | Standardized |
+| **Contributor Payouts (Residual)** | $100,000 - $250,000 | Long-tail residual income |
+| **Community Distribution (Covenant)** | $50,000 - $100,000 | Basic dignity for all members |
+| **Platform Fee** | 10% | Unchanged |
 
 ---
 
-### **Year 6-10: Mature Ecosystem**
+#### **Year 6-10: Mature Ecosystem**
 
 | Metric | Target | Notes |
 |--------|--------|-------|
 | **Operational Sustainability** | 100% + substantial reserve | Platform runs itself |
 | **Creator Earnings Distributed** | $2M - $5M | Full-time incomes for many |
-| **Contributor Payouts** | $500,000 - $1M | True passive income |
-| **Community Distribution** | $250,000 - $500,000 | Universal basic dignity |
-| **Residual Pool Size** | 30-40% of sales | Community-first economics |
+| **Contributor Payouts (Residual)** | $500,000 - $1M | True passive income |
+| **Community Distribution (Covenant)** | $250,000 - $500,000 | Universal basic dignity |
+| **Platform Fee** | 10% | Unchanged |
 
 ---
 
@@ -265,6 +315,7 @@ Traditional platforms measure:
 📊 Engagement Metrics
 📊 Time on Platform
 📊 Ad Impressions
+📊 Platform Fee (30-50%)
 
 These metrics measure EXTRACTION.
 
@@ -276,6 +327,8 @@ AUDHDITIES measures:
 🏡 Creators making full-time living
 🛌 Disabled members receiving dignity share regardless of activity
 🌟 Contributors remembered years later
+💸 Platform Fee (10% — industry inverse)
+🤝 Covenant participants (creators who share with community)
 
 These metrics measure CIRCULATION.
 
@@ -284,8 +337,9 @@ Year 10 Vision:
 • 50+ creators earning full-time living from their art
 • 500+ contributors receiving residual income from past work
 • 1,000+ community members receiving dignity share (active or not)
-• Platform operations fully funded by ad revenue alone
+• Platform operations fully funded by 10% fee
 • Zero employees (system runs itself, creators build)
 • Zero board (community guides through transparent systems)
 • Zero C-suite (conscious collaboration replaces hierarchy)
+• Covenant culture where creators voluntarily support the community
 ```

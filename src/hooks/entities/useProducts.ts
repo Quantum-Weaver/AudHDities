@@ -13,7 +13,7 @@ export type ProductUpdate = Database['public']['Tables']['products']['Update'];
 export type Creator = Database['public']['Tables']['creator_profiles']['Update'];
 export type Vendor = Database['public']['Tables']['vendor_profiles']['Update'];
 
-export type OwnerType = 'creator' | 'vendor';
+export type OwnerType = Database['public']['Enums']['owner_type'];
 
 // Extended product with owner info for marketplace display
 export interface ProductWithOwner extends Product {

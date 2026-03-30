@@ -1,3 +1,4 @@
+// src/components/products/ProductForm.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -15,24 +16,52 @@ import { ProductFormActions } from './ProductFormActions';
 import { ProductFormSuccess } from './ProductFormSuccess';
 import { ProductFormError } from './ProductFormError';
 
-// Build product type options from source of truth
+// =====================================================
+// VALIDATION SCHEMA - This lives in the COMPONENT LAYER
+// =====================================================
+// It defines what the user can enter.
+// It should match what the API expects, but can be more user-friendly.
+// =====================================================
+
+// Get product type values from source of truth
 const productTypeValues = PRODUCT_CATEGORIES.map(cat => cat.value);
 
-// Validation schema
 const productSchema = z.object({
-  creator_id: z.string(),
-  title: z.string().min(3, 'Title must be at least 3 characters').max(100, 'Title must be less than 100 characters'),
+  title: z.string()
+    .min(3, 'Title must be at least 3 characters')
+    .max(100, 'Title must be less than 100 characters'),
+  
   slug: z.string()
     .min(3, 'Slug must be at least 3 characters')
     .max(100, 'Slug must be less than 100 characters')
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
+  
   description: z.string().optional(),
+  
   product_type: z.enum(productTypeValues as [string, ...string[]]),
-  price_community: z.coerce.number().min(0, 'Price cannot be negative').optional().nullable(),
-  price_ally: z.coerce.number().min(0, 'Price cannot be negative'),
-  price_corporate: z.coerce.number().min(0, 'Price cannot be negative').optional().nullable(),
-  residual_pool_percent: z.coerce.number().min(0, 'Cannot be negative').max(50, 'Maximum 50%'),
-  sanctuary_infrastructure_percent: z.coerce.number().min(0).max(100).optional(),
+  
+  price_community: z.coerce.number()
+    .min(0, 'Price cannot be negative')
+    .optional()
+    .nullable(),
+  
+  price_ally: z.coerce.number()
+    .min(0, 'Price cannot be negative'),
+  
+  price_corporate: z.coerce.number()
+    .min(0, 'Price cannot be negative')
+    .optional()
+    .nullable(),
+  
+  residual_pool_percent: z.coerce.number()
+    .min(0, 'Cannot be negative')
+    .max(50, 'Maximum 50%'),
+  
+  sanctuary_infrastructure_percent: z.coerce.number()
+    .min(0)
+    .max(100)
+    .optional(),
+  
   is_published: z.boolean().optional().default(false),
 });
 
@@ -56,6 +85,9 @@ export default function ProductForm({
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   
+  // =====================================================
+  // useForm with zodResolver - THIS IS CORRECT
+  // =====================================================
   const {
     register,
     handleSubmit,
@@ -76,7 +108,7 @@ export default function ProductForm({
   const watchResidualPool = watch('residual_pool_percent');
   const watchTitle = watch('title');
 
-  // Auto-generate slug from title
+  // Auto-generate slug from title (UX enhancement, not validation)
   useEffect(() => {
     if (mode === 'create' && watchTitle && !initialData?.slug) {
       const generatedSlug = watchTitle
@@ -87,6 +119,10 @@ export default function ProductForm({
     }
   }, [watchTitle, mode, initialData, setValue]);
 
+  // =====================================================
+  // onSubmit - This sends data to the API
+  // The API will validate again (security layer)
+  // =====================================================
   const onSubmit = async (data: ProductFormData) => {
     setSubmitError(null);
     
@@ -95,10 +131,12 @@ export default function ProductForm({
         ...data,
         price_community: data.price_community || null,
         price_corporate: data.price_corporate || null,
+        owner_type: 'creator', // or determine based on user role
       };
       
+      let result;
       if (mode === 'create') {
-        const result = await createProduct(productData);
+        result = await createProduct(productData);
         if (result) {
           setSuccess(true);
           setTimeout(() => {
@@ -107,7 +145,7 @@ export default function ProductForm({
           }, 1500);
         }
       } else if (mode === 'edit' && initialData?.id) {
-        const result = await updateProduct(initialData.id, productData);
+        result = await updateProduct(initialData.id, productData);
         if (result) {
           setSuccess(true);
           setTimeout(() => {

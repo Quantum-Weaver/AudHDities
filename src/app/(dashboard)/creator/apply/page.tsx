@@ -1,4 +1,3 @@
-//NEW//
 // src/app/(dashboard)/creator/apply/page.tsx
 
 import { Metadata } from 'next';
@@ -9,7 +8,7 @@ import CreatorApplicationForm from '@/components/apply/CreatorApplicationForm';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { BookOpen, Sparkles, ArrowRight, Palette } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, Palette, Heart, TrendingUp } from 'lucide-react';
 import { CollapsibleSplitView } from '@/components/ui/CollapsibleSplitView';
 import path from 'path';
 import fs from 'fs/promises';
@@ -119,7 +118,7 @@ export default async function CreatorApplyPage() {
               Become a Creator
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Share your gifts with the sanctuary and earn residuals for life
+              Share your gifts with the sanctuary. Keep <span className="text-purple-400 font-bold">90% of your earnings</span> and build community.
             </p>
           </div>
 
@@ -128,48 +127,78 @@ export default async function CreatorApplyPage() {
             leftLabel="Creator Guide"
             rightLabel="Application Form"
             leftPanel={
-			  <Card className="p-6 h-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 border-purple-500/20">
-				<div className="flex items-center gap-3 mb-4">
-				  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-					<BookOpen size={20} className="text-purple-400" />
-				  </div>
-				  <h2 className="text-xl font-bold text-white">Your Journey as a Creator</h2>
-				</div>
-				
-				<div className="space-y-4 text-white/70">
-				  <p className="text-sm">Becoming a creator means joining a community of artists, makers, and visionaries who share their gifts with the world while earning residual income forever.</p>
-				  
-				  <div className="bg-white/5 rounded-lg p-4">
-					<h3 className="text-cyan-400 font-medium mb-2">What you'll need:</h3>
-					<ul className="space-y-1 text-sm">
-					  <li>✓ A portfolio or examples of your work</li>
-					  <li>✓ Your creative story (we want to hear it!)</li>
-					  <li>✓ Ideas for your first product</li>
-					</ul>
-				  </div>
-				  
-				  <div className="bg-white/5 rounded-lg p-4">
-					<h3 className="text-purple-400 font-medium mb-2">What you'll receive:</h3>
-					<ul className="space-y-1 text-sm">
-					  <li>✨ 70% of all sales (or more, you choose)</li>
-					  <li>✨ Forever residuals for your contributors</li>
-					  <li>✨ A gallery to showcase your work</li>
-					  <li>✨ Community of fellow creators</li>
-					</ul>
-				  </div>
-				</div>
-				
-				<Link href="/docs/guides/creator-onboarding">
-				  <Button 
-					variant="outline" 
-					className="w-full mt-6 group"
-				  >
-					<span>Read the Full Creator Guide</span>
-					<ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-				  </Button>
-				</Link>
-			  </Card>	  
-		   }			   
+              <Card className="p-6 h-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 border-purple-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <BookOpen size={20} className="text-purple-400" />
+                  </div>
+                  <h2 className="text-xl font-bold text-white">Your Journey as a Creator</h2>
+                </div>
+                
+                <div className="space-y-4 text-white/70">
+                  <p className="text-sm">Becoming a creator means joining a community of artists, makers, and visionaries who share their gifts with the world while earning residual income forever.</p>
+                  
+                  {/* Economic Model */}
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <h3 className="text-cyan-400 font-medium mb-2 flex items-center gap-2">
+                      <TrendingUp size={14} />
+                      The Economics
+                    </h3>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex justify-between">
+                        <span>Platform fee</span>
+                        <span className="text-cyan-400">10%</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Your share</span>
+                        <span className="text-purple-400">90%</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Residual pool (optional)</span>
+                        <span className="text-pink-400">0-50% of fee to contributors</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Covenant pledge (voluntary)</span>
+                        <span className="text-green-400">0-50% of earnings to community</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <h3 className="text-purple-400 font-medium mb-2">What you'll need:</h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>✓ A portfolio or examples of your work</li>
+                      <li>✓ Your creative story (we want to hear it!)</li>
+                      <li>✓ Ideas for your first product</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <h3 className="text-green-400 font-medium mb-2 flex items-center gap-2">
+                      <Heart size={14} />
+                      What you'll receive:
+                    </h3>
+                    <ul className="space-y-1 text-sm">
+                      <li>✨ <span className="text-purple-400 font-bold">90%</span> of all sales</li>
+                      <li>✨ Forever residuals for your contributors</li>
+                      <li>✨ A gallery to showcase your work</li>
+                      <li>✨ Community of fellow creators</li>
+                      <li>✨ Option to pledge to community dignity fund</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <Link href="/docs/guides/creator-onboarding">
+                  <Button 
+                    variant="outline" 
+                    className="w-full mt-6 group"
+                  >
+                    <span>Read the Full Creator Guide</span>
+                    <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </Card>
+            }           
             rightPanel={
               <Card className="p-6">
                 <div className="flex items-center gap-3 mb-6">
@@ -196,4 +225,3 @@ export default async function CreatorApplyPage() {
     </AuthGuard>
   );
 }
-

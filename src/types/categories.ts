@@ -65,3 +65,4 @@ export const PRODUCT_CATEGORY_MAP = new Map(
 export function getProductCategoryLabel(type: ProductType): string {
   return PRODUCT_CATEGORY_MAP.get(type)?.label || type.replace(/_/g, ' ');
 }
+

@@ -11,16 +11,16 @@ import { MarkdownBio } from '@/components/profiles/MarkdownBio';
 import { CheckoutButton } from '@/components/checkout/CheckoutButton';
 import { formatPrice } from '@/lib/stripe/formatting';
 import { getProductCategoryLabel } from '@/types/categories';
-import type { ProductWithCreator } from '@/hooks/entities/useProducts';
+import type { ProductWithOwner } from '@/hooks/entities/useProducts';
 
 interface ProductDetailProps {
-  product: ProductWithCreator;
+  product: ProductWithOwner;
 }
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedTier, setSelectedTier] = useState<'community' | 'ally' | 'corporate'>('ally');
   
-  const creator = product.creator;
+  const creator = product.owner;
   const creatorProfile = creator?.creator_profile;
   const productLabel = getProductCategoryLabel(product.product_type);
   

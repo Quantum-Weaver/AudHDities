@@ -49,6 +49,7 @@ export default function CreatorEditPage() {
   const [formData, setFormData] = useState({
     // Basic profile fields
     display_name: '',
+    creator_moniker: '',
     bio: '',
     
     // Creator fields
@@ -90,6 +91,7 @@ export default function CreatorEditPage() {
       // Populate form data
       setFormData({
         display_name: profileResult.data.display_name || '',
+        creator_moniker: creatorResult.data?.creator_moniker || '',
         bio: profileResult.data.bio || '',
         creative_categories: creatorResult.data?.creative_categories || [],
         creative_description: creatorResult.data?.creative_description || '',
@@ -128,6 +130,7 @@ export default function CreatorEditPage() {
             creative_categories: formData.creative_categories,
             creative_description: formData.creative_description,
             portfolio_url: formData.portfolio_url,
+            creator_moniker: formData.creator_moniker,
             default_residual_pool: formData.default_residual_pool,
             updated_at: new Date().toISOString(),
           })
@@ -141,6 +144,7 @@ export default function CreatorEditPage() {
             creative_categories: formData.creative_categories,
             creative_description: formData.creative_description,
             portfolio_url: formData.portfolio_url,
+            creator_moniker: formData.creator_moniker,
             default_residual_pool: formData.default_residual_pool,
           });
         if (insertError) throw insertError;

@@ -7,8 +7,12 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
+    q: "What is the platform fee?",
+    a: "The platform fee is fixed at 10% of every sale. This is significantly lower than industry standard (30-50%) and covers hosting, development, and support costs."
+  },
+  {
     q: "Who decides the residual percentage?",
-    a: "Creators set their own residual percentage when creating a product. They can choose anywhere from 0% to 50% of the creator pool to be shared with contributors."
+    a: "Creators set what percentage of the platform fee goes to the residual pool (0-100%). This allows creators to share value with contributors while maintaining their own earnings."
   },
   {
     q: "How are contributor percentages determined?",

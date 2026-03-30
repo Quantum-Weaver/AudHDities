@@ -15,7 +15,9 @@ export interface CreatorDetail {
   created_at: string | null;
   creator_profiles: {
     verified_badge: boolean;
+    creator_moniker: string;
     verification_status: string;
+    creator_logo_url: string | null;
     creative_categories: string[];
     creative_description: string | null;
     portfolio_url: string | null;
@@ -45,6 +47,8 @@ function normalizeCreatorDetail(data: any): CreatorDetail {
     created_at: data.created_at,
     creator_profiles: {
       verified_badge: data.creator_profiles?.verified_badge ?? false,
+      creator_moniker: data.creator_profiles?.creator_moniker,
+      creator_logo_url: data.creator_profiles?.creator_logo_url ?? null,
       verification_status: data.creator_profiles?.verification_status ?? null,
       creative_categories: data.creator_profiles?.creative_categories ?? [],
       creative_description: data.creator_profiles?.creative_description ?? null,
@@ -86,8 +90,10 @@ export function useCreatorByUsername(username: string): UseCreatorReturn {
           creator_profiles!inner (
             verified_badge,
             verification_status,
+            creator_moniker,
             creative_categories,
             creative_description,
+            creator_logo_url,
             portfolio_url,
             total_products,
             total_sales,
@@ -173,8 +179,10 @@ export function useCreatorById(userId: string): UseCreatorReturn {
           creator_profiles!inner (
             verified_badge,
             verification_status,
+            creator_moniker,
             creative_categories,
             creative_description,
+            creator_logo_url,
             portfolio_url,
             total_products,
             total_sales,

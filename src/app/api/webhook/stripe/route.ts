@@ -8,6 +8,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-02-25.clover',
 });
 
+// Platform fee is 10% (industry standard is 30-50%)
+const PLATFORM_FEE_PERCENT = 10;
+
 export async function POST(request: NextRequest) {
   const payload = await request.text();
   const signature = request.headers.get('stripe-signature');
@@ -76,10 +79,9 @@ export async function POST(request: NextRequest) {
         break;
       }
 
-      // Calculate splits (all in dollars for numeric fields)
+      // Calculate splits with 10% platform fee
       const amount = amountTotal;
-      const platformFeePercent = 30;
-      const platformFee = amount * (platformFeePercent / 100);
+      const platformFee = amount * (PLATFORM_FEE_PERCENT / 100);
       const creatorEarnings = amount - platformFee;
       
       const residualPercent = product.residual_pool_percent ?? 30;
@@ -119,7 +121,10 @@ export async function POST(request: NextRequest) {
           saleId: sale.id, 
           productId, 
           userId, 
-          amount 
+          amount,
+          platformFee: platformFee,
+          creatorEarnings: creatorEarnings,
+          residualPool: residualPool
         });
       }
 

@@ -1,5 +1,4 @@
 // app/(content)/docs/guides/creator-onboarding/page.tsx
-
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
 import { OnboardingHero } from '@/components/onboarding/OnboardingHero';
@@ -7,7 +6,7 @@ import { StepCard } from '@/components/onboarding/StepCard';
 import { InfoTable } from '@/components/onboarding/InfoTable';
 import { ChecklistItem } from '@/components/onboarding/ChecklistItem';
 import { NextSteps } from '@/components/onboarding/NextSteps';
-import { Palette, Sparkles, CreditCard, Package, Users, Rocket, TrendingUp, Heart } from 'lucide-react';
+import { Palette, Sparkles, CreditCard, Package, Users, Rocket, TrendingUp, Heart, HandCoins } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Creator Onboarding | AUDHDITIES',
@@ -28,7 +27,7 @@ export default async function CreatorOnboardingPage() {
           title="Creator Onboarding"
           subtitle="Share your gifts with the sanctuary community and earn residual income"
           icon={<Palette size={14} className="text-purple-400" />}
-          lastUpdated="March 15, 2026"
+          lastUpdated="March 29, 2026"
         />
         
         <div className="container max-w-4xl mx-auto px-6 pb-20">
@@ -67,16 +66,25 @@ export default async function CreatorOnboardingPage() {
                   <li><strong className="text-white">Portfolio URL</strong>: Link to your work (website, social, gallery)</li>
                   <li><strong className="text-white">Creative categories</strong>: Writing, art, code, music, etc.</li>
                   <li><strong className="text-white">Description</strong>: Tell us about yourself and your creative journey</li>
-                  <li><strong className="text-white">Residual percentage</strong>: Choose your platform fee (0-50%)</li>
+                  <li><strong className="text-white">Residual percentage</strong>: Choose 0-50% of platform fee for contributors</li>
+                  <li><strong className="text-white">Covenant pledge</strong>: Choose 0-50% of your earnings for community dignity fund (optional)</li>
                 </ul>
               </li>
               <li>Submit for review</li>
             </ol>
-            <div className="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
-              <p className="text-purple-400 text-sm flex items-start gap-2">
-                <Heart size={16} className="flex-shrink-0 mt-0.5" />
-                <span>Your residual percentage determines how much of your earnings go to contributors. Higher percentages build community—lower percentages give you more immediate income.</span>
-              </p>
+            <div className="mt-4 space-y-3">
+              <div className="p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                <p className="text-purple-400 text-sm flex items-start gap-2">
+                  <Heart size={16} className="flex-shrink-0 mt-0.5" />
+                  <span><strong className="text-white">Residual percentage</strong>: This determines how much of the <strong>platform fee</strong> goes to contributors who helped create your product.</span>
+                </p>
+              </div>
+              <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                <p className="text-green-400 text-sm flex items-start gap-2">
+                  <HandCoins size={16} className="flex-shrink-0 mt-0.5" />
+                  <span><strong className="text-white">Covenant pledge</strong>: A voluntary donation to the community dignity fund—supporting all active members equally. You can change this anytime in your profile.</span>
+                </p>
+              </div>
             </div>
           </StepCard>
           
@@ -117,15 +125,17 @@ export default async function CreatorOnboardingPage() {
                   <li><strong className="text-white">Title</strong>: Clear, descriptive, captivating</li>
                   <li><strong className="text-white">Description</strong>: What is it? Why should someone buy it?</li>
                   <li><strong className="text-white">Price tiers</strong>: Community (discount), Ally (standard), Corporate (premium)</li>
-                  <li><strong className="text-white">Residual pool</strong>: What % of your earnings go to contributors?</li>
+                  <li><strong className="text-white">Residual pool</strong>: What % of the platform fee goes to contributors?</li>
                   <li><strong className="text-white">Media</strong>: Images, previews, downloads</li>
                 </ul>
               </li>
               <li>Save as draft or publish immediately</li>
             </ol>
-            <div className="mt-4 flex items-start gap-3 p-4 bg-white/5 rounded-lg">
-              <Package size={20} className="text-purple-400 flex-shrink-0 mt-0.5" />
-              <p className="text-white/60 text-sm">Pro tip: Your first product doesn't have to be perfect. Start somewhere, learn, and iterate!</p>
+            <div className="mt-4 p-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg">
+              <p className="text-white/70 text-sm flex items-start gap-2">
+                <TrendingUp size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
+                <span><strong className="text-white">The Economics:</strong> Platform fee is fixed at <span className="text-cyan-400">10%</span>. You keep <span className="text-purple-400">90%</span> of all sales. Residual pool comes from your chosen percentage of the platform fee—rewarding contributors forever.</span>
+              </p>
             </div>
           </StepCard>
           
@@ -172,35 +182,51 @@ export default async function CreatorOnboardingPage() {
               </div>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex justify-between items-center py-2 border-b border-white/10">
-                  <span className="text-white/60">Platform Fee (your chosen %)</span>
-                  <span className="text-white">$20</span>
+                  <span className="text-white/60">Platform Fee (fixed at 10%)</span>
+                  <span className="text-cyan-400 font-bold">$10</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-white/10">
-                  <span className="text-white/60">Your Immediate Payment</span>
-                  <span className="text-cyan-400 font-bold">$56</span>
+                  <span className="text-white/60">Your Earnings</span>
+                  <span className="text-purple-400 font-bold">$90</span>
                 </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-white/60">Contributor Pool</span>
-                  <span className="text-purple-400">$24</span>
+                <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
+                  <span className="text-white/40">→ Immediate Payment</span>
+                  <span className="text-white">$72</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
+                  <span className="text-white/40">→ Covenant Pool (20% pledge)</span>
+                  <span className="text-green-400">$18</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/10">
+                  <span className="text-white/60">Residual Pool (30% of fee)</span>
+                  <span className="text-pink-400">$3</span>
                 </div>
                 <div className="ml-8 mt-2 space-y-1 text-xs">
                   <div className="flex justify-between items-center text-white/40">
-                    <span>Contributor A</span>
-                    <span>$12</span>
+                    <span>Contributor A (60%)</span>
+                    <span>$1.80</span>
                   </div>
                   <div className="flex justify-between items-center text-white/40">
-                    <span>Contributor B</span>
-                    <span>$12</span>
+                    <span>Contributor B (40%)</span>
+                    <span>$1.20</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="p-4 bg-white/5 rounded-lg">
-              <p className="text-white/70 text-sm flex items-start gap-2">
-                <TrendingUp size={16} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-                <span>You control the platform fee (0-50%). Higher fees mean more for contributors but less immediate payment. Find the balance that works for your creative practice.</span>
-              </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                <p className="text-cyan-400 text-sm flex items-start gap-2">
+                  <TrendingUp size={16} className="flex-shrink-0 mt-0.5" />
+                  <span><strong className="text-white">Platform Fee (10%)</strong> — Fixed, transparent, industry-low. Covers operations, development, and support.</span>
+                </p>
+              </div>
+              <div className="p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                <p className="text-purple-400 text-sm flex items-start gap-2">
+                  <HandCoins size={16} className="flex-shrink-0 mt-0.5" />
+                  <span><strong className="text-white">Covenant Pool</strong> — You choose 0-50% of your earnings to support the community. Equal distribution to all active members. Optional, change anytime.</span>
+                </p>
+              </div>
             </div>
           </div>
           
@@ -227,9 +253,13 @@ export default async function CreatorOnboardingPage() {
                 <h4 className="text-white font-bold">🔄 Update products regularly</h4>
                 <p className="text-white/60 text-sm">Keep your offerings fresh.</p>
               </div>
-              <div className="md:col-span-2 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 rounded-lg p-4 border border-white/20">
+              <div className="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 rounded-lg p-4 border border-white/20">
                 <h4 className="text-white font-bold">🤝 Add contributors generously</h4>
                 <p className="text-white/60 text-sm">Every collaborator builds community. The "background actor dividend" honors everyone who helped.</p>
+              </div>
+              <div className="bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-lg p-4 border border-green-500/20">
+                <h4 className="text-white font-bold">💚 Consider a covenant pledge</h4>
+                <p className="text-white/60 text-sm">Even 5-10% can make a difference to community members. Set it in your profile settings.</p>
               </div>
             </div>
           </div>

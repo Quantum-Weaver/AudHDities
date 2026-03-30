@@ -2,44 +2,56 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Heart, TrendingUp, Award } from 'lucide-react';
+import { Users, Heart, TrendingUp, Award, HandCoins, Shield } from 'lucide-react';
 
 const recipients = [
   {
     icon: Award,
-    label: 'Contributors',
+    label: 'Product Contributors',
     description: 'Anyone who helped create the product—code, design, testing, ideas—receives their share forever',
     color: 'cyan',
-    share: 'Based on contribution percentage',
+    source: 'Residual Pool (30-50% of platform fee)',
+    distribution: 'Based on contribution percentage set by creator',
   },
   {
     icon: Users,
     label: 'Community Members',
     description: 'Every active community member receives a dignity share, regardless of activity level',
     color: 'pink',
-    share: 'Equal distribution',
+    source: 'Covenant Pool (0-50% of creator earnings)',
+    distribution: 'Equal distribution among all active members',
+  },
+  {
+    icon: HandCoins,
+    label: 'Creator Immediate',
+    description: 'The creator keeps their share after covenant pledge',
+    color: 'purple',
+    source: '90% of sale minus covenant pledge',
+    distribution: 'Direct payout at time of sale',
   },
   {
     icon: TrendingUp,
-    label: 'Platform Sustainability',
-    description: 'Future development, emergency reserves, and creator grants',
-    color: 'purple',
-    share: 'Variable based on needs',
+    label: 'Platform Operations',
+    description: 'Hosting, development, support, and future growth',
+    color: 'green',
+    source: '70% of platform fee (7% of sale)',
+    distribution: 'Platform sustainability',
   },
   {
-    icon: Heart,
-    label: 'Mutual Aid',
-    description: 'Direct support for community members in crisis',
-    color: 'green',
-    share: 'Discretionary with transparency',
+    icon: Shield,
+    label: 'Mutual Aid Reserve',
+    description: 'Emergency support for community members in crisis',
+    color: 'yellow',
+    source: 'Discretionary from platform operations surplus',
+    distribution: 'Community-led with transparency',
   },
 ];
 
 export function ResidualDistribution() {
   return (
     <div className="space-y-6">
-      <h4 className="text-white font-bold text-lg mb-4">The Residual Pool Distribution</h4>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <h4 className="text-white font-bold text-lg mb-4">The Value Circulation System</h4>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {recipients.map((recipient, idx) => (
           <motion.div
             key={recipient.label}
@@ -54,14 +66,17 @@ export function ResidualDistribution() {
             </div>
             <h5 className="text-white font-bold text-sm mb-1">{recipient.label}</h5>
             <p className="text-white/40 text-xs mb-2">{recipient.description}</p>
-            <p className={`text-${recipient.color}-400 text-xs font-mono`}>{recipient.share}</p>
+            <p className={`text-${recipient.color}-400 text-xs font-mono`}>{recipient.source}</p>
+            <p className="text-white/30 text-xs mt-1">{recipient.distribution}</p>
           </motion.div>
         ))}
       </div>
       
       <div className="bg-white/5 rounded-xl p-4 mt-4">
         <p className="text-white/60 text-sm text-center">
-          ✦ The residual pool is the heart of circulation. Every sale contributes to a fund that flows forever to everyone who helped create it.
+          ✦ The platform fee is fixed at <span className="text-cyan-400">10%</span> (industry standard is 30-50%)<br />
+          ✦ Creators set <span className="text-purple-400">residual percentage</span> (0-50% of fee) per product<br />
+          ✦ Creators set <span className="text-green-400">covenant pledge</span> (0-50% of earnings) in their profile
         </p>
       </div>
     </div>

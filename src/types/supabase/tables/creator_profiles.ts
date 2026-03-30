@@ -12,6 +12,8 @@ export interface CreatorProfileWithRelations extends CreatorProfile {
 
 export const creatorProfileDefaults = {
   default_residual_pool: 30,
+  creator_moniker: '',
+  creator_logo_url: '',
   total_products: 0,
   total_sales: 0,
   total_earnings: 0,

@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { productTypeLabels, productOwnerTypeLabels } from '@/types/supabase/tables/products';
-import type { ProductWithCreator } from '@/types/supabase/tables/products';
+import type { Product, ProductWithCreator } from '@/types/supabase/tables/products';
 import { PRODUCT_CATEGORY_MAP } from '@/types/categories';
 import { z } from 'zod';
 import { Database } from '@/types/supabase/database.types';
@@ -21,7 +21,7 @@ const productCreateSchema = z.object({
   recurring_interval: z.enum(['month', 'year']).optional().nullable(),
   residual_pool_percent: z.number().min(0).max(100).optional().default(30),
   sanctuary_infrastructure_percent: z.number().min(0).max(100).optional().default(10),
-  category: z.array(z.string()).optional().default([]),
+  category: z.array(z.string().optional().default('')),
   tags: z.array(z.string()).optional().default([]),
   media_urls: z.array(z.string().url()).optional().default([]),
   download_url: z.string().url().optional().nullable(),
@@ -78,6 +78,7 @@ export async function GET(request: NextRequest) {
     // Parse query parameters
     const searchParams = request.nextUrl.searchParams;
     const creatorId = searchParams.get('creator_id');
+    const ownerType = searchParams.get('owner_type');
     const publishedOnly = searchParams.get('published_only') !== 'false';
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = parseInt(searchParams.get('offset') || '0');
@@ -87,13 +88,18 @@ export async function GET(request: NextRequest) {
     // Build query
     let query = supabase
       .from('products')
-      .select('*, creator:creator_id(username, display_name, avatar_url)');
+      .select('*, creator:creator_id(username, owner_type, display_name, avatar_url)');
     
     // Filter by creator
     if (creatorId) {
       query = query.eq('creator_id', creatorId);
     }
-    
+
+    // Filter by owner type
+    if (ownerType) {
+      query = query.contains('owner_type', ownerType);
+    }
+
     // Filter by published status
     if (publishedOnly) {
       query = query.eq('is_published', true).eq('active', true);
@@ -146,7 +152,7 @@ export async function GET(request: NextRequest) {
     }
     
     return NextResponse.json({
-      products: data as ProductWithCreator[],
+      products: data as Product[],
       pagination: {
         total: count || 0,
         limit,
@@ -234,7 +240,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabase
       .from('products')
       .insert({
-        ...typedProductData,
+        ... typedProductData,
         slug: finalSlug,
         creator_id: user.id,
       })

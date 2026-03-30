@@ -3,37 +3,37 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, TrendingUp, Users, DollarSign, Heart } from 'lucide-react';
+import { ChevronDown, TrendingUp, Users, DollarSign, Heart, HandCoins } from 'lucide-react';
 
 const projections = [
   {
     year: 'Year 1-2',
     phase: 'Foundation',
     metrics: [
-      { label: 'Operational Sustainability', value: '100%', icon: TrendingUp, color: 'cyan' },
-      { label: 'Creator Earnings', value: '$50K', icon: DollarSign, color: 'purple' },
-      { label: 'Contributor Payouts', value: '$10K', icon: Users, color: 'pink' },
-      { label: 'Community Distribution', value: '$5K', icon: Heart, color: 'green' },
+      { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate' },
+      { label: 'Creator Earnings', value: '$50K', icon: DollarSign, color: 'purple', description: 'From sales' },
+      { label: 'Contributor Payouts', value: '$10K', icon: Users, color: 'pink', description: 'From residual pool' },
+      { label: 'Covenant Distribution', value: '$5K', icon: Heart, color: 'green', description: 'Community dignity share' },
     ],
   },
   {
     year: 'Year 3-5',
     phase: 'Growth',
     metrics: [
-      { label: 'Operational Sustainability', value: '100% + Surplus', icon: TrendingUp, color: 'cyan' },
-      { label: 'Creator Earnings', value: '$500K - $1M', icon: DollarSign, color: 'purple' },
-      { label: 'Contributor Payouts', value: '$100K - $250K', icon: Users, color: 'pink' },
-      { label: 'Community Distribution', value: '$50K - $100K', icon: Heart, color: 'green' },
+      { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate (unchanged)' },
+      { label: 'Creator Earnings', value: '$500K - $1M', icon: DollarSign, color: 'purple', description: 'Full-time incomes' },
+      { label: 'Contributor Payouts', value: '$100K - $250K', icon: Users, color: 'pink', description: 'Long-tail residual income' },
+      { label: 'Covenant Distribution', value: '$50K - $100K', icon: Heart, color: 'green', description: 'Basic dignity for all members' },
     ],
   },
   {
     year: 'Year 6-10',
     phase: 'Mature Ecosystem',
     metrics: [
-      { label: 'Operational Sustainability', value: '100% + Reserve', icon: TrendingUp, color: 'cyan' },
-      { label: 'Creator Earnings', value: '$2M - $5M', icon: DollarSign, color: 'purple' },
-      { label: 'Contributor Payouts', value: '$500K - $1M', icon: Users, color: 'pink' },
-      { label: 'Community Distribution', value: '$250K - $500K', icon: Heart, color: 'green' },
+      { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate (unchanged)' },
+      { label: 'Creator Earnings', value: '$2M - $5M', icon: DollarSign, color: 'purple', description: '50+ full-time creators' },
+      { label: 'Contributor Payouts', value: '$500K - $1M', icon: Users, color: 'pink', description: '500+ receiving forever' },
+      { label: 'Covenant Distribution', value: '$250K - $500K', icon: Heart, color: 'green', description: 'Universal basic dignity' },
     ],
   },
 ];
@@ -58,6 +58,7 @@ export function ProjectionTable() {
             <div className="text-left">
               <h3 className="text-xl font-bold text-white">{projection.year}</h3>
               <p className="text-sm text-cyan-400">{projection.phase}</p>
+              <p className="text-xs text-white/40 mt-1">Platform fee fixed at 10% across all phases</p>
             </div>
             <motion.div
               animate={{ rotate: expandedYear === projection.year ? 180 : 0 }}
@@ -82,8 +83,18 @@ export function ProjectionTable() {
                       <metric.icon className={`text-${metric.color}-400 mx-auto mb-2`} size={20} />
                       <div className={`text-2xl font-bold text-${metric.color}-400`}>{metric.value}</div>
                       <div className="text-white/60 text-sm">{metric.label}</div>
+                      <div className="text-white/30 text-xs mt-1">{metric.description}</div>
                     </div>
                   ))}
+                </div>
+                <div className="px-6 pb-6">
+                  <div className="bg-white/5 rounded-lg p-3 text-center">
+                    <p className="text-xs text-white/40">
+                      ✦ All numbers represent value distributed, not extracted<br />
+                      ✦ Platform fee: 10% (vs industry 30-50%)<br />
+                      ✦ 90% of sale goes to creator and community
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             )}
