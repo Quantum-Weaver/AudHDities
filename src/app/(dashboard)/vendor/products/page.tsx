@@ -72,7 +72,7 @@ export default async function VendorProductsPage() {
       );
     }
 
-    redirect('/vendor/products/new');
+    redirect('/vendor/apply');
   }
 
   // Fetch vendor profile for stats

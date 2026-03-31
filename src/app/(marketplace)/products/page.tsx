@@ -6,7 +6,7 @@ import { ProductGrid } from '@/components/products/ProductGrid';
 import { Input } from '@/components/ui/Input';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
-import type { Product } from '@/types/supabase/tables/products';
+import type { productTypeLabels } from '@/types/supabase/tables/products';
 
 export const metadata: Metadata = {
   title: 'All Products | AUDHDITIES Marketplace',
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 interface ProductsPageProps {
-  searchParams: Promise<{ q?: string; category?: string; sort?: string }> | { q?: string; category?: string; sort?: string };
+  searchParams: Promise<{ q?: string; category?: keyof typeof productTypeLabels; sort?: string }> | { q?: string; category?: keyof typeof productTypeLabels; sort?: string };
 }
 
-async function getSearchParams(searchParams: ProductsPageProps['searchParams']): Promise<{ q?: string; category?: string; sort?: string }> {
+async function getSearchParams(searchParams: ProductsPageProps['searchParams']): Promise<{ q?: string; category?: keyof typeof productTypeLabels; sort?: string }> {
   if (searchParams instanceof Promise) {
     return await searchParams;
   }

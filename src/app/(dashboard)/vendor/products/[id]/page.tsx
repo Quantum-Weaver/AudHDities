@@ -42,6 +42,7 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
     .from('products')
     .select('*')
     .eq('id', id)
+    .eq('owner_type', 'vendor')
     .single();
   
   if (error || !product) {

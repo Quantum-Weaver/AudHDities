@@ -8,11 +8,11 @@ import { Card } from '@/components/ui/Card';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-interface VendorProductDetailPageProps {
+interface CreatorProductDetailPageProps {
   params: Promise<{ id: string }> | { id: string };
 }
 
-export async function generateMetadata({ params }: VendorProductDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CreatorProductDetailPageProps): Promise<Metadata> {
   const { id } = await params;
   const supabase = await createServerSupabase();
   
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: VendorProductDetailPageProps)
   };
 }
 
-export default async function VendorProductDetailPage({ params }: VendorProductDetailPageProps) {
+export default async function CreatorProductDetailPage({ params }: CreatorProductDetailPageProps) {
   const { id } = await params;
   const supabase = await createServerSupabase();
   
@@ -42,7 +42,7 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
     .from('products')
     .select('*')
     .eq('id', id)
-    .eq('owner_type', 'vendor')
+    .eq('owner_type', 'creator')
     .single();
   
   if (error || !product) {
@@ -79,7 +79,7 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
         <div className="container max-w-4xl mx-auto px-6">
           
           <div className="mb-6">
-            <Link href="/vendor/products" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors">
+            <Link href="/creator/products" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors">
               <ArrowLeft size={16} />
               <span>Back to Products</span>
             </Link>

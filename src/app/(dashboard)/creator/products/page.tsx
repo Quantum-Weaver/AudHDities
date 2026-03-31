@@ -101,7 +101,7 @@ export default async function CreatorProductsPage() {
     <AuthGuard>
       <Page 
         variant={1}
-        environment="creator"
+        environment="marketplace"
         showForeground={false}
         animated={true}
         showContinuityBeam={true}

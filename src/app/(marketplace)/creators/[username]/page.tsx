@@ -85,6 +85,7 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
     .from('products')
     .select('*')
     .eq('creator_id', creator.id)
+    .eq('owner_type', 'creator')
     .eq('is_published', true)
     .eq('active', true)
     .order('created_at', { ascending: false })

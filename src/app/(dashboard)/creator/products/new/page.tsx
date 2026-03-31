@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Add a new product to your sanctuary',
 };
 
-export default async function NewProductPage() {
+export default async function CreatorNewProductPage() {
   const supabase = await createServerSupabase();
   
   // Check if user is logged in and is a creator

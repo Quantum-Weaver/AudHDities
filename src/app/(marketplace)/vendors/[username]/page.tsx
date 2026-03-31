@@ -115,6 +115,7 @@ export default async function VendorPage({ params }: VendorPageProps) {
     .select('*')
     .eq('creator_id', vendorId)
     .eq('is_published', true)
+    .eq('owner_type', 'vendor')
     .eq('active', true)
     .order('created_at', { ascending: false })
     .limit(12);
