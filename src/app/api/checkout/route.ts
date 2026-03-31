@@ -2,7 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import Stripe from 'stripe';
-import type { Product } from '@/types/supabase/tables/products';
 import type { Profile } from '@/types/supabase/tables/profiles';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
