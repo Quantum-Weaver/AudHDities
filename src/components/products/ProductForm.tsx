@@ -22,7 +22,7 @@ interface ProductFormProps {
   onSuccess?: () => void;
 }
 
-export function ProductForm({ mode, initialData, productId, onSuccess }: ProductFormProps) {
+export default function ProductForm({ mode, initialData, productId, onSuccess }: ProductFormProps) {
   const router = useRouter();
   const supabase = useSupabase();
   const [error, setError] = useState<string | null>(null);
