@@ -87,6 +87,7 @@ export default async function CreatorProductsPage() {
     .from('products')
     .select('*')
     .eq('creator_id', user.id)
+    .eq('owner_type', 'creator')
     .order('created_at', { ascending: false });
 
   // Calculate stats

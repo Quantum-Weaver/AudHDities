@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: VendorProductDetailPageProps)
     .from('products')
     .select('title')
     .eq('id', id)
+    .eq('owner_type', 'creator')
     .single();
   
   if (!product) {
@@ -41,6 +42,7 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
     .from('products')
     .select('*')
     .eq('id', id)
+    .eq('owner_type', 'vendor')
     .single();
   
   if (error || !product) {
@@ -57,6 +59,7 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
   
   const initialData = {
     ...product,
+    owner_type: 'creator',
     price_community: product.price_community ?? 0,
     price_corporate: product.price_corporate ?? 0,
     price_ally: product.price_ally ?? 0,

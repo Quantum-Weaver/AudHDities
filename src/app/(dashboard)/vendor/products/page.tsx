@@ -72,7 +72,7 @@ export default async function VendorProductsPage() {
       );
     }
 
-    redirect('/vendor/apply');
+    redirect('/vendor/products/new');
   }
 
   // Fetch vendor profile for stats
@@ -87,6 +87,7 @@ export default async function VendorProductsPage() {
     .from('products')
     .select('*')
     .eq('creator_id', user.id)
+    .eq('owner_type', 'vendor')
     .order('created_at', { ascending: false });
 
   // Calculate stats
