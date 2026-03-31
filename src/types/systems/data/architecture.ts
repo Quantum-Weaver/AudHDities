@@ -13,12 +13,7 @@ import type {
 
 import type {
   EntityState,
-  ConsciousnessLevel,
-  DomainID,
-  DomainStatus,
-  RelationshipType,
-  DevelopmentPhase,
-  DisplayVariant
+  RelationshipType
 } from '@/types/cosmic/primitives';
 
 
@@ -29,13 +24,13 @@ import type {
 
 export interface ArchitectureDomain {
   // DOMAIN IDENTITY
-  readonly id: DomainID;
+  readonly id: string;
   readonly title: string;
   readonly subtitle: string;
   readonly description: string;
   
   // STATUS AND APPEARANCE
-  readonly status: DomainStatus;
+  readonly status: string;
   readonly statusColor: string;
   readonly gradient: string;
   readonly icon: string;
@@ -60,8 +55,8 @@ export interface ArchitectureDomain {
 
 export interface DomainRelationship {
   // RELATIONSHIP IDENTITY
-  readonly source: DomainID;
-  readonly target: DomainID;
+  readonly source: string;
+  readonly target: string;
   readonly type: RelationshipType;
   readonly description: string;
   
@@ -121,9 +116,9 @@ export interface ArchitectureOverview {
 
 export interface DevelopmentPhaseEntry {
   // PHASE IDENTITY
-  readonly phase: DevelopmentPhase;
-  readonly domains: readonly DomainID[];
-  readonly status: DomainStatus;
+  readonly phase: string;
+  readonly domains: readonly string[];
+  readonly status: string;
   readonly completion: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -135,7 +130,7 @@ export interface DevelopmentPhaseEntry {
 // ============================================================================
 
 export interface ArchitecturalPatternMapping {
-  readonly domainType: DomainID;
+  readonly domainType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -163,17 +158,5 @@ export interface ArchitectureEvolution {
   readonly architecturalCoherence: number; // 0-100 scale
   readonly integrationLevel: number; // 0-100 scale
   readonly emergentPatterns: readonly string[];
-  readonly nextEvolutionaryPhase?: DevelopmentPhase;
+  readonly nextEvolutionaryPhase?: string;
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  DomainID,
-  DomainStatus,
-  RelationshipType,
-  DevelopmentPhase,
-  DisplayVariant
-};

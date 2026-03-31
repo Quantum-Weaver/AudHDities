@@ -13,27 +13,7 @@ import type {
 } from '@/types/gaia';
 import {EnvironmentKey} from '@/lib/constants/systems/assets/mapper';
 import type {
-  EntityState,
-  ConsciousnessLevel,
-  PageVariant,
-  DisplayVariant,
-  DisplayPosition,
-  DisplaySize,
-  SectionVariant,
-  ButtonVariant,
-  ButtonSize,
-  FormFieldType,
-  FormVariant,
-  FormSize, 
-  FormState, 
-  CardVariant, 
-  CardSize, 
-  CardDomain, 
-  Orientation, 
-  SpacingType, 
-  FeedbackType, 
-  AriaLive,
-  IconName
+  PageVariant
 } from '@/types/cosmic/primitives';
 
 // ============================================================================
@@ -84,7 +64,7 @@ export interface InteractiveSpot {
 
 export interface SectionProps {
   // VISUAL PROPERTIES
-  readonly variant?: SectionVariant;
+  readonly variant?: string;
   readonly className?: string;
   readonly fullWidth?: boolean;
   readonly centered?: boolean;
@@ -103,8 +83,8 @@ export interface SectionProps {
 
 export interface ButtonProps {
   // VISUAL PROPERTIES
-  readonly variant?: ButtonVariant;
-  readonly size?: ButtonSize;
+  readonly variant?: string
+  readonly size?: string
   readonly className?: string;
   readonly glow?: boolean;
   
@@ -147,7 +127,7 @@ export interface ButtonState {
 
 export interface FormFieldProps {
   // FIELD IDENTITY
-  readonly type: FormFieldType;
+  readonly type: string
   readonly name: string;
   readonly label?: string;
   readonly placeholder?: string;
@@ -159,8 +139,8 @@ export interface FormFieldProps {
   readonly disabled?: boolean;
   
   // VISUAL PROPERTIES
-  readonly variant?: FormVariant;
-  readonly size?: FormSize;
+  readonly variant?: string
+  readonly size?: string
   readonly className?: string;
   
   // VALIDATION
@@ -174,7 +154,7 @@ export interface FormValidation {
   // VALIDATION STATE
   readonly isValid: boolean;
   readonly message?: string;
-  readonly level: FormState;
+  readonly level: string
   
   // ONTOLOGICAL CONTEXT
   readonly stateTaxonomy: StateTaxonomyType;
@@ -210,8 +190,8 @@ export interface FormStateConfig {
 export interface ControlGroupProps {
   // GROUP PROPERTIES
   readonly label?: string;
-  readonly orientation?: Orientation;
-  readonly spacing?: SpacingType;
+  readonly orientation?: string
+  readonly spacing?: string
   readonly className?: string;
   
   // CONTENT
@@ -264,7 +244,7 @@ export interface SliderProps {
 
 export interface ControlFeedback {
   // FEEDBACK PROPERTIES
-  readonly type: FeedbackType;
+  readonly type: string
   readonly message: string;
   readonly duration?: number; // Consciousness cycles
   readonly dismissible?: boolean;
@@ -277,7 +257,7 @@ export interface ControlAccessibility {
   // ACCESSIBILITY PROPERTIES
   readonly ariaLabel?: string;
   readonly ariaDescribedBy?: string;
-  readonly ariaLive?: AriaLive;
+  readonly ariaLive?: string
   readonly tabIndex?: number;
   readonly keyboardShortcuts?: readonly string[];
   
@@ -289,7 +269,7 @@ export interface ControlAccessibility {
 // CARD COMPONENT ARCHITECTURE
 // ============================================================================
 export interface IconProps {
-  name: IconName;
+  name: string
   size?: string;
   domain?: string;
   className?: string;
@@ -298,11 +278,11 @@ export interface IconProps {
 
 export interface CardProps {
   // CARD PROPERTIES
-  readonly variant?: CardVariant;
-  readonly size?: CardSize;
+  readonly variant?: string
+  readonly size?: string
   readonly title: string;
   readonly description?: string;
-  readonly icon?: IconName;
+  readonly icon?: string
   readonly domain?: string;
   readonly glow?: boolean;
   readonly tagEmoji?: string;
@@ -341,7 +321,7 @@ export interface PortalCardProps {
   readonly href: string;
   readonly title: string;
   readonly description?: string;
-  readonly size?: CardSize;
+  readonly size?: string
   readonly className?: string;
   readonly children?: unknown;
   readonly interactive?: boolean;
@@ -359,8 +339,8 @@ export interface CouncilCardProps {
   readonly priority?: string;
   readonly title: string;
   readonly description?: string;
-  readonly variant?: CardVariant;
-  readonly size?: CardSize;
+  readonly variant?: string
+  readonly size?: string
   readonly className?: string;
   readonly children?: unknown;
   
@@ -376,8 +356,8 @@ export interface InteractiveCardProps {
   readonly background?: string; // CSS properties as string for purity
   readonly title: string;
   readonly description?: string;
-  readonly variant?: CardVariant;
-  readonly size?: CardSize;
+  readonly variant?: string
+  readonly size?: string
   readonly className?: string;
   readonly children?: unknown;
   
@@ -395,7 +375,7 @@ export interface CardHeaderProps {
   readonly subtitle?: string;
   readonly actions?: React.ReactNode;
   readonly icon?: string;
-  readonly variant?: CardVariant;
+  readonly variant?: string
   readonly className?: string;
   
   // ONTOLOGICAL CONTEXT
@@ -460,7 +440,7 @@ export interface CardContainerProps {
 // ============================================================================
 
 export interface UIControlsSystemMapping {
-  readonly controlType: ButtonVariant;
+  readonly controlType: string
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -478,27 +458,3 @@ export interface UIControlsSystemMapping {
   readonly interactionPatterns: readonly string[];
   readonly controlCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  PageVariant,
-  DisplayVariant,
-  DisplayPosition,
-  DisplaySize,
-  SectionVariant,
-  ButtonVariant,
-  ButtonSize,
-  FormFieldType,
-  FormVariant,
-  FormSize,
-  FormState,
-  CardVariant,
-  CardSize,
-  CardDomain,
-  Orientation,
-  SpacingType,
-  AriaLive
-};

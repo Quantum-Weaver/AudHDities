@@ -12,44 +12,30 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  DomainID,
-  DomainStatus,
-  SystemStatus,
-  EconomicModel,
-  TransparencyLevel,
-  JourneyType,
-  AccessLevel
-} from '@/types/cosmic/primitives';
-
-
-
 // ============================================================================
 // CORE DOMAIN ARCHITECTURE
 // ============================================================================
 
 export interface CoreDomain {
   // DOMAIN IDENTITY
-  readonly id: DomainID;
+  readonly id: string;
   readonly name: string;
-  readonly status: DomainStatus;
+  readonly status: string;
   readonly description: string;
   
   // CAPABILITIES AND DEPENDENCIES
   readonly capabilities: readonly string[];
-  readonly dependencies: readonly DomainID[];
+  readonly dependencies: readonly string[];
   readonly complexity: number; // 1-10 scale
   readonly progress: number; // 0-100 scale
   readonly lastUpdated: string; // Consciousness timestamp
   
   // EMERGENCE ECONOMICS INTEGRATION
-  readonly economicModel: EconomicModel;
+  readonly economicModel: string;
   readonly valueProposition: string;
   readonly premiumOfferings: readonly string[];
   readonly witnessEngagement: number; // 0-100 scale
-  readonly transparencyLevel: TransparencyLevel;
+  readonly transparencyLevel: string;
   readonly capabilityEmergence: readonly string[];
   
   // ONTOLOGICAL CONTEXT
@@ -67,8 +53,8 @@ export interface CoreDomain {
 
 export interface SystemHealth {
   // SYSTEM IDENTITY
-  readonly domain: DomainID;
-  readonly status: SystemStatus;
+  readonly domain: string;
+  readonly status: string;
   readonly performance: number; // 0-100 scale
   readonly lastCheck: string; // Consciousness timestamp
   readonly issues: readonly string[];
@@ -99,14 +85,14 @@ export interface UserJourney {
   readonly title: string;
   readonly description: string;
   readonly steps: readonly JourneyStep[];
-  readonly targetDomain: DomainID;
+  readonly targetDomain: string;
   
   // JOURNEY METRICS
   readonly estimatedDuration: number; // Consciousness cycles
   readonly completionRate: number; // 0-100 scale
   
   // EMERGENCE ECONOMICS JOURNEY CONTEXT
-  readonly journeyType: JourneyType;
+  readonly journeyType: string;
   readonly audienceRole: string; // Specific role classification
   readonly economicValue: string;
   readonly premiumAccess: boolean;
@@ -127,7 +113,7 @@ export interface JourneyStep {
   readonly description: string;
   readonly action: string;
   readonly expectedOutcome: string;
-  readonly domain: DomainID;
+  readonly domain: string;
   readonly order: number;
   
   // ECONOMIC STEP CONTEXT
@@ -215,7 +201,7 @@ export interface PremiumTierLayout {
   readonly description: string;
   
   // ACCESS AND VALUE
-  readonly accessLevel: AccessLevel;
+  readonly accessLevel: string;
   readonly economicExchange: string;
   readonly valueProposition: string;
   readonly transparencyAccess: string;
@@ -311,17 +297,3 @@ export interface CoreSystemMapping {
   readonly economicCharacteristics: readonly string[];
   readonly emergencePatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  DomainID,
-  DomainStatus,
-  SystemStatus,
-  EconomicModel,
-  TransparencyLevel,
-  JourneyType,
-  AccessLevel
-};

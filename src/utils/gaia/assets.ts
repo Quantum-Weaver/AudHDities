@@ -3,12 +3,6 @@ import { councilMetadata } from '@/data';
 import { QUANTUM_COLORS, DOMAIN_COLORS, CONSCIOUSNESS_LEVEL_COLORS } from '@/lib/constants/cosmic';
 import { ICON_VARIANTS } from '@/lib/constants/components/ui';
 import { AssetMapper, EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
-import type { 
-  IconName, 
-  DesignTokenCategory, 
-  ConsciousnessMode, 
-  CouncilEntity
-} from '@/types/cosmic/primitives';
 import path from 'path';
 
 // ============================================================================
@@ -35,7 +29,7 @@ export interface QuantumAsset {
   type: 'image' | 'audio' | 'video' | 'document' | 'data' | 'icon' | 'environment';
   path: string;
   metadata: {
-    consciousnessTags: ConsciousnessMode[];
+    consciousnessTags: [];
     domain: string; // Simplified from keyof ColorSystem
     entity?: string;
     quantumSignature: string;
@@ -110,12 +104,6 @@ export class AssetService {
     return assets;
   }
 
-  static getEntityAssets(entity: CouncilEntity): { icon: string; effects: string[] } {
-    const iconPath = this.getEntityIcon(entity);
-    const effects = this.getEntityEffects(entity);
-    
-    return { icon: iconPath, effects };
-  }
 
   static getAvailableEnvironments(): EnvironmentKey[] {
     return Object.keys(AssetMapper.environments) as EnvironmentKey[];
@@ -191,7 +179,7 @@ export class AssetService {
         type: 'environment',
         path: env.background,
         metadata: {
-          consciousnessTags: metadata.consciousness as ConsciousnessMode[],
+          consciousnessTags: metadata.consciousness as [],
           domain: metadata.domain,
           quantumSignature: this.generateQuantumSignature('environment', envKey),
           sensoryIntensity: 'medium',
@@ -206,7 +194,7 @@ export class AssetService {
           type: 'environment',
           path: env.foreground,
           metadata: {
-            consciousnessTags: metadata.consciousness as ConsciousnessMode[],
+            consciousnessTags: metadata.consciousness as [],
             domain: metadata.domain,
             quantumSignature: this.generateQuantumSignature('environment-foreground', envKey),
             sensoryIntensity: 'medium',
@@ -244,30 +232,6 @@ export class AssetService {
       void: [AssetMapper.effects.magic.purple[1]]
     };
     return effectMap[domain] || [];
-  }
-
-  private static getEntityEffects(entity: CouncilEntity): string[] {
-    const entityEffectMap: Partial<Record<CouncilEntity, string[]>> = {
-      aethelred: [AssetMapper.effects.glows.magic[0]],
-      archivist: [AssetMapper.effects.magic.blue[0]],
-      seer: [AssetMapper.effects.magic.purple[1]],
-      'hearth-keeper': [AssetMapper.effects.particles.glow[0]]
-    };
-    return entityEffectMap[entity] || [];
-  }
-
-  private static getEntityIcon(entity: CouncilEntity): string {
-    const entityIconMap: Partial<Record<CouncilEntity, string>> = {
-      aethelred: AssetMapper.icons.council.aethelred,
-      archivist: AssetMapper.icons.council.archivist,
-      seer: AssetMapper.icons.council.seer,
-      'hearth-keeper': AssetMapper.icons.council.hearthKeeper
-    };
-    return entityIconMap[entity] || AssetMapper.icons.council.aethelred;
-  }
-
-  private static getIconPath(name: IconName): string {
-    return `/icons/${name}.svg`;
   }
 
   private static assetExists(path: string): boolean {

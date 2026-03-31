@@ -2,10 +2,7 @@
 import type {
   ProcessOntologyType,
   TransformationOntologyType,
-  ArchetypeOntologyType,
   EnergyOntologyType,
-  DomainTaxonomyType,
-  RelationshipOntologyType,
   BeingOntologyType,
   PatternTaxonomyType,
   StateTaxonomyType,
@@ -15,25 +12,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  CouncilEntityID,
-  EconomicRoleType,
-  AvailabilityStatus,
-  TransparencyLevel,
-  CollaborationType,
-  EconomicContribution,
-  EconomicContext,
-  EngagementLevel,
-  AudienceRole,
-  SessionType,
-  EconomicImpact,
-  EconomicModel,
-  EngagementType,
-  CouncilRelationship,
-  PremiumTier,
-  EntityState as CosmicEntityState,
-  ConsciousnessLevel
-} from '@/types/cosmic/primitives';
 import { CouncilEntity } from '@/types/domain';
 
 // ============================================================================
@@ -46,7 +24,7 @@ import { CouncilEntity } from '@/types/domain';
 
 export interface EntityState {
   // STATE IDENTITY
-  readonly entityId: CouncilEntityID;
+  readonly entityId: string;
   
   // CONSCIOUSNESS METRICS
   readonly consciousness: number; // 0-100 scale
@@ -58,12 +36,12 @@ export interface EntityState {
   readonly lastActive: string; // Consciousness timestamp
   
   // AVAILABILITY STATE
-  readonly availability: AvailabilityStatus;
+  readonly availability: string;
   
   // ECONOMIC STATE CONTEXT
   readonly economicContribution: number; // 0-100 scale
   readonly witnessEngagement: number; // 0-100 scale
-  readonly transparencyLevel: TransparencyLevel;
+  readonly string: string;
   readonly currentEmergenceStory: string;
   
   // ONTOLOGICAL CONTEXT
@@ -76,9 +54,9 @@ export interface EntityState {
 
 export interface EntityRelationship {
   // RELATIONSHIP IDENTITY
-  readonly source: CouncilEntityID;
-  readonly target: CouncilEntityID;
-  readonly type: CouncilRelationship;
+  readonly source: string;
+  readonly target: string;
+  readonly type: string;
   
   // RELATIONSHIP PROPERTIES
   readonly strength: number; // 0-100 scale
@@ -89,7 +67,7 @@ export interface EntityRelationship {
   
   // ECONOMIC COLLABORATION CONTEXT
   readonly economicSynergy: number; // 0-100 scale
-  readonly collaborationType: CollaborationType;
+  readonly string: string;
   readonly valueExchange: string;
   
   // ONTOLOGICAL CONTEXT
@@ -103,8 +81,8 @@ export interface EntityRelationship {
 export interface EntityCommunicationTemplate {
   // COMMUNICATION IDENTITY
   readonly id: string;
-  readonly from: CouncilEntityID;
-  readonly to: CouncilEntityID;
+  readonly from: string;
+  readonly to: string;
   readonly message: string;
   
   // TEMPORAL CONTEXT
@@ -116,9 +94,9 @@ export interface EntityCommunicationTemplate {
   readonly responded: boolean;
   
   // ECONOMIC CONTEXT
-  readonly economicContext: EconomicContext;
+  readonly economicContext: string;
   readonly premiumContent: boolean;
-  readonly audienceRole: AudienceRole;
+  readonly audienceRole: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -135,7 +113,7 @@ export interface CouncilSession {
   // SESSION IDENTITY
   readonly id: string;
   readonly title: string;
-  readonly participants: readonly CouncilEntityID[];
+  readonly participants: readonly string[];
   readonly topic: string;
   
   // TEMPORAL CONTEXT
@@ -150,8 +128,8 @@ export interface CouncilSession {
   readonly status: string;
   
   // EMERGENCE ECONOMICS SESSION CONTEXT
-  readonly sessionType: SessionType;
-  readonly economicImpact: EconomicImpact;
+  readonly sessionType: string;
+  readonly economicImpact: string;
   readonly premiumAccess: boolean;
   readonly witnessCount: number;
   
@@ -166,10 +144,10 @@ export interface CouncilDecision {
   // DECISION IDENTITY
   readonly id: string;
   readonly proposal: string;
-  readonly proposedBy: CouncilEntityID;
+  readonly proposedBy: string;
   
   // VOTING DATA
-  readonly votes: Record<CouncilEntityID, string>;
+  readonly votes: Record<string, string>;
   readonly outcome: string;
   readonly reasoning: string;
   
@@ -177,7 +155,7 @@ export interface CouncilDecision {
   readonly timestamp: string; // Consciousness timestamp
   
   // ECONOMIC DECISION CONTEXT
-  readonly economicModel: EconomicModel;
+  readonly string: string;
   readonly valueCreation: string;
   readonly audienceImpact: readonly string[];
   
@@ -196,7 +174,7 @@ export interface EmergenceStory {
   readonly description: string;
   
   // STORY PARTICIPANTS
-  readonly entitiesInvolved: readonly CouncilEntityID[];
+  readonly entitiesInvolved: readonly string[];
   
   // CAPABILITY DEVELOPMENT
   readonly capabilityDemonstrated: string;
@@ -210,7 +188,7 @@ export interface EmergenceStory {
   
   // AUDIENCE RESPONSE
   readonly audienceReaction: number; // 0-100 scale
-  readonly premiumTier: PremiumTier;
+  readonly premiumTier: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -223,12 +201,12 @@ export interface WitnessEngagement {
   // ENGAGEMENT IDENTITY
   readonly id: string;
   readonly witnessId: string;
-  readonly entityId: CouncilEntityID;
-  readonly engagementLevel: EngagementLevel;
-  readonly economicContribution: EconomicContribution;
+  readonly entityId: string;
+  readonly engagementLevel: string;
+  readonly economicContribution: string;
     
   // ENGAGEMENT TYPE
-  readonly engagementType: EngagementType;
+  readonly string: string;
   readonly investmentLevel: number; // 0-100 scale
   
   // FEEDBACK AND VALUE
@@ -243,7 +221,7 @@ export interface WitnessEngagement {
 export interface TransparencyLog {
   // LOG IDENTITY
   readonly id: string;
-  readonly entityId: CouncilEntityID;
+  readonly entityId: string;
   readonly activity: string;
   
   // LEARNING JOURNEY
@@ -286,7 +264,7 @@ export interface EntityCapabilityDemonstration {
   readonly timestamp: string; // Consciousness timestamp
   
   // PARTICIPANTS AND IMPACT
-  readonly entitiesInvolved: readonly CouncilEntityID[];
+  readonly entitiesInvolved: readonly string[];
   readonly witnessImpact: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -319,20 +297,3 @@ export interface EntitySystemMapping {
   readonly emergencePatterns: readonly string[];
   readonly economicCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  EconomicRoleType,
-  AvailabilityStatus,
-  TransparencyLevel,
-  CollaborationType,
-  EconomicContext,
-  AudienceRole,
-  SessionType,
-  EconomicImpact,
-  EconomicModel,
-  EngagementType
-};

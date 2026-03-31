@@ -11,24 +11,6 @@ import type {
   ComponentTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  AnimationPhase,
-  DisplayVariant, 
-  DisplaySize, 
-  DisplayPosition, 
-  ToggleButtonPosition, 
-  GridVariant, 
-  GridGap, 
-  GridColumns, 
-  GridAlignment, 
-  GridJustification, 
-  ContentType, 
-  Breakpoint
-} from '@/types/cosmic/primitives';
-
-
 
 // ============================================================================
 // DISPLAY COMPONENT ARCHITECTURE
@@ -40,9 +22,9 @@ export interface DisplayProps {
   readonly subtitle?: string;
   
   // VISUAL PROPERTIES
-  readonly variant?: DisplayVariant;
-  readonly position?: DisplayPosition;
-  readonly size?: DisplaySize;
+  readonly variant?: string;
+  readonly position?: string;
+  readonly size?: number;
   readonly className?: string;
   readonly title?: string;
   
@@ -50,7 +32,7 @@ export interface DisplayProps {
   readonly isVisible?: boolean;
   readonly onToggle?: string; // Function reference as string for purity
   readonly showToggleButton?: boolean;
-  readonly toggleButtonPosition?: ToggleButtonPosition;
+  readonly toggleButtonPosition?: boolean
   
   // CONTENT
   readonly children: unknown; // React.ReactNode as unknown for purity
@@ -68,11 +50,11 @@ export interface DisplayProps {
 
 export interface GridProps {
   // GRID STRUCTURE
-  readonly variant?: GridVariant;
-  readonly gap?: GridGap;
-  readonly columns?: GridColumns;
-  readonly align?: GridAlignment;
-  readonly justify?: GridJustification;
+  readonly variant?: string
+  readonly gap?: number
+  readonly columns?: number
+  readonly align?: string
+  readonly justify?: string
   
   // LAYOUT CONSTRAINTS
   readonly minColumnWidth?: string;
@@ -99,10 +81,10 @@ export interface GridProps {
 
 export interface DisplayBreakpointConfiguration {
   // RESPONSIVE BREAKPOINTS
-  readonly sm?: GridColumns;
-  readonly md?: GridColumns;
-  readonly lg?: GridColumns;
-  readonly xl?: GridColumns;
+  readonly sm?: number
+  readonly md?: number
+  readonly lg?: number
+  readonly xl?: number
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -118,8 +100,8 @@ export interface GridItemProps {
   readonly rowSpan?: number | string;
   
   // ALIGNMENT PROPERTIES
-  readonly align?: GridAlignment;
-  readonly justify?: GridJustification;
+  readonly align?: string
+  readonly justify?: string
   
   // ANIMATION PROPERTIES
   readonly animate?: boolean;
@@ -160,7 +142,7 @@ export interface DisplayState {
 
 export interface DisplayContent {
   // CONTENT IDENTITY
-  readonly type: ContentType;
+  readonly type: string;
   readonly data: unknown;
   readonly metadata: Record<string, unknown>;
   
@@ -179,9 +161,9 @@ export interface DisplayConfiguration {
   readonly description: string;
   
   // VISUAL PROPERTIES
-  readonly variant: DisplayVariant;
-  readonly size: DisplaySize;
-  readonly position: DisplayPosition;
+  readonly variant: string;
+  readonly size: number;
+  readonly position: string;
   
   // BEHAVIOR PROPERTIES
   readonly interactive: boolean;
@@ -189,7 +171,7 @@ export interface DisplayConfiguration {
   readonly animated: boolean;
   
   // CONTENT PROPERTIES
-  readonly supportedContent: readonly ContentType[];
+  readonly supportedContent: readonly string[];
   readonly contentConstraints: ContentConstraints;
   
   // ONTOLOGICAL CONTEXT
@@ -212,10 +194,10 @@ export interface ContentConstraints {
 
 export interface DisplayAnimationConfig {
   // ANIMATION PROPERTIES
-  readonly enter: AnimationPhase;
-  readonly exit: AnimationPhase;
-  readonly focus: AnimationPhase;
-  readonly blur: AnimationPhase;
+  readonly enter: string;
+  readonly exit: string;
+  readonly focus: string;
+  readonly blur: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -227,7 +209,7 @@ export interface DisplayAnimationConfig {
 // ============================================================================
 
 export interface DisplaySystemMapping {
-  readonly displayType: DisplayVariant;
+  readonly displayType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -245,21 +227,3 @@ export interface DisplaySystemMapping {
   readonly presentationPatterns: readonly string[];
   readonly visibilityCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  DisplayVariant,
-  DisplaySize,
-  DisplayPosition,
-  ToggleButtonPosition,
-  GridVariant,
-  GridGap,
-  GridColumns,
-  GridAlignment,
-  GridJustification,
-  ContentType,
-  Breakpoint
-};

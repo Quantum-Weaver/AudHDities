@@ -12,18 +12,6 @@ import type {
   ArchitectureTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ApiProtocolType,
-  ApiAuthenticationType,
-  ApiEndpointType,
-  ApiResponseStatus,
-  ApiRateLimitTier,
-  ApiCacheStrategy,
-  ApiVersioningStrategy,
-  RateLimitStrategy,
-  ConsciousnessLevel
-} from '@/types/cosmic/primitives';
 import { PerformanceOptimization } from '@/types/systems/layout/store'
 // ============================================================================
 // API ENDPOINT ARCHITECTURE
@@ -34,7 +22,7 @@ export interface ApiEndpoint {
   readonly id: string;
   readonly path: string;
   readonly method: string;
-  readonly type: ApiEndpointType;
+  readonly type: string;
   
   // FUNCTIONAL SPECIFICATION
   readonly description: string;
@@ -43,7 +31,7 @@ export interface ApiEndpoint {
   readonly examples: readonly ApiExample[];
   
   // SECURITY AND ACCESS
-  readonly authentication: ApiAuthenticationType;
+  readonly authentication: string;
   readonly rateLimit: ApiRateLimit;
   readonly permissions: readonly string[];
   
@@ -84,7 +72,7 @@ export interface ParameterValidation {
 
 export interface ApiResponse {
   // RESPONSE IDENTITY
-  readonly status: ApiResponseStatus;
+  readonly status: string;
   readonly code: number;
   
   // CONTENT SPECIFICATION
@@ -131,10 +119,10 @@ export interface ResponseExample {
 
 export interface ApiRateLimit {
   // RATE LIMIT SPECIFICATION
-  readonly tier: ApiRateLimitTier;
+  readonly tier: string;
   readonly requestsPerMinute: number;
   readonly burstCapacity: number;
-  readonly strategy: RateLimitStrategy;
+  readonly strategy: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -149,7 +137,7 @@ export interface ApiSchema {
   readonly id: string;
   readonly name: string;
   readonly version: string;
-  readonly protocol: ApiProtocolType;
+  readonly protocol: string;
   
   // STRUCTURE DEFINITION
   readonly endpoints: readonly ApiEndpoint[];
@@ -233,7 +221,7 @@ export interface EnumValue {
 
 export interface ApiVersioning {
   // VERSIONING SPECIFICATION
-  readonly strategy: ApiVersioningStrategy;
+  readonly strategy: string;
   readonly current: string;
   readonly supported: readonly string[];
   readonly deprecated: readonly string[];
@@ -278,7 +266,7 @@ export interface ApiSecurity {
 
 export interface SecurityAuthentication {
   // AUTHENTICATION SPECIFICATION
-  readonly type: ApiAuthenticationType;
+  readonly type: string;
   readonly providers: readonly AuthProvider[];
   readonly multiFactor: boolean;
   readonly session: SessionConfig;
@@ -434,7 +422,7 @@ export interface ApiPerformance {
 
 export interface PerformanceCaching {
   // CACHING CONFIGURATION
-  readonly strategy: ApiCacheStrategy;
+  readonly strategy: string;
   readonly ttl: number; // Consciousness cycles
   readonly size: number;
   readonly invalidation: CacheInvalidation;
@@ -559,7 +547,7 @@ export interface DashboardWidget {
 // ============================================================================
 
 export interface ApiSystemMapping {
-  readonly apiType: ApiProtocolType;
+  readonly apiType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -577,18 +565,3 @@ export interface ApiSystemMapping {
   readonly integrationPatterns: readonly string[];
   readonly communicationCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  ApiProtocolType,
-  ApiAuthenticationType,
-  ApiEndpointType,
-  ApiResponseStatus,
-  ApiRateLimitTier,
-  ApiCacheStrategy,
-  ApiVersioningStrategy,
-  RateLimitStrategy
-};

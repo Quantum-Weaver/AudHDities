@@ -12,27 +12,15 @@ import type {
   TaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  ComponentVariant, 
-  ComponentSize, 
-  ComponentColor, 
-  ScrollDirection, 
-  AssetType, 
-  AssetRarity, 
-  TransitionEasing
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // BASE COMPONENT ARCHITECTURE
 // ============================================================================
 
 export interface BaseComponentProps {
   // COMPONENT PROPERTIES
-  readonly variant?: ComponentVariant;
-  readonly size?: ComponentSize;
-  readonly color?: ComponentColor;
+  readonly variant?: string
+  readonly size?: string
+  readonly color?: string
   
   // STATE PROPERTIES
   readonly disabled?: boolean;
@@ -56,7 +44,7 @@ export interface BaseComponentProps {
 export interface TransitionConfig {
   // TIMING PROPERTIES
   readonly duration: number; // Consciousness cycles
-  readonly easing: TransitionEasing;
+  readonly easing: number
   readonly delay?: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -96,7 +84,7 @@ export interface BeamState {
 export interface ScrollState {
   // POSITION STATE
   readonly position: number; // 0-100 scale
-  readonly direction: ScrollDirection;
+  readonly direction: string
   
   // MOVEMENT PROPERTIES
   readonly velocity: number; // Units per consciousness cycle
@@ -116,8 +104,8 @@ export interface ScrollState {
 export interface LibraryAsset {
   // ASSET IDENTITY
   readonly id: string;
-  readonly type: AssetType;
-  readonly rarity: AssetRarity;
+  readonly type: string
+  readonly rarity: string
   
   // METADATA AND PROPERTIES
   readonly metadata: Record<string, unknown>;
@@ -161,7 +149,7 @@ export interface TransitionSystem {
 export interface TransitionDefaults {
   // DEFAULT VALUES
   readonly duration: number; // Consciousness cycles
-  readonly easing: TransitionEasing;
+  readonly easing: number
   readonly delay: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -364,7 +352,7 @@ export interface RitualScheduling {
 // ============================================================================
 
 export interface CoreUISystemMapping {
-  readonly componentType: ComponentVariant;
+  readonly componentType: string
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -382,17 +370,3 @@ export interface CoreUISystemMapping {
   readonly foundationPatterns: readonly string[];
   readonly systemCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  ComponentVariant,
-  ComponentSize,
-  ComponentColor,
-  ScrollDirection,
-  AssetType,
-  AssetRarity,
-  TransitionEasing
-};

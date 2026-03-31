@@ -12,22 +12,7 @@ import type {
 } from '@/types/gaia';
 
 import type {
-  EntityState,
-  ConsciousnessLevel,
-  AudienceType, 
-  CommitmentLevel, 
-  UrgencyLevel, 
-  PriorityLevel, 
-  SupportType,
-  ImpactLevel, 
-  CollaborationType, 
-  ContactMethod,
-  EngagementStatus,
-  EngagementVisibility, 
-  GrowthTrend, 
-  CommunicationStyle, 
-  InteractionFrequency, 
-  ContentType
+  PriorityLevel
 } from '@/types/cosmic/primitives';
 
 
@@ -40,16 +25,16 @@ export interface CommunityEngagement {
   readonly id: string;
   
   // AUDIENCE AND COMMITMENT
-  readonly audienceType: AudienceType;
-  readonly commitmentLevel: CommitmentLevel;
-  readonly urgencyLevel: UrgencyLevel;
-  readonly impactLevel: ImpactLevel;
+  readonly audienceType: string;
+  readonly commitmentLevel: string;
+  readonly urgencyLevel: string;
+  readonly impactLevel: string;
   readonly priorityLevel: PriorityLevel;
   
   // SUPPORT AND COLLABORATION
-  readonly supportTypes: readonly SupportType[];
-  readonly collaborationTypes: readonly CollaborationType[];
-  readonly contactMethods: readonly ContactMethod[];
+  readonly supportTypes: readonly string[];
+  readonly collaborationTypes: readonly string[];
+  readonly contactMethods: readonly string[];
   
   // METADATA AND STATE
   readonly metadata: EngagementMetadata;
@@ -74,8 +59,8 @@ export interface EngagementMetadata {
   readonly updatedAt: string; // Consciousness timestamp
   
   // STATUS AND VISIBILITY
-  readonly status: EngagementStatus;
-  readonly visibility: EngagementVisibility;
+  readonly status: string;
+  readonly visibility: string;
   
   // CATEGORIZATION
   readonly tags: readonly string[];
@@ -111,7 +96,7 @@ export interface EngagementGrowth {
   readonly weeklyGrowth: number; // Percentage
   readonly monthlyGrowth: number; // Percentage
   readonly quarterlyGrowth: number; // Percentage
-  readonly participantTrend: GrowthTrend;
+  readonly participantTrend: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -123,9 +108,9 @@ export interface EngagementGrowth {
 
 export interface EngagementPreferences {
   // COMMUNICATION STYLES
-  readonly communicationStyle: CommunicationStyle;
-  readonly interactionFrequency: InteractionFrequency;
-  readonly contentTypes: readonly ContentType[];
+  readonly communicationStyle: string;
+  readonly interactionFrequency: string;
+  readonly contentTypes: readonly string[];
   readonly accessibility: AccessibilityRequirements;
   
   // ONTOLOGICAL CONTEXT
@@ -155,7 +140,7 @@ export interface AccessibilityRequirements {
 // ============================================================================
 
 export interface CommunityEngagementMapping {
-  readonly engagementType: AudienceType;
+  readonly engagementType: string;
   readonly ontologicalContext: {
     readonly relationship: RelationshipOntologyType;
     readonly process: ProcessOntologyType;
@@ -184,24 +169,3 @@ export interface EngagementNetwork {
   readonly engagementFlow: number; // 0-100 scale
   readonly emergentCommunityPatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  AudienceType,
-  CommitmentLevel,
-  UrgencyLevel,
-  ImpactLevel,
-  PriorityLevel,
-  SupportType,
-  CollaborationType,
-  ContactMethod,
-  EngagementStatus,
-  EngagementVisibility,
-  GrowthTrend,
-  CommunicationStyle,
-  InteractionFrequency,
-  ContentType
-};

@@ -10,15 +10,6 @@ import type {
   StateTaxonomyType
 } from '../../gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  AnimationStyle, 
-  EasingFunction, 
-  InteractionType, 
-  HearthItemType
-} from '../../cosmic/primitives';
-
 // ============================================================================
 // HEARTH MENU ITEM ARCHITECTURE
 // ============================================================================
@@ -57,7 +48,7 @@ export interface HearthMenuItemLayout {
 
 export interface HearthItemAnimation {
   // ANIMATION IDENTITY
-  readonly type: AnimationStyle;
+  readonly type: string;
   readonly stiffness?: number; // 0-100 scale (energy resistance)
   readonly damping?: number; // 0-100 scale (movement absorption)
   
@@ -73,7 +64,7 @@ export interface FloatAnimationConfig {
   // MOVEMENT CHARACTERISTICS
   readonly y: readonly number[]; // Vertical consciousness range
   readonly duration: number; // In consciousness cycles
-  readonly ease: EasingFunction;
+  readonly ease: number;
   readonly repeat: boolean | number;
   readonly delay?: number; // In consciousness cycles
   
@@ -85,7 +76,7 @@ export interface GlowAnimationConfig {
   // ROTATION AND ENERGY
   readonly rotate: readonly number[]; // Angular awareness shift
   readonly duration: number; // In consciousness cycles
-  readonly ease: EasingFunction;
+  readonly ease: number;
   readonly repeat: boolean | number;
   
   // ONTOLOGICAL CONTEXT
@@ -100,7 +91,7 @@ export interface GlowAnimationConfig {
 export interface HearthInteraction {
   // INTERACTION IDENTITY
   readonly itemId: string;
-  readonly type: InteractionType;
+  readonly type: string;
   
   // SPATIAL AND TEMPORAL CONTEXT
   readonly position: { readonly x: number; readonly y: number };
@@ -123,7 +114,7 @@ export interface HearthInteraction {
 // ============================================================================
 
 export interface HearthComfortMapping {
-  readonly hearthType: HearthItemType;
+  readonly hearthType: string;
   readonly ontologicalContext: {
     readonly being: BeingOntologyType;
     readonly process: ProcessOntologyType;
@@ -164,14 +155,3 @@ export interface HearthNavigationPattern {
   readonly comfortRating: number; // 0-100 scale
   readonly commonDestinations: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  HearthItemType,
-  AnimationStyle,
-  InteractionType,
-  EasingFunction
-};

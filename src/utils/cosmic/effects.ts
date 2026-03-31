@@ -1,22 +1,16 @@
 // src/utils/cosmic/effects.ts - PURE LOGIC ONLY
 import { 
-  DESIGN_EFFECTS,
   GLOW_EFFECTS,
   SHADOWS,
-  HOLOGRAPHIC_EFFECTS,
-  BACKDROP_EFFECTS,
-  GRADIENT_EFFECTS 
+  BACKDROP_EFFECTS
 } from '@/lib/constants/cosmic/effects';
-import { AnimationPreset } from '@/types/cosmic/motion'
+import { AnimationPreset, AnimationConfiguration} from '@/types/cosmic/motion'
 import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 import type {
   EffectType,
-  DesignTokenCategory,
-  GradientIntensity,
   EffectIntensity,
   EffectSpread,
-  BlurIntensity,
-  AnimationConfig
+  BlurIntensity
 } from '@/types/cosmic/primitives';
 
 import type {
@@ -230,13 +224,13 @@ export const validateEffectConfig = (config: any): { valid: boolean; errors: str
  */
 export const createAnimatedGlow = (
   color: string,
-  animationConfig: AnimationConfig
+  animationConfig: AnimationConfiguration
 ): string => {
   const glow = generateQuantumGlow(color, 0.7, 20);
   
   return `
     box-shadow: ${glow};
-    animation: animatedGlow ${animationConfig.duration}ms ${animationConfig.easing} ${animationConfig.repeat || 'infinite'};
+    animation: animatedGlow ${animationConfig.easing}ms ${animationConfig.easing} ${animationConfig.repeat || 'infinite'};
     
     @keyframes animatedGlow {
       0% { box-shadow: ${glow.replace('40', '20').replace('30', '15').replace('20', '10')}; }

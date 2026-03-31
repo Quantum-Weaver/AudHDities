@@ -10,31 +10,6 @@ import type {
   DataTaxonomyType
 } from '../../gaia';
 
-// Import all council relationship primitives
-import type {
-  RelationshipFrequency,  
-  RelationshipType,
-  CollaborationMode,
-  CouncilEntityID,
-  InteractionDuration,
-  InteractionType,
-  EmotionalImpact,
-  TrendDirection,
-  RelationshipStrength,
-  PatternCoherence,
-  InteractionSignificance,
-  OutcomeSuccess,
-  OutcomeImpact,
-  NetworkCoherence,
-  MetricValueType,
-  MetricScaleType,
-  HistoryTimestamp,
-  LearningCollection,
-  ActionCollection,
-  EmergentPatternCollection,
-  ExpectedBehaviorCollection
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // COUNCIL RELATIONSHIP CORE TYPES (Using imported primitives)
 // ============================================================================
@@ -48,8 +23,8 @@ export type CouncilRelationshipType = RelationshipOntologyType;
 export interface CouncilRelationship {
   // RELATIONSHIP IDENTITY
   readonly id: string;
-  readonly source: CouncilEntityID;
-  readonly target: CouncilEntityID;
+  readonly source: string
+  readonly target: string
   
   // ONTOLOGICAL CLASSIFICATION
   readonly type: CouncilRelationshipType;
@@ -57,9 +32,9 @@ export interface CouncilRelationship {
   readonly energyType: EnergyOntologyType;
   
   // RELATIONSHIP DYNAMICS (using primitives)
-  readonly strength: RelationshipStrength;
-  readonly frequency: RelationshipFrequency;
-  readonly coherence: PatternCoherence;
+  readonly strength: string;
+  readonly frequency: string;
+  readonly coherence: string;
   
   // COLLABORATION PATTERNS
   readonly collaboration: CollaborationPattern;
@@ -79,8 +54,8 @@ export interface CouncilRelationship {
 
 export interface CollaborationPattern {
   // COLLABORATION STRUCTURE (using primitives)
-  readonly mode: CollaborationMode;
-  readonly duration: InteractionDuration;
+  readonly mode: string;
+  readonly duration: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -104,11 +79,11 @@ export interface CollaborationMetric {
   readonly description: string;
   
   // VALUE REPRESENTATION (using primitives)
-  readonly valueType: MetricValueType;
-  readonly scaleType: MetricScaleType;
+  readonly valueType: string;
+  readonly scaleType: string;
   
   // TREND ANALYSIS (using primitives)
-  readonly trend: TrendDirection;
+  readonly trend: string;
   
   // TAXONOMIC CLASSIFICATION
   readonly dataTaxonomy: DataTaxonomyType;
@@ -120,12 +95,12 @@ export interface CollaborationMetric {
 
 export interface RelationshipHistory {
   // TEMPORAL CONTEXT (using primitives)
-  readonly timestamp: HistoryTimestamp;
-  readonly interactionType: InteractionType;
+  readonly timestamp: string;
+  readonly interactionType: string;
   
   // INTERACTION CONTENT
   readonly description: string;
-  readonly significance: InteractionSignificance;
+  readonly significance: string;
   
   // OUTCOME ANALYSIS
   readonly outcome: RelationshipOutcome;
@@ -141,15 +116,15 @@ export interface RelationshipHistory {
 
 export interface RelationshipOutcome {
   // SUCCESS MEASUREMENT (using primitives)
-  readonly success: OutcomeSuccess;
-  readonly impact: OutcomeImpact;
+  readonly success: string;
+  readonly impact: string;
   
   // DEVELOPMENTAL ASPECTS (using primitives)
-  readonly learnings: LearningCollection;
-  readonly actions: ActionCollection;
+  readonly learnings: string;
+  readonly actions: string;
   
   // EMOTIONAL RESONANCE (using primitives)
-  readonly emotionalImpact: EmotionalImpact;
+  readonly emotionalImpact: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationType: TransformationOntologyType;
@@ -174,7 +149,7 @@ export interface CouncilRelationshipMapping {
     readonly state: StateTaxonomyType;
     readonly data: DataTaxonomyType;
   };
-  readonly expectedBehaviors: ExpectedBehaviorCollection;
+  readonly expectedBehaviors: string;
 }
 
 // ============================================================================
@@ -182,10 +157,10 @@ export interface CouncilRelationshipMapping {
 // ============================================================================
 
 export interface CouncilRelationshipNetwork {
-  readonly entities: readonly CouncilEntityID[];
+  readonly entities: readonly string[];
   readonly relationships: readonly CouncilRelationship[];
-  readonly networkCoherence: NetworkCoherence;
-  readonly emergentPatterns: EmergentPatternCollection;
+  readonly networkCoherence: string;
+  readonly emergentPatterns: string;
   readonly ontologicalBalance: {
     readonly being: number;
     readonly process: number;

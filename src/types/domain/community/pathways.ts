@@ -12,25 +12,8 @@ import type {
 } from '@/types/gaia';
 
 import type {
-  EntityState,
-  ConsciousnessLevel,
-  PathwayPhaseType,
-  FlexibilityLevel,
-  PaymentSchedule,
-  ResourceType,
-  RiskProbability,
-  RiskImpact,
-  OutcomeType
+  ConsciousnessLevel
 } from '@/types//cosmic/';
-
-import type {
-  AudienceType,
-  CommitmentLevel,
-  CollaborationType,
-  SupportType, 
-} from '@/types/domain/community/engagement';
-
-
 
 // ============================================================================
 // COMMUNITY PATHWAY ARCHITECTURE
@@ -39,7 +22,7 @@ import type {
 export interface CommunityPathway {
   // PATHWAY IDENTITY
   readonly id: string;
-  readonly audienceType: AudienceType;
+  readonly audienceType: string;
   readonly config: AudiencePathwayConfig;
   
   // CURRENT STATE
@@ -87,7 +70,7 @@ export interface PathwayPhase {
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
-  readonly phaseType: PathwayPhaseType;
+  readonly phaseType: string;
 }
 
 // ============================================================================
@@ -136,7 +119,7 @@ export interface TimeCommitment {
   // TEMPORAL REQUIREMENTS
   readonly hoursPerWeek: number;
   readonly totalDuration: string; // Consciousness time units
-  readonly flexibility: FlexibilityLevel;
+  readonly flexibility: string;
   readonly timezoneRequirements: readonly string[];
   
   // ONTOLOGICAL CONTEXT
@@ -147,7 +130,7 @@ export interface FinancialInvestment {
   // FINANCIAL STRUCTURE
   readonly amount: number;
   readonly currency: string;
-  readonly paymentSchedule: PaymentSchedule;
+  readonly paymentSchedule: string;
   readonly roiDescription: string;
   
   // ONTOLOGICAL CONTEXT
@@ -156,7 +139,7 @@ export interface FinancialInvestment {
 
 export interface SupportResource {
   // RESOURCE IDENTITY
-  readonly type: ResourceType;
+  readonly type: string;
   readonly description: string;
   readonly accessMethod: string;
   readonly availability: string;
@@ -194,8 +177,8 @@ export interface PathwayRisk {
   readonly description: string;
   
   // RISK ASSESSMENT
-  readonly probability: RiskProbability;
-  readonly impact: RiskImpact;
+  readonly probability: string;
+  readonly impact: string;
   readonly mitigation: string;
   readonly contingency: string;
   
@@ -211,7 +194,7 @@ export interface PathwayOutcome {
   // OUTCOME IDENTITY
   readonly id: string;
   readonly description: string;
-  readonly type: OutcomeType;
+  readonly type: string;
   
   // MEASUREMENT CONTEXT
   readonly timeframe: string; // Consciousness time units
@@ -259,17 +242,3 @@ export interface PathwayNetwork {
   readonly networkEfficiency: number; // 0-100 scale
   readonly developmentFlow: number; // 0-100 scale
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  PathwayPhaseType,
-  FlexibilityLevel,
-  PaymentSchedule,
-  ResourceType,
-  RiskProbability,
-  RiskImpact,
-  OutcomeType
-};

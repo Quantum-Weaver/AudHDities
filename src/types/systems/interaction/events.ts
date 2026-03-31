@@ -11,25 +11,6 @@ import type {
   DataTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ActionType,
-  ConditionOperator,
-  ConditionType,
-  EventPriority,
-  TransitionDirection,
-  EasingType,
-  TransitionType,
-  EventPropagation,
-  GestureDirection,
-  EventTrigger,
-  EventIntensity,
-  NavigationEventType,
-  QuantumEventType,
-  GestureType,
-  UserEventType,
-  ConsciousnessLevel
-} from '@/types/cosmic/primitives';
 import { ConsciousnessPosition, NavigationContext, NavigationTransition } from './navigation'
 
 // ============================================================================
@@ -38,7 +19,7 @@ import { ConsciousnessPosition, NavigationContext, NavigationTransition } from '
 
 export interface UserEvent {
   // EVENT IDENTITY
-  readonly type: UserEventType;
+  readonly type: string;
   readonly target: string; // Consciousness element identifier
   readonly timestamp: string; // Consciousness timestamp
   
@@ -74,8 +55,8 @@ export interface ElementDimensions {
 
 export interface GestureEvent {
   // GESTURE IDENTITY
-  readonly type: GestureType;
-  readonly direction?: GestureDirection;
+  readonly type: string;
+  readonly direction?: string;
   readonly intensity: number; // 0-100 scale
   readonly element: string; // Consciousness element identifier
   
@@ -96,14 +77,14 @@ export interface GestureEvent {
 
 export interface QuantumEvent {
   // EVENT IDENTITY
-  readonly type: QuantumEventType;
+  readonly type: string;
   readonly context: string; // Consciousness context identifier
-  readonly intensity: EventIntensity;
+  readonly intensity: string;
   readonly entities: readonly string[]; // Consciousness entity identifiers
   
   // QUANTUM PROPERTIES
   readonly entanglement: boolean;
-  readonly propagation: EventPropagation;
+  readonly propagation: string;
   readonly resonance: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -119,11 +100,11 @@ export interface QuantumEvent {
 
 export interface NavigationEvent {
   // NAVIGATION IDENTITY
-  readonly type: NavigationEventType;
+  readonly type: string;
   readonly from: string; // Source consciousness location
   readonly to: string; // Destination consciousness location
   readonly duration: number; // Consciousness cycles
-  readonly trigger: EventTrigger;
+  readonly trigger: string;
   
   // TRANSITION CONTEXT
   readonly transition: NavigationTransition;
@@ -144,7 +125,7 @@ export interface EventHandler<T = UserEvent> {
   // HANDLER IDENTITY
   readonly id: string;
   readonly eventType: string;
-  readonly priority: EventPriority;
+  readonly priority: string;
   
   // EXECUTION CONTEXT
   readonly conditions: readonly EventCondition[];
@@ -157,9 +138,9 @@ export interface EventHandler<T = UserEvent> {
 
 export interface EventCondition {
   // CONDITION SPECIFICATION
-  readonly type: ConditionType;
+  readonly type: string;
   readonly parameter: string;
-  readonly operator: ConditionOperator;
+  readonly operator: string;
   readonly value: string;
   
   // ONTOLOGICAL CONTEXT
@@ -169,7 +150,7 @@ export interface EventCondition {
 
 export interface EventAction {
   // ACTION SPECIFICATION
-  readonly type: ActionType;
+  readonly type: string;
   readonly target: string;
   readonly parameters: Record<string, string>; // String values only
   
@@ -189,7 +170,7 @@ export interface EventConfiguration {
   readonly passive?: boolean;
   
   // PROPAGATION CONFIGURATION
-  readonly propagation: EventPropagation;
+  readonly propagation: string;
   readonly bubbles: boolean;
   readonly cancelable: boolean;
   
@@ -223,7 +204,7 @@ export interface QuantumEventConfiguration {
 // ============================================================================
 
 export interface EventSystemMapping {
-  readonly eventType: UserEventType;
+  readonly eventType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly energy: EnergyOntologyType;
@@ -240,25 +221,3 @@ export interface EventSystemMapping {
   readonly interactionPatterns: readonly string[];
   readonly propagationCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  UserEventType,
-  GestureType,
-  QuantumEventType,
-  NavigationEventType,
-  EventIntensity,
-  EventTrigger,
-  GestureDirection,
-  EventPropagation,
-  TransitionType,
-  EasingType,
-  TransitionDirection,
-  EventPriority,
-  ConditionType,
-  ConditionOperator,
-  ActionType
-};

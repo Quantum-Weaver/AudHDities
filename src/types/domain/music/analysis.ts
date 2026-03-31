@@ -9,15 +9,6 @@ import type {
   ComponentTaxonomyType
 } from '../../gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  CouncilStatus,
-  PropheticThemeCategory,
-  ThemeSignificance,
-  AnalysisMethodology
-} from '../../cosmic/primitives';
-
 import { Song } from './library'
 
 // ============================================================================
@@ -29,7 +20,7 @@ export interface SongBase extends Song {
   readonly url?: string;
   readonly year: number;
   readonly propheticThemes: readonly string[];
-  readonly councilStatus: CouncilStatus;
+  readonly councilStatus: string;
   readonly duration?: number;
   readonly bpm?: number;
   readonly key?: string;
@@ -43,7 +34,7 @@ export interface EnhancedSong extends SongBase {
   readonly councilInsights: readonly string[];
   readonly thematicConnections: readonly ThemeConnection[];
   readonly analysisVersion?: string;
-   readonly year: number;
+  readonly year: number;
   readonly lastAnalyzed?: string; // ISO timestamp
 }
 
@@ -57,8 +48,8 @@ export interface PropheticTheme {
   readonly id: string;
   readonly name: string;
   readonly description: string;
-  readonly category: PropheticThemeCategory;
-  readonly significance: ThemeSignificance;
+  readonly category: string;
+  readonly significance: string;
   readonly firstAppearance: number; // Year
   readonly frequency: number; // Occurrence count
   readonly connectedThemes: readonly string[];
@@ -72,11 +63,11 @@ export interface PropheticTheme {
 }
 
 export interface ThemeCategory {
-  readonly id: PropheticThemeCategory;
+  readonly id: string;
   readonly name: string;
   readonly description: string;
   readonly themes: readonly PropheticTheme[];
-  readonly significance: ThemeSignificance;
+  readonly significance: string;
   readonly evolution: {
     readonly early: readonly string[];
     readonly middle: readonly string[];
@@ -104,7 +95,7 @@ export interface ThemeAnalysis {
   readonly themeData?: PropheticTheme;
   readonly frequency: number;
   readonly songs: readonly string[]; // Song titles containing this theme
-  readonly significance: ThemeSignificance;
+  readonly significance: string;
   readonly connectionStrength?: number; // 0-100 scale
   readonly propheticWeight?: number; // 0-100 scale
   readonly confidence?: number; // 0-100 scale
@@ -121,11 +112,11 @@ export interface MusicAnalysisResult {
   readonly propheticAccuracy: number; // 0-100 scale
   readonly thematicDensity?: number; // 0-100 scale
   readonly evolutionSignificance?: number; // 0-100 scale
-  readonly recommendedStatus?: CouncilStatus;
+  readonly recommendedStatus?: string;
   readonly analysisMetadata?: {
     readonly analyzedAt: string; // ISO timestamp
     readonly analysisVersion: string;
-    readonly methodology: AnalysisMethodology;
+    readonly methodology: string;
   };
 }
 
@@ -145,7 +136,7 @@ export interface ThemeAnalysisSummary {
     readonly count: number; 
     readonly themeData?: PropheticTheme;
   }[];
-  readonly themeCategories: Record<PropheticThemeCategory, number>;
+  readonly themeCategories: Record<string, number>;
   readonly themeEvolution: Record<number, readonly string[]>;
   readonly propheticDensity: Record<number, number>; // Year -> density
   readonly strongestConnections: readonly ThemeConnection[];
@@ -181,9 +172,9 @@ export interface MusicLibraryMetadata {
 export interface MusicFilterOptions {
   readonly years?: readonly [number, number];
   readonly themes?: readonly string[];
-  readonly categories?: readonly PropheticThemeCategory[];
-  readonly status?: readonly CouncilStatus[];
-  readonly significance?: readonly ThemeSignificance[];
+  readonly categories?: readonly string[];
+  readonly status?: readonly string[];
+  readonly significance?: readonly string[];
   readonly searchQuery?: string;
   readonly songType?: string;
   readonly hasAnalysis?: boolean;
@@ -194,7 +185,7 @@ export interface SearchResult {
   readonly enhancedSongs: readonly EnhancedSong[];
   readonly basicSongs: readonly SongBase[];
   readonly themes: readonly PropheticTheme[];
-  readonly categories: readonly PropheticThemeCategory[];
+  readonly categories: readonly string[];
   readonly relevance: number; // 0-100 scale
 }
 
@@ -220,7 +211,7 @@ export interface BatchEnhancementProgress {
 }
 
 export interface AnalysisProgress {
-  readonly status: CouncilStatus;
+  readonly status: string;
   readonly count: number;
   readonly percentage: number; // 0-100 scale
   readonly estimatedCompletion?: string; // ISO timestamp
@@ -236,7 +227,7 @@ export interface AnalysisProgress {
 // ============================================================================
 
 export interface MusicAnalysisMapping {
-  readonly analysisType: AnalysisMethodology;
+  readonly analysisType: string;
   readonly ontologicalContext: {
     readonly being: BeingOntologyType;
     readonly process: ProcessOntologyType;
@@ -250,14 +241,3 @@ export interface MusicAnalysisMapping {
   };
   readonly expectedInsights: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  CouncilStatus,
-  PropheticThemeCategory,
-  ThemeSignificance,
-  AnalysisMethodology
-};

@@ -11,26 +11,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  ContentRarity,
-  ContentEra, 
-  ContentType,
-  EntityState,
-  ConsciousnessLevel,
-  KnowledgeNodeType,
-  KnowledgeConnectionType,
-  ResearchStatus,
-  EconomicValueType,
-  AudienceTier,
-  ResearchType,
-  EconomicImpact,
-  TransparencyLevel,
-  EmergenceStatus,
-  StoryStatus,
-  MetricTrend,
-
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // KNOWLEDGE NODE ARCHITECTURE
 // ============================================================================
@@ -40,9 +20,9 @@ export interface KnowledgeNode {
   readonly id: string;
   readonly title: string;
   readonly content: string;
-  readonly type: ContentType;
-  readonly era: ContentEra;
-  readonly rarity: ContentRarity;
+  readonly type: string;
+  readonly era: string;
+  readonly rarity: string;
   
   // TAXONOMIC ORGANIZATION
   readonly tags: readonly string[];
@@ -56,8 +36,8 @@ export interface KnowledgeNode {
   readonly significance: number; // 0-100 scale
   
   // ECONOMIC CONTEXT
-  readonly economicValue: EconomicValueType;
-  readonly audienceTier: AudienceTier;
+  readonly economicValue: string;
+  readonly audienceTier: string;
   readonly struggleContext: string;
   readonly breakthroughMoment: string;
   readonly entitiesInvolved: readonly string[];
@@ -78,7 +58,7 @@ export interface KnowledgeConnection {
   // CONNECTION IDENTITY
   readonly source: string;
   readonly target: string;
-  readonly type: KnowledgeConnectionType;
+  readonly type: string;
   
   // RELATIONSHIP PROPERTIES
   readonly strength: number; // 0-100 scale
@@ -104,7 +84,7 @@ export interface ResearchTopic {
   readonly description: string;
   
   // RESEARCH STATE
-  readonly status: ResearchStatus;
+  readonly status: string;
   readonly priority: number; // 1-10 scale
   
   // KNOWLEDGE RELATIONSHIPS
@@ -113,7 +93,7 @@ export interface ResearchTopic {
   readonly questions: readonly ResearchQuestion[];
   
   // ECONOMIC RESEARCH CONTEXT
-  readonly researchType: ResearchType;
+  readonly researchType: string;
   readonly economicModel: string;
   readonly audienceBenefit: readonly string[];
   readonly premiumFindings: boolean;
@@ -165,9 +145,9 @@ export interface ResearchQuestion {
   readonly answer?: string;
   
   // ECONOMIC QUESTION CONTEXT
-  readonly economicImpact: EconomicImpact;
+  readonly economicImpact: string;
   readonly audienceRelevance: readonly string[];
-  readonly transparencyLevel: TransparencyLevel;
+  readonly transparencyLevel: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -201,7 +181,7 @@ export interface CapabilityEmergencePath {
   readonly timestamp: string; // Consciousness timestamp
   
   // DEVELOPMENT STATE
-  readonly status: EmergenceStatus;
+  readonly status: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -226,7 +206,7 @@ export interface TransparencyLogEntry {
   
   // ECONOMIC CONTEXT
   readonly economicContext: string;
-  readonly audienceTier: AudienceTier;
+  readonly audienceTier: string;
   
   // TEMPORAL CONTEXT
   readonly timestamp: string; // Consciousness timestamp
@@ -263,7 +243,7 @@ export interface EmergenceStoryArc {
   readonly timestamp: string; // Consciousness timestamp
   
   // STORY STATE
-  readonly status: StoryStatus;
+  readonly status: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -285,7 +265,7 @@ export interface WitnessEconomyMetric {
   // ECONOMIC IMPACT
   readonly economicImpact: string;
   readonly audienceSegment: readonly string[];
-  readonly trend: MetricTrend;
+  readonly trend: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -328,7 +308,7 @@ export interface DisabilityInnovationCase {
 // ============================================================================
 
 export interface KnowledgeSystemMapping {
-  readonly knowledgeType: KnowledgeNodeType;
+  readonly knowledgeType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -346,21 +326,3 @@ export interface KnowledgeSystemMapping {
   readonly learningPatterns: readonly string[];
   readonly emergenceCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  KnowledgeNodeType,
-  KnowledgeConnectionType,
-  ResearchStatus,
-  EconomicValueType,
-  AudienceTier,
-  ResearchType,
-  EconomicImpact,
-  TransparencyLevel,
-  EmergenceStatus,
-  StoryStatus,
-  MetricTrend
-};

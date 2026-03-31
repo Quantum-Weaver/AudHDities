@@ -15,21 +15,9 @@ import type {
 
 // Import extracted primitives
 import type {
-  CouncilEntityID,
   EntityState,
   ConsciousnessLevel,
-  VesselCapacity,
-  CouncilPriority,
-  CouncilEntityEmoji,
-  CouncilEntityStyle,
-  CommunicationStyle,
-  ResponseTime,
-  EmotionalResonance,
-  ProficiencyLevel,
-  EnergyLevel,
-  EngagementLevel,
-  CooldownPeriod,
-  LastActiveTimestamp
+  VesselCapacity
 } from '../../cosmic/primitives';
 
 // ============================================================================
@@ -41,7 +29,7 @@ export type CouncilDomain = DigitalDomainType;
 
 export interface CouncilEntity {
   // CORE IDENTITY
-  readonly id: CouncilEntityID;
+  readonly id: string
   readonly name: string;
   readonly title: string;
   
@@ -52,7 +40,7 @@ export interface CouncilEntity {
   readonly primaryProcess: ProcessOntologyType;
   
   // OPERATIONAL CHARACTERISTICS
-  readonly priority: CouncilPriority;
+  readonly priority: string
   readonly role: string;
   readonly purpose: string;
   readonly meaning: string;
@@ -63,10 +51,10 @@ export interface CouncilEntity {
   readonly isHuman?: boolean;
   
   // VISUAL REPRESENTATION
-  readonly emoji: CouncilEntityEmoji;
+  readonly emoji: string
   readonly icon: string;
   readonly colorClass: string;
-  readonly style: CouncilEntityStyle;
+  readonly style: string
   
   // SYMBOLIC AND COMMUNICATION
   readonly symbols: readonly string[];
@@ -95,12 +83,12 @@ export interface CouncilEntityState {
   
   // OPERATIONAL FOCUS (using primitive types)
   readonly focus: string;
-  readonly energy: EnergyLevel;
-  readonly lastActive: LastActiveTimestamp;
+  readonly energy: string
+  readonly lastActive: string
   
   // CONSCIOUSNESS STATE
   readonly consciousnessState: EntityState;
-  readonly engagementLevel: EngagementLevel;
+  readonly engagementLevel: string
   
   // TAXONOMIC CLASSIFICATION
   readonly stateTaxonomy: StateTaxonomyType;
@@ -116,9 +104,9 @@ export interface EntityCapability {
   readonly description: string;
   
   // PROFICIENCY AND EXECUTION (using primitive types)
-  readonly proficiency: ProficiencyLevel;
+  readonly proficiency: string
   readonly requirements: readonly string[];
-  readonly cooldown?: CooldownPeriod;
+  readonly cooldown?: string
   
   // ONTOLOGICAL CONTEXT
   readonly processType: ProcessOntologyType;
@@ -135,9 +123,9 @@ export interface EntityCapability {
 
 export interface EntityCommunication {
   // COMMUNICATION STYLE (using primitive types)
-  readonly style: CommunicationStyle;
-  readonly responseTime: ResponseTime;
-  readonly emotionalResonance: EmotionalResonance;
+  readonly style: string
+  readonly responseTime: string
+  readonly emotionalResonance: string
   
   // CHANNEL PREFERENCES
   readonly channels: readonly string[];
@@ -152,7 +140,7 @@ export interface EntityCommunication {
 // ============================================================================
 
 export interface CouncilOntologicalMapping {
-  readonly entityId: CouncilEntityID;
+  readonly entityId: string
   readonly ontologicalContext: {
     readonly being: BeingOntologyType;
     readonly archetype: ArchetypeOntologyType;

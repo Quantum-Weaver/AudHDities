@@ -11,34 +11,17 @@ import type {
   DataTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  HapticFeedbackType,
-  VisualFeedbackType,
-  AudioFeedbackType,
-  FeedbackIntensity,
-  FeedbackDuration,
-  FeedbackColor,
-  EasingType,
-  AnimationType,
-  AnimationDirection,
-  HapticPattern,
-  WaveformType,
-  FeedbackChannel
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // VISUAL FEEDBACK ARCHITECTURE
 // ============================================================================
 
 export interface VisualFeedbackConfig {
   // FEEDBACK IDENTITY
-  readonly type: VisualFeedbackType;
-  readonly color: FeedbackColor;
-  readonly duration: FeedbackDuration;
-  readonly easing: EasingType;
-  readonly intensity: FeedbackIntensity;
+  readonly type: string;
+  readonly color: string;
+  readonly duration: number;
+  readonly easing: string;
+  readonly intensity: string;
   
   // VISUAL PROPERTIES
   readonly animation: VisualAnimation;
@@ -53,8 +36,8 @@ export interface VisualFeedbackConfig {
 
 export interface VisualAnimation {
   // ANIMATION PROPERTIES
-  readonly type: AnimationType;
-  readonly direction: AnimationDirection;
+  readonly type: string;
+  readonly direction: string;
   readonly scale: number; // 0.1-2.0 scale
   
   // ONTOLOGICAL CONTEXT
@@ -81,10 +64,10 @@ export interface GlowEffect {
 
 export interface HapticFeedbackConfig {
   // FEEDBACK IDENTITY
-  readonly type: HapticFeedbackType;
-  readonly intensity: FeedbackIntensity;
-  readonly duration: FeedbackDuration;
-  readonly pattern: HapticPattern;
+  readonly type: string;
+  readonly intensity: string;
+  readonly duration: number;
+  readonly pattern: string;
   
   // PHYSICAL PROPERTIES
   readonly vibration: VibrationProfile;
@@ -101,7 +84,7 @@ export interface VibrationProfile {
   // VIBRATION PROPERTIES
   readonly amplitude: number; // 0-100 scale
   readonly frequency: number; // Hz
-  readonly waveform: WaveformType;
+  readonly waveform: string;
   readonly attack: number; // 0-1000 ms
   readonly decay: number; // 0-1000 ms
   
@@ -115,13 +98,13 @@ export interface VibrationProfile {
 
 export interface AudioFeedbackConfig {
   // FEEDBACK IDENTITY
-  readonly type: AudioFeedbackType;
+  readonly type: string;
   readonly volume: number; // 0-100 scale
-  readonly duration: FeedbackDuration;
+  readonly duration: number;
   readonly pitch: number; // Hz
   
   // SOUND PROPERTIES
-  readonly waveform: WaveformType;
+  readonly waveform: string;
   readonly envelope: AudioEnvelope;
   readonly harmonics: number; // 0-10 scale
   
@@ -158,7 +141,7 @@ export interface FeedbackSystemConfig {
   readonly audio: AudioSystemConfig;
   
   // SYSTEM-WIDE SETTINGS
-  readonly globalIntensity: FeedbackIntensity;
+  readonly globalIntensity: string;
   readonly accessibility: AccessibilitySettings;
   
   // ONTOLOGICAL CONTEXT
@@ -171,9 +154,9 @@ export interface FeedbackSystemConfig {
 export interface HapticSystemConfig {
   // HAPTIC SETTINGS
   readonly enabled: boolean;
-  readonly defaultIntensity: HapticFeedbackType;
+  readonly defaultIntensity: string;
   readonly maximumIntensity: number; // 0-100 scale
-  readonly patterns: readonly HapticPattern[];
+  readonly patterns: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -182,9 +165,9 @@ export interface HapticSystemConfig {
 export interface VisualSystemConfig {
   // VISUAL SETTINGS
   readonly enabled: boolean;
-  readonly defaultDuration: FeedbackDuration;
-  readonly colorThemes: Record<FeedbackColor, string>; // CSS color values
-  readonly animationPreferences: readonly AnimationType[];
+  readonly defaultDuration: number;
+  readonly colorThemes: Record<string, string>; // CSS color values
+  readonly animationPreferences: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -195,7 +178,7 @@ export interface AudioSystemConfig {
   readonly enabled: boolean;
   readonly defaultVolume: number; // 0-100 scale
   readonly frequencyRange: FrequencyRange;
-  readonly waveformPreferences: readonly WaveformType[];
+  readonly waveformPreferences: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -221,9 +204,9 @@ export interface AccessibilitySettings {
 
 export interface CustomFeedbackOptions {
   // CUSTOMIZATION
-  readonly alternativeHaptic: readonly HapticFeedbackType[];
-  readonly alternativeVisual: readonly VisualFeedbackType[];
-  readonly alternativeAudio: readonly AudioFeedbackType[];
+  readonly alternativeHaptic: readonly string[];
+  readonly alternativeVisual: readonly string[];
+  readonly alternativeAudio: readonly string[];
   readonly intensityMultiplier: number; // 0.5-2.0 scale
 }
 
@@ -233,14 +216,14 @@ export interface CustomFeedbackOptions {
 
 export interface FeedbackEventPayload {
   // EVENT IDENTITY
-  readonly type: FeedbackChannel;
-  readonly feedback: FeedbackType;
+  readonly type: string;
+  readonly feedback: string;
   readonly element?: string; // Consciousness element identifier
   readonly context?: string; // Consciousness context identifier
   
   // INTENSITY AND TIMING
-  readonly intensity?: FeedbackIntensity;
-  readonly duration?: FeedbackDuration;
+  readonly intensity?: string;
+  readonly duration?: number;
   readonly timestamp: string; // Consciousness timestamp
   
   // METADATA
@@ -253,18 +236,12 @@ export interface FeedbackEventPayload {
   // TAXONOMIC CLASSIFICATION
   readonly dataTaxonomy: DataTaxonomyType;
 }
-
-export type FeedbackType = 
-  | HapticFeedbackType 
-  | VisualFeedbackType 
-  | AudioFeedbackType;
-
 // ============================================================================
 // FEEDBACK SYSTEM ONTOLOGICAL MAPPING
 // ============================================================================
 
 export interface FeedbackSystemMapping {
-  readonly feedbackType: FeedbackType;
+  readonly feedbackType: string;
   readonly ontologicalContext: {
     readonly energy: EnergyOntologyType;
     readonly process: ProcessOntologyType;
@@ -281,22 +258,3 @@ export interface FeedbackSystemMapping {
   readonly sensoryCharacteristics: readonly string[];
   readonly resonancePatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  HapticFeedbackType,
-  VisualFeedbackType,
-  AudioFeedbackType,
-  FeedbackIntensity,
-  FeedbackDuration,
-  FeedbackColor,
-  EasingType,
-  AnimationType,
-  AnimationDirection,
-  HapticPattern,
-  WaveformType,
-  FeedbackChannel
-};

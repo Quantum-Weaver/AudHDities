@@ -4,8 +4,7 @@ import { BEING_STATES, PROCESS_STATES } from '@/lib/constants/systems/interactio
 import type { 
   QuantumState, 
   StateContainer, 
-  StateTransition,
-  StateManagementSystem 
+  StateTransition
 } from '@/types/systems/state/management';
 
 /**
@@ -78,9 +77,9 @@ export const createStateContainer = <T>(initialValue: T): StateContainer<T> => {
     subscribers,
     processOntology: 'StateArchitecture',
     stateTaxonomy: 'SystemState',
-    containerType: 'sovereign_isolated', 
-    subscriptionType: 'immediate_reactive', 
-    beingOntology: 'MultiStreamBeing', 
+    containerType: 'isolated',
+    subscriptionType: 'immediate',
+    beingOntology: 'MultiStreamBeing',
     systemTaxonomy: 'StateSystem',
     
     subscribe: (callback: (value: T) => void) => {

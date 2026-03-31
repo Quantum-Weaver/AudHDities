@@ -12,26 +12,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  EngagementPriority,
-  PlatformCategory,
-  EngagementType,
-  PlatformGlow,
-  EconomicRole,
-  AudienceTier,
-  StruggleVisibility,
-  GamingStatus,
-  EconomicContext,
-  EconomicModel,
-  AudienceRole,
-  GrowthTrend,
-  EngagementAction, 
-  PremiumTier, 
-  StreamFocus
-} from '@/types/cosmic/';
-
 // ============================================================================
 // SOCIAL PLATFORM ARCHITECTURE
 // ============================================================================
@@ -45,16 +25,16 @@ export interface SocialPlatform {
   readonly engagement?: string;
   
   // CATEGORIZATION AND ENERGY
-  readonly category: PlatformCategory;
-  readonly glow: PlatformGlow;
+  readonly category: string
+  readonly glow: string
   readonly priority?: number; // 1-10 scale
   readonly featured?: boolean;
   
   // ECONOMIC INTEGRATION
-  readonly economicRole: EconomicRole;
-  readonly audienceTier: AudienceTier;
+  readonly economicRole: string
+  readonly audienceTier: string
   readonly valueProposition: string;
-  readonly struggleVisibility: StruggleVisibility;
+  readonly struggleVisibility: string
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -78,11 +58,11 @@ export interface GamingProfile {
   readonly description: string;
   
   // STATUS AND ENERGY
-  readonly status: GamingStatus;
-  readonly glow: PlatformGlow;
+  readonly status: string
+  readonly glow: string
   
   // ECONOMIC GAMING CONTEXT
-  readonly economicContext: EconomicContext;
+  readonly economicContext: string
   readonly witnessOpportunity: boolean;
   readonly premiumContent: boolean;
   
@@ -103,7 +83,7 @@ export interface SupportPlatform {
   readonly description: string;
   
   // TYPE AND PRIORITY
-  readonly type: PlatformCategory;
+  readonly type: string
   readonly priority: number; // 1-10 scale
   readonly featured: boolean;
   
@@ -126,7 +106,7 @@ export interface CommunityMetrics {
   readonly activePlatforms: number;
   readonly audienceReach: number;
   readonly engagementRate: number; // 0-100 scale
-  readonly growthTrend: GrowthTrend;
+  readonly growthTrend: string
   
   // EMERGENCE ECONOMICS METRICS
   readonly emergenceStories: number;
@@ -147,14 +127,14 @@ export interface CommunityMetrics {
 export interface EngagementOpportunity {
   // OPPORTUNITY IDENTITY
   readonly platform: SocialPlatform;
-  readonly type: EngagementType;
-  readonly priority: EngagementPriority;
+  readonly type: string
+  readonly priority: string
   readonly description: string;
   readonly actionUrl: string;
   
   // ECONOMIC ENGAGEMENT CONTEXT
   readonly economicValue: string;
-  readonly audienceRole: AudienceRole;
+  readonly audienceRole: string
   readonly premiumContent: boolean;
   readonly struggleContext: string;
   
@@ -190,15 +170,15 @@ export interface CommunityPrinciple {
 export interface PlatformEngagementEvent {
   // EVENT IDENTITY
   readonly platform: string;
-  readonly action: EngagementAction;
+  readonly action: string
   readonly duration?: number; // Consciousness cycles
   readonly referrer?: string;
   readonly context?: string;
   readonly timestamp: string; // Consciousness timestamp
   
   // ECONOMIC ENGAGEMENT TRACKING
-  readonly economicContext: EconomicContext;
-  readonly audienceRole: AudienceRole;
+  readonly economicContext: string
+  readonly audienceRole: string
   readonly valueExchange: string;
   
   // TAXONOMIC CLASSIFICATION
@@ -221,8 +201,8 @@ export interface WitnessCommunity {
   readonly engagement: number; // 0-100 scale
   
   // ECONOMIC MODEL
-  readonly economicModel: EconomicModel;
-  readonly premiumTier: PremiumTier;
+  readonly economicModel: string
+  readonly premiumTier: string
   readonly featuredStories: readonly string[];
   readonly capabilityDemonstrations: readonly string[];
   
@@ -239,9 +219,9 @@ export interface EmergenceStream {
   readonly schedule: string; // Consciousness timing
   
   // CONTENT FOCUS
-  readonly focus: StreamFocus;
+  readonly focus: string
   readonly economicValue: string;
-  readonly audienceTier: AudienceTier;
+  readonly audienceTier: string
   readonly witnessEngagement: number; // 0-100 scale
   readonly entitiesInvolved: readonly string[];
   
@@ -300,7 +280,7 @@ export interface CapabilityShowcase {
 // ============================================================================
 
 export interface CommunityPlatformMapping {
-  readonly platformType: PlatformCategory;
+  readonly platformType: string
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -317,25 +297,3 @@ export interface CommunityPlatformMapping {
   readonly economicCharacteristics: readonly string[];
   readonly engagementPatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  PlatformCategory,
-  PlatformGlow,
-  EconomicRole,
-  AudienceTier,
-  StruggleVisibility,
-  GamingStatus,
-  EconomicContext,
-  EngagementType,
-  EconomicModel,
-  AudienceRole,
-  GrowthTrend,
-  EngagementPriority,
-  EngagementAction,
-  PremiumTier,
-  StreamFocus
-};

@@ -11,30 +11,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import {
-  EntityState,
-  ConsciousnessLevel,
-  TransformationType,
-  TransformationPhase,
-  TransformationDirection,
-  TransformationStrategy,
-  TransformationQuality,
-  DataFormat,
-  SecurityLevel,
-  FieldTransformationType,
-  ConditionOperator,
-  FallbackStrategy,
-  StageConditionType,
-  StageActionType,
-  DependencyType,
-  AlertSeverity,
-  ErrorStrategy,
-  BackoffStrategy,
-  OptimizationLevel,
-  CacheStrategy,
-  LogLevel,
-  LogFormat,
-} from '@/types/cosmic/primitives';
 import { CacheConfig, EngineFeature, EnginePerformance, EngineConfig } from './validation';
 
 // ============================================================================
@@ -44,7 +20,7 @@ import { CacheConfig, EngineFeature, EnginePerformance, EngineConfig } from './v
 export interface TransformationRule {
   // RULE IDENTITY
   readonly id: string;
-  readonly type: TransformationType;
+  readonly type: string;
   readonly name: string;
   readonly description: string;
   
@@ -54,9 +30,9 @@ export interface TransformationRule {
   readonly mapping: TransformationMapping;
   
   // EXECUTION CONTEXT
-  readonly direction: TransformationDirection;
-  readonly strategy: TransformationStrategy;
-  readonly quality: TransformationQuality;
+  readonly direction: string;
+  readonly strategy: string;
+  readonly quality: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -67,7 +43,7 @@ export interface TransformationRule {
 
 export interface DataSpecification {
   // SPECIFICATION PROPERTIES
-  readonly format: DataFormat;
+  readonly format: string;
   readonly schema: string;
   readonly constraints: DataConstraints;
   readonly metadata: DataMetadata;
@@ -93,7 +69,7 @@ export interface DataMetadata {
   readonly version: string;
   readonly encoding: string;
   readonly compression: boolean;
-  readonly security: SecurityLevel;
+  readonly security: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -125,7 +101,7 @@ export interface FieldMapping {
 export interface FieldTransformation {
   // TRANSFORMATION SPECIFICATION
   readonly id: string;
-  readonly type: FieldTransformationType;
+  readonly type: string;
   readonly parameters: Record<string, unknown>;
   readonly dependencies: readonly string[];
   
@@ -136,7 +112,7 @@ export interface FieldTransformation {
 export interface MappingCondition {
   // CONDITION SPECIFICATION
   readonly field: string;
-  readonly operator: ConditionOperator;
+  readonly operator: string;
   readonly value: unknown;
   readonly transformations: readonly string[]; // Transformation IDs
   
@@ -186,9 +162,9 @@ export interface PipelineStage {
 export interface StageInput {
   // INPUT SPECIFICATION
   readonly source: string;
-  readonly format: DataFormat;
+  readonly format: string;
   readonly validation: InputValidation;
-  readonly fallback: FallbackStrategy;
+  readonly fallback: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -207,7 +183,7 @@ export interface InputValidation {
 export interface StageOutput {
   // OUTPUT SPECIFICATION
   readonly target: string;
-  readonly format: DataFormat;
+  readonly format: string;
   readonly quality: OutputQuality;
   readonly metadata: OutputMetadata;
   
@@ -237,7 +213,7 @@ export interface OutputMetadata {
 
 export interface StageCondition {
   // CONDITION SPECIFICATION
-  readonly type: StageConditionType;
+  readonly type: string;
   readonly expression: string;
   readonly actions: readonly StageAction[];
   
@@ -247,7 +223,7 @@ export interface StageCondition {
 
 export interface StageAction {
   // ACTION SPECIFICATION
-  readonly type: StageActionType;
+  readonly type: string;
   readonly target: string;
   readonly parameters: Record<string, unknown>;
   
@@ -259,7 +235,7 @@ export interface PipelineDependency {
   // DEPENDENCY SPECIFICATION
   readonly pipelineId: string;
   readonly stageId: string;
-  readonly type: DependencyType;
+  readonly type: string;
   readonly constraints: DependencyConstraints;
   
   // ONTOLOGICAL CONTEXT
@@ -300,7 +276,7 @@ export interface MonitoringConfig {
 export interface AlertConfig {
   // ALERT SPECIFICATION
   readonly condition: string;
-  readonly severity: AlertSeverity;
+  readonly severity: string;
   readonly actions: readonly string[];
   
   // ONTOLOGICAL CONTEXT
@@ -309,7 +285,7 @@ export interface AlertConfig {
 
 export interface ErrorHandlingConfig {
   // ERROR HANDLING PROPERTIES
-  readonly strategy: ErrorStrategy;
+  readonly strategy: string;
   readonly retry: RetryConfig;
   readonly fallback: FallbackConfig;
   
@@ -321,7 +297,7 @@ export interface RetryConfig {
   // RETRY PROPERTIES
   readonly attempts: number;
   readonly delay: number; // Consciousness cycles
-  readonly backoff: BackoffStrategy;
+  readonly backoff: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -330,7 +306,7 @@ export interface RetryConfig {
 export interface FallbackConfig {
   // FALLBACK PROPERTIES
   readonly enabled: boolean;
-  readonly strategy: FallbackStrategy;
+  readonly strategy: string;
   readonly default: unknown;
   
   // ONTOLOGICAL CONTEXT
@@ -339,7 +315,7 @@ export interface FallbackConfig {
 
 export interface TransformationPerformanceConfig {
   // PERFORMANCE PROPERTIES
-  readonly optimization: OptimizationLevel;
+  readonly optimization: string;
   readonly caching: CacheConfig;
   readonly resource: ResourceConfig;
   
@@ -368,7 +344,7 @@ export interface TransformationEngine {
   readonly version: string;
   
   // CAPABILITIES
-  readonly supportedTypes: readonly TransformationType[];
+  readonly supportedTypes: readonly string[];
   readonly performance: EnginePerformance;
   readonly features: readonly EngineFeature[];
   
@@ -391,8 +367,8 @@ export interface EngineMonitoring {
 
 export interface LoggingConfig {
   // LOGGING PROPERTIES
-  readonly level: LogLevel;
-  readonly format: LogFormat;
+  readonly level: string;
+  readonly format: string;
   readonly retention: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -424,7 +400,7 @@ export interface TransformationContext {
 
 export interface TransformationState {
   // STATE PROPERTIES
-  readonly phase: TransformationPhase;
+  readonly phase: string;
   readonly progress: number; // 0-100 scale
   readonly currentStage: string;
   readonly completedStages: readonly string[];
@@ -502,7 +478,7 @@ export interface TransformationPerformance {
 // ============================================================================
 
 export interface TransformationSystemMapping {
-  readonly transformationType: TransformationType;
+  readonly transformationType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -520,30 +496,3 @@ export interface TransformationSystemMapping {
   readonly conversionPatterns: readonly string[];
   readonly pipelineCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  TransformationType,
-  TransformationPhase,
-  TransformationDirection,
-  TransformationStrategy,
-  TransformationQuality,
-  DataFormat,
-  SecurityLevel,
-  FieldTransformationType,
-  ConditionOperator,
-  FallbackStrategy,
-  StageConditionType,
-  StageActionType,
-  DependencyType,
-  AlertSeverity,
-  ErrorStrategy,
-  BackoffStrategy,
-  OptimizationLevel,
-  CacheStrategy,
-  LogLevel,
-  LogFormat
-};

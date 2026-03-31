@@ -11,32 +11,13 @@ import type {
   ComponentTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  LayoutType, 
-  GridVariant, 
-  GridGap, 
-  Breakpoint, 
-  ContainerType, 
-  HorizontalAlignment, 
-  VerticalAlignment, 
-  TextAlignment, 
-  LoadingType, 
-  ErrorSeverity, 
-  TransitionBackground,
-  SocialVariant, 
-  EconomicFocus, 
-  AudienceRole
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // LAYOUT COMPONENT ARCHITECTURE
 // ============================================================================
 
 export interface LayoutProps {
   // LAYOUT SPECIFICATION
-  readonly type: LayoutType;
+  readonly type: string;
   readonly grid?: GridConfig;
   readonly spacing?: SpacingConfig;
   readonly alignment?: AlignmentConfig;
@@ -58,9 +39,9 @@ export interface LayoutProps {
 
 export interface GridConfig {
   // GRID STRUCTURE
-  readonly variant: GridVariant;
+  readonly variant: string;
   readonly columns: number;
-  readonly gap: GridGap;
+  readonly gap: number
   
   // RESPONSIVE BEHAVIOR
   readonly responsive?: ResponsiveGridConfig;
@@ -77,11 +58,11 @@ export interface ResponsiveGridConfig {
   readonly widescreen: number;
   
   // RESPONSIVE PROPERTIES
-  readonly breakpoint: Breakpoint;
+  readonly breakpoint: number;
   readonly columns: number;
   readonly gap: string;
   readonly padding: string;
-  readonly container?: ContainerType;
+  readonly container?: string
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -107,9 +88,9 @@ export interface SpacingConfig {
 
 export interface AlignmentConfig {
   // SPATIAL ALIGNMENT
-  readonly horizontal: HorizontalAlignment;
-  readonly vertical: VerticalAlignment;
-  readonly text: TextAlignment;
+  readonly horizontal: string
+  readonly vertical: string
+  readonly text: string
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -124,7 +105,7 @@ export interface LoadingState {
   readonly isLoading: boolean;
   readonly message?: string;
   readonly progress?: number; // 0-100 scale
-  readonly type?: LoadingType;
+  readonly type?: string
   
   // ONTOLOGICAL CONTEXT
   readonly stateTaxonomy: StateTaxonomyType;
@@ -140,7 +121,7 @@ export interface LayoutErrorState {
   readonly message?: string;
   readonly code?: string;
   readonly retryable?: boolean;
-  readonly severity?: ErrorSeverity;
+  readonly severity?: string
   
   // ONTOLOGICAL CONTEXT
   readonly stateTaxonomy: StateTaxonomyType;
@@ -153,7 +134,7 @@ export interface LayoutErrorState {
 export interface PageTransitionProps {
   // TRANSITION PROPERTIES
   readonly children: unknown; // React.ReactNode as unknown for purity
-  readonly background?: TransitionBackground;
+  readonly background?: string
   readonly duration?: number; // Consciousness cycles
   readonly direction?: string;
   
@@ -164,7 +145,7 @@ export interface PageTransitionProps {
 export interface TransitionWrapperProps {
   // WRAPPER PROPERTIES
   readonly children: unknown; // React.ReactNode as unknown for purity
-  readonly background?: TransitionBackground;
+  readonly background?: string
   readonly duration?: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -188,15 +169,15 @@ export interface StaggerContainerProps {
 
 export interface SocialNetworkProps {
   // DISPLAY PROPERTIES
-  readonly variant?: SocialVariant;
+  readonly variant?: string
   readonly title?: string;
   readonly description?: string;
   readonly showPayments?: boolean;
   readonly className?: string;
   
   // ECONOMIC CONTEXT
-  readonly economicFocus?: EconomicFocus;
-  readonly audienceRole?: AudienceRole;
+  readonly economicFocus?: string
+  readonly audienceRole?: string
   readonly premiumAccess?: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -208,7 +189,7 @@ export interface SocialNetworkProps {
 // ============================================================================
 
 export interface LayoutSystemMapping {
-  readonly layoutType: LayoutType;
+  readonly string: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -226,24 +207,3 @@ export interface LayoutSystemMapping {
   readonly arrangementPatterns: readonly string[];
   readonly spatialCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  LayoutType,
-  GridVariant,
-  GridGap,
-  Breakpoint,
-  ContainerType,
-  HorizontalAlignment,
-  VerticalAlignment,
-  TextAlignment,
-  LoadingType,
-  ErrorSeverity,
-  TransitionBackground,
-  SocialVariant,
-  EconomicFocus,
-  AudienceRole
-};

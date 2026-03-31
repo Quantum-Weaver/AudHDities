@@ -11,22 +11,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  FormFieldType,
-  FormEventType,
-  ValidationEventType,
-  FormStatus,
-  ValidationRule,
-  ValidationSeverity,
-  InteractionMethod,
-  FormLayout,
-  FormSpacing,
-  FormAlignment,
-  ProcessingStatus,
-  ConsciousnessLevel
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // FORM FIELD ARCHITECTURE
 // ============================================================================
@@ -35,7 +19,7 @@ export interface FormField {
   // FIELD IDENTITY
   readonly id: string;
   readonly name: string;
-  readonly type: FormFieldType;
+  readonly type: string;
   readonly label: string;
   readonly placeholder?: string;
   readonly required: boolean;
@@ -61,7 +45,7 @@ export interface FieldValidation {
   
   // VALIDATION CONTEXT
   readonly message?: string;
-  readonly severity: ValidationSeverity;
+  readonly severity: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -103,7 +87,7 @@ export interface FormsState {
   readonly touched: Record<string, boolean>;
   
   // STATUS STATE
-  readonly status: FormStatus;
+  readonly status: string;
   readonly isValid: boolean;
   readonly isSubmitting: boolean;
   readonly isDirty: boolean;
@@ -125,7 +109,7 @@ export interface FormsState {
 
 export interface FormEvent {
   // EVENT IDENTITY
-  readonly type: FormEventType;
+  readonly type: string;
   readonly field?: string;
   readonly value?: unknown;
   readonly formId: string;
@@ -135,7 +119,7 @@ export interface FormEvent {
   
   // CONTEXTUAL DATA
   readonly previousValue?: unknown;
-  readonly interaction: InteractionMethod;
+  readonly interaction: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -146,13 +130,13 @@ export interface FormEvent {
 
 export interface ValidationEvent {
   // EVENT IDENTITY
-  readonly type: ValidationEventType;
+  readonly type: string;
   readonly field: string;
   readonly message?: string;
   readonly formId: string;
   
   // VALIDATION CONTEXT
-  readonly rule: ValidationRule;
+  readonly rule: string;
   readonly value: unknown;
   readonly expected?: unknown;
   
@@ -179,9 +163,9 @@ export interface FormConfig {
   readonly validateOnChange: boolean;
   
   // APPEARANCE CONFIGURATION
-  readonly layout: FormLayout;
-  readonly spacing: FormSpacing;
-  readonly alignment: FormAlignment;
+  readonly layout: string;
+  readonly spacing: string;
+  readonly alignment: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -238,7 +222,7 @@ export interface FormSubmission {
 
 export interface SubmissionProcessing {
   // PROCESSING STATE
-  readonly status: ProcessingStatus;
+  readonly status: string;
   readonly startedAt: string; // Consciousness timestamp
   readonly completedAt?: string; // Consciousness timestamp
   readonly progress: number; // 0-100 scale
@@ -254,7 +238,7 @@ export interface SubmissionProcessing {
 // ============================================================================
 
 export interface FormSystemMapping {
-  readonly formType: FormFieldType;
+  readonly formType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -272,20 +256,3 @@ export interface FormSystemMapping {
   readonly dataFlowPatterns: readonly string[];
   readonly validationCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  FormFieldType,
-  FormEventType,
-  ValidationEventType,
-  FormStatus,
-  ValidationSeverity,
-  InteractionMethod,
-  FormLayout,
-  FormSpacing,
-  FormAlignment,
-  ProcessingStatus
-};

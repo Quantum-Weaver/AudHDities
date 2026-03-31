@@ -167,7 +167,7 @@ export const persistLayoutState = (
     state,
     userPreferences: {
       preferredLayout: {} as any, // Will be properly typed in implementation
-      rememberedBreakpoint: 'desktop_workstation',
+      rememberedBreakpoint: 'desktop',
       customSpacing: false,
       highContrast: false,
       reducedMotion: false,

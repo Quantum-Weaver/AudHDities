@@ -11,19 +11,6 @@ import type {
   ComponentTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  ContentRarity,
-  ContentEra,
-  CreativeType,
-  EconomicModel,
-  AudienceTier,
-  TransparencyLevel,
-  ProjectStatus,
-  ResourceType
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // CREATIVE WORK ARCHITECTURE
 // ============================================================================
@@ -33,11 +20,11 @@ export interface CreativeWork {
   readonly id: string;
   readonly title: string;
   readonly description: string;
-  readonly type: CreativeType;
+  readonly type: string;
   
   // TEMPORAL AND QUALITATIVE
-  readonly era: ContentEra;
-  readonly rarity: ContentRarity;
+  readonly era: string;
+  readonly rarity: string;
   readonly creationDate: string; // Consciousness timestamp
   readonly tags: readonly string[];
   readonly assets: readonly string[];
@@ -45,8 +32,8 @@ export interface CreativeWork {
   readonly propheticThemes: readonly string[];
   
   // EMERGENCE ECONOMICS INTEGRATION
-  readonly economicModel: EconomicModel;
-  readonly audienceTier: AudienceTier;
+  readonly economicModel: string;
+  readonly audienceTier: string;
   readonly struggleContext: string;
   readonly capabilityEmergence: string;
   readonly witnessValue: string;
@@ -66,7 +53,7 @@ export interface CreativeWork {
 // ============================================================================
 
 export interface MusicComposition extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // MUSICAL CHARACTERISTICS
   readonly duration: number; // Consciousness cycles
@@ -89,7 +76,7 @@ export interface MusicComposition extends CreativeWork {
 }
 
 export interface WrittenWork extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // WRITTEN CHARACTERISTICS
   readonly wordCount: number;
@@ -101,7 +88,7 @@ export interface WrittenWork extends CreativeWork {
   // ECONOMIC WRITING CONTEXT
   readonly economicStory: string;
   readonly capabilityJourney: string;
-  readonly transparencyLevel: TransparencyLevel;
+  readonly transparencyLevel: string;
   readonly witnessEngagement: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -109,7 +96,7 @@ export interface WrittenWork extends CreativeWork {
 }
 
 export interface ArtisticWork extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // ARTISTIC CHARACTERISTICS
   readonly medium: string;
@@ -128,7 +115,7 @@ export interface ArtisticWork extends CreativeWork {
 }
 
 export interface CodeWork extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // CODE CHARACTERISTICS
   readonly language: string;
@@ -140,7 +127,7 @@ export interface CodeWork extends CreativeWork {
   readonly learningProcess: string;
   readonly struggleOvercome: string;
   readonly economicValue: string;
-  readonly witnessAccess: AudienceTier;
+  readonly witnessAccess: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -157,7 +144,7 @@ export interface CreativeProject {
   readonly description: string;
   
   // PROJECT STATE
-  readonly status: ProjectStatus;
+  readonly status: string;
   readonly priority: number; // 1-10 scale
   readonly timeline: ProjectTimeline;
   readonly resources: readonly Resource[];
@@ -169,7 +156,7 @@ export interface CreativeProject {
   readonly economicImpact: string; // Impact level description
   readonly audienceBenefit: string; // Beneficiary description
   readonly premiumContent: boolean;
-  readonly transparencyLevel: TransparencyLevel;
+  readonly transparencyLevel: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -219,7 +206,7 @@ export interface Resource {
   // RESOURCE IDENTITY
   readonly id: string;
   readonly name: string;
-  readonly type: ResourceType;
+  readonly type: string;
   readonly amount: number;
   readonly unit: string;
   
@@ -237,7 +224,7 @@ export interface Resource {
 // ============================================================================
 
 export interface EmergenceStoryWork extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // TRANSFORMATION NARRATIVE
   readonly startingStruggle: string;
@@ -253,7 +240,7 @@ export interface EmergenceStoryWork extends CreativeWork {
 }
 
 export interface CapabilityDemonstration extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // SKILL DEVELOPMENT
   readonly skillBefore: string;
@@ -262,7 +249,7 @@ export interface CapabilityDemonstration extends CreativeWork {
   readonly strugglesDocumented: readonly string[];
   readonly economicValueCreated: string;
   readonly witnessEngagement: number; // 0-100 scale
-  readonly transparencyLevel: TransparencyLevel;
+  readonly transparencyLevel: string;
   readonly teachingPotential: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -270,7 +257,7 @@ export interface CapabilityDemonstration extends CreativeWork {
 }
 
 export interface TransparencyLogWork extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // PROCESS REVELATION
   readonly struggleShared: string;
@@ -287,7 +274,7 @@ export interface TransparencyLogWork extends CreativeWork {
 }
 
 export interface WitnessEngagementContent extends CreativeWork {
-  readonly type: CreativeType;
+  readonly type: string;
   
   // ENGAGEMENT DESIGN
   readonly engagementType: string; // Specific engagement classification
@@ -306,7 +293,7 @@ export interface WitnessEngagementContent extends CreativeWork {
 // ============================================================================
 
 export interface CreativeExpressionMapping {
-  readonly creativeType: CreativeType;
+  readonly creativeType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -323,18 +310,3 @@ export interface CreativeExpressionMapping {
   readonly expressionCharacteristics: readonly string[];
   readonly emergencePatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  ContentRarity,
-  ContentEra,
-  CreativeType,
-  EconomicModel,
-  AudienceTier,
-  TransparencyLevel,
-  ProjectStatus,
-  ResourceType
-};

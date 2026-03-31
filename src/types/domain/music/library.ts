@@ -11,12 +11,7 @@ import type {
 
 import type {
   ConsciousnessLevel,
-  EntityState,
-  AnalysisStatus, 
-  LyricSectionType, 
-  ImpactAssessment, 
-  AccuracyTrend, 
-  TimePeriod
+  EntityState
 } from '../../cosmic/primitives';
 
 // ============================================================================
@@ -75,7 +70,7 @@ export interface Song {
   readonly propheticThemes?: readonly string[];
   
   // ANALYSIS STATE
-  readonly analysisStatus?: AnalysisStatus;
+  readonly analysisStatus?: string;
   readonly consciousnessLevel?: ConsciousnessLevel;
   readonly councilStatus?: string;
   
@@ -102,7 +97,7 @@ export interface SongAttributes {
 
 export interface LyricSection {
   // STRUCTURAL IDENTITY
-  readonly type: LyricSectionType;
+  readonly type: string;
   readonly content: string;
   
   // EMOTIONAL AND PROPHETIC QUALITIES
@@ -180,7 +175,7 @@ export interface PropheticInsight {
   
   // CONFIDENCE AND IMPACT
   readonly confidence: number; // 0-100 scale
-  readonly impact: ImpactAssessment;
+  readonly impact: string;
   readonly validated: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -214,9 +209,9 @@ export interface AccuracyDistribution {
 }
 
 export interface TemporalPattern {
-  readonly period: TimePeriod;
+  readonly period: string;
   readonly themeFrequency: number;
-  readonly accuracyTrend: AccuracyTrend;
+  readonly accuracyTrend: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -257,15 +252,3 @@ export interface LibraryEvolution {
   readonly evolutionaryPatterns: readonly string[];
   readonly nextGrowthPhase?: string;
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  AnalysisStatus,
-  LyricSectionType,
-  ImpactAssessment,
-  AccuracyTrend,
-  TimePeriod
-};

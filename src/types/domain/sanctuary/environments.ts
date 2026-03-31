@@ -9,21 +9,13 @@ import type {
   AnimationTaxonomyType,
   InteractionTaxonomyType,
   SystemTaxonomyType, 
-  DigitalDomainType,
   DomainTaxonomyType
 } from '@/types/gaia';
 
 import type {
   ConsciousnessLevel,
-  AnimationPhase,
   VesselCapacity,
-  EntityState,
-  ConsciousnessMode,
-  EnvironmentAccess,
-  AnimationType,
-  ConditionType,
-  RestrictionType,
-  DomainID
+  EntityState
 } from '@/types/cosmic/primitives';
 
 // ============================================================================
@@ -37,7 +29,7 @@ export interface QuantumEnvironmentConfig {
   readonly description: string;
   
   // CONSCIOUSNESS REQUIREMENTS
-  readonly consciousnessMode: ConsciousnessMode;
+  readonly consciousnessMode: string;
   readonly consciousnessLevel: ConsciousnessLevel;
   readonly vesselCapacity: VesselCapacity;
   
@@ -47,7 +39,7 @@ export interface QuantumEnvironmentConfig {
   readonly animation: string;
   
   // ACCESS AND PERMISSIONS
-  readonly access: readonly EnvironmentAccess[];
+  readonly access: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly realmOntology: RealmOntologyType;
@@ -84,8 +76,8 @@ export interface EnvironmentTransition {
 
 export interface EnvironmentAnimation {
   // TRANSITION PHASES
-  readonly enter: AnimationPhase;
-  readonly exit: AnimationPhase;
+  readonly enter: string;
+  readonly exit: string;
   readonly active?: readonly ActiveAnimation[];
   
   // TAXONOMIC CLASSIFICATION
@@ -95,7 +87,7 @@ export interface EnvironmentAnimation {
 export interface ActiveAnimation {
   // ANIMATION IDENTITY
   readonly id: string;
-  readonly type: AnimationType;
+  readonly type: string;
   
   // ACTIVATION CONDITIONS
   readonly conditions: readonly ActivationCondition[];
@@ -106,7 +98,7 @@ export interface ActiveAnimation {
 
 export interface ActivationCondition {
   // CONDITION SPECIFICATION
-  readonly type: ConditionType;
+  readonly type: string;
   readonly parameters: readonly string[];
   readonly required: string;
   
@@ -120,7 +112,7 @@ export interface ActivationCondition {
 
 export interface TransitionRestriction {
   // RESTRICTION IDENTITY
-  readonly type: RestrictionType;
+  readonly type: string;
   readonly message: string;
   readonly required: string;
   readonly current?: string;
@@ -142,7 +134,7 @@ export interface EnvironmentState {
   // ENERGY AND CAPACITY
   readonly energyLevel: number; // 0-100 scale
   readonly available: readonly EnvironmentID[];
-  readonly permissions: readonly EnvironmentAccess[];
+  readonly permissions: readonly string[];
   
   // CONSCIOUSNESS STATE
   readonly consciousnessState: EntityState;
@@ -209,7 +201,7 @@ export interface EnvironmentNetwork {
   readonly transitions: readonly EnvironmentTransition[];
   readonly energyProfiles: readonly EnergyProfile[];
   readonly networkCoherence: number; // 0-100 scale
-  readonly accessHierarchy: readonly EnvironmentAccess[];
+  readonly accessHierarchy: readonly string[];
   readonly consciousnessFlow: readonly string[];
 }
 
@@ -229,15 +221,3 @@ export interface SpatialHarmony {
   readonly transitionFluidity: number; // 0-100 scale
   readonly emergentPatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  ConsciousnessMode,
-  EnvironmentAccess,
-  AnimationType,
-  ConditionType,
-  RestrictionType
-};

@@ -16,42 +16,7 @@ import type {
 import { LayoutConfig } from '@/types/systems/layout/structure'
 // Import layout store primitives from semantic foundation
 import type {
-  LayoutStoreActionType,
-  StoreOperation,
-  PersistenceState,
-  EntityState,
-  ConsciousnessLevel,
-  SubscriptionType,
-  InitializationTrigger,
-  CleanupStrategy,
-  CacheStrategy,
-  ReplacementReason,
-  TransitionType,
-  ClearScope,
-  ScreenCategory,
-  ClearReason,
-  RestoreSource,
-  FontSizePreference,
-  PersistenceTrigger,
-  RestorationSource,
-  MiddlewarePriority,
-  MiddlewareCapability,
-  UnsubscribeReason,
-  ActionComplexity,
-  DispatcherThroughput,
-  DispatcherLatency,
-  DispatcherReliability,
-  SelectorComplexity,
-  CallbackFrequency,
-  PersistenceCompression,
-  StateFreshness,
-  MaxHistorySize,
-  SaveInterval,
-  CleanupFrequency,
-  MemoryThreshold,
-  BatchSize,
-  CacheSize,
-  ThrottleInterval
+  ScreenCategory
 } from '@/types/cosmic/primitives';
 
 // ============================================================================
@@ -89,7 +54,7 @@ export interface LayoutStoreState {
 
 export interface LayoutStoreAction {
   // ACTION IDENTITY
-  readonly type: LayoutStoreActionType;
+  readonly type: string;
   readonly payload?: ActionPayload;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -119,7 +84,7 @@ export interface InitializePayload {
 
 export interface InitializationContext {
   // CONTEXTUAL INFORMATION
-  readonly trigger: InitializationTrigger;
+  readonly trigger: string;
   readonly environment: StoreEnvironment;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -149,9 +114,9 @@ export interface StoreOptimization {
 
 export interface MemoryOptimization {
   // MEMORY PROPERTIES
-  readonly maxHistory: MaxHistorySize;
+  readonly maxHistory: number;
   readonly compression: boolean;
-  readonly cleanup: CleanupStrategy;
+  readonly cleanup: string;
   
   // ONTOLOGICAL CONTEXT
   readonly memoryTaxonomy: DataTaxonomyType;
@@ -161,7 +126,7 @@ export interface PerformanceOptimization {
   // PERFORMANCE PROPERTIES
   readonly batchUpdates: boolean;
   readonly lazyEvaluation: boolean;
-  readonly caching: CacheStrategy;
+  readonly caching: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -170,7 +135,7 @@ export interface PerformanceOptimization {
 export interface PersistenceOptimization {
   // PERSISTENCE PROPERTIES
   readonly autoSave: boolean;
-  readonly saveInterval: SaveInterval;
+  readonly saveInterval: string;
   readonly compression: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -188,7 +153,7 @@ export interface ReplaceStatePayload {
 
 export interface ReplacementContext {
   // CONTEXTUAL INFORMATION
-  readonly reason: ReplacementReason;
+  readonly reason: string;
   readonly previous: LayoutState;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -198,7 +163,7 @@ export interface ReplacementContext {
 
 export interface StoreActionContext {
   // CONTEXTUAL INFORMATION
-  readonly operation: StoreOperation;
+  readonly operation: string;
   readonly metadata: Record<string, string>; // String values only
   readonly performance: ActionPerformance;
   
@@ -210,7 +175,7 @@ export interface ActionPerformance {
   // PERFORMANCE METRICS (using primitive types)
   readonly duration: number; // Consciousness cycles
   readonly memory: number; // Consciousness units
-  readonly complexity: ActionComplexity;
+  readonly complexity: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -241,7 +206,7 @@ export interface LayoutStore {
 export interface StoreDispatcher {
   // DISPATCHER PROPERTIES
   readonly id: string;
-  readonly capabilities: readonly LayoutStoreActionType[];
+  readonly capabilities: readonly string[];
   readonly performance: DispatcherPerformance;
   
   // ONTOLOGICAL CONTEXT
@@ -250,9 +215,9 @@ export interface StoreDispatcher {
 
 export interface DispatcherPerformance {
   // PERFORMANCE METRICS (using primitive types)
-  readonly throughput: DispatcherThroughput;
-  readonly latency: DispatcherLatency;
-  readonly reliability: DispatcherReliability;
+  readonly throughput: string;
+  readonly latency: string;
+  readonly reliability: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -288,7 +253,7 @@ export interface TemporalContext {
 
 export interface TemporalTransition {
   // TRANSITION PROPERTIES
-  readonly type: TransitionType;
+  readonly type: string;
   readonly duration: number; // Consciousness cycles
   readonly preservation: StatePreservation;
   
@@ -308,7 +273,7 @@ export interface StatePreservation {
 
 export interface ClearHistoryOperation {
   // OPERATION PROPERTIES
-  readonly scope: ClearScope;
+  readonly scope: string;
   readonly context: ClearContext;
   
   // ONTOLOGICAL CONTEXT
@@ -317,7 +282,7 @@ export interface ClearHistoryOperation {
 
 export interface ClearContext {
   // CONTEXTUAL INFORMATION
-  readonly reason: ClearReason;
+  readonly reason: string;
   readonly affected: number; // Number of states cleared
   readonly timestamp: string; // Consciousness timestamp
   
@@ -355,7 +320,7 @@ export interface RestoreOperation {
 
 export interface RestoreContext {
   // CONTEXTUAL INFORMATION
-  readonly source: RestoreSource;
+  readonly source: string;
   readonly validation: RestoreValidation;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -366,7 +331,7 @@ export interface RestoreContext {
 export interface RestoreValidation {
   // VALIDATION PROPERTIES
   readonly integrity: boolean;
-  readonly freshness: StateFreshness;
+  readonly freshness: string;
   readonly security: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -404,7 +369,7 @@ export interface UserPreferences {
   // ACCESSIBILITY PREFERENCES
   readonly highContrast: boolean;
   readonly reducedMotion: boolean;
-  readonly fontSize: FontSizePreference;
+  readonly fontSize: string;
   
   // ONTOLOGICAL CONTEXT
   readonly beingOntology: BeingOntologyType;
@@ -417,7 +382,7 @@ export interface UserPreferences {
 export interface LayoutStoreConfig {
   // PERSISTENCE SETTINGS
   readonly persistKey: string;
-  readonly maxHistorySize: MaxHistorySize;
+  readonly maxHistorySize: number;
   readonly autoPersist: boolean;
   
   // EVENT HANDLERS
@@ -442,7 +407,7 @@ export interface PersistenceHandler {
 
 export interface PersistenceContext {
   // CONTEXTUAL INFORMATION
-  readonly trigger: PersistenceTrigger;
+  readonly trigger: string;
   readonly performance: PersistencePerformance;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -454,7 +419,7 @@ export interface PersistencePerformance {
   // PERFORMANCE METRICS
   readonly duration: number; // Consciousness cycles
   readonly size: number; // Consciousness units
-  readonly compression: PersistenceCompression;
+  readonly compression: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -471,7 +436,7 @@ export interface RestorationHandler {
 
 export interface RestorationContext {
   // CONTEXTUAL INFORMATION
-  readonly source: RestorationSource;
+  readonly source: string;
   readonly validation: RestorationValidation;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -482,7 +447,7 @@ export interface RestorationContext {
 export interface RestorationValidation {
   // VALIDATION PROPERTIES
   readonly integrity: boolean;
-  readonly freshness: StateFreshness;
+  readonly freshness: string;
   readonly security: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -501,7 +466,7 @@ export interface StoreOptimizationConfig {
 
 export interface MemoryConfig {
   // MEMORY SETTINGS
-  readonly maxStates: MaxHistorySize;
+  readonly maxStates: number;
   readonly compression: boolean;
   readonly cleanup: CleanupConfig;
   
@@ -511,9 +476,9 @@ export interface MemoryConfig {
 
 export interface CleanupConfig {
   // CLEANUP SETTINGS
-  readonly strategy: CleanupStrategy;
-  readonly frequency: CleanupFrequency;
-  readonly threshold: MemoryThreshold;
+  readonly strategy: string;
+  readonly frequency: string;
+  readonly threshold: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -521,9 +486,9 @@ export interface CleanupConfig {
 
 export interface PerformanceConfig {
   // PERFORMANCE SETTINGS
-  readonly batchSize: BatchSize;
-  readonly cacheSize: CacheSize;
-  readonly throttle: ThrottleInterval;
+  readonly batchSize: number;
+  readonly cacheSize: number;
+  readonly throttle: number;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -531,7 +496,7 @@ export interface PerformanceConfig {
 
 export interface PersistenceConfig {
   // PERSISTENCE SETTINGS
-  readonly interval: SaveInterval;
+  readonly interval: number;
   readonly compression: boolean;
   readonly encryption: boolean;
   
@@ -556,7 +521,7 @@ export interface LayoutSelector<T> {
 export interface SelectorPerformance {
   // PERFORMANCE METRICS (using primitive types)
   readonly duration: number; // Consciousness cycles
-  readonly complexity: SelectorComplexity;
+  readonly complexity: string;
   readonly cache: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -579,8 +544,8 @@ export interface LayoutSelectorHook<T> {
 export interface LayoutMiddleware {
   // MIDDLEWARE PROPERTIES
   readonly id: string;
-  readonly priority: MiddlewarePriority;
-  readonly capabilities: readonly MiddlewareCapability[];
+  readonly priority: string;
+  readonly capabilities: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -594,7 +559,7 @@ export interface LayoutStoreSubscription {
   // SUBSCRIPTION PROPERTIES
   readonly selector: LayoutSelector<unknown>;
   readonly callback: SubscriptionCallback;
-  readonly type: SubscriptionType;
+  readonly type: string;
   
   // ONTOLOGICAL CONTEXT
   readonly relationshipTaxonomy: RelationshipTaxonomyType;
@@ -622,7 +587,7 @@ export interface CallbackContext {
 export interface CallbackPerformance {
   // PERFORMANCE METRICS (using primitive types)
   readonly latency: number; // Consciousness cycles
-  readonly frequency: CallbackFrequency;
+  readonly frequency: string;
   readonly reliability: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -658,7 +623,7 @@ export interface UnsubscribeAction {
 
 export interface UnsubscribeContext {
   // CONTEXTUAL INFORMATION
-  readonly reason: UnsubscribeReason;
+  readonly reason: string;
   readonly timestamp: string; // Consciousness timestamp
   
   // ONTOLOGICAL CONTEXT

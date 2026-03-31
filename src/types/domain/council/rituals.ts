@@ -12,34 +12,7 @@ import type {
 
 // Import all council ritual primitives
 import type {
-  RitualStatus,
-  EntityState,
-  CouncilEntityID,
-  ConsciousnessLevel,
-  RitualPhase,
-  RitualOutcome,
-  ComparisonStatus,
-  TimeUnit,
-  ActivationTiming,
-  SyncPattern,
-  TargetType,
-  EngagementLevel,
-  RitualCompletion,
-  PhaseCompletion,
-  PerformanceScore,
-  RitualNetworkCoherence,
-  CriterionWeight,
-  ElapsedUnits,
-  RemainingUnits,
-  RitualStartTime,
-  RitualEndTime,
-  SuccessCriterionCollection,
-  BlockerCollection,
-  RitualMetricCollection,
-  RitualLearningCollection,
-  ExpectedOutcomeCollection,
-  ParticipantRequirementCollection,
-  RitualEmergentPatternCollection
+  ConsciousnessLevel
 } from '@/types/cosmic/primitives';
 
 // ============================================================================
@@ -56,11 +29,11 @@ export interface CouncilRitual {
   // RITUAL IDENTITY
   readonly id: string;
   readonly type: RitualType;
-  readonly status: RitualStatus;
+  readonly status: string;
   
   // PARTICIPATION AND ENGAGEMENT (using primitives)
-  readonly participants: readonly CouncilEntityID[];
-  readonly engagementLevel: EngagementLevel;
+  readonly participants: readonly string[];
+  readonly engagementLevel: string;
   
   // CONFIGURATION AND STRUCTURE
   readonly config: RitualConfig;
@@ -85,9 +58,9 @@ export interface CouncilRitual {
 
 export interface RitualConfig {
   // TEMPORAL STRUCTURE (using primitives)
-  readonly durationType: TimeUnit;
-  readonly activationTiming: ActivationTiming;
-  readonly syncPattern: SyncPattern;
+  readonly durationType: string;
+  readonly activationTiming: string;
+  readonly syncPattern: string;
   
   // ONTOLOGICAL CONTEXT
   readonly functionOntology: FunctionOntologyType;
@@ -111,9 +84,9 @@ export interface SuccessCriterion {
   readonly description: string;
   
   // MEASUREMENT FRAMEWORK (using primitives)
-  readonly targetType: TargetType;
+  readonly targetType: string;
   readonly scaleType: string;
-  readonly weight: CriterionWeight;
+  readonly weight: string;
   
   // ONTOLOGICAL CONTEXT
   readonly functionOntology: FunctionOntologyType;
@@ -125,16 +98,16 @@ export interface SuccessCriterion {
 
 export interface RitualProgress {
   // COMPLETION METRICS (using primitives)
-  readonly completion: RitualCompletion;
-  readonly phase: RitualPhase;
-  readonly phaseCompletion: PhaseCompletion;
+  readonly completion: string;
+  readonly phase: string;
+  readonly phaseCompletion: string;
   
   // TEMPORAL CONTEXT (using primitives)
-  readonly elapsedUnits: ElapsedUnits;
-  readonly remainingUnits: RemainingUnits;
+  readonly elapsedUnits: string;
+  readonly remainingUnits: string;
   
   // CHALLENGE IDENTIFICATION (using primitives)
-  readonly blockers: BlockerCollection;
+  readonly blockers: string;
   readonly consciousnessState: ConsciousnessLevel;
   
   // TAXONOMIC CLASSIFICATION
@@ -149,16 +122,16 @@ export interface RitualProgress {
 export interface RitualHistory {
   // INSTANCE IDENTIFICATION (using primitives)
   readonly instanceId: string;
-  readonly startTime: RitualStartTime;
-  readonly endTime: RitualEndTime;
+  readonly startTime: string  // ISO timestamp
+  readonly endTime: string  // ISO timestamp
   
   // OUTCOME ANALYSIS (using primitives)
-  readonly finalStatus: RitualOutcome;
-  readonly performanceScore: PerformanceScore;
+  readonly finalStatus: string;
+  readonly performanceScore: string;
   
   // METRICS AND LEARNING (using primitives)
   readonly metrics: readonly RitualMetric[];
-  readonly learnings: RitualLearningCollection;
+  readonly learnings: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -176,8 +149,8 @@ export interface RitualMetric {
   
   // MEASUREMENT CONTEXT (using primitives)
   readonly valueType: string;
-  readonly unit: TimeUnit;
-  readonly comparison: ComparisonStatus;
+  readonly unit: string;
+  readonly comparison: string;
   
   // TAXONOMIC CLASSIFICATION
   readonly dataTaxonomy: DataTaxonomyType;
@@ -201,8 +174,8 @@ export interface CouncilRitualMapping {
     readonly pattern: PatternTaxonomyType;
     readonly system: SystemTaxonomyType;
   };
-  readonly expectedOutcomes: ExpectedOutcomeCollection;
-  readonly participantRequirements: ParticipantRequirementCollection;
+  readonly expectedOutcomes: string;
+  readonly participantRequirements: string;
 }
 
 // ============================================================================
@@ -211,9 +184,9 @@ export interface CouncilRitualMapping {
 
 export interface RitualCoordination {
   readonly activeRituals: readonly CouncilRitual[];
-  readonly entityEngagement: Record<CouncilEntityID, EngagementLevel>;
-  readonly networkCoherence: RitualNetworkCoherence;
-  readonly emergentPatterns: RitualEmergentPatternCollection;
+  readonly entityEngagement: Record<string, string>;
+  readonly networkCoherence: string;
+  readonly emergentPatterns: string;
   readonly ontologicalBalance: {
     readonly preparation: number;
     readonly activation: number;

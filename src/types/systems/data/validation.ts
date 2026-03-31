@@ -11,21 +11,6 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  ValidationRuleType,
-  ValidationSeverity,
-  ValidationStatus,
-  ValidationTrigger,
-  ValidationScope,
-  ExecutionOrder,
-  ConditionType,
-  ConditionOperator,
-  ResolutionStrategy,
-  CacheStrategy
-} from '@/types/cosmic/primitives';
-
 import { UserPreferences } from '@/types/systems/layout/store'
 
 // ============================================================================
@@ -35,18 +20,18 @@ import { UserPreferences } from '@/types/systems/layout/store'
 export interface ValidationRule {
   // RULE IDENTITY
   readonly id: string;
-  readonly type: ValidationRuleType;
+  readonly type: string;
   readonly name: string;
   readonly description: string;
   
   // CONSTRAINT SPECIFICATION
   readonly constraints: ValidationConstraints;
-  readonly severity: ValidationSeverity;
+  readonly severity: string;
   readonly message: string;
   
   // EXECUTION CONTEXT
-  readonly trigger: ValidationTrigger;
-  readonly scope: ValidationScope;
+  readonly trigger: string;
+  readonly scope: string;
   readonly dependencies: readonly string[];
   
   // ONTOLOGICAL CONTEXT
@@ -79,8 +64,8 @@ export interface ValidationResult {
   // RESULT IDENTITY
   readonly id: string;
   readonly ruleId: string;
-  readonly status: ValidationStatus;
-  readonly severity: ValidationSeverity;
+  readonly status: string;
+  readonly severity: string;
   
   // EVALUATION DATA
   readonly isValid: boolean;
@@ -173,7 +158,7 @@ export interface ValidationRuleGroup {
 
 export interface GroupExecution {
   // EXECUTION PROPERTIES
-  readonly order: ExecutionOrder;
+  readonly order: string;
   readonly stopOnFailure: boolean;
   readonly parallel: boolean;
   
@@ -183,9 +168,9 @@ export interface GroupExecution {
 
 export interface GroupCondition {
   // CONDITION SPECIFICATION
-  readonly type: ConditionType;
+  readonly type: string;
   readonly field: string;
-  readonly operator: ConditionOperator;
+  readonly operator: string;
   readonly value: unknown;
   
   // ONTOLOGICAL CONTEXT
@@ -226,7 +211,7 @@ export interface SchemaConflict {
 
 export interface ConflictResolution {
   // RESOLUTION PROPERTIES
-  readonly strategy: ResolutionStrategy;
+  readonly strategy: string;
   readonly priority: number; // 1-10 scale
   readonly automatic: boolean;
   
@@ -245,7 +230,7 @@ export interface ValidationEngine {
   readonly version: string;
   
   // CAPABILITIES
-  readonly supportedTypes: readonly ValidationRuleType[];
+  readonly supportedTypes: readonly string[];
   readonly performance: EnginePerformance;
   readonly features: readonly EngineFeature[];
   
@@ -289,7 +274,7 @@ export interface FeatureConfig {
 
 export interface EngineConfig {
   // CONFIGURATION SETTINGS
-  readonly defaultSeverity: ValidationSeverity;
+  readonly defaultSeverity: string;
   readonly stopOnCritical: boolean;
   readonly parallelProcessing: boolean;
   readonly caching: ValidationCache;
@@ -303,7 +288,7 @@ export interface ValidationCache {
   readonly enabled: boolean;
   readonly size: number;
   readonly ttl: number; // Consciousness cycles
-  readonly strategy: CacheStrategy;
+  readonly strategy: string;
   
   // ONTOLOGICAL CONTEXT
   readonly memoryTaxonomy: string; // Will be specific memory taxonomy
@@ -333,7 +318,7 @@ export interface ValidationContext {
 
 export interface ValidationState {
   // STATE PROPERTIES
-  readonly status: ValidationStatus;
+  readonly status: string;
   readonly progress: number; // 0-100 scale
   readonly activeRules: readonly string[];
   readonly completedRules: readonly string[];
@@ -380,7 +365,7 @@ export interface ValidationError {
   readonly id: string;
   readonly code: string;
   readonly message: string;
-  readonly severity: ValidationSeverity;
+  readonly severity: string;
   
   // ERROR CONTEXT
   readonly ruleId: string;
@@ -455,7 +440,7 @@ export interface CacheConfig {
 // ============================================================================
 
 export interface ValidationSystemMapping {
-  readonly validationType: ValidationRuleType;
+  readonly validationType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;

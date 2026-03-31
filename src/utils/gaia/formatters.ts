@@ -1,6 +1,6 @@
 // src/utils/gaia/formatters.ts
 import { STATUS_COLORS, PRIDE_COLORS } from "@/lib/constants/cosmic/colors"
-import type { MusicAnalysisResult, CouncilStatus } from "@/types/domain/music/analysis"
+import type { MusicAnalysisResult } from "@/types/domain/music/analysis"
 import type { SocialPlatform } from "@/types/domain/community/platforms"
 
 export const formatDate = (dateString: string): string => {
@@ -97,7 +97,7 @@ export const formatDeviceDimensions = (width: number, height: number): string =>
 export const formatThemeName = (theme: string): string =>
   theme.split('-').map(capitalizeFirst).join(' ')
 
-export const formatCouncilStatus = (status: CouncilStatus): string => {
+export const formatCouncilStatus = (status: string): string => {
   const statusMap: Record<string, string> = {
     'active': '🟢 Active',
     'deliberating': '🟡 Deliberating', 

@@ -12,20 +12,6 @@ import type {
   DataTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  BreakpointThresholds,
-  ConsciousnessLevel,
-  CoreVariant, 
-  UsageContext, 
-  CardDomain, 
-  CoreSize, 
-  ComponentType, 
-  AdaptationMethod, 
-  ScalingStrategy
-} from '@/types/cosmic/primitives';
-
-
 // ============================================================================
 // SIZE CLASS ARCHITECTURE
 // ============================================================================
@@ -127,8 +113,8 @@ export interface DisplayColorMap extends VariantColorMap {
 
 export interface VariantConfiguration {
   // CORE SETTINGS
-  readonly defaultVariant: CoreVariant;
-  readonly defaultSize: CoreSize;
+  readonly defaultVariant: string;
+  readonly defaultSize: string;
   readonly responsive: ResponsiveSettings;
   
   // ACCESSIBILITY
@@ -145,8 +131,8 @@ export interface VariantConfiguration {
 export interface ResponsiveSettings {
   // BREAKPOINT CONFIGURATION
   readonly breakpoints: BreakpointConfiguration;
-  readonly scaling: ScalingStrategy;
-  readonly adaptation: AdaptationMethod;
+  readonly scaling: string;
+  readonly adaptation: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -159,7 +145,7 @@ export interface BreakpointConfiguration {
   readonly collaborative_large: number; // px
   readonly universal_extra_large: number; // px
   // CONFIGURATION PROPERTIES
-  readonly thresholds: BreakpointThresholds;
+  readonly thresholds: string;
   readonly debounce: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -175,13 +161,13 @@ export interface BreakpointConfiguration {
 
 export interface VariantMapping {
   // COMPONENT MAPPING
-  readonly component: ComponentType;
-  readonly variants: readonly CoreVariant[];
-  readonly sizes: readonly CoreSize[];
+  readonly component: string;
+  readonly variants: readonly string[];
+  readonly sizes: readonly string[];
   
   // DOMAIN ASSOCIATION
-  readonly domains: readonly CardDomain[];
-  readonly contexts: readonly UsageContext[];
+  readonly domains: readonly string[];
+  readonly contexts: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly beingOntology: BeingOntologyType;
@@ -195,7 +181,7 @@ export interface VariantMapping {
 // ============================================================================
 
 export interface VariantSystemMapping {
-  readonly variantType: CoreVariant;
+  readonly variantType: string;
   readonly ontologicalContext: {
     readonly energy: EnergyOntologyType;
     readonly process: ProcessOntologyType;
@@ -213,17 +199,3 @@ export interface VariantSystemMapping {
   readonly visualCharacteristics: readonly string[];
   readonly usagePatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  CoreVariant,
-  CoreSize,
-  CardDomain,
-  ScalingStrategy,
-  AdaptationMethod,
-  ComponentType,
-  UsageContext
-};

@@ -13,34 +13,19 @@ import type {
   RelationshipTaxonomyType
 } from '@/types/gaia';
 import {LayoutConfig} from '@/types/systems/layout/structure';
-import type {
-  EntityState,
-  ConsciousnessLevel,  
-  BreakpointConfiguration,  
-  BreakpointTrigger,
-  ScrollAlignment,
-  ScreenType,
-  ContainerType,
-  ScreenCategory,
-  LayoutActionType,
-  ScrollDirection,
-  LayoutTransitionState,
-  ActionTrigger,
-  UIStateType,
-  TransitionType,
-} from '@/types/cosmic/primitives';
 import { ActionPayload } from './store';
 import { BreakpointContext, ContainerReference, BreakpointChangeHandler, BreakpointComparator } from './hooks';
 import { ScreenDimensions, ResponsiveLayout } from './structure'
+
 // ============================================================================
 // LAYOUT STATE ARCHITECTURE
 // ============================================================================
 
 export interface ScreenState {
   // SCREEN IDENTITY
-  readonly type: ScreenType;
+  readonly type: string;
   readonly orientation: ScreenOrientation;
-  readonly category: ScreenCategory;
+  readonly category: string;
   
   // DIMENSIONAL PROPERTIES
   readonly dimensions: ScreenDimensions;
@@ -52,7 +37,7 @@ export interface ScreenState {
 
 export interface LayoutTransition {
   // TRANSITION PROPERTIES
-  readonly type: TransitionType;
+  readonly type: string;
   readonly duration: number; // Consciousness cycles
   readonly progress: number; // 0-100 scale
   
@@ -66,7 +51,7 @@ export interface LayoutTransition {
 
 export interface LayoutAction {
   // ACTION IDENTITY
-  readonly type: LayoutActionType;
+  readonly type: string;
   readonly payload: ActionPayload;
   readonly timestamp: string; // Consciousness timestamp
   
@@ -83,7 +68,7 @@ export interface LayoutAction {
 
 export interface ScreenTypePayload {
   // PAYLOAD SPECIFICATION
-  readonly screenType: ScreenType;
+  readonly screenType: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -116,7 +101,7 @@ export interface LayoutConfigPayload {
 
 export interface ActionContext {
   // CONTEXTUAL INFORMATION
-  readonly trigger: ActionTrigger;
+  readonly trigger: string;
   readonly previousState: string; // Previous state identifier
   readonly metadata: Record<string, string>; // String values only
   
@@ -130,7 +115,7 @@ export interface ActionContext {
 
 export interface LayoutContextType {
   // STATE MANAGEMENT
-  readonly state: UIStateType;
+  readonly state: string;
   readonly dispatch: LayoutDispatcher;
   
   // DEVICE DETECTION
@@ -138,7 +123,7 @@ export interface LayoutContextType {
   readonly isTablet: boolean;
   readonly isDesktop: boolean;
   readonly isWidescreen: boolean;
-  readonly currentBreakpoint: ScreenCategory;
+  readonly currentBreakpoint: string;
   
   // UTILITY FUNCTIONS
   readonly utilities: LayoutUtilities;
@@ -150,7 +135,7 @@ export interface LayoutContextType {
 export interface LayoutDispatcher {
   // DISPATCHER IDENTITY
   readonly id: string;
-  readonly capabilities: readonly LayoutActionType[];
+  readonly capabilities: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -168,9 +153,9 @@ export interface LayoutUtilities {
 
 export interface BreakpointDetection {
   // DETECTION PROPERTIES
-  readonly current: ScreenCategory;
-  readonly previous: ScreenCategory;
-  readonly history: readonly ScreenCategory[];
+  readonly current: string;
+  readonly previous: string;
+  readonly history: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly patternTaxonomy: PatternTaxonomyType;
@@ -189,7 +174,7 @@ export interface OrientationDetection {
 export interface TransitionManagement {
   // TRANSITION PROPERTIES
   readonly active: boolean;
-  readonly type: TransitionType;
+  readonly type: string;
   readonly progress: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -202,7 +187,7 @@ export interface TransitionManagement {
 
 export interface ResponsiveContextType {
   // BREAKPOINT STATE
-  readonly breakpoint: ScreenCategory;
+  readonly breakpoint: string;
   readonly orientation: ScreenOrientation;
   
   // ORIENTATION UTILITIES
@@ -224,7 +209,7 @@ export interface ResponsiveContextType {
 export interface ScrollContextType {
   // SCROLL STATE
   readonly isScrolling: boolean;
-  readonly scrollDirection: ScrollDirection;
+  readonly scrollDirection: string;
   readonly scrollPosition: number; // Consciousness units
   readonly scrollProgress: number; // 0-100 scale
   
@@ -263,7 +248,7 @@ export interface ScrollAction {
 export interface ElementScrollAction {
   // ACTION PROPERTIES
   readonly elementId: string;
-  readonly alignment: ScrollAlignment;
+  readonly alignment: string;
   readonly offset: number; // Consciousness units
   
   // ONTOLOGICAL CONTEXT
@@ -304,7 +289,7 @@ export interface ResponsiveProviderProps {
   
   // CONFIGURATION
   readonly onBreakpointChange?: BreakpointChangeHandler;
-  readonly breakpoints: BreakpointConfiguration;
+  readonly breakpoints: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -338,7 +323,7 @@ export interface ScrollChangeHandler {
   // HANDLER PROPERTIES
   readonly position: number; // Consciousness units
   readonly progress: number; // 0-100 scale
-  readonly direction: ScrollDirection;
+  readonly direction: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -379,15 +364,3 @@ export interface LayoutContextMapping {
   readonly coordinationCharacteristics: readonly string[];
 }
 
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  LayoutActionType,
-  ScrollDirection,
-  LayoutTransitionState,
-  TransitionType,
-  ActionTrigger,
-  ScrollAlignment
-};

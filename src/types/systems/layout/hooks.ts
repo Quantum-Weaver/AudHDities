@@ -15,50 +15,8 @@ import type {
 
 // Import layout hooks primitives from semantic foundation
 import type {
-  LayoutUpdateAction,
-  EntityState,
-  ConsciousnessLevel,
-  ScrollNavigation,
-  MediaQueryState,
-  BreakpointComparison,
-  UpdateTrigger,
-  ResetTarget,
-  ResetReason,
-  QuerySpecificity,
-  ScrollPrecision,
-  MountPhase,
   ScreenType,
-  OptimizationLevel,
-  BreakpointTrigger,
-  Breakpoint,
-  ScreenCategory,
-  TransitionImpact,  
-  DeviceType,
-  ResizeCause,
-  ListenerPriority,
-  ListenerScope,
-  RemovalReason,
-  ChangeTrigger,
-  ThrottleMs,
-  PerformanceScore,
-  ConfidenceLevel,
-  ScrollVelocity,
-  ResponsiveFlag,
-  DefaultValue,
-  ContainerReferenceId,
-  ContainerType,
-  ContainerAccessibility,
-  QueryString,
-  OperationPriorityLevel,
-  ScrollDirection,
-  ScopeBoundary,
-  RemovalSuccess,
-  MatchSuccess,
-  UIStateType,
-  EvaluationTimestamp,
-  ChangeContext,
-  ListenerContext,
-  RemovalContext
+  ScreenCategory
 } from '@/types/cosmic/primitives';
 import { LayoutConfig, ScreenDimensions } from './structure'
 // ============================================================================
@@ -100,9 +58,9 @@ export interface LayoutUpdater {
 
 export interface UpdateContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly trigger: UpdateTrigger;
+  readonly trigger: string;
   readonly previous: LayoutConfig;
-  readonly timestamp: EvaluationTimestamp;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -110,7 +68,7 @@ export interface UpdateContext {
 
 export interface LayoutResetter {
   // RESETTER PROPERTIES (using primitive types)
-  readonly target: ResetTarget;
+  readonly target: string;
   readonly context: ResetContext;
   
   // ONTOLOGICAL CONTEXT
@@ -119,9 +77,9 @@ export interface LayoutResetter {
 
 export interface ResetContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly reason: ResetReason;
+  readonly reason: string;
   readonly previous: LayoutConfig;
-  readonly timestamp: EvaluationTimestamp;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -156,7 +114,7 @@ export interface BreakpointComparator {
   // COMPARATOR PROPERTIES (using primitive types)
   readonly target: ScreenCategory;
   readonly result: boolean;
-  readonly type: BreakpointComparison;
+  readonly type: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -164,7 +122,7 @@ export interface BreakpointComparator {
 
 export interface MediaQueryMatcher {
   // MATCHER PROPERTIES (using primitive types)
-  readonly query: QueryString;
+  readonly query: string;
   readonly matches: boolean;
   readonly context: QueryContext;
   
@@ -174,7 +132,7 @@ export interface MediaQueryMatcher {
 
 export interface QueryContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly specificity: QuerySpecificity;
+  readonly specificity: string;
   readonly conditions: readonly string[];
   readonly evaluation: QueryEvaluation;
   
@@ -184,9 +142,9 @@ export interface QueryContext {
 
 export interface QueryEvaluation {
   // EVALUATION PROPERTIES (using primitive types)
-  readonly success: MatchSuccess;
-  readonly timestamp: EvaluationTimestamp;
-  readonly performance: PerformanceScore;
+  readonly success: string;
+  readonly timestamp: string;
+  readonly performance: number;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -199,7 +157,7 @@ export interface QueryEvaluation {
 export interface UseScrollReturn {
   // SCROLL STATE (from scroll context)
   readonly isScrolling: boolean;
-  readonly scrollDirection: ScrollDirection;
+  readonly scrollDirection: string;
   readonly scrollPosition: number;
   readonly scrollProgress: number;
   readonly isAtTop: boolean;
@@ -222,8 +180,8 @@ export interface UseScrollReturn {
 
 export interface ContainerReference {
   // REFERENCE PROPERTIES (using primitive types)
-  readonly id: ContainerReferenceId;
-  readonly type: ContainerType;
+  readonly id: string;
+  readonly type: string;
   readonly properties: ContainerProperties;
   
   // ONTOLOGICAL CONTEXT
@@ -234,7 +192,7 @@ export interface ContainerProperties {
   // PROPERTY SPECIFICATION (using primitive types)
   readonly scrollable: boolean;
   readonly dimensions: ContainerDimensions;
-  readonly accessibility: ContainerAccessibility;
+  readonly accessibility: string;
   
   // ONTOLOGICAL CONTEXT
   readonly componentTaxonomy: ComponentTaxonomyType;
@@ -252,7 +210,7 @@ export interface ContainerDimensions {
 
 export interface ScrollNavigationAction {
   // ACTION PROPERTIES (using primitive types)
-  readonly type: ScrollNavigation;
+  readonly type: string;
   readonly behavior: ScrollBehavior;
   
   // ONTOLOGICAL CONTEXT
@@ -263,7 +221,7 @@ export interface PercentageScrollAction {
   // ACTION PROPERTIES (using primitive types)
   readonly percentage: number;
   readonly behavior: ScrollBehavior;
-  readonly precision: ScrollPrecision;
+  readonly precision: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -275,7 +233,7 @@ export interface PercentageScrollAction {
 
 export interface UseBreakpointReturn {
   // CURRENT BREAKPOINT
-  readonly current: Breakpoint;
+  readonly current: string;
   
   // BREAKPOINT FLAGS
   readonly isSm: boolean;
@@ -298,7 +256,7 @@ export interface UseBreakpointReturn {
 
 export interface BreakpointMatcher {
   // MATCHER PROPERTIES
-  readonly breakpoint: Breakpoint;
+  readonly breakpoint: string;
   readonly matches: boolean;
   readonly context: BreakpointContext;
   
@@ -308,7 +266,7 @@ export interface BreakpointMatcher {
 
 export interface BreakpointContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly comparison: BreakpointComparison;
+  readonly comparison: string;
   readonly threshold: number;
   readonly evaluation: BreakpointEvaluation;
   
@@ -318,9 +276,9 @@ export interface BreakpointContext {
 
 export interface BreakpointEvaluation {
   // EVALUATION PROPERTIES (using primitive types)
-  readonly success: MatchSuccess;
-  readonly confidence: ConfidenceLevel;
-  readonly timestamp: EvaluationTimestamp;
+  readonly success: number;
+  readonly confidence: number;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -346,7 +304,7 @@ export interface LayoutEffectConfig {
 
 export interface MountHandler {
   // HANDLER PROPERTIES
-  readonly layout: UIStateType;
+  readonly layout: string;
   readonly context: MountContext;
   
   // ONTOLOGICAL CONTEXT
@@ -355,9 +313,9 @@ export interface MountHandler {
 
 export interface MountContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly phase: MountPhase;
+  readonly phase: string;
   readonly environment: MountEnvironment;
-  readonly timestamp: EvaluationTimestamp;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -367,7 +325,7 @@ export interface MountEnvironment {
   // ENVIRONMENT PROPERTIES (using primitive types)
   readonly capabilities: readonly string[];
   readonly constraints: readonly string[];
-  readonly optimization: OptimizationLevel;
+  readonly optimization: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -385,9 +343,9 @@ export interface BreakpointChangeHandler {
 
 export interface BreakpointTransitionContext {
   // TRANSITION CONTEXT (using primitive types)
-  readonly trigger: BreakpointTrigger;
+  readonly trigger: string;
   readonly dimensions: ScreenDimensions;
-  readonly impact: TransitionImpact;
+  readonly impact: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -405,8 +363,8 @@ export interface OrientationChangeHandler {
 export interface OrientationContext {
   // CONTEXTUAL INFORMATION (using primitive types)
   readonly previous: ScreenOrientation;
-  readonly device: DeviceType;
-  readonly timestamp: EvaluationTimestamp;
+  readonly device: string;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -424,8 +382,8 @@ export interface ResizeHandler {
 export interface ResizeContext {
   // CONTEXTUAL INFORMATION (using primitive types)
   readonly previous: ScreenDimensions;
-  readonly cause: ResizeCause;
-  readonly timestamp: EvaluationTimestamp;
+  readonly cause: string;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -437,8 +395,8 @@ export interface ResizeContext {
 
 export interface MediaQueryConfig {
   // QUERY SPECIFICATION (using primitive types)
-  readonly query: QueryString;
-  readonly defaultValue: DefaultValue;
+  readonly query: string;
+  readonly defaultValue: string;
   readonly onMatchChange: MatchChangeHandler;
   
   // ONTOLOGICAL CONTEXT
@@ -457,7 +415,7 @@ export interface MatchChangeHandler {
 export interface MatchContext {
   // CONTEXTUAL INFORMATION (using primitive types)
   readonly previous: boolean;
-  readonly query: QueryString;
+  readonly query: string;
   readonly evaluation: QueryEvaluation;
   
   // ONTOLOGICAL CONTEXT
@@ -467,7 +425,7 @@ export interface MatchContext {
 export interface UseMediaQueryReturn {
   // MATCHING STATE (using primitive types)
   readonly matches: boolean;
-  readonly state: MediaQueryState;
+  readonly state: string;
   
   // LISTENER MANAGEMENT
   readonly addListener: ListenerManager;
@@ -488,7 +446,7 @@ export interface ListenerManager {
 export interface MatchListener {
   // LISTENER PROPERTIES
   readonly matches: boolean;
-  readonly context: ListenerContext;
+  readonly context: string;
   
   // ONTOLOGICAL CONTEXT
   readonly beingOntology: BeingOntologyType;
@@ -496,8 +454,8 @@ export interface MatchListener {
 
 export interface RemovalAction {
   // REMOVAL PROPERTIES (using primitive types)
-  readonly success: RemovalSuccess;
-  readonly context: RemovalContext;
+  readonly success: string;
+  readonly context: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -511,7 +469,7 @@ export interface UseLayoutConfig {
   // INITIALIZATION (using primitive types)
   readonly initialScreenType: ScreenType;
   readonly onLayoutChange: LayoutChangeHandler;
-  readonly responsive: ResponsiveFlag;
+  readonly responsive: string;
   
   // ONTOLOGICAL CONTEXT
   readonly systemTaxonomy: SystemTaxonomyType;
@@ -519,8 +477,8 @@ export interface UseLayoutConfig {
 
 export interface LayoutChangeHandler {
   // HANDLER PROPERTIES
-  readonly state: UIStateType;
-  readonly context: ChangeContext;
+  readonly state: string;
+  readonly context: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -548,7 +506,7 @@ export interface BreakpointCallbackContext {
   // CONTEXTUAL INFORMATION (using primitive types)
   readonly previous: ScreenCategory;
   readonly dimensions: ScreenDimensions;
-  readonly timestamp: EvaluationTimestamp;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;
@@ -556,7 +514,7 @@ export interface BreakpointCallbackContext {
 
 export interface UseScrollConfig {
   // PERFORMANCE SETTINGS (using primitive types)
-  readonly throttleMs: ThrottleMs;
+  readonly throttleMs: string;
   readonly onScrollStart: ScrollEventHandler;
   readonly onScrollEnd: ScrollEventHandler;
   readonly onDirectionChange: DirectionChangeHandler;
@@ -577,7 +535,7 @@ export interface ScrollEventContext {
   // CONTEXTUAL INFORMATION (using primitive types)
   readonly position: number;
   readonly progress: number;
-  readonly timestamp: EvaluationTimestamp;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly stateTaxonomy: StateTaxonomyType;
@@ -585,7 +543,7 @@ export interface ScrollEventContext {
 
 export interface DirectionChangeHandler {
   // HANDLER PROPERTIES
-  readonly direction: ScrollDirection;
+  readonly direction: string;
   readonly context: DirectionContext;
   
   // ONTOLOGICAL CONTEXT
@@ -594,9 +552,9 @@ export interface DirectionChangeHandler {
 
 export interface DirectionContext {
   // CONTEXTUAL INFORMATION (using primitive types)
-  readonly previous: ScrollDirection;
-  readonly velocity: ScrollVelocity;
-  readonly timestamp: EvaluationTimestamp;
+  readonly previous: string;
+  readonly velocity: number;
+  readonly timestamp: string;
   
   // ONTOLOGICAL CONTEXT
   readonly dataTaxonomy: DataTaxonomyType;

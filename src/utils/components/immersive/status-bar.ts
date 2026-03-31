@@ -27,11 +27,11 @@ export const getStatusColor = (
   
   if (!ranges) return STATUS_BAR_VARIANTS.quantum_awareness.primary;
   
-  if ('critical' in ranges && percentage <= ranges.critical) {
+  if ('critical' in ranges && percentage <= ranges) {
     return STATUS_BAR_VARIANTS.quantum_awareness.indicators.health.background;
   }
   
-  if ('low' in ranges && percentage <= ranges.low) {
+  if ('low' in ranges && percentage <= ranges) {
     return STATUS_BAR_VARIANTS.quantum_awareness.indicators.energy.background;
   }
   
@@ -81,7 +81,7 @@ export const isStatusCritical = (type: StatusIndicator['type'], value: number): 
   const ranges = STATUS_RANGES[type.toUpperCase() as keyof typeof STATUS_RANGES];
   if (!ranges || !('critical' in ranges)) return false;
   
-  return value <= ranges.critical;
+  return value <= ranges;
 };
 
 /**

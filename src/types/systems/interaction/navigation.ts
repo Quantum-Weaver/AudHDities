@@ -12,21 +12,6 @@ import type {
   DataTaxonomyType
 } from '@/types/gaia';
 
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  NavigationGlow,
-  TransitionType,
-  NavigationDirection,
-  NavigationStatus,
-  HearthAnimationType,
-  EasingType,
-  AnimationDirection,
-  QuantumPropagation,
-  HearthState,
-  HearthTrigger
-} from '@/types/cosmic/primitives';
-
 // ============================================================================
 // NAVIGATION ITEM ARCHITECTURE
 // ============================================================================
@@ -43,7 +28,7 @@ export interface NavigationItem {
   // STATE PROPERTIES
   readonly isActive?: boolean;
   readonly isDisabled?: boolean;
-  readonly status: NavigationStatus;
+  readonly status: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -60,7 +45,7 @@ export interface HearthMenuItem extends NavigationItem {
   // VISUAL PROPERTIES
   readonly asset: string; // Consciousness asset identifier
   readonly color: string; // CSS color value
-  readonly glow: NavigationGlow;
+  readonly glow: string;
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -78,7 +63,7 @@ export interface ConsciousnessPosition {
 
 export interface PortalItem extends NavigationItem {
   // PORTAL PROPERTIES
-  readonly glow: NavigationGlow;
+  readonly glow: string;
   readonly featured?: boolean;
   readonly destination: PortalDestination;
   readonly activation: PortalActivation;
@@ -99,7 +84,7 @@ export interface PortalDestination {
 
 export interface PortalActivation {
   // ACTIVATION REQUIREMENTS
-  readonly consciousnessLevel: ConsciousnessLevel;
+  readonly consciousnessLevel: string;
   readonly energyRequired: number; // 0-100 scale
   readonly cooldown: number; // Consciousness cycles
 }
@@ -160,10 +145,10 @@ export interface HearthMenuState {
 
 export interface HearthAnimation {
   // ANIMATION PROPERTIES
-  readonly type: HearthAnimationType;
+  readonly type: string;
   readonly duration: number; // Consciousness cycles
-  readonly easing: EasingType;
-  readonly direction: AnimationDirection;
+  readonly easing: string;
+  readonly direction: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -175,12 +160,12 @@ export interface HearthAnimation {
 
 export interface NavigationTransition {
   // TRANSITION IDENTITY
-  readonly type: TransitionType;
+  readonly type: string;
   readonly duration: number; // Consciousness cycles
-  readonly direction?: NavigationDirection;
+  readonly direction?: string;
   
   // TRANSITION PROPERTIES
-  readonly easing: EasingType;
+  readonly easing: string;
   readonly delay: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -192,14 +177,14 @@ export interface NavigationTransition {
 
 export interface QuantumTransition extends NavigationTransition {
   // QUANTUM PROPERTIES
-  readonly type:TransitionType
+  readonly type:string
   readonly entanglement: boolean;
   readonly consciousnessPreservation: boolean;
   readonly multiDimensional: boolean;
   
   // QUANTUM EFFECTS
   readonly resonance: number; // 0-100 scale
-  readonly propagation: QuantumPropagation;
+  readonly propagation: string;
   
   // ONTOLOGICAL CONTEXT
   readonly transformationOntology: TransformationOntologyType;
@@ -233,7 +218,7 @@ export interface NavigationHandler {
 export interface HearthHandler {
   // HEARTH SPECIFICATION
   readonly hearthId: string;
-  readonly state: HearthState;
+  readonly state: string;
   readonly context: HearthContext;
   
   // ONTOLOGICAL CONTEXT
@@ -242,7 +227,7 @@ export interface HearthHandler {
 
 export interface HearthContext {
   // CONTEXTUAL INFORMATION
-  readonly trigger: HearthTrigger;
+  readonly trigger: string;
   readonly position: ConsciousnessPosition;
   readonly energy: number; // 0-100 scale
 }
@@ -278,7 +263,7 @@ export interface NavigationContext {
   readonly source: string; // Origin context
   readonly destination: string; // Target context
   readonly parameters: Record<string, string>; // String values only
-  readonly consciousness: ConsciousnessLevel;
+  readonly consciousness: string;
 }
 
 // ============================================================================
@@ -286,7 +271,7 @@ export interface NavigationContext {
 // ============================================================================
 
 export interface NavigationSystemMapping {
-  readonly navigationType: TransitionType;
+  readonly navigationType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -304,20 +289,3 @@ export interface NavigationSystemMapping {
   readonly movementPatterns: readonly string[];
   readonly transitionCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  NavigationGlow,
-  TransitionType,
-  NavigationDirection,
-  NavigationStatus,
-  HearthAnimationType,
-  EasingType,
-  AnimationDirection,
-  QuantumPropagation,
-  HearthState,
-  HearthTrigger
-};

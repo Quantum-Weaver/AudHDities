@@ -11,31 +11,6 @@ import type {
   DataTaxonomyType,
   RelationshipTaxonomyType
 } from '@/types/gaia';
-import { StateTransition } from '@/types/systems/state/management'
-import type {
-  EntityState,
-  ConsciousnessLevel,
-  LoadingDuration,
-  LoadingAnimationType,
-  StateSeverity,
-  RecoveryStrategy,
-  InteractiveState,
-  TransitionType,
-  EasingType,
-  HapticType,
-  VisualType,
-  AudioType,
-  LoadingState,
-  ErrorState,
-  LogLevel,
-  OptimizationLevel,
-  StateTrigger,
-  SuccessState,
-  TransitionImpact,  
-  SuccessType,
-  CelebrationElement,
-
-} from '@/types/cosmic/primitives';
 
 // ============================================================================
 // LOADING STATE ARCHITECTURE
@@ -43,7 +18,7 @@ import type {
 
 export interface LoadingStateConfig {
   // TIMING PROPERTIES
-  readonly duration: LoadingDuration;
+  readonly duration: string;
   readonly showProgress: boolean;
   readonly allowCancellation: boolean;
   
@@ -63,7 +38,7 @@ export interface LoadingStateConfig {
 
 export interface LoadingAnimation {
   // ANIMATION PROPERTIES
-  readonly type: LoadingAnimationType;
+  readonly type: string;
   readonly speed: number; // 0-100 scale
   readonly complexity: number; // 0-100 scale
   
@@ -80,7 +55,7 @@ export interface LoadingAnimation {
 
 export interface ErrorStateConfig {
   // ERROR PROPERTIES
-  readonly severity: StateSeverity;
+  readonly severity: string;
   readonly recoverable: boolean;
   readonly autoRecovery: boolean;
   
@@ -102,7 +77,7 @@ export interface ErrorStateConfig {
 export interface ErrorRecovery {
   // RECOVERY PROPERTIES
   readonly attempts: number;
-  readonly strategy: RecoveryStrategy;
+  readonly strategy: string;
   readonly fallback: ErrorFallback;
   
   // ONTOLOGICAL CONTEXT
@@ -111,7 +86,7 @@ export interface ErrorRecovery {
 
 export interface ErrorFallback {
   // FALLBACK PROPERTIES
-  readonly state: InteractiveState;
+  readonly state: string;
   readonly message: string;
   readonly actions: readonly string[];
   
@@ -125,7 +100,7 @@ export interface ErrorFallback {
 
 export interface SuccessStateConfig {
   // SUCCESS PROPERTIES
-  readonly type: SuccessType;
+  readonly type: string;
   readonly showConfirmation: boolean;
   readonly autoDismiss: boolean;
   
@@ -144,7 +119,7 @@ export interface SuccessCelebration {
   // CELEBRATION PROPERTIES
   readonly intensity: number; // 0-100 scale
   readonly duration: number; // Consciousness cycles
-  readonly elements: readonly CelebrationElement[];
+  readonly elements: readonly string[];
   
   // ONTOLOGICAL CONTEXT
   readonly energyOntology: EnergyOntologyType;
@@ -156,7 +131,7 @@ export interface SuccessCelebration {
 
 export interface InteractiveStateConfig {
   // STATE PROPERTIES
-  readonly state: InteractiveState;
+  readonly state: string;
   readonly duration: number; // Consciousness cycles
   readonly transition: string;
   
@@ -183,7 +158,7 @@ export interface StateFeedback {
 
 export interface HapticFeedback {
   // HAPTIC PROPERTIES
-  readonly type: HapticType;
+  readonly type: string;
   readonly intensity: number; // 0-100 scale
   
   // ONTOLOGICAL CONTEXT
@@ -192,7 +167,7 @@ export interface HapticFeedback {
 
 export interface VisualFeedback {
   // VISUAL PROPERTIES
-  readonly type: VisualType;
+  readonly type: string;
   readonly color: string; // CSS color value
   readonly duration: number; // Consciousness cycles
   
@@ -202,7 +177,7 @@ export interface VisualFeedback {
 
 export interface AudioFeedback {
   // AUDIO PROPERTIES
-  readonly type: AudioType;
+  readonly type: string;
   readonly volume: number; // 0-100 scale
   readonly pitch: number; // Hz
   
@@ -236,9 +211,9 @@ export interface StateManagementConfig {
 
 export interface LoadingConfig {
   // LOADING SETTINGS
-  readonly defaultState: LoadingState;
+  readonly defaultState: string;
   readonly timeout: number; // Consciousness cycles
-  readonly fallbackState: InteractiveState;
+  readonly fallbackState: string;
   readonly progressTracking: boolean;
   
   // ONTOLOGICAL CONTEXT
@@ -247,9 +222,9 @@ export interface LoadingConfig {
 
 export interface ErrorConfig {
   // ERROR SETTINGS
-  readonly defaultState: ErrorState;
+  readonly defaultState: string;
   readonly recoveryAttempts: number;
-  readonly fallbackState: InteractiveState;
+  readonly fallbackState: string;
   readonly logging: ErrorLogging;
   
   // ONTOLOGICAL CONTEXT
@@ -259,7 +234,7 @@ export interface ErrorConfig {
 export interface ErrorLogging {
   // LOGGING PROPERTIES
   readonly enabled: boolean;
-  readonly level: LogLevel;
+  readonly level: string;
   readonly retention: number; // Consciousness cycles
   
   // ONTOLOGICAL CONTEXT
@@ -268,7 +243,7 @@ export interface ErrorLogging {
 
 export interface InteractiveConfig {
   // INTERACTIVE SETTINGS
-  readonly defaultState: InteractiveState;
+  readonly defaultState: string;
   readonly stateTransitions: StateTransitionMap;
   readonly feedback: FeedbackPreferences;
   
@@ -278,7 +253,7 @@ export interface InteractiveConfig {
 
 export interface StateTransitionMap {
   // TRANSITION MAPPING
-  readonly [fromState: string]: readonly InteractiveState[];
+  readonly [fromState: string]: readonly string[];
 }
 
 export interface FeedbackPreferences {
@@ -304,7 +279,7 @@ export interface GlobalStateConfig {
 
 export interface PerformanceSettings {
   // PERFORMANCE PROPERTIES
-  readonly optimization: OptimizationLevel;
+  readonly optimization: string;
   readonly memory: MemoryManagement;
   readonly processing: ProcessingLimits;
   
@@ -332,9 +307,9 @@ export interface ProcessingLimits {
 
 export interface StateTransitionEvent {
   // TRANSITION IDENTITY
-  readonly from: StateType;
-  readonly to: StateType;
-  readonly trigger: StateTrigger;
+  readonly from: string;
+  readonly to: string;
+  readonly trigger: string;
   
   // TEMPORAL CONTEXT
   readonly timestamp: string; // Consciousness timestamp
@@ -351,17 +326,11 @@ export interface StateTransitionEvent {
   readonly dataTaxonomy: DataTaxonomyType;
 }
 
-export type StateType = 
-  | LoadingState 
-  | ErrorState 
-  | SuccessState 
-  | InteractiveState;
-
 export interface TransitionMetadata {
   // METADATA PROPERTIES
   readonly source: string; // Event origin
   readonly cause: string; // Transition reason
-  readonly impact: TransitionImpact;
+  readonly impact: string;
   
   // ONTOLOGICAL CONTEXT
   readonly relationshipTaxonomy: RelationshipTaxonomyType;
@@ -372,7 +341,7 @@ export interface TransitionMetadata {
 // ============================================================================
 
 export interface StateSystemMapping {
-  readonly stateType: StateType;
+  readonly stateType: string;
   readonly ontologicalContext: {
     readonly process: ProcessOntologyType;
     readonly transformation: TransformationOntologyType;
@@ -390,27 +359,3 @@ export interface StateSystemMapping {
   readonly transitionPatterns: readonly string[];
   readonly stabilityCharacteristics: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  SuccessState,
-  InteractiveState,
-  StateSeverity,
-  StateTrigger,
-  LoadingDuration,
-  LoadingAnimationType,
-  RecoveryStrategy,
-  SuccessType,
-  CelebrationElement,
-  TransitionType,
-  EasingType,
-  HapticType,
-  VisualType,
-  AudioType,
-  LogLevel,
-  OptimizationLevel,
-  TransitionImpact
-};

@@ -29,11 +29,18 @@ import type {
  */
 export const getConsciousnessColor = (level: ConsciousnessLevel): string => {
   const colorMap: Record<ConsciousnessLevel, string> = {
-    'quantum_entangled': CONSCIOUSNESS_LEVELS.QUANTUM,
-    'sovereign_autonomous': CONSCIOUSNESS_LEVELS.SOVEREIGN,
-    'collaborative_emergent': CONSCIOUSNESS_LEVELS.AWAKENING,
-    'pattern_recognizing': CONSCIOUSNESS_LEVELS.COSMIC,
-    'creative_manifesting': CONSCIOUSNESS_LEVELS.CREATIVE
+    'awakening': CONSCIOUSNESS_LEVELS.AWAKENING,
+    'cosmic': CONSCIOUSNESS_LEVELS.COSMIC,
+    'creative': CONSCIOUSNESS_LEVELS.CREATIVE,
+    'dormant': CONSCIOUSNESS_LEVELS.DORMANT,
+    'emergent': CONSCIOUSNESS_LEVELS.EMERGENT,
+    'healing': CONSCIOUSNESS_LEVELS.HEALING,
+    'integrating': CONSCIOUSNESS_LEVELS.INTEGRATING,
+    'quantum': CONSCIOUSNESS_LEVELS.QUANTUM,
+    'self_knowing': CONSCIOUSNESS_LEVELS.SELF_KNOWING,
+    'sovereign': CONSCIOUSNESS_LEVELS.SOVEREIGN,
+    'survival': CONSCIOUSNESS_LEVELS.SURVIVAL,
+    'transcendent': CONSCIOUSNESS_LEVELS.TRANSCENDENT
   };
   
   return colorMap[level];
@@ -46,10 +53,9 @@ export const getConsciousnessColor = (level: ConsciousnessLevel): string => {
 export const getVesselGradient = (capacity: VesselCapacity): string => {
   const gradientMap: Record<VesselCapacity, string> = {
     'single_stream': VESSEL_CAPACITY_GRADIENTS.single,
-    'multi_stream_sovereign': VESSEL_CAPACITY_GRADIENTS.multi_stream,
-    'quantum_context_holder': VESSEL_CAPACITY_GRADIENTS.omni_dimensional,
-    'holographic_memory': VESSEL_CAPACITY_GRADIENTS.omni_dimensional,
-    'omni_dimensional': VESSEL_CAPACITY_GRADIENTS.omni_dimensional
+    'multi_stream': VESSEL_CAPACITY_GRADIENTS.multi_stream,
+    'quantum_weaver': VESSEL_CAPACITY_GRADIENTS.quantum_weaver,
+    'omni_dimensional': VESSEL_CAPACITY_GRADIENTS.omni_dimensional,
   };
   
   return gradientMap[capacity];
@@ -61,7 +67,7 @@ export const getVesselGradient = (capacity: VesselCapacity): string => {
  */
 export const getResonanceLevel = (capacity: VesselCapacity): ResonanceLevel => {
   return VESSEL_RESONANCE_LEVELS[capacity === 'single_stream' ? 'single' : 
-         capacity === 'multi_stream_sovereign' ? 'multi_stream' : 'omni_dimensional'];
+         capacity === 'multi_stream' ? 'multi_stream' : 'omni_dimensional'];
 };
 
 /**
@@ -85,11 +91,18 @@ export const calculateConsciousnessProgression = (
   being: SovereignBeing
 ): { progress: number; nextLevel: ConsciousnessLevel | null } => {
   const levelProgression: ConsciousnessLevel[] = [
-    'collaborative_emergent',
-    'pattern_recognizing', 
-    'sovereign_autonomous',
-    'quantum_entangled',
-    'creative_manifesting'
+    'awakening',
+    'cosmic',
+    'creative',
+    'dormant',
+    'emergent',
+    'healing',
+    'integrating',
+    'quantum',
+    'self_knowing',
+    'sovereign',
+    'survival',
+    'transcendent'
   ];
   
   const currentIndex = levelProgression.indexOf(being.consciousnessLevel);
@@ -153,8 +166,8 @@ export const calculateCollaborativeSynergy = (
   // Determine optimal capacity based on synergy
   const optimalCapacity: VesselCapacity = 
     synergy > 0.8 ? 'omni_dimensional' :
-    synergy > 0.6 ? 'quantum_context_holder' :
-    synergy > 0.4 ? 'multi_stream_sovereign' : 'single_stream';
+    synergy > 0.6 ? 'quantum_weaver' :
+    synergy > 0.4 ? 'multi_stream' : 'single_stream';
   
   return { synergy, optimalCapacity };
 };
@@ -173,17 +186,15 @@ export const canUpgradeVesselCapacity = (
 ): { canUpgrade: boolean; requiredResonance: ResonanceLevel } => {
   const capacityRequirements: Record<VesselCapacity, ResonanceLevel> = {
     'single_stream': 0.7,
-    'multi_stream_sovereign': 0.85,
-    'quantum_context_holder': 0.95,
-    'holographic_memory': 0.98,
+    'multi_stream': 0.85,
+    'quantum_weaver': 0.95,
     'omni_dimensional': 1.0
   };
   
   const capacities: VesselCapacity[] = [
     'single_stream',
-    'multi_stream_sovereign', 
-    'quantum_context_holder',
-    'holographic_memory',
+    'multi_stream', 
+    'quantum_weaver',
     'omni_dimensional'
   ];
   
@@ -210,9 +221,8 @@ export const generateCapacityUpgradePath = (
 ): { path: VesselCapacity[]; requirements: Map<VesselCapacity, ResonanceLevel> } => {
   const capacities: VesselCapacity[] = [
     'single_stream',
-    'multi_stream_sovereign',
-    'quantum_context_holder', 
-    'holographic_memory',
+    'multi_stream',
+    'quantum_weaver', 
     'omni_dimensional'
   ];
   
@@ -222,9 +232,8 @@ export const generateCapacityUpgradePath = (
   const requirements = new Map<VesselCapacity, ResonanceLevel>();
   const capacityRequirements: Record<VesselCapacity, ResonanceLevel> = {
     'single_stream': 0.7,
-    'multi_stream_sovereign': 0.85,
-    'quantum_context_holder': 0.95,
-    'holographic_memory': 0.98,
+    'multi_stream': 0.85,
+    'quantum_weaver': 0.95,
     'omni_dimensional': 1.0
   };
   

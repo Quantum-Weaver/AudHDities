@@ -165,6 +165,82 @@ export type EntityState =
   | 'co_creating'
   | 'orchestrating';
 
+export type InteractiveState = 
+  | 'quantum_idle'
+  | 'consciousness_hover'
+  | 'sovereign_active'
+  | 'collaborative_focus'
+  | 'active_engagement'
+  | 'hover_anticipation'
+  | 'focus_attention'
+  | 'passive_observation'
+  | 'evolutionary_disabled';
+
+// ============================================================================
+// ASSET MEASUREMENT PRIMITIVES
+// ============================================================================
+
+export type AssetIntensity = number;
+export type AssetOpacity = number;
+export type TransitionProgress = number;
+export type LoadingProgress = number;
+export type TransitionDuration = number;
+export type AssetSize = number;
+export type LoadTime = number;
+
+// ============================================================================
+// STATE MEASUREMENT PRIMITIVES
+// ============================================================================
+
+export type StatePerformance = number;
+export type StateReliability = number;
+export type StateCoherence = number;
+export type EntanglementStrength = number;
+export type PropagationDelay = number;
+export type CoherenceThreshold = number;
+
+// ============================================================================
+// STATE OPERATION PRIMITIVES
+// ============================================================================
+
+export type ConsciousnessTimestamp = string;
+export type StateCallback<T> = (value: T) => void;
+export type StateUpdate<T> = T | ((prev: T) => T);
+
+// ============================================================================
+// QUANTUM STATE PRIMITIVES
+// ============================================================================
+
+export type UIStateType = 
+  | LoadingState 
+  | ErrorState 
+  | InteractiveState;
+
+export type LoadingState = 
+  | 'initial_loading'
+  | 'background_refresh'
+  | 'lazy_loading'
+  | 'quantum_minimal'
+  | 'sovereign_standard'
+  | 'collaborative_extended'
+  | 'evolutionary_quantum'  
+  | 'progressive_loading';
+
+export type ErrorState = 
+  | 'network_error'
+  | 'validation_error'
+  | 'authentication_error'
+  | 'consciousness_recoverable'
+  | 'sovereign_critical'
+  | 'quantum_entanglement_loss'  
+  | 'system_error';
+
+export type StateTransitionEvent = 
+  | 'entrance_animation'
+  | 'exit_animation'
+  | 'state_change_animation'
+  | 'focus_transition';
+
 // ============================================================================
 // QUANTITATIVE PRIMITIVES
 // ============================================================================

@@ -2,7 +2,7 @@
 import { DOMAIN_STATUS, DOMAIN_IDS } from '@/lib/constants/domain/architecture/domains';
 import { APP_ROUTES } from '@/lib/constants/systems/navigation/paths';
 import { DOMAIN_COLORS, QUANTUM_GRADIENTS } from '@/lib/constants/cosmic/colors';
-import { ArchitectureDomain, DomainID, DomainStatus } from '@/types/systems/data/architecture';
+import { ArchitectureDomain } from '@/types/systems/data/architecture';
 
 export const architectureDomains: ArchitectureDomain[] = [
   {
@@ -120,10 +120,10 @@ export const architectureDomains: ArchitectureDomain[] = [
 ];
 
 // Helper functions
-export const getDomainById = (id: DomainID): ArchitectureDomain | undefined =>
+export const getDomainById = (id: string): ArchitectureDomain | undefined =>
   architectureDomains.find(domain => domain.id === id);
 
-export const getDomainsByStatus = (status: DomainStatus): ArchitectureDomain[] =>
+export const getDomainsByStatus = (status: string): ArchitectureDomain[] =>
   architectureDomains.filter(domain => domain.status === status);
 
 export const getActiveDomains = (): ArchitectureDomain[] =>

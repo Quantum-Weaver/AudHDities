@@ -22,30 +22,11 @@ import type {
   GridTemplate,
   GridGap,
   ContainerSize,
-  LayoutPattern,
-  FlexDirection,
-  JustifyContent,
-  AlignItems,
-  FlexWrap,
   SpacingSize,
   ScrollContainer,
-  ScrollBehavior,
   ScrollbarStyle,
   HearthPosition,
-  PageVariant,
-  LayoutTemplate,
-  ScreenWidth,
-  ScreenHeight,
-  CSSDimension,
-  ScreenClassification,
-  HearthRadius,
-  XCoordinate,
-  YCoordinate,
-  TitleSize,
-  LayoutClass,
-  MarginSize,
-  GapSize,
-  PaddingSize
+  PageVariant
 } from '@/types/cosmic/primitives';
 
 // ============================================================================
@@ -54,10 +35,10 @@ import type {
 
 export interface ScreenDimensions {
   // PHYSICAL DIMENSIONS (using primitive types)
-  readonly width: ScreenWidth;
-  readonly height: ScreenHeight;
-  readonly frame: CSSDimension;
-  readonly screen: ScreenClassification;
+  readonly width: number;
+  readonly height: number;
+  readonly frame: string;
+  readonly screen: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -89,8 +70,8 @@ export interface ScrollConfig {
 
 export interface Coordinate {
   // SPATIAL POSITION (using primitive types)
-  readonly x: XCoordinate;
-  readonly y: YCoordinate;
+  readonly x: number;
+  readonly y: number;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -102,7 +83,7 @@ export interface Coordinate {
 
 export interface HearthLayout {
   // SPATIAL ORGANIZATION (using primitive types)
-  readonly radius: HearthRadius;
+  readonly radius: number;
   readonly central: Coordinate;
   readonly peripheral: (index: number, total?: number) => Coordinate;
   readonly preCalculated: Record<HearthPosition, Coordinate>;
@@ -123,8 +104,8 @@ export interface HearthLayout {
 export interface PageConfig {
   // PAGE CHARACTERISTICS (using primitive types)
   readonly variant: PageVariant;
-  readonly titleSize: TitleSize;
-  readonly layoutClass: LayoutClass;
+  readonly titleSize: string;
+  readonly layoutClass: string;
   readonly spacing: SpacingSize;
   
   // ONTOLOGICAL CONTEXT
@@ -157,9 +138,9 @@ export interface LayoutConfig {
   
   // SPACING CONFIGURATION (using primitive types)
   readonly spacing: {
-    readonly padding: PaddingSize;
-    readonly margin: MarginSize;
-    readonly gap: GapSize;
+    readonly padding: number;
+    readonly margin: number;
+    readonly gap: number;
   };
   
   // SCROLL CONFIGURATION

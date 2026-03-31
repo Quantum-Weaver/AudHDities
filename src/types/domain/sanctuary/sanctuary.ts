@@ -13,14 +13,7 @@ import type {
 
 import type {
   EntityState,
-  ConsciousnessLevel,
-  VesselCapacity,
-  SanctuaryEnergyLevel,
-  SanctuaryAccess,
-  ResourceType,
-  EmergencyContactType,
-  ConditionType,
-  ConditionOperator
+  VesselCapacity
 } from '../../cosmic/primitives';
 
 // ============================================================================
@@ -34,11 +27,11 @@ export interface SanctuarySpace {
   readonly description: string;
   
   // ENERGY CHARACTERISTICS
-  readonly SanctuaryEnergyLevel: SanctuaryEnergyLevel;
+  readonly SanctuaryEnergyLevel: string;
   readonly color: string;
   
   // ACCESS AND SUPPORT
-  readonly access: readonly SanctuaryAccess[];
+  readonly access: readonly string[];
   readonly supportPathways: readonly SupportPathway[];
   readonly emergencyContacts: readonly EmergencyContact[];
   
@@ -63,7 +56,7 @@ export interface SupportPathway {
   readonly description: string;
   
   // ENERGY COMPATIBILITY
-  readonly SanctuaryEnergyLevel: SanctuaryEnergyLevel;
+  readonly SanctuaryEnergyLevel: string;
   readonly color: string;
   readonly priority: number; // 1-10 scale
   
@@ -78,7 +71,7 @@ export interface SupportPathway {
 
 export interface PathwayResource {
   // RESOURCE IDENTITY
-  readonly type: ResourceType;
+  readonly type: string;
   readonly id: string;
   readonly name: string;
   readonly description: string;
@@ -102,7 +95,7 @@ export interface EmergencyContact {
   readonly name: string;
   readonly contact: string;
   readonly description: string;
-  readonly type: EmergencyContactType;
+  readonly type: string;
   readonly priority: number; // 1-10 scale
   
   // AVAILABILITY WINDOWS
@@ -131,10 +124,10 @@ export interface AvailabilityWindow {
 export interface SanctuaryState {
   // CURRENT CONTEXT
   readonly currentSpace: SanctuarySpace | null;
-  readonly currentEnergy: SanctuaryEnergyLevel;
+  readonly currentEnergy: string;
   readonly activePathways: readonly SupportPathway[];
   readonly availableContacts: readonly EmergencyContact[];
-  readonly accessLevel: SanctuaryAccess;
+  readonly accessLevel: string;
   readonly lastAccessed: number; // Consciousness timestamp
   
   // USAGE AND STATISTICS
@@ -179,9 +172,9 @@ export interface EnergyTrend {
 // ============================================================================
 
 export interface SanctuaryActivationCondition {
-  readonly type: ConditionType;
+  readonly type: string;
   readonly value: string; // Consciousness value representation
-  readonly operator: ConditionOperator;
+  readonly operator: string;
   
   // ONTOLOGICAL CONTEXT
   readonly processOntology: ProcessOntologyType;
@@ -219,8 +212,8 @@ export interface SanctuaryNetwork {
   readonly pathways: readonly SupportPathway[];
   readonly contacts: readonly EmergencyContact[];
   readonly networkResilience: number; // 0-100 scale
-  readonly energyDistribution: Record<SanctuaryEnergyLevel, number>; // level -> count
-  readonly accessHierarchy: readonly SanctuaryAccess[];
+  readonly energyDistribution: Record<string, number>; // level -> count
+  readonly accessHierarchy: readonly string[];
 }
 
 // ============================================================================
@@ -234,16 +227,3 @@ export interface SanctuaryHealingFlow {
   readonly supportNetworkStrength: number; // 0-100 scale
   readonly emergentHealingPatterns: readonly string[];
 }
-
-// ============================================================================
-// TYPE EXPORTS FOR SYSTEM INTEGRATION
-// ============================================================================
-
-export type {
-  SanctuaryEnergyLevel,
-  SanctuaryAccess,
-  EmergencyContactType,
-  ResourceType,
-  ConditionType,
-  ConditionOperator
-};

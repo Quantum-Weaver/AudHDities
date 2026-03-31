@@ -1,14 +1,7 @@
-// src/utils/cosmic/motion.ts - FIXED TYPE ALIGNMENT
+// src/utils/cosmic/motion.ts 
 import {
   durations,
   easing,
-  vessels,
-  configs,
-  presets,
-  SWEEPING_ANIMATIONS,
-  ANIMATION_MULTIPLIERS,
-  ANIMATION_THRESHOLDS,
-  quick
 } from '@/lib/constants/cosmic/motion';
 
 import type {
@@ -17,40 +10,19 @@ import type {
   MotionComplexity,
   MotionIntention,
   MotionPhase,
-  HolographicAnimationType,
-  SweepingAnimationType,
-  ComponentAnimationType,
   SpringStiffness,
   SpringDamping,
   SpringPrecision,
   MotionFriction,
   MotionMass,
-  AnimationProgress,
-  AnimationLayers,
   AnimationIntensity,
   AnimationCoverage,
-  QuantumCoherence,
-  StaggerDirection,
-  SequenceDirection,
-  PerformanceMode,
-  AnimationEasing,
   RepeatBehavior,
-  SweepingDirection
 } from '@/types/cosmic/primitives';
 
 import type {
   AnimationConfiguration,
-  SpringPhysics,
-  StaggerConfiguration,
-  AnimationPreset,
-  QuantumAnimationPreset,
-  HolographicEffect,
-  SweepingAnimation,
-  ComponentAnimation,
-  MotionSystem,
-  AnimationState,
-  AnimationSequence,
-  MotionSystemMapping
+  AnimationPreset
 } from '@/types/cosmic/motion';
 
 // Import our refined taxonomy and ontology
@@ -119,8 +91,8 @@ export const createAnimation = (
 
   // Default taxonomic classification
   const defaultAnimationTaxonomy: AnimationTaxonomyType = 
-    options.phase === 'entrance_emergence' ? 'EntranceAnimation' :
-    options.phase === 'exit_transition' ? 'ExitAnimation' :
+    options.phase === 'entrance' ? 'EntranceAnimation' :
+    options.phase === 'exit' ? 'ExitAnimation' :
     'StateAnimation';
 
   const defaultStateTaxonomy: StateTaxonomyType = 
@@ -145,8 +117,8 @@ export const createAnimation = (
     mass: options.mass,
 
     // INTENTIONAL PROPERTIES
-    complexity: options.complexity || 'medium_engagement',
-    intention: options.intention || 'functional_clarity',
+    complexity: options.complexity || 'medium',
+    intention: options.intention || 'clarity',
 
     // ONTOLOGICAL CONTEXT - Now properly typed
     processOntology: options.processOntology || defaultProcessOntology,
@@ -166,22 +138,22 @@ export const createAnimation = (
  * Get duration primitive from numeric value (for conversion when needed)
  */
 export const getDurationFromValue = (value: number): MotionDuration => {
-  if (value <= durations.instant) return 'quantum_instant';
-  if (value <= durations.fast) return 'consciousness_quick';
-  if (value <= durations.normal) return 'sovereign_measured';
-  if (value <= durations.slow) return 'transformative_extended';
-  return 'evolutionary_prolonged';
+  if (value <= durations.instant) return 'instant';
+  if (value <= durations.fast) return 'fast';
+  if (value <= durations.normal) return 'normal';
+  if (value <= durations.slow) return 'emergence';
+  return 'slow';
 };
 
 /**
  * Get easing primitive from string value (for conversion when needed)
  */
 export const getEasingFromValue = (value: string): MotionEasing => {
-  if (value === easing.quantum) return 'quantum_entrance';
-  if (value === easing.cosmic) return 'consciousness_flow';
-  if (value === easing.sovereign) return 'sovereign_precision';
-  if (value === easing.entanglement) return 'transformative_acceleration';
-  return 'harmonic_resonance';
+  if (value === easing.quantum) return 'quantum';
+  if (value === easing.cosmic) return 'awakening';
+  if (value === easing.sovereign) return 'sovereign';
+  if (value === easing.entanglement) return 'cosmic';
+  return 'resonance';
 };
 
 /**
@@ -228,7 +200,7 @@ export const createPresetAnimation = (
     hover: options.hover,
     focus: options.focus,
     active: options.active,
-    complexity: options.complexity || 'medium_engagement',
+    complexity: options.complexity || 'medium',
     transformationOntology: options.transformationOntology || 'ChaosToClarity',
     animationTaxonomy: options.animationTaxonomy || 'TransitionAnimation',
     patternTaxonomy: options.patternTaxonomy || 'InteractionPattern'
@@ -243,12 +215,12 @@ export const getHearthItemAnimation = (
   total: number
 ): AnimationConfiguration => {
   return createAnimation(
-    'consciousness_quick', // MotionDuration primitive
-    'sovereign_precision', // MotionEasing primitive
+    'fast', // MotionDuration primitive
+    'sovereign', // MotionEasing primitive
     {
-      delay: position > 0 ? 'quantum_instant' : undefined,
-      complexity: 'medium_engagement',
-      intention: 'emotional_resonance',
+      delay: position > 0 ? 'instant' : undefined,
+      complexity: 'medium',
+      intention: 'resonance',
       processOntology: 'DigitalSanctuaryBuilding',
       energyOntology: 'HealingEnergy',
       animationTaxonomy: 'EntranceAnimation',
@@ -262,11 +234,11 @@ export const getHearthItemAnimation = (
  */
 export const quickAnimationsFadeIn = (): AnimationConfiguration => 
   createAnimation(
-    'consciousness_quick',
-    'quantum_entrance',
+    'fast',
+    'easeIn',
     {
-      complexity: 'simple_awareness',
-      intention: 'attention_guidance',
+      complexity: 'simple',
+      intention: 'guidance',
       processOntology: 'ConsciousnessEmergence',
       energyOntology: 'QuantumEnergy',
       animationTaxonomy: 'EntranceAnimation',
