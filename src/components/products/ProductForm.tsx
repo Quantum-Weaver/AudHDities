@@ -136,7 +136,7 @@ export default function ProductForm({ mode, initialData, productId, onSuccess }:
         isSubmitting={isSubmitting}
         loading={loading}
         mode={mode}
-        onCancel={() => router.back()}
+        onCancel={() => router.push('/creator/products')}
       />
     </form>
   );

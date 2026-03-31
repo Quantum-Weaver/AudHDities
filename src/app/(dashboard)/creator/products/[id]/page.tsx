@@ -57,8 +57,8 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
   
   const initialData = {
     ...product,
-    price_community: product.price_community ?? undefined,
-    price_corporate: product.price_corporate ?? undefined,
+    price_community: product.price_community ?? 0,
+    price_corporate: product.price_corporate ?? 0,
     price_ally: product.price_ally ?? 0,
     residual_pool_percent: product.residual_pool_percent ?? 30,
     sanctuary_infrastructure_percent: product.sanctuary_infrastructure_percent ?? 10,
@@ -94,8 +94,6 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
           <Card className="p-6 md:p-8">
             <ProductForm 
               mode="edit"
-              initialData={initialData}
-              defaultResidualPool={product.residual_pool_percent ?? 30}
             />
           </Card>
         </div>

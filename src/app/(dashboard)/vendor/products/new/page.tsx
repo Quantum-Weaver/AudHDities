@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
-import ProductForm from '@/components/products/ProductForm';
+import VendorProductForm from '@/components/products/ProductForm';
 import { Card } from '@/components/ui/Card';
 import { ArrowLeft, Store } from 'lucide-react';
 import Link from 'next/link';
@@ -68,9 +68,8 @@ export default async function VendorNewProductPage() {
           
           {/* Product Form */}
           <Card className="p-6 md:p-8">
-            <ProductForm 
+            <VendorProductForm 
               mode="create"
-              defaultResidualPool={30}
             />
           </Card>
         </div>

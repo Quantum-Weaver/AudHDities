@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { Page } from '@/components/layout/Page';
-import ProductForm from '@/components/products/ProductForm';
+import { VendorProductForm } from '@/components/products/VendorProductForm';
 import { Card } from '@/components/ui/Card';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -92,10 +92,8 @@ export default async function VendorProductDetailPage({ params }: VendorProductD
           </div>
           
           <Card className="p-6 md:p-8">
-            <ProductForm 
+            <VendorProductForm 
               mode="edit"
-              initialData={initialData}
-              defaultResidualPool={product.residual_pool_percent ?? 30}
             />
           </Card>
         </div>
