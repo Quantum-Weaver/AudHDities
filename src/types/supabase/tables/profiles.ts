@@ -1,5 +1,11 @@
 // src/types/supabase/tables/profiles.ts
 import type { Database } from '../database.types';
+import type { 
+  UserTier, 
+  CommunicationStyle,
+  DigestFrequency as NotificationFrequency,
+  SensitivityLevel
+} from '../enums';
 
 export type Profile = Database['public']['Tables']['profiles']['Row'];
 export type ProfileInsert = Database['public']['Tables']['profiles']['Insert'];
@@ -24,9 +30,8 @@ export interface ProfileWithRelations extends Profile {
   vendor_profile?: VendorProfile | null;
 }
 
-export type UserTier = 'community' | 'ally' | 'corporate' | 'council';
-export type CommunicationStyle = 'direct' | 'gentle' | 'detailed' | 'concise';
-export type NotificationFrequency = 'instant' | 'daily' | 'weekly' | 'never';
+// Re-export types from enums for convenience
+export type { UserTier, CommunicationStyle, NotificationFrequency, SensitivityLevel };
 
 export interface NDPreferences {
   reduced_motion: boolean;
@@ -41,25 +46,24 @@ export interface NDPreferences {
 }
 
 export interface SensoryPreferences {
-  light_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  sound_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  crowd_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  touch_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  vestibular_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
-  olfactory_sensitivity: 'low' | 'medium' | 'high' | 'avoidant';
+  light_sensitivity: SensitivityLevel;
+  sound_sensitivity: SensitivityLevel;
+  crowd_sensitivity: SensitivityLevel;
+  touch_sensitivity: SensitivityLevel;
+  vestibular_sensitivity: SensitivityLevel;
+  olfactory_sensitivity: SensitivityLevel;
 }
 
 export const profileDefaults = {
   status: 'active' as const,
-  user_tier: 'community' as const,
+  user_tier: 'community' as UserTier,
   sovereignty_score: 0,
   residual_pledge_percent: 0,
   email_notifications: true,
   push_notifications: true,
-  notification_frequency: 'instant' as const,
-  communication_style: 'direct' as const,
+  notification_frequency: 'instant' as NotificationFrequency,
+  communication_style: 'direct' as CommunicationStyle,
   badges: [],
-  
 } as const;
 
 export const defaultNDPreferences: NDPreferences = {

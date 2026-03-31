@@ -1,12 +1,13 @@
 // src/types/supabase/tables/subscriptions.ts
 import type { Database } from '../database.types';
+import type { SubscriptionStatus, SubscriptionTier } from '../enums';  // ← Add
 
 export type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 export type SubscriptionInsert = Database['public']['Tables']['subscriptions']['Insert'];
 export type SubscriptionUpdate = Database['public']['Tables']['subscriptions']['Update'];
 
-export type SubscriptionStatus = 'active' | 'paused' | 'cancelled' | 'expired';
-export type SubscriptionTier = 'community' | 'ally' | 'corporate' | 'patron';
+// Re-export for convenience
+export type { SubscriptionStatus, SubscriptionTier };
 
 export interface SubscriptionWithRelations extends Subscription {
   subscriber?: Database['public']['Tables']['profiles']['Row'];
@@ -14,5 +15,5 @@ export interface SubscriptionWithRelations extends Subscription {
 }
 
 export const subscriptionDefaults = {
-  status: 'active' as const,
+  status: 'active' as SubscriptionStatus,
 } as const;

@@ -1,5 +1,6 @@
 // src/types/supabase/tables/sales.ts
 import type { Database } from '../database.types';
+import type { ResidualPayout, ResidualPayoutInsert, ResidualPayoutUpdate, ResidualWithDetails } from './residual_payouts';
 
 export type Sale = Database['public']['Tables']['sales']['Row'];
 export type SaleInsert = Database['public']['Tables']['sales']['Insert'];
@@ -18,25 +19,14 @@ export interface SaleWithDetails extends Sale {
   };
 }
 
-export type ResidualPayout = Database['public']['Tables']['residual_payouts']['Row'];
-export type ResidualPayoutInsert = Database['public']['Tables']['residual_payouts']['Insert'];
-export type ResidualPayoutUpdate = Database['public']['Tables']['residual_payouts']['Update'];
-
-export interface ResidualWithDetails extends ResidualPayout {
-  product?: {
-    title: string;
-  };
-  contributor?: {
-    username: string | null;
-    display_name: string | null;
-  };
-}
-
 export interface SaleWithRelations extends Sale {
   buyer?: Database['public']['Tables']['profiles']['Row'];
   product?: Database['public']['Tables']['products']['Row'];
   residualPayouts?: Database['public']['Tables']['residual_payouts']['Row'][];
 }
+
+// Re-export Residual types for convenience
+export type { ResidualPayout, ResidualPayoutInsert, ResidualPayoutUpdate, ResidualWithDetails };
 
 export const saleDefaults = {
   payment_status: 'completed' as const,

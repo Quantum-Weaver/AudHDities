@@ -1,6 +1,5 @@
 // src/types/supabase/tables/products.ts
 import type { Database } from '../database.types';
-import { PRODUCT_CATEGORY_MAP} from '@/types/categories';
 
 export type Product = Database['public']['Tables']['products']['Row'];
 export type ProductInsert = Database['public']['Tables']['products']['Insert'];
@@ -78,7 +77,6 @@ export interface ProductWithRelations extends Product {
   creator?: Database['public']['Tables']['profiles']['Row'];
   contributions?: Database['public']['Tables']['contributions']['Row'][];
   sales?: Database['public']['Tables']['sales']['Row'][];
-  owner_type: Database['public']['Enums']['owner_type'];
 }
 
 export const productDefaults = {

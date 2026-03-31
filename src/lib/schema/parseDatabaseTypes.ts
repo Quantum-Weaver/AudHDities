@@ -1,6 +1,7 @@
 // src/lib/schema/parseDatabaseTypes.ts
 
 import type { Database } from '@/types/supabase/database.types';
+import { ENUM_VALUES } from '@/types/supabase/enums';
 
 export interface SchemaColumn {
   name: string;
@@ -207,14 +208,21 @@ export function parseDatabaseTypes(): { tables: SchemaTable[]; enums: SchemaEnum
     },
   ];
 
+  // Build enums from ENUM_VALUES instead of hardcoding
   const enums: SchemaEnum[] = [
-    { name: 'user_tier', values: ['community', 'ally', 'corporate', 'council'] },
-    { name: 'council_house', values: ['hearth_keeper', 'chancellor', 'seer', 'aethelred', 'curator', 'archivist', 'skald', 'codex', 'executioner'] },
-    { name: 'product_type', values: ['digital_course', 'digital_download', 'physical_product', 'audio', 'video', 'music', 'event_live', 'workshop', 'service', 'mutual_aid', 'clothing', 'accessory', 'bundle'] },
-    { name: 'contribution_type', values: ['concept', 'code', 'design', 'content', 'testing', 'promotion', 'infrastructure'] },
-    { name: 'verification_status', values: ['pending', 'verified', 'rejected', 'suspended'] },
-    { name: 'payout_status', values: ['pending', 'paid', 'failed'] },
-    { name: 'badge_type', values: ['quantum_weaver', 'founding_council', 'verified_creator', 'first_sale', 'sovereign_seeker', 'hearth_keeper_initiate', 'aethelred_master', ...Array(46).fill('...')] },
+    { name: 'user_tier', values: [...ENUM_VALUES.userTier] },
+    { name: 'council_house', values: [...ENUM_VALUES.councilHouse] },
+    { name: 'product_type', values: [...ENUM_VALUES.productType] },
+    { name: 'contribution_type', values: [...ENUM_VALUES.contributionType] },
+    { name: 'verification_status', values: [...ENUM_VALUES.verificationStatus] },
+    { name: 'payout_status', values: [...ENUM_VALUES.payoutStatus] },
+    { name: 'business_type', values: [...ENUM_VALUES.businessType] },
+    { name: 'post_visibility', values: [...ENUM_VALUES.postVisibility] },
+    { name: 'quest_status', values: [...ENUM_VALUES.questStatus] },
+    { name: 'report_type', values: [...ENUM_VALUES.reportType] },
+    { name: 'report_status', values: [...ENUM_VALUES.reportStatus] },
+    { name: 'notification_type', values: [...ENUM_VALUES.notificationType] },
+    { name: 'acid_persona', values: [...ENUM_VALUES.acidPersona] },
   ];
 
   return { tables, enums };

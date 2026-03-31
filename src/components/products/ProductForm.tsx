@@ -2,160 +2,107 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useCreatorProducts } from '@/hooks/entities/useProducts';
-import { PRODUCT_CATEGORIES } from '@/types/categories';
+import { productCreateSchema, type ProductCreateInput } from '@/lib/validators/product';
+import { useSupabase } from '@/lib/supabase/client';
+import { useRouter } from 'next/navigation';
 import { ProductBasicInfo } from './ProductBasicInfo';
 import { ProductPricingFields } from './ProductPricingFields';
 import { ProductResidualSettings } from './ProductResidualSettings';
 import { ProductPublishOption } from './ProductPublishOption';
 import { ProductFormActions } from './ProductFormActions';
-import { ProductFormSuccess } from './ProductFormSuccess';
 import { ProductFormError } from './ProductFormError';
-
-// =====================================================
-// VALIDATION SCHEMA - This lives in the COMPONENT LAYER
-// =====================================================
-// It defines what the user can enter.
-// It should match what the API expects, but can be more user-friendly.
-// =====================================================
-
-// Get product type values from source of truth
-const productTypeValues = PRODUCT_CATEGORIES.map(cat => cat.value);
-
-const productSchema = z.object({
-  title: z.string()
-    .min(3, 'Title must be at least 3 characters')
-    .max(100, 'Title must be less than 100 characters'),
-  
-  slug: z.string()
-    .min(3, 'Slug must be at least 3 characters')
-    .max(100, 'Slug must be less than 100 characters')
-    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
-  
-  description: z.string().optional(),
-  
-  product_type: z.enum(productTypeValues as [string, ...string[]]),
-  
-  price_community: z.coerce.number()
-    .min(0, 'Price cannot be negative')
-    .optional()
-    .nullable(),
-  
-  price_ally: z.coerce.number()
-    .min(0, 'Price cannot be negative'),
-  
-  price_corporate: z.coerce.number()
-    .min(0, 'Price cannot be negative')
-    .optional()
-    .nullable(),
-  
-  residual_pool_percent: z.coerce.number()
-    .min(0, 'Cannot be negative')
-    .max(50, 'Maximum 50%'),
-  
-  sanctuary_infrastructure_percent: z.coerce.number()
-    .min(0)
-    .max(100)
-    .optional(),
-  
-  is_published: z.boolean().optional().default(false),
-});
-
-type ProductFormData = z.infer<typeof productSchema>;
+import { ProductFormSuccess } from './ProductFormSuccess';
 
 interface ProductFormProps {
-  mode?: 'create' | 'edit';
-  initialData?: any;
-  defaultResidualPool?: number;
+  mode: 'create' | 'edit';
+  initialData?: ProductCreateInput;
+  productId?: string;
   onSuccess?: () => void;
 }
 
-export default function ProductForm({ 
-  mode = 'create', 
-  initialData,
-  defaultResidualPool = 30,
-  onSuccess 
-}: ProductFormProps) {
+export function ProductForm({ mode, initialData, productId, onSuccess }: ProductFormProps) {
   const router = useRouter();
-  const { createProduct, updateProduct, loading, error } = useCreatorProducts();
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const supabase = useSupabase();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  
-  // =====================================================
-  // useForm with zodResolver - THIS IS CORRECT
-  // =====================================================
+  const [residualPercent, setResidualPercent] = useState(30);
+
   const {
     register,
     handleSubmit,
-    watch,
     setValue,
+    watch,
     formState: { errors, isSubmitting },
-  } = useForm<ProductFormData>({
-    resolver: zodResolver(productSchema),
+  } = useForm<ProductCreateInput>({
     defaultValues: initialData || {
+      title: '',
+      slug: '',
+      description: '',
       product_type: 'digital_download',
-      residual_pool_percent: defaultResidualPool,
-      sanctuary_infrastructure_percent: 10,
+      owner_type: 'creator',
       is_published: false,
+      is_recurring: false,
+      active: true,
+      price_community: 0,
+      price_ally: 25,
+      price_corporate: 100,
+      residual_pool_percent: 30,
+      sanctuary_infrastructure_percent: 10,
+      category: [],
+      tags: [],
+      media_urls: [],
     },
   });
 
   const watchProductType = watch('product_type');
-  const watchResidualPool = watch('residual_pool_percent');
-  const watchTitle = watch('title');
 
-  // Auto-generate slug from title (UX enhancement, not validation)
-  useEffect(() => {
-    if (mode === 'create' && watchTitle && !initialData?.slug) {
-      const generatedSlug = watchTitle
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-|-$/g, '');
-      setValue('slug', generatedSlug);
-    }
-  }, [watchTitle, mode, initialData, setValue]);
+  const onSubmit = async (data: ProductCreateInput) => {
+    setError(null);
+    setLoading(true);
 
-  // =====================================================
-  // onSubmit - This sends data to the API
-  // The API will validate again (security layer)
-  // =====================================================
-  const onSubmit = async (data: ProductFormData) => {
-    setSubmitError(null);
-    
     try {
-      const productData = {
-        ...data,
-        price_community: data.price_community || null,
-        price_corporate: data.price_corporate || null,
-        owner_type: 'creator', // or determine based on user role
-      };
-      
-      let result;
+      // Get current user
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('You must be logged in to create a product');
+
       if (mode === 'create') {
-        result = await createProduct(productData);
-        if (result) {
-          setSuccess(true);
-          setTimeout(() => {
-            router.push('/creator/products');
-            onSuccess?.();
-          }, 1500);
-        }
-      } else if (mode === 'edit' && initialData?.id) {
-        result = await updateProduct(initialData.id, productData);
-        if (result) {
-          setSuccess(true);
-          setTimeout(() => {
-            router.push('/creator/products');
-            onSuccess?.();
-          }, 1500);
-        }
+        const { error: insertError } = await supabase
+          .from('products')
+          .insert({
+            ...data,
+            creator_id: user.id,
+            owner_type: 'creator',
+            residual_pool_percent: residualPercent,
+          });
+
+        if (insertError) throw insertError;
+      } else if (mode === 'edit' && productId) {
+        const { error: updateError } = await supabase
+          .from('products')
+          .update({
+            ...data,
+            residual_pool_percent: residualPercent,
+          })
+          .eq('id', productId);
+
+        if (updateError) throw updateError;
       }
+
+      setSuccess(true);
+      onSuccess?.();
+      
+      setTimeout(() => {
+        router.push('/creator/products');
+      }, 2000);
+      
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Something went wrong');
+      console.error('Error saving product:', err);
+      setError(err instanceof Error ? err.message : 'Failed to save product');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -164,8 +111,8 @@ export default function ProductForm({
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <ProductFormError error={error?.message || submitError} />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+      <ProductFormError error={error} />
       
       <ProductBasicInfo
         register={register}
@@ -179,8 +126,8 @@ export default function ProductForm({
       <ProductPricingFields register={register} errors={errors} />
       
       <ProductResidualSettings
-        value={watchResidualPool}
-        onChange={(val) => setValue('residual_pool_percent', val)}
+        value={residualPercent}
+        onChange={setResidualPercent}
       />
       
       <ProductPublishOption register={register} />
@@ -189,7 +136,7 @@ export default function ProductForm({
         isSubmitting={isSubmitting}
         loading={loading}
         mode={mode}
-        onCancel={() => router.push('/creator/products')}
+        onCancel={() => router.back()}
       />
     </form>
   );

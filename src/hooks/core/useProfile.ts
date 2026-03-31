@@ -4,7 +4,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuth } from './useAuth';
-import { NDPreferences, SensoryPreferences, DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/nd-preferences';
+import { NDPreferences, SensoryPreferences, DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/preferences';
 import type { Database } from '@/types/supabase/database.types';
 
 // Use the database type as the single source of truth

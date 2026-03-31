@@ -13,6 +13,7 @@ export * from './posts';
 export * from './products';
 export * from './profiles';
 export * from './quests';
+export * from './rate_limits';
 export * from './sales';
 export * from './subscriptions';
 export * from './user_badges';

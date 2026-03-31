@@ -29,7 +29,7 @@ export type FileProcessingStatus = Database['public']['Enums']['file_processing_
 // =====================================================
 // PRODUCT & COMMERCE ENUMS
 // =====================================================
-
+export type OwnerType = Database['public']['Enums']['owner_type'];
 export type ProductType = Database['public']['Enums']['product_type'];
 export type PayoutStatus = Database['public']['Enums']['payout_status'];
 export type PayoutMethod = Database['public']['Enums']['payout_method'];

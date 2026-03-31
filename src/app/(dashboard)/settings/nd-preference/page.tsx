@@ -26,7 +26,7 @@ import {
   Loader2
 } from 'lucide-react';
 import Link from 'next/link';
-import { DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/nd-preferences';
+import { DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/preferences';
 
 export default function SettingsPage() {
   const router = useRouter();

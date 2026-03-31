@@ -3,8 +3,8 @@
 
 import { useCallback, useMemo } from 'react';
 import { useProfile } from './useProfile';
-import type { NDPreferences, SensoryPreferences } from '@/types/nd-preferences';
-import { DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/nd-preferences';
+import type { NDPreferences, SensoryPreferences } from '@/types/preferences';
+import { DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/preferences';
 
 interface UseNDPreferencesReturn {
   ndPreferences: NDPreferences;

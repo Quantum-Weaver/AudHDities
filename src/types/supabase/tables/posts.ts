@@ -1,5 +1,6 @@
 // src/types/supabase/tables/posts.ts
 import type { Database } from '../database.types';
+import type { PostVisibility, ContentType as PostContentType } from '../enums';  // ← Add
 
 export type Post = Database['public']['Tables']['posts']['Row'];
 export type PostInsert = Database['public']['Tables']['posts']['Insert'];
@@ -24,8 +25,8 @@ export type PostWithEngagement = Post & {
   user_comment_count?: number;
 };
 
-export type PostVisibility = 'public' | 'subscribers' | 'tier_community' | 'tier_ally' | 'tier_corporate' | 'private';
-export type PostContentType = 'text' | 'image' | 'audio' | 'video' | 'mixed';
+// Re-export for convenience
+export type { PostVisibility, PostContentType };
 
 export interface PostWithRelations extends Post {
   author?: Database['public']['Tables']['profiles']['Row'];
@@ -40,5 +41,5 @@ export const postDefaults = {
   emerald_count: 0,
   resonance_count: 0,
   tips_received: 0,
-  visibility: 'public' as const,
+  visibility: 'public' as PostVisibility,
 } as const;

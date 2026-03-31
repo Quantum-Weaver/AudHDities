@@ -54,20 +54,8 @@ export type {
   ModerationActionInsert,
   ModerationActionUpdate,
   ModerationActionWithRelations,
-} from './tables/';
+} from './tables/moderation_actions';
 
-// Add to DEFAULT VALUES section
-export {
-  reportDefaults,
-} from './tables/reports';
-
-export {
-  notificationDefaults,
-} from './tables/notifications';
-
-export {
-  moderationActionDefaults,
-} from './tables/';
 // =====================================================
 // APPLICATIONS
 // =====================================================
@@ -184,7 +172,6 @@ export type {
   ContributionInsert,
   ContributionUpdate,
   ContributionWithRelations,
-  ContributionType,
 } from './tables/contributions';
 
 export type {
@@ -309,6 +296,10 @@ export {
 } from './tables/subscriptions';
 
 export {
+  moderationActionDefaults,
+} from './tables/moderation_actions';
+
+export {
   userBadgeDefaults,
 } from './tables/user_badges';
 
@@ -319,3 +310,11 @@ export {
 export {
   vendorProfileDefaults,
 } from './tables/vendor_profiles';
+
+export {
+  reportDefaults,
+} from './tables/reports';
+
+export {
+  notificationDefaults,
+} from './tables/notifications';
