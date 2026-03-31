@@ -1,13 +1,13 @@
 // components/ui/grids/Grid.tsx - CLEAN DRY VERSION
 'use client'
 import { ReactNode } from 'react'
-import { GridVariant, GridGap, GridColumns } from '@/types/cosmic/'
+import { GridGap } from '@/types/cosmic/'
 import { GRID_GAPS, GRID_COLUMNS} from '@/lib/constants/systems/layout/breakpoints'
 
 interface GridProps {
   children: ReactNode
-  variant?: GridVariant
-  columns?: GridColumns
+  variant?: string
+  columns?: number
   gap?: GridGap
   className?: string
   animate?: boolean
@@ -17,7 +17,6 @@ export const Grid = ({
   children,
   variant = 'cards_organization',
   columns,
-  gap = 'balanced_standard',
   className = '',
   animate = false
 }: GridProps) => {
