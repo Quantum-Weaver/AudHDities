@@ -1,6 +1,5 @@
 // lib/constants/systems/interaction/feedback.ts - ONTOLOGICALLY ALIGNED
 import { DURATIONS, durations } from '@/lib/constants/cosmic/motion';
-import { AnimationDuration, MotionDuration } from '@/types/cosmic';
 import { 
   type BeingState,
   type ProcessState,
