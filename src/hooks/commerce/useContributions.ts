@@ -6,21 +6,12 @@ import { createClient } from '@/lib/supabase/client';
 import { useAuth } from '../core/useAuth';
 import type { Contribution, ContributionInsert, ContributionWithDetails } from '@/types/supabase/tables/contributions';
 
-interface CreateContributionParams {
-  product_id: string;
-  contributor_id: string;
-  contribution_type: Contribution['contribution_type'];
-  description?: string;
-  percent_share: number;
-  is_residual_eligible?: boolean;
-  is_one_time?: boolean;
-}
 
 interface UseContributionsReturn {
   contributions: ContributionWithDetails[];
   loading: boolean;
   error: Error | null;
-  createContribution: (params: CreateContributionParams) => Promise<ContributionWithDetails | null>;
+  createContribution: (params: ContributionInsert) => Promise<ContributionWithDetails | null>;
   updateContribution: (id: string, updates: Partial<Contribution>) => Promise<ContributionWithDetails | null>;
   deleteContribution: (id: string) => Promise<boolean>;
   fetchByProduct: (productId: string) => Promise<void>;
@@ -81,7 +72,7 @@ export function useContributions(): UseContributionsReturn {
     await fetchContributions(undefined, contributorId);
   }, [fetchContributions]);
 
-  const createContribution = useCallback(async (params: CreateContributionParams): Promise<ContributionWithDetails | null> => {
+  const createContribution = useCallback(async (params: ContributionInsert): Promise<ContributionWithDetails | null> => {
     if (!user) {
       setError(new Error('Authentication required'));
       return null;

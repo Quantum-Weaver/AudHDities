@@ -1,10 +1,10 @@
 // src/types/supabase/tables/contributions.ts
 import type { Database } from '../database.types';
-import type { ContributionType } from '../enums';
 
 export type Contribution = Database['public']['Tables']['contributions']['Row'];
 export type ContributionInsert = Database['public']['Tables']['contributions']['Insert'];
 export type ContributionUpdate = Database['public']['Tables']['contributions']['Update'];
+export type ContributionType = Database['public']['Enums']['contribution_type'];
 
 export interface ContributionWithDetails extends Contribution {
   contributor?: {

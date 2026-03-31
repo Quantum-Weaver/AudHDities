@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { useAuth } from '../core/useAuth';
 import type { Database } from '@/types/supabase/database.types';
 
+
 export type ResidualPayout = Database['public']['Tables']['residual_payouts']['Row'];
 export type PayoutStatus = Database['public']['Enums']['payout_status'];
 
