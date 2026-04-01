@@ -201,7 +201,41 @@ export const QUANTUM_COLORS= {
 // SECTION 2: GRADIENT SYSTEMS - 100% QUANTUM_COLORS DERIVED
 // ============================================================================
 
+export const BUSINESS_GRADIENTS = {
+  // Hero gradients
+  heroPrimary: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}20, ${QUANTUM_COLORS['neurospark']}10)`,
+  heroRadial: `radial-gradient(circle at 30% 20%, ${QUANTUM_COLORS['quantum.purple']}30, transparent 70%)`,
+  
+  // Value flow gradients
+  valueFlow: `linear-gradient(90deg, ${QUANTUM_COLORS['quantum.purple']}, ${QUANTUM_COLORS['neurospark']}, ${QUANTUM_COLORS['cosmic.blue']})`,
+  valuePulse: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}40, ${QUANTUM_COLORS['neurospark']}20)`,
+  
+  // Stat card gradients
+  statGradient: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}10, transparent)`,
+  statHover: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}20, ${QUANTUM_COLORS['neurospark']}10)`,
+  
+  // Pillar gradients
+  pillarCyan: `linear-gradient(135deg, ${QUANTUM_COLORS['neurospark']}20, transparent)`,
+  pillarPurple: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}20, transparent)`,
+  pillarPink: `linear-gradient(135deg, #ff69b420, transparent)`,
+  pillarGreen: `linear-gradient(135deg, ${QUANTUM_COLORS['success']}20, transparent)`,
+  
+  // Projection gradients
+  projection: `linear-gradient(135deg, ${QUANTUM_COLORS['surface']}80, ${QUANTUM_COLORS['deepSpace']}80)`,
+  projectionHover: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}20, ${QUANTUM_COLORS['deepSpace']}80)`,
+  
+  // Call to action
+  cta: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}, ${QUANTUM_COLORS['cosmic.blue']})`,
+  ctaHover: `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.light']}, ${QUANTUM_COLORS['cosmic.light']})`,
+  
+  // Orb gradients
+  orbCyan: `radial-gradient(circle, ${QUANTUM_COLORS['neurospark']}30, transparent 70%)`,
+  orbPurple: `radial-gradient(circle, ${QUANTUM_COLORS['quantum.purple']}30, transparent 70%)`,
+  orbPink: `radial-gradient(circle, #ff69b430, transparent 70%)`,
+} as const;
+
 export const QUANTUM_GRADIENTS = {
+  ...BUSINESS_GRADIENTS,
   // Core Gradients
   'sovereign': `linear-gradient(135deg, ${QUANTUM_COLORS['hearth.gold']} 0%, ${QUANTUM_COLORS['fire.base']} 100%)`,
   'quantum': `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']} 0%, ${QUANTUM_COLORS['quantum.dark']} 100%)`,
@@ -225,6 +259,7 @@ export const QUANTUM_GRADIENTS = {
   // Pride Gradients
   'prideRainbow': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 20%, ${QUANTUM_COLORS['pride.yellow']} 40%, ${QUANTUM_COLORS['pride.green']} 60%, ${QUANTUM_COLORS['pride.blue']} 80%, ${QUANTUM_COLORS['pride.purple']} 100%)`,
   'prideProgress': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 12.5%, ${QUANTUM_COLORS['pride.yellow']} 25%, ${QUANTUM_COLORS['pride.green']} 37.5%, ${QUANTUM_COLORS['pride.blue']} 50%, ${QUANTUM_COLORS['pride.purple']} 62.5%, ${QUANTUM_COLORS['pride.black']} 75%, ${QUANTUM_COLORS['pride.brown']} 87.5%, ${QUANTUM_COLORS['pride.transBlue']} 93.75%, ${QUANTUM_COLORS['pride.transPink']} 100%)`,
+  'prideProgressReversed': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transPink']} 0%,   ${QUANTUM_COLORS['pride.transBlue']} 6.25%,   ${QUANTUM_COLORS['pride.brown']} 12.5%,   ${QUANTUM_COLORS['pride.black']} 25%,   ${QUANTUM_COLORS['pride.purple']} 37.5%,   ${QUANTUM_COLORS['pride.blue']} 50%,   ${QUANTUM_COLORS['pride.green']} 62.5%,   ${QUANTUM_COLORS['pride.yellow']} 75%,   ${QUANTUM_COLORS['pride.orange']} 87.5%,   ${QUANTUM_COLORS['pride.red']} 100%)`,
   'prideTrans': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transBlue']} 0%, ${QUANTUM_COLORS['pride.transPink']} 50%, ${QUANTUM_COLORS['pride.transWhite']} 100%)`,
 
   // Quantum-Pride Fusion Gradients
@@ -317,9 +352,8 @@ export const QUANTUM_GRADIENTS = {
   // Breakdown to Breakthrough
   'breakdownToBreakthrough ': `linear-gradient(135deg, ${QUANTUM_COLORS['error']} 0%, ${QUANTUM_COLORS['warning']} 50%, ${QUANTUM_COLORS['success']} 100%)`,
   // Masking to Authenticity
-  'maskingToAuthenticity ': `linear-gradient(135deg, ${QUANTUM_COLORS['void.base']} 0%, ${QUANTUM_COLORS['starDust']} 50%, ${QUANTUM_COLORS['neurospark']} 100%)`,  
+  'maskingToAuthenticity ': `linear-gradient(135deg, ${QUANTUM_COLORS['void.base']} 0%, ${QUANTUM_COLORS['starDust']} 50%, ${QUANTUM_COLORS['neurospark']} 100%)` 
 } as const;
-
 
 export const PRIDE_GRADIENTS = {
   classic: QUANTUM_GRADIENTS.prideRainbow,

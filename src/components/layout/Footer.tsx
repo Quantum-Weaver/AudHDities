@@ -1,4 +1,4 @@
-// components/layout/Footer.tsx - MINIMALIST COSMIC ELEGANCE
+// components/layout/Footer.tsx
 'use client';
 
 export const Footer = () => {
@@ -19,13 +19,13 @@ export const Footer = () => {
       <div className="container mx-auto px-6 h-full flex items-center justify-center">
         {/* Minimal Content - Just Quote and Copyright */}
         <div className="text-center"> 
-               
+
           {/* Copyright with Subtle Quantum Touch */}		  
           <div className="text-sm cosmic-icon opacity-80">🌌 {randomQuote} ⚡</div>          
         
           {/* Subtle Quantum Signature */}
           <div className="text-sm cosmic-icon opacity-80">&copy; 2026 AudHDities Sanctuary  </div>        
-          
+          <div className="text-xs cosmic-icon opacity-80"><a href="/docs/terms">Terms of Service </a> ⚖️ <a href="/docs/privacy">Privacy Policy</a></div>
         </div>
       </div>
     </footer>

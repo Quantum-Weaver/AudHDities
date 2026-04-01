@@ -1,0 +1,10 @@
+// app/components/ui/Icons/index.ts
+export * from './council/'
+export * from './domains/'
+export * from './miscellaneous/'
+export * from './pantheon/'
+export * from './payment/'
+export * from './platforms/'
+export * from './social/'
+export * from './system/'
+export * from './miscellaneous/'

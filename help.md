@@ -6,3 +6,14 @@ cd C:/_superposition/audhdities
 
 # Generate fresh types from your linked project
 supabase gen types typescript --linked > src/types/supabase/database.types.ts
+
+
+# Create virtual environment
+python -m venv venv
+
+# Activate it:
+# On Windows:
+venv\Scripts\activate
+
+# On Mac/Linux:
+source venv/bin/activate

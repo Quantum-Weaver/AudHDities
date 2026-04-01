@@ -1,6 +1,7 @@
+// components/auth/AuthButton.tsx
 'use client';
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/core/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User, LogOut } from 'lucide-react';
@@ -11,19 +12,9 @@ export default function AuthButton() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        router.push('/login');
-        router.refresh();
-      } else {
-        console.error('Logout failed');
-      }
+      await signOut();
+      router.push('/');
+      router.refresh();
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -34,6 +25,7 @@ export default function AuthButton() {
       <button
         onClick={handleLogout}
         className="flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors"
+        aria-label="Logout"
       >
         <LogOut size={18} />
         <span className="hidden sm:inline">Exit</span>

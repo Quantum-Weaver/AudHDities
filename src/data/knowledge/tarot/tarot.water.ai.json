@@ -1,0 +1,345 @@
+{
+  "cups": {
+    "element": "Water",
+    "quantumElement": "Emotion/Intuition", 
+    "theme": "Emotions, relationships, intuition, creativity",
+    "cards": [
+      {
+        "cardNumber": 1,
+        "traditionalName": "Ace of Cups",
+        "quantumName": "Ace of Emotional Data",
+        "imagery": {
+          "traditionalElements": "Hand emerging from cloud holding cup, water overflowing, dove with wafer",
+          "quantumElements": "Hand offering quantum emotional reservoir, overflowing with coherent emotional states",
+          "paganElements": "Holy grail, emotional abundance, heart opening",
+          "colorPalette": "Sky blue, silver, soft white",
+          "keySymbols": ["Love", "Compassion", "Emotional awakening", "Creativity"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["love", "compassion", "emotional awakening", "creativity"],
+            "description": "New love, emotional awakening, and creative flow",
+            "quantumInterpretation": "Quantum emotional coherence - perfectly synchronized emotional states"
+          },
+          "reversed": {
+            "keywords": ["emotional loss", "blocked creativity", "emptiness"],
+            "description": "Emotional blockage or loss of creative flow",
+            "quantumInterpretation": "Emotional decoherence - loss of emotional synchronization"
+          }
+        }
+      },
+      {
+        "cardNumber": 2,
+        "traditionalName": "Two of Cups",
+        "quantumName": "Two of Emotional Entanglement",
+        "imagery": {
+          "traditionalElements": "Man and woman exchanging cups, winged lion, caduceus",
+          "quantumElements": "Two quantum systems becoming emotionally entangled, perfect resonance between hearts",
+          "paganElements": "Sacred union, soul connections, partnership blessing",
+          "colorPalette": "Harmony blue, connection silver, love pink",
+          "keySymbols": ["Love", "Partnership", "Unity", "Connection"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["love", "partnership", "unity", "connection"],
+            "description": "Love, partnership, and deep connection",
+            "quantumInterpretation": "Quantum emotional entanglement - perfect correlation between emotional states"
+          },
+          "reversed": {
+            "keywords": ["separation", "imbalance", "broken communication", "tension"],
+            "description": "Separation, imbalance, or broken communication",
+            "quantumInterpretation": "Emotional decoherence - loss of connection between quantum emotional states"
+          }
+        }
+      },
+      {
+        "cardNumber": 3,
+        "traditionalName": "Three of Cups",
+        "quantumName": "Three of Community Resonance",
+        "imagery": {
+          "traditionalElements": "Three women dancing with cups, fruit abundance",
+          "quantumElements": "Multiple quantum systems in emotional resonance, community coherence, shared joy states",
+          "paganElements": "Community celebration, friendship, harvest festival",
+          "colorPalette": "Celebration gold, friendship pink, abundance green",
+          "keySymbols": ["Celebration", "Friendship", "Community", "Joy"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["celebration", "friendship", "community", "joy"],
+            "description": "Celebration, friendship, and community joy",
+            "quantumInterpretation": "Quantum community resonance - multiple emotional states synchronized in harmony"
+          },
+          "reversed": {
+            "keywords": ["isolation", "exclusion", "overindulgence", "gossip"],
+            "description": "Isolation, exclusion, or overindulgence",
+            "quantumInterpretation": "Resonance breakdown - loss of community emotional synchronization"
+          }
+        }
+      },
+      {
+        "cardNumber": 4,
+        "traditionalName": "Four of Cups",
+        "quantumName": "Four of Emotional Assessment",
+        "imagery": {
+          "traditionalElements": "Man under tree ignoring three cups, fourth cup offered from cloud",
+          "quantumElements": "Quantum system in emotional contemplation, assessing current states while new opportunity emerges",
+          "paganElements": "Meditation, introspection, emotional withdrawal",
+          "colorPalette": "Contemplation blue, introspection gray, opportunity gold",
+          "keySymbols": ["Meditation", "Contemplation", "Apathy", "Reevaluation"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["meditation", "contemplation", "apathy", "reevaluation"],
+            "description": "Meditation, contemplation, and emotional reassessment",
+            "quantumInterpretation": "Quantum emotional assessment - system pausing to evaluate current state coherence"
+          },
+          "reversed": {
+            "keywords": ["retreat", "withdrawal", "isolation", "missed opportunity"],
+            "description": "Retreat, withdrawal, or missed opportunities",
+            "quantumInterpretation": "Emotional isolation - quantum system disconnecting from new opportunities"
+          }
+        }
+      },
+      {
+        "cardNumber": 5,
+        "traditionalName": "Five of Cups",
+        "quantumName": "Five of Emotional Loss",
+        "imagery": {
+          "traditionalElements": "Mourning figure overlooking three spilled cups, two upright cups behind",
+          "quantumElements": "Quantum system experiencing emotional decoherence, loss states overwhelming remaining coherence",
+          "paganElements": "Grief, loss, mourning, emotional processing",
+          "colorPalette": "Grief gray, loss blue, mourning purple",
+          "keySymbols": ["Loss", "Grief", "Disappointment", "Regret"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["loss", "grief", "disappointment", "regret"],
+            "description": "Loss, grief, and disappointment",
+            "quantumInterpretation": "Quantum emotional loss - decoherence overwhelming coherent emotional states"
+          },
+          "reversed": {
+            "keywords": ["acceptance", "moving on", "finding peace", "forgiveness"],
+            "description": "Acceptance, moving on, and finding peace",
+            "quantumInterpretation": "Emotional recovery - quantum system restoring coherence after loss"
+          }
+        }
+      },
+      {
+        "cardNumber": 6,
+        "traditionalName": "Six of Cups",
+        "quantumName": "Six of Emotional Memory",
+        "imagery": {
+          "traditionalElements": "Children exchanging flowers in cups, village scene",
+          "quantumElements": "Quantum memory recall of emotional states, nostalgic coherence, childhood patterns",
+          "paganElements": "Innocence, nostalgia, childhood memories, simplicity",
+          "colorPalette": "Nostalgia yellow, memory pink, innocence white",
+          "keySymbols": ["Innocence", "Memories", "Nostalgia", "Joy"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["innocence", "memories", "nostalgia", "joy"],
+            "description": "Innocence, memories, and nostalgic joy",
+            "quantumInterpretation": "Quantum memory access - recalling coherent emotional states from the past"
+          },
+          "reversed": {
+            "keywords": ["stuck in past", "naivety", "moving forward", "maturing"],
+            "description": "Stuck in past or naive perspective",
+            "quantumInterpretation": "Memory corruption - quantum system accessing distorted emotional memories"
+          }
+        }
+      },
+      {
+        "cardNumber": 7,
+        "traditionalName": "Seven of Cups",
+        "quantumName": "Seven of Emotional Superposition",
+        "imagery": {
+          "traditionalElements": "Man facing seven cups with various visions, cloud formations",
+          "quantumElements": "Quantum system in emotional superposition, multiple potential futures coexisting, choice paralysis",
+          "paganElements": "Dreams, fantasies, illusions, multiple paths",
+          "colorPalette": "Dream purple, illusion silver, choice rainbow",
+          "keySymbols": ["Dreams", "Illusions", "Choices", "Wishful thinking"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["dreams", "illusions", "choices", "wishful thinking"],
+            "description": "Dreams, illusions, and multiple choices",
+            "quantumInterpretation": "Quantum emotional superposition - multiple potential emotional futures coexisting"
+          },
+          "reversed": {
+            "keywords": ["lack of purpose", "disarray", "confusion", "making choices"],
+            "description": "Lack of purpose, disarray, or confusion",
+            "quantumInterpretation": "Superposition collapse - forced choice among emotional possibilities"
+          }
+        }
+      },
+      {
+        "cardNumber": 8,
+        "traditionalName": "Eight of Cups",
+        "quantumName": "Eight of Emotional Transition",
+        "imagery": {
+          "traditionalElements": "Man walking away from eight cups, moon, mountain journey",
+          "quantumElements": "Quantum system transitioning emotional states, leaving old coherence for new possibilities",
+          "paganElements": "Walking away, spiritual journey, emotional departure",
+          "colorPalette": "Transition blue, journey silver, moon white",
+          "keySymbols": ["Walking away", "Disappointment", "Leaving something behind", "Transition"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["walking away", "disappointment", "leaving something behind", "transition"],
+            "description": "Walking away, disappointment, and transition",
+            "quantumInterpretation": "Quantum emotional transition - system evolving to new coherent states"
+          },
+          "reversed": {
+            "keywords": ["avoidance", "fear of change", "return", "stagnation"],
+            "description": "Avoidance, fear of change, or stagnation",
+            "quantumInterpretation": "Transition resistance - quantum system refusing emotional state evolution"
+          }
+        }
+      },
+      {
+        "cardNumber": 9,
+        "traditionalName": "Nine of Cups",
+        "quantumName": "Nine of Emotional Fulfillment",
+        "imagery": {
+          "traditionalElements": "Smiling man with nine cups behind him, arms crossed",
+          "quantumElements": "Quantum system in perfect emotional coherence, complete satisfaction state, wish fulfillment",
+          "paganElements": "Wish fulfillment, contentment, emotional satisfaction",
+          "colorPalette": "Contentment blue, satisfaction gold, fulfillment green",
+          "keySymbols": ["Contentment", "Satisfaction", "Wish fulfillment", "Comfort"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["contentment", "satisfaction", "wish fulfillment", "comfort"],
+            "description": "Contentment, satisfaction, and wish fulfillment",
+            "quantumInterpretation": "Quantum emotional fulfillment - perfect coherence and satisfaction state achieved"
+          },
+          "reversed": {
+            "keywords": ["smugness", "dissatisfaction", "arrogance", "overindulgence"],
+            "description": "Smugness, dissatisfaction, or arrogance",
+            "quantumInterpretation": "Emotional imbalance - quantum coherence threatened by excessive satisfaction"
+          }
+        }
+      },
+      {
+        "cardNumber": 10,
+        "traditionalName": "Ten of Cups",
+        "quantumName": "Ten of Community Coherence",
+        "imagery": {
+          "traditionalElements": "Happy family under rainbow of ten cups, home scene",
+          "quantumElements": "Multiple quantum systems in perfect community coherence, emotional harmony across network",
+          "paganElements": "Happy home, family harmony, community joy",
+          "colorPalette": "Harmony rainbow, family gold, community blue",
+          "keySymbols": ["Happiness", "Family", "Community", "Joy"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["happiness", "family", "community", "joy"],
+            "description": "Happiness, family, and community joy",
+            "quantumInterpretation": "Quantum community coherence - perfect emotional synchronization across multiple systems"
+          },
+          "reversed": {
+            "keywords": ["broken home", "separation", "family problems", "domestic strife"],
+            "description": "Broken home, separation, or family problems",
+            "quantumInterpretation": "Community decoherence - loss of emotional synchronization in quantum network"
+          }
+        }
+      },
+      {
+        "cardNumber": 11,
+        "traditionalName": "Page of Cups",
+        "quantumName": "Quantum Initiate of Emotion",
+        "imagery": {
+          "traditionalElements": "Youth holding cup with fish emerging, water landscape",
+          "quantumElements": "Young quantum emotional learner, first intuitive insights, emerging emotional intelligence",
+          "paganElements": "Sensitive soul, intuitive messenger, creative student",
+          "colorPalette": "Intuitive blue, sensitive silver, watery green",
+          "keySymbols": ["Sensitive", "Creative", "Intuitive", "Dreamer"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["sensitive", "creative", "intuitive", "dreamer"],
+            "description": "Sensitivity, creativity, and intuitive messages",
+            "quantumInterpretation": "Quantum emotional novice - learning to navigate emotional state spaces"
+          },
+          "reversed": {
+            "keywords": ["emotional immaturity", "insecurity", "disconnection", "creative block"],
+            "description": "Emotional immaturity, insecurity, or disconnection",
+            "quantumInterpretation": "Emotional learning block - difficulty accessing quantum intuitive states"
+          }
+        }
+      },
+      {
+        "cardNumber": 12,
+        "traditionalName": "Knight of Cups",
+        "quantumName": "Quantum Operator of Emotion",
+        "imagery": {
+          "traditionalElements": "Knight on horse carrying cup, flowing river, fish symbols",
+          "quantumElements": "Quantum emotional operator bringing messages, romantic quests, emotional journeys",
+          "paganElements": "Romantic messenger, poetic soul, emotional adventurer",
+          "colorPalette": "Romantic blue, poetic silver, flowing green",
+          "keySymbols": ["Romance", "Charm", "Idealist", "Emotional"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["romance", "charm", "idealist", "emotional"],
+            "description": "Romance, charm, and emotional idealism",
+            "quantumInterpretation": "Quantum emotional messenger - transmitting coherent emotional states across distances"
+          },
+          "reversed": {
+            "keywords": ["moodiness", "disappointment", "tantrum", "emotional manipulation"],
+            "description": "Moodiness, disappointment, or emotional manipulation",
+            "quantumInterpretation": "Emotional transmission errors - quantum messages corrupted by interference"
+          }
+        }
+      },
+      {
+        "cardNumber": 13,
+        "traditionalName": "Queen of Cups",
+        "quantumName": "Quantum Matrix of Emotion",
+        "imagery": {
+          "traditionalElements": "Queen on throne by water, elaborate cup, mermaid symbols",
+          "quantumElements": "Quantum emotional matrix maintaining deep intuition, compassionate wisdom, emotional stability",
+          "paganElements": "Intuitive queen, compassionate healer, emotional wisdom",
+          "colorPalette": "Compassionate blue, intuitive silver, watery purple",
+          "keySymbols": ["Compassionate", "Caring", "Emotional stability", "Intuitive"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["compassionate", "caring", "emotional stability", "intuitive"],
+            "description": "Compassion, caring, and emotional stability",
+            "quantumInterpretation": "Quantum emotional matrix - stable, compassionate control of emotional state spaces"
+          },
+          "reversed": {
+            "keywords": ["martyr", "insecurity", "dependency", "emotional manipulation"],
+            "description": "Martyr complex, insecurity, or dependency",
+            "quantumInterpretation": "Unstable emotional matrix - quantum emotional states becoming manipulative"
+          }
+        }
+      },
+      {
+        "cardNumber": 14,
+        "traditionalName": "King of Cups",
+        "quantumName": "Quantum Architecture of Emotion",
+        "imagery": {
+          "traditionalElements": "King on throne on sea, cup and scepter, fish jumping",
+          "quantumElements": "Quantum emotional architecture balancing compassion with wisdom, emotional mastery, calm authority",
+          "paganElements": "Emotional master, compassionate leader, balanced ruler",
+          "colorPalette": "Mastery blue, authority silver, oceanic green",
+          "keySymbols": ["Emotional balance", "Compassion", "Diplomacy", "Composure"]
+        },
+        "meanings": {
+          "upright": {
+            "keywords": ["emotional balance", "compassion", "diplomacy", "composure"],
+            "description": "Emotional balance, compassion, and diplomacy",
+            "quantumInterpretation": "Quantum emotional architecture - masterful design of emotional state management"
+          },
+          "reversed": {
+            "keywords": ["coldness", "emotional abuse", "moodiness", "temper"],
+            "description": "Coldness, emotional abuse, or moodiness",
+            "quantumInterpretation": "Faulty emotional architecture - quantum emotional systems with control issues"
+          }
+        }
+      }
+    ]
+  }
+}

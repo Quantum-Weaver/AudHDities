@@ -1,0 +1,40 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 120 120" role="img" aria-label="Emergency - Crisis and Urgent Support">
+    <defs>
+      <linearGradient id="emergency-gradient" x1="0" y1="0" x2="120" y2="120">
+        <stop offset="0%" stopColor="#ef4444"/>
+        <stop offset="50%" stopColor="#ec4899"/>
+        <stop offset="100%" stopColor="#f97316"/>
+      </linearGradient>
+      <radialGradient id="emergency-pulse" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#ef4444" stopOpacity="0.8"/>
+        <stop offset="100%" stopColor="#ec4899" stopOpacity="0"/>
+      </radialGradient>
+    </defs>
+    
+    {/* Pulsing Background */}
+    <circle cx="60" cy="60" r="40" fill="url(#emergency-pulse)" opacity="0.3">
+      <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    {/* Emergency Triangle */}
+    <path 
+      d="M60 25 
+         L85 75 
+         L35 75 
+         Z" 
+      fill="url(#emergency-gradient)" 
+      stroke="#ef4444" 
+      strokeWidth="3"
+    />
+    
+    {/* Exclamation Mark */}
+    <rect x="57" y="45" width="6" height="20" rx="3" fill="#ffffff"/>
+    <circle cx="60" cy="70" r="3" fill="#ffffff"/>
+    
+    {/* Radiating Alert Lines */}
+    <path d="M60 15 V10 M60 85 V95 M25 60 H15 M95 60 H105" 
+          fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+  </svg>

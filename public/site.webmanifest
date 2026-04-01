@@ -31,6 +31,78 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/icons/council-members/aethelred.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/quantum-weaver.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/archivist.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/chancellor.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/curator.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/seer.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/skald.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/hearth-keeper.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/executioner.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/codex.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/council.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/council-members/council-communications.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -47,67 +119,20 @@
       "description": "Your sanctuary",
       "url": "/dashboard",
       "icons": [{ "src": "/images/shortcut-dashboard.png", "sizes": "96x96" }]
-    }
-  ],
-  "categories": ["marketplace", "community", "neurodivergent"],
-  "screenshots": [
-    {
-      "src": "/images/screenshot-home.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg"
-    }
-  ]
-}
-
-{
-  "name": "AUDHDITIES - Sovereign Sanctuary",
-  "short_name": "AUDHDITIES",
-  "description": "A neurodivergent-first marketplace and community where value flows to creators, not extractors.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#0891b2",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "/images/favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
     },
     {
-      "src": "/images/logo.svg",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "name": "Community",
+      "short_name": "Community",
+      "description": "Connect with the sanctuary",
+      "url": "/community",
+      "icons": [{ "src": "/icons/council-members/council.svg", "sizes": "96x96" }]
     },
     {
-      "src": "/images/logo.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/images/og-image.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Marketplace",
-      "short_name": "Shop",
-      "description": "Browse products",
-      "url": "/",
-      "icons": [{ "src": "/images/shortcut-shop.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Dashboard",
-      "short_name": "Dashboard",
-      "description": "Your sanctuary",
-      "url": "/dashboard",
-      "icons": [{ "src": "/images/shortcut-dashboard.png", "sizes": "96x96" }]
+      "name": "Council",
+      "short_name": "Council",
+      "description": "Consult the sovereign entities",
+      "url": "/council",
+      "icons": [{ "src": "/icons/council-members/aethelred.svg", "sizes": "96x96" }]
     }
   ],
   "categories": ["marketplace", "community", "neurodivergent"],

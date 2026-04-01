@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 512 512" role="img" aria-label="Artemis's Feline Guide – quantum companion for liminal perception" class="cosmic-icon feline-guide">
+  <defs>
+    <linearGradient id="feline-gradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#6c5ce7"/>
+      <stop offset="50%" stopColor="#74b9ff"/>
+      <stop offset="100%" stopColor="#00cec9"/>
+    </linearGradient>
+    <filter id="feline-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Original cat path structure with quantum styling -->
+  <path d="M430.762,126.907c-42.384-89.329-67.753-89.329-78.722-89.329c-1.947,0-3.884,0.167-5.785,0.482 c-18.1,3.014-41.374,22.031-69.302,56.579h-20.955h-20.974c-27.909-34.548-51.202-53.566-69.301-56.579 c-1.891-0.315-3.829-0.482-5.758-0.482h-0.25c-11.108,0-36.412,0.649-78.499,89.329C34.188,164.608-32.49,256.506,18.091,366.094 c49.996,108.328,191.425,108.328,237.907,108.328c46.472,0,187.911,0,237.907-108.318 C544.495,256.506,477.809,164.608,430.762,126.907z M468.055,354.161c-41.15,89.134-161.411,91.776-212.056,91.776 c-50.626,0-170.906-2.642-212.038-91.776c-56.969-123.432,60.121-208.886,60.121-208.886s36.551-79.213,55.875-79.213l1.094,0.093 c18.99,3.162,60.14,56.969,60.14,56.969h34.808h34.808c0,0,41.15-53.807,60.14-56.969l1.094-0.093 c19.305,0,55.875,79.213,55.875,79.213S525.024,230.729,468.055,354.161z" 
+        fill="url(#feline-gradient)" 
+        stroke="#00cec9" 
+        strokeWidth="3" 
+        filter="url(#feline-glow)"/>
+  
+  <!-- Facial features with enhanced visibility -->
+  <polygon points="78.008,314.355 181.746,322.524 182.488,313.057 78.75,304.897" fill="#74b9ff"/>
+  <polygon points="76.2,355.496 77.21,364.935 178.445,354.133 177.434,344.693" fill="#74b9ff"/>
+  <polygon points="330.269,322.524 433.988,314.355 433.247,304.897 329.527,313.057" fill="#74b9ff"/>
+  <polygon points="333.56,354.133 434.796,364.935 435.806,355.496 334.571,344.693" fill="#74b9ff"/>
+  
+  <!-- Eyes with cosmic glow -->
+  <path d="M146.011,241.809c0,13.983,11.349,25.323,25.332,25.323c13.982,0,25.313-11.34,25.313-25.323 c0-13.983-11.331-25.322-25.313-25.322C157.36,216.487,146.011,227.826,146.011,241.809z" fill="#6c5ce7"/>
+  <path d="M340.663,267.132c13.982,0,25.323-11.34,25.323-25.323c0-13.983-11.341-25.322-25.323-25.322 c-13.983,0-25.322,11.34-25.322,25.322C315.341,255.792,326.68,267.132,340.663,267.132z" fill="#6c5ce7"/>
+  
+  <!-- Whiskers with subtle glow -->
+  <polygon points="152.742,105.711 138.5,141.316 174.106,134.195" fill="#74b9ff" opacity="0.8"/>
+  <polygon points="359.254,105.711 337.891,134.195 373.496,141.316" fill="#74b9ff" opacity="0.8"/>
+</svg>

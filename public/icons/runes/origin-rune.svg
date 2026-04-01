@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="originTitle" role="img">
+  <title id="originTitle">Origin Rune: Identity + Transformation</title>
+  <g fill="none" stroke="currentColor" strokeWidth="1.6" stroke-linecap="round" strokeLinejoin="round">
+    <!-- fingerprint/galactic spiral (concentric arcs approximating spirals) -->
+    <path d="M32 32 m-8 0 a8 8 0 1 1 16 0 a6 6 0 1 1 -12 0 a4 4 0 1 1 8 0 a2 2 0 1 1 -4 0" />
+    <!-- twin entangled orbs -->
+    <circle cx="22" cy="44" r="3" />
+    <circle cx="42" cy="44" r="3" />
+    <!-- entanglement filament -->
+    <path d="M25 44 L39 44" strokeWidth="1.6" />
+  </g>
+</svg>

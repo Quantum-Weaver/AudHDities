@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 32 32" role="img" aria-label="Cognitive Loom icon – data weaving structure with quantum flow" class="cosmic-icon cognitive-loom">
+  <defs>
+    <linearGradient id="loom-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#6c5ce7"/>
+      <stop offset="50%" stopColor="#74b9ff"/>
+      <stop offset="100%" stopColor="#00cec9"/>
+    </linearGradient>
+    <filter id="loom-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Original path structure with quantum styling - lines thinned -->
+  <path d="M30,10V6c0-0.552-0.448-1-1-1h-2V3c0-0.552-0.448-1-1-1h-4c-0.552,0-1,0.448-1,1v2h-2V3 c0-0.552-0.448-1-1-1h-4c-0.552,0-1,0.448-1,1v2h-2V3c0-0.552-0.448-1-1-1H6C5.448,2,5,2.448,5,3v2H3C2.448,5,2,5.448,2,6v4 c0,0.552,0.448,1,1,1h2v2H3c-0.552,0-1,0.448-1,1v4c0,0.552,0.448,1,1,1h2v2H3c-0.552,0-1,0.448-1,1v4c0,0.552,0.448,1,1,1h2v2 c0,0.552,0.448,1,1,1h4c0.552,0,1-0.448,1-1v-2h2v2c0,0.552,0.448,1,1,1h4c0.552,0,1-0.448,1-1v-2h2v2c0,0.552,0.448,1,1,1h4 c0.552,0,1-0.448,1-1v-2h2c0.552,0,1-0.448,1-1v-4c0-0.552-0.448-1-1-1h-2v-2h2c0.552,0,1-0.448,1-1v-4c0-0.552-0.448-1-1-1h-2v-2h2 C29.552,11,30,10.552,30,10z M29,6v4h-2V6H29z M14,3h4v2h-4V3z M21,6v4H11V6H21z M18,21h-4V11h4V21z M19,19h2v2h-2V19z M13,21h-2v-2 h2V21z M13,13h-2v-2h2V13z M19,11h2v2h-2V11z M3,10V6h2v4H3z M6,3h4v10H6V3z M3,18v-4h10v4H3z M3,26v-4h2v4H3z M10,29H6V19h4V29z M18,29h-4v-2h4V29z M11,26v-4h10v4H11z M29,22v4h-2v-4H29z M26,29h-4V19h4V29z M29,14v4H19v-4H29z M26,13h-4V3h4V13z" 
+        fill="url(#loom-gradient)" 
+        stroke="#00cec9" 
+        strokeWidth="0.4" 
+        filter="url(#loom-glow)"/>
+</svg>
