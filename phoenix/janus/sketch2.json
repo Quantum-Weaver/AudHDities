@@ -1,0 +1,45 @@
+{
+  "system": "",
+  "deity": "",
+  "council_role": "",
+  "data_objects": [
+    {
+      "object_name": "",
+      "description": "",
+      "attributes": [],
+      "relationships": [],
+      "sql": {
+        "enums": [],
+        "table_schema": "",
+        "policies": [
+          {
+            "policy_name": "",
+            "definition": "",
+            "purpose": ""
+          }
+        ],
+        "triggers": [
+          {
+            "trigger_name": "",
+            "definition": "",
+            "purpose": ""
+          }
+        ],
+        "functions": [
+          {
+            "function_name": "",
+            "definition": "",
+            "purpose": ""
+          }
+        ],
+        "verification_queries": []
+      },
+      "components_needed": [],
+      "api_endpoints": [],
+      "hooks_needed": [],
+      "utils_needed": [],
+      "constants_needed": [],
+      "notes": ""
+    }
+  ]
+}
