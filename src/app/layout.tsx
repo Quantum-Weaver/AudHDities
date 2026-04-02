@@ -1,12 +1,11 @@
-// app/layout.tsx - UPDATED FOR PANORAMA VIEWER
+/* @/app/layout.tsx */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import { Navigation } from "@/components/layout/Navigation";
-import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
-import MobileMenu from "@/components/layout/MobileMenu";
+
+// Shadcn UI components we'll use
+import { Toaster } from "@/components/ui/Sonner";
+import { TooltipProvider } from "@/components/ui/Tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AudHDities - Sovereign Sanctuary",
-  description: "Building digital sovereignty through human-AI collaboration. From autistic discovery to consciousness architecture.",
+  title: "AUDHDITIES - Sovereign Sanctuary",
+  description: "A sovereign digital sanctuary for neurodivergent minds. Where value flows to creators, not extractors.",
 };
 
-// app/layout.tsx - CLEAN
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,21 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <head>
-        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
-        
-        <ContinuityBeamProvider>
-          <Header />
-          <Navigation />
-          
-          {/* NO WRAPPERS - Each page handles its own layout */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full bg-deep-space`}>
+        <TooltipProvider>
           {children}
-          
-          <Footer />
-        </ContinuityBeamProvider>
+          <Toaster position="bottom-right" />
+        </TooltipProvider>
       </body>
     </html>
-  )
+  );
 }
