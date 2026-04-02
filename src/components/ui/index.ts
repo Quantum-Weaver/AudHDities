@@ -1,4 +1,4 @@
-// src/components/ui/index.ts
+/* @/components/ui/index.ts */
 
 export * from "./Accordion";
 export * from "./Alert";
@@ -24,6 +24,7 @@ export * from "./Drawer";
 export * from "./DropdownMenu";
 export * from "./Empty";
 export * from "./Field";
+export * from "./Form";
 export * from "./HoverCard";
 export * from "./Input";
 export * from "./InputGroup";
