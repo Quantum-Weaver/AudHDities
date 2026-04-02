@@ -1,3 +1,4 @@
+/* @/components/ui/MenuBar.tsx */
 "use client"
 
 import * as React from "react"

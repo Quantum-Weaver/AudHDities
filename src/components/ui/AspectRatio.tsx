@@ -1,3 +1,5 @@
+/* @/components/ui/AspectRatio.tsx */
+"use client"
 import { cn } from "@/lib/utils"
 
 function AspectRatio({

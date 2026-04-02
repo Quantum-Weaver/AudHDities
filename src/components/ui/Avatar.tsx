@@ -1,3 +1,4 @@
+/* @/components/ui/Avater.tsx */
 "use client"
 
 import * as React from "react"

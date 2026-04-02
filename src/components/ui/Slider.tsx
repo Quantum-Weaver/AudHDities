@@ -1,3 +1,4 @@
+/* @/components/ui/Slider.tsx */
 "use client"
 
 import * as React from "react"
