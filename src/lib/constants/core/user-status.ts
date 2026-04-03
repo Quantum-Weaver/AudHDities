@@ -1,4 +1,5 @@
-/* @/lib/constants/cosmic/user-tiers.ts */
+/* @/lib/constants/core/user-status.ts */
+
 export const USER_STATUS = {
   ACTIVE: 'active',
   SUSPENDED: 'suspended',
