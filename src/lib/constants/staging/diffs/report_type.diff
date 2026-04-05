@@ -1,0 +1,8 @@
+--- a/src\lib\constants\themis_governance\report_type.ts
++++ b/src\lib\constants\themis_governance\report_type.ts (staged)
+@@ -3,16 +3,16 @@
+-// GENERATED: 2026-04-05T18:10:53.232Z
++// GENERATED: 2026-04-05T18:12:45.097Z
+ // SOURCE: Constants.public.Enums.report_type
+ // =====================================================
+ 

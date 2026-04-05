@@ -1,0 +1,8 @@
+--- a/src\types\iris_communications\culturalization.ts
++++ b/src\types\iris_communications\culturalization.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:52.975Z
++// GENERATED: 2026-04-05T18:12:44.688Z
+ // SOURCE: database.types.ts lines 1553-1623
+ // =====================================================
+ 

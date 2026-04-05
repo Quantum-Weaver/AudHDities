@@ -1,0 +1,8 @@
+--- a/src\lib\constants\hestia_core\email_status.ts
++++ b/src\lib\constants\hestia_core\email_status.ts (staged)
+@@ -3,16 +3,16 @@
+-// GENERATED: 2026-04-05T18:10:53.188Z
++// GENERATED: 2026-04-05T18:12:45.008Z
+ // SOURCE: Constants.public.Enums.email_status
+ // =====================================================
+ 

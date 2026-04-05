@@ -1,0 +1,8 @@
+--- a/src\types\athena_gamification\progress.ts
++++ b/src\types\athena_gamification\progress.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:53.046Z
++// GENERATED: 2026-04-05T18:12:44.784Z
+ // SOURCE: database.types.ts lines 3456-3525
+ // =====================================================
+ 

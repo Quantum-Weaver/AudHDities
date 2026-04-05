@@ -1,0 +1,8 @@
+--- a/src\lib\constants\hestia_core\user_tier.ts
++++ b/src\lib\constants\hestia_core\user_tier.ts (staged)
+@@ -3,13 +3,13 @@
+-// GENERATED: 2026-04-05T18:10:53.141Z
++// GENERATED: 2026-04-05T18:12:44.912Z
+ // SOURCE: Constants.public.Enums.user_tier
+ // =====================================================
+ 

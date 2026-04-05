@@ -1,0 +1,8 @@
+--- a/src\lib\constants\hestia_core\verification_status.ts
++++ b/src\lib\constants\hestia_core\verification_status.ts (staged)
+@@ -3,13 +3,13 @@
+-// GENERATED: 2026-04-05T18:10:53.177Z
++// GENERATED: 2026-04-05T18:12:44.986Z
+ // SOURCE: Constants.public.Enums.verification_status
+ // =====================================================
+ 

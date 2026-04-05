@@ -1,0 +1,8 @@
+--- a/src\lib\constants\plutus_economics\recurring_interval.ts
++++ b/src\lib\constants\plutus_economics\recurring_interval.ts (staged)
+@@ -3,11 +3,11 @@
+-// GENERATED: 2026-04-05T18:10:53.223Z
++// GENERATED: 2026-04-05T18:12:45.081Z
+ // SOURCE: Constants.public.Enums.recurring_interval
+ // =====================================================
+ 

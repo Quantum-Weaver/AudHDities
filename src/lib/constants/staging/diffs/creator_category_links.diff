@@ -1,0 +1,8 @@
+--- a/src\types\hestia_core\creator_category_links.ts
++++ b/src\types\hestia_core\creator_category_links.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:52.969Z
++// GENERATED: 2026-04-05T18:12:44.681Z
+ // SOURCE: database.types.ts lines 1433-1468
+ // =====================================================
+ 

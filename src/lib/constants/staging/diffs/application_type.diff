@@ -1,0 +1,8 @@
+--- a/src\lib\constants\themis_governance\application_type.ts
++++ b/src\lib\constants\themis_governance\application_type.ts (staged)
+@@ -3,13 +3,13 @@
+-// GENERATED: 2026-04-05T18:10:53.155Z
++// GENERATED: 2026-04-05T18:12:44.945Z
+ // SOURCE: Constants.public.Enums.application_type
+ // =====================================================
+ 

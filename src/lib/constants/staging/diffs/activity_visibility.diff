@@ -1,0 +1,8 @@
+--- a/src\lib\constants\hermes_social\activity_visibility.ts
++++ b/src\lib\constants\hermes_social\activity_visibility.ts (staged)
+@@ -3,12 +3,12 @@
+-// GENERATED: 2026-04-05T18:10:53.146Z
++// GENERATED: 2026-04-05T18:12:44.922Z
+ // SOURCE: Constants.public.Enums.activity_visibility
+ // =====================================================
+ 

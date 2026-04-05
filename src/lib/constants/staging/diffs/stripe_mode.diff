@@ -1,0 +1,8 @@
+--- a/src\lib\constants\plutus_economics\stripe_mode.ts
++++ b/src\lib\constants\plutus_economics\stripe_mode.ts (staged)
+@@ -3,11 +3,11 @@
+-// GENERATED: 2026-04-05T18:10:53.245Z
++// GENERATED: 2026-04-05T18:12:45.131Z
+ // SOURCE: Constants.public.Enums.stripe_mode
+ // =====================================================
+ 

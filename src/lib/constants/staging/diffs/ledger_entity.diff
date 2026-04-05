@@ -1,0 +1,8 @@
+--- a/src\lib\constants\plutus_economics\ledger_entity.ts
++++ b/src\lib\constants\plutus_economics\ledger_entity.ts (staged)
+@@ -3,13 +3,13 @@
+-// GENERATED: 2026-04-05T18:10:53.198Z
++// GENERATED: 2026-04-05T18:12:45.028Z
+ // SOURCE: Constants.public.Enums.ledger_entity
+ // =====================================================
+ 

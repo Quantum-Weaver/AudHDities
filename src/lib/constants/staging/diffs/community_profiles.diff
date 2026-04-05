@@ -1,0 +1,8 @@
+--- a/src\types\hestia_core\community_profiles.ts
++++ b/src\types\hestia_core\community_profiles.ts (staged)
+@@ -5,27 +5,27 @@
+-// GENERATED: 2026-04-05T18:10:52.951Z
++// GENERATED: 2026-04-05T18:12:44.657Z
+ // SOURCE: database.types.ts lines 960-1045
+ // =====================================================
+ 

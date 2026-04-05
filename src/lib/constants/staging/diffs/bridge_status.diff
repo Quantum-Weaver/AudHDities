@@ -1,0 +1,8 @@
+--- a/src\lib\constants\aethelred_connections\bridge_status.ts
++++ b/src\lib\constants\aethelred_connections\bridge_status.ts (staged)
+@@ -3,12 +3,12 @@
+-// GENERATED: 2026-04-05T18:10:53.153Z
++// GENERATED: 2026-04-05T18:12:44.940Z
+ // SOURCE: Constants.public.Enums.bridge_status
+ // =====================================================
+ 

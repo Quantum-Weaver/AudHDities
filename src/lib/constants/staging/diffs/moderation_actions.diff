@@ -1,0 +1,8 @@
+--- a/src\types\themis_governance\moderation_actions.ts
++++ b/src\types\themis_governance\moderation_actions.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:53.019Z
++// GENERATED: 2026-04-05T18:12:44.750Z
+ // SOURCE: database.types.ts lines 2755-2817
+ // =====================================================
+ 

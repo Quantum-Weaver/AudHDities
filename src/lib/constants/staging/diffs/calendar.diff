@@ -1,0 +1,8 @@
+--- a/src\types\hephaestus_infrastructure\calendar.ts
++++ b/src\types\hephaestus_infrastructure\calendar.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:52.941Z
++// GENERATED: 2026-04-05T18:12:44.641Z
+ // SOURCE: database.types.ts lines 687-748
+ // =====================================================
+ 

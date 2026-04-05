@@ -1,0 +1,8 @@
+--- a/src\lib\constants\themis_governance\admin_log_target_type.ts
++++ b/src\lib\constants\themis_governance\admin_log_target_type.ts (staged)
+@@ -3,17 +3,17 @@
+-// GENERATED: 2026-04-05T18:10:53.149Z
++// GENERATED: 2026-04-05T18:12:44.929Z
+ // SOURCE: Constants.public.Enums.admin_log_target_type
+ // =====================================================
+ 

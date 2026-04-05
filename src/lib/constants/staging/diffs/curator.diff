@@ -1,0 +1,8 @@
+--- a/src\types\aethelred_connections\curator.ts
++++ b/src\types\aethelred_connections\curator.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:52.976Z
++// GENERATED: 2026-04-05T18:12:44.690Z
+ // SOURCE: database.types.ts lines 1624-1667
+ // =====================================================
+ 

@@ -1,0 +1,8 @@
+--- a/src\types\hephaestus_infrastructure\system_health_logs.ts
++++ b/src\types\hephaestus_infrastructure\system_health_logs.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:53.106Z
++// GENERATED: 2026-04-05T18:12:44.867Z
+ // SOURCE: database.types.ts lines 4965-4999
+ // =====================================================
+ 

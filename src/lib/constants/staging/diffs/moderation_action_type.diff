@@ -1,0 +1,8 @@
+--- a/src\lib\constants\themis_governance\moderation_action_type.ts
++++ b/src\lib\constants\themis_governance\moderation_action_type.ts (staged)
+@@ -3,22 +3,22 @@
+-// GENERATED: 2026-04-05T18:10:53.206Z
++// GENERATED: 2026-04-05T18:12:45.045Z
+ // SOURCE: Constants.public.Enums.moderation_action_type
+ // =====================================================
+ 

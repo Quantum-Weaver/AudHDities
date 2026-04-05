@@ -1,0 +1,8 @@
+--- a/src\types\athena_gamification\path_lessons.ts
++++ b/src\types\athena_gamification\path_lessons.ts (staged)
+@@ -5,37 +5,37 @@
+-// GENERATED: 2026-04-05T18:10:53.026Z
++// GENERATED: 2026-04-05T18:12:44.762Z
+ // SOURCE: database.types.ts lines 3005-3040
+ // =====================================================
+ 
