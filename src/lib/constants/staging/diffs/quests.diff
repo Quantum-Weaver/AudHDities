@@ -1,8 +1,8 @@
 --- a/src\types\athena_gamification\quests.ts
 +++ b/src\types\athena_gamification\quests.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.051Z
-+// GENERATED: 2026-04-05T18:12:44.793Z
+@@ -5,90 +5,90 @@
+-// GENERATED: 2026-04-05T19:30:01.266Z
++// GENERATED: 2026-04-05T19:46:33.078Z
  // SOURCE: database.types.ts lines 3643-3701
  // =====================================================
  

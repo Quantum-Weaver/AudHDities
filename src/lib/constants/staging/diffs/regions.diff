@@ -1,8 +1,8 @@
 --- a/src\types\iris_communications\regions.ts
 +++ b/src\types\iris_communications\regions.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.056Z
-+// GENERATED: 2026-04-05T18:12:44.802Z
+@@ -5,75 +5,75 @@
+-// GENERATED: 2026-04-05T19:30:01.272Z
++// GENERATED: 2026-04-05T19:46:33.086Z
  // SOURCE: database.types.ts lines 3798-3847
  // =====================================================
  

@@ -2,7 +2,7 @@
 +++ b/src\lib\constants\plutus_economics\payout_frequency.ts (staged)
 @@ -3,12 +3,12 @@
 -// GENERATED: 2026-04-05T18:10:53.261Z
-+// GENERATED: 2026-04-05T18:12:45.163Z
++// GENERATED: 2026-04-05T19:46:33.412Z
  // SOURCE: Constants.public.Enums.payout_frequency
  // =====================================================
  

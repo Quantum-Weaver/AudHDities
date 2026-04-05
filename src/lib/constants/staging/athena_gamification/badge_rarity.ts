@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/badge_rarity.ts
-// GENERATED: 2026-04-05T18:12:44.962Z
+// GENERATED: 2026-04-05T19:46:33.236Z
 // SOURCE: Constants.public.Enums.badge_rarity
 // =====================================================
 

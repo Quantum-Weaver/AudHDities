@@ -1,8 +1,8 @@
 --- a/src\types\themis_governance\rate_limits.ts
 +++ b/src\types\themis_governance\rate_limits.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.053Z
-+// GENERATED: 2026-04-05T18:12:44.796Z
+@@ -5,59 +5,59 @@
+-// GENERATED: 2026-04-05T19:30:01.268Z
++// GENERATED: 2026-04-05T19:46:33.080Z
  // SOURCE: database.types.ts lines 3702-3728
  // =====================================================
  

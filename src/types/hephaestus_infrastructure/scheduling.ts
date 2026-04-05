@@ -2,15 +2,23 @@
 // FILE: types/hephaestus_infrastructure/scheduling.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T18:12:44.829Z
+// GENERATED: 2026-04-05T19:46:33.113Z
 // SOURCE: database.types.ts lines 4327-4394
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
+import type { Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type JobType = Database['public']['Enums']['job_type'];
+export type JobStatus = Database['public']['Enums']['job_status'];
 
 export type SchedulingRow = Database['public']['Tables']['scheduling']['Row'];
 export type SchedulingInsert = Database['public']['Tables']['scheduling']['Insert'];
@@ -21,11 +29,50 @@ export type SchedulingUpdate = Database['public']['Tables']['scheduling']['Updat
 // =====================================================
 
 /**
+ * Public view of scheduling
+ */
+export interface PublicScheduling {
+  created_at: string | null
+  created_by: string | null
+  error_message: string | null
+  function_name: string
+  id: string
+  job_type: JobType
+  last_result: string | null
+  last_run: string | null
+  max_retries: number | null
+  name: string
+  next_run: string | null
+  parameters: Json | null
+  retry_count: number | null
+  run_at: string | null
+  schedule: string | null
+  status: JobStatus | null
+  updated_at: string | null
+}
+
+/**
  * Form data for scheduling
  * All fields are optional for partial updates
  */
 export interface SchedulingFormData {
-
+  created_at?: string | null;
+  created_by?: string | null;
+  error_message?: string | null;
+  function_name?: string;
+  id?: string;
+  job_type?: JobType;
+  last_result?: string | null;
+  last_run?: string | null;
+  max_retries?: number | null;
+  name?: string;
+  next_run?: string | null;
+  parameters?: Json | null;
+  retry_count?: number | null;
+  run_at?: string | null;
+  schedule?: string | null;
+  status?: JobStatus | null;
+  updated_at?: string | null;
 }
 
 /**
@@ -34,7 +81,23 @@ export interface SchedulingFormData {
 export interface SchedulingValidationResult {
   valid: boolean;
   errors: {
-
+    created_at?: string;
+    created_by?: string;
+    error_message?: string;
+    function_name?: string;
+    id?: string;
+    job_type?: string;
+    last_result?: string;
+    last_run?: string;
+    max_retries?: string;
+    name?: string;
+    next_run?: string;
+    parameters?: string;
+    retry_count?: string;
+    run_at?: string;
+    schedule?: string;
+    status?: string;
+    updated_at?: string;
   };
 }
 

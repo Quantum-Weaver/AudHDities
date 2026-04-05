@@ -1,8 +1,8 @@
 --- a/src\types\aethelred_connections\archivist.ts
 +++ b/src\types\aethelred_connections\archivist.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.936Z
-+// GENERATED: 2026-04-05T18:12:44.630Z
+@@ -5,69 +5,69 @@
+-// GENERATED: 2026-04-05T19:30:01.138Z
++// GENERATED: 2026-04-05T19:46:32.922Z
  // SOURCE: database.types.ts lines 527-570
  // =====================================================
  

@@ -1,8 +1,8 @@
 --- a/src\types\plutus_economics\residual_pool.ts
 +++ b/src\types\plutus_economics\residual_pool.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.068Z
-+// GENERATED: 2026-04-05T18:12:44.818Z
+@@ -5,68 +5,68 @@
+-// GENERATED: 2026-04-05T19:30:01.284Z
++// GENERATED: 2026-04-05T19:46:33.101Z
  // SOURCE: database.types.ts lines 4093-4143
  // =====================================================
  

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/bridge_status.ts
-// GENERATED: 2026-04-05T18:12:44.940Z
+// GENERATED: 2026-04-05T19:46:33.216Z
 // SOURCE: Constants.public.Enums.bridge_status
 // =====================================================
 

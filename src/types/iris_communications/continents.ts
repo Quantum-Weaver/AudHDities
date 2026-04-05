@@ -2,11 +2,12 @@
 // FILE: types/iris_communications/continents.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T18:12:44.665Z
+// GENERATED: 2026-04-05T19:46:32.955Z
 // SOURCE: database.types.ts lines 1188-1214
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
+import type { Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -21,11 +22,28 @@ export type ContinentsUpdate = Database['public']['Tables']['continents']['Updat
 // =====================================================
 
 /**
+ * Public view of continents
+ */
+export interface PublicContinents {
+  code: string
+  created_at: string | null
+  id: string
+  name: string
+  name_localized: Json | null
+  population_estimate: number | null
+}
+
+/**
  * Form data for continents
  * All fields are optional for partial updates
  */
 export interface ContinentsFormData {
-
+  code?: string;
+  created_at?: string | null;
+  id?: string;
+  name?: string;
+  name_localized?: Json | null;
+  population_estimate?: number | null;
 }
 
 /**
@@ -34,7 +52,12 @@ export interface ContinentsFormData {
 export interface ContinentsValidationResult {
   valid: boolean;
   errors: {
-
+    code?: string;
+    created_at?: string;
+    id?: string;
+    name?: string;
+    name_localized?: string;
+    population_estimate?: string;
   };
 }
 

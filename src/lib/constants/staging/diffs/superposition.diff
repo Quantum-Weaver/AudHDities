@@ -1,8 +1,8 @@
 --- a/src\types\mnemosyne_assessment\superposition.ts
 +++ b/src\types\mnemosyne_assessment\superposition.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.099Z
-+// GENERATED: 2026-04-05T18:12:44.857Z
+@@ -5,78 +5,78 @@
+-// GENERATED: 2026-04-05T19:30:01.317Z
++// GENERATED: 2026-04-05T19:46:33.140Z
  // SOURCE: database.types.ts lines 4801-4854
  // =====================================================
  

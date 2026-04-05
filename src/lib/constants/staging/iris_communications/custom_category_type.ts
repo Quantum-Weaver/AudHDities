@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/custom_category_type.ts
-// GENERATED: 2026-04-05T18:12:45.000Z
+// GENERATED: 2026-04-05T19:46:33.269Z
 // SOURCE: Constants.public.Enums.custom_category_type
 // =====================================================
 

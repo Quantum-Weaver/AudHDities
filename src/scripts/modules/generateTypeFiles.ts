@@ -77,7 +77,7 @@ async function writeTypeFile(
   content: string,
   options: GenerateTypeFilesOptions = {}
 ): Promise<{ success: boolean; message: string; action: 'created' | 'updated' | 'skipped' | 'staged' | 'dryrun' }> {
-  const { verbose = false, dryRun = false, forceOverwrite = false, askForApproval = true } = options;
+  const { verbose = false, dryRun = false, forceOverwrite = false } = options;
   
   const exists = fileExists(filePath);
   
@@ -102,14 +102,14 @@ async function writeTypeFile(
     return { success: true, message: `Unchanged: ${filePath}`, action: 'skipped' };
   }
   
-  // Content changed - stage the change instead of overwriting
+  // Content changed - ALWAYS stage, never overwrite without force
   if (!forceOverwrite) {
     const { stageFileChange } = await import('./staging.js');
     const result = stageFileChange(filePath, content, { verbose });
     
     if (result.staged) {
       if (verbose) {
-        logWarning(`Changes staged: ${path.basename(filePath)}`);
+        logWarning(`Changes staged for: ${path.basename(filePath)}`);
         logInfo(`  Review: ${result.stagingPath}`);
         logInfo(`  Diff: ${result.diffPath}`);
       }
@@ -117,7 +117,7 @@ async function writeTypeFile(
     }
   }
   
-  // Force overwrite mode
+  // Force overwrite mode (use with caution)
   fs.writeFileSync(filePath, content, 'utf-8');
   if (verbose) logWarning(`Overwrote (forced): ${filePath}`);
   return { success: true, message: `Overwrote ${filePath}`, action: 'updated' };

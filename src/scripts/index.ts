@@ -20,6 +20,7 @@ import {
 } from './shared/logger.js';
 import { getEnumFolder } from '../config/enum-mapping.js';
 import { toPascalCase, formatObjectTypes } from './modules/formatObjectTypes.js';
+import { generateIndexesForPaths } from './modules/generateIndexFiles.js';
 
 async function main(): Promise<void> {
   console.log('\n');
@@ -424,7 +425,9 @@ console.log('\n');
         askForApproval: false,
         forceOverwrite: false
       });
-      
+      if (typeResult.action === 'dryrun') {
+        logInfo(`  Would create/update: ${folder}/${tableName}.ts`);
+      }
       if (typeResult.success && typeResult.action !== 'skipped') {
         typesGenerated++;
         if (typeResult.action === 'created') {
@@ -478,6 +481,34 @@ console.log('\n');
     logSuccess(`Type files generated: ${typesGenerated}`);
     logSuccess(`Constant files generated: ${constantsGenerated}`);
     logInfo(`Total tables processed: ${tablesToProcess.length}`);
+  }
+
+    // =====================================================
+  // PHASE 11: Generate Index Files
+  // =====================================================
+  
+  console.log('\n');
+  logInfo('PHASE 11: Generating Index Files');
+  logSeparator('─', 40);
+  console.log('\n');
+    
+  const indexResult = await generateIndexesForPaths(
+    [
+      'src/lib/constants',
+      'src/types',
+      'src/utils'
+    ],
+    { verbose: true, dryRun: !shouldWrite }
+  );
+  
+  logSeparator('─', 40);
+  logInfo('INDEX GENERATION SUMMARY');
+  logSeparator('─', 40);
+  logSuccess(`Created: ${indexResult.created}`);
+  logSuccess(`Updated: ${indexResult.updated}`);
+  logInfo(`Skipped: ${indexResult.skipped}`);
+  if (indexResult.errors.length > 0) {
+    logError(`Errors: ${indexResult.errors.length}`);
   }
 
 }

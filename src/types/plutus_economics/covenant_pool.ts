@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/covenant_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T18:12:44.675Z
+// GENERATED: 2026-04-05T19:46:32.964Z
 // SOURCE: database.types.ts lines 1342-1382
 // =====================================================
 
@@ -21,11 +21,32 @@ export type CovenantPoolUpdate = Database['public']['Tables']['covenant_pool']['
 // =====================================================
 
 /**
+ * Public view of covenant_pool
+ */
+export interface PublicCovenantPool {
+  created_at: string | null
+  current_balance_cents: number | null
+  id: string
+  last_distribution_at: string | null
+  pledge_percent: number
+  total_pledged_cents: number | null
+  updated_at: string | null
+  user_id: string
+}
+
+/**
  * Form data for covenant_pool
  * All fields are optional for partial updates
  */
 export interface CovenantPoolFormData {
-
+  created_at?: string | null;
+  current_balance_cents?: number | null;
+  id?: string;
+  last_distribution_at?: string | null;
+  pledge_percent?: number;
+  total_pledged_cents?: number | null;
+  updated_at?: string | null;
+  user_id?: string;
 }
 
 /**
@@ -34,7 +55,14 @@ export interface CovenantPoolFormData {
 export interface CovenantPoolValidationResult {
   valid: boolean;
   errors: {
-
+    created_at?: string;
+    current_balance_cents?: string;
+    id?: string;
+    last_distribution_at?: string;
+    pledge_percent?: string;
+    total_pledged_cents?: string;
+    updated_at?: string;
+    user_id?: string;
   };
 }
 

@@ -1,8 +1,8 @@
 --- a/src\types\hermes_social\comments.ts
 +++ b/src\types\hermes_social\comments.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.949Z
-+// GENERATED: 2026-04-05T18:12:44.653Z
+@@ -5,68 +5,68 @@
+-// GENERATED: 2026-04-05T19:30:01.152Z
++// GENERATED: 2026-04-05T19:46:32.943Z
  // SOURCE: database.types.ts lines 902-959
  // =====================================================
  

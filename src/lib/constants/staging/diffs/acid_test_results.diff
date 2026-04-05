@@ -1,8 +1,8 @@
 --- a/src\types\mnemosyne_assessment\acid_test_results.ts
 +++ b/src\types\mnemosyne_assessment\acid_test_results.ts (staged)
-@@ -5,27 +5,27 @@
--// GENERATED: 2026-04-05T18:10:52.913Z
-+// GENERATED: 2026-04-05T18:12:44.603Z
+@@ -5,45 +5,45 @@
+-// GENERATED: 2026-04-05T19:30:01.109Z
++// GENERATED: 2026-04-05T19:46:32.894Z
  // SOURCE: database.types.ts lines 136-185
  // =====================================================
  

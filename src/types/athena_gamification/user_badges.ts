@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/user_badges.ts
 // HANDLING: join_table
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T18:12:44.886Z
+// GENERATED: 2026-04-05T19:46:33.169Z
 // SOURCE: database.types.ts lines 5279-5323
 // =====================================================
 
@@ -25,6 +25,12 @@ export type UserBadgesUpdate = Database['public']['Tables']['user_badges']['Upda
  * All fields are optional for partial updates
  */
 export interface UserBadgesFormData {
-
+  badge_id?: string;
+  created_at?: string | null;
+  display_on_profile?: boolean | null;
+  earned_at?: string | null;
+  earned_reason?: string | null;
+  id?: string;
+  user_id?: string;
 }
 

@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/rate_limits.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T18:12:44.796Z
+// GENERATED: 2026-04-05T19:46:33.080Z
 // SOURCE: database.types.ts lines 3702-3728
 // =====================================================
 
@@ -21,11 +21,28 @@ export type RateLimitsUpdate = Database['public']['Tables']['rate_limits']['Upda
 // =====================================================
 
 /**
+ * Public view of rate_limits
+ */
+export interface PublicRateLimits {
+  created_at: string | null
+  endpoint: string
+  id: string
+  identifier: string
+  request_count: number | null
+  window_start: string | null
+}
+
+/**
  * Form data for rate_limits
  * All fields are optional for partial updates
  */
 export interface RateLimitsFormData {
-
+  created_at?: string | null;
+  endpoint?: string;
+  id?: string;
+  identifier?: string;
+  request_count?: number | null;
+  window_start?: string | null;
 }
 
 /**
@@ -34,7 +51,12 @@ export interface RateLimitsFormData {
 export interface RateLimitsValidationResult {
   valid: boolean;
   errors: {
-
+    created_at?: string;
+    endpoint?: string;
+    id?: string;
+    identifier?: string;
+    request_count?: string;
+    window_start?: string;
   };
 }
 

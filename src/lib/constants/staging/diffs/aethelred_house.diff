@@ -1,8 +1,8 @@
 --- a/src\types\aethelred_connections\aethelred_house.ts
 +++ b/src\types\aethelred_connections\aethelred_house.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.932Z
-+// GENERATED: 2026-04-05T18:12:44.619Z
+@@ -5,75 +5,75 @@
+-// GENERATED: 2026-04-05T19:30:01.132Z
++// GENERATED: 2026-04-05T19:46:32.911Z
  // SOURCE: database.types.ts lines 373-416
  // =====================================================
  

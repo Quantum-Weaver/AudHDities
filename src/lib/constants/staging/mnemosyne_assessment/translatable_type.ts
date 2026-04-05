@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/translatable_type.ts
-// GENERATED: 2026-04-05T18:12:45.160Z
+// GENERATED: 2026-04-05T19:46:33.410Z
 // SOURCE: Constants.public.Enums.translatable_type
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/transaction_type.ts
-// GENERATED: 2026-04-05T18:12:45.158Z
+// GENERATED: 2026-04-05T19:46:33.407Z
 // SOURCE: Constants.public.Enums.transaction_type
 // =====================================================
 

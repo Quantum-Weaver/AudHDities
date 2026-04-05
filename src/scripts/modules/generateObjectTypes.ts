@@ -332,3 +332,4 @@ export async function previewTypeGeneration(
   console.log('');
   logInfo(`Total: ${formattedMap.size} files`);
 }
+

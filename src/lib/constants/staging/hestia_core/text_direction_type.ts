@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/text_direction_type.ts
-// GENERATED: 2026-04-05T18:12:45.020Z
+// GENERATED: 2026-04-05T19:46:33.288Z
 // SOURCE: Constants.public.Enums.text_direction_type
 // =====================================================
 

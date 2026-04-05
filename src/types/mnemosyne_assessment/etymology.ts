@@ -2,7 +2,7 @@
 // FILE: types/mnemosyne_assessment/etymology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T18:12:44.704Z
+// GENERATED: 2026-04-05T19:46:32.992Z
 // SOURCE: database.types.ts lines 1902-1970
 // =====================================================
 
@@ -21,11 +21,46 @@ export type EtymologyUpdate = Database['public']['Tables']['etymology']['Update'
 // =====================================================
 
 /**
+ * Public view of etymology
+ */
+export interface PublicEtymology {
+  approved_at: string | null
+  approved_by: string | null
+  contributor_id: string | null
+  created_at: string | null
+  cultural_context: string | null
+  current_meaning: string
+  id: string
+  is_approved: boolean | null
+  language: string
+  original_meaning: string
+  related_words: string[] | null
+  root: string | null
+  semantic_shift: string | null
+  updated_at: string | null
+  word: string
+}
+
+/**
  * Form data for etymology
  * All fields are optional for partial updates
  */
 export interface EtymologyFormData {
-
+  approved_at?: string | null;
+  approved_by?: string | null;
+  contributor_id?: string | null;
+  created_at?: string | null;
+  cultural_context?: string | null;
+  current_meaning?: string;
+  id?: string;
+  is_approved?: boolean | null;
+  language?: string;
+  original_meaning?: string;
+  related_words?: string[] | null;
+  root?: string | null;
+  semantic_shift?: string | null;
+  updated_at?: string | null;
+  word?: string;
 }
 
 /**
@@ -34,7 +69,21 @@ export interface EtymologyFormData {
 export interface EtymologyValidationResult {
   valid: boolean;
   errors: {
-
+    approved_at?: string;
+    approved_by?: string;
+    contributor_id?: string;
+    created_at?: string;
+    cultural_context?: string;
+    current_meaning?: string;
+    id?: string;
+    is_approved?: string;
+    language?: string;
+    original_meaning?: string;
+    related_words?: string;
+    root?: string;
+    semantic_shift?: string;
+    updated_at?: string;
+    word?: string;
   };
 }
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/taxonomy_node_type.ts
-// GENERATED: 2026-04-05T18:12:45.153Z
+// GENERATED: 2026-04-05T19:46:33.402Z
 // SOURCE: Constants.public.Enums.taxonomy_node_type
 // =====================================================
 

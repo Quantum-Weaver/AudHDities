@@ -1,8 +1,8 @@
 --- a/src\types\aethelred_connections\consciousness.ts
 +++ b/src\types\aethelred_connections\consciousness.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.954Z
-+// GENERATED: 2026-04-05T18:12:44.659Z
+@@ -5,81 +5,81 @@
+-// GENERATED: 2026-04-05T19:30:01.156Z
++// GENERATED: 2026-04-05T19:46:32.950Z
  // SOURCE: database.types.ts lines 1046-1108
  // =====================================================
  

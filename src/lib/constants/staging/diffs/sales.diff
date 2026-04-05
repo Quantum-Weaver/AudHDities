@@ -1,8 +1,8 @@
 --- a/src\types\plutus_economics\sales.ts
 +++ b/src\types\plutus_economics\sales.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:53.071Z
-+// GENERATED: 2026-04-05T18:12:44.821Z
+@@ -5,105 +5,105 @@
+-// GENERATED: 2026-04-05T19:30:01.288Z
++// GENERATED: 2026-04-05T19:46:33.104Z
  // SOURCE: database.types.ts lines 4144-4224
  // =====================================================
  

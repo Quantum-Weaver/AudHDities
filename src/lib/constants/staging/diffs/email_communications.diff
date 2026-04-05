@@ -1,8 +1,8 @@
 --- a/src\types\iris_communications\email_communications.ts
 +++ b/src\types\iris_communications\email_communications.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.984Z
-+// GENERATED: 2026-04-05T18:12:44.699Z
+@@ -5,87 +5,87 @@
+-// GENERATED: 2026-04-05T19:30:01.189Z
++// GENERATED: 2026-04-05T19:46:32.987Z
  // SOURCE: database.types.ts lines 1761-1816
  // =====================================================
  

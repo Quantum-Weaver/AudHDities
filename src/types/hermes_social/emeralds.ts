@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/emeralds.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T18:12:44.702Z
+// GENERATED: 2026-04-05T19:46:32.989Z
 // SOURCE: database.types.ts lines 1817-1901
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type EmeraldStatus = Database['public']['Enums']['emerald_status'];
 
 export type EmeraldsRow = Database['public']['Tables']['emeralds']['Row'];
 export type EmeraldsInsert = Database['public']['Tables']['emeralds']['Insert'];
@@ -21,11 +27,38 @@ export type EmeraldsUpdate = Database['public']['Tables']['emeralds']['Update'];
 // =====================================================
 
 /**
+ * Public view of emeralds
+ */
+export interface PublicEmeralds {
+  amount: number
+  comment_id: string | null
+  created_at: string | null
+  giver_id: string
+  id: string
+  is_residual_eligible: boolean | null
+  message: string | null
+  post_id: string | null
+  receiver_id: string
+  reply_id: string | null
+  status: EmeraldStatus | null
+}
+
+/**
  * Form data for emeralds
  * All fields are optional for partial updates
  */
 export interface EmeraldsFormData {
-
+  amount?: number;
+  comment_id?: string | null;
+  created_at?: string | null;
+  giver_id?: string;
+  id?: string;
+  is_residual_eligible?: boolean | null;
+  message?: string | null;
+  post_id?: string | null;
+  receiver_id?: string;
+  reply_id?: string | null;
+  status?: EmeraldStatus | null;
 }
 
 /**
@@ -34,7 +67,17 @@ export interface EmeraldsFormData {
 export interface EmeraldsValidationResult {
   valid: boolean;
   errors: {
-
+    amount?: string;
+    comment_id?: string;
+    created_at?: string;
+    giver_id?: string;
+    id?: string;
+    is_residual_eligible?: string;
+    message?: string;
+    post_id?: string;
+    receiver_id?: string;
+    reply_id?: string;
+    status?: string;
   };
 }
 

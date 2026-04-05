@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/creative_categories.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T18:12:44.678Z
+// GENERATED: 2026-04-05T19:46:32.967Z
 // SOURCE: database.types.ts lines 1383-1432
 // =====================================================
 
@@ -21,11 +21,38 @@ export type CreativeCategoriesUpdate = Database['public']['Tables']['creative_ca
 // =====================================================
 
 /**
+ * Public view of creative_categories
+ */
+export interface PublicCreativeCategories {
+  color: string | null
+  created_at: string | null
+  description: string | null
+  display_order: number | null
+  icon: string | null
+  id: string
+  is_active: boolean | null
+  name: string
+  parent_id: string | null
+  slug: string
+  updated_at: string | null
+}
+
+/**
  * Form data for creative_categories
  * All fields are optional for partial updates
  */
 export interface CreativeCategoriesFormData {
-
+  color?: string | null;
+  created_at?: string | null;
+  description?: string | null;
+  display_order?: number | null;
+  icon?: string | null;
+  id?: string;
+  is_active?: boolean | null;
+  name?: string;
+  parent_id?: string | null;
+  slug?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -34,7 +61,17 @@ export interface CreativeCategoriesFormData {
 export interface CreativeCategoriesValidationResult {
   valid: boolean;
   errors: {
-
+    color?: string;
+    created_at?: string;
+    description?: string;
+    display_order?: string;
+    icon?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    parent_id?: string;
+    slug?: string;
+    updated_at?: string;
   };
 }
 

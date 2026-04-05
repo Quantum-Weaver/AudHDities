@@ -1,8 +1,8 @@
 --- a/src\types\plutus_economics\disbursements.ts
 +++ b/src\types\plutus_economics\disbursements.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.981Z
-+// GENERATED: 2026-04-05T18:12:44.696Z
+@@ -5,72 +5,72 @@
+-// GENERATED: 2026-04-05T19:30:01.186Z
++// GENERATED: 2026-04-05T19:46:32.984Z
  // SOURCE: database.types.ts lines 1728-1760
  // =====================================================
  

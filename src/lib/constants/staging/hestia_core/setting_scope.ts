@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/setting_scope.ts
-// GENERATED: 2026-04-05T18:12:45.128Z
+// GENERATED: 2026-04-05T19:46:33.377Z
 // SOURCE: Constants.public.Enums.setting_scope
 // =====================================================
 

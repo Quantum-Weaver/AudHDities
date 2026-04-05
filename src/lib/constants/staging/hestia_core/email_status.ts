@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/email_status.ts
-// GENERATED: 2026-04-05T18:12:45.008Z
+// GENERATED: 2026-04-05T19:46:33.276Z
 // SOURCE: Constants.public.Enums.email_status
 // =====================================================
 

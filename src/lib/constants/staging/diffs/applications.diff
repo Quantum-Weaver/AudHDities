@@ -1,8 +1,8 @@
 --- a/src\types\themis_governance\applications.ts
 +++ b/src\types\themis_governance\applications.ts (staged)
-@@ -5,37 +5,37 @@
--// GENERATED: 2026-04-05T18:10:52.935Z
-+// GENERATED: 2026-04-05T18:12:44.626Z
+@@ -5,88 +5,88 @@
+-// GENERATED: 2026-04-05T19:30:01.135Z
++// GENERATED: 2026-04-05T19:46:32.918Z
  // SOURCE: database.types.ts lines 464-526
  // =====================================================
  

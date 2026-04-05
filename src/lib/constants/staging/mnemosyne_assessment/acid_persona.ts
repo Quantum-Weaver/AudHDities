@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/acid_persona.ts
-// GENERATED: 2026-04-05T18:12:44.909Z
+// GENERATED: 2026-04-05T19:46:33.190Z
 // SOURCE: Constants.public.Enums.acid_persona
 // =====================================================
 

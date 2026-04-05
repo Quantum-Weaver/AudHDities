@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/creator_category_links.ts
 // HANDLING: full_crud
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T18:12:44.681Z
+// GENERATED: 2026-04-05T19:46:32.970Z
 // SOURCE: database.types.ts lines 1433-1468
 // =====================================================
 
@@ -21,11 +21,24 @@ export type CreatorCategoryLinksUpdate = Database['public']['Tables']['creator_c
 // =====================================================
 
 /**
+ * Public view of creator_category_links
+ */
+export interface PublicCreatorCategoryLinks {
+  category_id: string
+  created_at: string | null
+  creator_id: string
+  id: string
+}
+
+/**
  * Form data for creator_category_links
  * All fields are optional for partial updates
  */
 export interface CreatorCategoryLinksFormData {
-
+  category_id?: string;
+  created_at?: string | null;
+  creator_id?: string;
+  id?: string;
 }
 
 /**
@@ -34,7 +47,10 @@ export interface CreatorCategoryLinksFormData {
 export interface CreatorCategoryLinksValidationResult {
   valid: boolean;
   errors: {
-
+    category_id?: string;
+    created_at?: string;
+    creator_id?: string;
+    id?: string;
   };
 }
 

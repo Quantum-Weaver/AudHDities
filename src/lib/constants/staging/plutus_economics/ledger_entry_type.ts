@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/ledger_entry_type.ts
-// GENERATED: 2026-04-05T18:12:45.026Z
+// GENERATED: 2026-04-05T19:46:33.293Z
 // SOURCE: Constants.public.Enums.ledger_entry_type
 // =====================================================
 

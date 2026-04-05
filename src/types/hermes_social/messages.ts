@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/messages.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T18:12:44.747Z
+// GENERATED: 2026-04-05T19:46:33.032Z
 // SOURCE: database.types.ts lines 2694-2754
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type MessageStatus = Database['public']['Enums']['message_status'];
 
 export type MessagesRow = Database['public']['Tables']['messages']['Row'];
 export type MessagesInsert = Database['public']['Tables']['messages']['Insert'];
@@ -21,11 +27,36 @@ export type MessagesUpdate = Database['public']['Tables']['messages']['Update'];
 // =====================================================
 
 /**
+ * Public view of messages
+ */
+export interface PublicMessages {
+  content: string
+  created_at: string | null
+  id: string
+  is_read: boolean | null
+  parent_id: string | null
+  read_at: string | null
+  recipient_id: string
+  sender_id: string
+  status: MessageStatus | null
+  thread_id: string | null
+}
+
+/**
  * Form data for messages
  * All fields are optional for partial updates
  */
 export interface MessagesFormData {
-
+  content?: string;
+  created_at?: string | null;
+  id?: string;
+  is_read?: boolean | null;
+  parent_id?: string | null;
+  read_at?: string | null;
+  recipient_id?: string;
+  sender_id?: string;
+  status?: MessageStatus | null;
+  thread_id?: string | null;
 }
 
 /**
@@ -34,7 +65,16 @@ export interface MessagesFormData {
 export interface MessagesValidationResult {
   valid: boolean;
   errors: {
-
+    content?: string;
+    created_at?: string;
+    id?: string;
+    is_read?: string;
+    parent_id?: string;
+    read_at?: string;
+    recipient_id?: string;
+    sender_id?: string;
+    status?: string;
+    thread_id?: string;
   };
 }
 

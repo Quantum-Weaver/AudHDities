@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/learning_paths.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T18:12:44.729Z
+// GENERATED: 2026-04-05T19:46:33.015Z
 // SOURCE: database.types.ts lines 2358-2420
 // =====================================================
 
@@ -11,6 +11,13 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type DifficultyLevel = Database['public']['Enums']['difficulty_level'];
+export type CouncilHouse = Database['public']['Enums']['council_house'];
 
 export type LearningPathsRow = Database['public']['Tables']['learning_paths']['Row'];
 export type LearningPathsInsert = Database['public']['Tables']['learning_paths']['Insert'];
@@ -21,11 +28,42 @@ export type LearningPathsUpdate = Database['public']['Tables']['learning_paths']
 // =====================================================
 
 /**
+ * Public view of learning_paths
+ */
+export interface PublicLearningPaths {
+  cover_image: string | null
+  created_at: string | null
+  creator_id: string
+  description: string
+  difficulty: DifficultyLevel
+  estimated_duration_hours: number | null
+  house: CouncilHouse | null
+  id: string
+  is_published: boolean | null
+  prerequisite_path_id: string | null
+  slug: string
+  title: string
+  updated_at: string | null
+}
+
+/**
  * Form data for learning_paths
  * All fields are optional for partial updates
  */
 export interface LearningPathsFormData {
-
+  cover_image?: string | null;
+  created_at?: string | null;
+  creator_id?: string;
+  description?: string;
+  difficulty?: DifficultyLevel;
+  estimated_duration_hours?: number | null;
+  house?: CouncilHouse | null;
+  id?: string;
+  is_published?: boolean | null;
+  prerequisite_path_id?: string | null;
+  slug?: string;
+  title?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -34,7 +72,19 @@ export interface LearningPathsFormData {
 export interface LearningPathsValidationResult {
   valid: boolean;
   errors: {
-
+    cover_image?: string;
+    created_at?: string;
+    creator_id?: string;
+    description?: string;
+    difficulty?: string;
+    estimated_duration_hours?: string;
+    house?: string;
+    id?: string;
+    is_published?: string;
+    prerequisite_path_id?: string;
+    slug?: string;
+    title?: string;
+    updated_at?: string;
   };
 }
 

@@ -2,11 +2,12 @@
 // FILE: types/iris_communications/survey_responses.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T18:12:44.860Z
+// GENERATED: 2026-04-05T19:46:33.144Z
 // SOURCE: database.types.ts lines 4855-4902
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
+import type { Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -21,11 +22,31 @@ export type SurveyResponsesUpdate = Database['public']['Tables']['survey_respons
 // =====================================================
 
 /**
+ * Public view of survey_responses
+ * Excludes sensitive fields: ip_address, user_agent
+ */
+export interface PublicSurveyResponses {
+  answers: Json
+  created_at: string | null
+  duration_seconds: number | null
+  id: string
+  survey_id: string
+  user_id: string
+}
+
+/**
  * Form data for survey_responses
  * All fields are optional for partial updates
  */
 export interface SurveyResponsesFormData {
-
+  answers?: Json;
+  created_at?: string | null;
+  duration_seconds?: number | null;
+  id?: string;
+  ip_address?: unknown;
+  survey_id?: string;
+  user_agent?: string | null;
+  user_id?: string;
 }
 
 /**
@@ -34,7 +55,14 @@ export interface SurveyResponsesFormData {
 export interface SurveyResponsesValidationResult {
   valid: boolean;
   errors: {
-
+    answers?: string;
+    created_at?: string;
+    duration_seconds?: string;
+    id?: string;
+    ip_address?: string;
+    survey_id?: string;
+    user_agent?: string;
+    user_id?: string;
   };
 }
 

@@ -2,11 +2,12 @@
 // FILE: types/mnemosyne_assessment/acid_test_answers.ts
 // HANDLING: assessment
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T18:12:44.585Z
+// GENERATED: 2026-04-05T19:46:32.880Z
 // SOURCE: database.types.ts lines 42-85
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
+import type { Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -25,6 +26,14 @@ export type AcidTestAnswersUpdate = Database['public']['Tables']['acid_test_answ
  * All fields are optional for partial updates
  */
 export interface AcidTestAnswersFormData {
-
+  ally_tier_price?: number | null;
+  answer_text?: string;
+  created_at?: string | null;
+  id?: string;
+  indicates_nd?: boolean | null;
+  order_index?: number | null;
+  persona_contribution?: Json | null;
+  question_id?: string;
+  score_value?: number | null;
 }
 

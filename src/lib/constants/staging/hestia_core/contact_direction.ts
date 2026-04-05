@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/contact_direction.ts
-// GENERATED: 2026-04-05T18:12:44.980Z
+// GENERATED: 2026-04-05T19:46:33.250Z
 // SOURCE: Constants.public.Enums.contact_direction
 // =====================================================
 

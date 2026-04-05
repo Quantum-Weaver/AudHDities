@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/council_houses.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T18:12:44.671Z
+// GENERATED: 2026-04-05T19:46:32.961Z
 // SOURCE: database.types.ts lines 1269-1341
 // =====================================================
 
@@ -21,11 +21,44 @@ export type CouncilHousesUpdate = Database['public']['Tables']['council_houses']
 // =====================================================
 
 /**
+ * Public view of council_houses
+ */
+export interface PublicCouncilHouses {
+  adept_quest: string | null
+  color: string
+  created_at: string | null
+  description: string
+  display_name: string
+  emoji: string
+  id: string
+  initiate_quest: string | null
+  is_active: boolean | null
+  master_quest: string | null
+  name: string
+  order_index: number
+  primary_domain: string | null
+  updated_at: string | null
+}
+
+/**
  * Form data for council_houses
  * All fields are optional for partial updates
  */
 export interface CouncilHousesFormData {
-
+  adept_quest?: string | null;
+  color?: string;
+  created_at?: string | null;
+  description?: string;
+  display_name?: string;
+  emoji?: string;
+  id?: string;
+  initiate_quest?: string | null;
+  is_active?: boolean | null;
+  master_quest?: string | null;
+  name?: string;
+  order_index?: number;
+  primary_domain?: string | null;
+  updated_at?: string | null;
 }
 
 /**
@@ -34,7 +67,20 @@ export interface CouncilHousesFormData {
 export interface CouncilHousesValidationResult {
   valid: boolean;
   errors: {
-
+    adept_quest?: string;
+    color?: string;
+    created_at?: string;
+    description?: string;
+    display_name?: string;
+    emoji?: string;
+    id?: string;
+    initiate_quest?: string;
+    is_active?: string;
+    master_quest?: string;
+    name?: string;
+    order_index?: string;
+    primary_domain?: string;
+    updated_at?: string;
   };
 }
 

@@ -68,44 +68,72 @@ export function parseTableContent(content: string): {
   const enumRefs: string[] = [];
   let hasJson = false;
   
-  // Extract Row definition
-  const rowMatch = content.match(/Row:\s*\{([\s\S]*?)\n\s{4}\}/);
-  let rowContent = rowMatch ? rowMatch[1].trim() : '';
+  // Split content into lines for brace counting
+  const lines = content.split('\n');
   
-  // Extract Insert definition
-  const insertMatch = content.match(/Insert:\s*\{([\s\S]*?)\n\s{4}\}/);
-  let insertContent = insertMatch ? insertMatch[1].trim() : '';
+  // Find Row section
+  let rowStartLine = -1;
+  let rowEndLine = -1;
+  let insertStartLine = -1;
+  let updateStartLine = -1;
   
-  // Extract Update definition
-  const updateMatch = content.match(/Update:\s*\{([\s\S]*?)\n\s{4}\}/);
-  let updateContent = updateMatch ? updateMatch[1].trim() : '';
-  
-  // Find enum references in Row content
-  const enumPattern = /Database\["public"\]\["Enums"\]\["(\w+)"\]/g;
-  let match;
-  while ((match = enumPattern.exec(rowContent)) !== null) {
-    if (!enumRefs.includes(match[1])) {
-      enumRefs.push(match[1]);
+  // First pass: find the line numbers of each section
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.match(/^\s*Row:\s*\{/)) {
+      rowStartLine = i;
+    }
+    if (line.match(/^\s*Insert:\s*\{/)) {
+      insertStartLine = i;
+    }
+    if (line.match(/^\s*Update:\s*\{/)) {
+      updateStartLine = i;
     }
   }
   
-  // Check for Json references
-  hasJson = rowContent.includes('Json') || insertContent.includes('Json') || updateContent.includes('Json');
-  
-  // Clean up type references (replace Database["public"]["Enums"]["xxx"] with PascalCase)
-  for (const enumRef of enumRefs) {
-    const pascalCase = toPascalCase(enumRef);
-    rowContent = rowContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
-    insertContent = insertContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
-    updateContent = updateContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
+  // Find closing brace for Row (ends one line before Insert starts)
+  if (rowStartLine !== -1 && insertStartLine !== -1) {
+    rowEndLine = insertStartLine - 1;
+    const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
+    let rowContent = rowLines.join('\n').trim();
+    
+    // Remove the closing brace line if present
+    if (rowContent.endsWith('}')) {
+      rowContent = rowContent.slice(0, -1).trim();
+    }
+    
+    // Find enum references
+    const enumPattern = /Database\["public"\]\["Enums"\]\["(\w+)"\]/g;
+    let match;
+    while ((match = enumPattern.exec(rowContent)) !== null) {
+      if (!enumRefs.includes(match[1])) {
+        enumRefs.push(match[1]);
+      }
+    }
+    
+    // Clean up enum references
+    for (const enumRef of enumRefs) {
+      const pascalCase = toPascalCase(enumRef);
+      rowContent = rowContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
+    }
+    
+    hasJson = rowContent.includes('Json');
+    
+    return {
+      rowContent,
+      insertContent: '',
+      updateContent: '',
+      enumRefs,
+      hasJson
+    };
   }
   
   return {
-    rowContent,
-    insertContent,
-    updateContent,
-    enumRefs,
-    hasJson
+    rowContent: '',
+    insertContent: '',
+    updateContent: '',
+    enumRefs: [],
+    hasJson: false
   };
 }
 
@@ -137,7 +165,7 @@ export function generateEnumExports(enumRefs: string[]): string {
  * Generate public interface (excludes sensitive fields)
  * 
  * @param tableName - Name of the table
- * @param rowContent - Row content as string
+ * @param rowContent - Row content as string (each line: "fieldName: type")
  * @param sensitiveFields - Fields to exclude
  * @returns Public interface definition as string
  */
@@ -186,7 +214,7 @@ export function generatePublicInterface(
  * Generate form data interface (all fields optional)
  * 
  * @param tableName - Name of the table
- * @param rowContent - Row content as string
+ * @param rowContent - Row content as string (each line: "fieldName: type")
  * @returns FormData interface definition as string
  */
 export function generateFormDataInterface(tableName: string, rowContent: string): string {
@@ -202,6 +230,11 @@ export function generateFormDataInterface(tableName: string, rowContent: string)
       // Make all fields optional for form data
       fields.push(`  ${fieldName}?: ${fieldType};`);
     }
+  }
+  
+  // If no fields found, log a warning
+  if (fields.length === 0) {
+    console.log(`  Warning: No fields found for ${tableName} form data interface`);
   }
   
   const interfaceName = `${pascalName}FormData`;
@@ -221,7 +254,7 @@ export function generateFormDataInterface(tableName: string, rowContent: string)
  * Generate validation result interface
  * 
  * @param tableName - Name of the table
- * @param rowContent - Row content as string
+ * @param rowContent - Row content as string (each line: "fieldName: type")
  * @returns ValidationResult interface definition as string
  */
 export function generateValidationResultInterface(tableName: string, rowContent: string): string {
@@ -291,6 +324,10 @@ export function formatObjectTypes(
     updateContent = parsed.updateContent;
     enumRefs = parsed.enumRefs;
     hasJson = parsed.hasJson;
+    
+    // Store back for debugging
+    object.rowContent = rowContent;
+    object.enumRefs = enumRefs;
   }
   
   if (verbose) {
@@ -298,6 +335,8 @@ export function formatObjectTypes(
     logDebug(`  Pascal name: ${pascalName}`);
     logDebug(`  Enum refs: ${enumRefs.join(', ')}`);
     logDebug(`  Has Json: ${hasJson}`);
+    logDebug(`Row content length: ${rowContent.length}`);
+    logDebug(`Row content preview: ${rowContent.substring(0, 200)}`);
   }
   
   // Build header

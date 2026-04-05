@@ -2,11 +2,12 @@
 // FILE: types/iris_communications/personas.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T18:12:44.768Z
+// GENERATED: 2026-04-05T19:46:33.052Z
 // SOURCE: database.types.ts lines 3095-3144
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
+import type { Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -21,11 +22,38 @@ export type PersonasUpdate = Database['public']['Tables']['personas']['Update'];
 // =====================================================
 
 /**
+ * Public view of personas
+ */
+export interface PublicPersonas {
+  avatar_url: string | null
+  characteristics: Json | null
+  color: string | null
+  created_at: string | null
+  created_by: string
+  description: string
+  id: string
+  is_active: boolean | null
+  name: string
+  slug: string
+  updated_at: string | null
+}
+
+/**
  * Form data for personas
  * All fields are optional for partial updates
  */
 export interface PersonasFormData {
-
+  avatar_url?: string | null;
+  characteristics?: Json | null;
+  color?: string | null;
+  created_at?: string | null;
+  created_by?: string;
+  description?: string;
+  id?: string;
+  is_active?: boolean | null;
+  name?: string;
+  slug?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -34,7 +62,17 @@ export interface PersonasFormData {
 export interface PersonasValidationResult {
   valid: boolean;
   errors: {
-
+    avatar_url?: string;
+    characteristics?: string;
+    color?: string;
+    created_at?: string;
+    created_by?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    slug?: string;
+    updated_at?: string;
   };
 }
 

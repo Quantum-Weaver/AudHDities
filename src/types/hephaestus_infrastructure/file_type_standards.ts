@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/file_type_standards.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T18:12:44.713Z
+// GENERATED: 2026-04-05T19:46:33.000Z
 // SOURCE: database.types.ts lines 2092-2154
 // =====================================================
 
@@ -21,11 +21,52 @@ export type FileTypeStandardsUpdate = Database['public']['Tables']['file_type_st
 // =====================================================
 
 /**
+ * Public view of file_type_standards
+ */
+export interface PublicFileTypeStandards {
+  created_at: string | null
+  description: string | null
+  display_name: string
+  emoji: string
+  example_code: string | null
+  example_path: string | null
+  file_type: string
+  id: string
+  must_handle_errors: boolean | null
+  must_have_interfaces: boolean | null
+  must_have_loading_state: boolean | null
+  must_have_props: boolean | null
+  prohibited_patterns: string[] | null
+  required_imports: string[] | null
+  required_patterns: string[] | null
+  updated_at: string | null
+  validation_description: string | null
+  validation_query: string | null
+}
+
+/**
  * Form data for file_type_standards
  * All fields are optional for partial updates
  */
 export interface FileTypeStandardsFormData {
-
+  created_at?: string | null;
+  description?: string | null;
+  display_name?: string;
+  emoji?: string;
+  example_code?: string | null;
+  example_path?: string | null;
+  file_type?: string;
+  id?: string;
+  must_handle_errors?: boolean | null;
+  must_have_interfaces?: boolean | null;
+  must_have_loading_state?: boolean | null;
+  must_have_props?: boolean | null;
+  prohibited_patterns?: string[] | null;
+  required_imports?: string[] | null;
+  required_patterns?: string[] | null;
+  updated_at?: string | null;
+  validation_description?: string | null;
+  validation_query?: string | null;
 }
 
 /**
@@ -34,7 +75,24 @@ export interface FileTypeStandardsFormData {
 export interface FileTypeStandardsValidationResult {
   valid: boolean;
   errors: {
-
+    created_at?: string;
+    description?: string;
+    display_name?: string;
+    emoji?: string;
+    example_code?: string;
+    example_path?: string;
+    file_type?: string;
+    id?: string;
+    must_handle_errors?: string;
+    must_have_interfaces?: string;
+    must_have_loading_state?: string;
+    must_have_props?: string;
+    prohibited_patterns?: string;
+    required_imports?: string;
+    required_patterns?: string;
+    updated_at?: string;
+    validation_description?: string;
+    validation_query?: string;
   };
 }
 
