@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/email_communications.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:32.987Z
+// GENERATED: 2026-04-05T21:55:12.979Z
 // SOURCE: database.types.ts lines 1761-1816
 // =====================================================
 
@@ -31,19 +31,19 @@ export type EmailCommunicationsUpdate = Database['public']['Tables']['email_comm
  * Public view of email_communications
  */
 export interface PublicEmailCommunications {
-  body: string
-  clicked_at: string | null
-  created_at: string | null
-  id: string
-  metadata: Json | null
-  opened_at: string | null
-  provider_message_id: string | null
-  recipient_email: string
-  recipient_id: string | null
-  sent_at: string | null
-  status: EmailStatus | null
-  subject: string
-  template_id: string | null
+  body: string;
+  clicked_at: string | null;
+  created_at: string | null;
+  id: string;
+  metadata: Json | null;
+  opened_at: string | null;
+  provider_message_id: string | null;
+  recipient_email: string;
+  recipient_id: string | null;
+  sent_at: string | null;
+  status: EmailStatus | null;
+  subject: string;
+  template_id: string | null;
 }
 
 /**

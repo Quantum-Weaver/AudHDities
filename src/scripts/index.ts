@@ -21,6 +21,10 @@ import {
 import { getEnumFolder } from '../config/enum-mapping.js';
 import { toPascalCase, formatObjectTypes } from './modules/formatObjectTypes.js';
 import { generateIndexesForPaths } from './modules/generateIndexFiles.js';
+import { generateValidatorsForTables } from './modules/generateValidators.js';
+import { needsValidatorGeneration } from '../config/workflow-config.js';
+import { generateApiRoutesForTables } from './modules/generateApiRoutes.js';
+import { getWorkflowConfig } from '../config/workflow-config.js';
 
 async function main(): Promise<void> {
   console.log('\n');
@@ -421,7 +425,7 @@ console.log('\n');
       // Write type file
       const typeResult = await generateSingleTypeFile(tableName, formatted, folder, {
         verbose: false,
-        dryRun: false,
+        dryRun: true,
         askForApproval: false,
         forceOverwrite: false
       });
@@ -458,7 +462,7 @@ console.log('\n');
     for (const [enumName, { values, folder }] of generatedConstants) {
       const constResult = await generateConstantFile(enumName, values, folder, {
         verbose: false,
-        dryRun: false,
+        dryRun: true,
         askForApproval: false,
         forceOverwrite: false
       });
@@ -483,12 +487,56 @@ console.log('\n');
     logInfo(`Total tables processed: ${tablesToProcess.length}`);
   }
 
-    // =====================================================
-  // PHASE 11: Generate Index Files
+  // =====================================================
+  // PHASE 11: Generate Validator Files
   // =====================================================
   
   console.log('\n');
-  logInfo('PHASE 11: Generating Index Files');
+  logInfo('PHASE 11: Generating Validator Files');
+  logSeparator('─', 40);
+  console.log('\n');
+    
+  // Collect tables that need validators (full_crud tables)
+  const validatorTables: Array<{ name: string; content: string }> = [];
+  
+  // Process full_crud tables first
+const tablesNeedingValidators = tableResults
+  .filter(r => needsValidatorGeneration(r.name))
+  .map(r => r.name);
+  
+  logInfo(`Processing ${tablesNeedingValidators.length} full_crud tables for validators...`);
+  
+  for (const tableName of tablesNeedingValidators) {
+    const tableContent = extractObject(
+      lines,
+      completeMarkers.tablesLine,
+      completeMarkers.tablesEndLine,
+      tableName,
+      { verbose: false }
+    );
+    
+    if (tableContent) {
+      validatorTables.push({
+        name: tableName,
+        content: tableContent.content
+      });
+    }
+  }
+  
+  const validatorResult = await generateValidatorsForTables(validatorTables, {
+    verbose: true,
+    dryRun: !shouldWrite,
+    forceOverwrite: false
+  });
+  
+  logInfo(`Validators processed: ${validatorTables.length} tables`);
+
+  /*// =====================================================
+  // PHASE 12: Generate Index Files
+  // =====================================================
+  
+  console.log('\n');
+  logInfo('PHASE 12: Generating Index Files');
   logSeparator('─', 40);
   console.log('\n');
     
@@ -509,7 +557,43 @@ console.log('\n');
   logInfo(`Skipped: ${indexResult.skipped}`);
   if (indexResult.errors.length > 0) {
     logError(`Errors: ${indexResult.errors.length}`);
-  }
+  } */
+
+  // =====================================================
+  // PHASE 13: Generate API Routes (Limited to 10)
+  // =====================================================
+  
+  console.log('\n');
+  logInfo('PHASE 13: Generating API Routes');
+  logSeparator('─', 40);
+  console.log('\n');
+    
+  // Build API list from table results (limit to 10 for verification)
+  const apiTables = tableResults
+    .filter(r => ['full_crud', 'assessment', 'join_table'].includes(r.handlingLevel))
+    .slice(0, 10)  // ← LIMIT TO 10 TABLES
+    .map(r => {
+      const config = getWorkflowConfig(r.name);
+      return {
+        name: r.name,
+        hasGetList: config.generateApiGetList,
+        hasGetSingle: config.generateApiGetSingle,
+        hasPost: config.generateApiPost,
+        hasPut: config.generateApiPut,
+        hasDelete: config.generateApiDelete,
+        specialRoutes: config.generateApiSpecial || []
+      };
+    });
+  
+  logInfo(`Generating API routes for ${apiTables.length} tables (limited to 10 for verification)`);
+  
+  const apiResult = await generateApiRoutesForTables(apiTables, {
+    verbose: true,
+    dryRun: !shouldWrite,
+    forceOverwrite: false
+  });
+  
+  logInfo(`API routes processed for ${apiTables.length} tables`); 
 
 }
 

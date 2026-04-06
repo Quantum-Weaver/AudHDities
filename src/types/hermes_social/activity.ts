@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/activity.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:32.898Z
+// GENERATED: 2026-04-05T21:55:12.904Z
 // SOURCE: database.types.ts lines 186-236
 // =====================================================
 
@@ -33,15 +33,15 @@ export type ActivityUpdate = Database['public']['Tables']['activity']['Update'];
  * Public view of activity
  */
 export interface PublicActivity {
-  action_type: ActionType
-  actor_id: string | null
-  created_at: string | null
-  id: string
-  metadata: Json | null
-  target_id: string | null
-  target_type: TargetType | null
-  user_id: string
-  visibility: ActivityVisibility | null
+  action_type: ActionType;
+  actor_id: string | null;
+  created_at: string | null;
+  id: string;
+  metadata: Json | null;
+  target_id: string | null;
+  target_type: TargetType | null;
+  user_id: string;
+  visibility: ActivityVisibility | null;
 }
 
 /**

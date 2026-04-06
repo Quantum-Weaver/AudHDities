@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/continents.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:32.955Z
+// GENERATED: 2026-04-05T21:55:12.950Z
 // SOURCE: database.types.ts lines 1188-1214
 // =====================================================
 
@@ -25,12 +25,12 @@ export type ContinentsUpdate = Database['public']['Tables']['continents']['Updat
  * Public view of continents
  */
 export interface PublicContinents {
-  code: string
-  created_at: string | null
-  id: string
-  name: string
-  name_localized: Json | null
-  population_estimate: number | null
+  code: string;
+  created_at: string | null;
+  id: string;
+  name: string;
+  name_localized: Json | null;
+  population_estimate: number | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/analytics.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:32.915Z
+// GENERATED: 2026-04-05T21:55:12.922Z
 // SOURCE: database.types.ts lines 417-463
 // =====================================================
 
@@ -32,14 +32,14 @@ export type AnalyticsUpdate = Database['public']['Tables']['analytics']['Update'
  * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicAnalytics {
-  created_at: string | null
-  event_category: AnalyticsCategory
-  event_name: string
-  id: string
-  metadata: Json | null
-  session_id: string | null
-  user_id: string | null
-  value: number | null
+  created_at: string | null;
+  event_category: AnalyticsCategory;
+  event_name: string;
+  id: string;
+  metadata: Json | null;
+  session_id: string | null;
+  user_id: string | null;
+  value: number | null;
 }
 
 /**

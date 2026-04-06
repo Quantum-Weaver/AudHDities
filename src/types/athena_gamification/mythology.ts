@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/mythology.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.038Z
+// GENERATED: 2026-04-05T21:55:13.016Z
 // SOURCE: database.types.ts lines 2818-2877
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 export type MythType = Database['public']['Enums']['myth_type'];
 
 export type MythologyRow = Database['public']['Tables']['mythology']['Row'];
@@ -31,18 +31,18 @@ export type MythologyUpdate = Database['public']['Tables']['mythology']['Update'
  * Public view of mythology
  */
 export interface PublicMythology {
-  author_id: string
-  content: string
-  created_at: string | null
-  house: CouncilHouse | null
-  id: string
-  is_published: boolean | null
-  order_index: number | null
-  series_id: string | null
-  slug: string
-  title: string
-  type: MythType
-  updated_at: string | null
+  author_id: string;
+  content: string;
+  created_at: string | null;
+  house: CouncilHouse | null;
+  id: string;
+  is_published: boolean | null;
+  order_index: number | null;
+  series_id: string | null;
+  slug: string;
+  title: string;
+  type: MythType;
+  updated_at: string | null;
 }
 
 /**

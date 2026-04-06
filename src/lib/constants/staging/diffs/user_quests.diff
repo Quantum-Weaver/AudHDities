@@ -1,8 +1,63 @@
---- a/src\types\athena_gamification\user_quests.ts
-+++ b/src\types\athena_gamification\user_quests.ts (staged)
-@@ -5,43 +5,43 @@
--// GENERATED: 2026-04-05T19:30:01.348Z
-+// GENERATED: 2026-04-05T19:46:33.178Z
- // SOURCE: database.types.ts lines 5442-5495
+--- a/src\lib\validators\user_quests.ts
++++ b/src\lib\validators\user_quests.ts (staged)
+@@ -15,30 +15,32 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  quest_id: z.string(),
++  id: z.string(),
+-  started_at: z.string().nullable(),
++  quest_id: z.string(),
+-  status: z.any().nullable(),
++  started_at: z.string().nullable(),
+-  submission_metadata: z.any().nullable(),
++  status: z.any().nullable(),
+-  submitted_content: z.string().nullable(),
++  submission_metadata: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  submitted_content: z.string().nullable(),
+-  user_id: z.string(),
++  updated_at: z.string().nullable(),
+-});
++  user_id: z.string(),
+-
++});
+-export const UserQuestsInsertSchema = z.object({
++
+-  completed_at: z.string().nullable().optional(),
++export const UserQuestsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  quest_id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  started_at: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  status: z.any().nullable().optional(),
++  quest_id: z.string().optional(),
+-  submission_metadata: z.any().nullable().optional(),
++  started_at: z.string().nullable().optional(),
+-  submitted_content: z.string().nullable().optional(),
++  status: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  submission_metadata: z.any().nullable().optional(),
+-  user_id: z.string().optional(),
++  submitted_content: z.string().nullable().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  user_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type UserQuestsRowInput = z.infer<typeof UserQuestsRowSchema>;
++// =====================================================
+-export type UserQuestsInsertInput = z.infer<typeof UserQuestsInsertSchema>;
  
++export type UserQuestsRowInput = z.infer<typeof UserQuestsRowSchema>;
++export type UserQuestsInsertInput = z.infer<typeof UserQuestsInsertSchema>;
++

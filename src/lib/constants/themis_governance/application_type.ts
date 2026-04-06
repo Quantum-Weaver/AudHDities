@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/application_type.ts
-// GENERATED: 2026-04-05T18:10:53.155Z
+// GENERATED: 2026-04-05T21:55:13.154Z
 // SOURCE: Constants.public.Enums.application_type
 // =====================================================
 

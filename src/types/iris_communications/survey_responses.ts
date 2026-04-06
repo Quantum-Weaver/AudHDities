@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/survey_responses.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.144Z
+// GENERATED: 2026-04-05T21:55:13.097Z
 // SOURCE: database.types.ts lines 4855-4902
 // =====================================================
 
@@ -26,12 +26,12 @@ export type SurveyResponsesUpdate = Database['public']['Tables']['survey_respons
  * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicSurveyResponses {
-  answers: Json
-  created_at: string | null
-  duration_seconds: number | null
-  id: string
-  survey_id: string
-  user_id: string
+  answers: Json;
+  created_at: string | null;
+  duration_seconds: number | null;
+  id: string;
+  survey_id: string;
+  user_id: string;
 }
 
 /**

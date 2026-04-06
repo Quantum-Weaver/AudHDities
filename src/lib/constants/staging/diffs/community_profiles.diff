@@ -1,8 +1,105 @@
---- a/src\types\hestia_core\community_profiles.ts
-+++ b/src\types\hestia_core\community_profiles.ts (staged)
-@@ -5,53 +5,53 @@
--// GENERATED: 2026-04-05T19:30:01.153Z
-+// GENERATED: 2026-04-05T19:46:32.947Z
- // SOURCE: database.types.ts lines 960-1045
+--- a/src\lib\validators\community_profiles.ts
++++ b/src\lib\validators\community_profiles.ts (staged)
+@@ -14,51 +14,53 @@
+-  crisis_contact_email: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  crisis_contact_name: z.string().nullable(),
++  crisis_contact_email: z.string().nullable(),
+-  crisis_contact_phone: z.string().nullable(),
++  crisis_contact_name: z.string().nullable(),
+-  crisis_instructions: z.string().nullable(),
++  crisis_contact_phone: z.string().nullable(),
+-  house_adept: z.boolean().nullable(),
++  crisis_instructions: z.string().nullable(),
+-  house_initiate: z.boolean().nullable(),
++  house_adept: z.boolean().nullable(),
+-  house_joined_at: z.string().nullable(),
++  house_initiate: z.boolean().nullable(),
+-  house_master: z.boolean().nullable(),
++  house_joined_at: z.string().nullable(),
+-  id: z.string(),
++  house_master: z.boolean().nullable(),
+-  is_mentor: z.boolean().nullable(),
++  id: z.string(),
+-  joined_house: z.any().nullable(),
++  is_mentor: z.boolean().nullable(),
+-  mentee_count: z.number().nullable(),
++  joined_house: z.any().nullable(),
+-  mentor_since: z.string().nullable(),
++  mentee_count: z.number().nullable(),
+-  nd_identity: z.any().nullable(),
++  mentor_since: z.string().nullable(),
+-  peer_endorsements: z.number().nullable(),
++  nd_identity: z.any().nullable(),
+-  sensory_accommodations: z.any().nullable(),
++  peer_endorsements: z.number().nullable(),
+-  support_needs: z.any().nullable(),
++  sensory_accommodations: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  support_needs: z.any().nullable(),
+-  username: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-});
++  username: z.string().nullable(),
+-
++});
+-export const CommunityProfilesInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const CommunityProfilesInsertSchema = z.object({
+-  crisis_contact_email: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  crisis_contact_name: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  crisis_contact_phone: z.string().nullable().optional(),
++  crisis_contact_email: z.string().nullable().optional(),
+-  crisis_instructions: z.string().nullable().optional(),
++  crisis_contact_name: z.string().nullable().optional(),
+-  house_adept: z.boolean().nullable().optional(),
++  crisis_contact_phone: z.string().nullable().optional(),
+-  house_initiate: z.boolean().nullable().optional(),
++  crisis_instructions: z.string().nullable().optional(),
+-  house_joined_at: z.string().nullable().optional(),
++  house_adept: z.boolean().nullable().optional(),
+-  house_master: z.boolean().nullable().optional(),
++  house_initiate: z.boolean().nullable().optional(),
+-  id: z.string().optional(),
++  house_joined_at: z.string().nullable().optional(),
+-  is_mentor: z.boolean().nullable().optional(),
++  house_master: z.boolean().nullable().optional(),
+-  joined_house: z.any().nullable().optional(),
++  id: z.string().optional(),
+-  mentee_count: z.number().nullable().optional(),
++  is_mentor: z.boolean().nullable().optional(),
+-  mentor_since: z.string().nullable().optional(),
++  joined_house: z.any().nullable().optional(),
+-  nd_identity: z.any().nullable().optional(),
++  mentee_count: z.number().nullable().optional(),
+-  peer_endorsements: z.number().nullable().optional(),
++  mentor_since: z.string().nullable().optional(),
+-  sensory_accommodations: z.any().nullable().optional(),
++  nd_identity: z.any().nullable().optional(),
+-  support_needs: z.any().nullable().optional(),
++  peer_endorsements: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  sensory_accommodations: z.any().nullable().optional(),
+-  username: z.string().nullable().optional(),
++  support_needs: z.any().nullable().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  username: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type CommunityProfilesRowInput = z.infer<typeof CommunityProfilesRowSchema>;
++// =====================================================
+-export type CommunityProfilesInsertInput = z.infer<typeof CommunityProfilesInsertSchema>;
  
++export type CommunityProfilesRowInput = z.infer<typeof CommunityProfilesRowSchema>;
++export type CommunityProfilesInsertInput = z.infer<typeof CommunityProfilesInsertSchema>;
++

@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/maintenance.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:33.030Z
+// GENERATED: 2026-04-05T21:55:13.009Z
 // SOURCE: database.types.ts lines 2632-2693
 // =====================================================
 
@@ -31,21 +31,21 @@ export type MaintenanceUpdate = Database['public']['Tables']['maintenance']['Upd
  * Public view of maintenance
  */
 export interface PublicMaintenance {
-  actual_end: string | null
-  actual_start: string | null
-  affected_systems: string[] | null
-  created_at: string | null
-  description: string | null
-  error_log: string | null
-  id: string
-  notes: string | null
-  performed_by: string | null
-  scheduled_end: string | null
-  scheduled_start: string | null
-  status: MaintenanceStatus | null
-  title: string
-  type: MaintenanceType
-  updated_at: string | null
+  actual_end: string | null;
+  actual_start: string | null;
+  affected_systems: string[] | null;
+  created_at: string | null;
+  description: string | null;
+  error_log: string | null;
+  id: string;
+  notes: string | null;
+  performed_by: string | null;
+  scheduled_end: string | null;
+  scheduled_start: string | null;
+  status: MaintenanceStatus | null;
+  title: string;
+  type: MaintenanceType;
+  updated_at: string | null;
 }
 
 /**

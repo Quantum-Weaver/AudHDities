@@ -1,8 +1,73 @@
---- a/src\types\iris_communications\email_communications.ts
-+++ b/src\types\iris_communications\email_communications.ts (staged)
-@@ -5,87 +5,87 @@
--// GENERATED: 2026-04-05T19:30:01.189Z
-+// GENERATED: 2026-04-05T19:46:32.987Z
- // SOURCE: database.types.ts lines 1761-1816
+--- a/src\lib\validators\email_communications.ts
++++ b/src\lib\validators\email_communications.ts (staged)
+@@ -16,35 +16,37 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  metadata: z.any().nullable(),
++  id: z.string(),
+-  opened_at: z.string().nullable(),
++  metadata: z.any().nullable(),
+-  provider_message_id: z.string().nullable(),
++  opened_at: z.string().nullable(),
+-  recipient_email: z.string(),
++  provider_message_id: z.string().nullable(),
+-  recipient_id: z.string().nullable(),
++  recipient_email: z.string(),
+-  sent_at: z.string().nullable(),
++  recipient_id: z.string().nullable(),
+-  status: z.any().nullable(),
++  sent_at: z.string().nullable(),
+-  subject: z.string(),
++  status: z.any().nullable(),
+-  template_id: z.string().nullable(),
++  subject: z.string(),
+-});
++  template_id: z.string().nullable(),
+-
++});
+-export const EmailCommunicationsInsertSchema = z.object({
++
+-  body: z.string().optional(),
++export const EmailCommunicationsInsertSchema = z.object({
+-  clicked_at: z.string().nullable().optional(),
++  body: z.string().optional(),
+-  created_at: z.string().nullable().optional(),
++  clicked_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  opened_at: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  provider_message_id: z.string().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  recipient_email: z.string().optional(),
++  opened_at: z.string().nullable().optional(),
+-  recipient_id: z.string().nullable().optional(),
++  provider_message_id: z.string().nullable().optional(),
+-  sent_at: z.string().nullable().optional(),
++  recipient_email: z.string().optional(),
+-  status: z.any().nullable().optional(),
++  recipient_id: z.string().nullable().optional(),
+-  subject: z.string().optional(),
++  sent_at: z.string().nullable().optional(),
+-  template_id: z.string().nullable().optional(),
++  status: z.any().nullable().optional(),
+-});
++  subject: z.string().optional(),
+-
++  template_id: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type EmailCommunicationsRowInput = z.infer<typeof EmailCommunicationsRowSchema>;
++// =====================================================
+-export type EmailCommunicationsInsertInput = z.infer<typeof EmailCommunicationsInsertSchema>;
  
++export type EmailCommunicationsRowInput = z.infer<typeof EmailCommunicationsRowSchema>;
++export type EmailCommunicationsInsertInput = z.infer<typeof EmailCommunicationsInsertSchema>;
++

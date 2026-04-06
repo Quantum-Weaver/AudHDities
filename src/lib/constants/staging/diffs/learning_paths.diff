@@ -1,8 +1,75 @@
---- a/src\types\athena_gamification\learning_paths.ts
-+++ b/src\types\athena_gamification\learning_paths.ts (staged)
-@@ -5,87 +5,87 @@
--// GENERATED: 2026-04-05T19:30:01.210Z
-+// GENERATED: 2026-04-05T19:46:33.015Z
- // SOURCE: database.types.ts lines 2358-2420
+--- a/src\lib\validators\learning_paths.ts
++++ b/src\lib\validators\learning_paths.ts (staged)
+@@ -15,36 +15,38 @@
+-  creator_id: z.string(),
++  created_by: z.string().nullable(),
+-  description: z.string(),
++  creator_id: z.string(),
+-  difficulty: z.any(),
++  description: z.string(),
+-  estimated_duration_hours: z.number().nullable(),
++  difficulty: z.any(),
+-  house: z.any().nullable(),
++  estimated_duration_hours: z.number().nullable(),
+-  id: z.string(),
++  house: z.any().nullable(),
+-  is_published: z.boolean().nullable(),
++  id: z.string(),
+-  prerequisite_path_id: z.string().nullable(),
++  is_published: z.boolean().nullable(),
+-  slug: z.string(),
++  prerequisite_path_id: z.string().nullable(),
+-  title: z.string(),
++  slug: z.string(),
+-  updated_at: z.string().nullable(),
++  title: z.string(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const LearningPathsInsertSchema = z.object({
++
+-  cover_image: z.string().nullable().optional(),
++export const LearningPathsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  cover_image: z.string().nullable().optional(),
+-  creator_id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  description: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  difficulty: z.any().optional(),
++  creator_id: z.string().optional(),
+-  estimated_duration_hours: z.number().nullable().optional(),
++  description: z.string().optional(),
+-  house: z.any().nullable().optional(),
++  difficulty: z.any().optional(),
+-  id: z.string().optional(),
++  estimated_duration_hours: z.number().nullable().optional(),
+-  is_published: z.boolean().nullable().optional(),
++  house: z.any().nullable().optional(),
+-  prerequisite_path_id: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  slug: z.string().optional(),
++  is_published: z.boolean().nullable().optional(),
+-  title: z.string().optional(),
++  prerequisite_path_id: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  slug: z.string().optional(),
+-});
++  title: z.string().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type LearningPathsRowInput = z.infer<typeof LearningPathsRowSchema>;
++// =====================================================
+-export type LearningPathsInsertInput = z.infer<typeof LearningPathsInsertSchema>;
  
++export type LearningPathsRowInput = z.infer<typeof LearningPathsRowSchema>;
++export type LearningPathsInsertInput = z.infer<typeof LearningPathsInsertSchema>;
++

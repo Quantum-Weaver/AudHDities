@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/path_lessons.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.047Z
+// GENERATED: 2026-04-05T21:55:13.021Z
 // SOURCE: database.types.ts lines 3005-3040
 // =====================================================
 
@@ -24,10 +24,10 @@ export type PathLessonsUpdate = Database['public']['Tables']['path_lessons']['Up
  * Public view of path_lessons
  */
 export interface PublicPathLessons {
-  created_at: string | null
-  lesson_id: string
-  order_index: number
-  path_id: string
+  created_at: string | null;
+  lesson_id: string;
+  order_index: number;
+  path_id: string;
 }
 
 /**

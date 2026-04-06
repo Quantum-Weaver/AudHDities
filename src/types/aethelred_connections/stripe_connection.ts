@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/stripe_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.131Z
+// GENERATED: 2026-04-05T21:55:13.087Z
 // SOURCE: database.types.ts lines 4632-4684
 // =====================================================
 
@@ -32,18 +32,18 @@ export type StripeConnectionUpdate = Database['public']['Tables']['stripe_connec
  * Public view of stripe_connection
  */
 export interface PublicStripeConnection {
-  account_id: string
-  connected_accounts: Json | null
-  created_at: string | null
-  id: string
-  last_sync_at: string | null
-  mode: StripeMode | null
-  operated_by: string | null
-  payout_settings: Json | null
-  products_synced: number | null
-  updated_at: string | null
-  webhook_secret: string | null
-  webhook_status: WebhookStatus | null
+  account_id: string;
+  connected_accounts: Json | null;
+  created_at: string | null;
+  id: string;
+  last_sync_at: string | null;
+  mode: StripeMode | null;
+  operated_by: string | null;
+  payout_settings: Json | null;
+  products_synced: number | null;
+  updated_at: string | null;
+  webhook_secret: string | null;
+  webhook_status: WebhookStatus | null;
 }
 
 /**

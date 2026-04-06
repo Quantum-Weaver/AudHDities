@@ -1,8 +1,57 @@
---- a/src\types\aethelred_connections\skald.ts
-+++ b/src\types\aethelred_connections\skald.ts (staged)
-@@ -5,69 +5,69 @@
--// GENERATED: 2026-04-05T19:30:01.307Z
-+// GENERATED: 2026-04-05T19:46:33.128Z
- // SOURCE: database.types.ts lines 4588-4631
+--- a/src\lib\validators\skald.ts
++++ b/src\lib\validators\skald.ts (staged)
+@@ -16,27 +16,29 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  inspiring_content: z.any().nullable(),
++  id: z.string(),
+-  music_library: z.any().nullable(),
++  inspiring_content: z.any().nullable(),
+-  mythology: z.any().nullable(),
++  music_library: z.any().nullable(),
+-  story_archive: z.any().nullable(),
++  mythology: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  story_archive: z.any().nullable(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const SkaldInsertSchema = z.object({
++
+-  art_gallery: z.any().nullable().optional(),
++export const SkaldInsertSchema = z.object({
+-  bard_roster: z.any().nullable().optional(),
++  art_gallery: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  bard_roster: z.any().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  inspiring_content: z.any().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  music_library: z.any().nullable().optional(),
++  id: z.string().optional(),
+-  mythology: z.any().nullable().optional(),
++  inspiring_content: z.any().nullable().optional(),
+-  story_archive: z.any().nullable().optional(),
++  music_library: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  mythology: z.any().nullable().optional(),
+-});
++  story_archive: z.any().nullable().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type SkaldRowInput = z.infer<typeof SkaldRowSchema>;
++// =====================================================
+-export type SkaldInsertInput = z.infer<typeof SkaldInsertSchema>;
  
++export type SkaldRowInput = z.infer<typeof SkaldRowSchema>;
++export type SkaldInsertInput = z.infer<typeof SkaldInsertSchema>;
++

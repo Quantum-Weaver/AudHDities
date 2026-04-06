@@ -1,8 +1,65 @@
---- a/src\types\plutus_economics\transactions.ts
-+++ b/src\types\plutus_economics\transactions.ts (staged)
-@@ -5,81 +5,81 @@
--// GENERATED: 2026-04-05T19:30:01.332Z
-+// GENERATED: 2026-04-05T19:46:33.163Z
- // SOURCE: database.types.ts lines 5158-5214
+--- a/src\lib\validators\transactions.ts
++++ b/src\lib\validators\transactions.ts (staged)
+@@ -16,31 +16,33 @@
+-  currency: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  from_id: z.string().nullable(),
++  currency: z.string().nullable(),
+-  id: z.string(),
++  from_id: z.string().nullable(),
+-  source_id: z.string(),
++  id: z.string(),
+-  status: z.any().nullable(),
++  source_id: z.string(),
+-  stripe_transfer_id: z.string().nullable(),
++  status: z.any().nullable(),
+-  to_id: z.string().nullable(),
++  stripe_transfer_id: z.string().nullable(),
+-  transaction_type: z.any(),
++  to_id: z.string().nullable(),
+-});
++  transaction_type: z.any(),
+-
++});
+-export const TransactionsInsertSchema = z.object({
++
+-  amount_cents: z.number().optional(),
++export const TransactionsInsertSchema = z.object({
+-  completed_at: z.string().nullable().optional(),
++  amount_cents: z.number().optional(),
+-  created_at: z.string().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  currency: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  from_id: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  currency: z.string().nullable().optional(),
+-  source_id: z.string().optional(),
++  from_id: z.string().nullable().optional(),
+-  status: z.any().nullable().optional(),
++  id: z.string().optional(),
+-  stripe_transfer_id: z.string().nullable().optional(),
++  source_id: z.string().optional(),
+-  to_id: z.string().nullable().optional(),
++  status: z.any().nullable().optional(),
+-  transaction_type: z.any().optional(),
++  stripe_transfer_id: z.string().nullable().optional(),
+-});
++  to_id: z.string().nullable().optional(),
+-
++  transaction_type: z.any().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type TransactionsRowInput = z.infer<typeof TransactionsRowSchema>;
++// =====================================================
+-export type TransactionsInsertInput = z.infer<typeof TransactionsInsertSchema>;
  
++export type TransactionsRowInput = z.infer<typeof TransactionsRowSchema>;
++export type TransactionsInsertInput = z.infer<typeof TransactionsInsertSchema>;
++

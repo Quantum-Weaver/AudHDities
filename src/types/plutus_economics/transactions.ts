@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/transactions.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.163Z
+// GENERATED: 2026-04-05T21:55:13.108Z
 // SOURCE: database.types.ts lines 5158-5214
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type PaymentStatus = Database['public']['Enums']['payment_status'];
+type PaymentStatus = Database['public']['Enums']['payment_status'];
 export type TransactionType = Database['public']['Enums']['transaction_type'];
 
 export type TransactionsRow = Database['public']['Tables']['transactions']['Row'];
@@ -31,17 +31,17 @@ export type TransactionsUpdate = Database['public']['Tables']['transactions']['U
  * Public view of transactions
  */
 export interface PublicTransactions {
-  amount_cents: number
-  completed_at: string | null
-  created_at: string | null
-  currency: string | null
-  from_id: string | null
-  id: string
-  source_id: string
-  status: PaymentStatus | null
-  stripe_transfer_id: string | null
-  to_id: string | null
-  transaction_type: TransactionType
+  amount_cents: number;
+  completed_at: string | null;
+  created_at: string | null;
+  currency: string | null;
+  from_id: string | null;
+  id: string;
+  source_id: string;
+  status: PaymentStatus | null;
+  stripe_transfer_id: string | null;
+  to_id: string | null;
+  transaction_type: TransactionType;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/life_cycles.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.024Z
+// GENERATED: 2026-04-05T21:55:13.006Z
 // SOURCE: database.types.ts lines 2534-2574
 // =====================================================
 
@@ -31,14 +31,14 @@ export type LifeCyclesUpdate = Database['public']['Tables']['life_cycles']['Upda
  * Public view of life_cycles
  */
 export interface PublicLifeCycles {
-  created_at: string | null
-  ended_at: string | null
-  id: string
-  metadata: Json | null
-  phase: LifeCyclePhase
-  started_at: string
-  trigger_event: string | null
-  user_id: string
+  created_at: string | null;
+  ended_at: string | null;
+  id: string;
+  metadata: Json | null;
+  phase: LifeCyclePhase;
+  started_at: string;
+  trigger_event: string | null;
+  user_id: string;
 }
 
 /**

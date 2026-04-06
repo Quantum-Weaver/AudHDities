@@ -21,10 +21,14 @@ export function getStagingPath(originalPath: string, options: StagingOptions = {
   const relativePath = path.relative(PROJECT_ROOT, originalPath);
   const parts = relativePath.split(path.sep);
   
-  // Find where 'constants' is and insert 'staging' after it
-  const constantsIndex = parts.indexOf('constants');
-  if (constantsIndex !== -1) {
-    parts.splice(constantsIndex + 1, 0, 'staging');
+  // Find the base directory (constants, types, utils, app, lib)
+  const baseDirs = ['constants', 'types', 'utils', 'api', 'validators'];
+  for (const baseDir of baseDirs) {
+    const baseIndex = parts.indexOf(baseDir);
+    if (baseIndex !== -1) {
+      parts.splice(baseIndex + 1, 0, 'staging');
+      break;
+    }
   }
   
   return path.join(PROJECT_ROOT, ...parts);

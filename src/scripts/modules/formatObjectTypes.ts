@@ -184,7 +184,7 @@ export function generatePublicInterface(
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
       if (!sensitiveFields.includes(fieldName)) {
-        publicFields.push(`  ${line.trim()}`);
+        publicFields.push(`  ${line.trim()};`);
       } else {
         excludedFields.push(fieldName);
       }

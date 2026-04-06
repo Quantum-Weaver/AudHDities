@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/regions.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.086Z
+// GENERATED: 2026-04-05T21:55:13.052Z
 // SOURCE: database.types.ts lines 3798-3847
 // =====================================================
 
@@ -25,17 +25,17 @@ export type RegionsUpdate = Database['public']['Tables']['regions']['Update'];
  * Public view of regions
  */
 export interface PublicRegions {
-  continent_id: string
-  country_code: string
-  country_code_3: string | null
-  created_at: string | null
-  flag_emoji: string | null
-  id: string
-  is_active: boolean | null
-  name: string
-  name_localized: Json | null
-  phone_code: string | null
-  updated_at: string | null
+  continent_id: string;
+  country_code: string;
+  country_code_3: string | null;
+  created_at: string | null;
+  flag_emoji: string | null;
+  id: string;
+  is_active: boolean | null;
+  name: string;
+  name_localized: Json | null;
+  phone_code: string | null;
+  updated_at: string | null;
 }
 
 /**

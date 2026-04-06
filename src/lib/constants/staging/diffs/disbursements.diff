@@ -1,8 +1,57 @@
---- a/src\types\plutus_economics\disbursements.ts
-+++ b/src\types\plutus_economics\disbursements.ts (staged)
-@@ -5,72 +5,72 @@
--// GENERATED: 2026-04-05T19:30:01.186Z
-+// GENERATED: 2026-04-05T19:46:32.984Z
- // SOURCE: database.types.ts lines 1728-1760
+--- a/src\lib\validators\disbursements.ts
++++ b/src\lib\validators\disbursements.ts (staged)
+@@ -14,27 +14,29 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  processed_at: z.string().nullable(),
++  id: z.string(),
+-  recipient_count: z.number(),
++  processed_at: z.string().nullable(),
+-  source_id: z.string(),
++  recipient_count: z.number(),
+-  source_pool: z.any(),
++  source_id: z.string(),
+-  status: z.any().nullable(),
++  source_pool: z.any(),
+-  total_amount_cents: z.number(),
++  status: z.any().nullable(),
+-});
++  total_amount_cents: z.number(),
+-
++});
+-export const DisbursementsInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const DisbursementsInsertSchema = z.object({
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  processed_at: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  recipient_count: z.number().optional(),
++  id: z.string().optional(),
+-  source_id: z.string().optional(),
++  processed_at: z.string().nullable().optional(),
+-  source_pool: z.any().optional(),
++  recipient_count: z.number().optional(),
+-  status: z.any().nullable().optional(),
++  source_id: z.string().optional(),
+-  total_amount_cents: z.number().optional(),
++  source_pool: z.any().optional(),
+-});
++  status: z.any().nullable().optional(),
+-
++  total_amount_cents: z.number().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type DisbursementsRowInput = z.infer<typeof DisbursementsRowSchema>;
++// =====================================================
+-export type DisbursementsInsertInput = z.infer<typeof DisbursementsInsertSchema>;
  
++export type DisbursementsRowInput = z.infer<typeof DisbursementsRowSchema>;
++export type DisbursementsInsertInput = z.infer<typeof DisbursementsInsertSchema>;
++

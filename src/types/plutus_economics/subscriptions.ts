@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/subscriptions.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.134Z
+// GENERATED: 2026-04-05T21:55:13.089Z
 // SOURCE: database.types.ts lines 4685-4735
 // =====================================================
 
@@ -30,15 +30,15 @@ export type SubscriptionsUpdate = Database['public']['Tables']['subscriptions'][
  * Public view of subscriptions
  */
 export interface PublicSubscriptions {
-  channel_id: string
-  created_at: string | null
-  expires_at: string | null
-  id: string
-  monthly_amount: number
-  status: SubscriptionStatus | null
-  subscriber_id: string
-  tier_applied: string
-  updated_at: string | null
+  channel_id: string;
+  created_at: string | null;
+  expires_at: string | null;
+  id: string;
+  monthly_amount: number;
+  status: SubscriptionStatus | null;
+  subscriber_id: string;
+  tier_applied: string;
+  updated_at: string | null;
 }
 
 /**

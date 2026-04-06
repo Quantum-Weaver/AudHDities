@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/moderation_actions.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:33.035Z
+// GENERATED: 2026-04-05T21:55:13.013Z
 // SOURCE: database.types.ts lines 2755-2817
 // =====================================================
 
@@ -32,19 +32,19 @@ export type ModerationActionsUpdate = Database['public']['Tables']['moderation_a
  * Public view of moderation_actions
  */
 export interface PublicModerationActions {
-  action_type: ModerationActionType
-  created_at: string | null
-  duration: string | null
-  id: string
-  is_reverted: boolean | null
-  metadata: Json | null
-  moderator_id: string
-  reason: string | null
-  revert_reason: string | null
-  reverted_at: string | null
-  reverted_by: string | null
-  target_id: string
-  target_type: ModerationTargetType
+  action_type: ModerationActionType;
+  created_at: string | null;
+  duration: string | null;
+  id: string;
+  is_reverted: boolean | null;
+  metadata: Json | null;
+  moderator_id: string;
+  reason: string | null;
+  revert_reason: string | null;
+  reverted_at: string | null;
+  reverted_by: string | null;
+  target_id: string;
+  target_type: ModerationTargetType;
 }
 
 /**

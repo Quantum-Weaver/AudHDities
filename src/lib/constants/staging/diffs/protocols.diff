@@ -1,8 +1,8 @@
 --- a/src\types\hephaestus_infrastructure\protocols.ts
 +++ b/src\types\hephaestus_infrastructure\protocols.ts (staged)
 @@ -5,96 +5,96 @@
--// GENERATED: 2026-04-05T19:30:01.261Z
-+// GENERATED: 2026-04-05T19:46:33.071Z
+-// GENERATED: 2026-04-05T20:12:27.867Z
++// GENERATED: 2026-04-05T21:48:03.426Z
  // SOURCE: database.types.ts lines 3526-3597
  // =====================================================
  

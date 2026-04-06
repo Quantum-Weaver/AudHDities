@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/council_houses.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.961Z
+// GENERATED: 2026-04-05T21:55:12.955Z
 // SOURCE: database.types.ts lines 1269-1341
 // =====================================================
 
@@ -24,20 +24,20 @@ export type CouncilHousesUpdate = Database['public']['Tables']['council_houses']
  * Public view of council_houses
  */
 export interface PublicCouncilHouses {
-  adept_quest: string | null
-  color: string
-  created_at: string | null
-  description: string
-  display_name: string
-  emoji: string
-  id: string
-  initiate_quest: string | null
-  is_active: boolean | null
-  master_quest: string | null
-  name: string
-  order_index: number
-  primary_domain: string | null
-  updated_at: string | null
+  adept_quest: string | null;
+  color: string;
+  created_at: string | null;
+  description: string;
+  display_name: string;
+  emoji: string;
+  id: string;
+  initiate_quest: string | null;
+  is_active: boolean | null;
+  master_quest: string | null;
+  name: string;
+  order_index: number;
+  primary_domain: string | null;
+  updated_at: string | null;
 }
 
 /**

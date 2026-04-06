@@ -1,8 +1,8 @@
 --- a/src\types\iris_communications\personas.ts
 +++ b/src\types\iris_communications\personas.ts (staged)
 @@ -5,75 +5,75 @@
--// GENERATED: 2026-04-05T19:30:01.244Z
-+// GENERATED: 2026-04-05T19:46:33.052Z
+-// GENERATED: 2026-04-05T20:12:27.850Z
++// GENERATED: 2026-04-05T21:48:03.410Z
  // SOURCE: database.types.ts lines 3095-3144
  // =====================================================
  

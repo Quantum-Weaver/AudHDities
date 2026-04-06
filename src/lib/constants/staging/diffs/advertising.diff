@@ -1,8 +1,71 @@
---- a/src\types\plutus_economics\advertising.ts
-+++ b/src\types\plutus_economics\advertising.ts (staged)
-@@ -5,91 +5,91 @@
--// GENERATED: 2026-04-05T19:30:01.118Z
-+// GENERATED: 2026-04-05T19:46:32.907Z
- // SOURCE: database.types.ts lines 314-372
+--- a/src\lib\validators\advertising.ts
++++ b/src\lib\validators\advertising.ts (staged)
+@@ -19,34 +19,36 @@
+-  end_date: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  end_date: z.string().nullable(),
+-  spent_cents: z.number().nullable(),
++  id: z.string(),
+-  start_date: z.string().nullable(),
++  spent_cents: z.number().nullable(),
+-  status: z.any().nullable(),
++  start_date: z.string().nullable(),
+-  targeting_criteria: z.any().nullable(),
++  status: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  targeting_criteria: z.any().nullable(),
+-  user_share_percent: z.number().nullable(),
++  updated_at: z.string().nullable(),
+-});
++  user_share_percent: z.number().nullable(),
+-
++});
+-export const AdvertisingInsertSchema = z.object({
++
+-  advertiser_id: z.string().optional(),
++export const AdvertisingInsertSchema = z.object({
+-  bid_amount_cents: z.number().optional(),
++  advertiser_id: z.string().optional(),
+-  bid_type: z.any().optional(),
++  bid_amount_cents: z.number().optional(),
+-  budget_cents: z.number().optional(),
++  bid_type: z.any().optional(),
+-  campaign_name: z.string().optional(),
++  budget_cents: z.number().optional(),
+-  created_at: z.string().nullable().optional(),
++  campaign_name: z.string().optional(),
+-  end_date: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  spent_cents: z.number().nullable().optional(),
++  end_date: z.string().nullable().optional(),
+-  start_date: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  status: z.any().nullable().optional(),
++  spent_cents: z.number().nullable().optional(),
+-  targeting_criteria: z.any().nullable().optional(),
++  start_date: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  status: z.any().nullable().optional(),
+-  user_share_percent: z.number().nullable().optional(),
++  targeting_criteria: z.any().nullable().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  user_share_percent: z.number().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type AdvertisingRowInput = z.infer<typeof AdvertisingRowSchema>;
++// =====================================================
+-export type AdvertisingInsertInput = z.infer<typeof AdvertisingInsertSchema>;
  
++export type AdvertisingRowInput = z.infer<typeof AdvertisingRowSchema>;
++export type AdvertisingInsertInput = z.infer<typeof AdvertisingInsertSchema>;
++

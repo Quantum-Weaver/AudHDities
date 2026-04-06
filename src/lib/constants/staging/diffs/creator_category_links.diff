@@ -1,8 +1,39 @@
---- a/src\types\hestia_core\creator_category_links.ts
-+++ b/src\types\hestia_core\creator_category_links.ts (staged)
-@@ -5,53 +5,53 @@
--// GENERATED: 2026-04-05T19:30:01.172Z
-+// GENERATED: 2026-04-05T19:46:32.970Z
- // SOURCE: database.types.ts lines 1433-1468
+--- a/src\lib\validators\creator_category_links.ts
++++ b/src\lib\validators\creator_category_links.ts (staged)
+@@ -15,18 +15,20 @@
+-  creator_id: z.string(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  creator_id: z.string(),
+-});
++  id: z.string(),
+-
++});
+-export const CreatorCategoryLinksInsertSchema = z.object({
++
+-  category_id: z.string().optional(),
++export const CreatorCategoryLinksInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  category_id: z.string().optional(),
+-  creator_id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-});
++  creator_id: z.string().optional(),
+-
++  id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type CreatorCategoryLinksRowInput = z.infer<typeof CreatorCategoryLinksRowSchema>;
++// =====================================================
+-export type CreatorCategoryLinksInsertInput = z.infer<typeof CreatorCategoryLinksInsertSchema>;
  
++export type CreatorCategoryLinksRowInput = z.infer<typeof CreatorCategoryLinksRowSchema>;
++export type CreatorCategoryLinksInsertInput = z.infer<typeof CreatorCategoryLinksInsertSchema>;
++

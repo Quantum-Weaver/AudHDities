@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/github_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.006Z
+// GENERATED: 2026-04-05T21:55:12.992Z
 // SOURCE: database.types.ts lines 2206-2268
 // =====================================================
 
@@ -30,20 +30,20 @@ export type GithubConnectionUpdate = Database['public']['Tables']['github_connec
  * Public view of github_connection
  */
 export interface PublicGithubConnection {
-  branch: string | null
-  created_at: string | null
-  id: string
-  issues_open: number | null
-  last_commit_at: string | null
-  last_commit_message: string | null
-  last_commit_sha: string | null
-  operated_by: string | null
-  pull_requests_open: number | null
-  repository_name: string
-  repository_url: string
-  stars: number | null
-  updated_at: string | null
-  workflow_status: WorkflowStatus | null
+  branch: string | null;
+  created_at: string | null;
+  id: string;
+  issues_open: number | null;
+  last_commit_at: string | null;
+  last_commit_message: string | null;
+  last_commit_sha: string | null;
+  operated_by: string | null;
+  pull_requests_open: number | null;
+  repository_name: string;
+  repository_url: string;
+  stars: number | null;
+  updated_at: string | null;
+  workflow_status: WorkflowStatus | null;
 }
 
 /**

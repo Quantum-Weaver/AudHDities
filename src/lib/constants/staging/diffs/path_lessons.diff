@@ -1,8 +1,41 @@
---- a/src\types\athena_gamification\path_lessons.ts
-+++ b/src\types\athena_gamification\path_lessons.ts (staged)
-@@ -5,53 +5,53 @@
--// GENERATED: 2026-04-05T19:30:01.237Z
-+// GENERATED: 2026-04-05T19:46:33.047Z
- // SOURCE: database.types.ts lines 3005-3040
+--- a/src\lib\validators\path_lessons.ts
++++ b/src\lib\validators\path_lessons.ts (staged)
+@@ -14,19 +14,21 @@
+-  lesson_id: z.string(),
++  created_by: z.string().nullable(),
+-  order_index: z.number(),
++  lesson_id: z.string(),
+-  path_id: z.string(),
++  order_index: z.number(),
+-});
++  path_id: z.string(),
+-
++});
+-export const PathLessonsInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const PathLessonsInsertSchema = z.object({
+-  lesson_id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  order_index: z.number().optional(),
++  created_by: z.string().nullable().optional(),
+-  path_id: z.string().optional(),
++  lesson_id: z.string().optional(),
+-});
++  order_index: z.number().optional(),
+-
++  path_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type PathLessonsRowInput = z.infer<typeof PathLessonsRowSchema>;
++// =====================================================
+-export type PathLessonsInsertInput = z.infer<typeof PathLessonsInsertSchema>;
  
++export type PathLessonsRowInput = z.infer<typeof PathLessonsRowSchema>;
++export type PathLessonsInsertInput = z.infer<typeof PathLessonsInsertSchema>;
++

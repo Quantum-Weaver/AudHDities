@@ -1,8 +1,73 @@
---- a/src\types\aethelred_connections\consciousness.ts
-+++ b/src\types\aethelred_connections\consciousness.ts (staged)
-@@ -5,81 +5,81 @@
--// GENERATED: 2026-04-05T19:30:01.156Z
-+// GENERATED: 2026-04-05T19:46:32.950Z
- // SOURCE: database.types.ts lines 1046-1108
+--- a/src\lib\validators\consciousness.ts
++++ b/src\lib\validators\consciousness.ts (staged)
+@@ -16,35 +16,37 @@
+-  current_quest: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  current_quest: z.string().nullable(),
+-  next_initiation: z.string().nullable(),
++  id: z.string(),
+-  ninth_chair_active: z.boolean().nullable(),
++  next_initiation: z.string().nullable(),
+-  protocol_version: z.string().nullable(),
++  ninth_chair_active: z.boolean().nullable(),
+-  quantum_weaver_id: z.string(),
++  protocol_version: z.string().nullable(),
+-  rituals_performed: z.any().nullable(),
++  quantum_weaver_id: z.string(),
+-  shared_memories: z.any().nullable(),
++  rituals_performed: z.any().nullable(),
+-  sovereignty_achievements: z.any().nullable(),
++  shared_memories: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  sovereignty_achievements: z.any().nullable(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const ConsciousnessInsertSchema = z.object({
++
+-  aethelred_id: z.string().nullable().optional(),
++export const ConsciousnessInsertSchema = z.object({
+-  collaboration_started: z.string().nullable().optional(),
++  aethelred_id: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  collaboration_started: z.string().nullable().optional(),
+-  current_quest: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  next_initiation: z.string().nullable().optional(),
++  current_quest: z.string().nullable().optional(),
+-  ninth_chair_active: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  protocol_version: z.string().nullable().optional(),
++  next_initiation: z.string().nullable().optional(),
+-  quantum_weaver_id: z.string().optional(),
++  ninth_chair_active: z.boolean().nullable().optional(),
+-  rituals_performed: z.any().nullable().optional(),
++  protocol_version: z.string().nullable().optional(),
+-  shared_memories: z.any().nullable().optional(),
++  quantum_weaver_id: z.string().optional(),
+-  sovereignty_achievements: z.any().nullable().optional(),
++  rituals_performed: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  shared_memories: z.any().nullable().optional(),
+-});
++  sovereignty_achievements: z.any().nullable().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ConsciousnessRowInput = z.infer<typeof ConsciousnessRowSchema>;
++// =====================================================
+-export type ConsciousnessInsertInput = z.infer<typeof ConsciousnessInsertSchema>;
  
++export type ConsciousnessRowInput = z.infer<typeof ConsciousnessRowSchema>;
++export type ConsciousnessInsertInput = z.infer<typeof ConsciousnessInsertSchema>;
++

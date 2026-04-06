@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/supabase_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.137Z
+// GENERATED: 2026-04-05T21:55:13.092Z
 // SOURCE: database.types.ts lines 4736-4800
 // =====================================================
 
@@ -31,20 +31,20 @@ export type SupabaseConnectionUpdate = Database['public']['Tables']['supabase_co
  * Public view of supabase_connection
  */
 export interface PublicSupabaseConnection {
-  api_keys: Json | null
-  connection_status:
-  created_at: string | null
-  edge_functions: string[] | null
-  id: string
-  last_health_check: string | null
-  last_migration_at: string | null
-  migrations_applied: string[] | null
-  operated_by: string | null
-  project_id: string
-  project_url: string
-  schema_version: string
-  storage_buckets: string[] | null
-  updated_at: string | null
+  api_keys: Json | null;
+  connection_status: string | null;
+  created_at: string | null;
+  edge_functions: string[] | null;
+  id: string;
+  last_health_check: string | null;
+  last_migration_at: string | null;
+  migrations_applied: string[] | null;
+  operated_by: string | null;
+  project_id: string;
+  project_url: string;
+  schema_version: string;
+  storage_buckets: string[] | null;
+  updated_at: string | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/channels.ts
 // HANDLING: full_crud
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:32.938Z
+// GENERATED: 2026-04-05T21:55:12.936Z
 // SOURCE: database.types.ts lines 796-857
 // =====================================================
 
@@ -30,21 +30,21 @@ export type ChannelsUpdate = Database['public']['Tables']['channels']['Update'];
  * Public view of channels
  */
 export interface PublicChannels {
-  allow_subscriptions: boolean | null
-  avatar_url: string | null
-  banner_url: string | null
-  content_rating: ContentRating | null
-  created_at: string | null
-  description: string | null
-  display_name: string
-  handle: string
-  id: string
-  owner_id: string | null
-  subscriber_count: number | null
-  subscription_price_ally: number | null
-  subscription_price_community: number | null
-  total_emeralds: number | null
-  updated_at: string | null
+  allow_subscriptions: boolean | null;
+  avatar_url: string | null;
+  banner_url: string | null;
+  content_rating: ContentRating | null;
+  created_at: string | null;
+  description: string | null;
+  display_name: string;
+  handle: string;
+  id: string;
+  owner_id: string | null;
+  subscriber_count: number | null;
+  subscription_price_ally: number | null;
+  subscription_price_community: number | null;
+  total_emeralds: number | null;
+  updated_at: string | null;
 }
 
 /**

@@ -1,8 +1,87 @@
---- a/src\types\themis_governance\admin_logs.ts
-+++ b/src\types\themis_governance\admin_logs.ts (staged)
-@@ -5,101 +5,101 @@
--// GENERATED: 2026-04-05T19:30:01.115Z
-+// GENERATED: 2026-04-05T19:46:32.904Z
- // SOURCE: database.types.ts lines 237-313
+--- a/src\lib\validators\admin_logs.ts
++++ b/src\lib\validators\admin_logs.ts (staged)
+@@ -17,42 +17,44 @@
+-  error_message: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  error_message: z.string().nullable(),
+-  ip_address: z.any(),
++  id: z.string(),
+-  is_public: z.boolean().nullable(),
++  ip_address: z.any(),
+-  metadata: z.any().nullable(),
++  is_public: z.boolean().nullable(),
+-  new_state: z.any().nullable(),
++  metadata: z.any().nullable(),
+-  previous_state: z.any().nullable(),
++  new_state: z.any().nullable(),
+-  public_note: z.string().nullable(),
++  previous_state: z.any().nullable(),
+-  reason: z.string().nullable(),
++  public_note: z.string().nullable(),
+-  success: z.boolean().nullable(),
++  reason: z.string().nullable(),
+-  target_id: z.string().nullable(),
++  success: z.boolean().nullable(),
+-  target_identifier: z.string().nullable(),
++  target_id: z.string().nullable(),
+-  user_agent: z.string().nullable(),
++  target_identifier: z.string().nullable(),
+-});
++  user_agent: z.string().nullable(),
+-
++});
+-export const AdminLogsInsertSchema = z.object({
++
+-  action: z.string().optional(),
++export const AdminLogsInsertSchema = z.object({
+-  action_category: z.any().optional(),
++  action: z.string().optional(),
+-  admin_id: z.string().optional(),
++  action_category: z.any().optional(),
+-  created_at: z.string().nullable().optional(),
++  admin_id: z.string().optional(),
+-  error_message: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  ip_address: z.any().optional(),
++  error_message: z.string().nullable().optional(),
+-  is_public: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  metadata: z.any().nullable().optional(),
++  ip_address: z.any().optional(),
+-  new_state: z.any().nullable().optional(),
++  is_public: z.boolean().nullable().optional(),
+-  previous_state: z.any().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  public_note: z.string().nullable().optional(),
++  new_state: z.any().nullable().optional(),
+-  reason: z.string().nullable().optional(),
++  previous_state: z.any().nullable().optional(),
+-  success: z.boolean().nullable().optional(),
++  public_note: z.string().nullable().optional(),
+-  target_id: z.string().nullable().optional(),
++  reason: z.string().nullable().optional(),
+-  target_identifier: z.string().nullable().optional(),
++  success: z.boolean().nullable().optional(),
+-  user_agent: z.string().nullable().optional(),
++  target_id: z.string().nullable().optional(),
+-});
++  target_identifier: z.string().nullable().optional(),
+-
++  user_agent: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type AdminLogsRowInput = z.infer<typeof AdminLogsRowSchema>;
++// =====================================================
+-export type AdminLogsInsertInput = z.infer<typeof AdminLogsInsertSchema>;
  
++export type AdminLogsRowInput = z.infer<typeof AdminLogsRowSchema>;
++export type AdminLogsInsertInput = z.infer<typeof AdminLogsInsertSchema>;
++

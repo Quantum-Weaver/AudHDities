@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/user_badges.ts
 // HANDLING: join_table
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.169Z
+// GENERATED: 2026-04-05T21:55:13.114Z
 // SOURCE: database.types.ts lines 5279-5323
 // =====================================================
 

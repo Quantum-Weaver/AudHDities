@@ -1,8 +1,69 @@
---- a/src\types\athena_gamification\mythology.ts
-+++ b/src\types\athena_gamification\mythology.ts (staged)
-@@ -5,84 +5,84 @@
--// GENERATED: 2026-04-05T19:30:01.231Z
-+// GENERATED: 2026-04-05T19:46:33.038Z
- // SOURCE: database.types.ts lines 2818-2877
+--- a/src\lib\validators\mythology.ts
++++ b/src\lib\validators\mythology.ts (staged)
+@@ -16,33 +16,35 @@
+-  house: z.any().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  house: z.any().nullable(),
+-  is_published: z.boolean().nullable(),
++  id: z.string(),
+-  order_index: z.number().nullable(),
++  is_published: z.boolean().nullable(),
+-  series_id: z.string().nullable(),
++  order_index: z.number().nullable(),
+-  slug: z.string(),
++  series_id: z.string().nullable(),
+-  title: z.string(),
++  slug: z.string(),
+-  type: z.any(),
++  title: z.string(),
+-  updated_at: z.string().nullable(),
++  type: z.any(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const MythologyInsertSchema = z.object({
++
+-  author_id: z.string().optional(),
++export const MythologyInsertSchema = z.object({
+-  content: z.string().optional(),
++  author_id: z.string().optional(),
+-  created_at: z.string().nullable().optional(),
++  content: z.string().optional(),
+-  house: z.any().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_published: z.boolean().nullable().optional(),
++  house: z.any().nullable().optional(),
+-  order_index: z.number().nullable().optional(),
++  id: z.string().optional(),
+-  series_id: z.string().nullable().optional(),
++  is_published: z.boolean().nullable().optional(),
+-  slug: z.string().optional(),
++  order_index: z.number().nullable().optional(),
+-  title: z.string().optional(),
++  series_id: z.string().nullable().optional(),
+-  type: z.any().optional(),
++  slug: z.string().optional(),
+-  updated_at: z.string().nullable().optional(),
++  title: z.string().optional(),
+-});
++  type: z.any().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type MythologyRowInput = z.infer<typeof MythologyRowSchema>;
++// =====================================================
+-export type MythologyInsertInput = z.infer<typeof MythologyInsertSchema>;
  
++export type MythologyRowInput = z.infer<typeof MythologyRowSchema>;
++export type MythologyInsertInput = z.infer<typeof MythologyInsertSchema>;
++

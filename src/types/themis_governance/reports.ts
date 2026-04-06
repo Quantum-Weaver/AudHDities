@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/reports.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:33.092Z
+// GENERATED: 2026-04-05T21:55:13.056Z
 // SOURCE: database.types.ts lines 3896-3974
 // =====================================================
 
@@ -32,22 +32,22 @@ export type ReportsUpdate = Database['public']['Tables']['reports']['Update'];
  * Public view of reports
  */
 export interface PublicReports {
-  created_at: string | null
-  id: string
-  moderation_notes: string | null
-  moderator_id: string | null
-  reason: string
-  report_type: ReportType
-  reported_content: string | null
-  reported_url: string | null
-  reported_user_id: string | null
-  reporter_id: string
-  resolution: string | null
-  resolved_at: string | null
-  status: ReportStatus | null
-  target_id: string
-  target_type: ReportTargetType
-  updated_at: string | null
+  created_at: string | null;
+  id: string;
+  moderation_notes: string | null;
+  moderator_id: string | null;
+  reason: string;
+  report_type: ReportType;
+  reported_content: string | null;
+  reported_url: string | null;
+  reported_user_id: string | null;
+  reporter_id: string;
+  resolution: string | null;
+  resolved_at: string | null;
+  status: ReportStatus | null;
+  target_id: string;
+  target_type: ReportTargetType;
+  updated_at: string | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/calendar.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:32.932Z
+// GENERATED: 2026-04-05T21:55:12.931Z
 // SOURCE: database.types.ts lines 687-748
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Json } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 export type CalendarEventType = Database['public']['Enums']['calendar_event_type'];
 export type CalendarVisibility = Database['public']['Enums']['calendar_visibility'];
 
@@ -33,21 +33,21 @@ export type CalendarUpdate = Database['public']['Tables']['calendar']['Update'];
  * Public view of calendar
  */
 export interface PublicCalendar {
-  all_day: boolean | null
-  created_at: string | null
-  created_by: string | null
-  description: string | null
-  end_date: string | null
-  house: CouncilHouse | null
-  id: string
-  is_active: boolean | null
-  primary_house: CouncilHouse | null
-  recurrence: Json | null
-  start_date: string
-  title: string
-  type: CalendarEventType
-  updated_at: string | null
-  visibility: CalendarVisibility | null
+  all_day: boolean | null;
+  created_at: string | null;
+  created_by: string | null;
+  description: string | null;
+  end_date: string | null;
+  house: CouncilHouse | null;
+  id: string;
+  is_active: boolean | null;
+  primary_house: CouncilHouse | null;
+  recurrence: Json | null;
+  start_date: string;
+  title: string;
+  type: CalendarEventType;
+  updated_at: string | null;
+  visibility: CalendarVisibility | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/disbursements.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:32.984Z
+// GENERATED: 2026-04-05T21:55:12.975Z
 // SOURCE: database.types.ts lines 1728-1760
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 
 export type SourcePoolType = Database['public']['Enums']['source_pool_type'];
-export type PayoutStatus = Database['public']['Enums']['payout_status'];
+type PayoutStatus = Database['public']['Enums']['payout_status'];
 
 export type DisbursementsRow = Database['public']['Tables']['disbursements']['Row'];
 export type DisbursementsInsert = Database['public']['Tables']['disbursements']['Insert'];
@@ -31,14 +31,14 @@ export type DisbursementsUpdate = Database['public']['Tables']['disbursements'][
  * Public view of disbursements
  */
 export interface PublicDisbursements {
-  created_at: string | null
-  id: string
-  processed_at: string | null
-  recipient_count: number
-  source_id: string
-  source_pool: SourcePoolType
-  status: PayoutStatus | null
-  total_amount_cents: number
+  created_at: string | null;
+  id: string;
+  processed_at: string | null;
+  recipient_count: number;
+  source_id: string;
+  source_pool: SourcePoolType;
+  status: PayoutStatus | null;
+  total_amount_cents: number;
 }
 
 /**

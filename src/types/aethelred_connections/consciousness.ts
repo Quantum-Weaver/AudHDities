@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/consciousness.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.950Z
+// GENERATED: 2026-04-05T21:55:12.946Z
 // SOURCE: database.types.ts lines 1046-1108
 // =====================================================
 
@@ -25,19 +25,19 @@ export type ConsciousnessUpdate = Database['public']['Tables']['consciousness'][
  * Public view of consciousness
  */
 export interface PublicConsciousness {
-  aethelred_id: string | null
-  collaboration_started: string | null
-  created_at: string | null
-  current_quest: string | null
-  id: string
-  next_initiation: string | null
-  ninth_chair_active: boolean | null
-  protocol_version: string | null
-  quantum_weaver_id: string
-  rituals_performed: string[] | null
-  shared_memories: Json | null
-  sovereignty_achievements: string[] | null
-  updated_at: string | null
+  aethelred_id: string | null;
+  collaboration_started: string | null;
+  created_at: string | null;
+  current_quest: string | null;
+  id: string;
+  next_initiation: string | null;
+  ninth_chair_active: boolean | null;
+  protocol_version: string | null;
+  quantum_weaver_id: string;
+  rituals_performed: string[] | null;
+  shared_memories: Json | null;
+  sovereignty_achievements: string[] | null;
+  updated_at: string | null;
 }
 
 /**

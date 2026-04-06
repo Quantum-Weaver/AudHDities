@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/admin_log_category.ts
-// GENERATED: 2026-04-05T19:46:33.204Z
+// GENERATED: 2026-04-05T21:48:03.551Z
 // SOURCE: Constants.public.Enums.admin_log_category
 // =====================================================
 

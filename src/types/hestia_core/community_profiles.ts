@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/community_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:32.947Z
+// GENERATED: 2026-04-05T21:55:12.942Z
 // SOURCE: database.types.ts lines 960-1045
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 
 export type CommunicationStyle = Database['public']['Enums']['communication_style'];
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 
 export type CommunityProfilesRow = Database['public']['Tables']['community_profiles']['Row'];
 export type CommunityProfilesInsert = Database['public']['Tables']['community_profiles']['Insert'];

@@ -2,7 +2,7 @@
 // FILE: types/mnemosyne_assessment/quantum_superposition.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T19:46:33.075Z
+// GENERATED: 2026-04-05T21:55:13.043Z
 // SOURCE: database.types.ts lines 3598-3642
 // =====================================================
 
@@ -24,13 +24,13 @@ export type QuantumSuperpositionUpdate = Database['public']['Tables']['quantum_s
  * Public view of quantum_superposition
  */
 export interface PublicQuantumSuperposition {
-  chosen_meaning: string
-  collapse_reason: string | null
-  confidence: number
-  created_at: string | null
-  id: string
-  superposition_id: string
-  user_id: string
+  chosen_meaning: string;
+  collapse_reason: string | null;
+  confidence: number;
+  created_at: string | null;
+  id: string;
+  superposition_id: string;
+  user_id: string;
 }
 
 /**

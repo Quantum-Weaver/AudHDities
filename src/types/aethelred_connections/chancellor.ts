@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/chancellor.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.935Z
+// GENERATED: 2026-04-05T21:55:12.934Z
 // SOURCE: database.types.ts lines 749-795
 // =====================================================
 
@@ -25,16 +25,16 @@ export type ChancellorUpdate = Database['public']['Tables']['chancellor']['Updat
  * Public view of chancellor
  */
 export interface PublicChancellor {
-  created_at: string | null
-  fee_structure: Json | null
-  financial_audits: Json | null
-  id: string
-  last_audit_at: string | null
-  operating_budget: Json | null
-  payout_schedule: Json | null
-  reserve_fund: number | null
-  treasury_balance: number | null
-  updated_at: string | null
+  created_at: string | null;
+  fee_structure: Json | null;
+  financial_audits: Json | null;
+  id: string;
+  last_audit_at: string | null;
+  operating_budget: Json | null;
+  payout_schedule: Json | null;
+  reserve_fund: number | null;
+  treasury_balance: number | null;
+  updated_at: string | null;
 }
 
 /**

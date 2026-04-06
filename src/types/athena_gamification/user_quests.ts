@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/user_quests.ts
 // HANDLING: join_table
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.178Z
+// GENERATED: 2026-04-05T21:55:13.124Z
 // SOURCE: database.types.ts lines 5442-5495
 // =====================================================
 

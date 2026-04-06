@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/timelines.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.160Z
+// GENERATED: 2026-04-05T21:55:13.106Z
 // SOURCE: database.types.ts lines 5114-5157
 // =====================================================
 
@@ -30,15 +30,15 @@ export type TimelinesUpdate = Database['public']['Tables']['timelines']['Update'
  * Public view of timelines
  */
 export interface PublicTimelines {
-  created_at: string | null
-  description: string | null
-  event_id: string | null
-  event_type: TimelineEventType
-  id: string
-  occurred_at: string
-  significance_score: number | null
-  title: string
-  user_id: string
+  created_at: string | null;
+  description: string | null;
+  event_id: string | null;
+  event_type: TimelineEventType;
+  id: string;
+  occurred_at: string;
+  significance_score: number | null;
+  title: string;
+  user_id: string;
 }
 
 /**

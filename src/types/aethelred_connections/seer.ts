@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/seer.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.122Z
+// GENERATED: 2026-04-05T21:55:13.081Z
 // SOURCE: database.types.ts lines 4505-4548
 // =====================================================
 
@@ -25,15 +25,15 @@ export type SeerUpdate = Database['public']['Tables']['seer']['Update'];
  * Public view of seer
  */
 export interface PublicSeer {
-  anomaly_detection: Json | null
-  created_at: string | null
-  id: string
-  insight_queue: Json | null
-  last_prediction_accuracy: number | null
-  pattern_library: Json | null
-  prophecies: Json | null
-  trend_analysis: Json | null
-  updated_at: string | null
+  anomaly_detection: Json | null;
+  created_at: string | null;
+  id: string;
+  insight_queue: Json | null;
+  last_prediction_accuracy: number | null;
+  pattern_library: Json | null;
+  prophecies: Json | null;
+  trend_analysis: Json | null;
+  updated_at: string | null;
 }
 
 /**

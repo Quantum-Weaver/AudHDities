@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/script_execution_logs.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:33.116Z
+// GENERATED: 2026-04-05T21:55:13.076Z
 // SOURCE: database.types.ts lines 4395-4445
 // =====================================================
 
@@ -25,15 +25,15 @@ export type ScriptExecutionLogsUpdate = Database['public']['Tables']['script_exe
  * Public view of script_execution_logs
  */
 export interface PublicScriptExecutionLogs {
-  completed_at: string | null
-  error_message: string | null
-  executed_by: string | null
-  id: string
-  output: string | null
-  parameters_used: Json | null
-  script_id: string
-  started_at: string | null
-  status: string | null
+  completed_at: string | null;
+  error_message: string | null;
+  executed_by: string | null;
+  id: string;
+  output: string | null;
+  parameters_used: Json | null;
+  script_id: string;
+  started_at: string | null;
+  status: string | null;
 }
 
 /**

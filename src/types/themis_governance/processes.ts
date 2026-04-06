@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/processes.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:33.059Z
+// GENERATED: 2026-04-05T21:55:13.030Z
 // SOURCE: database.types.ts lines 3220-3278
 // =====================================================
 
@@ -32,18 +32,18 @@ export type ProcessesUpdate = Database['public']['Tables']['processes']['Update'
  * Public view of processes
  */
 export interface PublicProcesses {
-  created_at: string | null
-  created_by: string
-  description: string | null
-  escalation_target:
-  id: string
-  is_active: boolean | null
-  name: string
-  process_type: ProcessType
-  slug: string
-  steps: Json
-  timeout_days: number | null
-  updated_at: string | null
+  created_at: string | null;
+  created_by: string;
+  description: string | null;
+  escalation_target: string | null;
+  id: string;
+  is_active: boolean | null;
+  name: string;
+  process_type: ProcessType;
+  slug: string;
+  steps: Json;
+  timeout_days: number | null;
+  updated_at: string | null;
 }
 
 /**

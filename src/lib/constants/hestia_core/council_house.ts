@@ -16,4 +16,4 @@ export const COUNCIL_HOUSE = {
   EXECUTIONER: 'executioner',
 } as const;
 
-export type CouncilHouse = typeof COUNCIL_HOUSE[keyof typeof COUNCIL_HOUSE];
+type CouncilHouse = typeof COUNCIL_HOUSE[keyof typeof COUNCIL_HOUSE];

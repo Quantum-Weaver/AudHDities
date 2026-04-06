@@ -2,7 +2,7 @@
 // FILE: types/mnemosyne_assessment/acid_test_results.ts
 // HANDLING: assessment
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T19:46:32.894Z
+// GENERATED: 2026-04-05T21:55:12.901Z
 // SOURCE: database.types.ts lines 136-185
 // =====================================================
 
@@ -18,7 +18,7 @@ import type { Json } from '@/types/supabase/database.types';
 // =====================================================
 
 export type AcidPersona = Database['public']['Enums']['acid_persona'];
-export type UserTier = Database['public']['Enums']['user_tier'];
+type UserTier = Database['public']['Enums']['user_tier'];
 
 export type AcidTestResultsRow = Database['public']['Tables']['acid_test_results']['Row'];
 export type AcidTestResultsInsert = Database['public']['Tables']['acid_test_results']['Insert'];

@@ -1,8 +1,67 @@
---- a/src\types\iris_communications\translations.ts
-+++ b/src\types\iris_communications\translations.ts (staged)
-@@ -5,80 +5,80 @@
--// GENERATED: 2026-04-05T19:30:01.336Z
-+// GENERATED: 2026-04-05T19:46:33.166Z
- // SOURCE: database.types.ts lines 5215-5278
+--- a/src\lib\validators\translations.ts
++++ b/src\lib\validators\translations.ts (staged)
+@@ -15,32 +15,34 @@
+-  field_name: z.string(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  field_name: z.string(),
+-  is_approved: z.boolean().nullable(),
++  id: z.string(),
+-  language_id: z.string(),
++  is_approved: z.boolean().nullable(),
+-  translatable_id: z.string(),
++  language_id: z.string(),
+-  translatable_type: z.any(),
++  translatable_id: z.string(),
+-  translation: z.string(),
++  translatable_type: z.any(),
+-  translator_id: z.string().nullable(),
++  translation: z.string(),
+-  updated_at: z.string().nullable(),
++  translator_id: z.string().nullable(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const TranslationsInsertSchema = z.object({
++
+-  approved_by: z.string().nullable().optional(),
++export const TranslationsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  field_name: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  field_name: z.string().optional(),
+-  language_id: z.string().optional(),
++  id: z.string().optional(),
+-  translatable_id: z.string().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  translatable_type: z.any().optional(),
++  language_id: z.string().optional(),
+-  translation: z.string().optional(),
++  translatable_id: z.string().optional(),
+-  translator_id: z.string().nullable().optional(),
++  translatable_type: z.any().optional(),
+-  updated_at: z.string().nullable().optional(),
++  translation: z.string().optional(),
+-});
++  translator_id: z.string().nullable().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type TranslationsRowInput = z.infer<typeof TranslationsRowSchema>;
++// =====================================================
+-export type TranslationsInsertInput = z.infer<typeof TranslationsInsertSchema>;
  
++export type TranslationsRowInput = z.infer<typeof TranslationsRowSchema>;
++export type TranslationsInsertInput = z.infer<typeof TranslationsInsertSchema>;
++

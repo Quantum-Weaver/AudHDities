@@ -1,8 +1,79 @@
---- a/src\types\hephaestus_infrastructure\maintenance.ts
-+++ b/src\types\hephaestus_infrastructure\maintenance.ts (staged)
-@@ -5,93 +5,93 @@
--// GENERATED: 2026-04-05T19:30:01.223Z
-+// GENERATED: 2026-04-05T19:46:33.030Z
- // SOURCE: database.types.ts lines 2632-2693
+--- a/src\lib\validators\maintenance.ts
++++ b/src\lib\validators\maintenance.ts (staged)
+@@ -17,38 +17,40 @@
+-  description: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  error_log: z.string().nullable(),
++  description: z.string().nullable(),
+-  id: z.string(),
++  error_log: z.string().nullable(),
+-  notes: z.string().nullable(),
++  id: z.string(),
+-  performed_by: z.string().nullable(),
++  notes: z.string().nullable(),
+-  scheduled_end: z.string().nullable(),
++  performed_by: z.string().nullable(),
+-  scheduled_start: z.string().nullable(),
++  scheduled_end: z.string().nullable(),
+-  status: z.any().nullable(),
++  scheduled_start: z.string().nullable(),
+-  title: z.string(),
++  status: z.any().nullable(),
+-  type: z.any(),
++  title: z.string(),
+-  updated_at: z.string().nullable(),
++  type: z.any(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const MaintenanceInsertSchema = z.object({
++
+-  actual_end: z.string().nullable().optional(),
++export const MaintenanceInsertSchema = z.object({
+-  actual_start: z.string().nullable().optional(),
++  actual_end: z.string().nullable().optional(),
+-  affected_systems: z.any().nullable().optional(),
++  actual_start: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  affected_systems: z.any().nullable().optional(),
+-  description: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  error_log: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  description: z.string().nullable().optional(),
+-  notes: z.string().nullable().optional(),
++  error_log: z.string().nullable().optional(),
+-  performed_by: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  scheduled_end: z.string().nullable().optional(),
++  notes: z.string().nullable().optional(),
+-  scheduled_start: z.string().nullable().optional(),
++  performed_by: z.string().nullable().optional(),
+-  status: z.any().nullable().optional(),
++  scheduled_end: z.string().nullable().optional(),
+-  title: z.string().optional(),
++  scheduled_start: z.string().nullable().optional(),
+-  type: z.any().optional(),
++  status: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  title: z.string().optional(),
+-});
++  type: z.any().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type MaintenanceRowInput = z.infer<typeof MaintenanceRowSchema>;
++// =====================================================
+-export type MaintenanceInsertInput = z.infer<typeof MaintenanceInsertSchema>;
  
++export type MaintenanceRowInput = z.infer<typeof MaintenanceRowSchema>;
++export type MaintenanceInsertInput = z.infer<typeof MaintenanceInsertSchema>;
++

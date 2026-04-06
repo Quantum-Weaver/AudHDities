@@ -1,8 +1,75 @@
---- a/src\types\athena_gamification\progress.ts
-+++ b/src\types\athena_gamification\progress.ts (staged)
-@@ -5,86 +5,86 @@
--// GENERATED: 2026-04-05T19:30:01.259Z
-+// GENERATED: 2026-04-05T19:46:33.068Z
- // SOURCE: database.types.ts lines 3456-3525
+--- a/src\lib\validators\progress.ts
++++ b/src\lib\validators\progress.ts (staged)
+@@ -15,36 +15,38 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  last_activity_at: z.string().nullable(),
++  id: z.string(),
+-  lesson_id: z.string().nullable(),
++  last_activity_at: z.string().nullable(),
+-  notes: z.string().nullable(),
++  lesson_id: z.string().nullable(),
+-  path_id: z.string().nullable(),
++  notes: z.string().nullable(),
+-  progress_percent: z.number().nullable(),
++  path_id: z.string().nullable(),
+-  score: z.number().nullable(),
++  progress_percent: z.number().nullable(),
+-  started_at: z.string().nullable(),
++  score: z.number().nullable(),
+-  status: z.any(),
++  started_at: z.string().nullable(),
+-  updated_at: z.string().nullable(),
++  status: z.any(),
+-  user_id: z.string(),
++  updated_at: z.string().nullable(),
+-});
++  user_id: z.string(),
+-
++});
+-export const ProgressInsertSchema = z.object({
++
+-  completed_at: z.string().nullable().optional(),
++export const ProgressInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  last_activity_at: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  lesson_id: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  notes: z.string().nullable().optional(),
++  last_activity_at: z.string().nullable().optional(),
+-  path_id: z.string().nullable().optional(),
++  lesson_id: z.string().nullable().optional(),
+-  progress_percent: z.number().nullable().optional(),
++  notes: z.string().nullable().optional(),
+-  score: z.number().nullable().optional(),
++  path_id: z.string().nullable().optional(),
+-  started_at: z.string().nullable().optional(),
++  progress_percent: z.number().nullable().optional(),
+-  status: z.any().optional(),
++  score: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  started_at: z.string().nullable().optional(),
+-  user_id: z.string().optional(),
++  status: z.any().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  user_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ProgressRowInput = z.infer<typeof ProgressRowSchema>;
++// =====================================================
+-export type ProgressInsertInput = z.infer<typeof ProgressInsertSchema>;
  
++export type ProgressRowInput = z.infer<typeof ProgressRowSchema>;
++export type ProgressInsertInput = z.infer<typeof ProgressInsertSchema>;
++

@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/codex.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.941Z
+// GENERATED: 2026-04-05T21:55:12.939Z
 // SOURCE: database.types.ts lines 858-901
 // =====================================================
 
@@ -25,15 +25,15 @@ export type CodexUpdate = Database['public']['Tables']['codex']['Update'];
  * Public view of codex
  */
 export interface PublicCodex {
-  created_at: string | null
-  glossary: Json | null
-  id: string
-  knowledge_base: Json | null
-  learning_paths: Json | null
-  ontology_graph: Json | null
-  taxonomy_tree: Json | null
-  updated_at: string | null
-  wisdom_queue: Json | null
+  created_at: string | null;
+  glossary: Json | null;
+  id: string;
+  knowledge_base: Json | null;
+  learning_paths: Json | null;
+  ontology_graph: Json | null;
+  taxonomy_tree: Json | null;
+  updated_at: string | null;
+  wisdom_queue: Json | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/comments.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:32.943Z
+// GENERATED: 2026-04-05T21:55:12.941Z
 // SOURCE: database.types.ts lines 902-959
 // =====================================================
 
@@ -24,15 +24,15 @@ export type CommentsUpdate = Database['public']['Tables']['comments']['Update'];
  * Public view of comments
  */
 export interface PublicComments {
-  author_id: string
-  content: string
-  created_at: string | null
-  id: string
-  is_edited: boolean | null
-  is_hidden: boolean | null
-  post_id: string
-  reply_count: number | null
-  updated_at: string | null
+  author_id: string;
+  content: string;
+  created_at: string | null;
+  id: string;
+  is_edited: boolean | null;
+  is_hidden: boolean | null;
+  post_id: string;
+  reply_count: number | null;
+  updated_at: string | null;
 }
 
 /**

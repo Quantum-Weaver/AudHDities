@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/ontology_predicate.ts
-// GENERATED: 2026-04-05T19:46:33.318Z
+// GENERATED: 2026-04-05T21:48:03.668Z
 // SOURCE: Constants.public.Enums.ontology_predicate
 // =====================================================
 

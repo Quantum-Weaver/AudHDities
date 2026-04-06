@@ -1,8 +1,61 @@
---- a/src\types\plutus_economics\contributions.ts
-+++ b/src\types\plutus_economics\contributions.ts (staged)
-@@ -5,42 +5,42 @@
--// GENERATED: 2026-04-05T19:30:01.162Z
-+// GENERATED: 2026-04-05T19:46:32.958Z
- // SOURCE: database.types.ts lines 1215-1268
+--- a/src\lib\validators\contributions.ts
++++ b/src\lib\validators\contributions.ts (staged)
+@@ -16,29 +16,31 @@
+-  description: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  description: z.string().nullable(),
+-  is_one_time: z.boolean().nullable(),
++  id: z.string(),
+-  is_residual_eligible: z.boolean().nullable(),
++  is_one_time: z.boolean().nullable(),
+-  percent_share: z.number(),
++  is_residual_eligible: z.boolean().nullable(),
+-  product_id: z.string(),
++  percent_share: z.number(),
+-  updated_at: z.string().nullable(),
++  product_id: z.string(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const ContributionsInsertSchema = z.object({
++
+-  contribution_type: z.any().optional(),
++export const ContributionsInsertSchema = z.object({
+-  contributor_id: z.string().optional(),
++  contribution_type: z.any().optional(),
+-  created_at: z.string().nullable().optional(),
++  contributor_id: z.string().optional(),
+-  description: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_one_time: z.boolean().nullable().optional(),
++  description: z.string().nullable().optional(),
+-  is_residual_eligible: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  percent_share: z.number().optional(),
++  is_one_time: z.boolean().nullable().optional(),
+-  product_id: z.string().optional(),
++  is_residual_eligible: z.boolean().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  percent_share: z.number().optional(),
+-});
++  product_id: z.string().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ContributionsRowInput = z.infer<typeof ContributionsRowSchema>;
++// =====================================================
+-export type ContributionsInsertInput = z.infer<typeof ContributionsInsertSchema>;
  
++export type ContributionsRowInput = z.infer<typeof ContributionsRowSchema>;
++export type ContributionsInsertInput = z.infer<typeof ContributionsInsertSchema>;
++

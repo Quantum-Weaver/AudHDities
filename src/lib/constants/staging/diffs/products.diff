@@ -1,8 +1,123 @@
---- a/src\types\plutus_economics\products.ts
-+++ b/src\types\plutus_economics\products.ts (staged)
-@@ -5,132 +5,132 @@
--// GENERATED: 2026-04-05T19:30:01.251Z
-+// GENERATED: 2026-04-05T19:46:33.062Z
- // SOURCE: database.types.ts lines 3279-3392
+--- a/src\lib\validators\products.ts
++++ b/src\lib\validators\products.ts (staged)
+@@ -19,60 +19,62 @@
+-  creator_id: z.string(),
++  created_by: z.string().nullable(),
+-  description: z.string().nullable(),
++  creator_id: z.string(),
+-  download_url: z.string().nullable(),
++  description: z.string().nullable(),
+-  id: z.string(),
++  download_url: z.string().nullable(),
+-  is_published: z.boolean().nullable(),
++  id: z.string(),
+-  is_recurring: z.boolean().nullable(),
++  is_published: z.boolean().nullable(),
+-  media_urls: z.any().nullable(),
++  is_recurring: z.boolean().nullable(),
+-  owner_type: z.any(),
++  media_urls: z.any().nullable(),
+-  platform_fee_percent: z.number().nullable(),
++  owner_type: z.any(),
+-  price_ally: z.number().nullable(),
++  platform_fee_percent: z.number().nullable(),
+-  price_community: z.number().nullable(),
++  price_ally: z.number().nullable(),
+-  price_corporate: z.number().nullable(),
++  price_community: z.number().nullable(),
+-  product_type: z.any(),
++  price_corporate: z.number().nullable(),
+-  residual_pool_percent: z.number().nullable(),
++  product_type: z.any(),
+-  sanctuary_infrastructure_percent: z.number().nullable(),
++  residual_pool_percent: z.number().nullable(),
+-  slug: z.string(),
++  sanctuary_infrastructure_percent: z.number().nullable(),
+-  stripe_price_id: z.string().nullable(),
++  slug: z.string(),
+-  stripe_product_id: z.string().nullable(),
++  stripe_price_id: z.string().nullable(),
+-  tags: z.any().nullable(),
++  stripe_product_id: z.string().nullable(),
+-  title: z.string(),
++  tags: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  title: z.string(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const ProductsInsertSchema = z.object({
++
+-  active: z.boolean().nullable().optional(),
++export const ProductsInsertSchema = z.object({
+-  bigot_tax_cents: z.number().nullable().optional(),
++  active: z.boolean().nullable().optional(),
+-  category: z.any().nullable().optional(),
++  bigot_tax_cents: z.number().nullable().optional(),
+-  channel_id: z.string().nullable().optional(),
++  category: z.any().nullable().optional(),
+-  collaborators: z.any().nullable().optional(),
++  channel_id: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  collaborators: z.any().nullable().optional(),
+-  creator_id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  description: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  download_url: z.string().nullable().optional(),
++  creator_id: z.string().optional(),
+-  id: z.string().optional(),
++  description: z.string().nullable().optional(),
+-  is_published: z.boolean().nullable().optional(),
++  download_url: z.string().nullable().optional(),
+-  is_recurring: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  media_urls: z.any().nullable().optional(),
++  is_published: z.boolean().nullable().optional(),
+-  owner_type: z.any().optional(),
++  is_recurring: z.boolean().nullable().optional(),
+-  platform_fee_percent: z.number().nullable().optional(),
++  media_urls: z.any().nullable().optional(),
+-  price_ally: z.number().nullable().optional(),
++  owner_type: z.any().optional(),
+-  price_community: z.number().nullable().optional(),
++  platform_fee_percent: z.number().nullable().optional(),
+-  price_corporate: z.number().nullable().optional(),
++  price_ally: z.number().nullable().optional(),
+-  product_type: z.any().optional(),
++  price_community: z.number().nullable().optional(),
+-  residual_pool_percent: z.number().nullable().optional(),
++  price_corporate: z.number().nullable().optional(),
+-  sanctuary_infrastructure_percent: z.number().nullable().optional(),
++  product_type: z.any().optional(),
+-  slug: z.string().optional(),
++  residual_pool_percent: z.number().nullable().optional(),
+-  stripe_price_id: z.string().nullable().optional(),
++  sanctuary_infrastructure_percent: z.number().nullable().optional(),
+-  stripe_product_id: z.string().nullable().optional(),
++  slug: z.string().optional(),
+-  tags: z.any().nullable().optional(),
++  stripe_price_id: z.string().nullable().optional(),
+-  title: z.string().optional(),
++  stripe_product_id: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  tags: z.any().nullable().optional(),
+-});
++  title: z.string().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ProductsRowInput = z.infer<typeof ProductsRowSchema>;
++// =====================================================
+-export type ProductsInsertInput = z.infer<typeof ProductsInsertSchema>;
  
++export type ProductsRowInput = z.infer<typeof ProductsRowSchema>;
++export type ProductsInsertInput = z.infer<typeof ProductsInsertSchema>;
++

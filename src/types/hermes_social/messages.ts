@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/messages.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:33.032Z
+// GENERATED: 2026-04-05T21:55:13.010Z
 // SOURCE: database.types.ts lines 2694-2754
 // =====================================================
 
@@ -30,16 +30,16 @@ export type MessagesUpdate = Database['public']['Tables']['messages']['Update'];
  * Public view of messages
  */
 export interface PublicMessages {
-  content: string
-  created_at: string | null
-  id: string
-  is_read: boolean | null
-  parent_id: string | null
-  read_at: string | null
-  recipient_id: string
-  sender_id: string
-  status: MessageStatus | null
-  thread_id: string | null
+  content: string;
+  created_at: string | null;
+  id: string;
+  is_read: boolean | null;
+  parent_id: string | null;
+  read_at: string | null;
+  recipient_id: string;
+  sender_id: string;
+  status: MessageStatus | null;
+  thread_id: string | null;
 }
 
 /**

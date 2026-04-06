@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/vercel_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.184Z
+// GENERATED: 2026-04-05T21:55:13.129Z
 // SOURCE: database.types.ts lines 5580-5641
 // =====================================================
 
@@ -31,19 +31,19 @@ export type VercelConnectionUpdate = Database['public']['Tables']['vercel_connec
  * Public view of vercel_connection
  */
 export interface PublicVercelConnection {
-  created_at: string | null
-  deployment_status:
-  deployment_url: string
-  domain_config: Json | null
-  environment_variables: Json | null
-  id: string
-  last_deployment_at: string | null
-  last_deployment_id: string | null
-  operated_by: string | null
-  preview_urls: Json | null
-  project_id: string
-  project_name: string
-  updated_at: string | null
+  created_at: string | null;
+  deployment_status: string | null;
+  deployment_url: string;
+  domain_config: Json | null;
+  environment_variables: Json | null;
+  id: string;
+  last_deployment_at: string | null;
+  last_deployment_id: string | null;
+  operated_by: string | null;
+  preview_urls: Json | null;
+  project_id: string;
+  project_name: string;
+  updated_at: string | null;
 }
 
 /**

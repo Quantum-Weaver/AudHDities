@@ -2,7 +2,7 @@
 // FILE: index.ts
 // LOCATION: themis_governance
 // Themis Governance Exports
-// GENERATED: 2026-04-05T19:46:33.566Z
+// GENERATED: 2026-04-05T23:04:20.040Z
 // =====================================================
 
 export * from './admin_logs';

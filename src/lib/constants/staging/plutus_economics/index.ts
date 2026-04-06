@@ -2,7 +2,7 @@
 // FILE: index.ts
 // LOCATION: plutus_economics
 // Plutus Economics Exports
-// GENERATED: 2026-04-05T19:46:33.502Z
+// GENERATED: 2026-04-05T23:04:19.987Z
 // =====================================================
 
 export * from './bid_type';

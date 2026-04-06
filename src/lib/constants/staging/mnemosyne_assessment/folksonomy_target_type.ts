@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/folksonomy_target_type.ts
-// GENERATED: 2026-04-05T19:46:33.282Z
+// GENERATED: 2026-04-05T21:48:03.630Z
 // SOURCE: Constants.public.Enums.folksonomy_target_type
 // =====================================================
 

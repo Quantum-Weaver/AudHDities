@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/rate_limits.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:33.080Z
+// GENERATED: 2026-04-05T21:55:13.047Z
 // SOURCE: database.types.ts lines 3702-3728
 // =====================================================
 
@@ -24,12 +24,12 @@ export type RateLimitsUpdate = Database['public']['Tables']['rate_limits']['Upda
  * Public view of rate_limits
  */
 export interface PublicRateLimits {
-  created_at: string | null
-  endpoint: string
-  id: string
-  identifier: string
-  request_count: number | null
-  window_start: string | null
+  created_at: string | null;
+  endpoint: string;
+  id: string;
+  identifier: string;
+  request_count: number | null;
+  window_start: string | null;
 }
 
 /**

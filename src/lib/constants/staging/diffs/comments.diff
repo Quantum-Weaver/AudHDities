@@ -1,8 +1,57 @@
---- a/src\types\hermes_social\comments.ts
-+++ b/src\types\hermes_social\comments.ts (staged)
-@@ -5,68 +5,68 @@
--// GENERATED: 2026-04-05T19:30:01.152Z
-+// GENERATED: 2026-04-05T19:46:32.943Z
- // SOURCE: database.types.ts lines 902-959
+--- a/src\lib\validators\comments.ts
++++ b/src\lib\validators\comments.ts (staged)
+@@ -16,27 +16,29 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  is_edited: z.boolean().nullable(),
++  id: z.string(),
+-  is_hidden: z.boolean().nullable(),
++  is_edited: z.boolean().nullable(),
+-  post_id: z.string(),
++  is_hidden: z.boolean().nullable(),
+-  reply_count: z.number().nullable(),
++  post_id: z.string(),
+-  updated_at: z.string().nullable(),
++  reply_count: z.number().nullable(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const CommentsInsertSchema = z.object({
++
+-  author_id: z.string().optional(),
++export const CommentsInsertSchema = z.object({
+-  content: z.string().optional(),
++  author_id: z.string().optional(),
+-  created_at: z.string().nullable().optional(),
++  content: z.string().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  is_edited: z.boolean().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_hidden: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  post_id: z.string().optional(),
++  is_edited: z.boolean().nullable().optional(),
+-  reply_count: z.number().nullable().optional(),
++  is_hidden: z.boolean().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  post_id: z.string().optional(),
+-});
++  reply_count: z.number().nullable().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type CommentsRowInput = z.infer<typeof CommentsRowSchema>;
++// =====================================================
+-export type CommentsInsertInput = z.infer<typeof CommentsInsertSchema>;
  
++export type CommentsRowInput = z.infer<typeof CommentsRowSchema>;
++export type CommentsInsertInput = z.infer<typeof CommentsInsertSchema>;
++

@@ -1,8 +1,55 @@
---- a/src\types\iris_communications\survey_responses.ts
-+++ b/src\types\iris_communications\survey_responses.ts (staged)
-@@ -5,65 +5,65 @@
--// GENERATED: 2026-04-05T19:30:01.319Z
-+// GENERATED: 2026-04-05T19:46:33.144Z
- // SOURCE: database.types.ts lines 4855-4902
+--- a/src\lib\validators\survey_responses.ts
++++ b/src\lib\validators\survey_responses.ts (staged)
+@@ -15,26 +15,28 @@
+-  duration_seconds: z.number().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  duration_seconds: z.number().nullable(),
+-  ip_address: z.any(),
++  id: z.string(),
+-  survey_id: z.string(),
++  ip_address: z.any(),
+-  user_agent: z.string().nullable(),
++  survey_id: z.string(),
+-  user_id: z.string(),
++  user_agent: z.string().nullable(),
+-});
++  user_id: z.string(),
+-
++});
+-export const SurveyResponsesInsertSchema = z.object({
++
+-  answers: z.any().optional(),
++export const SurveyResponsesInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  answers: z.any().optional(),
+-  duration_seconds: z.number().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  ip_address: z.any().optional(),
++  duration_seconds: z.number().nullable().optional(),
+-  survey_id: z.string().optional(),
++  id: z.string().optional(),
+-  user_agent: z.string().nullable().optional(),
++  ip_address: z.any().optional(),
+-  user_id: z.string().optional(),
++  survey_id: z.string().optional(),
+-});
++  user_agent: z.string().nullable().optional(),
+-
++  user_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type SurveyResponsesRowInput = z.infer<typeof SurveyResponsesRowSchema>;
++// =====================================================
+-export type SurveyResponsesInsertInput = z.infer<typeof SurveyResponsesInsertSchema>;
  
++export type SurveyResponsesRowInput = z.infer<typeof SurveyResponsesRowSchema>;
++export type SurveyResponsesInsertInput = z.infer<typeof SurveyResponsesInsertSchema>;
++

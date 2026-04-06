@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/supabase_status.ts
-// GENERATED: 2026-04-05T18:10:53.249Z
+// GENERATED: 2026-04-05T21:55:13.287Z
 // SOURCE: Constants.public.Enums.supabase_status
 // =====================================================
 

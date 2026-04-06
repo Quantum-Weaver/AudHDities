@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/badge_type.ts
-// GENERATED: 2026-04-05T19:46:33.231Z
+// GENERATED: 2026-04-05T21:48:03.579Z
 // SOURCE: Constants.public.Enums.badge_type
 // =====================================================
 

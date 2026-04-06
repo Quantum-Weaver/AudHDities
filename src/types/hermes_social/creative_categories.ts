@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/creative_categories.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:32.967Z
+// GENERATED: 2026-04-05T21:55:12.960Z
 // SOURCE: database.types.ts lines 1383-1432
 // =====================================================
 
@@ -24,17 +24,17 @@ export type CreativeCategoriesUpdate = Database['public']['Tables']['creative_ca
  * Public view of creative_categories
  */
 export interface PublicCreativeCategories {
-  color: string | null
-  created_at: string | null
-  description: string | null
-  display_order: number | null
-  icon: string | null
-  id: string
-  is_active: boolean | null
-  name: string
-  parent_id: string | null
-  slug: string
-  updated_at: string | null
+  color: string | null;
+  created_at: string | null;
+  description: string | null;
+  display_order: number | null;
+  icon: string | null;
+  id: string;
+  is_active: boolean | null;
+  name: string;
+  parent_id: string | null;
+  slug: string;
+  updated_at: string | null;
 }
 
 /**

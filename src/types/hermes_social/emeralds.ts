@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/emeralds.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:32.989Z
+// GENERATED: 2026-04-05T21:55:12.981Z
 // SOURCE: database.types.ts lines 1817-1901
 // =====================================================
 
@@ -30,17 +30,17 @@ export type EmeraldsUpdate = Database['public']['Tables']['emeralds']['Update'];
  * Public view of emeralds
  */
 export interface PublicEmeralds {
-  amount: number
-  comment_id: string | null
-  created_at: string | null
-  giver_id: string
-  id: string
-  is_residual_eligible: boolean | null
-  message: string | null
-  post_id: string | null
-  receiver_id: string
-  reply_id: string | null
-  status: EmeraldStatus | null
+  amount: number;
+  comment_id: string | null;
+  created_at: string | null;
+  giver_id: string;
+  id: string;
+  is_residual_eligible: boolean | null;
+  message: string | null;
+  post_id: string | null;
+  receiver_id: string;
+  reply_id: string | null;
+  status: EmeraldStatus | null;
 }
 
 /**

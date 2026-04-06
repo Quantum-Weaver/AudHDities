@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/communication_style.ts
-// GENERATED: 2026-04-05T19:46:33.247Z
+// GENERATED: 2026-04-05T21:55:13.170Z
 // SOURCE: Constants.public.Enums.communication_style
 // =====================================================
 

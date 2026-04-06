@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/languages.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.012Z
+// GENERATED: 2026-04-05T21:55:12.996Z
 // SOURCE: database.types.ts lines 2316-2357
 // =====================================================
 
@@ -30,17 +30,17 @@ export type LanguagesUpdate = Database['public']['Tables']['languages']['Update'
  * Public view of languages
  */
 export interface PublicLanguages {
-  code: string
-  code_3: string | null
-  created_at: string | null
-  direction: TextDirectionType | null
-  id: string
-  is_active: boolean | null
-  is_default: boolean | null
-  name: string
-  native_name: string | null
-  script: string | null
-  updated_at: string | null
+  code: string;
+  code_3: string | null;
+  created_at: string | null;
+  direction: TextDirectionType | null;
+  id: string;
+  is_active: boolean | null;
+  is_default: boolean | null;
+  name: string;
+  native_name: string | null;
+  script: string | null;
+  updated_at: string | null;
 }
 
 /**

@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/resend_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:33.095Z
+// GENERATED: 2026-04-05T21:55:13.058Z
 // SOURCE: database.types.ts lines 3975-4034
 // =====================================================
 
@@ -32,18 +32,18 @@ export type ResendConnectionUpdate = Database['public']['Tables']['resend_connec
  * Excludes sensitive fields: api_key
  */
 export interface PublicResendConnection {
-  created_at: string | null
-  delivery_status: DeliveryStatus | null
-  emails_failed: number | null
-  emails_sent: number | null
-  from_email: string
-  from_name: string
-  id: string
-  last_sent_at: string | null
-  operated_by: string | null
-  template_versions: Json | null
-  templates: Json | null
-  updated_at: string | null
+  created_at: string | null;
+  delivery_status: DeliveryStatus | null;
+  emails_failed: number | null;
+  emails_sent: number | null;
+  from_email: string;
+  from_name: string;
+  id: string;
+  last_sent_at: string | null;
+  operated_by: string | null;
+  template_versions: Json | null;
+  templates: Json | null;
+  updated_at: string | null;
 }
 
 /**

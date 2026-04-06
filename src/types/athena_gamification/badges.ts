@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/badges.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:32.928Z
+// GENERATED: 2026-04-05T21:55:12.929Z
 // SOURCE: database.types.ts lines 639-686
 // =====================================================
 
@@ -18,7 +18,7 @@ import type { Json } from '@/types/supabase/database.types';
 // =====================================================
 
 export type BadgeType = Database['public']['Enums']['badge_type'];
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 export type BadgeRarity = Database['public']['Enums']['badge_rarity'];
 export type BadgeTier = Database['public']['Enums']['badge_tier'];
 
@@ -34,19 +34,19 @@ export type BadgesUpdate = Database['public']['Tables']['badges']['Update'];
  * Public view of badges
  */
 export interface PublicBadges {
-  badge_type: BadgeType
-  color: string | null
-  created_at: string | null
-  description: string
-  earn_condition: Json | null
-  house: CouncilHouse | null
-  icon: string | null
-  id: string
-  is_active: boolean | null
-  name: string
-  rarity: BadgeRarity
-  slug: string
-  tier: BadgeTier | null
+  badge_type: BadgeType;
+  color: string | null;
+  created_at: string | null;
+  description: string;
+  earn_condition: Json | null;
+  house: CouncilHouse | null;
+  icon: string | null;
+  id: string;
+  is_active: boolean | null;
+  name: string;
+  rarity: BadgeRarity;
+  slug: string;
+  tier: BadgeTier | null;
 }
 
 /**

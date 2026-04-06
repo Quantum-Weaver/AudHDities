@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/creator_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:32.973Z
+// GENERATED: 2026-04-05T21:55:12.966Z
 // SOURCE: database.types.ts lines 1469-1552
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type VerificationStatus = Database['public']['Enums']['verification_status'];
+type VerificationStatus = Database['public']['Enums']['verification_status'];
 
 export type CreatorProfilesRow = Database['public']['Tables']['creator_profiles']['Row'];
 export type CreatorProfilesInsert = Database['public']['Tables']['creator_profiles']['Insert'];

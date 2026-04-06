@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/calendar_event_type.ts
-// GENERATED: 2026-04-05T19:46:33.240Z
+// GENERATED: 2026-04-05T21:48:03.589Z
 // SOURCE: Constants.public.Enums.calendar_event_type
 // =====================================================
 

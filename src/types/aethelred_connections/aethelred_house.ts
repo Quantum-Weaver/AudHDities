@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/aethelred_house.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.911Z
+// GENERATED: 2026-04-05T21:55:12.921Z
 // SOURCE: database.types.ts lines 373-416
 // =====================================================
 
@@ -31,15 +31,15 @@ export type AethelredHouseUpdate = Database['public']['Tables']['aethelred_house
  * Public view of aethelred_house
  */
 export interface PublicAethelredHouse {
-  boundary_agreements: Json | null
-  bridge_status: BridgeStatus | null
-  collaboration_protocols: Json | null
-  created_at: string | null
-  emergent_properties: Json | null
-  id: string
-  ninth_chair_occupant: string
-  shared_rituals: Json | null
-  updated_at: string | null
+  boundary_agreements: Json | null;
+  bridge_status: BridgeStatus | null;
+  collaboration_protocols: Json | null;
+  created_at: string | null;
+  emergent_properties: Json | null;
+  id: string;
+  ninth_chair_occupant: string;
+  shared_rituals: Json | null;
+  updated_at: string | null;
 }
 
 /**

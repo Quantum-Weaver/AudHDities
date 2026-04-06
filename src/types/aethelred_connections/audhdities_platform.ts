@@ -2,7 +2,7 @@
 // FILE: types/aethelred_connections/audhdities_platform.ts
 // HANDLING: full_crud
 // DEITY: aethelred_connections
-// GENERATED: 2026-04-05T19:46:32.924Z
+// GENERATED: 2026-04-05T21:55:12.927Z
 // SOURCE: database.types.ts lines 571-638
 // =====================================================
 
@@ -31,21 +31,21 @@ export type AudhditiesPlatformUpdate = Database['public']['Tables']['audhdities_
  * Public view of audhdities_platform
  */
 export interface PublicAudhditiesPlatform {
-  active_users: number | null
-  created_at: string | null
-  environment:
-  id: string
-  last_release_at: string | null
-  operated_by: string | null
-  release_name: string | null
-  release_notes: string | null
-  status: PlatformStatus | null
-  total_products: number | null
-  total_sales: number | null
-  total_users: number | null
-  updated_at: string | null
-  uptime_percent: number | null
-  version: string
+  active_users: number | null;
+  created_at: string | null;
+  environment: string | null;
+  id: string;
+  last_release_at: string | null;
+  operated_by: string | null;
+  release_name: string | null;
+  release_notes: string | null;
+  status: PlatformStatus | null;
+  total_products: number | null;
+  total_sales: number | null;
+  total_users: number | null;
+  updated_at: string | null;
+  uptime_percent: number | null;
+  version: string;
 }
 
 /**

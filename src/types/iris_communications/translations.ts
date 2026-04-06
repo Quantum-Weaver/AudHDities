@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/translations.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.166Z
+// GENERATED: 2026-04-05T21:55:13.112Z
 // SOURCE: database.types.ts lines 5215-5278
 // =====================================================
 
@@ -30,17 +30,17 @@ export type TranslationsUpdate = Database['public']['Tables']['translations']['U
  * Public view of translations
  */
 export interface PublicTranslations {
-  approved_by: string | null
-  created_at: string | null
-  field_name: string
-  id: string
-  is_approved: boolean | null
-  language_id: string
-  translatable_id: string
-  translatable_type: TranslatableType
-  translation: string
-  translator_id: string | null
-  updated_at: string | null
+  approved_by: string | null;
+  created_at: string | null;
+  field_name: string;
+  id: string;
+  is_approved: boolean | null;
+  language_id: string;
+  translatable_id: string;
+  translatable_type: TranslatableType;
+  translation: string;
+  translator_id: string | null;
+  updated_at: string | null;
 }
 
 /**

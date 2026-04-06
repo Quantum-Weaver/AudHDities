@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/products.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.062Z
+// GENERATED: 2026-04-05T21:55:13.033Z
 // SOURCE: database.types.ts lines 3279-3392
 // =====================================================
 
@@ -32,34 +32,34 @@ export type ProductsUpdate = Database['public']['Tables']['products']['Update'];
  * Public view of products
  */
 export interface PublicProducts {
-  active: boolean | null
-  bigot_tax_cents: number | null
-  category: string[] | null
-  channel_id: string | null
-  collaborators: string[] | null
-  created_at: string | null
-  creator_id: string
-  description: string | null
-  download_url: string | null
-  id: string
-  is_published: boolean | null
-  is_recurring: boolean | null
-  media_urls: string[] | null
-  owner_type: OwnerType
-  platform_fee_percent: number | null
-  price_ally: number | null
-  price_community: number | null
-  price_corporate: number | null
-  product_type: ProductType
-  recurring_interval:
-  residual_pool_percent: number | null
-  sanctuary_infrastructure_percent: number | null
-  slug: string
-  stripe_price_id: string | null
-  stripe_product_id: string | null
-  tags: string[] | null
-  title: string
-  updated_at: string | null
+  active: boolean | null;
+  bigot_tax_cents: number | null;
+  category: string[] | null;
+  channel_id: string | null;
+  collaborators: string[] | null;
+  created_at: string | null;
+  creator_id: string;
+  description: string | null;
+  download_url: string | null;
+  id: string;
+  is_published: boolean | null;
+  is_recurring: boolean | null;
+  media_urls: string[] | null;
+  owner_type: OwnerType;
+  platform_fee_percent: number | null;
+  price_ally: number | null;
+  price_community: number | null;
+  price_corporate: number | null;
+  product_type: ProductType;
+  recurring_interval?: string | null;
+  residual_pool_percent: number | null;
+  sanctuary_infrastructure_percent: number | null;
+  slug: string;
+  stripe_price_id: string | null;
+  stripe_product_id: string | null;
+  tags: string[] | null;
+  title: string;
+  updated_at: string | null;
 }
 
 /**
@@ -79,6 +79,7 @@ export interface ProductsFormData {
   id?: string;
   is_published?: boolean | null;
   is_recurring?: boolean | null;
+  recurring_interval?: string | null;
   media_urls?: string[] | null;
   owner_type?: OwnerType;
   platform_fee_percent?: number | null;

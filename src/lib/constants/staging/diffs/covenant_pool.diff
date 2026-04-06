@@ -1,8 +1,57 @@
---- a/src\types\plutus_economics\covenant_pool.ts
-+++ b/src\types\plutus_economics\covenant_pool.ts (staged)
-@@ -5,65 +5,65 @@
--// GENERATED: 2026-04-05T19:30:01.168Z
-+// GENERATED: 2026-04-05T19:46:32.964Z
- // SOURCE: database.types.ts lines 1342-1382
+--- a/src\lib\validators\covenant_pool.ts
++++ b/src\lib\validators\covenant_pool.ts (staged)
+@@ -14,27 +14,29 @@
+-  current_balance_cents: z.number().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  current_balance_cents: z.number().nullable(),
+-  last_distribution_at: z.string().nullable(),
++  id: z.string(),
+-  pledge_percent: z.number(),
++  last_distribution_at: z.string().nullable(),
+-  total_pledged_cents: z.number().nullable(),
++  pledge_percent: z.number(),
+-  updated_at: z.string().nullable(),
++  total_pledged_cents: z.number().nullable(),
+-  user_id: z.string(),
++  updated_at: z.string().nullable(),
+-});
++  user_id: z.string(),
+-
++});
+-export const CovenantPoolInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const CovenantPoolInsertSchema = z.object({
+-  current_balance_cents: z.number().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  last_distribution_at: z.string().nullable().optional(),
++  current_balance_cents: z.number().nullable().optional(),
+-  pledge_percent: z.number().optional(),
++  id: z.string().optional(),
+-  total_pledged_cents: z.number().nullable().optional(),
++  last_distribution_at: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  pledge_percent: z.number().optional(),
+-  user_id: z.string().optional(),
++  total_pledged_cents: z.number().nullable().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  user_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type CovenantPoolRowInput = z.infer<typeof CovenantPoolRowSchema>;
++// =====================================================
+-export type CovenantPoolInsertInput = z.infer<typeof CovenantPoolInsertSchema>;
  
++export type CovenantPoolRowInput = z.infer<typeof CovenantPoolRowSchema>;
++export type CovenantPoolInsertInput = z.infer<typeof CovenantPoolInsertSchema>;
++

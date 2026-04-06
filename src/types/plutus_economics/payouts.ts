@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/payouts.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.049Z
+// GENERATED: 2026-04-05T21:55:13.023Z
 // SOURCE: database.types.ts lines 3041-3094
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type PayoutMethod = Database['public']['Enums']['payout_method'];
+type PayoutMethod = Database['public']['Enums']['payout_method'];
 export type PayoutStatus = Database['public']['Enums']['payout_status'];
 
 export type PayoutsRow = Database['public']['Tables']['payouts']['Row'];
@@ -31,16 +31,16 @@ export type PayoutsUpdate = Database['public']['Tables']['payouts']['Update'];
  * Public view of payouts
  */
 export interface PublicPayouts {
-  amount_cents: number
-  completed_at: string | null
-  created_at: string | null
-  destination: string | null
-  disbursement_id: string
-  id: string
-  payout_method: PayoutMethod
-  recipient_id: string
-  status: PayoutStatus | null
-  stripe_transfer_id: string | null
+  amount_cents: number;
+  completed_at: string | null;
+  created_at: string | null;
+  destination: string | null;
+  disbursement_id: string;
+  id: string;
+  payout_method: PayoutMethod;
+  recipient_id: string;
+  status: PayoutStatus | null;
+  stripe_transfer_id: string | null;
 }
 
 /**

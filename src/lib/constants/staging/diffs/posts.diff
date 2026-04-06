@@ -1,8 +1,81 @@
---- a/src\types\hermes_social\posts.ts
-+++ b/src\types\hermes_social\posts.ts (staged)
-@@ -5,99 +5,99 @@
--// GENERATED: 2026-04-05T19:30:01.246Z
-+// GENERATED: 2026-04-05T19:46:33.056Z
- // SOURCE: database.types.ts lines 3145-3219
+--- a/src\lib\validators\posts.ts
++++ b/src\lib\validators\posts.ts (staged)
+@@ -20,39 +20,41 @@
+-  emerald_count: z.number().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  emerald_count: z.number().nullable(),
+-  media_urls: z.any().nullable(),
++  id: z.string(),
+-  published_at: z.string().nullable(),
++  media_urls: z.any().nullable(),
+-  resonance_count: z.number().nullable(),
++  published_at: z.string().nullable(),
+-  sovereignty_tags: z.any().nullable(),
++  resonance_count: z.number().nullable(),
+-  tips_received: z.number().nullable(),
++  sovereignty_tags: z.any().nullable(),
+-  title: z.string().nullable(),
++  tips_received: z.number().nullable(),
+-  updated_at: z.string().nullable(),
++  title: z.string().nullable(),
+-  visibility: z.any(),
++  updated_at: z.string().nullable(),
+-});
++  visibility: z.any(),
+-
++});
+-export const PostsInsertSchema = z.object({
++
+-  allow_tipping: z.boolean().nullable().optional(),
++export const PostsInsertSchema = z.object({
+-  author_id: z.string().optional(),
++  allow_tipping: z.boolean().nullable().optional(),
+-  body: z.string().nullable().optional(),
++  author_id: z.string().optional(),
+-  channel_id: z.string().nullable().optional(),
++  body: z.string().nullable().optional(),
+-  comment_count: z.number().nullable().optional(),
++  channel_id: z.string().nullable().optional(),
+-  content_type: z.any().optional(),
++  comment_count: z.number().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  content_type: z.any().optional(),
+-  emerald_count: z.number().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  media_urls: z.any().nullable().optional(),
++  emerald_count: z.number().nullable().optional(),
+-  published_at: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  resonance_count: z.number().nullable().optional(),
++  media_urls: z.any().nullable().optional(),
+-  sovereignty_tags: z.any().nullable().optional(),
++  published_at: z.string().nullable().optional(),
+-  tips_received: z.number().nullable().optional(),
++  resonance_count: z.number().nullable().optional(),
+-  title: z.string().nullable().optional(),
++  sovereignty_tags: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  tips_received: z.number().nullable().optional(),
+-  visibility: z.any().optional(),
++  title: z.string().nullable().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  visibility: z.any().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type PostsRowInput = z.infer<typeof PostsRowSchema>;
++// =====================================================
+-export type PostsInsertInput = z.infer<typeof PostsInsertSchema>;
  
++export type PostsRowInput = z.infer<typeof PostsRowSchema>;
++export type PostsInsertInput = z.infer<typeof PostsInsertSchema>;
++

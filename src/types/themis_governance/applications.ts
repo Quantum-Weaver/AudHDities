@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/applications.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:32.918Z
+// GENERATED: 2026-04-05T21:55:12.924Z
 // SOURCE: database.types.ts lines 464-526
 // =====================================================
 
@@ -32,19 +32,19 @@ export type ApplicationsUpdate = Database['public']['Tables']['applications']['U
  * Public view of applications
  */
 export interface PublicApplications {
-  admin_notes: string | null
-  application_type: ApplicationType
-  created_at: string | null
-  form_data: Json
-  id: string
-  onboarding_doc_path: string | null
-  onboarding_version: string | null
-  review_notes: string | null
-  reviewed_at: string | null
-  reviewed_by: string | null
-  status: ApplicationStatus | null
-  updated_at: string | null
-  user_id: string
+  admin_notes: string | null;
+  application_type: ApplicationType;
+  created_at: string | null;
+  form_data: Json;
+  id: string;
+  onboarding_doc_path: string | null;
+  onboarding_version: string | null;
+  review_notes: string | null;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  status: ApplicationStatus | null;
+  updated_at: string | null;
+  user_id: string;
 }
 
 /**

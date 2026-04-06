@@ -1,8 +1,65 @@
---- a/src\types\hermes_social\emeralds.ts
-+++ b/src\types\hermes_social\emeralds.ts (staged)
-@@ -5,80 +5,80 @@
--// GENERATED: 2026-04-05T19:30:01.191Z
-+// GENERATED: 2026-04-05T19:46:32.989Z
- // SOURCE: database.types.ts lines 1817-1901
+--- a/src\lib\validators\emeralds.ts
++++ b/src\lib\validators\emeralds.ts (staged)
+@@ -16,31 +16,33 @@
+-  giver_id: z.string(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  giver_id: z.string(),
+-  is_residual_eligible: z.boolean().nullable(),
++  id: z.string(),
+-  message: z.string().nullable(),
++  is_residual_eligible: z.boolean().nullable(),
+-  post_id: z.string().nullable(),
++  message: z.string().nullable(),
+-  receiver_id: z.string(),
++  post_id: z.string().nullable(),
+-  reply_id: z.string().nullable(),
++  receiver_id: z.string(),
+-  status: z.any().nullable(),
++  reply_id: z.string().nullable(),
+-});
++  status: z.any().nullable(),
+-
++});
+-export const EmeraldsInsertSchema = z.object({
++
+-  amount: z.number().optional(),
++export const EmeraldsInsertSchema = z.object({
+-  comment_id: z.string().nullable().optional(),
++  amount: z.number().optional(),
+-  created_at: z.string().nullable().optional(),
++  comment_id: z.string().nullable().optional(),
+-  giver_id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_residual_eligible: z.boolean().nullable().optional(),
++  giver_id: z.string().optional(),
+-  message: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  post_id: z.string().nullable().optional(),
++  is_residual_eligible: z.boolean().nullable().optional(),
+-  receiver_id: z.string().optional(),
++  message: z.string().nullable().optional(),
+-  reply_id: z.string().nullable().optional(),
++  post_id: z.string().nullable().optional(),
+-  status: z.any().nullable().optional(),
++  receiver_id: z.string().optional(),
+-});
++  reply_id: z.string().nullable().optional(),
+-
++  status: z.any().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type EmeraldsRowInput = z.infer<typeof EmeraldsRowSchema>;
++// =====================================================
+-export type EmeraldsInsertInput = z.infer<typeof EmeraldsInsertSchema>;
  
++export type EmeraldsRowInput = z.infer<typeof EmeraldsRowSchema>;
++export type EmeraldsInsertInput = z.infer<typeof EmeraldsInsertSchema>;
++

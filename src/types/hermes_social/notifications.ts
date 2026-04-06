@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/notifications.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:33.041Z
+// GENERATED: 2026-04-05T21:55:13.017Z
 // SOURCE: database.types.ts lines 2878-2933
 // =====================================================
 
@@ -31,19 +31,19 @@ export type NotificationsUpdate = Database['public']['Tables']['notifications'][
  * Public view of notifications
  */
 export interface PublicNotifications {
-  action_label: string | null
-  action_url: string | null
-  body: string
-  created_at: string | null
-  id: string
-  is_read: boolean | null
-  metadata: Json | null
-  read_at: string | null
-  related_entity_id: string | null
-  related_entity_type: string | null
-  title: string
-  type: NotificationType
-  user_id: string
+  action_label: string | null;
+  action_url: string | null;
+  body: string;
+  created_at: string | null;
+  id: string;
+  is_read: boolean | null;
+  metadata: Json | null;
+  read_at: string | null;
+  related_entity_id: string | null;
+  related_entity_type: string | null;
+  title: string;
+  type: NotificationType;
+  user_id: string;
 }
 
 /**

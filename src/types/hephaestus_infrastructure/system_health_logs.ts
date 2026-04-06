@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/system_health_logs.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:33.150Z
+// GENERATED: 2026-04-05T21:55:13.101Z
 // SOURCE: database.types.ts lines 4965-4999
 // =====================================================
 
@@ -30,12 +30,12 @@ export type SystemHealthLogsUpdate = Database['public']['Tables']['system_health
  * Public view of system_health_logs
  */
 export interface PublicSystemHealthLogs {
-  checked_at: string | null
-  error_message: string | null
-  id: string
-  response_time_ms: number | null
-  status: SystemStatus
-  system_id: string
+  checked_at: string | null;
+  error_message: string | null;
+  id: string;
+  response_time_ms: number | null;
+  status: SystemStatus;
+  system_id: string;
 }
 
 /**

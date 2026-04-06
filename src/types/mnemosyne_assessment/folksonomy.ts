@@ -2,7 +2,7 @@
 // FILE: types/mnemosyne_assessment/folksonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T19:46:33.003Z
+// GENERATED: 2026-04-05T21:55:12.991Z
 // SOURCE: database.types.ts lines 2155-2205
 // =====================================================
 
@@ -30,15 +30,15 @@ export type FolksonomyUpdate = Database['public']['Tables']['folksonomy']['Updat
  * Public view of folksonomy
  */
 export interface PublicFolksonomy {
-  approved_by: string | null
-  created_at: string | null
-  creator_id: string
-  id: string
-  is_approved: boolean | null
-  tag: string
-  target_id: string
-  target_type: FolksonomyTargetType
-  weight: number | null
+  approved_by: string | null;
+  created_at: string | null;
+  creator_id: string;
+  id: string;
+  is_approved: boolean | null;
+  tag: string;
+  target_id: string;
+  target_type: FolksonomyTargetType;
+  weight: number | null;
 }
 
 /**

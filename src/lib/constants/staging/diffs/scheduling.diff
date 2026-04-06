@@ -1,8 +1,8 @@
 --- a/src\types\hephaestus_infrastructure\scheduling.ts
 +++ b/src\types\hephaestus_infrastructure\scheduling.ts (staged)
 @@ -5,100 +5,100 @@
--// GENERATED: 2026-04-05T19:30:01.297Z
-+// GENERATED: 2026-04-05T19:46:33.113Z
+-// GENERATED: 2026-04-05T20:12:27.907Z
++// GENERATED: 2026-04-05T21:48:03.464Z
  // SOURCE: database.types.ts lines 4327-4394
  // =====================================================
  

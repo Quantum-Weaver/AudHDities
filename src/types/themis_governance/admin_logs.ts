@@ -2,7 +2,7 @@
 // FILE: types/themis_governance/admin_logs.ts
 // HANDLING: full_crud
 // DEITY: themis_governance
-// GENERATED: 2026-04-05T19:46:32.904Z
+// GENERATED: 2026-04-05T21:55:12.907Z
 // SOURCE: database.types.ts lines 237-313
 // =====================================================
 
@@ -33,22 +33,22 @@ export type AdminLogsUpdate = Database['public']['Tables']['admin_logs']['Update
  * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicAdminLogs {
-  action: string
-  action_category: AdminLogCategory
-  admin_id: string
-  created_at: string | null
-  error_message: string | null
-  id: string
-  is_public: boolean | null
-  metadata: Json | null
-  new_state: Json | null
-  previous_state: Json | null
-  public_note: string | null
-  reason: string | null
-  success: boolean | null
-  target_id: string | null
-  target_identifier: string | null
-  target_type:
+  action: string;
+  action_category: AdminLogCategory;
+  admin_id: string;
+  created_at: string | null;
+  error_message: string | null;
+  id: string;
+  is_public: boolean | null;
+  metadata: Json | null;
+  new_state: Json | null;
+  previous_state: Json | null;
+  public_note: string | null;
+  reason: string | null;
+  success: boolean | null;
+  target_id: string | null;
+  target_identifier: string | null;
+  target_type?: string | null;
 }
 
 /**
@@ -72,6 +72,7 @@ export interface AdminLogsFormData {
   success?: boolean | null;
   target_id?: string | null;
   target_identifier?: string | null;
+  target_type?: string | null;
   user_agent?: string | null;
 }
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/user_tier.ts
-// GENERATED: 2026-04-05T19:46:33.193Z
+// GENERATED: 2026-04-05T21:55:13.134Z
 // SOURCE: Constants.public.Enums.user_tier
 // =====================================================
 
@@ -11,4 +11,4 @@ export const USER_TIER = {
   COUNCIL: 'council',
 } as const;
 
-export type UserTier = typeof USER_TIER[keyof typeof USER_TIER];
+type UserTier = typeof USER_TIER[keyof typeof USER_TIER];

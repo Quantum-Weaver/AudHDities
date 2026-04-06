@@ -1,13 +1,13 @@
 // =====================================================
 // FILE: constants/date_format_type.ts
-// GENERATED: 2026-04-05T19:46:33.262Z
+// GENERATED: 2026-04-05T21:55:13.187Z
 // SOURCE: Constants.public.Enums.date_format_type
 // =====================================================
 
 export const DATE_FORMAT_TYPE = {
-  YYYY-MM-DD: 'YYYY-MM-DD',
-  MM/DD/YYYY: 'MM/DD/YYYY',
-  DD/MM/YYYY: 'DD/MM/YYYY',
+  'YYYY-MM-DD': 'YYYY-MM-DD',
+  'MM/DD/YYYY': 'MM/DD/YYYY',
+  'DD/MM/YYYY': 'DD/MM/YYYY',
 } as const;
 
 export type DateFormatType = typeof DATE_FORMAT_TYPE[keyof typeof DATE_FORMAT_TYPE];

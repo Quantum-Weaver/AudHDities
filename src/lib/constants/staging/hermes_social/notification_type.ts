@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/notification_type.ts
-// GENERATED: 2026-04-05T19:46:33.315Z
+// GENERATED: 2026-04-05T21:48:03.666Z
 // SOURCE: Constants.public.Enums.notification_type
 // =====================================================
 

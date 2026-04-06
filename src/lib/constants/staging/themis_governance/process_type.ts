@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/process_type.ts
-// GENERATED: 2026-04-05T19:46:33.329Z
+// GENERATED: 2026-04-05T21:48:03.680Z
 // SOURCE: Constants.public.Enums.process_type
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/sales.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.104Z
+// GENERATED: 2026-04-05T21:55:13.067Z
 // SOURCE: database.types.ts lines 4144-4224
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 
 export type PaymentStatus = Database['public']['Enums']['payment_status'];
-export type UserTier = Database['public']['Enums']['user_tier'];
+type UserTier = Database['public']['Enums']['user_tier'];
 
 export type SalesRow = Database['public']['Tables']['sales']['Row'];
 export type SalesInsert = Database['public']['Tables']['sales']['Insert'];
@@ -31,25 +31,25 @@ export type SalesUpdate = Database['public']['Tables']['sales']['Update'];
  * Public view of sales
  */
 export interface PublicSales {
-  amount_cents: number
-  bigot_tax_applied: boolean | null
-  buyer_id: string
-  created_at: string | null
-  creator_earnings_cents: number
-  gross_amount: number
-  id: string
-  nd_price_applied: boolean | null
-  net_amount: number | null
-  payment_processor_fee: number | null
-  payment_status: PaymentStatus | null
-  platform_fee_cents: number
-  product_id: string
-  stripe_payment_intent: string | null
-  stripe_session_id: string | null
-  tier_applied: UserTier
-  to_creator_immediate: number | null
-  to_infrastructure: number | null
-  to_residual_pool: number | null
+  amount_cents: number;
+  bigot_tax_applied: boolean | null;
+  buyer_id: string;
+  created_at: string | null;
+  creator_earnings_cents: number;
+  gross_amount: number;
+  id: string;
+  nd_price_applied: boolean | null;
+  net_amount: number | null;
+  payment_processor_fee: number | null;
+  payment_status: PaymentStatus | null;
+  platform_fee_cents: number;
+  product_id: string;
+  stripe_payment_intent: string | null;
+  stripe_session_id: string | null;
+  tier_applied: UserTier;
+  to_creator_immediate: number | null;
+  to_infrastructure: number | null;
+  to_residual_pool: number | null;
 }
 
 /**

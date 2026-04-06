@@ -11,4 +11,4 @@ export const PAYOUT_METHOD = {
   CRYPTO: 'crypto',
 } as const;
 
-export type PayoutMethod = typeof PAYOUT_METHOD[keyof typeof PAYOUT_METHOD];
+type PayoutMethod = typeof PAYOUT_METHOD[keyof typeof PAYOUT_METHOD];

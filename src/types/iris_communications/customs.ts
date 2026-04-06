@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/customs.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:32.981Z
+// GENERATED: 2026-04-05T21:55:12.973Z
 // SOURCE: database.types.ts lines 1668-1727
 // =====================================================
 
@@ -30,18 +30,18 @@ export type CustomsUpdate = Database['public']['Tables']['customs']['Update'];
  * Public view of customs
  */
 export interface PublicCustoms {
-  category: CustomCategoryType
-  created_at: string | null
-  description: string
-  guidance: string | null
-  id: string
-  is_active: boolean | null
-  is_sensitive: boolean | null
-  name: string
-  persona_id: string | null
-  region_id: string | null
-  slug: string
-  updated_at: string | null
+  category: CustomCategoryType;
+  created_at: string | null;
+  description: string;
+  guidance: string | null;
+  id: string;
+  is_active: boolean | null;
+  is_sensitive: boolean | null;
+  name: string;
+  persona_id: string | null;
+  region_id: string | null;
+  slug: string;
+  updated_at: string | null;
 }
 
 /**

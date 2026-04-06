@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/surveys.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.147Z
+// GENERATED: 2026-04-05T21:55:13.099Z
 // SOURCE: database.types.ts lines 4903-4964
 // =====================================================
 
@@ -18,7 +18,7 @@ import type { Json } from '@/types/supabase/database.types';
 // =====================================================
 
 export type SurveyAudienceType = Database['public']['Enums']['survey_audience_type'];
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 
 export type SurveysRow = Database['public']['Tables']['surveys']['Row'];
 export type SurveysInsert = Database['public']['Tables']['surveys']['Insert'];
@@ -32,19 +32,19 @@ export type SurveysUpdate = Database['public']['Tables']['surveys']['Update'];
  * Public view of surveys
  */
 export interface PublicSurveys {
-  created_at: string | null
-  created_by: string
-  description: string | null
-  expires_at: string | null
-  id: string
-  is_active: boolean | null
-  questions: Json
-  response_count: number | null
-  starts_at: string | null
-  target_audience:
-  target_house: CouncilHouse | null
-  title: string
-  updated_at: string | null
+  created_at: string | null;
+  created_by: string;
+  description: string | null;
+  expires_at: string | null;
+  id: string;
+  is_active: boolean | null;
+  questions: Json;
+  response_count: number | null;
+  starts_at: string | null;
+  target_audience: string | null;
+  target_house: CouncilHouse | null;
+  title: string;
+  updated_at: string | null;
 }
 
 /**

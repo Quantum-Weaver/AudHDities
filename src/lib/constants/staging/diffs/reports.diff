@@ -1,8 +1,89 @@
---- a/src\types\themis_governance\reports.ts
-+++ b/src\types\themis_governance\reports.ts (staged)
-@@ -5,97 +5,97 @@
--// GENERATED: 2026-04-05T19:30:01.276Z
-+// GENERATED: 2026-04-05T19:46:33.092Z
- // SOURCE: database.types.ts lines 3896-3974
+--- a/src\lib\validators\reports.ts
++++ b/src\lib\validators\reports.ts (staged)
+@@ -14,43 +14,45 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  moderation_notes: z.string().nullable(),
++  id: z.string(),
+-  moderator_id: z.string().nullable(),
++  moderation_notes: z.string().nullable(),
+-  reason: z.string(),
++  moderator_id: z.string().nullable(),
+-  report_type: z.any(),
++  reason: z.string(),
+-  reported_content: z.string().nullable(),
++  report_type: z.any(),
+-  reported_url: z.string().nullable(),
++  reported_content: z.string().nullable(),
+-  reported_user_id: z.string().nullable(),
++  reported_url: z.string().nullable(),
+-  reporter_id: z.string(),
++  reported_user_id: z.string().nullable(),
+-  resolution: z.string().nullable(),
++  reporter_id: z.string(),
+-  resolved_at: z.string().nullable(),
++  resolution: z.string().nullable(),
+-  status: z.any().nullable(),
++  resolved_at: z.string().nullable(),
+-  target_id: z.string(),
++  status: z.any().nullable(),
+-  target_type: z.any(),
++  target_id: z.string(),
+-  updated_at: z.string().nullable(),
++  target_type: z.any(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const ReportsInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const ReportsInsertSchema = z.object({
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  moderation_notes: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  moderator_id: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  reason: z.string().optional(),
++  moderation_notes: z.string().nullable().optional(),
+-  report_type: z.any().optional(),
++  moderator_id: z.string().nullable().optional(),
+-  reported_content: z.string().nullable().optional(),
++  reason: z.string().optional(),
+-  reported_url: z.string().nullable().optional(),
++  report_type: z.any().optional(),
+-  reported_user_id: z.string().nullable().optional(),
++  reported_content: z.string().nullable().optional(),
+-  reporter_id: z.string().optional(),
++  reported_url: z.string().nullable().optional(),
+-  resolution: z.string().nullable().optional(),
++  reported_user_id: z.string().nullable().optional(),
+-  resolved_at: z.string().nullable().optional(),
++  reporter_id: z.string().optional(),
+-  status: z.any().nullable().optional(),
++  resolution: z.string().nullable().optional(),
+-  target_id: z.string().optional(),
++  resolved_at: z.string().nullable().optional(),
+-  target_type: z.any().optional(),
++  status: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  target_id: z.string().optional(),
+-});
++  target_type: z.any().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ReportsRowInput = z.infer<typeof ReportsRowSchema>;
++// =====================================================
+-export type ReportsInsertInput = z.infer<typeof ReportsInsertSchema>;
  
++export type ReportsRowInput = z.infer<typeof ReportsRowSchema>;
++export type ReportsInsertInput = z.infer<typeof ReportsInsertSchema>;
++

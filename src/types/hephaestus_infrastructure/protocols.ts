@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/protocols.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:33.071Z
+// GENERATED: 2026-04-05T21:55:13.041Z
 // SOURCE: database.types.ts lines 3526-3597
 // =====================================================
 
@@ -31,22 +31,22 @@ export type ProtocolsUpdate = Database['public']['Tables']['protocols']['Update'
  * Public view of protocols
  */
 export interface PublicProtocols {
-  created_at: string | null
-  created_by: string | null
-  description: string
-  id: string
-  is_active: boolean | null
-  last_reviewed: string | null
-  name: string
-  next_review: string | null
-  owners: string[] | null
-  review_frequency_days: number | null
-  reviewed_by: string | null
-  slug: string
-  steps: Json
-  type: ProtocolType
-  updated_at: string | null
-  version: number | null
+  created_at: string | null;
+  created_by: string | null;
+  description: string;
+  id: string;
+  is_active: boolean | null;
+  last_reviewed: string | null;
+  name: string;
+  next_review: string | null;
+  owners: string[] | null;
+  review_frequency_days: number | null;
+  reviewed_by: string | null;
+  slug: string;
+  steps: Json;
+  type: ProtocolType;
+  updated_at: string | null;
+  version: number | null;
 }
 
 /**

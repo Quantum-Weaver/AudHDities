@@ -1,8 +1,65 @@
---- a/src\types\iris_communications\localization.ts
-+++ b/src\types\iris_communications\localization.ts (staged)
-@@ -5,74 +5,74 @@
--// GENERATED: 2026-04-05T19:30:01.221Z
-+// GENERATED: 2026-04-05T19:46:33.027Z
- // SOURCE: database.types.ts lines 2575-2631
+--- a/src\lib\validators\localization.ts
++++ b/src\lib\validators\localization.ts (staged)
+@@ -16,31 +16,33 @@
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  is_approved: z.boolean().nullable(),
++  id: z.string(),
+-  language_code: z.string(),
++  is_approved: z.boolean().nullable(),
+-  plural_form: z.number().nullable(),
++  language_code: z.string(),
+-  resource_key: z.string(),
++  plural_form: z.number().nullable(),
+-  translation: z.string(),
++  resource_key: z.string(),
+-  updated_at: z.string().nullable(),
++  translation: z.string(),
+-  version: z.number().nullable(),
++  updated_at: z.string().nullable(),
+-});
++  version: z.number().nullable(),
+-
++});
+-export const LocalizationInsertSchema = z.object({
++
+-  approved_by: z.string().nullable().optional(),
++export const LocalizationInsertSchema = z.object({
+-  context: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  context: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().nullable().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  language_code: z.string().optional(),
++  id: z.string().optional(),
+-  plural_form: z.number().nullable().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  resource_key: z.string().optional(),
++  language_code: z.string().optional(),
+-  translation: z.string().optional(),
++  plural_form: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  resource_key: z.string().optional(),
+-  version: z.number().nullable().optional(),
++  translation: z.string().optional(),
+-});
++  updated_at: z.string().nullable().optional(),
+-
++  version: z.number().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type LocalizationRowInput = z.infer<typeof LocalizationRowSchema>;
++// =====================================================
+-export type LocalizationInsertInput = z.infer<typeof LocalizationInsertSchema>;
  
++export type LocalizationRowInput = z.infer<typeof LocalizationRowSchema>;
++export type LocalizationInsertInput = z.infer<typeof LocalizationInsertSchema>;
++

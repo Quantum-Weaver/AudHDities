@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/personas.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.052Z
+// GENERATED: 2026-04-05T21:55:13.026Z
 // SOURCE: database.types.ts lines 3095-3144
 // =====================================================
 
@@ -25,17 +25,17 @@ export type PersonasUpdate = Database['public']['Tables']['personas']['Update'];
  * Public view of personas
  */
 export interface PublicPersonas {
-  avatar_url: string | null
-  characteristics: Json | null
-  color: string | null
-  created_at: string | null
-  created_by: string
-  description: string
-  id: string
-  is_active: boolean | null
-  name: string
-  slug: string
-  updated_at: string | null
+  avatar_url: string | null;
+  characteristics: Json | null;
+  color: string | null;
+  created_at: string | null;
+  created_by: string;
+  description: string;
+  id: string;
+  is_active: boolean | null;
+  name: string;
+  slug: string;
+  updated_at: string | null;
 }
 
 /**

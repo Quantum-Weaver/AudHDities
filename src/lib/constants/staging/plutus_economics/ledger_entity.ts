@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/ledger_entity.ts
-// GENERATED: 2026-04-05T19:46:33.296Z
+// GENERATED: 2026-04-05T21:55:13.217Z
 // SOURCE: Constants.public.Enums.ledger_entity
 // =====================================================
 

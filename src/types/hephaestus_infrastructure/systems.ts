@@ -2,7 +2,7 @@
 // FILE: types/hephaestus_infrastructure/systems.ts
 // HANDLING: full_crud
 // DEITY: hephaestus_infrastructure
-// GENERATED: 2026-04-05T19:46:33.153Z
+// GENERATED: 2026-04-05T21:55:13.103Z
 // SOURCE: database.types.ts lines 5000-5050
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type SystemStatus = Database['public']['Enums']['system_status'];
+type SystemStatus = Database['public']['Enums']['system_status'];
 export type SystemType = Database['public']['Enums']['system_type'];
 
 export type SystemsRow = Database['public']['Tables']['systems']['Row'];
@@ -31,20 +31,20 @@ export type SystemsUpdate = Database['public']['Tables']['systems']['Update'];
  * Public view of systems
  */
 export interface PublicSystems {
-  created_at: string | null
-  dependencies: string[] | null
-  description: string | null
-  health_check_url: string | null
-  id: string
-  last_health_check: string | null
-  last_incident: string | null
-  name: string
-  slug: string
-  status: SystemStatus | null
-  type: SystemType
-  updated_at: string | null
-  uptime_percent: number | null
-  version: string | null
+  created_at: string | null;
+  dependencies: string[] | null;
+  description: string | null;
+  health_check_url: string | null;
+  id: string;
+  last_health_check: string | null;
+  last_incident: string | null;
+  name: string;
+  slug: string;
+  status: SystemStatus | null;
+  type: SystemType;
+  updated_at: string | null;
+  uptime_percent: number | null;
+  version: string | null;
 }
 
 /**

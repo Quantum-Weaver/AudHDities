@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/lessons.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.021Z
+// GENERATED: 2026-04-05T21:55:13.004Z
 // SOURCE: database.types.ts lines 2478-2533
 // =====================================================
 
@@ -30,19 +30,19 @@ export type LessonsUpdate = Database['public']['Tables']['lessons']['Update'];
  * Public view of lessons
  */
 export interface PublicLessons {
-  content_body: string | null
-  content_type: LessonContentType
-  content_url: string | null
-  created_at: string | null
-  creator_id: string
-  description: string
-  duration_minutes: number | null
-  id: string
-  is_published: boolean | null
-  order_index: number | null
-  slug: string
-  title: string
-  updated_at: string | null
+  content_body: string | null;
+  content_type: LessonContentType;
+  content_url: string | null;
+  created_at: string | null;
+  creator_id: string;
+  description: string;
+  duration_minutes: number | null;
+  id: string;
+  is_published: boolean | null;
+  order_index: number | null;
+  slug: string;
+  title: string;
+  updated_at: string | null;
 }
 
 /**

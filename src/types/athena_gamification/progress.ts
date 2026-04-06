@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/progress.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.068Z
+// GENERATED: 2026-04-05T21:55:13.039Z
 // SOURCE: database.types.ts lines 3456-3525
 // =====================================================
 
@@ -30,19 +30,19 @@ export type ProgressUpdate = Database['public']['Tables']['progress']['Update'];
  * Public view of progress
  */
 export interface PublicProgress {
-  completed_at: string | null
-  created_at: string | null
-  id: string
-  last_activity_at: string | null
-  lesson_id: string | null
-  notes: string | null
-  path_id: string | null
-  progress_percent: number | null
-  score: number | null
-  started_at: string | null
-  status: ProgressStatus
-  updated_at: string | null
-  user_id: string
+  completed_at: string | null;
+  created_at: string | null;
+  id: string;
+  last_activity_at: string | null;
+  lesson_id: string | null;
+  notes: string | null;
+  path_id: string | null;
+  progress_percent: number | null;
+  score: number | null;
+  started_at: string | null;
+  status: ProgressStatus;
+  updated_at: string | null;
+  user_id: string;
 }
 
 /**

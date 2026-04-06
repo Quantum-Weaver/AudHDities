@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/ledger.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:33.018Z
+// GENERATED: 2026-04-05T21:55:13.001Z
 // SOURCE: database.types.ts lines 2421-2477
 // =====================================================
 
@@ -31,17 +31,17 @@ export type LedgerUpdate = Database['public']['Tables']['ledger']['Update'];
  * Public view of ledger
  */
 export interface PublicLedger {
-  amount_cents: number
-  created_at: string | null
-  description: string
-  entry_type: LedgerEntryType
-  from_entity: LedgerEntity
-  from_profile_id: string | null
-  id: string
-  public_note: string | null
-  reference_id: string
-  to_entity: LedgerEntity
-  to_profile_id: string | null
+  amount_cents: number;
+  created_at: string | null;
+  description: string;
+  entry_type: LedgerEntryType;
+  from_entity: LedgerEntity;
+  from_profile_id: string | null;
+  id: string;
+  public_note: string | null;
+  reference_id: string;
+  to_entity: LedgerEntity;
+  to_profile_id: string | null;
 }
 
 /**

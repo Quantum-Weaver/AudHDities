@@ -1,8 +1,55 @@
---- a/src\types\aethelred_connections\executioner.ts
-+++ b/src\types\aethelred_connections\executioner.ts (staged)
-@@ -5,69 +5,69 @@
--// GENERATED: 2026-04-05T19:30:01.196Z
-+// GENERATED: 2026-04-05T19:46:32.995Z
- // SOURCE: database.types.ts lines 1971-2014
+--- a/src\lib\validators\executioner.ts
++++ b/src\lib\validators\executioner.ts (staged)
+@@ -17,26 +17,28 @@
+-  execution_count: z.number().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  execution_count: z.number().nullable(),
+-  justice_log: z.any().nullable(),
++  id: z.string(),
+-  suspended_users: z.any().nullable(),
++  justice_log: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  suspended_users: z.any().nullable(),
+-});
++  updated_at: z.string().nullable(),
+-
++});
+-export const ExecutionerInsertSchema = z.object({
++
+-  appeal_queue: z.any().nullable().optional(),
++export const ExecutionerInsertSchema = z.object({
+-  banned_users: z.any().nullable().optional(),
++  appeal_queue: z.any().nullable().optional(),
+-  boundary_violations: z.any().nullable().optional(),
++  banned_users: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  boundary_violations: z.any().nullable().optional(),
+-  execution_count: z.number().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  justice_log: z.any().nullable().optional(),
++  execution_count: z.number().nullable().optional(),
+-  suspended_users: z.any().nullable().optional(),
++  id: z.string().optional(),
+-  updated_at: z.string().nullable().optional(),
++  justice_log: z.any().nullable().optional(),
+-});
++  suspended_users: z.any().nullable().optional(),
+-
++  updated_at: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type ExecutionerRowInput = z.infer<typeof ExecutionerRowSchema>;
++// =====================================================
+-export type ExecutionerInsertInput = z.infer<typeof ExecutionerInsertSchema>;
  
++export type ExecutionerRowInput = z.infer<typeof ExecutionerRowSchema>;
++export type ExecutionerInsertInput = z.infer<typeof ExecutionerInsertSchema>;
++

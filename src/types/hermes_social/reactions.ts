@@ -2,7 +2,7 @@
 // FILE: types/hermes_social/reactions.ts
 // HANDLING: full_crud
 // DEITY: hermes_social
-// GENERATED: 2026-04-05T19:46:33.083Z
+// GENERATED: 2026-04-05T21:55:13.051Z
 // SOURCE: database.types.ts lines 3729-3797
 // =====================================================
 
@@ -30,14 +30,14 @@ export type ReactionsUpdate = Database['public']['Tables']['reactions']['Update'
  * Public view of reactions
  */
 export interface PublicReactions {
-  comment_id: string | null
-  created_at: string | null
-  id: string
-  post_id: string | null
-  reaction_type: ReactionType
-  reply_id: string | null
-  user_id: string
-  weight: number | null
+  comment_id: string | null;
+  created_at: string | null;
+  id: string;
+  post_id: string | null;
+  reaction_type: ReactionType;
+  reply_id: string | null;
+  user_id: string;
+  weight: number | null;
 }
 
 /**

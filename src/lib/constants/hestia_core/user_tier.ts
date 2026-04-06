@@ -11,4 +11,4 @@ export const USER_TIER = {
   COUNCIL: 'council',
 } as const;
 
-export type UserTier = typeof USER_TIER[keyof typeof USER_TIER];
+type UserTier = typeof USER_TIER[keyof typeof USER_TIER];

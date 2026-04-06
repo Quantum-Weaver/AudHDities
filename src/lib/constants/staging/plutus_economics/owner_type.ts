@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/owner_type.ts
-// GENERATED: 2026-04-05T19:46:33.332Z
+// GENERATED: 2026-04-05T21:55:13.243Z
 // SOURCE: Constants.public.Enums.owner_type
 // =====================================================
 

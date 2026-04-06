@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/profiles.ts
 // HANDLING: full_crud
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:33.065Z
+// GENERATED: 2026-04-05T21:55:13.036Z
 // SOURCE: database.types.ts lines 3393-3455
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Database } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 export type UserStatus = Database['public']['Enums']['user_status'];
 export type UserTier = Database['public']['Enums']['user_tier'];
 
@@ -33,23 +33,23 @@ export type ProfilesUpdate = Database['public']['Tables']['profiles']['Update'];
  * Excludes sensitive fields: email
  */
 export interface PublicProfiles {
-  avatar_url: string | null
-  banner_url: string | null
-  bio: string | null
-  created_at: string | null
-  display_name: string | null
-  id: string
-  is_admin: boolean | null
-  is_creator: boolean | null
-  is_quantum_weaver: boolean | null
-  is_vendor: boolean | null
-  last_active: string | null
-  primary_house: CouncilHouse | null
-  sovereignty_score: number | null
-  status: UserStatus | null
-  updated_at: string | null
-  user_tier: UserTier | null
-  username: string | null
+  avatar_url: string | null;
+  banner_url: string | null;
+  bio: string | null;
+  created_at: string | null;
+  display_name: string | null;
+  id: string;
+  is_admin: boolean | null;
+  is_creator: boolean | null;
+  is_quantum_weaver: boolean | null;
+  is_vendor: boolean | null;
+  last_active: string | null;
+  primary_house: CouncilHouse | null;
+  sovereignty_score: number | null;
+  status: UserStatus | null;
+  updated_at: string | null;
+  user_tier: UserTier | null;
+  username: string | null;
 }
 
 /**

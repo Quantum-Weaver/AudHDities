@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/vendor_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:33.181Z
+// GENERATED: 2026-04-05T21:55:13.125Z
 // SOURCE: database.types.ts lines 5496-5579
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 
 export type BusinessType = Database['public']['Enums']['business_type'];
-export type VerificationStatus = Database['public']['Enums']['verification_status'];
+type VerificationStatus = Database['public']['Enums']['verification_status'];
 
 export type VendorProfilesRow = Database['public']['Tables']['vendor_profiles']['Row'];
 export type VendorProfilesInsert = Database['public']['Tables']['vendor_profiles']['Insert'];

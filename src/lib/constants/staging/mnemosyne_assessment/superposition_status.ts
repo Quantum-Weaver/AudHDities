@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/superposition_status.ts
-// GENERATED: 2026-04-05T19:46:33.389Z
+// GENERATED: 2026-04-05T21:48:03.739Z
 // SOURCE: Constants.public.Enums.superposition_status
 // =====================================================
 

@@ -1,7 +1,7 @@
 /* @/lib/utils/sovereignty/score-calculator.ts */
-import type { Profile } from '@/types/supabase/tables/profiles';
+import type { PublicProfiles } from '@/types/hestia_core/profiles';
 
-export const calculateSovereigntyScore = (profile: Partial<Profile>): number => {
+export const calculateSovereigntyScore = (profile: Partial<PublicProfiles>): number => {
   let score = 0;
   
   // Base score for profile completeness

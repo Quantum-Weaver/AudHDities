@@ -2,7 +2,7 @@
 // FILE: types/mnemosyne_assessment/ontology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne_assessment
-// GENERATED: 2026-04-05T19:46:33.044Z
+// GENERATED: 2026-04-05T21:55:13.019Z
 // SOURCE: database.types.ts lines 2934-3004
 // =====================================================
 
@@ -30,17 +30,17 @@ export type OntologyUpdate = Database['public']['Tables']['ontology']['Update'];
  * Public view of ontology
  */
 export interface PublicOntology {
-  approved_by: string | null
-  created_at: string | null
-  created_by: string | null
-  description: string | null
-  id: string
-  is_approved: boolean | null
-  object_id: string
-  predicate: OntologyPredicate
-  subject_id: string
-  updated_at: string | null
-  weight: number | null
+  approved_by: string | null;
+  created_at: string | null;
+  created_by: string | null;
+  description: string | null;
+  id: string;
+  is_approved: boolean | null;
+  object_id: string;
+  predicate: OntologyPredicate;
+  subject_id: string;
+  updated_at: string | null;
+  weight: number | null;
 }
 
 /**

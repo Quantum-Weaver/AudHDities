@@ -1,8 +1,97 @@
---- a/src\types\hephaestus_infrastructure\file_type_standards.ts
-+++ b/src\types\hephaestus_infrastructure\file_type_standards.ts (staged)
-@@ -5,95 +5,95 @@
--// GENERATED: 2026-04-05T19:30:01.200Z
-+// GENERATED: 2026-04-05T19:46:33.000Z
- // SOURCE: database.types.ts lines 2092-2154
+--- a/src\lib\validators\file_type_standards.ts
++++ b/src\lib\validators\file_type_standards.ts (staged)
+@@ -14,47 +14,49 @@
+-  description: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  display_name: z.string(),
++  description: z.string().nullable(),
+-  emoji: z.string(),
++  display_name: z.string(),
+-  example_code: z.string().nullable(),
++  emoji: z.string(),
+-  example_path: z.string().nullable(),
++  example_code: z.string().nullable(),
+-  file_type: z.string(),
++  example_path: z.string().nullable(),
+-  id: z.string(),
++  file_type: z.string(),
+-  must_handle_errors: z.boolean().nullable(),
++  id: z.string(),
+-  must_have_interfaces: z.boolean().nullable(),
++  must_handle_errors: z.boolean().nullable(),
+-  must_have_loading_state: z.boolean().nullable(),
++  must_have_interfaces: z.boolean().nullable(),
+-  must_have_props: z.boolean().nullable(),
++  must_have_loading_state: z.boolean().nullable(),
+-  prohibited_patterns: z.any().nullable(),
++  must_have_props: z.boolean().nullable(),
+-  required_imports: z.any().nullable(),
++  prohibited_patterns: z.any().nullable(),
+-  required_patterns: z.any().nullable(),
++  required_imports: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  required_patterns: z.any().nullable(),
+-  validation_description: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  validation_query: z.string().nullable(),
++  validation_description: z.string().nullable(),
+-});
++  validation_query: z.string().nullable(),
+-
++});
+-export const FileTypeStandardsInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const FileTypeStandardsInsertSchema = z.object({
+-  description: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  display_name: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  emoji: z.string().optional(),
++  description: z.string().nullable().optional(),
+-  example_code: z.string().nullable().optional(),
++  display_name: z.string().optional(),
+-  example_path: z.string().nullable().optional(),
++  emoji: z.string().optional(),
+-  file_type: z.string().optional(),
++  example_code: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  example_path: z.string().nullable().optional(),
+-  must_handle_errors: z.boolean().nullable().optional(),
++  file_type: z.string().optional(),
+-  must_have_interfaces: z.boolean().nullable().optional(),
++  id: z.string().optional(),
+-  must_have_loading_state: z.boolean().nullable().optional(),
++  must_handle_errors: z.boolean().nullable().optional(),
+-  must_have_props: z.boolean().nullable().optional(),
++  must_have_interfaces: z.boolean().nullable().optional(),
+-  prohibited_patterns: z.any().nullable().optional(),
++  must_have_loading_state: z.boolean().nullable().optional(),
+-  required_imports: z.any().nullable().optional(),
++  must_have_props: z.boolean().nullable().optional(),
+-  required_patterns: z.any().nullable().optional(),
++  prohibited_patterns: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  required_imports: z.any().nullable().optional(),
+-  validation_description: z.string().nullable().optional(),
++  required_patterns: z.any().nullable().optional(),
+-  validation_query: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-});
++  validation_description: z.string().nullable().optional(),
+-
++  validation_query: z.string().nullable().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type FileTypeStandardsRowInput = z.infer<typeof FileTypeStandardsRowSchema>;
++// =====================================================
+-export type FileTypeStandardsInsertInput = z.infer<typeof FileTypeStandardsInsertSchema>;
  
++export type FileTypeStandardsRowInput = z.infer<typeof FileTypeStandardsRowSchema>;
++export type FileTypeStandardsInsertInput = z.infer<typeof FileTypeStandardsInsertSchema>;
++

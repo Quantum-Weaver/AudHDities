@@ -2,7 +2,7 @@
 +++ b/src\lib\constants\plutus_economics\bid_type.ts (staged)
 @@ -3,12 +3,12 @@
 -// GENERATED: 2026-04-05T18:10:53.150Z
-+// GENERATED: 2026-04-05T19:46:33.209Z
++// GENERATED: 2026-04-05T21:55:13.143Z
  // SOURCE: Constants.public.Enums.bid_type
  // =====================================================
  

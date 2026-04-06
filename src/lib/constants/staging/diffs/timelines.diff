@@ -1,8 +1,61 @@
---- a/src\types\athena_gamification\timelines.ts
-+++ b/src\types\athena_gamification\timelines.ts (staged)
-@@ -5,74 +5,74 @@
--// GENERATED: 2026-04-05T19:30:01.330Z
-+// GENERATED: 2026-04-05T19:46:33.160Z
- // SOURCE: database.types.ts lines 5114-5157
+--- a/src\lib\validators\timelines.ts
++++ b/src\lib\validators\timelines.ts (staged)
+@@ -14,29 +14,31 @@
+-  description: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  event_id: z.string().nullable(),
++  description: z.string().nullable(),
+-  event_type: z.any(),
++  event_id: z.string().nullable(),
+-  id: z.string(),
++  event_type: z.any(),
+-  occurred_at: z.string(),
++  id: z.string(),
+-  significance_score: z.number().nullable(),
++  occurred_at: z.string(),
+-  title: z.string(),
++  significance_score: z.number().nullable(),
+-  user_id: z.string(),
++  title: z.string(),
+-});
++  user_id: z.string(),
+-
++});
+-export const TimelinesInsertSchema = z.object({
++
+-  created_at: z.string().nullable().optional(),
++export const TimelinesInsertSchema = z.object({
+-  description: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  event_id: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  event_type: z.any().optional(),
++  description: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  event_id: z.string().nullable().optional(),
+-  occurred_at: z.string().optional(),
++  event_type: z.any().optional(),
+-  significance_score: z.number().nullable().optional(),
++  id: z.string().optional(),
+-  title: z.string().optional(),
++  occurred_at: z.string().optional(),
+-  user_id: z.string().optional(),
++  significance_score: z.number().nullable().optional(),
+-});
++  title: z.string().optional(),
+-
++  user_id: z.string().optional(),
+-// =====================================================
++});
+-// TYPE INFERENCE
++
  // =====================================================
+-
++// TYPE INFERENCE
+-export type TimelinesRowInput = z.infer<typeof TimelinesRowSchema>;
++// =====================================================
+-export type TimelinesInsertInput = z.infer<typeof TimelinesInsertSchema>;
  
++export type TimelinesRowInput = z.infer<typeof TimelinesRowSchema>;
++export type TimelinesInsertInput = z.infer<typeof TimelinesInsertSchema>;
++

@@ -2,7 +2,7 @@
 // FILE: types/plutus_economics/advertising.ts
 // HANDLING: full_crud
 // DEITY: plutus_economics
-// GENERATED: 2026-04-05T19:46:32.907Z
+// GENERATED: 2026-04-05T21:55:12.910Z
 // SOURCE: database.types.ts lines 314-372
 // =====================================================
 
@@ -32,20 +32,20 @@ export type AdvertisingUpdate = Database['public']['Tables']['advertising']['Upd
  * Public view of advertising
  */
 export interface PublicAdvertising {
-  advertiser_id: string
-  bid_amount_cents: number
-  bid_type: BidType
-  budget_cents: number
-  campaign_name: string
-  created_at: string | null
-  end_date: string | null
-  id: string
-  spent_cents: number | null
-  start_date: string | null
-  status: CampaignStatus | null
-  targeting_criteria: Json | null
-  updated_at: string | null
-  user_share_percent: number | null
+  advertiser_id: string;
+  bid_amount_cents: number;
+  bid_type: BidType;
+  budget_cents: number;
+  campaign_name: string;
+  created_at: string | null;
+  end_date: string | null;
+  id: string;
+  spent_cents: number | null;
+  start_date: string | null;
+  status: CampaignStatus | null;
+  targeting_criteria: Json | null;
+  updated_at: string | null;
+  user_share_percent: number | null;
 }
 
 /**

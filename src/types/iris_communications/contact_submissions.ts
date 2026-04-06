@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/contact_submissions.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:32.953Z
+// GENERATED: 2026-04-05T21:55:12.948Z
 // SOURCE: database.types.ts lines 1109-1187
 // =====================================================
 
@@ -32,21 +32,21 @@ export type ContactSubmissionsUpdate = Database['public']['Tables']['contact_sub
  * Excludes sensitive fields: email
  */
 export interface PublicContactSubmissions {
-  assigned_to: string | null
-  created_at: string | null
-  direction: ContactDirection | null
-  id: string
-  message: string
-  message_id: string | null
-  name: string
-  notes: string | null
-  parent_id: string | null
-  resolved_at: string | null
-  status: ContactStatus | null
-  subject: string
-  thread_id: string | null
-  updated_at: string | null
-  user_id: string | null
+  assigned_to: string | null;
+  created_at: string | null;
+  direction: ContactDirection | null;
+  id: string;
+  message: string;
+  message_id: string | null;
+  name: string;
+  notes: string | null;
+  parent_id: string | null;
+  resolved_at: string | null;
+  status: ContactStatus | null;
+  subject: string;
+  thread_id: string | null;
+  updated_at: string | null;
+  user_id: string | null;
 }
 
 /**

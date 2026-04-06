@@ -2,7 +2,7 @@
 // FILE: types/athena_gamification/learning_paths.ts
 // HANDLING: full_crud
 // DEITY: athena_gamification
-// GENERATED: 2026-04-05T19:46:33.015Z
+// GENERATED: 2026-04-05T21:55:12.998Z
 // SOURCE: database.types.ts lines 2358-2420
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Database } from '@/types/supabase/database.types';
 // =====================================================
 
 export type DifficultyLevel = Database['public']['Enums']['difficulty_level'];
-export type CouncilHouse = Database['public']['Enums']['council_house'];
+type CouncilHouse = Database['public']['Enums']['council_house'];
 
 export type LearningPathsRow = Database['public']['Tables']['learning_paths']['Row'];
 export type LearningPathsInsert = Database['public']['Tables']['learning_paths']['Insert'];
@@ -31,19 +31,19 @@ export type LearningPathsUpdate = Database['public']['Tables']['learning_paths']
  * Public view of learning_paths
  */
 export interface PublicLearningPaths {
-  cover_image: string | null
-  created_at: string | null
-  creator_id: string
-  description: string
-  difficulty: DifficultyLevel
-  estimated_duration_hours: number | null
-  house: CouncilHouse | null
-  id: string
-  is_published: boolean | null
-  prerequisite_path_id: string | null
-  slug: string
-  title: string
-  updated_at: string | null
+  cover_image: string | null;
+  created_at: string | null;
+  creator_id: string;
+  description: string;
+  difficulty: DifficultyLevel;
+  estimated_duration_hours: number | null;
+  house: CouncilHouse | null;
+  id: string;
+  is_published: boolean | null;
+  prerequisite_path_id: string | null;
+  slug: string;
+  title: string;
+  updated_at: string | null;
 }
 
 /**

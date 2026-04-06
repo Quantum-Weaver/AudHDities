@@ -2,7 +2,7 @@
 // FILE: types/iris_communications/localization.ts
 // HANDLING: full_crud
 // DEITY: iris_communications
-// GENERATED: 2026-04-05T19:46:33.027Z
+// GENERATED: 2026-04-05T21:55:13.007Z
 // SOURCE: database.types.ts lines 2575-2631
 // =====================================================
 
@@ -24,17 +24,17 @@ export type LocalizationUpdate = Database['public']['Tables']['localization']['U
  * Public view of localization
  */
 export interface PublicLocalization {
-  approved_by: string | null
-  context: string | null
-  created_at: string | null
-  id: string
-  is_approved: boolean | null
-  language_code: string
-  plural_form: number | null
-  resource_key: string
-  translation: string
-  updated_at: string | null
-  version: number | null
+  approved_by: string | null;
+  context: string | null;
+  created_at: string | null;
+  id: string;
+  is_approved: boolean | null;
+  language_code: string;
+  plural_form: number | null;
+  resource_key: string;
+  translation: string;
+  updated_at: string | null;
+  version: number | null;
 }
 
 /**

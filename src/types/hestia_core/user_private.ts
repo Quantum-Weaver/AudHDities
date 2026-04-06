@@ -2,7 +2,7 @@
 // FILE: types/hestia_core/user_private.ts
 // HANDLING: full_crud
 // DEITY: hestia_core
-// GENERATED: 2026-04-05T19:46:33.175Z
+// GENERATED: 2026-04-05T21:55:13.120Z
 // SOURCE: database.types.ts lines 5392-5441
 // =====================================================
 
@@ -25,17 +25,17 @@ export type UserPrivateUpdate = Database['public']['Tables']['user_private']['Up
  * Public view of user_private
  */
 export interface PublicUserPrivate {
-  address: Json | null
-  created_at: string | null
-  crisis_plan: string | null
-  date_of_birth: string | null
-  emergency_contact: Json | null
-  government_id: string | null
-  id: string
-  legal_name: string | null
-  notes: string | null
-  phone_number: string | null
-  updated_at: string | null
+  address: Json | null;
+  created_at: string | null;
+  crisis_plan: string | null;
+  date_of_birth: string | null;
+  emergency_contact: Json | null;
+  government_id: string | null;
+  id: string;
+  legal_name: string | null;
+  notes: string | null;
+  phone_number: string | null;
+  updated_at: string | null;
 }
 
 /**
