@@ -16,7 +16,7 @@ export interface GenerateApiRoutesOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  outputBase?: string;  // default: 'src/app/api'
+  outputBase?: string;
 }
 
 /**
@@ -29,8 +29,14 @@ function generateGetListRoute(tableName: string, pascalName: string): string {
 
 import { NextRequest } from 'next/server';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
-import { getOptionalUser } from '@/lib/api/auth';
+import { 
+  successResponse, 
+  errorResponse, 
+  getPaginationParams, 
+  getFilters, 
+  getSortParams,
+  getOptionalUser 
+} from '@/lib/api/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -40,17 +46,14 @@ export async function GET(request: NextRequest) {
     const filters = getFilters(request.nextUrl);
     const { column: sortColumn, ascending } = getSortParams(request.nextUrl);
     
-    let query = supabase.from('${tableName}').select('*', { count: 'exact' });
+    let query = supabase.from('${tableName}' as any).select('*', { count: 'exact' });
     
-    // Apply filters
     Object.entries(filters).forEach(([key, value]) => {
       query = query.eq(key, value);
     });
     
-    // Apply sorting
     query = query.order(sortColumn, { ascending });
     
-    // Apply pagination
     const from = (page - 1) * limit;
     const to = from + limit - 1;
     query = query.range(from, to);
@@ -99,7 +102,7 @@ export async function GET(
     const supabase = await createApiSupabase();
     
     const { data, error } = await supabase
-      .from('${tableName}')
+      .from('${tableName}' as any)
       .select('*')
       .eq('id', id)
       .single();
@@ -130,13 +133,17 @@ function generatePostRoute(tableName: string, pascalName: string): string {
 
 import { NextRequest } from 'next/server';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
+import { 
+  successResponse, 
+  errorResponse, 
+  unauthorized,
+  getAuthenticatedUser 
+} from '@/lib/api/auth';
 import { ${pascalName}InsertSchema } from '@/lib/validators/${tableName}';
 
 export async function POST(request: NextRequest) {
   try {
-    const { userId, success, error: authError, status } = await getAuthenticatedUser(request);
+    const { userId, success } = await getAuthenticatedUser(request);
     if (!success) {
       return unauthorized();
     }
@@ -146,7 +153,7 @@ export async function POST(request: NextRequest) {
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
-      .from('${tableName}')
+      .from('${tableName}' as any)
       .insert({ ...validated, created_by: userId })
       .select()
       .single();
@@ -154,9 +161,9 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
     
     return successResponse(data, 201);
-  } catch (error) {
+  } catch (error: any) {
     if (error.name === 'ZodError') {
-      return errorResponse('Validation failed', 400, error.errors);
+      return errorResponse('Validation failed', 400, error.issues);
     }
     console.error('Error creating ${tableName}:', error);
     return errorResponse('Failed to create ${tableName}', 500);
@@ -175,8 +182,16 @@ function generatePutRoute(tableName: string, pascalName: string): string {
 
 import { NextRequest } from 'next/server';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
+import { 
+  successResponse, 
+  errorResponse, 
+  unauthorized, 
+  notFound, 
+  forbidden,
+  getAuthenticatedUser,
+  checkOwnership,
+  isAdmin
+} from '@/lib/api/auth';
 import { ${pascalName}InsertSchema } from '@/lib/validators/${tableName}';
 
 export async function PUT(
@@ -185,12 +200,11 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-    const { userId, success, error: authError, status } = await getAuthenticatedUser(request);
+    const { userId, success } = await getAuthenticatedUser(request);
     if (!success) {
       return unauthorized();
     }
     
-    // Check ownership or admin
     const ownsRecord = await checkOwnership(userId, '${tableName}', id);
     const admin = await isAdmin(userId);
     if (!ownsRecord && !admin) {
@@ -202,7 +216,7 @@ export async function PUT(
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
-      .from('${tableName}')
+      .from('${tableName}' as any)
       .update(validated)
       .eq('id', id)
       .select()
@@ -216,9 +230,9 @@ export async function PUT(
     }
     
     return successResponse(data);
-  } catch (error) {
+  } catch (error: any) {
     if (error.name === 'ZodError') {
-      return errorResponse('Validation failed', 400, error.errors);
+      return errorResponse('Validation failed', 400, error.issues);
     }
     console.error('Error updating ${tableName}:', error);
     return errorResponse('Failed to update ${tableName}', 500);
@@ -237,8 +251,16 @@ function generateDeleteRoute(tableName: string, pascalName: string): string {
 
 import { NextRequest } from 'next/server';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
+import { 
+  successResponse, 
+  errorResponse, 
+  unauthorized, 
+  notFound, 
+  forbidden,
+  getAuthenticatedUser,
+  checkOwnership,
+  isAdmin
+} from '@/lib/api/auth';
 
 export async function DELETE(
   request: NextRequest,
@@ -246,12 +268,11 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const { userId, success, error: authError, status } = await getAuthenticatedUser(request);
+    const { userId, success } = await getAuthenticatedUser(request);
     if (!success) {
       return unauthorized();
     }
     
-    // Check ownership or admin
     const ownsRecord = await checkOwnership(userId, '${tableName}', id);
     const admin = await isAdmin(userId);
     if (!ownsRecord && !admin) {
@@ -260,7 +281,7 @@ export async function DELETE(
     
     const supabase = await createApiSupabase();
     const { error } = await supabase
-      .from('${tableName}')
+      .from('${tableName}' as any)
       .delete()
       .eq('id', id);
     
@@ -290,8 +311,7 @@ function generateSpecialRoute(tableName: string, pascalName: string, specialType
 
 import { NextRequest } from 'next/server';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
+import { successResponse, errorResponse, unauthorized, getAuthenticatedUser } from '@/lib/api/auth';
 
 export async function POST(
   request: NextRequest,
@@ -306,7 +326,6 @@ export async function POST(
     const body = await request.json();
     const supabase = await createApiSupabase();
     
-    // Special route logic for ${specialType}
     const { data, error } = await supabase
       .rpc('${tableName}_${specialType}', { ...body, p_user_id: userId });
     
