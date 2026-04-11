@@ -13,7 +13,7 @@ export default {
       // ============================================================================
       colors: {
         // Core Quantum Palette
-        'quantum-purple': '#8B5CF6',
+        'quantum-purple': '#6C5CE7',
         'arcane-gold': '#F59E0B', 
         'neurospark': '#22D3EE',      // Fixed: was '#22d3ee' (inconsistent casing)
         'torch-gold': '#F59E0B',      // Fixed: was '#f59e0b'
@@ -22,7 +22,7 @@ export default {
         'magic-rune': '#00FF87',
         
         // Surface & Text Colors
-        'star-dust': '#F3F4F6',
+        'star-dust': '#E0E0E0',
         'deep-space': '#1F2937',
         'surface': '#374151',
         'obsidian': '#1F2937',
@@ -81,7 +81,9 @@ export default {
         'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'wave': 'wave 1.2s ease-in-out infinite',
         'wave-slow': 'wave 1.8s ease-in-out infinite',
-        'wave-fast': 'wave 0.8s ease-in-out infinite',        
+        'wave-fast': 'wave 0.8s ease-in-out infinite',
+        'float-safe': 'float 6s ease-in-out infinite',
+        'float-reduced': 'none',
       },
 
       keyframes: {
@@ -169,5 +171,11 @@ export default {
       },
     },
   },
+  safelist: [
+  // Ensure these animation classes are not purged
+  'animate-float', 'animate-glow', 'animate-scan', 'animate-glitch',
+  'animate-cosmic-float', 'animate-spell-cast', 'animate-rune-pulse',
+  'animate-tome-levitate', 'animate-parchment-crackle'
+  ],
   plugins: [],
 }

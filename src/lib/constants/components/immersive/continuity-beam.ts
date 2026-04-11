@@ -1,190 +1,346 @@
 // src/lib/constants/components/immersive/continuity-beam.ts
 // ============================================================================
-// CONTINUITY BEAM CONSTANTS - CHANNELING FROM VARIANTS
+// CONTINUITY BEAM CONSTANTS - FULLY INTEGRATED
+// Channeling from consciousness, positioning, motion, and effects
 // ============================================================================
 
-import { QUANTUM_GRADIENTS } from '@/lib/constants/cosmic/colors';
+import { GRADIENTS, GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
+import { BEAM_ORIGINS, type BeamOrigin } from '@/lib/constants/cosmic/positioning';
+import type { BeamIntensityLevel, SessionState } from '@/lib/constants/cosmic/consciousness';
+import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
+
+// ============================================================================
+// BEAM VARIANTS - Semantic types for different contexts
+// ============================================================================
+
+export const BEAM_VARIANTS = {
+  /** Memory preservation - session continuity, data retention */
+  MEMORY: 'memory',
+  /** Emotional context - mood-based, responsive to user state */
+  EMOTIONAL: 'emotional',
+  /** Quantum entanglement - cross-domain connection, deep awareness */
+  QUANTUM: 'quantum',
+} as const;
+
+export type BeamVariant = typeof BEAM_VARIANTS[keyof typeof BEAM_VARIANTS];
 
 // Export individual variant constants for direct use
-export const BEAM_SESSION_PRESERVATION = 'session_preservation';
-export const BEAM_EMOTIONAL_CONTEXT = 'emotional_context';
-export const BEAM_QUANTUM_ENTANGLEMENT = 'quantum_entanglement';
+export const BEAM_SESSION_PRESERVATION = BEAM_VARIANTS.MEMORY;
+export const BEAM_EMOTIONAL_CONTEXT = BEAM_VARIANTS.EMOTIONAL;
+export const BEAM_QUANTUM_ENTANGLEMENT = BEAM_VARIANTS.QUANTUM;
 
 // ============================================================================
-// COMPLETE ENVIRONMENT BEAM COLORS - ALL 32 KEYS MAPPED
+// BEAM INTENSITY LEVELS - Aligned with consciousness system
 // ============================================================================
+
+export const BEAM_INTENSITIES = {
+  LOW: 'low' as BeamIntensityLevel,
+  MEDIUM: 'medium' as BeamIntensityLevel,
+  HIGH: 'high' as BeamIntensityLevel,
+  QUANTUM: 'quantum' as BeamIntensityLevel,
+} as const;
+
+export type BeamIntensity = typeof BEAM_INTENSITIES[keyof typeof BEAM_INTENSITIES];
+
+// ============================================================================
+// BEAM DIRECTIONS - Sweep paths
+// ============================================================================
+
+export const BEAM_DIRECTIONS = {
+  /** Horizontal sweep left-to-right */
+  HORIZONTAL: 'horizontal' as const,
+  /** Vertical sweep top-to-bottom */
+  VERTICAL: 'vertical' as const,
+  /** Radial outward from center */
+  RADIAL: 'radial' as const,
+  /** Diagonal top-left to bottom-right */
+  DIAGONAL: 'diagonal' as const,
+  /** Diagonal bottom-left to top-right */
+  DIAGONAL_REVERSE: 'diagonalReverse' as const,
+} as const;
+
+export type BeamDirection = typeof BEAM_DIRECTIONS[keyof typeof BEAM_DIRECTIONS];
+
+// ============================================================================
+// BEAM COLORS - Environment to gradient mapping (32 environments)
+// ============================================================================
+
 export const BEAM_COLORS = {
   // Council Chamber - Quantum governance energy
-  council: QUANTUM_GRADIENTS.councilDomain,
-  admin: QUANTUM_GRADIENTS.councilDomain,
-  creator: QUANTUM_GRADIENTS.quantumWeaverGradient,
+  council: GRADIENTS.councilDomain,
+  admin: GRADIENTS.councilDomain,
+  creator: GRADIENTS.quantumWeaver,
   
   // Library - Knowledge preservation
-  library: QUANTUM_GRADIENTS.libraryDomain,
-  docs: QUANTUM_GRADIENTS.codexGradient,
-  ecosystem: QUANTUM_GRADIENTS.libraryDomain,
+  library: GRADIENTS.libraryDomain,
+  docs: GRADIENTS.codex,
+  ecosystem: GRADIENTS.libraryDomain,
   
   // Community - Collective consciousness
-  community: QUANTUM_GRADIENTS.communityDomain,
-  business: QUANTUM_GRADIENTS.communityDomain,
-  plan: QUANTUM_GRADIENTS.communityDomain,
-  marketplace: QUANTUM_GRADIENTS.communityDomain,
+  community: GRADIENTS.communityDomain,
+  business: GRADIENTS.communityDomain,
+  plan: GRADIENTS.communityDomain,
+  marketplace: GRADIENTS.communityDomain,
   
   // Music - Creative expression
-  music: QUANTUM_GRADIENTS.musicDomain,
-  timer: QUANTUM_GRADIENTS.creativeGradient,
+  music: GRADIENTS.musicDomain,
+  timer: GRADIENTS.creative,
   
   // Origin - Source energy
-  origin: QUANTUM_GRADIENTS.mnemosyneGradient,
-  questionaire: QUANTUM_GRADIENTS.quantumWeaverGradient,
-  progress: QUANTUM_GRADIENTS.transformativeEnergy,
+  origin: GRADIENTS.mnemosyne,
+  questionaire: GRADIENTS.quantumWeaver,
+  progress: GRADIENTS.transformativeEnergy,
   
   // Support - Nurturing sanctuary
-  support: QUANTUM_GRADIENTS.supportDomain,
-  contact: QUANTUM_GRADIENTS.supportDomain,
-  anon: QUANTUM_GRADIENTS.supportDomain,
+  support: GRADIENTS.supportDomain,
+  contact: GRADIENTS.supportDomain,
+  anon: GRADIENTS.supportDomain,
   
   // Home - Fantasy sanctuary (WoW style)
-  home: QUANTUM_GRADIENTS.alchemistGradient,
-  gateway: QUANTUM_GRADIENTS.gatekeeperGradient,
-  learn: QUANTUM_GRADIENTS.focusGradient,
-  seasonal: QUANTUM_GRADIENTS.elemental,
+  home: GRADIENTS.alchemist,
+  gateway: GRADIENTS.gatekeeper,
+  learn: GRADIENTS.focused,
+  seasonal: GRADIENTS.elemental,
   
   // Observatory - Cosmic vision
-  observatory: QUANTUM_GRADIENTS.cosmicDomain,
-  about: QUANTUM_GRADIENTS.cosmicDomain,
-  vision: QUANTUM_GRADIENTS.prideProgress,
+  observatory: GRADIENTS.cosmicDomain,
+  about: GRADIENTS.cosmicDomain,
+  vision: GRADIENTS.prideProgress,
   
   // Architecture - System foundations
-  architecture: QUANTUM_GRADIENTS.architectureDomain,
-  dashboard: QUANTUM_GRADIENTS.quantumDomain,
-  edit: QUANTUM_GRADIENTS.architectureDomain,
-  cure: QUANTUM_GRADIENTS.hekateGradient,
+  architecture: GRADIENTS.architectureDomain,
+  dashboard: GRADIENTS.quantumDomain,
+  edit: GRADIENTS.architectureDomain,
+  cure: GRADIENTS.hekate,
   
   // Invitation - Threshold portal
-  invitation: QUANTUM_GRADIENTS.bifrostDomain,
-  transparency: QUANTUM_GRADIENTS.aethelredGradient,
+  invitation: GRADIENTS.bifrostDomain,
+  transparency: GRADIENTS.aethelred,
   
   // Lounge - Social quantum space
-  lounge: QUANTUM_GRADIENTS.bifrostDomain
+  lounge: GRADIENTS.bifrostDomain,
+} as const;
+
+export type BeamColorKey = keyof typeof BEAM_COLORS;
+
+// ============================================================================
+// BEAM CONFIGURATIONS - Complete beam setup
+// ============================================================================
+
+export interface BeamConfig {
+  /** Gradient to use for the beam */
+  gradient: string;
+  /** Intensity level */
+  intensity: BeamIntensity;
+  /** Sweep direction */
+  direction: BeamDirection;
+  /** Duration of one sweep cycle (seconds) */
+  duration: number;
+  /** Glow effect to apply */
+  glow: string;
+  /** Whether the beam is active */
+  active: boolean;
+  /** Speed multiplier (for user-specific adjustments) */
+  speedMultiplier: number;
+  /** Glow intensity multiplier */
+  glowMultiplier: number;
+}
+
+// ============================================================================
+// ENVIRONMENT-SPECIFIC BEAM CONFIGURATIONS
+// ============================================================================
+
+export const ENVIRONMENT_BEAM_CONFIGS: Partial<Record<BeamColorKey, Omit<BeamConfig, 'gradient'>>> = {
+  // Council spaces - quantum intensity
+  council: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 4, glow: GLOW_EFFECTS.quantum, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  admin: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 4, glow: GLOW_EFFECTS.quantum, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  creator: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 3.5, glow: GLOW_EFFECTS.quantum, active: true, speedMultiplier: 1, glowMultiplier: 1 },
   
-} as const;
+  // Creative spaces - high intensity
+  music: { intensity: BEAM_INTENSITIES.HIGH, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 3, glow: GLOW_EFFECTS.pantheonDomain, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  lounge: { intensity: BEAM_INTENSITIES.HIGH, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 3.5, glow: GLOW_EFFECTS.bifrostDomain, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  
+  // Support spaces - gentle intensity
+  support: { intensity: BEAM_INTENSITIES.MEDIUM, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 5, glow: GLOW_EFFECTS.neurospark, active: true, speedMultiplier: 0.8, glowMultiplier: 0.7 },
+  contact: { intensity: BEAM_INTENSITIES.MEDIUM, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 5, glow: GLOW_EFFECTS.emergency, active: true, speedMultiplier: 0.8, glowMultiplier: 0.7 },
+  anon: { intensity: BEAM_INTENSITIES.LOW, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 6, glow: GLOW_EFFECTS.voidDomain, active: false, speedMultiplier: 0.5, glowMultiplier: 0.5 },
+  
+  // Knowledge spaces - medium intensity
+  library: { intensity: BEAM_INTENSITIES.MEDIUM, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 5, glow: GLOW_EFFECTS.libraryDomain, active: true, speedMultiplier: 0.9, glowMultiplier: 0.8 },
+  docs: { intensity: BEAM_INTENSITIES.MEDIUM, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 5, glow: GLOW_EFFECTS.libraryDomain, active: true, speedMultiplier: 0.9, glowMultiplier: 0.8 },
+  ecosystem: { intensity: BEAM_INTENSITIES.MEDIUM, direction: BEAM_DIRECTIONS.HORIZONTAL, duration: 5, glow: GLOW_EFFECTS.libraryDomain, active: true, speedMultiplier: 0.9, glowMultiplier: 0.8 },
+  
+  // Vision spaces - quantum intensity
+  origin: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 4, glow: GLOW_EFFECTS.quantumDomain, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  vision: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 4, glow: GLOW_EFFECTS.cosmicDomain, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+  observatory: { intensity: BEAM_INTENSITIES.QUANTUM, direction: BEAM_DIRECTIONS.DIAGONAL, duration: 4, glow: GLOW_EFFECTS.cosmicDomain, active: true, speedMultiplier: 1, glowMultiplier: 1 },
+};
 
-// Semantic beam types for different contexts
-export const BEAM_TYPES = {
-  MEMORY: 'session_preservation',
-  EMOTION: 'emotional_context',
-  CONNECTION: 'quantum_entanglement',
-} as const;
+// ============================================================================
+// DEFAULT BEAM CONFIGURATION
+// ============================================================================
 
-// Beam configuration presets
-export const BEAM_CONFIGS = {
-  SESSION: 'session_preservation',
-  EMOTIONAL: 'emotional_context',
-  QUANTUM: 'quantum_entanglement',
-} as const;
+export const DEFAULT_BEAM_CONFIG: BeamConfig = {
+  gradient: BEAM_COLORS.home,
+  intensity: BEAM_INTENSITIES.MEDIUM,
+  direction: BEAM_DIRECTIONS.HORIZONTAL,
+  duration: 3,
+  glow: GLOW_EFFECTS.quantum,
+  active: true,
+  speedMultiplier: 1,
+  glowMultiplier: 1,
+};
 
-// Beam glow configurations
-export const BEAM_GLOWS = {
-  FOCUSED: 'session_preservation',
-  GENTLE: 'emotional_context',
-  QUANTUM: 'quantum_entanglement',
-} as const;
+// ============================================================================
+// BEAM CONFIGURATION UTILITIES - With consciousness integration
+// ============================================================================
 
-// Beam animation configurations
-export const BEAM_ANIMATIONS = {
-  quantumSweep: {
+/** Get full beam configuration for an environment, adjusted by session state */
+export function getBeamConfig(
+  environment: BeamColorKey,
+  sessionState?: SessionState
+): BeamConfig {
+  // Start with environment-specific config or default
+  const envConfig = ENVIRONMENT_BEAM_CONFIGS[environment] || {
+    intensity: DEFAULT_BEAM_CONFIG.intensity,
+    direction: DEFAULT_BEAM_CONFIG.direction,
+    duration: DEFAULT_BEAM_CONFIG.duration,
+    glow: DEFAULT_BEAM_CONFIG.glow,
+    active: true,
+    speedMultiplier: 1,
+    glowMultiplier: 1,
+  };
+  
+  // Apply consciousness-based adjustments if session state provided
+  if (sessionState) {
+    const beamState = calculateBeamActivation(sessionState);
+    const intensityFromTier = getBeamIntensity(sessionState.tier, sessionState.sovereigntyScore);
+    
+    // Override intensity based on user state (higher priority than environment)
+    const finalIntensity = intensityFromTier !== BEAM_INTENSITIES.LOW 
+      ? intensityFromTier 
+      : envConfig.intensity;
+    
+    return {
+      gradient: BEAM_COLORS[environment] || DEFAULT_BEAM_CONFIG.gradient,
+      intensity: finalIntensity,
+      direction: envConfig.direction,
+      duration: envConfig.duration * (1 / (beamState.speedMultiplier || 1)),
+      glow: envConfig.glow,
+      active: beamState.active && envConfig.active,
+      speedMultiplier: beamState.speedMultiplier,
+      glowMultiplier: beamState.glowMultiplier,
+    };
+  }
+  
+  return {
+    gradient: BEAM_COLORS[environment] || DEFAULT_BEAM_CONFIG.gradient,
+    intensity: envConfig.intensity,
+    direction: envConfig.direction,
+    duration: envConfig.duration,
+    glow: envConfig.glow,
+    active: envConfig.active,
+    speedMultiplier: envConfig.speedMultiplier,
+    glowMultiplier: envConfig.glowMultiplier,
+  };
+}
+
+/** Get beam origin coordinates from direction */
+export function getBeamOrigin(direction: BeamDirection): BeamOrigin {
+  const directionToOrigin: Record<BeamDirection, BeamOrigin> = {
+    [BEAM_DIRECTIONS.HORIZONTAL]: 'leftEdge',
+    [BEAM_DIRECTIONS.VERTICAL]: 'topLeft',
+    [BEAM_DIRECTIONS.RADIAL]: 'radial',
+    [BEAM_DIRECTIONS.DIAGONAL]: 'diagonal',
+    [BEAM_DIRECTIONS.DIAGONAL_REVERSE]: 'diagonalReverse',
+  };
+  return directionToOrigin[direction] || 'leftEdge';
+}
+
+/** Get beam sweep animation based on configuration */
+export function getBeamAnimation(config: BeamConfig) {
+  const origin = getBeamOrigin(config.direction);
+  const path = BEAM_ORIGINS[origin];
+  
+  // Adjust duration based on intensity and speed multiplier
+  const adjustedDuration = config.duration * (1 / config.speedMultiplier);
+  
+  return {
     animate: {
-      x: ['-100%', '100%'] as string[]
+      x: [path.startX, path.endX],
+      y: [path.startY, path.endY],
     },
     transition: {
-      duration: 3,
+      duration: adjustedDuration,
       repeat: Infinity,
-      ease: "linear" as const
-    }
-  }
+      ease: 'linear',
+    },
+  };
+}
+
+// ============================================================================
+// BACKWARD COMPATIBILITY - Preserve existing exports
+// ============================================================================
+
+// Semantic beam types (legacy support)
+export const BEAM_TYPES = {
+  MEMORY: BEAM_VARIANTS.MEMORY,
+  EMOTION: BEAM_VARIANTS.EMOTIONAL,
+  CONNECTION: BEAM_VARIANTS.QUANTUM,
 } as const;
 
-// Beam context configurations
+// Beam configuration presets (legacy)
+export const BEAM_CONFIGS = {
+  SESSION: BEAM_VARIANTS.MEMORY,
+  EMOTIONAL: BEAM_VARIANTS.EMOTIONAL,
+  QUANTUM: BEAM_VARIANTS.QUANTUM,
+} as const;
+
+// Beam glow configurations (legacy)
+export const BEAM_GLOWS = {
+  FOCUSED: BEAM_VARIANTS.MEMORY,
+  GENTLE: BEAM_VARIANTS.EMOTIONAL,
+  QUANTUM: BEAM_VARIANTS.QUANTUM,
+} as const;
+
+// Beam context configurations (legacy)
 export const BEAM_CONTEXTS = {
-  MEMORY_PRESERVATION: 'session_preservation',
-  EMOTIONAL_SUPPORT: 'emotional_context',
-  CROSS_DOMAIN: 'quantum_entanglement',
+  MEMORY_PRESERVATION: BEAM_VARIANTS.MEMORY,
+  EMOTIONAL_SUPPORT: BEAM_VARIANTS.EMOTIONAL,
+  CROSS_DOMAIN: BEAM_VARIANTS.QUANTUM,
 } as const;
 
-// Beam interaction configurations
+// Beam interaction configurations (legacy)
 export const BEAM_INTERACTIONS = {
-  PRESERVATION: 'session_preservation',
-  EMOTIONAL: 'emotional_context',
-  QUANTUM: 'quantum_entanglement',
+  PRESERVATION: BEAM_VARIANTS.MEMORY,
+  EMOTIONAL: BEAM_VARIANTS.EMOTIONAL,
+  QUANTUM: BEAM_VARIANTS.QUANTUM,
 } as const;
 
-// Beam holographic effects
+// Beam holographic effects (legacy)
 export const BEAM_HOLOGRAPHIC = {
-  QUANTUM: 'quantum_entanglement',
+  QUANTUM: BEAM_VARIANTS.QUANTUM,
 } as const;
 
-// Consciousness alignment for beam states
+// Consciousness alignment (legacy)
 export const BEAM_CONSCIOUSNESS = {
-  PRESERVATION: 'session_preservation',
-  EMOTIONAL: 'emotional_context',
-  QUANTUM: 'quantum_entanglement',
+  PRESERVATION: BEAM_VARIANTS.MEMORY,
+  EMOTIONAL: BEAM_VARIANTS.EMOTIONAL,
+  QUANTUM: BEAM_VARIANTS.QUANTUM,
 } as const;
 
-// Beam direction constants
-export const BEAM_DIRECTIONS = {
-  HORIZONTAL: 'horizontal' as const,
-  VERTICAL: 'vertical' as const,
-  RADIAL: 'radial' as const,
-} as const;
-
-// Beam intensity levels
-export const BEAM_INTENSITIES = {
-  LOW: 'low' as const,
-  MEDIUM: 'medium' as const,
-  HIGH: 'high' as const,
-  QUANTUM: 'quantum' as const,
-} as const;
-
-// Beam purpose types
+// Beam purpose types (legacy)
 export const BEAM_PURPOSES = {
   MEMORY_PRESERVATION: 'memory_preservation' as const,
   EMOTIONAL_SUPPORT: 'emotional_support' as const,
   CROSS_DOMAIN_CONNECTION: 'cross_domain_connection' as const,
 } as const;
 
-// Environment-specific beam configurations
-export const ENVIRONMENT_BEAM_CONFIGS = {
-  // High-intensity quantum beams for council spaces
-  council: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  admin: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  creator: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  
-  // Medium-intensity creative beams for music/lounge
-  music: { intensity: 'high' as const, purpose: 'emotional_support' as const },
-  lounge: { intensity: 'high' as const, purpose: 'emotional_support' as const },
-  
-  // Gentle support beams for support/contact
-  support: { intensity: 'medium' as const, purpose: 'emotional_support' as const },
-  contact: { intensity: 'medium' as const, purpose: 'emotional_support' as const },
-  anon: { intensity: 'low' as const, purpose: 'memory_preservation' as const },
-  
-  // Memory preservation beams for library/docs
-  library: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
-  docs: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
-  ecosystem: { intensity: 'medium' as const, purpose: 'memory_preservation' as const },
-  
-  // Quantum entanglement for origin/vision
-  origin: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  vision: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  observatory: { intensity: 'quantum' as const, purpose: 'cross_domain_connection' as const },
-  
-  // Default fallback
-  default: { intensity: 'medium' as const, purpose: 'emotional_support' as const }
-} as const;
+// ============================================================================
+// TYPE EXPORTS
+// ============================================================================
 
-export const DEFAULT_BEAM_CONFIG = {
-  variant: 'home' as keyof typeof BEAM_COLORS,
-  intensity: 0.8,
-  showQuantumSweep: true
-} as const;
+export type { BeamConfig as BeamConfigType };
+export type { BeamOrigin as BeamOriginType };
+export type { BeamDirection as BeamDirectionType };
+export type { BeamVariant as BeamVariantType };

@@ -114,16 +114,19 @@
 
 html {
   scroll-behavior: smooth;
-  [data-scroll-behavior="smooth"]{scroll-behavior: smooth;
 }
+
+html[data-scroll-behavior="smooth"] {
+  scroll-behavior: smooth;
 }
+
 body {
   color: var(--star-dust);
   font-family: 'Segoe UI', system-ui, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
-  padding-top: 8opx; /* For fixed nav */
+  padding-top: 80px; /* For fixed nav */
 }
 
 /* Focus styles for accessibility */
@@ -411,11 +414,6 @@ h4 { font-size: 1rem;}
 /* ANIMATIONS - ALIGNED WITH ANIMATIONS CONSTANTS */
 /* ================================================================================ */
 
-@keyframes beamTravel {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
 @keyframes emergencyPulse {
   0%, 100% { left: -100%; }
   50% { left: 100%; }
@@ -429,13 +427,6 @@ h4 { font-size: 1rem;}
 @keyframes scan {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
-}
-
-@keyframes glitch {
-  0%, 100% { opacity: 0; }
-  2%, 64% { opacity: 0; }
-  4%, 60% { opacity: 0.1; }
-  62% { opacity: 0.05; }
 }
 
 .continuity-beam {

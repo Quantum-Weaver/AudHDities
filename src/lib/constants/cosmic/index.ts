@@ -10,4 +10,5 @@ export * from './consciousness';
 export * from './dimensions';
 export * from './effects';
 export * from './motion';
+export * from './positioning';
 export * from './typography';

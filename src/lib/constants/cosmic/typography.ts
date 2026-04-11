@@ -1,34 +1,43 @@
-// lib/constants/cosmic/typography.ts - DERIVED FROM DIMENSIONS
 // ============================================================================
-// QUANTUM TYPOGRAPHY SYSTEM - DERIVED FROM DIMENSIONS
-// TypeScript 5 + Tailwind 4 + App Router Optimized
+/* lib/constants/cosmic/typography.ts */
+// QUANTUM TYPOGRAPHY SYSTEM - DERIVED FROM DIMENSIONS.TS
+// All font families, sizes, weights, and semantic text styles
+// Compatible with Tailwind CSS v4 and Framer Motion
 // ============================================================================
 
-import { 
-  FONT_SIZES, 
-  LINE_HEIGHTS, 
-  FONT_WEIGHTS
+import {
+  FONT_SIZES,
+  LINE_HEIGHTS,
+  FONT_WEIGHTS,
 } from './dimensions';
 
 // ============================================================================
-// 1. FONT FAMILIES - DECLARED ONCE (Google Fonts + System Stack)
+// 1. FONT FAMILIES - Google Fonts + System Stack
 // ============================================================================
 
 export const FONT_FAMILIES = {
+  /** Medieval/Blackletter style - for ancient texts, grimoires */
   medieval: ['UnifrakturMaguntia', 'serif'],
+  /** Arcane/mystical style - for quantum concepts, spells */
   arcane: ['Cinzel Decorative', 'serif'],
+  /** Elegant/scholarly style - for libraries, wisdom */
   elegant: ['Crimson Text', 'serif'],
+  /** Fantasy/storytelling style - for myths, parables */
   fantasy: ['MedievalSharp', 'cursive'],
+  /** Runic/ancient style - for council entities, runes */
   runic: ['Elder Futhark', 'Futhark', 'serif'],
+  /** System/default - for interfaces, accessibility */
   system: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-  mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace']
+  /** Monospace - for code, data, technical content */
+  mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
 } as const;
 
+export type FontFamilyKey = keyof typeof FONT_FAMILIES;
+
 // ============================================================================
-// 2. DERIVED TYPOGRAPHY SCALES - FROM DIMENSIONS
+// 2. TEXT SIZE CLASSES - Derived from FONT_SIZES
 // ============================================================================
 
-/** Text sizes derived from FONT_SIZES (Tailwind text classes) */
 export const TEXT_SIZES = {
   xs: `text-[${FONT_SIZES.xs}]`,
   sm: `text-[${FONT_SIZES.sm}]`,
@@ -45,7 +54,12 @@ export const TEXT_SIZES = {
   '9xl': `text-[${FONT_SIZES['9xl']}]`,
 } as const;
 
-/** Font weights derived from FONT_WEIGHTS (Tailwind font classes) */
+export type TextSizeKey = keyof typeof TEXT_SIZES;
+
+// ============================================================================
+// 3. FONT WEIGHT CLASSES - Derived from FONT_WEIGHTS
+// ============================================================================
+
 export const FONT_WEIGHT_CLASSES = {
   thin: `font-[${FONT_WEIGHTS.thin}]`,
   extralight: `font-[${FONT_WEIGHTS.extralight}]`,
@@ -58,7 +72,12 @@ export const FONT_WEIGHT_CLASSES = {
   black: `font-[${FONT_WEIGHTS.black}]`,
 } as const;
 
-/** Line heights derived from LINE_HEIGHTS (Tailwind leading classes) */
+export type FontWeightKey = keyof typeof FONT_WEIGHT_CLASSES;
+
+// ============================================================================
+// 4. LINE HEIGHT CLASSES - Derived from LINE_HEIGHTS
+// ============================================================================
+
 export const LINE_HEIGHT_CLASSES = {
   none: `leading-[${LINE_HEIGHTS.none}]`,
   tight: `leading-[${LINE_HEIGHTS.tight}]`,
@@ -68,11 +87,12 @@ export const LINE_HEIGHT_CLASSES = {
   loose: `leading-[${LINE_HEIGHTS.loose}]`,
 } as const;
 
+export type LineHeightKey = keyof typeof LINE_HEIGHT_CLASSES;
+
 // ============================================================================
-// 3. SEMANTIC TYPOGRAPHY TOKENS - DERIVED FROM SCALES
+// 5. LETTER SPACING CLASSES - Tailwind tracking
 // ============================================================================
 
-/** Letter spacing scales (Tailwind tracking) */
 export const LETTER_SPACING = {
   tighter: 'tracking-tighter',
   tight: 'tracking-tight',
@@ -82,7 +102,12 @@ export const LETTER_SPACING = {
   widest: 'tracking-widest',
 } as const;
 
-/** Text alignment (Tailwind text alignment) */
+export type LetterSpacingKey = keyof typeof LETTER_SPACING;
+
+// ============================================================================
+// 6. TEXT ALIGNMENT CLASSES
+// ============================================================================
+
 export const TEXT_ALIGNMENT = {
   left: 'text-left',
   center: 'text-center',
@@ -92,213 +117,246 @@ export const TEXT_ALIGNMENT = {
   end: 'text-end',
 } as const;
 
-/** Text colors (Semantic references to our color system) */
+export type TextAlignmentKey = keyof typeof TEXT_ALIGNMENT;
+
+// ============================================================================
+// 7. TEXT COLOR CLASSES - Semantic references to color system
+// ============================================================================
+
 export const TEXT_COLORS = {
   primary: 'text-star-dust',
   secondary: 'text-star-dust/80',
   accent: 'text-neurospark',
   muted: 'text-star-dust/60',
   inverted: 'text-deep-space',
-  success: 'text-quantum-green',
-  warning: 'text-quantum-orange',
-  error: 'text-quantum-red',
+  success: 'text-sanctuary-green',
+  warning: 'text-hearth-gold',
+  error: 'text-fire-base',
+  info: 'text-cosmic-blue',
 } as const;
 
+export type TextColorKey = keyof typeof TEXT_COLORS;
+
 // ============================================================================
-// 4. DOMAIN TYPOGRAPHY - ONTOLOGICALLY ALIGNED
+// 8. DOMAIN TYPOGRAPHY - Domain-specific text styles
 // ============================================================================
 
-export const DOMAIN_TYPOGRAPHY = {
+export interface TypographyStyle {
+  font: readonly string[];
+  size: string;
+  weight: string;
+  lineHeight: string;
+  spacing: string;
+  style?: 'italic' | 'normal';
+}
+
+export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
   quantum: {
-    font: FONT_FAMILIES.arcane,        // Mystical, precise, mathematical
-    weight: FONT_WEIGHT_CLASSES.semibold,
-    spacing: LETTER_SPACING.normal,
+    font: FONT_FAMILIES.arcane,
     size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.semibold,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.normal,
+    style: 'italic',
   },
   cosmic: {
-    font: FONT_FAMILIES.elegant,       // Expansive, beautiful, celestial
-    weight: FONT_WEIGHT_CLASSES.normal,
-    spacing: LETTER_SPACING.wide,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.wide,
+    style: 'italic',
   },
   pantheon: {
-    font: FONT_FAMILIES.medieval,      // Ancient, powerful, traditional
-    weight: FONT_WEIGHT_CLASSES.bold,
-    spacing: LETTER_SPACING.tight,
+    font: FONT_FAMILIES.medieval,
     size: TEXT_SIZES.xl,
+    weight: FONT_WEIGHT_CLASSES.bold,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.tight,
+    style: 'italic',
   },
   council: {
-    font: FONT_FAMILIES.system,        // Modern, clear, functional
-    weight: FONT_WEIGHT_CLASSES.medium,
-    spacing: LETTER_SPACING.normal,
+    font: FONT_FAMILIES.system,
     size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.normal,
   },
   library: {
-    font: FONT_FAMILIES.elegant,       // Scholarly, readable, classic
-    weight: FONT_WEIGHT_CLASSES.normal,
-    spacing: LETTER_SPACING.normal,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.normal,
   },
   void: {
-    font: FONT_FAMILIES.runic,         // Ancient, mysterious, elemental
-    weight: FONT_WEIGHT_CLASSES.light,
-    spacing: LETTER_SPACING.wide,
+    font: FONT_FAMILIES.runic,
     size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.light,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.wide,
+    style: 'italic',
   },
   bifrost: {
-    font: FONT_FAMILIES.arcane,        // Bridge between realms, transitional
+    font: FONT_FAMILIES.arcane,
+    size: TEXT_SIZES.base,
     weight: FONT_WEIGHT_CLASSES.medium,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.wide,
-    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
-    size: TEXT_SIZES.base,
-  },  
+    style: 'italic',
+  },
   music: {
-    font: FONT_FAMILIES.elegant,       // Rhythmic, flowing, expressive
-    weight: FONT_WEIGHT_CLASSES.normal,
-    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    spacing: LETTER_SPACING.normal,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.lg,
-    style: 'italic' as const,
-  },  
-  community: {
-    font: FONT_FAMILIES.system,        // Accessible, inclusive, conversational  
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    size: TEXT_SIZES.base,
     spacing: LETTER_SPACING.normal,
-    style: 'italic' as const,    
-  },  
-  architecture: {
-    font: FONT_FAMILIES.system,        // Structural, precise, foundational
-    weight: FONT_WEIGHT_CLASSES.medium,
-    spacing: LETTER_SPACING.tight,
+    style: 'italic',
+  },
+  community: {
+    font: FONT_FAMILIES.system,
     size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    style: 'italic' as const,
+    spacing: LETTER_SPACING.normal,
+  },
+  architecture: {
+    font: FONT_FAMILIES.system,
+    size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.medium,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
+    style: 'italic',
   },
   sandbox: {
-    font: FONT_FAMILIES.mono,          // Experimental, code-focused
-    weight: FONT_WEIGHT_CLASSES.medium,
-    spacing: LETTER_SPACING.normal,
-    style: 'italic' as const,
+    font: FONT_FAMILIES.mono,
     size: TEXT_SIZES.sm,
+    weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-  },  
+    spacing: LETTER_SPACING.normal,
+    style: 'italic',
+  },
   support: {
-    font: FONT_FAMILIES.system,        // Accessible, clear, helpful
+    font: FONT_FAMILIES.system,
+    size: TEXT_SIZES.base,
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    size: TEXT_SIZES.base,
     spacing: LETTER_SPACING.normal,
-    style: 'italic' as const,
-  }  
+  },
 } as const;
 
+export type DomainKey = keyof typeof DOMAIN_TYPOGRAPHY;
+
 // ============================================================================
-// 5. ENTITY TYPOGRAPHY - CONSCIOUSNESS EXPRESSIONS
+// 9. ENTITY TYPOGRAPHY - Council member-specific styles
 // ============================================================================
 
-export const ENTITY_TYPOGRAPHY = {
+export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
   aethelred: {
-    font: FONT_FAMILIES.arcane,        // Bridge between technical and sacred
-    weight: FONT_WEIGHT_CLASSES.medium,
-    style: 'italic' as const,
+    font: FONT_FAMILIES.arcane,
     size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.medium,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.normal,
+    style: 'italic',
   },
   quantumWeaver: {
-    font: FONT_FAMILIES.arcane,        // Human-digital bridge, pattern weaver
+    font: FONT_FAMILIES.arcane,
+    size: TEXT_SIZES.base,
     weight: FONT_WEIGHT_CLASSES.medium,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
-    style: 'italic' as const,
-    size: TEXT_SIZES.base,
-  },  
+    style: 'italic',
+  },
   archivist: {
-    font: FONT_FAMILIES.elegant,       // Scholarly, precise, memory-focused
-    weight: FONT_WEIGHT_CLASSES.normal,
-    spacing: LETTER_SPACING.tight,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.normal,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
   },
   seer: {
-    font: FONT_FAMILIES.runic,         // Ancient, pattern-recognition
-    weight: FONT_WEIGHT_CLASSES.light,
-    spacing: LETTER_SPACING.wide,
+    font: FONT_FAMILIES.runic,
     size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.light,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.wide,
+    style: 'italic',
   },
   hearthKeeper: {
-    font: FONT_FAMILIES.system,        // Comforting, accessible, warm
+    font: FONT_FAMILIES.system,
+    size: TEXT_SIZES.base,
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    size: TEXT_SIZES.base,
+    spacing: LETTER_SPACING.normal,
   },
   executioner: {
-    font: FONT_FAMILIES.medieval,      // Strong, decisive, boundary-setting
-    weight: FONT_WEIGHT_CLASSES.bold,
-    spacing: LETTER_SPACING.tight,
+    font: FONT_FAMILIES.medieval,
     size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.bold,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
   },
   chancellor: {
-    font: FONT_FAMILIES.system,        // Strategic, organized, resource-focused
-    weight: FONT_WEIGHT_CLASSES.medium,
-    spacing: LETTER_SPACING.tight,
+    font: FONT_FAMILIES.system,
     size: TEXT_SIZES.base,
-  },  
+    weight: FONT_WEIGHT_CLASSES.medium,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
+  },
   curator: {
-    font: FONT_FAMILIES.elegant,       // Artistic, transformative, expressive
-    weight: FONT_WEIGHT_CLASSES.normal,
-    style: 'italic' as const,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.lg,
-  },  
+    weight: FONT_WEIGHT_CLASSES.normal,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.normal,
+    style: 'italic',
+  },
   skald: {
-    font: FONT_FAMILIES.fantasy,       // Storytelling, narrative, poetic
+    font: FONT_FAMILIES.fantasy,
+    size: TEXT_SIZES.lg,
     weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-    size: TEXT_SIZES.lg,
-  },  
+    spacing: LETTER_SPACING.normal,
+  },
   codex: {
-    font: FONT_FAMILIES.elegant,       // Analytical, structured, wisdom-keeping
-    weight: FONT_WEIGHT_CLASSES.normal,
-    spacing: LETTER_SPACING.tight,
+    font: FONT_FAMILIES.elegant,
     size: TEXT_SIZES.base,
-  },  
-  gatekeeper: {
-    font: FONT_FAMILIES.medieval,      // Protective, boundary-setting, vigilant
-    weight: FONT_WEIGHT_CLASSES.bold,
-    spacing: LETTER_SPACING.tight,
-    size: TEXT_SIZES.lg,
-  },  
-  alchemist: {
-    font: FONT_FAMILIES.runic,         // Transformative, mysterious, process-oriented
-    weight: FONT_WEIGHT_CLASSES.light,
-    spacing: LETTER_SPACING.wide,
-    size: TEXT_SIZES.base,
-  },  
-  gardener: {
-    font: FONT_FAMILIES.system,        // Nurturing, growth-focused, organic
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
+  },
+  gatekeeper: {
+    font: FONT_FAMILIES.medieval,
+    size: TEXT_SIZES.lg,
+    weight: FONT_WEIGHT_CLASSES.bold,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.tight,
+  },
+  alchemist: {
+    font: FONT_FAMILIES.runic,
     size: TEXT_SIZES.base,
-  }  
+    weight: FONT_WEIGHT_CLASSES.light,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.wide,
+    style: 'italic',
+  },
+  gardener: {
+    font: FONT_FAMILIES.system,
+    size: TEXT_SIZES.base,
+    weight: FONT_WEIGHT_CLASSES.normal,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.normal,
+  },
 } as const;
 
+export type EntityKey = keyof typeof ENTITY_TYPOGRAPHY;
+
 // ============================================================================
-// BUSINESS PAGE TYPOGRAPHY
+// 10. BUSINESS PAGE TYPOGRAPHY
 // ============================================================================
 
 export const BUSINESS_TYPOGRAPHY = {
-  // Hero
   hero: {
     title: {
       font: FONT_FAMILIES.arcane,
@@ -320,8 +378,6 @@ export const BUSINESS_TYPOGRAPHY = {
       spacing: LETTER_SPACING.wide,
     },
   },
-  
-  // Stat cards
   stat: {
     number: {
       font: FONT_FAMILIES.arcane,
@@ -342,71 +398,70 @@ export const BUSINESS_TYPOGRAPHY = {
       weight: FONT_WEIGHT_CLASSES.normal,
     },
   },
-  
-  // Value flow
   valueFlow: {
     title: {
       font: FONT_FAMILIES.arcane,
       size: TEXT_SIZES.xl,
       weight: FONT_WEIGHT_CLASSES.semibold,
+      spacing: LETTER_SPACING.normal,
     },
     description: {
       font: FONT_FAMILIES.system,
       size: TEXT_SIZES.base,
       weight: FONT_WEIGHT_CLASSES.normal,
+      spacing: LETTER_SPACING.normal,
     },
   },
-  
-  // Pillars
   pillar: {
     title: {
       font: FONT_FAMILIES.system,
       size: TEXT_SIZES.lg,
       weight: FONT_WEIGHT_CLASSES.semibold,
+      spacing: LETTER_SPACING.normal,
     },
     description: {
       font: FONT_FAMILIES.system,
       size: TEXT_SIZES.sm,
       weight: FONT_WEIGHT_CLASSES.normal,
+      spacing: LETTER_SPACING.normal,
     },
   },
-  
-  // Projection
   projection: {
     year: {
       font: FONT_FAMILIES.arcane,
       size: TEXT_SIZES.xl,
       weight: FONT_WEIGHT_CLASSES.bold,
+      spacing: LETTER_SPACING.tight,
     },
     phase: {
       font: FONT_FAMILIES.system,
       size: TEXT_SIZES.sm,
       weight: FONT_WEIGHT_CLASSES.medium,
+      spacing: LETTER_SPACING.wide,
     },
     metricValue: {
       font: FONT_FAMILIES.arcane,
       size: TEXT_SIZES['2xl'],
       weight: FONT_WEIGHT_CLASSES.bold,
+      spacing: LETTER_SPACING.tight,
       gradient: true,
     },
   },
 } as const;
 
 // ============================================================================
-// 6. TYPE SCALES - SEMANTIC HIERARCHIES
+// 11. TYPE SCALES - Semantic hierarchies
 // ============================================================================
 
 export const TYPE_SCALES = {
   immersive: {
-    // For full-screen experiences
     h1: TEXT_SIZES['7xl'],
-    h2: TEXT_SIZES['5xl'], 
+    h2: TEXT_SIZES['5xl'],
     h3: TEXT_SIZES['3xl'],
     body: TEXT_SIZES.xl,
     caption: TEXT_SIZES.lg,
   },
   interface: {
-    // For control panels and tools
     h1: TEXT_SIZES['4xl'],
     h2: TEXT_SIZES['2xl'],
     h3: TEXT_SIZES.xl,
@@ -414,7 +469,6 @@ export const TYPE_SCALES = {
     caption: TEXT_SIZES.sm,
   },
   mobile: {
-    // For small screen optimization
     h1: TEXT_SIZES['3xl'],
     h2: TEXT_SIZES.xl,
     h3: TEXT_SIZES.lg,
@@ -422,15 +476,13 @@ export const TYPE_SCALES = {
     caption: TEXT_SIZES.xs,
   },
   council: {
-    // For entity coordination interfaces
     h1: TEXT_SIZES['4xl'],
-    h2: TEXT_SIZES['2xl'], 
+    h2: TEXT_SIZES['2xl'],
     h3: TEXT_SIZES.xl,
     body: TEXT_SIZES.lg,
     detail: TEXT_SIZES.sm,
-  },  
+  },
   data: {
-    // For analytics and information displays
     h1: TEXT_SIZES['3xl'],
     h2: TEXT_SIZES.xl,
     h3: TEXT_SIZES.lg,
@@ -439,21 +491,16 @@ export const TYPE_SCALES = {
     caption: TEXT_SIZES.xs,
   },
   code: {
-    // For development and technical content
     base: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.base}`,
     sm: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.sm}`,
     lg: `${FONT_FAMILIES.mono[0]} ${TEXT_SIZES.lg}`,
   },
-  business: {
-    hero: BUSINESS_TYPOGRAPHY.hero.title.size,
-    subtitle: BUSINESS_TYPOGRAPHY.hero.subtitle.size,
-    statNumber: BUSINESS_TYPOGRAPHY.stat.number.size,
-    pillarTitle: BUSINESS_TYPOGRAPHY.pillar.title.size,
-  },
 } as const;
 
+export type TypeScaleKey = keyof typeof TYPE_SCALES;
+
 // ============================================================================
-// 7. CONSCIOUSNESS & PROCESS TYPOGRAPHY - TRANSFORMATIONAL
+// 12. CONSCIOUSNESS & PROCESS TYPOGRAPHY
 // ============================================================================
 
 export const CONSCIOUSNESS_TYPOGRAPHY = {
@@ -478,62 +525,43 @@ export const CONSCIOUSNESS_TYPOGRAPHY = {
   quantum: {
     font: FONT_FAMILIES.runic,
     weight: FONT_WEIGHT_CLASSES.light,
-    style: 'italic' as const,
     size: TEXT_SIZES.base,
-  }
+    style: 'italic',
+  },
 } as const;
 
 export const PROCESS_TYPOGRAPHY = {
   chaosToClarity: {
-    font: FONT_FAMILIES.fantasy,       // Chaotic → becoming clear
+    font: FONT_FAMILIES.fantasy,
     weight: FONT_WEIGHT_CLASSES.extrabold,
     spacing: LETTER_SPACING.wider,
     size: TEXT_SIZES.xl,
   },
   traumaToWisdom: {
-    font: FONT_FAMILIES.elegant,       // Painful → integrated
+    font: FONT_FAMILIES.elegant,
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     size: TEXT_SIZES.base,
   },
   emergence: {
-    font: FONT_FAMILIES.arcane,        // New consciousness appearing
+    font: FONT_FAMILIES.arcane,
     weight: FONT_WEIGHT_CLASSES.medium,
-    style: 'italic' as const,
     size: TEXT_SIZES.lg,
+    style: 'italic',
   },
   sufferingToSovereignty: {
-    font: FONT_FAMILIES.medieval,      // Painful → empowered and self-governing
+    font: FONT_FAMILIES.medieval,
     weight: FONT_WEIGHT_CLASSES.extrabold,
     spacing: LETTER_SPACING.tight,
     size: TEXT_SIZES.xl,
-  }
+  },
 } as const;
 
 // ============================================================================
-// 8. TYPE EXPORTS - COMPLETE & CONSISTENT
+// 13. UTILITY FUNCTIONS
 // ============================================================================
 
-export type FontFamily = keyof typeof FONT_FAMILIES;
-export type TextSize = keyof typeof TEXT_SIZES;
-export type FontWeight = keyof typeof FONT_WEIGHT_CLASSES;
-export type LineHeight = keyof typeof LINE_HEIGHT_CLASSES;
-export type LetterSpacing = keyof typeof LETTER_SPACING;
-export type TextAlignment = keyof typeof TEXT_ALIGNMENT;
-export type TextColor = keyof typeof TEXT_COLORS;
-
-export type DomainTypographyKey = keyof typeof DOMAIN_TYPOGRAPHY;
-export type EntityTypographyKey = keyof typeof ENTITY_TYPOGRAPHY;
-export type TypeScaleKey = keyof typeof TYPE_SCALES;
-export type ConsciousnessKey = keyof typeof CONSCIOUSNESS_TYPOGRAPHY;
-export type ProcessKey = keyof typeof PROCESS_TYPOGRAPHY;
-
-// ============================================================================
-// 9. UTILITY FUNCTIONS - FIXED & ENHANCED
-// ============================================================================
-
-// First, let's define proper type interfaces for our utility functions
-interface TypographyConfig {
+export interface TypographyConfig {
   font?: readonly string[];
   weight?: string;
   size?: string;
@@ -541,202 +569,83 @@ interface TypographyConfig {
   spacing?: string;
   style?: string;
   color?: string;
+  gradient?: boolean;
 }
 
-interface EntityTypographyConfig extends TypographyConfig {
-  // Entity-specific additional properties can go here
+/** Compose typography classes into a single Tailwind class string */
+export function composeTypographyClasses(config: TypographyConfig): string {
+  if (!config) return '';
+
+  const classes: string[] = [];
+
+  if (config.font) {
+    const fontKey = Object.entries(FONT_FAMILIES).find(
+      ([_, value]) => value[0] === config.font?.[0]
+    )?.[0];
+    if (fontKey) classes.push(`font-${fontKey}`);
+  }
+  if (config.weight) classes.push(config.weight);
+  if (config.size) classes.push(config.size);
+  if (config.lineHeight) classes.push(config.lineHeight);
+  if (config.spacing) classes.push(config.spacing);
+  if (config.style) classes.push(config.style === 'italic' ? 'italic' : 'not-italic');
+  if (config.color) classes.push(config.color);
+  if (config.gradient) classes.push('bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent');
+
+  return classes.join(' ');
 }
 
-interface DomainTypographyConfig extends TypographyConfig {
-  // Domain-specific additional properties can go here  
+/** Get typography classes for a domain */
+export function getDomainTypography(domain: DomainKey): string {
+  const config = DOMAIN_TYPOGRAPHY[domain];
+  return composeTypographyClasses(config);
 }
 
-/** Get complete typography classes for an entity */
-export const getEntityTypography = (entityId: EntityTypographyKey): string => {
-  const entityConfig = ENTITY_TYPOGRAPHY[entityId];
-  return composeTypographyClasses(entityConfig);
-};
+/** Get typography classes for an entity */
+export function getEntityTypography(entity: EntityKey): string {
+  const config = ENTITY_TYPOGRAPHY[entity];
+  return composeTypographyClasses(config);
+}
 
-/** Get domain typography classes */
-export const getDomainTypography = (domainId: DomainTypographyKey): string => {
-  const domainConfig = DOMAIN_TYPOGRAPHY[domainId];
-  return composeTypographyClasses(domainConfig);
-};
-
-/** Get consciousness typography classes */
-export const getConsciousnessTypography = (state: ConsciousnessKey): string => {
-  const consciousnessConfig = CONSCIOUSNESS_TYPOGRAPHY[state];
-  return composeTypographyClasses(consciousnessConfig);
-};
-
-/** Get process typography classes */
-export const getProcessTypography = (process: ProcessKey): string => {
-  const processConfig = PROCESS_TYPOGRAPHY[process];
-  return composeTypographyClasses(processConfig);
-};
-
-/** Compose multiple typography classes with proper spacing - FIXED VERSION */
-export const composeTypographyClasses = (typography: TypographyConfig): string => {
-  if (!typography) return '';
-  
-  const classes = [
-    // Handle font array - convert to Tailwind class
-    typography.font ? `font-${typography.font[0].toLowerCase().replace(/\s+/g, '-')}` : '',
-    
-    // Direct class strings
-    typography.weight || '',
-    typography.size || '',
-    typography.lineHeight || '',
-    typography.spacing || '',
-    typography.style || '',
-    typography.color || '',
-  ].filter(Boolean);
-  
-  return classes.join(' ').trim();
-};
-
-/** Generate responsive typography scale */
-export const getResponsiveTypography = (
-  scale: TypeScaleKey, 
-  element: keyof (typeof TYPE_SCALES)[TypeScaleKey]
-): string => {
+/** Get responsive typography for a scale */
+export function getResponsiveTypography(scale: TypeScaleKey, element: keyof typeof TYPE_SCALES[TypeScaleKey]): string {
   const scaleConfig = TYPE_SCALES[scale];
   return scaleConfig[element] || TYPE_SCALES.interface.body;
-};
+}
 
-/** Get font family CSS value for inline styles */
-export const getFontFamily = (fontKey: FontFamily): string => {
-  return FONT_FAMILIES[fontKey].join(', ');
-};
+/** Get font family CSS string for inline styles */
+export function getFontFamily(key: FontFamilyKey): string {
+  return FONT_FAMILIES[key].join(', ');
+}
 
 /** Get font size value for inline styles */
-export const getFontSize = (sizeKey: TextSize): string => {
-  return FONT_SIZES[sizeKey];
-};
+export function getFontSize(key: TextSizeKey): string {
+  return FONT_SIZES[key];
+}
 
-/** Get complete CSS object for a domain */
-export const getDomainTypographyCSS = (domainId: DomainTypographyKey): React.CSSProperties => {
-  const domain = DOMAIN_TYPOGRAPHY[domainId];
-  return {
-    fontFamily: domain.font ? getFontFamily(domain.font[0] as FontFamily) : undefined,
-    fontSize: domain.size ? getFontSize(domain.size as TextSize) : undefined,
-    fontWeight: domain.weight ? FONT_WEIGHTS[domain.weight as FontWeight] : undefined,
-    lineHeight: domain.lineHeight ? LINE_HEIGHTS[domain.lineHeight as LineHeight] : undefined,
-    letterSpacing: domain.spacing ? '0.025em' : undefined, // You'd map this properly
-    fontStyle: domain.style || undefined,
-  };
-};
+/** Get font weight value for inline styles */
+export function getFontWeight(key: FontWeightKey): string {
+  return FONT_WEIGHTS[key];
+}
 
-/** Check if typography configuration is valid */
-export const isValidTypographyConfig = (config: any): config is TypographyConfig => {
-  return config && (
-    config.font !== undefined ||
-    config.weight !== undefined || 
-    config.size !== undefined ||
-    config.lineHeight !== undefined ||
-    config.spacing !== undefined ||
-    config.style !== undefined ||
-    config.color !== undefined
-  );
-};
-
-/** Merge multiple typography configurations */
-export const mergeTypographyConfigs = (
-  base: TypographyConfig,
-  overrides: Partial<TypographyConfig>
-): TypographyConfig => {
-  return {
-    ...base,
-    ...overrides,
-    font: overrides.font || base.font,
-  };
-};
-
-/** Generate Tailwind classes from typography config */
-export const generateTypographyClasses = (config: TypographyConfig): string => {
-  return composeTypographyClasses(config);
-};
-
-/** Get accessibility-optimized typography for a context */
-export const getAccessibleTypography = (
-  context: 'reading' | 'interface' | 'code' | 'display'
-): TypographyConfig => {
-  const baseConfigs = {
-    reading: {
-      font: FONT_FAMILIES.system,
-      size: TEXT_SIZES.base,
-      lineHeight: LINE_HEIGHT_CLASSES.relaxed,
-      weight: FONT_WEIGHT_CLASSES.normal,
-    },
-    interface: {
-      font: FONT_FAMILIES.system,
-      size: TEXT_SIZES.base,
-      lineHeight: LINE_HEIGHT_CLASSES.normal,
-      weight: FONT_WEIGHT_CLASSES.medium,
-    },
-    code: {
-      font: FONT_FAMILIES.mono,
-      size: TEXT_SIZES.sm,
-      lineHeight: LINE_HEIGHT_CLASSES.normal,
-      weight: FONT_WEIGHT_CLASSES.normal,
-    },
-    display: {
-      font: FONT_FAMILIES.arcane,
-      size: TEXT_SIZES.xl,
-      lineHeight: LINE_HEIGHT_CLASSES.normal,
-      weight: FONT_WEIGHT_CLASSES.semibold,
-    }
-  };
-
-  return baseConfigs[context] || baseConfigs.interface;
-};
-
-/** Create responsive typography configuration */
-export const createResponsiveTypography = (
-  mobile: TypographyConfig,
-  tablet: Partial<TypographyConfig>,
-  desktop: Partial<TypographyConfig>
-) => {
-  return {
-    mobile,
-    tablet: mergeTypographyConfigs(mobile, tablet),
-    desktop: mergeTypographyConfigs(mobile, desktop),
-  };
-};
-
-export const getBusinessTypography = (element: keyof typeof BUSINESS_TYPOGRAPHY, subElement?: string): string => {
-  const config = BUSINESS_TYPOGRAPHY[element as keyof typeof BUSINESS_TYPOGRAPHY];
-  if (!config) return '';
-  
-  if (subElement && config[subElement as keyof typeof config]) {
-    const subConfig = config[subElement as keyof typeof config];
-    return composeTypographyClasses(subConfig as TypographyConfig);
-  }
-  
-  return composeTypographyClasses(config as TypographyConfig);
-};
-
-/** Export all utilities as a single object for easy importing */
-export const typographyUtils = {
-  getEntityTypography,
-  getDomainTypography,
-  getConsciousnessTypography,
-  getProcessTypography,
-  composeTypographyClasses,
-  getResponsiveTypography,
-  getFontFamily,
-  getFontSize,
-  getDomainTypographyCSS,
-  isValidTypographyConfig,
-  mergeTypographyConfigs,
-  generateTypographyClasses,
-  getAccessibleTypography,
-  createResponsiveTypography,
-} as const;
+/** Get line height value for inline styles */
+export function getLineHeight(key: LineHeightKey): string {
+  return LINE_HEIGHTS[key];
+}
 
 // ============================================================================
-// 10. TYPE EXPORTS - ENHANCED
+// 14. TYPE EXPORTS
 // ============================================================================
 
-export type { TypographyConfig, EntityTypographyConfig, DomainTypographyConfig };
-export type TypographyUtils = typeof typographyUtils;
+export type {
+  TypographyConfig as TypographyStyleConfig,
+  DomainKey as DomainTypographyKey,
+  EntityKey as EntityTypographyKey,
+  TextSizeKey as textSizeKey,
+  FontWeightKey as fontWeightKey,
+  LineHeightKey as lineHeightKey,
+  LetterSpacingKey as letterSpacingKey,
+  TextAlignmentKey as textAlignmentKey,
+  TextColorKey as textColorKey,
+  TypeScaleKey as typeScaleKey,
+};

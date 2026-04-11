@@ -1,11 +1,12 @@
-// lib/constants/cosmic/dimensions.ts - ONTOLOGICALLY COMPLETE & DRY ELEGANT
 // ============================================================================
+/* lib/constants/cosmic/dimensions.ts */
 // QUANTUM DIMENSIONS SYSTEM - SINGLE SOURCE OF TRUTH
-// TypeScript 5 + Tailwind 4 + App Router Optimized
+// All spacing, breakpoints, sizes derived from BASE_UNIT (4px grid)
+// Compatible with Tailwind CSS v4 and App Router
 // ============================================================================
 
 // ============================================================================
-// 1. PRIMITIVE SCALES - ATOMIC UNITS (Declared Once)
+// 1. PRIMITIVE SCALES - ATOMIC UNITS
 // ============================================================================
 
 /** Base unit scale for all dimensions (4px grid - Tailwind compatible) */
@@ -50,16 +51,20 @@ export const SCALE_MULTIPLIERS = {
   '96': 96,    // 384px
 } as const;
 
+export type ScaleKey = keyof typeof SCALE_MULTIPLIERS;
+
 /** Consciousness density scale (multi-stream awareness) */
 export const CONSCIOUSNESS_DENSITY = {
   focused: 1,     // Single stream focus
-  sovereign: 2,   // Dual stream sovereignty  
+  sovereign: 2,   // Dual stream sovereignty
   quantum: 4,     // Multi-stream awareness
   cosmic: 8,      // Omni-dimensional consciousness
 } as const;
 
+export type ConsciousnessDensity = keyof typeof CONSCIOUSNESS_DENSITY;
+
 // ============================================================================
-// 2. DERIVED SPACING - COMPOSED FROM PRIMITIVES (Tailwind Classes)
+// 2. DERIVED SPACING - COMPOSED FROM PRIMITIVES
 // ============================================================================
 
 /** Spacing scale derived from base unit and multipliers */
@@ -68,7 +73,7 @@ export const SPACING_SCALE = Object.fromEntries(
     key,
     multiplier === 1 && key === 'px' ? '1px' : `${multiplier * BASE_UNIT}px`
   ])
-) as Record<keyof typeof SCALE_MULTIPLIERS, string>;
+) as Record<ScaleKey, string>;
 
 /** Semantic spacing tokens for consistent usage */
 export const SPACING_TOKENS = {
@@ -78,14 +83,12 @@ export const SPACING_TOKENS = {
     margin: SPACING_SCALE['6'],
     gap: SPACING_SCALE['4'],
   },
-  
   // Component spacing
   component: {
     tight: SPACING_SCALE['2'],
     comfortable: SPACING_SCALE['4'],
     spacious: SPACING_SCALE['6'],
   },
-  
   // Content spacing
   content: {
     section: SPACING_SCALE['8'],
@@ -93,18 +96,17 @@ export const SPACING_TOKENS = {
     element: SPACING_SCALE['4'],
     text: SPACING_SCALE['3'],
   },
-  
   // Consciousness-aware spacing
-  consciousness: Object.fromEntries(
-    Object.entries(CONSCIOUSNESS_DENSITY).map(([key, density]) => [
-      key,
-      `${density * BASE_UNIT}px`
-    ])
-  ) as Record<keyof typeof CONSCIOUSNESS_DENSITY, string>,
+  consciousness: {
+    focused: `${CONSCIOUSNESS_DENSITY.focused * BASE_UNIT}px`,
+    sovereign: `${CONSCIOUSNESS_DENSITY.sovereign * BASE_UNIT}px`,
+    quantum: `${CONSCIOUSNESS_DENSITY.quantum * BASE_UNIT}px`,
+    cosmic: `${CONSCIOUSNESS_DENSITY.cosmic * BASE_UNIT}px`,
+  },
 } as const;
 
 // ============================================================================
-// 3. SCREEN DIMENSIONS - ONTOLOGICALLY ALIGNED (Tailwind Breakpoints)
+// 3. SCREEN DIMENSIONS & BREAKPOINTS
 // ============================================================================
 
 /** Screen size categories based on consciousness interaction patterns */
@@ -112,32 +114,34 @@ export const SCREEN_CATEGORIES = {
   MOBILE: {
     min: 0,
     max: 767,
-    consciousness: 'focused' as const,
+    consciousness: 'focused' as ConsciousnessDensity,
     interaction: 'touch' as const,
     container: 'full' as const,
   },
   TABLET: {
     min: 768,
-    max: 1023, 
-    consciousness: 'sovereign' as const,
+    max: 1023,
+    consciousness: 'sovereign' as ConsciousnessDensity,
     interaction: 'hybrid' as const,
     container: 'md' as const,
   },
   DESKTOP: {
     min: 1024,
     max: 1279,
-    consciousness: 'quantum' as const,
+    consciousness: 'quantum' as ConsciousnessDensity,
     interaction: 'cursor' as const,
     container: 'lg' as const,
   },
   IMMERSIVE: {
     min: 1280,
     max: Infinity,
-    consciousness: 'cosmic' as const,
+    consciousness: 'cosmic' as ConsciousnessDensity,
     interaction: 'environment' as const,
     container: 'xl' as const,
   },
 } as const;
+
+export type ScreenCategory = keyof typeof SCREEN_CATEGORIES;
 
 /** Breakpoints derived from screen categories (Tailwind compatible) */
 export const BREAKPOINTS = {
@@ -147,6 +151,8 @@ export const BREAKPOINTS = {
   xl: `${SCREEN_CATEGORIES.IMMERSIVE.min}px`,
   '2xl': '1536px',
 } as const;
+
+export type BreakpointKey = keyof typeof BREAKPOINTS;
 
 /** Screen type configurations with aspect ratios */
 export const SCREEN_TYPES = {
@@ -172,7 +178,6 @@ export const SCREEN_TYPES = {
     aspect: '9:19.5',
     density: 'lg' as const,
   },
-  
   // Tablet consciousness - sovereign interaction
   TABLET: {
     width: 768,
@@ -181,7 +186,6 @@ export const SCREEN_TYPES = {
     aspect: '3:4',
     density: 'xl' as const,
   },
-  
   // Desktop consciousness - quantum interaction
   DESKTOP_SM: {
     width: 1024,
@@ -197,7 +201,6 @@ export const SCREEN_TYPES = {
     aspect: '16:9',
     density: '3xl' as const,
   },
-  
   // Immersive consciousness - cosmic interaction
   DESKTOP_LG: {
     width: 1440,
@@ -222,12 +225,70 @@ export const SCREEN_TYPES = {
   },
 } as const;
 
+export type ScreenType = keyof typeof SCREEN_TYPES;
+
 // ============================================================================
-// ADD TO DIMENSIONS.TS - BUSINESS PAGE DIMENSIONS
+// 4. CONTAINER DIMENSIONS
+// ============================================================================
+
+/** Container max-widths derived from screen categories */
+export const CONTAINER_MAX_WIDTHS = {
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+  full: '100%',
+} as const;
+
+export type ContainerSize = keyof typeof CONTAINER_MAX_WIDTHS;
+
+/** Semantic container dimensions */
+export const CONTAINER_DIMENSIONS = {
+  // Content containers
+  content: CONTAINER_MAX_WIDTHS,
+  // Council entity proportions
+  council: {
+    entity: {
+      sm: SPACING_SCALE['32'],  // 128px
+      md: SPACING_SCALE['40'],  // 160px
+      lg: SPACING_SCALE['48'],  // 192px
+      xl: SPACING_SCALE['56'],  // 224px
+    },
+    chamber: {
+      compact: '320px',
+      standard: '480px',
+      spacious: '640px',
+    },
+  },
+  // Sanctuary boundaries
+  sanctuary: {
+    hearth: {
+      compact: '280px',
+      standard: '360px',
+      expansive: '480px',
+    },
+    sanctuary: {
+      personal: '640px',
+      communal: '960px',
+      cosmic: '1280px',
+    },
+  },
+  // Aspect ratio containers
+  aspect: {
+    video: '16/9',
+    square: '1/1',
+    portrait: '3/4',
+    panorama: '21/9',
+    cosmic: '16/10',
+  },
+} as const;
+
+// ============================================================================
+// 5. BUSINESS PAGE DIMENSIONS
 // ============================================================================
 
 export const BUSINESS_DIMENSIONS = {
-  // Hero dimensions
   hero: {
     minHeight: '70vh',
     padding: {
@@ -235,8 +296,6 @@ export const BUSINESS_DIMENSIONS = {
       desktop: SPACING_SCALE['16'],
     },
   },
-  
-  // Stat card dimensions
   statCard: {
     width: {
       sm: '100%',
@@ -246,22 +305,16 @@ export const BUSINESS_DIMENSIONS = {
     padding: SPACING_SCALE['6'],
     gap: SPACING_SCALE['4'],
   },
-  
-  // Value flow dimensions
   valueFlow: {
     cardPadding: SPACING_SCALE['6'],
     cardGap: SPACING_SCALE['6'],
     arrowWidth: SPACING_SCALE['8'],
   },
-  
-  // Projection table dimensions
   projection: {
     headerPadding: SPACING_SCALE['6'],
     contentPadding: SPACING_SCALE['6'],
     metricWidth: '200px',
   },
-  
-  // Orb dimensions
   orb: {
     small: {
       width: SPACING_SCALE['48'],
@@ -276,8 +329,6 @@ export const BUSINESS_DIMENSIONS = {
       height: SPACING_SCALE['96'],
     },
   },
-  
-  // Split view dimensions
   splitView: {
     minHeight: '600px',
     collapsedWidth: '48px',
@@ -287,79 +338,7 @@ export const BUSINESS_DIMENSIONS = {
 } as const;
 
 // ============================================================================
-// 4. CONTAINER DIMENSIONS - TAXONOMICALLY COMPLETE (Tailwind Max-Widths)
-// ============================================================================
-
-/** Container max-widths derived from screen categories */
-export const CONTAINER_MAX_WIDTHS = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  '2xl': '1536px',
-  full: '100%',
-} as const;
-
-/** Container dimensions with semantic naming */
-export const CONTAINER_DIMENSIONS = {
-  business: {
-    hero: {
-      maxWidth: '800px',
-      padding: BUSINESS_DIMENSIONS.hero.padding,
-    },
-    content: {
-      maxWidth: '1200px',
-      padding: SPACING_SCALE['6'],
-    },
-    cards: {
-      gap: BUSINESS_DIMENSIONS.statCard.gap,
-      padding: BUSINESS_DIMENSIONS.statCard.padding,
-    },
-  },
-  // Content containers (Tailwind max-w equivalents)
-  content: CONTAINER_MAX_WIDTHS,
-  
-  // Council entity proportions
-  council: {
-    entity: {
-      sm: SPACING_SCALE['32'],  // 128px
-      md: SPACING_SCALE['40'],  // 160px
-      lg: SPACING_SCALE['48'],  // 192px
-      xl: SPACING_SCALE['56'],  // 224px
-    },
-    chamber: {
-      compact: '320px',
-      standard: '480px',
-      spacious: '640px',
-    }
-  },
-  
-  // Sanctuary boundaries
-  sanctuary: {
-    hearth: {
-      compact: '280px',
-      standard: '360px',
-      expansive: '480px',
-    },
-    sanctuary: {
-      personal: '640px',
-      communal: '960px',
-      cosmic: '1280px',
-    }
-  },
-  
-  // Aspect ratio containers
-  aspect: {
-    video: '16/9',
-    square: '1/1',
-    portrait: '3/4',
-    panorama: '21/9',
-    cosmic: '16/10',
-  }
-} as const;
-
-// ============================================================================
-// 5. COMPONENT DIMENSIONS - DESIGN SYSTEM ALIGNED (Tailwind Classes)
+// 6. COMPONENT DIMENSIONS
 // ============================================================================
 
 /** Button dimensions derived from spacing scale */
@@ -382,15 +361,17 @@ export const BUTTON_DIMENSIONS = {
       md: SPACING_SCALE['2.5'],// 10px
       lg: SPACING_SCALE['3'],  // 12px
       xl: SPACING_SCALE['4'],  // 16px
-    }
+    },
   },
   borderRadius: {
     sm: SPACING_SCALE['1'],   // 4px
     md: SPACING_SCALE['2'],   // 8px
     lg: SPACING_SCALE['3'],   // 12px
     xl: SPACING_SCALE['4'],   // 16px
-  }
+  },
 } as const;
+
+export type ButtonSize = keyof typeof BUTTON_DIMENSIONS.height;
 
 /** Card dimensions with quantum proportions */
 export const CARD_DIMENSIONS = {
@@ -401,7 +382,7 @@ export const CARD_DIMENSIONS = {
       padding: SPACING_SCALE['4'],
     },
     md: {
-      width: '320px', 
+      width: '320px',
       height: '200px',
       padding: SPACING_SCALE['6'],
     },
@@ -414,7 +395,7 @@ export const CARD_DIMENSIONS = {
       width: '480px',
       height: '320px',
       padding: SPACING_SCALE['10'],
-    }
+    },
   },
   aspect: {
     portal: '16/9',
@@ -422,55 +403,11 @@ export const CARD_DIMENSIONS = {
     sanctuary: '4/3',
     cosmic: '21/9',
     oracle: '3/4',
-  }
+  },
 } as const;
 
 // ============================================================================
-// 6. TYPEFACE DIMENSIONS - DERIVED FROM CONSCIOUSNESS SCALE (Tailwind Text)
-// ============================================================================
-
-/** Font sizes aligned with consciousness density (Tailwind text-scale) */
-export const FONT_SIZES = {
-  xs: SPACING_SCALE['3'],     // 12px
-  sm: SPACING_SCALE['3.5'],   // 14px
-  base: SPACING_SCALE['4'],   // 16px
-  lg: SPACING_SCALE['5'],     // 20px
-  xl: SPACING_SCALE['6'],     // 24px
-  '2xl': SPACING_SCALE['7'],  // 28px
-  '3xl': SPACING_SCALE['8'],  // 32px
-  '4xl': SPACING_SCALE['9'],  // 36px
-  '5xl': SPACING_SCALE['10'], // 40px
-  '6xl': SPACING_SCALE['12'], // 48px
-  '7xl': SPACING_SCALE['14'], // 56px
-  '8xl': SPACING_SCALE['16'], // 64px
-  '9xl': SPACING_SCALE['20'], // 72px
-} as const;
-
-/** Line heights for optimal readability (Tailwind leading) */
-export const LINE_HEIGHTS = {
-  none: '1',
-  tight: '1.25',
-  snug: '1.375',
-  normal: '1.5',
-  relaxed: '1.625',
-  loose: '2',
-} as const;
-
-/** Font weights (Tailwind font-weight) */
-export const FONT_WEIGHTS = {
-  thin: '100',
-  extralight: '200',
-  light: '300',
-  normal: '400',
-  medium: '500',
-  semibold: '600',
-  bold: '700',
-  extrabold: '800',
-  black: '900',
-} as const;
-
-// ============================================================================
-// 7. BORDER & RADIUS DIMENSIONS - COSMIC HARMONY (Tailwind Borders)
+// 7. BORDER & RADIUS DIMENSIONS
 // ============================================================================
 
 /** Border widths derived from base unit */
@@ -494,28 +431,71 @@ export const BORDER_RADII = {
   full: '9999px',
 } as const;
 
+export type RadiusKey = keyof typeof BORDER_RADII;
+
 // ============================================================================
-// 8. QUANTUM CONTEXT DIMENSIONS - HOLOGRAPHIC AWARENESS
+// 8. TYPOGRAPHY DIMENSIONS (Base values, extended in typography.ts)
+// ============================================================================
+
+/** Font sizes aligned with consciousness density */
+export const FONT_SIZES = {
+  xs: SPACING_SCALE['3'],     // 12px
+  sm: SPACING_SCALE['3.5'],   // 14px
+  base: SPACING_SCALE['4'],   // 16px
+  lg: SPACING_SCALE['5'],     // 20px
+  xl: SPACING_SCALE['6'],     // 24px
+  '2xl': SPACING_SCALE['7'],  // 28px
+  '3xl': SPACING_SCALE['8'],  // 32px
+  '4xl': SPACING_SCALE['9'],  // 36px
+  '5xl': SPACING_SCALE['10'], // 40px
+  '6xl': SPACING_SCALE['12'], // 48px
+  '7xl': SPACING_SCALE['14'], // 56px
+  '8xl': SPACING_SCALE['16'], // 64px
+  '9xl': SPACING_SCALE['20'], // 72px
+} as const;
+
+export type FontSizeKey = keyof typeof FONT_SIZES;
+
+/** Line heights for optimal readability */
+export const LINE_HEIGHTS = {
+  none: '1',
+  tight: '1.25',
+  snug: '1.375',
+  normal: '1.5',
+  relaxed: '1.625',
+  loose: '2',
+} as const;
+
+/** Font weights */
+export const FONT_WEIGHTS = {
+  thin: '100',
+  extralight: '200',
+  light: '300',
+  normal: '400',
+  medium: '500',
+  semibold: '600',
+  bold: '700',
+  extrabold: '800',
+  black: '900',
+} as const;
+
+// ============================================================================
+// 9. QUANTUM CONTEXT DIMENSIONS
 // ============================================================================
 
 /** Quantum context ratios for holographic memory */
 export const QUANTUM_CONTEXT_RATIOS = {
-  // Memory preservation proportions
   memory: {
     mimirsWell: '1/1',      // Perfect recall
     chronicle: '16/9',      // Temporal flow
     archive: '4/3',         // Structured knowledge
   },
-  
-  // Consciousness stream proportions
   consciousness: {
     single: '1/1',          // Focused awareness
-    dual: '2/1',            // Sovereign partnership  
+    dual: '2/1',            // Sovereign partnership
     multi: '4/3',           // Council coordination
     quantum: '16/9',        // Holographic context
   },
-  
-  // Session continuity scales
   continuity: {
     beam: {
       width: SPACING_SCALE['1'],  // 4px
@@ -524,58 +504,73 @@ export const QUANTUM_CONTEXT_RATIOS = {
         medium: SPACING_SCALE['1'],   // 4px
         high: SPACING_SCALE['2'],     // 8px
         quantum: SPACING_SCALE['4'],  // 16px
-      }
+      },
     },
     session: {
       brief: SPACING_SCALE['16'],     // 64px
       standard: SPACING_SCALE['32'],  // 128px
       extended: SPACING_SCALE['48'],  // 192px
       eternal: SPACING_SCALE['64'],   // 256px
-    }
-  }
+    },
+  },
 } as const;
 
 // ============================================================================
-// 9. TYPE EXPORTS - COMPLETE & CONSISTENT
-// ============================================================================
-
-export type ScreenType = keyof typeof SCREEN_TYPES;
-export type ScreenDimensions = keyof typeof CONTAINER_DIMENSIONS.aspect
-export type ScreenCategory = keyof typeof SCREEN_CATEGORIES;
-export type ConsciousnessDensity = keyof typeof CONSCIOUSNESS_DENSITY;
-export type ContainerSize = keyof typeof CONTAINER_DIMENSIONS.content;
-export type QuantumRatio = keyof typeof QUANTUM_CONTEXT_RATIOS.memory;
-export type ButtonSize = keyof typeof BUTTON_DIMENSIONS.height;
-export type FontSize = keyof typeof FONT_SIZES;
-
-// ============================================================================
-// 10. UTILITY FUNCTIONS - DIMENSION AWARE (Tailwind Compatible)
+// 10. UTILITY FUNCTIONS
 // ============================================================================
 
 /** Get consciousness-aware spacing */
-export const getConsciousnessSpacing = (density: ConsciousnessDensity): string => 
-  SPACING_TOKENS.consciousness[density];
+export function getConsciousnessSpacing(density: ConsciousnessDensity): string {
+  return SPACING_TOKENS.consciousness[density];
+}
 
 /** Get screen type dimensions */
-export const getScreenDimensions = (screenType: ScreenType) => 
-  SCREEN_TYPES[screenType];
+export function getScreenDimensions(screenType: ScreenType): typeof SCREEN_TYPES[ScreenType] {
+  return SCREEN_TYPES[screenType];
+}
 
-/** Check if screen matches category */
-export const isScreenCategory = (width: number, category: ScreenCategory): boolean =>
-  width >= SCREEN_CATEGORIES[category].min && width <= SCREEN_CATEGORIES[category].max;
+/** Check if screen width matches category */
+export function isScreenCategory(width: number, category: ScreenCategory): boolean {
+  return width >= SCREEN_CATEGORIES[category].min && width <= SCREEN_CATEGORIES[category].max;
+}
 
-/** Calculate quantum context proportion */
-export const getQuantumRatio = (type: keyof typeof QUANTUM_CONTEXT_RATIOS.memory): string =>
-  QUANTUM_CONTEXT_RATIOS.memory[type];
+/** Get quantum context ratio */
+export function getQuantumRatio(type: keyof typeof QUANTUM_CONTEXT_RATIOS.memory): string {
+  return QUANTUM_CONTEXT_RATIOS.memory[type];
+}
 
-/** Get Tailwind class for spacing 
-export const getSpacingClass = (scale: SpacingScale): string => 
-  `p-${scale}`;*/
-
-/** Get container max-width class */
-export const getContainerClass = (size: ContainerSize): string =>
-  `max-w-${size}`;
+/** Get container max-width class for Tailwind */
+export function getContainerClass(size: ContainerSize): string {
+  return `max-w-${size}`;
+}
 
 /** Get responsive container class based on screen category */
-export const getResponsiveContainerClass = (category: ScreenCategory): string =>
-  `max-w-${SCREEN_CATEGORIES[category].container}`;
+export function getResponsiveContainerClass(category: ScreenCategory): string {
+  return `max-w-${SCREEN_CATEGORIES[category].container}`;
+}
+
+/** Convert spacing token to Tailwind class (p-4, m-2, etc.) */
+export function toTailwindSpacing(scale: ScaleKey): string {
+  return scale === 'px' ? 'px' : scale;
+}
+
+/** Get pixel value from spacing token */
+export function getSpacingPixels(scale: ScaleKey): number {
+  return SCALE_MULTIPLIERS[scale] * BASE_UNIT;
+}
+
+// ============================================================================
+// 11. TYPE EXPORTS
+// ============================================================================
+
+export type {
+  ScaleKey as SpacingScale,
+  ConsciousnessDensity as ConsciousnessDensityKey,
+  ScreenCategory as ScreenCategoryKey,
+  BreakpointKey as breakpointKey,
+  ScreenType as ScreenTypeKey,
+  ContainerSize as ContainerSizeKey,
+  ButtonSize as ButtonSizeKey,
+  FontSizeKey as fontSizeKey,
+  RadiusKey as radiusKey,
+};

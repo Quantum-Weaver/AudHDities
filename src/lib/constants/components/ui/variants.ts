@@ -1,5 +1,5 @@
 "use client"
-// src/lib/constants/components/ui/variants.ts
+/* src/lib/constants/components/ui/variants.ts */
 
 // ============================================================================
 // COMPONENT VARIANTS SYSTEM - FULL COSMIC INTEGRATION
@@ -7,32 +7,11 @@
 
 import { 
   QUANTUM_COLORS,
-  QUANTUM_GRADIENTS,
-  STATUS_COLORS,
-  MOOD_COLORS,
-  ENERGY_COLORS,
-  DOMAIN_COLORS,
-  COUNCIL_COLORS,
-  INTERACTION_COLORS,
-  THEME_COLORS 
+  COUNCIL_COLORS
 } from '@/lib/constants/cosmic/colors';
 
-//import { EFFECTS } from '../../systems/interaction';
-//import { PARTICLE_BEHAVIOR } from '../immersive/panorama';
+import { COUNCIL_GRADIENTS, GLOW_EFFECTS, SHADOWS, HOLOGRAPHIC_EFFECTS, BACKDROP_EFFECTS, EFFECTS, PARTICLE_BEHAVIOR, GRADIENTS } from '@/lib/constants/cosmic/effects'
 
-import {
-  CONSCIOUSNESS_LEVEL_COLORS,
-  VESSEL_CAPACITY_GRADIENTS,
-  VESSEL_RESONANCE_LEVELS
-} from '@/lib/constants/cosmic/consciousness';
-
-import {
-  GLOW_EFFECTS,
-  SHADOWS,
-  HOLOGRAPHIC_EFFECTS,
-  BACKDROP_EFFECTS,
-  GRADIENT_EFFECTS
-} from '@/lib/constants/cosmic/effects';
 
 import {
   DURATIONS,
@@ -208,7 +187,7 @@ export const EMOJI_VARIANTS = {
 export const BUTTON_VARIANTS = {
   sovereign_primary: {
     // Colors & Visual
-    background: QUANTUM_GRADIENTS['sovereign'],
+    background: GRADIENTS['sovereign'],
     border: `2px solid ${QUANTUM_COLORS['hearth.orange']}`,
     text: {
       color: QUANTUM_COLORS['deepSpace'],
@@ -2506,10 +2485,10 @@ export const PANORAMA_VARIANTS = {
     // Visual Effects
     effects: {
       glow: GLOW_EFFECTS['quantum'],
-      shadow: SHADOWS['2xl'],
+      shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.scanLines,
-    //particles: PARTICLE_BEHAVIOR.PULSE
+      particles: PARTICLE_BEHAVIOR.PULSE
     },
     
     // Animation & Interaction
@@ -2585,7 +2564,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS['2xl'],
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.cornerAccent,
-      //particles: PARTICLE_BEHAVIOR.DRIFT
+      particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -2661,7 +2640,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.particles,
-      //particles: PARTICLE_BEHAVIOR.DRIFT
+      particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -2737,7 +2716,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.scan,
-      //particles: PARTICLE_BEHAVIOR.PULSE
+      particles: PARTICLE_BEHAVIOR.PULSE
     },
     
     // Animation & Interaction
@@ -2813,7 +2792,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.glitch,
-      //particles: PARTICLE_BEHAVIOR.FLOAT
+      particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -2889,7 +2868,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS['2xl'],
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.rainbow,
-      //particles: PARTICLE_BEHAVIOR.DRIFT
+      particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -5333,7 +5312,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.inner,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.scanLines,
-    //  particles: PARTICLE_BEHAVIOR.FLOAT
+      particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5422,7 +5401,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.cornerAccent,
-    //  particles: PARTICLE_BEHAVIOR.FLOAT
+      particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5511,7 +5490,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.md,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.particles,
-    //  particles: PARTICLE_BEHAVIOR.FLOAT
+      particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5600,7 +5579,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.sm,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.glitch,
-    //  particles: PARTICLE_BEHAVIOR.FLOAT
+      particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction

@@ -17,6 +17,9 @@ AUDHDITIES/
 ✅	│   │   ├── database-schema.md             # Explanation of tables
 ✅	│   │   ├── auth-flow.md                   # How authentication works
 ✅	│   │   └── residual-system.md             # How money flows
+📁   │   ├── business/                            # User guides
+✅	│   │   ├── business-plan.md          # How to become a creator
+✅	│   │   ├── financial-ecosystem.md           # How to become a vendor
 📁   │   ├── guides/                            # User guides
 ✅	│   │   ├── creator-onboarding.md          # How to become a creator
 ✅	│   │   ├── vendor-onboarding.md           # How to become a vendor
@@ -24,7 +27,7 @@ AUDHDITIES/
 📁   │   ├── privacy/                           
 ✅	│   │   └── privacy.md                     # Privacy Policy
 📁   │   ├── terms/                            
-✅	│   │   └── terms.md                       # Terms of Service
+✅	│   │   └── terms-of-service.md                       # Terms of Service
 📁   │   └── api/                               # API documentation
 ❓	│       └── (generated later)
 ⚪	│
