@@ -1,10 +1,10 @@
 /* @/app/(auth)/logout/route.ts */
-import { createClient } from '@/lib/supabase/server'
+import { createServerSupabase } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient()
+    const supabase = await createServerSupabase()
     const { error } = await supabase.auth.signOut()
     
     if (error) throw error
