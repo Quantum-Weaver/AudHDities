@@ -5,6 +5,5 @@
 // GENERATED: 2026-04-05T23:04:19.924Z
 // =====================================================
 
-export * from './continuity-beam';
-export * from './quantum-background';
-export * from './variants';
+export * from './immersive';
+export * from './ui';
