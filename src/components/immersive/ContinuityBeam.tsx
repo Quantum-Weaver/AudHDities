@@ -1,64 +1,79 @@
 /* @/components/immersive/ContinuityBeam.tsx */
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type HTMLMotionProps } from 'framer-motion';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import { 
-  BEAM_COLORS, 
-  BEAM_ANIMATIONS,
-  ENVIRONMENT_BEAM_CONFIGS,
-  DEFAULT_BEAM_CONFIG
-} from '@/lib/constants/components/immersive/continuity-beam';
-import { ContinuityBeamProps } from '@/types/components/immersive/continuity-beam'
+import { getBeamAnimation } from '@/lib/constants/components/immersive/continuity-beam';
+import { GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
+import { cn } from '@/lib/utils';
 
+interface ContinuityBeamProps extends HTMLMotionProps<'div'> {
+  /** Override beam intensity (0-1) - overrides the calculated intensity */
+  intensityOverride?: number;
+  /** Custom className */
+  className?: string;
+  /** Disable the beam entirely */
+  disabled?: boolean;
+}
 
 export default function ContinuityBeam({
+  intensityOverride,
   className = '',
-  intensity: intensityOverride,
-  purpose
+  disabled = false,
+  ...props
 }: ContinuityBeamProps) {
-  const { beamConfig } = useContinuityBeam();
-  
-  const { 
-    variant = DEFAULT_BEAM_CONFIG.variant,
-    intensity = DEFAULT_BEAM_CONFIG.intensity,
-    showQuantumSweep = DEFAULT_BEAM_CONFIG.showQuantumSweep
-  } = beamConfig;
+  const { beamConfig, activationState } = useContinuityBeam();
 
-  // Get environment-specific beam config if available
-  const envConfig = ENVIRONMENT_BEAM_CONFIGS[variant as keyof typeof ENVIRONMENT_BEAM_CONFIGS] || ENVIRONMENT_BEAM_CONFIGS.default;
-  
-  // Use override if provided, otherwise use context intensity, fallback to env config
-  const finalIntensity = intensityOverride !== undefined ? intensityOverride : intensity;
-  
-  // Get gradient from BEAM_COLORS using variant
-  const beamGradient = BEAM_COLORS[variant as keyof typeof BEAM_COLORS] || BEAM_COLORS.home;
-  
-  // Optional: Adjust intensity based on purpose if provided
-  const calculatedIntensity = purpose === 'memory_preservation' ? finalIntensity * 0.8 :
-                              purpose === 'cross_domain_connection' ? Math.min(finalIntensity * 1.2, 1) :
-                              finalIntensity;
-  
-  const beamAnimation = BEAM_ANIMATIONS.quantumSweep;
+  if (disabled || !activationState.active) return null;
 
-  if (!showQuantumSweep) return null;
+  // Get the animation from the beam config
+  const beamAnimation = getBeamAnimation(beamConfig);
+  
+  // Calculate final intensity (override > config intensity mapping)
+  const getIntensityValue = (intensity: string): number => {
+    if (intensityOverride !== undefined) return intensityOverride;
+    switch (beamConfig.intensity) {
+      case 'quantum': return 0.85;
+      case 'high': return 0.66;
+      case 'medium': return 0.47;
+      case 'low': return 0.33;
+      default: return 0.47;
+    }
+  };
+  
+  const finalIntensity = getIntensityValue(beamConfig.intensity);
+  
+  // Apply speed multiplier from activation state
+  const adjustedDuration = (beamConfig.duration || 3) / (activationState.speedMultiplier || 1);
+  
+  // Get glow effect (fallback to quantum glow)
+  const glowEffect = beamConfig.glow || GLOW_EFFECTS.quantum;
 
   return (
-    <div 
-      className={`w-full h-[7px] relative overflow-hidden ${className}`}
-      data-beam-variant={variant}
-      data-beam-purpose={envConfig.purpose}
-      data-beam-intensity={envConfig.intensity}
+    <div
+      className={cn(
+        'continuity-beam-container',
+        'fixed top-0 left-0 w-full h-[3px] overflow-hidden pointer-events-none z-40',
+        className
+      )}
+      data-beam-variant={beamConfig.variant}
+      data-beam-intensity={beamConfig.intensity}
+      data-beam-active={activationState.active}
+      data-beam-speed-multiplier={activationState.speedMultiplier}
     >
       <motion.div
-        className="absolute inset-0 h-full"
+        className="absolute h-full w-full"
         style={{
-          background: beamGradient,
-          opacity: calculatedIntensity,
-          width: '100%',
-          height: '100%'
+          background: beamConfig.gradient,
+          opacity: finalIntensity * activationState.glowMultiplier,
+          boxShadow: glowEffect,
         }}
-        {...beamAnimation}
+        animate={beamAnimation.animate}
+        transition={{
+          ...beamAnimation.transition,
+          duration: adjustedDuration,
+        }}
+        {...props}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-// src/scripts/core/fileReader.ts
+// @/scripts/core/fileReader.ts
 // Shared function for reading database.types.ts
 // Handles encoding detection, BOM stripping, returns clean string
 

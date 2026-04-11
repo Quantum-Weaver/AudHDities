@@ -1,7 +1,7 @@
-// src/scripts/step5_Constants_isolation.ts
+// @/scripts/step5_Constants_isolation.ts
 // STEP 5: Extract Constants section content
 
-import { readDatabaseTypes } from '../shared/fileReader.js';
+import { readDatabaseTypes } from '@/scripts/shared/fileReader.js';
 
 const colors = {
   reset: '\x1b[0m',

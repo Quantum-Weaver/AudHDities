@@ -6,7 +6,6 @@
 // ============================================================================
 
 import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
-import type { ENVIRONMENT_BEAM_CONFIGS, BEAM_INTENSITIES } from '@/lib/constants/components/immersive/continuity-beam';
 
 // ============================================================================
 // 1. CONSCIOUSNESS LEVELS - User's journey stage

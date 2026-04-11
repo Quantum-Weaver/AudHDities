@@ -1,7 +1,7 @@
-// src/scripts/step7_findBom_constants_schema.ts
+// @/scripts/step7_findBom_constants_schema.ts
 // STEP 7: Parse Constants section for enum names
 
-import { readDatabaseTypes } from '../shared/fileReader.js';
+import { readDatabaseTypes } from '@/scripts/shared/fileReader.js';
 
 const colors = {
   reset: '\x1b[0m',

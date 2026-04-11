@@ -1,4 +1,4 @@
-// src/scripts/generate-types.ts
+// @/scripts/generate-types.ts
 // INCREMENT 1: Parser Foundation
 // Purpose: Locate and log enums and table structures from database.types.ts
 // Does NOT write any files yet

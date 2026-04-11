@@ -1,4 +1,4 @@
-// src/config/enum-mapping.ts
+// @/config/enum-mapping.ts
 // ENUM TO DEITY FOLDER MAPPING
 // Maps each runtime enum to its designated deity folder
 // Generated: April 5, 2026

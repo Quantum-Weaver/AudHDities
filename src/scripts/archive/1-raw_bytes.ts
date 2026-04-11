@@ -1,4 +1,4 @@
-// src/scripts/1-raw_bytes.ts
+// @/scripts/1-raw_bytes.ts
 // Corrected for UTF-16 LE encoding WITH LINE NUMBERS
 
 import * as fs from 'fs';

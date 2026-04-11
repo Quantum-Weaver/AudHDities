@@ -1,4 +1,4 @@
-// src/lib/constants/components/immersive/quantum-background.ts - SIMPLIFIED
+// @/lib/constants/components/immersive/quantum-background.ts - SIMPLIFIED
 // ============================================================================
 // QUANTUM BACKGROUND CONSTANTS - DIRECT ASSET MAPPER INTEGRATION
 // ============================================================================

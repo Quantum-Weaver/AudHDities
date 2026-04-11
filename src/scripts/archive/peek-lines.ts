@@ -1,4 +1,4 @@
-// src/scripts/peek-lines.ts
+// @/scripts/peek-lines.ts
 // Simple line peeker - shows raw content of specific line ranges
 // Now with BOM removal
 

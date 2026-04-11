@@ -1,4 +1,4 @@
-// src/types/stripe/events.ts
+// @/types/stripe/events.ts
 import type { StripeCheckoutSession, StripePaymentIntent, WebhookEvent, WebhookEventType } from './index';
 
 /**

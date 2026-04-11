@@ -1,4 +1,4 @@
-// src/types/components/immersive/quantum-background.ts
+// @/types/components/immersive/quantum-background.ts
 // ============================================================================
 // QUANTUM BACKGROUND TYPES - PURE SHAPES ONLY
 // ============================================================================

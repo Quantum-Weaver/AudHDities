@@ -119,6 +119,7 @@ export const GRADIENTS = {
   'textSovereign': `linear-gradient(135deg, ${QUANTUM_COLORS['hearth.gold']}, ${QUANTUM_COLORS['fire.base']})`,
   'textRainbow': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']}, ${QUANTUM_COLORS['pride.orange']}, ${QUANTUM_COLORS['pride.yellow']}, ${QUANTUM_COLORS['pride.green']}, ${QUANTUM_COLORS['pride.blue']}, ${QUANTUM_COLORS['pride.purple']})`,
 } as const;
+export const QUANTUM_GRADIENTS = GRADIENTS;
 
 export const COUNCIL_GRADIENTS = {
   'aethelred': GRADIENTS.aethelred,
@@ -261,6 +262,7 @@ export const EFFECTS = {
 // Type exports
 export type GradientKey = keyof typeof GRADIENTS;
 export type CouncilGradients = keyof typeof COUNCIL_GRADIENTS;
+export type QuantumGradients = keyof typeof QUANTUM_GRADIENTS;
 export type GlowKey = keyof typeof GLOW_EFFECTS;
 export type ShadowKey = keyof typeof SHADOWS;
 export type BackdropKey = keyof typeof BACKDROP_EFFECTS;

@@ -1,4 +1,4 @@
-// src/scripts/step2-count-enums.ts
+// @/scripts/step2-count-enums.ts
 // STEP 2: Count Enum Objects in Constants.public.Enums
 // Builds on Step 1 - uses correct UTF-16 LE encoding
 

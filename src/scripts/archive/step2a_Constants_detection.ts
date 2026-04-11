@@ -1,4 +1,4 @@
-// src/scripts/step2a_Constants_detection.ts
+// @/scripts/step2a_Constants_detection.ts
 // Step 2a: Extract the entire Constants object and save to types/supabase/constants.ts
 // Goal: Capture everything from "export const Constants = {" to its matching closing brace
 

@@ -1,4 +1,4 @@
-// src/config/object-categories.ts
+// @/config/object-categories.ts
 // Defines how each object should be handled by the generator
 
 export type HandlingLevel = 

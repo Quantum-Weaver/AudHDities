@@ -1,2 +1,2 @@
-// src/scripts/index.ts
+// @/scripts/index.ts
 export * from '../generate-schema'

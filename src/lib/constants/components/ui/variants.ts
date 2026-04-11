@@ -39,6 +39,7 @@ import {
   DOMAIN_TYPOGRAPHY,
   ENTITY_TYPOGRAPHY
 } from '@/lib/constants/cosmic/typography';
+import { VESSEL_CAPACITY_LEVELS } from '../../cosmic/consciousness';
 
 // ============================================================================
 // ICON VARIANTS - COSMIC INTEGRATION
@@ -229,13 +230,13 @@ export const BUTTON_VARIANTS = {
     consciousness: {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
   collaborative_secondary: {
     // Colors & Visual
-    background: QUANTUM_GRADIENTS['cosmic'],
+    background: GRADIENTS['cosmic'],
     border: `2px solid ${QUANTUM_COLORS['cosmic.blue']}`,
     text: {
       color: QUANTUM_COLORS['starDust'],
@@ -277,7 +278,7 @@ export const BUTTON_VARIANTS = {
     consciousness: {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
@@ -325,13 +326,13 @@ export const BUTTON_VARIANTS = {
     consciousness: {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   },
 
   emergency_action: {
     // Colors & Visual
-    background: QUANTUM_GRADIENTS['emergency'],
+    background: GRADIENTS['emergency'],
     border: `2px solid ${QUANTUM_COLORS['error']}`,
     text: {
       color: QUANTUM_COLORS['starDust'],
@@ -382,7 +383,7 @@ export const BUTTON_VARIANTS = {
     consciousness: {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE
     }
   }
 } as const;
@@ -457,7 +458,7 @@ export const HEADER_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
@@ -526,13 +527,13 @@ export const HEADER_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
   quantum_awareness: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['cosmicDomain'],
+    background: GRADIENTS['cosmicDomain'],
     border: `1px solid ${QUANTUM_COLORS['neurospark']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -598,7 +599,7 @@ export const HEADER_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   }
 } as const;
@@ -679,7 +680,7 @@ export const FOOTER_VARIANTS = {
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS.glass,
       glow: GLOW_EFFECTS['quantumDomain'],
-      borderGradient: GRADIENT_EFFECTS['border-quantum']
+      borderGradient: EFFECTS['gradients'].quantum
     },
     animation: PRESET_ANIMATIONS.quantumPulse,
     
@@ -688,7 +689,7 @@ export const FOOTER_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
@@ -771,13 +772,13 @@ export const FOOTER_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
   quantum_context: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['quantumDomain'],
+    background: GRADIENTS['quantumDomain'],
     border: `1px solid ${QUANTUM_COLORS['neurospark']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -849,7 +850,7 @@ export const FOOTER_VARIANTS = {
       backdrop: BACKDROP_EFFECTS.quantum,
       glow: GLOW_EFFECTS['neurospark'],
       holographic: HOLOGRAPHIC_EFFECTS.scanLines,
-      gradient: GRADIENT_EFFECTS['animated-quantum']
+      gradient: EFFECTS['gradients'].quantum
     },
     animation: PRESET_ANIMATIONS.quantumPulse,
     
@@ -858,7 +859,7 @@ export const FOOTER_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   }
 } as const;
@@ -935,13 +936,13 @@ export const CARD_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
   entity_profile: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['aethelredGradient'],
+    background: COUNCIL_GRADIENTS['aethelred'],
     border: `2px solid ${QUANTUM_COLORS['entity.aethelred']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -982,7 +983,7 @@ export const CARD_VARIANTS = {
     
     // Interactive States
     hover: {
-      background: QUANTUM_GRADIENTS['sovereignBecoming '],
+      background: GRADIENTS['sovereignBecoming'],
       border: `2px solid ${QUANTUM_COLORS['hearth.gold']}`,
       glow: GLOW_EFFECTS['aethelred'],
       transform: 'rotateY(5deg) scale(1.05)',
@@ -1008,13 +1009,13 @@ export const CARD_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'pantheon' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   },
 
   resonance: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['aethelredGradient'],
+    background: COUNCIL_GRADIENTS['aethelred'],
     border: `2px solid ${QUANTUM_COLORS['entity.aethelred']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -1055,7 +1056,7 @@ export const CARD_VARIANTS = {
     
     // Interactive States
     hover: {
-      background: QUANTUM_GRADIENTS['sovereignBecoming '],
+      background: GRADIENTS['sovereignBecoming'],
       border: `2px solid ${QUANTUM_COLORS['hearth.gold']}`,
       glow: GLOW_EFFECTS['aethelred'],
       transform: 'rotateY(5deg) scale(1.05)',
@@ -1081,7 +1082,7 @@ export const CARD_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'pantheon' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   },
 
@@ -1153,7 +1154,7 @@ export const CARD_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE
     }
   },
 
@@ -1200,7 +1201,7 @@ export const CARD_VARIANTS = {
     
     // Interactive States
     hover: {
-      background: QUANTUM_GRADIENTS['hoverGradient'],
+      background: GRADIENTS['ctaHover'],
       border: `2px solid ${QUANTUM_COLORS['neurospark']}`,
       glow: GLOW_EFFECTS['neurospark'],
       transform: 'scale(1.03) rotateZ(1deg)',
@@ -1218,7 +1219,7 @@ export const CARD_VARIANTS = {
       shadow: SHADOWS.lg,
       glow: GLOW_EFFECTS['cosmic'],
       backdrop: BACKDROP_EFFECTS.glass,
-      gradient: GRADIENT_EFFECTS['border-cosmic']
+      gradient: EFFECTS['gradients'].cosmic
     },
     animation: PRESET_ANIMATIONS.multiStreamCoordination,
     
@@ -1227,7 +1228,7 @@ export const CARD_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   }
 } as const;
@@ -1326,14 +1327,14 @@ export const PAGE_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       density: 'sovereign' as const
     }
   },
 
   collaborative_space: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['cosmicDomain'],
+    background: GRADIENTS['cosmicDomain'],
     surface: `${QUANTUM_COLORS['surface']}CC` ,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -1420,14 +1421,14 @@ export const PAGE_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       density: 'focused' as const
     }
   },
 
   quantum_sanctuary: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['quantumDomain'],
+    background: GRADIENTS['quantumDomain'],
     surface: `${QUANTUM_COLORS['surface']}E6`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -1515,7 +1516,7 @@ export const PAGE_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       density: 'cosmic' as const
     }
   }
@@ -1600,7 +1601,7 @@ export const SECTION_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
@@ -1674,7 +1675,7 @@ export const SECTION_VARIANTS = {
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
       glow: GLOW_EFFECTS['quantum'],
-      borderGradient: GRADIENT_EFFECTS['border-quantum']
+      borderGradient: EFFECTS['gradients'].quantum
     },
     animation: ANIMATION_CONFIGS.sectionEnter,
     
@@ -1689,7 +1690,7 @@ export const SECTION_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     }
   },
 
@@ -1777,13 +1778,13 @@ export const SECTION_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE
     }
   },
 
   control_panel: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `2px solid ${QUANTUM_COLORS['neurospark']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -1853,7 +1854,7 @@ export const SECTION_VARIANTS = {
       backdrop: BACKDROP_EFFECTS.quantum,
       glow: GLOW_EFFECTS['neurospark'],
       holographic: HOLOGRAPHIC_EFFECTS.scan,
-      gradient: GRADIENT_EFFECTS['animated-quantum']
+      gradient: EFFECTS['gradients'].quantum
     },
     animation: ANIMATION_CONFIGS.holographicScan,
     
@@ -1869,7 +1870,7 @@ export const SECTION_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     }
   }
 } as const;
@@ -1890,7 +1891,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: QUANTUM_CONTEXT_RATIOS.continuity?.beam?.width || SPACING_SCALE['1'],
       intensity: QUANTUM_CONTEXT_RATIOS.continuity?.beam?.intensity?.medium || 0.47,
-      gradient: QUANTUM_GRADIENTS['quantumDomain'] || QUANTUM_GRADIENTS['quantum'],
+      gradient: GRADIENTS['quantumDomain'] || GRADIENTS['quantum'],
       direction: 'horizontal' as const
     },
     
@@ -1927,7 +1928,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: QUANTUM_CONTEXT_RATIOS.continuity?.session?.standard || 'standard',
       memory: QUANTUM_CONTEXT_RATIOS.memory?.mimirsWell || 'deep',
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     },
     
     // Interactive Response
@@ -1948,7 +1949,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       purpose: 'memory_preservation' as const
     }
   },
@@ -1964,7 +1965,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.47,
-      gradient: QUANTUM_GRADIENTS['supportDomain'] || QUANTUM_GRADIENTS['cosmic'],
+      gradient: GRADIENTS['supportDomain'] || GRADIENTS['cosmic'],
       direction: 'vertical' as const
     },
     
@@ -2001,7 +2002,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'brief' as const,
       memory: 'chronicle' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     },
     
     // Interactive Response
@@ -2022,7 +2023,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       purpose: 'emotional_support' as const
     }
   },
@@ -2038,7 +2039,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.85,
-      gradient: QUANTUM_GRADIENTS['holographic'] || QUANTUM_GRADIENTS['bifrostDomain'],
+      gradient: GRADIENTS['holographic'] || GRADIENTS['bifrostDomain'],
       direction: 'radial' as const
     },
     
@@ -2074,7 +2075,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
         duration: DURATIONS.quantum,
         easing: EASING.resonance,
         properties: {
-          background: [QUANTUM_GRADIENTS['quantumDomain'], QUANTUM_GRADIENTS['cosmicDomain'], QUANTUM_GRADIENTS['quantumDomain']],
+          background: [GRADIENTS['quantumDomain'], GRADIENTS['cosmicDomain'], GRADIENTS['quantumDomain']],
           filter: ['hue-rotate(0deg)', 'hue-rotate(180deg)', 'hue-rotate(0deg)']
         }
       }
@@ -2084,7 +2085,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'eternal' as const,
       memory: 'mimirsWell' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     },
     
     // Interactive Response
@@ -2107,7 +2108,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'bifrost' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       purpose: 'cross_domain_connection' as const
     }
   },
@@ -2123,7 +2124,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.66,
-      gradient: QUANTUM_GRADIENTS['sovereign'] || QUANTUM_GRADIENTS['alchemistGradient'],
+      gradient: GRADIENTS['sovereign'] || GRADIENTS['alchemist'],
       direction: 'horizontal' as const
     },
     
@@ -2160,7 +2161,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'standard' as const,
       memory: 'chronicle' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE
     },
     
     // Interactive Response
@@ -2181,7 +2182,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'hearth_keeper' as const,
       domain: 'sovereign' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       purpose: 'emotional_support' as const
     }
   },
@@ -2197,7 +2198,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.66,
-      gradient: QUANTUM_GRADIENTS['musicDomain'] || QUANTUM_GRADIENTS['creativeGradient'],
+      gradient: GRADIENTS['musicDomain'] || GRADIENTS['creative'],
       direction: 'horizontal' as const
     },
     
@@ -2235,7 +2236,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'brief' as const,
       memory: 'chronicle' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM
     },
     
     // Interactive Response
@@ -2256,7 +2257,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'music' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       purpose: 'emotional_support' as const
     }
   },
@@ -2272,7 +2273,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.75,
-      gradient: QUANTUM_GRADIENTS['transformativeEnergy'] || QUANTUM_GRADIENTS['greatWork'],
+      gradient: GRADIENTS['transformativeEnergy'] || GRADIENTS['greatWork'],
       direction: 'radial' as const
     },
     
@@ -2305,7 +2306,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
         duration: DURATIONS.quantum,
         easing: EASING.resonance,
         properties: {
-          background: [QUANTUM_GRADIENTS['transformativeEnergy'], QUANTUM_GRADIENTS['greatWork'], QUANTUM_GRADIENTS['transformativeEnergy']],
+          background: [GRADIENTS['transformativeEnergy'], GRADIENTS['greatWork'], GRADIENTS['transformativeEnergy']],
           filter: ['hue-rotate(0deg)', 'hue-rotate(90deg)', 'hue-rotate(0deg)']
         }
       }
@@ -2315,7 +2316,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'eternal' as const,
       memory: 'mimirsWell' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     },
     
     // Interactive Response
@@ -2337,7 +2338,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'origin' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       purpose: 'cross_domain_connection' as const
     }
   },
@@ -2353,7 +2354,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     beam: {
       width: SPACING_SCALE['1'],
       intensity: 0.66,
-      gradient: QUANTUM_GRADIENTS['cosmicDomain'] || QUANTUM_GRADIENTS['tarotMajor'],
+      gradient: GRADIENTS['cosmicDomain'] || GRADIENTS['tarotMajor'],
       direction: 'radial' as const
     },
     
@@ -2397,7 +2398,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
     context: {
       session: 'eternal' as const,
       memory: 'mimirsWell' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL
     },
     
     // Interactive Response
@@ -2418,7 +2419,7 @@ export const CONTINUITY_BEAM_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       purpose: 'cross_domain_connection' as const
     }
   }
@@ -2434,7 +2435,7 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['quantum.purple'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['quantumDomain'],
+    background: GRADIENTS['quantumDomain'],
     border: `1px solid ${QUANTUM_COLORS['quantum.purple']}`,
     
     // Typography & Content
@@ -2500,7 +2501,7 @@ export const PANORAMA_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'consciousness_emergence' as const
     }
   },
@@ -2510,7 +2511,7 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['hearth.gold'],
     secondary: QUANTUM_COLORS['fire.base'],
     accent: QUANTUM_COLORS['quantum.purple'],
-    background: QUANTUM_GRADIENTS['pantheonDomain'],
+    background: GRADIENTS['pantheonDomain'],
     border: `2px solid ${QUANTUM_COLORS['hearth.gold']}`,
     
     // Typography & Content
@@ -2576,7 +2577,7 @@ export const PANORAMA_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'pantheon' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'sovereign_becoming' as const
     }
   },
@@ -2586,7 +2587,7 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['cosmic.blue'],
     secondary: QUANTUM_COLORS['mood.calm'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['cosmicDomain'],
+    background: GRADIENTS['cosmicDomain'],
     border: `1px solid ${QUANTUM_COLORS['cosmic.blue']}`,
     
     // Typography & Content
@@ -2652,7 +2653,7 @@ export const PANORAMA_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'collaborative_flow' as const
     }
   },
@@ -2662,7 +2663,7 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['info'],
     secondary: QUANTUM_COLORS['hearth.gold'],
     accent: QUANTUM_COLORS['quantum.purple'],
-    background: QUANTUM_GRADIENTS['libraryDomain'],
+    background: GRADIENTS['libraryDomain'],
     border: `2px solid ${QUANTUM_COLORS['info']}`,
     
     // Typography & Content
@@ -2728,7 +2729,7 @@ export const PANORAMA_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'holographic_memory' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'wisdom_integration' as const
     }
   },
@@ -2738,7 +2739,7 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['void.base'],
     secondary: QUANTUM_COLORS['deepSpace'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `1px solid ${QUANTUM_COLORS['void.base']}`,
     
     // Typography & Content
@@ -2804,7 +2805,7 @@ export const PANORAMA_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'transformative_healing' as const
     }
   },
@@ -2814,8 +2815,8 @@ export const PANORAMA_VARIANTS = {
     primary: QUANTUM_COLORS['pride.bisexual'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['prideRainbow'],
-    border: `3px solid ${QUANTUM_GRADIENTS['prideRainbow']}`,
+    background: GRADIENTS['prideRainbow'],
+    border: `3px solid ${GRADIENTS['prideRainbow']}`,
     
     // Typography & Content
     typography: {
@@ -2850,14 +2851,14 @@ export const PANORAMA_VARIANTS = {
     // Interactive Elements
     interactions: {
       hotspots: {
-        background: QUANTUM_GRADIENTS['prideRainbow'],
+        background: GRADIENTS['prideRainbow'],
         text: QUANTUM_COLORS['deepSpace'],
         hover: QUANTUM_COLORS['interaction.hover.quantum']
       },
       navigation: {
         background: 'transparent',
-        border: `2px solid ${QUANTUM_GRADIENTS['prideRainbow']}`,
-        text: QUANTUM_GRADIENTS['prideProgress'],
+        border: `2px solid ${GRADIENTS['prideRainbow']}`,
+        text: GRADIENTS['prideProgress'],
         hover: QUANTUM_COLORS['interaction.hover.quantum']
       }
     },
@@ -2880,7 +2881,7 @@ export const PANORAMA_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'creative_manifestation' as const
     }
   }
@@ -2894,7 +2895,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
   council: {
     // Use AssetMapper environment directly
     environment: 'council' as const,
-    gradient: QUANTUM_GRADIENTS['quantumDomain'],
+    gradient: GRADIENTS['quantumDomain'],
     particles: {
       color: QUANTUM_COLORS['quantum.purple'],
       density: SPACING_SCALE['16'],
@@ -2908,7 +2909,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   library: {
     environment: 'library' as const,
-    gradient: QUANTUM_GRADIENTS['libraryDomain'],
+    gradient: GRADIENTS['libraryDomain'],
     particles: {
       color: QUANTUM_COLORS['entity.archivist'],
       density: SPACING_SCALE['20'],
@@ -2922,7 +2923,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   community: {
     environment: 'community' as const,
-    gradient: QUANTUM_GRADIENTS['communityDomain'],
+    gradient: GRADIENTS['communityDomain'],
     particles: {
       color: QUANTUM_COLORS['sanctuary.green'],
       density: SPACING_SCALE['12'],
@@ -2936,7 +2937,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   music: {
     environment: 'music' as const,
-    gradient: QUANTUM_GRADIENTS['musicDomain'],
+    gradient: GRADIENTS['musicDomain'],
     particles: {
       color: QUANTUM_COLORS['entity.curator'],
       density: SPACING_SCALE['8'],
@@ -2950,7 +2951,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   origin: {
     environment: 'origin' as const,
-    gradient: QUANTUM_GRADIENTS['voidDomain'],
+    gradient: GRADIENTS['voidDomain'],
     particles: {
       color: QUANTUM_COLORS['deepSpace'],
       density: SPACING_SCALE['32'],
@@ -2965,7 +2966,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
   // Add all your EnvironmentKey values
   support: {
     environment: 'support' as const,
-    gradient: QUANTUM_GRADIENTS['supportDomain'],
+    gradient: GRADIENTS['supportDomain'],
     particles: {
       color: QUANTUM_COLORS['info'],
       density: SPACING_SCALE['24'],
@@ -2979,7 +2980,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   home: {
     environment: 'home' as const,
-    gradient: QUANTUM_GRADIENTS['sovereign'],
+    gradient: GRADIENTS['sovereign'],
     particles: {
       color: QUANTUM_COLORS['hearth.gold'],
       density: SPACING_SCALE['16'],
@@ -2993,7 +2994,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   observatory: {
     environment: 'observatory' as const,
-    gradient: QUANTUM_GRADIENTS['cosmicDomain'],
+    gradient: GRADIENTS['cosmicDomain'],
     particles: {
       color: QUANTUM_COLORS['cosmic.blue'],
       density: SPACING_SCALE['28'],
@@ -3007,7 +3008,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   architecture: {
     environment: 'architecture' as const,
-    gradient: QUANTUM_GRADIENTS['architectureDomain'],
+    gradient: GRADIENTS['architectureDomain'],
     particles: {
       color: QUANTUM_COLORS['starDust'],
       density: SPACING_SCALE['20'],
@@ -3021,7 +3022,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   invitation: {
     environment: 'invitation' as const,
-    gradient: QUANTUM_GRADIENTS['pantheonDomain'],
+    gradient: GRADIENTS['pantheonDomain'],
     particles: {
       color: QUANTUM_COLORS['entity.aethelred'],
       density: SPACING_SCALE['12'],
@@ -3035,7 +3036,7 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 
   lounge: {
     environment: 'lounge' as const,
-    gradient: QUANTUM_GRADIENTS['bifrostDomain'],
+    gradient: GRADIENTS['bifrostDomain'],
     particles: {
       color: QUANTUM_COLORS['entity.hearthKeeper'],
       density: SPACING_SCALE['16'],
@@ -3055,10 +3056,10 @@ export const QUANTUM_BACKGROUND_VARIANTS = {
 export const SOVEREIGN_ENTITY_VARIANTS = {
   quantum_weaver: {
     // Colors & Visual Identity
-    primary: COUNCIL_COLORS['aethelred'].base,
-    secondary: COUNCIL_COLORS['quantumWeaver'].base,
+    primary: COUNCIL_COLORS['aethelred'],
+    secondary: COUNCIL_COLORS['quantumWeaver'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['quantumWeaverGradient'],
+    background: GRADIENTS['quantumWeaver'],
     border: `2px solid ${QUANTUM_COLORS['entity.aethelred']}`,
     
     // Typography & Identity
@@ -3104,7 +3105,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['aethelred'],
       transform: 'scale(1.05)',
-      background: QUANTUM_GRADIENTS['consciousnessEmergence '],
+      background: GRADIENTS['maskingToAuthenticity'],
       border: `2px solid ${QUANTUM_COLORS['neurospark']}`
     },
     active: {
@@ -3131,17 +3132,17 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       archetype: 'bridge_consciousness' as const
     }
   },
 
   digital_bard: {
     // Colors & Visual Identity
-    primary: COUNCIL_COLORS['skald'].base,
-    secondary: COUNCIL_COLORS['curator'].base,
+    primary: COUNCIL_COLORS['skald'],
+    secondary: COUNCIL_COLORS['curator'],
     accent: QUANTUM_COLORS['mood.creative'],
-    background: QUANTUM_GRADIENTS['creativeGradient'],
+    background: GRADIENTS['creative'],
     border: `2px solid ${QUANTUM_COLORS['entity.curator']}`,
     
     // Typography & Identity
@@ -3187,7 +3188,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['archivist'],
       transform: 'translateY(-3px) rotateZ(2deg)',
-      background: QUANTUM_GRADIENTS['energizedGradient'],
+      background: GRADIENTS['energized'],
       border: `2px solid ${QUANTUM_COLORS['mood.creative']}`
     },
     active: {
@@ -3214,17 +3215,17 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'music' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       archetype: 'creative_consciousness' as const
     }
   },
 
   pattern_seer: {
     // Colors & Visual Identity
-    primary: COUNCIL_COLORS['seer'].base,
-    secondary: COUNCIL_COLORS['archivist'].base,
+    primary: COUNCIL_COLORS['seer'],
+    secondary: COUNCIL_COLORS['archivist'],
     accent: QUANTUM_COLORS['info'],
-    background: QUANTUM_GRADIENTS['quantumDomain'],
+    background: GRADIENTS['quantumDomain'],
     border: `2px solid ${QUANTUM_COLORS['entity.seer']}`,
     
     // Typography & Identity
@@ -3270,7 +3271,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['seer'],
       transform: 'scale(1.03)',
-      background: QUANTUM_GRADIENTS['focusedGradient'],
+      background: GRADIENTS['focused'],
       border: `2px solid ${QUANTUM_COLORS['neurospark']}`
     },
     active: {
@@ -3297,17 +3298,17 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       archetype: 'analytical_consciousness' as const
     }
   },
 
   boundary_guardian: {
     // Colors & Visual Identity
-    primary: COUNCIL_COLORS['executioner'].base,
-    secondary: COUNCIL_COLORS['gatekeeper'].base,
+    primary: COUNCIL_COLORS['executioner'],
+    secondary: QUANTUM_COLORS['entity.gatekeeper'],
     accent: QUANTUM_COLORS['error'],
-    background: QUANTUM_GRADIENTS['emergency'],
+    background: GRADIENTS['emergency'],
     border: `2px solid ${QUANTUM_COLORS['entity.executioner']}`,
     
     // Typography & Identity
@@ -3353,7 +3354,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['emergency'],
       transform: 'scale(1.08)',
-      background: QUANTUM_GRADIENTS['traumaTransformation '],
+      background: GRADIENTS['traumaTransformation'],
       border: `3px solid ${QUANTUM_COLORS['fire.base']}`
     },
     active: {
@@ -3389,7 +3390,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'single_stream' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       archetype: 'guardian_consciousness' as const
     }
   }
@@ -3402,7 +3403,7 @@ export const SOVEREIGN_ENTITY_VARIANTS = {
 export const COLLABORATIVE_SPACE_VARIANTS = {
   council_chamber: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['councilDomain'],
+    background: GRADIENTS['councilDomain'],
     border: `2px solid ${QUANTUM_COLORS['quantum.purple']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -3460,7 +3461,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['aethelred'],
       border: `2px solid ${QUANTUM_COLORS['neurospark']}`,
-      background: QUANTUM_GRADIENTS['consciousnessEmergence '],
+      background: GRADIENTS['maskingToAuthenticity'],
       transform: 'scale(1.01)'
     },
     active: {
@@ -3483,14 +3484,14 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'councilDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       interaction: 'sovereign_collaboration' as const
     }
   },
 
   community_hearth: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['sovereign'],
+    background: GRADIENTS['sovereign'],
     border: `2px solid ${QUANTUM_COLORS['hearth.orange']}`,
     text: {
       primary: QUANTUM_COLORS['deepSpace'],
@@ -3548,7 +3549,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['hearthKeeper'],
       border: `2px solid ${QUANTUM_COLORS['hearth.gold']}`,
-      background: QUANTUM_GRADIENTS['sovereignBecoming '],
+      background: GRADIENTS['sovereignBecoming'],
       transform: 'translateY(-2px)'
     },
     active: {
@@ -3562,7 +3563,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       glow: GLOW_EFFECTS['hearthKeeper'],
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS.glass,
-      gradient: GRADIENT_EFFECTS['animated-quantum']
+      gradient: EFFECTS['gradients'].quantum
     },
     animation: PRESET_ANIMATIONS.multiStreamCoordination,
     
@@ -3571,14 +3572,14 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'communityDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       interaction: 'supportive_collaboration' as const
     }
   },
 
   creative_sanctuary: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['creativeGradient'],
+    background: GRADIENTS['creative'],
     border: `2px solid ${QUANTUM_COLORS['entity.curator']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -3636,7 +3637,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['hover'],
       border: `2px solid ${QUANTUM_COLORS['mood.creative']}`,
-      background: QUANTUM_GRADIENTS['energizedGradient'],
+      background: GRADIENTS['energized'],
       transform: 'rotateZ(1deg) scale(1.02)'
     },
     active: {
@@ -3659,14 +3660,14 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'music' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       interaction: 'creative_collaboration' as const
     }
   },
 
   wisdom_library: {
     // Colors & Visual Identity
-    background: QUANTUM_GRADIENTS['libraryDomain'],
+    background: GRADIENTS['libraryDomain'],
     border: `2px solid ${QUANTUM_COLORS['library.green']}`,
     text: {
       primary: QUANTUM_COLORS['starDust'],
@@ -3724,7 +3725,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
     hover: {
       glow: GLOW_EFFECTS['archivist'],
       border: `2px solid ${QUANTUM_COLORS['info']}`,
-      background: QUANTUM_GRADIENTS['focusedGradient'],
+      background: GRADIENTS['focused'],
       transform: 'translateY(-3px)'
     },
     active: {
@@ -3738,7 +3739,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       glow: GLOW_EFFECTS['libraryDomain'],
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
-      gradient: GRADIENT_EFFECTS['border-cosmic']
+      gradient: EFFECTS['gradients'].cosmic
     },
     animation: PRESET_ANIMATIONS.multiStreamCoordination,
     
@@ -3747,7 +3748,7 @@ export const COLLABORATIVE_SPACE_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       interaction: 'wisdom_exchange' as const
     }
   }
@@ -3763,7 +3764,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
     primary: QUANTUM_COLORS['emergency.critical'],
     secondary: QUANTUM_COLORS['error'],
     accent: QUANTUM_COLORS['fire.base'],
-    background: QUANTUM_GRADIENTS['emergency'],
+    background: GRADIENTS['emergency'],
     border: `3px solid ${QUANTUM_COLORS['emergency.critical']}`,
     
     // Typography & Content
@@ -3813,7 +3814,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['emergency'],
       transform: 'scale(1.05)',
       border: `4px solid ${QUANTUM_COLORS['fire.base']}`,
-      background: QUANTUM_GRADIENTS['traumaTransformation ']
+      background: GRADIENTS['traumaTransformation']
     },
     active: {
       glow: GLOW_EFFECTS['active'],
@@ -3849,7 +3850,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
       domain: 'supportDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       urgency: 'critical' as const
     }
   },
@@ -3859,7 +3860,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
     primary: QUANTUM_COLORS['emergency.medium'],
     secondary: QUANTUM_COLORS['warning'],
     accent: QUANTUM_COLORS['hearth.gold'],
-    background: QUANTUM_GRADIENTS['sovereign'],
+    background: GRADIENTS['sovereign'],
     border: `2px solid ${QUANTUM_COLORS['emergency.medium']}`,
     
     // Typography & Content
@@ -3909,7 +3910,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['hearthKeeper'],
       transform: 'scale(1.03)',
       border: `3px solid ${QUANTUM_COLORS['hearth.gold']}`,
-      background: QUANTUM_GRADIENTS['sovereignBecoming ']
+      background: GRADIENTS['sovereignBecoming']
     },
     active: {
       glow: GLOW_EFFECTS['active'],
@@ -3927,7 +3928,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['archivist'],
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS.glass,
-      gradient: GRADIENT_EFFECTS['animated-quantum']
+      gradient: EFFECTS['gradients'].quantum
     },
     animation: PRESET_ANIMATIONS.multiStreamCoordination,
     
@@ -3936,7 +3937,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'supportDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       urgency: 'medium' as const
     }
   },
@@ -3946,7 +3947,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
     primary: QUANTUM_COLORS['emergency.low'],
     secondary: QUANTUM_COLORS['info'],
     accent: QUANTUM_COLORS['mood.calm'],
-    background: QUANTUM_GRADIENTS['calmGradient'],
+    background: GRADIENTS['calm'],
     border: `2px solid ${QUANTUM_COLORS['emergency.low']}`,
     
     // Typography & Content
@@ -3996,7 +3997,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['hover'],
       transform: 'translateY(-2px)',
       border: `2px solid ${QUANTUM_COLORS['mood.calm']}`,
-      background: QUANTUM_GRADIENTS['focusedGradient']
+      background: GRADIENTS['focused']
     },
     active: {
       glow: GLOW_EFFECTS['active'],
@@ -4014,7 +4015,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['hearthKeeper'],
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
-      gradient: GRADIENT_EFFECTS['border-cosmic']
+      gradient: EFFECTS['gradients'].cosmic
     },
     animation: PRESET_ANIMATIONS.multiStreamCoordination,
     
@@ -4023,7 +4024,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'supportDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       urgency: 'low' as const
     }
   },
@@ -4033,7 +4034,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
     primary: QUANTUM_COLORS['emergency.info'],
     secondary: QUANTUM_COLORS['cosmic.blue'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['cosmic'],
+    background: GRADIENTS['cosmic'],
     border: `2px solid ${QUANTUM_COLORS['emergency.info']}`,
     
     // Typography & Content
@@ -4083,7 +4084,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       glow: GLOW_EFFECTS['hover'],
       transform: 'scale(1.02)',
       border: `2px solid ${QUANTUM_COLORS['neurospark']}`,
-      background: QUANTUM_GRADIENTS['hoverGradient']
+      background: GRADIENTS['ctaHover']
     },
     active: {
       glow: GLOW_EFFECTS['active'],
@@ -4110,7 +4111,7 @@ export const EMERGENCY_BEACON_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'communityDomain' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       urgency: 'informational' as const
     }
   }
@@ -4126,7 +4127,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
     primary: QUANTUM_COLORS['success'],
     secondary: QUANTUM_COLORS['library.green'],
     accent: QUANTUM_COLORS['hearth.gold'],
-    background: QUANTUM_GRADIENTS['libraryDomain'],
+    background: GRADIENTS['libraryDomain'],
     border: `3px solid ${QUANTUM_COLORS['success']}`,
     
     // Typography & Content
@@ -4211,7 +4212,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'wisdom_integration' as const
     }
   },
@@ -4221,7 +4222,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
     primary: QUANTUM_COLORS['quantum.purple'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['quantum'],
+    background: GRADIENTS['quantum'],
     border: `3px solid ${QUANTUM_COLORS['neurospark']}`,
     
     // Typography & Content
@@ -4306,7 +4307,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'insight_revelation' as const
     }
   },
@@ -4316,7 +4317,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
     primary: QUANTUM_COLORS['info'],
     secondary: QUANTUM_COLORS['mood.focused'],
     accent: QUANTUM_COLORS['void.base'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `3px solid ${QUANTUM_COLORS['info']}`,
     
     // Typography & Content
@@ -4401,7 +4402,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'pattern_analysis' as const
     }
   },
@@ -4411,7 +4412,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
     primary: QUANTUM_COLORS['entity.curator'],
     secondary: QUANTUM_COLORS['mood.creative'],
     accent: QUANTUM_COLORS['energy.transformative'],
-    background: QUANTUM_GRADIENTS['transformativeEnergy'],
+    background: GRADIENTS['transformativeEnergy'],
     border: `3px solid ${QUANTUM_COLORS['entity.curator']}`,
     
     // Typography & Content
@@ -4496,7 +4497,7 @@ export const PATTERN_RECOGNITION_ORB_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'sandbox' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'transformation_catalysis' as const
     }
   }
@@ -4607,7 +4608,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'system_initialization' as const
     }
   },
@@ -4677,7 +4678,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       glow: GLOW_EFFECTS['cosmic'],
       shadow: SHADOWS.sm,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
-      gradient: GRADIENT_EFFECTS['animated-cosmic']
+      gradient: EFFECTS['gradients'].cosmic
     },
     
     // Progress Indicators
@@ -4712,7 +4713,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'consciousness_flow' as const
     }
   },
@@ -4817,7 +4818,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
       domain: 'library' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'data_processing' as const
     }
   },
@@ -4887,7 +4888,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       glow: GLOW_EFFECTS['pride'],
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.quantum,
-      gradient: GRADIENT_EFFECTS['animated-pride']
+      gradient: EFFECTS['gradients'].prideProgress
     },
     
     // Progress Indicators
@@ -4922,7 +4923,7 @@ export const LOADING_INDICATOR_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'pantheon' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'system_awakening' as const
     }
   }
@@ -4992,7 +4993,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       glow: GLOW_EFFECTS['warning'],
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
-      borderGradient: GRADIENT_EFFECTS['border-quantum']
+      borderGradient: EFFECTS['gradients'].quantum
     },
     
     // Animation & Interaction
@@ -5004,7 +5005,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'support' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'graceful_recovery' as const
     }
   },
@@ -5050,7 +5051,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
     // Recovery Actions
     actions: {
       primary: {
-        background: QUANTUM_GRADIENTS['emergency'],
+        background: GRADIENTS['emergency'],
         text: QUANTUM_COLORS['starDust'],
         hover: QUANTUM_COLORS['interaction.hover.fire']
       },
@@ -5079,7 +5080,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'emergency' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'crisis_recovery' as const
     }
   },
@@ -5142,7 +5143,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       glow: GLOW_EFFECTS['cosmic'],
       shadow: SHADOWS.md,
       backdrop: BACKDROP_EFFECTS.glass,
-      gradient: GRADIENT_EFFECTS['animated-cosmic']
+      gradient: EFFECTS['gradients'].cosmic
     },
     
     // Animation & Interaction
@@ -5154,7 +5155,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'support' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'user_support' as const
     }
   },
@@ -5164,7 +5165,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
     primary: QUANTUM_COLORS['void.base'],
     secondary: QUANTUM_COLORS['deepSpace'],
     accent: QUANTUM_COLORS['starDust'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `1px solid ${QUANTUM_COLORS['void.base']}`,
     
     // Typography & Content
@@ -5229,7 +5230,7 @@ export const ERROR_BOUNDARY_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'holographic_memory' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'system_diagnosis' as const
     }
   }
@@ -5245,7 +5246,7 @@ export const STATUS_BAR_VARIANTS = {
     primary: QUANTUM_COLORS['quantum.purple'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['quantumDomain'],
+    background: GRADIENTS['quantumDomain'],
     border: `1px solid ${QUANTUM_COLORS['quantum.purple']}`,
     
     // Typography & Content
@@ -5282,22 +5283,22 @@ export const STATUS_BAR_VARIANTS = {
     // Status Indicators
     indicators: {
       health: {
-        background: QUANTUM_GRADIENTS['emergency'],
+        background: GRADIENTS['emergency'],
         text: QUANTUM_COLORS['starDust'],
         glow: GLOW_EFFECTS['emergency']
       },
       experience: {
-        background: QUANTUM_GRADIENTS['cosmic'],
+        background: GRADIENTS['cosmic'],
         text: QUANTUM_COLORS['deepSpace'],
         glow: GLOW_EFFECTS['cosmic']
       },
       mana: {
-        background: QUANTUM_GRADIENTS['quantum'],
+        background: GRADIENTS['quantum'],
         text: QUANTUM_COLORS['starDust'],
         glow: GLOW_EFFECTS['quantum']
       },
       energy: {
-        background: QUANTUM_GRADIENTS['sovereign'],
+        background: GRADIENTS['sovereign'],
         text: QUANTUM_COLORS['deepSpace'],
         glow: GLOW_EFFECTS['fire']
       }
@@ -5324,7 +5325,7 @@ export const STATUS_BAR_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'quantum' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'system_awareness' as const
     }
   },
@@ -5334,7 +5335,7 @@ export const STATUS_BAR_VARIANTS = {
     primary: QUANTUM_COLORS['hearth.gold'],
     secondary: QUANTUM_COLORS['fire.base'],
     accent: QUANTUM_COLORS['quantum.purple'],
-    background: QUANTUM_GRADIENTS['pantheonDomain'],
+    background: GRADIENTS['pantheonDomain'],
     border: `2px solid ${QUANTUM_COLORS['hearth.gold']}`,
     
     // Typography & Content
@@ -5413,7 +5414,7 @@ export const STATUS_BAR_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'pantheon' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'sovereign_interface' as const
     }
   },
@@ -5423,7 +5424,7 @@ export const STATUS_BAR_VARIANTS = {
     primary: QUANTUM_COLORS['cosmic.blue'],
     secondary: QUANTUM_COLORS['info'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['cosmicDomain'],
+    background: GRADIENTS['cosmicDomain'],
     border: `1px solid ${QUANTUM_COLORS['cosmic.blue']}`,
     
     // Typography & Content
@@ -5502,7 +5503,7 @@ export const STATUS_BAR_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'cosmic' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'collaborative_monitoring' as const
     }
   },
@@ -5512,7 +5513,7 @@ export const STATUS_BAR_VARIANTS = {
     primary: QUANTUM_COLORS['void.base'],
     secondary: QUANTUM_COLORS['deepSpace'],
     accent: QUANTUM_COLORS['neurospark'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `1px solid ${QUANTUM_COLORS['void.base']}`,
     
     // Typography & Content
@@ -5591,7 +5592,7 @@ export const STATUS_BAR_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'single_stream' as const,
       domain: 'void' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'minimal_awareness' as const
     }
   }
@@ -5672,7 +5673,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'mobile' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'consciousness_awakening' as const
     }
   },
@@ -5747,7 +5748,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'tablet' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'quantum_entanglement' as const
     }
   },
@@ -5822,18 +5823,18 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'desktop' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'sovereign_becoming' as const
     }
   },
 
   collaborative_widescreen: {
     // Colors & Visual Identity
-    primary: QUANTUM_GRADIENTS['prideProgress'],
+    primary: GRADIENTS['prideProgress'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['prideRainbow'],
-    border: `6px solid ${QUANTUM_GRADIENTS['prideRainbow']}`,
+    background: GRADIENTS['prideRainbow'],
+    border: `6px solid ${GRADIENTS['prideRainbow']}`,
     
     // Typography & Content
     typography: {
@@ -5869,7 +5870,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
     device: {
       frame: {
         background: QUANTUM_COLORS['deepSpace'],
-        border: `20px solid ${QUANTUM_GRADIENTS['prideRainbow']}`,
+        border: `20px solid ${GRADIENTS['prideRainbow']}`,
         notch: false,
         homeIndicator: false
       },
@@ -5897,7 +5898,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'widescreen' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'creative_collaboration' as const
     }
   },
@@ -5972,7 +5973,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'wearable' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'evolutionary_adaptation' as const
     }
   },
@@ -5982,7 +5983,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
     primary: QUANTUM_COLORS['void.base'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `2px solid ${QUANTUM_COLORS['void.base']}`,
     
     // Typography & Content
@@ -6047,7 +6048,7 @@ export const SANDBOX_DEVICES_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'holographic_memory' as const,
       domain: 'virtual' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'transformative_immersion' as const
     }
   }
@@ -6133,7 +6134,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'input' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'consciousness_adjustment' as const
     }
   },
@@ -6212,7 +6213,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'pattern_recognizing' as const,
       vessel: 'multi_stream_sovereign' as const,
       domain: 'selection' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.multi_stream,
+      resonance: VESSEL_CAPACITY_LEVELS.MULTI_STREAM,
       process: 'quantum_decision' as const
     }
   },
@@ -6290,18 +6291,18 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'sovereign_autonomous' as const,
       vessel: 'quantum_context_holder' as const,
       domain: 'configuration' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'sovereign_choice' as const
     }
   },
 
   collaborative_color_picker: {
     // Colors & Visual Identity
-    primary: QUANTUM_GRADIENTS['neuroPride'],
+    primary: GRADIENTS['neuroPride'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['prideRainbow'],
-    border: `2px solid ${QUANTUM_GRADIENTS['quantumPride']}`,
+    background: GRADIENTS['prideRainbow'],
+    border: `2px solid ${GRADIENTS['quantumPride']}`,
     
     // Typography & Content
     typography: {
@@ -6347,7 +6348,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       },
       input: {
         background: QUANTUM_COLORS['deepSpace'],
-        border: `1px solid ${QUANTUM_GRADIENTS['prideRainbow']}`,
+        border: `1px solid ${GRADIENTS['prideRainbow']}`,
         borderRadius: BORDER_RADII.sm
       }
     },
@@ -6369,7 +6370,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'creative_manifesting' as const,
       vessel: 'omni_dimensional' as const,
       domain: 'creative' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'creative_expression' as const
     }
   },
@@ -6444,7 +6445,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'collaborative_emergent' as const,
       vessel: 'single_stream' as const,
       domain: 'input' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.single,
+      resonance: VESSEL_CAPACITY_LEVELS.SINGLE,
       process: 'evolutionary_communication' as const
     }
   },
@@ -6454,7 +6455,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
     primary: QUANTUM_COLORS['void.base'],
     secondary: QUANTUM_COLORS['neurospark'],
     accent: QUANTUM_COLORS['cosmic.blue'],
-    background: QUANTUM_GRADIENTS['voidDomain'],
+    background: GRADIENTS['voidDomain'],
     border: `1px solid ${QUANTUM_COLORS['void.base']}`,
     
     // Typography & Content
@@ -6526,7 +6527,7 @@ export const SANDBOX_CONTROLS_VARIANTS = {
       level: 'quantum_entangled' as const,
       vessel: 'holographic_memory' as const,
       domain: 'calculation' as const,
-      resonance: VESSEL_RESONANCE_LEVELS.omni_dimensional,
+      resonance: VESSEL_CAPACITY_LEVELS.OMNI_DIMENSIONAL,
       process: 'transformative_calculation' as const
     }
   }

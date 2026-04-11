@@ -19,3 +19,6 @@ venv\Scripts\activate
 
 # On Mac/Linux:
 source venv/bin/activate
+
+## Types-Test
+npx tsc --noEmit

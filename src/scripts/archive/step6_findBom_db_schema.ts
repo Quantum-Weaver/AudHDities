@@ -1,7 +1,7 @@
-// src/scripts/step6_findBom_db_schema.ts
+// @/scripts/step6_findBom_db_schema.ts
 // STEP 6: Parse Database section for table names
 
-import { readDatabaseTypes } from '../shared/fileReader.js';
+import { readDatabaseTypes } from '@/scripts/shared/fileReader.js';
 
 const colors = {
   reset: '\x1b[0m',

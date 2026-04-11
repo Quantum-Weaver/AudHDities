@@ -1,7 +1,7 @@
-// src/scripts/step3_Constants_detection.ts
+// @/scripts/step3_Constants_detection.ts
 // STEP 3: Verify Constants section exists
 
-import { readDatabaseTypes } from '../shared/fileReader.js';
+import { readDatabaseTypes } from '@/scripts/shared/fileReader.js';
 
 const colors = {
   reset: '\x1b[0m',

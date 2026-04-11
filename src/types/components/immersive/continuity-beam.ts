@@ -1,4 +1,4 @@
-// src/types/components/immersive/continuity-beam.ts (minimal safe types)
+// @/types/components/immersive/continuity-beam.ts (minimal safe types)
 // ============================================================================
 // CONTINUITY BEAM TYPES - SAFE EXISTING STRUCTURE
 // ============================================================================

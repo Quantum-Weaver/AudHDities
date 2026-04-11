@@ -1,89 +1,103 @@
 /* src/contexts/ContinuityBeamContext.tsx */
 'use client';
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
-import { User } from '@supabase/supabase-js';
-import type { Database } from '@/types/supabase/database.types';
-import { DEFAULT_BEAM_CONFIG, ENVIRONMENT_BEAM_CONFIGS } from '@/lib/constants/components/immersive/continuity-beam';
 
-export type Profile = Database['public']['Tables']['profiles']['Row'];
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
+import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
+import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity-beam';
 
-interface BeamConfig {
-  variant: string;
-  intensity: number;
-  showQuantumSweep: boolean;
-}
-
-interface ContinuityBeamContextType {
+interface ContinuityBeamContextValue {
+  /** Current beam configuration (colors, intensity, direction) */
   beamConfig: BeamConfig;
-  setBeamConfig: (config: BeamConfig) => void;
+  /** Current activation state (active, intensity level, speed multiplier) */
+  activationState: BeamActivationState;
+  /** Update the current environment */
   setEnvironment: (environment: EnvironmentKey) => void;
-  isActive: boolean;
+  /** Update session state (user tier, sovereignty score, etc.) */
+  updateSessionState: (state: Partial<SessionState>) => void;
+  /** Manually set beam active/inactive */
   setIsActive: (active: boolean) => void;
-  currentUser: Profile | null;
-  setCurrentUser: (user: Profile | null) => void;
-  // Optional: Get environment-specific config
-  getEnvironmentConfig: (environment: EnvironmentKey) => { intensity: string; purpose: string };
+  /** Current session state */
+  sessionState: SessionState;
 }
 
-const ContinuityBeamContext = createContext<ContinuityBeamContextType | undefined>(undefined);
+const ContinuityBeamContext = createContext<ContinuityBeamContextValue | undefined>(undefined);
 
 interface ContinuityBeamProviderProps {
   children: ReactNode;
-  defaultEnvironment?: EnvironmentKey;
+  initialEnvironment?: EnvironmentKey;
+  initialSessionState?: Partial<SessionState>;
 }
 
 export function ContinuityBeamProvider({ 
   children, 
-  defaultEnvironment = 'home' 
+  initialEnvironment = 'home',
+  initialSessionState = {}
 }: ContinuityBeamProviderProps) {
-  const [beamConfig, setBeamConfig] = useState<BeamConfig>({
-    variant: defaultEnvironment,
-    intensity: 0.8,
-    showQuantumSweep: DEFAULT_BEAM_CONFIG.showQuantumSweep
+  // Session state
+  const [sessionState, setSessionState] = useState<SessionState>({
+    tier: 'community',
+    sovereigntyScore: 0,
+    environment: initialEnvironment,
+    isFirstVisitToday: true,
+    sessionDurationMinutes: 0,
+    hasCompletedAcidTest: false,
+    ...initialSessionState
   });
-  
-  const [isActive, setIsActive] = useState(true);
-  const [currentUser, setCurrentUser] = useState<Profile | null>(null);
 
-  // Function to sync with current environment
+  // Activation state (derived from session state)
+  const [activationState, setActivationState] = useState<BeamActivationState>(
+    calculateBeamActivation(sessionState)
+  );
+
+  // Beam configuration (from environment + activation)
+  const [beamConfig, setBeamConfig] = useState<BeamConfig>(
+    getBeamConfig(initialEnvironment, sessionState)
+  );
+
+  // Update activation state when session changes
+  useEffect(() => {
+    const newActivation = calculateBeamActivation(sessionState);
+    setActivationState(newActivation);
+    
+    // Update beam config with new session state
+    const newConfig = getBeamConfig(sessionState.environment, sessionState);
+    setBeamConfig(newConfig);
+  }, [sessionState]);
+
+  // Update session duration over time
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSessionState(prev => ({
+        ...prev,
+        sessionDurationMinutes: prev.sessionDurationMinutes + 1
+      }));
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const setEnvironment = (environment: EnvironmentKey) => {
-    // Get environment-specific config if exists
-    const envConfig = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
-    
-    // Map string intensity to number (safe fallback)
-    let intensityValue = 0.8;
-    if (envConfig) {
-      const intensityMap = { low: 0.33, medium: 0.47, high: 0.66, quantum: 0.85 };
-      intensityValue = intensityMap[envConfig.intensity as keyof typeof intensityMap] || DEFAULT_BEAM_CONFIG.intensity;
-    }
-    
-    setBeamConfig(prev => ({
-      ...prev,
-      variant: environment,
-      intensity: intensityValue
-    }));
+    setSessionState(prev => ({ ...prev, environment }));
   };
 
-  // Helper to get environment config (for components that need it)
-  const getEnvironmentConfig = (environment: EnvironmentKey) => {
-    const config = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
-    return {
-      intensity: config?.intensity || 'medium',
-      purpose: config?.purpose || 'emotional_support'
-    };
+  const updateSessionState = (state: Partial<SessionState>) => {
+    setSessionState(prev => ({ ...prev, ...state }));
+  };
+
+  const setIsActive = (active: boolean) => {
+    setActivationState(prev => ({ ...prev, active }));
   };
 
   return (
     <ContinuityBeamContext.Provider value={{
       beamConfig,
-      setBeamConfig,
+      activationState,
       setEnvironment,
-      isActive,
+      updateSessionState,
       setIsActive,
-      currentUser,
-      setCurrentUser,
-      getEnvironmentConfig
+      sessionState
     }}>
       {children}
     </ContinuityBeamContext.Provider>
@@ -92,7 +106,6 @@ export function ContinuityBeamProvider({
 
 export function useContinuityBeam() {
   const context = useContext(ContinuityBeamContext);
-  
   if (context === undefined) {
     throw new Error('useContinuityBeam must be used within a ContinuityBeamProvider');
   }

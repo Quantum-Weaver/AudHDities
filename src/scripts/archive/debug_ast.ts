@@ -1,4 +1,4 @@
-// src/scripts/debug-ast.ts
+// @/scripts/debug-ast.ts
 // Debug script to examine AST structure
 // Run with: npx tsx src/scripts/debug-ast.ts
 

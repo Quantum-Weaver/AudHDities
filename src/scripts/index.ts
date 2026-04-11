@@ -1,29 +1,29 @@
-// src/scripts/index.ts
+// @/scripts/index.ts
 // Main orchestrator - Processes ALL objects with categorization and deity grouping
 
 import { readDatabaseTypes } from './shared/fileReader.js';
-import { findMarkers } from './modules/findMarkers.js';
-import { findAllClosingBraces } from './modules/findClosingBraces.js';
-import { countAllCollections, countConstantsEnums } from './modules/countItems.js';
-import { extractObject } from './modules/extractObject.js';
+import { findMarkers } from './modules/extract/findMarkers.js';
+import { findAllClosingBraces } from './modules/extract/findClosingBraces.js';
+import { countAllCollections, countConstantsEnums } from './modules/discover/countItems.js';
+import { extractObject } from './modules/extract/extractObject.js';
 import { getDeityGroupForTable, getFolderNameForTable } from '../config/deity-groups.js';
 import { getObjectCategory, type ObjectCategory } from '../config/object-categories.js';
-import { generateConstantFile, generateMultipleConstantFiles } from './modules/generateConstants.js';
-import { generateSingleTypeFile, generateMultipleTypeFiles } from './modules/generateTypeFiles.js';
+import { generateConstantFile, generateMultipleConstantFiles } from './generators/generateConstants.js';
+import { generateSingleTypeFile, generateMultipleTypeFiles } from './generators/generateTypeFiles.js';
 // Import the discovery module
-import { discoverDirectories, ensureAllDirectories } from './modules/discoverDirectories.js';
+import { discoverDirectories, ensureAllDirectories } from './modules/discover/discoverDirectories.js';
 // Import the enum mapping function
 import { getTableCategory } from '../config/object-categories.js';
 import { 
   logHeader, logSuccess, logError, logInfo, 
   logSeparator, logWarning, logDebug 
-} from './shared/logger.js';
+} from '@/scripts/shared/logger.js';
 import { getEnumFolder } from '../config/enum-mapping.js';
-import { toPascalCase, formatObjectTypes } from './modules/formatObjectTypes.js';
-import { generateIndexesForPaths } from './modules/generateIndexFiles.js';
-import { generateValidatorsForTables } from './modules/generateValidators.js';
+import { toPascalCase, formatObjectTypes } from './modules/format/formatObjectTypes.js';
+import { generateIndexesForPaths } from './generators/generateIndexFiles.js';
+import { generateValidatorsForTables } from './generators/generateValidators.js';
 import { needsValidatorGeneration } from '../config/workflow-config.js';
-import { generateApiRoutesForTables } from './modules/generateApiRoutes.js';
+import { generateApiRoutesForTables } from './generators/generateApiRoutes.js';
 import { getWorkflowConfig } from '../config/workflow-config.js';
 
 async function main(): Promise<void> {

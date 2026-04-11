@@ -1,4 +1,4 @@
-// src/config/workflow-config.ts
+// @/config/workflow-config.ts
 
 export type WorkflowType = 
   | 'full_crud'

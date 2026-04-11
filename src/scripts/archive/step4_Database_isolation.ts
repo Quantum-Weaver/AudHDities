@@ -1,7 +1,7 @@
-// src/scripts/step4_Database_isolation.ts
+// @/scripts/step4_Database_isolation.ts
 // STEP 4: Extract Database section content
 
-import { readDatabaseTypes } from '../shared/fileReader.js';
+import { readDatabaseTypes } from '@/scripts/shared/fileReader.js';
 
 const colors = {
   reset: '\x1b[0m',
