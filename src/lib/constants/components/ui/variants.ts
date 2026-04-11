@@ -17,8 +17,8 @@ import {
   THEME_COLORS 
 } from '@/lib/constants/cosmic/colors';
 
-import { EFFECTS } from '../../systems/interaction';
-import { PARTICLE_BEHAVIOR } from '../immersive/panorama';
+//import { EFFECTS } from '../../systems/interaction';
+//import { PARTICLE_BEHAVIOR } from '../immersive/panorama';
 
 import {
   CONSCIOUSNESS_LEVEL_COLORS,
@@ -2506,10 +2506,10 @@ export const PANORAMA_VARIANTS = {
     // Visual Effects
     effects: {
       glow: GLOW_EFFECTS['quantum'],
-      shadow: EFFECTS.processes,
+      shadow: SHADOWS['2xl'],
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.scanLines,
-      particles: PARTICLE_BEHAVIOR.PULSE
+    //particles: PARTICLE_BEHAVIOR.PULSE
     },
     
     // Animation & Interaction
@@ -2585,7 +2585,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS['2xl'],
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.cornerAccent,
-      particles: PARTICLE_BEHAVIOR.DRIFT
+      //particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -2661,7 +2661,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS.lg,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.particles,
-      particles: PARTICLE_BEHAVIOR.DRIFT
+      //particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -2737,7 +2737,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.scan,
-      particles: PARTICLE_BEHAVIOR.PULSE
+      //particles: PARTICLE_BEHAVIOR.PULSE
     },
     
     // Animation & Interaction
@@ -2813,7 +2813,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.glitch,
-      particles: PARTICLE_BEHAVIOR.FLOAT
+      //particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -2889,7 +2889,7 @@ export const PANORAMA_VARIANTS = {
       shadow: SHADOWS['2xl'],
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.rainbow,
-      particles: PARTICLE_BEHAVIOR.DRIFT
+      //particles: PARTICLE_BEHAVIOR.DRIFT
     },
     
     // Animation & Interaction
@@ -5333,7 +5333,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.inner,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.scanLines,
-      particles: PARTICLE_BEHAVIOR.FLOAT
+    //  particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5422,7 +5422,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.xl,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.cornerAccent,
-      particles: PARTICLE_BEHAVIOR.FLOAT
+    //  particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5511,7 +5511,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.md,
       backdrop: BACKDROP_EFFECTS.glass,
       holographic: HOLOGRAPHIC_EFFECTS.particles,
-      particles: PARTICLE_BEHAVIOR.FLOAT
+    //  particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction
@@ -5600,7 +5600,7 @@ export const STATUS_BAR_VARIANTS = {
       shadow: SHADOWS.sm,
       backdrop: BACKDROP_EFFECTS['glass-heavy'],
       holographic: HOLOGRAPHIC_EFFECTS.glitch,
-      particles: PARTICLE_BEHAVIOR.FLOAT
+    //  particles: PARTICLE_BEHAVIOR.FLOAT
     },
     
     // Animation & Interaction

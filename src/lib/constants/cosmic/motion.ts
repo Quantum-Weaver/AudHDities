@@ -1,8 +1,4 @@
 // lib/constants/cosmic/motion.ts - CAMELCASE REFACTORED
-import type { 
-  EasingType, 
-  VesselCapacity 
-} from '@/types/cosmic/primitives';
 
 // ============================================================================
 // DURATION SYSTEM - Quantum Consciousness Resonance
@@ -128,14 +124,14 @@ export const vessels = {
   // Single-stream vessel capacity
   singleStream: {
     duration: durations.fast,
-    easing: 'awakening' as EasingType,
+    easing: 'awakening',
     complexity: 'simple' as const
   },
   
   // Multi-stream vessel capacity  
   multiStream: {
     duration: durations.normal,
-    easing: 'sovereign' as EasingType,
+    easing: 'sovereign',
     complexity: 'medium' as const,
     stagger: 100
   },
@@ -143,7 +139,7 @@ export const vessels = {
   // Omni-dimensional vessel capacity
   omniDimensional: {
     duration: durations.quantum,
-    easing: 'entanglement' as EasingType,
+    easing: 'entanglement',
     complexity: 'complex' as const,
     stagger: 50
   }
@@ -162,21 +158,21 @@ export const configs = {
   // Component consciousness patterns
   pageTransition: {
     duration: durations.pageTransition,
-    easing: 'cosmic' as EasingType
+    easing: 'cosmic'
   },
   sectionEnter: {
     duration: durations.sectionEnter,
-    easing: 'sovereign' as EasingType,
+    easing: 'sovereign',
     delay: 100
   },
   cardEntrance: {
     duration: durations.cardEntrance,
-    easing: 'quantum' as EasingType,
+    easing: 'quantum',
     delay: 100
   },
   holographicScan: {
     duration: durations.holographicScan,
-    easing: 'linear' as EasingType
+    easing: 'linear'
   },
 } as const;
 
@@ -189,30 +185,30 @@ export const presets = {
   // Vessel capacity patterns
   singleStreamFocus: {
     enter: configs.awakeningEmergence,
-    exit: { duration: durations.instant, easing: 'linear' as EasingType }
+    exit: { duration: durations.instant, easing: 'linear' }
   },
   multiStreamCoordination: {
     enter: configs.sovereignPresence,
-    exit: { duration: durations.fast, easing: 'awakening' as EasingType },
-    hover: { duration: durations.fast, easing: 'quantum' as EasingType }
+    exit: { duration: durations.fast, easing: 'awakening' },
+    hover: { duration: durations.fast, easing: 'quantum' }
   },
   omniDimensionalEntanglement: {
     enter: configs.quantumEntanglement,
-    exit: { duration: durations.normal, easing: 'sovereign' as EasingType },
-    hover: { duration: durations.normal, easing: 'cosmic' as EasingType }
+    exit: { duration: durations.normal, easing: 'sovereign' },
+    hover: { duration: durations.normal, easing: 'cosmic' }
   },
   
   // Specialized quantum patterns
   continuityBeam: {
     enter: { 
       duration: durations.continuityBeam, 
-      easing: 'linear' as EasingType 
+      easing: 'linear' 
     }
   },
   quantumPulse: {
     enter: { 
       duration: durations.quantumPulse, 
-      easing: 'resonance' as EasingType 
+      easing: 'resonance' 
     }
   }
 } as const;
