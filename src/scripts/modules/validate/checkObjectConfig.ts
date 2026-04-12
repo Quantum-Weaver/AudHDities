@@ -180,7 +180,8 @@ export function getObjectConfig(
       return getViewConfig(object.name, options);
     case 'function':
       return getFunctionConfig(object.name, options);
-    case 'enum':
+    case 'type_enum':
+    case 'runtime_enum':
       return getEnumConfig(object.name, options);
     default:
       if (verbose) {
@@ -297,7 +298,7 @@ export function getOutputPath(
   const deityFolder = config.outputFolder;
   
   // Special case: enums go to constants folder
-  if (object.type === 'enum' && fileType === 'constants') {
+  if ((object.type === 'type_enum' || object.type === 'runtime_enum') && fileType === 'constants') {
     return `${basePath}/${typeFolder}/${deityFolder}/${object.name}.ts`;
   }
   

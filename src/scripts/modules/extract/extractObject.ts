@@ -67,7 +67,9 @@ export function extractObject(
       } else if (line.includes('Args:') || line.includes('Returns:')) {
         objectType = 'function';
       } else if (line.includes('|')) {
-        objectType = 'enum';
+        objectType = 'type_enum';
+      } else if (line.includes('[') && line.includes(']')) {  
+        objectType = 'runtime_enum';
       } else {
         objectType = 'view';
       }
@@ -281,6 +283,6 @@ export function extractObjectWithPattern(
     content,
     startLine: objectStartLine + 1,
     endLine: objectStartLine + 1,
-    type: 'enum'
+    type: 'type_enum'
   };
 }

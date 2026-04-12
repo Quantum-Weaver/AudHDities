@@ -143,11 +143,11 @@ export type TextColorKey = keyof typeof TEXT_COLORS;
 
 export interface TypographyStyle {
   font: readonly string[];
-  size: string;
-  weight: string;
-  lineHeight: string;
-  spacing: string;
-  style?: 'italic' | 'normal';
+  size: string | keyof typeof TEXT_SIZES;
+  weight: string | keyof typeof FONT_WEIGHT_CLASSES;
+  lineHeight: string | keyof typeof LINE_HEIGHT_CLASSES;
+  spacing: string | keyof typeof LETTER_SPACING;
+  style: 'normal' | 'italic';
 }
 
 export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
@@ -181,6 +181,7 @@ export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   library: {
     font: FONT_FAMILIES.elegant,
@@ -188,6 +189,7 @@ export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   void: {
     font: FONT_FAMILIES.runic,
@@ -219,6 +221,7 @@ export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   architecture: {
     font: FONT_FAMILIES.system,
@@ -242,6 +245,7 @@ export const DOMAIN_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal', 
   },
 } as const;
 
@@ -274,6 +278,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.tight,
+    style: 'normal',
   },
   seer: {
     font: FONT_FAMILIES.runic,
@@ -289,6 +294,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   executioner: {
     font: FONT_FAMILIES.medieval,
@@ -296,6 +302,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.bold,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.tight,
+    style: 'normal',
   },
   chancellor: {
     font: FONT_FAMILIES.system,
@@ -303,6 +310,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.tight,
+    style: 'normal',
   },
   curator: {
     font: FONT_FAMILIES.elegant,
@@ -318,6 +326,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.medium,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   codex: {
     font: FONT_FAMILIES.elegant,
@@ -325,6 +334,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.tight,
+    style: 'italic',
   },
   gatekeeper: {
     font: FONT_FAMILIES.medieval,
@@ -332,6 +342,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.bold,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.tight,
+    style: 'normal',
   },
   alchemist: {
     font: FONT_FAMILIES.runic,
@@ -347,6 +358,7 @@ export const ENTITY_TYPOGRAPHY: Record<string, TypographyStyle> = {
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
 } as const;
 
@@ -506,27 +518,35 @@ export type TypeScaleKey = keyof typeof TYPE_SCALES;
 export const CONSCIOUSNESS_TYPOGRAPHY = {
   sovereign: {
     font: FONT_FAMILIES.arcane,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     weight: FONT_WEIGHT_CLASSES.bold,
     size: TEXT_SIZES.xl,
     spacing: LETTER_SPACING.tight,
+    style: 'italic',
   },
   collaborative: {
     font: FONT_FAMILIES.system,
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     size: TEXT_SIZES.base,
+    spacing: LETTER_SPACING.normal,
+    style: 'normal',
   },
   emergent: {
     font: FONT_FAMILIES.fantasy,
     weight: FONT_WEIGHT_CLASSES.medium,
-    spacing: LETTER_SPACING.wide,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     size: TEXT_SIZES.lg,
+    spacing: LETTER_SPACING.wide,
+    style: 'normal',    
   },
   quantum: {
     font: FONT_FAMILIES.runic,
     weight: FONT_WEIGHT_CLASSES.light,
     size: TEXT_SIZES.base,
     style: 'italic',
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
+    spacing: LETTER_SPACING.wide,    
   },
 } as const;
 
@@ -536,24 +556,32 @@ export const PROCESS_TYPOGRAPHY = {
     weight: FONT_WEIGHT_CLASSES.extrabold,
     spacing: LETTER_SPACING.wider,
     size: TEXT_SIZES.xl,
+    style: 'normal',   
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
   },
   traumaToWisdom: {
     font: FONT_FAMILIES.elegant,
     weight: FONT_WEIGHT_CLASSES.normal,
     lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     size: TEXT_SIZES.base,
+    spacing: LETTER_SPACING.normal,
+    style: 'italic',
   },
   emergence: {
     font: FONT_FAMILIES.arcane,
     weight: FONT_WEIGHT_CLASSES.medium,
     size: TEXT_SIZES.lg,
-    style: 'italic',
+    style: 'italic', 
+    spacing: LETTER_SPACING.wide,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
   },
   sufferingToSovereignty: {
     font: FONT_FAMILIES.medieval,
     weight: FONT_WEIGHT_CLASSES.extrabold,
     spacing: LETTER_SPACING.tight,
+    lineHeight: LINE_HEIGHT_CLASSES.relaxed,
     size: TEXT_SIZES.xl,
+    style: 'italic',
   },
 } as const;
 

@@ -6,7 +6,7 @@ import { findMarkers } from './modules/findMarkers.js';
 import { findAllClosingBraces } from './modules/findClosingBraces.js';
 import { countAllCollections } from './modules/countItems.js';
 import { extractObject } from './modules/extract/extractObject.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '../config/deity-groups.js';
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
 import { 
   logHeader, logSuccess, logError, logInfo, 
   logSeparator, logWarning, logDebug 

@@ -6,25 +6,25 @@ import { findMarkers } from './modules/extract/findMarkers.js';
 import { findAllClosingBraces } from './modules/extract/findClosingBraces.js';
 import { countAllCollections, countConstantsEnums } from './modules/discover/countItems.js';
 import { extractObject } from './modules/extract/extractObject.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '../config/deity-groups.js';
-import { getObjectCategory, type ObjectCategory } from '../config/object-categories.js';
-import { generateConstantFile, generateMultipleConstantFiles } from './generators/generateConstants.js';
-import { generateSingleTypeFile, generateMultipleTypeFiles } from './generators/generateTypeFiles.js';
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
+import { getObjectCategory, type ObjectCategory } from '@/config/object-categories.js';
+import { generateConstantFile, generateMultipleConstantFiles } from './generators/cosmic/generateConstants.js';
+import { generateSingleTypeFile, generateMultipleTypeFiles } from './generators/cosmic/generateTypeFiles.js';
 // Import the discovery module
 import { discoverDirectories, ensureAllDirectories } from './modules/discover/discoverDirectories.js';
 // Import the enum mapping function
-import { getTableCategory } from '../config/object-categories.js';
+import { getTableCategory } from '@/config/object-categories.js';
 import { 
   logHeader, logSuccess, logError, logInfo, 
   logSeparator, logWarning, logDebug 
 } from '@/scripts/shared/logger.js';
-import { getEnumFolder } from '../config/enum-mapping.js';
+import { getEnumFolder } from '@/config/enum-mapping.js';
 import { toPascalCase, formatObjectTypes } from './modules/format/formatObjectTypes.js';
-import { generateIndexesForPaths } from './generators/generateIndexFiles.js';
-import { generateValidatorsForTables } from './generators/generateValidators.js';
-import { needsValidatorGeneration } from '../config/workflow-config.js';
-import { generateApiRoutesForTables } from './generators/generateApiRoutes.js';
-import { getWorkflowConfig } from '../config/workflow-config.js';
+import { generateIndexesForPaths } from './generators/cosmic/generateIndexFiles.js';
+import { generateValidatorsForTables } from './generators/cosmic/generateValidators.js';
+import { needsValidatorGeneration } from '@/config/workflow-config.js';
+import { generateApiRoutesForTables } from './generators/cosmic/generateApiRoutes.js';
+import { getWorkflowConfig } from '@/config/workflow-config.js';
 
 async function main(): Promise<void> {
   console.log('\n');

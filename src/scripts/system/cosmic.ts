@@ -3,7 +3,7 @@
 // COSMIC GENERATOR - MAIN ORCHESTRATOR
 // ============================================================================
 // Purpose: Run all generation modules in sequence
-// Dependencies: All 8 generation modules in ../generators/
+// Dependencies: All 8 generation modules in ../cosmic/
 // Output: Generated CSS files + Tailwind config
 // ============================================================================
 
@@ -16,15 +16,14 @@ import {
   logSeparator, logHeader, logDebug 
 } from '../shared/logger';
 
-// Import generation modules (will be implemented later)
-// import { generateCssVariables } from '../generators/generateCssVariables';
-// import { generateTailwindConfig } from '../generators/generateTailwindConfig';
-// import { generateDomainStyles } from '../generators/generateDomainStyles';
-// import { generateTextEffects } from '../generators/generateTextEffects';
-// import { generateAnimationVariants } from '../generators/generateAnimationVariants';
-// import { generateTypographyClasses } from '../generators/generateTypographyClasses';
-// import { generateZoomTargets } from '../generators/generateZoomTargets';
-// import { generateParallaxClasses } from '../generators/generateParallaxClasses';
+import { generateCssVariables } from '../generators/cosmic/generateCssVariables';
+import { generateTailwindConfig } from '../generators/cosmic/generateTailwindConfig';
+import { generateDomainStyles } from '../generators/cosmic/generateDomainStyles';
+import { generateTextEffects } from '../generators/cosmic/generateTextEffects';
+import { generateAnimationVariants } from '../generators/cosmic/generateAnimationVariants';
+import { generateTypographyClasses } from '../generators/cosmic/generateTypographyClasses';
+import { generateZoomTargets } from '../generators/cosmic/generateZoomTargets';
+import { generateParallaxClasses } from '../generators/cosmic/generateParallaxClasses';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -223,102 +222,111 @@ export async function runCosmicGenerator(options: CosmicGeneratorOptions = {}): 
   logInfo(`Output directory: ${opts.outputStylesDir}`);
   logInfo(`Tailwind config: ${opts.outputTailwindPath}`);
   console.log('');
-  
+
   // =====================================================
   // PHASE 1: CSS Variables
   // =====================================================
   
   logInfo('Phase 1/8: Generating CSS Variables...');
-  const cssVarsResult = await placeholderGenerate(
-    'generateCssVariables',
-    opts,
-    path.join(opts.outputStylesDir, 'variables.css')
-  );
-  results.push(createResult('CSS Variables', cssVarsResult.success, cssVarsResult.outputPath, cssVarsResult.error));
+  const cssVarsOutputPath = path.join(opts.outputStylesDir, 'variables.css');
+  const cssVarsSuccess = await generateCssVariables(opts);
+  results.push(createResult(
+    'CSS Variables', 
+    cssVarsSuccess !== null, 
+    cssVarsOutputPath, 
+    cssVarsSuccess === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 2: Tailwind Config
   // =====================================================
   
   logInfo('Phase 2/8: Generating Tailwind Config...');
-  const tailwindResult = await placeholderGenerate(
-    'generateTailwindConfig',
-    opts,
-    opts.outputTailwindPath
-  );
-  results.push(createResult('Tailwind Config', tailwindResult.success, tailwindResult.outputPath, tailwindResult.error));
+  const tailwindResult = await generateTailwindConfig(opts);
+  results.push(createResult(
+    'Tailwind Config', 
+    tailwindResult !== null, 
+    tailwindResult || opts.outputTailwindPath, 
+    tailwindResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 3: Domain Styles
   // =====================================================
   
   logInfo('Phase 3/8: Generating Domain Styles...');
-  const domainResult = await placeholderGenerate(
-    'generateDomainStyles',
-    opts,
-    path.join(opts.outputStylesDir, 'domains.css')
-  );
-  results.push(createResult('Domain Styles', domainResult.success, domainResult.outputPath, domainResult.error));
+  const domainResult = await generateDomainStyles(opts);
+  results.push(createResult(
+    'Domain Styles', 
+    domainResult !== null, 
+    domainResult || path.join(opts.outputStylesDir, 'domains.css'), 
+    domainResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 4: Text Effects
   // =====================================================
   
   logInfo('Phase 4/8: Generating Text Effects...');
-  const textResult = await placeholderGenerate(
-    'generateTextEffects',
-    opts,
-    path.join(opts.outputStylesDir, 'text-effects.css')
-  );
-  results.push(createResult('Text Effects', textResult.success, textResult.outputPath, textResult.error));
+  const textResult = await generateTextEffects(opts);
+  results.push(createResult(
+    'Text Effects', 
+    textResult !== null, 
+    textResult || path.join(opts.outputStylesDir, 'text-effects.css'), 
+    textResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 5: Animation Variants
   // =====================================================
   
   logInfo('Phase 5/8: Generating Animation Variants...');
-  const animationResult = await placeholderGenerate(
-    'generateAnimationVariants',
-    opts,
-    path.join(opts.outputStylesDir, 'animations.css')
-  );
-  results.push(createResult('Animation Variants', animationResult.success, animationResult.outputPath, animationResult.error));
+  const animationResult = await generateAnimationVariants(opts);
+  results.push(createResult(
+    'Animation Variants', 
+    animationResult !== null, 
+    animationResult || path.join(opts.outputStylesDir, 'animations.css'), 
+    animationResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 6: Typography Classes
   // =====================================================
   
   logInfo('Phase 6/8: Generating Typography Classes...');
-  const typographyResult = await placeholderGenerate(
-    'generateTypographyClasses',
-    opts,
-    path.join(opts.outputStylesDir, 'typography.css')
-  );
-  results.push(createResult('Typography Classes', typographyResult.success, typographyResult.outputPath, typographyResult.error));
+  const typographyResult = await generateTypographyClasses(opts);
+  results.push(createResult(
+    'Typography Classes', 
+    typographyResult !== null, 
+    typographyResult || path.join(opts.outputStylesDir, 'typography.css'), 
+    typographyResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 7: Zoom Targets
   // =====================================================
   
   logInfo('Phase 7/8: Generating Zoom Targets...');
-  const zoomResult = await placeholderGenerate(
-    'generateZoomTargets',
-    opts,
-    path.join(opts.outputStylesDir, 'zoom.css')
-  );
-  results.push(createResult('Zoom Targets', zoomResult.success, zoomResult.outputPath, zoomResult.error));
+  const zoomResult = await generateZoomTargets(opts);
+  results.push(createResult(
+    'Zoom Targets', 
+    zoomResult !== null, 
+    zoomResult || path.join(opts.outputStylesDir, 'zoom.css'), 
+    zoomResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // PHASE 8: Parallax Classes
   // =====================================================
   
   logInfo('Phase 8/8: Generating Parallax Classes...');
-  const parallaxResult = await placeholderGenerate(
-    'generateParallaxClasses',
-    opts,
-    path.join(opts.outputStylesDir, 'parallax.css')
-  );
-  results.push(createResult('Parallax Classes', parallaxResult.success, parallaxResult.outputPath, parallaxResult.error));
+  const parallaxResult = await generateParallaxClasses(opts);
+  results.push(createResult(
+    'Parallax Classes', 
+    parallaxResult !== null, 
+    parallaxResult || path.join(opts.outputStylesDir, 'parallax.css'), 
+    parallaxResult === null ? 'Generation failed' : undefined
+  ));
   
   // =====================================================
   // SUMMARY

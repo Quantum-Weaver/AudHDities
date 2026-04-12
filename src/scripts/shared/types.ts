@@ -60,7 +60,7 @@ export interface MarkerResult {
 // EXTRACTED OBJECT
 // =====================================================
 
-export type ObjectType = 'table' | 'view' | 'function' | 'enum' | 'composite' | 'unknown';
+export type ObjectType = 'table' | 'view' | 'function' | 'type_enum' | 'runtime_enum' | 'composite' | 'unknown';
 
 export interface ExtractedObject {
   name: string;                   // Object name (e.g., 'profiles', 'user_tier')

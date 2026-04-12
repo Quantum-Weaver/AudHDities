@@ -1,1 +1,0 @@
-/* @/scripts/generators/generateObjectApis.ts */
