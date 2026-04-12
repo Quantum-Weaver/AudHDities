@@ -1,8 +1,0 @@
---- a/src\types\hephaestus_infrastructure\scripts.ts
-+++ b/src\types\hephaestus_infrastructure\scripts.ts (staged)
-@@ -5,90 +5,90 @@
--// GENERATED: 2026-04-05T20:12:27.914Z
-+// GENERATED: 2026-04-05T21:48:03.470Z
- // SOURCE: database.types.ts lines 4446-4504
- // =====================================================
- 

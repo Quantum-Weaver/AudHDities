@@ -22,3 +22,6 @@ source venv/bin/activate
 
 ## Types-Test
 npx tsc --noEmit
+
+npx tsx src/scripts/system/gaia.ts --dry-run
+npx tsx src/scripts/system/cosmic.ts --dry-run

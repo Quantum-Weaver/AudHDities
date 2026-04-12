@@ -1,8 +1,0 @@
---- a/src\lib\constants\hestia_core\analytics_category.ts
-+++ b/src\lib\constants\hestia_core\analytics_category.ts (staged)
-@@ -3,14 +3,14 @@
--// GENERATED: 2026-04-05T18:10:53.154Z
-+// GENERATED: 2026-04-05T21:55:13.150Z
- // SOURCE: Constants.public.Enums.analytics_category
- // =====================================================
- 

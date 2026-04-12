@@ -7,7 +7,7 @@
 // ============================================================================
 
 import type { TableInfo } from './extractTables.js';
-import type { ObjectCategory } from '../../../config/object-categories.js';
+import type { ObjectCategory } from '@/config/object-categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatApiRoutesOptions {

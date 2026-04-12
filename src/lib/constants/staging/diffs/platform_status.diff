@@ -1,8 +1,0 @@
---- a/src\lib\constants\hephaestus_infrastructure\platform_status.ts
-+++ b/src\lib\constants\hephaestus_infrastructure\platform_status.ts (staged)
-@@ -3,13 +3,13 @@
--// GENERATED: 2026-04-05T18:10:53.159Z
-+// GENERATED: 2026-04-05T21:48:03.577Z
- // SOURCE: Constants.public.Enums.platform_status
- // =====================================================
- 

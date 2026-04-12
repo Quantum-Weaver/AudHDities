@@ -1,8 +1,0 @@
---- a/src\lib\constants\plutus_economics\transaction_type.ts
-+++ b/src\lib\constants\plutus_economics\transaction_type.ts (staged)
-@@ -3,14 +3,14 @@
--// GENERATED: 2026-04-05T18:10:53.258Z
-+// GENERATED: 2026-04-05T21:55:13.296Z
- // SOURCE: Constants.public.Enums.transaction_type
- // =====================================================
- 

@@ -11,16 +11,30 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
+// import from config
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
+import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency-map.js';
+import { addRecord, estimateRunTime } from '@/config/efficiency-records.js';
+import { getEnumFolder } from '@/config/enum-mapping.js';
+import { getTableHandlingLevel, ObjectCategory, getTableCategory } from '@/config/object-categories.js';
+import { saveRegistry, loadRegistry, updateSettings } from '@/config/system-registry.js';
+import { getWorkflowConfig } from '@/config/workflow-config.js';
+
+
+// import from shared
 import { readDatabaseTypes } from '../shared/fileReader.js';
-import { findMarkers } from '../modules/extract/findMarkers.js';
-import { findAllClosingBraces } from '../modules/extract/findClosingBraces.js';
-import { countAllCollections } from '../modules/discover/countItems.js';
 import { SystemLogger } from '../shared/systemLogger.js';
 import { 
   logSuccess, logError, logInfo, logWarning, 
   logSeparator, logHeader, logDebug 
 } from '../shared/logger.js';
 
+//import from modules
+import { findMarkers } from '../modules/extract/findMarkers.js';
+import { findAllClosingBraces } from '../modules/extract/findClosingBraces.js';
+import { countAllCollections } from '../modules/discover/countItems.js';
+
+// import gaia generators
 import { extractTables, type TableInfo } from '../generators/gaia/extractTables.js';
 import { extractViews, type ViewInfo } from '../generators/gaia/extractViews.js';
 import { extractFunctions, type FunctionInfo } from '../generators/gaia/extractFunctions.js';
@@ -30,17 +44,13 @@ import { formatConstants, type FormattedConstant } from '../generators/gaia/form
 import { formatTypes, type FormattedType } from '../generators/gaia/formatTypes.js';
 import { formatValidators, type FormattedValidator } from '../generators/gaia/formatValidators.js';
 import { formatUtils, type FormattedUtility } from '../generators/gaia/formatUtils.js';
-import { formatApiRoutes, type FormattedApiRoute } from '../generators/gaia/formatApiRoutes.js';
-import { formatHooks, type FormattedHook } from '../generators/gaia/formatHooks.js';
-import { getWorkflowConfig } from '@/config/workflow-config.js';
+import { formatApiRoutes, formatMultipleApiRoutes, type FormattedApiRoute } from '../generators/gaia/formatApiRoutes.js';
 import { writeGeneratedFile, type WriteOptions } from '../generators/gaia/writeGeneratedFile.js';
-import { getTableHandlingLevel, ObjectCategory } from '@/config/object-categories.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
-import { getTableCategory } from '@/config/object-categories.js';
-import { getEnumFolder } from '@/config/enum-mapping.js';
-import { saveRegistry, loadRegistry, updateSettings } from '@/config/system-registry.js';
-import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency-map.js';
-import { addRecord, estimateRunTime } from '@/config/efficiency-records.js';
+import { formatMultipleHooks } from '../generators/gaia/formatHooks.js';
+import { analyzeDependencies } from '../modules/analyzeDependencies.js';
+
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -490,23 +500,126 @@ for (const route of formattedApiRoutes) {
 
 logSuccess(`  Generated ${summary.apiRoutesGenerated} API route files`);
   
-  // =====================================================
-  // PHASE 8: Generate Hooks (Tables)
-  // =====================================================
+// =====================================================
+// PHASE 8: Generate Hooks (Tables)
+// =====================================================
+
+logInfo('Phase 8/9: Generating hooks...');
+
+// Function to determine if a table needs hooks (only full_crud)
+function needsHooks(tableName: string): boolean {
+  const level = getTableHandlingLevel(tableName);
+  return level === 'full_crud';
+}
+
+// Format hooks
+const formattedHooks = formatMultipleHooks(
+  tables,
+  getTableDeityFolder,
+  getTableCategory,
+  needsHooks,
+  { verbose: opts.verbose }
+);
+
+// Write each hook file
+for (const hook of formattedHooks) {
+  const writeResult = await writeGeneratedFile(
+    hook.filePath,
+    hook.content,
+    [`Database.public.Tables.${hook.tableName}`],
+    {
+      dryRun: opts.dryRun,
+      force: opts.force,
+      verbose: opts.verbose,
+      logger
+    }
+  );
   
-  logInfo('Phase 8/9: Generating hooks...');
-  // TODO: Format tables into React hooks (full_crud only)
-  // TODO: Write each hook file
-  // TODO: Track count in summary
+  if (writeResult.success && writeResult.action === 'created') {
+    summary.hooksGenerated++;
+  } else if (writeResult.success && writeResult.action === 'updated') {
+    summary.hooksGenerated++;
+    summary.warnings.push(`Updated hook: ${hook.tableName}`);
+  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
+    summary.warnings.push(`Skipped hook: ${hook.tableName} (would overwrite)`);
+  }
+}
+
+logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
   
   // =====================================================
   // PHASE 9: Update Registry and Maps
   // =====================================================
   
   logInfo('Phase 9/9: Updating registry and dependency maps...');
-  // TODO: Save updated system registry
-  // TODO: Save updated dependency map
-  // TODO: Add efficiency record
+  
+  // Add each generated file to the logger
+  for (const constant of formattedConstants) {
+    logger.addGeneratedFile(constant.filePath);
+  }
+  for (const type of formattedTypes) {
+    logger.addGeneratedFile(type.filePath);
+  }
+  for (const validator of formattedValidators) {
+    logger.addGeneratedFile(validator.filePath);
+  }
+  for (const util of formattedUtils) {
+    logger.addGeneratedFile(util.filePath);
+  }
+  for (const route of formattedApiRoutes) {
+    logger.addGeneratedFile(route.filePath);
+  }
+  for (const hook of formattedHooks) {
+    logger.addGeneratedFile(hook.filePath);
+  }
+  
+  // Add efficiency record
+  const totalFiles = summary.constantsGenerated + summary.typesGenerated + 
+                     summary.validatorsGenerated + summary.utilsGenerated + 
+                     summary.apiRoutesGenerated + summary.hooksGenerated;
+  
+  addRecord({
+    id: logger.getCurrentRun()?.id || generateRunId(),
+    timestamp: new Date().toISOString(),
+    system: 'GAIA',
+    totalFilesGenerated: totalFiles,
+    totalTimeMs: summary.endTime.getTime() - summary.startTime.getTime(),
+    averageTimePerFile: totalFiles > 0 ? (summary.endTime.getTime() - summary.startTime.getTime()) / totalFiles : 0,
+    cacheHits: 0,
+    cacheMisses: totalFiles,
+    memoryUsage: process.memoryUsage().heapUsed,
+    fileTypeBreakdown: {
+      constants: summary.constantsGenerated,
+      types: summary.typesGenerated,
+      validators: summary.validatorsGenerated,
+      utils: summary.utilsGenerated,
+      api: summary.apiRoutesGenerated,
+      hooks: summary.hooksGenerated
+    }
+  });
+  
+  // Analyze dependencies (optional, can be skipped for speed)
+  if (!opts.dryRun && opts.verbose) {
+    logInfo('  Analyzing dependencies...');
+    try {
+      const analyzeResult = await analyzeDependencies({
+        paths: ['src/types/generated', 'src/lib/constants/generated', 'src/lib/validators/generated', 
+                'src/lib/utils/generated', 'src/app/api/generated', 'src/hooks/generated'],
+        recursive: true,
+        maxDepth: 3,
+        includeNodeModules: false,
+        verbose: false
+      });
+      
+      if (analyzeResult.success) {
+        logDebug(`    Found ${analyzeResult.nodesFound} nodes, ${analyzeResult.edgesFound} edges`);
+      }
+    } catch (error) {
+      logWarning(`    Dependency analysis failed: ${error}`);
+    }
+  }
+  
+  logSuccess('  Registry and maps updated');
   
   // =====================================================
   // SUMMARY
@@ -592,4 +705,8 @@ if (require.main === module) {
       logError(`GAIA generator failed: ${error.message}`);
       process.exit(1);
     });
+}
+
+function generateRunId(): string {
+  throw new Error('Function not implemented.');
 }
