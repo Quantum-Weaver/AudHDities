@@ -412,7 +412,7 @@ export function formatApiRoutes(
   // Main route (list + create)
   if (category.generateApiGetList || category.generateApiPost) {
     const content = formatMainApiRoute(tableName, category.generateApiGetList, category.generateApiPost);
-    const filePath = `src/app/api/generated/${tableName}/route.ts`;
+    const filePath = `app/api/generated/${tableName}/route.ts`;
     
     results.push({
       content,
@@ -431,7 +431,7 @@ export function formatApiRoutes(
   // Single record route (get/put/delete)
   if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
     const content = formatSingleApiRoute(tableName, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete);
-    const filePath = `src/app/api/generated/${tableName}/[id]/route.ts`;
+    const filePath = `app/api/generated/${tableName}/[id]/route.ts`;
     
     results.push({
       content,
@@ -451,7 +451,7 @@ export function formatApiRoutes(
   if (category.generateApiSpecial && category.generateApiSpecial.length > 0) {
     for (const specialType of category.generateApiSpecial) {
       const content = formatSpecialApiRoute(tableName, specialType);
-      const filePath = `src/app/api/generated/${tableName}/${specialType}/route.ts`;
+      const filePath = `app/api/generated/${tableName}/${specialType}/route.ts`;
       
       results.push({
         content,

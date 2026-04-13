@@ -27,7 +27,7 @@ export interface GenerationPaths {
   validatorsBase: string;      // src/lib/validators/generated
   utilsBase: string;           // src/utils/generated
   hooksBase: string;           // src/hooks/generated
-  apiBase: string;             // src/app/api/generated
+  apiBase: string;             // app/api/generated
 }
 
 // Directories we NEVER touch (for exclusion)
