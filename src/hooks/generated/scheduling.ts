@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from '@/types/generated/hestia-core/scheduling.ts';
+import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from 'src/types/generated/hestia-core/scheduling.ts';
 
 // =====================================================
 // Scheduling HOOKS

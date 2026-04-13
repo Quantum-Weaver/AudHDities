@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hephaestus-infrastructure/file_registry.ts';
-import { FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/file_registry.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from 'src/types/generated/hephaestus-infrastructure/file_registry.ts';
+import { FileRegistryInsertSchema, FileRegistryUpdateSchema } from 'src/lib/validators/generated/file_registry.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // FileRegistry CRUD OPERATIONS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LedgerRow, LedgerInsert, LedgerUpdate } from '@/types/generated/hestia-core/ledger.ts';
+import type { LedgerRow, LedgerInsert, LedgerUpdate } from 'src/types/generated/hestia-core/ledger.ts';
 
 // =====================================================
 // Ledger HOOKS

@@ -14,7 +14,7 @@ export interface GenerateIndexOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  basePaths?: string[];  // Array of base paths to scan (e.g., ['@/lib/constants', '@/types', '@/utils'])
+  basePaths?: string[];  // Array of base paths to scan (e.g., ['src/lib/constants', 'src/types', 'src/utils'])
 }
 
 /**

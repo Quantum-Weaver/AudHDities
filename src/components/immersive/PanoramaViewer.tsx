@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { QuantumBackground } from './QuantumBackground';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+import { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
 
 interface PanoramaViewerProps {
   environment: EnvironmentKey;

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from '@/types/generated/themis-governance/moderation_actions.ts';
-import { ModerationActionsInsertSchema, ModerationActionsUpdateSchema } from '@/lib/validators/generated/moderation_actions.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from 'src/types/generated/themis-governance/moderation_actions.ts';
+import { ModerationActionsInsertSchema, ModerationActionsUpdateSchema } from 'src/lib/validators/generated/moderation_actions.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // ModerationActions CRUD OPERATIONS

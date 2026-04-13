@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from '@/types/generated/prometheus-meta/prometheus_boundaries.ts';
-import { PrometheusBoundariesInsertSchema, PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus_boundaries.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from 'src/types/generated/prometheus-meta/prometheus_boundaries.ts';
+import { PrometheusBoundariesInsertSchema, PrometheusBoundariesUpdateSchema } from 'src/lib/validators/generated/prometheus_boundaries.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // PrometheusBoundaries CRUD OPERATIONS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { TransactionsRow, TransactionsInsert, TransactionsUpdate } from '@/types/generated/hestia-core/transactions.ts';
+import type { TransactionsRow, TransactionsInsert, TransactionsUpdate } from 'src/types/generated/hestia-core/transactions.ts';
 
 // =====================================================
 // Transactions HOOKS

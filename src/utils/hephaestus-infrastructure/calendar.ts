@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CalendarRow, CalendarInsert, CalendarUpdate } from '@/types/hephaestus-infrastructure/calendar';
-import { CalendarInsertSchema, CalendarUpdateSchema } from '@/lib/validators/calendar';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CalendarRow, CalendarInsert, CalendarUpdate } from 'src/types/hephaestus-infrastructure/calendar';
+import { CalendarInsertSchema, CalendarUpdateSchema } from 'src/lib/validators/calendar';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Calendar CRUD OPERATIONS

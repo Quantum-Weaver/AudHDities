@@ -1,4 +1,4 @@
-// @/scripts/generators/gaia/formatHooks.ts
+// @/scripts/system/gaia/formatHooks.ts
 // ============================================================================
 // FORMAT HOOKS (GAIA)
 // ============================================================================
@@ -7,7 +7,7 @@
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from '@/config/object_categories.js';
+import type { ObjectCategory } from 'src/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatHooksOptions {
@@ -54,7 +54,7 @@ function generateHeader(tableName: string): string {
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/hestia-core/${tableName}.ts';
+import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from 'src/types/generated/hestia-core/${tableName}.ts';
 
 `;
 }
@@ -350,7 +350,7 @@ export function formatHook(
   }
   
   const content = formatHookContent(tableName);
-  const filePath = `@/hooks/generated/${tableName}.ts`;
+  const filePath = `src/hooks/generated/${tableName}.ts`;
   
   // Main hook file contains all hooks
   results.push({

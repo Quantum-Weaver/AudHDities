@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ActivityRow, ActivityInsert, ActivityUpdate } from '@/types/hermes-social/activity';
-import { ActivityInsertSchema, ActivityUpdateSchema } from '@/lib/validators/activity';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ActivityRow, ActivityInsert, ActivityUpdate } from 'src/types/hermes-social/activity';
+import { ActivityInsertSchema, ActivityUpdateSchema } from 'src/lib/validators/activity';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Activity CRUD OPERATIONS

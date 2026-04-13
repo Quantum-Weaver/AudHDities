@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CuratorRow, CuratorInsert, CuratorUpdate } from '@/types/generated/aethelred-connections/curator.ts';
-import { CuratorInsertSchema, CuratorUpdateSchema } from '@/lib/validators/generated/curator.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CuratorRow, CuratorInsert, CuratorUpdate } from 'src/types/generated/aethelred-connections/curator.ts';
+import { CuratorInsertSchema, CuratorUpdateSchema } from 'src/lib/validators/generated/curator.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Curator CRUD OPERATIONS

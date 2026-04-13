@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from '@/types/generated/aethelred-connections/github_connection.ts';
-import { GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from '@/lib/validators/generated/github_connection.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from 'src/types/generated/aethelred-connections/github_connection.ts';
+import { GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from 'src/lib/validators/generated/github_connection.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // GithubConnection CRUD OPERATIONS

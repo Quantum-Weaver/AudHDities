@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { EmailCommunicationsRow, EmailCommunicationsInsert, EmailCommunicationsUpdate } from '@/types/iris-communications/email_communications';
-import { EmailCommunicationsInsertSchema, EmailCommunicationsUpdateSchema } from '@/lib/validators/email_communications';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { EmailCommunicationsRow, EmailCommunicationsInsert, EmailCommunicationsUpdate } from 'src/types/iris-communications/email_communications';
+import { EmailCommunicationsInsertSchema, EmailCommunicationsUpdateSchema } from 'src/lib/validators/email_communications';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // EmailCommunications CRUD OPERATIONS

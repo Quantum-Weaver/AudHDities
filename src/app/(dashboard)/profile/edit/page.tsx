@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabase } from '@/lib/supabase/client'
+import { useSupabase } from 'src/lib/supabase/client'
 import AuthGuard from '@/components/auth/AuthGuard'
 import AvatarUpload from '@/components/upload/AvatarUpload'
 import BannerUpload from '@/components/upload/BannerUpload'

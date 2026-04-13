@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from '@/types/generated/iris-communications/languages.ts';
-import { LanguagesInsertSchema, LanguagesUpdateSchema } from '@/lib/validators/generated/languages.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from 'src/types/generated/iris-communications/languages.ts';
+import { LanguagesInsertSchema, LanguagesUpdateSchema } from 'src/lib/validators/generated/languages.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Languages CRUD OPERATIONS

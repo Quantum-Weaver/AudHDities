@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RepliesRow, RepliesInsert, RepliesUpdate } from '@/types/generated/hermes-social/replies.ts';
-import { RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/replies.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { RepliesRow, RepliesInsert, RepliesUpdate } from 'src/types/generated/hermes-social/replies.ts';
+import { RepliesInsertSchema, RepliesUpdateSchema } from 'src/lib/validators/generated/replies.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Replies CRUD OPERATIONS

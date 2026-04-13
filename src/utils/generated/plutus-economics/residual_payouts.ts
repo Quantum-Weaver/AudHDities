@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/plutus-economics/residual_payouts.ts';
-import { ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from '@/lib/validators/generated/residual_payouts.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from 'src/types/generated/plutus-economics/residual_payouts.ts';
+import { ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from 'src/lib/validators/generated/residual_payouts.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // ResidualPayouts CRUD OPERATIONS

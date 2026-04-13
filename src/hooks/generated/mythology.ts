@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { MythologyRow, MythologyInsert, MythologyUpdate } from '@/types/generated/hestia-core/mythology.ts';
+import type { MythologyRow, MythologyInsert, MythologyUpdate } from 'src/types/generated/hestia-core/mythology.ts';
 
 // =====================================================
 // Mythology HOOKS

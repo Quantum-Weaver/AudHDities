@@ -6,8 +6,7 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import type { FormattedConstantContent, GenerationResult } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
-import { getRuntimeEnumConfig } from '@/config/workflow_config.js';
+import { getDeityGroupForTable, getFolderNameForTable } from 'src/config/deity_groups.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,8 +15,8 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../..');
 export interface GenerateConstantsOptions {
   verbose?: boolean;
   dryRun?: boolean;           // Preview only, no writes
-  stagingBase?: string;       // Default: '@/lib/constants/staging'
-  outputBase?: string;        // Default: '@/lib/constants'
+  stagingBase?: string;       // Default: 'src/lib/constants/staging'
+  outputBase?: string;        // Default: 'src/lib/constants'
 }
 
 /**
@@ -65,7 +64,7 @@ function generateConstantFileContent(enumName: string, values: string[], sourceL
   const folder = getEnumOutputFolder(enumName);
   
   let content = `// =====================================================\n`;
-  content += `// FILE: @/lib/constants/${folder}/${enumName}.ts\n`;
+  content += `// FILE: src/lib/constants/${folder}/${enumName}.ts\n`;
   content += `// GENERATED: ${timestamp}\n`;
   content += `// SOURCE: Constants.public.Enums.${enumName}\n`;
   content += `// =====================================================\n\n`;
@@ -113,7 +112,7 @@ export async function previewConstantsGeneration(
   runtimeEnums: Map<string, string[]>,
   options: GenerateConstantsOptions = {}
 ): Promise<void> {
-  const { verbose = true, outputBase = '@/lib/constants', stagingBase = '@/lib/constants/staging' } = options;
+  const { verbose = true, outputBase = 'src/lib/constants', stagingBase = 'src/lib/constants/staging' } = options;
   
   logInfo('PREVIEW: Runtime Enum Constants Generation');
   logSeparator('─', 40);
@@ -164,7 +163,7 @@ export async function previewConstantsGeneration(
   if (updateCount > 0) {
     console.log('');
     logInfo('To apply updates:');
-    logInfo('  1. Review staging files in @/lib/constants/staging/');
+    logInfo('  1. Review staging files in src/lib/constants/staging/');
     logInfo('  2. Run with --apply-updates flag when ready');
   }
   

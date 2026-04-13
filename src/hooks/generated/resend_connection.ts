@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from '@/types/generated/hestia-core/resend_connection.ts';
+import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from 'src/types/generated/hestia-core/resend_connection.ts';
 
 // =====================================================
 // ResendConnection HOOKS

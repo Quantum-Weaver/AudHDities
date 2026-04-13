@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from '@/types/hephaestus-infrastructure/system_health_logs';
-import { SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/system_health_logs';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from 'src/types/hephaestus-infrastructure/system_health_logs';
+import { SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from 'src/lib/validators/system_health_logs';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // SystemHealthLogs CRUD OPERATIONS

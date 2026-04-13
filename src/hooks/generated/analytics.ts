@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { AnalyticsRow, AnalyticsInsert, AnalyticsUpdate } from '@/types/generated/hestia-core/analytics.ts';
+import type { AnalyticsRow, AnalyticsInsert, AnalyticsUpdate } from 'src/types/generated/hestia-core/analytics.ts';
 
 // =====================================================
 // Analytics HOOKS

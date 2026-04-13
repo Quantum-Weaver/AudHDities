@@ -1,7 +1,7 @@
 /* @/app/(dashboard)/profile/[username]/page.tsx */
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from 'src/lib/supabase/client'
 import AuthGuard from '@/components/auth/AuthGuard'
 import ProfileHeader from '@/components/profiles/ProfileHeader'
 import ProfileTabs from '@/components/profiles/ProfileTabs'

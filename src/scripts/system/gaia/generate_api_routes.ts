@@ -84,7 +84,7 @@ export async function generateApiRoutesForTable(
   },
   options: GenerateApiRoutesOptions = {}
 ): Promise<{ main: string; single: string; special: string[] }> {
-  const { outputBase = '@/app/api' } = options;
+  const { outputBase = 'src/app/api' } = options;
   
   const result = { main: '', single: '', special: [] as string[] };
   

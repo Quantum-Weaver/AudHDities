@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from '@/types/generated/hestia-core/notifications.ts';
+import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from 'src/types/generated/hestia-core/notifications.ts';
 
 // =====================================================
 // Notifications HOOKS

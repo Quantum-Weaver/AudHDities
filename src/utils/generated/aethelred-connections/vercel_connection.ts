@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from '@/types/generated/aethelred-connections/vercel_connection.ts';
-import { VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from '@/lib/validators/generated/vercel_connection.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from 'src/types/generated/aethelred-connections/vercel_connection.ts';
+import { VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from 'src/lib/validators/generated/vercel_connection.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // VercelConnection CRUD OPERATIONS

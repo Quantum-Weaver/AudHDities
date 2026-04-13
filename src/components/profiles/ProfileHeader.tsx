@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useSupabase } from '@/lib/supabase/client'
+import { useSupabase } from 'src/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar'
 import { Button } from '@/components/ui/Button'

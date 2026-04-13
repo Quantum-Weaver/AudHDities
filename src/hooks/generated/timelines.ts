@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/generated/hestia-core/timelines.ts';
+import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from 'src/types/generated/hestia-core/timelines.ts';
 
 // =====================================================
 // Timelines HOOKS

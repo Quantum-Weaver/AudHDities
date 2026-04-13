@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from '@/types/mnemosyne-assessment/superposition';
-import { SuperpositionInsertSchema, SuperpositionUpdateSchema } from '@/lib/validators/superposition';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from 'src/types/mnemosyne-assessment/superposition';
+import { SuperpositionInsertSchema, SuperpositionUpdateSchema } from 'src/lib/validators/superposition';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Superposition CRUD OPERATIONS

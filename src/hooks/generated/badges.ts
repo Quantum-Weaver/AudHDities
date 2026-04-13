@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { BadgesRow, BadgesInsert, BadgesUpdate } from '@/types/generated/hestia-core/badges.ts';
+import type { BadgesRow, BadgesInsert, BadgesUpdate } from 'src/types/generated/hestia-core/badges.ts';
 
 // =====================================================
 // Badges HOOKS

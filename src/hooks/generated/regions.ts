@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/hestia-core/regions.ts';
+import type { RegionsRow, RegionsInsert, RegionsUpdate } from 'src/types/generated/hestia-core/regions.ts';
 
 // =====================================================
 // Regions HOOKS

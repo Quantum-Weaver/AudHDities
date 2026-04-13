@@ -14,7 +14,7 @@ export interface GenerateConstantsOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  outputBase?: string;  // default: '@/lib/constants'
+  outputBase?: string;  // default: 'src/lib/constants'
   askForApproval?: boolean;
 }
 
@@ -119,7 +119,7 @@ export async function generateConstantFile(
   folderName: string,
   options: GenerateConstantsOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { outputBase = '@/lib/constants', verbose = false } = options;
+  const { outputBase = 'src/lib/constants', verbose = false } = options;
   
   const outputPath = path.join(PROJECT_ROOT, outputBase, folderName, `${enumName}.ts`);
   const content = generateConstantContent(enumName, values);

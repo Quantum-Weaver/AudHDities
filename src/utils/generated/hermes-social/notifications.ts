@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from '@/types/generated/hermes-social/notifications.ts';
-import { NotificationsInsertSchema, NotificationsUpdateSchema } from '@/lib/validators/generated/notifications.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from 'src/types/generated/hermes-social/notifications.ts';
+import { NotificationsInsertSchema, NotificationsUpdateSchema } from 'src/lib/validators/generated/notifications.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Notifications CRUD OPERATIONS

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { OntologyRow, OntologyInsert, OntologyUpdate } from '@/types/generated/mnemosyne-assessment/ontology.ts';
-import { OntologyInsertSchema, OntologyUpdateSchema } from '@/lib/validators/generated/ontology.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { OntologyRow, OntologyInsert, OntologyUpdate } from 'src/types/generated/mnemosyne-assessment/ontology.ts';
+import { OntologyInsertSchema, OntologyUpdateSchema } from 'src/lib/validators/generated/ontology.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Ontology CRUD OPERATIONS

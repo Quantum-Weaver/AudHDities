@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/generated/hestia-core/culturalization.ts';
+import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from 'src/types/generated/hestia-core/culturalization.ts';
 
 // =====================================================
 // Culturalization HOOKS

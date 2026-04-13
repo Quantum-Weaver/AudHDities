@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from '@/types/iris-communications/continents';
-import { ContinentsInsertSchema, ContinentsUpdateSchema } from '@/lib/validators/continents';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from 'src/types/iris-communications/continents';
+import { ContinentsInsertSchema, ContinentsUpdateSchema } from 'src/lib/validators/continents';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Continents CRUD OPERATIONS

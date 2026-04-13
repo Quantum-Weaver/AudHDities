@@ -6,8 +6,8 @@ import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { useIsMobile } from "@/hooks/core/useIsMobile";
-import { cn } from "@/lib/utils";
+import { useIsMobile } from "src/hooks/core/useIsMobile";
+import { cn } from "src/lib/utils";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Separator } from "./Separator";

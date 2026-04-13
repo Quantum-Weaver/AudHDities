@@ -1,4 +1,4 @@
-// @/scripts/generators/gaia/formatTypes.ts
+// @/scripts/system/gaia/formatTypes.ts
 // ============================================================================
 // FORMAT TYPES (GAIA)
 // ============================================================================
@@ -7,7 +7,7 @@
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from '@/config/object_categories.js';
+import type { ObjectCategory } from 'src/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatTypesOptions {
@@ -207,7 +207,7 @@ function generateHeader(
 // SOURCE: database.types.ts lines ${startLine}-${endLine}
 // =====================================================
 
-import type { Database } from '@/types/supabase/database.types';
+import type { Database } from 'src/types/supabase/database.types';
 
 `;
 }
@@ -227,7 +227,7 @@ function formatTypeContent(
   
   // Add Json import if needed
   if (hasJson) {
-    content += `import type { Json } from '@/types/supabase/database.types';\n\n`;
+    content += `import type { Json } from 'src/types/supabase/database.types';\n\n`;
   }
   
   // Add enum exports
@@ -297,7 +297,7 @@ export function formatType(
   }
   
   const content = formatTypeContent(tableInfo, deityFolder, category);
-  const filePath = `@/types/generated/${deityFolder}/${tableInfo.name}.ts`;
+  const filePath = `src/types/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);

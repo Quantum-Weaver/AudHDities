@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from '@/types/hestia-core/user_private';
+import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from 'src/types/hestia-core/user_private';
 
 // =====================================================
 // UserPrivate HOOKS

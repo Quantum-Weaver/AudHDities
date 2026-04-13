@@ -9,7 +9,7 @@ import { thesaurus } from '@/scripts/system/prometheus/thesaurus';
 import { keeper } from '@/scripts/system/prometheus/keeper';
 import { vetting } from '@/scripts/system/prometheus/vetting';
 
-import type { Blueprint, BlueprintFile, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile, GenerationResult } from 'src/types/prometheus';
 
 /**
  * Core generation engine

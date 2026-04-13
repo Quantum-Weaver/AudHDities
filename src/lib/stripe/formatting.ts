@@ -1,4 +1,4 @@
-// @/lib/stripe/formatting.ts
+// src/lib/stripe/formatting.ts
 
 /**
  * Supported currencies

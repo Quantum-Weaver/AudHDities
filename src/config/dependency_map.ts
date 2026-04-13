@@ -1,4 +1,4 @@
-// @/config/dependency_map.ts
+// src/config/dependency_map.ts
 // ============================================================================
 // DEPENDENCY MAP - MAINTAINED by COSMIC and GAIA
 // ============================================================================
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const MAP_PATH = path.join(PROJECT_ROOT, '@/config/dependency_map.ts');
+const MAP_PATH = path.join(PROJECT_ROOT, 'src/config/dependency_map.ts');
 
 export interface DependencyNode {
   id: string;
@@ -67,7 +67,7 @@ function loadMap(): void {
 
 // Save map to file
 function saveMap(): void {
-  const content = `// @/config/dependency_map.ts
+  const content = `// src/config/dependency_map.ts
 // ============================================================================
 // DEPENDENCY MAP - MAINTAINED by COSMIC and GAIA
 // ============================================================================

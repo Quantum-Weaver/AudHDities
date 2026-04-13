@@ -5,9 +5,9 @@
 // SOURCE: database.types.ts lines 5621-5674
 // =====================================================
 
-import type { Database } from '@/types/supabase/database.types';
+import type { Database } from 'src/types/supabase/database.types';
 
-import type { Json } from '@/types/supabase/database.types';
+import type { Json } from 'src/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ChancellorRow, ChancellorInsert, ChancellorUpdate } from '@/types/generated/hestia-core/chancellor.ts';
+import type { ChancellorRow, ChancellorInsert, ChancellorUpdate } from 'src/types/generated/hestia-core/chancellor.ts';
 
 // =====================================================
 // Chancellor HOOKS

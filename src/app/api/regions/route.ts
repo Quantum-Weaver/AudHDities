@@ -4,9 +4,9 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
-import { RegionsInsertSchema } from '@/lib/validators/regions';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from 'src/lib/api/auth';
+import { RegionsInsertSchema } from 'src/lib/validators/regions';
 
 export async function GET(request: NextRequest) {
   try {

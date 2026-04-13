@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from '@/types/generated/mnemosyne-assessment/quantum_superposition.ts';
-import { QuantumSuperpositionInsertSchema, QuantumSuperpositionUpdateSchema } from '@/lib/validators/generated/quantum_superposition.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from 'src/types/generated/mnemosyne-assessment/quantum_superposition.ts';
+import { QuantumSuperpositionInsertSchema, QuantumSuperpositionUpdateSchema } from 'src/lib/validators/generated/quantum_superposition.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // QuantumSuperposition CRUD OPERATIONS

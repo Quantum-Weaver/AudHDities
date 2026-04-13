@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { EmeraldsRow, EmeraldsInsert, EmeraldsUpdate } from '@/types/generated/hestia-core/emeralds.ts';
+import type { EmeraldsRow, EmeraldsInsert, EmeraldsUpdate } from 'src/types/generated/hestia-core/emeralds.ts';
 
 // =====================================================
 // Emeralds HOOKS

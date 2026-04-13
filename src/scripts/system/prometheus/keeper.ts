@@ -6,10 +6,10 @@
  * @created 2026-04-12
  */
 
-import { namingGuide, validatePath } from '@/config/naming_guide';
-import { projectStructure } from '@/config/project-structure';
+import { namingGuide, validatePath } from 'src/config/naming_guide';
+import { projectStructure } from 'src/config/project-structure';
 
-import type { BlueprintFile } from '@/types/prometheus';
+import type { BlueprintFile } from 'src/types/prometheus';
 
 /**
  * KEEPER - The guardian of standards

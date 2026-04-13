@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SettingsRow, SettingsInsert, SettingsUpdate } from '@/types/generated/hestia-core/settings.ts';
+import type { SettingsRow, SettingsInsert, SettingsUpdate } from 'src/types/generated/hestia-core/settings.ts';
 
 // =====================================================
 // Settings HOOKS

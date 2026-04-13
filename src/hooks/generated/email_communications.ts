@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { EmailCommunicationsRow, EmailCommunicationsInsert, EmailCommunicationsUpdate } from '@/types/generated/hestia-core/email_communications.ts';
+import type { EmailCommunicationsRow, EmailCommunicationsInsert, EmailCommunicationsUpdate } from 'src/types/generated/hestia-core/email_communications.ts';
 
 // =====================================================
 // EmailCommunications HOOKS

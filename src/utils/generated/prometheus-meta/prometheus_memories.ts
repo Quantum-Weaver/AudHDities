@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusMemoriesRow, PrometheusMemoriesInsert, PrometheusMemoriesUpdate } from '@/types/generated/prometheus-meta/prometheus_memories.ts';
-import { PrometheusMemoriesInsertSchema, PrometheusMemoriesUpdateSchema } from '@/lib/validators/generated/prometheus_memories.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PrometheusMemoriesRow, PrometheusMemoriesInsert, PrometheusMemoriesUpdate } from 'src/types/generated/prometheus-meta/prometheus_memories.ts';
+import { PrometheusMemoriesInsertSchema, PrometheusMemoriesUpdateSchema } from 'src/lib/validators/generated/prometheus_memories.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // PrometheusMemories CRUD OPERATIONS

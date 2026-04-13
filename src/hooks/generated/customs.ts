@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/hestia-core/customs.ts';
+import type { CustomsRow, CustomsInsert, CustomsUpdate } from 'src/types/generated/hestia-core/customs.ts';
 
 // =====================================================
 // Customs HOOKS

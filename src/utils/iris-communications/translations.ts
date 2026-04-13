@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TranslationsRow, TranslationsInsert, TranslationsUpdate } from '@/types/iris-communications/translations';
-import { TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/translations';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { TranslationsRow, TranslationsInsert, TranslationsUpdate } from 'src/types/iris-communications/translations';
+import { TranslationsInsertSchema, TranslationsUpdateSchema } from 'src/lib/validators/translations';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Translations CRUD OPERATIONS

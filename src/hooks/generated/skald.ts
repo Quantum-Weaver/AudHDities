@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SkaldRow, SkaldInsert, SkaldUpdate } from '@/types/generated/hestia-core/skald.ts';
+import type { SkaldRow, SkaldInsert, SkaldUpdate } from 'src/types/generated/hestia-core/skald.ts';
 
 // =====================================================
 // Skald HOOKS

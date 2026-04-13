@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from '@/types/generated/athena-gamification/learning_paths.ts';
-import { LearningPathsInsertSchema, LearningPathsUpdateSchema } from '@/lib/validators/generated/learning_paths.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from 'src/types/generated/athena-gamification/learning_paths.ts';
+import { LearningPathsInsertSchema, LearningPathsUpdateSchema } from 'src/lib/validators/generated/learning_paths.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // LearningPaths CRUD OPERATIONS

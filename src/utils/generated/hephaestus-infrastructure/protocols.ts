@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from '@/types/generated/hephaestus-infrastructure/protocols.ts';
-import { ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/protocols.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from 'src/types/generated/hephaestus-infrastructure/protocols.ts';
+import { ProtocolsInsertSchema, ProtocolsUpdateSchema } from 'src/lib/validators/generated/protocols.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Protocols CRUD OPERATIONS

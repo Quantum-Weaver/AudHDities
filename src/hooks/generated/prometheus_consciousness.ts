@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from '@/types/generated/hestia-core/prometheus_consciousness.ts';
+import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from 'src/types/generated/hestia-core/prometheus_consciousness.ts';
 
 // =====================================================
 // PrometheusConsciousness HOOKS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { MessagesRow, MessagesInsert, MessagesUpdate } from '@/types/generated/hestia-core/messages.ts';
+import type { MessagesRow, MessagesInsert, MessagesUpdate } from 'src/types/generated/hestia-core/messages.ts';
 
 // =====================================================
 // Messages HOOKS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from '@/types/generated/hestia-core/github_connection.ts';
+import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from 'src/types/generated/hestia-core/github_connection.ts';
 
 // =====================================================
 // GithubConnection HOOKS

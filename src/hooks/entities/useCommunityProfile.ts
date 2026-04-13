@@ -1,1 +1,1 @@
-/* @/hooks/entities/useCommunityProfile.ts */
+/* src/hooks/entities/useCommunityProfile.ts */

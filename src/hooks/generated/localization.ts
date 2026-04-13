@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from '@/types/generated/hestia-core/localization.ts';
+import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from 'src/types/generated/hestia-core/localization.ts';
 
 // =====================================================
 // Localization HOOKS

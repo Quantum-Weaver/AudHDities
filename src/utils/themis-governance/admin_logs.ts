@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/themis-governance/admin_logs';
-import { AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/admin_logs';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from 'src/types/themis-governance/admin_logs';
+import { AdminLogsInsertSchema, AdminLogsUpdateSchema } from 'src/lib/validators/admin_logs';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // AdminLogs CRUD OPERATIONS

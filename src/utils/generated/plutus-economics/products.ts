@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/plutus-economics/products.ts';
-import { ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/products.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ProductsRow, ProductsInsert, ProductsUpdate } from 'src/types/generated/plutus-economics/products.ts';
+import { ProductsInsertSchema, ProductsUpdateSchema } from 'src/lib/validators/generated/products.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Products CRUD OPERATIONS

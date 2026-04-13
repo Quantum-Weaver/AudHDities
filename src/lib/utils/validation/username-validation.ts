@@ -1,4 +1,4 @@
-/* @/lib/utils/validation/username-validation.ts */
+/* src/lib/utils/validation/username-validation.ts */
 const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,30}$/;
 
 export const validateUsername = (username: string): { isValid: boolean; error?: string } => {

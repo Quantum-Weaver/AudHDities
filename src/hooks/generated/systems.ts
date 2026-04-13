@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SystemsRow, SystemsInsert, SystemsUpdate } from '@/types/generated/hestia-core/systems.ts';
+import type { SystemsRow, SystemsInsert, SystemsUpdate } from 'src/types/generated/hestia-core/systems.ts';
 
 // =====================================================
 // Systems HOOKS

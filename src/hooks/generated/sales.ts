@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SalesRow, SalesInsert, SalesUpdate } from '@/types/generated/hestia-core/sales.ts';
+import type { SalesRow, SalesInsert, SalesUpdate } from 'src/types/generated/hestia-core/sales.ts';
 
 // =====================================================
 // Sales HOOKS

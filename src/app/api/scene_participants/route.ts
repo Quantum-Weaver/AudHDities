@@ -4,9 +4,9 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
-import { SceneParticipantsInsertSchema } from '@/lib/validators/scene_participants';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from 'src/lib/api/auth';
+import { SceneParticipantsInsertSchema } from 'src/lib/validators/scene_participants';
 
 export async function GET(request: NextRequest) {
   try {

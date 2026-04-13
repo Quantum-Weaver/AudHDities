@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from '@/types/generated/hestia-core/folksonomy.ts';
+import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from 'src/types/generated/hestia-core/folksonomy.ts';
 
 // =====================================================
 // Folksonomy HOOKS

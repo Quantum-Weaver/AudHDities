@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from '@/types/generated/aethelred-connections/resend_connection.ts';
-import { ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from '@/lib/validators/generated/resend_connection.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from 'src/types/generated/aethelred-connections/resend_connection.ts';
+import { ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from 'src/lib/validators/generated/resend_connection.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // ResendConnection CRUD OPERATIONS

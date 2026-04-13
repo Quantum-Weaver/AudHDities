@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ScriptExecutionLogsRow, ScriptExecutionLogsInsert, ScriptExecutionLogsUpdate } from '@/types/generated/hestia-core/script_execution_logs.ts';
+import type { ScriptExecutionLogsRow, ScriptExecutionLogsInsert, ScriptExecutionLogsUpdate } from 'src/types/generated/hestia-core/script_execution_logs.ts';
 
 // =====================================================
 // ScriptExecutionLogs HOOKS

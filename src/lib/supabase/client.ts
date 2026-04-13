@@ -1,7 +1,7 @@
 // lib/supabase/client.ts
 
 import { createBrowserClient } from '@supabase/ssr';
-import type { Database } from '@/types/supabase/database.types';
+import type { Database } from 'src/types/supabase/database.types';
 
 // Singleton pattern to prevent multiple instances in React Strict Mode
 let clientInstance: ReturnType<typeof createBrowserClient<Database>> | null = null;

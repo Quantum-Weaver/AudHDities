@@ -4,9 +4,9 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
-import { SkaldInsertSchema } from '@/lib/validators/skald';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from 'src/lib/api/auth';
+import { SkaldInsertSchema } from 'src/lib/validators/skald';
 
 export async function GET(request: NextRequest) {
   try {

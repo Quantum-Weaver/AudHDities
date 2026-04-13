@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from '@/types/generated/hestia-core/stripe_connection.ts';
+import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from 'src/types/generated/hestia-core/stripe_connection.ts';
 
 // =====================================================
 // StripeConnection HOOKS

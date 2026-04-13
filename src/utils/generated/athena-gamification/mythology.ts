@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { MythologyRow, MythologyInsert, MythologyUpdate } from '@/types/generated/athena-gamification/mythology.ts';
-import { MythologyInsertSchema, MythologyUpdateSchema } from '@/lib/validators/generated/mythology.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { MythologyRow, MythologyInsert, MythologyUpdate } from 'src/types/generated/athena-gamification/mythology.ts';
+import { MythologyInsertSchema, MythologyUpdateSchema } from 'src/lib/validators/generated/mythology.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Mythology CRUD OPERATIONS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from '@/types/generated/hestia-core/languages.ts';
+import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from 'src/types/generated/hestia-core/languages.ts';
 
 // =====================================================
 // Languages HOOKS

@@ -14,11 +14,11 @@ import {
   getAllTableNames,
   getTablesWithoutGroup,
   type DeityGroup 
-} from '@/config/deity_groups.js';
+} from 'src/config/deity_groups.js';
 
 export interface CheckObjectConfigOptions {
   verbose?: boolean;
-  defaultOutputBase?: string;  // Base path for output files (default: '@/types')
+  defaultOutputBase?: string;  // Base path for output files (default: 'src/types')
 }
 
 // Sensitive fields to exclude from public interfaces

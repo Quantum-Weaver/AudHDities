@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from '@/types/generated/hestia-core/vercel_connection.ts';
+import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from 'src/types/generated/hestia-core/vercel_connection.ts';
 
 // =====================================================
 // VercelConnection HOOKS

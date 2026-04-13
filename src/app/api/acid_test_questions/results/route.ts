@@ -4,8 +4,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { errorResponse, getAuthenticatedUser, successResponse, unauthorized } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { errorResponse, getAuthenticatedUser, successResponse, unauthorized } from 'src/lib/api/auth';
 
 export async function POST(
   request: NextRequest,

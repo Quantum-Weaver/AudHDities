@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PrometheusTemplatesRow, PrometheusTemplatesInsert, PrometheusTemplatesUpdate } from '@/types/generated/hestia-core/prometheus_templates.ts';
+import type { PrometheusTemplatesRow, PrometheusTemplatesInsert, PrometheusTemplatesUpdate } from 'src/types/generated/hestia-core/prometheus_templates.ts';
 
 // =====================================================
 // PrometheusTemplates HOOKS

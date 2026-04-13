@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from '@/types/generated/iris-communications/localization.ts';
-import { LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/localization.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from 'src/types/generated/iris-communications/localization.ts';
+import { LocalizationInsertSchema, LocalizationUpdateSchema } from 'src/lib/validators/generated/localization.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Localization CRUD OPERATIONS

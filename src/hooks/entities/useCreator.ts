@@ -1,1 +1,1 @@
-/* @/hooks/entitis/useCreator.ts */
+/* src/hooks/entitis/useCreator.ts */

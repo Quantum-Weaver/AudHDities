@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from '@/types/aethelred-connections/archivist';
-import { ArchivistInsertSchema, ArchivistUpdateSchema } from '@/lib/validators/archivist';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from 'src/types/aethelred-connections/archivist';
+import { ArchivistInsertSchema, ArchivistUpdateSchema } from 'src/lib/validators/archivist';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Archivist CRUD OPERATIONS

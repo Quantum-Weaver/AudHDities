@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CalendarRow, CalendarInsert, CalendarUpdate } from '@/types/generated/hestia-core/calendar.ts';
+import type { CalendarRow, CalendarInsert, CalendarUpdate } from 'src/types/generated/hestia-core/calendar.ts';
 
 // =====================================================
 // Calendar HOOKS

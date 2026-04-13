@@ -6,8 +6,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from 'src/lib/api/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -53,10 +53,10 @@ export async function GET(request: NextRequest) {
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
-import { PrometheusMemoriesInsertSchema } from '@/lib/validators/prometheus_memories';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized } from 'src/lib/api/auth';
+import { getAuthenticatedUser } from 'src/lib/api/auth';
+import { PrometheusMemoriesInsertSchema } from 'src/lib/validators/prometheus_memories';
 
 export async function POST(request: NextRequest) {
   try {

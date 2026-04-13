@@ -4,7 +4,7 @@
 
 import type { FormattedConstantContent, ExtractedObject } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
-import { DEITY_GROUPS } from '@/config/deity_groups.js';
+import { DEITY_GROUPS } from 'src/config/deity_groups.js';
 
 export interface FormatObjectConstantsOptions {
   verbose?: boolean;
@@ -92,7 +92,7 @@ export function formatObjectConstants(
   const {
     verbose = false,
     includeTimestamps = true,
-    outputBase = '@/lib/constants'
+    outputBase = 'src/lib/constants'
   } = options;
   
   const timestamp = new Date().toISOString();

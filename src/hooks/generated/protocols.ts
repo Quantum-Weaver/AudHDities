@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from '@/types/generated/hestia-core/protocols.ts';
+import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from 'src/types/generated/hestia-core/protocols.ts';
 
 // =====================================================
 // Protocols HOOKS

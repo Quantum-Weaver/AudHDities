@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CodexRow, CodexInsert, CodexUpdate } from '@/types/generated/hestia-core/codex.ts';
+import type { CodexRow, CodexInsert, CodexUpdate } from 'src/types/generated/hestia-core/codex.ts';
 
 // =====================================================
 // Codex HOOKS

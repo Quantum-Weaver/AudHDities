@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ExecutionerRow, ExecutionerInsert, ExecutionerUpdate } from '@/types/generated/hestia-core/executioner.ts';
+import type { ExecutionerRow, ExecutionerInsert, ExecutionerUpdate } from 'src/types/generated/hestia-core/executioner.ts';
 
 // =====================================================
 // Executioner HOOKS

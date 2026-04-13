@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ReportsRow, ReportsInsert, ReportsUpdate } from '@/types/generated/hestia-core/reports.ts';
+import type { ReportsRow, ReportsInsert, ReportsUpdate } from 'src/types/generated/hestia-core/reports.ts';
 
 // =====================================================
 // Reports HOOKS

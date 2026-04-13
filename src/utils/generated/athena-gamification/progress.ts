@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ProgressRow, ProgressInsert, ProgressUpdate } from '@/types/generated/athena-gamification/progress.ts';
-import { ProgressInsertSchema, ProgressUpdateSchema } from '@/lib/validators/generated/progress.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ProgressRow, ProgressInsert, ProgressUpdate } from 'src/types/generated/athena-gamification/progress.ts';
+import { ProgressInsertSchema, ProgressUpdateSchema } from 'src/lib/validators/generated/progress.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Progress CRUD OPERATIONS

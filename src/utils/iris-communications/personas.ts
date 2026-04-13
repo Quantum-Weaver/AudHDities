@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/iris-communications/personas';
-import { PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/personas';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PersonasRow, PersonasInsert, PersonasUpdate } from 'src/types/iris-communications/personas';
+import { PersonasInsertSchema, PersonasUpdateSchema } from 'src/lib/validators/personas';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Personas CRUD OPERATIONS

@@ -1,5 +1,5 @@
 // ============================================================================
-// @/scripts/generators/gaia/writeGeneratedFile.ts
+// src/scripts/system/gaia/writeGeneratedFile.ts
 // WRITE GENERATED FILE (GAIA)
 // ============================================================================
 
@@ -37,13 +37,13 @@ function generateContentHash(content: string): string {
  * Build the full output path with generated subfolder
  */
 function buildGeneratedPath(filePath: string): string {
-  // Insert '/generated/' after the first directory after @/
-  // Example: @/types/hestia-core/profiles.ts → @/types/generated/hestia-core/profiles.ts
+  // Insert '/generated/' after the first directory after src/
+  // Example: src/types/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
   const parts = filePath.split(path.sep);
-  const @Index = parts.indexOf('@');
-  if (@Index !== -1 && parts.length > @Index + 2) {
+  const srcIndex = parts.indexOf('src');
+  if (srcIndex !== -1 && parts.length > srcIndex + 2) {
     // Insert 'generated' after the type/constants/etc folder
-    parts.splice(@Index + 2, 0, 'generated');
+    parts.splice(srcIndex + 2, 0, 'generated');
   }
   return parts.join(path.sep);
 }

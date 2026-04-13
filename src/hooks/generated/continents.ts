@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from '@/types/generated/hestia-core/continents.ts';
+import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from 'src/types/generated/hestia-core/continents.ts';
 
 // =====================================================
 // Continents HOOKS

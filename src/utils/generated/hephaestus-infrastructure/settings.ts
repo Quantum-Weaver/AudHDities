@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SettingsRow, SettingsInsert, SettingsUpdate } from '@/types/generated/hephaestus-infrastructure/settings.ts';
-import { SettingsInsertSchema, SettingsUpdateSchema } from '@/lib/validators/generated/settings.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SettingsRow, SettingsInsert, SettingsUpdate } from 'src/types/generated/hephaestus-infrastructure/settings.ts';
+import { SettingsInsertSchema, SettingsUpdateSchema } from 'src/lib/validators/generated/settings.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Settings CRUD OPERATIONS

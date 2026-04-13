@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/hestia-core/advertising.ts';
+import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from 'src/types/generated/hestia-core/advertising.ts';
 
 // =====================================================
 // Advertising HOOKS

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from '@/types/generated/hephaestus-infrastructure/scheduling.ts';
-import { SchedulingInsertSchema, SchedulingUpdateSchema } from '@/lib/validators/generated/scheduling.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from 'src/types/generated/hephaestus-infrastructure/scheduling.ts';
+import { SchedulingInsertSchema, SchedulingUpdateSchema } from 'src/lib/validators/generated/scheduling.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Scheduling CRUD OPERATIONS

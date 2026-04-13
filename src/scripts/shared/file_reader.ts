@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const DB_TYPES_PATH = path.join(process.cwd(), '@/types/supabase/database.types.ts');
+export const DB_TYPES_PATH = path.join(process.cwd(), 'src/types/supabase/database.types.ts');
 
 export interface FileReadResult {
   success: boolean;

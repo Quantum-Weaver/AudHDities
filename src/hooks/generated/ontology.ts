@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { OntologyRow, OntologyInsert, OntologyUpdate } from '@/types/generated/hestia-core/ontology.ts';
+import type { OntologyRow, OntologyInsert, OntologyUpdate } from 'src/types/generated/hestia-core/ontology.ts';
 
 // =====================================================
 // Ontology HOOKS

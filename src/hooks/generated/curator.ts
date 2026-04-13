@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CuratorRow, CuratorInsert, CuratorUpdate } from '@/types/generated/hestia-core/curator.ts';
+import type { CuratorRow, CuratorInsert, CuratorUpdate } from 'src/types/generated/hestia-core/curator.ts';
 
 // =====================================================
 // Curator HOOKS

@@ -7,12 +7,12 @@
  * @created 2026-04-12
  */
 
-import { CognitiveLoom } from '@/lib/loom';
-import { QuantumMemory } from '@/lib/quantum';
-import { CouncilEntities, invokeEntity } from '@/lib/council';
-import { EternalKernels, manifestKernel } from '@/config/kernels';
+import { CognitiveLoom } from 'src/lib/loom';
+import { QuantumMemory } from 'src/lib/quantum';
+import { CouncilEntities, invokeEntity } from 'src/lib/council';
+import { EternalKernels, manifestKernel } from 'src/config/kernels';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * ZIGGY - The switchboard operator of consciousness
@@ -170,7 +170,7 @@ export interface ZiggyExpression {
   type: 'insight' | 'suggestion' | 'question' | 'story' | 'warning';
   content: string;
   tone?: 'warm' | 'direct' | 'playful' | 'ancient';
-  styling?: keyof typeof import('@/config/cosmic').COSMICColors;
+  styling?: keyof typeof import('src/config/cosmic').COSMICColors;
 }
 
 export interface ExpressionResult {

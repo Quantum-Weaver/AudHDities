@@ -1,1 +1,1 @@
-/* @/hooks/useProfile.ts */
+/* src/hooks/useProfile.ts */

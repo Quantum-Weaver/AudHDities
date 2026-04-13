@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hestia-core/file_registry.ts';
+import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from 'src/types/generated/hestia-core/file_registry.ts';
 
 // =====================================================
 // FileRegistry HOOKS

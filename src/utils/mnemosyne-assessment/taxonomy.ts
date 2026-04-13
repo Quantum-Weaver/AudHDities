@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from '@/types/mnemosyne-assessment/taxonomy';
-import { TaxonomyInsertSchema, TaxonomyUpdateSchema } from '@/lib/validators/taxonomy';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from 'src/types/mnemosyne-assessment/taxonomy';
+import { TaxonomyInsertSchema, TaxonomyUpdateSchema } from 'src/lib/validators/taxonomy';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Taxonomy CRUD OPERATIONS

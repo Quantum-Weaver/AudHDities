@@ -1,4 +1,4 @@
-// @/scripts/generators/gaia/formatValidators.ts
+// src/scripts/system/gaia/formatValidators.ts
 // ============================================================================
 // FORMAT VALIDATORS (GAIA)
 // ============================================================================
@@ -223,7 +223,7 @@ export function formatValidator(
   }
   
   const content = formatValidatorContent(tableInfo);
-  const filePath = `@/lib/validators/generated/${tableInfo.name}.ts`;
+  const filePath = `src/lib/validators/generated/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);

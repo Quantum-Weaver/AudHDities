@@ -6,7 +6,7 @@
  */
 
 import type { BoundaryRule } from '@/scripts/system/prometheus/vetting';
-import { ProtocolLevel } from '@/lib/encryption';
+import { ProtocolLevel } from 'src/lib/encryption';
 
 /**
  * Boundary configuration
@@ -84,7 +84,7 @@ export const boundaries: BoundaryConfig = {
     },
     {
       type: 'restrict',
-      pathPattern: '@/lib/encryption',
+      pathPattern: 'src/lib/encryption',
       reason: 'Encryption code requires security review'
     }
   ]

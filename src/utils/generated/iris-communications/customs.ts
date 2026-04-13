@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/iris-communications/customs.ts';
-import { CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/customs.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CustomsRow, CustomsInsert, CustomsUpdate } from 'src/types/generated/iris-communications/customs.ts';
+import { CustomsInsertSchema, CustomsUpdateSchema } from 'src/lib/validators/generated/customs.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Customs CRUD OPERATIONS

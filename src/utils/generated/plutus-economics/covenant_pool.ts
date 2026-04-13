@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from '@/types/generated/plutus-economics/covenant_pool.ts';
-import { CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from '@/lib/validators/generated/covenant_pool.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from 'src/types/generated/plutus-economics/covenant_pool.ts';
+import { CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from 'src/lib/validators/generated/covenant_pool.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // CovenantPool CRUD OPERATIONS

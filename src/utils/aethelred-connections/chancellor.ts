@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ChancellorRow, ChancellorInsert, ChancellorUpdate } from '@/types/aethelred-connections/chancellor';
-import { ChancellorInsertSchema, ChancellorUpdateSchema } from '@/lib/validators/chancellor';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ChancellorRow, ChancellorInsert, ChancellorUpdate } from 'src/types/aethelred-connections/chancellor';
+import { ChancellorInsertSchema, ChancellorUpdateSchema } from 'src/lib/validators/chancellor';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Chancellor CRUD OPERATIONS

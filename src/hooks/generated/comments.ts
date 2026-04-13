@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CommentsRow, CommentsInsert, CommentsUpdate } from '@/types/generated/hestia-core/comments.ts';
+import type { CommentsRow, CommentsInsert, CommentsUpdate } from 'src/types/generated/hestia-core/comments.ts';
 
 // =====================================================
 // Comments HOOKS

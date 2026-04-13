@@ -6,10 +6,10 @@
  * @created 2026-04-12
  */
 
-import { boundaries } from '@/config/prometheus/boundaries';
-import { EncryptionSystem, ProtocolLevel } from '@/lib/encryption';
+import { boundaries } from 'src/config/prometheus/boundaries';
+import { EncryptionSystem, ProtocolLevel } from 'src/lib/encryption';
 
-import type { Blueprint, BlueprintFile } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile } from 'src/types/prometheus';
 
 /**
  * VETTING - The gatekeeper that ensures only sanctioned patterns are born

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { FileTypeStandardsRow, FileTypeStandardsInsert, FileTypeStandardsUpdate } from '@/types/hephaestus-infrastructure/file_type_standards';
-import { FileTypeStandardsInsertSchema, FileTypeStandardsUpdateSchema } from '@/lib/validators/file_type_standards';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { FileTypeStandardsRow, FileTypeStandardsInsert, FileTypeStandardsUpdate } from 'src/types/hephaestus-infrastructure/file_type_standards';
+import { FileTypeStandardsInsertSchema, FileTypeStandardsUpdateSchema } from 'src/lib/validators/file_type_standards';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // FileTypeStandards CRUD OPERATIONS

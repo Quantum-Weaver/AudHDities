@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from '@/types/generated/hestia-core/disbursements.ts';
+import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from 'src/types/generated/hestia-core/disbursements.ts';
 
 // =====================================================
 // Disbursements HOOKS

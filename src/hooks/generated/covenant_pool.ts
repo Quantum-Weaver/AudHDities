@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from '@/types/generated/hestia-core/covenant_pool.ts';
+import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from 'src/types/generated/hestia-core/covenant_pool.ts';
 
 // =====================================================
 // CovenantPool HOOKS

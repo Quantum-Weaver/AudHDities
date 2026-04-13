@@ -1,1 +1,1 @@
-/* @/hooks/entitis/useVendor.ts */
+/* src/hooks/entitis/useVendor.ts */

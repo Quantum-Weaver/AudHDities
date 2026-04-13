@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/athena-gamification/lessons.ts';
-import { LessonsInsertSchema, LessonsUpdateSchema } from '@/lib/validators/generated/lessons.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { LessonsRow, LessonsInsert, LessonsUpdate } from 'src/types/generated/athena-gamification/lessons.ts';
+import { LessonsInsertSchema, LessonsUpdateSchema } from 'src/lib/validators/generated/lessons.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Lessons CRUD OPERATIONS

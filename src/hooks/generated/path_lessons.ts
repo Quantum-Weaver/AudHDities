@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/hestia-core/path_lessons.ts';
+import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from 'src/types/generated/hestia-core/path_lessons.ts';
 
 // =====================================================
 // PathLessons HOOKS

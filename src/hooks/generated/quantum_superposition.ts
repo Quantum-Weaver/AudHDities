@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from '@/types/generated/hestia-core/quantum_superposition.ts';
+import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from 'src/types/generated/hestia-core/quantum_superposition.ts';
 
 // =====================================================
 // QuantumSuperposition HOOKS

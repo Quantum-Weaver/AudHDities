@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from '@/types/generated/hestia-core/user_private.ts';
-import { UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/user_private.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from 'src/types/generated/hestia-core/user_private.ts';
+import { UserPrivateInsertSchema, UserPrivateUpdateSchema } from 'src/lib/validators/generated/user_private.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // UserPrivate CRUD OPERATIONS

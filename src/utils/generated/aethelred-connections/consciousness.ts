@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from '@/types/generated/aethelred-connections/consciousness.ts';
-import { ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from '@/lib/validators/generated/consciousness.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from 'src/types/generated/aethelred-connections/consciousness.ts';
+import { ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from 'src/lib/validators/generated/consciousness.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Consciousness CRUD OPERATIONS

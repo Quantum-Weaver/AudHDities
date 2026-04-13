@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from '@/types/generated/hestia-core/scripts.ts';
+import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from 'src/types/generated/hestia-core/scripts.ts';
 
 // =====================================================
 // Scripts HOOKS

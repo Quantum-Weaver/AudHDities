@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from '@/types/generated/prometheus-meta/prometheus_consciousness.ts';
-import { PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus_consciousness.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from 'src/types/generated/prometheus-meta/prometheus_consciousness.ts';
+import { PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from 'src/lib/validators/generated/prometheus_consciousness.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // PrometheusConsciousness CRUD OPERATIONS

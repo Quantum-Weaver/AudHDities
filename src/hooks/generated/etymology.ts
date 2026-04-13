@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from '@/types/generated/hestia-core/etymology.ts';
+import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from 'src/types/generated/hestia-core/etymology.ts';
 
 // =====================================================
 // Etymology HOOKS

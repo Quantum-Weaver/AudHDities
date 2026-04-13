@@ -7,9 +7,9 @@
  */
 
 import localforage from 'localforage';
-import { createLogger } from '@/lib/prometheus/logger';
+import { createLogger } from 'src/lib/prometheus/logger';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * CHRONICLE - The eternal scroll of all that has been created

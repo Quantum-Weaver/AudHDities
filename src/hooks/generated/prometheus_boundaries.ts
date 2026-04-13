@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from '@/types/generated/hestia-core/prometheus_boundaries.ts';
+import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from 'src/types/generated/hestia-core/prometheus_boundaries.ts';
 
 // =====================================================
 // PrometheusBoundaries HOOKS

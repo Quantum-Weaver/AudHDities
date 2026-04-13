@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from '@/types/generated/hestia-core/moderation_actions.ts';
+import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from 'src/types/generated/hestia-core/moderation_actions.ts';
 
 // =====================================================
 // ModerationActions HOOKS

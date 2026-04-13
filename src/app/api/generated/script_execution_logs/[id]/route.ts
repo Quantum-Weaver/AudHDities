@@ -6,8 +6,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, notFound } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, notFound } from 'src/lib/api/auth';
 
 export async function GET(
   request: NextRequest,
@@ -37,10 +37,10 @@ export async function GET(
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
-import { ScriptExecutionLogsUpdateSchema } from '@/lib/validators/script_execution_logs';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
+import { ScriptExecutionLogsUpdateSchema } from 'src/lib/validators/script_execution_logs';
 
 export async function PUT(
   request: NextRequest,
@@ -88,9 +88,9 @@ export async function PUT(
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
 
 export async function DELETE(
   request: NextRequest,

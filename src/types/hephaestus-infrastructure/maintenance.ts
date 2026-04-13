@@ -5,7 +5,7 @@
 // SOURCE: database.types.ts lines 3067-3138
 // =====================================================
 
-import type { Database } from '@/types/supabase/database.types';
+import type { Database } from 'src/types/supabase/database.types';
 
 // =====================================================
 // ENUM EXPORTS (from database enums)

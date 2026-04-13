@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/iris-communications/culturalization';
-import { CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/culturalization';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from 'src/types/iris-communications/culturalization';
+import { CulturalizationInsertSchema, CulturalizationUpdateSchema } from 'src/lib/validators/culturalization';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Culturalization CRUD OPERATIONS

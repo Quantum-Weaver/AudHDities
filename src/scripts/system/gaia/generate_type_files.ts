@@ -15,7 +15,7 @@ export interface GenerateTypeFilesOptions {
   verbose?: boolean;
   dryRun?: boolean;           // Simulate writing without actually writing
   forceOverwrite?: boolean;   // Overwrite existing files without asking
-  outputBase?: string;        // Base output path (default: '@/types')
+  outputBase?: string;        // Base output path (default: 'src/types')
   askForApproval?: boolean;   // Ask before overwriting existing files
 }
 
@@ -132,7 +132,7 @@ export async function generateSingleTypeFile(
   folderName: string,
   options: GenerateTypeFilesOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { outputBase = '@/types', verbose = false } = options;
+  const { outputBase = 'src/types', verbose = false } = options;
   
   const outputPath = path.join(PROJECT_ROOT, outputBase, folderName, `${tableName}.ts`);
   

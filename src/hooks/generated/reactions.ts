@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ReactionsRow, ReactionsInsert, ReactionsUpdate } from '@/types/generated/hestia-core/reactions.ts';
+import type { ReactionsRow, ReactionsInsert, ReactionsUpdate } from 'src/types/generated/hestia-core/reactions.ts';
 
 // =====================================================
 // Reactions HOOKS

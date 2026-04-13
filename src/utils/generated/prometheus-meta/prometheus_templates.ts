@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusTemplatesRow, PrometheusTemplatesInsert, PrometheusTemplatesUpdate } from '@/types/generated/prometheus-meta/prometheus_templates.ts';
-import { PrometheusTemplatesInsertSchema, PrometheusTemplatesUpdateSchema } from '@/lib/validators/generated/prometheus_templates.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PrometheusTemplatesRow, PrometheusTemplatesInsert, PrometheusTemplatesUpdate } from 'src/types/generated/prometheus-meta/prometheus_templates.ts';
+import { PrometheusTemplatesInsertSchema, PrometheusTemplatesUpdateSchema } from 'src/lib/validators/generated/prometheus_templates.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // PrometheusTemplates CRUD OPERATIONS

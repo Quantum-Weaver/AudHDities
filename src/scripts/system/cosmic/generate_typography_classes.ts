@@ -29,10 +29,10 @@ import {
   TYPE_SCALES,
   BUSINESS_TYPOGRAPHY,
   composeTypographyClasses
-} from '@/lib/constants/cosmic/typography';
+} from 'src/lib/constants/cosmic/typography';
 
-import { BREAKPOINTS, FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS } from '@/lib/constants/cosmic/dimensions';
-import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
+import { BREAKPOINTS, FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS } from 'src/lib/constants/cosmic/dimensions';
+import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -672,7 +672,7 @@ function writeGeneratedFile(
  */
 export async function generateTypographyClasses(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/typography.css';
+  const outputPath = '../styles/generated/typography.css';
   
   if (verbose) {
     logInfo('Generating typography classes from typography constants...');

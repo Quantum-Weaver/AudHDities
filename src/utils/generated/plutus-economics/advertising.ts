@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/plutus-economics/advertising.ts';
-import { AdvertisingInsertSchema, AdvertisingUpdateSchema } from '@/lib/validators/generated/advertising.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from 'src/types/generated/plutus-economics/advertising.ts';
+import { AdvertisingInsertSchema, AdvertisingUpdateSchema } from 'src/lib/validators/generated/advertising.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Advertising CRUD OPERATIONS

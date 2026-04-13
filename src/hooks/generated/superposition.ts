@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from '@/types/generated/hestia-core/superposition.ts';
+import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from 'src/types/generated/hestia-core/superposition.ts';
 
 // =====================================================
 // Superposition HOOKS

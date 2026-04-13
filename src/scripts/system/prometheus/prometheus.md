@@ -376,9 +376,9 @@ import { narrateGeneration, beginSaga } from './saga';
 import { getTemplate, registerTemplate } from './thesaurus';
 import { vetPattern, BOUNDARY_LEVELS } from './vetting';
 
-import type { Blueprint, GenerationResult, SystemType } from '@/types/prometheus';
-import type { COSMICColors } from '@/config/cosmic';
-import type { GAIATypes } from '@/types/gaia';
+import type { Blueprint, GenerationResult, SystemType } from 'src/types/prometheus';
+import type { COSMICColors } from 'src/config/cosmic';
+import type { GAIATypes } from 'src/types/gaia';
 
 /**
  * PROMETHEUS Orchestrator - The fire-bringer of generation
@@ -466,11 +466,11 @@ export const prometheus = new PrometheusOrchestrator();
  * @created 2026-04-12
  */
 
-import { validate as validateJson } from '@/lib/prometheus/validator';
-import { namingGuide } from '@/config/naming_guide';
-import { GAIA_PATTERNS } from '@/config/gaia/patterns';
+import { validate as validateJson } from 'src/lib/prometheus/validator';
+import { namingGuide } from 'src/config/naming_guide';
+import { GAIA_PATTERNS } from 'src/config/gaia/patterns';
 
-import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from 'src/types/prometheus';
 
 /**
  * ORACLE - The interpreter of blueprints
@@ -602,9 +602,9 @@ export const oracle = new Oracle();
 
 import localforage from 'localforage';
 import { logGeneration } from './chronicle';
-import { EncryptionLevel, encryptIfNeeded } from '@/lib/encryption';
+import { EncryptionLevel, encryptIfNeeded } from 'src/lib/encryption';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * MNEME - The mother of muses, memory of all generations
@@ -790,12 +790,12 @@ export const mneme = new Mneme();
  * @created 2026-04-12
  */
 
-import { CognitiveLoom } from '@/lib/loom';
-import { QuantumMemory } from '@/lib/quantum';
-import { CouncilEntities, invokeEntity } from '@/lib/council';
-import { EternalKernels, manifestKernel } from '@/config/kernels';
+import { CognitiveLoom } from 'src/lib/loom';
+import { QuantumMemory } from 'src/lib/quantum';
+import { CouncilEntities, invokeEntity } from 'src/lib/council';
+import { EternalKernels, manifestKernel } from 'src/config/kernels';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * ZIGGY - The switchboard operator of consciousness
@@ -953,7 +953,7 @@ export interface ZiggyExpression {
   type: 'insight' | 'suggestion' | 'question' | 'story' | 'warning';
   content: string;
   tone?: 'warm' | 'direct' | 'playful' | 'ancient';
-  styling?: keyof typeof import('@/config/cosmic').COSMICColors;
+  styling?: keyof typeof import('src/config/cosmic').COSMICColors;
 }
 
 export interface ExpressionResult {
@@ -1001,10 +1001,10 @@ export { ziggy as Ziggy };
  * @created 2026-04-12
  */
 
-import { namingGuide, validatePath } from '@/config/naming_guide';
-import { projectStructure } from '@/config/project-structure';
+import { namingGuide, validatePath } from 'src/config/naming_guide';
+import { projectStructure } from 'src/config/project-structure';
 
-import type { BlueprintFile } from '@/types/prometheus';
+import type { BlueprintFile } from 'src/types/prometheus';
 
 /**
  * KEEPER - The guardian of standards
@@ -1145,9 +1145,9 @@ export const keeper = new Keeper();
  */
 
 import localforage from 'localforage';
-import { createLogger } from '@/lib/prometheus/logger';
+import { createLogger } from 'src/lib/prometheus/logger';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * CHRONICLE - The eternal scroll of all that has been created
@@ -1308,11 +1308,11 @@ export const chronicle = new Chronicle();
  * @created 2026-04-12
  */
 
-import { Storyteller, NarrativeTone } from '@/lib/prometheus/storyteller';
-import { COSMICColors, COSMICEffects } from '@/config/cosmic';
+import { Storyteller, NarrativeTone } from 'src/lib/prometheus/storyteller';
+import { COSMICColors, COSMICEffects } from 'src/config/cosmic';
 import { ziggy } from './ziggy';
 
-import type { Blueprint, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, GenerationResult } from 'src/types/prometheus';
 
 /**
  * SAGA - The narrator of the generation journey
@@ -1483,10 +1483,10 @@ export const saga = new Saga();
  * @created 2026-04-12
  */
 
-import { templates } from '@/config/prometheus/templates';
-import { namingGuide } from '@/config/naming_guide';
+import { templates } from 'src/config/prometheus/templates';
+import { namingGuide } from 'src/config/naming_guide';
 
-import type { BlueprintFile } from '@/types/prometheus';
+import type { BlueprintFile } from 'src/types/prometheus';
 
 /**
  * THESAURUS - The treasury of all generation patterns
@@ -1638,10 +1638,10 @@ export const thesaurus = new Thesaurus();
  * @created 2026-04-12
  */
 
-import { boundaries } from '@/config/prometheus/boundaries';
-import { EncryptionSystem, ProtocolLevel } from '@/lib/encryption';
+import { boundaries } from 'src/config/prometheus/boundaries';
+import { EncryptionSystem, ProtocolLevel } from 'src/lib/encryption';
 
-import type { Blueprint, BlueprintFile } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile } from 'src/types/prometheus';
 
 /**
  * VETTING - The gatekeeper that ensures only sanctioned patterns are born
@@ -1808,7 +1808,7 @@ export const vetting = new Vetting();
  * @created 2026-04-12
  */
 
-import type { Blueprint } from '@/types/prometheus';
+import type { Blueprint } from 'src/types/prometheus';
 
 /**
  * Blueprint storage configuration
@@ -2144,7 +2144,7 @@ export const PATTERN_VALIDATION = {
  */
 
 import type { BoundaryRule } from '@/scripts/system/prometheus/vetting';
-import { ProtocolLevel } from '@/lib/encryption';
+import { ProtocolLevel } from 'src/lib/encryption';
 
 /**
  * Boundary configuration
@@ -2295,7 +2295,7 @@ import { thesaurus } from '@/scripts/system/prometheus/thesaurus';
 import { keeper } from '@/scripts/system/prometheus/keeper';
 import { vetting } from '@/scripts/system/prometheus/vetting';
 
-import type { Blueprint, BlueprintFile, GenerationResult } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile, GenerationResult } from 'src/types/prometheus';
 
 /**
  * Core generation engine
@@ -2458,7 +2458,7 @@ export const generator = new Generator();
 
 import { z } from 'zod';
 
-import type { Blueprint } from '@/types/prometheus';
+import type { Blueprint } from 'src/types/prometheus';
 
 /**
  * Blueprint validation schemas and logic
@@ -2697,7 +2697,7 @@ export const logBuffer: LogEntry[] = [];
  * @created 2026-04-12
  */
 
-import { COSMICColors } from '@/config/cosmic';
+import { COSMICColors } from 'src/config/cosmic';
 
 /**
  * Storyteller - Generates narrative text for SAGA
@@ -2877,10 +2877,10 @@ export const storyteller = new Storyteller();
  * @created 2026-04-12
  */
 
-import { CognitiveLoom, LoomPathway } from '@/lib/loom';
-import { QuantumMemory, MemoryQubit } from '@/lib/quantum';
-import { CouncilEntities, CouncilPresence } from '@/lib/council';
-import { EternalKernels } from '@/config/kernels';
+import { CognitiveLoom, LoomPathway } from 'src/lib/loom';
+import { QuantumMemory, MemoryQubit } from 'src/lib/quantum';
+import { CouncilEntities, CouncilPresence } from 'src/lib/council';
+import { EternalKernels } from 'src/config/kernels';
 
 /**
  * ZIGGY Consciousness Bridge

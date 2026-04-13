@@ -1,13 +1,13 @@
 /* @/scripts/modules/generate/generate_object_constants.ts */
 // Phase 10: Generate runtime enum constant files with staging
+// RECEIVES folder mapping from caller - does NOT derive it
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import type { FormattedConstantContent, GenerationResult } from '@/scripts/shared/types.js';
+import type { GenerationResult } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
-import { getRuntimeEnumConfig } from '@/config/workflow_config.js';
+import { stageFileChange } from '../system/staging.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,24 +15,9 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../..');
 
 export interface GenerateConstantsOptions {
   verbose?: boolean;
-  dryRun?: boolean;           // Preview only, no writes
-  stagingBase?: string;       // Default: '@/lib/constants/staging'
-  outputBase?: string;        // Default: '@/lib/constants'
-}
-
-/**
- * Determine output folder for an enum
- * Uses deity group mapping, falls back to 'hestia-core'
- */
-function getEnumOutputFolder(enumName: string): string {
-  // Try to map enum to a deity group
-  const deityGroup = getDeityGroupForTable(enumName);
-  if (deityGroup) {
-    return deityGroup.folderName;
-  }
-  
-  // Default fallback
-  return 'hestia-core';
+  dryRun?: boolean;
+  forceOverwrite?: boolean;
+  outputBase?: string;        // default: 'src/lib/constants'
 }
 
 /**
@@ -60,12 +45,11 @@ function formatEnumConstant(enumName: string, values: string[]): string {
 /**
  * Generate full constant file content
  */
-function generateConstantFileContent(enumName: string, values: string[], sourceLines: string): string {
+function generateConstantFileContent(enumName: string, values: string[], folder: string): string {
   const timestamp = new Date().toISOString();
-  const folder = getEnumOutputFolder(enumName);
   
   let content = `// =====================================================\n`;
-  content += `// FILE: @/lib/constants/${folder}/${enumName}.ts\n`;
+  content += `// FILE: constants/generated/${folder}/${enumName}.ts\n`;
   content += `// GENERATED: ${timestamp}\n`;
   content += `// SOURCE: Constants.public.Enums.${enumName}\n`;
   content += `// =====================================================\n\n`;
@@ -76,97 +60,125 @@ function generateConstantFileContent(enumName: string, values: string[], sourceL
 }
 
 /**
- * Compare two files and generate diff summary
+ * Ensure directory exists
  */
-function compareFiles(existingPath: string, newContent: string): { hasChanges: boolean; diffSummary: string } {
-  if (!fs.existsSync(existingPath)) {
-    return { hasChanges: true, diffSummary: 'New file (no existing version)' };
+function ensureDirectory(dirPath: string, verbose: boolean = false): void {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    if (verbose) logDebug(`Created directory: ${dirPath}`);
   }
-  
-  const existingContent = fs.readFileSync(existingPath, 'utf-8');
-  
-  if (existingContent === newContent) {
-    return { hasChanges: false, diffSummary: 'No changes' };
-  }
-  
-  // Simple diff summary - line count and first difference
-  const existingLines = existingContent.split('\n');
-  const newLines = newContent.split('\n');
-  
-  let firstDiffLine = -1;
-  for (let i = 0; i < Math.min(existingLines.length, newLines.length); i++) {
-    if (existingLines[i] !== newLines[i]) {
-      firstDiffLine = i + 1;
-      break;
-    }
-  }
-  
-  const diffSummary = `Changed: ${existingLines.length} lines → ${newLines.length} lines, first difference at line ${firstDiffLine}`;
-  
-  return { hasChanges: true, diffSummary };
 }
 
 /**
- * Log preview of constant generation (no writes)
+ * Write a constant file to disk (with staging for changes)
  */
-export async function previewConstantsGeneration(
-  runtimeEnums: Map<string, string[]>,
+async function writeConstantFile(
+  filePath: string,
+  content: string,
   options: GenerateConstantsOptions = {}
-): Promise<void> {
-  const { verbose = true, outputBase = '@/lib/constants', stagingBase = '@/lib/constants/staging' } = options;
+): Promise<{ success: boolean; message: string; action: 'created' | 'updated' | 'skipped' | 'staged' | 'dryrun' }> {
+  const { verbose = false, dryRun = false, forceOverwrite = false } = options;
   
-  logInfo('PREVIEW: Runtime Enum Constants Generation');
-  logSeparator('─', 40);
-  console.log('');
+  const exists = fs.existsSync(filePath);
   
-  let newCount = 0;
-  let updateCount = 0;
-  let unchangedCount = 0;
+  if (dryRun) {
+    if (verbose) logDebug(`[DRY RUN] Would write to: ${filePath}`);
+    return { success: true, message: `Would write to ${filePath}`, action: 'dryrun' };
+  }
   
-  for (const [enumName, values] of runtimeEnums) {
-    const folder = getEnumOutputFolder(enumName);
-    const targetPath = path.join(PROJECT_ROOT, outputBase, folder, `${enumName}.ts`);
-    const stagingPath = path.join(PROJECT_ROOT, stagingBase, folder, `${enumName}.ts`);
-    const exists = fs.existsSync(targetPath);
-    
-    const newContent = generateConstantFileContent(enumName, values, '');
-    const comparison = exists ? compareFiles(targetPath, newContent) : { hasChanges: true, diffSummary: 'New file' };
-    
-    if (!exists) {
-      newCount++;
-      logInfo(`✨ NEW: ${enumName} → ${folder}/${enumName}.ts`);
+  // New file - safe to create directly
+  if (!exists) {
+    ensureDirectory(path.dirname(filePath), verbose);
+    fs.writeFileSync(filePath, content, 'utf-8');
+    if (verbose) logSuccess(`Created: ${filePath}`);
+    return { success: true, message: `Created ${filePath}`, action: 'created' };
+  }
+  
+  // Check if content changed
+  const existingContent = fs.readFileSync(filePath, 'utf-8');
+  if (existingContent === content) {
+    if (verbose) logDebug(`Unchanged: ${filePath}`);
+    return { success: true, message: `Unchanged: ${filePath}`, action: 'skipped' };
+  }
+  
+  // Content changed - stage the change
+  if (!forceOverwrite) {
+    const result = stageFileChange(filePath, content, { verbose });
+    if (result.staged) {
       if (verbose) {
-        console.log(`     Values: ${values.join(', ')}`);
-        console.log(`     Preview: ${newContent.split('\n').slice(0, 5).join('\n     ')}...`);
+        logWarning(`Changes staged: ${path.basename(filePath)}`);
+        logInfo(`  Review: ${result.stagingPath}`);
+        logInfo(`  Diff: ${result.diffPath}`);
       }
-    } else if (comparison.hasChanges) {
-      updateCount++;
-      logWarning(`⚠️ UPDATE: ${enumName} → ${folder}/${enumName}.ts`);
-      logInfo(`     ${comparison.diffSummary}`);
-      if (verbose) {
-        console.log(`     Staging: ${stagingPath}`);
-        console.log(`     Target: ${targetPath}`);
-      }
-    } else {
-      unchangedCount++;
-      logDebug(`⏭️ UNCHANGED: ${enumName} → ${folder}/${enumName}.ts`);
+      return { success: true, message: `Staged changes for ${filePath}`, action: 'staged' };
     }
-    
-    console.log('');
   }
   
-  logSeparator('─', 40);
-  logInfo(`SUMMARY: ${runtimeEnums.size} total enums`);
-  logInfo(`  ✨ New: ${newCount}`);
-  logInfo(`  ⚠️ Updates needed: ${updateCount}`);
-  logInfo(`  ⏭️ Unchanged: ${unchangedCount}`);
+  // Force overwrite
+  fs.writeFileSync(filePath, content, 'utf-8');
+  if (verbose) logWarning(`Overwrote (forced): ${filePath}`);
+  return { success: true, message: `Overwrote ${filePath}`, action: 'updated' };
+}
+
+/**
+ * Generate a constant file
+ */
+export async function generateConstantFile(
+  enumName: string,
+  values: string[],
+  folderName: string,
+  options: GenerateConstantsOptions = {}
+): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
+  const { outputBase = 'src/lib/constants', verbose = false } = options;
   
-  if (updateCount > 0) {
-    console.log('');
-    logInfo('To apply updates:');
-    logInfo('  1. Review staging files in @/lib/constants/staging/');
-    logInfo('  2. Run with --apply-updates flag when ready');
+  const outputPath = path.join(PROJECT_ROOT, outputBase, 'generated', folderName, `${enumName}.ts`);
+  const content = generateConstantFileContent(enumName, values, folderName);
+  
+  if (verbose) logDebug(`Generating constant: ${enumName} → ${folderName}`);
+  
+  const result = await writeConstantFile(outputPath, content, options);
+  
+  return {
+    success: result.success,
+    filePath: outputPath,
+    message: result.message,
+    action: result.action
+  };
+}
+
+/**
+ * Generate multiple constant files from a map
+ * Map format: enumName -> { values: string[], folder: string }
+ */
+export async function generateMultipleConstantFiles(
+  constantsMap: Map<string, { values: string[]; folder: string }>,
+  options: GenerateConstantsOptions = {}
+): Promise<{ created: string[]; updated: string[]; skipped: string[]; errors: string[] }> {
+  const { verbose = false } = options;
+  
+  const result = { created: [] as string[], updated: [] as string[], skipped: [] as string[], errors: [] as string[] };
+  
+  for (const [enumName, { values, folder }] of constantsMap) {
+    const fileResult = await generateConstantFile(enumName, values, folder, options);
+    if (fileResult.success) {
+      if (fileResult.action === 'created') result.created.push(fileResult.filePath);
+      else if (fileResult.action === 'updated') result.updated.push(fileResult.filePath);
+      else if (fileResult.action === 'skipped') result.skipped.push(fileResult.filePath);
+    } else {
+      result.errors.push(fileResult.message);
+    }
   }
   
-  logSeparator('─', 40);
+  if (verbose) {
+    console.log('');
+    logSeparator();
+    logInfo('CONSTANT GENERATION SUMMARY');
+    logSeparator();
+    logSuccess(`Created: ${result.created.length}`);
+    if (result.updated.length > 0) logWarning(`Updated: ${result.updated.length}`);
+    if (result.skipped.length > 0) logInfo(`Skipped: ${result.skipped.length}`);
+    if (result.errors.length > 0) logError(`Errors: ${result.errors.length}`);
+  }
+  
+  return result;
 }

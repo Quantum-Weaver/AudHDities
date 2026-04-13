@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/generated/hestia-core/personas.ts';
+import type { PersonasRow, PersonasInsert, PersonasUpdate } from 'src/types/generated/hestia-core/personas.ts';
 
 // =====================================================
 // Personas HOOKS

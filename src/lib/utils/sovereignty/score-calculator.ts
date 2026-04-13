@@ -1,5 +1,5 @@
-/* @/lib/utils/sovereignty/score-calculator.ts */
-import type { PublicProfiles } from '@/types/hestia-core/profiles';
+/* src/lib/utils/sovereignty/score-calculator.ts */
+import type { PublicProfiles } from 'src/types/hestia-core/profiles';
 
 export const calculateSovereigntyScore = (profile: Partial<PublicProfiles>): number => {
   let score = 0;

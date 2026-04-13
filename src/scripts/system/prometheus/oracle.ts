@@ -6,11 +6,11 @@
  * @created 2026-04-12
  */
 
-import { validate as validateJson } from '@/lib/prometheus/validator';
-import { namingGuide } from '@/config/naming_guide';
-import { GAIA_PATTERNS } from '@/config/gaia/patterns';
+import { validate as validateJson } from 'src/lib/prometheus/validator';
+import { namingGuide } from 'src/config/naming_guide';
+import { GAIA_PATTERNS } from 'src/config/gaia/patterns';
 
-import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from '@/types/prometheus';
+import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from 'src/types/prometheus';
 
 /**
  * ORACLE - The interpreter of blueprints

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from '@/types/generated/hestia-core/system_health_logs.ts';
+import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from 'src/types/generated/hestia-core/system_health_logs.ts';
 
 // =====================================================
 // SystemHealthLogs HOOKS

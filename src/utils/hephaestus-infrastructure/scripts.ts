@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from '@/types/hephaestus-infrastructure/scripts';
-import { ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/scripts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from 'src/types/hephaestus-infrastructure/scripts';
+import { ScriptsInsertSchema, ScriptsUpdateSchema } from 'src/lib/validators/scripts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Scripts CRUD OPERATIONS

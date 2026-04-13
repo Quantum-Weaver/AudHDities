@@ -11,9 +11,9 @@ import type { CosmicGeneratorOptions } from '../../system/cosmic';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '../../shared/logger';
 
 // Import cosmic constants
-import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from '@/lib/constants/cosmic/colors';
-import { GLOW_EFFECTS, SHADOWS, GRADIENTS } from '@/lib/constants/cosmic/effects';
-import { SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS, BREAKPOINTS } from '@/lib/constants/cosmic/dimensions';
+import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from 'src/lib/constants/cosmic/colors';
+import { GLOW_EFFECTS, SHADOWS, GRADIENTS } from 'src/lib/constants/cosmic/effects';
+import { SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS, BREAKPOINTS } from 'src/lib/constants/cosmic/dimensions';
 import path from 'path';
 import fs from 'fs';
 // ============================================================================
@@ -462,7 +462,7 @@ function writeGeneratedFile(
  */
 export async function generateCssVariables(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/variables.css';
+  const outputPath = '../styles/generated/variables.css';
   
   if (verbose) {
     logInfo('Generating CSS variables from cosmic constants...');

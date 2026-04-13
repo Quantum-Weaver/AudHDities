@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from '@/types/generated/hestia-core/user_financial.ts';
-import { UserFinancialInsertSchema, UserFinancialUpdateSchema } from '@/lib/validators/generated/user_financial.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from 'src/types/generated/hestia-core/user_financial.ts';
+import { UserFinancialInsertSchema, UserFinancialUpdateSchema } from 'src/lib/validators/generated/user_financial.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // UserFinancial CRUD OPERATIONS

@@ -6,8 +6,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, notFound } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, notFound } from 'src/lib/api/auth';
 
 export async function GET(
   request: NextRequest,

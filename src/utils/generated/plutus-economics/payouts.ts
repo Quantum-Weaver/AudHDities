@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from '@/types/generated/plutus-economics/payouts.ts';
-import { PayoutsInsertSchema, PayoutsUpdateSchema } from '@/lib/validators/generated/payouts.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from 'src/types/generated/plutus-economics/payouts.ts';
+import { PayoutsInsertSchema, PayoutsUpdateSchema } from 'src/lib/validators/generated/payouts.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Payouts CRUD OPERATIONS

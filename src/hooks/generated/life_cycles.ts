@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from '@/types/generated/hestia-core/life_cycles.ts';
+import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from 'src/types/generated/hestia-core/life_cycles.ts';
 
 // =====================================================
 // LifeCycles HOOKS

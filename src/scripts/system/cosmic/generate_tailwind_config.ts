@@ -13,11 +13,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from '@/lib/constants/cosmic/colors';
-import { tailwindAnimations, keyframes, durations, easing } from '@/lib/constants/cosmic/motion';
-import { BREAKPOINTS, SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS } from '@/lib/constants/cosmic/dimensions';
-import { FONT_FAMILIES, LETTER_SPACING } from '@/lib/constants/cosmic/typography';
-import { SHADOWS, GLOW_EFFECTS, GRADIENTS } from '@/lib/constants/cosmic/effects';
+import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from 'src/lib/constants/cosmic/colors';
+import { tailwindAnimations, keyframes, durations, easing } from 'src/lib/constants/cosmic/motion';
+import { BREAKPOINTS, SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS } from 'src/lib/constants/cosmic/dimensions';
+import { FONT_FAMILIES, LETTER_SPACING } from 'src/lib/constants/cosmic/typography';
+import { SHADOWS, GLOW_EFFECTS, GRADIENTS } from 'src/lib/constants/cosmic/effects';
 
 // ============================================================================
 // TYPE DEFINITIONS

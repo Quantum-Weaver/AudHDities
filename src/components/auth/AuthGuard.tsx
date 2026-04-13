@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-import { useSupabase } from '@/lib/supabase/client'
+import { useSupabase } from 'src/lib/supabase/client'
 import { Loader2 } from 'lucide-react'
 
 interface AuthGuardProps {

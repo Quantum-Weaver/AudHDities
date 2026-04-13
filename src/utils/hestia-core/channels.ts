@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from '@/types/hestia-core/channels';
-import { ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/channels';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from 'src/types/hestia-core/channels';
+import { ChannelsInsertSchema, ChannelsUpdateSchema } from 'src/lib/validators/channels';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Channels CRUD OPERATIONS

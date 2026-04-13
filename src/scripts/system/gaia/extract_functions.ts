@@ -1,4 +1,4 @@
-// @/scripts/generators/gaia/extractFunctions.ts
+// @/scripts/system/gaia/extract_functions.ts
 // ============================================================================
 // EXTRACT FUNCTIONS (GAIA)
 // ============================================================================

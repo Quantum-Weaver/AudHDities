@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from '@/types/athena-gamification/life_cycles';
-import { LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/life_cycles';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from 'src/types/athena-gamification/life_cycles';
+import { LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from 'src/lib/validators/life_cycles';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // LifeCycles CRUD OPERATIONS

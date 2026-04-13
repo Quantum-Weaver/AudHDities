@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from '@/types/generated/hestia-core/audhdities_platform.ts';
+import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from 'src/types/generated/hestia-core/audhdities_platform.ts';
 
 // =====================================================
 // AudhditiesPlatform HOOKS

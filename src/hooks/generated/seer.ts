@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/hestia-core/seer.ts';
+import type { SeerRow, SeerInsert, SeerUpdate } from 'src/types/generated/hestia-core/seer.ts';
 
 // =====================================================
 // Seer HOOKS

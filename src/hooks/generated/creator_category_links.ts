@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CreatorCategoryLinksRow, CreatorCategoryLinksInsert, CreatorCategoryLinksUpdate } from '@/types/hestia-core/creator_category_links';
+import type { CreatorCategoryLinksRow, CreatorCategoryLinksInsert, CreatorCategoryLinksUpdate } from 'src/types/hestia-core/creator_category_links';
 
 // =====================================================
 // CreatorCategoryLinks HOOKS

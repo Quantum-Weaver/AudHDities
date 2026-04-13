@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { QuestsRow, QuestsInsert, QuestsUpdate } from '@/types/generated/hestia-core/quests.ts';
+import type { QuestsRow, QuestsInsert, QuestsUpdate } from 'src/types/generated/hestia-core/quests.ts';
 
 // =====================================================
 // Quests HOOKS

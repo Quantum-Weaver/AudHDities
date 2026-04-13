@@ -1,4 +1,4 @@
-// @/config/efficiency_records.ts
+// src/config/efficiency_records.ts
 // ============================================================================
 // EFFICIENCY RECORDS - Performance tracking for COSMIC and GAIA
 // ============================================================================
@@ -198,7 +198,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const RECORDS_PATH = path.join(PROJECT_ROOT, '@/config/efficiency_records.ts');
+const RECORDS_PATH = path.join(PROJECT_ROOT, 'src/config/efficiency_records.ts');
 
 // ============================================================================
 // PUBLIC API - PRESERVED FUNCTIONS
@@ -358,7 +358,7 @@ function rewriteEntireFile(): void {
   const dataSection = generateDataSectionContent();
   const functionsSection = getFunctionsSection();
   
-  const content = `// @/config/efficiency_records.ts
+  const content = `// src/config/efficiency_records.ts
 // ============================================================================
 // EFFICIENCY RECORDS - Performance tracking for COSMIC and GAIA
 // ============================================================================
@@ -393,7 +393,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const RECORDS_PATH = path.join(PROJECT_ROOT, '@/config/efficiency_records.ts');
+const RECORDS_PATH = path.join(PROJECT_ROOT, 'src/config/efficiency_records.ts');
 
 export function addRecord(record: ProcessingRecord): void {
   EFFICIENCY_RECORDS.unshift(record);

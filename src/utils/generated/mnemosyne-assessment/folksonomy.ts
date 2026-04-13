@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from '@/types/generated/mnemosyne-assessment/folksonomy.ts';
-import { FolksonomyInsertSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/folksonomy.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from 'src/types/generated/mnemosyne-assessment/folksonomy.ts';
+import { FolksonomyInsertSchema, FolksonomyUpdateSchema } from 'src/lib/validators/generated/folksonomy.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Folksonomy CRUD OPERATIONS

@@ -1,4 +1,4 @@
-// @/types/stripe/index.ts
+// src/types/stripe/index.ts
 import type { Stripe as StripeSDK } from '@stripe/stripe-js';
 
 /**

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from '@/types/generated/hestia-core/contact_submissions.ts';
+import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from 'src/types/generated/hestia-core/contact_submissions.ts';
 
 // =====================================================
 // ContactSubmissions HOOKS

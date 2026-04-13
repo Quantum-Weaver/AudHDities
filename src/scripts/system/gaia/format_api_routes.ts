@@ -1,4 +1,4 @@
-// @/scripts/generators/gaia/formatApiRoutes.ts
+// @/scripts/system/gaia/formatApiRoutes.ts
 // ============================================================================
 // FORMAT API ROUTES (GAIA)
 // ============================================================================
@@ -7,7 +7,7 @@
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from '@/config/object_categories.js';
+import type { ObjectCategory } from 'src/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatApiRoutesOptions {
@@ -57,8 +57,8 @@ function generateGetListRoute(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from 'src/lib/api/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -113,8 +113,8 @@ function generateGetSingleRoute(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, notFound } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, notFound } from 'src/lib/api/auth';
 
 export async function GET(
   request: NextRequest,
@@ -153,10 +153,10 @@ function generatePostRoute(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
-import { ${pascalName}InsertSchema } from '@/lib/validators/generated/${tableName}';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized } from 'src/lib/api/auth';
+import { getAuthenticatedUser } from 'src/lib/api/auth';
+import { ${pascalName}InsertSchema } from 'src/lib/validators/generated/${tableName}';
 
 export async function POST(request: NextRequest) {
   try {
@@ -196,10 +196,10 @@ function generatePutRoute(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
-import { ${pascalName}UpdateSchema } from '@/lib/validators/generated/${tableName}';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
+import { ${pascalName}UpdateSchema } from 'src/lib/validators/generated/${tableName}';
 
 export async function PUT(
   request: NextRequest,
@@ -254,9 +254,9 @@ export async function PUT(
  */
 function generateDeleteRoute(tableName: string): string {
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
 
 export async function DELETE(
   request: NextRequest,
@@ -305,9 +305,9 @@ function generateSpecialRoute(tableName: string, specialType: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized } from 'src/lib/api/auth';
+import { getAuthenticatedUser } from 'src/lib/api/auth';
 
 export async function POST(
   request: NextRequest,
@@ -412,7 +412,7 @@ export function formatApiRoutes(
   // Main route (list + create)
   if (category.generateApiGetList || category.generateApiPost) {
     const content = formatMainApiRoute(tableName, category.generateApiGetList, category.generateApiPost);
-    const filePath = `@/app/api/generated/${tableName}/route.ts`;
+    const filePath = `src/app/api/generated/${tableName}/route.ts`;
     
     results.push({
       content,
@@ -431,7 +431,7 @@ export function formatApiRoutes(
   // Single record route (get/put/delete)
   if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
     const content = formatSingleApiRoute(tableName, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete);
-    const filePath = `@/app/api/generated/${tableName}/[id]/route.ts`;
+    const filePath = `src/app/api/generated/${tableName}/[id]/route.ts`;
     
     results.push({
       content,
@@ -451,7 +451,7 @@ export function formatApiRoutes(
   if (category.generateApiSpecial && category.generateApiSpecial.length > 0) {
     for (const specialType of category.generateApiSpecial) {
       const content = formatSpecialApiRoute(tableName, specialType);
-      const filePath = `@/app/api/generated/${tableName}/${specialType}/route.ts`;
+      const filePath = `src/app/api/generated/${tableName}/${specialType}/route.ts`;
       
       results.push({
         content,

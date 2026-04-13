@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SkaldRow, SkaldInsert, SkaldUpdate } from '@/types/generated/aethelred-connections/skald.ts';
-import { SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/skald.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SkaldRow, SkaldInsert, SkaldUpdate } from 'src/types/generated/aethelred-connections/skald.ts';
+import { SkaldInsertSchema, SkaldUpdateSchema } from 'src/lib/validators/generated/skald.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Skald CRUD OPERATIONS

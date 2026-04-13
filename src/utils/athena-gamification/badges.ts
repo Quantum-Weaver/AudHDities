@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { BadgesRow, BadgesInsert, BadgesUpdate } from '@/types/athena-gamification/badges';
-import { BadgesInsertSchema, BadgesUpdateSchema } from '@/lib/validators/badges';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { BadgesRow, BadgesInsert, BadgesUpdate } from 'src/types/athena-gamification/badges';
+import { BadgesInsertSchema, BadgesUpdateSchema } from 'src/lib/validators/badges';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Badges CRUD OPERATIONS

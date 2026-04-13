@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { HearthKeeperRow, HearthKeeperInsert, HearthKeeperUpdate } from '@/types/generated/hestia-core/hearth_keeper.ts';
+import type { HearthKeeperRow, HearthKeeperInsert, HearthKeeperUpdate } from 'src/types/generated/hestia-core/hearth_keeper.ts';
 
 // =====================================================
 // HearthKeeper HOOKS

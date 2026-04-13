@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/aethelred-connections/seer.ts';
-import { SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/seer.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SeerRow, SeerInsert, SeerUpdate } from 'src/types/generated/aethelred-connections/seer.ts';
+import { SeerInsertSchema, SeerUpdateSchema } from 'src/lib/validators/generated/seer.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Seer CRUD OPERATIONS

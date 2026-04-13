@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { QuestsRow, QuestsInsert, QuestsUpdate } from '@/types/generated/athena-gamification/quests.ts';
-import { QuestsInsertSchema, QuestsUpdateSchema } from '@/lib/validators/generated/quests.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { QuestsRow, QuestsInsert, QuestsUpdate } from 'src/types/generated/athena-gamification/quests.ts';
+import { QuestsInsertSchema, QuestsUpdateSchema } from 'src/lib/validators/generated/quests.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Quests CRUD OPERATIONS

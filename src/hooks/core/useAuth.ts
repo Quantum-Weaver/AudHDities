@@ -1,8 +1,8 @@
-/* @/hooks/core/useAuth.ts */
+/* src/hooks/core/useAuth.ts */
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSupabase } from '@/lib/supabase/client';
+import { useSupabase } from 'src/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
 
 export function useAuth() {

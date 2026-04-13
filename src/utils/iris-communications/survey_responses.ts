@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SurveyResponsesRow, SurveyResponsesInsert, SurveyResponsesUpdate } from '@/types/iris-communications/survey_responses';
-import { SurveyResponsesInsertSchema, SurveyResponsesUpdateSchema } from '@/lib/validators/survey_responses';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SurveyResponsesRow, SurveyResponsesInsert, SurveyResponsesUpdate } from 'src/types/iris-communications/survey_responses';
+import { SurveyResponsesInsertSchema, SurveyResponsesUpdateSchema } from 'src/lib/validators/survey_responses';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // SurveyResponses CRUD OPERATIONS

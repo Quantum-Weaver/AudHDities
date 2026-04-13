@@ -13,10 +13,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { PARALLAX_LAYERS, getParallaxFactor, type ParallaxLayer } from '@/lib/constants/cosmic/positioning';
-import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
-import { durations, easing } from '@/lib/constants/cosmic/motion';
-import { BREAKPOINTS } from '@/lib/constants/cosmic/dimensions';
+import { PARALLAX_LAYERS, getParallaxFactor, type ParallaxLayer } from 'src/lib/constants/cosmic/positioning';
+import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
+import { durations, easing } from 'src/lib/constants/cosmic/motion';
+import { BREAKPOINTS } from 'src/lib/constants/cosmic/dimensions';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -484,7 +484,7 @@ function writeGeneratedFile(
  */
 export async function generateParallaxClasses(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/parallax.css';
+  const outputPath = '../styles/generated/parallax.css';
   
   if (verbose) {
     logInfo('Generating parallax classes from positioning constants...');

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from '@/types/generated/plutus-economics/residual_pool.ts';
-import { ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/residual_pool.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from 'src/types/generated/plutus-economics/residual_pool.ts';
+import { ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from 'src/lib/validators/generated/residual_pool.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // ResidualPool CRUD OPERATIONS

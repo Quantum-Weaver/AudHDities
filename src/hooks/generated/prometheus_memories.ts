@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PrometheusMemoriesRow, PrometheusMemoriesInsert, PrometheusMemoriesUpdate } from '@/types/generated/hestia-core/prometheus_memories.ts';
+import type { PrometheusMemoriesRow, PrometheusMemoriesInsert, PrometheusMemoriesUpdate } from 'src/types/generated/hestia-core/prometheus_memories.ts';
 
 // =====================================================
 // PrometheusMemories HOOKS

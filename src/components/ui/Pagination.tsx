@@ -1,7 +1,7 @@
 /* @/components/ui/Pagination.tsx */
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "src/lib/utils"
 import { Button } from "@/components/ui/Button"
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
 

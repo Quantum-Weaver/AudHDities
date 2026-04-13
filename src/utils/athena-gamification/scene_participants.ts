@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SceneParticipantsRow, SceneParticipantsInsert, SceneParticipantsUpdate } from '@/types/athena-gamification/scene_participants';
-import { SceneParticipantsInsertSchema, SceneParticipantsUpdateSchema } from '@/lib/validators/scene_participants';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SceneParticipantsRow, SceneParticipantsInsert, SceneParticipantsUpdate } from 'src/types/athena-gamification/scene_participants';
+import { SceneParticipantsInsertSchema, SceneParticipantsUpdateSchema } from 'src/lib/validators/scene_participants';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // SceneParticipants CRUD OPERATIONS

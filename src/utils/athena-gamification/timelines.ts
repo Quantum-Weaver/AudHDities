@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/athena-gamification/timelines';
-import { TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/timelines';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from 'src/types/athena-gamification/timelines';
+import { TimelinesInsertSchema, TimelinesUpdateSchema } from 'src/lib/validators/timelines';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Timelines CRUD OPERATIONS

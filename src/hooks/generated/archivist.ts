@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from '@/types/generated/hestia-core/archivist.ts';
+import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from 'src/types/generated/hestia-core/archivist.ts';
 
 // =====================================================
 // Archivist HOOKS

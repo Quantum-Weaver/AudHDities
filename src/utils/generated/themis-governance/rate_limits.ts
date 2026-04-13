@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from '@/types/generated/themis-governance/rate_limits.ts';
-import { RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/rate_limits.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from 'src/types/generated/themis-governance/rate_limits.ts';
+import { RateLimitsInsertSchema, RateLimitsUpdateSchema } from 'src/lib/validators/generated/rate_limits.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // RateLimits CRUD OPERATIONS

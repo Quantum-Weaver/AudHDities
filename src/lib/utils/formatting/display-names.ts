@@ -1,4 +1,4 @@
-/* @/lib/utils/formatting/display-names.ts */
+/* src/lib/utils/formatting/display-names.ts */
 export const formatDisplayName = (displayName: string | null, username: string): string => {
   if (displayName && displayName.trim()) return displayName.trim();
   return username;

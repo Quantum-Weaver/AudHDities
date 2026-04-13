@@ -6,8 +6,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from 'src/lib/api/auth';
 
 export async function GET(request: NextRequest) {
   try {
@@ -53,10 +53,10 @@ export async function GET(request: NextRequest) {
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
-import { DisbursementsInsertSchema } from '@/lib/validators/disbursements';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized } from 'src/lib/api/auth';
+import { getAuthenticatedUser } from 'src/lib/api/auth';
+import { DisbursementsInsertSchema } from 'src/lib/validators/disbursements';
 
 export async function POST(request: NextRequest) {
   try {

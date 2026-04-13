@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SupabaseConnectionRow, SupabaseConnectionInsert, SupabaseConnectionUpdate } from '@/types/aethelred-connections/supabase_connection';
-import { SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from '@/lib/validators/supabase_connection';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { SupabaseConnectionRow, SupabaseConnectionInsert, SupabaseConnectionUpdate } from 'src/types/aethelred-connections/supabase_connection';
+import { SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from 'src/lib/validators/supabase_connection';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // SupabaseConnection CRUD OPERATIONS

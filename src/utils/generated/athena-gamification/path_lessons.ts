@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/athena-gamification/path_lessons.ts';
-import { PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/path_lessons.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from 'src/types/generated/athena-gamification/path_lessons.ts';
+import { PathLessonsInsertSchema, PathLessonsUpdateSchema } from 'src/lib/validators/generated/path_lessons.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // PathLessons CRUD OPERATIONS

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from '@/types/mnemosyne-assessment/etymology';
-import { EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/etymology';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from 'src/types/mnemosyne-assessment/etymology';
+import { EtymologyInsertSchema, EtymologyUpdateSchema } from 'src/lib/validators/etymology';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Etymology CRUD OPERATIONS

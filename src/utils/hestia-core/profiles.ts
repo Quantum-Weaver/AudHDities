@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/hestia-core/profiles';
-import { ProfilesInsertSchema, ProfilesUpdateSchema } from '@/lib/validators/profiles';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from 'src/types/hestia-core/profiles';
+import { ProfilesInsertSchema, ProfilesUpdateSchema } from 'src/lib/validators/profiles';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Profiles CRUD OPERATIONS

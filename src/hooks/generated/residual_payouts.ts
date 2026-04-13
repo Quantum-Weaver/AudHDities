@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/hestia-core/residual_payouts.ts';
+import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from 'src/types/generated/hestia-core/residual_payouts.ts';
 
 // =====================================================
 // ResidualPayouts HOOKS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from '@/types/generated/hestia-core/consciousness.ts';
+import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from 'src/types/generated/hestia-core/consciousness.ts';
 
 // =====================================================
 // Consciousness HOOKS

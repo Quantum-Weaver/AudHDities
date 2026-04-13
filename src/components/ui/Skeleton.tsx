@@ -1,6 +1,6 @@
 /* @/components/ui/Skeleton.tsx */
 "use client"
-import { cn } from "@/lib/utils"
+import { cn } from "src/lib/utils"
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (

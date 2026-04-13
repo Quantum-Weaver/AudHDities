@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SurveysRow, SurveysInsert, SurveysUpdate } from '@/types/generated/hestia-core/surveys.ts';
+import type { SurveysRow, SurveysInsert, SurveysUpdate } from 'src/types/generated/hestia-core/surveys.ts';
 
 // =====================================================
 // Surveys HOOKS

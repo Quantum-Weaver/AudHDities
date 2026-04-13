@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PostsRow, PostsInsert, PostsUpdate } from '@/types/generated/hestia-core/posts.ts';
+import type { PostsRow, PostsInsert, PostsUpdate } from 'src/types/generated/hestia-core/posts.ts';
 
 // =====================================================
 // Posts HOOKS

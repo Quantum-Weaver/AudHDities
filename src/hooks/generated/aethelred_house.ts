@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { AethelredHouseRow, AethelredHouseInsert, AethelredHouseUpdate } from '@/types/generated/hestia-core/aethelred_house.ts';
+import type { AethelredHouseRow, AethelredHouseInsert, AethelredHouseUpdate } from 'src/types/generated/hestia-core/aethelred_house.ts';
 
 // =====================================================
 // AethelredHouse HOOKS

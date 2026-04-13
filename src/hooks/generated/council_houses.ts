@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CouncilHousesRow, CouncilHousesInsert, CouncilHousesUpdate } from '@/types/generated/hestia-core/council_houses.ts';
+import type { CouncilHousesRow, CouncilHousesInsert, CouncilHousesUpdate } from 'src/types/generated/hestia-core/council_houses.ts';
 
 // =====================================================
 // CouncilHouses HOOKS

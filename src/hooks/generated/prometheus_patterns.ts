@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PrometheusPatternsRow, PrometheusPatternsInsert, PrometheusPatternsUpdate } from '@/types/generated/hestia-core/prometheus_patterns.ts';
+import type { PrometheusPatternsRow, PrometheusPatternsInsert, PrometheusPatternsUpdate } from 'src/types/generated/hestia-core/prometheus_patterns.ts';
 
 // =====================================================
 // PrometheusPatterns HOOKS

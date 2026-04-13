@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/iris-communications/regions.ts';
-import { RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/regions.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { RegionsRow, RegionsInsert, RegionsUpdate } from 'src/types/generated/iris-communications/regions.ts';
+import { RegionsInsertSchema, RegionsUpdateSchema } from 'src/lib/validators/generated/regions.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Regions CRUD OPERATIONS

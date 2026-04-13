@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ProgressRow, ProgressInsert, ProgressUpdate } from '@/types/generated/hestia-core/progress.ts';
+import type { ProgressRow, ProgressInsert, ProgressUpdate } from 'src/types/generated/hestia-core/progress.ts';
 
 // =====================================================
 // Progress HOOKS

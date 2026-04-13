@@ -1,23 +1,26 @@
-// @/config/object_categories.ts
+// src/config/object_categories.ts
 // ============================================================================
-// OBJECT CATEGORIES - Defines how each object should be handled by GAIA
+// OBJECT CATEGORIES - Single source of truth for all generation behavior
+// ============================================================================
+// Defines how each object should be handled by GAIA and COSMIC
+// Merged with workflow_config.ts - no duplication
 // ============================================================================
 
 export type HandlingLevel = 
-  | 'full_crud'           // Row + Insert + Update + Public + Form + Validation + API + Hooks
-  | 'assessment'          // Row + Form + Submit API
+  | 'full_crud'           // Row + Insert + Update + Public + Form + Validation + API + Hooks + Utils
+  | 'assessment'          // Row + Form + Submit/Results API
   | 'join_table'          // Row + Form + Link/Unlink API
-  | 'read_only_view'      // Row only (no Insert/Update) + GET API only
-  | 'function'            // Args + Returns only
+  | 'read_only_view'      // Row only + GET API only
+  | 'function'            // Args + Returns only + POST invoke API
   | 'type_enum'           // Type export only (from Database.public.Enums)
   | 'runtime_enum'        // Constant object + type export (from Constants.public.Enums)
-  | 'composite'           // Skip
-  | 'unknown';            // Needs review
+  | 'composite'           // Skip generation
+  | 'unknown';            // Needs review (generate everything as safe default)
 
 export interface ObjectCategory {
   handlingLevel: HandlingLevel;
   
-  // Type file generation flags
+  // ===== Type file generation flags =====
   generateRow: boolean;
   generateInsert: boolean;
   generateUpdate: boolean;
@@ -25,10 +28,13 @@ export interface ObjectCategory {
   generateFormInterface: boolean;
   generateValidationInterface: boolean;
   
-  // Constant file generation flags
+  // ===== Constant file generation flags =====
   generateConstants: boolean;
   
-  // API generation flags
+  // ===== Validator generation flags =====
+  generateValidator: boolean;
+  
+  // ===== API generation flags =====
   generateApiGetList: boolean;
   generateApiGetSingle: boolean;
   generateApiPost: boolean;
@@ -36,13 +42,16 @@ export interface ObjectCategory {
   generateApiDelete: boolean;
   generateApiSpecial: string[];
   
-  // Utility generation flag
+  // ===== Utility generation flags =====
   generateUtils: boolean;
   
-  // Hook generation flag
+  // ===== Hook generation flags =====
   generateHooks: boolean;
   
+  // ===== Staging and routing =====
   defaultFolder?: string;
+  stagingBase?: string;
+  apiBasePath?: string;
   notes?: string;
 }
 
@@ -62,6 +71,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: true,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: true,
     // API
     generateApiGetList: true,
     generateApiGetSingle: true,
@@ -86,6 +97,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: true,
     // API
     generateApiGetList: true,
     generateApiGetSingle: true,
@@ -110,6 +123,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: true,
     // API
     generateApiGetList: true,
     generateApiGetSingle: true,
@@ -134,6 +149,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: false,
     // API
     generateApiGetList: true,
     generateApiGetSingle: true,
@@ -158,6 +175,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: false,
     // API
     generateApiGetList: false,
     generateApiGetSingle: false,
@@ -183,6 +202,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: false,
     // API
     generateApiGetList: false,
     generateApiGetSingle: false,
@@ -208,6 +229,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: true,
+    // Validator
+    generateValidator: false,
     // API
     generateApiGetList: false,
     generateApiGetSingle: false,
@@ -233,6 +256,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: false,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: false,
     // API
     generateApiGetList: false,
     generateApiGetSingle: false,
@@ -257,6 +282,8 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     generateValidationInterface: true,
     // Constants
     generateConstants: false,
+    // Validator
+    generateValidator: true,
     // API
     generateApiGetList: true,
     generateApiGetSingle: true,
@@ -272,49 +299,115 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
 };
 
 // ============================================================================
-// TABLE CATEGORIZATION (by name patterns)
+// PATTERN-BASED CATEGORIZATION (No manual table lists)
 // ============================================================================
 
-export const TABLE_CATEGORIES: Record<string, HandlingLevel> = {
-  // Full CRUD tables
-  profiles: 'full_crud',
-  products: 'full_crud',
-  posts: 'full_crud',
-  channels: 'full_crud',
-  comments: 'full_crud',
-  subscriptions: 'full_crud',
-  notifications: 'full_crud',
-  messages: 'full_crud',
-  
+/**
+ * Determine handling level based on table name patterns
+ * This covers ALL tables without needing to list each one
+ */
+export function getHandlingLevelByPattern(tableName: string): HandlingLevel {
   // Assessment tables
-  acid_test_questions: 'assessment',
-  acid_test_answers: 'assessment',
-  acid_test_results: 'assessment',
+  if (tableName.startsWith('acid_test_')) {
+    return 'assessment';
+  }
   
-  // Join tables
-  user_quests: 'join_table',
-  user_badges: 'join_table',
-  contributions: 'join_table',
-  creator_profiles: 'join_table',
-  vendor_profiles: 'join_table',
-  community_profiles: 'join_table',
+  // Join/link tables
+  const joinPatterns = [
+    '_profiles',           // creator_profiles, vendor_profiles, community_profiles
+    'user_quests',
+    'user_badges',
+    'contributions',
+    'subscriptions',
+  ];
   
-  // Read-only views
-  personalized_feed: 'read_only_view',
-  public_transparency: 'read_only_view',
-  my_residuals: 'read_only_view',
-};
+  for (const pattern of joinPatterns) {
+    if (tableName.includes(pattern) || tableName === pattern) {
+      return 'join_table';
+    }
+  }
+  
+  // Read-only views (these are views, not tables, but included for completeness)
+  const viewPatterns = [
+    'personalized_feed',
+    'public_transparency',
+    'my_residuals',
+  ];
+  
+  for (const pattern of viewPatterns) {
+    if (tableName === pattern) {
+      return 'read_only_view';
+    }
+  }
+  
+  // Default: all other tables are full_crud
+  return 'full_crud';
+}
+
+/**
+ * Get handling level for a table (with manual override option)
+ */
+export function getTableHandlingLevel(tableName: string): HandlingLevel {
+  // Manual overrides for exceptions (only a few, not all tables)
+  const overrides: Record<string, HandlingLevel> = {
+    // If any table needs non-default handling, list it here
+    // Example: 'legacy_table': 'read_only_view',
+  };
+  
+  if (overrides[tableName]) {
+    return overrides[tableName];
+  }
+  
+  return getHandlingLevelByPattern(tableName);
+}
+
+
+// ============================================================================
+// DEITY RESOLUTION (using deity_groups.ts)
+// ============================================================================
+
+import { getFolderNameForTable, DEITY_GROUPS } from './deity_groups.js';
+
+/**
+ * Get deity folder for any object based on table association
+ */
+export function getDeityFolderForObject(
+  objectType: 'table' | 'view' | 'function' | 'type_enum' | 'runtime_enum',
+  objectName: string,
+  associatedTable?: string
+): string {
+  // If associated table provided, use it
+  if (associatedTable) {
+    const folder = getFolderNameForTable(associatedTable);
+    if (folder) return folder;
+  }
+  
+  // For tables, direct lookup
+  if (objectType === 'table') {
+    const folder = getFolderNameForTable(objectName);
+    if (folder) return folder;
+  }
+  
+  // For views and functions, try to derive from name pattern
+  if (objectType === 'view' || objectType === 'function') {
+    // Try to find a matching table by name
+    for (const group of DEITY_GROUPS) {
+      for (const table of group.tables) {
+        if (objectName.includes(table) || table.includes(objectName)) {
+          return group.folderName;
+        }
+      }
+    }
+  }
+  
+  // For enums, will be resolved by reference in tables
+  // Default fallback
+  return 'hestia-core';
+}
 
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
-
-/**
- * Get handling level for a table by name
- */
-export function getTableHandlingLevel(tableName: string): HandlingLevel {
-  return TABLE_CATEGORIES[tableName] || 'full_crud';
-}
 
 /**
  * Get full category config for a table
@@ -390,7 +483,7 @@ export function needsApiRoutes(tableName: string): boolean {
  */
 export function needsValidators(tableName: string): boolean {
   const category = getTableCategory(tableName);
-  return category.generateRow && (category.generateInsert || category.generateUpdate);
+  return category.generateValidator;
 }
 
 /**
@@ -407,4 +500,20 @@ export function needsUtils(tableName: string): boolean {
 export function needsHooks(tableName: string): boolean {
   const category = getTableCategory(tableName);
   return category.generateHooks;
+}
+
+/**
+ * Check if a table needs type generation
+ */
+export function needsTypeGeneration(tableName: string): boolean {
+  const category = getTableCategory(tableName);
+  return category.generateRow || category.generateInsert || category.generateUpdate;
+}
+
+/**
+ * Check if an enum needs constant generation
+ */
+export function needsConstantGeneration(enumName: string): boolean {
+  const category = getObjectCategory('runtime_enum', enumName);
+  return category.generateConstants;
 }

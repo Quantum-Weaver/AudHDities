@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/generated/hestia-core/admin_logs.ts';
+import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from 'src/types/generated/hestia-core/admin_logs.ts';
 
 // =====================================================
 // AdminLogs HOOKS

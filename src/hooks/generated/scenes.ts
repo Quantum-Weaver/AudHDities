@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ScenesRow, ScenesInsert, ScenesUpdate } from '@/types/generated/hestia-core/scenes.ts';
+import type { ScenesRow, ScenesInsert, ScenesUpdate } from 'src/types/generated/hestia-core/scenes.ts';
 
 // =====================================================
 // Scenes HOOKS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SubscriptionsRow, SubscriptionsInsert, SubscriptionsUpdate } from '@/types/generated/hestia-core/subscriptions.ts';
+import type { SubscriptionsRow, SubscriptionsInsert, SubscriptionsUpdate } from 'src/types/generated/hestia-core/subscriptions.ts';
 
 // =====================================================
 // Subscriptions HOOKS

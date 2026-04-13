@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from '@/types/generated/hestia-core/taxonomy.ts';
+import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from 'src/types/generated/hestia-core/taxonomy.ts';
 
 // =====================================================
 // Taxonomy HOOKS

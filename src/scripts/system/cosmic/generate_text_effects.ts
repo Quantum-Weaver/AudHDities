@@ -13,8 +13,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { keyframes, durations, easing } from '@/lib/constants/cosmic/motion';
-import { MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS, QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
+import { keyframes, durations, easing } from 'src/lib/constants/cosmic/motion';
+import { MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS, QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -629,7 +629,7 @@ function writeGeneratedFile(
  */
 export async function generateTextEffects(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/text-effects.css';
+  const outputPath = '../styles/generated/text-effects.css';
   
   if (verbose) {
     logInfo('Generating text effects from motion and color constants...');

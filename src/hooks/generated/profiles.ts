@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/hestia-core/profiles';
+import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from 'src/types/hestia-core/profiles';
 
 // =====================================================
 // Profiles HOOKS

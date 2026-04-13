@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ApplicationsRow, ApplicationsInsert, ApplicationsUpdate } from '@/types/generated/hestia-core/applications.ts';
+import type { ApplicationsRow, ApplicationsInsert, ApplicationsUpdate } from 'src/types/generated/hestia-core/applications.ts';
 
 // =====================================================
 // Applications HOOKS

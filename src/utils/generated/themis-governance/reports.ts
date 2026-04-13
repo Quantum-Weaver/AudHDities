@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ReportsRow, ReportsInsert, ReportsUpdate } from '@/types/generated/themis-governance/reports.ts';
-import { ReportsInsertSchema, ReportsUpdateSchema } from '@/lib/validators/generated/reports.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ReportsRow, ReportsInsert, ReportsUpdate } from 'src/types/generated/themis-governance/reports.ts';
+import { ReportsInsertSchema, ReportsUpdateSchema } from 'src/lib/validators/generated/reports.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Reports CRUD OPERATIONS

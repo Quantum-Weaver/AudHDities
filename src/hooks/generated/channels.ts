@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from '@/types/hestia-core/channels';
+import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from 'src/types/hestia-core/channels';
 
 // =====================================================
 // Channels HOOKS

@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { FileTypeStandardsRow, FileTypeStandardsInsert, FileTypeStandardsUpdate } from '@/types/generated/hestia-core/file_type_standards.ts';
+import type { FileTypeStandardsRow, FileTypeStandardsInsert, FileTypeStandardsUpdate } from 'src/types/generated/hestia-core/file_type_standards.ts';
 
 // =====================================================
 // FileTypeStandards HOOKS

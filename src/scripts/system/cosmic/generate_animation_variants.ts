@@ -13,9 +13,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { durations, easing, keyframes, tailwindAnimations } from '@/lib/constants/cosmic/motion';
-import { CONSCIOUSNESS_LEVELS, TIER_TO_BEAM_INTENSITY, CONSCIOUSNESS_TO_BEAM_INTENSITY } from '@/lib/constants/cosmic/consciousness';
-import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
+import { durations, easing, keyframes, tailwindAnimations } from 'src/lib/constants/cosmic/motion';
+import { CONSCIOUSNESS_LEVELS, TIER_TO_BEAM_INTENSITY, CONSCIOUSNESS_TO_BEAM_INTENSITY } from 'src/lib/constants/cosmic/consciousness';
+import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -619,7 +619,7 @@ function writeGeneratedFile(
  */
 export async function generateAnimationVariants(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/animations.css';
+  const outputPath = '../styles/generated/animations.css';
   
   if (verbose) {
     logInfo('Generating animation variants from consciousness and motion constants...');

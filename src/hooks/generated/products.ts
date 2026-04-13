@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/hestia-core/products.ts';
+import type { ProductsRow, ProductsInsert, ProductsUpdate } from 'src/types/generated/hestia-core/products.ts';
 
 // =====================================================
 // Products HOOKS

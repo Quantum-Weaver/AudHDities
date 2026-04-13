@@ -28,7 +28,7 @@ export function assembleMainApiFile(tableName: string, routes: GeneratedRoute[])
   // Add validator import if POST is present
   const hasPost = routes.some(r => r.code.includes('InsertSchema'));
   const validatorImport = hasPost 
-    ? `\nimport { ${toPascalCase(tableName)}InsertSchema } from '@/lib/validators/${tableName}';`
+    ? `\nimport { ${toPascalCase(tableName)}InsertSchema } from 'src/lib/validators/${tableName}';`
     : '';
   
   return `// =====================================================
@@ -37,8 +37,8 @@ export function assembleMainApiFile(tableName: string, routes: GeneratedRoute[])
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { ${importList.join(', ')} } from '@/lib/api/auth';${validatorImport}
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { ${importList.join(', ')} } from 'src/lib/api/auth';${validatorImport}
 
 ${routes.map(r => r.code).join('\n\n')}
 `;
@@ -62,7 +62,7 @@ export function assembleSingleApiFile(tableName: string, routes: GeneratedRoute[
   // Add validator import if PUT is present (PUT uses InsertSchema)
   const hasPut = routes.some(r => r.code.includes('InsertSchema'));
   const validatorImport = hasPut 
-    ? `\nimport { ${toPascalCase(tableName)}InsertSchema } from '@/lib/validators/${tableName}';`
+    ? `\nimport { ${toPascalCase(tableName)}InsertSchema } from 'src/lib/validators/${tableName}';`
     : '';
   
   return `// =====================================================
@@ -71,8 +71,8 @@ export function assembleSingleApiFile(tableName: string, routes: GeneratedRoute[
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { ${importList.join(', ')} } from '@/lib/api/auth';${validatorImport}
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { ${importList.join(', ')} } from 'src/lib/api/auth';${validatorImport}
 
 ${routes.map(r => r.code).join('\n\n')}
 `;
@@ -92,8 +92,8 @@ export function assembleSpecialApiFile(tableName: string, specialType: string, r
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { ${importList.join(', ')} } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { ${importList.join(', ')} } from 'src/lib/api/auth';
 
 ${route.code}
 `;

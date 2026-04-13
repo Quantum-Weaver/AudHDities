@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CouncilHousesRow, CouncilHousesInsert, CouncilHousesUpdate } from '@/types/generated/aethelred-connections/council_houses.ts';
-import { CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/council_houses.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CouncilHousesRow, CouncilHousesInsert, CouncilHousesUpdate } from 'src/types/generated/aethelred-connections/council_houses.ts';
+import { CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from 'src/lib/validators/generated/council_houses.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // CouncilHouses CRUD OPERATIONS

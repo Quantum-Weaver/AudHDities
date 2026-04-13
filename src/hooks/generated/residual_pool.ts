@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from '@/types/generated/hestia-core/residual_pool.ts';
+import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from 'src/types/generated/hestia-core/residual_pool.ts';
 
 // =====================================================
 // ResidualPool HOOKS

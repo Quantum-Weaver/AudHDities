@@ -1,8 +1,8 @@
 /* @/components/immersive/ContinuityBeam.tsx */
 'use client';
 import { motion } from 'framer-motion';
-import { AssetMapper, EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
-import { SCALING_CONFIG, foregroundScales  } from '@/lib/constants/components/immersive/quantum-background';
+import { AssetMapper, EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
+import { SCALING_CONFIG, foregroundScales  } from 'src/lib/constants/components/immersive/quantum-background';
 
 export interface QuantumBackgroundProps {
   environment: EnvironmentKey;

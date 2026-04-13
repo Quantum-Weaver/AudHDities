@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useSupabase } from '@/lib/supabase/client'
+import { useSupabase } from 'src/lib/supabase/client'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'

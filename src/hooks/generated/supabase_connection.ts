@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SupabaseConnectionRow, SupabaseConnectionInsert, SupabaseConnectionUpdate } from '@/types/generated/hestia-core/supabase_connection.ts';
+import type { SupabaseConnectionRow, SupabaseConnectionInsert, SupabaseConnectionUpdate } from 'src/types/generated/hestia-core/supabase_connection.ts';
 
 // =====================================================
 // SupabaseConnection HOOKS

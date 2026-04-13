@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from '@/types/generated/hestia-core/payouts.ts';
+import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from 'src/types/generated/hestia-core/payouts.ts';
 
 // =====================================================
 // Payouts HOOKS

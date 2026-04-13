@@ -13,8 +13,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { DOMAIN_COLORS, QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
-import { GRADIENTS } from '@/lib/constants/cosmic/effects';
+import { DOMAIN_COLORS, QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
+import { GRADIENTS } from 'src/lib/constants/cosmic/effects';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -461,7 +461,7 @@ function writeGeneratedFile(
  */
 export async function generateDomainStyles(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/domains.css';
+  const outputPath = '../styles/generated/domains.css';
   
   if (verbose) {
     logInfo('Generating domain styles from DOMAIN_COLORS...');

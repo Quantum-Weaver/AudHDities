@@ -1,15 +1,48 @@
-/* @/scripts/modules/discover/discover_directories.ts */
-// Phase: Discover all target directories (2 levels deep) with formula display
+// src/scripts/modules/discover/discover_directories.ts
+// ============================================================================
+// DISCOVER DIRECTORIES - Phase 1.5
+// ============================================================================
+// Purpose: Discover all target directories (2 levels deep) with formula display
+// Only tracks directories we GENERATE into - never touches manual directories
+// ============================================================================
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { DEITY_GROUPS } from '@/config/deity_groups.js';
+import { DEITY_GROUPS } from 'src/config/deity_groups.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../../..');
+
+// ============================================================================
+// CONFIGURATION - DIRECTORIES WE GENERATE INTO
+// ============================================================================
+
+export interface GenerationPaths {
+  // Base paths for generated content
+  constantsBase: string;      // src/lib/constants/generated
+  typesBase: string;           // src/types/generated
+  validatorsBase: string;      // src/lib/validators/generated
+  utilsBase: string;           // src/utils/generated
+  hooksBase: string;           // src/hooks/generated
+  apiBase: string;             // src/app/api/generated
+}
+
+// Directories we NEVER touch (for exclusion)
+export const PROTECTED_DIRECTORIES: string[] = [
+  'src/lib/api',
+  'src/lib/prometheus',
+  'src/lib/stripe',
+  'src/lib/supabase',
+  'src/lib/ziggy',
+  'src/lib/utils',        // root utils (not generated/)
+  'src/types/stripe',
+  'src/types/supabase',
+  'src/styles',
+  'src/app/api'           // root API (not generated/)
+];
 
 export interface FileInfo {
   name: string;
@@ -24,29 +57,33 @@ export interface DirectoryManifest {
   createdAt?: Date;
   fileCount: number;
   files: string[];
-  subdirectories: Map<string, DirectoryManifest>;  // RECURSIVE: 2 levels deep
+  subdirectories: Map<string, DirectoryManifest>;
 }
 
 export interface DiscoveryResult {
   // Constants directories
   constantsRoot: DirectoryManifest;
   constantsDeityGroups: Map<string, DirectoryManifest>;
-  constantsUngrouped: DirectoryManifest[];  // NEW: folders not in deity groups
   
   // Types directories
   typesRoot: DirectoryManifest;
   typesDeityGroups: Map<string, DirectoryManifest>;
-  typesUngrouped: DirectoryManifest[];  // NEW: folders not in deity groups
+  
+  // Validators directories
+  validatorsRoot: DirectoryManifest;
+  validatorsDeityGroups: Map<string, DirectoryManifest>;
   
   // Utils directories
   utilsRoot: DirectoryManifest;
   utilsDeityGroups: Map<string, DirectoryManifest>;
-  utilsUngrouped: DirectoryManifest[];  // NEW: folders not in deity groups
   
-  // API directory (flat)
+  // Hooks directories
+  hooksRoot: DirectoryManifest;
+  hooksDeityGroups: Map<string, DirectoryManifest>;
+  
+  // API directories
   apiRoot: DirectoryManifest;
-  apiRoutes: string[];
-  apiUngrouped: string[];  // NEW: API routes not matching table names
+  apiDeityGroups: Map<string, DirectoryManifest>;
   
   // Summary with formulas
   summary: {
@@ -55,24 +92,52 @@ export interface DiscoveryResult {
     components: {
       constantsFiles: number;
       typesFiles: number;
+      validatorsFiles: number;
       utilsFiles: number;
-      apiRoutes: number;
+      hooksFiles: number;
+      apiFiles: number;
       otherFiles: number;
     };
     constantsFormula: string;
     typesFormula: string;
+    validatorsFormula: string;
     utilsFormula: string;
+    hooksFormula: string;
     apiFormula: string;
   };
 }
 
 export interface DiscoverDirectoriesOptions {
   verbose?: boolean;
-  constantsBase?: string;
-  typesBase?: string;
-  utilsBase?: string;
-  apiBase?: string;
-  maxDepth?: number;  // How deep to scan (default: 2)
+  maxDepth?: number;
+  generationPaths?: Partial<GenerationPaths>;
+}
+
+// Default generation paths
+const DEFAULT_GENERATION_PATHS: GenerationPaths = {
+  constantsBase: 'src/lib/constants/generated',
+  typesBase: 'src/types/generated',
+  validatorsBase: 'src/lib/validators/generated',
+  utilsBase: 'src/utils/generated',
+  hooksBase: 'src/hooks/generated',
+  apiBase: 'src/app/api/generated'
+};
+
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
+
+/**
+ * Check if a path is protected (should never be modified by generation)
+ */
+function isProtectedPath(filePath: string): boolean {
+  const relativePath = path.relative(PROJECT_ROOT, filePath);
+  for (const protectedDir of PROTECTED_DIRECTORIES) {
+    if (relativePath.startsWith(protectedDir)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -88,6 +153,12 @@ function discoverRecursive(
     return null;
   }
   
+  // Skip protected directories
+  if (isProtectedPath(dirPath)) {
+    if (verbose) logDebug(`Skipping protected directory: ${dirPath}`);
+    return null;
+  }
+  
   const stats = fs.statSync(dirPath);
   const files: string[] = [];
   const subdirectories = new Map<string, DirectoryManifest>();
@@ -100,24 +171,31 @@ function discoverRecursive(
       const itemStats = fs.statSync(itemPath);
       
       if (itemStats.isFile()) {
-        files.push(item);
-        fileCount++;
+        // Only track .ts and .tsx files
+        if (item.endsWith('.ts') || item.endsWith('.tsx')) {
+          files.push(item);
+          fileCount++;
+        }
       } else if (itemStats.isDirectory() && currentDepth < maxDepth - 1) {
-        // Recursively discover subdirectories (up to maxDepth)
-        const subManifest = discoverRecursive(itemPath, currentDepth + 1, maxDepth, verbose);
-        if (subManifest) {
-          subdirectories.set(item, subManifest);
-          fileCount += subManifest.fileCount;
+        // Skip protected subdirectories
+        if (!isProtectedPath(itemPath)) {
+          const subManifest = discoverRecursive(itemPath, currentDepth + 1, maxDepth, verbose);
+          if (subManifest) {
+            subdirectories.set(item, subManifest);
+            fileCount += subManifest.fileCount;
+          }
         }
       } else if (itemStats.isDirectory()) {
         // At max depth, just record the directory exists without recursing
-        subdirectories.set(item, {
-          path: itemPath,
-          exists: true,
-          fileCount: 0,
-          files: [],
-          subdirectories: new Map()
-        });
+        if (!isProtectedPath(itemPath)) {
+          subdirectories.set(item, {
+            path: itemPath,
+            exists: true,
+            fileCount: 0,
+            files: [],
+            subdirectories: new Map()
+          });
+        }
       }
     }
   } catch (error) {
@@ -142,39 +220,30 @@ export function getAllDeityFolderNames(): string[] {
 }
 
 /**
- * Get all table names from config (for API route matching)
- */
-export function getAllTableNames(): string[] {
-  return DEITY_GROUPS.flatMap(group => group.tables);
-}
-
-/**
  * Discover all directories with formulas
  */
 export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): DiscoveryResult {
   const {
     verbose = false,
-    constantsBase = '@/lib/constants',
-    typesBase = '@/types',
-    utilsBase = '@/utils',
-    apiBase = '@/app/api',
-    maxDepth = 2
+    maxDepth = 2,
+    generationPaths = {}
   } = options;
+  
+  const paths = { ...DEFAULT_GENERATION_PATHS, ...generationPaths };
+  const deityFolderNames = getAllDeityFolderNames();
   
   if (verbose) {
     logInfo('Discovering target directories (recursive, depth 2)...');
     logSeparator('─', 40);
   }
   
-  const deityFolderNames = getAllDeityFolderNames();
-  const allTableNames = getAllTableNames();
-  const tableNameSet = new Set(allTableNames);
-  
   // Root paths
-  const constantsRootPath = path.join(PROJECT_ROOT, constantsBase);
-  const typesRootPath = path.join(PROJECT_ROOT, typesBase);
-  const utilsRootPath = path.join(PROJECT_ROOT, utilsBase);
-  const apiRootPath = path.join(PROJECT_ROOT, apiBase);
+  const constantsRootPath = path.join(PROJECT_ROOT, paths.constantsBase);
+  const typesRootPath = path.join(PROJECT_ROOT, paths.typesBase);
+  const validatorsRootPath = path.join(PROJECT_ROOT, paths.validatorsBase);
+  const utilsRootPath = path.join(PROJECT_ROOT, paths.utilsBase);
+  const hooksRootPath = path.join(PROJECT_ROOT, paths.hooksBase);
+  const apiRootPath = path.join(PROJECT_ROOT, paths.apiBase);
   
   // Discover roots recursively
   const constantsRoot = discoverRecursive(constantsRootPath, 0, maxDepth, verbose) || {
@@ -193,8 +262,24 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     subdirectories: new Map()
   };
   
+  const validatorsRoot = discoverRecursive(validatorsRootPath, 0, maxDepth, verbose) || {
+    path: validatorsRootPath,
+    exists: false,
+    fileCount: 0,
+    files: [],
+    subdirectories: new Map()
+  };
+  
   const utilsRoot = discoverRecursive(utilsRootPath, 0, maxDepth, verbose) || {
     path: utilsRootPath,
+    exists: false,
+    fileCount: 0,
+    files: [],
+    subdirectories: new Map()
+  };
+  
+  const hooksRoot = discoverRecursive(hooksRootPath, 0, maxDepth, verbose) || {
+    path: hooksRootPath,
     exists: false,
     fileCount: 0,
     files: [],
@@ -209,55 +294,50 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     subdirectories: new Map()
   };
   
-  // Constants: separate deity groups from ungrouped
+  // Extract deity groups for each type
   const constantsDeityGroups = new Map<string, DirectoryManifest>();
-  const constantsUngrouped: DirectoryManifest[] = [];
-  
   for (const [folderName, manifest] of constantsRoot.subdirectories) {
     if (deityFolderNames.includes(folderName)) {
       constantsDeityGroups.set(folderName, manifest);
-    } else {
-      constantsUngrouped.push(manifest);
     }
   }
   
-  // Types: separate deity groups from ungrouped
   const typesDeityGroups = new Map<string, DirectoryManifest>();
-  const typesUngrouped: DirectoryManifest[] = [];
-  
   for (const [folderName, manifest] of typesRoot.subdirectories) {
     if (deityFolderNames.includes(folderName)) {
       typesDeityGroups.set(folderName, manifest);
-    } else {
-      typesUngrouped.push(manifest);
     }
   }
   
-  // Utils: separate deity groups from ungrouped
-  const utilsDeityGroups = new Map<string, DirectoryManifest>();
-  const utilsUngrouped: DirectoryManifest[] = [];
+  const validatorsDeityGroups = new Map<string, DirectoryManifest>();
+  for (const [folderName, manifest] of validatorsRoot.subdirectories) {
+    if (deityFolderNames.includes(folderName)) {
+      validatorsDeityGroups.set(folderName, manifest);
+    }
+  }
   
+  const utilsDeityGroups = new Map<string, DirectoryManifest>();
   for (const [folderName, manifest] of utilsRoot.subdirectories) {
     if (deityFolderNames.includes(folderName)) {
       utilsDeityGroups.set(folderName, manifest);
-    } else {
-      utilsUngrouped.push(manifest);
     }
   }
   
-  // API: flat routes (subdirectories)
-  const apiRoutes: string[] = [];
-  const apiUngrouped: string[] = [];
-  
-  for (const [routeName, manifest] of apiRoot.subdirectories) {
-    if (tableNameSet.has(routeName)) {
-      apiRoutes.push(routeName);
-    } else {
-      apiUngrouped.push(routeName);
+  const hooksDeityGroups = new Map<string, DirectoryManifest>();
+  for (const [folderName, manifest] of hooksRoot.subdirectories) {
+    if (deityFolderNames.includes(folderName)) {
+      hooksDeityGroups.set(folderName, manifest);
     }
   }
   
-  // Calculate totals with formulas
+  const apiDeityGroups = new Map<string, DirectoryManifest>();
+  for (const [folderName, manifest] of apiRoot.subdirectories) {
+    if (deityFolderNames.includes(folderName)) {
+      apiDeityGroups.set(folderName, manifest);
+    }
+  }
+  
+  // Calculate totals
   let constantsFiles = 0;
   const constantsComponents: string[] = [];
   for (const [name, manifest] of constantsDeityGroups) {
@@ -272,6 +352,13 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     typesComponents.push(`${name}:${manifest.fileCount}`);
   }
   
+  let validatorsFiles = 0;
+  const validatorsComponents: string[] = [];
+  for (const [name, manifest] of validatorsDeityGroups) {
+    validatorsFiles += manifest.fileCount;
+    validatorsComponents.push(`${name}:${manifest.fileCount}`);
+  }
+  
   let utilsFiles = 0;
   const utilsComponents: string[] = [];
   for (const [name, manifest] of utilsDeityGroups) {
@@ -279,71 +366,77 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     utilsComponents.push(`${name}:${manifest.fileCount}`);
   }
   
-  const apiRouteCount = apiRoutes.length;
+  let hooksFiles = 0;
+  const hooksComponents: string[] = [];
+  for (const [name, manifest] of hooksDeityGroups) {
+    hooksFiles += manifest.fileCount;
+    hooksComponents.push(`${name}:${manifest.fileCount}`);
+  }
   
-  // Other files (files directly in root directories, not in subfolders)
-  const otherFiles = constantsRoot.files.length + typesRoot.files.length + utilsRoot.files.length + apiRoot.files.length;
+  let apiFiles = 0;
+  const apiComponents: string[] = [];
+  for (const [name, manifest] of apiDeityGroups) {
+    apiFiles += manifest.fileCount;
+    apiComponents.push(`${name}:${manifest.fileCount}`);
+  }
   
-  const totalExistingFiles = constantsFiles + typesFiles + utilsFiles + apiRouteCount + otherFiles;
+  // Other files (files directly in root directories)
+  const otherFiles = constantsRoot.files.length + typesRoot.files.length + 
+                     validatorsRoot.files.length + utilsRoot.files.length + 
+                     hooksRoot.files.length + apiRoot.files.length;
+  
+  const totalExistingFiles = constantsFiles + typesFiles + validatorsFiles + 
+                             utilsFiles + hooksFiles + apiFiles + otherFiles;
   
   // Build formula strings
-  const constantsFormula = `constants_files = sum(constantsDeityGroups.fileCount) = ${constantsComponents.join(' + ')} = ${constantsFiles}`;
-  const typesFormula = `types_files = sum(typesDeityGroups.fileCount) = ${typesComponents.join(' + ')} = ${typesFiles}`;
-  const utilsFormula = `utils_files = sum(utilsDeityGroups.fileCount) = ${utilsComponents.join(' + ')} = ${utilsFiles}`;
-  const apiFormula = `api_routes = count(directories in @/app/api/ matching table names) = ${apiRouteCount}`;
-  const otherFormula = `other_files = files directly in root directories (not in subfolders) = ${otherFiles}`;
+  const constantsFormula = `constants = sum(${constantsComponents.join(' + ')}) = ${constantsFiles}`;
+  const typesFormula = `types = sum(${typesComponents.join(' + ')}) = ${typesFiles}`;
+  const validatorsFormula = `validators = sum(${validatorsComponents.join(' + ')}) = ${validatorsFiles}`;
+  const utilsFormula = `utils = sum(${utilsComponents.join(' + ')}) = ${utilsFiles}`;
+  const hooksFormula = `hooks = sum(${hooksComponents.join(' + ')}) = ${hooksFiles}`;
+  const apiFormula = `api = sum(${apiComponents.join(' + ')}) = ${apiFiles}`;
+  const otherFormula = `other = ${otherFiles}`;
   
-  const formula = `${constantsFiles} (constants) + ${typesFiles} (types) + ${utilsFiles} (utils) + ${apiRouteCount} (api) + ${otherFiles} (other) = ${totalExistingFiles}`;
+  const formula = `${constantsFiles} (const) + ${typesFiles} (types) + ${validatorsFiles} (validators) + ${utilsFiles} (utils) + ${hooksFiles} (hooks) + ${apiFiles} (api) + ${otherFiles} (other) = ${totalExistingFiles}`;
   
   if (verbose) {
     console.log('');
     logInfo('Directory Discovery Results (2 levels deep):');
-    logInfo(`  Constants root: ${constantsRoot.exists ? '✅' : '❌'} ${constantsRootPath}`);
+    logInfo(`  Constants root: ${constantsRoot.exists ? '✅' : '❌'} ${paths.constantsBase}`);
     logInfo(`    ├── Deity groups: ${constantsDeityGroups.size} (${constantsFiles} files)`);
-    logInfo(`    ├── Ungrouped folders: ${constantsUngrouped.length}`);
     logInfo(`    └── Root files: ${constantsRoot.files.length}`);
     
-    logInfo(`  Types root: ${typesRoot.exists ? '✅' : '❌'} ${typesRootPath}`);
+    logInfo(`  Types root: ${typesRoot.exists ? '✅' : '❌'} ${paths.typesBase}`);
     logInfo(`    ├── Deity groups: ${typesDeityGroups.size} (${typesFiles} files)`);
-    logInfo(`    ├── Ungrouped folders: ${typesUngrouped.length}`);
     logInfo(`    └── Root files: ${typesRoot.files.length}`);
     
-    logInfo(`  Utils root: ${utilsRoot.exists ? '✅' : '❌'} ${utilsRootPath}`);
+    logInfo(`  Validators root: ${validatorsRoot.exists ? '✅' : '❌'} ${paths.validatorsBase}`);
+    logInfo(`    ├── Deity groups: ${validatorsDeityGroups.size} (${validatorsFiles} files)`);
+    logInfo(`    └── Root files: ${validatorsRoot.files.length}`);
+    
+    logInfo(`  Utils root: ${utilsRoot.exists ? '✅' : '❌'} ${paths.utilsBase}`);
     logInfo(`    ├── Deity groups: ${utilsDeityGroups.size} (${utilsFiles} files)`);
-    logInfo(`    ├── Ungrouped folders: ${utilsUngrouped.length}`);
     logInfo(`    └── Root files: ${utilsRoot.files.length}`);
     
-    logInfo(`  API root: ${apiRoot.exists ? '✅' : '❌'} ${apiRootPath}`);
-    logInfo(`    ├── Matched routes: ${apiRoutes.length}`);
-    logInfo(`    ├── Ungrouped routes: ${apiUngrouped.length}`);
+    logInfo(`  Hooks root: ${hooksRoot.exists ? '✅' : '❌'} ${paths.hooksBase}`);
+    logInfo(`    ├── Deity groups: ${hooksDeityGroups.size} (${hooksFiles} files)`);
+    logInfo(`    └── Root files: ${hooksRoot.files.length}`);
+    
+    logInfo(`  API root: ${apiRoot.exists ? '✅' : '❌'} ${paths.apiBase}`);
+    logInfo(`    ├── Deity groups: ${apiDeityGroups.size} (${apiFiles} files)`);
     logInfo(`    └── Root files: ${apiRoot.files.length}`);
     
     console.log('');
     logInfo('📊 CALCULATED VALUES WITH FORMULAS:');
     logInfo(`  ${constantsFormula}`);
     logInfo(`  ${typesFormula}`);
+    logInfo(`  ${validatorsFormula}`);
     logInfo(`  ${utilsFormula}`);
+    logInfo(`  ${hooksFormula}`);
     logInfo(`  ${apiFormula}`);
     logInfo(`  ${otherFormula}`);
     console.log('');
     logInfo(`  TOTAL: ${formula}`);
-    
-    if (constantsUngrouped.length > 0 || typesUngrouped.length > 0 || utilsUngrouped.length > 0 || apiUngrouped.length > 0) {
-      console.log('');
-      logInfo('📁 UNGROUPED FOLDERS (to integrate later):');
-      for (const folder of constantsUngrouped) {
-        logInfo(`  📁 @/lib/constants/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
-      }
-      for (const folder of typesUngrouped) {
-        logInfo(`  📁 @/types/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
-      }
-      for (const folder of utilsUngrouped) {
-        logInfo(`  📁 @/utils/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
-      }
-      for (const route of apiUngrouped) {
-        logInfo(`  🌐 @/app/api/${route}/ - TO INTEGRATE`);
-      }
-    }
     
     logSeparator('─', 40);
   }
@@ -351,29 +444,33 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
   return {
     constantsRoot,
     constantsDeityGroups,
-    constantsUngrouped,
     typesRoot,
     typesDeityGroups,
-    typesUngrouped,
+    validatorsRoot,
+    validatorsDeityGroups,
     utilsRoot,
     utilsDeityGroups,
-    utilsUngrouped,
+    hooksRoot,
+    hooksDeityGroups,
     apiRoot,
-    apiRoutes,
-    apiUngrouped,
+    apiDeityGroups,
     summary: {
       totalExistingFiles,
       formula,
       components: {
         constantsFiles,
         typesFiles,
+        validatorsFiles,
         utilsFiles,
-        apiRoutes: apiRouteCount,
+        hooksFiles,
+        apiFiles,
         otherFiles
       },
       constantsFormula,
       typesFormula,
+      validatorsFormula,
       utilsFormula,
+      hooksFormula,
       apiFormula
     }
   };
@@ -385,18 +482,19 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
 export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): DiscoveryResult {
   const {
     verbose = false,
-    constantsBase = '@/lib/constants',
-    typesBase = '@/types',
-    utilsBase = '@/utils',
-    apiBase = '@/app/api'
+    generationPaths = {}
   } = options;
   
+  const paths = { ...DEFAULT_GENERATION_PATHS, ...generationPaths };
   const deityFolderNames = getAllDeityFolderNames();
   
-  const constantsRootPath = path.join(PROJECT_ROOT, constantsBase);
-  const typesRootPath = path.join(PROJECT_ROOT, typesBase);
-  const utilsRootPath = path.join(PROJECT_ROOT, utilsBase);
-  const apiRootPath = path.join(PROJECT_ROOT, apiBase);
+  // Root paths
+  const constantsRootPath = path.join(PROJECT_ROOT, paths.constantsBase);
+  const typesRootPath = path.join(PROJECT_ROOT, paths.typesBase);
+  const validatorsRootPath = path.join(PROJECT_ROOT, paths.validatorsBase);
+  const utilsRootPath = path.join(PROJECT_ROOT, paths.utilsBase);
+  const hooksRootPath = path.join(PROJECT_ROOT, paths.hooksBase);
+  const apiRootPath = path.join(PROJECT_ROOT, paths.apiBase);
   
   // Ensure root directories
   const ensure = (dir: string) => {
@@ -408,17 +506,20 @@ export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): 
   
   ensure(constantsRootPath);
   ensure(typesRootPath);
+  ensure(validatorsRootPath);
   ensure(utilsRootPath);
+  ensure(hooksRootPath);
   ensure(apiRootPath);
   
-  // Ensure deity group directories
+  // Ensure deity group directories for each type
   for (const folderName of deityFolderNames) {
     ensure(path.join(constantsRootPath, folderName));
     ensure(path.join(typesRootPath, folderName));
+    ensure(path.join(validatorsRootPath, folderName));
     ensure(path.join(utilsRootPath, folderName));
+    ensure(path.join(hooksRootPath, folderName));
+    ensure(path.join(apiRootPath, folderName));
   }
-  
-  // API remains flat - no deity subdirectories
   
   return discoverDirectories(options);
 }

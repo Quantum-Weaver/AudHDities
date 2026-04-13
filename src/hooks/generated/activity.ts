@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ActivityRow, ActivityInsert, ActivityUpdate } from '@/types/generated/hestia-core/activity.ts';
+import type { ActivityRow, ActivityInsert, ActivityUpdate } from 'src/types/generated/hestia-core/activity.ts';
 
 // =====================================================
 // Activity HOOKS

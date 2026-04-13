@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { CreativeCategoriesRow, CreativeCategoriesInsert, CreativeCategoriesUpdate } from '@/types/generated/hestia-core/creative_categories.ts';
+import type { CreativeCategoriesRow, CreativeCategoriesInsert, CreativeCategoriesUpdate } from 'src/types/generated/hestia-core/creative_categories.ts';
 
 // =====================================================
 // CreativeCategories HOOKS

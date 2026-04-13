@@ -6,8 +6,8 @@
 // =====================================================
 
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, notFound } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, notFound } from 'src/lib/api/auth';
 
 export async function GET(
   request: NextRequest,
@@ -37,10 +37,10 @@ export async function GET(
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
-import { CovenantPoolUpdateSchema } from '@/lib/validators/covenant_pool';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
+import { CovenantPoolUpdateSchema } from 'src/lib/validators/covenant_pool';
 
 export async function PUT(
   request: NextRequest,
@@ -88,9 +88,9 @@ export async function PUT(
   }
 }
 import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, unauthorized, notFound, forbidden } from 'src/lib/api/auth';
+import { getAuthenticatedUser, checkOwnership, isAdmin } from 'src/lib/api/auth';
 
 export async function DELETE(
   request: NextRequest,

@@ -1,5 +1,5 @@
 // app/data/header-data.ts
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper'
+import { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper'
 
 export const HEADER_DATA = {
   defaultTitle: 'AudHDities Sanctuary',

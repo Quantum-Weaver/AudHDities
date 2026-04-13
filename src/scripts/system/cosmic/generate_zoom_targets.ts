@@ -13,8 +13,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { ZOOM_TARGETS, type ZoomTarget } from '@/lib/constants/cosmic/positioning';
-import { durations, easing } from '@/lib/constants/cosmic/motion';
+import { ZOOM_TARGETS, type ZoomTarget } from 'src/lib/constants/cosmic/positioning';
+import { durations, easing } from 'src/lib/constants/cosmic/motion';
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -423,7 +423,7 @@ function writeGeneratedFile(
  */
 export async function generateZoomTargets(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '@/styles/generated/zoom.css';
+  const outputPath = '../styles/generated/zoom.css';
   
   if (verbose) {
     logInfo('Generating zoom targets from positioning constants...');

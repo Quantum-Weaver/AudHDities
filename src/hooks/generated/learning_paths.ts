@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from '@/types/generated/hestia-core/learning_paths.ts';
+import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from 'src/types/generated/hestia-core/learning_paths.ts';
 
 // =====================================================
 // LearningPaths HOOKS

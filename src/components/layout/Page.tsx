@@ -2,7 +2,7 @@
 'use client';
 import React from 'react';
 import PanoramaViewer from '@/components/immersive/PanoramaViewer';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+import { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
 
 interface PageProps {
   environment: EnvironmentKey;

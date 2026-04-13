@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/hestia-core/lessons.ts';
+import type { LessonsRow, LessonsInsert, LessonsUpdate } from 'src/types/generated/hestia-core/lessons.ts';
 
 // =====================================================
 // Lessons HOOKS

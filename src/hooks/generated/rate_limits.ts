@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from '@/types/generated/hestia-core/rate_limits.ts';
+import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from 'src/types/generated/hestia-core/rate_limits.ts';
 
 // =====================================================
 // RateLimits HOOKS

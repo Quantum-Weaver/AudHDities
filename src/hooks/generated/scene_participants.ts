@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { SceneParticipantsRow, SceneParticipantsInsert, SceneParticipantsUpdate } from '@/types/generated/hestia-core/scene_participants.ts';
+import type { SceneParticipantsRow, SceneParticipantsInsert, SceneParticipantsUpdate } from 'src/types/generated/hestia-core/scene_participants.ts';
 
 // =====================================================
 // SceneParticipants HOOKS

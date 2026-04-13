@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { MessagesRow, MessagesInsert, MessagesUpdate } from '@/types/generated/hermes-social/messages.ts';
-import { MessagesInsertSchema, MessagesUpdateSchema } from '@/lib/validators/generated/messages.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { MessagesRow, MessagesInsert, MessagesUpdate } from 'src/types/generated/hermes-social/messages.ts';
+import { MessagesInsertSchema, MessagesUpdateSchema } from 'src/lib/validators/generated/messages.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Messages CRUD OPERATIONS

@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PostsRow, PostsInsert, PostsUpdate } from '@/types/generated/hermes-social/posts.ts';
-import { PostsInsertSchema, PostsUpdateSchema } from '@/lib/validators/generated/posts.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { PostsRow, PostsInsert, PostsUpdate } from 'src/types/generated/hermes-social/posts.ts';
+import { PostsInsertSchema, PostsUpdateSchema } from 'src/lib/validators/generated/posts.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Posts CRUD OPERATIONS

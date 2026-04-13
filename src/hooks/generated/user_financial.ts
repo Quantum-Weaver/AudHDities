@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from '@/types/hestia-core/user_financial';
+import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from 'src/types/hestia-core/user_financial';
 
 // =====================================================
 // UserFinancial HOOKS

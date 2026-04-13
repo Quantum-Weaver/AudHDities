@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from '@/types/generated/hestia-core/maintenance.ts';
+import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from 'src/types/generated/hestia-core/maintenance.ts';
 
 // =====================================================
 // Maintenance HOOKS

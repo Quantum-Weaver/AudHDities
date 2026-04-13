@@ -5,7 +5,7 @@
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ProcessesRow, ProcessesInsert, ProcessesUpdate } from '@/types/generated/hestia-core/processes.ts';
+import type { ProcessesRow, ProcessesInsert, ProcessesUpdate } from 'src/types/generated/hestia-core/processes.ts';
 
 // =====================================================
 // Processes HOOKS

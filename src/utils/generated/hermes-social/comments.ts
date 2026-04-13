@@ -4,10 +4,10 @@
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CommentsRow, CommentsInsert, CommentsUpdate } from '@/types/generated/hermes-social/comments.ts';
-import { CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/comments.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { CommentsRow, CommentsInsert, CommentsUpdate } from 'src/types/generated/hermes-social/comments.ts';
+import { CommentsInsertSchema, CommentsUpdateSchema } from 'src/lib/validators/generated/comments.ts';
+import { createApiSupabase } from 'src/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
 
 // =====================================================
 // Comments CRUD OPERATIONS
