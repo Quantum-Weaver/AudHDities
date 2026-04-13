@@ -5,41 +5,41 @@
 
 export const ENUM_FOLDER_MAPPING: Record<string, string> = {
   // =====================================================
-  // HESTIA_CORE (Core Identity)
+  // hestia-core (Core Identity)
   // =====================================================
-  "user_tier": "hestia_core",
-  "user_status": "hestia_core",
-  "council_house": "hestia_core",
-  "communication_style": "hestia_core",
-  "verification_status": "hestia_core",
-  "contact_direction": "hestia_core",
-  "contact_status": "hestia_core",
-  "setting_scope": "hestia_core",
-  "date_format_type": "hestia_core",
-  "time_format_type": "hestia_core",
-  "text_direction_type": "hestia_core",
-  "measurement_system_type": "hestia_core",
-  "currency_position_type": "hestia_core",
+  "user_tier": "hestia-core",
+  "user_status": "hestia-core",
+  "council_house": "hestia-core",
+  "communication_style": "hestia-core",
+  "verification_status": "hestia-core",
+  "contact_direction": "hestia-core",
+  "contact_status": "hestia-core",
+  "setting_scope": "hestia-core",
+  "date_format_type": "hestia-core",
+  "time_format_type": "hestia-core",
+  "text_direction_type": "hestia-core",
+  "measurement_system_type": "hestia-core",
+  "currency_position_type": "hestia-core",
 
   // =====================================================
-  // PLUTUS_ECONOMICS (Economic Engine)
+  // plutus-ecONOMICS (Economic Engine)
   // =====================================================
-  "product_type": "plutus_economics",
-  "payment_status": "plutus_economics",
-  "payout_status": "plutus_economics",
-  "payout_frequency": "plutus_economics",
-  "payout_method": "plutus_economics",
-  "subscription_status": "plutus_economics",
-  "transaction_type": "plutus_economics",
-  "ledger_entity": "plutus_economics",
-  "ledger_entry_type": "plutus_economics",
-  "source_pool_type": "plutus_economics",
-  "recurring_interval": "plutus_economics",
-  "bid_type": "plutus_economics",
-  "stripe_mode": "plutus_economics",
-  "owner_type": "plutus_economics",
-  "contribution_type": "plutus_economics",
-  "submission_type": "plutus_economics",
+  "product_type": "plutus-economics",
+  "payment_status": "plutus-economics",
+  "payout_status": "plutus-economics",
+  "payout_frequency": "plutus-economics",
+  "payout_method": "plutus-economics",
+  "subscription_status": "plutus-economics",
+  "transaction_type": "plutus-economics",
+  "ledger_entity": "plutus-economics",
+  "ledger_entry_type": "plutus-economics",
+  "source_pool_type": "plutus-economics",
+  "recurring_interval": "plutus-economics",
+  "bid_type": "plutus-economics",
+  "stripe_mode": "plutus-economics",
+  "owner_type": "plutus-economics",
+  "contribution_type": "plutus-economics",
+  "submission_type": "plutus-economics",
 
   // =====================================================
   // HERMES_SOCIAL (Social Engagement)
@@ -55,82 +55,82 @@ export const ENUM_FOLDER_MAPPING: Record<string, string> = {
   "report_target_type": "hermes_social",
 
   // =====================================================
-  // ATHENA_GAMIFICATION (Gamification)
+  // athena-gAMIFICATION (Gamification)
   // =====================================================
-  "quest_status": "athena_gamification",
-  "badge_type": "athena_gamification",
-  "badge_tier": "athena_gamification",
-  "badge_rarity": "athena_gamification",
-  "progress_status": "athena_gamification",
-  "difficulty_level": "athena_gamification",
-  "life_cycle_phase": "athena_gamification",
-  "timeline_event_type": "athena_gamification",
-  "scene_type": "athena_gamification",
-  "myth_type": "athena_gamification",
+  "quest_status": "athena-gamification",
+  "badge_type": "athena-gamification",
+  "badge_tier": "athena-gamification",
+  "badge_rarity": "athena-gamification",
+  "progress_status": "athena-gamification",
+  "difficulty_level": "athena-gamification",
+  "life_cycle_phase": "athena-gamification",
+  "timeline_event_type": "athena-gamification",
+  "scene_type": "athena-gamification",
+  "myth_type": "athena-gamification",
 
   // =====================================================
-  // MNEMOSYNE_ASSESSMENT (Assessment)
+  // mnemosyne-assessment (Assessment)
   // =====================================================
-  "acid_persona": "mnemosyne_assessment",
-  "acid_question_type": "mnemosyne_assessment",
-  "taxonomy_node_type": "mnemosyne_assessment",
-  "ontology_predicate": "mnemosyne_assessment",
-  "folksonomy_target_type": "mnemosyne_assessment",
-  "superposition_status": "mnemosyne_assessment",
-  "translatable_type": "mnemosyne_assessment",
+  "acid_persona": "mnemosyne-assessment",
+  "acid_question_type": "mnemosyne-assessment",
+  "taxonomy_node_type": "mnemosyne-assessment",
+  "ontology_predicate": "mnemosyne-assessment",
+  "folksonomy_target_type": "mnemosyne-assessment",
+  "superposition_status": "mnemosyne-assessment",
+  "translatable_type": "mnemosyne-assessment",
 
   // =====================================================
-  // THEMIS_GOVERNANCE (Governance)
+  // themis-governance (Governance)
   // =====================================================
-  "admin_log_category": "themis_governance",
-  "admin_log_target_type": "themis_governance",
-  "application_status": "themis_governance",
-  "application_type": "themis_governance",
-  "moderation_action_type": "themis_governance",
-  "moderation_target_type": "themis_governance",
-  "process_type": "themis_governance",
-  "report_type": "themis_governance",
-  "report_status": "themis_governance",
+  "admin_log_category": "themis-governance",
+  "admin_log_target_type": "themis-governance",
+  "application_status": "themis-governance",
+  "application_type": "themis-governance",
+  "moderation_action_type": "themis-governance",
+  "moderation_target_type": "themis-governance",
+  "process_type": "themis-governance",
+  "report_type": "themis-governance",
+  "report_status": "themis-governance",
 
   // =====================================================
-  // IRIS_COMMUNICATIONS (Communications)
+  // Iris-comMUNICATIONS (Communications)
   // =====================================================
-  "custom_category_type": "iris_communications",
-  "survey_audience_type": "iris_communications",
+  "custom_category_type": "Iris-communications",
+  "survey_audience_type": "Iris-communications",
 
   // =====================================================
-  // HEPHAESTUS_INFRASTRUCTURE (Infrastructure)
+  // hephaestus-infrastructure (Infrastructure)
   // =====================================================
-  "action_type": "hephaestus_infrastructure",
-  "target_type": "hephaestus_infrastructure",
-  "job_status": "hephaestus_infrastructure",
-  "job_type": "hephaestus_infrastructure",
-  "maintenance_status": "hephaestus_infrastructure",
-  "maintenance_type": "hephaestus_infrastructure",
-  "deployment_status": "hephaestus_infrastructure",
-  "delivery_status": "hephaestus_infrastructure",
-  "system_status": "hephaestus_infrastructure",
-  "system_type": "hephaestus_infrastructure",
-  "platform_status": "hephaestus_infrastructure",
-  "platform_environment": "hephaestus_infrastructure",
-  "webhook_status": "hephaestus_infrastructure",
-  "workflow_status": "hephaestus_infrastructure",
-  "calendar_event_type": "hephaestus_infrastructure",
-  "calendar_visibility": "hephaestus_infrastructure",
-  "campaign_status": "hephaestus_infrastructure",
-  "script_type": "hephaestus_infrastructure",
+  "action_type": "hephaestus-infrastructure",
+  "target_type": "hephaestus-infrastructure",
+  "job_status": "hephaestus-infrastructure",
+  "job_type": "hephaestus-infrastructure",
+  "maintenance_status": "hephaestus-infrastructure",
+  "maintenance_type": "hephaestus-infrastructure",
+  "deployment_status": "hephaestus-infrastructure",
+  "delivery_status": "hephaestus-infrastructure",
+  "system_status": "hephaestus-infrastructure",
+  "system_type": "hephaestus-infrastructure",
+  "platform_status": "hephaestus-infrastructure",
+  "platform_environment": "hephaestus-infrastructure",
+  "webhook_status": "hephaestus-infrastructure",
+  "workflow_status": "hephaestus-infrastructure",
+  "calendar_event_type": "hephaestus-infrastructure",
+  "calendar_visibility": "hephaestus-infrastructure",
+  "campaign_status": "hephaestus-infrastructure",
+  "script_type": "hephaestus-infrastructure",
 
   // =====================================================
-  // AETHELRED_CONNECTIONS (Connections)
+  // aethelred-connections (Connections)
   // =====================================================
-  "bridge_status": "aethelred_connections",
-  "supabase_status": "aethelred_connections",
+  "bridge_status": "aethelred-connections",
+  "supabase_status": "aethelred-connections",
 
 
   // =====================================================
   // DEFAULT FALLBACK
   // =====================================================
-  "default": "hestia_core"
+  "default": "hestia-core"
 };
 
 export function getEnumFolder(enumName: string): string {

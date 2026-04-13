@@ -104,7 +104,7 @@ export interface CollectionResult {
 // =====================================================
 
 export interface ObjectConfig {
-  deityGroup?: string;           // 'hestia_core', 'plutus_economics', etc.
+  deityGroup?: string;           // 'hestia-core', 'plutus-economics', etc.
   outputFolder?: string;         // Where to write the file
   skipGeneration?: boolean;      // Whether to skip this object
   customTemplate?: string;       // Optional custom template path

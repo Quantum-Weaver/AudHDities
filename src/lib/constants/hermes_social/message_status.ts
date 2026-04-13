@@ -1,0 +1,15 @@
+// =====================================================
+// FILE: constants/hermes_social/message_status.ts
+// GENERATED: 2026-04-13T01:15:57.357Z
+// SOURCE: Constants.public.Enums.message_status
+// VALUES: 4 entries
+// =====================================================
+
+export const MESSAGE_STATUS = {
+  SENT: 'sent',
+  DELIVERED: 'delivered',
+  READ: 'read',
+  DELETED: 'deleted',
+} as const;
+
+export type MessageStatus = typeof MESSAGE_STATUS[keyof typeof MESSAGE_STATUS];

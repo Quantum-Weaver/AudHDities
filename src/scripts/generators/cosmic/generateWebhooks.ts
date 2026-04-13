@@ -1,1 +1,0 @@
-/* @/scripts/generators/cosmic/generateWebhooks.ts */

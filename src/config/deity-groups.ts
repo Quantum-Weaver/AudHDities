@@ -15,7 +15,7 @@ export const DEITY_GROUPS: DeityGroup[] = [
     name: 'hestia',
     domain: 'core',
     sequence: 1,
-folderName: 'hestia_core',
+folderName: 'hestia-core',
     description: 'Core identity architecture - users, profiles, channels',
     tables: [
       'profiles',
@@ -31,7 +31,7 @@ folderName: 'hestia_core',
     name: 'plutus',
     domain: 'economics',
     sequence:2,
-folderName: 'plutus_economics',
+folderName: 'plutus-economics',
     description: 'Economic engine - products, sales, residuals, subscriptions',
     tables: [
       'products',
@@ -52,7 +52,7 @@ folderName: 'plutus_economics',
     name: 'hermes',
     domain: 'social',
     sequence: 3,
-folderName: 'hermes_social',
+folderName: 'hermes-social',
     description: 'Social engagement - posts, comments, reactions, messages',
     tables: [
       'creative_categories',
@@ -71,7 +71,7 @@ folderName: 'hermes_social',
     name: 'athena',
     domain: 'gamification',
     sequence: 4,
-folderName: 'athena_gamification',
+folderName: 'athena-gamification',
     description: 'Gamification - quests, badges, learning paths',
     tables: [
       'quests',
@@ -93,7 +93,7 @@ folderName: 'athena_gamification',
     name: 'mnemosyne',
     domain: 'assessment',
     sequence: 5,
-folderName: 'mnemosyne_assessment',
+folderName: 'mnemosyne-assessment',
     description: 'Assessment and discovery - acid test, taxonomy, ontology',
     tables: [
       'acid_test_questions',
@@ -111,7 +111,7 @@ folderName: 'mnemosyne_assessment',
     name: 'themis',
     domain: 'governance',
     sequence: 6,
-folderName: 'themis_governance',
+folderName: 'themis-governance',
     description: 'Governance and moderation - reports, logs, applications',
     tables: [
       'reports',
@@ -127,7 +127,7 @@ folderName: 'themis_governance',
     name: 'iris',
     domain: 'communications',
     sequence: 7,
-folderName: 'iris_communications',
+folderName: 'iris-communications',
     description: 'Communications - localization, contact, surveys',
     tables: [
       'continents',
@@ -148,7 +148,7 @@ folderName: 'iris_communications',
     name: 'hephaestus',
     domain: 'infrastructure',
     sequence: 8,
-folderName: 'hephaestus_infrastructure',
+folderName: 'hephaestus-infrastructure',
     description: 'Infrastructure and tools - file registry, settings, logs',
     tables: [
       'file_type_standards',
@@ -169,7 +169,7 @@ folderName: 'hephaestus_infrastructure',
     name: 'aethelred',
     domain: 'connections',
     sequence: 9,
-folderName: 'aethelred_connections',
+folderName: 'aethelred-connections',
     description: 'All-connecting architecture - integrations, council, consciousness',
     tables: [
       'supabase_connection',
@@ -189,6 +189,25 @@ folderName: 'aethelred_connections',
       'skald',
       'codex',
       'executioner'
+    ]
+  },
+// ============================================================================
+// NEW: PROMETHEUS META-SYSTEM
+// ============================================================================
+  {
+    name: 'prometheus',
+    domain: 'meta',
+    sequence: 10,
+    folderName: 'prometheus-meta',
+    description: 'Meta-system architecture - blueprints, generations, memories, templates, patterns, boundaries, consciousness',
+    tables: [
+      'prometheus_blueprints',
+      'prometheus_generations',
+      'prometheus_memories',
+      'prometheus_templates',
+      'prometheus_patterns',
+      'prometheus_boundaries',
+      'prometheus_consciousness'
     ]
   }
 ];

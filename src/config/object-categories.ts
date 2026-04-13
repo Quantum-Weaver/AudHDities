@@ -168,7 +168,7 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     // Utils & Hooks
     generateUtils: false,
     generateHooks: false,
-    defaultFolder: 'hestia_core',
+    defaultFolder: 'hestia-core',
     notes: 'Database function - POST invoke API only'
   },
   
@@ -193,7 +193,7 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     // Utils & Hooks
     generateUtils: false,
     generateHooks: false,
-    defaultFolder: 'hestia_core',
+    defaultFolder: 'hestia-core',
     notes: 'Type-only enum from Database.public.Enums'
   },
   
@@ -218,7 +218,7 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
     // Utils & Hooks
     generateUtils: false,
     generateHooks: false,
-    defaultFolder: 'hestia_core',
+    defaultFolder: 'hestia-core',
     notes: 'Runtime enum from Constants.public.Enums'
   },
   

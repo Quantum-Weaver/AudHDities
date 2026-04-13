@@ -129,7 +129,7 @@ const FUNCTION_CONFIG: WorkflowConfig = {
   generateApiPut: false,
   generateApiDelete: false,
   generateApiSpecial: ['invoke'],
-  defaultFolder: 'hestia_core'
+  defaultFolder: 'hestia-core'
 };
 
 const TYPE_ENUM_CONFIG: WorkflowConfig = {
@@ -148,7 +148,7 @@ const TYPE_ENUM_CONFIG: WorkflowConfig = {
   generateApiPut: false,
   generateApiDelete: false,
   generateApiSpecial: [],
-  defaultFolder: 'hestia_core'
+  defaultFolder: 'hestia-core'
 };
 
 const RUNTIME_ENUM_CONFIG: WorkflowConfig = {
@@ -167,7 +167,7 @@ const RUNTIME_ENUM_CONFIG: WorkflowConfig = {
   generateApiPut: false,
   generateApiDelete: false,
   generateApiSpecial: [],
-  defaultFolder: 'hestia_core'
+  defaultFolder: 'hestia-core'
 };
 
 // Table-specific configurations
