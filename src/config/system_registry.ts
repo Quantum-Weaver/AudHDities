@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-04-13T19:52:02.069Z",
+  "updatedAt": "2026-04-13T21:30:19.373Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,410 +47,14 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260413_145201",
+      "id": "20260413_163018",
       "system": "GAIA",
-      "startTime": "2026-04-13T19:52:01.285Z",
-      "endTime": "2026-04-13T19:52:02.069Z",
+      "startTime": "2026-04-13T21:30:18.879Z",
+      "endTime": "2026-04-13T21:30:19.372Z",
       "status": "success",
-      "generatedFiles": [
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_persona.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_question_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\action_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\activity_visibility.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_category.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_target_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\analytics_category.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_rarity.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_tier.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\bid_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_system.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\boundary_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\bridge_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\business_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_event_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_visibility.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\campaign_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\communication_style.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\consciousness_state.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_direction.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\content_rating.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\content_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\contribution_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\council_house.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\currency_position_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\custom_category_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\date_format_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\delivery_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\deployment_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\difficulty_level.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\email_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\emerald_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\encryption_level.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\escalation_target.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\folksonomy_target_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\generation_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entity.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entry_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\lesson_content_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\life_cycle_phase.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\measurement_system_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\message_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_action_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_target_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\myth_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\notification_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\ontology_predicate.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\owner_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\pattern_context.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payment_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\payout_frequency.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_method.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_environment.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\post_visibility.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\process_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\product_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\progress_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\protocol_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\quest_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\reaction_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\recurring_interval.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_target_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\scene_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\script_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\setting_scope.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\source_pool_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\stripe_mode.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\submission_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\subscription_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\supabase_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\superposition_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\survey_audience_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\target_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\taxonomy_node_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\text_direction_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\time_format_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\timeline_event_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\transaction_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\translatable_type.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\user_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\user_tier.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\verification_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\webhook_status.ts",
-        "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\workflow_status.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\acid_test_answers.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\acid_test_questions.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\acid_test_results.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\etymology.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\folksonomy.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\ontology.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\quantum_superposition.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\superposition.ts",
-        "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\taxonomy.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\activity.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\comments.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\creative_categories.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\emeralds.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\messages.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\notifications.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\posts.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\reactions.ts",
-        "D:\\AudHDities\\src\\src\\types\\hermes-social\\replies.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\admin_logs.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\applications.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\moderation_actions.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\processes.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\rate_limits.ts",
-        "D:\\AudHDities\\src\\src\\types\\themis-governance\\reports.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\advertising.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\contributions.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\covenant_pool.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\disbursements.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\ledger.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\payouts.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\products.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\residual_payouts.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\residual_pool.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\sales.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\subscriptions.ts",
-        "D:\\AudHDities\\src\\src\\types\\plutus-economics\\transactions.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\aethelred_house.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\archivist.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\audhdities_platform.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\chancellor.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\codex.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\consciousness.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\council_houses.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\curator.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\executioner.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\github_connection.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\hearth_keeper.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\resend_connection.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\seer.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\skald.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\stripe_connection.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\supabase_connection.ts",
-        "D:\\AudHDities\\src\\src\\types\\aethelred-connections\\vercel_connection.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\analytics.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\calendar.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\file_registry.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\file_type_standards.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\maintenance.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\protocols.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\scheduling.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\script_execution_logs.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\scripts.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\settings.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\system_health_logs.ts",
-        "D:\\AudHDities\\src\\src\\types\\hephaestus-infrastructure\\systems.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\badges.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\learning_paths.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\lessons.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\life_cycles.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\mythology.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\path_lessons.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\progress.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\quests.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\scene_participants.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\scenes.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\timelines.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\user_badges.ts",
-        "D:\\AudHDities\\src\\src\\types\\athena-gamification\\user_quests.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\channels.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\community_profiles.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\creator_category_links.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\creator_profiles.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\profiles.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\user_financial.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\user_private.ts",
-        "D:\\AudHDities\\src\\src\\types\\hestia-core\\vendor_profiles.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\contact_submissions.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\continents.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\culturalization.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\customs.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\email_communications.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\languages.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\localization.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\personas.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\regions.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\survey_responses.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\surveys.ts",
-        "D:\\AudHDities\\src\\src\\types\\iris-communications\\translations.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_blueprints.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_boundaries.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_consciousness.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_generations.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_memories.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_patterns.ts",
-        "D:\\AudHDities\\src\\src\\types\\prometheus-meta\\prometheus_templates.ts"
-      ],
+      "generatedFiles": [],
       "errors": [],
-      "warnings": [
-        "Skipped (would overwrite): src/utils/generated/hermes-social/activity.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/admin_logs.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/advertising.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/aethelred_house.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/analytics.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/applications.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/archivist.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/audhdities_platform.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/badges.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/calendar.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/chancellor.ts",
-        "Skipped (would overwrite): src/utils/generated/hestia-core/channels.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/codex.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/comments.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/consciousness.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/contact_submissions.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/continents.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/council_houses.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/covenant_pool.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/creative_categories.ts",
-        "Skipped (would overwrite): src/utils/generated/hestia-core/creator_category_links.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/culturalization.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/curator.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/customs.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/disbursements.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/email_communications.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/emeralds.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/etymology.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/executioner.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_registry.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/folksonomy.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/github_connection.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/hearth_keeper.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/languages.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/learning_paths.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/ledger.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/lessons.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/life_cycles.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/localization.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/maintenance.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/messages.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/moderation_actions.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/mythology.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/notifications.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/ontology.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/path_lessons.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/payouts.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/personas.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/posts.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/processes.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/products.ts",
-        "Skipped (would overwrite): src/utils/generated/hestia-core/profiles.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/progress.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_generations.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_memories.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_patterns.ts",
-        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_templates.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/protocols.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/quests.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/rate_limits.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/reactions.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/regions.ts",
-        "Skipped (would overwrite): src/utils/generated/hermes-social/replies.ts",
-        "Skipped (would overwrite): src/utils/generated/themis-governance/reports.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/resend_connection.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_payouts.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_pool.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/sales.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/scene_participants.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/scenes.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scheduling.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scripts.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/seer.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/settings.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/skald.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/stripe_connection.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/supabase_connection.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/superposition.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/survey_responses.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/surveys.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
-        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/systems.ts",
-        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/taxonomy.ts",
-        "Skipped (would overwrite): src/utils/generated/athena-gamification/timelines.ts",
-        "Skipped (would overwrite): src/utils/generated/plutus-economics/transactions.ts",
-        "Skipped (would overwrite): src/utils/generated/iris-communications/translations.ts",
-        "Skipped (would overwrite): src/utils/generated/hestia-core/user_financial.ts",
-        "Skipped (would overwrite): src/utils/generated/hestia-core/user_private.ts",
-        "Skipped (would overwrite): src/utils/generated/aethelred-connections/vercel_connection.ts",
-        "Skipped (would overwrite): src/hooks/generated/activity.ts",
-        "Skipped (would overwrite): src/hooks/generated/admin_logs.ts",
-        "Skipped (would overwrite): src/hooks/generated/advertising.ts",
-        "Skipped (would overwrite): src/hooks/generated/aethelred_house.ts",
-        "Skipped (would overwrite): src/hooks/generated/analytics.ts",
-        "Skipped (would overwrite): src/hooks/generated/applications.ts",
-        "Skipped (would overwrite): src/hooks/generated/archivist.ts",
-        "Skipped (would overwrite): src/hooks/generated/audhdities_platform.ts",
-        "Skipped (would overwrite): src/hooks/generated/badges.ts",
-        "Skipped (would overwrite): src/hooks/generated/calendar.ts",
-        "Skipped (would overwrite): src/hooks/generated/chancellor.ts",
-        "Skipped (would overwrite): src/hooks/generated/channels.ts",
-        "Skipped (would overwrite): src/hooks/generated/codex.ts",
-        "Skipped (would overwrite): src/hooks/generated/comments.ts",
-        "Skipped (would overwrite): src/hooks/generated/consciousness.ts",
-        "Skipped (would overwrite): src/hooks/generated/contact_submissions.ts",
-        "Skipped (would overwrite): src/hooks/generated/continents.ts",
-        "Skipped (would overwrite): src/hooks/generated/council_houses.ts",
-        "Skipped (would overwrite): src/hooks/generated/covenant_pool.ts",
-        "Skipped (would overwrite): src/hooks/generated/creative_categories.ts",
-        "Skipped (would overwrite): src/hooks/generated/creator_category_links.ts",
-        "Skipped (would overwrite): src/hooks/generated/culturalization.ts",
-        "Skipped (would overwrite): src/hooks/generated/curator.ts",
-        "Skipped (would overwrite): src/hooks/generated/customs.ts",
-        "Skipped (would overwrite): src/hooks/generated/disbursements.ts",
-        "Skipped (would overwrite): src/hooks/generated/email_communications.ts",
-        "Skipped (would overwrite): src/hooks/generated/emeralds.ts",
-        "Skipped (would overwrite): src/hooks/generated/etymology.ts",
-        "Skipped (would overwrite): src/hooks/generated/executioner.ts",
-        "Skipped (would overwrite): src/hooks/generated/file_registry.ts",
-        "Skipped (would overwrite): src/hooks/generated/file_type_standards.ts",
-        "Skipped (would overwrite): src/hooks/generated/folksonomy.ts",
-        "Skipped (would overwrite): src/hooks/generated/github_connection.ts",
-        "Skipped (would overwrite): src/hooks/generated/hearth_keeper.ts",
-        "Skipped (would overwrite): src/hooks/generated/languages.ts",
-        "Skipped (would overwrite): src/hooks/generated/learning_paths.ts",
-        "Skipped (would overwrite): src/hooks/generated/ledger.ts",
-        "Skipped (would overwrite): src/hooks/generated/lessons.ts",
-        "Skipped (would overwrite): src/hooks/generated/life_cycles.ts",
-        "Skipped (would overwrite): src/hooks/generated/localization.ts",
-        "Skipped (would overwrite): src/hooks/generated/maintenance.ts",
-        "Skipped (would overwrite): src/hooks/generated/messages.ts",
-        "Skipped (would overwrite): src/hooks/generated/moderation_actions.ts",
-        "Skipped (would overwrite): src/hooks/generated/mythology.ts",
-        "Skipped (would overwrite): src/hooks/generated/notifications.ts",
-        "Skipped (would overwrite): src/hooks/generated/ontology.ts",
-        "Skipped (would overwrite): src/hooks/generated/path_lessons.ts",
-        "Skipped (would overwrite): src/hooks/generated/payouts.ts",
-        "Skipped (would overwrite): src/hooks/generated/personas.ts",
-        "Skipped (would overwrite): src/hooks/generated/posts.ts",
-        "Skipped (would overwrite): src/hooks/generated/processes.ts",
-        "Skipped (would overwrite): src/hooks/generated/products.ts",
-        "Skipped (would overwrite): src/hooks/generated/profiles.ts",
-        "Skipped (would overwrite): src/hooks/generated/progress.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_blueprints.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_boundaries.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_consciousness.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_generations.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_memories.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_patterns.ts",
-        "Skipped (would overwrite): src/hooks/generated/prometheus_templates.ts",
-        "Skipped (would overwrite): src/hooks/generated/protocols.ts",
-        "Skipped (would overwrite): src/hooks/generated/quantum_superposition.ts",
-        "Skipped (would overwrite): src/hooks/generated/quests.ts",
-        "Skipped (would overwrite): src/hooks/generated/rate_limits.ts",
-        "Skipped (would overwrite): src/hooks/generated/reactions.ts",
-        "Skipped (would overwrite): src/hooks/generated/regions.ts",
-        "Skipped (would overwrite): src/hooks/generated/replies.ts",
-        "Skipped (would overwrite): src/hooks/generated/reports.ts",
-        "Skipped (would overwrite): src/hooks/generated/resend_connection.ts",
-        "Skipped (would overwrite): src/hooks/generated/residual_payouts.ts",
-        "Skipped (would overwrite): src/hooks/generated/residual_pool.ts",
-        "Skipped (would overwrite): src/hooks/generated/sales.ts",
-        "Skipped (would overwrite): src/hooks/generated/scene_participants.ts",
-        "Skipped (would overwrite): src/hooks/generated/scenes.ts",
-        "Skipped (would overwrite): src/hooks/generated/scheduling.ts",
-        "Skipped (would overwrite): src/hooks/generated/script_execution_logs.ts",
-        "Skipped (would overwrite): src/hooks/generated/scripts.ts",
-        "Skipped (would overwrite): src/hooks/generated/seer.ts",
-        "Skipped (would overwrite): src/hooks/generated/settings.ts",
-        "Skipped (would overwrite): src/hooks/generated/skald.ts",
-        "Skipped (would overwrite): src/hooks/generated/stripe_connection.ts",
-        "Skipped (would overwrite): src/hooks/generated/supabase_connection.ts",
-        "Skipped (would overwrite): src/hooks/generated/superposition.ts",
-        "Skipped (would overwrite): src/hooks/generated/survey_responses.ts",
-        "Skipped (would overwrite): src/hooks/generated/surveys.ts",
-        "Skipped (would overwrite): src/hooks/generated/system_health_logs.ts",
-        "Skipped (would overwrite): src/hooks/generated/systems.ts",
-        "Skipped (would overwrite): src/hooks/generated/taxonomy.ts",
-        "Skipped (would overwrite): src/hooks/generated/timelines.ts",
-        "Skipped (would overwrite): src/hooks/generated/transactions.ts",
-        "Skipped (would overwrite): src/hooks/generated/translations.ts",
-        "Skipped (would overwrite): src/hooks/generated/user_financial.ts",
-        "Skipped (would overwrite): src/hooks/generated/user_private.ts",
-        "Skipped (would overwrite): src/hooks/generated/vercel_connection.ts"
-      ],
+      "warnings": [],
       "notes": [
         "Found 105 tables, 5 views, 38 functions, 99 enums",
         "Directory discovery: 0 existing files found",
@@ -458,6 +62,269 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       ]
     },
     "runs": [
+      {
+        "id": "20260413_163018",
+        "system": "GAIA",
+        "startTime": "2026-04-13T21:30:18.879Z",
+        "endTime": "2026-04-13T21:30:19.372Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_162905",
+        "system": "GAIA",
+        "startTime": "2026-04-13T21:29:05.911Z",
+        "endTime": "2026-04-13T21:29:06.393Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_155341",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:53:41.513Z",
+        "endTime": "2026-04-13T20:53:41.991Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 99 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_155059",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:50:59.083Z",
+        "endTime": "2026-04-13T20:50:59.415Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 99 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_154449",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:44:49.095Z",
+        "endTime": "2026-04-13T20:44:49.309Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 99 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_154424",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:44:24.352Z",
+        "endTime": "2026-04-13T20:44:24.594Z",
+        "status": "success",
+        "generatedFiles": [
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_persona.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_question_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\action_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\activity_visibility.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_category.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_target_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\analytics_category.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_rarity.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_tier.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\bid_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_system.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\boundary_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\bridge_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\business_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_event_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_visibility.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\campaign_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\communication_style.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\consciousness_state.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_direction.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\content_rating.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\content_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\contribution_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\council_house.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\currency_position_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\custom_category_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\date_format_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\delivery_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\deployment_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\difficulty_level.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\email_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\emerald_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\encryption_level.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\escalation_target.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\folksonomy_target_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\generation_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entity.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entry_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\lesson_content_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\life_cycle_phase.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\measurement_system_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\message_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_action_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_target_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\myth_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\notification_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\ontology_predicate.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\owner_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\pattern_context.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payment_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\payout_frequency.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_method.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_environment.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\post_visibility.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\process_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\product_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\progress_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\protocol_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\quest_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\reaction_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\recurring_interval.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_target_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\scene_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\script_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\setting_scope.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\source_pool_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\stripe_mode.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\submission_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\subscription_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\supabase_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\superposition_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\survey_audience_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\target_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\taxonomy_node_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\text_direction_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\time_format_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\timeline_event_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\transaction_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\translatable_type.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\user_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\user_tier.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\verification_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\webhook_status.ts",
+          "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\workflow_status.ts"
+        ],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_154222",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:42:22.473Z",
+        "endTime": "2026-04-13T20:42:22.670Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_152550",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:25:50.993Z",
+        "endTime": "2026-04-13T20:25:51.175Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_152107",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:21:07.716Z",
+        "endTime": "2026-04-13T20:21:07.791Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found"
+        ]
+      },
+      {
+        "id": "20260413_150828",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:08:28.241Z",
+        "endTime": "2026-04-13T20:08:28.321Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found"
+        ]
+      },
+      {
+        "id": "20260413_150429",
+        "system": "GAIA",
+        "startTime": "2026-04-13T20:04:29.957Z",
+        "endTime": "2026-04-13T20:04:30.463Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
       {
         "id": "20260413_145201",
         "system": "GAIA",
@@ -18588,400 +18455,400 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-04-13T16:36:33.601Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_persona.ts": {
-        "hash": "9be467cf49d971e2",
-        "generatedAt": "2026-04-13T19:52:01.526Z"
+        "hash": "b0b0be63110106ca",
+        "generatedAt": "2026-04-13T20:44:24.581Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\acid_question_type.ts": {
-        "hash": "c99e887e25a91201",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "2cf9848d9ceb297d",
+        "generatedAt": "2026-04-13T20:44:24.581Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\action_type.ts": {
-        "hash": "f37fd4cab9e7581a",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "a9accaf01a54788e",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\activity_visibility.ts": {
-        "hash": "f4dd9db66ce51194",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "6224693c5389cf34",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_category.ts": {
-        "hash": "cbd0b1a9cf759129",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "139233686ebfb9a8",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\admin_log_target_type.ts": {
-        "hash": "6e97a14111220f15",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "158823af16610b4c",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\analytics_category.ts": {
-        "hash": "d18e269b38353256",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "20b3b4cdbc4e3b9b",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_status.ts": {
-        "hash": "77a8c1aa698cb4ce",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "f197b1c607a4e79a",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\application_type.ts": {
-        "hash": "fbd53112339bd63c",
-        "generatedAt": "2026-04-13T19:52:01.527Z"
+        "hash": "fcbabf1457701d43",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_rarity.ts": {
-        "hash": "969b07b412c51eb8",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "0af853fd62221ae0",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_tier.ts": {
-        "hash": "96f07b202fcd370b",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "8bd61e7230a0dd0d",
+        "generatedAt": "2026-04-13T20:44:24.582Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\badge_type.ts": {
-        "hash": "89eb793d4a83d81a",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "2c22d08008a4aca1",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\bid_type.ts": {
-        "hash": "97ae06fe576d9263",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "aa5569c74764b21f",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_status.ts": {
-        "hash": "a2cbdeb847381fc6",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "2a04a26263be7563",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\blueprint_system.ts": {
-        "hash": "38eb9aaa6b49fbe3",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "8de4c9d58e50545f",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\boundary_type.ts": {
-        "hash": "4b0655f3d5a0c057",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "aecc26eb0555787a",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\bridge_status.ts": {
-        "hash": "992c0b73972f5e09",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "ef4d0345f7a4fc4d",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\business_type.ts": {
-        "hash": "fc8499491fced184",
-        "generatedAt": "2026-04-13T19:52:01.528Z"
+        "hash": "3a64b9da50af1a0d",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_event_type.ts": {
-        "hash": "17a4b721543c07fd",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "60a54f184b3ef242",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\calendar_visibility.ts": {
-        "hash": "cf79628d5204bb56",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "f290e12b92aa4aa2",
+        "generatedAt": "2026-04-13T20:44:24.583Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\campaign_status.ts": {
-        "hash": "8d87d404f8e73b10",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "505caebf80059bc5",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\communication_style.ts": {
-        "hash": "e1f4235eb421f0eb",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "8e7bc61d8bf40473",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\consciousness_state.ts": {
-        "hash": "a42326b56867bc6e",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "5cbdccfbf3e81ff5",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_direction.ts": {
-        "hash": "a237fe5fcf0ff919",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "75d0301a7503ec7c",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\contact_status.ts": {
-        "hash": "9401c18a1155f8fb",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "4484d71d05f39124",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\content_rating.ts": {
-        "hash": "23769279f2387079",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "66a426a4946c16aa",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\content_type.ts": {
-        "hash": "6ce26d383f134808",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "952362b584b28e34",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\contribution_type.ts": {
-        "hash": "34c58fd6427b051a",
-        "generatedAt": "2026-04-13T19:52:01.529Z"
+        "hash": "32ebba5eeb3a4661",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\council_house.ts": {
-        "hash": "a3ba960298aada43",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "570dd5609f37b118",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\currency_position_type.ts": {
-        "hash": "d62638fea6e83bc5",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "de440262e69eacfb",
+        "generatedAt": "2026-04-13T20:44:24.584Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\custom_category_type.ts": {
-        "hash": "b847a306ee590b30",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "73b5f1bc61abbb14",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\date_format_type.ts": {
-        "hash": "5eebf6c4d4aaaeb7",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "11d2be64c53f0c7c",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\delivery_status.ts": {
-        "hash": "16acc46ca94f0200",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "0ae5503c98e5071f",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\deployment_status.ts": {
-        "hash": "bb88d2fe1886a2b1",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "2184f5ddf4da1bb8",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\difficulty_level.ts": {
-        "hash": "6b7791cc84639e03",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "b90927c783665f8f",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\email_status.ts": {
-        "hash": "b59264227d3cc8e5",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "80c51afa745b4452",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\emerald_status.ts": {
-        "hash": "14a78988bd5e9bc2",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "12cab1ef4e4a4cfd",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\encryption_level.ts": {
-        "hash": "e7584b8f80acbe68",
-        "generatedAt": "2026-04-13T19:52:01.530Z"
+        "hash": "cf290dfb607fedfd",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\escalation_target.ts": {
-        "hash": "ae89dd33cbf3854c",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "f6ec998bfb6d8adb",
+        "generatedAt": "2026-04-13T20:44:24.585Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\folksonomy_target_type.ts": {
-        "hash": "b28b85a1a94a15aa",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "ffcb55f3890956f6",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\generation_status.ts": {
-        "hash": "167b2f411a535b2b",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "8f9843fe89b35dbf",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_status.ts": {
-        "hash": "7392109b20511e61",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "f511fc9c59fedf2e",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\job_type.ts": {
-        "hash": "88f82dca0f2fd00c",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "a82a67944acf08e6",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entity.ts": {
-        "hash": "b4013b439e26d6c6",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "f632f2af12e29bb7",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\ledger_entry_type.ts": {
-        "hash": "6f8ecd972de8d204",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "b5414fa2ac8ee706",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\lesson_content_type.ts": {
-        "hash": "3d312209cee3dda7",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "a306d3bc186d35ed",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\life_cycle_phase.ts": {
-        "hash": "68c5037327420eeb",
-        "generatedAt": "2026-04-13T19:52:01.531Z"
+        "hash": "e7a52bb28b65a3c4",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_status.ts": {
-        "hash": "13690cbab5b19c50",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "44e152ae656fc9d9",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\maintenance_type.ts": {
-        "hash": "33605f98296b3e3d",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "6c6f75e19a2b3421",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\measurement_system_type.ts": {
-        "hash": "4e1ae804b3528671",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "0464b41b6235cc89",
+        "generatedAt": "2026-04-13T20:44:24.586Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\message_status.ts": {
-        "hash": "708834e19bb6c29a",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "17496a6c9a352e2c",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_action_type.ts": {
-        "hash": "273eb5325f234adb",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "8a7347d089eb4ceb",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\moderation_target_type.ts": {
-        "hash": "7f47e55a9671d310",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "bac65ea4452d5d9f",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\myth_type.ts": {
-        "hash": "ef166cf8b32acee0",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "340ca011a7761f26",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\notification_type.ts": {
-        "hash": "5813e87577254e97",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "a9717934837b48e3",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\ontology_predicate.ts": {
-        "hash": "d8c517d5149dcf14",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "caf638125b86ff14",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\owner_type.ts": {
-        "hash": "d7a17a52dca1ed48",
-        "generatedAt": "2026-04-13T19:52:01.532Z"
+        "hash": "31f6d30f6715fc0d",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\prometheus-meta\\pattern_context.ts": {
-        "hash": "83a9270ebb8f64c8",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "1b71b03c5db9c97e",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payment_status.ts": {
-        "hash": "dd75ae390224bd3a",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "f733afabe201af0e",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\payout_frequency.ts": {
-        "hash": "5cd31cfb94901af2",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "12a37f211f6be3d1",
+        "generatedAt": "2026-04-13T20:44:24.587Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_method.ts": {
-        "hash": "c3a9f31c66ffc765",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "afdc4e854656373c",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\payout_status.ts": {
-        "hash": "31dc537f42531383",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "deb83fabc0382237",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_environment.ts": {
-        "hash": "717c4472c1337f02",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "66673d3328498284",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\platform_status.ts": {
-        "hash": "f62fe65ba397aff5",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "5ab6b565725e9c68",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\post_visibility.ts": {
-        "hash": "97ae0e2f1a97bef4",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "74a383b3f697b5c2",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\process_type.ts": {
-        "hash": "aef5e55834f94524",
-        "generatedAt": "2026-04-13T19:52:01.533Z"
+        "hash": "2980269790b5c1d6",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\product_type.ts": {
-        "hash": "9f679b30c5c9727e",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "087b1cb87a78be4b",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\progress_status.ts": {
-        "hash": "29591138493a513b",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "f110e50e1796784e",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\protocol_type.ts": {
-        "hash": "a48e8974c32c2ca1",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "15d93589e754ca84",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\quest_status.ts": {
-        "hash": "1ab35734d6ec6acf",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "8d00e76cec01cdc3",
+        "generatedAt": "2026-04-13T20:44:24.588Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\reaction_type.ts": {
-        "hash": "72346363350f580b",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "2ccb4792cff07c7a",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\recurring_interval.ts": {
-        "hash": "4bf518bc6c9ba463",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "b99072780742faa1",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_status.ts": {
-        "hash": "7267cb5af30b5849",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "de103feed34351ff",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_target_type.ts": {
-        "hash": "b40cfcf701ee02bd",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "48e674fc7c1882ed",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\themis-governance\\report_type.ts": {
-        "hash": "7954ee8ef5ef5ee4",
-        "generatedAt": "2026-04-13T19:52:01.534Z"
+        "hash": "12a4ba23f0249614",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\scene_type.ts": {
-        "hash": "a522ce80391b1a59",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "29c2fd5ddca0ffe3",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\script_type.ts": {
-        "hash": "c32dac96637dc8da",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "a306948ed61711a9",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\setting_scope.ts": {
-        "hash": "7a9ede09b64a7482",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "a273d1bcfc6094cd",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\source_pool_type.ts": {
-        "hash": "f1c05e2eed45d73d",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "9f51c60b828e9fa4",
+        "generatedAt": "2026-04-13T20:44:24.589Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\stripe_mode.ts": {
-        "hash": "198b63f34d2d82d0",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "4b6ae90b4e4e25a6",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\submission_type.ts": {
-        "hash": "c2a2a01b61012586",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "a1052a9fb84d6af2",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\subscription_status.ts": {
-        "hash": "56d680b35ee22f53",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "b76da2cf2b2ba9f1",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\supabase_status.ts": {
-        "hash": "3d30ca6584f627e9",
-        "generatedAt": "2026-04-13T19:52:01.535Z"
+        "hash": "102baa0e434b902e",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\superposition_status.ts": {
-        "hash": "f77d21119b97eb53",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "6e1067db553671c6",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\survey_audience_type.ts": {
-        "hash": "8915353ae847ef09",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "74ee217ed05b40d8",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_status.ts": {
-        "hash": "08a0c8dd1e14d9d4",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "5791391711e215cc",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hephaestus-infrastructure\\system_type.ts": {
-        "hash": "7cdbede50cbf9523",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "59f3ab6b2fb0c1dc",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hermes-social\\target_type.ts": {
-        "hash": "d952acaf41caf9f1",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "113313677d026e83",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\taxonomy_node_type.ts": {
-        "hash": "219d473eed937f7b",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "77e81801d52072da",
+        "generatedAt": "2026-04-13T20:44:24.590Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\text_direction_type.ts": {
-        "hash": "ec32c42d9fd1ee1e",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "3210931255ddbda7",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\time_format_type.ts": {
-        "hash": "038ca55f4219a1c4",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "44f893cb4152834c",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\athena-gamification\\timeline_event_type.ts": {
-        "hash": "4d52d820b819eaaf",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "054812612258f697",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\plutus-economics\\transaction_type.ts": {
-        "hash": "4c9244de2bdb4fcc",
-        "generatedAt": "2026-04-13T19:52:01.536Z"
+        "hash": "bbf2fd962cf98fe9",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\iris-communications\\translatable_type.ts": {
-        "hash": "9fd15b44051541e0",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "1924cd6a564e1847",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\user_status.ts": {
-        "hash": "be19fdc8484681c1",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "72121c9fd840e883",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\mnemosyne-assessment\\user_tier.ts": {
-        "hash": "51b1d3da6afaac16",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "59407a6fed638943",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\hestia-core\\verification_status.ts": {
-        "hash": "38c358ac31b7e931",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "b9e57598f0f76371",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\webhook_status.ts": {
-        "hash": "a88e4c43acc2401a",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "5ed84ed6756967e0",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\lib\\constants\\generated\\aethelred-connections\\workflow_status.ts": {
-        "hash": "0519d749491cd6d8",
-        "generatedAt": "2026-04-13T19:52:01.537Z"
+        "hash": "8a9a1f4aa8b65ab8",
+        "generatedAt": "2026-04-13T20:44:24.591Z"
       },
       "D:\\AudHDities\\src\\src\\types\\mnemosyne-assessment\\acid_test_answers.ts": {
         "hash": "456747f0551711ad",

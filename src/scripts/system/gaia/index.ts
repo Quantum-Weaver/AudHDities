@@ -584,8 +584,8 @@ logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
     logInfo('  Analyzing dependencies...');
     try {
       const analyzeResult = await analyzeDependencies({
-        paths: ['src/types/generated', 'src/lib/constants/generated', 'src/lib/validators/generated', 
-                'src/utils/generated', 'src/app/api/generated', 'src/hooks/generated'],
+        paths: ['types/generated', 'lib/constants/generated', 'lib/validators/generated', 
+                'utils/generated', 'app/api/generated', 'hooks/generated'],
         recursive: true,
         maxDepth: 3,
         includeNodeModules: false,
