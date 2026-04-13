@@ -1,11 +1,11 @@
-/* @/app/layout.tsx */
+/* src/app/layout.tsx */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import '@/app/globals.css';
+import 'src/app/globals.css';
 
 // Shadcn UI components we'll use
-import { Toaster } from "@/components/ui/Sonner";
-import { TooltipProvider } from "@/components/ui/Tooltip";
+import { Toaster } from "src/components/ui/Sonner";
+import { TooltipProvider } from "src/components/ui/Tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

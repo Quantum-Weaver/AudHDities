@@ -1,4 +1,4 @@
-/* @/components/layout/Footer.tsx */
+/* src/components/layout/Footer.tsx */
 'use client';
 
 export const Footer = () => {

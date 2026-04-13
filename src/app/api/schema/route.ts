@@ -1,7 +1,7 @@
 // app/api/schema/route.ts
 import { NextResponse } from 'next/server';
 import { createServerSupabase } from 'src/lib/supabase/server';
-import { Database } from '@/types/supabase/database.types';
+import { Database } from 'src/types/supabase/database.types';
 
 export const dynamic = 'force-dynamic';
 

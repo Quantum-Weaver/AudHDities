@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateCssVariables.ts */
+/* src/scripts/generators/cosmic/generateCssVariables.ts */
 // ============================================================================
 // GENERATE CSS VARIABLES
 // ============================================================================
 // Purpose: Generate :root CSS custom properties from cosmic constants
 // Source Files: colors.ts, effects.ts, dimensions.ts
-// Output: @/styles/generated/variables.css
+// Output: src/styles/generated/variables.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

@@ -1894,7 +1894,7 @@ export const DEFAULT_BLUEPRINTS = {
  * @created 2026-04-12
  */
 
-import type { Template } from '@/scripts/system/prometheus/thesaurus';
+import type { Template } from 'src/scripts/system/prometheus/thesaurus';
 
 /**
  * Template registry
@@ -2007,7 +2007,7 @@ export const TEMPLATE_VARIATIONS = {
  * @created 2026-04-12
  */
 
-import type { PatternDefinition } from '@/scripts/system/prometheus/thesaurus';
+import type { PatternDefinition } from 'src/scripts/system/prometheus/thesaurus';
 
 /**
  * Pattern registry
@@ -2143,7 +2143,7 @@ export const PATTERN_VALIDATION = {
  * @created 2026-04-12
  */
 
-import type { BoundaryRule } from '@/scripts/system/prometheus/vetting';
+import type { BoundaryRule } from 'src/scripts/system/prometheus/vetting';
 import { ProtocolLevel } from 'src/lib/encryption';
 
 /**
@@ -2291,9 +2291,9 @@ export const APPROVAL_WORKFLOW = {
  * @created 2026-04-12
  */
 
-import { thesaurus } from '@/scripts/system/prometheus/thesaurus';
-import { keeper } from '@/scripts/system/prometheus/keeper';
-import { vetting } from '@/scripts/system/prometheus/vetting';
+import { thesaurus } from 'src/scripts/system/prometheus/thesaurus';
+import { keeper } from 'src/scripts/system/prometheus/keeper';
+import { vetting } from 'src/scripts/system/prometheus/vetting';
 
 import type { Blueprint, BlueprintFile, GenerationResult } from 'src/types/prometheus';
 

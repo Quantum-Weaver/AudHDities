@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateTextEffects.ts */
+/* src/scripts/generators/cosmic/generateTextEffects.ts */
 // ============================================================================
 // GENERATE TEXT EFFECTS
 // ============================================================================
 // Purpose: Generate CSS text effect classes from motion and color constants
 // Source Files: motion.ts, colors.ts (MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS)
-// Output: @/styles/generated/text-effects.css
+// Output: src/styles/generated/text-effects.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

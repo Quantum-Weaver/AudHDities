@@ -1,4 +1,4 @@
-/* @/components/ui/Spinner.tsx */
+/* src/components/ui/Spinner.tsx */
 "use client"
 import { cn } from "src/lib/utils"
 import { Loader2Icon } from "lucide-react"

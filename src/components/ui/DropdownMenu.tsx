@@ -1,4 +1,4 @@
-/* @/components/ui/DropdownMenu.tsx */
+/* src/components/ui/DropdownMenu.tsx */
 "use client"
 
 import * as React from "react"

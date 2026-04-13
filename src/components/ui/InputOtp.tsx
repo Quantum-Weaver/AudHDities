@@ -1,4 +1,4 @@
-/* @/components/ui/InputOtp.tsx */
+/* src/components/ui/InputOtp.tsx */
 "use client"
 
 import * as React from "react"

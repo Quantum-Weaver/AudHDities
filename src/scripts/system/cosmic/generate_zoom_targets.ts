@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateZoomTargets.ts */
+/* src/scripts/generators/cosmic/generateZoomTargets.ts */
 // ============================================================================
 // GENERATE ZOOM TARGETS
 // ============================================================================
 // Purpose: Generate CSS custom properties and classes for panorama zoom targets
 // Source Files: positioning.ts (ZOOM_TARGETS)
-// Output: @/styles/generated/zoom.css
+// Output: src/styles/generated/zoom.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

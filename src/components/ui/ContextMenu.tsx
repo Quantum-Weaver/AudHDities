@@ -1,4 +1,4 @@
-/* @/components/ui/ContextMenu.tsx */
+/* src/components/ui/ContextMenu.tsx */
 "use client"
 
 import * as React from "react"

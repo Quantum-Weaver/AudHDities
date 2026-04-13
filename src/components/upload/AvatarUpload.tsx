@@ -1,4 +1,4 @@
-/* @/components/ui/AvatarUpload.tsx */
+/* src/components/ui/AvatarUpload.tsx */
 'use client'
 
 import { useState, useRef } from 'react'

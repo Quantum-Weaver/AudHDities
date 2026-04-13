@@ -1,4 +1,4 @@
-/* @/components/ui/Calendar.tsx */
+/* src/components/ui/Calendar.tsx */
 "use client"
 
 import * as React from "react"
@@ -10,7 +10,7 @@ import {
 } from "react-day-picker"
 
 import { cn } from "src/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/Button"
+import { Button, buttonVariants } from "src/components/ui/Button"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
 function Calendar({

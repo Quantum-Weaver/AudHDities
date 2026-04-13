@@ -1,9 +1,9 @@
-/* @/scripts/modules/system/count_items.ts */
+/* src/scripts/modules/system/count_items.ts */
 // Phase 1: Count items inside a collection (Tables, Views, Functions, Enums)
 // Extracts item names and provides statistics
 
-import type { CollectionInfo } from '@/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logObjectSummary } from '@/scripts/shared/logger.js';
+import type { CollectionInfo } from 'src/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logObjectSummary } from 'src/scripts/shared/logger.js';
 
 export interface CountItemsOptions {
   verbose?: boolean;

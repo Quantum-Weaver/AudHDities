@@ -1,11 +1,11 @@
-/* @/components/profiles/ProfileHeader.tsx */
+/* src/components/profiles/ProfileHeader.tsx */
 'use client'
 
 import { useState } from 'react'
 import { useSupabase } from 'src/lib/supabase/client'
 import { useRouter } from 'next/navigation'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar'
-import { Button } from '@/components/ui/Button'
+import { Avatar, AvatarFallback, AvatarImage } from 'src/components/ui/Avatar'
+import { Button } from 'src/components/ui/Button'
 import { Camera, Edit2, Loader2 } from 'lucide-react'
 import RoleBadge from './RoleBadge'
 import HouseBadge from './HouseBadge'

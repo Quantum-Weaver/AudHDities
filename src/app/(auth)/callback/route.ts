@@ -1,4 +1,4 @@
-/* @/app/(auth)/callback/route.ts */
+/* src/app/(auth)/callback/route.ts */
 import { createServerSupabase } from 'src/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 

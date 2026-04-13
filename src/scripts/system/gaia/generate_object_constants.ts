@@ -1,11 +1,11 @@
-/* @/scripts/generators/cosmic/generateObjectConstants.ts */
+/* src/scripts/generators/cosmic/generateObjectConstants.ts */
 // Phase 10: Generate runtime enum constant files with staging
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import type { FormattedConstantContent, GenerationResult } from '@/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
+import type { FormattedConstantContent, GenerationResult } from 'src/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
 import { getDeityGroupForTable, getFolderNameForTable } from 'src/config/deity_groups.js';
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,4 +1,4 @@
-// @/scripts/modules/agenticMaintenance.ts
+// src/scripts/modules/agenticMaintenance.ts
 // ============================================================================
 // AGENTIC MAINTENANCE
 // ============================================================================

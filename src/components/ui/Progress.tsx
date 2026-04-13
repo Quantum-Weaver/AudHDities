@@ -1,4 +1,4 @@
-/* @/components/ui/Progress.tsx */
+/* src/components/ui/Progress.tsx */
 "use client"
 
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress"

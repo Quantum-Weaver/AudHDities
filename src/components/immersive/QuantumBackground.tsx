@@ -1,4 +1,4 @@
-/* @/components/immersive/ContinuityBeam.tsx */
+/* src/components/immersive/ContinuityBeam.tsx */
 'use client';
 import { motion } from 'framer-motion';
 import { AssetMapper, EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';

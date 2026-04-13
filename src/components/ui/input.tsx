@@ -1,4 +1,4 @@
-/* @/components/ui/Input.tsx */
+/* src/components/ui/Input.tsx */
 import * as React from "react";
 import { Input as InputPrimitive } from "@base-ui/react/input";
 

@@ -1,11 +1,11 @@
-/* @/scripts/generators/cosmic/generateTypographyClasses.ts */
-// @/scripts/generators/cosmic/generateTypographyClasses.ts
+/* src/scripts/generators/cosmic/generateTypographyClasses.ts */
+// src/scripts/generators/cosmic/generateTypographyClasses.ts
 // ============================================================================
 // GENERATE TYPOGRAPHY CLASSES
 // ============================================================================
 // Purpose: Generate CSS typography utility classes from typography constants
 // Source Files: typography.ts, dimensions.ts
-// Output: @/styles/generated/typography.css
+// Output: src/styles/generated/typography.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

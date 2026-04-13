@@ -1,4 +1,4 @@
-// @/scripts/system/gaia/formatUtils.ts
+// src/scripts/system/gaia/formatUtils.ts
 // ============================================================================
 // FORMAT UTILITIES (GAIA)
 // ============================================================================

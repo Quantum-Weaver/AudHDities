@@ -1,4 +1,4 @@
-/* @/components/ui/Direction.tsx */
+/* src/components/ui/Direction.tsx */
 "use client"
 
 export {

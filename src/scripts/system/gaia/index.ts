@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Read database.types.ts and generate all supporting files
 // Dependencies: All gaia generator modules
-// Output: @/*/generated/ files
+// Output: src/*/generated/ files
 // ============================================================================
 
 import * as fs from 'fs';

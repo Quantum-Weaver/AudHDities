@@ -1,4 +1,4 @@
-/* @/components/ui/Accordion.tsx */
+/* src/components/ui/Accordion.tsx */
 "use client"
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"

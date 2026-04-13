@@ -1,4 +1,4 @@
-/* @/components/ui/Alert.tsx */
+/* src/components/ui/Alert.tsx */
 "use client"
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"

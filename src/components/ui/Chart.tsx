@@ -1,4 +1,4 @@
-/* @/components/ui/Chart.tsx */
+/* src/components/ui/Chart.tsx */
 "use client"
 
 import * as React from "react"

@@ -1,4 +1,4 @@
-/* @/components/ui/Drawer.tsx */
+/* src/components/ui/Drawer.tsx */
 "use client"
 
 import * as React from "react"

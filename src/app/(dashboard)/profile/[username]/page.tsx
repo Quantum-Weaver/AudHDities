@@ -1,13 +1,13 @@
-/* @/app/(dashboard)/profile/[username]/page.tsx */
+/* src/app/(dashboard)/profile/[username]/page.tsx */
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from 'src/lib/supabase/client'
-import AuthGuard from '@/components/auth/AuthGuard'
-import ProfileHeader from '@/components/profiles/ProfileHeader'
-import ProfileTabs from '@/components/profiles/ProfileTabs'
-import RoleBadge from '@/components/profiles/RoleBadge'
-import HouseBadge from '@/components/profiles/HouseBadge'
-import SovereigntyScore from '@/components/profiles/SovereigntyScore'
+import AuthGuard from 'src/components/auth/AuthGuard'
+import ProfileHeader from 'src/components/profiles/ProfileHeader'
+import ProfileTabs from 'src/components/profiles/ProfileTabs'
+import RoleBadge from 'src/components/profiles/RoleBadge'
+import HouseBadge from 'src/components/profiles/HouseBadge'
+import SovereigntyScore from 'src/components/profiles/SovereigntyScore'
 
 export const metadata: Metadata = {
   title: 'Profile | AUDHDITIES',

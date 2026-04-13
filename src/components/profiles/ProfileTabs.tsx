@@ -1,7 +1,7 @@
-/* @/components/profiles/ProfileTabs.tsx */
+/* src/components/profiles/ProfileTabs.tsx */
 'use client'
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'src/components/ui/Tabs'
 import { Package, Info, Users, Heart } from 'lucide-react'
 
 interface ProfileTabsProps {

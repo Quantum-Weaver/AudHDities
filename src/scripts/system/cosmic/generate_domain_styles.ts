@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateDomainStyles.ts */
+/* src/scripts/generators/cosmic/generateDomainStyles.ts */
 // ============================================================================
 // GENERATE DOMAIN STYLES
 // ============================================================================
 // Purpose: Generate CSS classes for each domain (quantum, cosmic, pantheon, etc.)
 // Source Files: colors.ts (DOMAIN_COLORS)
-// Output: @/styles/generated/domains.css
+// Output: src/styles/generated/domains.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

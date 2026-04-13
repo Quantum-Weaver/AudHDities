@@ -1,4 +1,4 @@
-// @/scripts/shared/systemLogger.ts
+// src/scripts/shared/systemLogger.ts
 // ============================================================================
 // SYSTEM LOGGER - Shared logging for COSMIC and GAIA
 // ============================================================================

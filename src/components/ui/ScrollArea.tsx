@@ -1,4 +1,4 @@
-/* @/components/ui/ScrollArea.tsx */
+/* src/components/ui/ScrollArea.tsx */
 "use client"
 
 import * as React from "react"

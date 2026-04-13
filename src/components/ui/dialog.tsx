@@ -1,11 +1,11 @@
-/* @/components/ui/Dialog.tsx */
+/* src/components/ui/Dialog.tsx */
 "use client"
 
 import * as React from "react"
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 
 import { cn } from "src/lib/utils"
-import { Button } from "@/components/ui/Button"
+import { Button } from "src/components/ui/Button"
 import { XIcon } from "lucide-react"
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {

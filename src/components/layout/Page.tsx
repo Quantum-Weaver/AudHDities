@@ -1,7 +1,7 @@
-/* @/components/layout/Page.tsx */
+/* src/components/layout/Page.tsx */
 'use client';
 import React from 'react';
-import PanoramaViewer from '@/components/immersive/PanoramaViewer';
+import PanoramaViewer from 'src/components/immersive/PanoramaViewer';
 import { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
 
 interface PageProps {

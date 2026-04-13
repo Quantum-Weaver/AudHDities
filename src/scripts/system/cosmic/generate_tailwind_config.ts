@@ -1,4 +1,4 @@
-/* @/scripts/generators/cosmic/generateTailwindConfig.ts */
+/* src/scripts/generators/cosmic/generateTailwindConfig.ts */
 // ============================================================================
 // GENERATE TAILWIND CONFIG
 // ============================================================================

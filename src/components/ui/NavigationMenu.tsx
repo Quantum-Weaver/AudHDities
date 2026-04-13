@@ -1,4 +1,4 @@
-/* @/components/ui/NavigationMenu.tsx */
+/* src/components/ui/NavigationMenu.tsx */
 "use client"
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu"
 import { cva } from "class-variance-authority"

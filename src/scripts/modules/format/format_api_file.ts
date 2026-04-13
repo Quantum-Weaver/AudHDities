@@ -1,4 +1,4 @@
-/* @/scripts/modules/format/format_api_file.ts */
+/* src/scripts/modules/format/format_api_file.ts */
 // Generates individual API route content with import tracking
 
 import { toPascalCase } from './format_object_types.js';

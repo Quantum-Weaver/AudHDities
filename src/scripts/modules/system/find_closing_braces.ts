@@ -1,9 +1,9 @@
-/* @/scripts/modules/system/find_closing_braces.ts */
+/* src/scripts/modules/system/find_closing_braces.ts */
 // Phase 1: Find matching closing brace for a given opening brace position
 // Handles nested braces correctly
 
-import type { MarkerResult } from '@/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
+import type { MarkerResult } from 'src/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
 
 export interface FindClosingBraceOptions {
   verbose?: boolean;

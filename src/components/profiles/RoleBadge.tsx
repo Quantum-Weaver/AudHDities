@@ -1,5 +1,5 @@
-/* @/components/profiles/RoleBadge.tsx */
-import { Badge } from '@/components/ui/Badge'
+/* src/components/profiles/RoleBadge.tsx */
+import { Badge } from 'src/components/ui/Badge'
 
 interface RoleBadgeProps {
   isCreator?: boolean | null

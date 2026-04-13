@@ -1,4 +1,4 @@
-// @/components/schema/SchemaHero.tsx
+// src/components/schema/SchemaHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

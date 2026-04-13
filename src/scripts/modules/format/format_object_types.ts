@@ -1,9 +1,9 @@
-/* @/scripts/modules/format/format_object_types.ts */
+/* src/scripts/modules/format/format_object_types.ts */
 // Phase 3: Format an extracted table object into TypeScript type definitions
 // Extracts Row, Insert, Update types and generates derived interfaces
 
-import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
+import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from 'src/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
 import { getObjectCategory, type ObjectCategory } from 'src/config/object_categories.js';
 
 export interface FormatObjectTypesOptions {

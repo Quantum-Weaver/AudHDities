@@ -1,11 +1,11 @@
-/* @/components/layout/Header.tsx */
+/* src/components/layout/Header.tsx */
 'use client';
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import ContinuityBeam from '@/components/immersive/ContinuityBeam';
-import { HEADER_DATA } from '@/data/interfaces/header-data';
+import { useContinuityBeam } from 'src/contexts/ContinuityBeamContext';
+import ContinuityBeam from 'src/components/immersive/ContinuityBeam';
+import { HEADER_DATA } from 'src/data/interfaces/header-data';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {

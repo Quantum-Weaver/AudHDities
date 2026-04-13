@@ -1,4 +1,4 @@
-/* @/components/ui/index.ts */
+/* src/components/ui/index.ts */
 
 export * from "./Accordion";
 export * from "./Alert";

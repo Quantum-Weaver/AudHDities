@@ -350,7 +350,7 @@ No code. Only outline. Let me map the complete workflow.
 │  Step 8.1: Current component imports                                        │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  Components currently import from:                                    │    │
-│  │  - @/types/ (should be @/types/generated/{deity}/)                   │    │
+│  │  - src/types/ (should be src/types/generated/{deity}/)                   │    │
 │  │  - src/hooks/ (should be src/hooks/generated/{deity}/)                   │    │
 │  │  - src/lib/constants/ (should be src/lib/constants/generated/{deity}/)   │    │
 │  │  - src/lib/validators/ (should be src/lib/validators/generated/{deity}/) │    │
@@ -361,7 +361,7 @@ No code. Only outline. Let me map the complete workflow.
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │  Option A: Update all component imports manually                     │    │
 │  │  Option B: Create barrel exports at root level that re-export        │    │
-│  │            (e.g., @/types/profiles.ts re-exports from deity folder)  │    │
+│  │            (e.g., src/types/profiles.ts re-exports from deity folder)  │    │
 │  │  Option C: Generate components that already use correct paths        │    │
 │  │                                                                       │    │
 │  │  Recommendation: Option B for backward compatibility,                 │    │

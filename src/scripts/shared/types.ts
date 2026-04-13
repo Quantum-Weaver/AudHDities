@@ -1,4 +1,4 @@
-// @/scripts/shared/types.ts
+// src/scripts/shared/types.ts
 // Shared TypeScript interfaces for all parsing modules
 // Single source of truth for data structures
 

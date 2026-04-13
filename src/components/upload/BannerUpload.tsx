@@ -1,4 +1,4 @@
-/* @/components/ui/BannerUpload.tsx */
+/* src/components/ui/BannerUpload.tsx */
 'use client'
 
 import { useState, useRef } from 'react'

@@ -1,4 +1,4 @@
-/* @/components/ui/MenuBar.tsx */
+/* src/components/ui/MenuBar.tsx */
 "use client"
 
 import * as React from "react"
@@ -20,7 +20,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu"
+} from "src/components/ui/DropdownMenu"
 import { CheckIcon } from "lucide-react"
 
 function Menubar({ className, ...props }: MenubarPrimitive.Props) {

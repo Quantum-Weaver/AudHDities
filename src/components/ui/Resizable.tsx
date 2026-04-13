@@ -1,4 +1,4 @@
-/* @/components/ui/Resizable.tsx */
+/* src/components/ui/Resizable.tsx */
 "use client"
 
 import * as ResizablePrimitive from "react-resizable-panels"

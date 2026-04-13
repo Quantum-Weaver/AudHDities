@@ -1,4 +1,4 @@
-/* @/components/ui/Kbd.tsx */
+/* src/components/ui/Kbd.tsx */
 "use client"
 import { cn } from "src/lib/utils"
 

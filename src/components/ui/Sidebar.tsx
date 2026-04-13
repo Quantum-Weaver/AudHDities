@@ -1,4 +1,4 @@
-/* @/components/ui/Sidebar.tsx */
+/* src/components/ui/Sidebar.tsx */
 "use client"
 
 import * as React from "react";

@@ -1,4 +1,4 @@
-/* @/components/ui/AspectRatio.tsx */
+/* src/components/ui/AspectRatio.tsx */
 "use client"
 import { cn } from "src/lib/utils"
 

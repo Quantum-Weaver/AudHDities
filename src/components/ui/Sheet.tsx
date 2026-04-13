@@ -1,11 +1,11 @@
-/* @/components/ui/Sheet.tsx */
+/* src/components/ui/Sheet.tsx */
 "use client"
 
 import * as React from "react"
 import { Dialog as SheetPrimitive } from "@base-ui/react/dialog"
 
 import { cn } from "src/lib/utils"
-import { Button } from "@/components/ui/Button"
+import { Button } from "src/components/ui/Button"
 import { XIcon } from "lucide-react"
 
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {

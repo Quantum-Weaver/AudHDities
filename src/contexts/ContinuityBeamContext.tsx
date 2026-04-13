@@ -1,4 +1,4 @@
-/* @/contexts/ContinuityBeamContext.tsx */
+/* src/contexts/ContinuityBeamContext.tsx */
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';

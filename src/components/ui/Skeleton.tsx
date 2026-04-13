@@ -1,4 +1,4 @@
-/* @/components/ui/Skeleton.tsx */
+/* src/components/ui/Skeleton.tsx */
 "use client"
 import { cn } from "src/lib/utils"
 

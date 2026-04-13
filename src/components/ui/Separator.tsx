@@ -1,4 +1,4 @@
-/* @/components/ui/Separator.tsx */
+/* src/components/ui/Separator.tsx */
 "use client"
 
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator"

@@ -1,8 +1,8 @@
-/* @/components/immersive/ContinuityBeam.tsx */
+/* src/components/immersive/ContinuityBeam.tsx */
 'use client';
 
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { useContinuityBeam } from 'src/contexts/ContinuityBeamContext';
 import { getBeamAnimation } from 'src/lib/constants/components/immersive/continuity-beam';
 import { GLOW_EFFECTS } from 'src/lib/constants/cosmic/effects';
 import { cn } from 'src/lib/utils';

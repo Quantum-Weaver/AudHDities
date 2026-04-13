@@ -1,8 +1,8 @@
-/* @/components/ui/Pagination.tsx */
+/* src/components/ui/Pagination.tsx */
 import * as React from "react"
 
 import { cn } from "src/lib/utils"
-import { Button } from "@/components/ui/Button"
+import { Button } from "src/components/ui/Button"
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {

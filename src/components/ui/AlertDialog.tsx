@@ -1,11 +1,11 @@
-/* @/components/ui/AlertDialog.tsx */
+/* src/components/ui/AlertDialog.tsx */
 "use client"
 
 import * as React from "react"
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog"
 
 import { cn } from "src/lib/utils"
-import { Button } from "@/components/ui/Button"
+import { Button } from "src/components/ui/Button"
 
 function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />

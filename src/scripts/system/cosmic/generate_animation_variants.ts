@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateAnimationVariants.ts */
+/* src/scripts/generators/cosmic/generateAnimationVariants.ts */
 // ============================================================================
 // GENERATE ANIMATION VARIANTS
 // ============================================================================
 // Purpose: Generate CSS animation variant classes based on consciousness intensity
 // Source Files: consciousness.ts, motion.ts
-// Output: @/styles/generated/animations.css
+// Output: src/styles/generated/animations.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

@@ -1,5 +1,5 @@
-/* @/components/profiles/HouseBadge.tsx */
-import { Badge } from '@/components/ui/Badge'
+/* src/components/profiles/HouseBadge.tsx */
+import { Badge } from 'src/components/ui/Badge'
 
 const houseConfig: Record<string, { label: string; color: string; icon: string }> = {
   hearth_keeper: { label: 'Hearth-Keeper', color: 'from-orange-500 to-red-500', icon: '🔥' },

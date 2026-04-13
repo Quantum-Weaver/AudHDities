@@ -1,4 +1,4 @@
-/* @/components/ui/Empty.tsx */
+/* src/components/ui/Empty.tsx */
 "use client"
 import { cva, type VariantProps } from "class-variance-authority"
 

@@ -1,4 +1,4 @@
-/* @/components/ui/Tabs.tsx */
+/* src/components/ui/Tabs.tsx */
 "use client"
 
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"

@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateParallaxClasses.ts */
+/* src/scripts/generators/cosmic/generateParallaxClasses.ts */
 // ============================================================================
 // GENERATE PARALLAX CLASSES
 // ============================================================================
 // Purpose: Generate CSS classes for parallax layering
 // Source Files: positioning.ts (PARALLAX_LAYERS)
-// Output: @/styles/generated/parallax.css
+// Output: src/styles/generated/parallax.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';

@@ -1,4 +1,4 @@
-/* @/components/auth/AuthGuard.tsx */
+/* src/components/auth/AuthGuard.tsx */
 'use client'
 
 import { useEffect, useState } from 'react'

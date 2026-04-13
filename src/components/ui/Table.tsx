@@ -1,4 +1,4 @@
-/* @/components/ui/Table.tsx */
+/* src/components/ui/Table.tsx */
 "use client"
 
 import * as React from "react"

@@ -1,4 +1,4 @@
-/* @/components/profiles/index.ts */
+/* src/components/profiles/index.ts */
 // export * from './CommunityPreferences';
 export * from './HouseBadge';
 export * from './ProfileForm';

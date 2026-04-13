@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateConstants.ts */
+/* src/scripts/generators/cosmic/generateConstants.ts */
 // Phase 10: Write constant files to disk
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

@@ -1,4 +1,4 @@
-/* @/scripts/modules/analyze/analyze_dependencies.ts */
+/* src/scripts/modules/analyze/analyze_dependencies.ts */
 // ============================================================================
 // DEPENDENCY ANALYZER
 // ============================================================================

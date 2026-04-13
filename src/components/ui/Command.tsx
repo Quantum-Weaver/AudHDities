@@ -1,4 +1,4 @@
-/* @/components/ui/Command.tsx */
+/* src/components/ui/Command.tsx */
 "use client"
 
 import * as React from "react"
@@ -11,11 +11,11 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/Dialog"
+} from "src/components/ui/Dialog"
 import {
   InputGroup,
   InputGroupAddon,
-} from "@/components/ui/InputGroup"
+} from "src/components/ui/InputGroup"
 import { SearchIcon, CheckIcon } from "lucide-react"
 
 function Command({

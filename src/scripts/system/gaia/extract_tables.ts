@@ -1,4 +1,4 @@
-// @/scripts/system/gaia/extract_tables.ts
+// src/scripts/system/gaia/extract_tables.ts
 // ============================================================================
 // EXTRACT TABLES (GAIA)
 // ============================================================================

@@ -1,10 +1,10 @@
-/* @/scripts/modules/system/check_object_config.ts */
+/* src/scripts/modules/system/check_object_config.ts */
 
 // Phase 2: Check object configuration against deity_groups.ts
 // Determines output folder, deity group, and generation rules for each object
 
-import type { ObjectConfig, ConfigRules, ExtractedObject } from '@/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
+import type { ObjectConfig, ConfigRules, ExtractedObject } from 'src/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
 
 // Import the deity groups configuration
 import { 

@@ -1,4 +1,4 @@
-/* @/components/ui/Popover.tsx */
+/* src/components/ui/Popover.tsx */
 "use client"
 
 import * as React from "react"

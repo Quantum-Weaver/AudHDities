@@ -1,4 +1,4 @@
-/* @/components/ui/Switch.tsx */
+/* src/components/ui/Switch.tsx */
 "use client"
 
 import { Switch as SwitchPrimitive } from "@base-ui/react/switch"

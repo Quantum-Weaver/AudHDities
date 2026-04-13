@@ -1,4 +1,4 @@
-/* @/scripts/modules/generate/index.ts */
+/* src/scripts/modules/generate/index.ts */
 // Main entry point for all generation phases
 // Each phase is implemented in its own module for clarity and separation of concerns
 /*

@@ -1,4 +1,4 @@
-/* @/scripts/modules/assemble/assemble_api_file.ts */
+/* src/scripts/modules/assemble/assemble_api_file.ts */
 // Updated to include validator imports for single routes
 
 import { GeneratedRoute } from '../format/format_api_file.js';

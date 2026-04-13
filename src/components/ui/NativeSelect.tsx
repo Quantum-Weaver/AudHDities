@@ -1,4 +1,4 @@
-/* @/components/ui/NativeSelect.tsx */
+/* src/components/ui/NativeSelect.tsx */
 "use client"
 import * as React from "react"
 

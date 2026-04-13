@@ -1,4 +1,4 @@
-/* @/components/ui/InputGroup.tsx */
+/* src/components/ui/InputGroup.tsx */
 "use client"
 
 import * as React from "react";

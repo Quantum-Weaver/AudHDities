@@ -5,7 +5,7 @@
  * @created 2026-04-12
  */
 
-import type { Template } from '@/scripts/system/prometheus/thesaurus';
+import type { Template } from 'src/scripts/system/prometheus/thesaurus';
 
 /**
  * Template registry

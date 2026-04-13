@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateValidators.ts */
+/* src/scripts/generators/cosmic/generateValidators.ts */
 // Phase: Generate Zod validation schemas from table Row/Insert types
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
 import { stageFileChange } from '../../modules/system/staging.js';
 
 const __filename = fileURLToPath(import.meta.url);

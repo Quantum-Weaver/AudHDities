@@ -1,10 +1,10 @@
-/* @/scripts/generators/cosmic/generateApiRoutes.ts */
+/* src/scripts/generators/cosmic/generateApiRoutes.ts */
 // Phase: Generate API route files for tables based on workflow config
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
 import { stageFileChange } from '../../modules/system/staging.js';
 import {
   generateGetListRoute,
