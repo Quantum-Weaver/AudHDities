@@ -112,7 +112,7 @@ Before insert on sales, calculates platform fees and creator earnings.
 Generated types live at `src/types/supabase/database.types.ts`. Import them in your code:
 
 ```typescript
-import type { Database } from 'src/types/supabase/database.types'
+import type { Database } from '@/types/supabase/database.types'
 export type Product = Database['public']['Tables']['products']['Row']
 # 🏛️ Database Schema Documentation
 
@@ -228,5 +228,5 @@ Before insert on sales, calculates platform fees and creator earnings.
 Generated types live at `src/types/supabase/database.types.ts`. Import them in your code:
 
 ```typescript
-import type { Database } from 'src/types/supabase/database.types'
+import type { Database } from '@/types/supabase/database.types'
 export type Product = Database['public']['Tables']['products']['Row']

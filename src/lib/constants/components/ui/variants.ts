@@ -8,9 +8,9 @@
 import { 
   QUANTUM_COLORS,
   COUNCIL_COLORS
-} from 'src/lib/constants/cosmic/colors';
+} from '@/lib/constants/cosmic/colors';
 
-import { COUNCIL_GRADIENTS, GLOW_EFFECTS, SHADOWS, HOLOGRAPHIC_EFFECTS, BACKDROP_EFFECTS, EFFECTS, PARTICLE_BEHAVIOR, GRADIENTS } from 'src/lib/constants/cosmic/effects'
+import { COUNCIL_GRADIENTS, GLOW_EFFECTS, SHADOWS, HOLOGRAPHIC_EFFECTS, BACKDROP_EFFECTS, EFFECTS, PARTICLE_BEHAVIOR, GRADIENTS } from '@/lib/constants/cosmic/effects'
 
 
 import {
@@ -19,7 +19,7 @@ import {
   VESSEL_CONFIGS,
   ANIMATION_CONFIGS,
   PRESET_ANIMATIONS
-} from 'src/lib/constants/cosmic/motion';
+} from '@/lib/constants/cosmic/motion';
 
 import {
   SPACING_SCALE,
@@ -29,7 +29,7 @@ import {
   BORDER_RADII,
   CONTAINER_DIMENSIONS,
   QUANTUM_CONTEXT_RATIOS
-} from 'src/lib/constants/cosmic/dimensions';
+} from '@/lib/constants/cosmic/dimensions';
 
 import {
   FONT_FAMILIES,
@@ -38,7 +38,7 @@ import {
   LINE_HEIGHT_CLASSES,
   DOMAIN_TYPOGRAPHY,
   ENTITY_TYPOGRAPHY
-} from 'src/lib/constants/cosmic/typography';
+} from '@/lib/constants/cosmic/typography';
 import { VESSEL_CAPACITY_LEVELS } from '../../cosmic/consciousness';
 
 // ============================================================================

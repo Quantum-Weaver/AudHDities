@@ -2,8 +2,8 @@
 // Phase 1: Extract a single object from a collection (Tables, Views, Functions, Enums)
 // Returns the full object content with line numbers
 
-import type { ExtractedObject, ObjectType } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
+import type { ExtractedObject, ObjectType } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 
 export interface ExtractObjectOptions {
   verbose?: boolean;

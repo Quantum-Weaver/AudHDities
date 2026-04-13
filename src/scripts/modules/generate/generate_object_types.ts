@@ -5,8 +5,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import type { ExtractedObject, FormattedTypeContent, GenerationResult } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
+import type { ExtractedObject, FormattedTypeContent, GenerationResult } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

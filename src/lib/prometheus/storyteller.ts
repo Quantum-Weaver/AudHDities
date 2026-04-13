@@ -5,7 +5,7 @@
  * @created 2026-04-12
  */
 
-import { COSMICColors } from 'src/config/cosmic';
+import { COSMICColors } from '@/config/cosmic';
 
 /**
  * Storyteller - Generates narrative text for SAGA

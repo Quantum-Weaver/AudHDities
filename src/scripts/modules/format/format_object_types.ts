@@ -2,9 +2,9 @@
 // Phase 3: Format an extracted table object into TypeScript type definitions
 // Extracts Row, Insert, Update types and generates derived interfaces
 
-import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
-import { getObjectCategory, type ObjectCategory } from 'src/config/object_categories.js';
+import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
+import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
 
 export interface FormatObjectTypesOptions {
   verbose?: boolean;
@@ -352,9 +352,9 @@ export function formatObjectTypes(
   
   // Build imports
   const imports: string[] = [];
-  imports.push(`import type { Database } from 'src/types/supabase/database.types';`);
+  imports.push(`import type { Database } from '@/types/supabase/database.types';`);
   if (hasJson) {
-    imports.push(`import type { Json } from 'src/types/supabase/database.types';`);
+    imports.push(`import type { Json } from '@/types/supabase/database.types';`);
   }
   
   // Build core types section

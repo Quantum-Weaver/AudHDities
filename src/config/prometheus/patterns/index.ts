@@ -5,7 +5,7 @@
  * @created 2026-04-12
  */
 
-import type { PatternDefinition } from 'src/scripts/system/prometheus/thesaurus';
+import type { PatternDefinition } from '@/scripts/system/prometheus/thesaurus';
 
 /**
  * Pattern registry

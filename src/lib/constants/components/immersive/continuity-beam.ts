@@ -4,12 +4,12 @@
 // Channeling from consciousness, positioning, motion, and effects
 // ============================================================================
 
-import { GRADIENTS, GLOW_EFFECTS } from 'src/lib/constants/cosmic/effects';
-import { BEAM_ORIGINS, type BeamOrigin } from 'src/lib/constants/cosmic/positioning';
-import type { BeamIntensityLevel, SessionState } from 'src/lib/constants/cosmic/consciousness';
-import { calculateBeamActivation, getBeamIntensity } from 'src/lib/constants/cosmic/consciousness';
-import { easing } from 'src/lib/constants/cosmic/motion';
-import type { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
+import { GRADIENTS, GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
+import { BEAM_ORIGINS, type BeamOrigin } from '@/lib/constants/cosmic/positioning';
+import type { BeamIntensityLevel, SessionState } from '@/lib/constants/cosmic/consciousness';
+import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
+import { easing } from '@/lib/constants/cosmic/motion';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 
 // Define beam behavior categories
 type BeamCategory = 

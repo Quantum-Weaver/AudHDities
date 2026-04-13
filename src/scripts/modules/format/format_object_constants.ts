@@ -2,9 +2,9 @@
 // Phase 4: Format Constants.Enums section into constant objects
 // Uses deity_groups.ts config for folder mapping
 
-import type { FormattedConstantContent, ExtractedObject } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning } from 'src/scripts/shared/logger.js';
-import { DEITY_GROUPS } from 'src/config/deity_groups.js';
+import type { FormattedConstantContent, ExtractedObject } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
+import { DEITY_GROUPS } from '@/config/deity_groups.js';
 
 export interface FormatObjectConstantsOptions {
   verbose?: boolean;

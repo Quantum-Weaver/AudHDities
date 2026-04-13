@@ -3,7 +3,7 @@
 // QUANTUM BACKGROUND CONSTANTS - DIRECT ASSET MAPPER INTEGRATION
 // ============================================================================
 
-import { AssetMapper } from 'src/lib/constants/systems/assets/mapper';
+import { AssetMapper } from '@/lib/constants/systems/assets/mapper';
 
 // Simple background configuration using your AssetMapper directly
 export const BACKGROUND_ASSETS = {

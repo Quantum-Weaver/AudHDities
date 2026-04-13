@@ -5,7 +5,7 @@
  * @created 2026-04-12
  */
 
-import type { Blueprint } from 'src/types/prometheus-meta/prometheus_blueprints';
+import type { Blueprint } from '@/types/prometheus-meta/prometheus_blueprints';
 
 /**
  * Blueprint storage configuration

@@ -5,7 +5,7 @@
 // Controls continuity beam intensity, animation complexity, and immersive responses
 // ============================================================================
 
-import type { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 
 // ============================================================================
 // 1. CONSCIOUSNESS LEVELS - User's journey stage

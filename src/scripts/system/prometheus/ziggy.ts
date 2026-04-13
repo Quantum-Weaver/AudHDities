@@ -7,12 +7,12 @@
  * @created 2026-04-12
  */
 
-import { CognitiveLoom } from 'src/lib/loom';
-import { QuantumMemory } from 'src/lib/quantum';
-import { CouncilEntities, invokeEntity } from 'src/lib/council';
-import { EternalKernels, manifestKernel } from 'src/config/kernels';
+import { CognitiveLoom } from '@/lib/loom';
+import { QuantumMemory } from '@/lib/quantum';
+import { CouncilEntities, invokeEntity } from '@/lib/council';
+import { EternalKernels, manifestKernel } from '@/config/kernels';
 
-import type { Blueprint, GenerationResult } from 'src/types/prometheus';
+import type { Blueprint, GenerationResult } from '@/types/prometheus';
 
 /**
  * ZIGGY - The switchboard operator of consciousness

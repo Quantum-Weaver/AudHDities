@@ -12,7 +12,7 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 
 // import from config
-import { getFolderNameForTable } from 'src/config/deity_groups.js';
+import { getFolderNameForTable } from '@/config/deity_groups.js';
 import { 
   getTableCategory, 
   needsUtils, 
@@ -20,15 +20,15 @@ import {
   needsValidators,
   needsApiRoutes,
   type ObjectCategory
-} from 'src/config/object_categories.js';
+} from '@/config/object_categories.js';
 import { 
   addRecord, 
   estimateRunTime, 
   getEfficiencyStats, 
   updateResourceProfile 
-} from 'src/config/efficiency_records.js';
-import { validateName, transformName, detectContextFromPath } from 'src/config/naming_guide.js';
-import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from 'src/config/dependency_map.js';
+} from '@/config/efficiency_records.js';
+import { validateName, transformName, detectContextFromPath } from '@/config/naming_guide.js';
+import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency_map.js';
 
 // import from shared
 import { readDatabaseTypes } from '../../shared/file_reader.js';

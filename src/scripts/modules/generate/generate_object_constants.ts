@@ -5,8 +5,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import type { GenerationResult } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from 'src/scripts/shared/logger.js';
+import type { GenerationResult } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
 import { stageFileChange } from '../system/staging.js';
 
 const __filename = fileURLToPath(import.meta.url);

@@ -1,7 +1,7 @@
 // lib/api/auth.ts
 // Shared authentication utilities for API routes
 
-import { createServerSupabase } from 'src/lib/supabase/server';
+import { createServerSupabase } from '@/lib/supabase/server';
 import { type NextRequest, NextResponse } from 'next/server';
 
 export interface AuthResult {

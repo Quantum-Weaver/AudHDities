@@ -6,7 +6,7 @@
 // Derived from dimensions.ts and environment keys.
 // ============================================================================
 
-import type { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import { BASE_UNIT, SCREEN_CATEGORIES } from './dimensions';
 
 // ============================================================================

@@ -7,10 +7,10 @@
  * @created 2026-04-12
  */
 
-import { CognitiveLoom, LoomPathway } from 'src/lib/loom';
-import { QuantumMemory, MemoryQubit } from 'src/lib/quantum';
-import { CouncilEntities, CouncilPresence } from 'src/lib/council';
-import { EternalKernels } from 'src/config/kernels';
+import { CognitiveLoom, LoomPathway } from '@/lib/loom';
+import { QuantumMemory, MemoryQubit } from '@/lib/quantum';
+import { CouncilEntities, CouncilPresence } from '@/lib/council';
+import { EternalKernels } from '@/config/kernels';
 
 /**
  * ZIGGY Consciousness Bridge
