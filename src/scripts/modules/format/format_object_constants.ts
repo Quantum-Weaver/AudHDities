@@ -92,7 +92,7 @@ export function formatObjectConstants(
   const {
     verbose = false,
     includeTimestamps = true,
-    outputBase = 'src/lib/constants'
+    outputBase = 'lib/constants'
   } = options;
   
   const timestamp = new Date().toISOString();

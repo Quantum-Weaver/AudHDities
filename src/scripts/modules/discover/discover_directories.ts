@@ -32,16 +32,16 @@ export interface GenerationPaths {
 
 // Directories we NEVER touch (for exclusion)
 export const PROTECTED_DIRECTORIES: string[] = [
-  'src/lib/api',
-  'src/lib/prometheus',
-  'src/lib/stripe',
-  'src/lib/supabase',
-  'src/lib/ziggy',
-  'src/lib/utils',        // root utils (not generated/)
-  'src/types/stripe',
-  'src/types/supabase',
-  'src/styles',
-  'src/app/api'           // root API (not generated/)
+  'lib/api',
+  'lib/prometheus',
+  'lib/stripe',
+  'lib/supabase',
+  'lib/ziggy',
+  'lib/utils',        // root utils (not generated/)
+  'types/stripe',
+  'types/supabase',
+  'styles',
+  'app/api'           // root API (not generated/)
 ];
 
 export interface FileInfo {
@@ -115,12 +115,12 @@ export interface DiscoverDirectoriesOptions {
 
 // Default generation paths
 const DEFAULT_GENERATION_PATHS: GenerationPaths = {
-  constantsBase: 'src/lib/constants/generated',
-  typesBase: 'src/types/generated',
-  validatorsBase: 'src/lib/validators/generated',
-  utilsBase: 'src/utils/generated',
-  hooksBase: 'src/hooks/generated',
-  apiBase: 'src/app/api/generated'
+  constantsBase: 'lib/constants/generated',
+  typesBase: 'types/generated',
+  validatorsBase: 'lib/validators/generated',
+  utilsBase: 'utils/generated',
+  hooksBase: 'hooks/generated',
+  apiBase: 'app/api/generated'
 };
 
 // ============================================================================
