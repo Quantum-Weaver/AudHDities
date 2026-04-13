@@ -42,17 +42,17 @@ export const ENUM_FOLDER_MAPPING: Record<string, string> = {
   "submission_type": "plutus-economics",
 
   // =====================================================
-  // HERMES_SOCIAL (Social Engagement)
+  // hermes-social (Social Engagement)
   // =====================================================
-  "post_visibility": "hermes_social",
-  "content_type": "hermes_social",
-  "content_rating": "hermes_social",
-  "reaction_type": "hermes_social",
-  "notification_type": "hermes_social",
-  "emerald_status": "hermes_social",
-  "message_status": "hermes_social",
-  "activity_visibility": "hermes_social",
-  "report_target_type": "hermes_social",
+  "post_visibility": "hermes-social",
+  "content_type": "hermes-social",
+  "content_rating": "hermes-social",
+  "reaction_type": "hermes-social",
+  "notification_type": "hermes-social",
+  "emerald_status": "hermes-social",
+  "message_status": "hermes-social",
+  "activity_visibility": "hermes-social",
+  "report_target_type": "hermes-social",
 
   // =====================================================
   // athena-gAMIFICATION (Gamification)

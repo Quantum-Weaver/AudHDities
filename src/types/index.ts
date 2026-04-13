@@ -9,7 +9,7 @@ export * from './aethelred-connections';
 export * from './athena-gamification';
 export * from './components';
 export * from './hephaestus-infrastructure';
-export * from './hermes_social';
+export * from './hermes-social';
 export * from './hestia-core';
 export * from './Iris-communications';
 export * from './mnemosyne-assessment';

@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/content_type.ts
+// FILE: constants/hermes-social/content_type.ts
 // GENERATED: 2026-04-13T01:15:57.350Z
 // SOURCE: Constants.public.Enums.content_type
 // VALUES: 5 entries

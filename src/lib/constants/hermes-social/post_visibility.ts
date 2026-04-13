@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/post_visibility.ts
+// FILE: constants/hermes-social/post_visibility.ts
 // GENERATED: 2026-04-13T01:15:57.361Z
 // SOURCE: Constants.public.Enums.post_visibility
 // VALUES: 6 entries

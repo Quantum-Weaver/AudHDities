@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/report_target_type.ts
+// FILE: constants/hermes-social/report_target_type.ts
 // GENERATED: 2026-04-13T01:15:57.364Z
 // SOURCE: Constants.public.Enums.report_target_type
 // VALUES: 7 entries

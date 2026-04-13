@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/notification_type.ts
+// FILE: constants/hermes-social/notification_type.ts
 // GENERATED: 2026-04-13T01:15:57.358Z
 // SOURCE: Constants.public.Enums.notification_type
 // VALUES: 13 entries

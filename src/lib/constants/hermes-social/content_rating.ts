@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/content_rating.ts
+// FILE: constants/hermes-social/content_rating.ts
 // GENERATED: 2026-04-13T01:15:57.349Z
 // SOURCE: Constants.public.Enums.content_rating
 // VALUES: 4 entries

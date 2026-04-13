@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/reaction_type.ts
+// FILE: constants/hermes-social/reaction_type.ts
 // GENERATED: 2026-04-13T01:15:57.363Z
 // SOURCE: Constants.public.Enums.reaction_type
 // VALUES: 5 entries

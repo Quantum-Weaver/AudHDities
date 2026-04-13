@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/activity_visibility.ts
+// FILE: constants/hermes-social/activity_visibility.ts
 // GENERATED: 2026-04-13T01:15:57.343Z
 // SOURCE: Constants.public.Enums.activity_visibility
 // VALUES: 3 entries

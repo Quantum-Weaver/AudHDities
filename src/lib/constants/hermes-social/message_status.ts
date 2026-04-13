@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/message_status.ts
+// FILE: constants/hermes-social/message_status.ts
 // GENERATED: 2026-04-13T01:15:57.357Z
 // SOURCE: Constants.public.Enums.message_status
 // VALUES: 4 entries

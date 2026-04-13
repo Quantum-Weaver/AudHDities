@@ -57,7 +57,7 @@ export function getDeityGroupForEnum(enumName: string): { deityName: string; dom
     return { deityName: 'plutus', domain: 'economics', folderName: 'plutus-economics' };
   }
   if (enumName.includes('post') || enumName.includes('comment') || enumName.includes('emerald') || enumName.includes('notification')) {
-    return { deityName: 'hermes', domain: 'social', folderName: 'hermes_social' };
+    return { deityName: 'hermes', domain: 'social', folderName: 'hermes-social' };
   }
   if (enumName.includes('quest') || enumName.includes('badge') || enumName.includes('sovereignty')) {
     return { deityName: 'athena', domain: 'gamification', folderName: 'athena-gamification' };

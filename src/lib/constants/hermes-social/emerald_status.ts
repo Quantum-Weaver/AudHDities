@@ -1,5 +1,5 @@
 // =====================================================
-// FILE: constants/hermes_social/emerald_status.ts
+// FILE: constants/hermes-social/emerald_status.ts
 // GENERATED: 2026-04-13T01:15:57.354Z
 // SOURCE: Constants.public.Enums.emerald_status
 // VALUES: 3 entries
