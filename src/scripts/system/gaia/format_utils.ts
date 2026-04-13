@@ -7,7 +7,7 @@
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from 'src/config/object_categories.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatUtilsOptions {
@@ -53,10 +53,10 @@ function generateHeader(tableName: string, deityFolder: string): string {
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from 'src/types/generated/${deityFolder}/${tableName}.ts';
-import { ${toPascalCase(tableName)}InsertSchema, ${toPascalCase(tableName)}UpdateSchema } from 'src/lib/validators/generated/${tableName}.ts';
-import { createApiSupabase } from 'src/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from 'src/lib/api/auth';
+import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
+import { ${toPascalCase(tableName)}InsertSchema, ${toPascalCase(tableName)}UpdateSchema } from '@/lib/validators/generated/${tableName}.ts';
+import { createApiSupabase } from '@/lib/api/supabase';
+import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
 
 `;
 }
