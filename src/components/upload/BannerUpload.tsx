@@ -1,8 +1,8 @@
-/* src/components/ui/BannerUpload.tsx */
+/* @/components/ui/BannerUpload.tsx */
 'use client'
 
 import { useState, useRef } from 'react'
-import { useSupabase } from 'src/lib/supabase/client'
+import { useSupabase } from '@/lib/supabase/client'
 import { Button } from '../ui/Button'
 import { Camera, Loader2 } from 'lucide-react'
 
@@ -74,7 +74,7 @@ export default function BannerUpload({
     <div className="relative group h-48 w-full overflow-hidden rounded-t-xl">
       {displayImage ? (
         <img
-          @={displayImage}
+          src={displayImage}
           alt="Banner"
           className="h-full w-full object-cover"
         />

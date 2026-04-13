@@ -1,9 +1,9 @@
-/* src/components/ui/Switch.tsx */
+/* @/components/ui/Switch.tsx */
 "use client"
 
 import { Switch as SwitchPrimitive } from "@base-ui/react/switch"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Switch({
   className,

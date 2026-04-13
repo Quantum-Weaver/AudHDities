@@ -1,4 +1,4 @@
-/* src/components/ui/Sonner.tsx */
+/* @/components/ui/Sonner.tsx */
 "use client"
 
 import { useTheme } from "next-themes"

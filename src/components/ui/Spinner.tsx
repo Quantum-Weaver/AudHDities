@@ -1,6 +1,6 @@
-/* src/components/ui/Spinner.tsx */
+/* @/components/ui/Spinner.tsx */
 "use client"
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import { Loader2Icon } from "lucide-react"
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {

@@ -1,4 +1,4 @@
-// src/scripts/system/gaia/formatValidators.ts
+// @/scripts/system/gaia/formatValidators.ts
 // ============================================================================
 // FORMAT VALIDATORS (GAIA)
 // ============================================================================

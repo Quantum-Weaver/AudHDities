@@ -1,19 +1,19 @@
-/* src/scripts/generators/cosmic/generateCssVariables.ts */
+/* @/scripts/generators/cosmic/generateCssVariables.ts */
 // ============================================================================
 // GENERATE CSS VARIABLES
 // ============================================================================
 // Purpose: Generate :root CSS custom properties from cosmic constants
 // Source Files: colors.ts, effects.ts, dimensions.ts
-// Output: src/styles/generated/variables.css
+// Output: @/styles/generated/variables.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '../../shared/logger';
 
 // Import cosmic constants
-import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from 'src/lib/constants/cosmic/colors';
-import { GLOW_EFFECTS, SHADOWS, GRADIENTS } from 'src/lib/constants/cosmic/effects';
-import { SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS, BREAKPOINTS } from 'src/lib/constants/cosmic/dimensions';
+import { QUANTUM_COLORS, DOMAIN_COLORS, COUNCIL_COLORS, STATUS_COLORS, MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS } from '@/lib/constants/cosmic/colors';
+import { GLOW_EFFECTS, SHADOWS, GRADIENTS } from '@/lib/constants/cosmic/effects';
+import { SPACING_SCALE, BORDER_RADII, FONT_SIZES, LINE_HEIGHTS, BREAKPOINTS } from '@/lib/constants/cosmic/dimensions';
 import path from 'path';
 import fs from 'fs';
 // ============================================================================

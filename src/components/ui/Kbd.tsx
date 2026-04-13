@@ -1,6 +1,6 @@
-/* src/components/ui/Kbd.tsx */
+/* @/components/ui/Kbd.tsx */
 "use client"
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (

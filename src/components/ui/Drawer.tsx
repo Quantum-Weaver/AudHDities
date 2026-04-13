@@ -1,10 +1,10 @@
-/* src/components/ui/Drawer.tsx */
+/* @/components/ui/Drawer.tsx */
 "use client"
 
 import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Drawer({
   ...props

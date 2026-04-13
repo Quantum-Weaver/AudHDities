@@ -1,14 +1,14 @@
-/* src/components/auth/LoginForm.tsx */
+/* @/components/auth/LoginForm.tsx */
 'use client'
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useSupabase } from 'src/lib/supabase/client'
+import { useSupabase } from '@/lib/supabase/client'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
-import { Button } from 'src/components/ui/Button'
-import { Input } from 'src/components/ui/Input'
-import { Label } from 'src/components/ui/Label'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'src/components/ui/Card'
+import { Button } from '@/components/ui/Button'
+import { Input } from '@/components/ui/Input'
+import { Label } from '@/components/ui/Label'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
 
 export default function LoginForm() {
   const router = useRouter()

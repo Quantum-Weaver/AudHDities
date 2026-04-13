@@ -1,5 +1,5 @@
-/* src/components/profiles/SovereigntyScore.tsx */
-import { Progress } from 'src/components/ui/Progress'
+/* @/components/profiles/SovereigntyScore.tsx */
+import { Progress } from '@/components/ui/Progress'
 import { Star } from 'lucide-react'
 
 interface SovereigntyScoreProps {

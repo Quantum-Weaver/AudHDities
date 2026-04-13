@@ -1,4 +1,4 @@
-/* src/components/ui/Sidebar.tsx */
+/* @/components/ui/Sidebar.tsx */
 "use client"
 
 import * as React from "react";
@@ -7,7 +7,7 @@ import { useRender } from "@base-ui/react/use-render";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { useIsMobile } from "../../../phoenix/archive/core/useIsMobile";
-import { cn } from "src/lib/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Separator } from "./Separator";

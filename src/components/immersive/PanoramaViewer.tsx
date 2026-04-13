@@ -1,9 +1,9 @@
-/* src/components/immersive/PanoramaViewer.tsx */
+/* @/components/immersive/PanoramaViewer.tsx */
 'use client';
 import { useEffect } from 'react';
 import { QuantumBackground } from './QuantumBackground';
-import { useContinuityBeam } from 'src/contexts/ContinuityBeamContext';
-import { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
+import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 
 interface PanoramaViewerProps {
   environment: EnvironmentKey;

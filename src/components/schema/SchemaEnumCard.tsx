@@ -1,4 +1,4 @@
-// components/schema/SchemaEnumCard.tsx
+// @/components/schema/SchemaEnumCard.tsx
 'use client';
 
 import { useState } from 'react';

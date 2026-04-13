@@ -1,10 +1,10 @@
-/* src/scripts/generators/cosmic/generateZoomTargets.ts */
+/* @/scripts/generators/cosmic/generateZoomTargets.ts */
 // ============================================================================
 // GENERATE ZOOM TARGETS
 // ============================================================================
 // Purpose: Generate CSS custom properties and classes for panorama zoom targets
 // Source Files: positioning.ts (ZOOM_TARGETS)
-// Output: src/styles/generated/zoom.css
+// Output: @/styles/generated/zoom.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -13,8 +13,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { ZOOM_TARGETS, type ZoomTarget } from 'src/lib/constants/cosmic/positioning';
-import { durations, easing } from 'src/lib/constants/cosmic/motion';
+import { ZOOM_TARGETS, type ZoomTarget } from '@/lib/constants/cosmic/positioning';
+import { durations, easing } from '@/lib/constants/cosmic/motion';
 
 // ============================================================================
 // TYPE DEFINITIONS

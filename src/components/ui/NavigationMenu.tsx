@@ -1,9 +1,9 @@
-/* src/components/ui/NavigationMenu.tsx */
+/* @/components/ui/NavigationMenu.tsx */
 "use client"
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react/navigation-menu"
 import { cva } from "class-variance-authority"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import { ChevronDownIcon } from "lucide-react"
 
 function NavigationMenu({

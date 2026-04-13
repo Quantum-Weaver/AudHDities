@@ -1,21 +1,21 @@
-/* src/components/ui/Command.tsx */
+/* @/components/ui/Command.tsx */
 "use client"
 
 import * as React from "react"
 import { Command as CommandPrimitive } from "cmdk"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "src/components/ui/Dialog"
+} from "@/components/ui/Dialog"
 import {
   InputGroup,
   InputGroupAddon,
-} from "src/components/ui/InputGroup"
+} from "@/components/ui/InputGroup"
 import { SearchIcon, CheckIcon } from "lucide-react"
 
 function Command({

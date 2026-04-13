@@ -1,4 +1,4 @@
-// components/schema/SchemaExplorer.tsx
+// @/components/schema/SchemaExplorer.tsx
 'use client';
 
 import { useState, useEffect } from 'react';

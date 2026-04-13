@@ -1,12 +1,12 @@
-/* src/components/ui/Field.tsx */
+/* @/components/ui/Field.tsx */
 "use client"
 
 import { useMemo } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
-import { cn } from "src/lib/utils"
-import { Label } from "src/components/ui/Label"
-import { Separator } from "src/components/ui/Separator"
+import { cn } from "@/lib/utils"
+import { Label } from "@/components/ui/Label"
+import { Separator } from "@/components/ui/Separator"
 
 function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
   return (

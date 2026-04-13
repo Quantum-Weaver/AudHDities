@@ -1,4 +1,4 @@
-// src/config/deity_groups.ts
+// @/config/deity_groups.ts
 // Deity-based table grouping for the Sovereign Sanctuary
 
 export interface DeityGroup {

@@ -1,4 +1,4 @@
-/* src/components/ui/Collapsible.tsx */
+/* @/components/ui/Collapsible.tsx */
 "use client"
 
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible"

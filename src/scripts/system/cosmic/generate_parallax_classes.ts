@@ -1,10 +1,10 @@
-/* src/scripts/generators/cosmic/generateParallaxClasses.ts */
+/* @/scripts/generators/cosmic/generateParallaxClasses.ts */
 // ============================================================================
 // GENERATE PARALLAX CLASSES
 // ============================================================================
 // Purpose: Generate CSS classes for parallax layering
 // Source Files: positioning.ts (PARALLAX_LAYERS)
-// Output: src/styles/generated/parallax.css
+// Output: @/styles/generated/parallax.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -13,10 +13,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { PARALLAX_LAYERS, getParallaxFactor, type ParallaxLayer } from 'src/lib/constants/cosmic/positioning';
-import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
-import { durations, easing } from 'src/lib/constants/cosmic/motion';
-import { BREAKPOINTS } from 'src/lib/constants/cosmic/dimensions';
+import { PARALLAX_LAYERS, getParallaxFactor, type ParallaxLayer } from '@/lib/constants/cosmic/positioning';
+import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
+import { durations, easing } from '@/lib/constants/cosmic/motion';
+import { BREAKPOINTS } from '@/lib/constants/cosmic/dimensions';
 
 // ============================================================================
 // TYPE DEFINITIONS

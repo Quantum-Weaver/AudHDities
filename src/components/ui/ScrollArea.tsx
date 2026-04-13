@@ -1,10 +1,10 @@
-/* src/components/ui/ScrollArea.tsx */
+/* @/components/ui/ScrollArea.tsx */
 "use client"
 
 import * as React from "react"
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function ScrollArea({
   className,

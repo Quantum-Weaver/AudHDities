@@ -1,4 +1,4 @@
-// src/scripts/system/gaia/formatApiRoutes.ts
+// @/scripts/system/gaia/formatApiRoutes.ts
 // ============================================================================
 // FORMAT API ROUTES (GAIA)
 // ============================================================================

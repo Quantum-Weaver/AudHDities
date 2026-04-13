@@ -1,16 +1,16 @@
-/* src/components/profiles/ProfileForm.tsx */
+/* @/components/profiles/ProfileForm.tsx */
 'use client'
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabase } from 'src/lib/supabase/client'
+import { useSupabase } from '@/lib/supabase/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { Button } from 'src/components/ui/Button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from 'src/components/ui/Form'
-import { Input } from 'src/components/ui/Input'
-import { Textarea } from 'src/components/ui/Textarea'
+import { Button } from '@/components/ui/Button'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/Form'
+import { Input } from '@/components/ui/Input'
+import { Textarea } from '@/components/ui/Textarea'
 import { Loader2 } from 'lucide-react'
 
 // Schema matches ONLY what exists in profiles table

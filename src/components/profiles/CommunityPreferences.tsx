@@ -1,1 +1,1 @@
-/* src/components/profiles/CommunityPreferences.tsx */
+/* @/components/profiles/CommunityPreferences.tsx */

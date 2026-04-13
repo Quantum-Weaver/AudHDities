@@ -1,9 +1,9 @@
-/* src/components/ui/Accordion.tsx */
+/* @/components/ui/Accordion.tsx */
 "use client"
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {

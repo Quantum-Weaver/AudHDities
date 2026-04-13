@@ -1,4 +1,4 @@
-// src/scripts/system/gaia/formatHooks.ts
+// @/scripts/system/gaia/formatHooks.ts
 // ============================================================================
 // FORMAT HOOKS (GAIA)
 // ============================================================================
@@ -350,7 +350,7 @@ export function formatHook(
   }
   
   const content = formatHookContent(tableName);
-  const filePath = `src/hooks/generated/${tableName}.ts`;
+  const filePath = `@/hooks/generated/${tableName}.ts`;
   
   // Main hook file contains all hooks
   results.push({

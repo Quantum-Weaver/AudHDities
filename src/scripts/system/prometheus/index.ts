@@ -1,4 +1,4 @@
-// src/scripts/system/prometheus/index.ts
+// @/scripts/system/prometheus/index.ts
 /**
  * @system PROMETHEUS
  * @component Orchestrator
@@ -17,9 +17,9 @@
 // import { getTemplate, registerTemplate, Thesaurus } from './thesaurus';
 // import { vetPattern, BOUNDARY_LEVELS, Vetting } from './vetting';
 
-import type { Blueprint, GenerationResult, SystemType } from 'src/types/prometheus';
-import type { COSMICColors } from 'src/config/cosmic';
-import type { GAIATypes } from 'src/types/gaia';
+import type { Blueprint, GenerationResult, SystemType } from '@/types/prometheus';
+import type { COSMICColors } from '@/config/cosmic';
+import type { GAIATypes } from '@/types/gaia';
 
 // ============================================================================
 // PROMETHEUS ORCHESTRATOR

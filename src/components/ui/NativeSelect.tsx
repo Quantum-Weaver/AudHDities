@@ -1,8 +1,8 @@
-/* src/components/ui/NativeSelect.tsx */
+/* @/components/ui/NativeSelect.tsx */
 "use client"
 import * as React from "react"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import { ChevronDownIcon } from "lucide-react"
 
 type NativeSelectProps = Omit<React.ComponentProps<"select">, "size"> & {

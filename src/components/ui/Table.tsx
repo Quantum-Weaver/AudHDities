@@ -1,9 +1,9 @@
-/* src/components/ui/Table.tsx */
+/* @/components/ui/Table.tsx */
 "use client"
 
 import * as React from "react"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (

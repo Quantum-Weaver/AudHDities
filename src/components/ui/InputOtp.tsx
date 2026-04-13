@@ -1,10 +1,10 @@
-/* src/components/ui/InputOtp.tsx */
+/* @/components/ui/InputOtp.tsx */
 "use client"
 
 import * as React from "react"
 import { OTPInput, OTPInputContext } from "input-otp"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 import { MinusIcon } from "lucide-react"
 
 function InputOTP({

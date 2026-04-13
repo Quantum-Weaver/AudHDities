@@ -1,9 +1,9 @@
-/* src/scripts/modules/system/object_checklist */
+/* @/scripts/modules/system/object_checklist */
 // Phase 2: Track progress of each object through the generation pipeline
 // Provides status tracking, error collection, and reporting
 
-import type { ChecklistProgress, ExtractedObject, ObjectType } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logProgress } from 'src/scripts/shared/logger.js';
+import type { ChecklistProgress, ExtractedObject, ObjectType } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logProgress } from '@/scripts/shared/logger.js';
 
 export interface ObjectCheckListOptions {
   verbose?: boolean;

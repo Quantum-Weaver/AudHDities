@@ -1,11 +1,11 @@
-// src/scripts/modules/agenticMaintenance.ts
+// @/scripts/modules/agenticMaintenance.ts
 // ============================================================================
 // AGENTIC MAINTENANCE
 // ============================================================================
 
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DependencyMap, DependencyNode } from 'src/config/dependency_map.js';
+import type { DependencyMap, DependencyNode } from '@/config/dependency_map.js';
 import type { SystemRegistryFile, RunRecord } from '../shared/system_logger.js';
 import { logSuccess, logError, logInfo, logWarning, logDebug } from '../shared/logger.js';
 
@@ -203,7 +203,7 @@ export function detectOrphanedFiles(registry: SystemRegistryFile, dependencyMap:
   for (const [filePath] of Object.entries(section.files)) {
     // Check if source table still exists
     const tableName = path.basename(filePath, '.ts');
-    const sourceExists = dependencyMap.nodes[`src/types/${tableName}.ts`] !== undefined;
+    const sourceExists = dependencyMap.nodes[`@/types/${tableName}.ts`] !== undefined;
     
     if (!sourceExists) {
       orphanedFiles.push(filePath);

@@ -1,4 +1,4 @@
-/* src/components/ui/Carousel.tsx */
+/* @/components/ui/Carousel.tsx */
 "use client"
 
 import * as React from "react"
@@ -6,8 +6,8 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
 
-import { cn } from "src/lib/utils"
-import { Button } from "src/components/ui/Button"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/Button"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 type CarouselApi = UseEmblaCarouselType[1]

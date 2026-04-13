@@ -1,4 +1,4 @@
-/* src/scripts/modules/format/index.ts */
+/* @/scripts/modules/format/index.ts */
 // Centralized export for all format-related modules
 // Provides a single entry point for importing formatting functionalities
 export * from './format_api_file.js';

@@ -1,9 +1,9 @@
-/* src/components/ui/Progress.tsx */
+/* @/components/ui/Progress.tsx */
 "use client"
 
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Progress({
   className,

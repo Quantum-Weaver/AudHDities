@@ -1,4 +1,4 @@
-/* src/scripts/generators/cosmic/generateConstants.ts */
+/* @/scripts/generators/cosmic/generateConstants.ts */
 // Phase 10: Write constant files to disk
 
 import * as fs from 'fs';

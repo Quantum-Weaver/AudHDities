@@ -1,11 +1,11 @@
-/* src/components/immersive/ContinuityBeam.tsx */
+/* @/components/immersive/ContinuityBeam.tsx */
 'use client';
 
 import { motion, type HTMLMotionProps } from 'framer-motion';
-import { useContinuityBeam } from 'src/contexts/ContinuityBeamContext';
-import { getBeamAnimation } from 'src/lib/constants/components/immersive/continuity-beam';
-import { GLOW_EFFECTS } from 'src/lib/constants/cosmic/effects';
-import { cn } from 'src/lib/utils';
+import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { getBeamAnimation } from '@/lib/constants/components/immersive/continuity-beam';
+import { GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
+import { cn } from '@/lib/utils';
 
 interface ContinuityBeamProps extends HTMLMotionProps<'div'> {
   /** Override beam intensity (0-1) - overrides the calculated intensity */

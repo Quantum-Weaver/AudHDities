@@ -1,4 +1,4 @@
-/* src/components/ui/Form.ts */
+/* @/components/ui/Form.ts */
 'use client'
 
 import * as React from 'react'
@@ -13,7 +13,7 @@ import {
   useFormContext,
 } from 'react-hook-form'
 
-import { cn } from 'src/lib/utils'
+import { cn } from '@/lib/utils'
 import { Label } from './Label'
 
 const Form = FormProvider

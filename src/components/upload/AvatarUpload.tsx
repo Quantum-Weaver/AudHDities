@@ -1,8 +1,8 @@
-/* src/components/ui/AvatarUpload.tsx */
+/* @/components/ui/AvatarUpload.tsx */
 'use client'
 
 import { useState, useRef } from 'react'
-import { useSupabase } from 'src/lib/supabase/client'
+import { useSupabase } from '@/lib/supabase/client'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/Avatar'
 import { Button } from '../ui/Button'
 import { Camera, Loader2 } from 'lucide-react'
@@ -87,7 +87,7 @@ export default function AvatarUpload({
   return (
     <div className="relative group">
       <Avatar className={`${sizeClasses[size]} border-2 border-white/20`}>
-        <AvatarImage @={displayImage || undefined} />
+        <AvatarImage src={displayImage || undefined} />
         <AvatarFallback className="bg-cyan-600 text-white">
           {initials}
         </AvatarFallback>

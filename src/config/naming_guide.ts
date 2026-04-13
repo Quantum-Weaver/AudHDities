@@ -1,4 +1,4 @@
-// src/config/naming_guide.ts
+// @/config/naming_guide.ts
 // ============================================================================
 // REALITY NAMING CONVENTION GUIDE - SINGLE SOURCE OF TRUTH
 // ============================================================================

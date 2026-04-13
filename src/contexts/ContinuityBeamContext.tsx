@@ -1,11 +1,11 @@
-/* src/contexts/ContinuityBeamContext.tsx */
+/* @/contexts/ContinuityBeamContext.tsx */
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import type { EnvironmentKey } from 'src/lib/constants/systems/assets/mapper';
-import type { SessionState, BeamActivationState } from 'src/lib/constants/cosmic/consciousness';
-import { calculateBeamActivation, getBeamIntensity } from 'src/lib/constants/cosmic/consciousness';
-import { getBeamConfig, type BeamConfig } from 'src/lib/constants/components/immersive/continuity-beam';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
+import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
+import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity-beam';
 
 interface ContinuityBeamContextValue {
   /** Current beam configuration (colors, intensity, direction) */

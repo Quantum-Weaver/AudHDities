@@ -1,4 +1,4 @@
-// components/schema/SchemaFunctionCard.tsx
+// @/components/schema/SchemaFunctionCard.tsx
 'use client';
 
 import { useState } from 'react';

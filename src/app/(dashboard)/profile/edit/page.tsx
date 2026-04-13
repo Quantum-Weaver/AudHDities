@@ -1,13 +1,13 @@
-/* src/app/(dashboard)/profile/edit/page.tsx */
+/* @/app/(dashboard)/profile/edit/page.tsx */
 'use client'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabase } from 'src/lib/supabase/client'
-import AuthGuard from 'src/components/auth/AuthGuard'
-import AvatarUpload from 'src/components/upload/AvatarUpload'
-import BannerUpload from 'src/components/upload/BannerUpload'
-import ProfileForm from 'src/components/profiles/ProfileForm'
+import { useSupabase } from '@/lib/supabase/client'
+import AuthGuard from '@/components/auth/AuthGuard'
+import AvatarUpload from '@/components/upload/AvatarUpload'
+import BannerUpload from '@/components/upload/BannerUpload'
+import ProfileForm from '@/components/profiles/ProfileForm'
 import { Loader2 } from 'lucide-react'
 
 export default function EditProfilePage() {

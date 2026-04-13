@@ -1,7 +1,7 @@
-/* src/scripts/modules/system/approve_staged.ts */
+/* @/scripts/modules/system/approve_staged.ts */
 
 import { approveAllStagedFiles, listStagedFiles } from './staging.js';
-import { logHeader, logError, logSuccess, logInfo, logSeparator } from 'src/scripts/shared/logger.js';
+import { logHeader, logError, logSuccess, logInfo, logSeparator } from '@/scripts/shared/logger.js';
 
 async function main() {
   console.log('\n');

@@ -9,9 +9,9 @@
 
 import localforage from 'localforage';
 import { logGeneration } from './chronicle';
-import { EncryptionLevel, encryptIfNeeded } from 'src/lib/encryption';
+import { EncryptionLevel, encryptIfNeeded } from '@/lib/encryption';
 
-import type { Blueprint, GenerationResult } from 'src/types/prometheus';
+import type { Blueprint, GenerationResult } from '@/types/prometheus';
 
 /**
  * MNEME - The mother of muses, memory of all generations

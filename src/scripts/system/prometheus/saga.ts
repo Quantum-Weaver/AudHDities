@@ -6,11 +6,11 @@
  * @created 2026-04-12
  */
 
-import { Storyteller, NarrativeTone } from 'src/lib/prometheus/storyteller';
-import { COSMICColors, COSMICEffects } from 'src/config/cosmic';
+import { Storyteller, NarrativeTone } from '@/lib/prometheus/storyteller';
+import { COSMICColors, COSMICEffects } from '@/config/cosmic';
 import { ziggy } from './ziggy';
 
-import type { Blueprint, GenerationResult } from 'src/types/prometheus';
+import type { Blueprint, GenerationResult } from '@/types/prometheus';
 
 /**
  * SAGA - The narrator of the generation journey

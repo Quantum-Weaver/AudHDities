@@ -1,10 +1,10 @@
-/* src/components/ui/InputGroup.tsx */
+/* @/components/ui/InputGroup.tsx */
 "use client"
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "src/lib/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";

@@ -1,11 +1,11 @@
-/* src/scripts/generators/cosmic/generateTypographyClasses.ts */
-// src/scripts/generators/cosmic/generateTypographyClasses.ts
+/* @/scripts/generators/cosmic/generateTypographyClasses.ts */
+// @/scripts/generators/cosmic/generateTypographyClasses.ts
 // ============================================================================
 // GENERATE TYPOGRAPHY CLASSES
 // ============================================================================
 // Purpose: Generate CSS typography utility classes from typography constants
 // Source Files: typography.ts, dimensions.ts
-// Output: src/styles/generated/typography.css
+// Output: @/styles/generated/typography.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -29,10 +29,10 @@ import {
   TYPE_SCALES,
   BUSINESS_TYPOGRAPHY,
   composeTypographyClasses
-} from 'src/lib/constants/cosmic/typography';
+} from '@/lib/constants/cosmic/typography';
 
-import { BREAKPOINTS, FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS } from 'src/lib/constants/cosmic/dimensions';
-import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
+import { BREAKPOINTS, FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS } from '@/lib/constants/cosmic/dimensions';
+import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS

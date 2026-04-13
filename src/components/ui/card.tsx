@@ -1,8 +1,8 @@
-/* src/components/ui/Card.tsx */
+/* @/components/ui/Card.tsx */
 "use client"
 import * as React from "react"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Card({
   className,

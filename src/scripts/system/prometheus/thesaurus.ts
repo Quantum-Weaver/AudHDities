@@ -6,10 +6,10 @@
  * @created 2026-04-12
  */
 
-import { templates } from 'src/config/prometheus/templates';
-import { namingGuide } from 'src/config/naming_guide';
+import { templates } from '@/config/prometheus/templates';
+import { namingGuide } from '@/config/naming_guide';
 
-import type { BlueprintFile } from 'src/types/prometheus';
+import type { BlueprintFile } from '@/types/prometheus';
 
 /**
  * THESAURUS - The treasury of all generation patterns

@@ -1,10 +1,10 @@
-/* src/scripts/generators/cosmic/generateTextEffects.ts */
+/* @/scripts/generators/cosmic/generateTextEffects.ts */
 // ============================================================================
 // GENERATE TEXT EFFECTS
 // ============================================================================
 // Purpose: Generate CSS text effect classes from motion and color constants
 // Source Files: motion.ts, colors.ts (MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS)
-// Output: src/styles/generated/text-effects.css
+// Output: @/styles/generated/text-effects.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -13,8 +13,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { keyframes, durations, easing } from 'src/lib/constants/cosmic/motion';
-import { MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS, QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
+import { keyframes, durations, easing } from '@/lib/constants/cosmic/motion';
+import { MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS, QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS

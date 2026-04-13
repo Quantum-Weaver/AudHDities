@@ -1,9 +1,9 @@
-/* src/components/ui/HoverCard.tsx */
+/* @/components/ui/HoverCard.tsx */
 "use client"
 
 import { PreviewCard as PreviewCardPrimitive } from "@base-ui/react/preview-card"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function HoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {
   return <PreviewCardPrimitive.Root data-slot="hover-card" {...props} />

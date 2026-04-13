@@ -1,10 +1,10 @@
-/* src/scripts/generators/cosmic/generateAnimationVariants.ts */
+/* @/scripts/generators/cosmic/generateAnimationVariants.ts */
 // ============================================================================
 // GENERATE ANIMATION VARIANTS
 // ============================================================================
 // Purpose: Generate CSS animation variant classes based on consciousness intensity
 // Source Files: consciousness.ts, motion.ts
-// Output: src/styles/generated/animations.css
+// Output: @/styles/generated/animations.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -13,9 +13,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Import cosmic constants
-import { durations, easing, keyframes, tailwindAnimations } from 'src/lib/constants/cosmic/motion';
-import { CONSCIOUSNESS_LEVELS, TIER_TO_BEAM_INTENSITY, CONSCIOUSNESS_TO_BEAM_INTENSITY } from 'src/lib/constants/cosmic/consciousness';
-import { QUANTUM_COLORS } from 'src/lib/constants/cosmic/colors';
+import { durations, easing, keyframes, tailwindAnimations } from '@/lib/constants/cosmic/motion';
+import { CONSCIOUSNESS_LEVELS, TIER_TO_BEAM_INTENSITY, CONSCIOUSNESS_TO_BEAM_INTENSITY } from '@/lib/constants/cosmic/consciousness';
+import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 
 // ============================================================================
 // TYPE DEFINITIONS

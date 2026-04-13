@@ -1,7 +1,7 @@
-/* src/app/page.tsx */
+/* @/app/page.tsx */
 import Link from "next/link";
-import { Button } from "src/components/ui/Button";
-import { Card } from "src/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { Sparkles, Heart, Shield, ArrowRight } from "lucide-react";
 
 export default function HomePage() {

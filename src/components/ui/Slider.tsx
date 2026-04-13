@@ -1,10 +1,10 @@
-/* src/components/ui/Slider.tsx */
+/* @/components/ui/Slider.tsx */
 "use client"
 
 import * as React from "react"
 import { Slider as SliderPrimitive } from "@base-ui/react/slider"
 
-import { cn } from "src/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Slider({
   className,

@@ -1,9 +1,9 @@
-/* src/scripts/modules/system/find_markers.ts */
+/* @/scripts/modules/system/find_markers.ts */
 // Phase 1: Find all key line markers in the parsed file
 // Uses the lines array from fileReader.ts (already decoded from UTF-16 LE)
 
-import type { MarkerResult } from 'src/scripts/shared/types.js';
-import { logSuccess, logError, logInfo, logDebug } from 'src/scripts/shared/logger.js';
+import type { MarkerResult } from '@/scripts/shared/types.js';
+import { logSuccess, logError, logInfo, logDebug } from '@/scripts/shared/logger.js';
 
 export interface FindMarkersOptions {
   verbose?: boolean;

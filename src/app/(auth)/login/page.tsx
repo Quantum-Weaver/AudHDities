@@ -1,8 +1,8 @@
-/* src/app/(auth)/login/page.tsx */
+/* @/app/(auth)/login/page.tsx */
 import { Metadata } from 'next'
 import Link from 'next/link'
-import LoginForm from 'src/components/auth/LoginForm'
-import AuthGuard from 'src/components/auth/AuthGuard'
+import LoginForm from '@/components/auth/LoginForm'
+import AuthGuard from '@/components/auth/AuthGuard'
 
 export const metadata: Metadata = {
   title: 'Login | AUDHDITIES',
