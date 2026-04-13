@@ -6,8 +6,8 @@
 // =====================================================
 
 export const TIME_FORMAT_TYPE = {
-  12H: '12h',
-  24H: '24h',
+  '12H': '12h',
+  '24H': '24h',
 } as const;
 
 export type TimeFormatType = typeof TIME_FORMAT_TYPE[keyof typeof TIME_FORMAT_TYPE];

@@ -2,11 +2,11 @@
  * @system PROMETHEUS
  * @component KEEPER
  * @purpose Standards guardian - enforces naming guide and file structure
- * @dependencies naming-guide, project-structure
+ * @dependencies naming_guide, project-structure
  * @created 2026-04-12
  */
 
-import { namingGuide, validatePath } from '@/config/naming-guide';
+import { namingGuide, validatePath } from '@/config/naming_guide';
 import { projectStructure } from '@/config/project-structure';
 
 import type { BlueprintFile } from '@/types/prometheus';
@@ -24,7 +24,7 @@ export class Keeper {
     this.namingRules = new Map();
     this.structureRules = new Map();
     this.allowedPatterns = new Set();
-    // TODO: Load rules from naming-guide.ts
+    // TODO: Load rules from naming_guide.ts
     // TODO: Load structure from project-structure config
     // TODO: Register pattern-specific validation rules
   }

@@ -39,10 +39,10 @@ export interface PublicUserFinancial {
   created_at: string | null;
   created_by: string | null;
   crypto_addresses: Json | null;
-  default_payout_method:;
+  default_payout_method: PayoutMethod | null;
   id: string;
   minimum_payout: number | null;
-  payout_frequency:;
+  payout_frequency: PayoutFrequency | null  ;
   paypal_email: string | null;
   residual_pledge_percent: number | null;
   updated_at: string | null;

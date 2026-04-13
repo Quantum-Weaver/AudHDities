@@ -1,6 +1,6 @@
 /* src/scripts/modules/system/checkObjectConfig.ts */
 
-// Phase 2: Check object configuration against deity-groups.ts
+// Phase 2: Check object configuration against deity_groups.ts
 // Determines output folder, deity group, and generation rules for each object
 
 import type { ObjectConfig, ConfigRules, ExtractedObject } from '@/scripts/shared/types.js';
@@ -14,7 +14,7 @@ import {
   getAllTableNames,
   getTablesWithoutGroup,
   type DeityGroup 
-} from '@/config/deity-groups.js';
+} from '@/config/deity_groups.js';
 
 export interface CheckObjectConfigOptions {
   verbose?: boolean;

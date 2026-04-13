@@ -115,12 +115,12 @@ export const prometheus = new PrometheusOrchestrator();
  * @system PROMETHEUS
  * @component ORACLE
  * @purpose Reads and validates blueprint format - the keeper of generation wisdom
- * @dependencies validator (lib), naming-guide, gaia patterns
+ * @dependencies validator (lib), naming_guide, gaia patterns
  * @created 2026-04-12
  */
 
 import { validate as validateJson } from '@/lib/prometheus/validator';
-import { namingGuide } from '@/config/naming-guide';
+import { namingGuide } from '@/config/naming_guide';
 import { GAIA_PATTERNS } from '@/config/gaia/patterns';
 
 import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from '@/types/prometheus';
@@ -650,11 +650,11 @@ export { ziggy as Ziggy };
  * @system PROMETHEUS
  * @component KEEPER
  * @purpose Standards guardian - enforces naming guide and file structure
- * @dependencies naming-guide, project-structure
+ * @dependencies naming_guide, project-structure
  * @created 2026-04-12
  */
 
-import { namingGuide, validatePath } from '@/config/naming-guide';
+import { namingGuide, validatePath } from '@/config/naming_guide';
 import { projectStructure } from '@/config/project-structure';
 
 import type { BlueprintFile } from '@/types/prometheus';
@@ -672,7 +672,7 @@ export class Keeper {
     this.namingRules = new Map();
     this.structureRules = new Map();
     this.allowedPatterns = new Set();
-    // TODO: Load rules from naming-guide.ts
+    // TODO: Load rules from naming_guide.ts
     // TODO: Load structure from project-structure config
     // TODO: Register pattern-specific validation rules
   }
@@ -1137,7 +1137,7 @@ export const saga = new Saga();
  */
 
 import { templates } from '@/config/prometheus/templates';
-import { namingGuide } from '@/config/naming-guide';
+import { namingGuide } from '@/config/naming_guide';
 
 import type { BlueprintFile } from '@/types/prometheus';
 

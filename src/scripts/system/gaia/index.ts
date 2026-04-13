@@ -1,4 +1,4 @@
-// src/scripts/system/gaia.ts
+// src/scripts/system/gaia/index.ts
 // ============================================================================
 // GAIA - DATABASE TYPE GENERATOR
 // ============================================================================
@@ -12,18 +12,18 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 
 // import from config
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
-import { getWorkflowConfig } from '@/config/workflow-config.js';
-import { getEnumFolder } from '@/config/enum-mapping.js';
-import { getTableHandlingLevel, ObjectCategory, getTableCategory } from '@/config/object-categories.js';
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
+import { getWorkflowConfig } from '@/config/workflow_config.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
+import { getTableHandlingLevel, ObjectCategory, getTableCategory } from '@/config/object_categories.js';
 import { 
   addRecord, 
   estimateRunTime, 
   getEfficiencyStats, 
   updateResourceProfile 
-} from '@/config/efficiency-records';
-import { validateName, transformName, detectContextFromPath } from '@/config/naming-guide.js';
-import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency-map.js';
+} from '@/config/efficiency_records.js';
+import { validateName, transformName, detectContextFromPath } from '@/config/naming_guide.js';
+import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency_map.js';
 
 // import from shared
 import { readDatabaseTypes } from '../../shared/file_reader.js';
@@ -35,7 +35,7 @@ import {
 
 //import from modules
 import { analyzeDependencies } from '../../modules/analyze/analyze_dependencies.js';
-import { findMarkers } from '../../modules/extract/find_ markers.js';
+import { findMarkers } from '../../modules/extract/find_markers.js';
 import { findAllClosingBraces } from '../../modules/extract/find_closing_braces.js';
 import { countAllCollections } from '../../modules/discover/count_items.js';
 
@@ -261,9 +261,9 @@ logInfo('Phase 3/9: Generating constants...');
 
 // Function to determine deity folder for an enum
 function getEnumDeityFolder(enumName: string): string {
-  // First try to get from enum-mapping config
+  // First try to get from enum_mapping config
   try {
-    const { getEnumFolder } = require('@/config/enum-mapping.js');
+    const { getEnumFolder } = require('@/config/enum_mapping.js');
     return getEnumFolder(enumName);
   } catch {
     // Fallback to hestia-core
@@ -409,7 +409,7 @@ function getTableDeityFolder(tableName: string): string {
 
 // Function to get category for a table
 function getTableCategory(tableName: string): ObjectCategory {
-  const { getTableCategory } = require('@/config/object-categories.js');
+  const { getTableCategory } = require('@/config/object_categories.js');
   return getTableCategory(tableName);
 }
 

@@ -1,4 +1,4 @@
-## /quantum/library/index/naming-guide.md
+## /quantum/library/index/naming_guide.md
 # 📚 **REALITY NAMING CONVENTION GUIDE**
 
 ## 🎯 **QUICK DECISION FLOWCHART**
@@ -320,5 +320,5 @@ DEFAULT_OUTPUT_DIR = 'data/scans/'
 ---
 
 **Last Updated**: Current Reality Architecture  
-**Location**: `src/config/naming-guide.md`  
+**Location**: `src/config/naming_guide.md`  
 **Purpose**: Single source of truth for naming across all Reality components

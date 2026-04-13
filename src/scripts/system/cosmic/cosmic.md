@@ -490,7 +490,7 @@ Here is the redrafted Jarnathon Protocol Blueprint for the Quantum Pagan Framewo
 
 ## ⚙️ **LAYER 7: SYSTEM (Orchestration)**
 
-### **File: `system/type.ts`**
+### **File: `system/gaia/index.ts`**
 **Purpose:** Type System Orchestrator
 
 **Requirements:**
@@ -499,7 +499,7 @@ Here is the redrafted Jarnathon Protocol Blueprint for the Quantum Pagan Framewo
 - Manages Type memory
 - Reports Type generation status
 
-### **File: `system/cosmic.ts`**
+### **File: `system/cosmic/index.ts`**
 **Purpose:** Cosmic/Style System Orchestrator
 
 **Requirements:**

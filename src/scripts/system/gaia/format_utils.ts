@@ -3,11 +3,11 @@
 // FORMAT UTILITIES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into CRUD utility files
-// Dependencies: types from extractTables, workflow-config
+// Dependencies: types from extractTables, workflow_config
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from '@/config/object-categories.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatUtilsOptions {

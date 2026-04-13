@@ -2,29 +2,29 @@
 // Main orchestrator - Processes ALL objects with categorization and deity grouping
 
 import { readDatabaseTypes } from './shared/file_reader.js';
-import { findMarkers } from './modules/extract/find_ markers.js';
+import { findMarkers } from './modules/extract/find_markers.js';
 import { findAllClosingBraces } from './modules/extract/find_closing_braces.js';
 import { countAllCollections, countConstantsEnums } from './modules/discover/count_items.js';
 import { extractObject } from './modules/extract/extract_object.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
-import { getObjectCategory, type ObjectCategory } from '@/config/object-categories.js';
-import { generateConstantFile, generateMultipleConstantFiles } from './system/cosmic/generate_constants.js';
-import { generateSingleTypeFile, generateMultipleTypeFiles } from './system/cosmic/generate_type_files.js';
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
+import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
+import { generateConstantFile, generateMultipleConstantFiles } from './system/gaia/generate_constants.js';
+import { generateSingleTypeFile, generateMultipleTypeFiles } from './system/gaia/generate_type_files.js';
 // Import the discovery module
 import { discoverDirectories, ensureAllDirectories } from './modules/discover/discover_directories.js';
 // Import the enum mapping function
-import { getTableCategory } from '@/config/object-categories.js';
+import { getTableCategory } from '@/config/object_categories.js';
 import { 
   logHeader, logSuccess, logError, logInfo, 
   logSeparator, logWarning, logDebug 
 } from '@/scripts/shared/logger.js';
-import { getEnumFolder } from '@/config/enum-mapping.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
 import { toPascalCase, formatObjectTypes } from './modules/format/format_object_types.js';
-import { generateIndexesForPaths } from './system/cosmic/generate_index_files.js';
-import { generateValidatorsForTables } from './system/cosmic/generate_validators.js';
-import { needsValidatorGeneration } from '@/config/workflow-config.js';
-import { generateApiRoutesForTables } from './system/cosmic/generate_api_routes.js';
-import { getWorkflowConfig } from '@/config/workflow-config.js';
+import { generateIndexesForPaths } from './system/gaia/generate_index_files.js';
+import { generateValidatorsForTables } from './system/gaia/generate_validators.js';
+import { needsValidatorGeneration } from '@/config/workflow_config.js';
+import { generateApiRoutesForTables } from './system/gaia/generate_api_routes.js';
+import { getWorkflowConfig } from '@/config/workflow_config.js';
 
 async function main(): Promise<void> {
   console.log('\n');

@@ -1,0 +1,20 @@
+// =====================================================
+// FILE: constants/hestia-core/council_house.ts
+// GENERATED: 2026-04-13T16:36:33.081Z
+// SOURCE: Constants.public.Enums.council_house
+// VALUES: 9 entries
+// =====================================================
+
+export const COUNCIL_HOUSE = {
+  HEARTH_KEEPER: 'hearth_keeper',
+  CHANCELLOR: 'chancellor',
+  SEER: 'seer',
+  AETHELRED: 'aethelred',
+  CURATOR: 'curator',
+  ARCHIVIST: 'archivist',
+  SKALD: 'skald',
+  CODEX: 'codex',
+  EXECUTIONER: 'executioner',
+} as const;
+
+export type CouncilHouse = typeof COUNCIL_HOUSE[keyof typeof COUNCIL_HOUSE];

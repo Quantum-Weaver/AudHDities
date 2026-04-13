@@ -2,12 +2,12 @@
  * @system PROMETHEUS
  * @component ORACLE
  * @purpose Reads and validates blueprint format - the keeper of generation wisdom
- * @dependencies validator (lib), naming-guide, gaia patterns
+ * @dependencies validator (lib), naming_guide, gaia patterns
  * @created 2026-04-12
  */
 
 import { validate as validateJson } from '@/lib/prometheus/validator';
-import { namingGuide } from '@/config/naming-guide';
+import { namingGuide } from '@/config/naming_guide';
 import { GAIA_PATTERNS } from '@/config/gaia/patterns';
 
 import type { Blueprint, BlueprintFile, BlueprintMetadata, SystemType } from '@/types/prometheus';

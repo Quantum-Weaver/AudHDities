@@ -4,7 +4,7 @@
 
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
-import { getObjectCategory, type ObjectCategory } from '@/config/object-categories.js';
+import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
 
 export interface FormatObjectTypesOptions {
   verbose?: boolean;

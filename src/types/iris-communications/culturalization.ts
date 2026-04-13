@@ -35,13 +35,13 @@ export interface PublicCulturalization {
   created_at: string | null;
   created_by: string | null;
   currency_code: string | null;
-  currency_position:;
+  currency_position: CurrencyPositionType;
   currency_symbol: string | null;
   date_format: DateFormatType | null;
   decimal_separator: string | null;
   first_day_of_week: number | null;
   id: string;
-  measurement_system:;
+  measurement_system: MeasurementSystemType;
   region_id: string;
   thousands_separator: string | null;
   time_format: TimeFormatType | null;

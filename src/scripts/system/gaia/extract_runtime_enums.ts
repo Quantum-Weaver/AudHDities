@@ -20,20 +20,71 @@ const RUNTIME_ENUM_PATTERN = /^\s{6}(\w+):/;
 
 /**
  * Parse enum values from an array string
+ * Preserves quotes only when they are part of the actual value (e.g., date strings)
  */
 function parseArrayValues(arrayString: string): string[] {
   // Extract everything between the first [ and the last ]
   const bracketMatch = arrayString.match(/\[([\s\S]*?)\]/);
   if (!bracketMatch) return [];
   
-  const valuesString = bracketMatch[1];
-  // Split by comma, trim quotes and whitespace
-  const values = valuesString
-    .split(',')
-    .map(v => v.trim().replace(/^["']|["']$/g, ''))
-    .filter(v => v.length > 0);
+  let valuesString = bracketMatch[1];
   
-  return values;
+  // Handle multi-line arrays - join continuation lines
+  valuesString = valuesString.replace(/\n\s*/g, ' ');
+  
+  // Parse values respecting quoted strings
+  const values: string[] = [];
+  let current = '';
+  let inQuotes = false;
+  let quoteChar = '';
+  
+  for (let i = 0; i < valuesString.length; i++) {
+    const char = valuesString[i];
+    
+    // Toggle quote state
+    if ((char === '"' || char === "'") && (i === 0 || valuesString[i-1] !== '\\')) {
+      if (!inQuotes) {
+        inQuotes = true;
+        quoteChar = char;
+        current += char;
+      } else if (char === quoteChar) {
+        inQuotes = false;
+        current += char;
+      } else {
+        current += char;
+      }
+    }
+    // Handle comma separator (only outside quotes)
+    else if (char === ',' && !inQuotes) {
+      const trimmed = current.trim();
+      if (trimmed) {
+        // Remove outer quotes if they wrap the entire value
+        let finalValue = trimmed;
+        if ((finalValue.startsWith('"') && finalValue.endsWith('"')) ||
+            (finalValue.startsWith("'") && finalValue.endsWith("'"))) {
+          finalValue = finalValue.slice(1, -1);
+        }
+        values.push(finalValue);
+      }
+      current = '';
+    }
+    else {
+      current += char;
+    }
+  }
+  
+  // Handle last value
+  const trimmed = current.trim();
+  if (trimmed) {
+    let finalValue = trimmed;
+    if ((finalValue.startsWith('"') && finalValue.endsWith('"')) ||
+        (finalValue.startsWith("'") && finalValue.endsWith("'"))) {
+      finalValue = finalValue.slice(1, -1);
+    }
+    values.push(finalValue);
+  }
+  
+  return values.filter(v => v.length > 0 || v === '');
 }
 
 /**

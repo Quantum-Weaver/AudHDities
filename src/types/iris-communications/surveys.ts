@@ -15,7 +15,6 @@ import type { Json } from '@/types/supabase/database.types';
 
 export type SurveyAudienceType = Database['public']['Enums']['survey_audience_type'];
 export type CouncilHouse = Database['public']['Enums']['council_house'];
-
 // =====================================================
 // CORE TYPES
 // =====================================================
@@ -41,7 +40,7 @@ export interface PublicSurveys {
   questions: Json;
   response_count: number | null;
   starts_at: string | null;
-  target_audience:;
+  target_audience: SurveyAudienceType | null;
   target_house: CouncilHouse | null;
   title: string;
   updated_at: string | null;

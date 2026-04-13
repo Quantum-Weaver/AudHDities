@@ -5,7 +5,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DependencyMap, DependencyNode } from '@/config/dependency-map.js';
+import type { DependencyMap, DependencyNode } from '@/config/dependency_map.js';
 import type { SystemRegistryFile, RunRecord } from '../shared/system_logger.js';
 import { logSuccess, logError, logInfo, logWarning, logDebug } from '../shared/logger.js';
 

@@ -6,8 +6,8 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import type { FormattedConstantContent, GenerationResult } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity-groups.js';
-import { getRuntimeEnumConfig } from '@/config/workflow-config.js';
+import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
+import { getRuntimeEnumConfig } from '@/config/workflow_config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

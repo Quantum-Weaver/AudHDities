@@ -7,7 +7,7 @@
  */
 
 import { templates } from '@/config/prometheus/templates';
-import { namingGuide } from '@/config/naming-guide';
+import { namingGuide } from '@/config/naming_guide';
 
 import type { BlueprintFile } from '@/types/prometheus';
 
