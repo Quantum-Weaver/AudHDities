@@ -24,7 +24,7 @@ export interface GenerationPaths {
   // Base paths for generated content
   constantsBase: string;      // src/lib/constants/generated
   typesBase: string;           // src/types/generated
-  validatorsBase: string;      // src/lib/validators/generated
+  validatorsBase: string;      // lib/validators/generated
   utilsBase: string;           // src/utils/generated
   hooksBase: string;           // src/hooks/generated
   apiBase: string;             // app/api/generated

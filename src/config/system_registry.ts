@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-04-13T21:40:55.992Z",
+  "updatedAt": "2026-04-13T21:44:08.175Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,10 +47,10 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260413_164055",
+      "id": "20260413_164407",
       "system": "GAIA",
-      "startTime": "2026-04-13T21:40:55.489Z",
-      "endTime": "2026-04-13T21:40:55.992Z",
+      "startTime": "2026-04-13T21:44:07.710Z",
+      "endTime": "2026-04-13T21:44:08.175Z",
       "status": "success",
       "generatedFiles": [],
       "errors": [],
@@ -62,6 +62,36 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       ]
     },
     "runs": [
+      {
+        "id": "20260413_164407",
+        "system": "GAIA",
+        "startTime": "2026-04-13T21:44:07.710Z",
+        "endTime": "2026-04-13T21:44:08.175Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
+      {
+        "id": "20260413_164349",
+        "system": "GAIA",
+        "startTime": "2026-04-13T21:43:49.513Z",
+        "endTime": "2026-04-13T21:43:50.939Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Found 105 tables, 5 views, 38 functions, 99 enums",
+          "Directory discovery: 0 existing files found",
+          "Extracted: 105 tables, 5 views, 38 functions, 99 runtime enums"
+        ]
+      },
       {
         "id": "20260413_164055",
         "system": "GAIA",
