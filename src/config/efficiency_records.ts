@@ -30,6 +30,25 @@ export interface ResourceProfile {
 
 export const EFFICIENCY_RECORDS: ProcessingRecord[] = [
   {
+    "id": "20260413_164721",
+    "timestamp": "2026-04-13T21:47:21.378Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 729,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 729,
+    "memoryUsage": 18056072,
+    "fileTypeBreakdown": {
+      "constants": 99,
+      "types": 105,
+      "validators": 105,
+      "utils": 95,
+      "api": 230,
+      "hooks": 95
+    }
+  },
+  {
     "id": "20260413_164408",
     "timestamp": "2026-04-13T21:44:08.174Z",
     "system": "GAIA",

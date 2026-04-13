@@ -112,7 +112,7 @@ export async function previewConstantsGeneration(
   runtimeEnums: Map<string, string[]>,
   options: GenerateConstantsOptions = {}
 ): Promise<void> {
-  const { verbose = true, outputBase = 'src/lib/constants', stagingBase = 'src/lib/constants/staging' } = options;
+  const { verbose = true, outputBase = 'lib/constants', stagingBase = 'src/lib/constants/staging' } = options;
   
   logInfo('PREVIEW: Runtime Enum Constants Generation');
   logSeparator('─', 40);

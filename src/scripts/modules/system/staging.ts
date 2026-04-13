@@ -42,7 +42,7 @@ export function getDiffPath(originalPath: string, options: StagingOptions = {}):
   const fileName = path.basename(relativePath);
   const diffFileName = fileName.replace(/\.ts$/, '.diff');
   
-  return path.join(PROJECT_ROOT, 'src/lib/constants/staging/diffs', diffFileName);
+  return path.join(PROJECT_ROOT, 'slib/constants/staging/diffs', diffFileName);
 }
 
 /**
@@ -192,7 +192,7 @@ export function approveStagedFile(stagingPath: string, options: StagingOptions =
  * List all staged files
  */
 export function listStagedFiles(options: StagingOptions = {}): string[] {
-  const stagingRoot = path.join(PROJECT_ROOT, 'src/lib/constants/staging');
+  const stagingRoot = path.join(PROJECT_ROOT, 'lib/constants/staging');
   
   if (!fs.existsSync(stagingRoot)) {
     return [];
