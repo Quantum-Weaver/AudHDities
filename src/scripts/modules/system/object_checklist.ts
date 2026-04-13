@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/ */
+/* @/scripts/modules/system/object_checklist */
 // Phase 2: Track progress of each object through the generation pipeline
 // Provides status tracking, error collection, and reporting
 

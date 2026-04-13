@@ -1,4 +1,4 @@
-// src/config/object_categories.ts
+// @/config/object_categories.ts
 // ============================================================================
 // OBJECT CATEGORIES - Defines how each object should be handled by GAIA
 // ============================================================================

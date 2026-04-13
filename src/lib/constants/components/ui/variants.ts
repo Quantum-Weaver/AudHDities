@@ -1,5 +1,5 @@
 "use client"
-/* src/lib/constants/components/ui/variants.ts */
+/* @/lib/constants/components/ui/variants.ts */
 
 // ============================================================================
 // COMPONENT VARIANTS SYSTEM - FULL COSMIC INTEGRATION

@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/approveStaged.ts */
+/* @/scripts/modules/system/approve_staged.ts */
 
 import { approveAllStagedFiles, listStagedFiles } from './staging.js';
 import { logHeader, logError, logSuccess, logInfo, logSeparator } from '@/scripts/shared/logger.js';

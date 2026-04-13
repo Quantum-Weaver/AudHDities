@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/countItems.ts */
+/* @/scripts/modules/system/count_items.ts */
 // Phase 1: Count items inside a collection (Tables, Views, Functions, Enums)
 // Extracts item names and provides statistics
 

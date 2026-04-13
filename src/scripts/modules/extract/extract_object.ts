@@ -1,4 +1,4 @@
-/* @/scripts/modules/extract/extractObject.ts */
+/* @/scripts/modules/extract/extract_object.ts */
 // Phase 1: Extract a single object from a collection (Tables, Views, Functions, Enums)
 // Returns the full object content with line numbers
 

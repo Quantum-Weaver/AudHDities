@@ -2,9 +2,9 @@
 // Main orchestrator - Processes ALL objects with categorization and deity grouping
 
 import { readDatabaseTypes } from './shared/file_reader.js';
-import { findMarkers } from './modules/extract/find_markers.js';
-import { findAllClosingBraces } from './modules/extract/find_closing_braces.js';
-import { countAllCollections, countConstantsEnums } from './modules/discover/count_items.js';
+import { findMarkers } from './modules/system/find_markers.js';
+import { findAllClosingBraces } from './modules/system/find_closing_braces.js';
+import { countAllCollections, countConstantsEnums } from './modules/system/count_items.js';
 import { extractObject } from './modules/extract/extract_object.js';
 import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
 import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
@@ -167,7 +167,7 @@ console.log('\n');
     const category = getObjectCategory('table', tableName);
     
     // Check if file already exists (for type files)
-    const typeFilePath = `src/types/${folderName}/${tableName}.ts`;
+    const typeFilePath = `@/types/${folderName}/${tableName}.ts`;
     const fileExists = require('fs').existsSync(typeFilePath);
     // In Phase 5, after checking fileExists, add:
     if (tableName === 'profiles' || tableName === 'products') {
@@ -222,7 +222,7 @@ console.log('\n');
   
   for (const viewName of collections.views.itemNames) {
     const category = getObjectCategory('view', viewName);
-    const fileExists = require('fs').existsSync(`src/types/views/${viewName}.ts`);
+    const fileExists = require('fs').existsSync(`@/types/views/${viewName}.ts`);
     const status = fileExists ? '📁 exists' : '✨ new';
     console.log(`  👁️ ${viewName} (${category.handlingLevel}) [${status}]`);
   }
@@ -252,7 +252,7 @@ console.log('\n');
   // Type-level enums
   for (const enumName of collections.enums.itemNames.slice(0, 15)) {
     const category = getObjectCategory('type_enum', enumName);
-    const constPath = `src/lib/constants/core/${enumName}.ts`;
+    const constPath = `@/lib/constants/core/${enumName}.ts`;
     const constExists = require('fs').existsSync(constPath);
     const status = constExists ? '📁 exists' : '✨ new';
     console.log(`  📋 ${enumName} (type-level) [${status}]`);
@@ -542,9 +542,9 @@ const tablesNeedingValidators = tableResults
     
   const indexResult = await generateIndexesForPaths(
     [
-      'src/lib/constants',
-      'src/types',
-      'src/utils'
+      '@/lib/constants',
+      '@/types',
+      '@/utils'
     ],
     { verbose: true, dryRun: !shouldWrite }
   );

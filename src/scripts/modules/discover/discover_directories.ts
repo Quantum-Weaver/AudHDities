@@ -1,4 +1,4 @@
-/* src/scripts/modules/discover/discoverDirectories.ts */
+/* @/scripts/modules/discover/discover_directories.ts */
 // Phase: Discover all target directories (2 levels deep) with formula display
 
 import * as fs from 'fs';
@@ -154,10 +154,10 @@ export function getAllTableNames(): string[] {
 export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): DiscoveryResult {
   const {
     verbose = false,
-    constantsBase = 'src/lib/constants',
-    typesBase = 'src/types',
-    utilsBase = 'src/utils',
-    apiBase = 'src/app/api',
+    constantsBase = '@/lib/constants',
+    typesBase = '@/types',
+    utilsBase = '@/utils',
+    apiBase = '@/app/api',
     maxDepth = 2
   } = options;
   
@@ -290,7 +290,7 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
   const constantsFormula = `constants_files = sum(constantsDeityGroups.fileCount) = ${constantsComponents.join(' + ')} = ${constantsFiles}`;
   const typesFormula = `types_files = sum(typesDeityGroups.fileCount) = ${typesComponents.join(' + ')} = ${typesFiles}`;
   const utilsFormula = `utils_files = sum(utilsDeityGroups.fileCount) = ${utilsComponents.join(' + ')} = ${utilsFiles}`;
-  const apiFormula = `api_routes = count(directories in src/app/api/ matching table names) = ${apiRouteCount}`;
+  const apiFormula = `api_routes = count(directories in @/app/api/ matching table names) = ${apiRouteCount}`;
   const otherFormula = `other_files = files directly in root directories (not in subfolders) = ${otherFiles}`;
   
   const formula = `${constantsFiles} (constants) + ${typesFiles} (types) + ${utilsFiles} (utils) + ${apiRouteCount} (api) + ${otherFiles} (other) = ${totalExistingFiles}`;
@@ -332,16 +332,16 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
       console.log('');
       logInfo('📁 UNGROUPED FOLDERS (to integrate later):');
       for (const folder of constantsUngrouped) {
-        logInfo(`  📁 src/lib/constants/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
+        logInfo(`  📁 @/lib/constants/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
       }
       for (const folder of typesUngrouped) {
-        logInfo(`  📁 src/types/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
+        logInfo(`  📁 @/types/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
       }
       for (const folder of utilsUngrouped) {
-        logInfo(`  📁 src/utils/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
+        logInfo(`  📁 @/utils/${path.basename(folder.path)}/ (${folder.fileCount} files) - TO INTEGRATE`);
       }
       for (const route of apiUngrouped) {
-        logInfo(`  🌐 src/app/api/${route}/ - TO INTEGRATE`);
+        logInfo(`  🌐 @/app/api/${route}/ - TO INTEGRATE`);
       }
     }
     
@@ -385,10 +385,10 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
 export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): DiscoveryResult {
   const {
     verbose = false,
-    constantsBase = 'src/lib/constants',
-    typesBase = 'src/types',
-    utilsBase = 'src/utils',
-    apiBase = 'src/app/api'
+    constantsBase = '@/lib/constants',
+    typesBase = '@/types',
+    utilsBase = '@/utils',
+    apiBase = '@/app/api'
   } = options;
   
   const deityFolderNames = getAllDeityFolderNames();

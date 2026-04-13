@@ -15,7 +15,7 @@ export interface GenerateTypeFilesOptions {
   verbose?: boolean;
   dryRun?: boolean;           // Simulate writing without actually writing
   forceOverwrite?: boolean;   // Overwrite existing files without asking
-  outputBase?: string;        // Base output path (default: 'src/types')
+  outputBase?: string;        // Base output path (default: '@/types')
   askForApproval?: boolean;   // Ask before overwriting existing files
 }
 
@@ -104,7 +104,7 @@ async function writeTypeFile(
   
   // Content changed - ALWAYS stage, never overwrite without force
   if (!forceOverwrite) {
-    const { stageFileChange } = await import('../../modules/validate/staging.js');
+    const { stageFileChange } = await import('../../modules/system/staging.js');
     const result = stageFileChange(filePath, content, { verbose });
     
     if (result.staged) {
@@ -132,7 +132,7 @@ export async function generateSingleTypeFile(
   folderName: string,
   options: GenerateTypeFilesOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { outputBase = 'src/types', verbose = false } = options;
+  const { outputBase = '@/types', verbose = false } = options;
   
   const outputPath = path.join(PROJECT_ROOT, outputBase, folderName, `${tableName}.ts`);
   

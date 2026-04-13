@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/extractViews.ts
+// @/scripts/generators/gaia/extractViews.ts
 // ============================================================================
 // EXTRACT VIEWS (GAIA)
 // ============================================================================

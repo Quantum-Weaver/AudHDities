@@ -1,4 +1,4 @@
-/* @/scripts/modules/format/formatObjectTypes.ts */
+/* @/scripts/modules/format/format_object_types.ts */
 // Phase 3: Format an extracted table object into TypeScript type definitions
 // Extracts Row, Insert, Update types and generates derived interfaces
 

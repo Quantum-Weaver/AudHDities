@@ -1,11 +1,11 @@
-/* @/scripts/modules/generate/generateValidators.ts */
+/* @/scripts/modules/generate/generate_validators.ts */
 // Phase: Generate Zod validation schemas from table Row/Insert types
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { stageFileChange } from '../validate/staging.js';
+import { stageFileChange } from '../system/staging.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,7 +15,7 @@ export interface GenerateValidatorsOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  outputBase?: string;  // default: 'src/lib/validators'
+  outputBase?: string;  // default: '@/lib/validators'
 }
 
 /**
@@ -223,7 +223,7 @@ export async function generateValidatorForTable(
   tableContent: string,
   options: GenerateValidatorsOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = 'src/lib/validators' } = options;
+  const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = '@/lib/validators' } = options;
   
   // Parse the table content
   const { rowContent, insertContent } = parseTableSections(tableContent);

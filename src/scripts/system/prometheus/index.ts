@@ -1,4 +1,4 @@
-// src/scripts/system/prometheus/index.ts
+// @/scripts/system/prometheus/index.ts
 /**
  * @system PROMETHEUS
  * @component Orchestrator

@@ -87,7 +87,7 @@ export default function AvatarUpload({
   return (
     <div className="relative group">
       <Avatar className={`${sizeClasses[size]} border-2 border-white/20`}>
-        <AvatarImage src={displayImage || undefined} />
+        <AvatarImage @={displayImage || undefined} />
         <AvatarFallback className="bg-cyan-600 text-white">
           {initials}
         </AvatarFallback>

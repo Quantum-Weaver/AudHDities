@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/ */
+/* @/scripts/modules/system/find_markers.ts */
 // Phase 1: Find all key line markers in the parsed file
 // Uses the lines array from fileReader.ts (already decoded from UTF-16 LE)
 

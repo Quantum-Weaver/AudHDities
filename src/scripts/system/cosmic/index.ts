@@ -43,7 +43,7 @@ export interface CosmicGeneratorOptions {
 const DEFAULT_OPTIONS: Required<CosmicGeneratorOptions> = {
   dryRun: false,
   verbose: true,
-  outputStylesDir: 'src/styles/generated',
+  outputStylesDir: '@/styles/generated',
   outputTailwindPath: 'tailwind.generated.config.mjs'
 };
 

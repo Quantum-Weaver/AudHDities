@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/formatUtils.ts
+// @/scripts/generators/gaia/formatUtils.ts
 // ============================================================================
 // FORMAT UTILITIES (GAIA)
 // ============================================================================
@@ -274,7 +274,7 @@ export function formatUtility(
   }
   
   const content = formatUtilityContent(tableInfo, deityFolder);
-  const filePath = `src/utils/generated/${deityFolder}/${tableInfo.name}.ts`;
+  const filePath = `@/utils/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);

@@ -41,14 +41,14 @@ export const boundaries: BoundaryConfig = {
   // Restricted paths - require special handling
   restrictedPaths: [
     {
-      pathPattern: /^src\/lib\/encryption\//,
+      pathPattern: /^@\/lib\/encryption\//,
       level: 'RESTRICTED',
       reason: 'Encryption module - requires security review',
       requiresApproval: true,
       encryptionLevel: ProtocolLevel.HIGH
     },
     {
-      pathPattern: /^src\/config\/secrets\//,
+      pathPattern: /^@\/config\/secrets\//,
       level: 'FORBIDDEN',
       reason: 'Secrets must be managed via environment variables'
     },
@@ -84,7 +84,7 @@ export const boundaries: BoundaryConfig = {
     },
     {
       type: 'restrict',
-      pathPattern: 'src/lib/encryption',
+      pathPattern: '@/lib/encryption',
       reason: 'Encryption code requires security review'
     }
   ]

@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Generate CSS custom properties and classes for panorama zoom targets
 // Source Files: positioning.ts (ZOOM_TARGETS)
-// Output: src/styles/generated/zoom.css
+// Output: @/styles/generated/zoom.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -423,7 +423,7 @@ function writeGeneratedFile(
  */
 export async function generateZoomTargets(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = 'src/styles/generated/zoom.css';
+  const outputPath = '@/styles/generated/zoom.css';
   
   if (verbose) {
     logInfo('Generating zoom targets from positioning constants...');

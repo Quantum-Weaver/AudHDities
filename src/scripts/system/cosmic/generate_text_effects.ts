@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Generate CSS text effect classes from motion and color constants
 // Source Files: motion.ts, colors.ts (MOOD_COLORS, ENERGY_COLORS, PRIDE_COLORS)
-// Output: src/styles/generated/text-effects.css
+// Output: @/styles/generated/text-effects.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -629,7 +629,7 @@ function writeGeneratedFile(
  */
 export async function generateTextEffects(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = 'src/styles/generated/text-effects.css';
+  const outputPath = '@/styles/generated/text-effects.css';
   
   if (verbose) {
     logInfo('Generating text effects from motion and color constants...');

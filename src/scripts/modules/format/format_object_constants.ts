@@ -1,4 +1,4 @@
-/* @/scripts/modules/format/formatObjectConstants.ts */
+/* @/scripts/modules/format/format_object_constants.ts */
 // Phase 4: Format Constants.Enums section into constant objects
 // Uses deity_groups.ts config for folder mapping
 
@@ -92,7 +92,7 @@ export function formatObjectConstants(
   const {
     verbose = false,
     includeTimestamps = true,
-    outputBase = 'src/lib/constants'
+    outputBase = '@/lib/constants'
   } = options;
   
   const timestamp = new Date().toISOString();

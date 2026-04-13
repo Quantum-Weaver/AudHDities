@@ -1,4 +1,4 @@
-/* src/scripts/shared/logger.ts */
+/* @/scripts/shared/logger.ts */
 // Centralized logging utilities
 // Single source for all console output across all modules
 

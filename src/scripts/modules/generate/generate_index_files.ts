@@ -1,4 +1,4 @@
-/* @/scripts/modules/generate/generateIndexFiles.ts */
+/* @/scripts/modules/generate/generate_index_files.ts */
 // Phase: Scan folders and create/maintain index.ts files with export * from each file
 
 import * as fs from 'fs';
@@ -14,7 +14,7 @@ export interface GenerateIndexOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  basePaths?: string[];  // Array of base paths to scan (e.g., ['src/lib/constants', 'src/types', 'src/utils'])
+  basePaths?: string[];  // Array of base paths to scan (e.g., ['@/lib/constants', '@/types', '@/utils'])
 }
 
 /**

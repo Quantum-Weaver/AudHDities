@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/checkObjectConfig.ts */
+/* @/scripts/modules/system/check_object_config.ts */
 
 // Phase 2: Check object configuration against deity_groups.ts
 // Determines output folder, deity group, and generation rules for each object
@@ -18,7 +18,7 @@ import {
 
 export interface CheckObjectConfigOptions {
   verbose?: boolean;
-  defaultOutputBase?: string;  // Base path for output files (default: 'src/types')
+  defaultOutputBase?: string;  // Base path for output files (default: '@/types')
 }
 
 // Sensitive fields to exclude from public interfaces
@@ -278,14 +278,14 @@ export function validateTableAssignments(
  * @param object - ExtractedObject
  * @param config - ObjectConfig
  * @param fileType - Type of file ('types', 'constants', 'utils', 'api')
- * @param basePath - Base output path (default: 'src')
+ * @param basePath - Base output path (default: '@')
  * @returns Full output file path
  */
 export function getOutputPath(
   object: ExtractedObject,
   config: ObjectConfig,
   fileType: 'types' | 'constants' | 'utils' | 'api',
-  basePath: string = 'src'
+  basePath: string = '@'
 ): string {
   const folderMap = {
     types: 'types',

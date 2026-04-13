@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Generate CSS classes for parallax layering
 // Source Files: positioning.ts (PARALLAX_LAYERS)
-// Output: src/styles/generated/parallax.css
+// Output: @/styles/generated/parallax.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -484,7 +484,7 @@ function writeGeneratedFile(
  */
 export async function generateParallaxClasses(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = 'src/styles/generated/parallax.css';
+  const outputPath = '@/styles/generated/parallax.css';
   
   if (verbose) {
     logInfo('Generating parallax classes from positioning constants...');

@@ -1,4 +1,4 @@
-/* src/scripts/modules/system/findClosingBraces.ts */
+/* @/scripts/modules/system/find_closing_braces.ts */
 // Phase 1: Find matching closing brace for a given opening brace position
 // Handles nested braces correctly
 

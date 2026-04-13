@@ -74,7 +74,7 @@ export default function BannerUpload({
     <div className="relative group h-48 w-full overflow-hidden rounded-t-xl">
       {displayImage ? (
         <img
-          src={displayImage}
+          @={displayImage}
           alt="Banner"
           className="h-full w-full object-cover"
         />

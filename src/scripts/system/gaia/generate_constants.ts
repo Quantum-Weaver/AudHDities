@@ -14,7 +14,7 @@ export interface GenerateConstantsOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  outputBase?: string;  // default: 'src/lib/constants'
+  outputBase?: string;  // default: '@/lib/constants'
   askForApproval?: boolean;
 }
 
@@ -67,7 +67,7 @@ async function writeConstantFile(
   
   // Content changed - stage the change
   if (!forceOverwrite) {
-    const { stageFileChange } = await import('../../modules/validate/staging.js');
+    const { stageFileChange } = await import('../../modules/system/staging.js');
     const result = stageFileChange(filePath, content, { verbose });
     
     if (result.staged) {
@@ -119,7 +119,7 @@ export async function generateConstantFile(
   folderName: string,
   options: GenerateConstantsOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { outputBase = 'src/lib/constants', verbose = false } = options;
+  const { outputBase = '@/lib/constants', verbose = false } = options;
   
   const outputPath = path.join(PROJECT_ROOT, outputBase, folderName, `${enumName}.ts`);
   const content = generateConstantContent(enumName, values);

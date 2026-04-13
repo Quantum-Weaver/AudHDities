@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Generate CSS animation variant classes based on consciousness intensity
 // Source Files: consciousness.ts, motion.ts
-// Output: src/styles/generated/animations.css
+// Output: @/styles/generated/animations.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -619,7 +619,7 @@ function writeGeneratedFile(
  */
 export async function generateAnimationVariants(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = 'src/styles/generated/animations.css';
+  const outputPath = '@/styles/generated/animations.css';
   
   if (verbose) {
     logInfo('Generating animation variants from consciousness and motion constants...');

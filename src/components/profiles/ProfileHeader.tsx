@@ -66,7 +66,7 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
       <div className="h-48 w-full rounded-t-xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
         {profile.banner_url && (
           <img
-            src={profile.banner_url}
+            @={profile.banner_url}
             alt="Banner"
             className="h-full w-full rounded-t-xl object-cover"
           />
@@ -77,7 +77,7 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
       <div className="relative -mt-16 px-6">
         <div className="relative inline-block">
           <Avatar className="h-32 w-32 border-4 border-black">
-            <AvatarImage src={profile.avatar_url || undefined} />
+            <AvatarImage @={profile.avatar_url || undefined} />
             <AvatarFallback className="bg-cyan-600 text-2xl text-white">
               {initials}
             </AvatarFallback>

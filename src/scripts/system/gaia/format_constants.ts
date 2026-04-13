@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/formatConstants.ts
+// @/scripts/generators/gaia/formatConstants.ts
 // ============================================================================
 // FORMAT CONSTANTS (GAIA)
 // ============================================================================
@@ -92,7 +92,7 @@ export function formatConstant(
   }
   
   const content = formatConstantContent(enumInfo, deityFolder);
-  const filePath = `src/lib/constants/generated/${deityFolder}/${enumInfo.name}.ts`;
+  const filePath = `@/lib/constants/generated/${deityFolder}/${enumInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);

@@ -1,10 +1,10 @@
-// src/scripts/system/gaia/index.ts
+// @/scripts/system/gaia/index.ts
 // ============================================================================
 // GAIA - DATABASE TYPE GENERATOR
 // ============================================================================
 // Purpose: Read database.types.ts and generate all supporting files
 // Dependencies: All gaia generator modules
-// Output: src/*/generated/ files
+// Output: @/*/generated/ files
 // ============================================================================
 
 import * as fs from 'fs';
@@ -35,9 +35,9 @@ import {
 
 //import from modules
 import { analyzeDependencies } from '../../modules/analyze/analyze_dependencies.js';
-import { findMarkers } from '../../modules/extract/find_markers.js';
-import { findAllClosingBraces } from '../../modules/extract/find_closing_braces.js';
-import { countAllCollections } from '../../modules/discover/count_items.js';
+import { findMarkers } from '../../modules/system/find_markers.js';
+import { findAllClosingBraces } from '../../modules/system/find_closing_braces.js';
+import { countAllCollections } from '../../modules/system/count_items.js';
 
 // import gaia generators
 import { extractTables, type TableInfo } from './extract_tables.js';
@@ -605,8 +605,8 @@ logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
     logInfo('  Analyzing dependencies...');
     try {
       const analyzeResult = await analyzeDependencies({
-        paths: ['src/types/generated', 'src/lib/constants/generated', 'src/lib/validators/generated', 
-                'src/lib/utils/generated', 'src/app/api/generated', 'src/hooks/generated'],
+        paths: ['@/types/generated', '@/lib/constants/generated', '@/lib/validators/generated', 
+                '@/lib/utils/generated', '@/app/api/generated', '@/hooks/generated'],
         recursive: true,
         maxDepth: 3,
         includeNodeModules: false,

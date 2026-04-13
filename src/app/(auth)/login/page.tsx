@@ -1,4 +1,4 @@
-/* src/app/(auth)/login/page.tsx */
+/* @/app/(auth)/login/page.tsx */
 import { Metadata } from 'next'
 import Link from 'next/link'
 import LoginForm from '@/components/auth/LoginForm'

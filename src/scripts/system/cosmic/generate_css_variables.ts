@@ -4,7 +4,7 @@
 // ============================================================================
 // Purpose: Generate :root CSS custom properties from cosmic constants
 // Source Files: colors.ts, effects.ts, dimensions.ts
-// Output: src/styles/generated/variables.css
+// Output: @/styles/generated/variables.css
 // ============================================================================
 
 import type { CosmicGeneratorOptions } from '../../system/cosmic';
@@ -462,7 +462,7 @@ function writeGeneratedFile(
  */
 export async function generateCssVariables(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = 'src/styles/generated/variables.css';
+  const outputPath = '@/styles/generated/variables.css';
   
   if (verbose) {
     logInfo('Generating CSS variables from cosmic constants...');

@@ -1,5 +1,5 @@
 // ============================================================================
-// src/scripts/generators/gaia/extractRuntimeEnums.ts
+// @/scripts/generators/gaia/extractRuntimeEnums.ts
 // EXTRACT RUNTIME ENUMS (GAIA)
 // ============================================================================
 
