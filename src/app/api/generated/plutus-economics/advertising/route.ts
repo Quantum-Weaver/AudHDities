@@ -1,0 +1,83 @@
+import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
+import { createApiSupabase } from '@/lib/api/supabase';
+import type { AdvertisingInsertSchema } from '@/lib/validators/generated';
+import { NextRequest } from 'next/server';
+
+// =====================================================
+// API ROUTE: /api/generated/plutus-economics/advertising
+// METHODS: GET, POST
+// GENERATED: 2026-04-14T19:39:30.206Z
+// SOURCE: database.types.ts
+// =====================================================
+
+export async function GET(request: NextRequest) {
+  try {
+    const supabase = await createApiSupabase();
+    const { userId } = await getOptionalUser(request);
+    const { page, limit } = getPaginationParams(request.nextUrl);
+    const filters = getFilters(request.nextUrl);
+    const { column: sortColumn, ascending } = getSortParams(request.nextUrl);
+    
+    let query = supabase.from('advertising').select('*', { count: 'exact' });
+    
+    // Apply filters
+    Object.entries(filters).forEach(([key, value]) => {
+      query = query.eq(key, value);
+    });
+    
+    // Apply sorting
+    query = query.order(sortColumn, { ascending });
+    
+    // Apply pagination
+    const from = (page - 1) * limit;
+    const to = from + limit - 1;
+    query = query.range(from, to);
+    
+    const { data, error, count } = await query;
+    
+    if (error) throw error;
+    
+    return successResponse({
+      data,
+      pagination: {
+        page,
+        limit,
+        total: count || 0,
+        totalPages: Math.ceil((count || 0) / limit),
+        hasNext: page < Math.ceil((count || 0) / limit),
+        hasPrev: page > 1
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching advertising:', error);
+    return errorResponse('Failed to fetch advertising', 500);
+  }
+}
+export async function POST(request: NextRequest) {
+  try {
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) {
+      return unauthorized();
+    }
+    
+    const body = await request.json();
+    const validated = AdvertisingInsertSchema.parse(body);
+    
+    const supabase = await createApiSupabase();
+    const { data, error } = await supabase
+      .from('advertising')
+      .insert({ ...validated, created_by: userId })
+      .select()
+      .single();
+    
+    if (error) throw error;
+    
+    return successResponse(data, 201);
+  } catch (error: any) {
+    if (error.name === 'ZodError') {
+      return errorResponse('Validation failed', 400, error.issues);
+    }
+    console.error('Error creating advertising:', error);
+    return errorResponse('Failed to create advertising', 500);
+  }
+}

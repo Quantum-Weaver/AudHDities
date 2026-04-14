@@ -1,19 +1,18 @@
-// src/scripts/generators/gaia/formatUtils.ts
+// src/scripts/generators/gaia/format_utils.ts
 // ============================================================================
 // FORMAT UTILITIES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into CRUD utility files
-// Dependencies: types from extractTables, workflow-config
+// Dependencies: EnrichedTable from enrich_objects, shared utilities
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatUtilsOptions {
   verbose?: boolean;
-  deityFolder?: string;
-  category?: ObjectCategory;
 }
 
 export interface FormattedUtility {
@@ -35,28 +34,28 @@ function toPascalCase(str: string): string {
 }
 
 /**
- * Convert table name to hook name (e.g., profiles -> useProfiles)
- */
-function toHookName(tableName: string): string {
-  const pascalName = toPascalCase(tableName);
-  return `use${pascalName}`;
-}
-
-/**
  * Generate header comment for utility file
  */
-function generateHeader(tableName: string, deityFolder: string): string {
+function generateHeader(tableName: string, deityFolder: string, importManager: ImportManager): string {
   const timestamp = new Date().toISOString();
+  const pascalName = toPascalCase(tableName);
+  
+  // Add all necessary imports to the manager
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'getPaginationParams');
+  importManager.addImport('@/lib/api/auth', 'getFilters');
+  importManager.addImport('@/lib/api/auth', 'getSortParams');
+  
   return `// =====================================================
 // FILE: utils/generated/${deityFolder}/${tableName}.ts
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
-import { ${toPascalCase(tableName)}InsertSchema, ${toPascalCase(tableName)}UpdateSchema } from '@/lib/validators/generated//${deityFolder}/${tableName}.ts';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
+import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}.ts';
 
 `;
 }
@@ -66,7 +65,6 @@ import { successResponse, errorResponse, getPaginationParams, getFilters, getSor
  */
 function generateCreateFunction(tableName: string): string {
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
   
   return `/**
  * Create a new ${tableName} record
@@ -240,10 +238,17 @@ export async function delete${pascalName}(id: string): Promise<{ success: boolea
 /**
  * Format a table into a utility file content
  */
-function formatUtilityContent(tableInfo: TableInfo, deityFolder: string): string {
-  const { name: tableName } = tableInfo;
+function formatUtilityContent(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
   
-  let content = generateHeader(tableName, deityFolder);
+  let content = generateHeader(tableName, deityFolder, importManager);
+  
+  // Add import block after header
+  const importBlock = importManager.getImportBlock();
+  if (importBlock) {
+    content += importBlock + '\n\n';
+  }
   
   content += `// =====================================================\n`;
   content += `// ${toPascalCase(tableName)} CRUD OPERATIONS\n`;
@@ -260,21 +265,35 @@ function formatUtilityContent(tableInfo: TableInfo, deityFolder: string): string
 
 /**
  * Format a table into a utility file
+ * Accepts EnrichedTable (pre-resolved configuration)
  */
 export function formatUtility(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory,
+  table: EnrichedTable,
   options?: FormatUtilsOptions
-): FormattedUtility {
+): FormattedUtility | null {
   const { verbose = false } = options || {};
+  const { name: tableName, deityFolder, category, shouldGenerateUtils, rowContent } = table;
   
-  if (verbose) {
-    logDebug(`Formatting utility: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+  // Check if this table needs utilities (using pre-resolved flag from enrichment)
+  if (!shouldGenerateUtils) {
+    if (verbose) {
+      logDebug(`Skipping utility for ${tableName} (not configured for utilities)`);
+    }
+    return null;
   }
   
-  const content = formatUtilityContent(tableInfo, deityFolder);
-  const filePath = `src/utils/generated/${deityFolder}/${tableInfo.name}.ts`;
+  if (verbose) {
+    logDebug(`Formatting utility: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  }
+  
+  // Validate row content exists
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping utility generation`);
+    return null;
+  }
+  
+  const content = formatUtilityContent(table);
+  const filePath = `src/utils/generated/${deityFolder}/${tableName}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -283,7 +302,7 @@ export function formatUtility(
   return {
     content,
     filePath,
-    tableName: tableInfo.name,
+    tableName,
     deityFolder,
     category
   };
@@ -291,13 +310,10 @@ export function formatUtility(
 
 /**
  * Format multiple tables into utility files
- * Only formats tables with full_crud handling level
+ * Accepts pre-enriched tables - no callbacks needed
  */
 export function formatUtils(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
-  shouldGenerate: (tableName: string) => boolean,
+  tables: EnrichedTable[],
   options?: FormatUtilsOptions
 ): FormattedUtility[] {
   const { verbose = false } = options || {};
@@ -307,21 +323,22 @@ export function formatUtils(
     logDebug(`Formatting utilities for ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    if (!shouldGenerate(tableInfo.name)) {
+  for (const table of tables) {
+    // Skip if no row content
+    if (!table.rowContent || table.rowContent.trim() === '') {
       if (verbose) {
-        logDebug(`  Skipping utility for ${tableInfo.name} (not full_crud)`);
+        logDebug(`  Skipping utility for ${table.name} (no row content)`);
       }
       continue;
     }
     
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);
-    const formatted = formatUtility(tableInfo, deityFolder, category, options);
-    results.push(formatted);
-    
-    if (verbose) {
-      logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder}`);
+    const formatted = formatUtility(table, options);
+    if (formatted) {
+      results.push(formatted);
+      
+      if (verbose) {
+        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
+      }
     }
   }
   

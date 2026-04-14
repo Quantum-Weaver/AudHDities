@@ -1,19 +1,19 @@
-// src/scripts/generators/gaia/formatValidators.ts
+// src/scripts/generators/gaia/format_validators.ts
 // ============================================================================
 // FORMAT VALIDATORS (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into Zod validator files
-// Dependencies: types from extractTables
+// Dependencies: EnrichedTable from enrich_objects, shared utilities
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import { formatFieldDeclaration, parseFieldLine } from '../../shared/quote_manager.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatValidatorsOptions {
   verbose?: boolean;
-  deityFolder?: string;
-  category?: ObjectCategory;  
 }
 
 export interface FormattedValidator {
@@ -21,7 +21,7 @@ export interface FormattedValidator {
   filePath: string;
   tableName: string;
   deityFolder: string;
-  category: ObjectCategory;  
+  category: ObjectCategory;
 }
 
 /**
@@ -65,7 +65,7 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   }
   
-  // Add nullable if neededs
+  // Add nullable if needed
   if (isNullable) {
     zodType = `${zodType}.nullable()`;
   }
@@ -76,7 +76,7 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 /**
  * Generate header comment for validator file
  */
-function generateHeader(tableName: string,  deityFolder: string): string {
+function generateHeader(tableName: string, deityFolder: string): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
 // FILE: validators/generated/${deityFolder}/${tableName}.ts
@@ -84,31 +84,32 @@ function generateHeader(tableName: string,  deityFolder: string): string {
 // SOURCE: database.types.ts
 // =====================================================
 
-import { z } from 'zod';
-
 `;
 }
 
 /**
  * Generate Row schema (all fields required as in database)
  */
-function generateRowSchema(tableName: string, rowContent: string): string {
+function generateRowSchema(tableName: string, rowContent: string, importManager: ImportManager): string {
   const lines = rowContent.split('\n');
   const fields: string[] = [];
   const pascalName = toPascalCase(tableName);
   
+  // Add zod import
+  importManager.addDefaultImport('zod', 'z');
+  
   for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
+    const parsed = parseFieldLine(line);
+    if (parsed) {
+      const { fieldName, fieldType } = parsed;
       const zodType = dbTypeToZod(fieldType, fieldName);
-      fields.push(`  ${fieldName}: ${zodType},`);
+      const formattedField = formatFieldDeclaration(fieldName, zodType);
+      fields.push(`  ${formattedField}`);
     }
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Row schema`;
+    return `// No fields found for ${tableName} Row schema\n`;
   }
   
   return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
@@ -131,12 +132,13 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
       const zodType = dbTypeToZod(fieldType, fieldName);
       // Make optional for insert schema
       const optionalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${optionalZod},`);
+      const formattedField = formatFieldDeclaration(fieldName, optionalZod);
+      fields.push(`  ${formattedField}`);
     }
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Insert schema`;
+    return `// No fields found for ${tableName} Insert schema\n`;
   }
   
   return `export const ${pascalName}InsertSchema = z.object({\n${fields.join('\n')}\n});`;
@@ -159,78 +161,121 @@ function generateUpdateSchema(tableName: string, updateContent: string): string 
       const zodType = dbTypeToZod(fieldType, fieldName);
       // Make optional for update schema
       const optionalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${optionalZod},`);
+      const formattedField = formatFieldDeclaration(fieldName, optionalZod);
+      fields.push(`  ${formattedField}`);
     }
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Update schema`;
+    return `// No fields found for ${tableName} Update schema\n`;
   }
   
   return `export const ${pascalName}UpdateSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
+ * Generate type inference exports
+ */
+function generateTypeInference(tableName: string, hasRow: boolean, hasInsert: boolean, hasUpdate: boolean): string {
+  const pascalName = toPascalCase(tableName);
+  const lines: string[] = [];
+  
+  lines.push(`// =====================================================`);
+  lines.push(`// TYPE INFERENCE`);
+  lines.push(`// =====================================================`);
+  lines.push(``);
+  
+  if (hasRow) {
+    lines.push(`export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;`);
+  }
+  
+  if (hasInsert) {
+    lines.push(`export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;`);
+  }
+  
+  if (hasUpdate) {
+    lines.push(`export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;`);
+  }
+  
+  return lines.join('\n');
+}
+
+/**
  * Format a table into a validator file content
  */
-function formatValidatorContent(tableInfo: TableInfo, deityFolder: string): string {
-  const { name: tableName, rowContent, insertContent, updateContent } = tableInfo;
-  const pascalName = toPascalCase(tableName);
+function formatValidatorContent(table: EnrichedTable): string {
+  const { name: tableName, deityFolder, rowContent, insertContent, updateContent } = table;
+  const importManager = new ImportManager();
+  
+  // Validate we have content to work with
+  if (!rowContent || rowContent.trim() === '') {
+    return `// SKIPPED: No row content found for ${tableName}\n`;
+  }
   
   let content = generateHeader(tableName, deityFolder);
   
-  content += `// =====================================================\n`;
-  content += `// ${pascalName} SCHEMAS\n`;
-  content += `// =====================================================\n\n`;
-  
-  if (rowContent) {
-    content += generateRowSchema(tableName, rowContent) + '\n\n';
+  // Add import block
+  const importBlock = importManager.getImportBlock();
+  if (importBlock) {
+    content += importBlock + '\n\n';
   }
   
-  if (insertContent) {
+  content += `// =====================================================\n`;
+  content += `// ${toPascalCase(tableName)} SCHEMAS\n`;
+  content += `// =====================================================\n\n`;
+  
+  const hasRow = !!(rowContent && rowContent.trim());
+  const hasInsert = !!(insertContent && insertContent.trim());
+  const hasUpdate = !!(updateContent && updateContent.trim());
+  
+  if (hasRow) {
+    content += generateRowSchema(tableName, rowContent, importManager) + '\n\n';
+  }
+  
+  if (hasInsert) {
     content += generateInsertSchema(tableName, insertContent) + '\n\n';
   }
   
-  if (updateContent) {
+  if (hasUpdate) {
     content += generateUpdateSchema(tableName, updateContent) + '\n\n';
   }
   
-  content += `// =====================================================\n`;
-  content += `// TYPE INFERENCE\n`;
-  content += `// =====================================================\n\n`;
-  
-  if (rowContent) {
-    content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
-  }
-  
-  if (insertContent) {
-    content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
-  }
-  
-  if (updateContent) {
-    content += `export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;\n`;
-  }
+  content += generateTypeInference(tableName, hasRow, hasInsert, hasUpdate) + '\n';
   
   return content;
 }
 
 /**
  * Format a table into a validator file
+ * Accepts EnrichedTable (pre-resolved configuration)
  */
 export function formatValidator(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory,  
+  table: EnrichedTable,
   options?: FormatValidatorsOptions
-): FormattedValidator {
+): FormattedValidator | null {
   const { verbose = false } = options || {};
+  const { name: tableName, deityFolder, category, shouldGenerateValidators, rowContent } = table;
   
-  if (verbose) {
-    logDebug(`Formatting validator: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+  // Check if this table needs validators (using pre-resolved flag from enrichment)
+  if (!shouldGenerateValidators) {
+    if (verbose) {
+      logDebug(`Skipping validator for ${tableName} (not configured for validators)`);
+    }
+    return null;
   }
   
-  const content = formatValidatorContent(tableInfo, deityFolder);
-  const filePath = `src/lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
+  if (verbose) {
+    logDebug(`Formatting validator: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  }
+  
+  // Validate row content exists
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping validator generation`);
+    return null;
+  }
+  
+  const content = formatValidatorContent(table);
+  const filePath = `src/lib/validators/generated/${deityFolder}/${tableName}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -239,7 +284,7 @@ export function formatValidator(
   return {
     content,
     filePath,
-    tableName: tableInfo.name,
+    tableName,
     deityFolder,
     category
   };
@@ -247,13 +292,10 @@ export function formatValidator(
 
 /**
  * Format multiple tables into validator files
- * Only formats tables with full_crud or assessment handling levels
+ * Accepts pre-enriched tables - no callbacks needed
  */
 export function formatValidators(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,  
-  shouldGenerate: (tableName: string) => boolean,
+  tables: EnrichedTable[],
   options?: FormatValidatorsOptions
 ): FormattedValidator[] {
   const { verbose = false } = options || {};
@@ -263,21 +305,22 @@ export function formatValidators(
     logDebug(`Formatting validators for ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    if (!shouldGenerate(tableInfo.name)) {
+  for (const table of tables) {
+    // Skip if no row content
+    if (!table.rowContent || table.rowContent.trim() === '') {
       if (verbose) {
-        logDebug(`  Skipping validator for ${tableInfo.name} (not full_crud or assessment)`);
+        logDebug(`  Skipping validator for ${table.name} (no row content)`);
       }
       continue;
     }
     
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);    
-    const formatted = formatValidator(tableInfo, deityFolder, category, options);
-    results.push(formatted);
-    
-    if (verbose) {
-      logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder}`);
+    const formatted = formatValidator(table, options);
+    if (formatted) {
+      results.push(formatted);
+      
+      if (verbose) {
+        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
+      }
     }
   }
   

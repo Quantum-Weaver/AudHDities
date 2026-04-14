@@ -1,18 +1,19 @@
-// src/scripts/generators/gaia/formatApiRoutes.ts
+// src/scripts/generators/gaia/format_api_routes.ts
 // ============================================================================
 // FORMAT API ROUTES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into Next.js API routes
-// Dependencies: types from extractTables, workflow-config
+// Dependencies: EnrichedTable from enrich_objects, shared utilities
+// Output: src/app/api/generated/{deityFolder}/{tableName}/route.ts
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatApiRoutesOptions {
   verbose?: boolean;
-  category?: ObjectCategory;
 }
 
 export interface FormattedApiRoute {
@@ -38,10 +39,16 @@ function toPascalCase(str: string): string {
 /**
  * Generate header comment for API route file
  */
-function generateHeader(tableName: string, routeType: string, methods: string[]): string {
+function generateHeader(tableName: string, deityFolder: string, routeType: string, methods: string[]): string {
   const timestamp = new Date().toISOString();
+  const routePath = routeType === 'single' 
+    ? `/${deityFolder}/${tableName}/[id]` 
+    : routeType === 'special' 
+    ? `/${deityFolder}/${tableName}/[special]`
+    : `/${deityFolder}/${tableName}`;
+    
   return `// =====================================================
-// API ROUTE: /api/${tableName}${routeType === 'single' ? '/[id]' : routeType === 'special' ? '/[special]' : ''}
+// API ROUTE: /api/generated${routePath}
 // METHODS: ${methods.join(', ')}
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
@@ -51,16 +58,20 @@ function generateHeader(tableName: string, routeType: string, methods: string[])
 }
 
 /**
- * Generate GET /api/[table] route (list)
+ * Generate GET /api/generated/{deity}/{table} route (list)
  */
-function generateGetListRoute(tableName: string): string {
-  const pascalName = toPascalCase(tableName);
+function generateGetListRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  // Add required imports
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'getPaginationParams');
+  importManager.addImport('@/lib/api/auth', 'getFilters');
+  importManager.addImport('@/lib/api/auth', 'getSortParams');
+  importManager.addImport('@/lib/api/auth', 'getOptionalUser');
   
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams, getOptionalUser } from '@/lib/api/auth';
-
-export async function GET(request: NextRequest) {
+  return `export async function GET(request: NextRequest) {
   try {
     const supabase = await createApiSupabase();
     const { userId } = await getOptionalUser(request);
@@ -102,21 +113,20 @@ export async function GET(request: NextRequest) {
     console.error('Error fetching ${tableName}:', error);
     return errorResponse('Failed to fetch ${tableName}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
- * Generate GET /api/[table]/[id] route (single)
+ * Generate GET /api/generated/{deity}/{table}/[id] route (single)
  */
-function generateGetSingleRoute(tableName: string): string {
-  const pascalName = toPascalCase(tableName);
+function generateGetSingleRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'notFound');
   
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, notFound } from '@/lib/api/auth';
-
-export async function GET(
+  return `export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
@@ -142,23 +152,24 @@ export async function GET(
     console.error('Error fetching ${tableName}:', error);
     return errorResponse('Failed to fetch ${tableName}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
- * Generate POST /api/[table] route (create)
+ * Generate POST /api/generated/{deity}/{table} route (create)
  */
-function generatePostRoute(tableName: string): string {
+function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
   const pascalName = toPascalCase(tableName);
   
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
-import { ${pascalName}InsertSchema } from '@/lib/validators/generated/${tableName}';
-
-export async function POST(request: NextRequest) {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/validators/generated', `${pascalName}InsertSchema`, true);
+  
+  return `export async function POST(request: NextRequest) {
   try {
     const { userId, success } = await getAuthenticatedUser(request);
     if (!success) {
@@ -185,23 +196,28 @@ export async function POST(request: NextRequest) {
     console.error('Error creating ${tableName}:', error);
     return errorResponse('Failed to create ${tableName}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
- * Generate PUT /api/[table]/[id] route (update)
+ * Generate PUT /api/generated/{deity}/{table}/[id] route (update)
  */
-function generatePutRoute(tableName: string): string {
+function generatePutRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
   const pascalName = toPascalCase(tableName);
   
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
-import { ${pascalName}UpdateSchema } from '@/lib/validators/generated/${tableName}';
-
-export async function PUT(
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'notFound');
+  importManager.addImport('@/lib/api/auth', 'forbidden');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/api/auth', 'checkOwnership');
+  importManager.addImport('@/lib/api/auth', 'isAdmin');
+  importManager.addImport('@/lib/validators/generated', `${pascalName}UpdateSchema`, true);
+  
+  return `export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
@@ -245,20 +261,25 @@ export async function PUT(
     console.error('Error updating ${tableName}:', error);
     return errorResponse('Failed to update ${tableName}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
- * Generate DELETE /api/[table]/[id] route
+ * Generate DELETE /api/generated/{deity}/{table}/[id] route
  */
-function generateDeleteRoute(tableName: string): string {
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized, notFound, forbidden } from '@/lib/api/auth';
-import { getAuthenticatedUser, checkOwnership, isAdmin } from '@/lib/api/auth';
-
-export async function DELETE(
+function generateDeleteRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'notFound');
+  importManager.addImport('@/lib/api/auth', 'forbidden');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/api/auth', 'checkOwnership');
+  importManager.addImport('@/lib/api/auth', 'isAdmin');
+  
+  return `export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
@@ -294,22 +315,21 @@ export async function DELETE(
     console.error('Error deleting ${tableName}:', error);
     return errorResponse('Failed to delete ${tableName}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
  * Generate special route (e.g., submit, results, link, unlink)
  */
-function generateSpecialRoute(tableName: string, specialType: string, deityFolder: string): string {
-  const pascalName = toPascalCase(tableName);
+function generateSpecialRoute(tableName: string, specialType: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
   
-  return `import { NextRequest } from 'next/server';
-import { createApiSupabase } from '@/lib/api/supabase';
-import { successResponse, errorResponse, unauthorized } from '@/lib/api/auth';
-import { getAuthenticatedUser } from '@/lib/api/auth';
-
-export async function POST(
+  return `export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id?: string }> }
 ) {
@@ -333,138 +353,170 @@ export async function POST(
     console.error('Error in ${specialType}:', error);
     return errorResponse('Failed to process ${specialType}', 500);
   }
-}
-`;
+}`;
 }
 
 /**
  * Format main API route file (list + create)
  */
-function formatMainApiRoute(tableName: string, hasGetList: boolean, hasPost: boolean, deityFolder: string): string {
+function formatMainApiRoute(
+  table: EnrichedTable, 
+  hasGetList: boolean, 
+  hasPost: boolean
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
   const methods: string[] = [];
-  let content = generateHeader(tableName, 'list', 
+  let content = generateHeader(tableName, deityFolder, 'list', 
     [...(hasGetList ? ['GET'] : []), ...(hasPost ? ['POST'] : [])]);
   
   if (hasGetList) {
-    content += generateGetListRoute(tableName);
+    content += generateGetListRoute(tableName, deityFolder, importManager);
     methods.push('GET');
+    content += '\n';
   }
   
   if (hasPost) {
-    content += generatePostRoute(tableName);
+    content += generatePostRoute(tableName, deityFolder, importManager);
     methods.push('POST');
+    content += '\n';
   }
   
-  return content;
+  // Add imports at the top
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + content;
+  
+  return { content: fullContent, methods };
 }
 
 /**
  * Format single record API route file (get/put/delete)
  */
-function formatSingleApiRoute(tableName: string, hasGetSingle: boolean, hasPut: boolean, hasDelete: boolean, deityFolder: string): string {
+function formatSingleApiRoute(
+  table: EnrichedTable,
+  hasGetSingle: boolean,
+  hasPut: boolean,
+  hasDelete: boolean
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
   const methods: string[] = [];
-  let content = generateHeader(tableName, 'single',
+  let content = generateHeader(tableName, deityFolder, 'single',
     [...(hasGetSingle ? ['GET'] : []), ...(hasPut ? ['PUT'] : []), ...(hasDelete ? ['DELETE'] : [])]);
   
   if (hasGetSingle) {
-    content += generateGetSingleRoute(tableName);
+    content += generateGetSingleRoute(tableName, deityFolder, importManager);
     methods.push('GET');
+    content += '\n';
   }
   
   if (hasPut) {
-    content += generatePutRoute(tableName);
+    content += generatePutRoute(tableName, deityFolder, importManager);
     methods.push('PUT');
+    content += '\n';
   }
   
   if (hasDelete) {
-    content += generateDeleteRoute(tableName);
+    content += generateDeleteRoute(tableName, deityFolder, importManager);
     methods.push('DELETE');
+    content += '\n';
   }
   
-  return content;
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + content;
+  
+  return { content: fullContent, methods };
 }
 
 /**
  * Format special API route file
  */
-function formatSpecialApiRoute(tableName: string, specialType: string, deityFolder: string): string {
-  const content = generateHeader(tableName, 'special', ['POST']);
-  return content + generateSpecialRoute(tableName, specialType, deityFolder);
+function formatSpecialApiRoute(
+  table: EnrichedTable,
+  specialType: string
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
+  const content = generateHeader(tableName, deityFolder, 'special', ['POST']);
+  const routeContent = content + generateSpecialRoute(tableName, specialType, deityFolder, importManager);
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + routeContent;
+  
+  return { content: fullContent, methods: ['POST'] };
 }
 
 /**
  * Format all API routes for a table
+ * Accepts EnrichedTable (pre-resolved configuration)
  */
 export function formatApiRoutes(
-  tableInfo: TableInfo,
-  category: ObjectCategory,
-  deityFolder: string,
+  table: EnrichedTable,
   options?: FormatApiRoutesOptions
 ): FormattedApiRoute[] {
   const { verbose = false } = options || {};
-  const { name: tableName } = tableInfo;
+  const { name: tableName, deityFolder, category } = table;
   const results: FormattedApiRoute[] = [];
   
   if (verbose) {
-    logDebug(`Formatting API routes for: ${tableName} (${category.handlingLevel})`);
+    logDebug(`Formatting API routes for: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
   // Main route (list + create)
   if (category.generateApiGetList || category.generateApiPost) {
-    const content = formatMainApiRoute(tableName, category.generateApiGetList, category.generateApiPost, deityFolder);
+    const { content, methods } = formatMainApiRoute(table, category.generateApiGetList, category.generateApiPost);
     const filePath = `src/app/api/generated/${deityFolder}/${tableName}/route.ts`;
     
     results.push({
       content,
       filePath,
       routeType: 'list',
-      tableName: tableInfo.name,
+      tableName,
       deityFolder,
       category
     });
     
     if (verbose) {
-      logDebug(`  Formatted main route for ${tableName}`);
+      logDebug(`  Formatted main route for ${tableName} -> ${deityFolder}`);
     }
   }
   
   // Single record route (get/put/delete)
   if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
-    const content = formatSingleApiRoute(tableName, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete, deityFolder);
+    const { content, methods } = formatSingleApiRoute(table, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete);
     const filePath = `src/app/api/generated/${deityFolder}/${tableName}/[id]/route.ts`;
     
     results.push({
       content,
       filePath,
       routeType: 'single',
-      tableName: tableInfo.name,
+      tableName,
       deityFolder,
       category
     });
     
     if (verbose) {
-      logDebug(`  Formatted single route for ${tableName}`);
+      logDebug(`  Formatted single route for ${tableName} -> ${deityFolder}`);
     }
   }
   
   // Special routes
   if (category.generateApiSpecial && category.generateApiSpecial.length > 0) {
     for (const specialType of category.generateApiSpecial) {
-      const content = formatSpecialApiRoute(tableName, specialType, deityFolder);
-      const filePath = `src/app/api/generated/${deityFolder}/${tableInfo.name}/${specialType}/route.ts`;
+      const { content, methods } = formatSpecialApiRoute(table, specialType);
+      const filePath = `src/app/api/generated/${deityFolder}/${tableName}/${specialType}/route.ts`;
       
       results.push({
         content,
         filePath,
         routeType: 'special',
         specialType,
-        tableName: tableInfo.name,
+        tableName,
         deityFolder,
         category
       });
       
       if (verbose) {
-        logDebug(`  Formatted special route ${specialType} for ${tableInfo.name}`);
+        logDebug(`  Formatted special route ${specialType} for ${tableName} -> ${deityFolder}`);
       }
     }
   }
@@ -474,12 +526,10 @@ export function formatApiRoutes(
 
 /**
  * Format multiple tables into API routes
+ * Accepts pre-enriched tables - no callbacks needed
  */
 export function formatMultipleApiRoutes(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
-  shouldGenerate: (tableName: string) => boolean,
+  tables: EnrichedTable[],
   options?: FormatApiRoutesOptions
 ): FormattedApiRoute[] {
   const { verbose = false } = options || {};
@@ -489,21 +539,12 @@ export function formatMultipleApiRoutes(
     logDebug(`Formatting API routes for ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    if (!shouldGenerate(tableInfo.name)) {
-      if (verbose) {
-        logDebug(`  Skipping API routes for ${tableInfo.name} (not full_crud, assessment, or join_table)`);
-      }
-      continue;
-    }
-    
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);
-    const routes = formatApiRoutes(tableInfo, category, deityFolder, options);
+  for (const table of tables) {
+    const routes = formatApiRoutes(table, options);
     results.push(...routes);
     
     if (verbose) {
-      logDebug(`  Formatted ${routes.length} API routes for ${tableInfo.name} -> ${deityFolder}`);
+      logDebug(`  Formatted ${routes.length} API routes for ${table.name} -> ${table.deityFolder}`);
     }
   }
   

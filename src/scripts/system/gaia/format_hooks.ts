@@ -1,19 +1,19 @@
-// src/scripts/generators/gaia/formatHooks.ts
+// src/scripts/generators/gaia/format_hooks.ts
 // ============================================================================
 // FORMAT HOOKS (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into React hooks
-// Dependencies: types from extractTables, API routes
+// Dependencies: EnrichedTable from enrich_objects, shared utilities
+// Output: src/hooks/generated/{deityFolder}/{tableName}.ts
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatHooksOptions {
   verbose?: boolean;
-  deityFolder?: string;
-  category?: ObjectCategory;
 }
 
 export interface FormattedHook {
@@ -46,16 +46,28 @@ function toHookName(tableName: string): string {
 /**
  * Generate header comment for hook file
  */
-function generateHeader(tableName: string, deityFolder: string): string {
+function generateHeader(table: EnrichedTable, importManager: ImportManager): string {
   const timestamp = new Date().toISOString();
+  const { name: tableName, deityFolder } = table;
+  const hookName = toHookName(tableName);
+  const pascalName = toPascalCase(tableName);
+  
+  // Add all required imports
+  importManager.addImport('react', 'useState');
+  importManager.addImport('react', 'useEffect');
+  importManager.addImport('react', 'useCallback');
+  importManager.addImport('@/types/generated', `${pascalName}Row`, true);
+  importManager.addImport('@/types/generated', `${pascalName}Insert`, true);
+  importManager.addImport('@/types/generated', `${pascalName}Update`, true);
+  
+  // The actual import path needs to include deityFolder
+  // We handle this separately since ImportManager can't modify path structure
   return `// =====================================================
-// HOOK: ${toHookName(tableName)}
+// HOOK: ${hookName}
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
+// DEITY: ${deityFolder}
 // =====================================================
-
-import { useState, useEffect, useCallback } from 'react';
-import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
 
 `;
 }
@@ -63,7 +75,8 @@ import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, $
 /**
  * Generate use[Table] hook (fetch single record)
  */
-function generateUseTableHook(tableName: string): string {
+function generateUseTableHook(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
   const hookName = toHookName(tableName);
   
@@ -83,7 +96,7 @@ export function ${hookName}(id: string | undefined) {
     
     setLoading(true);
     try {
-      const response = await fetch(\`/api/generated/${tableName}/\${id}\`);
+      const response = await fetch(\`/api/generated/${deityFolder}/${tableName}/\${id}\`);
       const result = await response.json();
       
       if (result.success) {
@@ -111,7 +124,8 @@ export function ${hookName}(id: string | undefined) {
 /**
  * Generate use[Table]List hook (fetch list with pagination)
  */
-function generateUseTableListHook(tableName: string): string {
+function generateUseTableListHook(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
   const hookName = toHookName(tableName);
   
@@ -144,7 +158,7 @@ export function ${hookName}List(params?: {
         });
       }
       
-      const url = \`/api/generated/${tableName}?\${searchParams.toString()}\`;
+      const url = \`/api/generated/${deityFolder}/${tableName}?\${searchParams.toString()}\`;
       const response = await fetch(url);
       const result = await response.json();
       
@@ -174,7 +188,8 @@ export function ${hookName}List(params?: {
 /**
  * Generate useCreate[Table] hook (create mutation)
  */
-function generateUseCreateTableHook(tableName: string): string {
+function generateUseCreateTableHook(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
   const hookName = toHookName(tableName);
   
@@ -190,7 +205,7 @@ export function useCreate${pascalName}() {
     setError(null);
     
     try {
-      const response = await fetch('/api/generated/${tableName}', {
+      const response = await fetch('/api/generated/${deityFolder}/${tableName}', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -221,7 +236,8 @@ export function useCreate${pascalName}() {
 /**
  * Generate useUpdate[Table] hook (update mutation)
  */
-function generateUseUpdateTableHook(tableName: string): string {
+function generateUseUpdateTableHook(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
   const hookName = toHookName(tableName);
   
@@ -237,7 +253,7 @@ export function useUpdate${pascalName}() {
     setError(null);
     
     try {
-      const response = await fetch(\`/api/generated/${tableName}/\${id}\`, {
+      const response = await fetch(\`/api/generated/${deityFolder}/${tableName}/\${id}\`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -268,7 +284,8 @@ export function useUpdate${pascalName}() {
 /**
  * Generate useDelete[Table] hook (delete mutation)
  */
-function generateUseDeleteTableHook(tableName: string): string {
+function generateUseDeleteTableHook(table: EnrichedTable): string {
+  const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
   const hookName = toHookName(tableName);
   
@@ -284,7 +301,7 @@ export function useDelete${pascalName}() {
     setError(null);
     
     try {
-      const response = await fetch(\`/api/generated/${tableName}/\${id}\`, {
+      const response = await fetch(\`/api/generated/${deityFolder}/${tableName}/\${id}\`, {
         method: 'DELETE',
       });
       
@@ -313,53 +330,81 @@ export function useDelete${pascalName}() {
 /**
  * Format a table into a hook file content
  */
-function formatHookContent(tableInfo: TableInfo, deityFolder: string): string {
-  const { name: tableName } = tableInfo;
+function formatHookContent(table: EnrichedTable): string {
+  const { name: tableName } = table;
+  const importManager = new ImportManager();
   
-  let content = generateHeader(tableName, deityFolder);
+  let content = generateHeader(table, importManager);
+  
+  // Add import block
+  const importBlock = importManager.getImportBlock();
+  if (importBlock) {
+    content += importBlock + '\n\n';
+  }
+  
+  // Fix import paths to include deityFolder (ImportManager can't modify path structure)
+  // Replace generic import with deity-specific path
+  const pascalName = toPascalCase(tableName);
+  content = content.replace(
+    `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated';`,
+    `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${table.deityFolder}/${tableName}.ts';`
+  );
   
   content += `// =====================================================\n`;
-  content += `// ${toPascalCase(tableName)} HOOKS\n`;
+  content += `// ${pascalName} HOOKS\n`;
   content += `// =====================================================\n\n`;
   
-  content += generateUseTableHook(tableName);
+  content += generateUseTableHook(table);
   content += `\n`;
-  content += generateUseTableListHook(tableName);
+  content += generateUseTableListHook(table);
   content += `\n`;
-  content += generateUseCreateTableHook(tableName);
+  content += generateUseCreateTableHook(table);
   content += `\n`;
-  content += generateUseUpdateTableHook(tableName);
+  content += generateUseUpdateTableHook(table);
   content += `\n`;
-  content += generateUseDeleteTableHook(tableName);
+  content += generateUseDeleteTableHook(table);
   
   return content;
 }
 
 /**
- * Format a table into a hook file
+ * Format a table into hook files
+ * Accepts EnrichedTable (pre-resolved configuration)
  */
-export function formatHook(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory,
+export function formatHooks(
+  table: EnrichedTable,
   options?: FormatHooksOptions
 ): FormattedHook[] {
   const { verbose = false } = options || {};
-  const { name: tableName } = tableInfo;
+  const { name: tableName, deityFolder, category, shouldGenerateHooks, rowContent } = table;
   const results: FormattedHook[] = [];
   
-  if (verbose) {
-    logDebug(`Formatting hooks for: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+  // Check if this table needs hooks (using pre-resolved flag from enrichment)
+  if (!shouldGenerateHooks) {
+    if (verbose) {
+      logDebug(`Skipping hooks for ${tableName} (not configured for hooks)`);
+    }
+    return results;
   }
   
-  const content = formatHookContent(tableInfo, deityFolder);
-  const filePath = `src/hooks/generated/${deityFolder}/${tableInfo.name}.ts`;
+  if (verbose) {
+    logDebug(`Formatting hooks for: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  }
   
-  // Main hook file contains all hooks
+  // Validate row content exists
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping hooks generation`);
+    return results;
+  }
+  
+  const content = formatHookContent(table);
+  const filePath = `src/hooks/generated/${deityFolder}/${tableName}.ts`;
+  
+  // Return a single hook file containing all hooks
   results.push({
     content,
     filePath,
-    tableName: tableInfo.name,
+    tableName,
     hookType: 'useTable',
     deityFolder,
     category
@@ -374,13 +419,10 @@ export function formatHook(
 
 /**
  * Format multiple tables into hook files
- * Only formats tables with full_crud handling level
+ * Accepts pre-enriched tables - no callbacks needed
  */
 export function formatMultipleHooks(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
-  shouldGenerate: (tableName: string) => boolean,
+  tables: EnrichedTable[],
   options?: FormatHooksOptions
 ): FormattedHook[] {
   const { verbose = false } = options || {};
@@ -390,21 +432,20 @@ export function formatMultipleHooks(
     logDebug(`Formatting hooks for ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    if (!shouldGenerate(tableInfo.name)) {
+  for (const table of tables) {
+    // Skip if no row content
+    if (!table.rowContent || table.rowContent.trim() === '') {
       if (verbose) {
-        logDebug(`  Skipping hooks for ${tableInfo.name} (not full_crud)`);
+        logDebug(`  Skipping hooks for ${table.name} (no row content)`);
       }
       continue;
     }
     
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);
-    const hooks = formatHook(tableInfo, deityFolder, category, options);
+    const hooks = formatHooks(table, options);
     results.push(...hooks);
     
     if (verbose) {
-      logDebug(`  Formatted hooks for ${tableInfo.name}`);
+      logDebug(`  Formatted hooks for ${table.name} -> ${table.deityFolder}`);
     }
   }
   

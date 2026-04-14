@@ -1,19 +1,20 @@
-// src/scripts/generators/gaia/formatTypes.ts
+// src/scripts/generators/gaia/format_types.ts
 // ============================================================================
 // FORMAT TYPES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into TypeScript type files
-// Dependencies: types from extractTables, workflow-config, object-categories
+// Dependencies: EnrichedTable from enrich_objects, config from object-categories
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import { formatFieldDeclaration, parseFieldLine } from '../../shared/quote_manager.js';
+import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatTypesOptions {
   verbose?: boolean;
-  deityFolder?: string;
-  category?: ObjectCategory;
 }
 
 export interface FormattedType {
@@ -23,28 +24,6 @@ export interface FormattedType {
   category: ObjectCategory;
   deityFolder: string;
 }
-
-// Default sensitive fields to exclude from public interfaces
-const DEFAULT_SENSITIVE_FIELDS = [
-  'email',
-  'password',
-  'stripe_account_id',
-  'stripe_account',
-  'crisis_contact_email',
-  'crisis_contact_phone',
-  'crisis_contact_name',
-  'crisis_instructions',
-  'access_token',
-  'refresh_token',
-  'api_key',
-  'secret_key',
-  'private_key',
-  'encrypted_data',
-  'verification_token',
-  'reset_token',
-  'ip_address',
-  'user_agent'
-];
 
 /**
  * Convert snake_case to PascalCase for type names
@@ -78,11 +57,12 @@ function generateEnumExports(enumRefs: string[]): string {
 
 /**
  * Generate public interface (excludes sensitive fields)
+ * Uses formatFieldDeclaration for proper quote wrapping of time/date fields
  */
 function generatePublicInterface(
   tableName: string,
   rowContent: string,
-  sensitiveFields: string[] = DEFAULT_SENSITIVE_FIELDS
+  sensitiveFields: string[] = SENSITIVE_FIELDS
 ): string {
   const lines = rowContent.split('\n');
   const publicFields: string[] = [];
@@ -90,11 +70,11 @@ function generatePublicInterface(
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
+    const parsed = parseFieldLine(line);
+    if (parsed) {
+      const { fieldName, fieldType } = parsed;
       if (!sensitiveFields.includes(fieldName)) {
-        publicFields.push(`  ${line.trim()};`);
+        publicFields.push(`  ${formatFieldDeclaration(fieldName, fieldType)}`);
       } else {
         excludedFields.push(fieldName);
       }
@@ -121,7 +101,43 @@ function generatePublicInterface(
 }
 
 /**
+ * Generate own profile interface (includes sensitive fields)
+ * Only generated for 'profiles' table
+ * Uses formatFieldDeclaration for proper quote wrapping
+ */
+function generateOwnProfileInterface(
+  tableName: string,
+  rowContent: string
+): string {
+  if (tableName !== 'profiles') return '';
+  
+  const lines = rowContent.split('\n');
+  const fields: string[] = [];
+  const pascalName = toPascalCase(tableName);
+  
+  for (const line of lines) {
+    const parsed = parseFieldLine(line);
+    if (parsed) {
+      const { fieldName, fieldType } = parsed;
+      fields.push(`  ${formatFieldDeclaration(fieldName, fieldType)}`);
+    }
+  }
+  
+  if (fields.length === 0) return '';
+  
+  let result = `/**\n`;
+  result += ` * Own profile - includes all fields\n`;
+  result += ` */\n`;
+  result += `export interface Own${pascalName} extends Public${pascalName} {\n`;
+  result += fields.join('\n');
+  result += `\n}\n`;
+  
+  return result;
+}
+
+/**
  * Generate form data interface (all fields optional)
+ * Uses formatFieldDeclaration for proper quote wrapping
  */
 function generateFormDataInterface(tableName: string, rowContent: string): string {
   const lines = rowContent.split('\n');
@@ -129,10 +145,10 @@ function generateFormDataInterface(tableName: string, rowContent: string): strin
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
+    const parsed = parseFieldLine(line);
+    if (parsed) {
+      const { fieldName, fieldType } = parsed;
+      // Make optional for form data
       fields.push(`  ${fieldName}?: ${fieldType};`);
     }
   }
@@ -163,9 +179,9 @@ function generateValidationResultInterface(tableName: string, rowContent: string
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
+    const parsed = parseFieldLine(line);
+    if (parsed) {
+      const { fieldName } = parsed;
       fields.push(`    ${fieldName}?: string;`);
     }
   }
@@ -207,27 +223,48 @@ function generateHeader(
 // SOURCE: database.types.ts lines ${startLine}-${endLine}
 // =====================================================
 
-import type { Database } from '@/types/supabase/database.types';
-
 `;
 }
 
 /**
  * Format a table into a type file content
  */
-function formatTypeContent(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory
-): string {
-  const { name: tableName, rowContent, insertContent, updateContent, enumRefs, hasJson, startLine, endLine } = tableInfo;
+function formatTypeContent(table: EnrichedTable): string {
+  const { 
+    name: tableName, 
+    rowContent, 
+    enumRefs, 
+    hasJson, 
+    startLine, 
+    endLine,
+    deityFolder,
+    category
+  } = table;
   const pascalName = toPascalCase(tableName);
   
-  let content = generateHeader(tableName, deityFolder, category, startLine, endLine);
+  // Validate we have content to work with
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping type generation`);
+    return `// SKIPPED: No row content found for ${tableName}\n`;
+  }
+  
+  // Use ImportManager to collect and deduplicate imports
+  const importManager = new ImportManager();
+  
+  // Add Database import
+  importManager.addImport('@/types/supabase/database.types', 'Database', true);
   
   // Add Json import if needed
   if (hasJson) {
-    content += `import type { Json } from '@/types/supabase/database.types';\n\n`;
+    importManager.addImport('@/types/supabase/database.types', 'Json', true);
+  }
+  
+  const importBlock = importManager.getImportBlock();
+  
+  let content = generateHeader(tableName, deityFolder, category, startLine, endLine);
+  
+  if (importBlock) {
+    content += importBlock + '\n\n';
   }
   
   // Add enum exports
@@ -268,6 +305,14 @@ function formatTypeContent(
     }
   }
   
+  // Own profile interface (special case for profiles table)
+  if (tableName === 'profiles') {
+    const ownProfile = generateOwnProfileInterface(tableName, rowContent);
+    if (ownProfile) {
+      content += ownProfile + '\n';
+    }
+  }
+  
   // Form data interface
   if (category.generateFormInterface && rowContent) {
     content += generateFormDataInterface(tableName, rowContent) + '\n';
@@ -283,21 +328,27 @@ function formatTypeContent(
 
 /**
  * Format a table into a type file
+ * Accepts EnrichedTable directly - no need for additional callbacks
  */
 export function formatType(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory,
+  table: EnrichedTable,
   options?: FormatTypesOptions
-): FormattedType {
+): FormattedType | null {
   const { verbose = false } = options || {};
+  const { name: tableName, deityFolder, category, rowContent } = table;
   
   if (verbose) {
-    logDebug(`Formatting type: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+    logDebug(`Formatting type: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
-  const content = formatTypeContent(tableInfo, deityFolder, category);
-  const filePath = `src/types/generated/${deityFolder}/${tableInfo.name}.ts`;
+  // Validate row content exists
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping type generation`);
+    return null;
+  }
+  
+  const content = formatTypeContent(table);
+  const filePath = `src/types/generated/${deityFolder}/${tableName}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -306,7 +357,7 @@ export function formatType(
   return {
     content,
     filePath,
-    tableName: tableInfo.name,
+    tableName,
     category,
     deityFolder
   };
@@ -314,11 +365,10 @@ export function formatType(
 
 /**
  * Format multiple tables into type files
+ * Accepts EnrichedTable array directly - no callbacks needed
  */
 export function formatTypes(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
+  tables: EnrichedTable[],
   options?: FormatTypesOptions
 ): FormattedType[] {
   const { verbose = false } = options || {};
@@ -328,14 +378,14 @@ export function formatTypes(
     logDebug(`Formatting ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);
-    const formatted = formatType(tableInfo, deityFolder, category, options);
-    results.push(formatted);
-    
-    if (verbose) {
-      logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+  for (const table of tables) {
+    const formatted = formatType(table, options);
+    if (formatted) {
+      results.push(formatted);
+      
+      if (verbose) {
+        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder} (${table.category.handlingLevel})`);
+      }
     }
   }
   

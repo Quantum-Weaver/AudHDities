@@ -1,21 +1,20 @@
-// src/scripts/system/gaia/format_constants.ts
+// src/scripts/generators/gaia/format_constants.ts
 // ============================================================================
 // FORMAT CONSTANTS (GAIA)
 // ============================================================================
 // Purpose: Format runtime enums into constant object files
-// Dependencies: types from extractRuntimeEnums
+// Dependencies: types from extractRuntimeEnums, config from object-categories
 // ============================================================================
 
 import type { RuntimeEnumInfo } from './extract_runtime_enums.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ObjectCategory } from '@/config/object_categories.js';
-import { TableInfo } from './extract_tables.js';
-import { getDeityFolderForObject } from '@/config/object_categories.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import { cleanEnumValue } from '../../shared/quote_manager.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
+import { EnrichedRuntimeEnum } from './enrich_objects.js';
 
 export interface FormatConstantsOptions {
   verbose?: boolean;
-  deityFolder?: string;
-  category?: ObjectCategory;
 }
 
 export interface FormattedConstant {
@@ -28,7 +27,7 @@ export interface FormattedConstant {
 }
 
 /**
- * Convert string to PascalCase for type names
+ * Convert snake_case to PascalCase for type names
  */
 function toPascalCase(str: string): string {
   return str
@@ -50,7 +49,7 @@ function toUpperSnakeCase(str: string): string {
 function generateHeader(enumName: string, deityFolder: string, values: string[]): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
-// FILE: constants/${deityFolder}/${enumName}.ts
+// FILE: constants/generated/${deityFolder}/${enumName}.ts
 // GENERATED: ${timestamp}
 // SOURCE: Constants.public.Enums.${enumName}
 // VALUES: ${values.length} entries
@@ -61,19 +60,35 @@ function generateHeader(enumName: string, deityFolder: string, values: string[])
 
 /**
  * Format a runtime enum into a constant file content
+ * Uses ImportManager for any needed imports (constants typically have none)
  */
-function formatConstantContent( enumInfo: RuntimeEnumInfo, deityFolder: string): string {
+function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): string {
   const { name: enumName, values } = enumInfo;
   const constName = toUpperSnakeCase(enumName);
   const typeName = toPascalCase(enumName);
   
+  // Skip if no values
+  if (!values || values.length === 0) {
+    return `// SKIPPED: ${enumName} has no values\n`;
+  }
+  
   let content = generateHeader(enumName, deityFolder, values);
+  
+  // Constants typically don't need imports, but ImportManager is available if needed
+  const importManager = new ImportManager();
+  
+  // Add import block if any imports were added (currently none for constants)
+  const importBlock = importManager.getImportBlock();
+  if (importBlock) {
+    content += importBlock + '\n\n';
+  }
   
   content += `export const ${constName} = {\n`;
   
   for (const value of values) {
     const key = toUpperSnakeCase(value);
-    content += `  ${key}: '${value}',\n`;
+    const cleanValue = cleanEnumValue(value);
+    content += `  ${key}: '${cleanValue}',\n`;
   }
   
   content += `} as const;\n\n`;
@@ -83,22 +98,37 @@ function formatConstantContent( enumInfo: RuntimeEnumInfo, deityFolder: string):
 }
 
 /**
- * Format a runtime enum into a constant file
+ * Format a single runtime enum into a constant file
+ * Resolves deity folder from object-categories config
  */
 export function formatConstant(
-  enumInfo: RuntimeEnumInfo,
-  deityFolder: string,
-  category: ObjectCategory, 
+  enumInfo: EnrichedRuntimeEnum,  // Extends RuntimeEnumInfo - has all properties
   options?: FormatConstantsOptions
-): FormattedConstant {
+): FormattedConstant | null {
   const { verbose = false } = options || {};
+  const { name: enumName, deityFolder, category, shouldGenerateConstants, values } = enumInfo;
   
-  if (verbose) {
-    logDebug(`Formatting constant: ${enumInfo.name} -> ${deityFolder}`);
+  // Check if this enum needs constant generation (using pre-resolved flag)
+  if (!shouldGenerateConstants) {
+    if (verbose) {
+      logDebug(`Skipping constant for ${enumName} (not configured for constant generation)`);
+    }
+    return null;
   }
   
+  if (verbose) {
+    logDebug(`Formatting constant: ${enumName} -> ${deityFolder}`);
+  }
+  
+  // Skip if no values
+  if (!values || values.length === 0) {
+    logWarning(`Skipping constant for ${enumName}: no values found`);
+    return null;
+  }
+  
+  // Pass the full enumInfo - it has startLine, endLine, content, etc.
   const content = formatConstantContent(enumInfo, deityFolder);
-  const filePath = `src/lib/constants/generated/${deityFolder}/${enumInfo.name}.ts`;
+  const filePath = `src/lib/constants/generated/${deityFolder}/${enumName}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -107,8 +137,8 @@ export function formatConstant(
   return {
     content,
     filePath,
-    enumName: enumInfo.name,
-    values: enumInfo.values,
+    enumName,
+    values,
     deityFolder,
     category
   };
@@ -118,9 +148,7 @@ export function formatConstant(
  * Format multiple runtime enums into constant files
  */
 export function formatConstants(
-  enums: RuntimeEnumInfo[],
-  getDeityFolder: (enumName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
+  enums: EnrichedRuntimeEnum[],  // ← Changed from RuntimeEnumInfo[]
   options?: FormatConstantsOptions
 ): FormattedConstant[] {
   const { verbose = false } = options || {};
@@ -131,13 +159,13 @@ export function formatConstants(
   }
   
   for (const enumInfo of enums) {
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(table);
-    const formatted = formatConstant(enumInfo, deityFolder, options);
-    results.push(formatted);
-    
-    if (verbose) {
-      logDebug(`  Formatted: ${enumInfo.name} -> ${deityFolder}`);
+    const formatted = formatConstant(enumInfo, options);
+    if (formatted) {
+      results.push(formatted);
+      
+      if (verbose) {
+        logDebug(`  Formatted: ${enumInfo.name} -> ${formatted.deityFolder}`);
+      }
     }
   }
   

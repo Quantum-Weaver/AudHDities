@@ -12,12 +12,25 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 
 // import from config
-import { getDeityGroupForTable, getFolderNameForTable } from '@/config/deity_groups.js';
-import { getWorkflowConfig } from '@/config/workflow_config.js';
-import { getTableHandlingLevel, ObjectCategory } from '@/config/object_categories.js';
+import { getFolderNameForTable } from '@/config/deity_groups.js';
+import { 
+  getTableCategory, 
+  needsUtils, 
+  needsHooks,
+  needsValidators,
+  needsApiRoutes,
+  needsConstantGeneration,
+  needsTypeGeneration,
+  type ObjectCategory
+} from '@/config/object_categories.js';
 import { 
   addRecord, 
-} from '@/config/efficiency_records';
+  estimateRunTime, 
+  getEfficiencyStats, 
+  updateResourceProfile 
+} from '@/config/efficiency_records.js';
+import { validateName, transformName, detectContextFromPath } from '@/config/naming_guide.js';
+import { saveDependencyMap, loadDependencyMap, findAffectedNodes } from '@/config/dependency_map.js';
 
 // import from shared
 import { readDatabaseTypes } from '../../shared/file_reader.js';
@@ -26,27 +39,44 @@ import {
   logSuccess, logError, logInfo, logWarning, 
   logSeparator, logHeader, logDebug 
 } from '../../shared/logger.js';
+import { intelligentPause, confirmAction } from '../../shared/pause.js';
+import { 
+  CONSTANTS_BASE_PATH, 
+  TYPES_BASE_PATH, 
+  VALIDATORS_BASE_PATH,
+  UTILS_BASE_PATH,
+  HOOKS_BASE_PATH,
+  API_BASE_PATH,
+  getDeityFilePath,
+  getFlatFilePath
+} from '../../shared/paths.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import { cleanEnumValue, formatFieldDeclaration, needsQuoteWrapping } from '../../shared/quote_manager.js';
+import { ObjectCheckList } from '../../modules/system/object_checklist.js';
 
-//import from modules
+// import from modules
 import { analyzeDependencies } from '../../modules/analyze/analyze_dependencies.js';
 import { findMarkers } from '../../modules/system/find_markers.js';
 import { findAllClosingBraces } from '../../modules/system/find_closing_braces.js';
 import { countAllCollections } from '../../modules/system/count_items.js';
+import { discoverDirectories, ensureAllDirectories } from '../../modules/discover/discover_directories.js';
 
-// import gaia generators
-import { extractTables, type TableInfo } from './extract_tables.js';
-import { extractViews, type ViewInfo } from './extract_views.js';
-import { extractFunctions, type FunctionInfo } from './extract_functions.js';
-import { extractTypeEnums, type TypeEnumInfo } from './extract_type_enums.js';
-import { extractRuntimeEnums, type RuntimeEnumInfo } from './extract_runtime_enums.js';
-import { formatConstants, type FormattedConstant } from './format_constants.js';
-import { formatTypes, type FormattedType } from './format_types.js';
-import { formatValidators, type FormattedValidator } from './format_validators.js';
-import { formatUtils, type FormattedUtility } from './format_utils.js';
-import { formatApiRoutes, formatMultipleApiRoutes, type FormattedApiRoute } from './format_api_routes.js';
-import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
-import { formatMultipleHooks } from './format_hooks.js';
-
+// import from gaia generators
+import { extractTables, type TableInfo } from '../gaia/extract_tables.js';
+import { extractViews, type ViewInfo } from '../gaia/extract_views.js';
+import { extractFunctions, type FunctionInfo } from '../gaia/extract_functions.js';
+import { extractTypeEnums, type TypeEnumInfo } from '../gaia/extract_type_enums.js';
+import { extractRuntimeEnums, type RuntimeEnumInfo } from '../gaia/extract_runtime_enums.js';
+import { enrichAll, type EnrichedTable, type EnrichedRuntimeEnum } from '../gaia/enrich_objects.js';
+import { generateEnumMapping, writeEnumMapping } from './enrich_objects.js';
+import { formatConstant, type FormattedConstant } from '../gaia/format_constants.js';
+import { formatType, type FormattedType } from '../gaia/format_types.js';
+import { formatValidator, type FormattedValidator } from '../gaia/format_validators.js';
+import { formatUtility, type FormattedUtility } from '../gaia/format_utils.js';
+import { formatApiRoutes, type FormattedApiRoute } from '../gaia/format_api_routes.js';
+import { formatHooks, type FormattedHook } from '../gaia/format_hooks.js';
+import { writeGeneratedFile, type WriteOptions } from '../gaia/write_generated_file.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../../..');
@@ -61,6 +91,7 @@ export interface GaiaOptions {
   verbose?: boolean;
   quiet?: boolean;
   maxTables?: number;
+  autoApprove?: boolean;
 }
 
 const DEFAULT_OPTIONS: Required<GaiaOptions> = {
@@ -68,7 +99,8 @@ const DEFAULT_OPTIONS: Required<GaiaOptions> = {
   force: false,
   verbose: true,
   quiet: false,
-  maxTables: 0  // 0 means no limit
+  maxTables: 0,  // 0 means no limit
+  autoApprove: false
 };
 
 // ============================================================================
@@ -89,463 +121,562 @@ export interface GenerationSummary {
 }
 
 // ============================================================================
-// MAIN ORCHESTRATOR FUNCTION
+// HELPER FUNCTIONS
 // ============================================================================
 
-/**
- * Run the GAIA generator
- */
-export async function runGaiaGenerator(options: GaiaOptions = {}): Promise<GenerationSummary> {
-  const opts = { ...DEFAULT_OPTIONS, ...options };
-  const logger = new SystemLogger('GAIA');
-  const summary: GenerationSummary = {
-    constantsGenerated: 0,
-    typesGenerated: 0,
-    validatorsGenerated: 0,
-    utilsGenerated: 0,
-    apiRoutesGenerated: 0,
-    hooksGenerated: 0,
-    errors: [],
-    warnings: [],
-    startTime: new Date(),
-    endTime: new Date()
-  };
-  
-  logger.startRun();
-  
-  console.log('\n');
-  logSeparator();
-  logHeader('🌍 GAIA - DATABASE TYPE GENERATOR');
-  logSeparator();
-  console.log('');
-  
-  if (opts.dryRun) {
-    logWarning('DRY RUN MODE - No files will be written');
-    console.log('');
-  }
-  
-// =====================================================
-// PHASE 1: Read and Parse Database Types
-// =====================================================
-
-logInfo('Phase 1/9: Reading database.types.ts...');
-
-// Read the file using existing fileReader
-const fileResult = readDatabaseTypes();
-
-if (!fileResult.success) {
-  logError(`Failed to read database.types.ts: ${fileResult.error}`);
-  summary.errors.push(`File read error: ${fileResult.error}`);
-  logger.addNote(`File read failed: ${fileResult.error}`);
-  logger.endRun('failed');
-  return summary;
+function generateRunId(): string {
+  const now = new Date();
+  return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
 }
 
-logSuccess(`File loaded: ${fileResult.encoding}, ${fileResult.content.length} characters`);
-
-// Split into lines
-const lines = fileResult.content.split(/\r?\n/);
-logInfo(`  Total lines: ${lines.length}`);
-
-// Find markers
-const markers = findMarkers(lines, { verbose: opts.verbose });
-logInfo(`  Database line: ${markers.databaseLine}`);
-logInfo(`  Tables line: ${markers.tablesLine}`);
-logInfo(`  Views line: ${markers.viewsLine}`);
-logInfo(`  Functions line: ${markers.functionsLine}`);
-logInfo(`  Enums line: ${markers.enumsLine}`);
-logInfo(`  Constants line: ${markers.constantsLine}`);
-logInfo(`  Constants.Enums line: ${markers.constantsEnumsLine}`);
-
-// Find closing braces
-const completeMarkers = findAllClosingBraces(lines, markers, { verbose: opts.verbose });
-logInfo(`  Tables range: ${completeMarkers.tablesLine}-${completeMarkers.tablesEndLine}`);
-logInfo(`  Views range: ${completeMarkers.viewsLine}-${completeMarkers.viewsEndLine}`);
-logInfo(`  Functions range: ${completeMarkers.functionsLine}-${completeMarkers.functionsEndLine}`);
-logInfo(`  Enums range: ${completeMarkers.enumsLine}-${completeMarkers.enumsEndLine}`);
-logInfo(`  Constants range: ${completeMarkers.constantsLine}-${completeMarkers.constantsEndLine}`);
-logInfo(`  Constants.Enums range: ${completeMarkers.constantsEnumsLine}-${completeMarkers.constantsEnumsEndLine}`);
-
-// Count collections
-const collections = countAllCollections(lines, completeMarkers, { verbose: opts.verbose });
-logInfo(`  Tables: ${collections.tables.itemCount}`);
-logInfo(`  Views: ${collections.views.itemCount}`);
-logInfo(`  Functions: ${collections.functions.itemCount}`);
-logInfo(`  Enums (type-level): ${collections.enums.itemCount}`);
-
-logger.addNote(`Found ${collections.tables.itemCount} tables, ${collections.views.itemCount} views, ${collections.functions.itemCount} functions, ${collections.enums.itemCount} enums`);
-
-// =====================================================
-// PHASE 2: Extract All Objects
-// =====================================================
-
-logInfo('Phase 2/9: Extracting objects...');
-
-// Extract runtime enums (Constants.public.Enums)
-let runtimeEnums: RuntimeEnumInfo[] = [];
-if (completeMarkers.constantsEnumsLine !== -1 && completeMarkers.constantsEnumsEndLine !== -1) {
-  runtimeEnums = await extractRuntimeEnums(
-    lines,
-    completeMarkers.constantsEnumsLine,
-    completeMarkers.constantsEnumsEndLine,
-    { verbose: opts.verbose }
-  );
-  summary.constantsGenerated = runtimeEnums.length;
-  logSuccess(`  Extracted ${runtimeEnums.length} runtime enums`);
-} else {
-  logWarning('  Constants.Enums section not found');
+function getTableDeityFolder(tableName: string): string {
+  const folder = getFolderNameForTable(tableName);
+  return folder ? folder : 'hestia-core';
 }
 
-// Extract type enums (Database.public.Enums)
-let typeEnums: TypeEnumInfo[] = [];
-if (completeMarkers.enumsLine !== -1 && completeMarkers.enumsEndLine !== -1) {
-  typeEnums = await extractTypeEnums(
-    lines,
-    completeMarkers.enumsLine,
-    completeMarkers.enumsEndLine,
-    { verbose: opts.verbose }
-  );
-  logSuccess(`  Extracted ${typeEnums.length} type enums`);
-}
-
-// Extract tables
-let tables: TableInfo[] = [];
-if (completeMarkers.tablesLine !== -1 && completeMarkers.tablesEndLine !== -1) {
-  tables = await extractTables(
-    lines,
-    completeMarkers.tablesLine,
-    completeMarkers.tablesEndLine,
-    { verbose: opts.verbose, maxTables: opts.maxTables }
-  );
-  logSuccess(`  Extracted ${tables.length} tables`);
-}
-
-// Extract views
-let views: ViewInfo[] = [];
-if (completeMarkers.viewsLine !== -1 && completeMarkers.viewsEndLine !== -1) {
-  views = await extractViews(
-    lines,
-    completeMarkers.viewsLine,
-    completeMarkers.viewsEndLine,
-    { verbose: opts.verbose }
-  );
-  logSuccess(`  Extracted ${views.length} views`);
-}
-
-// Extract functions
-let functions: FunctionInfo[] = [];
-if (completeMarkers.functionsLine !== -1 && completeMarkers.functionsEndLine !== -1) {
-  functions = await extractFunctions(
-    lines,
-    completeMarkers.functionsLine,
-    completeMarkers.functionsEndLine,
-    { verbose: opts.verbose }
-  );
-  logSuccess(`  Extracted ${functions.length} functions`);
-}
-
-logger.addNote(`Extracted: ${tables.length} tables, ${views.length} views, ${functions.length} functions, ${runtimeEnums.length} runtime enums`);
-  
-// =====================================================
-// PHASE 3: Generate Constants (Runtime Enums)
-// =====================================================
-
-logInfo('Phase 3/9: Generating constants...');
-
-// Function to determine deity folder for an enum
 function getEnumDeityFolder(enumName: string): string {
-  // First try to get from enum-mapping config
   try {
-    const { getEnumFolder } = require('@/config/enum-mapping.js');
+    const { getEnumFolder } = require('@/config/enum_mapping.js');
     return getEnumFolder(enumName);
   } catch {
-    // Fallback to hestia-core
     return 'hestia-core';
   }
 }
 
-// Format constants
-const formattedConstants = formatConstants(
-  runtimeEnums,
-  getEnumDeityFolder,
-  { verbose: opts.verbose }
-);
+async function askUserToWrite(): Promise<boolean> {
+  return confirmAction('Write files to disk?', false);
+}
 
-// Write each constant file
-for (const constant of formattedConstants) {
-  const writeResult = await writeGeneratedFile(
-    constant.filePath,
-    constant.content,
-    [`Constants.public.Enums.${constant.enumName}`],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
+// ============================================================================
+// PHASE 1: Read and Parse Database Types
+// ============================================================================
+
+async function phase1ReadDatabase(
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger
+): Promise<{ lines: string[]; completeMarkers: any; collections: any }> {
+  logInfo('Phase 1/9: Reading database.types.ts...');
   
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.constantsGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.constantsGenerated++;
-    summary.warnings.push(`Updated constant: ${constant.enumName}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped constant: ${constant.enumName} (would overwrite)`);
+  const fileResult = readDatabaseTypes();
+  
+  if (!fileResult.success) {
+    throw new Error(`Failed to read database.types.ts: ${fileResult.error}`);
   }
+  
+  const lines = fileResult.content.split(/\r?\n/);
+  logSuccess(`File loaded: ${fileResult.encoding}, ${lines.length} lines`);
+  
+  const markers = findMarkers(lines, { verbose: opts.verbose });
+  const completeMarkers = findAllClosingBraces(lines, markers, { verbose: opts.verbose });
+  const collections = countAllCollections(lines, completeMarkers, { verbose: opts.verbose, maxItemsToList: 200 });
+  
+  logInfo(`  Tables: ${collections.tables.itemCount}`);
+  logInfo(`  Views: ${collections.views.itemCount}`);
+  logInfo(`  Functions: ${collections.functions.itemCount}`);
+  logInfo(`  Enums: ${collections.enums.itemCount}`);
+  
+  logger.addNote(`Found ${collections.tables.itemCount} tables, ${collections.views.itemCount} views, ${collections.functions.itemCount} functions, ${collections.enums.itemCount} enums`);
+  
+  return { lines, completeMarkers, collections };
 }
 
-logSuccess(`  Generated ${summary.constantsGenerated} constant files`);
+// ============================================================================
+// PHASE 1.5: Discover Directories
+// ============================================================================
+
+async function phase1point5DiscoverDirectories(
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger
+): Promise<any> {
+  logInfo('Phase 1.5/9: Discovering directories...');
   
-// =====================================================
-// PHASE 4: Generate Types (Tables)
-// =====================================================
-
-logInfo('Phase 4/9: Generating types...');
-
-// Format types
-const formattedTypes = formatTypes(
-  tables,
-  getTableDeityFolder,
-  getTableCategory,
-  { verbose: opts.verbose }
-);
-
-// Write each type file
-for (const type of formattedTypes) {
-  const writeResult = await writeGeneratedFile(
-    type.filePath,
-    type.content,
-    [`Database.public.Tables.${type.tableName}`],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
+  const directoryState = discoverDirectories({ verbose: opts.verbose });
+  ensureAllDirectories({ verbose: opts.verbose });
   
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.typesGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.typesGenerated++;
-    summary.warnings.push(`Updated type: ${type.tableName}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped type: ${type.tableName} (would overwrite)`);
+  logInfo(`Directory discovery complete:`);
+  logInfo(`  Constants: ${directoryState.summary.components.constantsFiles} existing files`);
+  logInfo(`  Types: ${directoryState.summary.components.typesFiles} existing files`);
+  logInfo(`  Validators: ${directoryState.summary.components.validatorsFiles} existing files`);
+  logInfo(`  Utils: ${directoryState.summary.components.utilsFiles} existing files`);
+  logInfo(`  Hooks: ${directoryState.summary.components.hooksFiles} existing files`);
+  logInfo(`  API: ${directoryState.summary.components.apiFiles} existing files`);
+  logInfo(`  Total: ${directoryState.summary.totalExistingFiles} existing files`);
+  
+  logger.addNote(`Directory discovery: ${directoryState.summary.totalExistingFiles} existing files found`);
+  
+  return directoryState;
+}
+
+// ============================================================================
+// PHASE 2: Extract Objects
+// ============================================================================
+
+async function phase2ExtractObjects(
+  lines: string[],
+  completeMarkers: any,
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger
+): Promise<{
+  runtimeEnums: RuntimeEnumInfo[];
+  typeEnums: TypeEnumInfo[];
+  tables: TableInfo[];
+  views: ViewInfo[];
+  functions: FunctionInfo[];
+}> {
+  logInfo('Phase 2/9: Extracting objects...');
+  
+  let runtimeEnums: RuntimeEnumInfo[] = [];
+  let typeEnums: TypeEnumInfo[] = [];
+  let tables: TableInfo[] = [];
+  let views: ViewInfo[] = [];
+  let functions: FunctionInfo[] = [];
+  
+  if (completeMarkers.constantsEnumsLine !== -1 && completeMarkers.constantsEnumsEndLine !== -1) {
+    runtimeEnums = await extractRuntimeEnums(
+      lines,
+      completeMarkers.constantsEnumsLine,
+      completeMarkers.constantsEnumsEndLine,
+      { verbose: opts.verbose }
+    );
+    logSuccess(`  Extracted ${runtimeEnums.length} runtime enums`);
+  } else {
+    logWarning('  Constants.Enums section not found');
   }
-}
-
-logSuccess(`  Generated ${summary.typesGenerated} type files`);
   
-// =====================================================
-// PHASE 5: Generate Validators (Tables)
-// =====================================================
-
-logInfo('Phase 5/9: Generating validators...');
-
-// Function to determine if a table needs validators
-function needsValidator(tableName: string): boolean {
-  const level = getTableHandlingLevel(tableName);
-  return level === 'full_crud' || level === 'assessment';
-}
-
-// Format validators
-const formattedValidators = formatValidators(
-  tables,
-  needsValidator,
-  { verbose: opts.verbose }
-);
-
-// Write each validator file
-for (const validator of formattedValidators) {
-  const writeResult = await writeGeneratedFile(
-    validator.filePath,
-    validator.content,
-    [`Database.public.Tables.${validator.tableName}`],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
-  
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.validatorsGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.validatorsGenerated++;
-    summary.warnings.push(`Updated validator: ${validator.tableName}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped validator: ${validator.tableName} (would overwrite)`);
+  if (completeMarkers.enumsLine !== -1 && completeMarkers.enumsEndLine !== -1) {
+    typeEnums = await extractTypeEnums(
+      lines,
+      completeMarkers.enumsLine,
+      completeMarkers.enumsEndLine,
+      { verbose: opts.verbose }
+    );
+    logSuccess(`  Extracted ${typeEnums.length} type enums`);
   }
-}
-
-logSuccess(`  Generated ${summary.validatorsGenerated} validator files`);
   
-// =====================================================
-// PHASE 6: Generate Utilities (Tables)
-// =====================================================
-
-logInfo('Phase 6/9: Generating utilities...');
-
-// Function to determine if a table needs utilities (only full_crud)
-function needsUtility(tableName: string): boolean {
-  const level = getTableHandlingLevel(tableName);
-  return level === 'full_crud';
-}
-
-// Function to get deity folder for a table
-function getTableDeityFolder(tableName: string): string {
-  const folder = getFolderNameForTable(tableName);
-  return folder ? `${folder}` : 'hestia-core';
-}
-
-// Function to get category for a table
-function getTableCategory(tableName: string): ObjectCategory {
-  const { getTableCategory } = require('@/config/object_categories.js');
-  return getTableCategory(tableName);
-}
-
-// Format utilities
-const formattedUtils = formatUtils(
-  tables,
-  getTableDeityFolder,
-  getTableCategory,
-  needsUtility,
-  { verbose: opts.verbose }
-);
-
-// Write each utility file
-for (const util of formattedUtils) {
-  const writeResult = await writeGeneratedFile(
-    util.filePath,
-    util.content,
-    [`Database.public.Tables.${util.tableName}`],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
-  
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.utilsGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.utilsGenerated++;
-    summary.warnings.push(`Updated utility: ${util.tableName}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped utility: ${util.tableName} (would overwrite)`);
+  if (completeMarkers.tablesLine !== -1 && completeMarkers.tablesEndLine !== -1) {
+    tables = await extractTables(
+      lines,
+      completeMarkers.tablesLine,
+      completeMarkers.tablesEndLine,
+      { verbose: opts.verbose, maxTables: opts.maxTables }
+    );
+    logSuccess(`  Extracted ${tables.length} tables`);
   }
-}
-
-logSuccess(`  Generated ${summary.utilsGenerated} utility files`);
   
-// =====================================================
-// PHASE 7: Generate API Routes (Tables)
-// =====================================================
-
-logInfo('Phase 7/9: Generating API routes...');
-
-// Function to determine if a table needs API routes
-function needsApiRoutes(tableName: string): boolean {
-  const level = getTableHandlingLevel(tableName);
-  return level === 'full_crud' || level === 'assessment' || level === 'join_table';
-}
-
-// Function to get workflow config for a table (for API flags)
-function getTableWorkflowConfig(tableName: string) {
-  return getWorkflowConfig(tableName);
-}
-
-// Format API routes
-const formattedApiRoutes = formatMultipleApiRoutes(
-  tables,
-  getTableDeityFolder,
-  getTableCategory,
-  needsApiRoutes,
-  { verbose: opts.verbose }
-);
-
-// Write each API route file
-for (const route of formattedApiRoutes) {
-  const sourceInfo = `Database.public.Tables.${route.tableName}${route.routeType === 'special' ? `.${route.specialType}` : ''}`;
-  
-  const writeResult = await writeGeneratedFile(
-    route.filePath,
-    route.content,
-    [sourceInfo],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
-  
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.apiRoutesGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.apiRoutesGenerated++;
-    summary.warnings.push(`Updated API route: ${route.tableName}/${route.routeType}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped API route: ${route.tableName}/${route.routeType} (would overwrite)`);
+  if (completeMarkers.viewsLine !== -1 && completeMarkers.viewsEndLine !== -1) {
+    views = await extractViews(
+      lines,
+      completeMarkers.viewsLine,
+      completeMarkers.viewsEndLine,
+      { verbose: opts.verbose }
+    );
+    logSuccess(`  Extracted ${views.length} views`);
   }
-}
-
-logSuccess(`  Generated ${summary.apiRoutesGenerated} API route files`);
   
-// =====================================================
-// PHASE 8: Generate Hooks (Tables)
-// =====================================================
-
-logInfo('Phase 8/9: Generating hooks...');
-
-// Function to determine if a table needs hooks (only full_crud)
-function needsHooks(tableName: string): boolean {
-  const level = getTableHandlingLevel(tableName);
-  return level === 'full_crud';
-}
-
-// Format hooks
-const formattedHooks = formatMultipleHooks(
-  tables,
-  getTableDeityFolder,
-  getTableCategory,
-  needsHooks,
-  { verbose: opts.verbose }
-);
-
-// Write each hook file
-for (const hook of formattedHooks) {
-  const writeResult = await writeGeneratedFile(
-    hook.filePath,
-    hook.content,
-    [`Database.public.Tables.${hook.tableName}`],
-    {
-      dryRun: opts.dryRun,
-      force: opts.force,
-      verbose: opts.verbose,
-      logger
-    }
-  );
-  
-  if (writeResult.success && writeResult.action === 'created') {
-    summary.hooksGenerated++;
-  } else if (writeResult.success && writeResult.action === 'updated') {
-    summary.hooksGenerated++;
-    summary.warnings.push(`Updated hook: ${hook.tableName}`);
-  } else if (writeResult.action === 'skipped' && writeResult.success === false) {
-    summary.warnings.push(`Skipped hook: ${hook.tableName} (would overwrite)`);
+  if (completeMarkers.functionsLine !== -1 && completeMarkers.functionsEndLine !== -1) {
+    functions = await extractFunctions(
+      lines,
+      completeMarkers.functionsLine,
+      completeMarkers.functionsEndLine,
+      { verbose: opts.verbose }
+    );
+    logSuccess(`  Extracted ${functions.length} functions`);
   }
+  
+  logger.addNote(`Extracted: ${tables.length} tables, ${views.length} views, ${functions.length} functions, ${runtimeEnums.length} runtime enums`);
+  
+  return { runtimeEnums, typeEnums, tables, views, functions };
 }
 
-logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
+// ============================================================================
+// PHASE 2.5: Enrich Objects
+// ============================================================================
+
+// ============================================================================
+// PHASE 2.5: Enrich Objects
+// ============================================================================
+
+function phase2point5EnrichObjects(
+  runtimeEnums: RuntimeEnumInfo[],
+  typeEnums: TypeEnumInfo[],
+  tables: TableInfo[],
+  views: ViewInfo[],
+  functions: FunctionInfo[],
+  opts: Required<GaiaOptions>,
+  checklist: ObjectCheckList
+): {
+  enrichedEnums: EnrichedRuntimeEnum[];
+  enrichedTables: EnrichedTable[];
+} {
+  logInfo('Phase 2.5/9: Enriching objects with configuration...');
   
   // =====================================================
-  // PHASE 9: Update Registry and Maps
+  // STEP 1: Generate enum mapping from tables
   // =====================================================
   
+  logInfo('  Generating enum mapping from table references...');
+  const enumMapping = generateEnumMapping(tables);
+  writeEnumMapping(enumMapping);
+  logSuccess(`    Mapped ${Object.keys(enumMapping).filter(k => k !== 'default').length} enums to deity folders`);
+  
+  // =====================================================
+  // STEP 2: Enrich all objects (tables, views, functions, enums)
+  // =====================================================
+  
+  const enriched = enrichAll(tables, views, functions, runtimeEnums, typeEnums, { verbose: opts.verbose });
+  
+  // =====================================================
+  // STEP 3: Override runtime enum deity folders with mapping
+  // =====================================================
+  
+  // The enrichAll function may have set default deity folders for enums.
+  // We override them with the mapping generated from table references.
+  const enrichedEnumsWithMapping = enriched.runtimeEnums.map(enumInfo => ({
+    ...enumInfo,
+    deityFolder: getEnumFolder(enumInfo.name)
+  }));
+  
+  // =====================================================
+  // STEP 4: Register all enriched objects in checklist
+  // =====================================================
+  
+  for (const table of enriched.tables) {
+    checklist.registerObject({ name: table.name, type: 'table', content: '', startLine: 0, endLine: 0 });
+    checklist.updateProgress(table.name, 'analyzed', true);
+  }
+  
+  for (const enumInfo of enrichedEnumsWithMapping) {
+    checklist.registerObject({ name: enumInfo.name, type: 'runtime_enum', content: '', startLine: 0, endLine: 0 });
+    checklist.updateProgress(enumInfo.name, 'analyzed', true);
+  }
+  
+  logSuccess(`  Enriched ${enriched.tables.length} tables, ${enrichedEnumsWithMapping.length} runtime enums (with mapping)`);
+  
+  return {
+    enrichedEnums: enrichedEnumsWithMapping,
+    enrichedTables: enriched.tables,
+  };
+}
+
+// ============================================================================
+// PHASE 3: Generate Constants
+// ============================================================================
+
+async function phase3GenerateConstants(
+  enrichedEnums: EnrichedRuntimeEnum[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedConstant[]> {
+  logInfo('Phase 3/9: Generating constants...');
+  
+  const enumsToGenerate = enrichedEnums.filter(e => e.shouldGenerateConstants);
+  const formattedConstants: FormattedConstant[] = [];
+  
+  if (enumsToGenerate.length === 0) {
+    logInfo('  No enums need constant generation');
+    return formattedConstants;
+  }
+  
+  for (const enumInfo of enumsToGenerate) {
+    const formatted = formatConstant(enumInfo);
+    if (!formatted) {
+      checklist.updateProgress(enumInfo.name, 'constantsGenerated', false, 'Formatting failed');
+      continue;
+    }
+    
+    formattedConstants.push(formatted);
+    
+    const writeResult = await writeGeneratedFile(
+      formatted.filePath,
+      formatted.content,
+      [`Constants.public.Enums.${enumInfo.name}`],
+      {
+        dryRun: opts.dryRun,
+        force: opts.force,
+        verbose: opts.verbose,
+        logger
+      }
+    );
+    
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      summary.constantsGenerated++;
+      checklist.updateProgress(enumInfo.name, 'constantsGenerated', true);
+    } else if (writeResult.action === 'skipped' && !writeResult.success) {
+      checklist.updateProgress(enumInfo.name, 'constantsGenerated', false, writeResult.message);
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.constantsGenerated} constant files`);
+  return formattedConstants;
+}
+
+// ============================================================================
+// PHASE 4: Generate Types
+// ============================================================================
+
+async function phase4GenerateTypes(
+  enrichedTables: EnrichedTable[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedType[]> {
+  logInfo('Phase 4/9: Generating types...');
+  
+  const tablesToGenerate = enrichedTables.filter(t => t.shouldGenerateTypes);
+  const formattedTypes: FormattedType[] = [];
+  
+  if (tablesToGenerate.length === 0) {
+    logInfo('  No tables need type generation');
+    return formattedTypes;
+  }
+  
+  for (const table of tablesToGenerate) {
+    const formatted = formatType(table);
+    if (!formatted) {
+      checklist.updateProgress(table.name, 'typesGenerated', false, 'Formatting failed');
+      continue;
+    }
+    
+    formattedTypes.push(formatted);
+    
+    const writeResult = await writeGeneratedFile(
+      formatted.filePath,
+      formatted.content,
+      [`Database.public.Tables.${table.name}`],
+      {
+        dryRun: opts.dryRun,
+        force: opts.force,
+        verbose: opts.verbose,
+        logger
+      }
+    );
+    
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      summary.typesGenerated++;
+      checklist.updateProgress(table.name, 'typesGenerated', true);
+    } else if (writeResult.action === 'skipped' && !writeResult.success) {
+      checklist.updateProgress(table.name, 'typesGenerated', false, writeResult.message);
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.typesGenerated} type files`);
+  return formattedTypes;
+}
+
+// ============================================================================
+// PHASE 5: Generate Validators
+// ============================================================================
+
+async function phase5GenerateValidators(
+  enrichedTables: EnrichedTable[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedValidator[]> {
+  logInfo('Phase 5/9: Generating validators...');
+  
+  const tablesToValidate = enrichedTables.filter(t => t.shouldGenerateValidators);
+  const formattedValidators: FormattedValidator[] = [];
+  
+  if (tablesToValidate.length === 0) {
+    logInfo('  No tables need validators');
+    return formattedValidators;
+  }
+  
+  for (const table of tablesToValidate) {
+    const formatted = formatValidator(table);
+    if (!formatted) {
+      continue;
+    }
+    
+    formattedValidators.push(formatted);
+    
+    const writeResult = await writeGeneratedFile(
+      formatted.filePath,
+      formatted.content,
+      [`Database.public.Tables.${table.name}`],
+      {
+        dryRun: opts.dryRun,
+        force: opts.force,
+        verbose: opts.verbose,
+        logger
+      }
+    );
+    
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      summary.validatorsGenerated++;
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.validatorsGenerated} validator files`);
+  return formattedValidators;
+}
+
+// ============================================================================
+// PHASE 6: Generate Utilities
+// ============================================================================
+
+async function phase6GenerateUtilities(
+  enrichedTables: EnrichedTable[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedUtility[]> {
+  logInfo('Phase 6/9: Generating utilities...');
+  
+  const tablesWithUtils = enrichedTables.filter(t => t.shouldGenerateUtils);
+  const formattedUtils: FormattedUtility[] = [];
+  
+  if (tablesWithUtils.length === 0) {
+    logInfo('  No tables need utilities');
+    return formattedUtils;
+  }
+  
+  for (const table of tablesWithUtils) {
+    const formatted = formatUtility(table);
+    if (!formatted) {
+      continue;
+    }
+    
+    formattedUtils.push(formatted);
+    
+    const writeResult = await writeGeneratedFile(
+      formatted.filePath,
+      formatted.content,
+      [`Database.public.Tables.${table.name}`],
+      {
+        dryRun: opts.dryRun,
+        force: opts.force,
+        verbose: opts.verbose,
+        logger
+      }
+    );
+    
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      summary.utilsGenerated++;
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.utilsGenerated} utility files`);
+  return formattedUtils;
+}
+
+// ============================================================================
+// PHASE 7: Generate API Routes
+// ============================================================================
+
+async function phase7GenerateApiRoutes(
+  enrichedTables: EnrichedTable[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedApiRoute[]> {
+  logInfo('Phase 7/9: Generating API routes...');
+  
+  const tablesWithApi = enrichedTables.filter(t => t.shouldGenerateApiRoutes);
+  const formattedApiRoutes: FormattedApiRoute[] = [];
+  
+  if (tablesWithApi.length === 0) {
+    logInfo('  No tables need API routes');
+    return formattedApiRoutes;
+  }
+  
+  for (const table of tablesWithApi) {
+    const routes = formatApiRoutes(table);
+    for (const route of routes) {
+      formattedApiRoutes.push(route);
+      
+      const writeResult = await writeGeneratedFile(
+        route.filePath,
+        route.content,
+        [`Database.public.Tables.${table.name}`],
+        {
+          dryRun: opts.dryRun,
+          force: opts.force,
+          verbose: opts.verbose,
+          logger
+        }
+      );
+      
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        summary.apiRoutesGenerated++;
+      }
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.apiRoutesGenerated} API route files`);
+  return formattedApiRoutes;
+}
+
+// ============================================================================
+// PHASE 8: Generate Hooks
+// ============================================================================
+
+async function phase8GenerateHooks(
+  enrichedTables: EnrichedTable[],
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger,
+  summary: GenerationSummary,
+  checklist: ObjectCheckList
+): Promise<FormattedHook[]> {
+  logInfo('Phase 8/9: Generating hooks...');
+  
+  const tablesWithHooks = enrichedTables.filter(t => t.shouldGenerateHooks);
+  const formattedHooks: FormattedHook[] = [];
+  
+  if (tablesWithHooks.length === 0) {
+    logInfo('  No tables need hooks');
+    return formattedHooks;
+  }
+  
+  for (const table of tablesWithHooks) {
+    const hooks = formatHooks(table);
+    for (const hook of hooks) {
+      formattedHooks.push(hook);
+      
+      const writeResult = await writeGeneratedFile(
+        hook.filePath,
+        hook.content,
+        [`Database.public.Tables.${table.name}`],
+        {
+          dryRun: opts.dryRun,
+          force: opts.force,
+          verbose: opts.verbose,
+          logger
+        }
+      );
+      
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        summary.hooksGenerated++;
+      }
+    }
+  }
+  
+  logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
+  return formattedHooks;
+}
+
+// ============================================================================
+// PHASE 9: Update Registry and Maps
+// ============================================================================
+
+async function phase9UpdateRegistry(
+  formattedConstants: FormattedConstant[],
+  formattedTypes: FormattedType[],
+  formattedValidators: FormattedValidator[],
+  formattedUtils: FormattedUtility[],
+  formattedApiRoutes: FormattedApiRoute[],
+  formattedHooks: FormattedHook[],
+  summary: GenerationSummary,
+  opts: Required<GaiaOptions>,
+  logger: SystemLogger
+): Promise<void> {
   logInfo('Phase 9/9: Updating registry and dependency maps...');
   
   // Add each generated file to the logger
@@ -615,26 +746,12 @@ logSuccess(`  Generated ${summary.hooksGenerated} hook files`);
   }
   
   logSuccess('  Registry and maps updated');
-  
-  // =====================================================
-  // SUMMARY
-  // =====================================================
-  
-  summary.endTime = new Date();
-  logger.endRun(summary.errors.length === 0 ? 'success' : 'partial');
-  
-  printSummary(summary, opts);
-  
-  return summary;
 }
 
 // ============================================================================
-// HELPER FUNCTIONS
+// PRINT SUMMARY
 // ============================================================================
 
-/**
- * Print generation summary
- */
 function printSummary(summary: GenerationSummary, options: Required<GaiaOptions>): void {
   const elapsed = (summary.endTime.getTime() - summary.startTime.getTime()) / 1000;
   
@@ -680,6 +797,121 @@ function printSummary(summary: GenerationSummary, options: Required<GaiaOptions>
 }
 
 // ============================================================================
+// MAIN ORCHESTRATOR
+// ============================================================================
+
+export async function runGaiaGenerator(options: GaiaOptions = {}): Promise<GenerationSummary> {
+  const opts = { ...DEFAULT_OPTIONS, ...options };
+  const logger = new SystemLogger('GAIA');
+  const checklist = new ObjectCheckList({ verbose: opts.verbose });
+  const summary: GenerationSummary = {
+    constantsGenerated: 0,
+    typesGenerated: 0,
+    validatorsGenerated: 0,
+    utilsGenerated: 0,
+    apiRoutesGenerated: 0,
+    hooksGenerated: 0,
+    errors: [],
+    warnings: [],
+    startTime: new Date(),
+    endTime: new Date()
+  };
+  
+  logger.startRun();
+  
+  console.log('\n');
+  logSeparator();
+  logHeader('🌍 GAIA - DATABASE TYPE GENERATOR');
+  logSeparator();
+  console.log('');
+  
+  if (opts.dryRun) {
+    logWarning('DRY RUN MODE - No files will be written');
+    console.log('');
+  }
+  
+  let formattedConstants: FormattedConstant[] = [];
+  let formattedTypes: FormattedType[] = [];
+  let formattedValidators: FormattedValidator[] = [];
+  let formattedUtils: FormattedUtility[] = [];
+  let formattedApiRoutes: FormattedApiRoute[] = [];
+  let formattedHooks: FormattedHook[] = [];
+  
+  try {
+    // Phase 1
+    const { lines, completeMarkers, collections } = await phase1ReadDatabase(opts, logger);
+    
+    if (!opts.autoApprove) {
+      const pauseResult = await intelligentPause('Phase 1 - Database Parsing', {
+        showSummary: true,
+        summaryData: {
+          tables: collections.tables.itemCount,
+          views: collections.views.itemCount,
+          functions: collections.functions.itemCount,
+          enums: collections.enums.itemCount
+        }
+      });
+      if (!pauseResult.shouldContinue) {
+        logger.endRun('failed');
+        return summary;
+      }
+    }
+    
+    // Phase 1.5
+    await phase1point5DiscoverDirectories(opts, logger);
+    
+    // Phase 2
+    const { runtimeEnums, typeEnums, tables, views, functions } = await phase2ExtractObjects(
+      lines, completeMarkers, opts, logger
+    );
+    
+    // Phase 2.5
+    const { enrichedEnums, enrichedTables } = phase2point5EnrichObjects(
+      runtimeEnums, typeEnums, tables, views, functions, opts, checklist
+    );
+    
+    // Phase 3
+    formattedConstants = await phase3GenerateConstants(enrichedEnums, opts, logger, summary, checklist);
+    
+    // Phase 4
+    formattedTypes = await phase4GenerateTypes(enrichedTables, opts, logger, summary, checklist);
+    
+    // Phase 5
+    formattedValidators = await phase5GenerateValidators(enrichedTables, opts, logger, summary, checklist);
+    
+    // Phase 6
+    formattedUtils = await phase6GenerateUtilities(enrichedTables, opts, logger, summary, checklist);
+    
+    // Phase 7
+    formattedApiRoutes = await phase7GenerateApiRoutes(enrichedTables, opts, logger, summary, checklist);
+    
+    // Phase 8
+    formattedHooks = await phase8GenerateHooks(enrichedTables, opts, logger, summary, checklist);
+    
+    // Phase 9
+    await phase9UpdateRegistry(
+      formattedConstants, formattedTypes, formattedValidators,
+      formattedUtils, formattedApiRoutes, formattedHooks,
+      summary, opts, logger
+    );
+    
+  } catch (error) {
+    logError(`GAIA generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    summary.errors.push(`Fatal error: ${error}`);
+    logger.endRun('failed');
+    return summary;
+  }
+  
+  summary.endTime = new Date();
+  logger.endRun(summary.errors.length === 0 ? 'success' : 'partial');
+  
+  checklist.printSummary();
+  printSummary(summary, opts);
+  
+  return summary;
+}
+
+// ============================================================================
 // MAIN EXECUTION
 // ============================================================================
 
@@ -687,10 +919,11 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run') || args.includes('-d');
   const force = args.includes('--force') || args.includes('-f');
+  const autoApprove = args.includes('--auto-approve') || args.includes('-a');
   const quiet = args.includes('--quiet') || args.includes('-q');
   const verbose = !quiet;
   
-  runGaiaGenerator({ dryRun, force, verbose, quiet })
+  runGaiaGenerator({ dryRun, force, verbose, quiet, autoApprove })
     .then((summary) => {
       if (summary.errors.length > 0) {
         process.exit(1);
@@ -700,8 +933,4 @@ if (require.main === module) {
       logError(`GAIA generator failed: ${error.message}`);
       process.exit(1);
     });
-}
-
-function generateRunId(): string {
-  throw new Error('Function not implemented.');
 }

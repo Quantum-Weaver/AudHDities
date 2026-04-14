@@ -1,5 +1,5 @@
 // ============================================================================
-// src/scripts/generators/gaia/extractRuntimeEnums.ts
+// src/scripts/system/gaia/extract_runtime_enums.ts
 // EXTRACT RUNTIME ENUMS (GAIA)
 // ============================================================================
 
@@ -9,6 +9,7 @@ import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 export interface RuntimeEnumInfo extends ExtractedObject {
   type: 'runtime_enum';
   values: string[];
+  tableName?: string; // Optional category info if we can infer it
 }
 
 export interface ExtractRuntimeEnumsOptions {
