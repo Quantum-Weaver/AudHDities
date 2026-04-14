@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-14T19:39:30.088Z
+// GENERATED: 2026-04-14T22:37:52.699Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { DifficultyLevel } from '@/lib/constants/generated/athena-gamification/difficulty_level';
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // LearningPaths SCHEMAS
@@ -23,7 +27,7 @@ export const LearningPathsRowSchema = z.object({
   slug: z.string();
   title: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const LearningPathsInsertSchema = z.object({
   cover_image: z.string().nullable().optional();

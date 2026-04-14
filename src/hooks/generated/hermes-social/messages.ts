@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useMessages
-// GENERATED: 2026-04-14T19:39:30.379Z
+// GENERATED: 2026-04-14T21:23:53.142Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================
 
-import type { MessagesInsert, MessagesRow, MessagesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { MessagesRow, MessagesInsert, MessagesUpdate } from '@/types/generated/hermes-social/messages';
 
 // =====================================================
 // Messages HOOKS

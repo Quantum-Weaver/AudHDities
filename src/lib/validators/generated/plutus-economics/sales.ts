@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-14T19:39:30.112Z
+// GENERATED: 2026-04-14T22:37:52.722Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { UserTier } from '@/lib/constants/generated/hestia-core/user_tier';
+import type { PaymentStatus } from '@/lib/constants/generated/plutus-economics/payment_status';
+import z from 'zod';
 
 // =====================================================
 // Sales SCHEMAS
@@ -29,7 +33,7 @@ export const SalesRowSchema = z.object({
   to_creator_immediate: z.number().nullable();
   to_infrastructure: z.number().nullable();
   to_residual_pool: z.number().nullable();
-});
+}),
 
 export const SalesInsertSchema = z.object({
   amount_cents: z.number().optional();

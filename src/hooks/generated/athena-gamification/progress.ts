@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useProgress
-// GENERATED: 2026-04-14T19:39:30.387Z
+// GENERATED: 2026-04-14T21:23:53.148Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { ProgressInsert, ProgressRow, ProgressUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ProgressRow, ProgressInsert, ProgressUpdate } from '@/types/generated/athena-gamification/progress';
 
 // =====================================================
 // Progress HOOKS

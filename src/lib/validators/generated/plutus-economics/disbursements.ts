@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-14T19:39:30.082Z
+// GENERATED: 2026-04-14T22:37:52.692Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PayoutStatus } from '@/lib/constants/generated/plutus-economics/payout_status';
+import type { SourcePoolType } from '@/lib/constants/generated/plutus-economics/source_pool_type';
+import z from 'zod';
 
 // =====================================================
 // Disbursements SCHEMAS
@@ -18,7 +22,7 @@ export const DisbursementsRowSchema = z.object({
   source_pool: z.enum(Object.values(SourcePoolType));
   status: z.enum(Object.values(PayoutStatus)).nullable();
   total_amount_cents: z.number();
-});
+}),
 
 export const DisbursementsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

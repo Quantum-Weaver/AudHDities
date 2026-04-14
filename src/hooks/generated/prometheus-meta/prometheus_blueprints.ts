@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePrometheusBlueprints
-// GENERATED: 2026-04-14T19:39:30.387Z
+// GENERATED: 2026-04-14T21:23:53.149Z
 // SOURCE: database.types.ts
 // DEITY: prometheus-meta
 // =====================================================
 
-import type { PrometheusBlueprintsInsert, PrometheusBlueprintsRow, PrometheusBlueprintsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PrometheusBlueprintsRow, PrometheusBlueprintsInsert, PrometheusBlueprintsUpdate } from '@/types/generated/prometheus-meta/prometheus_blueprints';
 
 // =====================================================
 // PrometheusBlueprints HOOKS

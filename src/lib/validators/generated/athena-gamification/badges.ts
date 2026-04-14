@@ -1,8 +1,14 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/badges.ts
-// GENERATED: 2026-04-14T19:39:30.070Z
+// GENERATED: 2026-04-14T22:37:52.680Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { BadgeRarity } from '@/lib/constants/generated/athena-gamification/badge_rarity';
+import type { BadgeTier } from '@/lib/constants/generated/athena-gamification/badge_tier';
+import type { BadgeType } from '@/lib/constants/generated/athena-gamification/badge_type';
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // Badges SCHEMAS
@@ -23,7 +29,7 @@ export const BadgesRowSchema = z.object({
   rarity: z.enum(Object.values(BadgeRarity));
   slug: z.string();
   tier: z.enum(Object.values(BadgeTier)).nullable();
-});
+}),
 
 export const BadgesInsertSchema = z.object({
   badge_type: z.enum(Object.values(BadgeType)).optional();

@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/supabase_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.326Z
+// GENERATED: 2026-04-14T21:18:09.131Z
 // SOURCE: database.types.ts
 // =====================================================
 

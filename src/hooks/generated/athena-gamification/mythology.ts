@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useMythology
-// GENERATED: 2026-04-14T19:39:30.381Z
+// GENERATED: 2026-04-14T21:23:53.143Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { MythologyInsert, MythologyRow, MythologyUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { MythologyRow, MythologyInsert, MythologyUpdate } from '@/types/generated/athena-gamification/mythology';
 
 // =====================================================
 // Mythology HOOKS

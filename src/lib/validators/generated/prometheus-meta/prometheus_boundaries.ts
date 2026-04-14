@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-14T19:39:30.101Z
+// GENERATED: 2026-04-14T22:37:52.711Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { BoundaryType } from '@/lib/constants/generated/prometheus-meta/boundary_type';
+import type { EncryptionLevel } from '@/lib/constants/generated/prometheus-meta/encryption_level';
+import z from 'zod';
 
 // =====================================================
 // PrometheusBoundaries SCHEMAS
@@ -20,7 +24,7 @@ export const PrometheusBoundariesRowSchema = z.object({
   requires_approval: z.boolean();
   rule_type: z.enum(Object.values(BoundaryType));
   "updated_at": "z.string()";
-});
+}),
 
 export const PrometheusBoundariesInsertSchema = z.object({
   "created_at": "z.string().optional()";

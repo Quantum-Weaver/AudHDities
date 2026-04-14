@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-14T19:39:30.116Z
+// GENERATED: 2026-04-14T22:37:52.726Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SettingScope } from '@/lib/constants/generated/hephaestus-infrastructure/setting_scope';
+import z from 'zod';
 
 // =====================================================
 // Settings SCHEMAS
@@ -20,7 +23,7 @@ export const SettingsRowSchema = z.object({
   type: z.string();
   "updated_at": "z.string().nullable()";
   value: z.any();
-});
+}),
 
 export const SettingsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

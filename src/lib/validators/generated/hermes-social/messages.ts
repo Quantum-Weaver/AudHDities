@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/messages.ts
-// GENERATED: 2026-04-14T19:39:30.092Z
+// GENERATED: 2026-04-14T22:37:52.702Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { MessageStatus } from '@/lib/constants/generated/hermes-social/message_status';
+import z from 'zod';
 
 // =====================================================
 // Messages SCHEMAS
@@ -20,7 +23,7 @@ export const MessagesRowSchema = z.object({
   sender_id: z.string();
   status: z.enum(Object.values(MessageStatus)).nullable();
   thread_id: z.string().nullable();
-});
+}),
 
 export const MessagesInsertSchema = z.object({
   content: z.string().optional();

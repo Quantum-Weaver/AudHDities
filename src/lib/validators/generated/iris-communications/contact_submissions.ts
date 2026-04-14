@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-14T19:39:30.075Z
+// GENERATED: 2026-04-14T22:37:52.685Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ContactDirection } from '@/lib/constants/generated/iris-communications/contact_direction';
+import type { ContactStatus } from '@/lib/constants/generated/iris-communications/contact_status';
+import z from 'zod';
 
 // =====================================================
 // ContactSubmissions SCHEMAS
@@ -26,7 +30,7 @@ export const ContactSubmissionsRowSchema = z.object({
   thread_id: z.string().nullable();
   "updated_at": "z.string().nullable()";
   user_id: z.string().nullable();
-});
+}),
 
 export const ContactSubmissionsInsertSchema = z.object({
   assigned_to: z.string().nullable().optional();

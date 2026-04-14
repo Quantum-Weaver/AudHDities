@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/curator.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.009Z
+// GENERATED: 2026-04-14T21:18:08.820Z
 // SOURCE: database.types.ts lines 1886-1939
 // =====================================================
 

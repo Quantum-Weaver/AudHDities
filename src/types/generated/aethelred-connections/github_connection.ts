@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/github_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.015Z
+// GENERATED: 2026-04-14T21:18:08.827Z
 // SOURCE: database.types.ts lines 2560-2632
 // =====================================================
 

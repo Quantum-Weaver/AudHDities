@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/email_communications.ts
-// GENERATED: 2026-04-14T19:39:30.082Z
+// GENERATED: 2026-04-14T22:37:52.693Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { EmailStatus } from '@/lib/constants/generated/iris-communications/email_status';
+import z from 'zod';
 
 // =====================================================
 // EmailCommunications SCHEMAS
@@ -23,7 +26,7 @@ export const EmailCommunicationsRowSchema = z.object({
   status: z.enum(Object.values(EmailStatus)).nullable();
   subject: z.string();
   template_id: z.string().nullable();
-});
+}),
 
 export const EmailCommunicationsInsertSchema = z.object({
   body: z.string().optional();

@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/scene_participants
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.311Z
+// GENERATED: 2026-04-14T21:18:09.115Z
 // SOURCE: database.types.ts
 // =====================================================
 

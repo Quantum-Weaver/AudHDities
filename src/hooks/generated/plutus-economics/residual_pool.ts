@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useResidualPool
-// GENERATED: 2026-04-14T19:39:30.397Z
+// GENERATED: 2026-04-14T21:23:53.158Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { ResidualPoolInsert, ResidualPoolRow, ResidualPoolUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from '@/types/generated/plutus-economics/residual_pool';
 
 // =====================================================
 // ResidualPool HOOKS

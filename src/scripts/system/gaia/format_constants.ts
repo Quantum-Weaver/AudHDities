@@ -59,36 +59,52 @@ function generateHeader(enumName: string, deityFolder: string, values: string[])
 }
 
 /**
+ * Check if a constant key needs quotes in the object literal
+ * - Contains slashes (date formats like 'YYYY-MM-DD', 'MM/DD/YYYY')
+ * - Starts with a number (time formats like '12H', '24H')
+ * - Contains special characters
+ */
+function needsQuotedKey(key: string): boolean {
+  // Contains slash (date formats)
+  if (key.includes('/')) return true;
+  // Contains hyphen (date formats like 'YYYY-MM-DD' - though hyphen is fine, but safe to quote)
+  if (key.includes('-')) return true;
+  // Starts with a number (time formats like '12H', '24H')
+  if (/^\d/.test(key)) return true;
+  // Contains other special characters
+  if (/[^a-zA-Z0-9_]/.test(key)) return true;
+  return false;
+}
+
+/**
  * Format a runtime enum into a constant file content
- * Uses ImportManager for any needed imports (constants typically have none)
  */
 function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): string {
   const { name: enumName, values } = enumInfo;
   const constName = toUpperSnakeCase(enumName);
   const typeName = toPascalCase(enumName);
   
-  // Skip if no values
+  // Special handling for time_format_type and date_format_type
+  const needsQuoteWrapping = enumName === 'time_format_type' || enumName === 'date_format_type';
+  
   if (!values || values.length === 0) {
     return `// SKIPPED: ${enumName} has no values\n`;
   }
   
   let content = generateHeader(enumName, deityFolder, values);
   
-  // Constants typically don't need imports, but ImportManager is available if needed
-  const importManager = new ImportManager();
-  
-  // Add import block if any imports were added (currently none for constants)
-  const importBlock = importManager.getImportBlock();
-  if (importBlock) {
-    content += importBlock + '\n\n';
-  }
-  
   content += `export const ${constName} = {\n`;
   
   for (const value of values) {
     const key = toUpperSnakeCase(value);
     const cleanValue = cleanEnumValue(value);
-    content += `  ${key}: '${cleanValue}',\n`;
+    
+    if (needsQuoteWrapping) {
+      // For time_format_type and date_format_type: wrap key in quotes
+      content += `  "${key}": '${cleanValue}',\n`;
+    } else {
+      content += `  ${key}: '${cleanValue}',\n`;
+    }
   }
   
   content += `} as const;\n\n`;

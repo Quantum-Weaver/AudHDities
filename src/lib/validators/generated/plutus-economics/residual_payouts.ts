@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-14T19:39:30.111Z
+// GENERATED: 2026-04-14T22:37:52.720Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PayoutStatus } from '@/lib/constants/generated/plutus-economics/payout_status';
+import z from 'zod';
 
 // =====================================================
 // ResidualPayouts SCHEMAS
@@ -19,7 +22,7 @@ export const ResidualPayoutsRowSchema = z.object({
   product_id: z.string();
   sale_id: z.string();
   status: z.enum(Object.values(PayoutStatus)).nullable();
-});
+}),
 
 export const ResidualPayoutsInsertSchema = z.object({
   amount: z.number().optional();

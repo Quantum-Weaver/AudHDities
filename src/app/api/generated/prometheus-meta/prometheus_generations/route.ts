@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_generations
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.288Z
+// GENERATED: 2026-04-14T21:18:09.091Z
 // SOURCE: database.types.ts
 // =====================================================
 

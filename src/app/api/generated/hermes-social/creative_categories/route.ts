@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/creative_categories
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.235Z
+// GENERATED: 2026-04-14T21:18:09.039Z
 // SOURCE: database.types.ts
 // =====================================================
 

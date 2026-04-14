@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/creator_profiles.ts
-// GENERATED: 2026-04-14T19:39:30.079Z
+// GENERATED: 2026-04-14T22:37:52.690Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // CreatorProfiles SCHEMAS
@@ -27,7 +29,7 @@ export const CreatorProfilesRowSchema = z.object({
   "verified_at": "z.string().nullable()";
   verified_badge: z.boolean().nullable();
   verified_by: z.string().nullable();
-});
+}),
 
 export const CreatorProfilesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

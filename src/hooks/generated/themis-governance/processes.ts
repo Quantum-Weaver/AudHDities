@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useProcesses
-// GENERATED: 2026-04-14T19:39:30.385Z
+// GENERATED: 2026-04-14T21:23:53.147Z
 // SOURCE: database.types.ts
 // DEITY: themis-governance
 // =====================================================
 
-import type { ProcessesInsert, ProcessesRow, ProcessesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ProcessesRow, ProcessesInsert, ProcessesUpdate } from '@/types/generated/themis-governance/processes';
 
 // =====================================================
 // Processes HOOKS

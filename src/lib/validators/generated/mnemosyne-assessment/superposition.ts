@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/superposition.ts
-// GENERATED: 2026-04-14T19:39:30.119Z
+// GENERATED: 2026-04-14T22:37:52.729Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SuperpositionStatus } from '@/lib/constants/generated/mnemosyne-assessment/superposition_status';
+import z from 'zod';
 
 // =====================================================
 // Superposition SCHEMAS
@@ -19,7 +22,7 @@ export const SuperpositionRowSchema = z.object({
   probability_distribution: z.any();
   status: z.enum(Object.values(SuperpositionStatus)).nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SuperpositionInsertSchema = z.object({
   collapse_count: z.number().nullable().optional();

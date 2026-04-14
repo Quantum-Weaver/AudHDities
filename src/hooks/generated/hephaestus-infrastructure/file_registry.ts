@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useFileRegistry
-// GENERATED: 2026-04-14T19:39:30.372Z
+// GENERATED: 2026-04-14T21:23:53.135Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { FileRegistryInsert, FileRegistryRow, FileRegistryUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 // =====================================================
 // FileRegistry HOOKS

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/codex.ts
-// GENERATED: 2026-04-14T19:39:30.072Z
+// GENERATED: 2026-04-14T22:37:52.683Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Codex SCHEMAS
@@ -19,7 +21,7 @@ export const CodexRowSchema = z.object({
   taxonomy_tree: z.any().nullable();
   "updated_at": "z.string().nullable()";
   wisdom_queue: z.any().nullable();
-});
+}),
 
 export const CodexInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

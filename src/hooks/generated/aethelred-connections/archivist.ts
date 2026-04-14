@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useArchivist
-// GENERATED: 2026-04-14T19:39:30.358Z
+// GENERATED: 2026-04-14T21:23:53.123Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { ArchivistInsert, ArchivistRow, ArchivistUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from '@/types/generated/aethelred-connections/archivist';
 
 // =====================================================
 // Archivist HOOKS

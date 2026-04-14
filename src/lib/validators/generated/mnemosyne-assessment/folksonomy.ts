@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/folksonomy.ts
-// GENERATED: 2026-04-14T19:39:30.086Z
+// GENERATED: 2026-04-14T22:37:52.696Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { FolksonomyTargetType } from '@/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type';
+import z from 'zod';
 
 // =====================================================
 // Folksonomy SCHEMAS
@@ -19,7 +22,7 @@ export const FolksonomyRowSchema = z.object({
   target_id: z.string();
   target_type: z.enum(Object.values(FolksonomyTargetType));
   weight: z.number().nullable();
-});
+}),
 
 export const FolksonomyInsertSchema = z.object({
   approved_by: z.string().nullable().optional();

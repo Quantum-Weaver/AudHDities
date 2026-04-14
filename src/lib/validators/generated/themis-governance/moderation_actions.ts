@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/moderation_actions.ts
-// GENERATED: 2026-04-14T19:39:30.093Z
+// GENERATED: 2026-04-14T22:37:52.703Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ModerationActionType } from '@/lib/constants/generated/themis-governance/moderation_action_type';
+import type { ModerationTargetType } from '@/lib/constants/generated/themis-governance/moderation_target_type';
+import z from 'zod';
 
 // =====================================================
 // ModerationActions SCHEMAS
@@ -23,7 +27,7 @@ export const ModerationActionsRowSchema = z.object({
   reverted_by: z.string().nullable();
   target_id: z.string();
   target_type: z.enum(Object.values(ModerationTargetType));
-});
+}),
 
 export const ModerationActionsInsertSchema = z.object({
   action_type: z.enum(Object.values(ModerationActionType)).optional();

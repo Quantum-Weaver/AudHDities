@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/file_type_standards.ts
-// GENERATED: 2026-04-14T19:39:30.085Z
+// GENERATED: 2026-04-14T22:37:52.696Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // FileTypeStandards SCHEMAS
@@ -28,7 +30,7 @@ export const FileTypeStandardsRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   validation_description: z.string().nullable();
   validation_query: z.string().nullable();
-});
+}),
 
 export const FileTypeStandardsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

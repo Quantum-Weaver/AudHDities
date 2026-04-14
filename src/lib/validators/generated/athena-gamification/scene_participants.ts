@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scene_participants.ts
-// GENERATED: 2026-04-14T19:39:30.113Z
+// GENERATED: 2026-04-14T22:37:52.722Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // SceneParticipants SCHEMAS
@@ -14,7 +16,7 @@ export const SceneParticipantsRowSchema = z.object({
   role: z.string().nullable();
   scene_id: z.string();
   user_id: z.string();
-});
+}),
 
 export const SceneParticipantsInsertSchema = z.object({
   created_by: z.string().nullable().optional();

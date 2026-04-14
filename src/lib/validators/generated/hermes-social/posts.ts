@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/posts.ts
-// GENERATED: 2026-04-14T19:39:30.097Z
+// GENERATED: 2026-04-14T22:37:52.707Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ContentType } from '@/lib/constants/generated/hermes-social/content_type';
+import type { PostVisibility } from '@/lib/constants/generated/hermes-social/post_visibility';
+import z from 'zod';
 
 // =====================================================
 // Posts SCHEMAS
@@ -27,7 +31,7 @@ export const PostsRowSchema = z.object({
   title: z.string().nullable();
   "updated_at": "z.string().nullable()";
   visibility: z.enum(Object.values(PostVisibility));
-});
+}),
 
 export const PostsInsertSchema = z.object({
   allow_tipping: z.boolean().nullable().optional();

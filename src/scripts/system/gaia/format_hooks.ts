@@ -3,7 +3,7 @@
 // FORMAT HOOKS (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into React hooks
-// Dependencies: EnrichedTable from enrich_objects, shared utilities
+// Dependencies: EnrichedTable from enrich_objects
 // Output: src/hooks/generated/{deityFolder}/{tableName}.ts
 // ============================================================================
 
@@ -44,30 +44,26 @@ function toHookName(tableName: string): string {
 }
 
 /**
- * Generate header comment for hook file
+ * Generate header comment for hook file with complete import paths
  */
-function generateHeader(table: EnrichedTable, importManager: ImportManager): string {
+function generateHeader(table: EnrichedTable): string {
   const timestamp = new Date().toISOString();
   const { name: tableName, deityFolder } = table;
   const hookName = toHookName(tableName);
   const pascalName = toPascalCase(tableName);
   
-  // Add all required imports
-  importManager.addImport('react', 'useState');
-  importManager.addImport('react', 'useEffect');
-  importManager.addImport('react', 'useCallback');
-  importManager.addImport('@/types/generated', `${pascalName}Row`, true);
-  importManager.addImport('@/types/generated', `${pascalName}Insert`, true);
-  importManager.addImport('@/types/generated', `${pascalName}Update`, true);
+  // Build the correct import path with deity folder and file name
+  const typesImportPath = `@/types/generated/${deityFolder}/${tableName}`;
   
-  // The actual import path needs to include deityFolder
-  // We handle this separately since ImportManager can't modify path structure
   return `// =====================================================
 // HOOK: ${hookName}
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
 // DEITY: ${deityFolder}
 // =====================================================
+
+import { useState, useEffect, useCallback } from 'react';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '${typesImportPath}';
 
 `;
 }
@@ -328,46 +324,6 @@ export function useDelete${pascalName}() {
 }
 
 /**
- * Format a table into a hook file content
- */
-function formatHookContent(table: EnrichedTable): string {
-  const { name: tableName } = table;
-  const importManager = new ImportManager();
-  
-  let content = generateHeader(table, importManager);
-  
-  // Add import block
-  const importBlock = importManager.getImportBlock();
-  if (importBlock) {
-    content += importBlock + '\n\n';
-  }
-  
-  // Fix import paths to include deityFolder (ImportManager can't modify path structure)
-  // Replace generic import with deity-specific path
-  const pascalName = toPascalCase(tableName);
-  content = content.replace(
-    `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated';`,
-    `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${table.deityFolder}/${tableName}.ts';`
-  );
-  
-  content += `// =====================================================\n`;
-  content += `// ${pascalName} HOOKS\n`;
-  content += `// =====================================================\n\n`;
-  
-  content += generateUseTableHook(table);
-  content += `\n`;
-  content += generateUseTableListHook(table);
-  content += `\n`;
-  content += generateUseCreateTableHook(table);
-  content += `\n`;
-  content += generateUseUpdateTableHook(table);
-  content += `\n`;
-  content += generateUseDeleteTableHook(table);
-  
-  return content;
-}
-
-/**
  * Format a table into hook files
  * Accepts EnrichedTable (pre-resolved configuration)
  */
@@ -397,10 +353,25 @@ export function formatHooks(
     return results;
   }
   
-  const content = formatHookContent(table);
+  // Generate the complete file content
+  let content = generateHeader(table);
+  
+  content += `// =====================================================\n`;
+  content += `// ${toPascalCase(tableName)} HOOKS\n`;
+  content += `// =====================================================\n\n`;
+  
+  content += generateUseTableHook(table);
+  content += `\n`;
+  content += generateUseTableListHook(table);
+  content += `\n`;
+  content += generateUseCreateTableHook(table);
+  content += `\n`;
+  content += generateUseUpdateTableHook(table);
+  content += `\n`;
+  content += generateUseDeleteTableHook(table);
+  
   const filePath = `src/hooks/generated/${deityFolder}/${tableName}.ts`;
   
-  // Return a single hook file containing all hooks
   results.push({
     content,
     filePath,

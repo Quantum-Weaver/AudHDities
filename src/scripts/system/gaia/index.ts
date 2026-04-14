@@ -292,10 +292,6 @@ async function phase2ExtractObjects(
 // PHASE 2.5: Enrich Objects
 // ============================================================================
 
-// ============================================================================
-// PHASE 2.5: Enrich Objects
-// ============================================================================
-
 function phase2point5EnrichObjects(
   runtimeEnums: RuntimeEnumInfo[],
   typeEnums: TypeEnumInfo[],
@@ -328,9 +324,7 @@ function phase2point5EnrichObjects(
   // =====================================================
   // STEP 3: Override runtime enum deity folders with mapping
   // =====================================================
-  
-  // The enrichAll function may have set default deity folders for enums.
-  // We override them with the mapping generated from table references.
+
   const enrichedEnumsWithMapping = enriched.runtimeEnums.map(enumInfo => ({
     ...enumInfo,
     deityFolder: getEnumFolder(enumInfo.name)

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/localization.ts
-// GENERATED: 2026-04-14T19:39:30.091Z
+// GENERATED: 2026-04-14T22:37:52.701Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Localization SCHEMAS
@@ -21,7 +23,7 @@ export const LocalizationRowSchema = z.object({
   translation: z.string();
   "updated_at": "z.string().nullable()";
   version: z.number().nullable();
-});
+}),
 
 export const LocalizationInsertSchema = z.object({
   approved_by: z.string().nullable().optional();

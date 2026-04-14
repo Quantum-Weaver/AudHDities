@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-14T19:39:30.117Z
+// GENERATED: 2026-04-14T22:37:52.727Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { StripeMode } from '@/lib/constants/generated/aethelred-connections/stripe_mode';
+import type { WebhookStatus } from '@/lib/constants/generated/aethelred-connections/webhook_status';
+import z from 'zod';
 
 // =====================================================
 // StripeConnection SCHEMAS
@@ -22,7 +26,7 @@ export const StripeConnectionRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   webhook_secret: z.string().nullable();
   webhook_status: z.enum(Object.values(WebhookStatus)).nullable();
-});
+}),
 
 export const StripeConnectionInsertSchema = z.object({
   account_id: z.string().optional();

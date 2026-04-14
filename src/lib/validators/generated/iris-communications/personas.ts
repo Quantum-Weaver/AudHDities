@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-14T19:39:30.096Z
+// GENERATED: 2026-04-14T22:37:52.707Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Personas SCHEMAS
@@ -20,7 +22,7 @@ export const PersonasRowSchema = z.object({
   name: z.string();
   slug: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const PersonasInsertSchema = z.object({
   avatar_url: z.string().nullable().optional();

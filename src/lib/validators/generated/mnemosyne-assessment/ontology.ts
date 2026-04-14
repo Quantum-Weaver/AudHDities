@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/ontology.ts
-// GENERATED: 2026-04-14T19:39:30.094Z
+// GENERATED: 2026-04-14T22:37:52.705Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { OntologyPredicate } from '@/lib/constants/generated/mnemosyne-assessment/ontology_predicate';
+import z from 'zod';
 
 // =====================================================
 // Ontology SCHEMAS
@@ -20,7 +23,7 @@ export const OntologyRowSchema = z.object({
   subject_id: z.string();
   "updated_at": "z.string().nullable()";
   weight: z.number().nullable();
-});
+}),
 
 export const OntologyInsertSchema = z.object({
   approved_by: z.string().nullable().optional();

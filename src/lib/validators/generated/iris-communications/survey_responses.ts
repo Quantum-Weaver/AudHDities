@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/survey_responses.ts
-// GENERATED: 2026-04-14T19:39:30.120Z
+// GENERATED: 2026-04-14T22:37:52.730Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // SurveyResponses SCHEMAS
@@ -18,7 +20,7 @@ export const SurveyResponsesRowSchema = z.object({
   survey_id: z.string();
   user_agent: z.string().nullable();
   user_id: z.string();
-});
+}),
 
 export const SurveyResponsesInsertSchema = z.object({
   answers: z.any().optional();

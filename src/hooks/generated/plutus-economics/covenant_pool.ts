@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCovenantPool
-// GENERATED: 2026-04-14T19:39:30.366Z
+// GENERATED: 2026-04-14T21:23:53.129Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { CovenantPoolInsert, CovenantPoolRow, CovenantPoolUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from '@/types/generated/plutus-economics/covenant_pool';
 
 // =====================================================
 // CovenantPool HOOKS

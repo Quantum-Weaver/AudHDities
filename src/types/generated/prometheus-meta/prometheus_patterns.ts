@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_patterns.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.034Z
+// GENERATED: 2026-04-14T21:18:08.845Z
 // SOURCE: database.types.ts lines 4302-4354
 // =====================================================
 

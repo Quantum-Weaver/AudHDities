@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/replies.ts
-// GENERATED: 2026-04-14T19:39:30.109Z
+// GENERATED: 2026-04-14T22:37:52.718Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Replies SCHEMAS
@@ -18,7 +20,7 @@ export const RepliesRowSchema = z.object({
   is_edited: z.boolean().nullable();
   is_hidden: z.boolean().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const RepliesInsertSchema = z.object({
   author_id: z.string().optional();

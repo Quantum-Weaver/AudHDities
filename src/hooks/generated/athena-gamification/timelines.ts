@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useTimelines
-// GENERATED: 2026-04-14T19:39:30.407Z
+// GENERATED: 2026-04-14T21:23:53.167Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { TimelinesInsert, TimelinesRow, TimelinesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/generated/athena-gamification/timelines';
 
 // =====================================================
 // Timelines HOOKS

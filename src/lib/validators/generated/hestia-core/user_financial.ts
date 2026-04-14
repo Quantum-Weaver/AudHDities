@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/user_financial.ts
-// GENERATED: 2026-04-14T19:39:30.125Z
+// GENERATED: 2026-04-14T22:37:52.736Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // UserFinancial SCHEMAS
@@ -21,7 +23,7 @@ export const UserFinancialRowSchema = z.object({
   residual_pledge_percent: z.number().nullable();
   stripe_account_id: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const UserFinancialInsertSchema = z.object({
   bank_account_last4: z.string().nullable().optional();

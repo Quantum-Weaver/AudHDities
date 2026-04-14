@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useScriptExecutionLogs
-// GENERATED: 2026-04-14T19:39:30.400Z
+// GENERATED: 2026-04-14T21:23:53.161Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { ScriptExecutionLogsInsert, ScriptExecutionLogsRow, ScriptExecutionLogsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ScriptExecutionLogsRow, ScriptExecutionLogsInsert, ScriptExecutionLogsUpdate } from '@/types/generated/hephaestus-infrastructure/script_execution_logs';
 
 // =====================================================
 // ScriptExecutionLogs HOOKS

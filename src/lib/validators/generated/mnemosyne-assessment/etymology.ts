@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/etymology.ts
-// GENERATED: 2026-04-14T19:39:30.083Z
+// GENERATED: 2026-04-14T22:37:52.694Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Etymology SCHEMAS
@@ -25,7 +27,7 @@ export const EtymologyRowSchema = z.object({
   semantic_shift: z.string().nullable();
   "updated_at": "z.string().nullable()";
   word: z.string();
-});
+}),
 
 export const EtymologyInsertSchema = z.object({
   "approved_at": "z.string().nullable().optional()";

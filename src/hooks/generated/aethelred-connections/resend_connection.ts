@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useResendConnection
-// GENERATED: 2026-04-14T19:39:30.396Z
+// GENERATED: 2026-04-14T21:23:53.157Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { ResendConnectionInsert, ResendConnectionRow, ResendConnectionUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from '@/types/generated/aethelred-connections/resend_connection';
 
 // =====================================================
 // ResendConnection HOOKS

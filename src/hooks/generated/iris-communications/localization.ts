@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useLocalization
-// GENERATED: 2026-04-14T19:39:30.378Z
+// GENERATED: 2026-04-14T21:23:53.141Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { LocalizationInsert, LocalizationRow, LocalizationUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from '@/types/generated/iris-communications/localization';
 
 // =====================================================
 // Localization HOOKS

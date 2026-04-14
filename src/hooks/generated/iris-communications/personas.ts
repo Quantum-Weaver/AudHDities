@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePersonas
-// GENERATED: 2026-04-14T19:39:30.384Z
+// GENERATED: 2026-04-14T21:23:53.146Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { PersonasInsert, PersonasRow, PersonasUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/generated/iris-communications/personas';
 
 // =====================================================
 // Personas HOOKS

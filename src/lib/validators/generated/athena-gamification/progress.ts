@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/progress.ts
-// GENERATED: 2026-04-14T19:39:30.100Z
+// GENERATED: 2026-04-14T22:37:52.710Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ProgressStatus } from '@/lib/constants/generated/athena-gamification/progress_status';
+import z from 'zod';
 
 // =====================================================
 // Progress SCHEMAS
@@ -23,7 +26,7 @@ export const ProgressRowSchema = z.object({
   status: z.enum(Object.values(ProgressStatus));
   "updated_at": "z.string().nullable()";
   user_id: z.string();
-});
+}),
 
 export const ProgressInsertSchema = z.object({
   "completed_at": "z.string().nullable().optional()";

@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-14T19:39:30.068Z
+// GENERATED: 2026-04-14T22:37:52.678Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ApplicationStatus } from '@/lib/constants/generated/themis-governance/application_status';
+import type { ApplicationType } from '@/lib/constants/generated/themis-governance/application_type';
+import z from 'zod';
 
 // =====================================================
 // Applications SCHEMAS
@@ -23,7 +27,7 @@ export const ApplicationsRowSchema = z.object({
   status: z.enum(Object.values(ApplicationStatus)).nullable();
   "updated_at": "z.string().nullable()";
   user_id: z.string();
-});
+}),
 
 export const ApplicationsInsertSchema = z.object({
   admin_notes: z.string().nullable().optional();

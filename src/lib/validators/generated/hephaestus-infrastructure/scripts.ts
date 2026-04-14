@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scripts.ts
-// GENERATED: 2026-04-14T19:39:30.115Z
+// GENERATED: 2026-04-14T22:37:52.725Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ScriptType } from '@/lib/constants/generated/hephaestus-infrastructure/script_type';
+import z from 'zod';
 
 // =====================================================
 // Scripts SCHEMAS
@@ -23,7 +26,7 @@ export const ScriptsRowSchema = z.object({
   run_count: z.number().nullable();
   type: z.enum(Object.values(ScriptType));
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ScriptsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

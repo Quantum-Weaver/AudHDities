@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-14T19:39:30.065Z
+// GENERATED: 2026-04-14T22:37:52.675Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { AdminLogCategory } from '@/lib/constants/generated/themis-governance/admin_log_category';
+import z from 'zod';
 
 // =====================================================
 // AdminLogs SCHEMAS
@@ -27,7 +30,7 @@ export const AdminLogsRowSchema = z.object({
   target_id: z.string().nullable();
   target_identifier: z.string().nullable();
   user_agent: z.string().nullable();
-});
+}),
 
 export const AdminLogsInsertSchema = z.object({
   action: z.string().optional();

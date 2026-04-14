@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/resend_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.041Z
+// GENERATED: 2026-04-14T21:18:08.852Z
 // SOURCE: database.types.ts lines 4917-4986
 // =====================================================
 

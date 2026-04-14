@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useLearningPaths
-// GENERATED: 2026-04-14T19:39:30.376Z
+// GENERATED: 2026-04-14T21:23:53.139Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { LearningPathsInsert, LearningPathsRow, LearningPathsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from '@/types/generated/athena-gamification/learning_paths';
 
 // =====================================================
 // LearningPaths HOOKS

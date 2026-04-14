@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/skald.ts
-// GENERATED: 2026-04-14T19:39:30.117Z
+// GENERATED: 2026-04-14T22:37:52.727Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Skald SCHEMAS
@@ -19,7 +21,7 @@ export const SkaldRowSchema = z.object({
   mythology: z.any().nullable();
   story_archive: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SkaldInsertSchema = z.object({
   art_gallery: z.any().nullable().optional();

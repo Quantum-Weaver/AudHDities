@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/format_validators.ts
+// src/scripts/system/gaia/format_validators.ts
 // ============================================================================
 // FORMAT VALIDATORS (GAIA)
 // ============================================================================
@@ -11,9 +11,12 @@ import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { ImportManager } from '../../shared/import_manager.js';
 import { formatFieldDeclaration, parseFieldLine } from '../../shared/quote_manager.js';
 import type { EnrichedTable } from './enrich_objects.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
 
 export interface FormatValidatorsOptions {
   verbose?: boolean;
+  dryRun?: boolean;
+  forceOverwrite?: boolean;
 }
 
 export interface FormattedValidator {
@@ -28,10 +31,42 @@ export interface FormattedValidator {
  * Convert snake_case to PascalCase for type names
  */
 function toPascalCase(str: string): string {
+  return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+}
+
+/**
+ * Convert PascalCase to snake_case for file names
+ */
+function toSnakeCase(str: string): string {
   return str
-    .split('_')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('');
+    .replace(/([A-Z])/g, '_$1')
+    .toLowerCase()
+    .replace(/^_/, '');
+}
+
+/**
+ * Extract enum names from a field type string
+ * Example: "UserTier | null" → ["UserTier"]
+ * Example: "CouncilHouse" → ["CouncilHouse"]
+ * Example: "UserTier | CouncilHouse" → ["UserTier", "CouncilHouse"]
+ */
+function extractEnumNames(fieldType: string): string[] {
+  const enumNames: string[] = [];
+  // Match PascalCase words (starts with uppercase, followed by lowercase or uppercase)
+  const pascalPattern = /\b([A-Z][a-zA-Z0-9]*)\b/g;
+  let match;
+  
+  while ((match = pascalPattern.exec(fieldType)) !== null) {
+    const candidate = match[1];
+    // Skip common non-enum PascalCase types
+    if (!['Json', 'Date', 'String', 'Number', 'Boolean', 'Array', 'Object'].includes(candidate)) {
+      if (!enumNames.includes(candidate)) {
+        enumNames.push(candidate);
+      }
+    }
+  }
+  
+  return enumNames;
 }
 
 /**
@@ -74,7 +109,7 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 }
 
 /**
- * Generate header comment for validator file
+ * Generate header comment for validator file (no imports yet)
  */
 function generateHeader(tableName: string, deityFolder: string): string {
   const timestamp = new Date().toISOString();
@@ -90,10 +125,16 @@ function generateHeader(tableName: string, deityFolder: string): string {
 /**
  * Generate Row schema (all fields required as in database)
  */
-function generateRowSchema(tableName: string, rowContent: string, importManager: ImportManager): string {
+function generateRowSchema(
+  tableName: string, 
+  rowContent: string, 
+  importManager: ImportManager,
+  table: EnrichedTable
+): string {
   const lines = rowContent.split('\n');
   const fields: string[] = [];
   const pascalName = toPascalCase(tableName);
+  const collectedEnums: string[] = [];
   
   // Add zod import
   importManager.addDefaultImport('zod', 'z');
@@ -102,6 +143,23 @@ function generateRowSchema(tableName: string, rowContent: string, importManager:
     const parsed = parseFieldLine(line);
     if (parsed) {
       const { fieldName, fieldType } = parsed;
+      
+      // Extract enum names from field type (handles "UserTier | null" etc.)
+      const enumNames = extractEnumNames(fieldType);
+      for (const enumName of enumNames) {
+        if (!collectedEnums.includes(enumName)) {
+          collectedEnums.push(enumName);
+          // Look up deity folder for this enum
+          const enumDeityFolder = getEnumFolder(toSnakeCase(enumName));
+          const snakeName = toSnakeCase(enumName);
+          importManager.addImport(
+            `@/lib/constants/generated/${enumDeityFolder}/${snakeName}`,
+            enumName,
+            true  // isType
+          );
+        }
+      }
+      
       const zodType = dbTypeToZod(fieldType, fieldName);
       const formattedField = formatFieldDeclaration(fieldName, zodType);
       fields.push(`  ${formattedField}`);
@@ -112,7 +170,7 @@ function generateRowSchema(tableName: string, rowContent: string, importManager:
     return `// No fields found for ${tableName} Row schema\n`;
   }
   
-  return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
+  return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n}),`;
 }
 
 /**
@@ -202,6 +260,7 @@ function generateTypeInference(tableName: string, hasRow: boolean, hasInsert: bo
 
 /**
  * Format a table into a validator file content
+ * Imports are handled LAST, after all content is generated
  */
 function formatValidatorContent(table: EnrichedTable): string {
   const { name: tableName, deityFolder, rowContent, insertContent, updateContent } = table;
@@ -212,35 +271,43 @@ function formatValidatorContent(table: EnrichedTable): string {
     return `// SKIPPED: No row content found for ${tableName}\n`;
   }
   
+  // Generate header (no imports yet)
   let content = generateHeader(tableName, deityFolder);
   
-  // Add import block
+  // Determine which schemas exist
+  const hasRow = !!(rowContent && rowContent.trim());
+  const hasInsert = !!(insertContent && insertContent.trim());
+  const hasUpdate = !!(updateContent && updateContent.trim());
+  
+  // Generate all schemas FIRST (they add imports to the manager)
+  let schemasContent = '';
+  
+  if (hasRow) {
+    schemasContent += generateRowSchema(tableName, rowContent, importManager, table) + '\n\n';
+  }
+  
+  if (hasInsert) {
+    schemasContent += generateInsertSchema(tableName, insertContent) + '\n\n';
+  }
+  
+  if (hasUpdate) {
+    schemasContent += generateUpdateSchema(tableName, updateContent) + '\n\n';
+  }
+  
+  schemasContent += generateTypeInference(tableName, hasRow, hasInsert, hasUpdate) + '\n';
+  
+  // NOW generate the import block (after all imports are collected)
   const importBlock = importManager.getImportBlock();
   if (importBlock) {
     content += importBlock + '\n\n';
   }
   
+  // Add section header and schemas
   content += `// =====================================================\n`;
   content += `// ${toPascalCase(tableName)} SCHEMAS\n`;
   content += `// =====================================================\n\n`;
   
-  const hasRow = !!(rowContent && rowContent.trim());
-  const hasInsert = !!(insertContent && insertContent.trim());
-  const hasUpdate = !!(updateContent && updateContent.trim());
-  
-  if (hasRow) {
-    content += generateRowSchema(tableName, rowContent, importManager) + '\n\n';
-  }
-  
-  if (hasInsert) {
-    content += generateInsertSchema(tableName, insertContent) + '\n\n';
-  }
-  
-  if (hasUpdate) {
-    content += generateUpdateSchema(tableName, updateContent) + '\n\n';
-  }
-  
-  content += generateTypeInference(tableName, hasRow, hasInsert, hasUpdate) + '\n';
+  content += schemasContent;
   
   return content;
 }

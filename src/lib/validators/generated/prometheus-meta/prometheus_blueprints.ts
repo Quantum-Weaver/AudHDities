@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-14T19:39:30.101Z
+// GENERATED: 2026-04-14T22:37:52.711Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { BlueprintStatus } from '@/lib/constants/generated/prometheus-meta/blueprint_status';
+import type { BlueprintSystem } from '@/lib/constants/generated/prometheus-meta/blueprint_system';
+import z from 'zod';
 
 // =====================================================
 // PrometheusBlueprints SCHEMAS
@@ -21,7 +25,7 @@ export const PrometheusBlueprintsRowSchema = z.object({
   system: z.enum(Object.values(BlueprintSystem));
   "updated_at": "z.string()";
   version: z.string();
-});
+}),
 
 export const PrometheusBlueprintsInsertSchema = z.object({
   author: z.string().optional();

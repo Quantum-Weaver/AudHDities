@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_memories.ts
-// GENERATED: 2026-04-14T19:39:30.103Z
+// GENERATED: 2026-04-14T22:37:52.713Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // PrometheusMemories SCHEMAS
@@ -21,7 +23,7 @@ export const PrometheusMemoriesRowSchema = z.object({
   success_count: z.number();
   template_recommendation: z.string().nullable();
   "updated_at": "z.string()";
-});
+}),
 
 export const PrometheusMemoriesInsertSchema = z.object({
   "average_duration_ms": "z.number().optional()";

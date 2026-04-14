@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useBadges
-// GENERATED: 2026-04-14T19:39:30.359Z
+// GENERATED: 2026-04-14T21:23:53.124Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { BadgesInsert, BadgesRow, BadgesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { BadgesRow, BadgesInsert, BadgesUpdate } from '@/types/generated/athena-gamification/badges';
 
 // =====================================================
 // Badges HOOKS

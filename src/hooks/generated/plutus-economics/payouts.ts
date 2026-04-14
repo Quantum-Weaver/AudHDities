@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePayouts
-// GENERATED: 2026-04-14T19:39:30.383Z
+// GENERATED: 2026-04-14T21:23:53.145Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { PayoutsInsert, PayoutsRow, PayoutsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from '@/types/generated/plutus-economics/payouts';
 
 // =====================================================
 // Payouts HOOKS

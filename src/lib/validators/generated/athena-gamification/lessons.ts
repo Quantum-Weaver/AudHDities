@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-14T19:39:30.089Z
+// GENERATED: 2026-04-14T22:37:52.700Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { LessonContentType } from '@/lib/constants/generated/athena-gamification/lesson_content_type';
+import z from 'zod';
 
 // =====================================================
 // Lessons SCHEMAS
@@ -23,7 +26,7 @@ export const LessonsRowSchema = z.object({
   slug: z.string();
   title: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const LessonsInsertSchema = z.object({
   content_body: z.string().nullable().optional();

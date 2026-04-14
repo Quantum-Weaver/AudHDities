@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/aethelred_house.ts
-// GENERATED: 2026-04-14T19:39:30.067Z
+// GENERATED: 2026-04-14T22:37:52.676Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { BridgeStatus } from '@/lib/constants/generated/aethelred-connections/bridge_status';
+import z from 'zod';
 
 // =====================================================
 // AethelredHouse SCHEMAS
@@ -19,7 +22,7 @@ export const AethelredHouseRowSchema = z.object({
   ninth_chair_occupant: z.string();
   shared_rituals: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const AethelredHouseInsertSchema = z.object({
   boundary_agreements: z.any().nullable().optional();

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/comments.ts
-// GENERATED: 2026-04-14T19:39:30.073Z
+// GENERATED: 2026-04-14T22:37:52.683Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Comments SCHEMAS
@@ -19,7 +21,7 @@ export const CommentsRowSchema = z.object({
   post_id: z.string();
   reply_count: z.number().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const CommentsInsertSchema = z.object({
   author_id: z.string().optional();

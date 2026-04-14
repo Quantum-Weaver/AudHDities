@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-14T19:39:30.123Z
+// GENERATED: 2026-04-14T22:37:52.733Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { TimelineEventType } from '@/lib/constants/generated/athena-gamification/timeline_event_type';
+import z from 'zod';
 
 // =====================================================
 // Timelines SCHEMAS
@@ -19,7 +22,7 @@ export const TimelinesRowSchema = z.object({
   significance_score: z.number().nullable();
   title: z.string();
   user_id: z.string();
-});
+}),
 
 export const TimelinesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

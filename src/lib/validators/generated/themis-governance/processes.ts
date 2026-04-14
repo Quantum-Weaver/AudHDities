@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-14T19:39:30.098Z
+// GENERATED: 2026-04-14T22:37:52.708Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ProcessType } from '@/lib/constants/generated/themis-governance/process_type';
+import z from 'zod';
 
 // =====================================================
 // Processes SCHEMAS
@@ -20,7 +23,7 @@ export const ProcessesRowSchema = z.object({
   steps: z.any();
   timeout_days: z.number().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ProcessesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCreativeCategories
-// GENERATED: 2026-04-14T19:39:30.367Z
+// GENERATED: 2026-04-14T21:23:53.130Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================
 
-import type { CreativeCategoriesInsert, CreativeCategoriesRow, CreativeCategoriesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CreativeCategoriesRow, CreativeCategoriesInsert, CreativeCategoriesUpdate } from '@/types/generated/hermes-social/creative_categories';
 
 // =====================================================
 // CreativeCategories HOOKS

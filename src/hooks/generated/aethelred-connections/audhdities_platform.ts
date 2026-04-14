@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useAudhditiesPlatform
-// GENERATED: 2026-04-14T19:39:30.358Z
+// GENERATED: 2026-04-14T21:23:53.123Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { AudhditiesPlatformInsert, AudhditiesPlatformRow, AudhditiesPlatformUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from '@/types/generated/aethelred-connections/audhdities_platform';
 
 // =====================================================
 // AudhditiesPlatform HOOKS

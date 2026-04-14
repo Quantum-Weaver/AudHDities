@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/folksonomy
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.253Z
+// GENERATED: 2026-04-14T21:18:09.057Z
 // SOURCE: database.types.ts
 // =====================================================
 

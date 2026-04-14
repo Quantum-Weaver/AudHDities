@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_consciousness.ts
-// GENERATED: 2026-04-14T19:39:30.102Z
+// GENERATED: 2026-04-14T22:37:52.712Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ConsciousnessState } from '@/lib/constants/generated/prometheus-meta/consciousness_state';
+import z from 'zod';
 
 // =====================================================
 // PrometheusConsciousness SCHEMAS
@@ -20,7 +23,7 @@ export const PrometheusConsciousnessRowSchema = z.object({
   session_id: z.string();
   state: z.enum(Object.values(ConsciousnessState));
   "updated_at": "z.string()";
-});
+}),
 
 export const PrometheusConsciousnessInsertSchema = z.object({
   active_kernel: z.string().nullable().optional();

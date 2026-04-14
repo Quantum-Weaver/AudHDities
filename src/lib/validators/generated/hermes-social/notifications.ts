@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-14T19:39:30.094Z
+// GENERATED: 2026-04-14T22:37:52.704Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { NotificationType } from '@/lib/constants/generated/hermes-social/notification_type';
+import z from 'zod';
 
 // =====================================================
 // Notifications SCHEMAS
@@ -23,7 +26,7 @@ export const NotificationsRowSchema = z.object({
   title: z.string();
   type: z.enum(Object.values(NotificationType));
   user_id: z.string();
-});
+}),
 
 export const NotificationsInsertSchema = z.object({
   action_label: z.string().nullable().optional();

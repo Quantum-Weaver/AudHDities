@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useDisbursements
-// GENERATED: 2026-04-14T19:39:30.369Z
+// GENERATED: 2026-04-14T21:23:53.133Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { DisbursementsInsert, DisbursementsRow, DisbursementsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from '@/types/generated/plutus-economics/disbursements';
 
 // =====================================================
 // Disbursements HOOKS

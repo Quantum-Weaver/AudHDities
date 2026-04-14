@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePosts
-// GENERATED: 2026-04-14T19:39:30.384Z
+// GENERATED: 2026-04-14T21:23:53.146Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================
 
-import type { PostsInsert, PostsRow, PostsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PostsRow, PostsInsert, PostsUpdate } from '@/types/generated/hermes-social/posts';
 
 // =====================================================
 // Posts HOOKS

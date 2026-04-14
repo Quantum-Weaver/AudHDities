@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useAethelredHouse
-// GENERATED: 2026-04-14T19:39:30.356Z
+// GENERATED: 2026-04-14T21:23:53.121Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { AethelredHouseInsert, AethelredHouseRow, AethelredHouseUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { AethelredHouseRow, AethelredHouseInsert, AethelredHouseUpdate } from '@/types/generated/aethelred-connections/aethelred_house';
 
 // =====================================================
 // AethelredHouse HOOKS

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useGithubConnection
-// GENERATED: 2026-04-14T19:39:30.374Z
+// GENERATED: 2026-04-14T21:23:53.137Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { GithubConnectionInsert, GithubConnectionRow, GithubConnectionUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from '@/types/generated/aethelred-connections/github_connection';
 
 // =====================================================
 // GithubConnection HOOKS

@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/surveys.ts
-// GENERATED: 2026-04-14T19:39:30.120Z
+// GENERATED: 2026-04-14T22:37:52.731Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // Surveys SCHEMAS
@@ -21,7 +24,7 @@ export const SurveysRowSchema = z.object({
   target_house: z.enum(Object.values(CouncilHouse)).nullable();
   title: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SurveysInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

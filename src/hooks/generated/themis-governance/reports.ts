@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useReports
-// GENERATED: 2026-04-14T19:39:30.395Z
+// GENERATED: 2026-04-14T21:23:53.156Z
 // SOURCE: database.types.ts
 // DEITY: themis-governance
 // =====================================================
 
-import type { ReportsInsert, ReportsRow, ReportsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ReportsRow, ReportsInsert, ReportsUpdate } from '@/types/generated/themis-governance/reports';
 
 // =====================================================
 // Reports HOOKS

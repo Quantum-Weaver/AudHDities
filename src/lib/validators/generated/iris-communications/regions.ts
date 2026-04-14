@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/regions.ts
-// GENERATED: 2026-04-14T19:39:30.108Z
+// GENERATED: 2026-04-14T22:37:52.718Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Regions SCHEMAS
@@ -21,7 +23,7 @@ export const RegionsRowSchema = z.object({
   name_localized: z.any().nullable();
   phone_code: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const RegionsInsertSchema = z.object({
   continent_id: z.string().optional();

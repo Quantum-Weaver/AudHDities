@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/council_houses
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.232Z
+// GENERATED: 2026-04-14T21:18:09.036Z
 // SOURCE: database.types.ts
 // =====================================================
 

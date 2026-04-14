@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useQuantumSuperposition
-// GENERATED: 2026-04-14T19:39:30.392Z
+// GENERATED: 2026-04-14T21:23:53.153Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================
 
-import type { QuantumSuperpositionInsert, QuantumSuperpositionRow, QuantumSuperpositionUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from '@/types/generated/mnemosyne-assessment/quantum_superposition';
 
 // =====================================================
 // QuantumSuperposition HOOKS

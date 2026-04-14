@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCustoms
-// GENERATED: 2026-04-14T19:39:30.369Z
+// GENERATED: 2026-04-14T21:23:53.132Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { CustomsInsert, CustomsRow, CustomsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/iris-communications/customs';
 
 // =====================================================
 // Customs HOOKS

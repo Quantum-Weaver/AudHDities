@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/executioner.ts
-// GENERATED: 2026-04-14T19:39:30.084Z
+// GENERATED: 2026-04-14T22:37:52.694Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Executioner SCHEMAS
@@ -19,7 +21,7 @@ export const ExecutionerRowSchema = z.object({
   justice_log: z.any().nullable();
   suspended_users: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ExecutionerInsertSchema = z.object({
   appeal_queue: z.any().nullable().optional();

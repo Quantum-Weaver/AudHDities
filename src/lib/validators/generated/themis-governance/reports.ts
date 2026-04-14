@@ -1,8 +1,13 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/reports.ts
-// GENERATED: 2026-04-14T19:39:30.109Z
+// GENERATED: 2026-04-14T22:37:52.719Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ReportStatus } from '@/lib/constants/generated/themis-governance/report_status';
+import type { ReportTargetType } from '@/lib/constants/generated/themis-governance/report_target_type';
+import type { ReportType } from '@/lib/constants/generated/themis-governance/report_type';
+import z from 'zod';
 
 // =====================================================
 // Reports SCHEMAS
@@ -26,7 +31,7 @@ export const ReportsRowSchema = z.object({
   target_id: z.string();
   target_type: z.enum(Object.values(ReportTargetType));
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ReportsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

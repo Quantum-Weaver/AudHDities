@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-14T19:39:30.181Z
+// GENERATED: 2026-04-14T21:18:08.987Z
 // SOURCE: database.types.ts
 // =====================================================
 

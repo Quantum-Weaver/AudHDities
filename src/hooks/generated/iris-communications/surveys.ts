@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useSurveys
-// GENERATED: 2026-04-14T19:39:30.405Z
+// GENERATED: 2026-04-14T21:23:53.165Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { SurveysInsert, SurveysRow, SurveysUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { SurveysRow, SurveysInsert, SurveysUpdate } from '@/types/generated/iris-communications/surveys';
 
 // =====================================================
 // Surveys HOOKS

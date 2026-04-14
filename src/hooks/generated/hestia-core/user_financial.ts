@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useUserFinancial
-// GENERATED: 2026-04-14T19:39:30.409Z
+// GENERATED: 2026-04-14T21:23:53.168Z
 // SOURCE: database.types.ts
 // DEITY: hestia-core
 // =====================================================
 
-import type { UserFinancialInsert, UserFinancialRow, UserFinancialUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from '@/types/generated/hestia-core/user_financial';
 
 // =====================================================
 // UserFinancial HOOKS

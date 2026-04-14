@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_questions.ts
-// GENERATED: 2026-04-14T19:39:30.063Z
+// GENERATED: 2026-04-14T22:37:52.664Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { AcidQuestionType } from '@/lib/constants/generated/mnemosyne-assessment/acid_question_type';
+import z from 'zod';
 
 // =====================================================
 // AcidTestQuestions SCHEMAS
@@ -20,7 +23,7 @@ export const AcidTestQuestionsRowSchema = z.object({
   question_type: z.enum(Object.values(AcidQuestionType));
   "updated_at": "z.string().nullable()";
   weight: z.number().nullable();
-});
+}),
 
 export const AcidTestQuestionsInsertSchema = z.object({
   category: z.string().nullable().optional();

@@ -1,9 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/advertising.ts
-// GENERATED: 2026-04-14T19:39:30.066Z
+// GENERATED: 2026-04-14T22:37:52.676Z
 // SOURCE: database.types.ts
 // =====================================================
-import { z } from "zod";
+
+import type { BidType } from '@/lib/constants/generated/plutus-economics/bid_type';
+import type { CampaignStatus } from '@/lib/constants/generated/plutus-economics/campaign_status';
+import z from 'zod';
+
 // =====================================================
 // Advertising SCHEMAS
 // =====================================================
@@ -24,7 +28,7 @@ export const AdvertisingRowSchema = z.object({
   targeting_criteria: z.any().nullable();
   "updated_at": "z.string().nullable()";
   user_share_percent: z.number().nullable();
-});
+}),
 
 export const AdvertisingInsertSchema = z.object({
   advertiser_id: z.string().optional();

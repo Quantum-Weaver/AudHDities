@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePrometheusBoundaries
-// GENERATED: 2026-04-14T19:39:30.388Z
+// GENERATED: 2026-04-14T21:23:53.149Z
 // SOURCE: database.types.ts
 // DEITY: prometheus-meta
 // =====================================================
 
-import type { PrometheusBoundariesInsert, PrometheusBoundariesRow, PrometheusBoundariesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from '@/types/generated/prometheus-meta/prometheus_boundaries';
 
 // =====================================================
 // PrometheusBoundaries HOOKS

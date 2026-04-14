@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useLessons
-// GENERATED: 2026-04-14T19:39:30.377Z
+// GENERATED: 2026-04-14T21:23:53.140Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { LessonsInsert, LessonsRow, LessonsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/athena-gamification/lessons';
 
 // =====================================================
 // Lessons HOOKS

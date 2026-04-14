@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useReactions
-// GENERATED: 2026-04-14T19:39:30.394Z
+// GENERATED: 2026-04-14T21:23:53.155Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================
 
-import type { ReactionsInsert, ReactionsRow, ReactionsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ReactionsRow, ReactionsInsert, ReactionsUpdate } from '@/types/generated/hermes-social/reactions';
 
 // =====================================================
 // Reactions HOOKS

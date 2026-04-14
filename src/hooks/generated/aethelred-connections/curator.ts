@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCurator
-// GENERATED: 2026-04-14T19:39:30.368Z
+// GENERATED: 2026-04-14T21:23:53.132Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { CuratorInsert, CuratorRow, CuratorUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CuratorRow, CuratorInsert, CuratorUpdate } from '@/types/generated/aethelred-connections/curator';
 
 // =====================================================
 // Curator HOOKS

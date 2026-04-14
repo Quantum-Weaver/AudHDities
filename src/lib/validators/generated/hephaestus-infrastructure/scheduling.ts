@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-14T19:39:30.114Z
+// GENERATED: 2026-04-14T22:37:52.724Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { JobStatus } from '@/lib/constants/generated/hephaestus-infrastructure/job_status';
+import type { JobType } from '@/lib/constants/generated/hephaestus-infrastructure/job_type';
+import z from 'zod';
 
 // =====================================================
 // Scheduling SCHEMAS
@@ -26,7 +30,7 @@ export const SchedulingRowSchema = z.object({
   schedule: z.string().nullable();
   status: z.enum(Object.values(JobStatus)).nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SchedulingInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

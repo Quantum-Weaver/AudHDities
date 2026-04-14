@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useVercelConnection
-// GENERATED: 2026-04-14T19:39:30.410Z
+// GENERATED: 2026-04-14T21:23:53.169Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { VercelConnectionInsert, VercelConnectionRow, VercelConnectionUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from '@/types/generated/aethelred-connections/vercel_connection';
 
 // =====================================================
 // VercelConnection HOOKS

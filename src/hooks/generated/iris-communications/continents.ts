@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useContinents
-// GENERATED: 2026-04-14T19:39:30.365Z
+// GENERATED: 2026-04-14T21:23:53.128Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { ContinentsInsert, ContinentsRow, ContinentsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from '@/types/generated/iris-communications/continents';
 
 // =====================================================
 // Continents HOOKS

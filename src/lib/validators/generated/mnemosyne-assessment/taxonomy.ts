@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-14T19:39:30.122Z
+// GENERATED: 2026-04-14T22:37:52.732Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { TaxonomyNodeType } from '@/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type';
+import z from 'zod';
 
 // =====================================================
 // Taxonomy SCHEMAS
@@ -22,7 +25,7 @@ export const TaxonomyRowSchema = z.object({
   path: z.string();
   slug: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const TaxonomyInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

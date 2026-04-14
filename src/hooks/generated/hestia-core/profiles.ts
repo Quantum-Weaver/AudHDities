@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useProfiles
-// GENERATED: 2026-04-14T19:39:30.386Z
+// GENERATED: 2026-04-14T21:23:53.148Z
 // SOURCE: database.types.ts
 // DEITY: hestia-core
 // =====================================================
 
-import type { ProfilesInsert, ProfilesRow, ProfilesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/generated/hestia-core/profiles';
 
 // =====================================================
 // Profiles HOOKS

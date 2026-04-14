@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useFolksonomy
-// GENERATED: 2026-04-14T19:39:30.373Z
+// GENERATED: 2026-04-14T21:23:53.137Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================
 
-import type { FolksonomyInsert, FolksonomyRow, FolksonomyUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from '@/types/generated/mnemosyne-assessment/folksonomy';
 
 // =====================================================
 // Folksonomy HOOKS

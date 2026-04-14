@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useConsciousness
-// GENERATED: 2026-04-14T19:39:30.363Z
+// GENERATED: 2026-04-14T21:23:53.127Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { ConsciousnessInsert, ConsciousnessRow, ConsciousnessUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from '@/types/generated/aethelred-connections/consciousness';
 
 // =====================================================
 // Consciousness HOOKS

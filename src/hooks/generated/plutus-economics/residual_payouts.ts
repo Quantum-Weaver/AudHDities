@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useResidualPayouts
-// GENERATED: 2026-04-14T19:39:30.396Z
+// GENERATED: 2026-04-14T21:23:53.157Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { ResidualPayoutsInsert, ResidualPayoutsRow, ResidualPayoutsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/plutus-economics/residual_payouts';
 
 // =====================================================
 // ResidualPayouts HOOKS

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/covenant_pool.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.005Z
+// GENERATED: 2026-04-14T21:18:08.817Z
 // SOURCE: database.types.ts lines 1554-1604
 // =====================================================
 

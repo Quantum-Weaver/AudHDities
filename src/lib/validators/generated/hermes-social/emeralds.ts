@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/emeralds.ts
-// GENERATED: 2026-04-14T19:39:30.083Z
+// GENERATED: 2026-04-14T22:37:52.693Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { EmeraldStatus } from '@/lib/constants/generated/hermes-social/emerald_status';
+import z from 'zod';
 
 // =====================================================
 // Emeralds SCHEMAS
@@ -21,7 +24,7 @@ export const EmeraldsRowSchema = z.object({
   receiver_id: z.string();
   reply_id: z.string().nullable();
   status: z.enum(Object.values(EmeraldStatus)).nullable();
-});
+}),
 
 export const EmeraldsInsertSchema = z.object({
   amount: z.number().optional();

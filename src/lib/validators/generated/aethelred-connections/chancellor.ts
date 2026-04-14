@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/chancellor.ts
-// GENERATED: 2026-04-14T19:39:30.071Z
+// GENERATED: 2026-04-14T22:37:52.681Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Chancellor SCHEMAS
@@ -20,7 +22,7 @@ export const ChancellorRowSchema = z.object({
   reserve_fund: z.number().nullable();
   treasury_balance: z.number().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ChancellorInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

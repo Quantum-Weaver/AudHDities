@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/community_profiles.ts
-// GENERATED: 2026-04-14T19:39:30.074Z
+// GENERATED: 2026-04-14T22:37:52.684Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // CommunityProfiles SCHEMAS
@@ -30,7 +33,7 @@ export const CommunityProfilesRowSchema = z.object({
   support_needs: z.any().nullable();
   "updated_at": "z.string().nullable()";
   username: z.string().nullable();
-});
+}),
 
 export const CommunityProfilesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

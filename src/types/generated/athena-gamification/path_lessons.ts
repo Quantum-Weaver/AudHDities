@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/path_lessons.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.025Z
+// GENERATED: 2026-04-14T21:18:08.836Z
 // SOURCE: database.types.ts lines 3490-3535
 // =====================================================
 

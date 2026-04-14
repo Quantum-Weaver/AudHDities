@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useAdminLogs
-// GENERATED: 2026-04-14T19:39:30.354Z
+// GENERATED: 2026-04-14T21:23:53.120Z
 // SOURCE: database.types.ts
 // DEITY: themis-governance
 // =====================================================
 
-import type { AdminLogsInsert, AdminLogsRow, AdminLogsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/generated/themis-governance/admin_logs';
 
 // =====================================================
 // AdminLogs HOOKS

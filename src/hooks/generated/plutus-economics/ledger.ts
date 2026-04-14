@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useLedger
-// GENERATED: 2026-04-14T19:39:30.376Z
+// GENERATED: 2026-04-14T21:23:53.139Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { LedgerInsert, LedgerRow, LedgerUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { LedgerRow, LedgerInsert, LedgerUpdate } from '@/types/generated/plutus-economics/ledger';
 
 // =====================================================
 // Ledger HOOKS

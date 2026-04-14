@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/regions.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.039Z
+// GENERATED: 2026-04-14T21:18:08.850Z
 // SOURCE: database.types.ts lines 4710-4769
 // =====================================================
 

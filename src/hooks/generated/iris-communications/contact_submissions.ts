@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useContactSubmissions
-// GENERATED: 2026-04-14T19:39:30.364Z
+// GENERATED: 2026-04-14T21:23:53.128Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { ContactSubmissionsInsert, ContactSubmissionsRow, ContactSubmissionsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from '@/types/generated/iris-communications/contact_submissions';
 
 // =====================================================
 // ContactSubmissions HOOKS

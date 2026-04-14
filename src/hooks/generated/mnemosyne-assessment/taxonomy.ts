@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useTaxonomy
-// GENERATED: 2026-04-14T19:39:30.406Z
+// GENERATED: 2026-04-14T21:23:53.166Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================
 
-import type { TaxonomyInsert, TaxonomyRow, TaxonomyUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from '@/types/generated/mnemosyne-assessment/taxonomy';
 
 // =====================================================
 // Taxonomy HOOKS

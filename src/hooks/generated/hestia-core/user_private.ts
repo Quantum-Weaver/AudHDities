@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useUserPrivate
-// GENERATED: 2026-04-14T19:39:30.409Z
+// GENERATED: 2026-04-14T21:23:53.169Z
 // SOURCE: database.types.ts
 // DEITY: hestia-core
 // =====================================================
 
-import type { UserPrivateInsert, UserPrivateRow, UserPrivateUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from '@/types/generated/hestia-core/user_private';
 
 // =====================================================
 // UserPrivate HOOKS

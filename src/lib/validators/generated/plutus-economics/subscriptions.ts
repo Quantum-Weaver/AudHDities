@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/subscriptions.ts
-// GENERATED: 2026-04-14T19:39:30.118Z
+// GENERATED: 2026-04-14T22:37:52.728Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SubscriptionStatus } from '@/lib/constants/generated/plutus-economics/subscription_status';
+import z from 'zod';
 
 // =====================================================
 // Subscriptions SCHEMAS
@@ -19,7 +22,7 @@ export const SubscriptionsRowSchema = z.object({
   subscriber_id: z.string();
   tier_applied: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SubscriptionsInsertSchema = z.object({
   channel_id: z.string().optional();

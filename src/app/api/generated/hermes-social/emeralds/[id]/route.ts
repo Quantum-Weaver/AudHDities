@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/emeralds/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-14T19:39:30.247Z
+// GENERATED: 2026-04-14T21:18:09.051Z
 // SOURCE: database.types.ts
 // =====================================================
 

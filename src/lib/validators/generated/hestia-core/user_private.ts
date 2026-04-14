@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/user_private.ts
-// GENERATED: 2026-04-14T19:39:30.126Z
+// GENERATED: 2026-04-14T22:37:52.737Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // UserPrivate SCHEMAS
@@ -21,7 +23,7 @@ export const UserPrivateRowSchema = z.object({
   notes: z.string().nullable();
   phone_number: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const UserPrivateInsertSchema = z.object({
   address: z.any().nullable().optional();

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useProtocols
-// GENERATED: 2026-04-14T19:39:30.391Z
+// GENERATED: 2026-04-14T21:23:53.153Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { ProtocolsInsert, ProtocolsRow, ProtocolsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from '@/types/generated/hephaestus-infrastructure/protocols';
 
 // =====================================================
 // Protocols HOOKS

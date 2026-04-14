@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useAnalytics
-// GENERATED: 2026-04-14T19:39:30.356Z
+// GENERATED: 2026-04-14T21:23:53.122Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { AnalyticsInsert, AnalyticsRow, AnalyticsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { AnalyticsRow, AnalyticsInsert, AnalyticsUpdate } from '@/types/generated/hephaestus-infrastructure/analytics';
 
 // =====================================================
 // Analytics HOOKS

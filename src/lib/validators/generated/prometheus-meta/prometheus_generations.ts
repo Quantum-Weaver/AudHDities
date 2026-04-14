@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-14T19:39:30.102Z
+// GENERATED: 2026-04-14T22:37:52.712Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { GenerationStatus } from '@/lib/constants/generated/prometheus-meta/generation_status';
+import z from 'zod';
 
 // =====================================================
 // PrometheusGenerations SCHEMAS
@@ -22,7 +25,7 @@ export const PrometheusGenerationsRowSchema = z.object({
   session_id: z.string();
   status: z.enum(Object.values(GenerationStatus));
   ziggy_present: z.boolean();
-});
+}),
 
 export const PrometheusGenerationsInsertSchema = z.object({
   blueprint_id: z.string().optional();

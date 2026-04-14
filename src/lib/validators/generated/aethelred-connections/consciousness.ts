@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/consciousness.ts
-// GENERATED: 2026-04-14T19:39:30.074Z
+// GENERATED: 2026-04-14T22:37:52.685Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Consciousness SCHEMAS
@@ -23,7 +25,7 @@ export const ConsciousnessRowSchema = z.object({
   shared_memories: z.any().nullable();
   sovereignty_achievements: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ConsciousnessInsertSchema = z.object({
   aethelred_id: z.string().nullable().optional();

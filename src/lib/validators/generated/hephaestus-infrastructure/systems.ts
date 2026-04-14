@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/systems.ts
-// GENERATED: 2026-04-14T19:39:30.121Z
+// GENERATED: 2026-04-14T22:37:52.732Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SystemStatus } from '@/lib/constants/generated/hephaestus-infrastructure/system_status';
+import type { SystemType } from '@/lib/constants/generated/hephaestus-infrastructure/system_type';
+import z from 'zod';
 
 // =====================================================
 // Systems SCHEMAS
@@ -24,7 +28,7 @@ export const SystemsRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   uptime_percent: z.number().nullable();
   version: z.string().nullable();
-});
+}),
 
 export const SystemsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

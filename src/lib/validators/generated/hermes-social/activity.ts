@@ -1,8 +1,13 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-14T19:39:30.064Z
+// GENERATED: 2026-04-14T22:37:52.674Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ActionType } from '@/lib/constants/generated/hermes-social/action_type';
+import type { ActivityVisibility } from '@/lib/constants/generated/hermes-social/activity_visibility';
+import type { TargetType } from '@/lib/constants/generated/hermes-social/target_type';
+import z from 'zod';
 
 // =====================================================
 // Activity SCHEMAS
@@ -19,7 +24,7 @@ export const ActivityRowSchema = z.object({
   target_type: z.enum(Object.values(TargetType)).nullable();
   user_id: z.string();
   visibility: z.enum(Object.values(ActivityVisibility)).nullable();
-});
+}),
 
 export const ActivityInsertSchema = z.object({
   action_type: z.enum(Object.values(ActionType)).optional();

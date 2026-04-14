@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/acid_test_results.ts
 // HANDLING: assessment
-// GENERATED: 2026-04-14T19:39:29.990Z
+// GENERATED: 2026-04-14T21:18:08.802Z
 // SOURCE: database.types.ts lines 146-205
 // =====================================================
 

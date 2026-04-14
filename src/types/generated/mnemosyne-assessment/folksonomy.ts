@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.015Z
+// GENERATED: 2026-04-14T21:18:08.826Z
 // SOURCE: database.types.ts lines 2499-2559
 // =====================================================
 

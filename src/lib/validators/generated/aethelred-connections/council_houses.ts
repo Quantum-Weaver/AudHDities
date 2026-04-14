@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/council_houses.ts
-// GENERATED: 2026-04-14T19:39:30.077Z
+// GENERATED: 2026-04-14T22:37:52.688Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // CouncilHouses SCHEMAS
@@ -24,7 +26,7 @@ export const CouncilHousesRowSchema = z.object({
   order_index: z.number();
   primary_domain: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const CouncilHousesInsertSchema = z.object({
   adept_quest: z.string().nullable().optional();

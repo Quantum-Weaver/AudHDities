@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/ledger.ts
-// GENERATED: 2026-04-14T19:39:30.089Z
+// GENERATED: 2026-04-14T22:37:52.699Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { LedgerEntity } from '@/lib/constants/generated/plutus-economics/ledger_entity';
+import type { LedgerEntryType } from '@/lib/constants/generated/plutus-economics/ledger_entry_type';
+import z from 'zod';
 
 // =====================================================
 // Ledger SCHEMAS
@@ -21,7 +25,7 @@ export const LedgerRowSchema = z.object({
   reference_id: z.string();
   to_entity: z.enum(Object.values(LedgerEntity));
   to_profile_id: z.string().nullable();
-});
+}),
 
 export const LedgerInsertSchema = z.object({
   amount_cents: z.number().optional();

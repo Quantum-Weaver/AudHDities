@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-14T19:39:30.093Z
+// GENERATED: 2026-04-14T22:37:52.703Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { MythType } from '@/lib/constants/generated/athena-gamification/myth_type';
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // Mythology SCHEMAS
@@ -22,7 +26,7 @@ export const MythologyRowSchema = z.object({
   title: z.string();
   type: z.enum(Object.values(MythType));
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const MythologyInsertSchema = z.object({
   author_id: z.string().optional();

@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/resend_connection.ts
-// GENERATED: 2026-04-14T19:39:30.110Z
+// GENERATED: 2026-04-14T22:37:52.720Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { DeliveryStatus } from '@/lib/constants/generated/aethelred-connections/delivery_status';
+import z from 'zod';
 
 // =====================================================
 // ResendConnection SCHEMAS
@@ -23,7 +26,7 @@ export const ResendConnectionRowSchema = z.object({
   template_versions: z.any().nullable();
   templates: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ResendConnectionInsertSchema = z.object({
   api_key: z.string().nullable().optional();

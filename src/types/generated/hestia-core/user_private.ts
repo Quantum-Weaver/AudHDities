@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/user_private.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.059Z
+// GENERATED: 2026-04-14T21:18:08.870Z
 // SOURCE: database.types.ts lines 6546-6605
 // =====================================================
 

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/creative_categories.ts
-// GENERATED: 2026-04-14T19:39:30.078Z
+// GENERATED: 2026-04-14T22:37:52.689Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // CreativeCategories SCHEMAS
@@ -21,7 +23,7 @@ export const CreativeCategoriesRowSchema = z.object({
   parent_id: z.string().nullable();
   slug: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const CreativeCategoriesInsertSchema = z.object({
   color: z.string().nullable().optional();

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useAdvertising
-// GENERATED: 2026-04-14T19:39:30.355Z
+// GENERATED: 2026-04-14T21:23:53.121Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { AdvertisingInsert, AdvertisingRow, AdvertisingUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/plutus-economics/advertising';
 
 // =====================================================
 // Advertising HOOKS

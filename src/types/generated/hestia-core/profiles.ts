@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/profiles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.029Z
+// GENERATED: 2026-04-14T21:18:08.840Z
 // SOURCE: database.types.ts lines 3918-3991
 // =====================================================
 

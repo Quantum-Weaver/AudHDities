@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-14T19:39:30.072Z
+// GENERATED: 2026-04-14T22:37:52.682Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ContentRating } from '@/lib/constants/generated/hestia-core/content_rating';
+import z from 'zod';
 
 // =====================================================
 // Channels SCHEMAS
@@ -25,7 +28,7 @@ export const ChannelsRowSchema = z.object({
   subscription_price_community: z.number().nullable();
   total_emeralds: z.number().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ChannelsInsertSchema = z.object({
   allow_subscriptions: z.boolean().nullable().optional();

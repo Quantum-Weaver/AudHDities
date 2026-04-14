@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useLanguages
-// GENERATED: 2026-04-14T19:39:30.375Z
+// GENERATED: 2026-04-14T21:23:53.138Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { LanguagesInsert, LanguagesRow, LanguagesUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from '@/types/generated/iris-communications/languages';
 
 // =====================================================
 // Languages HOOKS

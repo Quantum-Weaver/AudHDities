@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-14T19:39:30.086Z
+// GENERATED: 2026-04-14T22:37:52.697Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { WorkflowStatus } from '@/lib/constants/generated/aethelred-connections/workflow_status';
+import z from 'zod';
 
 // =====================================================
 // GithubConnection SCHEMAS
@@ -24,7 +27,7 @@ export const GithubConnectionRowSchema = z.object({
   stars: z.number().nullable();
   "updated_at": "z.string().nullable()";
   workflow_status: z.enum(Object.values(WorkflowStatus)).nullable();
-});
+}),
 
 export const GithubConnectionInsertSchema = z.object({
   branch: z.string().nullable().optional();

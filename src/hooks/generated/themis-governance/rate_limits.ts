@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useRateLimits
-// GENERATED: 2026-04-14T19:39:30.393Z
+// GENERATED: 2026-04-14T21:23:53.154Z
 // SOURCE: database.types.ts
 // DEITY: themis-governance
 // =====================================================
 
-import type { RateLimitsInsert, RateLimitsRow, RateLimitsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from '@/types/generated/themis-governance/rate_limits';
 
 // =====================================================
 // RateLimits HOOKS

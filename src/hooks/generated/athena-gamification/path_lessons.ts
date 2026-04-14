@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePathLessons
-// GENERATED: 2026-04-14T19:39:30.382Z
+// GENERATED: 2026-04-14T21:23:53.144Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { PathLessonsInsert, PathLessonsRow, PathLessonsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/athena-gamification/path_lessons';
 
 // =====================================================
 // PathLessons HOOKS

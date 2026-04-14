@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/protocols.ts
-// GENERATED: 2026-04-14T19:39:30.105Z
+// GENERATED: 2026-04-14T22:37:52.715Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ProtocolType } from '@/lib/constants/generated/hephaestus-infrastructure/protocol_type';
+import z from 'zod';
 
 // =====================================================
 // Protocols SCHEMAS
@@ -25,7 +28,7 @@ export const ProtocolsRowSchema = z.object({
   type: z.enum(Object.values(ProtocolType));
   "updated_at": "z.string().nullable()";
   version: z.number().nullable();
-});
+}),
 
 export const ProtocolsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

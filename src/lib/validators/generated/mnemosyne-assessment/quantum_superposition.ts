@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/quantum_superposition.ts
-// GENERATED: 2026-04-14T19:39:30.105Z
+// GENERATED: 2026-04-14T22:37:52.715Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // QuantumSuperposition SCHEMAS
@@ -17,7 +19,7 @@ export const QuantumSuperpositionRowSchema = z.object({
   id: z.string();
   superposition_id: z.string();
   user_id: z.string();
-});
+}),
 
 export const QuantumSuperpositionInsertSchema = z.object({
   chosen_meaning: z.string().optional();

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useMaintenance
-// GENERATED: 2026-04-14T19:39:30.379Z
+// GENERATED: 2026-04-14T21:23:53.141Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { MaintenanceInsert, MaintenanceRow, MaintenanceUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from '@/types/generated/hephaestus-infrastructure/maintenance';
 
 // =====================================================
 // Maintenance HOOKS

@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useSeer
-// GENERATED: 2026-04-14T19:39:30.401Z
+// GENERATED: 2026-04-14T21:23:53.162Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { SeerInsert, SeerRow, SeerUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/aethelred-connections/seer';
 
 // =====================================================
 // Seer HOOKS

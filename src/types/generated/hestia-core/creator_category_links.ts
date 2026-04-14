@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/creator_category_links.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.006Z
+// GENERATED: 2026-04-14T21:18:08.819Z
 // SOURCE: database.types.ts lines 1665-1710
 // =====================================================
 

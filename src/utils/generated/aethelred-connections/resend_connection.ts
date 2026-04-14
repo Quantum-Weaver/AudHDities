@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/resend_connection.ts
-// GENERATED: 2026-04-14T19:39:30.179Z
+// GENERATED: 2026-04-14T21:18:08.984Z
 // SOURCE: database.types.ts
 // =====================================================
 

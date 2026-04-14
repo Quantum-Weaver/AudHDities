@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useEmeralds
-// GENERATED: 2026-04-14T19:39:30.370Z
+// GENERATED: 2026-04-14T21:23:53.134Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================
 
-import type { EmeraldsInsert, EmeraldsRow, EmeraldsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { EmeraldsRow, EmeraldsInsert, EmeraldsUpdate } from '@/types/generated/hermes-social/emeralds';
 
 // =====================================================
 // Emeralds HOOKS

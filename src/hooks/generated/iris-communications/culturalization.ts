@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCulturalization
-// GENERATED: 2026-04-14T19:39:30.368Z
+// GENERATED: 2026-04-14T21:23:53.131Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { CulturalizationInsert, CulturalizationRow, CulturalizationUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/generated/iris-communications/culturalization';
 
 // =====================================================
 // Culturalization HOOKS

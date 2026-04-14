@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/user_quests.ts
-// GENERATED: 2026-04-14T19:39:30.126Z
+// GENERATED: 2026-04-14T22:37:52.737Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { QuestStatus } from '@/lib/constants/generated/athena-gamification/quest_status';
+import z from 'zod';
 
 // =====================================================
 // UserQuests SCHEMAS
@@ -20,7 +23,7 @@ export const UserQuestsRowSchema = z.object({
   submitted_content: z.string().nullable();
   "updated_at": "z.string().nullable()";
   user_id: z.string();
-});
+}),
 
 export const UserQuestsInsertSchema = z.object({
   "completed_at": "z.string().nullable().optional()";

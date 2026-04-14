@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-14T19:39:30.080Z
+// GENERATED: 2026-04-14T22:37:52.690Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { DateFormatType } from '@/lib/constants/generated/iris-communications/date_format_type';
+import type { TimeFormatType } from '@/lib/constants/generated/iris-communications/time_format_type';
+import z from 'zod';
 
 // =====================================================
 // Culturalization SCHEMAS
@@ -22,7 +26,7 @@ export const CulturalizationRowSchema = z.object({
   time_format: z.enum(Object.values(TimeFormatType)).nullable();
   timezone: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const CulturalizationInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

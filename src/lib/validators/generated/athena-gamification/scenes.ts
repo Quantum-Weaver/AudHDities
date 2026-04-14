@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-14T19:39:30.113Z
+// GENERATED: 2026-04-14T22:37:52.723Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SceneType } from '@/lib/constants/generated/athena-gamification/scene_type';
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // Scenes SCHEMAS
@@ -24,7 +28,7 @@ export const ScenesRowSchema = z.object({
   title: z.string();
   type: z.enum(Object.values(SceneType));
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ScenesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

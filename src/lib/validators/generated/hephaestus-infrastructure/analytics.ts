@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-14T19:39:30.067Z
+// GENERATED: 2026-04-14T22:37:52.677Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { AnalyticsCategory } from '@/lib/constants/generated/hephaestus-infrastructure/analytics_category';
+import z from 'zod';
 
 // =====================================================
 // Analytics SCHEMAS
@@ -20,7 +23,7 @@ export const AnalyticsRowSchema = z.object({
   user_agent: z.string().nullable();
   user_id: z.string().nullable();
   value: z.number().nullable();
-});
+}),
 
 export const AnalyticsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

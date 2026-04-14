@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-14T19:39:30.069Z
+// GENERATED: 2026-04-14T22:37:52.679Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PlatformStatus } from '@/lib/constants/generated/aethelred-connections/platform_status';
+import z from 'zod';
 
 // =====================================================
 // AudhditiesPlatform SCHEMAS
@@ -24,7 +27,7 @@ export const AudhditiesPlatformRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   uptime_percent: z.number().nullable();
   version: z.string();
-});
+}),
 
 export const AudhditiesPlatformInsertSchema = z.object({
   active_users: z.number().nullable().optional();

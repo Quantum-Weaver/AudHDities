@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useStripeConnection
-// GENERATED: 2026-04-14T19:39:30.402Z
+// GENERATED: 2026-04-14T21:23:53.163Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { StripeConnectionInsert, StripeConnectionRow, StripeConnectionUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from '@/types/generated/aethelred-connections/stripe_connection';
 
 // =====================================================
 // StripeConnection HOOKS

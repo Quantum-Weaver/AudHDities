@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-14T19:39:30.098Z
+// GENERATED: 2026-04-14T22:37:52.709Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { OwnerType } from '@/lib/constants/generated/plutus-economics/owner_type';
+import type { ProductType } from '@/lib/constants/generated/plutus-economics/product_type';
+import z from 'zod';
 
 // =====================================================
 // Products SCHEMAS
@@ -37,7 +41,7 @@ export const ProductsRowSchema = z.object({
   tags: z.any().nullable();
   title: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ProductsInsertSchema = z.object({
   active: z.boolean().nullable().optional();

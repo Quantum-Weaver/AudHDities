@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/disbursements.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T19:39:30.010Z
+// GENERATED: 2026-04-14T21:18:08.822Z
 // SOURCE: database.types.ts lines 2010-2053
 // =====================================================
 

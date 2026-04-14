@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/seer.ts
-// GENERATED: 2026-04-14T19:39:30.115Z
+// GENERATED: 2026-04-14T22:37:52.726Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Seer SCHEMAS
@@ -19,7 +21,7 @@ export const SeerRowSchema = z.object({
   prophecies: z.any().nullable();
   trend_analysis: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SeerInsertSchema = z.object({
   anomaly_detection: z.any().nullable().optional();

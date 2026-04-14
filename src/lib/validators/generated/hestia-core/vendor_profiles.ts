@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/vendor_profiles.ts
-// GENERATED: 2026-04-14T19:39:30.127Z
+// GENERATED: 2026-04-14T22:37:52.738Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { BusinessType } from '@/lib/constants/generated/hestia-core/business_type';
+import z from 'zod';
 
 // =====================================================
 // VendorProfiles SCHEMAS
@@ -27,7 +30,7 @@ export const VendorProfilesRowSchema = z.object({
   verified_badge: z.boolean().nullable();
   verified_by: z.string().nullable();
   website_url: z.string().nullable();
-});
+}),
 
 export const VendorProfilesInsertSchema = z.object({
   business_description: z.string().nullable().optional();

@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/system_health_logs.ts
-// GENERATED: 2026-04-14T19:39:30.121Z
+// GENERATED: 2026-04-14T22:37:52.731Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SystemStatus } from '@/lib/constants/generated/hephaestus-infrastructure/system_status';
+import z from 'zod';
 
 // =====================================================
 // SystemHealthLogs SCHEMAS
@@ -16,7 +19,7 @@ export const SystemHealthLogsRowSchema = z.object({
   response_time_ms: z.number().nullable();
   status: z.enum(Object.values(SystemStatus));
   system_id: z.string();
-});
+}),
 
 export const SystemHealthLogsInsertSchema = z.object({
   "checked_at": "z.string().nullable().optional()";

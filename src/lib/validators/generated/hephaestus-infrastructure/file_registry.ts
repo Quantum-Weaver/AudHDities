@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/file_registry.ts
-// GENERATED: 2026-04-14T19:39:30.085Z
+// GENERATED: 2026-04-14T22:37:52.695Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // FileRegistry SCHEMAS
@@ -29,7 +31,7 @@ export const FileRegistryRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   used_by: z.any().nullable();
   warning: z.string().nullable();
-});
+}),
 
 export const FileRegistryInsertSchema = z.object({
   category: z.string().optional();

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/hearth_keeper.ts
-// GENERATED: 2026-04-14T19:39:30.087Z
+// GENERATED: 2026-04-14T22:37:52.697Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // HearthKeeper SCHEMAS
@@ -20,7 +22,7 @@ export const HearthKeeperRowSchema = z.object({
   safety_score: z.number().nullable();
   "updated_at": "z.string().nullable()";
   welcome_messages: z.any().nullable();
-});
+}),
 
 export const HearthKeeperInsertSchema = z.object({
   accessibility_standards: z.any().nullable().optional();

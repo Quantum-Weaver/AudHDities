@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/audhdities_platform
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T19:39:30.213Z
+// GENERATED: 2026-04-14T21:18:09.017Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-14T19:39:30.088Z
+// GENERATED: 2026-04-14T22:37:52.698Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { TextDirectionType } from '@/lib/constants/generated/iris-communications/text_direction_type';
+import z from 'zod';
 
 // =====================================================
 // Languages SCHEMAS
@@ -21,7 +24,7 @@ export const LanguagesRowSchema = z.object({
   native_name: z.string().nullable();
   script: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const LanguagesInsertSchema = z.object({
   code: z.string().optional();

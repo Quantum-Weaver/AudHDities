@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/vercel_connection.ts
-// GENERATED: 2026-04-14T19:39:30.128Z
+// GENERATED: 2026-04-14T22:37:52.738Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // VercelConnection SCHEMAS
@@ -22,7 +24,7 @@ export const VercelConnectionRowSchema = z.object({
   project_id: z.string();
   project_name: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const VercelConnectionInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

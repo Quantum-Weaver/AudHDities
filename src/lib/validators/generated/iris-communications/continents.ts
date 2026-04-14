@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/continents.ts
-// GENERATED: 2026-04-14T19:39:30.076Z
+// GENERATED: 2026-04-14T22:37:52.686Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // Continents SCHEMAS
@@ -16,7 +18,7 @@ export const ContinentsRowSchema = z.object({
   name: z.string();
   name_localized: z.any().nullable();
   population_estimate: z.number().nullable();
-});
+}),
 
 export const ContinentsInsertSchema = z.object({
   code: z.string().optional();

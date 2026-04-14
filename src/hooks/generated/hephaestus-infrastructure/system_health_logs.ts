@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useSystemHealthLogs
-// GENERATED: 2026-04-14T19:39:30.405Z
+// GENERATED: 2026-04-14T21:23:53.165Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================
 
-import type { SystemHealthLogsInsert, SystemHealthLogsRow, SystemHealthLogsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from '@/types/generated/hephaestus-infrastructure/system_health_logs';
 
 // =====================================================
 // SystemHealthLogs HOOKS

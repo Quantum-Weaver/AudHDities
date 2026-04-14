@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_templates.ts
-// GENERATED: 2026-04-14T19:39:30.104Z
+// GENERATED: 2026-04-14T22:37:52.714Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PatternContext } from '@/lib/constants/generated/prometheus-meta/pattern_context';
+import z from 'zod';
 
 // =====================================================
 // PrometheusTemplates SCHEMAS
@@ -20,7 +23,7 @@ export const PrometheusTemplatesRowSchema = z.object({
   "updated_at": "z.string()";
   variables: z.any().nullable();
   version: z.string();
-});
+}),
 
 export const PrometheusTemplatesInsertSchema = z.object({
   content: z.string().optional();

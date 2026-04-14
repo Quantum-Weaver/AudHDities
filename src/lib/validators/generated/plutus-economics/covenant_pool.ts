@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/covenant_pool.ts
-// GENERATED: 2026-04-14T19:39:30.077Z
+// GENERATED: 2026-04-14T22:37:52.688Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // CovenantPool SCHEMAS
@@ -18,7 +20,7 @@ export const CovenantPoolRowSchema = z.object({
   total_pledged_cents: z.number().nullable();
   "updated_at": "z.string().nullable()";
   user_id: z.string();
-});
+}),
 
 export const CovenantPoolInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

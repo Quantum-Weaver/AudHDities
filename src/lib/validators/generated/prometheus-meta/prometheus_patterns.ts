@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_patterns.ts
-// GENERATED: 2026-04-14T19:39:30.104Z
+// GENERATED: 2026-04-14T22:37:52.714Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PatternContext } from '@/lib/constants/generated/prometheus-meta/pattern_context';
+import z from 'zod';
 
 // =====================================================
 // PrometheusPatterns SCHEMAS
@@ -21,7 +24,7 @@ export const PrometheusPatternsRowSchema = z.object({
   name: z.string();
   naming_rule: z.string();
   "updated_at": "z.string()";
-});
+}),
 
 export const PrometheusPatternsInsertSchema = z.object({
   contexts: z.any().optional();

@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-14T19:39:30.096Z
+// GENERATED: 2026-04-14T22:37:52.706Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PayoutMethod } from '@/lib/constants/generated/hestia-core/payout_method';
+import type { PayoutStatus } from '@/lib/constants/generated/plutus-economics/payout_status';
+import z from 'zod';
 
 // =====================================================
 // Payouts SCHEMAS
@@ -20,7 +24,7 @@ export const PayoutsRowSchema = z.object({
   recipient_id: z.string();
   status: z.enum(Object.values(PayoutStatus)).nullable();
   stripe_transfer_id: z.string().nullable();
-});
+}),
 
 export const PayoutsInsertSchema = z.object({
   amount_cents: z.number().optional();

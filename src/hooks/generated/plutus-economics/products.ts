@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useProducts
-// GENERATED: 2026-04-14T19:39:30.385Z
+// GENERATED: 2026-04-14T21:23:53.147Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================
 
-import type { ProductsInsert, ProductsRow, ProductsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/plutus-economics/products';
 
 // =====================================================
 // Products HOOKS

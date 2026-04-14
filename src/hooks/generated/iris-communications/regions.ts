@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useRegions
-// GENERATED: 2026-04-14T19:39:30.394Z
+// GENERATED: 2026-04-14T21:23:53.155Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================
 
-import type { RegionsInsert, RegionsRow, RegionsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/iris-communications/regions';
 
 // =====================================================
 // Regions HOOKS

@@ -1,8 +1,13 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-14T19:39:30.099Z
+// GENERATED: 2026-04-14T22:37:52.709Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import type { UserStatus } from '@/lib/constants/generated/hestia-core/user_status';
+import type { UserTier } from '@/lib/constants/generated/hestia-core/user_tier';
+import z from 'zod';
 
 // =====================================================
 // Profiles SCHEMAS
@@ -28,7 +33,7 @@ export const ProfilesRowSchema = z.object({
   "updated_at": "z.string().nullable()";
   user_tier: z.enum(Object.values(UserTier)).nullable();
   username: z.string().nullable();
-});
+}),
 
 export const ProfilesInsertSchema = z.object({
   avatar_url: z.string().nullable().optional();

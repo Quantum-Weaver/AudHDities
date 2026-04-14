@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/translations.ts
-// GENERATED: 2026-04-14T19:39:30.124Z
+// GENERATED: 2026-04-14T22:37:52.734Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { TranslatableType } from '@/lib/constants/generated/iris-communications/translatable_type';
+import z from 'zod';
 
 // =====================================================
 // Translations SCHEMAS
@@ -21,7 +24,7 @@ export const TranslationsRowSchema = z.object({
   translation: z.string();
   translator_id: z.string().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const TranslationsInsertSchema = z.object({
   approved_by: z.string().nullable().optional();

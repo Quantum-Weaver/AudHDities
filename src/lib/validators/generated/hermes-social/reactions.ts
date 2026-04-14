@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/reactions.ts
-// GENERATED: 2026-04-14T19:39:30.107Z
+// GENERATED: 2026-04-14T22:37:52.717Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ReactionType } from '@/lib/constants/generated/hermes-social/reaction_type';
+import z from 'zod';
 
 // =====================================================
 // Reactions SCHEMAS
@@ -18,7 +21,7 @@ export const ReactionsRowSchema = z.object({
   reply_id: z.string().nullable();
   user_id: z.string();
   weight: z.number().nullable();
-});
+}),
 
 export const ReactionsInsertSchema = z.object({
   comment_id: z.string().nullable().optional();

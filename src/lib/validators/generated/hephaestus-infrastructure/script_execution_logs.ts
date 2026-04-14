@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/script_execution_logs.ts
-// GENERATED: 2026-04-14T19:39:30.114Z
+// GENERATED: 2026-04-14T22:37:52.725Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // ScriptExecutionLogs SCHEMAS
@@ -19,7 +21,7 @@ export const ScriptExecutionLogsRowSchema = z.object({
   script_id: z.string();
   "started_at": "z.string().nullable()";
   status: z.string().nullable();
-});
+}),
 
 export const ScriptExecutionLogsInsertSchema = z.object({
   "completed_at": "z.string().nullable().optional()";

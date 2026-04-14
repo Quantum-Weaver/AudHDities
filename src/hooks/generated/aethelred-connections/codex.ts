@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useCodex
-// GENERATED: 2026-04-14T19:39:30.361Z
+// GENERATED: 2026-04-14T21:23:53.126Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
 
-import type { CodexInsert, CodexRow, CodexUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { CodexRow, CodexInsert, CodexUpdate } from '@/types/generated/aethelred-connections/codex';
 
 // =====================================================
 // Codex HOOKS

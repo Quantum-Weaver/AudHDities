@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-14T19:39:30.091Z
+// GENERATED: 2026-04-14T22:37:52.701Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { MaintenanceStatus } from '@/lib/constants/generated/hephaestus-infrastructure/maintenance_status';
+import type { MaintenanceType } from '@/lib/constants/generated/hephaestus-infrastructure/maintenance_type';
+import z from 'zod';
 
 // =====================================================
 // Maintenance SCHEMAS
@@ -25,7 +29,7 @@ export const MaintenanceRowSchema = z.object({
   title: z.string();
   type: z.enum(Object.values(MaintenanceType));
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const MaintenanceInsertSchema = z.object({
   actual_end: z.string().nullable().optional();

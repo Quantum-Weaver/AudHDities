@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useOntology
-// GENERATED: 2026-04-14T19:39:30.382Z
+// GENERATED: 2026-04-14T21:23:53.144Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================
 
-import type { OntologyInsert, OntologyRow, OntologyUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { OntologyRow, OntologyInsert, OntologyUpdate } from '@/types/generated/mnemosyne-assessment/ontology';
 
 // =====================================================
 // Ontology HOOKS

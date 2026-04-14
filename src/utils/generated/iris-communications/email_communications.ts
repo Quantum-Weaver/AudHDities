@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/email_communications.ts
-// GENERATED: 2026-04-14T19:39:30.153Z
+// GENERATED: 2026-04-14T21:18:08.960Z
 // SOURCE: database.types.ts
 // =====================================================
 

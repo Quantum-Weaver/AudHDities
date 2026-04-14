@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: usePrometheusPatterns
-// GENERATED: 2026-04-14T19:39:30.390Z
+// GENERATED: 2026-04-14T21:23:53.152Z
 // SOURCE: database.types.ts
 // DEITY: prometheus-meta
 // =====================================================
 
-import type { PrometheusPatternsInsert, PrometheusPatternsRow, PrometheusPatternsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { PrometheusPatternsRow, PrometheusPatternsInsert, PrometheusPatternsUpdate } from '@/types/generated/prometheus-meta/prometheus_patterns';
 
 // =====================================================
 // PrometheusPatterns HOOKS

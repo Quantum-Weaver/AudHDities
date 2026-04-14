@@ -1,12 +1,12 @@
 // =====================================================
 // HOOK: useSceneParticipants
-// GENERATED: 2026-04-14T19:39:30.398Z
+// GENERATED: 2026-04-14T21:23:53.159Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================
 
-import type { SceneParticipantsInsert, SceneParticipantsRow, SceneParticipantsUpdate } from '@/types/generated';
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import type { SceneParticipantsRow, SceneParticipantsInsert, SceneParticipantsUpdate } from '@/types/generated/athena-gamification/scene_participants';
 
 // =====================================================
 // SceneParticipants HOOKS

@@ -1,8 +1,10 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/supabase_connection.ts
-// GENERATED: 2026-04-14T19:39:30.118Z
+// GENERATED: 2026-04-14T22:37:52.729Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import z from 'zod';
 
 // =====================================================
 // SupabaseConnection SCHEMAS
@@ -23,7 +25,7 @@ export const SupabaseConnectionRowSchema = z.object({
   schema_version: z.string();
   storage_buckets: z.any().nullable();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const SupabaseConnectionInsertSchema = z.object({
   api_keys: z.any().nullable().optional();

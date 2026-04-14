@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/contributions.ts
-// GENERATED: 2026-04-14T19:39:30.076Z
+// GENERATED: 2026-04-14T22:37:52.687Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { ContributionType } from '@/lib/constants/generated/plutus-economics/contribution_type';
+import z from 'zod';
 
 // =====================================================
 // Contributions SCHEMAS
@@ -20,7 +23,7 @@ export const ContributionsRowSchema = z.object({
   percent_share: z.number();
   product_id: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const ContributionsInsertSchema = z.object({
   contribution_type: z.enum(Object.values(ContributionType)).optional();

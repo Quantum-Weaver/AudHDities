@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/languages/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-14T19:39:30.257Z
+// GENERATED: 2026-04-14T21:18:09.061Z
 // SOURCE: database.types.ts
 // =====================================================
 

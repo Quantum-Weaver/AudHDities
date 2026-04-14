@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-14T19:39:30.081Z
+// GENERATED: 2026-04-14T22:37:52.691Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { CustomCategoryType } from '@/lib/constants/generated/iris-communications/custom_category_type';
+import z from 'zod';
 
 // =====================================================
 // Customs SCHEMAS
@@ -22,7 +25,7 @@ export const CustomsRowSchema = z.object({
   region_id: z.string().nullable();
   slug: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const CustomsInsertSchema = z.object({
   category: z.enum(Object.values(CustomCategoryType)).optional();

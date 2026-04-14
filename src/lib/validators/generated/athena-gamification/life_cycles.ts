@@ -1,8 +1,11 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-14T19:39:30.090Z
+// GENERATED: 2026-04-14T22:37:52.700Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { LifeCyclePhase } from '@/lib/constants/generated/athena-gamification/life_cycle_phase';
+import z from 'zod';
 
 // =====================================================
 // LifeCycles SCHEMAS
@@ -18,7 +21,7 @@ export const LifeCyclesRowSchema = z.object({
   "started_at": "z.string()";
   trigger_event: z.string().nullable();
   user_id: z.string();
-});
+}),
 
 export const LifeCyclesInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

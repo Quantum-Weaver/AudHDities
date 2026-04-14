@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-14T19:39:30.106Z
+// GENERATED: 2026-04-14T22:37:52.716Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { SubmissionType } from '@/lib/constants/generated/athena-gamification/submission_type';
+import type { CouncilHouse } from '@/lib/constants/generated/hestia-core/council_house';
+import z from 'zod';
 
 // =====================================================
 // Quests SCHEMAS
@@ -24,7 +28,7 @@ export const QuestsRowSchema = z.object({
   submission_type: z.enum(Object.values(SubmissionType));
   title: z.string();
   "updated_at": "z.string().nullable()";
-});
+}),
 
 export const QuestsInsertSchema = z.object({
   "created_at": "z.string().nullable().optional()";

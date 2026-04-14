@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-14T19:39:30.158Z
+// GENERATED: 2026-04-14T21:18:08.965Z
 // SOURCE: database.types.ts
 // =====================================================
 

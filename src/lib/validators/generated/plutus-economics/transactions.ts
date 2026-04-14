@@ -1,8 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-14T19:39:30.123Z
+// GENERATED: 2026-04-14T22:37:52.734Z
 // SOURCE: database.types.ts
 // =====================================================
+
+import type { PaymentStatus } from '@/lib/constants/generated/plutus-economics/payment_status';
+import type { TransactionType } from '@/lib/constants/generated/plutus-economics/transaction_type';
+import z from 'zod';
 
 // =====================================================
 // Transactions SCHEMAS
@@ -21,7 +25,7 @@ export const TransactionsRowSchema = z.object({
   stripe_transfer_id: z.string().nullable();
   to_id: z.string().nullable();
   transaction_type: z.enum(Object.values(TransactionType));
-});
+}),
 
 export const TransactionsInsertSchema = z.object({
   amount_cents: z.number().optional();
