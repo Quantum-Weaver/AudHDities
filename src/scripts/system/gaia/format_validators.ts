@@ -1,4 +1,4 @@
-// @/scripts/system/gaia/formatValidators.ts
+// src/scripts/generators/gaia/formatValidators.ts
 // ============================================================================
 // FORMAT VALIDATORS (GAIA)
 // ============================================================================
@@ -7,17 +7,21 @@
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ObjectCategory } from '@/config/object_categories.js';
 
 export interface FormatValidatorsOptions {
   verbose?: boolean;
+  deityFolder?: string;
+  category?: ObjectCategory;  
 }
 
 export interface FormattedValidator {
   content: string;
   filePath: string;
   tableName: string;
+  deityFolder: string;
+  category: ObjectCategory;  
 }
 
 /**
@@ -61,7 +65,7 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   }
   
-  // Add nullable if needed
+  // Add nullable if neededs
   if (isNullable) {
     zodType = `${zodType}.nullable()`;
   }
@@ -72,7 +76,7 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 /**
  * Generate header comment for validator file
  */
-function generateHeader(tableName: string, deityFolder: string): string {
+function generateHeader(tableName: string,  deityFolder: string): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
 // FILE: validators/generated/${deityFolder}/${tableName}.ts
@@ -222,11 +226,11 @@ export function formatValidator(
   const { verbose = false } = options || {};
   
   if (verbose) {
-    logDebug(`Formatting utility: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+    logDebug(`Formatting validator: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
   const content = formatValidatorContent(tableInfo, deityFolder);
-  const filePath = `lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
+  const filePath = `src/lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -235,7 +239,9 @@ export function formatValidator(
   return {
     content,
     filePath,
-    tableName: tableInfo.name
+    tableName: tableInfo.name,
+    deityFolder,
+    category
   };
 }
 

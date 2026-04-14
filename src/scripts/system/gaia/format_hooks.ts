@@ -1,4 +1,4 @@
-// @/scripts/system/gaia/formatHooks.ts
+// src/scripts/generators/gaia/formatHooks.ts
 // ============================================================================
 // FORMAT HOOKS (GAIA)
 // ============================================================================
@@ -12,6 +12,7 @@ import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatHooksOptions {
   verbose?: boolean;
+  deityFolder?: string;
   category?: ObjectCategory;
 }
 
@@ -45,7 +46,7 @@ function toHookName(tableName: string): string {
 /**
  * Generate header comment for hook file
  */
-function generateHeader(tableName: string): string {
+function generateHeader(tableName: string, deityFolder: string): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
 // HOOK: ${toHookName(tableName)}
@@ -54,7 +55,7 @@ function generateHeader(tableName: string): string {
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/hestia-core/${tableName}.ts';
+import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
 
 `;
 }
@@ -312,8 +313,10 @@ export function useDelete${pascalName}() {
 /**
  * Format a table into a hook file content
  */
-function formatHookContent(tableName: string): string {
-  let content = generateHeader(tableName);
+function formatHookContent(tableInfo: TableInfo, deityFolder: string): string {
+  const { name: tableName } = tableInfo;
+  
+  let content = generateHeader(tableName, deityFolder);
   
   content += `// =====================================================\n`;
   content += `// ${toPascalCase(tableName)} HOOKS\n`;
@@ -346,17 +349,17 @@ export function formatHook(
   const results: FormattedHook[] = [];
   
   if (verbose) {
-    logDebug(`Formatting hooks for: ${tableName} (${category.handlingLevel})`);
+    logDebug(`Formatting hooks for: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
-  const content = formatHookContent(tableName);
-  const filePath = `@/hooks/generated/${tableName}.ts`;
+  const content = formatHookContent(tableInfo, deityFolder);
+  const filePath = `src/hooks/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   // Main hook file contains all hooks
   results.push({
     content,
     filePath,
-    tableName,
+    tableName: tableInfo.name,
     hookType: 'useTable',
     deityFolder,
     category

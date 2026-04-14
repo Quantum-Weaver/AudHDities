@@ -1,5 +1,5 @@
 // ============================================================================
-// src/scripts/system/gaia/write_generated_file.ts
+// src/scripts/generators/gaia/writeGeneratedFile.ts
 // WRITE GENERATED FILE (GAIA)
 // ============================================================================
 
@@ -34,6 +34,21 @@ function generateContentHash(content: string): string {
 }
 
 /**
+ * Build the full output path with generated subfolder
+ */
+function buildGeneratedPath(filePath: string): string {
+  // Insert '/generated/' after the first directory after src/
+  // Example: src/types/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
+  const parts = filePath.split(path.sep);
+  const srcIndex = parts.indexOf('src');
+  if (srcIndex !== -1 && parts.length > srcIndex + 2) {
+    // Insert 'generated' after the type/constants/etc folder
+    parts.splice(srcIndex + 2, 0, 'generated');
+  }
+  return parts.join(path.sep);
+}
+
+/**
  * Ensure the output directory exists
  */
 function ensureDirectory(dirPath: string): void {
@@ -54,19 +69,19 @@ function contentHasChanged(existingPath: string, newContent: string): boolean {
 }
 
 /**
- * Write a generated file to disk
- * NOTE: filePath should be the COMPLETE relative path from project root
- * Example: 'src/types/generated/hestia-core/profiles.ts'
+ * Write a generated file to the generated/ folder
  */
 export async function writeGeneratedFile(
-  filePath: string,  // ← Now expects FULL relative path including 'generated'
+  filePath: string,
   content: string,
   sourceFiles: string[],
   options: WriteOptions
 ): Promise<WriteResult> {
   const { dryRun, force, verbose, logger } = options;
   
-  const fullPath = path.join(PROJECT_ROOT, filePath);
+  // Build the generated path
+  const generatedPath = buildGeneratedPath(filePath);
+  const fullPath = path.join(PROJECT_ROOT, generatedPath);
   const dir = path.dirname(fullPath);
   
   // Check if file exists
@@ -78,12 +93,12 @@ export async function writeGeneratedFile(
       logInfo(`[DRY RUN] Would write to: ${fullPath}`);
       logDebug(`  Content length: ${content.length} characters`);
     }
-    logger?.log('info', 'writeGeneratedFile', `Would write: ${filePath}`, { dryRun: true });
+    logger?.log('info', 'writeGeneratedFile', `Would write: ${generatedPath}`, { dryRun: true });
     return {
       success: true,
-      filePath: filePath,
+      filePath: generatedPath,
       action: 'dryrun',
-      message: `Would write to ${filePath}`,
+      message: `Would write to ${generatedPath}`,
       fileHash: generateContentHash(content)
     };
   }
@@ -95,14 +110,14 @@ export async function writeGeneratedFile(
   if (!exists) {
     fs.writeFileSync(fullPath, content, 'utf-8');
     if (verbose) {
-      logSuccess(`Created: ${filePath}`);
+      logSuccess(`Created: ${generatedPath}`);
     }
-    logger?.log('success', 'writeGeneratedFile', `Created: ${filePath}`, { sourceFiles });
+    logger?.log('success', 'writeGeneratedFile', `Created: ${generatedPath}`, { sourceFiles });
     return {
       success: true,
-      filePath: filePath,
+      filePath: generatedPath,
       action: 'created',
-      message: `Created ${filePath}`,
+      message: `Created ${generatedPath}`,
       fileHash: generateContentHash(content)
     };
   }
@@ -112,13 +127,13 @@ export async function writeGeneratedFile(
   
   if (!hasChanged) {
     if (verbose) {
-      logDebug(`Unchanged: ${filePath}`);
+      logDebug(`Unchanged: ${generatedPath}`);
     }
     return {
       success: true,
-      filePath: filePath,
+      filePath: generatedPath,
       action: 'skipped',
-      message: `Unchanged: ${filePath}`,
+      message: `Unchanged: ${generatedPath}`,
       fileHash: generateContentHash(content)
     };
   }
@@ -127,30 +142,30 @@ export async function writeGeneratedFile(
   if (force) {
     fs.writeFileSync(fullPath, content, 'utf-8');
     if (verbose) {
-      logWarning(`Overwrote (forced): ${filePath}`);
+      logWarning(`Overwrote (forced): ${generatedPath}`);
     }
-    logger?.log('warning', 'writeGeneratedFile', `Overwrote: ${filePath}`, { sourceFiles, forced: true });
+    logger?.log('warning', 'writeGeneratedFile', `Overwrote: ${generatedPath}`, { sourceFiles, forced: true });
     return {
       success: true,
-      filePath: filePath,
+      filePath: generatedPath,
       action: 'updated',
-      message: `Overwrote ${filePath}`,
+      message: `Overwrote ${generatedPath}`,
       fileHash: generateContentHash(content)
     };
   }
   
   // Not forcing - skip with warning
   if (verbose) {
-    logWarning(`Skipped (would overwrite): ${filePath}`);
+    logWarning(`Skipped (would overwrite): ${generatedPath}`);
     logInfo(`  Use --force to overwrite existing files`);
   }
-  logger?.log('warning', 'writeGeneratedFile', `Skipped (would overwrite): ${filePath}`, { sourceFiles });
+  logger?.log('warning', 'writeGeneratedFile', `Skipped (would overwrite): ${generatedPath}`, { sourceFiles });
   
   return {
     success: false,
-    filePath: filePath,
+    filePath: generatedPath,
     action: 'skipped',
-    message: `Skipped ${filePath} (would overwrite)`,
+    message: `Skipped ${generatedPath} (would overwrite)`,
     fileHash: generateContentHash(content)
   };
 }

@@ -1,9 +1,9 @@
-// src/scripts/system/gaia/formatApiRoutes.ts
+// src/scripts/generators/gaia/formatApiRoutes.ts
 // ============================================================================
 // FORMAT API ROUTES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into Next.js API routes
-// Dependencies: types from extractTables, workflow_config
+// Dependencies: types from extractTables, workflow-config
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
@@ -301,7 +301,7 @@ export async function DELETE(
 /**
  * Generate special route (e.g., submit, results, link, unlink)
  */
-function generateSpecialRoute(tableName: string, specialType: string): string {
+function generateSpecialRoute(tableName: string, specialType: string, deityFolder: string): string {
   const pascalName = toPascalCase(tableName);
   
   return `import { NextRequest } from 'next/server';
@@ -340,7 +340,7 @@ export async function POST(
 /**
  * Format main API route file (list + create)
  */
-function formatMainApiRoute(tableName: string, hasGetList: boolean, hasPost: boolean): string {
+function formatMainApiRoute(tableName: string, hasGetList: boolean, hasPost: boolean, deityFolder: string): string {
   const methods: string[] = [];
   let content = generateHeader(tableName, 'list', 
     [...(hasGetList ? ['GET'] : []), ...(hasPost ? ['POST'] : [])]);
@@ -361,7 +361,7 @@ function formatMainApiRoute(tableName: string, hasGetList: boolean, hasPost: boo
 /**
  * Format single record API route file (get/put/delete)
  */
-function formatSingleApiRoute(tableName: string, hasGetSingle: boolean, hasPut: boolean, hasDelete: boolean): string {
+function formatSingleApiRoute(tableName: string, hasGetSingle: boolean, hasPut: boolean, hasDelete: boolean, deityFolder: string): string {
   const methods: string[] = [];
   let content = generateHeader(tableName, 'single',
     [...(hasGetSingle ? ['GET'] : []), ...(hasPut ? ['PUT'] : []), ...(hasDelete ? ['DELETE'] : [])]);
@@ -387,9 +387,9 @@ function formatSingleApiRoute(tableName: string, hasGetSingle: boolean, hasPut: 
 /**
  * Format special API route file
  */
-function formatSpecialApiRoute(tableName: string, specialType: string): string {
+function formatSpecialApiRoute(tableName: string, specialType: string, deityFolder: string): string {
   const content = generateHeader(tableName, 'special', ['POST']);
-  return content + generateSpecialRoute(tableName, specialType);
+  return content + generateSpecialRoute(tableName, specialType, deityFolder);
 }
 
 /**
@@ -411,14 +411,14 @@ export function formatApiRoutes(
   
   // Main route (list + create)
   if (category.generateApiGetList || category.generateApiPost) {
-    const content = formatMainApiRoute(tableName, category.generateApiGetList, category.generateApiPost);
-    const filePath = `app/api/generated/${tableName}/route.ts`;
+    const content = formatMainApiRoute(tableName, category.generateApiGetList, category.generateApiPost, deityFolder);
+    const filePath = `src/app/api/generated/${deityFolder}/${tableName}/route.ts`;
     
     results.push({
       content,
       filePath,
-      tableName,
       routeType: 'list',
+      tableName: tableInfo.name,
       deityFolder,
       category
     });
@@ -430,14 +430,14 @@ export function formatApiRoutes(
   
   // Single record route (get/put/delete)
   if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
-    const content = formatSingleApiRoute(tableName, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete);
-    const filePath = `app/api/generated/${tableName}/[id]/route.ts`;
+    const content = formatSingleApiRoute(tableName, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete, deityFolder);
+    const filePath = `src/app/api/generated/${deityFolder}/${tableName}/[id]/route.ts`;
     
     results.push({
       content,
       filePath,
-      tableName,
       routeType: 'single',
+      tableName: tableInfo.name,
       deityFolder,
       category
     });
@@ -450,21 +450,21 @@ export function formatApiRoutes(
   // Special routes
   if (category.generateApiSpecial && category.generateApiSpecial.length > 0) {
     for (const specialType of category.generateApiSpecial) {
-      const content = formatSpecialApiRoute(tableName, specialType);
-      const filePath = `app/api/generated/${tableName}/${specialType}/route.ts`;
+      const content = formatSpecialApiRoute(tableName, specialType, deityFolder);
+      const filePath = `src/app/api/generated/${deityFolder}/${tableInfo.name}/${specialType}/route.ts`;
       
       results.push({
         content,
         filePath,
-        tableName,
         routeType: 'special',
         specialType,
+        tableName: tableInfo.name,
         deityFolder,
         category
       });
       
       if (verbose) {
-        logDebug(`  Formatted special route ${specialType} for ${tableName}`);
+        logDebug(`  Formatted special route ${specialType} for ${tableInfo.name}`);
       }
     }
   }
@@ -503,7 +503,7 @@ export function formatMultipleApiRoutes(
     results.push(...routes);
     
     if (verbose) {
-      logDebug(`  Formatted ${routes.length} API routes for ${tableInfo.name}`);
+      logDebug(`  Formatted ${routes.length} API routes for ${tableInfo.name} -> ${deityFolder}`);
     }
   }
   

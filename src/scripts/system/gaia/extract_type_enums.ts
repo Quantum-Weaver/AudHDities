@@ -1,5 +1,5 @@
 // ============================================================================
-// @/scripts/system/gaia/extract_type_enums.ts
+// src/scripts/generators/gaia/extractTypeEnums.ts
 // EXTRACT TYPE ENUMS (GAIA)
 // ============================================================================
 

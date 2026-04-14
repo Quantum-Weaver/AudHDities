@@ -1,4 +1,4 @@
-// @/scripts/system/gaia/formatConstants.ts
+// src/scripts/system/gaia/format_constants.ts
 // ============================================================================
 // FORMAT CONSTANTS (GAIA)
 // ============================================================================
@@ -8,10 +8,14 @@
 
 import type { RuntimeEnumInfo } from './extract_runtime_enums.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ObjectCategory } from '@/config/object_categories.js';
+import { TableInfo } from './extract_tables.js';
+import { getDeityFolderForObject } from '@/config/object_categories.js';
 
 export interface FormatConstantsOptions {
   verbose?: boolean;
   deityFolder?: string;
+  category?: ObjectCategory;
 }
 
 export interface FormattedConstant {
@@ -20,6 +24,7 @@ export interface FormattedConstant {
   enumName: string;
   values: string[];
   deityFolder: string;
+  category: ObjectCategory;
 }
 
 /**
@@ -57,7 +62,7 @@ function generateHeader(enumName: string, deityFolder: string, values: string[])
 /**
  * Format a runtime enum into a constant file content
  */
-function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): string {
+function formatConstantContent( enumInfo: RuntimeEnumInfo, deityFolder: string): string {
   const { name: enumName, values } = enumInfo;
   const constName = toUpperSnakeCase(enumName);
   const typeName = toPascalCase(enumName);
@@ -83,6 +88,7 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
 export function formatConstant(
   enumInfo: RuntimeEnumInfo,
   deityFolder: string,
+  category: ObjectCategory, 
   options?: FormatConstantsOptions
 ): FormattedConstant {
   const { verbose = false } = options || {};
@@ -92,7 +98,7 @@ export function formatConstant(
   }
   
   const content = formatConstantContent(enumInfo, deityFolder);
-  const filePath = `lib/constants/generated/${deityFolder}/${enumInfo.name}.ts`;
+  const filePath = `src/lib/constants/generated/${deityFolder}/${enumInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -103,7 +109,8 @@ export function formatConstant(
     filePath,
     enumName: enumInfo.name,
     values: enumInfo.values,
-    deityFolder
+    deityFolder,
+    category
   };
 }
 
@@ -113,6 +120,7 @@ export function formatConstant(
 export function formatConstants(
   enums: RuntimeEnumInfo[],
   getDeityFolder: (enumName: string) => string,
+  getCategory: (tableName: string) => ObjectCategory,
   options?: FormatConstantsOptions
 ): FormattedConstant[] {
   const { verbose = false } = options || {};
@@ -123,7 +131,8 @@ export function formatConstants(
   }
   
   for (const enumInfo of enums) {
-    const deityFolder = getDeityFolder(enumInfo.name);
+    const deityFolder = getDeityFolder(tableInfo.name);
+    const category = getCategory(table);
     const formatted = formatConstant(enumInfo, deityFolder, options);
     results.push(formatted);
     

@@ -96,12 +96,12 @@ src/scripts/
 
 ```
 src/config/
-├── deity_groups.ts                  (EXISTS)
-├── object_categories.ts             (EXISTS)
-├── enum_mapping.ts                  (EXISTS)
-├── system_registry.ts               (NEW - stub)
-├── dependency_map.ts                (NEW - stub)
-└── efficiency_records.ts            (NEW - stub)
+├── deity-groups.ts                  (EXISTS)
+├── object-categories.ts             (EXISTS)
+├── enum-mapping.ts                  (EXISTS)
+├── system-registry.ts               (NEW - stub)
+├── dependency-map.ts                (NEW - stub)
+└── efficiency-records.ts            (NEW - stub)
 ```
 
 ---
@@ -171,9 +171,9 @@ src/config/
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                      PHASE 5: REGISTRY UPDATE                        │    │
 │  │                                                                      │    │
-│  │   Update system_registry.ts (new run, new files)                     │    │
-│  │   Update dependency_map.ts (new imports/exports)                     │    │
-│  │   Update efficiency_records.ts (timing data)                         │    │
+│  │   Update system-registry.ts (new run, new files)                     │    │
+│  │   Update dependency-map.ts (new imports/exports)                     │    │
+│  │   Update efficiency-records.ts (timing data)                         │    │
 │  │                                                                      │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
@@ -287,9 +287,9 @@ src/config/
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │   1. shared/systemLogger.ts          (Logging for both systems)             │
-│   2. config/system_registry.ts       (Registry data structures)             │
-│   3. config/dependency_map.ts        (Dependency tracking)                  │
-│   4. config/efficiency_records.ts    (Performance tracking)                 │
+│   2. config/system-registry.ts       (Registry data structures)             │
+│   3. config/dependency-map.ts        (Dependency tracking)                  │
+│   4. config/efficiency-records.ts    (Performance tracking)                 │
 │   5. modules/analyzeDependencies.ts  (Dependency analyzer)                  │
 │   6. modules/agenticMaintenance.ts   (Future automation)                    │
 │   7. gaia/writeGeneratedFile.ts      (File writer for generated/)           │

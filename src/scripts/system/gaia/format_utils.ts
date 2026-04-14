@@ -1,9 +1,9 @@
-// @/scripts/system/gaia/formatUtils.ts
+// src/scripts/generators/gaia/formatUtils.ts
 // ============================================================================
 // FORMAT UTILITIES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into CRUD utility files
-// Dependencies: types from extractTables, workflow_config
+// Dependencies: types from extractTables, workflow-config
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
@@ -54,7 +54,7 @@ function generateHeader(tableName: string, deityFolder: string): string {
 // =====================================================
 
 import type { ${toPascalCase(tableName)}Row, ${toPascalCase(tableName)}Insert, ${toPascalCase(tableName)}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
-import { ${toPascalCase(tableName)}InsertSchema, ${toPascalCase(tableName)}UpdateSchema } from '@/lib/validators/generated/${tableName}.ts';
+import { ${toPascalCase(tableName)}InsertSchema, ${toPascalCase(tableName)}UpdateSchema } from '@/lib/validators/generated//${deityFolder}/${tableName}.ts';
 import { createApiSupabase } from '@/lib/api/supabase';
 import { successResponse, errorResponse, getPaginationParams, getFilters, getSortParams } from '@/lib/api/auth';
 
@@ -274,7 +274,7 @@ export function formatUtility(
   }
   
   const content = formatUtilityContent(tableInfo, deityFolder);
-  const filePath = `@/utils/generated/${deityFolder}/${tableInfo.name}.ts`;
+  const filePath = `src/utils/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);

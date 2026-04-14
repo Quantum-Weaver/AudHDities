@@ -1,4 +1,4 @@
-// src/config/object_categories.ts
+// src/config/object-categories.ts
 // ============================================================================
 // OBJECT CATEGORIES - Single source of truth for all generation behavior
 // ============================================================================

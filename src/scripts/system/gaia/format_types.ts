@@ -1,9 +1,9 @@
-// @/scripts/system/gaia/formatTypes.ts
+// src/scripts/generators/gaia/formatTypes.ts
 // ============================================================================
 // FORMAT TYPES (GAIA)
 // ============================================================================
 // Purpose: Format table definitions into TypeScript type files
-// Dependencies: types from extractTables, workflow_config, object_categories
+// Dependencies: types from extractTables, workflow-config, object-categories
 // ============================================================================
 
 import type { TableInfo } from './extract_tables.js';
@@ -297,7 +297,7 @@ export function formatType(
   }
   
   const content = formatTypeContent(tableInfo, deityFolder, category);
-  const filePath = `@/types/generated/${deityFolder}/${tableInfo.name}.ts`;
+  const filePath = `src/types/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
