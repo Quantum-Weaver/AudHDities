@@ -8,6 +8,7 @@
 
 import type { TableInfo } from './extract_tables.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ObjectCategory } from '@/config/object_categories.js';
 
 export interface FormatValidatorsOptions {
   verbose?: boolean;
@@ -71,10 +72,10 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 /**
  * Generate header comment for validator file
  */
-function generateHeader(tableName: string): string {
+function generateHeader(tableName: string, deityFolder: string): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
-// FILE: validators/generated/${tableName}.ts
+// FILE: validators/generated/${deityFolder}/${tableName}.ts
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
 // =====================================================
@@ -168,11 +169,11 @@ function generateUpdateSchema(tableName: string, updateContent: string): string 
 /**
  * Format a table into a validator file content
  */
-function formatValidatorContent(tableInfo: TableInfo): string {
+function formatValidatorContent(tableInfo: TableInfo, deityFolder: string): string {
   const { name: tableName, rowContent, insertContent, updateContent } = tableInfo;
   const pascalName = toPascalCase(tableName);
   
-  let content = generateHeader(tableName);
+  let content = generateHeader(tableName, deityFolder);
   
   content += `// =====================================================\n`;
   content += `// ${pascalName} SCHEMAS\n`;
@@ -214,16 +215,18 @@ function formatValidatorContent(tableInfo: TableInfo): string {
  */
 export function formatValidator(
   tableInfo: TableInfo,
+  deityFolder: string,
+  category: ObjectCategory,  
   options?: FormatValidatorsOptions
 ): FormattedValidator {
   const { verbose = false } = options || {};
   
   if (verbose) {
-    logDebug(`Formatting validator: ${tableInfo.name}`);
+    logDebug(`Formatting utility: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
-  const content = formatValidatorContent(tableInfo);
-  const filePath = `lib/validators/generated/${tableInfo.name}.ts`;
+  const content = formatValidatorContent(tableInfo, deityFolder);
+  const filePath = `lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -242,6 +245,8 @@ export function formatValidator(
  */
 export function formatValidators(
   tables: TableInfo[],
+  getDeityFolder: (tableName: string) => string,
+  getCategory: (tableName: string) => ObjectCategory,  
   shouldGenerate: (tableName: string) => boolean,
   options?: FormatValidatorsOptions
 ): FormattedValidator[] {
@@ -260,11 +265,13 @@ export function formatValidators(
       continue;
     }
     
-    const formatted = formatValidator(tableInfo, options);
+    const deityFolder = getDeityFolder(tableInfo.name);
+    const category = getCategory(tableInfo.name);    
+    const formatted = formatValidator(tableInfo, deityFolder, category, options);
     results.push(formatted);
     
     if (verbose) {
-      logDebug(`  Formatted: ${tableInfo.name}`);
+      logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder}`);
     }
   }
   

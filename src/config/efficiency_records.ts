@@ -28,7 +28,46 @@ export interface ResourceProfile {
   dependencies: string[];
 }
 
-export const EFFICIENCY_RECORDS: ProcessingRecord[] = [];
+export const EFFICIENCY_RECORDS: ProcessingRecord[] = [
+  {
+    "id": "20260413_201450",
+    "timestamp": "2026-04-14T01:14:50.832Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 105,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 105,
+    "memoryUsage": 17096896,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 105,
+      "validators": 0,
+      "utils": 0,
+      "api": 0,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260413_193954",
+    "timestamp": "2026-04-14T00:39:54.614Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 729,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 729,
+    "memoryUsage": 16561504,
+    "fileTypeBreakdown": {
+      "constants": 99,
+      "types": 105,
+      "validators": 105,
+      "utils": 95,
+      "api": 230,
+      "hooks": 95
+    }
+  }
+];
 
 export const RESOURCE_PROFILES: ResourceProfile[] = [];
 

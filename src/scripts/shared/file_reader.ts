@@ -10,6 +10,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const DB_TYPES_PATH = path.join(process.cwd(), 'src/types/supabase/database.types.ts');
+export const CONSTANTS_BASE_PATH = path.join(process.cwd(), 'src/lib/constants/generated');
+export const VALIDATORS_BASE_PATH = path.join(process.cwd(), 'src/lib/validators/generated');
+export const API_BASE_PATH = path.join(process.cwd(), 'src/app/api/generated');
+export const TYPES_BASE_PATH = path.join(process.cwd(), 'src/types/generated');
+export const UTILS_BASE_PATH = path.join(process.cwd(), 'src/utils/generated');
+export const HOOKS_BASE_PATH = path.join(process.cwd(), 'src/hooks/generated');
 
 export interface FileReadResult {
   success: boolean;

@@ -6,6 +6,7 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
 import { stageFileChange } from '../system/staging.js';
+import { API_BASE_PATH } from '@/scripts/shared/file_reader.js';
 import {
   generateGetListRoute,
   generateGetSingleRoute,
@@ -84,7 +85,7 @@ export async function generateApiRoutesForTable(
   },
   options: GenerateApiRoutesOptions = {}
 ): Promise<{ main: string; single: string; special: string[] }> {
-  const { outputBase = 'app/api' } = options;
+  const { outputBase = API_BASE_PATH } = options;
   
   const result = { main: '', single: '', special: [] as string[] };
   

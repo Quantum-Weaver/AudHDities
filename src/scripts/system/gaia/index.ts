@@ -62,7 +62,15 @@ import { generateApiRoutesForTables } from '../../modules/generate/generate_api_
 import { formatUtils, type FormattedUtility } from './format_utils.js';
 import { formatMultipleHooks, type FormattedHook } from './format_hooks.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
-
+// Add to imports at top
+import { 
+  DB_TYPES_PATH,
+  CONSTANTS_BASE_PATH,
+  VALIDATORS_BASE_PATH,
+  TYPES_BASE_PATH,
+  UTILS_BASE_PATH,
+  HOOKS_BASE_PATH
+} from '../../shared/file_reader.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
