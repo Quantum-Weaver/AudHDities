@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ActivityRowSchema, ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/activity/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.170Z
+// GENERATED: 2026-04-15T18:11:44.513Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ActivityRowSchema, ActivityInsertSchema, ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity';
 
 export async function GET(
   request: NextRequest,

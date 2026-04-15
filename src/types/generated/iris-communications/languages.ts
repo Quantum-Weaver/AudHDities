@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/languages.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.828Z
+// GENERATED: 2026-04-15T18:11:44.204Z
 // SOURCE: database.types.ts lines 2690-2742
 // =====================================================
 

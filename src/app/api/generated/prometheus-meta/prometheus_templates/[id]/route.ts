@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PrometheusTemplatesRowSchema, PrometheusTemplatesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_templates.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_templates/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.355Z
+// GENERATED: 2026-04-15T18:11:45.000Z
 // SOURCE: database.types.ts
 // =====================================================
+import { PrometheusTemplatesRowSchema, PrometheusTemplatesInsertSchema, PrometheusTemplatesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_templates';
 
 export async function GET(
   request: NextRequest,

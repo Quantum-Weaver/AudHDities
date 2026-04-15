@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-15T16:13:09.474Z
+// GENERATED: 2026-04-15T18:11:44.280Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PAYOUT_METHOD } from '@/lib/constants/generated/plutus-economics/payout_method';
+import { PAYOUT_STATUS } from '@/lib/constants/generated/plutus-economics/payout_status';
 
 // =====================================================
 // Payouts SCHEMAS

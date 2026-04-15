@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/replies.ts
-// GENERATED: 2026-04-15T16:39:24.101Z
+// GENERATED: 2026-04-15T18:11:44.483Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { RepliesRow, RepliesInsert, RepliesUpdate } from '@/types/generated/hermes-social/replies';
-import { RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies';
+import { RepliesRowSchema, RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createReplies(data: RepliesInsert): Promise<{ data: RepliesRow | null; error: string | null }> {
   try {
-    const validated = RepliesInsertSchema.parse(data);
+    const validated = RepliesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

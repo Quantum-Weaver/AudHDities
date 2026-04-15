@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-15T16:13:09.472Z
+// GENERATED: 2026-04-15T18:11:44.278Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { NOTIFICATION_TYPE } from '@/lib/constants/generated/hermes-social/notification_type';
 
 // =====================================================
 // Notifications SCHEMAS

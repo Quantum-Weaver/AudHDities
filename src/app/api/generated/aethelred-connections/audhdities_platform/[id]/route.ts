@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AudhditiesPlatformRowSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/audhdities_platform/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.181Z
+// GENERATED: 2026-04-15T18:11:44.525Z
 // SOURCE: database.types.ts
 // =====================================================
+import { AudhditiesPlatformRowSchema, AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
 
 export async function GET(
   request: NextRequest,

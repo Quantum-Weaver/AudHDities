@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LedgerRowSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/ledger/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.322Z
+// GENERATED: 2026-04-15T18:11:44.928Z
 // SOURCE: database.types.ts
 // =====================================================
+import { LedgerRowSchema, LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
 
 export async function GET(
   request: NextRequest,

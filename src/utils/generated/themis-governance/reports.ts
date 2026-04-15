@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/reports.ts
-// GENERATED: 2026-04-15T16:39:24.102Z
+// GENERATED: 2026-04-15T18:11:44.483Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ReportsRow, ReportsInsert, ReportsUpdate } from '@/types/generated/themis-governance/reports';
-import { ReportsInsertSchema, ReportsUpdateSchema } from '@/lib/validators/generated/themis-governance/reports';
+import { ReportsRowSchema, ReportsInsertSchema, ReportsUpdateSchema } from '@/lib/validators/generated/themis-governance/reports';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createReports(data: ReportsInsert): Promise<{ data: ReportsRow | null; error: string | null }> {
   try {
-    const validated = ReportsInsertSchema.parse(data);
+    const validated = ReportsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

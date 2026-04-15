@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SeerInsertSchema } from '@/lib/validators/generated/aethelred-connections/seer.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/seer
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.379Z
+// GENERATED: 2026-04-15T18:11:45.026Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SeerRowSchema, SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SeerInsertSchema.parse(body);
+    const validated = SeerRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

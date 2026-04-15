@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SystemHealthLogsRowSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/system_health_logs/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.391Z
+// GENERATED: 2026-04-15T18:11:45.039Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SystemHealthLogsRowSchema, SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';
 
 export async function GET(
   request: NextRequest,

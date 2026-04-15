@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/translations.ts
-// GENERATED: 2026-04-15T16:39:24.115Z
+// GENERATED: 2026-04-15T18:11:44.500Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { TranslationsRow, TranslationsInsert, TranslationsUpdate } from '@/types/generated/iris-communications/translations';
-import { TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations';
+import { TranslationsRowSchema, TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createTranslations(data: TranslationsInsert): Promise<{ data: TranslationsRow | null; error: string | null }> {
   try {
-    const validated = TranslationsInsertSchema.parse(data);
+    const validated = TranslationsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

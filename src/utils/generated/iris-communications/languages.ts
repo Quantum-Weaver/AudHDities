@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-15T16:39:24.080Z
+// GENERATED: 2026-04-15T18:11:44.462Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { LanguagesRow, LanguagesInsert, LanguagesUpdate } from '@/types/generated/iris-communications/languages';
-import { LanguagesInsertSchema, LanguagesUpdateSchema } from '@/lib/validators/generated/iris-communications/languages';
+import { LanguagesRowSchema, LanguagesInsertSchema, LanguagesUpdateSchema } from '@/lib/validators/generated/iris-communications/languages';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createLanguages(data: LanguagesInsert): Promise<{ data: LanguagesRow | null; error: string | null }> {
   try {
-    const validated = LanguagesInsertSchema.parse(data);
+    const validated = LanguagesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

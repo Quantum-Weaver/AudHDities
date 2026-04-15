@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/residual_payouts.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.853Z
+// GENERATED: 2026-04-15T18:11:44.229Z
 // SOURCE: database.types.ts lines 4987-5054
 // =====================================================
 

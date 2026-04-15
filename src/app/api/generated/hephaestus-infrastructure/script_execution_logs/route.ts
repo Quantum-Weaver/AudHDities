@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ScriptExecutionLogsInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/script_execution_logs
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.376Z
+// GENERATED: 2026-04-15T18:11:45.023Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ScriptExecutionLogsRowSchema, ScriptExecutionLogsInsertSchema, ScriptExecutionLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ScriptExecutionLogsInsertSchema.parse(body);
+    const validated = ScriptExecutionLogsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

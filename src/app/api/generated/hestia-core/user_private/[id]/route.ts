@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { UserPrivateRowSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_private/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.402Z
+// GENERATED: 2026-04-15T18:11:45.062Z
 // SOURCE: database.types.ts
 // =====================================================
+import { UserPrivateRowSchema, UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';
 
 export async function GET(
   request: NextRequest,

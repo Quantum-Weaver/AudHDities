@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/reactions.ts
-// GENERATED: 2026-04-15T16:13:09.485Z
+// GENERATED: 2026-04-15T18:11:44.412Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { REACTION_TYPE } from '@/lib/constants/generated/hermes-social/reaction_type';
 
 // =====================================================
 // Reactions SCHEMAS

@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_questions.ts
-// GENERATED: 2026-04-15T16:13:09.443Z
+// GENERATED: 2026-04-15T18:11:44.249Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ACID_QUESTION_TYPE } from '@/lib/constants/generated/mnemosyne-assessment/acid_question_type';
 
 // =====================================================
 // AcidTestQuestions SCHEMAS

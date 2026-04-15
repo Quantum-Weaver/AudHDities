@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/quantum_superposition.ts
-// GENERATED: 2026-04-15T16:39:24.098Z
+// GENERATED: 2026-04-15T18:11:44.479Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { QuantumSuperpositionRow, QuantumSuperpositionInsert, QuantumSuperpositionUpdate } from '@/types/generated/mnemosyne-assessment/quantum_superposition';
-import { QuantumSuperpositionInsertSchema, QuantumSuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/quantum_superposition';
+import { QuantumSuperpositionRowSchema, QuantumSuperpositionInsertSchema, QuantumSuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/quantum_superposition';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createQuantumSuperposition(data: QuantumSuperpositionInsert): Promise<{ data: QuantumSuperpositionRow | null; error: string | null }> {
   try {
-    const validated = QuantumSuperpositionInsertSchema.parse(data);
+    const validated = QuantumSuperpositionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/chancellor.ts
-// GENERATED: 2026-04-15T16:39:24.065Z
+// GENERATED: 2026-04-15T18:11:44.448Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ChancellorRow, ChancellorInsert, ChancellorUpdate } from '@/types/generated/aethelred-connections/chancellor';
-import { ChancellorInsertSchema, ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';
+import { ChancellorRowSchema, ChancellorInsertSchema, ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createChancellor(data: ChancellorInsert): Promise<{ data: ChancellorRow | null; error: string | null }> {
   try {
-    const validated = ChancellorInsertSchema.parse(data);
+    const validated = ChancellorRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

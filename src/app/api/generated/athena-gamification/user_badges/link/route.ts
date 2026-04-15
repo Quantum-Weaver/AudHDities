@@ -5,9 +5,10 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_badges/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T16:41:40.399Z
+// GENERATED: 2026-04-15T18:11:45.048Z
 // SOURCE: database.types.ts
 // =====================================================
+import { UserBadgesRowSchema, UserBadgesInsertSchema, UserBadgesUpdateSchema } from '@/lib/validators/generated/athena-gamification/user_badges';
 
 export async function POST(
   request: NextRequest,

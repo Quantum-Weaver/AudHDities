@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/calendar.ts
-// GENERATED: 2026-04-15T16:39:24.065Z
+// GENERATED: 2026-04-15T18:11:44.448Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CalendarRow, CalendarInsert, CalendarUpdate } from '@/types/generated/hephaestus-infrastructure/calendar';
-import { CalendarInsertSchema, CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';
+import { CalendarRowSchema, CalendarInsertSchema, CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCalendar(data: CalendarInsert): Promise<{ data: CalendarRow | null; error: string | null }> {
   try {
-    const validated = CalendarInsertSchema.parse(data);
+    const validated = CalendarRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

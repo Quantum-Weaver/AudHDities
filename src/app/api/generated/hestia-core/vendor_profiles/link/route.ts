@@ -5,9 +5,10 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/vendor_profiles/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T16:41:40.406Z
+// GENERATED: 2026-04-15T18:11:45.078Z
 // SOURCE: database.types.ts
 // =====================================================
+import { VendorProfilesRowSchema, VendorProfilesInsertSchema, VendorProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/vendor_profiles';
 
 export async function POST(
   request: NextRequest,

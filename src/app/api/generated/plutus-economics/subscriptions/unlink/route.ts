@@ -5,9 +5,10 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/subscriptions/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T16:41:40.384Z
+// GENERATED: 2026-04-15T18:11:45.031Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SubscriptionsRowSchema, SubscriptionsInsertSchema, SubscriptionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/subscriptions';
 
 export async function POST(
   request: NextRequest,

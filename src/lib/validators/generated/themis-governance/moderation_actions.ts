@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/moderation_actions.ts
-// GENERATED: 2026-04-15T16:13:09.471Z
+// GENERATED: 2026-04-15T18:11:44.277Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { MODERATION_ACTION_TYPE } from '@/lib/constants/generated/themis-governance/moderation_action_type';
+import { MODERATION_TARGET_TYPE } from '@/lib/constants/generated/themis-governance/moderation_target_type';
 
 // =====================================================
 // ModerationActions SCHEMAS

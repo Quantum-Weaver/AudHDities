@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SupabaseConnectionInsertSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/supabase_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.386Z
+// GENERATED: 2026-04-15T18:11:45.033Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SupabaseConnectionRowSchema, SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SupabaseConnectionInsertSchema.parse(body);
+    const validated = SupabaseConnectionRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,10 +1,15 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/badges.ts
-// GENERATED: 2026-04-15T16:13:09.450Z
+// GENERATED: 2026-04-15T18:11:44.255Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { BADGE_RARITY } from '@/lib/constants/generated/athena-gamification/badge_rarity';
+import { BADGE_TIER } from '@/lib/constants/generated/athena-gamification/badge_tier';
+import { BADGE_TYPE } from '@/lib/constants/generated/athena-gamification/badge_type';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 
 // =====================================================
 // Badges SCHEMAS

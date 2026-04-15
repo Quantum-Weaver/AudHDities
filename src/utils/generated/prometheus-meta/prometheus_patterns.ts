@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_patterns.ts
-// GENERATED: 2026-04-15T16:39:24.096Z
+// GENERATED: 2026-04-15T18:11:44.477Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusPatternsRow, PrometheusPatternsInsert, PrometheusPatternsUpdate } from '@/types/generated/prometheus-meta/prometheus_patterns';
-import { PrometheusPatternsInsertSchema, PrometheusPatternsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_patterns';
+import { PrometheusPatternsRowSchema, PrometheusPatternsInsertSchema, PrometheusPatternsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_patterns';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusPatterns(data: PrometheusPatternsInsert): Promise<{ data: PrometheusPatternsRow | null; error: string | null }> {
   try {
-    const validated = PrometheusPatternsInsertSchema.parse(data);
+    const validated = PrometheusPatternsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

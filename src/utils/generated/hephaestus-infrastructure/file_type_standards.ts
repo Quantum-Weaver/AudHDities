@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/file_type_standards.ts
-// GENERATED: 2026-04-15T16:39:24.078Z
+// GENERATED: 2026-04-15T18:11:44.460Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { FileTypeStandardsRow, FileTypeStandardsInsert, FileTypeStandardsUpdate } from '@/types/generated/hephaestus-infrastructure/file_type_standards';
-import { FileTypeStandardsInsertSchema, FileTypeStandardsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_type_standards';
+import { FileTypeStandardsRowSchema, FileTypeStandardsInsertSchema, FileTypeStandardsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_type_standards';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createFileTypeStandards(data: FileTypeStandardsInsert): Promise<{ data: FileTypeStandardsRow | null; error: string | null }> {
   try {
-    const validated = FileTypeStandardsInsertSchema.parse(data);
+    const validated = FileTypeStandardsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

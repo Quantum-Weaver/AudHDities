@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ArchivistRowSchema, ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/archivist/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.179Z
+// GENERATED: 2026-04-15T18:11:44.523Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ArchivistRowSchema, ArchivistInsertSchema, ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';
 
 export async function GET(
   request: NextRequest,

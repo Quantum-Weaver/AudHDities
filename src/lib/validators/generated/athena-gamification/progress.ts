@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/progress.ts
-// GENERATED: 2026-04-15T16:13:09.478Z
+// GENERATED: 2026-04-15T18:11:44.347Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PROGRESS_STATUS } from '@/lib/constants/generated/athena-gamification/progress_status';
 
 // =====================================================
 // Progress SCHEMAS

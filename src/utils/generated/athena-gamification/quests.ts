@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-15T16:39:24.099Z
+// GENERATED: 2026-04-15T18:11:44.480Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { QuestsRow, QuestsInsert, QuestsUpdate } from '@/types/generated/athena-gamification/quests';
-import { QuestsInsertSchema, QuestsUpdateSchema } from '@/lib/validators/generated/athena-gamification/quests';
+import { QuestsRowSchema, QuestsInsertSchema, QuestsUpdateSchema } from '@/lib/validators/generated/athena-gamification/quests';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createQuests(data: QuestsInsert): Promise<{ data: QuestsRow | null; error: string | null }> {
   try {
-    const validated = QuestsInsertSchema.parse(data);
+    const validated = QuestsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.869Z
+// GENERATED: 2026-04-15T18:11:44.244Z
 // SOURCE: database.types.ts lines 6468-6545
 // =====================================================
 

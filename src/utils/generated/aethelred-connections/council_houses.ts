@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/council_houses.ts
-// GENERATED: 2026-04-15T16:39:24.070Z
+// GENERATED: 2026-04-15T18:11:44.453Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CouncilHousesRow, CouncilHousesInsert, CouncilHousesUpdate } from '@/types/generated/aethelred-connections/council_houses';
-import { CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';
+import { CouncilHousesRowSchema, CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCouncilHouses(data: CouncilHousesInsert): Promise<{ data: CouncilHousesRow | null; error: string | null }> {
   try {
-    const validated = CouncilHousesInsertSchema.parse(data);
+    const validated = CouncilHousesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ProfilesRowSchema, ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/profiles/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.344Z
+// GENERATED: 2026-04-15T18:11:44.980Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ProfilesRowSchema, ProfilesInsertSchema, ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
 
 export async function GET(
   request: NextRequest,

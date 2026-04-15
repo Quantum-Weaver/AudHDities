@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PrometheusConsciousnessRowSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_consciousness/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.349Z
+// GENERATED: 2026-04-15T18:11:44.987Z
 // SOURCE: database.types.ts
 // =====================================================
+import { PrometheusConsciousnessRowSchema, PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';
 
 export async function GET(
   request: NextRequest,

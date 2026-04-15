@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-15T16:13:09.448Z
+// GENERATED: 2026-04-15T18:11:44.253Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ANALYTICS_CATEGORY } from '@/lib/constants/generated/hephaestus-infrastructure/analytics_category';
 
 // =====================================================
 // Analytics SCHEMAS

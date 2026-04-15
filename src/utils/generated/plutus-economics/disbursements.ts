@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-15T16:39:24.074Z
+// GENERATED: 2026-04-15T18:11:44.456Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from '@/types/generated/plutus-economics/disbursements';
-import { DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements';
+import { DisbursementsRowSchema, DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createDisbursements(data: DisbursementsInsert): Promise<{ data: DisbursementsRow | null; error: string | null }> {
   try {
-    const validated = DisbursementsInsertSchema.parse(data);
+    const validated = DisbursementsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

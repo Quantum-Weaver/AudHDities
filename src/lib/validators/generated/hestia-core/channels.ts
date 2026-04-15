@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-15T16:13:09.453Z
+// GENERATED: 2026-04-15T18:11:44.257Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { CONTENT_RATING } from '@/lib/constants/generated/hestia-core/content_rating';
 
 // =====================================================
 // Channels SCHEMAS

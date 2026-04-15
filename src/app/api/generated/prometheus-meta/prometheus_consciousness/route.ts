@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PrometheusConsciousnessInsertSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.349Z
+// GENERATED: 2026-04-15T18:11:44.987Z
 // SOURCE: database.types.ts
 // =====================================================
+import { PrometheusConsciousnessRowSchema, PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = PrometheusConsciousnessInsertSchema.parse(body);
+    const validated = PrometheusConsciousnessRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/advertising.ts
-// GENERATED: 2026-04-15T16:13:09.446Z
+// GENERATED: 2026-04-15T18:11:44.252Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { BID_TYPE } from '@/lib/constants/generated/plutus-economics/bid_type';
+import { CAMPAIGN_STATUS } from '@/lib/constants/generated/plutus-economics/campaign_status';
 
 // =====================================================
 // Advertising SCHEMAS

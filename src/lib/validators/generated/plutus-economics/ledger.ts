@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/ledger.ts
-// GENERATED: 2026-04-15T16:13:09.468Z
+// GENERATED: 2026-04-15T18:11:44.274Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { LEDGER_ENTITY } from '@/lib/constants/generated/plutus-economics/ledger_entity';
+import { LEDGER_ENTRY_TYPE } from '@/lib/constants/generated/plutus-economics/ledger_entry_type';
 
 // =====================================================
 // Ledger SCHEMAS

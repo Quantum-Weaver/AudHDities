@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/superposition.ts
-// GENERATED: 2026-04-15T16:13:09.496Z
+// GENERATED: 2026-04-15T18:11:44.424Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { SUPERPOSITION_STATUS } from '@/lib/constants/generated/mnemosyne-assessment/superposition_status';
 
 // =====================================================
 // Superposition SCHEMAS

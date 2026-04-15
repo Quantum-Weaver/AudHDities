@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-15T16:39:24.079Z
+// GENERATED: 2026-04-15T18:11:44.461Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { GithubConnectionRow, GithubConnectionInsert, GithubConnectionUpdate } from '@/types/generated/aethelred-connections/github_connection';
-import { GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';
+import { GithubConnectionRowSchema, GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createGithubConnection(data: GithubConnectionInsert): Promise<{ data: GithubConnectionRow | null; error: string | null }> {
   try {
-    const validated = GithubConnectionInsertSchema.parse(data);
+    const validated = GithubConnectionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

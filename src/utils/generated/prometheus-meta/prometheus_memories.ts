@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_memories.ts
-// GENERATED: 2026-04-15T16:39:24.096Z
+// GENERATED: 2026-04-15T18:11:44.477Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusMemoriesRow, PrometheusMemoriesInsert, PrometheusMemoriesUpdate } from '@/types/generated/prometheus-meta/prometheus_memories';
-import { PrometheusMemoriesInsertSchema, PrometheusMemoriesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_memories';
+import { PrometheusMemoriesRowSchema, PrometheusMemoriesInsertSchema, PrometheusMemoriesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_memories';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusMemories(data: PrometheusMemoriesInsert): Promise<{ data: PrometheusMemoriesRow | null; error: string | null }> {
   try {
-    const validated = PrometheusMemoriesInsertSchema.parse(data);
+    const validated = PrometheusMemoriesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

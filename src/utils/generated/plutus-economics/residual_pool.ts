@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/residual_pool.ts
-// GENERATED: 2026-04-15T16:39:24.103Z
+// GENERATED: 2026-04-15T18:11:44.485Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ResidualPoolRow, ResidualPoolInsert, ResidualPoolUpdate } from '@/types/generated/plutus-economics/residual_pool';
-import { ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
+import { ResidualPoolRowSchema, ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createResidualPool(data: ResidualPoolInsert): Promise<{ data: ResidualPoolRow | null; error: string | null }> {
   try {
-    const validated = ResidualPoolInsertSchema.parse(data);
+    const validated = ResidualPoolRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

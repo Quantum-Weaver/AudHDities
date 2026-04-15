@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-15T16:13:09.470Z
+// GENERATED: 2026-04-15T18:11:44.276Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { MAINTENANCE_STATUS } from '@/lib/constants/generated/hephaestus-infrastructure/maintenance_status';
+import { MAINTENANCE_TYPE } from '@/lib/constants/generated/hephaestus-infrastructure/maintenance_type';
 
 // =====================================================
 // Maintenance SCHEMAS

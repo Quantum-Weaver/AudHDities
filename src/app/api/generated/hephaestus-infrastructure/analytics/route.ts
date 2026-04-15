@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AnalyticsInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/analytics
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.176Z
+// GENERATED: 2026-04-15T18:11:44.520Z
 // SOURCE: database.types.ts
 // =====================================================
+import { AnalyticsRowSchema, AnalyticsInsertSchema, AnalyticsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AnalyticsInsertSchema.parse(body);
+    const validated = AnalyticsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

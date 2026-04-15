@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-15T16:13:09.468Z
+// GENERATED: 2026-04-15T18:11:44.273Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { DIFFICULTY_LEVEL } from '@/lib/constants/generated/athena-gamification/difficulty_level';
 
 // =====================================================
 // LearningPaths SCHEMAS

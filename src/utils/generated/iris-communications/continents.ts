@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/continents.ts
-// GENERATED: 2026-04-15T16:39:24.069Z
+// GENERATED: 2026-04-15T18:11:44.452Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ContinentsRow, ContinentsInsert, ContinentsUpdate } from '@/types/generated/iris-communications/continents';
-import { ContinentsInsertSchema, ContinentsUpdateSchema } from '@/lib/validators/generated/iris-communications/continents';
+import { ContinentsRowSchema, ContinentsInsertSchema, ContinentsUpdateSchema } from '@/lib/validators/generated/iris-communications/continents';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createContinents(data: ContinentsInsert): Promise<{ data: ContinentsRow | null; error: string | null }> {
   try {
-    const validated = ContinentsInsertSchema.parse(data);
+    const validated = ContinentsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

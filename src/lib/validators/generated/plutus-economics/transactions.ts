@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-15T16:13:09.500Z
+// GENERATED: 2026-04-15T18:11:44.428Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PAYMENT_STATUS } from '@/lib/constants/generated/plutus-economics/payment_status';
+import { TRANSACTION_TYPE } from '@/lib/constants/generated/plutus-economics/transaction_type';
 
 // =====================================================
 // Transactions SCHEMAS

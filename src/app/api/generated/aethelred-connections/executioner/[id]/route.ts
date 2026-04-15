@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ExecutionerRowSchema, ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/executioner/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.310Z
+// GENERATED: 2026-04-15T18:11:44.914Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ExecutionerRowSchema, ExecutionerInsertSchema, ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner';
 
 export async function GET(
   request: NextRequest,

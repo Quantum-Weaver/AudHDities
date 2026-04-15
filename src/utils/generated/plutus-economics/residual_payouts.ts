@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-15T16:39:24.103Z
+// GENERATED: 2026-04-15T18:11:44.485Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/plutus-economics/residual_payouts';
-import { ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_payouts';
+import { ResidualPayoutsRowSchema, ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_payouts';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createResidualPayouts(data: ResidualPayoutsInsert): Promise<{ data: ResidualPayoutsRow | null; error: string | null }> {
   try {
-    const validated = ResidualPayoutsInsertSchema.parse(data);
+    const validated = ResidualPayoutsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

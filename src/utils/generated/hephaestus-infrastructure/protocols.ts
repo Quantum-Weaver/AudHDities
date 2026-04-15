@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/protocols.ts
-// GENERATED: 2026-04-15T16:39:24.097Z
+// GENERATED: 2026-04-15T18:11:44.479Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ProtocolsRow, ProtocolsInsert, ProtocolsUpdate } from '@/types/generated/hephaestus-infrastructure/protocols';
-import { ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
+import { ProtocolsRowSchema, ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProtocols(data: ProtocolsInsert): Promise<{ data: ProtocolsRow | null; error: string | null }> {
   try {
-    const validated = ProtocolsInsertSchema.parse(data);
+    const validated = ProtocolsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

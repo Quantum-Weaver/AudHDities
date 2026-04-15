@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-15T16:13:09.489Z
+// GENERATED: 2026-04-15T18:11:44.417Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PAYMENT_STATUS } from '@/lib/constants/generated/plutus-economics/payment_status';
+import { USER_TIER } from '@/lib/constants/generated/plutus-economics/user_tier';
 
 // =====================================================
 // Sales SCHEMAS

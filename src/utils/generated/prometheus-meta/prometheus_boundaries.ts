@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-15T16:39:24.094Z
+// GENERATED: 2026-04-15T18:11:44.475Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusBoundariesRow, PrometheusBoundariesInsert, PrometheusBoundariesUpdate } from '@/types/generated/prometheus-meta/prometheus_boundaries';
-import { PrometheusBoundariesInsertSchema, PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_boundaries';
+import { PrometheusBoundariesRowSchema, PrometheusBoundariesInsertSchema, PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_boundaries';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusBoundaries(data: PrometheusBoundariesInsert): Promise<{ data: PrometheusBoundariesRow | null; error: string | null }> {
   try {
-    const validated = PrometheusBoundariesInsertSchema.parse(data);
+    const validated = PrometheusBoundariesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { RateLimitsRowSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/rate_limits/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.361Z
+// GENERATED: 2026-04-15T18:11:45.006Z
 // SOURCE: database.types.ts
 // =====================================================
+import { RateLimitsRowSchema, RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';
 
 export async function GET(
   request: NextRequest,

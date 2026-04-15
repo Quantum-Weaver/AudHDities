@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ProductsInsertSchema } from '@/lib/validators/generated/plutus-economics/products.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/products
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.342Z
+// GENERATED: 2026-04-15T18:11:44.956Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ProductsRowSchema, ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ProductsInsertSchema.parse(body);
+    const validated = ProductsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

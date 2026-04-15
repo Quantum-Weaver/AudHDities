@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ApplicationsRowSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/applications/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.178Z
+// GENERATED: 2026-04-15T18:11:44.522Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ApplicationsRowSchema, ApplicationsInsertSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications';
 
 export async function GET(
   request: NextRequest,

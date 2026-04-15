@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CommentsInsertSchema } from '@/lib/validators/generated/hermes-social/comments.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/comments
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.188Z
+// GENERATED: 2026-04-15T18:11:44.534Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CommentsRowSchema, CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/hermes-social/comments';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CommentsInsertSchema.parse(body);
+    const validated = CommentsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

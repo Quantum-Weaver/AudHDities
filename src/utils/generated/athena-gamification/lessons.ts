@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-15T16:39:24.082Z
+// GENERATED: 2026-04-15T18:11:44.464Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/athena-gamification/lessons';
-import { LessonsInsertSchema, LessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/lessons';
+import { LessonsRowSchema, LessonsInsertSchema, LessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/lessons';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createLessons(data: LessonsInsert): Promise<{ data: LessonsRow | null; error: string | null }> {
   try {
-    const validated = LessonsInsertSchema.parse(data);
+    const validated = LessonsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

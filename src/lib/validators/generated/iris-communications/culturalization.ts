@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-15T16:13:09.460Z
+// GENERATED: 2026-04-15T18:11:44.265Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { DATE_FORMAT_TYPE } from '@/lib/constants/generated/iris-communications/date_format_type';
+import { TIME_FORMAT_TYPE } from '@/lib/constants/generated/iris-communications/time_format_type';
 
 // =====================================================
 // Culturalization SCHEMAS

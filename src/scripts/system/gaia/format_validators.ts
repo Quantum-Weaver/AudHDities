@@ -34,10 +34,26 @@ function toPascalCase(str: string): string {
 }
 
 /**
- * Convert database type to Zod schema type
+ * Convert PascalCase to SCREAMING_SNAKE_CASE
+ * Examples: UserTier → USER_TIER, CouncilHouse → COUNCIL_HOUSE
+ * Also handles: BridgeStatus → BRIDGE_STATUS
  */
+function toScreamingCase(str: string): string {
+  // Handle special case: already screaming?
+  if (str === str.toUpperCase() && str.includes('_')) {
+    return str;
+  }
+  // Insert underscore before each capital letter and convert to uppercase
+  return str.replace(/([A-Z])/g, '_$1').toUpperCase().replace(/^_/, '');
+}
 
-function dbTypeToZod(fieldType: string, fieldName: string, importedConstants: Set<string> = new Set()): string {
+/**
+ * Convert database type to Zod schema type
+ * @param fieldType - The database field type
+ * @param fieldName - The field name (unused but kept for context)
+ * @param importedConstants - Set to track which constants need imports
+ */
+function dbTypeToZod(fieldType: string, fieldName: string, importedConstants: Set<string>): string {
   // Handle nullable types
   const isNullable = fieldType.includes(' | null');
   const baseType = fieldType.replace(' | null', '').trim();
@@ -55,15 +71,13 @@ function dbTypeToZod(fieldType: string, fieldName: string, importedConstants: Se
     zodType = 'z.any()';
   } else if (baseType.match(/^[A-Z]\w+$/)) {
     // Enum reference - convert to screaming case for constant import
-    // e.g., UserTier → USER_TIER
+    // e.g., BridgeStatus → BRIDGE_STATUS
     const constantName = toScreamingCase(baseType);
-    const importName = baseType;  // Keep PascalCase for type import
-    const constantRef = constantName;
     
     // Track that we need to import this constant
     importedConstants.add(constantName);
     
-    zodType = `z.enum(Object.values(${constantRef}))`;
+    zodType = `z.enum(Object.values(${constantName}))`;
   } else if (baseType.includes('|')) {
     // Union type - treat as inline enum (no import needed)
     const values = baseType.split('|').map(v => v.trim().replace(/['"]/g, ''));
@@ -82,23 +96,10 @@ function dbTypeToZod(fieldType: string, fieldName: string, importedConstants: Se
 }
 
 /**
- * Convert PascalCase to SCREAMING_SNAKE_CASE
- * Examples: UserTier → USER_TIER, CouncilHouse → COUNCIL_HOUSE
+ * Generate header comment for validator file with constant imports
  */
-
-function toScreamingCase(str: string): string {
-  // Insert underscore before each capital letter and convert to uppercase
-  return str.replace(/([A-Z])/g, '_$1').toUpperCase().replace(/^_/, '');
-}
-
-/**
- * Generate header comment for validator file
- */
-
-function generateValidatorHeader(tableName: string, deityFolder: string, importedConstants: Set<string>): string {
+function generateHeader(tableName: string, deityFolder: string, importedConstants: Set<string>): string {
   const timestamp = new Date().toISOString();
-  const pascalName = toPascalCase(tableName);
-  
   let content = `// =====================================================
 // FILE: validators/generated/${deityFolder}/${tableName}.ts
 // GENERATED: ${timestamp}
@@ -109,16 +110,14 @@ import { z } from 'zod';
 
 `;
 
-  // Add constant imports if needed
+  // Add constant imports if any enums were detected
   if (importedConstants.size > 0) {
-    const constantImports = Array.from(importedConstants).sort();
-    content += `// Import constants for enum validation
-`;
-    for (const constant of constantImports) {
-      // Determine import path based on constant name pattern
-      // This assumes constants are in hestia-core (adjust as needed)
-      content += `import { ${constant} } from '@/lib/constants/generated/hestia-core/${constant.toLowerCase()}';
-`;
+    const sortedConstants = Array.from(importedConstants).sort();
+    for (const constantName of sortedConstants) {
+      // Convert constant name to kebab-case for file path
+      // BRIDGE_STATUS → bridge_status
+      const constantFileName = constantName.toLowerCase();
+      content += `import { ${constantName} } from '@/lib/constants/generated/${deityFolder}/${constantFileName}';\n`;
     }
     content += `\n`;
   }
@@ -126,9 +125,6 @@ import { z } from 'zod';
   return content;
 }
 
-/**
- * Generate Row schema (all fields required as in database)
- */
 /**
  * Generate Row schema (all fields required as in database)
  */
@@ -148,7 +144,7 @@ function generateRowSchema(tableName: string, rowContent: string, importedConsta
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Row schema`;
+    return `// No fields found for ${tableName} Row schema\n`;
   }
   
   return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
@@ -213,46 +209,49 @@ function generateUpdateSchema(tableName: string, updateContent: string, imported
 /**
  * Format a table into a validator file content
  */
-function formatValidatorContent(tableInfo: TableInfo, deityFolder: string, importedConstants: Set<string>): string {
+function formatValidatorContent(tableInfo: TableInfo, deityFolder: string): string {
   const { name: tableName, rowContent, insertContent, updateContent } = tableInfo;
   const pascalName = toPascalCase(tableName);
+  const importedConstants = new Set<string>();
   
   // Validate we have content to work with
   if (!rowContent || rowContent.trim() === '') {
     return `// SKIPPED: No row content found for ${tableName}\n`;
   }
   
-  let content = generateValidatorHeader(tableName, deityFolder, importedConstants);
+  // Generate schemas (they populate importedConstants)
+  const rowSchema = generateRowSchema(tableName, rowContent, importedConstants);
+  const insertSchema = insertContent ? generateInsertSchema(tableName, insertContent, importedConstants) : '';
+  const updateSchema = updateContent ? generateUpdateSchema(tableName, updateContent, importedConstants) : '';
+  
+  // Generate header with imports
+  let content = generateHeader(tableName, deityFolder, importedConstants);
   
   content += `// =====================================================\n`;
   content += `// ${pascalName} SCHEMAS\n`;
   content += `// =====================================================\n\n`;
   
-  if (rowContent) {
-    content += generateRowSchema(tableName, rowContent, importedConstants) + '\n\n';
+  content += rowSchema + '\n\n';
+  
+  if (insertSchema) {
+    content += insertSchema + '\n\n';
   }
   
-  if (insertContent) {
-    content += generateInsertSchema(tableName, insertContent, importedConstants) + '\n\n';
-  }
-  
-  if (updateContent) {
-    content += generateUpdateSchema(tableName, updateContent, importedConstants) + '\n\n';
+  if (updateSchema) {
+    content += updateSchema + '\n\n';
   }
   
   content += `// =====================================================\n`;
   content += `// TYPE INFERENCE\n`;
   content += `// =====================================================\n\n`;
   
-  if (rowContent) {
-    content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
-  }
+  content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
   
-  if (insertContent) {
+  if (insertSchema) {
     content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
   }
   
-  if (updateContent) {
+  if (updateSchema) {
     content += `export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;\n`;
   }
   
@@ -288,7 +287,7 @@ export function formatValidator(
     return null;
   }
   
-  const content = formatValidatorContent(tableInfo, deityFolder, new Set<string>());
+  const content = formatValidatorContent(tableInfo, deityFolder);
   const filePath = `src/lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
   
   if (verbose) {

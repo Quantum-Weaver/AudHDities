@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SeerRowSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/seer/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.379Z
+// GENERATED: 2026-04-15T18:11:45.026Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SeerRowSchema, SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 
 export async function GET(
   request: NextRequest,

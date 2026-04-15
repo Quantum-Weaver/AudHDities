@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/aethelred_house.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.806Z
+// GENERATED: 2026-04-15T18:11:44.181Z
 // SOURCE: database.types.ts lines 423-476
 // =====================================================
 

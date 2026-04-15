@@ -34,7 +34,7 @@ function toPascalCase(str: string): string {
 }
 
 /**
- * Generate header comment for utility file
+ * Generate header comment for utility file with imports
  */
 function generateHeader(tableName: string, deityFolder: string, importManager: ImportManager): string {
   const timestamp = new Date().toISOString();
@@ -55,13 +55,14 @@ function generateHeader(tableName: string, deityFolder: string, importManager: I
 // =====================================================
 
 import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}';
-import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}';
+import { ${pascalName}RowSchema, ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}';
 
 `;
 }
 
 /**
  * Generate create utility function
+ * Uses RowSchema for strict validation (all fields required)
  */
 function generateCreateFunction(tableName: string): string {
   const pascalName = toPascalCase(tableName);
@@ -71,7 +72,7 @@ function generateCreateFunction(tableName: string): string {
  */
 export async function create${pascalName}(data: ${pascalName}Insert): Promise<{ data: ${pascalName}Row | null; error: string | null }> {
   try {
-    const validated = ${pascalName}InsertSchema.parse(data);
+    const validated = ${pascalName}RowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

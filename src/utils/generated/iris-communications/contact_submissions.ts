@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-15T16:39:24.069Z
+// GENERATED: 2026-04-15T18:11:44.451Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from '@/types/generated/iris-communications/contact_submissions';
-import { ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';
+import { ContactSubmissionsRowSchema, ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createContactSubmissions(data: ContactSubmissionsInsert): Promise<{ data: ContactSubmissionsRow | null; error: string | null }> {
   try {
-    const validated = ContactSubmissionsInsertSchema.parse(data);
+    const validated = ContactSubmissionsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

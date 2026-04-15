@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-15T16:13:09.466Z
+// GENERATED: 2026-04-15T18:11:44.271Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { WORKFLOW_STATUS } from '@/lib/constants/generated/aethelred-connections/workflow_status';
 
 // =====================================================
 // GithubConnection SCHEMAS

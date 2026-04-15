@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/localization.ts
-// GENERATED: 2026-04-15T16:39:24.084Z
+// GENERATED: 2026-04-15T18:11:44.465Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { LocalizationRow, LocalizationInsert, LocalizationUpdate } from '@/types/generated/iris-communications/localization';
-import { LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/localization';
+import { LocalizationRowSchema, LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/localization';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createLocalization(data: LocalizationInsert): Promise<{ data: LocalizationRow | null; error: string | null }> {
   try {
-    const validated = LocalizationInsertSchema.parse(data);
+    const validated = LocalizationRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

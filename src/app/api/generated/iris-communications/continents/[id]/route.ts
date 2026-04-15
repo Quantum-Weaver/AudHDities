@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ContinentsRowSchema, ContinentsUpdateSchema } from '@/lib/validators/generated/iris-communications/continents.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/continents/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.195Z
+// GENERATED: 2026-04-15T18:11:44.542Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ContinentsRowSchema, ContinentsInsertSchema, ContinentsUpdateSchema } from '@/lib/validators/generated/iris-communications/continents';
 
 export async function GET(
   request: NextRequest,

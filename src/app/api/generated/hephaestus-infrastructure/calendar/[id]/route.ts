@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CalendarRowSchema, CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/calendar/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.183Z
+// GENERATED: 2026-04-15T18:11:44.528Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CalendarRowSchema, CalendarInsertSchema, CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';
 
 export async function GET(
   request: NextRequest,

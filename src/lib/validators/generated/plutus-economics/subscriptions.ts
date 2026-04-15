@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/subscriptions.ts
-// GENERATED: 2026-04-15T16:13:09.495Z
+// GENERATED: 2026-04-15T18:11:44.423Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { SUBSCRIPTION_STATUS } from '@/lib/constants/generated/plutus-economics/subscription_status';
 
 // =====================================================
 // Subscriptions SCHEMAS

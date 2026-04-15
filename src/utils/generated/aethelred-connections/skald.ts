@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/skald.ts
-// GENERATED: 2026-04-15T16:39:24.108Z
+// GENERATED: 2026-04-15T18:11:44.492Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SkaldRow, SkaldInsert, SkaldUpdate } from '@/types/generated/aethelred-connections/skald';
-import { SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';
+import { SkaldRowSchema, SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSkald(data: SkaldInsert): Promise<{ data: SkaldRow | null; error: string | null }> {
   try {
-    const validated = SkaldInsertSchema.parse(data);
+    const validated = SkaldRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

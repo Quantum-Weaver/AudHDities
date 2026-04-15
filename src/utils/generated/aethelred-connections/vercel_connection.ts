@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/vercel_connection.ts
-// GENERATED: 2026-04-15T16:39:24.117Z
+// GENERATED: 2026-04-15T18:11:44.502Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { VercelConnectionRow, VercelConnectionInsert, VercelConnectionUpdate } from '@/types/generated/aethelred-connections/vercel_connection';
-import { VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/vercel_connection';
+import { VercelConnectionRowSchema, VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/vercel_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createVercelConnection(data: VercelConnectionInsert): Promise<{ data: VercelConnectionRow | null; error: string | null }> {
   try {
-    const validated = VercelConnectionInsertSchema.parse(data);
+    const validated = VercelConnectionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/regions.ts
-// GENERATED: 2026-04-15T16:39:24.100Z
+// GENERATED: 2026-04-15T18:11:44.482Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/iris-communications/regions';
-import { RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions';
+import { RegionsRowSchema, RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createRegions(data: RegionsInsert): Promise<{ data: RegionsRow | null; error: string | null }> {
   try {
-    const validated = RegionsInsertSchema.parse(data);
+    const validated = RegionsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

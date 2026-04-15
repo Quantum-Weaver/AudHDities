@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-15T16:13:09.462Z
+// GENERATED: 2026-04-15T18:11:44.267Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PAYOUT_STATUS } from '@/lib/constants/generated/plutus-economics/payout_status';
+import { SOURCE_POOL_TYPE } from '@/lib/constants/generated/plutus-economics/source_pool_type';
 
 // =====================================================
 // Disbursements SCHEMAS

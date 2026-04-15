@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/protocols.ts
-// GENERATED: 2026-04-15T16:13:09.483Z
+// GENERATED: 2026-04-15T18:11:44.409Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PROTOCOL_TYPE } from '@/lib/constants/generated/hephaestus-infrastructure/protocol_type';
 
 // =====================================================
 // Protocols SCHEMAS

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-15T16:39:24.062Z
+// GENERATED: 2026-04-15T18:11:44.445Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ApplicationsRow, ApplicationsInsert, ApplicationsUpdate } from '@/types/generated/themis-governance/applications';
-import { ApplicationsInsertSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications';
+import { ApplicationsRowSchema, ApplicationsInsertSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createApplications(data: ApplicationsInsert): Promise<{ data: ApplicationsRow | null; error: string | null }> {
   try {
-    const validated = ApplicationsInsertSchema.parse(data);
+    const validated = ApplicationsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

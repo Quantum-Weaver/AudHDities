@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/scripts.ts
-// GENERATED: 2026-04-15T16:39:24.107Z
+// GENERATED: 2026-04-15T18:11:44.489Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from '@/types/generated/hephaestus-infrastructure/scripts';
-import { ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts';
+import { ScriptsRowSchema, ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createScripts(data: ScriptsInsert): Promise<{ data: ScriptsRow | null; error: string | null }> {
   try {
-    const validated = ScriptsInsertSchema.parse(data);
+    const validated = ScriptsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/user_quests.ts
-// GENERATED: 2026-04-15T16:13:09.502Z
+// GENERATED: 2026-04-15T18:11:44.431Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { QUEST_STATUS } from '@/lib/constants/generated/athena-gamification/quest_status';
 
 // =====================================================
 // UserQuests SCHEMAS

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/progress.ts
-// GENERATED: 2026-04-15T16:39:24.093Z
+// GENERATED: 2026-04-15T18:11:44.474Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ProgressRow, ProgressInsert, ProgressUpdate } from '@/types/generated/athena-gamification/progress';
-import { ProgressInsertSchema, ProgressUpdateSchema } from '@/lib/validators/generated/athena-gamification/progress';
+import { ProgressRowSchema, ProgressInsertSchema, ProgressUpdateSchema } from '@/lib/validators/generated/athena-gamification/progress';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProgress(data: ProgressInsert): Promise<{ data: ProgressRow | null; error: string | null }> {
   try {
-    const validated = ProgressInsertSchema.parse(data);
+    const validated = ProgressRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

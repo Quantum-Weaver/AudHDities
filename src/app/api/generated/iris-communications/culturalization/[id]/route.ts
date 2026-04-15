@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CulturalizationRowSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/culturalization/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.301Z
+// GENERATED: 2026-04-15T18:11:44.905Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CulturalizationRowSchema, CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 
 export async function GET(
   request: NextRequest,

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-15T16:39:24.086Z
+// GENERATED: 2026-04-15T18:11:44.467Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { MythologyRow, MythologyInsert, MythologyUpdate } from '@/types/generated/athena-gamification/mythology';
-import { MythologyInsertSchema, MythologyUpdateSchema } from '@/lib/validators/generated/athena-gamification/mythology';
+import { MythologyRowSchema, MythologyInsertSchema, MythologyUpdateSchema } from '@/lib/validators/generated/athena-gamification/mythology';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createMythology(data: MythologyInsert): Promise<{ data: MythologyRow | null; error: string | null }> {
   try {
-    const validated = MythologyInsertSchema.parse(data);
+    const validated = MythologyRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

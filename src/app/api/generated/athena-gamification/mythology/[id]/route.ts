@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { MythologyRowSchema, MythologyUpdateSchema } from '@/lib/validators/generated/athena-gamification/mythology.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/mythology/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.331Z
+// GENERATED: 2026-04-15T18:11:44.937Z
 // SOURCE: database.types.ts
 // =====================================================
+import { MythologyRowSchema, MythologyInsertSchema, MythologyUpdateSchema } from '@/lib/validators/generated/athena-gamification/mythology';
 
 export async function GET(
   request: NextRequest,

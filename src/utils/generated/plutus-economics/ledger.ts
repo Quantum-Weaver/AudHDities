@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/ledger.ts
-// GENERATED: 2026-04-15T16:39:24.082Z
+// GENERATED: 2026-04-15T18:11:44.463Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { LedgerRow, LedgerInsert, LedgerUpdate } from '@/types/generated/plutus-economics/ledger';
-import { LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
+import { LedgerRowSchema, LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createLedger(data: LedgerInsert): Promise<{ data: LedgerRow | null; error: string | null }> {
   try {
-    const validated = LedgerInsertSchema.parse(data);
+    const validated = LedgerRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

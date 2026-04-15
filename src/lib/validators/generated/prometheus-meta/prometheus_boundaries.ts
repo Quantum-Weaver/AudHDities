@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-15T16:13:09.479Z
+// GENERATED: 2026-04-15T18:11:44.348Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { BOUNDARY_TYPE } from '@/lib/constants/generated/prometheus-meta/boundary_type';
+import { ENCRYPTION_LEVEL } from '@/lib/constants/generated/prometheus-meta/encryption_level';
 
 // =====================================================
 // PrometheusBoundaries SCHEMAS

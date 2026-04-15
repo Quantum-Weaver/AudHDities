@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-15T16:39:24.073Z
+// GENERATED: 2026-04-15T18:11:44.455Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/generated/iris-communications/culturalization';
-import { CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
+import { CulturalizationRowSchema, CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCulturalization(data: CulturalizationInsert): Promise<{ data: CulturalizationRow | null; error: string | null }> {
   try {
-    const validated = CulturalizationInsertSchema.parse(data);
+    const validated = CulturalizationRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

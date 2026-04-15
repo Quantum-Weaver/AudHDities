@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/emeralds.ts
-// GENERATED: 2026-04-15T16:39:24.076Z
+// GENERATED: 2026-04-15T18:11:44.458Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { EmeraldsRow, EmeraldsInsert, EmeraldsUpdate } from '@/types/generated/hermes-social/emeralds';
-import { EmeraldsInsertSchema, EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds';
+import { EmeraldsRowSchema, EmeraldsInsertSchema, EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createEmeralds(data: EmeraldsInsert): Promise<{ data: EmeraldsRow | null; error: string | null }> {
   try {
-    const validated = EmeraldsInsertSchema.parse(data);
+    const validated = EmeraldsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

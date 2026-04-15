@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/aethelred_house.ts
-// GENERATED: 2026-04-15T16:39:24.061Z
+// GENERATED: 2026-04-15T18:11:44.444Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { AethelredHouseRow, AethelredHouseInsert, AethelredHouseUpdate } from '@/types/generated/aethelred-connections/aethelred_house';
-import { AethelredHouseInsertSchema, AethelredHouseUpdateSchema } from '@/lib/validators/generated/aethelred-connections/aethelred_house';
+import { AethelredHouseRowSchema, AethelredHouseInsertSchema, AethelredHouseUpdateSchema } from '@/lib/validators/generated/aethelred-connections/aethelred_house';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createAethelredHouse(data: AethelredHouseInsert): Promise<{ data: AethelredHouseRow | null; error: string | null }> {
   try {
-    const validated = AethelredHouseInsertSchema.parse(data);
+    const validated = AethelredHouseRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

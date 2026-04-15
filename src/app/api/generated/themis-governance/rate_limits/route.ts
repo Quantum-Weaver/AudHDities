@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { RateLimitsInsertSchema } from '@/lib/validators/generated/themis-governance/rate_limits.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/rate_limits
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.361Z
+// GENERATED: 2026-04-15T18:11:45.006Z
 // SOURCE: database.types.ts
 // =====================================================
+import { RateLimitsRowSchema, RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = RateLimitsInsertSchema.parse(body);
+    const validated = RateLimitsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/emeralds.ts
-// GENERATED: 2026-04-15T16:13:09.463Z
+// GENERATED: 2026-04-15T18:11:44.268Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { EMERALD_STATUS } from '@/lib/constants/generated/hermes-social/emerald_status';
 
 // =====================================================
 // Emeralds SCHEMAS

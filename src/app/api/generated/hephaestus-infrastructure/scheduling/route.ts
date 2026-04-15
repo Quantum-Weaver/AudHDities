@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SchedulingInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/scheduling
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.375Z
+// GENERATED: 2026-04-15T18:11:45.022Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SchedulingRowSchema, SchedulingInsertSchema, SchedulingUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SchedulingInsertSchema.parse(body);
+    const validated = SchedulingRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

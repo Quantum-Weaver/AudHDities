@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-15T16:13:09.446Z
+// GENERATED: 2026-04-15T18:11:44.251Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ADMIN_LOG_CATEGORY } from '@/lib/constants/generated/themis-governance/admin_log_category';
 
 // =====================================================
 // AdminLogs SCHEMAS

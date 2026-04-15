@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/script_execution_logs.ts
-// GENERATED: 2026-04-15T16:39:24.106Z
+// GENERATED: 2026-04-15T18:11:44.488Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ScriptExecutionLogsRow, ScriptExecutionLogsInsert, ScriptExecutionLogsUpdate } from '@/types/generated/hephaestus-infrastructure/script_execution_logs';
-import { ScriptExecutionLogsInsertSchema, ScriptExecutionLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs';
+import { ScriptExecutionLogsRowSchema, ScriptExecutionLogsInsertSchema, ScriptExecutionLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createScriptExecutionLogs(data: ScriptExecutionLogsInsert): Promise<{ data: ScriptExecutionLogsRow | null; error: string | null }> {
   try {
-    const validated = ScriptExecutionLogsInsertSchema.parse(data);
+    const validated = ScriptExecutionLogsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

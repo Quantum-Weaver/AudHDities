@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/supabase_connection.ts
-// GENERATED: 2026-04-15T16:39:24.110Z
+// GENERATED: 2026-04-15T18:11:44.494Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SupabaseConnectionRow, SupabaseConnectionInsert, SupabaseConnectionUpdate } from '@/types/generated/aethelred-connections/supabase_connection';
-import { SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection';
+import { SupabaseConnectionRowSchema, SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSupabaseConnection(data: SupabaseConnectionInsert): Promise<{ data: SupabaseConnectionRow | null; error: string | null }> {
   try {
-    const validated = SupabaseConnectionInsertSchema.parse(data);
+    const validated = SupabaseConnectionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

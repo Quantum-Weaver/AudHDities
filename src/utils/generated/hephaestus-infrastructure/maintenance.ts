@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-15T16:39:24.084Z
+// GENERATED: 2026-04-15T18:11:44.465Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from '@/types/generated/hephaestus-infrastructure/maintenance';
-import { MaintenanceInsertSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';
+import { MaintenanceRowSchema, MaintenanceInsertSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createMaintenance(data: MaintenanceInsert): Promise<{ data: MaintenanceRow | null; error: string | null }> {
   try {
-    const validated = MaintenanceInsertSchema.parse(data);
+    const validated = MaintenanceRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

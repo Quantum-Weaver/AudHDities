@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LocalizationInsertSchema } from '@/lib/validators/generated/iris-communications/localization.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/localization
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.326Z
+// GENERATED: 2026-04-15T18:11:44.932Z
 // SOURCE: database.types.ts
 // =====================================================
+import { LocalizationRowSchema, LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/localization';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = LocalizationInsertSchema.parse(body);
+    const validated = LocalizationRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/creator_category_links.ts
-// GENERATED: 2026-04-15T16:39:24.072Z
+// GENERATED: 2026-04-15T18:11:44.454Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CreatorCategoryLinksRow, CreatorCategoryLinksInsert, CreatorCategoryLinksUpdate } from '@/types/generated/hestia-core/creator_category_links';
-import { CreatorCategoryLinksInsertSchema, CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';
+import { CreatorCategoryLinksRowSchema, CreatorCategoryLinksInsertSchema, CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCreatorCategoryLinks(data: CreatorCategoryLinksInsert): Promise<{ data: CreatorCategoryLinksRow | null; error: string | null }> {
   try {
-    const validated = CreatorCategoryLinksInsertSchema.parse(data);
+    const validated = CreatorCategoryLinksRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

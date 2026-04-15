@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/themis-governance/admin_log_category.ts
-// GENERATED: 2026-04-15T01:41:07.504Z
+// GENERATED: 2026-04-15T18:28:45.871Z
 // SOURCE: Constants.public.Enums.admin_log_category
 // VALUES: 6 entries
 // =====================================================

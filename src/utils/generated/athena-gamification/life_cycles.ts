@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T16:39:24.083Z
+// GENERATED: 2026-04-15T18:11:44.464Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from '@/types/generated/athena-gamification/life_cycles';
-import { LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/generated/athena-gamification/life_cycles';
+import { LifeCyclesRowSchema, LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/generated/athena-gamification/life_cycles';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createLifeCycles(data: LifeCyclesInsert): Promise<{ data: LifeCyclesRow | null; error: string | null }> {
   try {
-    const validated = LifeCyclesInsertSchema.parse(data);
+    const validated = LifeCyclesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

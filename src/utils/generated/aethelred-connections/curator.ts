@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/curator.ts
-// GENERATED: 2026-04-15T16:39:24.073Z
+// GENERATED: 2026-04-15T18:11:44.455Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CuratorRow, CuratorInsert, CuratorUpdate } from '@/types/generated/aethelred-connections/curator';
-import { CuratorInsertSchema, CuratorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/curator';
+import { CuratorRowSchema, CuratorInsertSchema, CuratorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/curator';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCurator(data: CuratorInsert): Promise<{ data: CuratorRow | null; error: string | null }> {
   try {
-    const validated = CuratorInsertSchema.parse(data);
+    const validated = CuratorRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-15T16:13:09.479Z
+// GENERATED: 2026-04-15T18:11:44.347Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { BLUEPRINT_STATUS } from '@/lib/constants/generated/prometheus-meta/blueprint_status';
+import { BLUEPRINT_SYSTEM } from '@/lib/constants/generated/prometheus-meta/blueprint_system';
 
 // =====================================================
 // PrometheusBlueprints SCHEMAS

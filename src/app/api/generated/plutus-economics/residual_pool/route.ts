@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ResidualPoolInsertSchema } from '@/lib/validators/generated/plutus-economics/residual_pool.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.370Z
+// GENERATED: 2026-04-15T18:11:45.017Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ResidualPoolRowSchema, ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ResidualPoolInsertSchema.parse(body);
+    const validated = ResidualPoolRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

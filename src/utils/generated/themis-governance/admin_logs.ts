@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-15T16:39:24.059Z
+// GENERATED: 2026-04-15T18:11:44.443Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/generated/themis-governance/admin_logs';
-import { AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs';
+import { AdminLogsRowSchema, AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createAdminLogs(data: AdminLogsInsert): Promise<{ data: AdminLogsRow | null; error: string | null }> {
   try {
-    const validated = AdminLogsInsertSchema.parse(data);
+    const validated = AdminLogsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

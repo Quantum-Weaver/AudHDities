@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-15T16:39:24.114Z
+// GENERATED: 2026-04-15T18:11:44.499Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { TransactionsRow, TransactionsInsert, TransactionsUpdate } from '@/types/generated/plutus-economics/transactions';
-import { TransactionsInsertSchema, TransactionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/transactions';
+import { TransactionsRowSchema, TransactionsInsertSchema, TransactionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/transactions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createTransactions(data: TransactionsInsert): Promise<{ data: TransactionsRow | null; error: string | null }> {
   try {
-    const validated = TransactionsInsertSchema.parse(data);
+    const validated = TransactionsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

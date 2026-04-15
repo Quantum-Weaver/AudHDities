@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-15T16:13:09.484Z
+// GENERATED: 2026-04-15T18:11:44.410Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { SUBMISSION_TYPE } from '@/lib/constants/generated/athena-gamification/submission_type';
 
 // =====================================================
 // Quests SCHEMAS

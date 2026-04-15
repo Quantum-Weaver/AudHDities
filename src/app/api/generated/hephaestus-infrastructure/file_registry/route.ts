@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { FileRegistryInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_registry
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.312Z
+// GENERATED: 2026-04-15T18:11:44.915Z
 // SOURCE: database.types.ts
 // =====================================================
+import { FileRegistryRowSchema, FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = FileRegistryInsertSchema.parse(body);
+    const validated = FileRegistryRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

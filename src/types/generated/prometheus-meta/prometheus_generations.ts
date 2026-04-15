@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_generations.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.844Z
+// GENERATED: 2026-04-15T18:11:44.220Z
 // SOURCE: database.types.ts lines 4201-4256
 // =====================================================
 

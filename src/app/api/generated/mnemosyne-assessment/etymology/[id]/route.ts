@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { EtymologyRowSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/etymology/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.309Z
+// GENERATED: 2026-04-15T18:11:44.913Z
 // SOURCE: database.types.ts
 // =====================================================
+import { EtymologyRowSchema, EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';
 
 export async function GET(
   request: NextRequest,

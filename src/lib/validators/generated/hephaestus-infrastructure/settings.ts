@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-15T16:13:09.493Z
+// GENERATED: 2026-04-15T18:11:44.421Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { SETTING_SCOPE } from '@/lib/constants/generated/hephaestus-infrastructure/setting_scope';
 
 // =====================================================
 // Settings SCHEMAS

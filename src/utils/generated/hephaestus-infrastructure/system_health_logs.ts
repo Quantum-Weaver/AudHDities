@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/system_health_logs.ts
-// GENERATED: 2026-04-15T16:39:24.112Z
+// GENERATED: 2026-04-15T18:11:44.496Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SystemHealthLogsRow, SystemHealthLogsInsert, SystemHealthLogsUpdate } from '@/types/generated/hephaestus-infrastructure/system_health_logs';
-import { SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';
+import { SystemHealthLogsRowSchema, SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSystemHealthLogs(data: SystemHealthLogsInsert): Promise<{ data: SystemHealthLogsRow | null; error: string | null }> {
   try {
-    const validated = SystemHealthLogsInsertSchema.parse(data);
+    const validated = SystemHealthLogsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

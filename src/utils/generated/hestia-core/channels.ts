@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-15T16:39:24.066Z
+// GENERATED: 2026-04-15T18:11:44.449Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from '@/types/generated/hestia-core/channels';
-import { ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels';
+import { ChannelsRowSchema, ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createChannels(data: ChannelsInsert): Promise<{ data: ChannelsRow | null; error: string | null }> {
   try {
-    const validated = ChannelsInsertSchema.parse(data);
+    const validated = ChannelsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

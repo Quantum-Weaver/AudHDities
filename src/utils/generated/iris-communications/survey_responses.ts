@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/survey_responses.ts
-// GENERATED: 2026-04-15T16:39:24.111Z
+// GENERATED: 2026-04-15T18:11:44.495Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SurveyResponsesRow, SurveyResponsesInsert, SurveyResponsesUpdate } from '@/types/generated/iris-communications/survey_responses';
-import { SurveyResponsesInsertSchema, SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses';
+import { SurveyResponsesRowSchema, SurveyResponsesInsertSchema, SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSurveyResponses(data: SurveyResponsesInsert): Promise<{ data: SurveyResponsesRow | null; error: string | null }> {
   try {
-    const validated = SurveyResponsesInsertSchema.parse(data);
+    const validated = SurveyResponsesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-15T16:13:09.499Z
+// GENERATED: 2026-04-15T18:11:44.428Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { TIMELINE_EVENT_TYPE } from '@/lib/constants/generated/athena-gamification/timeline_event_type';
 
 // =====================================================
 // Timelines SCHEMAS

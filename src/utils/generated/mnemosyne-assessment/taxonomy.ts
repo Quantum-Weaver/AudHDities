@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-15T16:39:24.113Z
+// GENERATED: 2026-04-15T18:11:44.498Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { TaxonomyRow, TaxonomyInsert, TaxonomyUpdate } from '@/types/generated/mnemosyne-assessment/taxonomy';
-import { TaxonomyInsertSchema, TaxonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/taxonomy';
+import { TaxonomyRowSchema, TaxonomyInsertSchema, TaxonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/taxonomy';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createTaxonomy(data: TaxonomyInsert): Promise<{ data: TaxonomyRow | null; error: string | null }> {
   try {
-    const validated = TaxonomyInsertSchema.parse(data);
+    const validated = TaxonomyRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

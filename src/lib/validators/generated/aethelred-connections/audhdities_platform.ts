@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-15T16:13:09.450Z
+// GENERATED: 2026-04-15T18:11:44.255Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PLATFORM_STATUS } from '@/lib/constants/generated/aethelred-connections/platform_status';
 
 // =====================================================
 // AudhditiesPlatform SCHEMAS

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/email_communications.ts
-// GENERATED: 2026-04-15T16:39:24.075Z
+// GENERATED: 2026-04-15T18:11:44.457Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { EmailCommunicationsRow, EmailCommunicationsInsert, EmailCommunicationsUpdate } from '@/types/generated/iris-communications/email_communications';
-import { EmailCommunicationsInsertSchema, EmailCommunicationsUpdateSchema } from '@/lib/validators/generated/iris-communications/email_communications';
+import { EmailCommunicationsRowSchema, EmailCommunicationsInsertSchema, EmailCommunicationsUpdateSchema } from '@/lib/validators/generated/iris-communications/email_communications';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createEmailCommunications(data: EmailCommunicationsInsert): Promise<{ data: EmailCommunicationsRow | null; error: string | null }> {
   try {
-    const validated = EmailCommunicationsInsertSchema.parse(data);
+    const validated = EmailCommunicationsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

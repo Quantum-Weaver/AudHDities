@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PayoutsRowSchema, PayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/payouts.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/payouts/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.337Z
+// GENERATED: 2026-04-15T18:11:44.948Z
 // SOURCE: database.types.ts
 // =====================================================
+import { PayoutsRowSchema, PayoutsInsertSchema, PayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/payouts';
 
 export async function GET(
   request: NextRequest,

@@ -1,10 +1,14 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-15T16:13:09.445Z
+// GENERATED: 2026-04-15T18:11:44.250Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ACTION_TYPE } from '@/lib/constants/generated/hermes-social/action_type';
+import { ACTIVITY_VISIBILITY } from '@/lib/constants/generated/hermes-social/activity_visibility';
+import { TARGET_TYPE } from '@/lib/constants/generated/hermes-social/target_type';
 
 // =====================================================
 // Activity SCHEMAS

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-15T16:39:24.092Z
+// GENERATED: 2026-04-15T18:11:44.473Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/generated/hestia-core/profiles';
-import { ProfilesInsertSchema, ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
+import { ProfilesRowSchema, ProfilesInsertSchema, ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProfiles(data: ProfilesInsert): Promise<{ data: ProfilesRow | null; error: string | null }> {
   try {
-    const validated = ProfilesInsertSchema.parse(data);
+    const validated = ProfilesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-15T16:13:09.472Z
+// GENERATED: 2026-04-15T18:11:44.278Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { MYTH_TYPE } from '@/lib/constants/generated/athena-gamification/myth_type';
 
 // =====================================================
 // Mythology SCHEMAS

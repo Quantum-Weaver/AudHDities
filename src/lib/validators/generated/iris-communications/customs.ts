@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-15T16:13:09.461Z
+// GENERATED: 2026-04-15T18:11:44.266Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { CUSTOM_CATEGORY_TYPE } from '@/lib/constants/generated/iris-communications/custom_category_type';
 
 // =====================================================
 // Customs SCHEMAS

@@ -1,14 +1,14 @@
 import { errorResponse, notFound, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AcidTestQuestionsRowSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_questions/[id]
 // METHODS: GET
-// GENERATED: 2026-04-15T16:41:40.165Z
+// GENERATED: 2026-04-15T18:11:44.507Z
 // SOURCE: database.types.ts
 // =====================================================
+import { AcidTestQuestionsRowSchema, AcidTestQuestionsInsertSchema, AcidTestQuestionsUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_questions';
 
 export async function GET(
   request: NextRequest,

@@ -5,6 +5,7 @@
 // Defines how each object should be handled by GAIA and COSMIC
 // Merged with workflow_config.ts - no duplication
 // ============================================================================
+import { ENUM_MAPPING, getEnumFolder } from './enum_mapping.js';
 
 export type HandlingLevel = 
   | 'full_crud'           // Row + Insert + Update + Public + Form + Validation + API + Hooks + Utils
@@ -399,10 +400,8 @@ export function getDeityFolderForObject(
       }
     }
   }
-  
-  // For enums, will be resolved by reference in tables
-  // Default fallback
-  return 'hestia-core';
+
+  return getEnumFolder(objectName);
 }
 
 // ============================================================================

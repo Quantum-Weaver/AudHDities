@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-15T16:13:09.488Z
+// GENERATED: 2026-04-15T18:11:44.415Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PAYOUT_STATUS } from '@/lib/constants/generated/plutus-economics/payout_status';
 
 // =====================================================
 // ResidualPayouts SCHEMAS

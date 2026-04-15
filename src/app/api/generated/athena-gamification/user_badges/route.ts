@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { UserBadgesInsertSchema } from '@/lib/validators/generated/athena-gamification/user_badges.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_badges
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.399Z
+// GENERATED: 2026-04-15T18:11:45.048Z
 // SOURCE: database.types.ts
 // =====================================================
+import { UserBadgesRowSchema, UserBadgesInsertSchema, UserBadgesUpdateSchema } from '@/lib/validators/generated/athena-gamification/user_badges';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = UserBadgesInsertSchema.parse(body);
+    const validated = UserBadgesRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

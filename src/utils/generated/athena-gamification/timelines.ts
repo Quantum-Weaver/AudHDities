@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-15T16:39:24.114Z
+// GENERATED: 2026-04-15T18:11:44.499Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/generated/athena-gamification/timelines';
-import { TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines';
+import { TimelinesRowSchema, TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createTimelines(data: TimelinesInsert): Promise<{ data: TimelinesRow | null; error: string | null }> {
   try {
-    const validated = TimelinesInsertSchema.parse(data);
+    const validated = TimelinesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

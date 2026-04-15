@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/user_quests.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-14T21:18:08.870Z
+// GENERATED: 2026-04-15T18:11:44.245Z
 // SOURCE: database.types.ts lines 6606-6669
 // =====================================================
 

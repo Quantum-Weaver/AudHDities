@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CouncilHousesRowSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/council_houses/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.199Z
+// GENERATED: 2026-04-15T18:11:44.546Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CouncilHousesRowSchema, CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';
 
 export async function GET(
   request: NextRequest,

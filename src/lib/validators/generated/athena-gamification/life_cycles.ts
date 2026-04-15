@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T16:13:09.469Z
+// GENERATED: 2026-04-15T18:11:44.275Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { LIFE_CYCLE_PHASE } from '@/lib/constants/generated/athena-gamification/life_cycle_phase';
 
 // =====================================================
 // LifeCycles SCHEMAS

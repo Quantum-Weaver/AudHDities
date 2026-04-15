@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-15T16:13:09.456Z
+// GENERATED: 2026-04-15T18:11:44.260Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { CONTACT_DIRECTION } from '@/lib/constants/generated/iris-communications/contact_direction';
+import { CONTACT_STATUS } from '@/lib/constants/generated/iris-communications/contact_status';
 
 // =====================================================
 // ContactSubmissions SCHEMAS

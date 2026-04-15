@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { FileRegistryRowSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_registry/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.312Z
+// GENERATED: 2026-04-15T18:11:44.915Z
 // SOURCE: database.types.ts
 // =====================================================
+import { FileRegistryRowSchema, FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 
 export async function GET(
   request: NextRequest,

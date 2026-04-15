@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/folksonomy.ts
-// GENERATED: 2026-04-15T16:13:09.465Z
+// GENERATED: 2026-04-15T18:11:44.271Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { FOLKSONOMY_TARGET_TYPE } from '@/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type';
 
 // =====================================================
 // Folksonomy SCHEMAS

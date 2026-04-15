@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/consciousness.ts
-// GENERATED: 2026-04-15T16:39:24.068Z
+// GENERATED: 2026-04-15T18:11:44.451Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ConsciousnessRow, ConsciousnessInsert, ConsciousnessUpdate } from '@/types/generated/aethelred-connections/consciousness';
-import { ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';
+import { ConsciousnessRowSchema, ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createConsciousness(data: ConsciousnessInsert): Promise<{ data: ConsciousnessRow | null; error: string | null }> {
   try {
-    const validated = ConsciousnessInsertSchema.parse(data);
+    const validated = ConsciousnessRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

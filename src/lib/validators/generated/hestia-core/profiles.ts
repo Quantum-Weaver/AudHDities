@@ -1,10 +1,14 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-15T16:13:09.478Z
+// GENERATED: 2026-04-15T18:11:44.346Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { USER_STATUS } from '@/lib/constants/generated/hestia-core/user_status';
+import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
 
 // =====================================================
 // Profiles SCHEMAS

@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-15T16:13:09.469Z
+// GENERATED: 2026-04-15T18:11:44.274Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { LESSON_CONTENT_TYPE } from '@/lib/constants/generated/athena-gamification/lesson_content_type';
 
 // =====================================================
 // Lessons SCHEMAS

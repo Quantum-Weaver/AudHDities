@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-15T16:39:24.091Z
+// GENERATED: 2026-04-15T18:11:44.472Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ProcessesRow, ProcessesInsert, ProcessesUpdate } from '@/types/generated/themis-governance/processes';
-import { ProcessesInsertSchema, ProcessesUpdateSchema } from '@/lib/validators/generated/themis-governance/processes';
+import { ProcessesRowSchema, ProcessesInsertSchema, ProcessesUpdateSchema } from '@/lib/validators/generated/themis-governance/processes';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProcesses(data: ProcessesInsert): Promise<{ data: ProcessesRow | null; error: string | null }> {
   try {
-    const validated = ProcessesInsertSchema.parse(data);
+    const validated = ProcessesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

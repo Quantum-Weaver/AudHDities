@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/comments.ts
-// GENERATED: 2026-04-15T16:39:24.067Z
+// GENERATED: 2026-04-15T18:11:44.450Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CommentsRow, CommentsInsert, CommentsUpdate } from '@/types/generated/hermes-social/comments';
-import { CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/hermes-social/comments';
+import { CommentsRowSchema, CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/hermes-social/comments';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createComments(data: CommentsInsert): Promise<{ data: CommentsRow | null; error: string | null }> {
   try {
-    const validated = CommentsInsertSchema.parse(data);
+    const validated = CommentsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

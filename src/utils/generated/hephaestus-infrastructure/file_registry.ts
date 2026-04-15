@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/file_registry.ts
-// GENERATED: 2026-04-15T16:39:24.077Z
+// GENERATED: 2026-04-15T18:11:44.459Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hephaestus-infrastructure/file_registry';
-import { FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
+import { FileRegistryRowSchema, FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createFileRegistry(data: FileRegistryInsert): Promise<{ data: FileRegistryRow | null; error: string | null }> {
   try {
-    const validated = FileRegistryInsertSchema.parse(data);
+    const validated = FileRegistryRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/codex.ts
-// GENERATED: 2026-04-15T16:39:24.066Z
+// GENERATED: 2026-04-15T18:11:44.450Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CodexRow, CodexInsert, CodexUpdate } from '@/types/generated/aethelred-connections/codex';
-import { CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex';
+import { CodexRowSchema, CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCodex(data: CodexInsert): Promise<{ data: CodexRow | null; error: string | null }> {
   try {
-    const validated = CodexInsertSchema.parse(data);
+    const validated = CodexRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

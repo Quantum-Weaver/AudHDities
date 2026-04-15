@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/ontology.ts
-// GENERATED: 2026-04-15T16:13:09.473Z
+// GENERATED: 2026-04-15T18:11:44.279Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ONTOLOGY_PREDICATE } from '@/lib/constants/generated/mnemosyne-assessment/ontology_predicate';
 
 // =====================================================
 // Ontology SCHEMAS

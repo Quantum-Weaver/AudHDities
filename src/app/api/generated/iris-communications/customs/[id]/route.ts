@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CustomsRowSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/customs/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.304Z
+// GENERATED: 2026-04-15T18:11:44.908Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CustomsRowSchema, CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs';
 
 export async function GET(
   request: NextRequest,

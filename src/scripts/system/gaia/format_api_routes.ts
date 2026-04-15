@@ -46,6 +46,7 @@ function toPascalCase(str: string): string {
  */
 function generateHeader(tableName: string, deityFolder: string, routeType: string, methods: string[]): string {
   const timestamp = new Date().toISOString();
+  const pascalName = toPascalCase(tableName);
   const routePath = routeType === 'single' 
     ? `/${deityFolder}/${tableName}/[id]` 
     : routeType === 'special' 
@@ -58,6 +59,7 @@ function generateHeader(tableName: string, deityFolder: string, routeType: strin
 // GENERATED: ${timestamp}
 // SOURCE: database.types.ts
 // =====================================================
+import { ${pascalName}RowSchema, ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}';
 
 `;
 }
@@ -133,7 +135,6 @@ function generateGetSingleRoute(tableName: string, deityFolder: string, importMa
   importManager.addImport('@/lib/api/auth', 'successResponse');
   importManager.addImport('@/lib/api/auth', 'errorResponse');
   importManager.addImport('@/lib/api/auth', 'notFound');
-  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}RowSchema`, true);
 
   return `export async function GET(
   request: NextRequest,
@@ -176,7 +177,6 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
   importManager.addImport('@/lib/api/auth', 'errorResponse');
   importManager.addImport('@/lib/api/auth', 'unauthorized');
   importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
-  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}InsertSchema`, true);
 
   return `export async function POST(request: NextRequest) {
   try {
@@ -186,7 +186,7 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
     }
     
     const body = await request.json();
-    const validated = ${pascalName}InsertSchema.parse(body);
+    const validated = ${pascalName}RowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
@@ -224,7 +224,6 @@ function generatePutRoute(tableName: string, deityFolder: string, importManager:
   importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
   importManager.addImport('@/lib/api/auth', 'checkOwnership');
   importManager.addImport('@/lib/api/auth', 'isAdmin');
-  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}UpdateSchema`, true);
   
   return `export async function PUT(
   request: NextRequest,

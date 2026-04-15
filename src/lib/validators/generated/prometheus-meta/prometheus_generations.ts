@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-15T16:13:09.481Z
+// GENERATED: 2026-04-15T18:11:44.349Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { GENERATION_STATUS } from '@/lib/constants/generated/prometheus-meta/generation_status';
 
 // =====================================================
 // PrometheusGenerations SCHEMAS

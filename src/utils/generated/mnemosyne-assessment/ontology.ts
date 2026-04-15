@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/ontology.ts
-// GENERATED: 2026-04-15T16:39:24.087Z
+// GENERATED: 2026-04-15T18:11:44.468Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { OntologyRow, OntologyInsert, OntologyUpdate } from '@/types/generated/mnemosyne-assessment/ontology';
-import { OntologyInsertSchema, OntologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/ontology';
+import { OntologyRowSchema, OntologyInsertSchema, OntologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/ontology';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createOntology(data: OntologyInsert): Promise<{ data: OntologyRow | null; error: string | null }> {
   try {
-    const validated = OntologyInsertSchema.parse(data);
+    const validated = OntologyRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

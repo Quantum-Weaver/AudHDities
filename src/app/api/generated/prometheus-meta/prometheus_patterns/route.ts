@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PrometheusPatternsInsertSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_patterns.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_patterns
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.353Z
+// GENERATED: 2026-04-15T18:11:44.991Z
 // SOURCE: database.types.ts
 // =====================================================
+import { PrometheusPatternsRowSchema, PrometheusPatternsInsertSchema, PrometheusPatternsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_patterns';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = PrometheusPatternsInsertSchema.parse(body);
+    const validated = PrometheusPatternsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

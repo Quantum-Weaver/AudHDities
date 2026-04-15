@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { EmeraldsRowSchema, EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/emeralds/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.308Z
+// GENERATED: 2026-04-15T18:11:44.912Z
 // SOURCE: database.types.ts
 // =====================================================
+import { EmeraldsRowSchema, EmeraldsInsertSchema, EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds';
 
 export async function GET(
   request: NextRequest,

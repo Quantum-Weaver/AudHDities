@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/quantum_superposition.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.848Z
+// GENERATED: 2026-04-15T18:11:44.223Z
 // SOURCE: database.types.ts lines 4469-4523
 // =====================================================
 

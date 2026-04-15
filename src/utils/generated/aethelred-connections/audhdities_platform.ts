@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-15T16:39:24.063Z
+// GENERATED: 2026-04-15T18:11:44.446Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from '@/types/generated/aethelred-connections/audhdities_platform';
-import { AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
+import { AudhditiesPlatformRowSchema, AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createAudhditiesPlatform(data: AudhditiesPlatformInsert): Promise<{ data: AudhditiesPlatformRow | null; error: string | null }> {
   try {
-    const validated = AudhditiesPlatformInsertSchema.parse(data);
+    const validated = AudhditiesPlatformRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SettingsInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/settings.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/settings
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.380Z
+// GENERATED: 2026-04-15T18:11:45.027Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SettingsRowSchema, SettingsInsertSchema, SettingsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/settings';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SettingsInsertSchema.parse(body);
+    const validated = SettingsRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

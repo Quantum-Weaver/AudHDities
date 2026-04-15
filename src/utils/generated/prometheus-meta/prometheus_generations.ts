@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-15T16:39:24.095Z
+// GENERATED: 2026-04-15T18:11:44.476Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusGenerationsRow, PrometheusGenerationsInsert, PrometheusGenerationsUpdate } from '@/types/generated/prometheus-meta/prometheus_generations';
-import { PrometheusGenerationsInsertSchema, PrometheusGenerationsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_generations';
+import { PrometheusGenerationsRowSchema, PrometheusGenerationsInsertSchema, PrometheusGenerationsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_generations';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusGenerations(data: PrometheusGenerationsInsert): Promise<{ data: PrometheusGenerationsRow | null; error: string | null }> {
   try {
-    const validated = PrometheusGenerationsInsertSchema.parse(data);
+    const validated = PrometheusGenerationsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SurveyResponsesInsertSchema } from '@/lib/validators/generated/iris-communications/survey_responses.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/survey_responses
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.389Z
+// GENERATED: 2026-04-15T18:11:45.036Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SurveyResponsesRowSchema, SurveyResponsesInsertSchema, SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SurveyResponsesInsertSchema.parse(body);
+    const validated = SurveyResponsesRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

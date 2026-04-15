@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-15T16:39:24.091Z
+// GENERATED: 2026-04-15T18:11:44.472Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/plutus-economics/products';
-import { ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
+import { ProductsRowSchema, ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProducts(data: ProductsInsert): Promise<{ data: ProductsRow | null; error: string | null }> {
   try {
-    const validated = ProductsInsertSchema.parse(data);
+    const validated = ProductsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

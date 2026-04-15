@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-15T16:39:24.104Z
+// GENERATED: 2026-04-15T18:11:44.486Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SalesRow, SalesInsert, SalesUpdate } from '@/types/generated/plutus-economics/sales';
-import { SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales';
+import { SalesRowSchema, SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSales(data: SalesInsert): Promise<{ data: SalesRow | null; error: string | null }> {
   try {
-    const validated = SalesInsertSchema.parse(data);
+    const validated = SalesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-15T16:39:24.093Z
+// GENERATED: 2026-04-15T18:11:44.474Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusBlueprintsRow, PrometheusBlueprintsInsert, PrometheusBlueprintsUpdate } from '@/types/generated/prometheus-meta/prometheus_blueprints';
-import { PrometheusBlueprintsInsertSchema, PrometheusBlueprintsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_blueprints';
+import { PrometheusBlueprintsRowSchema, PrometheusBlueprintsInsertSchema, PrometheusBlueprintsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_blueprints';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusBlueprints(data: PrometheusBlueprintsInsert): Promise<{ data: PrometheusBlueprintsRow | null; error: string | null }> {
   try {
-    const validated = PrometheusBlueprintsInsertSchema.parse(data);
+    const validated = PrometheusBlueprintsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

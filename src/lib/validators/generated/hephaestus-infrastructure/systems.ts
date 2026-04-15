@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/systems.ts
-// GENERATED: 2026-04-15T16:13:09.498Z
+// GENERATED: 2026-04-15T18:11:44.427Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { SYSTEM_STATUS } from '@/lib/constants/generated/hephaestus-infrastructure/system_status';
+import { SYSTEM_TYPE } from '@/lib/constants/generated/hephaestus-infrastructure/system_type';
 
 // =====================================================
 // Systems SCHEMAS

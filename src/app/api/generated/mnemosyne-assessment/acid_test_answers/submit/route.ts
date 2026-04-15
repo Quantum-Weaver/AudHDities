@@ -5,9 +5,10 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_answers/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T16:41:40.162Z
+// GENERATED: 2026-04-15T18:11:44.503Z
 // SOURCE: database.types.ts
 // =====================================================
+import { AcidTestAnswersRowSchema, AcidTestAnswersInsertSchema, AcidTestAnswersUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_answers';
 
 export async function POST(
   request: NextRequest,

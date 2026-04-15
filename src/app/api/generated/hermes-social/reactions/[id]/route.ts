@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ReactionsRowSchema, ReactionsUpdateSchema } from '@/lib/validators/generated/hermes-social/reactions.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/reactions/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.363Z
+// GENERATED: 2026-04-15T18:11:45.007Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ReactionsRowSchema, ReactionsInsertSchema, ReactionsUpdateSchema } from '@/lib/validators/generated/hermes-social/reactions';
 
 export async function GET(
   request: NextRequest,

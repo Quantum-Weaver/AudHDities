@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/messages.ts
-// GENERATED: 2026-04-15T16:13:09.471Z
+// GENERATED: 2026-04-15T18:11:44.277Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { MESSAGE_STATUS } from '@/lib/constants/generated/hermes-social/message_status';
 
 // =====================================================
 // Messages SCHEMAS

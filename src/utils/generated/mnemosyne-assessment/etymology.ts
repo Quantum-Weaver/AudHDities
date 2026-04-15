@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/etymology.ts
-// GENERATED: 2026-04-15T16:39:24.076Z
+// GENERATED: 2026-04-15T18:11:44.458Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from '@/types/generated/mnemosyne-assessment/etymology';
-import { EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';
+import { EtymologyRowSchema, EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createEtymology(data: EtymologyInsert): Promise<{ data: EtymologyRow | null; error: string | null }> {
   try {
-    const validated = EtymologyInsertSchema.parse(data);
+    const validated = EtymologyRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

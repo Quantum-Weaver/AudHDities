@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SuperpositionRowSchema, SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/superposition/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.387Z
+// GENERATED: 2026-04-15T18:11:45.035Z
 // SOURCE: database.types.ts
 // =====================================================
+import { SuperpositionRowSchema, SuperpositionInsertSchema, SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition';
 
 export async function GET(
   request: NextRequest,

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/protocols.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.847Z
+// GENERATED: 2026-04-15T18:11:44.222Z
 // SOURCE: database.types.ts lines 4397-4468
 // =====================================================
 

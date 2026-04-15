@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_results.ts
-// GENERATED: 2026-04-15T16:13:09.444Z
+// GENERATED: 2026-04-15T18:11:44.250Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { ACID_PERSONA } from '@/lib/constants/generated/mnemosyne-assessment/acid_persona';
+import { USER_TIER } from '@/lib/constants/generated/mnemosyne-assessment/user_tier';
 
 // =====================================================
 // AcidTestResults SCHEMAS

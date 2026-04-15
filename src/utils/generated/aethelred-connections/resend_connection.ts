@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/resend_connection.ts
-// GENERATED: 2026-04-15T16:39:24.102Z
+// GENERATED: 2026-04-15T18:11:44.484Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ResendConnectionRow, ResendConnectionInsert, ResendConnectionUpdate } from '@/types/generated/aethelred-connections/resend_connection';
-import { ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/resend_connection';
+import { ResendConnectionRowSchema, ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/resend_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createResendConnection(data: ResendConnectionInsert): Promise<{ data: ResendConnectionRow | null; error: string | null }> {
   try {
-    const validated = ResendConnectionInsertSchema.parse(data);
+    const validated = ResendConnectionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

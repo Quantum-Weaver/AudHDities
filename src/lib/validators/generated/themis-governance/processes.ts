@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-15T16:13:09.476Z
+// GENERATED: 2026-04-15T18:11:44.345Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { PROCESS_TYPE } from '@/lib/constants/generated/themis-governance/process_type';
 
 // =====================================================
 // Processes SCHEMAS

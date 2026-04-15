@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/seer.ts
-// GENERATED: 2026-04-15T16:39:24.107Z
+// GENERATED: 2026-04-15T18:11:44.490Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/aethelred-connections/seer';
-import { SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
+import { SeerRowSchema, SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createSeer(data: SeerInsert): Promise<{ data: SeerRow | null; error: string | null }> {
   try {
-    const validated = SeerInsertSchema.parse(data);
+    const validated = SeerRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

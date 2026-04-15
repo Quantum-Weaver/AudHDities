@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/path_lessons.ts
-// GENERATED: 2026-04-15T16:39:24.088Z
+// GENERATED: 2026-04-15T18:11:44.469Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/athena-gamification/path_lessons';
-import { PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
+import { PathLessonsRowSchema, PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPathLessons(data: PathLessonsInsert): Promise<{ data: PathLessonsRow | null; error: string | null }> {
   try {
-    const validated = PathLessonsInsertSchema.parse(data);
+    const validated = PathLessonsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

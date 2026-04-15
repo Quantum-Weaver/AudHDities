@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/creative_categories.ts
-// GENERATED: 2026-04-15T16:39:24.071Z
+// GENERATED: 2026-04-15T18:11:44.454Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CreativeCategoriesRow, CreativeCategoriesInsert, CreativeCategoriesUpdate } from '@/types/generated/hermes-social/creative_categories';
-import { CreativeCategoriesInsertSchema, CreativeCategoriesUpdateSchema } from '@/lib/validators/generated/hermes-social/creative_categories';
+import { CreativeCategoriesRowSchema, CreativeCategoriesInsertSchema, CreativeCategoriesUpdateSchema } from '@/lib/validators/generated/hermes-social/creative_categories';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCreativeCategories(data: CreativeCategoriesInsert): Promise<{ data: CreativeCategoriesRow | null; error: string | null }> {
   try {
-    const validated = CreativeCategoriesInsertSchema.parse(data);
+    const validated = CreativeCategoriesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

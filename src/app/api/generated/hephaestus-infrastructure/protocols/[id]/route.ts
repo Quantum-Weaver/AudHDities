@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ProtocolsRowSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/protocols/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.357Z
+// GENERATED: 2026-04-15T18:11:45.001Z
 // SOURCE: database.types.ts
 // =====================================================
+import { ProtocolsRowSchema, ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
 
 export async function GET(
   request: NextRequest,

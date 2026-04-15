@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/products.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.840Z
+// GENERATED: 2026-04-15T18:11:44.216Z
 // SOURCE: database.types.ts lines 3794-3917
 // =====================================================
 

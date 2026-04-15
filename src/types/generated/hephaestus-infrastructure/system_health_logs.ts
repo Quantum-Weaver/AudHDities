@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/system_health_logs.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.864Z
+// GENERATED: 2026-04-15T18:11:44.239Z
 // SOURCE: database.types.ts lines 6048-6092
 // =====================================================
 

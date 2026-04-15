@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-15T16:13:09.491Z
+// GENERATED: 2026-04-15T18:11:44.419Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { JOB_STATUS } from '@/lib/constants/generated/hephaestus-infrastructure/job_status';
+import { JOB_TYPE } from '@/lib/constants/generated/hephaestus-infrastructure/job_type';
 
 // =====================================================
 // Scheduling SCHEMAS

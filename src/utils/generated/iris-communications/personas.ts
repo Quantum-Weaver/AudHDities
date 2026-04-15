@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-15T16:39:24.089Z
+// GENERATED: 2026-04-15T18:11:44.470Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/generated/iris-communications/personas';
-import { PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/generated/iris-communications/personas';
+import { PersonasRowSchema, PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/generated/iris-communications/personas';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPersonas(data: PersonasInsert): Promise<{ data: PersonasRow | null; error: string | null }> {
   try {
-    const validated = PersonasInsertSchema.parse(data);
+    const validated = PersonasRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

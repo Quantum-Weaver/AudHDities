@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/advertising.ts
-// GENERATED: 2026-04-15T16:39:24.060Z
+// GENERATED: 2026-04-15T18:11:44.444Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/plutus-economics/advertising';
-import { AdvertisingInsertSchema, AdvertisingUpdateSchema } from '@/lib/validators/generated/plutus-economics/advertising';
+import { AdvertisingRowSchema, AdvertisingInsertSchema, AdvertisingUpdateSchema } from '@/lib/validators/generated/plutus-economics/advertising';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createAdvertising(data: AdvertisingInsert): Promise<{ data: AdvertisingRow | null; error: string | null }> {
   try {
-    const validated = AdvertisingInsertSchema.parse(data);
+    const validated = AdvertisingRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

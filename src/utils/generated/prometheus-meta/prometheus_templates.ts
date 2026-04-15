@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_templates.ts
-// GENERATED: 2026-04-15T16:39:24.097Z
+// GENERATED: 2026-04-15T18:11:44.478Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { PrometheusTemplatesRow, PrometheusTemplatesInsert, PrometheusTemplatesUpdate } from '@/types/generated/prometheus-meta/prometheus_templates';
-import { PrometheusTemplatesInsertSchema, PrometheusTemplatesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_templates';
+import { PrometheusTemplatesRowSchema, PrometheusTemplatesInsertSchema, PrometheusTemplatesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_templates';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createPrometheusTemplates(data: PrometheusTemplatesInsert): Promise<{ data: PrometheusTemplatesRow | null; error: string | null }> {
   try {
-    const validated = PrometheusTemplatesInsertSchema.parse(data);
+    const validated = PrometheusTemplatesRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-15T16:39:24.109Z
+// GENERATED: 2026-04-15T18:11:44.493Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from '@/types/generated/aethelred-connections/stripe_connection';
-import { StripeConnectionInsertSchema, StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection';
+import { StripeConnectionRowSchema, StripeConnectionInsertSchema, StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createStripeConnection(data: StripeConnectionInsert): Promise<{ data: StripeConnectionRow | null; error: string | null }> {
   try {
-    const validated = StripeConnectionInsertSchema.parse(data);
+    const validated = StripeConnectionRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

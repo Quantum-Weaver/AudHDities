@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/archivist.ts
-// GENERATED: 2026-04-15T16:39:24.063Z
+// GENERATED: 2026-04-15T18:11:44.446Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { ArchivistRow, ArchivistInsert, ArchivistUpdate } from '@/types/generated/aethelred-connections/archivist';
-import { ArchivistInsertSchema, ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';
+import { ArchivistRowSchema, ArchivistInsertSchema, ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createArchivist(data: ArchivistInsert): Promise<{ data: ArchivistRow | null; error: string | null }> {
   try {
-    const validated = ArchivistInsertSchema.parse(data);
+    const validated = ArchivistRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

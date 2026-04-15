@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/translations.ts
-// GENERATED: 2026-04-15T16:13:09.500Z
+// GENERATED: 2026-04-15T18:11:44.429Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { TRANSLATABLE_TYPE } from '@/lib/constants/generated/iris-communications/translatable_type';
 
 // =====================================================
 // Translations SCHEMAS

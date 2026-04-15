@@ -1,14 +1,14 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { FolksonomyRowSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/folksonomy/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T16:41:40.315Z
+// GENERATED: 2026-04-15T18:11:44.918Z
 // SOURCE: database.types.ts
 // =====================================================
+import { FolksonomyRowSchema, FolksonomyInsertSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy';
 
 export async function GET(
   request: NextRequest,

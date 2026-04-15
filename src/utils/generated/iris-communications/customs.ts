@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-15T16:39:24.074Z
+// GENERATED: 2026-04-15T18:11:44.456Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/iris-communications/customs';
-import { CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs';
+import { CustomsRowSchema, CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createCustoms(data: CustomsInsert): Promise<{ data: CustomsRow | null; error: string | null }> {
   try {
-    const validated = CustomsInsertSchema.parse(data);
+    const validated = CustomsRowSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

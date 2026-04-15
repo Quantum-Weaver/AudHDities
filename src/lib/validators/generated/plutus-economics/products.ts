@@ -1,10 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-15T16:13:09.477Z
+// GENERATED: 2026-04-15T18:11:44.345Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { OWNER_TYPE } from '@/lib/constants/generated/plutus-economics/owner_type';
+import { PRODUCT_TYPE } from '@/lib/constants/generated/plutus-economics/product_type';
 
 // =====================================================
 // Products SCHEMAS

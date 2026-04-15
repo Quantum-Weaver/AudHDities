@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/customs.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.821Z
+// GENERATED: 2026-04-15T18:11:44.197Z
 // SOURCE: database.types.ts lines 1940-2009
 // =====================================================
 

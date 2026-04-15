@@ -1,14 +1,14 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CulturalizationInsertSchema } from '@/lib/validators/generated/iris-communications/culturalization.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/culturalization
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T16:41:40.301Z
+// GENERATED: 2026-04-15T18:11:44.905Z
 // SOURCE: database.types.ts
 // =====================================================
+import { CulturalizationRowSchema, CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 
 export async function GET(request: NextRequest) {
   try {
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CulturalizationInsertSchema.parse(body);
+    const validated = CulturalizationRowSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

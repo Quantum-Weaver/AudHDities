@@ -1,10 +1,12 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-15T16:13:09.498Z
+// GENERATED: 2026-04-15T18:11:44.427Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
+
+import { TAXONOMY_NODE_TYPE } from '@/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type';
 
 // =====================================================
 // Taxonomy SCHEMAS

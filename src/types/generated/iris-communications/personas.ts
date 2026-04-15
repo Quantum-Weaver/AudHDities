@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/personas.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-14T21:18:08.838Z
+// GENERATED: 2026-04-15T18:11:44.214Z
 // SOURCE: database.types.ts lines 3600-3649
 // =====================================================
 
