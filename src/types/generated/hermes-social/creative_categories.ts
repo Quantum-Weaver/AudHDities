@@ -24,7 +24,7 @@ export type CreativeCategoriesUpdate = Database['public']['Tables']['creative_ca
  */
 export interface PublicCreativeCategories {
   color: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   display_order: number | null;
@@ -34,7 +34,7 @@ export interface PublicCreativeCategories {
   name: string;
   parent_id: string | null;
   slug: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

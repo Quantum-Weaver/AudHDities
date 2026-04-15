@@ -24,17 +24,17 @@ export type UserPrivateUpdate = Database['public']['Tables']['user_private']['Up
  */
 export interface PublicUserPrivate {
   address: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   crisis_plan: string | null;
-  "date_of_birth": "string | null";
+  "date_of_birth": string | null;
   emergency_contact: Json | null;
   government_id: string | null;
   id: string;
   legal_name: string | null;
   notes: string | null;
   phone_number: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

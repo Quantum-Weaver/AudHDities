@@ -25,14 +25,14 @@ export type CuratorUpdate = Database['public']['Tables']['curator']['Update'];
 export interface PublicCurator {
   archived_content: Json | null;
   collection_themes: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   curation_queue: Json | null;
   featured_content: Json | null;
   id: string;
   preservation_policy: Json | null;
   quality_standards: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

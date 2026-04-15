@@ -26,13 +26,13 @@ export interface PublicExecutioner {
   appeal_queue: Json | null;
   banned_users: string[] | null;
   boundary_violations: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   execution_count: number | null;
   id: string;
   justice_log: Json | null;
   suspended_users: string[] | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

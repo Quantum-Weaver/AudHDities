@@ -29,7 +29,7 @@ export type TaxonomyUpdate = Database['public']['Tables']['taxonomy']['Update'];
  * Public view of taxonomy
  */
 export interface PublicTaxonomy {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   domain: string | null;
@@ -41,7 +41,7 @@ export interface PublicTaxonomy {
   parent_id: string | null;
   path: string;
   slug: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

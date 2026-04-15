@@ -30,18 +30,18 @@ export type SurveysUpdate = Database['public']['Tables']['surveys']['Update'];
  * Public view of surveys
  */
 export interface PublicSurveys {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string;
   description: string | null;
-  "expires_at": "string | null";
+  "expires_at": string | null;
   id: string;
   is_active: boolean | null;
   questions: Json;
   response_count: number | null;
-  "starts_at": "string | null";
+  "starts_at": string | null;
   target_house: CouncilHouse | null;
   title: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

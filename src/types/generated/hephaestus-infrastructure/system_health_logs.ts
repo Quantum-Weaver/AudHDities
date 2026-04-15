@@ -29,7 +29,7 @@ export type SystemHealthLogsUpdate = Database['public']['Tables']['system_health
  * Public view of system_health_logs
  */
 export interface PublicSystemHealthLogs {
-  "checked_at": "string | null";
+  "checked_at": string | null;
   created_by: string | null;
   error_message: string | null;
   id: string;

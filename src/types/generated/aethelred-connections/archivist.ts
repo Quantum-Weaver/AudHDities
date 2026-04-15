@@ -24,14 +24,14 @@ export type ArchivistUpdate = Database['public']['Tables']['archivist']['Update'
  */
 export interface PublicArchivist {
   backup_status: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   documentation_standards: Json | null;
   historical_records: Json | null;
   id: string;
-  "last_archive_at": "string | null";
+  "last_archive_at": string | null;
   milestones: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   version_history: Json | null;
 }
 

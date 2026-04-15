@@ -32,7 +32,7 @@ export interface PublicLessons {
   content_body: string | null;
   content_type: LessonContentType;
   content_url: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   description: string;
@@ -42,7 +42,7 @@ export interface PublicLessons {
   order_index: number | null;
   slug: string;
   title: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

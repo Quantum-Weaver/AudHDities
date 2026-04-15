@@ -32,7 +32,7 @@ export type CulturalizationUpdate = Database['public']['Tables']['culturalizatio
  * Public view of culturalization
  */
 export interface PublicCulturalization {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   currency_code: string | null;
   currency_symbol: string | null;
@@ -44,7 +44,7 @@ export interface PublicCulturalization {
   thousands_separator: string | null;
   time_format: TimeFormatType | null;
   timezone: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

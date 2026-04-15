@@ -30,7 +30,7 @@ export type ProcessesUpdate = Database['public']['Tables']['processes']['Update'
  * Public view of processes
  */
 export interface PublicProcesses {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string;
   description: string | null;
   id: string;
@@ -40,7 +40,7 @@ export interface PublicProcesses {
   slug: string;
   steps: Json;
   timeout_days: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

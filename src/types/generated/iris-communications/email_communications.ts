@@ -30,16 +30,16 @@ export type EmailCommunicationsUpdate = Database['public']['Tables']['email_comm
  */
 export interface PublicEmailCommunications {
   body: string;
-  "clicked_at": "string | null";
-  "created_at": "string | null";
+  "clicked_at": string | null;
+  created_at: string | null;
   created_by: string | null;
   id: string;
   metadata: Json | null;
-  "opened_at": "string | null";
+  "opened_at": string | null;
   provider_message_id: string | null;
   recipient_email: string;
   recipient_id: string | null;
-  "sent_at": "string | null";
+  "sent_at": string | null;
   status: EmailStatus | null;
   subject: string;
   template_id: string | null;

@@ -36,17 +36,17 @@ export interface PublicPosts {
   channel_id: string | null;
   comment_count: number | null;
   content_type: ContentType;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   emerald_count: number | null;
   id: string;
   media_urls: string[] | null;
-  "published_at": "string | null";
+  "published_at": string | null;
   resonance_count: number | null;
   sovereignty_tags: string[] | null;
   tips_received: number | null;
   title: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   visibility: PostVisibility;
 }
 

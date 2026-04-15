@@ -29,20 +29,20 @@ export type ScriptsUpdate = Database['public']['Tables']['scripts']['Update'];
  * Public view of scripts
  */
 export interface PublicScripts {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   id: string;
   is_production_safe: boolean | null;
-  "last_result": "string | null";
-  "last_run": "string | null";
+  "last_result": string | null;
+  "last_run": string | null;
   name: string;
   parameters: Json | null;
   path: string;
   requires_approval: boolean | null;
   run_count: number | null;
   type: ScriptType;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

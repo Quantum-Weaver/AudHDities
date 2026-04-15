@@ -32,10 +32,10 @@ export interface PublicResidualPayouts {
   amount: number;
   calculation_note: string | null;
   contributor_id: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
-  "paid_at": "string | null";
+  "paid_at": string | null;
   product_id: string;
   sale_id: string;
   status: PayoutStatus | null;

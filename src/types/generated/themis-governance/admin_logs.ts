@@ -34,7 +34,7 @@ export interface PublicAdminLogs {
   action: string;
   action_category: AdminLogCategory;
   admin_id: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   error_message: string | null;
   id: string;

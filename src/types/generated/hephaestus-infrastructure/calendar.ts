@@ -32,7 +32,7 @@ export type CalendarUpdate = Database['public']['Tables']['calendar']['Update'];
  */
 export interface PublicCalendar {
   all_day: boolean | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   end_date: string | null;
@@ -44,7 +44,7 @@ export interface PublicCalendar {
   start_date: string;
   title: string;
   type: CalendarEventType;
-  "updated_at": "string | null";
+  updated_at: string | null;
   visibility: CalendarVisibility | null;
 }
 

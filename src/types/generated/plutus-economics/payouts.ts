@@ -31,8 +31,8 @@ export type PayoutsUpdate = Database['public']['Tables']['payouts']['Update'];
  */
 export interface PublicPayouts {
   amount_cents: number;
-  "completed_at": "string | null";
-  "created_at": "string | null";
+  "completed_at": string | null;
+  created_at: string | null;
   created_by: string | null;
   destination: string | null;
   disbursement_id: string;

@@ -33,14 +33,14 @@ export interface PublicPrometheusBlueprints {
   author: string;
   blueprint_id: string;
   content: Json;
-  "created_at": "string";
+  created_at: "string";
   generation_count: number;
   id: string;
   purpose: string;
   status: BlueprintStatus;
   success_rate: number | null;
   system: BlueprintSystem;
-  "updated_at": "string";
+  updated_at: "string";
   version: string;
 }
 

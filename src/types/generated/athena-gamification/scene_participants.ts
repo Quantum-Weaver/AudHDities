@@ -24,7 +24,7 @@ export type SceneParticipantsUpdate = Database['public']['Tables']['scene_partic
  */
 export interface PublicSceneParticipants {
   created_by: string | null;
-  "joined_at": "string | null";
+  "joined_at": string | null;
   role: string | null;
   scene_id: string;
   user_id: string;

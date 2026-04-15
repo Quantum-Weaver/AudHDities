@@ -32,12 +32,12 @@ export interface PublicNotifications {
   action_label: string | null;
   action_url: string | null;
   body: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   is_read: boolean | null;
   metadata: Json | null;
-  "read_at": "string | null";
+  "read_at": string | null;
   related_entity_id: string | null;
   related_entity_type: string | null;
   title: string;

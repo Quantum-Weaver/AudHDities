@@ -32,7 +32,7 @@ export type ContactSubmissionsUpdate = Database['public']['Tables']['contact_sub
  */
 export interface PublicContactSubmissions {
   assigned_to: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   direction: ContactDirection | null;
   id: string;
@@ -41,11 +41,11 @@ export interface PublicContactSubmissions {
   name: string;
   notes: string | null;
   parent_id: string | null;
-  "resolved_at": "string | null";
+  "resolved_at": string | null;
   status: ContactStatus | null;
   subject: string;
   thread_id: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_id: string | null;
 }
 

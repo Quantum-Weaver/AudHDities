@@ -7,7 +7,7 @@
 import { z } from 'zod';
 
 import { PAYMENT_STATUS } from '@/lib/constants/generated/plutus-economics/payment_status';
-import { USER_TIER } from '@/lib/constants/generated/plutus-economics/user_tier';
+import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
 
 // =====================================================
 // Sales SCHEMAS

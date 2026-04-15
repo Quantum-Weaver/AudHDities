@@ -23,7 +23,7 @@ export type RateLimitsUpdate = Database['public']['Tables']['rate_limits']['Upda
  * Public view of rate_limits
  */
 export interface PublicRateLimits {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   endpoint: string;
   id: string;

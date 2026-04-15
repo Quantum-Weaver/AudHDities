@@ -30,9 +30,9 @@ export type PrometheusGenerationsUpdate = Database['public']['Tables']['promethe
  */
 export interface PublicPrometheusGenerations {
   blueprint_id: string;
-  "completed_at": "string | null";
+  "completed_at": string | null;
   council_involved: string[] | null;
-  "created_at": "string";
+  created_at: "string";
   "duration_ms": "number";
   errors: Json | null;
   file_paths: string[] | null;

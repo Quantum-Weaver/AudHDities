@@ -31,7 +31,7 @@ export type ReportsUpdate = Database['public']['Tables']['reports']['Update'];
  * Public view of reports
  */
 export interface PublicReports {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   moderation_notes: string | null;
@@ -43,11 +43,11 @@ export interface PublicReports {
   reported_user_id: string | null;
   reporter_id: string;
   resolution: string | null;
-  "resolved_at": "string | null";
+  "resolved_at": string | null;
   status: ReportStatus | null;
   target_id: string;
   target_type: ReportTargetType;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

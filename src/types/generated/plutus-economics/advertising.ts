@@ -35,7 +35,7 @@ export interface PublicAdvertising {
   bid_type: BidType;
   budget_cents: number;
   campaign_name: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   end_date: string | null;
   id: string;
@@ -43,7 +43,7 @@ export interface PublicAdvertising {
   start_date: string | null;
   status: CampaignStatus | null;
   targeting_criteria: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_share_percent: number | null;
 }
 

@@ -25,14 +25,14 @@ export type CommentsUpdate = Database['public']['Tables']['comments']['Update'];
 export interface PublicComments {
   author_id: string;
   content: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   is_edited: boolean | null;
   is_hidden: boolean | null;
   post_id: string;
   reply_count: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

@@ -29,7 +29,7 @@ export type SettingsUpdate = Database['public']['Tables']['settings']['Update'];
  * Public view of settings
  */
 export interface PublicSettings {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   id: string;
@@ -38,7 +38,7 @@ export interface PublicSettings {
   scope: SettingScope;
   scope_id: string | null;
   type: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
   value: Json;
 }
 

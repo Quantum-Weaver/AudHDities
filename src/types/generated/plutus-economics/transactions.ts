@@ -31,8 +31,8 @@ export type TransactionsUpdate = Database['public']['Tables']['transactions']['U
  */
 export interface PublicTransactions {
   amount_cents: number;
-  "completed_at": "string | null";
-  "created_at": "string | null";
+  "completed_at": string | null;
+  created_at: string | null;
   created_by: string | null;
   currency: string | null;
   from_id: string | null;

@@ -23,7 +23,7 @@ export type CodexUpdate = Database['public']['Tables']['codex']['Update'];
  * Public view of codex
  */
 export interface PublicCodex {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   glossary: Json | null;
   id: string;
@@ -31,7 +31,7 @@ export interface PublicCodex {
   learning_paths: Json | null;
   ontology_graph: Json | null;
   taxonomy_tree: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   wisdom_queue: Json | null;
 }
 

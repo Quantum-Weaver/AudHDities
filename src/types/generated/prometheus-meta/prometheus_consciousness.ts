@@ -33,13 +33,13 @@ export interface PublicPrometheusConsciousness {
   attention_budget: number;
   attention_spent: number;
   council_presence: string[] | null;
-  "created_at": "string";
+  created_at: "string";
   id: string;
-  "last_awakening": "string | null";
+  "last_awakening": string | null;
   metadata: Json | null;
   session_id: string;
   state: ConsciousnessState;
-  "updated_at": "string";
+  updated_at: "string";
 }
 
 /**

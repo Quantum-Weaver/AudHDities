@@ -23,17 +23,17 @@ export type ChancellorUpdate = Database['public']['Tables']['chancellor']['Updat
  * Public view of chancellor
  */
 export interface PublicChancellor {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   fee_structure: Json | null;
   financial_audits: Json | null;
   id: string;
-  "last_audit_at": "string | null";
+  "last_audit_at": string | null;
   operating_budget: Json | null;
   payout_schedule: Json | null;
   reserve_fund: number | null;
   treasury_balance: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

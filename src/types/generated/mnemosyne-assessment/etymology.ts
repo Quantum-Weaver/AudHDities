@@ -23,10 +23,10 @@ export type EtymologyUpdate = Database['public']['Tables']['etymology']['Update'
  * Public view of etymology
  */
 export interface PublicEtymology {
-  "approved_at": "string | null";
+  approved_at: string | null;
   approved_by: string | null;
   contributor_id: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   cultural_context: string | null;
   current_meaning: string;
@@ -37,7 +37,7 @@ export interface PublicEtymology {
   related_words: string[] | null;
   root: string | null;
   semantic_shift: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   word: string;
 }
 

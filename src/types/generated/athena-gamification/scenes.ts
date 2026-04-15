@@ -30,7 +30,7 @@ export type ScenesUpdate = Database['public']['Tables']['scenes']['Update'];
  * Public view of scenes
  */
 export interface PublicScenes {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   description: string;
@@ -40,11 +40,11 @@ export interface PublicScenes {
   is_active: boolean | null;
   mythology_id: string | null;
   participant_count: number | null;
-  "scheduled_for": "string | null";
+  "scheduled_for": string | null;
   slug: string;
   title: string;
   type: SceneType;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

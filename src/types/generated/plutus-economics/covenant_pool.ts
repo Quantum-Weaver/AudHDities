@@ -23,14 +23,14 @@ export type CovenantPoolUpdate = Database['public']['Tables']['covenant_pool']['
  * Public view of covenant_pool
  */
 export interface PublicCovenantPool {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   current_balance_cents: number | null;
   id: string;
-  "last_distribution_at": "string | null";
+  "last_distribution_at": string | null;
   pledge_percent: number;
   total_pledged_cents: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_id: string;
 }
 

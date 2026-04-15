@@ -30,7 +30,7 @@ export type QuestsUpdate = Database['public']['Tables']['quests']['Update'];
  * Public view of quests
  */
 export interface PublicQuests {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string;
   house: CouncilHouse;
@@ -44,7 +44,7 @@ export interface PublicQuests {
   sovereignty_reward: number | null;
   submission_type: SubmissionType;
   title: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

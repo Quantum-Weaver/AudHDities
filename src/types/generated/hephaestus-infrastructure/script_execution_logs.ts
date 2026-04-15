@@ -23,7 +23,7 @@ export type ScriptExecutionLogsUpdate = Database['public']['Tables']['script_exe
  * Public view of script_execution_logs
  */
 export interface PublicScriptExecutionLogs {
-  "completed_at": "string | null";
+  "completed_at": string | null;
   created_by: string | null;
   error_message: string | null;
   executed_by: string | null;
@@ -31,7 +31,7 @@ export interface PublicScriptExecutionLogs {
   output: string | null;
   parameters_used: Json | null;
   script_id: string;
-  "started_at": "string | null";
+  "started_at": string | null;
   status: string | null;
 }
 

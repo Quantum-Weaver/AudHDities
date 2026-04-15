@@ -35,7 +35,7 @@ export interface PublicProfiles {
   avatar_url: string | null;
   banner_url: string | null;
   bio: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   display_name: string | null;
   id: string;
@@ -43,11 +43,11 @@ export interface PublicProfiles {
   is_creator: boolean | null;
   is_quantum_weaver: boolean | null;
   is_vendor: boolean | null;
-  "last_active": "string | null";
+  "last_active": string | null;
   primary_house: CouncilHouse | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_tier: UserTier | null;
   username: string | null;
 }
@@ -59,7 +59,7 @@ export interface OwnProfiles extends PublicProfiles {
   avatar_url: string | null;
   banner_url: string | null;
   bio: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   display_name: string | null;
   email: string;
@@ -68,11 +68,11 @@ export interface OwnProfiles extends PublicProfiles {
   is_creator: boolean | null;
   is_quantum_weaver: boolean | null;
   is_vendor: boolean | null;
-  "last_active": "string | null";
+  "last_active": string | null;
   primary_house: CouncilHouse | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_tier: UserTier | null;
   username: string | null;
 }

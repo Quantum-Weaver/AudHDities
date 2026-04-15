@@ -25,7 +25,7 @@ export type LocalizationUpdate = Database['public']['Tables']['localization']['U
 export interface PublicLocalization {
   approved_by: string | null;
   context: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   is_approved: boolean | null;
@@ -33,7 +33,7 @@ export interface PublicLocalization {
   plural_form: number | null;
   resource_key: string;
   translation: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
   version: number | null;
 }
 

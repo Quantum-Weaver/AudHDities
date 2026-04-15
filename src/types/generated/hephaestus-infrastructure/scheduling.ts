@@ -30,23 +30,23 @@ export type SchedulingUpdate = Database['public']['Tables']['scheduling']['Updat
  * Public view of scheduling
  */
 export interface PublicScheduling {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   error_message: string | null;
   function_name: string;
   id: string;
   job_type: JobType;
-  "last_result": "string | null";
-  "last_run": "string | null";
+  "last_result": string | null;
+  "last_run": string | null;
   max_retries: number | null;
   name: string;
   next_run: string | null;
   parameters: Json | null;
   retry_count: number | null;
-  "run_at": "string | null";
+  "run_at": string | null;
   schedule: string | null;
   status: JobStatus | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

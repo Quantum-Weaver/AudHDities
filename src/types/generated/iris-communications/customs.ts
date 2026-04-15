@@ -30,7 +30,7 @@ export type CustomsUpdate = Database['public']['Tables']['customs']['Update'];
  */
 export interface PublicCustoms {
   category: CustomCategoryType;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string;
   guidance: string | null;
@@ -41,7 +41,7 @@ export interface PublicCustoms {
   persona_id: string | null;
   region_id: string | null;
   slug: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

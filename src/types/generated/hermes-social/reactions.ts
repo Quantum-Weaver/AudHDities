@@ -30,7 +30,7 @@ export type ReactionsUpdate = Database['public']['Tables']['reactions']['Update'
  */
 export interface PublicReactions {
   comment_id: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   post_id: string | null;

@@ -30,10 +30,10 @@ export type DisbursementsUpdate = Database['public']['Tables']['disbursements'][
  * Public view of disbursements
  */
 export interface PublicDisbursements {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
-  "processed_at": "string | null";
+  "processed_at": string | null;
   recipient_count: number;
   source_id: string;
   source_pool: SourcePoolType;

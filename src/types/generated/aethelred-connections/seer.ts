@@ -24,7 +24,7 @@ export type SeerUpdate = Database['public']['Tables']['seer']['Update'];
  */
 export interface PublicSeer {
   anomaly_detection: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   insight_queue: Json | null;
@@ -32,7 +32,7 @@ export interface PublicSeer {
   pattern_library: Json | null;
   prophecies: Json | null;
   trend_analysis: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

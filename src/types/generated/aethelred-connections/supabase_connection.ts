@@ -30,19 +30,19 @@ export type SupabaseConnectionUpdate = Database['public']['Tables']['supabase_co
  */
 export interface PublicSupabaseConnection {
   api_keys: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   edge_functions: string[] | null;
   id: string;
-  "last_health_check": "string | null";
-  "last_migration_at": "string | null";
+  "last_health_check": string | null;
+  "last_migration_at": string | null;
   migrations_applied: string[] | null;
   operated_by: string | null;
   project_id: string;
   project_url: string;
   schema_version: string;
   storage_buckets: string[] | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

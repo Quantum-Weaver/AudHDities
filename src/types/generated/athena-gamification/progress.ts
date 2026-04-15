@@ -29,19 +29,19 @@ export type ProgressUpdate = Database['public']['Tables']['progress']['Update'];
  * Public view of progress
  */
 export interface PublicProgress {
-  "completed_at": "string | null";
-  "created_at": "string | null";
+  "completed_at": string | null;
+  created_at: string | null;
   created_by: string | null;
   id: string;
-  "last_activity_at": "string | null";
+  "last_activity_at": string | null;
   lesson_id: string | null;
   notes: string | null;
   path_id: string | null;
   progress_percent: number | null;
   score: number | null;
-  "started_at": "string | null";
+  "started_at": string | null;
   status: ProgressStatus;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_id: string;
 }
 

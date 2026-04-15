@@ -31,7 +31,7 @@ export type EmeraldsUpdate = Database['public']['Tables']['emeralds']['Update'];
 export interface PublicEmeralds {
   amount: number;
   comment_id: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   giver_id: string;
   id: string;

@@ -31,16 +31,16 @@ export type ModerationActionsUpdate = Database['public']['Tables']['moderation_a
  */
 export interface PublicModerationActions {
   action_type: ModerationActionType;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
-  "duration": "string | null";
+  "duration": string | null;
   id: string;
   is_reverted: boolean | null;
   metadata: Json | null;
   moderator_id: string;
   reason: string | null;
   revert_reason: string | null;
-  "reverted_at": "string | null";
+  "reverted_at": string | null;
   reverted_by: string | null;
   target_id: string;
   target_type: ModerationTargetType;

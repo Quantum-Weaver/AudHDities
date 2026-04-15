@@ -29,9 +29,9 @@ export type LifeCyclesUpdate = Database['public']['Tables']['life_cycles']['Upda
  * Public view of life_cycles
  */
 export interface PublicLifeCycles {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
-  "ended_at": "string | null";
+  "ended_at": string | null;
   id: string;
   metadata: Json | null;
   phase: LifeCyclePhase;

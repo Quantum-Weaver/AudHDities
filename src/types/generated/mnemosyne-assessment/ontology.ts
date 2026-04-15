@@ -30,7 +30,7 @@ export type OntologyUpdate = Database['public']['Tables']['ontology']['Update'];
  */
 export interface PublicOntology {
   approved_by: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   id: string;
@@ -38,7 +38,7 @@ export interface PublicOntology {
   object_id: string;
   predicate: OntologyPredicate;
   subject_id: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
   weight: number | null;
 }
 

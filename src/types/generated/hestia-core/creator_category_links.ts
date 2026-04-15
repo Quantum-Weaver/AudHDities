@@ -24,7 +24,7 @@ export type CreatorCategoryLinksUpdate = Database['public']['Tables']['creator_c
  */
 export interface PublicCreatorCategoryLinks {
   category_id: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   id: string;

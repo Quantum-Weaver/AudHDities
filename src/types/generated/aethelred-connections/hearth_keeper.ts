@@ -24,7 +24,7 @@ export type HearthKeeperUpdate = Database['public']['Tables']['hearth_keeper']['
  */
 export interface PublicHearthKeeper {
   accessibility_standards: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   crisis_resources: Json | null;
   id: string;
@@ -32,7 +32,7 @@ export interface PublicHearthKeeper {
   reported_content_queue: Json | null;
   safety_protocols: Json | null;
   safety_score: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   welcome_messages: Json | null;
 }
 

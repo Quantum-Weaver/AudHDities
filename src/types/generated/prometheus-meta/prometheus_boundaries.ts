@@ -30,7 +30,7 @@ export type PrometheusBoundariesUpdate = Database['public']['Tables']['prometheu
  * Public view of prometheus_boundaries
  */
 export interface PublicPrometheusBoundaries {
-  "created_at": "string";
+  created_at: "string";
   created_by: string | null;
   encryption_level: EncryptionLevel;
   id: string;
@@ -40,7 +40,7 @@ export interface PublicPrometheusBoundaries {
   reason: string;
   requires_approval: boolean;
   rule_type: BoundaryType;
-  "updated_at": "string";
+  updated_at: "string";
 }
 
 /**

@@ -32,15 +32,15 @@ export type StripeConnectionUpdate = Database['public']['Tables']['stripe_connec
 export interface PublicStripeConnection {
   account_id: string;
   connected_accounts: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
-  "last_sync_at": "string | null";
+  "last_sync_at": string | null;
   mode: StripeMode | null;
   operated_by: string | null;
   payout_settings: Json | null;
   products_synced: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   webhook_secret: string | null;
   webhook_status: WebhookStatus | null;
 }

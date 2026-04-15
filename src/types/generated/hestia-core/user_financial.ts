@@ -34,14 +34,14 @@ export interface PublicUserFinancial {
   bank_account_last4: string | null;
   bank_account_type: string | null;
   bank_routing_last4: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   crypto_addresses: Json | null;
   id: string;
   minimum_payout: number | null;
   paypal_email: string | null;
   residual_pledge_percent: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

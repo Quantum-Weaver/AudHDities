@@ -33,7 +33,7 @@ export interface PublicSales {
   amount_cents: number;
   bigot_tax_applied: boolean | null;
   buyer_id: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_earnings_cents: number;
   gross_amount: number;

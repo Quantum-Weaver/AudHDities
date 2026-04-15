@@ -25,14 +25,14 @@ export type SkaldUpdate = Database['public']['Tables']['skald']['Update'];
 export interface PublicSkald {
   art_gallery: Json | null;
   bard_roster: string[] | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   inspiring_content: Json | null;
   music_library: Json | null;
   mythology: Json | null;
   story_archive: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

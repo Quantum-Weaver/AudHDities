@@ -29,7 +29,7 @@ export type TimelinesUpdate = Database['public']['Tables']['timelines']['Update'
  * Public view of timelines
  */
 export interface PublicTimelines {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   event_id: string | null;

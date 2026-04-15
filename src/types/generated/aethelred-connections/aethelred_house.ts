@@ -32,13 +32,13 @@ export interface PublicAethelredHouse {
   boundary_agreements: Json | null;
   bridge_status: BridgeStatus | null;
   collaboration_protocols: Json | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   emergent_properties: Json | null;
   id: string;
   ninth_chair_occupant: string;
   shared_rituals: Json | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

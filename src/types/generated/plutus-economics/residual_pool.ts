@@ -23,16 +23,16 @@ export type ResidualPoolUpdate = Database['public']['Tables']['residual_pool']['
  * Public view of residual_pool
  */
 export interface PublicResidualPool {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   distributed_amount_cents: number | null;
-  "distributed_at": "string | null";
+  "distributed_at": string | null;
   id: string;
   product_id: string;
   remaining_amount_cents: number | null;
   sale_id: string;
   total_amount_cents: number;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

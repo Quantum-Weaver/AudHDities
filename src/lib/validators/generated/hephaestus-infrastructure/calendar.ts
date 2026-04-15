@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 import { CALENDAR_EVENT_TYPE } from '@/lib/constants/generated/hephaestus-infrastructure/calendar_event_type';
 import { CALENDAR_VISIBILITY } from '@/lib/constants/generated/hephaestus-infrastructure/calendar_visibility';
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hephaestus-infrastructure/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
 
 // =====================================================
 // Calendar SCHEMAS

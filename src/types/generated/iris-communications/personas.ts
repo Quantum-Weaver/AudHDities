@@ -26,14 +26,14 @@ export interface PublicPersonas {
   avatar_url: string | null;
   characteristics: Json | null;
   color: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string;
   description: string;
   id: string;
   is_active: boolean | null;
   name: string;
   slug: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

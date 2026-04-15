@@ -30,7 +30,7 @@ export type AnalyticsUpdate = Database['public']['Tables']['analytics']['Update'
  * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicAnalytics {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   event_category: AnalyticsCategory;
   event_name: string;

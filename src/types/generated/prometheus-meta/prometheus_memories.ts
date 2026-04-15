@@ -25,16 +25,16 @@ export type PrometheusMemoriesUpdate = Database['public']['Tables']['prometheus_
 export interface PublicPrometheusMemories {
   "average_duration_ms": "number";
   confidence_score: number;
-  "created_at": "string";
+  created_at: "string";
   dependencies: string[] | null;
   failure_count: number;
   id: string;
-  "last_used": "string | null";
+  "last_used": string | null;
   pattern_hash: string;
   pattern_type: string;
   success_count: number;
   template_recommendation: string | null;
-  "updated_at": "string";
+  updated_at: "string";
 }
 
 /**

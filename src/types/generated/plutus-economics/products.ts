@@ -36,7 +36,7 @@ export interface PublicProducts {
   category: string[] | null;
   channel_id: string | null;
   collaborators: string[] | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   description: string | null;
@@ -58,7 +58,7 @@ export interface PublicProducts {
   stripe_product_id: string | null;
   tags: string[] | null;
   title: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

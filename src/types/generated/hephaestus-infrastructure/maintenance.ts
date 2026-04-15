@@ -33,19 +33,19 @@ export interface PublicMaintenance {
   actual_end: string | null;
   actual_start: string | null;
   affected_systems: string[] | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   error_log: string | null;
   id: string;
   notes: string | null;
   performed_by: string | null;
-  "scheduled_end": "string | null";
-  "scheduled_start": "string | null";
+  "scheduled_end": string | null;
+  "scheduled_start": string | null;
   status: MaintenanceStatus | null;
   title: string;
   type: MaintenanceType;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

@@ -33,7 +33,7 @@ export type ActivityUpdate = Database['public']['Tables']['activity']['Update'];
 export interface PublicActivity {
   action_type: ActionType;
   actor_id: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   metadata: Json | null;

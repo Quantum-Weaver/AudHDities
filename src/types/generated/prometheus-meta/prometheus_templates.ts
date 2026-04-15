@@ -31,13 +31,13 @@ export type PrometheusTemplatesUpdate = Database['public']['Tables']['prometheus
 export interface PublicPrometheusTemplates {
   content: string;
   contexts: PatternContext[] | null;
-  "created_at": "string";
+  created_at: "string";
   dependencies: string[] | null;
   id: string;
   is_active: boolean;
   name: string;
   pattern: string;
-  "updated_at": "string";
+  updated_at: "string";
   variables: string[] | null;
   version: string;
 }

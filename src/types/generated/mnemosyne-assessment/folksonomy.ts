@@ -30,7 +30,7 @@ export type FolksonomyUpdate = Database['public']['Tables']['folksonomy']['Updat
  */
 export interface PublicFolksonomy {
   approved_by: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   id: string;

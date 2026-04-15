@@ -26,7 +26,7 @@ export interface PublicRegions {
   continent_id: string;
   country_code: string;
   country_code_3: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   flag_emoji: string | null;
   id: string;
@@ -34,7 +34,7 @@ export interface PublicRegions {
   name: string;
   name_localized: Json | null;
   phone_code: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

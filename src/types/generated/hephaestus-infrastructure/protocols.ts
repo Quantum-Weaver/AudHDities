@@ -29,12 +29,12 @@ export type ProtocolsUpdate = Database['public']['Tables']['protocols']['Update'
  * Public view of protocols
  */
 export interface PublicProtocols {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string;
   id: string;
   is_active: boolean | null;
-  "last_reviewed": "string | null";
+  "last_reviewed": string | null;
   name: string;
   next_review: string | null;
   owners: string[] | null;
@@ -43,7 +43,7 @@ export interface PublicProtocols {
   slug: string;
   steps: Json;
   type: ProtocolType;
-  "updated_at": "string | null";
+  updated_at: string | null;
   version: number | null;
 }
 

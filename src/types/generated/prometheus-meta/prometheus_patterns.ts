@@ -30,7 +30,7 @@ export type PrometheusPatternsUpdate = Database['public']['Tables']['prometheus_
  */
 export interface PublicPrometheusPatterns {
   contexts: PatternContext[];
-  "created_at": "string";
+  created_at: "string";
   default_template_id: string | null;
   dependencies: string[] | null;
   description: string;
@@ -40,7 +40,7 @@ export interface PublicPrometheusPatterns {
   is_active: boolean;
   name: string;
   naming_rule: string;
-  "updated_at": "string";
+  updated_at: "string";
 }
 
 /**

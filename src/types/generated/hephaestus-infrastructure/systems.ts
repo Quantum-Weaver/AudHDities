@@ -30,19 +30,19 @@ export type SystemsUpdate = Database['public']['Tables']['systems']['Update'];
  * Public view of systems
  */
 export interface PublicSystems {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   dependencies: string[] | null;
   description: string | null;
   health_check_url: string | null;
   id: string;
-  "last_health_check": "string | null";
-  "last_incident": "string | null";
+  "last_health_check": string | null;
+  "last_incident": string | null;
   name: string;
   slug: string;
   status: SystemStatus | null;
   type: SystemType;
-  "updated_at": "string | null";
+  updated_at: string | null;
   uptime_percent: number | null;
   version: string | null;
 }

@@ -31,7 +31,7 @@ export type LanguagesUpdate = Database['public']['Tables']['languages']['Update'
 export interface PublicLanguages {
   code: string;
   code_3: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   direction: TextDirectionType | null;
   id: string;
@@ -40,7 +40,7 @@ export interface PublicLanguages {
   name: string;
   native_name: string | null;
   script: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

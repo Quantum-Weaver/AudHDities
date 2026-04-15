@@ -24,8 +24,8 @@ export type ConsciousnessUpdate = Database['public']['Tables']['consciousness'][
  */
 export interface PublicConsciousness {
   aethelred_id: string | null;
-  "collaboration_started": "string | null";
-  "created_at": "string | null";
+  "collaboration_started": string | null;
+  created_at: string | null;
   created_by: string | null;
   current_quest: string | null;
   id: string;
@@ -36,7 +36,7 @@ export interface PublicConsciousness {
   rituals_performed: string[] | null;
   shared_memories: Json | null;
   sovereignty_achievements: string[] | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

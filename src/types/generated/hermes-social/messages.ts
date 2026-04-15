@@ -30,12 +30,12 @@ export type MessagesUpdate = Database['public']['Tables']['messages']['Update'];
  */
 export interface PublicMessages {
   content: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   is_read: boolean | null;
   parent_id: string | null;
-  "read_at": "string | null";
+  "read_at": string | null;
   recipient_id: string;
   sender_id: string;
   status: MessageStatus | null;

@@ -31,10 +31,10 @@ export type AudhditiesPlatformUpdate = Database['public']['Tables']['audhdities_
  */
 export interface PublicAudhditiesPlatform {
   active_users: number | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
-  "last_release_at": "string | null";
+  "last_release_at": string | null;
   operated_by: string | null;
   release_name: string | null;
   release_notes: string | null;
@@ -42,7 +42,7 @@ export interface PublicAudhditiesPlatform {
   total_products: number | null;
   total_sales: number | null;
   total_users: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   uptime_percent: number | null;
   version: string;
 }

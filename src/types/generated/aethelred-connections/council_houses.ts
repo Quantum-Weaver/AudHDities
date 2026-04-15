@@ -25,7 +25,7 @@ export type CouncilHousesUpdate = Database['public']['Tables']['council_houses']
 export interface PublicCouncilHouses {
   adept_quest: string | null;
   color: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string;
   display_name: string;
@@ -37,7 +37,7 @@ export interface PublicCouncilHouses {
   name: string;
   order_index: number;
   primary_domain: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

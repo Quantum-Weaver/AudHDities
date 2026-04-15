@@ -33,7 +33,7 @@ export interface PublicChannels {
   avatar_url: string | null;
   banner_url: string | null;
   content_rating: ContentRating | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   display_name: string;
@@ -44,7 +44,7 @@ export interface PublicChannels {
   subscription_price_ally: number | null;
   subscription_price_community: number | null;
   total_emeralds: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

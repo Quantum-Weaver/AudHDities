@@ -30,7 +30,7 @@ export type TranslationsUpdate = Database['public']['Tables']['translations']['U
  */
 export interface PublicTranslations {
   approved_by: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   field_name: string;
   id: string;
@@ -40,7 +40,7 @@ export interface PublicTranslations {
   translatable_type: TranslatableType;
   translation: string;
   translator_id: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

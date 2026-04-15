@@ -34,7 +34,7 @@ export type BadgesUpdate = Database['public']['Tables']['badges']['Update'];
 export interface PublicBadges {
   badge_type: BadgeType;
   color: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string;
   earn_condition: Json | null;

@@ -31,14 +31,14 @@ export type SuperpositionUpdate = Database['public']['Tables']['superposition'][
 export interface PublicSuperposition {
   collapse_count: number | null;
   concept_id: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   observer_count: number | null;
   possible_meanings: Json;
   probability_distribution: Json;
   status: SuperpositionStatus | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

@@ -31,7 +31,7 @@ export type LearningPathsUpdate = Database['public']['Tables']['learning_paths']
  */
 export interface PublicLearningPaths {
   cover_image: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   creator_id: string;
   description: string;
@@ -43,7 +43,7 @@ export interface PublicLearningPaths {
   prerequisite_path_id: string | null;
   slug: string;
   title: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

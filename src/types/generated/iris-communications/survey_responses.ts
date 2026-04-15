@@ -25,7 +25,7 @@ export type SurveyResponsesUpdate = Database['public']['Tables']['survey_respons
  */
 export interface PublicSurveyResponses {
   answers: Json;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   "duration_seconds": "number | null";
   id: string;

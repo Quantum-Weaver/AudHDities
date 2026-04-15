@@ -26,7 +26,7 @@ export interface PublicQuantumSuperposition {
   chosen_meaning: string;
   collapse_reason: string | null;
   confidence: number;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   superposition_id: string;

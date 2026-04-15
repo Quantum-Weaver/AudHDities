@@ -32,17 +32,17 @@ export type ApplicationsUpdate = Database['public']['Tables']['applications']['U
 export interface PublicApplications {
   admin_notes: string | null;
   application_type: ApplicationType;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   form_data: Json;
   id: string;
   onboarding_doc_path: string | null;
   onboarding_version: string | null;
   review_notes: string | null;
-  "reviewed_at": "string | null";
+  "reviewed_at": string | null;
   reviewed_by: string | null;
   status: ApplicationStatus | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   user_id: string;
 }
 

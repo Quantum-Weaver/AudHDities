@@ -30,19 +30,19 @@ export type GithubConnectionUpdate = Database['public']['Tables']['github_connec
  */
 export interface PublicGithubConnection {
   branch: string | null;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   id: string;
   issues_open: number | null;
-  "last_commit_at": "string | null";
-  "last_commit_message": "string | null";
-  "last_commit_sha": "string | null";
+  "last_commit_at": string | null;
+  "last_commit_message": string | null;
+  "last_commit_sha": string | null;
   operated_by: string | null;
   pull_requests_open: number | null;
   repository_name: string;
   repository_url: string;
   stars: number | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   workflow_status: WorkflowStatus | null;
 }
 

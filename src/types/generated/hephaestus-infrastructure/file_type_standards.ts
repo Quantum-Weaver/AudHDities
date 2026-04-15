@@ -23,7 +23,7 @@ export type FileTypeStandardsUpdate = Database['public']['Tables']['file_type_st
  * Public view of file_type_standards
  */
 export interface PublicFileTypeStandards {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   description: string | null;
   display_name: string;
@@ -39,7 +39,7 @@ export interface PublicFileTypeStandards {
   prohibited_patterns: string[] | null;
   required_imports: string[] | null;
   required_patterns: string[] | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   validation_description: string | null;
   validation_query: string | null;
 }

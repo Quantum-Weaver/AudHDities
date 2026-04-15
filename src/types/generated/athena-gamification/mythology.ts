@@ -32,7 +32,7 @@ export type MythologyUpdate = Database['public']['Tables']['mythology']['Update'
 export interface PublicMythology {
   author_id: string;
   content: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   house: CouncilHouse | null;
   id: string;
@@ -42,7 +42,7 @@ export interface PublicMythology {
   slug: string;
   title: string;
   type: MythType;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**

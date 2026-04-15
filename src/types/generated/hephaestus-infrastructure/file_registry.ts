@@ -24,7 +24,7 @@ export type FileRegistryUpdate = Database['public']['Tables']['file_registry']['
  */
 export interface PublicFileRegistry {
   category: string;
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   dependencies: string[] | null;
   emoji: string;
@@ -34,13 +34,13 @@ export interface PublicFileRegistry {
   file_type: string;
   id: string;
   is_active: boolean | null;
-  "last_validated": "string | null";
+  "last_validated": string | null;
   needs_review: boolean | null;
   purpose: string | null;
   review_notes: string | null;
   standards: string | null;
   subcategory: string | null;
-  "updated_at": "string | null";
+  updated_at: string | null;
   used_by: string[] | null;
   warning: string | null;
 }

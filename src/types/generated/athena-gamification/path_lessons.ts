@@ -23,7 +23,7 @@ export type PathLessonsUpdate = Database['public']['Tables']['path_lessons']['Up
  * Public view of path_lessons
  */
 export interface PublicPathLessons {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   lesson_id: string;
   order_index: number;

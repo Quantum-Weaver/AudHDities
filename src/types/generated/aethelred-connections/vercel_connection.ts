@@ -29,19 +29,19 @@ export type VercelConnectionUpdate = Database['public']['Tables']['vercel_connec
  * Public view of vercel_connection
  */
 export interface PublicVercelConnection {
-  "created_at": "string | null";
+  created_at: string | null;
   created_by: string | null;
   deployment_url: string;
   domain_config: Json | null;
   environment_variables: Json | null;
   id: string;
-  "last_deployment_at": "string | null";
-  "last_deployment_id": "string | null";
+  "last_deployment_at": string | null;
+  "last_deployment_id": string | null;
   operated_by: string | null;
   preview_urls: Json | null;
   project_id: string;
   project_name: string;
-  "updated_at": "string | null";
+  updated_at: string | null;
 }
 
 /**
