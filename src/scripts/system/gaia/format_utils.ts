@@ -6,7 +6,7 @@
 // Dependencies: EnrichedTable from enrich_objects, shared utilities
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories.js';
+import { getTableCategory, type ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { ImportManager } from '../../shared/import_manager.js';
 import type { EnrichedTable } from './enrich_objects.js';
@@ -54,8 +54,8 @@ function generateHeader(tableName: string, deityFolder: string, importManager: I
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}';
-import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
+import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}.ts';
 
 `;
 }
@@ -71,7 +71,7 @@ function generateCreateFunction(tableName: string): string {
  */
 export async function create${pascalName}(data: ${pascalName}Insert): Promise<{ data: ${pascalName}Row | null; error: string | null }> {
   try {
-    const validated = ${pascalName}InsertSchema.parse(data) as ${pascalName}Insert;
+    const validated = ${pascalName}InsertSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase
@@ -88,6 +88,7 @@ export async function create${pascalName}(data: ${pascalName}Insert): Promise<{ 
     return { data: null, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
+
 `;
 }
 
@@ -171,6 +172,9 @@ export async function list${pascalName}(params: {
 `;
 }
 
+/**
+ * Generate update utility function
+ */
 function generateUpdateFunction(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
@@ -179,7 +183,7 @@ function generateUpdateFunction(tableName: string): string {
  */
 export async function update${pascalName}(id: string, data: ${pascalName}Update): Promise<{ data: ${pascalName}Row | null; error: string | null }> {
   try {
-    const validated = ${pascalName}UpdateSchema.parse(data) as ${pascalName}Update;
+    const validated = ${pascalName}UpdateSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase
@@ -197,6 +201,7 @@ export async function update${pascalName}(id: string, data: ${pascalName}Update)
     return { data: null, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
+
 `;
 }
 

@@ -1,4 +1,4 @@
-// src/scripts/system/gaia/format_hooks.ts
+// src/scripts/generators/gaia/format_hooks.ts
 // ============================================================================
 // FORMAT HOOKS (GAIA)
 // ============================================================================

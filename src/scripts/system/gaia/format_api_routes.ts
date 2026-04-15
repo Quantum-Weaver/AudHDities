@@ -1,213 +1,561 @@
-/* src/scripts/system/gaia/generate_api_routes.ts */
-// Phase: Generate API route files for tables based on workflow config
-// Supports deity folder structure: app/api/generated/{deityFolder}/{tableName}/route.ts
+// src/scripts/generators/gaia/format_api_routes.ts
+// ============================================================================
+// FORMAT API ROUTES (GAIA)
+// ============================================================================
+// Purpose: Format table definitions into Next.js API routes
+// Dependencies: EnrichedTable from enrich_objects, shared utilities
+// Output: src/app/api/generated/{deityFolder}/{tableName}/route.ts
+// ============================================================================
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { stageFileChange } from '../../modules/system/staging.js';
-import { API_BASE_PATH } from '@/scripts/shared/paths.js';
-import {
-  generateGetListRoute,
-  generateGetSingleRoute,
-  generatePostRoute,
-  generatePutRoute,
-  generateDeleteRoute,
-  generateSpecialRoute,
-  type GeneratedRoute
-} from '../../modules/format/format_api_file.js';
-import {
-  assembleMainApiFile,
-  assembleSingleApiFile,
-  assembleSpecialApiFile
-} from '../../modules/assemble/assemble_api_file.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
+import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { ImportManager } from '../../shared/import_manager.js';
+import type { EnrichedTable } from './enrich_objects.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../..');
-
-export interface GenerateApiRoutesOptions {
+export interface FormatApiRoutesOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
   outputBase?: string;
+  askForApproval?: boolean;
+}
+
+export interface FormattedApiRoute {
+  verbose?: boolean
+  content: string;
+  filePath: string;
+  tableName: string;
+  routeType: 'list' | 'single' | 'special';
+  specialType?: string;
+  deityFolder: string;
+  category: ObjectCategory;
 }
 
 /**
- * Write content to file with staging support
+ * Convert snake_case to PascalCase for type names
  */
-async function writeApiFile(
-  filePath: string,
-  content: string,
-  options: GenerateApiRoutesOptions = {}
-): Promise<{ success: boolean; action: string }> {
-  const { verbose = false, dryRun = false, forceOverwrite = false } = options;
-  
-  const dir = path.dirname(filePath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  
-  const exists = fs.existsSync(filePath);
-  
-  if (dryRun) {
-    if (verbose) logDebug(`[DRY RUN] Would write to: ${filePath}`);
-    return { success: true, action: 'dryrun' };
-  }
-  
-  if (exists && !forceOverwrite) {
-    const existingContent = fs.readFileSync(filePath, 'utf-8');
-    if (existingContent === content) {
-      return { success: true, action: 'skipped' };
-    }
-    const stageResult = stageFileChange(filePath, content, { verbose });
-    if (stageResult.staged) {
-      return { success: true, action: 'staged' };
-    }
-  }
-  
-  fs.writeFileSync(filePath, content, 'utf-8');
-  return { success: true, action: exists ? 'updated' : 'created' };
+function toPascalCase(str: string): string {
+  return str
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
 }
 
 /**
- * Generate API routes for a single table with deity folder support
+ * Generate header comment for API route file
  */
-export async function generateApiRoutesForTable(
-  tableName: string,
-  config: {
-    hasGetList: boolean;
-    hasGetSingle: boolean;
-    hasPost: boolean;
-    hasPut: boolean;
-    hasDelete: boolean;
-    specialRoutes: string[];
-    deityFolder?: string;  // NEW: deity folder for nested structure
-  },
-  options: GenerateApiRoutesOptions = {}
-): Promise<{ main: string; single: string; special: string[] }> {
-  const { outputBase = API_BASE_PATH, verbose = false } = options;
-  const deityFolder = config.deityFolder;
-  
-  const result = { main: '', single: '', special: [] as string[] };
-  
-  // Collect main route handlers (route.ts)
-  const mainRoutes: GeneratedRoute[] = [];
-  if (config.hasGetList) mainRoutes.push(generateGetListRoute(tableName));
-  if (config.hasPost) mainRoutes.push(generatePostRoute(tableName));
-  
-  if (mainRoutes.length > 0) {
-    // Build path with deity folder if provided
-    let filePath: string;
-    if (deityFolder) {
-      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, 'route.ts');
-    } else {
-      filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'route.ts');
-    }
-    const content = assembleMainApiFile(tableName, mainRoutes, deityFolder);
-    const writeResult = await writeApiFile(filePath, content, options);
-    result.main = writeResult.action;
-    if (verbose) logInfo(`Main API route for ${deityFolder ? `${deityFolder}/` : ''}${tableName}: ${writeResult.action}`);
-  }
-  
-  // Collect single record route handlers ([id]/route.ts)
-  const singleRoutes: GeneratedRoute[] = [];
-  if (config.hasGetSingle) singleRoutes.push(generateGetSingleRoute(tableName));
-  if (config.hasPut) singleRoutes.push(generatePutRoute(tableName));
-  if (config.hasDelete) singleRoutes.push(generateDeleteRoute(tableName));
-  
-  if (singleRoutes.length > 0) {
-    let filePath: string;
-    if (deityFolder) {
-      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, 'id', 'route.ts');
-    } else {
-      filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'id', 'route.ts');
-    }
-    const content = assembleSingleApiFile(tableName, singleRoutes, deityFolder);
-    const writeResult = await writeApiFile(filePath, content, options);
-    result.single = writeResult.action;
-    if (verbose) logInfo(`Single API route for ${deityFolder ? `${deityFolder}/` : ''}${tableName}: ${writeResult.action}`);
-  }
-  
-  // Generate special routes
-  for (const specialType of config.specialRoutes) {
-    const route = generateSpecialRoute(tableName, specialType);
-    let filePath: string;
-    if (deityFolder) {
-      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, specialType, 'route.ts');
-    } else {
-      filePath = path.join(PROJECT_ROOT, outputBase, tableName, specialType, 'route.ts');
-    }
-    const content = assembleSpecialApiFile(tableName, specialType, route, deityFolder);
-    const writeResult = await writeApiFile(filePath, content, options);
-    result.special.push(writeResult.action);
-    if (verbose) logInfo(`Special API route ${deityFolder ? `${deityFolder}/` : ''}${tableName}/${specialType}: ${writeResult.action}`);
-  }
-  
-  return result;
+function generateHeader(tableName: string, deityFolder: string, routeType: string, methods: string[]): string {
+  const timestamp = new Date().toISOString();
+  const routePath = routeType === 'single' 
+    ? `/${deityFolder}/${tableName}/[id]` 
+    : routeType === 'special' 
+    ? `/${deityFolder}/${tableName}/[special]`
+    : `/${deityFolder}/${tableName}`;
+    
+  return `// =====================================================
+// API ROUTE: /api/generated${routePath}
+// METHODS: ${methods.join(', ')}
+// GENERATED: ${timestamp}
+// SOURCE: database.types.ts
+// =====================================================
+
+`;
 }
 
 /**
- * Generate API routes for multiple tables
+ * Generate GET /api/generated/{deity}/{table} route (list)
  */
-export async function generateApiRoutesForTables(
-  tables: Array<{
-    name: string;
-    hasGetList: boolean;
-    hasGetSingle: boolean;
-    hasPost: boolean;
-    hasPut: boolean;
-    hasDelete: boolean;
-    specialRoutes: string[];
-    deityFolder?: string;  // NEW: deity folder for each table
-  }>,
-  options: GenerateApiRoutesOptions = {}
-): Promise<{ created: number; updated: number; staged: number; skipped: number; errors: string[] }> {
-  const { verbose = false } = options;
+function generateGetListRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  // Add required imports
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'getPaginationParams');
+  importManager.addImport('@/lib/api/auth', 'getFilters');
+  importManager.addImport('@/lib/api/auth', 'getSortParams');
+  importManager.addImport('@/lib/api/auth', 'getOptionalUser');
   
-  const result = {
-    created: 0,
-    updated: 0,
-    staged: 0,
-    skipped: 0,
-    errors: [] as string[]
-  };
+  return `export async function GET(request: NextRequest) {
+  try {
+    const supabase = await createApiSupabase();
+    const { userId } = await getOptionalUser(request);
+    const { page, limit } = getPaginationParams(request.nextUrl);
+    const filters = getFilters(request.nextUrl);
+    const { column: sortColumn, ascending } = getSortParams(request.nextUrl);
+    
+    let query = supabase.from('${tableName}').select('*', { count: 'exact' });
+    
+    // Apply filters
+    Object.entries(filters).forEach(([key, value]) => {
+      query = query.eq(key, value);
+    });
+    
+    // Apply sorting
+    query = query.order(sortColumn, { ascending });
+    
+    // Apply pagination
+    const from = (page - 1) * limit;
+    const to = from + limit - 1;
+    query = query.range(from, to);
+    
+    const { data, error, count } = await query;
+    
+    if (error) throw error;
+    
+    return successResponse({
+      data,
+      pagination: {
+        page,
+        limit,
+        total: count || 0,
+        totalPages: Math.ceil((count || 0) / limit),
+        hasNext: page < Math.ceil((count || 0) / limit),
+        hasPrev: page > 1
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching ${tableName}:', error);
+    return errorResponse('Failed to fetch ${tableName}', 500);
+  }
+}`;
+}
+
+/**
+ * Generate GET /api/generated/{deity}/{table}/[id] route (single)
+ */
+function generateGetSingleRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'notFound');
+  
+  return `export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const supabase = await createApiSupabase();
+    
+    const { data, error } = await supabase
+      .from('${tableName}')
+      .select('*')
+      .eq('id', id)
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return notFound('${tableName}');
+      }
+      throw error;
+    }
+    
+    return successResponse(data);
+  } catch (error) {
+    console.error('Error fetching ${tableName}:', error);
+    return errorResponse('Failed to fetch ${tableName}', 500);
+  }
+}`;
+}
+
+/**
+ * Generate POST /api/generated/{deity}/{table} route (create)
+ */
+function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  const pascalName = toPascalCase(tableName);
+  
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/validators/generated', `${pascalName}InsertSchema`, true);
+  
+  return `export async function POST(request: NextRequest) {
+  try {
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) {
+      return unauthorized();
+    }
+    
+    const body = await request.json();
+    const validated = ${pascalName}InsertSchema.parse(body);
+    
+    const supabase = await createApiSupabase();
+    const { data, error } = await supabase
+      .from('${tableName}')
+      .insert({ ...validated, created_by: userId })
+      .select()
+      .single();
+    
+    if (error) throw error;
+    
+    return successResponse(data, 201);
+  } catch (error: any) {
+    if (error.name === 'ZodError') {
+      return errorResponse('Validation failed', 400, error.issues);
+    }
+    console.error('Error creating ${tableName}:', error);
+    return errorResponse('Failed to create ${tableName}', 500);
+  }
+}`;
+}
+
+/**
+ * Generate PUT /api/generated/{deity}/{table}/[id] route (update)
+ */
+function generatePutRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  const pascalName = toPascalCase(tableName);
+  
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'notFound');
+  importManager.addImport('@/lib/api/auth', 'forbidden');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/api/auth', 'checkOwnership');
+  importManager.addImport('@/lib/api/auth', 'isAdmin');
+  importManager.addImport('@/lib/validators/generated', `${pascalName}UpdateSchema`, true);
+  
+  return `export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) {
+      return unauthorized();
+    }
+    
+    // Check ownership or admin
+    const ownsRecord = await checkOwnership(userId, '${tableName}', id);
+    const admin = await isAdmin(userId);
+    if (!ownsRecord && !admin) {
+      return forbidden();
+    }
+    
+    const body = await request.json();
+    const validated = ${pascalName}UpdateSchema.parse(body);
+    
+    const supabase = await createApiSupabase();
+    const { data, error } = await supabase
+      .from('${tableName}')
+      .update(validated)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return notFound('${tableName}');
+      }
+      throw error;
+    }
+    
+    return successResponse(data);
+  } catch (error: any) {
+    if (error.name === 'ZodError') {
+      return errorResponse('Validation failed', 400, error.issues);
+    }
+    console.error('Error updating ${tableName}:', error);
+    return errorResponse('Failed to update ${tableName}', 500);
+  }
+}`;
+}
+
+/**
+ * Generate DELETE /api/generated/{deity}/{table}/[id] route
+ */
+function generateDeleteRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'notFound');
+  importManager.addImport('@/lib/api/auth', 'forbidden');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  importManager.addImport('@/lib/api/auth', 'checkOwnership');
+  importManager.addImport('@/lib/api/auth', 'isAdmin');
+  
+  return `export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) {
+      return unauthorized();
+    }
+    
+    // Check ownership or admin
+    const ownsRecord = await checkOwnership(userId, '${tableName}', id);
+    const admin = await isAdmin(userId);
+    if (!ownsRecord && !admin) {
+      return forbidden();
+    }
+    
+    const supabase = await createApiSupabase();
+    const { error } = await supabase
+      .from('${tableName}')
+      .delete()
+      .eq('id', id);
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return notFound('${tableName}');
+      }
+      throw error;
+    }
+    
+    return successResponse({ deleted: true });
+  } catch (error) {
+    console.error('Error deleting ${tableName}:', error);
+    return errorResponse('Failed to delete ${tableName}', 500);
+  }
+}`;
+}
+
+/**
+ * Generate special route (e.g., submit, results, link, unlink)
+ */
+function generateSpecialRoute(tableName: string, specialType: string, deityFolder: string, importManager: ImportManager): string {
+  importManager.addImport('next/server', 'NextRequest');
+  importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
+  importManager.addImport('@/lib/api/auth', 'successResponse');
+  importManager.addImport('@/lib/api/auth', 'errorResponse');
+  importManager.addImport('@/lib/api/auth', 'unauthorized');
+  importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
+  
+  return `export async function POST(
+  request: NextRequest,
+  { params }: { params: Promise<{ id?: string }> }
+) {
+  try {
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) {
+      return unauthorized();
+    }
+    
+    const body = await request.json();
+    const supabase = await createApiSupabase();
+    
+    // Special route logic for ${specialType}
+    const { data, error } = await supabase
+      .rpc('${tableName}_${specialType}', { ...body, p_user_id: userId });
+    
+    if (error) throw error;
+    
+    return successResponse(data, 201);
+  } catch (error) {
+    console.error('Error in ${specialType}:', error);
+    return errorResponse('Failed to process ${specialType}', 500);
+  }
+}`;
+}
+
+/**
+ * Format main API route file (list + create)
+ */
+function formatMainApiRoute(
+  table: EnrichedTable, 
+  hasGetList: boolean, 
+  hasPost: boolean
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
+  const methods: string[] = [];
+  let content = generateHeader(tableName, deityFolder, 'list', 
+    [...(hasGetList ? ['GET'] : []), ...(hasPost ? ['POST'] : [])]);
+  
+  if (hasGetList) {
+    content += generateGetListRoute(tableName, deityFolder, importManager);
+    methods.push('GET');
+    content += '\n';
+  }
+  
+  if (hasPost) {
+    content += generatePostRoute(tableName, deityFolder, importManager);
+    methods.push('POST');
+    content += '\n';
+  }
+  
+  // Add imports at the top
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + content;
+  
+  return { content: fullContent, methods };
+}
+
+/**
+ * Format single record API route file (get/put/delete)
+ */
+function formatSingleApiRoute(
+  table: EnrichedTable,
+  hasGetSingle: boolean,
+  hasPut: boolean,
+  hasDelete: boolean
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
+  const methods: string[] = [];
+  let content = generateHeader(tableName, deityFolder, 'single',
+    [...(hasGetSingle ? ['GET'] : []), ...(hasPut ? ['PUT'] : []), ...(hasDelete ? ['DELETE'] : [])]);
+  
+  if (hasGetSingle) {
+    content += generateGetSingleRoute(tableName, deityFolder, importManager);
+    methods.push('GET');
+    content += '\n';
+  }
+  
+  if (hasPut) {
+    content += generatePutRoute(tableName, deityFolder, importManager);
+    methods.push('PUT');
+    content += '\n';
+  }
+  
+  if (hasDelete) {
+    content += generateDeleteRoute(tableName, deityFolder, importManager);
+    methods.push('DELETE');
+    content += '\n';
+  }
+  
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + content;
+  
+  return { content: fullContent, methods };
+}
+
+/**
+ * Format special API route file
+ */
+function formatSpecialApiRoute(
+  table: EnrichedTable,
+  specialType: string
+): { content: string; methods: string[] } {
+  const { name: tableName, deityFolder } = table;
+  const importManager = new ImportManager();
+  const content = generateHeader(tableName, deityFolder, 'special', ['POST']);
+  const routeContent = content + generateSpecialRoute(tableName, specialType, deityFolder, importManager);
+  const importBlock = importManager.getImportBlock();
+  const fullContent = importBlock + '\n\n' + routeContent;
+  
+  return { content: fullContent, methods: ['POST'] };
+}
+
+/**
+ * Format all API routes for a table
+ * Accepts EnrichedTable (pre-resolved configuration)
+ */
+export function formatApiRoutes(
+  table: EnrichedTable,
+  options?: FormatApiRoutesOptions
+): FormattedApiRoute[] {
+  const { verbose = false } = options || {};
+  const { name: tableName, deityFolder, category } = table;
+  const results: FormattedApiRoute[] = [];
+  
+  if (verbose) {
+    logDebug(`Formatting API routes for: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  }
+  
+  // Main route (list + create)
+  if (category.generateApiGetList || category.generateApiPost) {
+    const { content, methods } = formatMainApiRoute(table, category.generateApiGetList, category.generateApiPost);
+    const filePath = `src/app/api/generated/${deityFolder}/${tableName}/route.ts`;
+    
+    results.push({
+      content,
+      filePath,
+      routeType: 'list',
+      tableName,
+      deityFolder,
+      category
+    });
+    
+    if (verbose) {
+      logDebug(`  Formatted main route for ${tableName} -> ${deityFolder}`);
+    }
+  }
+  
+  // Single record route (get/put/delete)
+  if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
+    const { content, methods } = formatSingleApiRoute(table, category.generateApiGetSingle, category.generateApiPut, category.generateApiDelete);
+    const filePath = `src/app/api/generated/${deityFolder}/${tableName}/[id]/route.ts`;
+    
+    results.push({
+      content,
+      filePath,
+      routeType: 'single',
+      tableName,
+      deityFolder,
+      category
+    });
+    
+    if (verbose) {
+      logDebug(`  Formatted single route for ${tableName} -> ${deityFolder}`);
+    }
+  }
+  
+  // Special routes
+  if (category.generateApiSpecial && category.generateApiSpecial.length > 0) {
+    for (const specialType of category.generateApiSpecial) {
+      const { content, methods } = formatSpecialApiRoute(table, specialType);
+      const filePath = `src/app/api/generated/${deityFolder}/${tableName}/${specialType}/route.ts`;
+      
+      results.push({
+        content,
+        filePath,
+        routeType: 'special',
+        specialType,
+        tableName,
+        deityFolder,
+        category
+      });
+      
+      if (verbose) {
+        logDebug(`  Formatted special route ${specialType} for ${tableName} -> ${deityFolder}`);
+      }
+    }
+  }
+  
+  return results;
+}
+
+/**
+ * Format multiple tables into API routes
+ * Accepts pre-enriched tables - no callbacks needed
+ */
+export function formatMultipleApiRoutes(
+  tables: EnrichedTable[],
+  options?: FormatApiRoutesOptions
+): FormattedApiRoute[] {
+  const { verbose = false } = options || {};
+  const results: FormattedApiRoute[] = [];
+  
+  if (verbose) {
+    logDebug(`Formatting API routes for ${tables.length} tables...`);
+  }
   
   for (const table of tables) {
-    try {
-      const tableResult = await generateApiRoutesForTable(table.name, table, options);
-      
-      const countAction = (action: string) => {
-        if (action === 'created') result.created++;
-        else if (action === 'updated') result.updated++;
-        else if (action === 'staged') result.staged++;
-        else if (action === 'skipped') result.skipped++;
-      };
-      
-      countAction(tableResult.main);
-      countAction(tableResult.single);
-      for (const special of tableResult.special) countAction(special);
-      
-    } catch (error) {
-      result.errors.push(`${table.name}: ${error}`);
+    const routes = formatApiRoutes(table, options);
+    results.push(...routes);
+    
+    if (verbose) {
+      logDebug(`  Formatted ${routes.length} API routes for ${table.name} -> ${table.deityFolder}`);
     }
   }
   
-  if (verbose && !options.dryRun) {
-    console.log('');
-    logSeparator('─', 40);
-    logInfo('API ROUTES GENERATION SUMMARY');
-    logSeparator('─', 40);
-    logSuccess(`Created: ${result.created}`);
-    if (result.updated > 0) logWarning(`Updated: ${result.updated}`);
-    if (result.staged > 0) logInfo(`Staged for review: ${result.staged}`);
-    logInfo(`Skipped: ${result.skipped}`);
-    if (result.errors.length > 0) logError(`Errors: ${result.errors.length}`);
+  if (verbose) {
+    logSuccess(`Formatted ${results.length} API route files`);
   }
   
-  return result;
+  return results;
 }
-
-export type FormattedApiRoute = GenerateApiRoutesOptions;
-export const formatApiRoutes =  generateApiRoutesForTable;

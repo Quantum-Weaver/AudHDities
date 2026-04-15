@@ -1,34 +1,36 @@
-/* src/scripts/modules/generate/generate_validators.ts */
+// src/scripts/generators/gaia/format_validators.ts
 // ============================================================================
-// GENERATE VALIDATORS
+// FORMAT VALIDATORS (GAIA)
 // ============================================================================
-// Purpose: Generate Zod validation schemas from table Row/Insert types
-// Supports deity folder structure: lib/validators/generated/{deityFolder}/{tableName}.ts
+// Purpose: Format table definitions into Zod validator files
+// Dependencies: types from extractTables, config from object-categories
 // ============================================================================
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
-import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
-import { stageFileChange } from '../../modules/system/staging.js';
-import { VALIDATORS_BASE_PATH } from '@/scripts/shared/paths.js';
+import type { TableInfo } from './extract_tables.js';
+import type { ObjectCategory } from '@/config/object_categories.js';
+import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { needsValidators } from '@/config/object_categories.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../..');
-
-export interface GenerateValidatorsOptions {
+export interface FormatValidatorsOptions {
   verbose?: boolean;
-  dryRun?: boolean;
-  forceOverwrite?: boolean;
-  outputBase?: string;  // default: 'lib/validators'
+}
+
+export interface FormattedValidator {
+  content: string;
+  filePath: string;
+  tableName: string;
+  deityFolder: string;
+  category: ObjectCategory;
 }
 
 /**
- * Convert snake_case to PascalCase
+ * Convert snake_case to PascalCase for type names
  */
 function toPascalCase(str: string): string {
-  return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  return str
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
 }
 
 /**
@@ -71,71 +73,23 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 }
 
 /**
- * Parse table content to extract Row and Insert sections using brace counting
+ * Generate header comment for validator file
  */
-export function parseTableSections(content: string): { rowContent: string; insertContent: string } {
-  const lines = content.split('\n');
-  
-  let rowStartLine = -1;
-  let rowEndLine = -1;
-  let insertStartLine = -1;
-  let insertEndLine = -1;
-  
-  // Find section start lines
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (line.match(/^\s*Row:\s*\{/)) {
-      rowStartLine = i;
-    }
-    if (line.match(/^\s*Insert:\s*\{/)) {
-      insertStartLine = i;
-    }
-  }
-  
-  // Find Row end (one line before Insert starts)
-  if (rowStartLine !== -1 && insertStartLine !== -1) {
-    rowEndLine = insertStartLine - 1;
-    const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
-    let rowContent = rowLines.join('\n').trim();
-    
-    // Remove trailing closing brace if present
-    if (rowContent.endsWith('}')) {
-      rowContent = rowContent.slice(0, -1).trim();
-    }
-    
-    // Find Insert end (look for closing brace)
-    let braceCount = 0;
-    let foundOpen = false;
-    for (let i = insertStartLine; i < lines.length; i++) {
-      for (const char of lines[i]) {
-        if (char === '{') {
-          braceCount++;
-          foundOpen = true;
-        }
-        if (char === '}') {
-          braceCount--;
-        }
-      }
-      if (foundOpen && braceCount === 0) {
-        insertEndLine = i;
-        break;
-      }
-    }
-    
-    const insertLines = lines.slice(insertStartLine + 1, insertEndLine);
-    let insertContent = insertLines.join('\n').trim();
-    if (insertContent.endsWith('}')) {
-      insertContent = insertContent.slice(0, -1).trim();
-    }
-    
-    return { rowContent, insertContent };
-  }
-  
-  return { rowContent: '', insertContent: '' };
+function generateHeader(tableName: string, deityFolder: string): string {
+  const timestamp = new Date().toISOString();
+  return `// =====================================================
+// FILE: validators/generated/${deityFolder}/${tableName}.ts
+// GENERATED: ${timestamp}
+// SOURCE: database.types.ts
+// =====================================================
+
+import { z } from 'zod';
+
+`;
 }
 
 /**
- * Generate Zod schema for a table's Row type
+ * Generate Row schema (all fields required as in database)
  */
 function generateRowSchema(tableName: string, rowContent: string): string {
   const lines = rowContent.split('\n');
@@ -153,14 +107,14 @@ function generateRowSchema(tableName: string, rowContent: string): string {
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Row schema`;
+    return `// No fields found for ${tableName} Row schema\n`;
   }
   
   return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
- * Generate Zod schema for a table's Insert type
+ * Generate Insert schema (all fields optional for creation)
  */
 function generateInsertSchema(tableName: string, insertContent: string): string {
   const lines = insertContent.split('\n');
@@ -181,175 +135,183 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Insert schema`;
+    return `// No fields found for ${tableName} Insert schema\n`;
   }
   
   return `export const ${pascalName}InsertSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
- * Generate complete validator file content for a single table with deity folder
+ * Generate Update schema (all fields optional)
  */
-export function generateValidatorContent(
-  tableName: string, 
-  rowContent: string, 
-  insertContent: string,
-  deityFolder?: string
-): string {
+function generateUpdateSchema(tableName: string, updateContent: string): string {
+  const lines = updateContent.split('\n');
+  const fields: string[] = [];
   const pascalName = toPascalCase(tableName);
-  const folderPath = deityFolder ? `${deityFolder}/` : '';
-  const timestamp = new Date().toISOString();
   
-  let content = `// =====================================================\n`;
-  content += `// FILE: validators/generated/${folderPath}${tableName}.ts\n`;
-  content += `// GENERATED: ${timestamp}\n`;
-  content += `// SOURCE: database.types.ts\n`;
-  content += `// DEITY: ${deityFolder || 'root'}\n`;
-  content += `// =====================================================\n\n`;
+  for (const line of lines) {
+    // Update fields often have ? for optional
+    const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
+    if (fieldMatch) {
+      const fieldName = fieldMatch[1];
+      const fieldType = fieldMatch[2].trim();
+      const zodType = dbTypeToZod(fieldType, fieldName);
+      // Make optional for update schema
+      const optionalZod = `${zodType}.optional()`;
+      fields.push(`  ${fieldName}: ${optionalZod},`);
+    }
+  }
   
-  content += `import { z } from 'zod';\n\n`;
+  if (fields.length === 0) {
+    return `// No fields found for ${tableName} Update schema\n`;
+  }
+  
+  return `export const ${pascalName}UpdateSchema = z.object({\n${fields.join('\n')}\n});`;
+}
+
+/**
+ * Format a table into a validator file content
+ */
+function formatValidatorContent(tableInfo: TableInfo, deityFolder: string): string {
+  const { name: tableName, rowContent, insertContent, updateContent } = tableInfo;
+  const pascalName = toPascalCase(tableName);
+  
+  // Validate we have content to work with
+  if (!rowContent || rowContent.trim() === '') {
+    return `// SKIPPED: No row content found for ${tableName}\n`;
+  }
+  
+  let content = generateHeader(tableName, deityFolder);
   
   content += `// =====================================================\n`;
   content += `// ${pascalName} SCHEMAS\n`;
   content += `// =====================================================\n\n`;
   
-  if (rowContent && rowContent.trim()) {
+  if (rowContent) {
     content += generateRowSchema(tableName, rowContent) + '\n\n';
   }
   
-  if (insertContent && insertContent.trim()) {
+  if (insertContent) {
     content += generateInsertSchema(tableName, insertContent) + '\n\n';
+  }
+  
+  if (updateContent) {
+    content += generateUpdateSchema(tableName, updateContent) + '\n\n';
   }
   
   content += `// =====================================================\n`;
   content += `// TYPE INFERENCE\n`;
   content += `// =====================================================\n\n`;
-  content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
-  content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
+  
+  if (rowContent) {
+    content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
+  }
+  
+  if (insertContent) {
+    content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
+  }
+  
+  if (updateContent) {
+    content += `export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;\n`;
+  }
   
   return content;
 }
 
 /**
- * Generate validator file for a single table with deity folder support
+ * Format a table into a validator file
  */
-export async function generateValidatorForTable(
-  tableName: string,
-  tableContent: string,
-  deityFolder?: string,
-  options: GenerateValidatorsOptions = {}
-): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = 'lib/validators' } = options;
+export function formatValidator(
+  tableInfo: TableInfo,
+  deityFolder: string,
+  category: ObjectCategory,
+  options?: FormatValidatorsOptions
+): FormattedValidator | null {
+  const { verbose = false } = options || {};
   
-  // Parse the table content
-  const { rowContent, insertContent } = parseTableSections(tableContent);
-  
-  if (!rowContent && !insertContent) {
-    return { success: false, filePath: '', message: `No content found for ${tableName}`, action: 'failed' };
-  }
-  
-  const content = generateValidatorContent(tableName, rowContent, insertContent, deityFolder);
-  
-  // Build output path with deity folder if provided
-  let outputPath: string;
-  if (deityFolder) {
-    outputPath = path.join(PROJECT_ROOT, outputBase, 'generated', deityFolder, `${tableName}.ts`);
-  } else {
-    outputPath = path.join(PROJECT_ROOT, outputBase, 'generated', `${tableName}.ts`);
-  }
-  
-  // Ensure directory exists
-  const outputDir = path.dirname(outputPath);
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
-    if (verbose) logDebug(`Created directory: ${outputDir}`);
-  }
-  
-  // Check if file exists
-  const exists = fs.existsSync(outputPath);
-  
-  if (dryRun) {
+  // Check if this table needs validators
+  if (!needsValidators(tableInfo.name)) {
     if (verbose) {
-      logInfo(`[DRY RUN] Would create validator: ${outputPath}`);
+      logDebug(`Skipping validator for ${tableInfo.name} (not configured for validators)`);
     }
-    return { success: true, filePath: outputPath, message: `Would create ${outputPath}`, action: 'dryrun' };
-  }
-  
-  // If file exists and not forcing overwrite, stage the change
-  if (exists && !forceOverwrite) {
-    const existingContent = fs.readFileSync(outputPath, 'utf-8');
-    if (existingContent === content) {
-      if (verbose) logDebug(`Validator unchanged: ${outputPath}`);
-      return { success: true, filePath: outputPath, message: 'Unchanged', action: 'skipped' };
-    }
-    
-    // Stage the change
-    const stageResult = stageFileChange(outputPath, content, { verbose });
-    if (stageResult.staged) {
-      if (verbose) {
-        logWarning(`Validator changes staged for: ${deityFolder ? `${deityFolder}/` : ''}${tableName}`);
-        logInfo(`  Review: ${stageResult.stagingPath}`);
-      }
-      return { success: true, filePath: outputPath, message: 'Staged for review', action: 'staged' };
-    }
-  }
-  
-  // Write the file (new file or forced overwrite)
-  fs.writeFileSync(outputPath, content, 'utf-8');
-  if (exists) {
-    logWarning(`Validator overwritten: ${outputPath}`);
-    return { success: true, filePath: outputPath, message: 'Overwritten', action: 'updated' };
-  } else {
-    logSuccess(`Validator created: ${outputPath}`);
-    return { success: true, filePath: outputPath, message: 'Created', action: 'created' };
-  }
-}
-
-/**
- * Generate validators for multiple tables with deity folder support
- */
-export async function generateValidatorsForTables(
-  tables: Array<{ name: string; content: string; deityFolder?: string }>,
-  options: GenerateValidatorsOptions = {}
-): Promise<{ created: number; updated: number; staged: number; skipped: number; errors: string[] }> {
-  const { verbose = false } = options;
-  
-  const result = {
-    created: 0,
-    updated: 0,
-    staged: 0,
-    skipped: 0,
-    errors: [] as string[]
-  };
-  
-  for (const table of tables) {
-    const fileResult = await generateValidatorForTable(table.name, table.content, table.deityFolder, options);
-    
-    if (fileResult.success) {
-      if (fileResult.action === 'created') result.created++;
-      else if (fileResult.action === 'updated') result.updated++;
-      else if (fileResult.action === 'staged') result.staged++;
-      else if (fileResult.action === 'skipped') result.skipped++;
-    } else {
-      result.errors.push(fileResult.message);
-    }
-    
+    return null;
   }
   
   if (verbose) {
-    console.log('');
-    logSeparator('─', 40);
-    logInfo('VALIDATOR GENERATION SUMMARY');
-    logSeparator('─', 40);
-    logSuccess(`Created: ${result.created}`);
-    if (result.updated > 0) logWarning(`Updated: ${result.updated}`);
-    if (result.staged > 0) logInfo(`Staged for review: ${result.staged}`);
-    logInfo(`Skipped: ${result.skipped}`);
-    if (result.errors.length > 0) logError(`Errors: ${result.errors.length}`);
+    logDebug(`Formatting validator: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
   }
   
-  return result;
+  // Validate row content exists
+  if (!tableInfo.rowContent || tableInfo.rowContent.trim() === '') {
+    logWarning(`No row content for ${tableInfo.name}, skipping validator generation`);
+    return null;
+  }
+  
+  const content = formatValidatorContent(tableInfo, deityFolder);
+  const filePath = `src/lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
+  
+  if (verbose) {
+    logDebug(`  Generated ${content.length} characters`);
+  }
+  
+  return {
+    content,
+    filePath,
+    tableName: tableInfo.name,
+    deityFolder,
+    category
+  };
+}
 
-
-
+/**
+ * Format multiple tables into validator files
+ */
+export function formatValidators(
+  tables: TableInfo[],
+  getDeityFolder: (tableName: string) => string,
+  getCategory: (tableName: string) => ObjectCategory,
+  options?: FormatValidatorsOptions
+): FormattedValidator[] {
+  const { verbose = false } = options || {};
+  const results: FormattedValidator[] = [];
+  
+  if (verbose) {
+    logDebug(`Formatting validators for ${tables.length} tables...`);
+  }
+  
+  for (const tableInfo of tables) {
+    // Skip if no row content
+    if (!tableInfo.rowContent || tableInfo.rowContent.trim() === '') {
+      if (verbose) {
+        logDebug(`  Skipping validator for ${tableInfo.name} (no row content)`);
+      }
+      continue;
+    }
+    
+    const deityFolder = getDeityFolder(tableInfo.name);
+    const category = getCategory(tableInfo.name);
+    
+    // Check if this table needs validators (using config)
+    if (!needsValidators(tableInfo.name)) {
+      if (verbose) {
+        logDebug(`  Skipping validator for ${tableInfo.name} (not full_crud or assessment)`);
+      }
+      continue;
+    }
+    
+    const formatted = formatValidator(tableInfo, deityFolder, category, options);
+    if (formatted) {
+      results.push(formatted);
+      
+      if (verbose) {
+        logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder}`);
+      }
+    }
+  }
+  
+  if (verbose) {
+    logSuccess(`Formatted ${results.length} validator files`);
+  }
+  
+  return results;
 }
