@@ -290,14 +290,7 @@ export default async function MarketplacePage() {
                       {creator.display_name || creator.username}
                     </h3>
                     <div className="flex items-center justify-center gap-2 mt-2">
-                      {creator.creator_profiles?.verified_badge && (
-                        <span className="inline-flex items-center gap-1 text-xs text-green-400">
-                          <Star size={12} /> Verified
-                        </span>
-                      )}
-                      <span className="text-xs text-white/40">
-                        {creator.creator_profiles?.total_products || 0} products
-                      </span>
+
                     </div>
                     <Button 
                       variant="outline" 

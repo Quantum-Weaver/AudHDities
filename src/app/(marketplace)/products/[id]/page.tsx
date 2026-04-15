@@ -7,7 +7,7 @@ import { ProductDetail } from '@/components/products/ProductDetail';
 import { ProductCard } from '@/components/products/ProductCard';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import type { Product, ProductWithCreator} from '@/types/supabase/tables/products';
+import type { Product, ProductWithCreator} from '@/types/generated/plutus-economics/products';
 import type { ProfileWithRelations } from '@/types/supabase/tables/profiles';
 
 interface ProductPageProps {
