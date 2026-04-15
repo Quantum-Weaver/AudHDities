@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useContactSubmissions
-// GENERATED: 2026-04-14T21:23:53.128Z
+// GENERATED: 2026-04-15T19:06:11.802Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================

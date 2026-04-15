@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hermes-social/notifications.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.210Z
+// GENERATED: 2026-04-15T19:06:11.497Z
 // SOURCE: database.types.ts lines 3353-3418
 // =====================================================
 

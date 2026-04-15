@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/skald.ts
-// GENERATED: 2026-04-15T18:11:44.492Z
+// GENERATED: 2026-04-15T19:06:11.662Z
 // SOURCE: database.types.ts
 // =====================================================
 

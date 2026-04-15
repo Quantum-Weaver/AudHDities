@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useConsciousness
-// GENERATED: 2026-04-14T21:23:53.127Z
+// GENERATED: 2026-04-15T19:06:11.801Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/content_rating.ts
-// GENERATED: 2026-04-15T18:28:45.888Z
+// GENERATED: 2026-04-15T19:06:11.213Z
 // SOURCE: Constants.public.Enums.content_rating
 // VALUES: 4 entries
 // =====================================================

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/mnemosyne-assessment/ontology_predicate.ts
-// GENERATED: 2026-04-15T18:28:45.912Z
+// GENERATED: 2026-04-15T19:06:11.433Z
 // SOURCE: Constants.public.Enums.ontology_predicate
 // VALUES: 6 entries
 // =====================================================

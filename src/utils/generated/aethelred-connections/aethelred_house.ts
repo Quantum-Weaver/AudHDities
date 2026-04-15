@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/aethelred_house.ts
-// GENERATED: 2026-04-15T18:11:44.444Z
+// GENERATED: 2026-04-15T19:06:11.620Z
 // SOURCE: database.types.ts
 // =====================================================
 

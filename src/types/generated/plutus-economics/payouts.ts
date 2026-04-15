@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/payouts.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.213Z
+// GENERATED: 2026-04-15T19:06:11.500Z
 // SOURCE: database.types.ts lines 3536-3599
 // =====================================================
 

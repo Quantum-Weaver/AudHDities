@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.230Z
+// GENERATED: 2026-04-15T19:06:11.519Z
 // SOURCE: database.types.ts lines 5207-5252
 // =====================================================
 

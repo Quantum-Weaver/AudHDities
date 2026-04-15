@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hermes-social/activity.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.179Z
+// GENERATED: 2026-04-15T19:06:11.464Z
 // SOURCE: database.types.ts lines 206-266
 // =====================================================
 

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/audhdities_platform.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.184Z
+// GENERATED: 2026-04-15T19:06:11.469Z
 // SOURCE: database.types.ts lines 661-738
 // =====================================================
 

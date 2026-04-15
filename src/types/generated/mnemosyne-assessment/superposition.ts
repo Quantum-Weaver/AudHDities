@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/superposition.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.237Z
+// GENERATED: 2026-04-15T19:06:11.526Z
 // SOURCE: database.types.ts lines 5874-5927
 // =====================================================
 

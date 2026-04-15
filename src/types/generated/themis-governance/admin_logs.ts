@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/themis-governance/admin_logs.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.180Z
+// GENERATED: 2026-04-15T19:06:11.465Z
 // SOURCE: database.types.ts lines 267-353
 // =====================================================
 

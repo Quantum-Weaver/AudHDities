@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-15T18:11:44.433Z
+// GENERATED: 2026-04-15T19:06:11.610Z
 // SOURCE: database.types.ts
 // =====================================================
 

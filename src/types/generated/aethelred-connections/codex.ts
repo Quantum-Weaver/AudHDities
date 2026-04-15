@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/codex.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.188Z
+// GENERATED: 2026-04-15T19:06:11.473Z
 // SOURCE: database.types.ts lines 989-1042
 // =====================================================
 

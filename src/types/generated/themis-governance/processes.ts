@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/themis-governance/processes.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.215Z
+// GENERATED: 2026-04-15T19:06:11.502Z
 // SOURCE: database.types.ts lines 3735-3793
 // =====================================================
 

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.236Z
+// GENERATED: 2026-04-15T19:06:11.524Z
 // SOURCE: database.types.ts lines 5675-5737
 // =====================================================
 

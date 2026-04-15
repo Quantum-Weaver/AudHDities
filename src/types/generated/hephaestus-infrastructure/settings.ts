@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/settings.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.234Z
+// GENERATED: 2026-04-15T19:06:11.523Z
 // SOURCE: database.types.ts lines 5571-5620
 // =====================================================
 

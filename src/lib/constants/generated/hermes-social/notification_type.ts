@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hermes-social/notification_type.ts
-// GENERATED: 2026-04-15T18:28:45.911Z
+// GENERATED: 2026-04-15T19:06:11.433Z
 // SOURCE: Constants.public.Enums.notification_type
 // VALUES: 13 entries
 // =====================================================

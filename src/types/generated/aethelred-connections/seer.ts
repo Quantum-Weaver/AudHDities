@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.234Z
+// GENERATED: 2026-04-15T19:06:11.522Z
 // SOURCE: database.types.ts lines 5517-5570
 // =====================================================
 

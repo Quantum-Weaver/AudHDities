@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/localization.ts
-// GENERATED: 2026-04-15T18:11:44.276Z
+// GENERATED: 2026-04-15T19:06:11.567Z
 // SOURCE: database.types.ts
 // =====================================================
 

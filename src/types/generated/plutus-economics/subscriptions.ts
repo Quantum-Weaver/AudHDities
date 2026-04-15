@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/subscriptions.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T18:11:44.236Z
+// GENERATED: 2026-04-15T19:06:11.524Z
 // SOURCE: database.types.ts lines 5738-5798
 // =====================================================
 

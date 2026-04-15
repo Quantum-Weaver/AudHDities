@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/council_houses.ts
-// GENERATED: 2026-04-15T18:11:44.262Z
+// GENERATED: 2026-04-15T19:06:11.552Z
 // SOURCE: database.types.ts
 // =====================================================
 

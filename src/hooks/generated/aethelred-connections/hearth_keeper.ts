@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useHearthKeeper
-// GENERATED: 2026-04-14T21:23:53.138Z
+// GENERATED: 2026-04-15T19:06:11.811Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

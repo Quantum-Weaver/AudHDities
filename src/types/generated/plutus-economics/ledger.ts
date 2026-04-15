@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/ledger.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.205Z
+// GENERATED: 2026-04-15T19:06:11.492Z
 // SOURCE: database.types.ts lines 2816-2882
 // =====================================================
 

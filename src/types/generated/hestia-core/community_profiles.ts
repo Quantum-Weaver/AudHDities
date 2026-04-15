@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/community_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T18:11:44.189Z
+// GENERATED: 2026-04-15T19:06:11.474Z
 // SOURCE: database.types.ts lines 1111-1206
 // =====================================================
 

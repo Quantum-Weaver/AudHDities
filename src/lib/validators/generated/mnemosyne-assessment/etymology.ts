@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/etymology.ts
-// GENERATED: 2026-04-15T18:11:44.269Z
+// GENERATED: 2026-04-15T19:06:11.559Z
 // SOURCE: database.types.ts
 // =====================================================
 

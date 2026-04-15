@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/vercel_connection.ts
-// GENERATED: 2026-04-15T18:11:44.432Z
+// GENERATED: 2026-04-15T19:06:11.609Z
 // SOURCE: database.types.ts
 // =====================================================
 

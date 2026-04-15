@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/file_registry.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.201Z
+// GENERATED: 2026-04-15T19:06:11.487Z
 // SOURCE: database.types.ts lines 2348-2424
 // =====================================================
 

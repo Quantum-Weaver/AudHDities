@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hermes-social/messages.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.208Z
+// GENERATED: 2026-04-15T19:06:11.495Z
 // SOURCE: database.types.ts lines 3139-3209
 // =====================================================
 

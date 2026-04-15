@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/skald.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.235Z
+// GENERATED: 2026-04-15T19:06:11.523Z
 // SOURCE: database.types.ts lines 5621-5674
 // =====================================================
 

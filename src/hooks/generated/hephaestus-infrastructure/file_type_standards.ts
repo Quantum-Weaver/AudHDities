@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useFileTypeStandards
-// GENERATED: 2026-04-14T21:23:53.136Z
+// GENERATED: 2026-04-15T19:06:11.810Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================

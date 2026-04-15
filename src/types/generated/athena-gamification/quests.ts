@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/quests.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.224Z
+// GENERATED: 2026-04-15T19:06:11.511Z
 // SOURCE: database.types.ts lines 4524-4592
 // =====================================================
 

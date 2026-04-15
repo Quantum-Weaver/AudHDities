@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/badges.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.185Z
+// GENERATED: 2026-04-15T19:06:11.470Z
 // SOURCE: database.types.ts lines 739-797
 // =====================================================
 

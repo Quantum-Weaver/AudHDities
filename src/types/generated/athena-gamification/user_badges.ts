@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/user_badges.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T18:11:44.243Z
+// GENERATED: 2026-04-15T19:06:11.532Z
 // SOURCE: database.types.ts lines 6413-6467
 // =====================================================
 

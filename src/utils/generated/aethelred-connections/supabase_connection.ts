@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/supabase_connection.ts
-// GENERATED: 2026-04-15T18:11:44.494Z
+// GENERATED: 2026-04-15T19:06:11.663Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/channels.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.187Z
+// GENERATED: 2026-04-15T19:06:11.472Z
 // SOURCE: database.types.ts lines 917-988
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/badges.ts
-// GENERATED: 2026-04-15T18:11:44.255Z
+// GENERATED: 2026-04-15T19:06:11.543Z
 // SOURCE: database.types.ts
 // =====================================================
 

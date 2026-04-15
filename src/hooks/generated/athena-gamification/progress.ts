@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useProgress
-// GENERATED: 2026-04-14T21:23:53.148Z
+// GENERATED: 2026-04-15T19:06:11.823Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================

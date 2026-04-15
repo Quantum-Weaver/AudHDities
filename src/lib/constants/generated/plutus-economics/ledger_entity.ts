@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/ledger_entity.ts
-// GENERATED: 2026-04-15T18:28:45.902Z
+// GENERATED: 2026-04-15T19:06:11.425Z
 // SOURCE: Constants.public.Enums.ledger_entity
 // VALUES: 4 entries
 // =====================================================

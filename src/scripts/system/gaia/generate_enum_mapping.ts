@@ -24,6 +24,12 @@ const DEITY_PRIORITY: Record<string, number> = {
   'aethelred-connections': 20
 };
 
+const MANUAL_OVERRIDES: Record<string, string> = {
+  'payout_method': 'hestia-core',
+  'user_tier': 'hestia-core',
+  'council_house': 'hestia-core',
+  // Add more as needed
+};
 export function generateEnumMapping(tables: TableInfo[]): Record<string, EnumMappingEntry> {
   const references: Map<string, EnumReference[]> = new Map();
   
@@ -47,6 +53,16 @@ export function generateEnumMapping(tables: TableInfo[]): Record<string, EnumMap
   const mapping: Record<string, EnumMappingEntry> = {};
   
   for (const [enumName, refs] of references) {
+        if (MANUAL_OVERRIDES[enumName]) {
+      mapping[enumName] = {
+        enumName,
+        deityFolder: MANUAL_OVERRIDES[enumName],
+        referencedIn: refs.map(r => r.tableName),
+        priority: 100  // Highest priority ensures it's respected
+      };
+      continue;
+    }
+    
     // Find the reference with highest priority
     const bestMatch = refs.reduce((best, current) => 
       current.tablePriority > best.tablePriority ? current : best, refs[0]);

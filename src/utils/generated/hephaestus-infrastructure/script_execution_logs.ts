@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/script_execution_logs.ts
-// GENERATED: 2026-04-15T18:11:44.488Z
+// GENERATED: 2026-04-15T19:06:11.660Z
 // SOURCE: database.types.ts
 // =====================================================
 

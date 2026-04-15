@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/creative_categories.ts
-// GENERATED: 2026-04-15T18:11:44.454Z
+// GENERATED: 2026-04-15T19:06:11.630Z
 // SOURCE: database.types.ts
 // =====================================================
 

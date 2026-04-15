@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/consciousness.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.190Z
+// GENERATED: 2026-04-15T19:06:11.475Z
 // SOURCE: database.types.ts lines 1207-1279
 // =====================================================
 

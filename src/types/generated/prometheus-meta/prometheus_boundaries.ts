@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T18:11:44.218Z
+// GENERATED: 2026-04-15T19:06:11.506Z
 // SOURCE: database.types.ts lines 4117-4158
 // =====================================================
 

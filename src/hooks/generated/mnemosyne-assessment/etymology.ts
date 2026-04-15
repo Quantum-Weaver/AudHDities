@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useEtymology
-// GENERATED: 2026-04-14T21:23:53.134Z
+// GENERATED: 2026-04-15T19:06:11.808Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================
