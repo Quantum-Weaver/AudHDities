@@ -1,13 +1,16 @@
 // src/scripts/shared/quote_manager.ts
 // ============================================================================
-// QUOTE MANAGER - Handle quote wrapping for time/date values and field names
+// QUOTE MANAGER - Handle quote wrapping for constants ONLY
 // ============================================================================
-// Purpose: Ensure proper quote formatting for generated files
-// Used by: All GAIA format generators
+// Purpose: Ensure proper quote formatting for constant files
+// Used by: GAIA constant generators (format_constants.ts)
+// 
+// ⚠️ IMPORTANT: This module ONLY affects constant generation.
+//    Type files, validators, utils, API routes, and hooks are NOT affected.
 // ============================================================================
 
 // ============================================================================
-// PATTERNS FOR VALUE CLEANING
+// CONSTANTS-ONLY PATTERNS
 // ============================================================================
 
 /** Patterns for enum values that need space removal (time formats) */
@@ -17,81 +20,113 @@ const TIME_DATE_VALUE_PATTERNS = [
   /^\d{1,2}\s?hr$/i,      // "12hr", "12 hr"
 ];
 
-/** Patterns for field names that need quote wrapping in interfaces */
-const TIME_DATE_FIELD_PATTERNS = [
-  /_at$/,           // created_at, updated_at, deleted_at
-  /_time$/,         // start_time, end_time, processing_time
-  /^last_/,         // last_active, last_login, last_accessed
-  /^date_/,         // date_of_birth, date_created, date_modified
-  /timestamp/,
-  /expires/,
-  /expiry/,
-  /started/,
-  /completed/,
-  /published/,
-  /scheduled/,
-  /duration/,
+/** Enum names that should NEVER be cleaned (preserve original values) */
+const EXCLUDED_ENUM_NAMES = [
+  'user_tier',
+  'user_status', 
+  'council_house',
+  'business_type',
+  'verification_status',
+  'communication_style'
 ];
 
 // ============================================================================
-// VALUE CLEANING FUNCTIONS
+// CONSTANTS-ONLY FUNCTIONS
 // ============================================================================
 
 /**
- * Check if a value is a time/date format that needs cleaning
+ * Check if an enum value needs cleaning (time/date formats only)
+ * Used ONLY for constant file generation
  */
-export function isTimeDateValue(value: string): boolean {
+export function needsConstantValueCleaning(value: string): boolean {
   return TIME_DATE_VALUE_PATTERNS.some(pattern => pattern.test(value));
 }
 
 /**
- * Clean enum value (remove spaces, normalize time formats)
+ * Check if an enum name should be excluded from cleaning
+ */
+export function isExcludedEnum(enumName: string): boolean {
+  return EXCLUDED_ENUM_NAMES.includes(enumName);
+}
+
+/**
+ * Clean enum value for constants (remove spaces, normalize time formats)
+ * Used ONLY for constant file generation
+ * 
  * Example: "12 h" → "12h", "24 H" → "24H"
  */
-export function cleanEnumValue(value: string): string {
-  if (isTimeDateValue(value)) {
+export function cleanConstantValue(value: string, enumName?: string): string {
+  // Skip cleaning for excluded enums
+  if (enumName && isExcludedEnum(enumName)) {
+    return value;
+  }
+  
+  if (needsConstantValueCleaning(value)) {
     return value.replace(/\s/g, '');
   }
   return value;
 }
 
 /**
- * Clean an array of enum values
+ * Format a key-value pair for a constant object
+ * Used ONLY for constant file generation
+ * 
+ * @param key - The constant key (will be UPPER_SNAKE_CASE)
+ * @param value - The value (will be cleaned)
+ * @param enumName - Optional enum name for exclusion rules
+ * @returns Formatted key-value pair (e.g., "  COMMUNITY: 'community',")
+ */
+export function formatConstantKeyValue(key: string, value: string, enumName?: string): string {
+  const cleanValue = cleanConstantValue(value, enumName);
+  return `  ${key}: '${cleanValue}',`;
+}
+
+// ============================================================================
+// DEPRECATED / NO-OP FUNCTIONS (Keep for compatibility, but do nothing)
+// ============================================================================
+
+/**
+ * @deprecated This function is no longer used. Constants only.
+ * Returns the original value unchanged.
+ */
+export function cleanEnumValue(value: string): string {
+  // NO-OP: Return unchanged - constants only
+  return value;
+}
+
+/**
+ * @deprecated This function is no longer used. Constants only.
+ * Returns the original array unchanged.
  */
 export function cleanEnumValues(values: string[]): string[] {
-  return values.map(v => cleanEnumValue(v));
+  // NO-OP: Return unchanged - constants only
+  return values;
 }
 
-// ============================================================================
-// FIELD QUOTE WRAPPING FUNCTIONS
-// ============================================================================
-
 /**
- * Check if a field name needs quote wrapping in interfaces
+ * @deprecated This function is no longer used. Constants only.
+ * Returns false for all fields.
  */
 export function needsQuoteWrapping(fieldName: string): boolean {
-  return TIME_DATE_FIELD_PATTERNS.some(pattern => pattern.test(fieldName));
+  // NO-OP: Return false - no quote wrapping for types
+  return false;
 }
 
 /**
- * Format a field declaration with proper quotes if needed
- * @param fieldName - Name of the field (e.g., 'created_at')
- * @param fieldType - Type of the field (e.g., 'string | null')
- * @returns Formatted field declaration (e.g., '"created_at": "string | null";')
+ * @deprecated This function is no longer used. Constants only.
+ * Returns the field name unchanged (no quotes).
  */
 export function formatFieldDeclaration(fieldName: string, fieldType: string): string {
-  if (needsQuoteWrapping(fieldName)) {
-    return `"${fieldName}": "${fieldType}";`;
-  }
+  // NO-OP: Return without quotes
   return `${fieldName}: ${fieldType};`;
 }
 
 /**
- * Parse a field line into name and type
- * @param line - Line from a Row/Insert/Update definition
- * @returns Object with fieldName and fieldType, or null if no match
+ * @deprecated This function is no longer used. Constants only.
+ * Returns the field name and type unchanged.
  */
 export function parseFieldLine(line: string): { fieldName: string; fieldType: string } | null {
+  // NO-OP: Return null - not used for constants
   const match = line.match(/^\s*(\w+):\s*(.+)/);
   if (!match) return null;
   return {
@@ -101,45 +136,10 @@ export function parseFieldLine(line: string): { fieldName: string; fieldType: st
 }
 
 /**
- * Format an entire interface field list with proper quote wrapping
- * @param lines - Array of field definition lines
- * @returns Formatted field declarations
+ * @deprecated This function is no longer used. Constants only.
+ * Returns the original lines unchanged.
  */
 export function formatFieldList(lines: string[]): string[] {
-  const results: string[] = [];
-  
-  for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      results.push(formatFieldDeclaration(parsed.fieldName, parsed.fieldType));
-    } else if (line.trim()) {
-      // Preserve non-field lines (like comments)
-      results.push(line);
-    }
-  }
-  
-  return results;
+  // NO-OP: Return unchanged
+  return lines;
 }
-
-// ============================================================================
-// CONSTANT OBJECT FORMATTING
-// ============================================================================
-
-/**
- * Format a key-value pair for a constant object
- * @param key - The constant key (will be UPPER_SNAKE_CASE)
- * @param value - The value (will be cleaned)
- * @returns Formatted key-value pair (e.g., "  COMMUNITY: 'community',")
- */
-export function formatConstantKeyValue(key: string, value: string): string {
-  const cleanValue = cleanEnumValue(value);
-  return `  ${key}: '${cleanValue}',`;
-}
-
-/**
- * Check if a value needs special handling in constant objects
- */
-export function needsConstantValueCleaning(value: string): boolean {
-  return isTimeDateValue(value);
-}
-
