@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/format_utils.ts
+// src/scripts/system/gaia/format_utils.ts
 // ============================================================================
 // FORMAT UTILITIES (GAIA)
 // ============================================================================
@@ -54,8 +54,8 @@ function generateHeader(tableName: string, deityFolder: string, importManager: I
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}.ts';
-import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}.ts';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}';
+import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${deityFolder}/${tableName}';
 
 `;
 }
@@ -71,7 +71,7 @@ function generateCreateFunction(tableName: string): string {
  */
 export async function create${pascalName}(data: ${pascalName}Insert): Promise<{ data: ${pascalName}Row | null; error: string | null }> {
   try {
-    const validated = ${pascalName}InsertSchema.parse(data);
+    const validated = ${pascalName}InsertSchema.parse(data) as ${pascalName}Insert;
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase
@@ -88,7 +88,6 @@ export async function create${pascalName}(data: ${pascalName}Insert): Promise<{ 
     return { data: null, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
-
 `;
 }
 
@@ -172,9 +171,6 @@ export async function list${pascalName}(params: {
 `;
 }
 
-/**
- * Generate update utility function
- */
 function generateUpdateFunction(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
@@ -183,7 +179,7 @@ function generateUpdateFunction(tableName: string): string {
  */
 export async function update${pascalName}(id: string, data: ${pascalName}Update): Promise<{ data: ${pascalName}Row | null; error: string | null }> {
   try {
-    const validated = ${pascalName}UpdateSchema.parse(data);
+    const validated = ${pascalName}UpdateSchema.parse(data) as ${pascalName}Update;
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase
@@ -201,7 +197,6 @@ export async function update${pascalName}(id: string, data: ${pascalName}Update)
     return { data: null, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
-
 `;
 }
 

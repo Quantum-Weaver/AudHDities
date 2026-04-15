@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/format_types.ts
+// src/scripts/system/gaia/format_types.ts
 // ============================================================================
 // FORMAT TYPES (GAIA)
 // ============================================================================

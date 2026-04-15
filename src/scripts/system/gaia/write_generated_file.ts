@@ -1,5 +1,5 @@
 // ============================================================================
-// src/scripts/generators/gaia/writeGeneratedFile.ts
+// src/scripts/system/gaia/writeGeneratedFile.ts
 // WRITE GENERATED FILE (GAIA)
 // ============================================================================
 

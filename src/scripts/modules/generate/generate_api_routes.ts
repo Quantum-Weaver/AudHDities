@@ -1,5 +1,6 @@
 /* src/scripts/modules/generate/generate_api_routes.ts */
 // Phase: Generate API route files for tables based on workflow config
+// Supports deity folder structure: app/api/generated/{deityFolder}/{tableName}/route.ts
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -71,7 +72,7 @@ async function writeApiFile(
 }
 
 /**
- * Generate API routes for a single table
+ * Generate API routes for a single table with deity folder support
  */
 export async function generateApiRoutesForTable(
   tableName: string,
@@ -82,10 +83,12 @@ export async function generateApiRoutesForTable(
     hasPut: boolean;
     hasDelete: boolean;
     specialRoutes: string[];
+    deityFolder?: string;  // NEW: deity folder for nested structure
   },
   options: GenerateApiRoutesOptions = {}
 ): Promise<{ main: string; single: string; special: string[] }> {
-  const { outputBase = API_BASE_PATH } = options;
+  const { outputBase = API_BASE_PATH, verbose = false } = options;
+  const deityFolder = config.deityFolder;
   
   const result = { main: '', single: '', special: [] as string[] };
   
@@ -95,11 +98,17 @@ export async function generateApiRoutesForTable(
   if (config.hasPost) mainRoutes.push(generatePostRoute(tableName));
   
   if (mainRoutes.length > 0) {
-    const content = assembleMainApiFile(tableName, mainRoutes);
-    const filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'route.ts');
+    // Build path with deity folder if provided
+    let filePath: string;
+    if (deityFolder) {
+      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, 'route.ts');
+    } else {
+      filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'route.ts');
+    }
+    const content = assembleMainApiFile(tableName, mainRoutes, deityFolder);
     const writeResult = await writeApiFile(filePath, content, options);
     result.main = writeResult.action;
-    if (options.verbose) logInfo(`Main API route for ${tableName}: ${writeResult.action}`);
+    if (verbose) logInfo(`Main API route for ${deityFolder ? `${deityFolder}/` : ''}${tableName}: ${writeResult.action}`);
   }
   
   // Collect single record route handlers ([id]/route.ts)
@@ -109,21 +118,31 @@ export async function generateApiRoutesForTable(
   if (config.hasDelete) singleRoutes.push(generateDeleteRoute(tableName));
   
   if (singleRoutes.length > 0) {
-    const content = assembleMainApiFile(tableName, mainRoutes );
-    const filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'id', 'route.ts');
+    let filePath: string;
+    if (deityFolder) {
+      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, 'id', 'route.ts');
+    } else {
+      filePath = path.join(PROJECT_ROOT, outputBase, tableName, 'id', 'route.ts');
+    }
+    const content = assembleSingleApiFile(tableName, singleRoutes, deityFolder);
     const writeResult = await writeApiFile(filePath, content, options);
     result.single = writeResult.action;
-    if (options.verbose) logInfo(`Single API route for ${tableName}: ${writeResult.action}`);
+    if (verbose) logInfo(`Single API route for ${deityFolder ? `${deityFolder}/` : ''}${tableName}: ${writeResult.action}`);
   }
   
   // Generate special routes
   for (const specialType of config.specialRoutes) {
     const route = generateSpecialRoute(tableName, specialType);
-    const content = assembleSpecialApiFile(tableName, specialType, route);
-    const filePath = path.join(PROJECT_ROOT, outputBase, tableName, specialType, 'route.ts');
+    let filePath: string;
+    if (deityFolder) {
+      filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, specialType, 'route.ts');
+    } else {
+      filePath = path.join(PROJECT_ROOT, outputBase, tableName, specialType, 'route.ts');
+    }
+    const content = assembleSpecialApiFile(tableName, specialType, route, deityFolder);
     const writeResult = await writeApiFile(filePath, content, options);
     result.special.push(writeResult.action);
-    if (options.verbose) logInfo(`Special API route ${tableName}/${specialType}: ${writeResult.action}`);
+    if (verbose) logInfo(`Special API route ${deityFolder ? `${deityFolder}/` : ''}${tableName}/${specialType}: ${writeResult.action}`);
   }
   
   return result;
@@ -141,6 +160,7 @@ export async function generateApiRoutesForTables(
     hasPut: boolean;
     hasDelete: boolean;
     specialRoutes: string[];
+    deityFolder?: string;  // NEW: deity folder for each table
   }>,
   options: GenerateApiRoutesOptions = {}
 ): Promise<{ created: number; updated: number; staged: number; skipped: number; errors: string[] }> {

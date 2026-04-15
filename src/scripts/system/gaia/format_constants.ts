@@ -1,4 +1,4 @@
-// src/scripts/generators/gaia/format_constants.ts
+// src/scripts/system/gaia/format_constants.ts
 // ============================================================================
 // FORMAT CONSTANTS (GAIA)
 // ============================================================================

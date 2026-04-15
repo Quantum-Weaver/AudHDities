@@ -1,77 +1,36 @@
-// src/scripts/system/gaia/format_validators.ts
+/* src/scripts/modules/generate/generate_validators.ts */
 // ============================================================================
-// FORMAT VALIDATORS (GAIA)
+// GENERATE VALIDATORS
 // ============================================================================
-// Purpose: Format table definitions into Zod validator files
-// Dependencies: EnrichedTable from enrich_objects, shared utilities
+// Purpose: Generate Zod validation schemas from table Row/Insert types
+// Supports deity folder structure: lib/validators/generated/{deityFolder}/{tableName}.ts
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories.js';
-import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ImportManager } from '../../shared/import_manager.js';
-import { formatFieldDeclaration, parseFieldLine } from '../../shared/quote_manager.js';
-import type { EnrichedTable } from './enrich_objects.js';
-import { getEnumFolder } from '@/config/enum_mapping.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
+import { stageFileChange } from '../../modules/system/staging.js';
+import { VALIDATORS_BASE_PATH } from '@/scripts/shared/paths.js';
 
-export interface FormatValidatorsOptions {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROJECT_ROOT = path.resolve(__dirname, '../../..');
+
+export interface GenerateValidatorsOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-}
-
-export interface FormattedValidator {
-  content: string;
-  filePath: string;
-  tableName: string;
-  deityFolder: string;
-  category: ObjectCategory;
+  outputBase?: string;  // default: 'lib/validators'
 }
 
 /**
- * Convert snake_case to PascalCase for type names
+ * Convert snake_case to PascalCase
  */
 function toPascalCase(str: string): string {
   return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
 }
 
-/**
- * Convert PascalCase to snake_case for file names
- */
-function toSnakeCase(str: string): string {
-  return str
-    .replace(/([A-Z])/g, '_$1')
-    .toLowerCase()
-    .replace(/^_/, '');
-}
-
-/**
- * Extract enum names from a field type string
- * Example: "UserTier | null" → ["UserTier"]
- * Example: "CouncilHouse" → ["CouncilHouse"]
- * Example: "UserTier | CouncilHouse" → ["UserTier", "CouncilHouse"]
- */
-function extractEnumNames(fieldType: string): string[] {
-  const enumNames: string[] = [];
-  // Match PascalCase words (starts with uppercase, followed by lowercase or uppercase)
-  const pascalPattern = /\b([A-Z][a-zA-Z0-9]*)\b/g;
-  let match;
-  
-  while ((match = pascalPattern.exec(fieldType)) !== null) {
-    const candidate = match[1];
-    // Skip common non-enum PascalCase types
-    if (!['Json', 'Date', 'String', 'Number', 'Boolean', 'Array', 'Object'].includes(candidate)) {
-      if (!enumNames.includes(candidate)) {
-        enumNames.push(candidate);
-      }
-    }
-  }
-  
-  return enumNames;
-}
-
-/**
- * Convert database type to Zod schema type
- */
 /**
  * Convert database type to Zod schema type
  */
@@ -93,11 +52,11 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   } else if (baseType.match(/^[A-Z]\w+$/)) {
     // Enum reference (PascalCase type name)
-    zodType = `z.enum(Object.values('${baseType}'))`;
+    zodType = `z.enum(Object.values(${baseType}))`;
   } else if (baseType.includes('|')) {
     // Union type - treat as enum
     const values = baseType.split('|').map(v => v.trim().replace(/['"]/g, ''));
-    zodType = `z.enum([${values.map(v => `'${v}'`).join(' ')}])`;
+    zodType = `z.enum([${values.map(v => `'${v}'`).join(', ')}])`;
   } else {
     // Fallback
     zodType = 'z.any()';
@@ -112,72 +71,96 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
 }
 
 /**
- * Generate header comment for validator file (no imports yet)
+ * Parse table content to extract Row and Insert sections using brace counting
  */
-function generateHeader(tableName: string, deityFolder: string): string {
-  const timestamp = new Date().toISOString();
-  return `// =====================================================
-// FILE: validators/generated/${deityFolder}/${tableName}.ts
-// GENERATED: ${timestamp}
-// SOURCE: database.types.ts
-// =====================================================
-
-`;
+export function parseTableSections(content: string): { rowContent: string; insertContent: string } {
+  const lines = content.split('\n');
+  
+  let rowStartLine = -1;
+  let rowEndLine = -1;
+  let insertStartLine = -1;
+  let insertEndLine = -1;
+  
+  // Find section start lines
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.match(/^\s*Row:\s*\{/)) {
+      rowStartLine = i;
+    }
+    if (line.match(/^\s*Insert:\s*\{/)) {
+      insertStartLine = i;
+    }
+  }
+  
+  // Find Row end (one line before Insert starts)
+  if (rowStartLine !== -1 && insertStartLine !== -1) {
+    rowEndLine = insertStartLine - 1;
+    const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
+    let rowContent = rowLines.join('\n').trim();
+    
+    // Remove trailing closing brace if present
+    if (rowContent.endsWith('}')) {
+      rowContent = rowContent.slice(0, -1).trim();
+    }
+    
+    // Find Insert end (look for closing brace)
+    let braceCount = 0;
+    let foundOpen = false;
+    for (let i = insertStartLine; i < lines.length; i++) {
+      for (const char of lines[i]) {
+        if (char === '{') {
+          braceCount++;
+          foundOpen = true;
+        }
+        if (char === '}') {
+          braceCount--;
+        }
+      }
+      if (foundOpen && braceCount === 0) {
+        insertEndLine = i;
+        break;
+      }
+    }
+    
+    const insertLines = lines.slice(insertStartLine + 1, insertEndLine);
+    let insertContent = insertLines.join('\n').trim();
+    if (insertContent.endsWith('}')) {
+      insertContent = insertContent.slice(0, -1).trim();
+    }
+    
+    return { rowContent, insertContent };
+  }
+  
+  return { rowContent: '', insertContent: '' };
 }
 
 /**
- * Generate Row schema (all fields required as in database)
+ * Generate Zod schema for a table's Row type
  */
-function generateRowSchema(
-  tableName: string, 
-  rowContent: string, 
-  importManager: ImportManager,
-  table: EnrichedTable
-): string {
+function generateRowSchema(tableName: string, rowContent: string): string {
   const lines = rowContent.split('\n');
   const fields: string[] = [];
   const pascalName = toPascalCase(tableName);
-  const collectedEnums: string[] = [];
-  
-  // Add zod import
-  importManager.addDefaultImport('zod', 'z');
   
   for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      const { fieldName, fieldType } = parsed;
-      
-      // Extract enum names from field type (handles "UserTier | null" etc.)
-      const enumNames = extractEnumNames(fieldType);
-      for (const enumName of enumNames) {
-        if (!collectedEnums.includes(enumName)) {
-          collectedEnums.push(enumName);
-          // Look up deity folder for this enum
-          const enumDeityFolder = getEnumFolder(toSnakeCase(enumName));
-          const snakeName = toSnakeCase(enumName);
-          importManager.addImport(
-            `@/lib/constants/generated/${enumDeityFolder}/${snakeName}`,
-            enumName,
-            true  // isType
-          );
-        }
-      }
-      
+    const fieldMatch = line.match(/^\s*(\w+):\s*(.+)/);
+    if (fieldMatch) {
+      const fieldName = fieldMatch[1];
+      const fieldType = fieldMatch[2].trim();
       const zodType = dbTypeToZod(fieldType, fieldName);
-      const formattedField = formatFieldDeclaration(fieldName, zodType);
       fields.push(`  ${fieldName}: ${zodType},`);
     }
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Row schema\n`;
+    return `// No fields found for ${tableName} Row schema`;
   }
   
   return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
- * Generate Insert schema (all fields optional for creation)
+ * Generate Zod schema for a table's Insert type
  */
 function generateInsertSchema(tableName: string, insertContent: string): string {
   const lines = insertContent.split('\n');
@@ -193,210 +176,180 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
       const zodType = dbTypeToZod(fieldType, fieldName);
       // Make optional for insert schema
       const optionalZod = `${zodType}.optional()`;
-      const formattedField = formatFieldDeclaration(fieldName, optionalZod);
       fields.push(`  ${fieldName}: ${optionalZod},`);
     }
   }
   
   if (fields.length === 0) {
-    return `// No fields found for ${tableName} Insert schema\n`;
+    return `// No fields found for ${tableName} Insert schema`;
   }
   
   return `export const ${pascalName}InsertSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
- * Generate Update schema (all fields optional)
+ * Generate complete validator file content for a single table with deity folder
  */
-function generateUpdateSchema(tableName: string, updateContent: string): string {
-  const lines = updateContent.split('\n');
-  const fields: string[] = [];
+export function generateValidatorContent(
+  tableName: string, 
+  rowContent: string, 
+  insertContent: string,
+  deityFolder?: string
+): string {
   const pascalName = toPascalCase(tableName);
+  const folderPath = deityFolder ? `${deityFolder}/` : '';
+  const timestamp = new Date().toISOString();
   
-  for (const line of lines) {
-    // Update fields often have ? for optional
-    const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
-      const zodType = dbTypeToZod(fieldType, fieldName);
-      // Make optional for update schema
-      const optionalZod = `${zodType}.optional()`;
-      const formattedField = formatFieldDeclaration(fieldName, optionalZod);
-      fields.push(`  ${fieldName}: ${optionalZod},`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No fields found for ${tableName} Update schema\n`;
-  }
-  
-  return `export const ${pascalName}UpdateSchema = z.object({\n${fields.join('\n')}\n});`;
-}
-
-/**
- * Generate type inference exports
- */
-function generateTypeInference(tableName: string, hasRow: boolean, hasInsert: boolean, hasUpdate: boolean): string {
-  const pascalName = toPascalCase(tableName);
-  const lines: string[] = [];
-  
-  lines.push(`// =====================================================`);
-  lines.push(`// TYPE INFERENCE`);
-  lines.push(`// =====================================================`);
-  lines.push(``);
-  
-  if (hasRow) {
-    lines.push(`export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;`);
-  }
-  
-  if (hasInsert) {
-    lines.push(`export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;`);
-  }
-  
-  if (hasUpdate) {
-    lines.push(`export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;`);
-  }
-  
-  return lines.join('\n');
-}
-
-/**
- * Format a table into a validator file content
- * Imports are handled LAST, after all content is generated
- */
-function formatValidatorContent(table: EnrichedTable): string {
-  const { name: tableName, deityFolder, rowContent, insertContent, updateContent } = table;
-  const importManager = new ImportManager();
-  
-  // Validate we have content to work with
-  if (!rowContent || rowContent.trim() === '') {
-    return `// SKIPPED: No row content found for ${tableName}\n`;
-  }
-  
-  // Generate header (no imports yet)
-  let content = generateHeader(tableName, deityFolder);
-  
-  // Determine which schemas exist
-  const hasRow = !!(rowContent && rowContent.trim());
-  const hasInsert = !!(insertContent && insertContent.trim());
-  const hasUpdate = !!(updateContent && updateContent.trim());
-  
-  // Generate all schemas FIRST (they add imports to the manager)
-  let schemasContent = '';
-  
-  if (hasRow) {
-    schemasContent += generateRowSchema(tableName, rowContent, importManager, table) + '\n\n';
-  }
-  
-  if (hasInsert) {
-    schemasContent += generateInsertSchema(tableName, insertContent) + '\n\n';
-  }
-  
-  if (hasUpdate) {
-    schemasContent += generateUpdateSchema(tableName, updateContent) + '\n\n';
-  }
-  
-  schemasContent += generateTypeInference(tableName, hasRow, hasInsert, hasUpdate) + '\n';
-  
-  // NOW generate the import block (after all imports are collected)
-  const importBlock = importManager.getImportBlock();
-  if (importBlock) {
-    content += importBlock + '\n\n';
-  }
-  
-  // Add section header and schemas
-  content += `// =====================================================\n`;
-  content += `// ${toPascalCase(tableName)} SCHEMAS\n`;
+  let content = `// =====================================================\n`;
+  content += `// FILE: validators/generated/${folderPath}${tableName}.ts\n`;
+  content += `// GENERATED: ${timestamp}\n`;
+  content += `// SOURCE: database.types.ts\n`;
+  content += `// DEITY: ${deityFolder || 'root'}\n`;
   content += `// =====================================================\n\n`;
   
-  content += schemasContent;
+  content += `import { z } from 'zod';\n\n`;
+  
+  content += `// =====================================================\n`;
+  content += `// ${pascalName} SCHEMAS\n`;
+  content += `// =====================================================\n\n`;
+  
+  if (rowContent && rowContent.trim()) {
+    content += generateRowSchema(tableName, rowContent) + '\n\n';
+  }
+  
+  if (insertContent && insertContent.trim()) {
+    content += generateInsertSchema(tableName, insertContent) + '\n\n';
+  }
+  
+  content += `// =====================================================\n`;
+  content += `// TYPE INFERENCE\n`;
+  content += `// =====================================================\n\n`;
+  content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
+  content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
   
   return content;
 }
 
 /**
- * Format a table into a validator file
- * Accepts EnrichedTable (pre-resolved configuration)
+ * Generate validator file for a single table with deity folder support
  */
-export function formatValidator(
-  table: EnrichedTable,
-  options?: FormatValidatorsOptions
-): FormattedValidator | null {
-  const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, category, shouldGenerateValidators, rowContent } = table;
+export async function generateValidatorForTable(
+  tableName: string,
+  tableContent: string,
+  deityFolder?: string,
+  options: GenerateValidatorsOptions = {}
+): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
+  const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = 'lib/validators' } = options;
   
-  // Check if this table needs validators (using pre-resolved flag from enrichment)
-  if (!shouldGenerateValidators) {
+  // Parse the table content
+  const { rowContent, insertContent } = parseTableSections(tableContent);
+  
+  if (!rowContent && !insertContent) {
+    return { success: false, filePath: '', message: `No content found for ${tableName}`, action: 'failed' };
+  }
+  
+  const content = generateValidatorContent(tableName, rowContent, insertContent, deityFolder);
+  
+  // Build output path with deity folder if provided
+  let outputPath: string;
+  if (deityFolder) {
+    outputPath = path.join(PROJECT_ROOT, outputBase, 'generated', deityFolder, `${tableName}.ts`);
+  } else {
+    outputPath = path.join(PROJECT_ROOT, outputBase, 'generated', `${tableName}.ts`);
+  }
+  
+  // Ensure directory exists
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+    if (verbose) logDebug(`Created directory: ${outputDir}`);
+  }
+  
+  // Check if file exists
+  const exists = fs.existsSync(outputPath);
+  
+  if (dryRun) {
     if (verbose) {
-      logDebug(`Skipping validator for ${tableName} (not configured for validators)`);
+      logInfo(`[DRY RUN] Would create validator: ${outputPath}`);
     }
-    return null;
+    return { success: true, filePath: outputPath, message: `Would create ${outputPath}`, action: 'dryrun' };
   }
   
-  if (verbose) {
-    logDebug(`Formatting validator: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  // If file exists and not forcing overwrite, stage the change
+  if (exists && !forceOverwrite) {
+    const existingContent = fs.readFileSync(outputPath, 'utf-8');
+    if (existingContent === content) {
+      if (verbose) logDebug(`Validator unchanged: ${outputPath}`);
+      return { success: true, filePath: outputPath, message: 'Unchanged', action: 'skipped' };
+    }
+    
+    // Stage the change
+    const stageResult = stageFileChange(outputPath, content, { verbose });
+    if (stageResult.staged) {
+      if (verbose) {
+        logWarning(`Validator changes staged for: ${deityFolder ? `${deityFolder}/` : ''}${tableName}`);
+        logInfo(`  Review: ${stageResult.stagingPath}`);
+      }
+      return { success: true, filePath: outputPath, message: 'Staged for review', action: 'staged' };
+    }
   }
   
-  // Validate row content exists
-  if (!rowContent || rowContent.trim() === '') {
-    logWarning(`No row content for ${tableName}, skipping validator generation`);
-    return null;
+  // Write the file (new file or forced overwrite)
+  fs.writeFileSync(outputPath, content, 'utf-8');
+  if (exists) {
+    logWarning(`Validator overwritten: ${outputPath}`);
+    return { success: true, filePath: outputPath, message: 'Overwritten', action: 'updated' };
+  } else {
+    logSuccess(`Validator created: ${outputPath}`);
+    return { success: true, filePath: outputPath, message: 'Created', action: 'created' };
   }
-  
-  const content = formatValidatorContent(table);
-  const filePath = `src/lib/validators/generated/${deityFolder}/${tableName}.ts`;
-  
-  if (verbose) {
-    logDebug(`  Generated ${content.length} characters`);
-  }
-  
-  return {
-    content,
-    filePath,
-    tableName,
-    deityFolder,
-    category
-  };
 }
 
 /**
- * Format multiple tables into validator files
- * Accepts pre-enriched tables - no callbacks needed
+ * Generate validators for multiple tables with deity folder support
  */
-export function formatValidators(
-  tables: EnrichedTable[],
-  options?: FormatValidatorsOptions
-): FormattedValidator[] {
-  const { verbose = false } = options || {};
-  const results: FormattedValidator[] = [];
+export async function generateValidatorsForTables(
+  tables: Array<{ name: string; content: string; deityFolder?: string }>,
+  options: GenerateValidatorsOptions = {}
+): Promise<{ created: number; updated: number; staged: number; skipped: number; errors: string[] }> {
+  const { verbose = false } = options;
   
-  if (verbose) {
-    logDebug(`Formatting validators for ${tables.length} tables...`);
-  }
+  const result = {
+    created: 0,
+    updated: 0,
+    staged: 0,
+    skipped: 0,
+    errors: [] as string[]
+  };
   
   for (const table of tables) {
-    // Skip if no row content
-    if (!table.rowContent || table.rowContent.trim() === '') {
-      if (verbose) {
-        logDebug(`  Skipping validator for ${table.name} (no row content)`);
-      }
-      continue;
+    const fileResult = await generateValidatorForTable(table.name, table.content, table.deityFolder, options);
+    
+    if (fileResult.success) {
+      if (fileResult.action === 'created') result.created++;
+      else if (fileResult.action === 'updated') result.updated++;
+      else if (fileResult.action === 'staged') result.staged++;
+      else if (fileResult.action === 'skipped') result.skipped++;
+    } else {
+      result.errors.push(fileResult.message);
     }
     
-    const formatted = formatValidator(table, options);
-    if (formatted) {
-      results.push(formatted);
-      
-      if (verbose) {
-        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
-      }
-    }
   }
   
   if (verbose) {
-    logSuccess(`Formatted ${results.length} validator files`);
+    console.log('');
+    logSeparator('─', 40);
+    logInfo('VALIDATOR GENERATION SUMMARY');
+    logSeparator('─', 40);
+    logSuccess(`Created: ${result.created}`);
+    if (result.updated > 0) logWarning(`Updated: ${result.updated}`);
+    if (result.staged > 0) logInfo(`Staged for review: ${result.staged}`);
+    logInfo(`Skipped: ${result.skipped}`);
+    if (result.errors.length > 0) logError(`Errors: ${result.errors.length}`);
   }
   
-  return results;
+  return result;
+
+
+
 }
