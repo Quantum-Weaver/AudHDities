@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/subscriptions
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T01:19:26.727Z
+// GENERATED: 2026-04-15T01:41:08.850Z
 // SOURCE: database.types.ts
 // =====================================================
 

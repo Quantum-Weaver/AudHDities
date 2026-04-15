@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-14T21:18:08.964Z
+// GENERATED: 2026-04-15T01:41:08.271Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/chancellor.ts
-// GENERATED: 2026-04-15T01:18:39.302Z
+// GENERATED: 2026-04-15T01:41:08.009Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-14T21:18:08.950Z
+// GENERATED: 2026-04-15T01:41:08.208Z
 // SOURCE: database.types.ts
 // =====================================================
 

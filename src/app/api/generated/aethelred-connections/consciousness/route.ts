@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T01:19:26.455Z
+// GENERATED: 2026-04-15T01:41:08.515Z
 // SOURCE: database.types.ts
 // =====================================================
 

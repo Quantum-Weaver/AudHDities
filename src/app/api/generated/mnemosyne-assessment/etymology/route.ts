@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/etymology
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T01:19:26.517Z
+// GENERATED: 2026-04-15T01:41:08.606Z
 // SOURCE: database.types.ts
 // =====================================================
 

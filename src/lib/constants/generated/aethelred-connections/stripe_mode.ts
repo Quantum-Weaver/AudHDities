@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/aethelred-connections/stripe_mode.ts
-// GENERATED: 2026-04-14T21:18:08.788Z
+// GENERATED: 2026-04-15T01:41:07.641Z
 // SOURCE: Constants.public.Enums.stripe_mode
 // VALUES: 2 entries
 // =====================================================

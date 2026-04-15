@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/seer.ts
-// GENERATED: 2026-04-14T21:18:08.989Z
+// GENERATED: 2026-04-15T01:41:08.380Z
 // SOURCE: database.types.ts
 // =====================================================
 

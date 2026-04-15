@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/stripe_connection/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T01:19:26.723Z
+// GENERATED: 2026-04-15T01:41:08.846Z
 // SOURCE: database.types.ts
 // =====================================================
 

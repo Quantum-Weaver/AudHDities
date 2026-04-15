@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/rate_limits.ts
-// GENERATED: 2026-04-14T21:18:08.981Z
+// GENERATED: 2026-04-15T01:41:08.349Z
 // SOURCE: database.types.ts
 // =====================================================
 

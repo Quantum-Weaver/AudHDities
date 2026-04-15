@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/business_type.ts
-// GENERATED: 2026-04-14T21:18:08.751Z
+// GENERATED: 2026-04-15T01:41:07.529Z
 // SOURCE: Constants.public.Enums.business_type
 // VALUES: 6 entries
 // =====================================================

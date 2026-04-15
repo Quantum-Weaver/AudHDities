@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hephaestus-infrastructure/setting_scope.ts
-// GENERATED: 2026-04-14T21:18:08.787Z
+// GENERATED: 2026-04-15T01:41:07.637Z
 // SOURCE: Constants.public.Enums.setting_scope
 // VALUES: 4 entries
 // =====================================================

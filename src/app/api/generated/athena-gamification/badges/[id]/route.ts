@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/badges/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T01:19:26.424Z
+// GENERATED: 2026-04-15T01:41:08.481Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/localization
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T01:19:26.564Z
+// GENERATED: 2026-04-15T01:41:08.665Z
 // SOURCE: database.types.ts
 // =====================================================
 

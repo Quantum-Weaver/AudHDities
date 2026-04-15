@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-15T01:18:39.433Z
+// GENERATED: 2026-04-15T01:41:08.139Z
 // SOURCE: database.types.ts
 // =====================================================
 

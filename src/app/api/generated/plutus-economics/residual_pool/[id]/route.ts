@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_pool/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T01:19:26.687Z
+// GENERATED: 2026-04-15T01:41:08.803Z
 // SOURCE: database.types.ts
 // =====================================================
 

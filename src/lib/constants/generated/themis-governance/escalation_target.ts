@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/themis-governance/escalation_target.ts
-// GENERATED: 2026-04-14T21:18:08.764Z
+// GENERATED: 2026-04-15T01:41:07.571Z
 // SOURCE: Constants.public.Enums.escalation_target
 // VALUES: 3 entries
 // =====================================================

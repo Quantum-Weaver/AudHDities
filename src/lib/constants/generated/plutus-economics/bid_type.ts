@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/bid_type.ts
-// GENERATED: 2026-04-14T21:18:08.748Z
+// GENERATED: 2026-04-15T01:41:07.519Z
 // SOURCE: Constants.public.Enums.bid_type
 // VALUES: 3 entries
 // =====================================================

@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/executioner/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T01:19:26.523Z
+// GENERATED: 2026-04-15T01:41:08.611Z
 // SOURCE: database.types.ts
 // =====================================================
 

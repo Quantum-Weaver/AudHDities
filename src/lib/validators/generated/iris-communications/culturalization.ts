@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-15T01:18:39.331Z
+// GENERATED: 2026-04-15T01:41:08.040Z
 // SOURCE: database.types.ts
 // =====================================================
 

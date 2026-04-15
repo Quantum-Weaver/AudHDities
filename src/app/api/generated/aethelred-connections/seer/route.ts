@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/seer
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T01:19:26.712Z
+// GENERATED: 2026-04-15T01:41:08.834Z
 // SOURCE: database.types.ts
 // =====================================================
 

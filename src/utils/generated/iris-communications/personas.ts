@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-14T21:18:08.972Z
+// GENERATED: 2026-04-15T01:41:08.308Z
 // SOURCE: database.types.ts
 // =====================================================
 

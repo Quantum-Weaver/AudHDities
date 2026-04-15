@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/taxonomy/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T01:19:26.757Z
+// GENERATED: 2026-04-15T01:41:08.892Z
 // SOURCE: database.types.ts
 // =====================================================
 

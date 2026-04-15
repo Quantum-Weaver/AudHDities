@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/mnemosyne-assessment/taxonomy_node_type.ts
-// GENERATED: 2026-04-14T21:18:08.793Z
+// GENERATED: 2026-04-15T01:41:07.655Z
 // SOURCE: Constants.public.Enums.taxonomy_node_type
 // VALUES: 5 entries
 // =====================================================
