@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { StripeConnectionInsertSchema } from '@/lib/validators/generated';
+import type { StripeConnectionInsertSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/stripe_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.728Z
+// GENERATED: 2026-04-15T16:41:40.382Z
 // SOURCE: database.types.ts
 // =====================================================
 

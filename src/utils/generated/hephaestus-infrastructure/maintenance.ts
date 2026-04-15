@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-15T05:16:18.052Z
+// GENERATED: 2026-04-15T16:39:24.084Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from '@/types/generated/hephaestus-infrastructure/maintenance.ts';
-import { MaintenanceInsertSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance.ts';
+import type { MaintenanceRow, MaintenanceInsert, MaintenanceUpdate } from '@/types/generated/hephaestus-infrastructure/maintenance';
+import { MaintenanceInsertSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

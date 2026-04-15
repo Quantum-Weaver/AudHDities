@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-15T05:16:17.727Z
+// GENERATED: 2026-04-15T16:13:09.467Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -15,7 +15,7 @@ export const LanguagesRowSchema = z.object({
   code_3: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  direction: z.enum(Object.values(TextDirectionType)).nullable(),
+  direction: z.enum(Object.values(TEXT_DIRECTION_TYPE)).nullable(),
   id: z.string(),
   is_active: z.boolean().nullable(),
   is_default: z.boolean().nullable(),
@@ -30,7 +30,7 @@ export const LanguagesInsertSchema = z.object({
   code_3: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(Object.values(TextDirectionType)).nullable().optional(),
+  direction: z.enum(Object.values(TEXT_DIRECTION_TYPE)).nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_default: z.boolean().nullable().optional(),
@@ -45,7 +45,7 @@ export const LanguagesUpdateSchema = z.object({
   code_3: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(Object.values(TextDirectionType)).nullable().optional(),
+  direction: z.enum(Object.values(TEXT_DIRECTION_TYPE)).nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_default: z.boolean().nullable().optional(),

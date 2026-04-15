@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-15T05:16:18.008Z
+// GENERATED: 2026-04-15T16:39:24.073Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/generated/iris-communications/culturalization.ts';
-import { CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization.ts';
+import type { CulturalizationRow, CulturalizationInsert, CulturalizationUpdate } from '@/types/generated/iris-communications/culturalization';
+import { CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

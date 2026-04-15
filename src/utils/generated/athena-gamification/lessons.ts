@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-15T05:16:18.045Z
+// GENERATED: 2026-04-15T16:39:24.082Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/athena-gamification/lessons.ts';
-import { LessonsInsertSchema, LessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/lessons.ts';
+import type { LessonsRow, LessonsInsert, LessonsUpdate } from '@/types/generated/athena-gamification/lessons';
+import { LessonsInsertSchema, LessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/lessons';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/messages.ts
-// GENERATED: 2026-04-15T05:16:17.742Z
+// GENERATED: 2026-04-15T16:13:09.471Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -20,7 +20,7 @@ export const MessagesRowSchema = z.object({
   read_at: z.string().nullable(),
   recipient_id: z.string(),
   sender_id: z.string(),
-  status: z.enum(Object.values(MessageStatus)).nullable(),
+  status: z.enum(Object.values(MESSAGE_STATUS)).nullable(),
   thread_id: z.string().nullable(),
 });
 
@@ -34,7 +34,7 @@ export const MessagesInsertSchema = z.object({
   read_at: z.string().nullable().optional(),
   recipient_id: z.string().optional(),
   sender_id: z.string().optional(),
-  status: z.enum(Object.values(MessageStatus)).nullable().optional(),
+  status: z.enum(Object.values(MESSAGE_STATUS)).nullable().optional(),
   thread_id: z.string().nullable().optional(),
 });
 
@@ -48,7 +48,7 @@ export const MessagesUpdateSchema = z.object({
   read_at: z.string().nullable().optional(),
   recipient_id: z.string().optional(),
   sender_id: z.string().optional(),
-  status: z.enum(Object.values(MessageStatus)).nullable().optional(),
+  status: z.enum(Object.values(MESSAGE_STATUS)).nullable().optional(),
   thread_id: z.string().nullable().optional(),
 });
 

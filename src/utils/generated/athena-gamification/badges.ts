@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/badges.ts
-// GENERATED: 2026-04-15T05:16:17.980Z
+// GENERATED: 2026-04-15T16:39:24.064Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { BadgesRow, BadgesInsert, BadgesUpdate } from '@/types/generated/athena-gamification/badges.ts';
-import { BadgesInsertSchema, BadgesUpdateSchema } from '@/lib/validators/generated/athena-gamification/badges.ts';
+import type { BadgesRow, BadgesInsert, BadgesUpdate } from '@/types/generated/athena-gamification/badges';
+import { BadgesInsertSchema, BadgesUpdateSchema } from '@/lib/validators/generated/athena-gamification/badges';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/skald.ts
-// GENERATED: 2026-04-15T05:16:18.134Z
+// GENERATED: 2026-04-15T16:39:24.108Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SkaldRow, SkaldInsert, SkaldUpdate } from '@/types/generated/aethelred-connections/skald.ts';
-import { SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald.ts';
+import type { SkaldRow, SkaldInsert, SkaldUpdate } from '@/types/generated/aethelred-connections/skald';
+import { SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-15T05:16:18.133Z
+// GENERATED: 2026-04-15T16:39:24.108Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SettingsRow, SettingsInsert, SettingsUpdate } from '@/types/generated/hephaestus-infrastructure/settings.ts';
-import { SettingsInsertSchema, SettingsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/settings.ts';
+import type { SettingsRow, SettingsInsert, SettingsUpdate } from '@/types/generated/hephaestus-infrastructure/settings';
+import { SettingsInsertSchema, SettingsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/settings';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-15T05:16:18.156Z
+// GENERATED: 2026-04-15T16:39:24.114Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/generated/athena-gamification/timelines.ts';
-import { TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines.ts';
+import type { TimelinesRow, TimelinesInsert, TimelinesUpdate } from '@/types/generated/athena-gamification/timelines';
+import { TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

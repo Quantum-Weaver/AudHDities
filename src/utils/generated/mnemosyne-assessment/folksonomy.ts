@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/folksonomy.ts
-// GENERATED: 2026-04-15T05:16:18.031Z
+// GENERATED: 2026-04-15T16:39:24.079Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from '@/types/generated/mnemosyne-assessment/folksonomy.ts';
-import { FolksonomyInsertSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy.ts';
+import type { FolksonomyRow, FolksonomyInsert, FolksonomyUpdate } from '@/types/generated/mnemosyne-assessment/folksonomy';
+import { FolksonomyInsertSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

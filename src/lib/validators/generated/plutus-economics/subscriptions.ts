@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/subscriptions.ts
-// GENERATED: 2026-04-15T05:16:17.823Z
+// GENERATED: 2026-04-15T16:13:09.495Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,7 +17,7 @@ export const SubscriptionsRowSchema = z.object({
   expires_at: z.string().nullable(),
   id: z.string(),
   monthly_amount: z.number(),
-  status: z.enum(Object.values(SubscriptionStatus)).nullable(),
+  status: z.enum(Object.values(SUBSCRIPTION_STATUS)).nullable(),
   subscriber_id: z.string(),
   tier_applied: z.string(),
   updated_at: z.string().nullable(),
@@ -30,7 +30,7 @@ export const SubscriptionsInsertSchema = z.object({
   expires_at: z.string().nullable().optional(),
   id: z.string().optional(),
   monthly_amount: z.number().optional(),
-  status: z.enum(Object.values(SubscriptionStatus)).nullable().optional(),
+  status: z.enum(Object.values(SUBSCRIPTION_STATUS)).nullable().optional(),
   subscriber_id: z.string().optional(),
   tier_applied: z.string().optional(),
   updated_at: z.string().nullable().optional(),
@@ -43,7 +43,7 @@ export const SubscriptionsUpdateSchema = z.object({
   expires_at: z.string().nullable().optional(),
   id: z.string().optional(),
   monthly_amount: z.number().optional(),
-  status: z.enum(Object.values(SubscriptionStatus)).nullable().optional(),
+  status: z.enum(Object.values(SUBSCRIPTION_STATUS)).nullable().optional(),
   subscriber_id: z.string().optional(),
   tier_applied: z.string().optional(),
   updated_at: z.string().nullable().optional(),

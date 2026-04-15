@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SurveyResponsesUpdateSchema } from '@/lib/validators/generated';
+import type { SurveyResponsesRowSchema, SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/survey_responses/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.758Z
+// GENERATED: 2026-04-15T16:41:40.389Z
 // SOURCE: database.types.ts
 // =====================================================
 

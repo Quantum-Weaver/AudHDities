@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-15T05:16:18.076Z
+// GENERATED: 2026-04-15T16:39:24.091Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/plutus-economics/products.ts';
-import { ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products.ts';
+import type { ProductsRow, ProductsInsert, ProductsUpdate } from '@/types/generated/plutus-economics/products';
+import { ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

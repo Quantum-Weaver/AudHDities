@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/messages.ts
-// GENERATED: 2026-04-15T05:16:18.054Z
+// GENERATED: 2026-04-15T16:39:24.085Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { MessagesRow, MessagesInsert, MessagesUpdate } from '@/types/generated/hermes-social/messages.ts';
-import { MessagesInsertSchema, MessagesUpdateSchema } from '@/lib/validators/generated/hermes-social/messages.ts';
+import type { MessagesRow, MessagesInsert, MessagesUpdate } from '@/types/generated/hermes-social/messages';
+import { MessagesInsertSchema, MessagesUpdateSchema } from '@/lib/validators/generated/hermes-social/messages';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

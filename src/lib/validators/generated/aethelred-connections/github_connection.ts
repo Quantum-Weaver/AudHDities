@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-15T05:16:17.722Z
+// GENERATED: 2026-04-15T16:13:09.466Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -25,7 +25,7 @@ export const GithubConnectionRowSchema = z.object({
   repository_url: z.string(),
   stars: z.number().nullable(),
   updated_at: z.string().nullable(),
-  workflow_status: z.enum(Object.values(WorkflowStatus)).nullable(),
+  workflow_status: z.enum(Object.values(WORKFLOW_STATUS)).nullable(),
 });
 
 export const GithubConnectionInsertSchema = z.object({

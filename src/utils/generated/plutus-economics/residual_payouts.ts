@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-15T05:16:18.116Z
+// GENERATED: 2026-04-15T16:39:24.103Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/plutus-economics/residual_payouts.ts';
-import { ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_payouts.ts';
+import type { ResidualPayoutsRow, ResidualPayoutsInsert, ResidualPayoutsUpdate } from '@/types/generated/plutus-economics/residual_payouts';
+import { ResidualPayoutsInsertSchema, ResidualPayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_payouts';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

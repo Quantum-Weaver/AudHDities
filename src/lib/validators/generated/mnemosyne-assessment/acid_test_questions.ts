@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_questions.ts
-// GENERATED: 2026-04-15T05:16:17.646Z
+// GENERATED: 2026-04-15T16:13:09.443Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,7 +19,7 @@ export const AcidTestQuestionsRowSchema = z.object({
   is_active: z.boolean().nullable(),
   order_index: z.number().nullable(),
   question_text: z.string(),
-  question_type: z.enum(Object.values(AcidQuestionType)),
+  question_type: z.enum(Object.values(ACID_QUESTION_TYPE)),
   updated_at: z.string().nullable(),
   weight: z.number().nullable(),
 });
@@ -33,7 +33,7 @@ export const AcidTestQuestionsInsertSchema = z.object({
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   question_text: z.string().optional(),
-  question_type: z.enum(Object.values(AcidQuestionType)).optional(),
+  question_type: z.enum(Object.values(ACID_QUESTION_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });
@@ -47,7 +47,7 @@ export const AcidTestQuestionsUpdateSchema = z.object({
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   question_text: z.string().optional(),
-  question_type: z.enum(Object.values(AcidQuestionType)).optional(),
+  question_type: z.enum(Object.values(ACID_QUESTION_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });

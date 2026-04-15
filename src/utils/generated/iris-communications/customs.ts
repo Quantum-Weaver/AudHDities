@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-15T05:16:18.013Z
+// GENERATED: 2026-04-15T16:39:24.074Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/iris-communications/customs.ts';
-import { CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs.ts';
+import type { CustomsRow, CustomsInsert, CustomsUpdate } from '@/types/generated/iris-communications/customs';
+import { CustomsInsertSchema, CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

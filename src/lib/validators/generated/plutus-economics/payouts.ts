@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-15T05:16:17.755Z
+// GENERATED: 2026-04-15T16:13:09.474Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -18,9 +18,9 @@ export const PayoutsRowSchema = z.object({
   destination: z.string().nullable(),
   disbursement_id: z.string(),
   id: z.string(),
-  payout_method: z.enum(Object.values(PayoutMethod)),
+  payout_method: z.enum(Object.values(PAYOUT_METHOD)),
   recipient_id: z.string(),
-  status: z.enum(Object.values(PayoutStatus)).nullable(),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable(),
   stripe_transfer_id: z.string().nullable(),
 });
 
@@ -32,9 +32,9 @@ export const PayoutsInsertSchema = z.object({
   destination: z.string().nullable().optional(),
   disbursement_id: z.string().optional(),
   id: z.string().optional(),
-  payout_method: z.enum(Object.values(PayoutMethod)).optional(),
+  payout_method: z.enum(Object.values(PAYOUT_METHOD)).optional(),
   recipient_id: z.string().optional(),
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional(),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
 });
 
@@ -46,9 +46,9 @@ export const PayoutsUpdateSchema = z.object({
   destination: z.string().nullable().optional(),
   disbursement_id: z.string().optional(),
   id: z.string().optional(),
-  payout_method: z.enum(Object.values(PayoutMethod)).optional(),
+  payout_method: z.enum(Object.values(PAYOUT_METHOD)).optional(),
   recipient_id: z.string().optional(),
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional(),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
 });
 

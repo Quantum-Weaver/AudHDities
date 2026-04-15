@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-15T05:16:17.810Z
+// GENERATED: 2026-04-15T16:13:09.491Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,7 +16,7 @@ export const SchedulingRowSchema = z.object({
   error_message: z.string().nullable(),
   function_name: z.string(),
   id: z.string(),
-  job_type: z.enum(Object.values(JobType)),
+  job_type: z.enum(Object.values(JOB_TYPE)),
   last_result: z.string().nullable(),
   last_run: z.string().nullable(),
   max_retries: z.number().nullable(),
@@ -26,7 +26,7 @@ export const SchedulingRowSchema = z.object({
   retry_count: z.number().nullable(),
   run_at: z.string().nullable(),
   schedule: z.string().nullable(),
-  status: z.enum(Object.values(JobStatus)).nullable(),
+  status: z.enum(Object.values(JOB_STATUS)).nullable(),
   updated_at: z.string().nullable(),
 });
 
@@ -36,7 +36,7 @@ export const SchedulingInsertSchema = z.object({
   error_message: z.string().nullable().optional(),
   function_name: z.string().optional(),
   id: z.string().optional(),
-  job_type: z.enum(Object.values(JobType)).optional(),
+  job_type: z.enum(Object.values(JOB_TYPE)).optional(),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
   max_retries: z.number().nullable().optional(),
@@ -46,7 +46,7 @@ export const SchedulingInsertSchema = z.object({
   retry_count: z.number().nullable().optional(),
   run_at: z.string().nullable().optional(),
   schedule: z.string().nullable().optional(),
-  status: z.enum(Object.values(JobStatus)).nullable().optional(),
+  status: z.enum(Object.values(JOB_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -56,7 +56,7 @@ export const SchedulingUpdateSchema = z.object({
   error_message: z.string().nullable().optional(),
   function_name: z.string().optional(),
   id: z.string().optional(),
-  job_type: z.enum(Object.values(JobType)).optional(),
+  job_type: z.enum(Object.values(JOB_TYPE)).optional(),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
   max_retries: z.number().nullable().optional(),
@@ -66,7 +66,7 @@ export const SchedulingUpdateSchema = z.object({
   retry_count: z.number().nullable().optional(),
   run_at: z.string().nullable().optional(),
   schedule: z.string().nullable().optional(),
-  status: z.enum(Object.values(JobStatus)).nullable().optional(),
+  status: z.enum(Object.values(JOB_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });
 

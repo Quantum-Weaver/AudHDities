@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { MaintenanceUpdateSchema } from '@/lib/validators/generated';
+import type { MaintenanceRowSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/maintenance/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.502Z
+// GENERATED: 2026-04-15T16:41:40.327Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ChancellorUpdateSchema } from '@/lib/validators/generated';
+import type { ChancellorRowSchema, ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/chancellor/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.279Z
+// GENERATED: 2026-04-15T16:41:40.184Z
 // SOURCE: database.types.ts
 // =====================================================
 

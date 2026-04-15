@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-15T05:16:18.062Z
+// GENERATED: 2026-04-15T16:39:24.086Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from '@/types/generated/hermes-social/notifications.ts';
-import { NotificationsInsertSchema, NotificationsUpdateSchema } from '@/lib/validators/generated/hermes-social/notifications.ts';
+import type { NotificationsRow, NotificationsInsert, NotificationsUpdate } from '@/types/generated/hermes-social/notifications';
+import { NotificationsInsertSchema, NotificationsUpdateSchema } from '@/lib/validators/generated/hermes-social/notifications';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

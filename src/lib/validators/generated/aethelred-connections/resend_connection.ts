@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/resend_connection.ts
-// GENERATED: 2026-04-15T05:16:17.799Z
+// GENERATED: 2026-04-15T16:13:09.488Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -14,7 +14,7 @@ export const ResendConnectionRowSchema = z.object({
   api_key: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  delivery_status: z.enum(Object.values(DeliveryStatus)).nullable(),
+  delivery_status: z.enum(Object.values(DELIVERY_STATUS)).nullable(),
   emails_failed: z.number().nullable(),
   emails_sent: z.number().nullable(),
   from_email: z.string(),

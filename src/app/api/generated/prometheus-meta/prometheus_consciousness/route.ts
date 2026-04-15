@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PrometheusConsciousnessInsertSchema } from '@/lib/validators/generated';
+import type { PrometheusConsciousnessInsertSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.591Z
+// GENERATED: 2026-04-15T16:41:40.349Z
 // SOURCE: database.types.ts
 // =====================================================
 

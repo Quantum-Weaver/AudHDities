@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-15T05:16:17.705Z
+// GENERATED: 2026-04-15T16:13:09.461Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,7 +11,7 @@ import { z } from 'zod';
 // =====================================================
 
 export const CustomsRowSchema = z.object({
-  category: z.enum(Object.values(CustomCategoryType)),
+  category: z.enum(Object.values(CUSTOM_CATEGORY_TYPE)),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   description: z.string(),
@@ -27,7 +27,7 @@ export const CustomsRowSchema = z.object({
 });
 
 export const CustomsInsertSchema = z.object({
-  category: z.enum(Object.values(CustomCategoryType)).optional(),
+  category: z.enum(Object.values(CUSTOM_CATEGORY_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().optional(),
@@ -43,7 +43,7 @@ export const CustomsInsertSchema = z.object({
 });
 
 export const CustomsUpdateSchema = z.object({
-  category: z.enum(Object.values(CustomCategoryType)).optional(),
+  category: z.enum(Object.values(CUSTOM_CATEGORY_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().optional(),

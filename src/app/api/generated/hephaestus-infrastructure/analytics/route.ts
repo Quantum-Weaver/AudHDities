@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AnalyticsInsertSchema } from '@/lib/validators/generated';
+import type { AnalyticsInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/analytics
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.244Z
+// GENERATED: 2026-04-15T16:41:40.176Z
 // SOURCE: database.types.ts
 // =====================================================
 

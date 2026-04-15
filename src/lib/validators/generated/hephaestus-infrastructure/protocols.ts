@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/protocols.ts
-// GENERATED: 2026-04-15T05:16:17.784Z
+// GENERATED: 2026-04-15T16:13:09.483Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -24,7 +24,7 @@ export const ProtocolsRowSchema = z.object({
   reviewed_by: z.string().nullable(),
   slug: z.string(),
   steps: z.any(),
-  type: z.enum(Object.values(ProtocolType)),
+  type: z.enum(Object.values(PROTOCOL_TYPE)),
   updated_at: z.string().nullable(),
   version: z.number().nullable(),
 });
@@ -43,7 +43,7 @@ export const ProtocolsInsertSchema = z.object({
   reviewed_by: z.string().nullable().optional(),
   slug: z.string().optional(),
   steps: z.any().optional(),
-  type: z.enum(Object.values(ProtocolType)).optional(),
+  type: z.enum(Object.values(PROTOCOL_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });
@@ -62,7 +62,7 @@ export const ProtocolsUpdateSchema = z.object({
   reviewed_by: z.string().nullable().optional(),
   slug: z.string().optional(),
   steps: z.any().optional(),
-  type: z.enum(Object.values(ProtocolType)).optional(),
+  type: z.enum(Object.values(PROTOCOL_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });

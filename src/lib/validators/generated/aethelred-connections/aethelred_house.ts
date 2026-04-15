@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/aethelred_house.ts
-// GENERATED: 2026-04-15T05:16:17.657Z
+// GENERATED: 2026-04-15T16:13:09.447Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,7 +12,7 @@ import { z } from 'zod';
 
 export const AethelredHouseRowSchema = z.object({
   boundary_agreements: z.any().nullable(),
-  bridge_status: z.enum(Object.values(BridgeStatus)).nullable(),
+  bridge_status: z.enum(Object.values(BRIDGE_STATUS)).nullable(),
   collaboration_protocols: z.any().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
@@ -25,7 +25,7 @@ export const AethelredHouseRowSchema = z.object({
 
 export const AethelredHouseInsertSchema = z.object({
   boundary_agreements: z.any().nullable().optional(),
-  bridge_status: z.enum(Object.values(BridgeStatus)).nullable().optional(),
+  bridge_status: z.enum(Object.values(BRIDGE_STATUS)).nullable().optional(),
   collaboration_protocols: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -38,7 +38,7 @@ export const AethelredHouseInsertSchema = z.object({
 
 export const AethelredHouseUpdateSchema = z.object({
   boundary_agreements: z.any().nullable().optional(),
-  bridge_status: z.enum(Object.values(BridgeStatus)).nullable().optional(),
+  bridge_status: z.enum(Object.values(BRIDGE_STATUS)).nullable().optional(),
   collaboration_protocols: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),

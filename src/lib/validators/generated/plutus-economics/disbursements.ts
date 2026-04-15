@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-15T05:16:17.707Z
+// GENERATED: 2026-04-15T16:13:09.462Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,8 +17,8 @@ export const DisbursementsRowSchema = z.object({
   processed_at: z.string().nullable(),
   recipient_count: z.number(),
   source_id: z.string(),
-  source_pool: z.enum(Object.values(SourcePoolType)),
-  status: z.enum(Object.values(PayoutStatus)).nullable(),
+  source_pool: z.enum(Object.values(SOURCE_POOL_TYPE)),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable(),
   total_amount_cents: z.number(),
 });
 
@@ -29,8 +29,8 @@ export const DisbursementsInsertSchema = z.object({
   processed_at: z.string().nullable().optional(),
   recipient_count: z.number().optional(),
   source_id: z.string().optional(),
-  source_pool: z.enum(Object.values(SourcePoolType)).optional(),
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional(),
+  source_pool: z.enum(Object.values(SOURCE_POOL_TYPE)).optional(),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
   total_amount_cents: z.number().optional(),
 });
 
@@ -41,8 +41,8 @@ export const DisbursementsUpdateSchema = z.object({
   processed_at: z.string().nullable().optional(),
   recipient_count: z.number().optional(),
   source_id: z.string().optional(),
-  source_pool: z.enum(Object.values(SourcePoolType)).optional(),
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional(),
+  source_pool: z.enum(Object.values(SOURCE_POOL_TYPE)).optional(),
+  status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
   total_amount_cents: z.number().optional(),
 });
 

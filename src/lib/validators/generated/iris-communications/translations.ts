@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/translations.ts
-// GENERATED: 2026-04-15T05:16:17.841Z
+// GENERATED: 2026-04-15T16:13:09.500Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,7 +19,7 @@ export const TranslationsRowSchema = z.object({
   is_approved: z.boolean().nullable(),
   language_id: z.string(),
   translatable_id: z.string(),
-  translatable_type: z.enum(Object.values(TranslatableType)),
+  translatable_type: z.enum(Object.values(TRANSLATABLE_TYPE)),
   translation: z.string(),
   translator_id: z.string().nullable(),
   updated_at: z.string().nullable(),
@@ -34,7 +34,7 @@ export const TranslationsInsertSchema = z.object({
   is_approved: z.boolean().nullable().optional(),
   language_id: z.string().optional(),
   translatable_id: z.string().optional(),
-  translatable_type: z.enum(Object.values(TranslatableType)).optional(),
+  translatable_type: z.enum(Object.values(TRANSLATABLE_TYPE)).optional(),
   translation: z.string().optional(),
   translator_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
@@ -49,7 +49,7 @@ export const TranslationsUpdateSchema = z.object({
   is_approved: z.boolean().nullable().optional(),
   language_id: z.string().optional(),
   translatable_id: z.string().optional(),
-  translatable_type: z.enum(Object.values(TranslatableType)).optional(),
+  translatable_type: z.enum(Object.values(TRANSLATABLE_TYPE)).optional(),
   translation: z.string().optional(),
   translator_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),

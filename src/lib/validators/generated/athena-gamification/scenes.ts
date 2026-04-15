@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-15T05:16:17.808Z
+// GENERATED: 2026-04-15T16:13:09.490Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -15,7 +15,7 @@ export const ScenesRowSchema = z.object({
   created_by: z.string().nullable(),
   creator_id: z.string(),
   description: z.string(),
-  house: z.enum(Object.values(CouncilHouse)).nullable(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   id: z.string(),
   instructions: z.string().nullable(),
   is_active: z.boolean().nullable(),
@@ -24,7 +24,7 @@ export const ScenesRowSchema = z.object({
   scheduled_for: z.string().nullable(),
   slug: z.string(),
   title: z.string(),
-  type: z.enum(Object.values(SceneType)),
+  type: z.enum(Object.values(SCENE_TYPE)),
   updated_at: z.string().nullable(),
 });
 
@@ -33,7 +33,7 @@ export const ScenesInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   creator_id: z.string().optional(),
   description: z.string().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
@@ -42,7 +42,7 @@ export const ScenesInsertSchema = z.object({
   scheduled_for: z.string().nullable().optional(),
   slug: z.string().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(SceneType)).optional(),
+  type: z.enum(Object.values(SCENE_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -51,7 +51,7 @@ export const ScenesUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   creator_id: z.string().optional(),
   description: z.string().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
@@ -60,7 +60,7 @@ export const ScenesUpdateSchema = z.object({
   scheduled_for: z.string().nullable().optional(),
   slug: z.string().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(SceneType)).optional(),
+  type: z.enum(Object.values(SCENE_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 

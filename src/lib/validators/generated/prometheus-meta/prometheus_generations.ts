@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-15T05:16:17.774Z
+// GENERATED: 2026-04-15T16:13:09.481Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -22,7 +22,7 @@ export const PrometheusGenerationsRowSchema = z.object({
   id: z.string(),
   metadata: z.any().nullable(),
   session_id: z.string(),
-  status: z.enum(Object.values(GenerationStatus)),
+  status: z.enum(Object.values(GENERATION_STATUS)),
   ziggy_present: z.boolean(),
 });
 
@@ -38,7 +38,7 @@ export const PrometheusGenerationsInsertSchema = z.object({
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   session_id: z.string().optional(),
-  status: z.enum(Object.values(GenerationStatus)).optional(),
+  status: z.enum(Object.values(GENERATION_STATUS)).optional(),
   ziggy_present: z.boolean().optional(),
 });
 
@@ -54,7 +54,7 @@ export const PrometheusGenerationsUpdateSchema = z.object({
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   session_id: z.string().optional(),
-  status: z.enum(Object.values(GenerationStatus)).optional(),
+  status: z.enum(Object.values(GENERATION_STATUS)).optional(),
   ziggy_present: z.boolean().optional(),
 });
 

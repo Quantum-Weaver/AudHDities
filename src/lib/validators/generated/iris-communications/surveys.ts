@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/surveys.ts
-// GENERATED: 2026-04-15T05:16:17.831Z
+// GENERATED: 2026-04-15T16:13:09.497Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -20,7 +20,7 @@ export const SurveysRowSchema = z.object({
   questions: z.any(),
   response_count: z.number().nullable(),
   starts_at: z.string().nullable(),
-  target_house: z.enum(Object.values(CouncilHouse)).nullable(),
+  target_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   title: z.string(),
   updated_at: z.string().nullable(),
 });
@@ -35,7 +35,7 @@ export const SurveysInsertSchema = z.object({
   questions: z.any().optional(),
   response_count: z.number().nullable().optional(),
   starts_at: z.string().nullable().optional(),
-  target_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  target_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });
@@ -50,7 +50,7 @@ export const SurveysUpdateSchema = z.object({
   questions: z.any().optional(),
   response_count: z.number().nullable().optional(),
   starts_at: z.string().nullable().optional(),
-  target_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  target_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });

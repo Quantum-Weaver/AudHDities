@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { EmailCommunicationsUpdateSchema } from '@/lib/validators/generated';
+import type { EmailCommunicationsRowSchema, EmailCommunicationsUpdateSchema } from '@/lib/validators/generated/iris-communications/email_communications.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/email_communications/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.403Z
+// GENERATED: 2026-04-15T16:41:40.307Z
 // SOURCE: database.types.ts
 // =====================================================
 

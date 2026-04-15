@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scripts.ts
-// GENERATED: 2026-04-15T05:16:17.815Z
+// GENERATED: 2026-04-15T16:13:09.492Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,7 +23,7 @@ export const ScriptsRowSchema = z.object({
   path: z.string(),
   requires_approval: z.boolean().nullable(),
   run_count: z.number().nullable(),
-  type: z.enum(Object.values(ScriptType)),
+  type: z.enum(Object.values(SCRIPT_TYPE)),
   updated_at: z.string().nullable(),
 });
 
@@ -40,7 +40,7 @@ export const ScriptsInsertSchema = z.object({
   path: z.string().optional(),
   requires_approval: z.boolean().nullable().optional(),
   run_count: z.number().nullable().optional(),
-  type: z.enum(Object.values(ScriptType)).optional(),
+  type: z.enum(Object.values(SCRIPT_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -57,7 +57,7 @@ export const ScriptsUpdateSchema = z.object({
   path: z.string().optional(),
   requires_approval: z.boolean().nullable().optional(),
   run_count: z.number().nullable().optional(),
-  type: z.enum(Object.values(ScriptType)).optional(),
+  type: z.enum(Object.values(SCRIPT_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 

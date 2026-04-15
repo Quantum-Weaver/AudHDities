@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/hearth_keeper.ts
-// GENERATED: 2026-04-15T05:16:18.035Z
+// GENERATED: 2026-04-15T16:39:24.080Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { HearthKeeperRow, HearthKeeperInsert, HearthKeeperUpdate } from '@/types/generated/aethelred-connections/hearth_keeper.ts';
-import { HearthKeeperInsertSchema, HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper.ts';
+import type { HearthKeeperRow, HearthKeeperInsert, HearthKeeperUpdate } from '@/types/generated/aethelred-connections/hearth_keeper';
+import { HearthKeeperInsertSchema, HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

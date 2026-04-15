@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-15T05:16:17.762Z
+// GENERATED: 2026-04-15T16:13:09.476Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,7 +17,7 @@ export const ProcessesRowSchema = z.object({
   id: z.string(),
   is_active: z.boolean().nullable(),
   name: z.string(),
-  process_type: z.enum(Object.values(ProcessType)),
+  process_type: z.enum(Object.values(PROCESS_TYPE)),
   slug: z.string(),
   steps: z.any(),
   timeout_days: z.number().nullable(),
@@ -31,7 +31,7 @@ export const ProcessesInsertSchema = z.object({
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string().optional(),
-  process_type: z.enum(Object.values(ProcessType)).optional(),
+  process_type: z.enum(Object.values(PROCESS_TYPE)).optional(),
   slug: z.string().optional(),
   steps: z.any().optional(),
   timeout_days: z.number().nullable().optional(),
@@ -45,7 +45,7 @@ export const ProcessesUpdateSchema = z.object({
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string().optional(),
-  process_type: z.enum(Object.values(ProcessType)).optional(),
+  process_type: z.enum(Object.values(PROCESS_TYPE)).optional(),
   slug: z.string().optional(),
   steps: z.any().optional(),
   timeout_days: z.number().nullable().optional(),

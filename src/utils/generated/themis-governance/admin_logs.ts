@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-15T05:16:17.963Z
+// GENERATED: 2026-04-15T16:39:24.059Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/generated/themis-governance/admin_logs.ts';
-import { AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs.ts';
+import type { AdminLogsRow, AdminLogsInsert, AdminLogsUpdate } from '@/types/generated/themis-governance/admin_logs';
+import { AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

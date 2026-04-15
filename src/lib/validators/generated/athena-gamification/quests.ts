@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-15T05:16:17.787Z
+// GENERATED: 2026-04-15T16:13:09.484Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -14,7 +14,7 @@ export const QuestsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   description: z.string(),
-  house: z.enum(Object.values(CouncilHouse)),
+  house: z.enum(Object.values(COUNCIL_HOUSE)),
   id: z.string(),
   instructions: z.string().nullable(),
   is_active: z.boolean().nullable(),
@@ -23,7 +23,7 @@ export const QuestsRowSchema = z.object({
   required_sovereignty_score: z.number().nullable(),
   residual_multiplier_bonus: z.number().nullable(),
   sovereignty_reward: z.number().nullable(),
-  submission_type: z.enum(Object.values(SubmissionType)),
+  submission_type: z.enum(Object.values(SUBMISSION_TYPE)),
   title: z.string(),
   updated_at: z.string().nullable(),
 });
@@ -32,7 +32,7 @@ export const QuestsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().optional(),
-  house: z.enum(Object.values(CouncilHouse)).optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).optional(),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
@@ -41,7 +41,7 @@ export const QuestsInsertSchema = z.object({
   required_sovereignty_score: z.number().nullable().optional(),
   residual_multiplier_bonus: z.number().nullable().optional(),
   sovereignty_reward: z.number().nullable().optional(),
-  submission_type: z.enum(Object.values(SubmissionType)).optional(),
+  submission_type: z.enum(Object.values(SUBMISSION_TYPE)).optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });
@@ -50,7 +50,7 @@ export const QuestsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().optional(),
-  house: z.enum(Object.values(CouncilHouse)).optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).optional(),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
@@ -59,7 +59,7 @@ export const QuestsUpdateSchema = z.object({
   required_sovereignty_score: z.number().nullable().optional(),
   residual_multiplier_bonus: z.number().nullable().optional(),
   sovereignty_reward: z.number().nullable().optional(),
-  submission_type: z.enum(Object.values(SubmissionType)).optional(),
+  submission_type: z.enum(Object.values(SUBMISSION_TYPE)).optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });

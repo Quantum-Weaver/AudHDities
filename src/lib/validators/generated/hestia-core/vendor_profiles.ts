@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/vendor_profiles.ts
-// GENERATED: 2026-04-15T05:16:17.931Z
+// GENERATED: 2026-04-15T16:13:09.503Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -14,7 +14,7 @@ export const VendorProfilesRowSchema = z.object({
   business_description: z.string().nullable(),
   business_logo_url: z.string().nullable(),
   business_name: z.string(),
-  business_type: z.enum(Object.values(BusinessType)).nullable(),
+  business_type: z.enum(Object.values(BUSINESS_TYPE)).nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   id: z.string(),
@@ -35,7 +35,7 @@ export const VendorProfilesInsertSchema = z.object({
   business_description: z.string().nullable().optional(),
   business_logo_url: z.string().nullable().optional(),
   business_name: z.string().optional(),
-  business_type: z.enum(Object.values(BusinessType)).nullable().optional(),
+  business_type: z.enum(Object.values(BUSINESS_TYPE)).nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
@@ -56,7 +56,7 @@ export const VendorProfilesUpdateSchema = z.object({
   business_description: z.string().nullable().optional(),
   business_logo_url: z.string().nullable().optional(),
   business_name: z.string().optional(),
-  business_type: z.enum(Object.values(BusinessType)).nullable().optional(),
+  business_type: z.enum(Object.values(BUSINESS_TYPE)).nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),

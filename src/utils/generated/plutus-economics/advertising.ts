@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/advertising.ts
-// GENERATED: 2026-04-15T05:16:17.966Z
+// GENERATED: 2026-04-15T16:39:24.060Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/plutus-economics/advertising.ts';
-import { AdvertisingInsertSchema, AdvertisingUpdateSchema } from '@/lib/validators/generated/plutus-economics/advertising.ts';
+import type { AdvertisingRow, AdvertisingInsert, AdvertisingUpdate } from '@/types/generated/plutus-economics/advertising';
+import { AdvertisingInsertSchema, AdvertisingUpdateSchema } from '@/lib/validators/generated/plutus-economics/advertising';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

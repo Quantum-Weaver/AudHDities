@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/moderation_actions.ts
-// GENERATED: 2026-04-15T05:16:18.057Z
+// GENERATED: 2026-04-15T16:39:24.085Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from '@/types/generated/themis-governance/moderation_actions.ts';
-import { ModerationActionsInsertSchema, ModerationActionsUpdateSchema } from '@/lib/validators/generated/themis-governance/moderation_actions.ts';
+import type { ModerationActionsRow, ModerationActionsInsert, ModerationActionsUpdate } from '@/types/generated/themis-governance/moderation_actions';
+import { ModerationActionsInsertSchema, ModerationActionsUpdateSchema } from '@/lib/validators/generated/themis-governance/moderation_actions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

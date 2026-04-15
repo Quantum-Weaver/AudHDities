@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { UserFinancialInsertSchema } from '@/lib/validators/generated';
+import type { UserFinancialInsertSchema } from '@/lib/validators/generated/hestia-core/user_financial.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_financial
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.814Z
+// GENERATED: 2026-04-15T16:41:40.401Z
 // SOURCE: database.types.ts
 // =====================================================
 

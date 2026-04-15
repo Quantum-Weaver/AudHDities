@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-15T05:16:18.014Z
+// GENERATED: 2026-04-15T16:39:24.074Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from '@/types/generated/plutus-economics/disbursements.ts';
-import { DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements.ts';
+import type { DisbursementsRow, DisbursementsInsert, DisbursementsUpdate } from '@/types/generated/plutus-economics/disbursements';
+import { DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/community_profiles.ts
-// GENERATED: 2026-04-15T05:16:17.679Z
+// GENERATED: 2026-04-15T16:13:09.454Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,7 +23,7 @@ export const CommunityProfilesRowSchema = z.object({
   house_master: z.boolean().nullable(),
   id: z.string(),
   is_mentor: z.boolean().nullable(),
-  joined_house: z.enum(Object.values(CouncilHouse)).nullable(),
+  joined_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   mentee_count: z.number().nullable(),
   mentor_since: z.string().nullable(),
   nd_identity: z.any().nullable(),
@@ -47,7 +47,7 @@ export const CommunityProfilesInsertSchema = z.object({
   house_master: z.boolean().nullable().optional(),
   id: z.string().optional(),
   is_mentor: z.boolean().nullable().optional(),
-  joined_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  joined_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   mentee_count: z.number().nullable().optional(),
   mentor_since: z.string().nullable().optional(),
   nd_identity: z.any().nullable().optional(),
@@ -71,7 +71,7 @@ export const CommunityProfilesUpdateSchema = z.object({
   house_master: z.boolean().nullable().optional(),
   id: z.string().optional(),
   is_mentor: z.boolean().nullable().optional(),
-  joined_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  joined_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   mentee_count: z.number().nullable().optional(),
   mentor_since: z.string().nullable().optional(),
   nd_identity: z.any().nullable().optional(),

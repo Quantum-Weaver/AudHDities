@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-15T05:16:17.674Z
+// GENERATED: 2026-04-15T16:13:09.453Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -14,7 +14,7 @@ export const ChannelsRowSchema = z.object({
   allow_subscriptions: z.boolean().nullable(),
   avatar_url: z.string().nullable(),
   banner_url: z.string().nullable(),
-  content_rating: z.enum(Object.values(ContentRating)).nullable(),
+  content_rating: z.enum(Object.values(CONTENT_RATING)).nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   description: z.string().nullable(),
@@ -33,7 +33,7 @@ export const ChannelsInsertSchema = z.object({
   allow_subscriptions: z.boolean().nullable().optional(),
   avatar_url: z.string().nullable().optional(),
   banner_url: z.string().nullable().optional(),
-  content_rating: z.enum(Object.values(ContentRating)).nullable().optional(),
+  content_rating: z.enum(Object.values(CONTENT_RATING)).nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
@@ -52,7 +52,7 @@ export const ChannelsUpdateSchema = z.object({
   allow_subscriptions: z.boolean().nullable().optional(),
   avatar_url: z.string().nullable().optional(),
   banner_url: z.string().nullable().optional(),
-  content_rating: z.enum(Object.values(ContentRating)).nullable().optional(),
+  content_rating: z.enum(Object.values(CONTENT_RATING)).nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),

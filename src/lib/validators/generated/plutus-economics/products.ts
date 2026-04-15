@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-15T05:16:17.764Z
+// GENERATED: 2026-04-15T16:13:09.477Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -25,12 +25,12 @@ export const ProductsRowSchema = z.object({
   is_published: z.boolean().nullable(),
   is_recurring: z.boolean().nullable(),
   media_urls: z.any().nullable(),
-  owner_type: z.enum(Object.values(OwnerType)),
+  owner_type: z.enum(Object.values(OWNER_TYPE)),
   platform_fee_percent: z.number().nullable(),
   price_ally: z.number().nullable(),
   price_community: z.number().nullable(),
   price_corporate: z.number().nullable(),
-  product_type: z.enum(Object.values(ProductType)),
+  product_type: z.enum(Object.values(PRODUCT_TYPE)),
   residual_pool_percent: z.number().nullable(),
   sanctuary_infrastructure_percent: z.number().nullable(),
   slug: z.string(),
@@ -56,12 +56,12 @@ export const ProductsInsertSchema = z.object({
   is_published: z.boolean().nullable().optional(),
   is_recurring: z.boolean().nullable().optional(),
   media_urls: z.any().nullable().optional(),
-  owner_type: z.enum(Object.values(OwnerType)).optional(),
+  owner_type: z.enum(Object.values(OWNER_TYPE)).optional(),
   platform_fee_percent: z.number().nullable().optional(),
   price_ally: z.number().nullable().optional(),
   price_community: z.number().nullable().optional(),
   price_corporate: z.number().nullable().optional(),
-  product_type: z.enum(Object.values(ProductType)).optional(),
+  product_type: z.enum(Object.values(PRODUCT_TYPE)).optional(),
   residual_pool_percent: z.number().nullable().optional(),
   sanctuary_infrastructure_percent: z.number().nullable().optional(),
   slug: z.string().optional(),
@@ -87,12 +87,12 @@ export const ProductsUpdateSchema = z.object({
   is_published: z.boolean().nullable().optional(),
   is_recurring: z.boolean().nullable().optional(),
   media_urls: z.any().nullable().optional(),
-  owner_type: z.enum(Object.values(OwnerType)).optional(),
+  owner_type: z.enum(Object.values(OWNER_TYPE)).optional(),
   platform_fee_percent: z.number().nullable().optional(),
   price_ally: z.number().nullable().optional(),
   price_community: z.number().nullable().optional(),
   price_corporate: z.number().nullable().optional(),
-  product_type: z.enum(Object.values(ProductType)).optional(),
+  product_type: z.enum(Object.values(PRODUCT_TYPE)).optional(),
   residual_pool_percent: z.number().nullable().optional(),
   sanctuary_infrastructure_percent: z.number().nullable().optional(),
   slug: z.string().optional(),

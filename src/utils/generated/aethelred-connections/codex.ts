@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/codex.ts
-// GENERATED: 2026-04-15T05:16:17.987Z
+// GENERATED: 2026-04-15T16:39:24.066Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CodexRow, CodexInsert, CodexUpdate } from '@/types/generated/aethelred-connections/codex.ts';
-import { CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex.ts';
+import type { CodexRow, CodexInsert, CodexUpdate } from '@/types/generated/aethelred-connections/codex';
+import { CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

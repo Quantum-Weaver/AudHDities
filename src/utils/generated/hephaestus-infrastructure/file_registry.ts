@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/file_registry.ts
-// GENERATED: 2026-04-15T05:16:18.027Z
+// GENERATED: 2026-04-15T16:39:24.077Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hephaestus-infrastructure/file_registry.ts';
-import { FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry.ts';
+import type { FileRegistryRow, FileRegistryInsert, FileRegistryUpdate } from '@/types/generated/hephaestus-infrastructure/file_registry';
+import { FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

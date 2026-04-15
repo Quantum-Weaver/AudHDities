@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LessonsInsertSchema } from '@/lib/validators/generated';
+import type { LessonsInsertSchema } from '@/lib/validators/generated/athena-gamification/lessons.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/lessons
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.485Z
+// GENERATED: 2026-04-15T16:41:40.323Z
 // SOURCE: database.types.ts
 // =====================================================
 

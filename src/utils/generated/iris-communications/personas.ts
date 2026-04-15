@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-15T05:16:18.069Z
+// GENERATED: 2026-04-15T16:39:24.089Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/generated/iris-communications/personas.ts';
-import { PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/generated/iris-communications/personas.ts';
+import type { PersonasRow, PersonasInsert, PersonasUpdate } from '@/types/generated/iris-communications/personas';
+import { PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/generated/iris-communications/personas';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

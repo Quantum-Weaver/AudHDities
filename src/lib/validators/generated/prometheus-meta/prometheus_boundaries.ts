@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-15T05:16:17.771Z
+// GENERATED: 2026-04-15T16:13:09.479Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -13,42 +13,42 @@ import { z } from 'zod';
 export const PrometheusBoundariesRowSchema = z.object({
   created_at: z.string(),
   created_by: z.string().nullable(),
-  encryption_level: z.enum(Object.values(EncryptionLevel)),
+  encryption_level: z.enum(Object.values(ENCRYPTION_LEVEL)),
   id: z.string(),
   is_active: z.boolean(),
   path_pattern: z.string().nullable(),
   pattern: z.string().nullable(),
   reason: z.string(),
   requires_approval: z.boolean(),
-  rule_type: z.enum(Object.values(BoundaryType)),
+  rule_type: z.enum(Object.values(BOUNDARY_TYPE)),
   updated_at: z.string(),
 });
 
 export const PrometheusBoundariesInsertSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  encryption_level: z.enum(Object.values(EncryptionLevel)).optional(),
+  encryption_level: z.enum(Object.values(ENCRYPTION_LEVEL)).optional(),
   id: z.string().optional(),
   is_active: z.boolean().optional(),
   path_pattern: z.string().nullable().optional(),
   pattern: z.string().nullable().optional(),
   reason: z.string().optional(),
   requires_approval: z.boolean().optional(),
-  rule_type: z.enum(Object.values(BoundaryType)).optional(),
+  rule_type: z.enum(Object.values(BOUNDARY_TYPE)).optional(),
   updated_at: z.string().optional(),
 });
 
 export const PrometheusBoundariesUpdateSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  encryption_level: z.enum(Object.values(EncryptionLevel)).optional(),
+  encryption_level: z.enum(Object.values(ENCRYPTION_LEVEL)).optional(),
   id: z.string().optional(),
   is_active: z.boolean().optional(),
   path_pattern: z.string().nullable().optional(),
   pattern: z.string().nullable().optional(),
   reason: z.string().optional(),
   requires_approval: z.boolean().optional(),
-  rule_type: z.enum(Object.values(BoundaryType)).optional(),
+  rule_type: z.enum(Object.values(BOUNDARY_TYPE)).optional(),
   updated_at: z.string().optional(),
 });
 

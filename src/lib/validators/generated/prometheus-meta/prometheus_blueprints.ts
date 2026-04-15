@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-15T05:16:17.769Z
+// GENERATED: 2026-04-15T16:13:09.479Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -18,9 +18,9 @@ export const PrometheusBlueprintsRowSchema = z.object({
   generation_count: z.number(),
   id: z.string(),
   purpose: z.string(),
-  status: z.enum(Object.values(BlueprintStatus)),
+  status: z.enum(Object.values(BLUEPRINT_STATUS)),
   success_rate: z.number().nullable(),
-  system: z.enum(Object.values(BlueprintSystem)),
+  system: z.enum(Object.values(BLUEPRINT_SYSTEM)),
   updated_at: z.string(),
   version: z.string(),
 });
@@ -33,9 +33,9 @@ export const PrometheusBlueprintsInsertSchema = z.object({
   generation_count: z.number().optional(),
   id: z.string().optional(),
   purpose: z.string().optional(),
-  status: z.enum(Object.values(BlueprintStatus)).optional(),
+  status: z.enum(Object.values(BLUEPRINT_STATUS)).optional(),
   success_rate: z.number().nullable().optional(),
-  system: z.enum(Object.values(BlueprintSystem)).optional(),
+  system: z.enum(Object.values(BLUEPRINT_SYSTEM)).optional(),
   updated_at: z.string().optional(),
   version: z.string().optional(),
 });
@@ -48,9 +48,9 @@ export const PrometheusBlueprintsUpdateSchema = z.object({
   generation_count: z.number().optional(),
   id: z.string().optional(),
   purpose: z.string().optional(),
-  status: z.enum(Object.values(BlueprintStatus)).optional(),
+  status: z.enum(Object.values(BLUEPRINT_STATUS)).optional(),
   success_rate: z.number().nullable().optional(),
-  system: z.enum(Object.values(BlueprintSystem)).optional(),
+  system: z.enum(Object.values(BLUEPRINT_SYSTEM)).optional(),
   updated_at: z.string().optional(),
   version: z.string().optional(),
 });

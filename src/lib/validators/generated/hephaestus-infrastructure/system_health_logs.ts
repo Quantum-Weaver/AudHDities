@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/system_health_logs.ts
-// GENERATED: 2026-04-15T05:16:17.833Z
+// GENERATED: 2026-04-15T16:13:09.498Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,7 +16,7 @@ export const SystemHealthLogsRowSchema = z.object({
   error_message: z.string().nullable(),
   id: z.string(),
   response_time_ms: z.number().nullable(),
-  status: z.enum(Object.values(SystemStatus)),
+  status: z.enum(Object.values(SYSTEM_STATUS)),
   system_id: z.string(),
 });
 
@@ -26,7 +26,7 @@ export const SystemHealthLogsInsertSchema = z.object({
   error_message: z.string().nullable().optional(),
   id: z.string().optional(),
   response_time_ms: z.number().nullable().optional(),
-  status: z.enum(Object.values(SystemStatus)).optional(),
+  status: z.enum(Object.values(SYSTEM_STATUS)).optional(),
   system_id: z.string().optional(),
 });
 
@@ -36,7 +36,7 @@ export const SystemHealthLogsUpdateSchema = z.object({
   error_message: z.string().nullable().optional(),
   id: z.string().optional(),
   response_time_ms: z.number().nullable().optional(),
-  status: z.enum(Object.values(SystemStatus)).optional(),
+  status: z.enum(Object.values(SYSTEM_STATUS)).optional(),
   system_id: z.string().optional(),
 });
 

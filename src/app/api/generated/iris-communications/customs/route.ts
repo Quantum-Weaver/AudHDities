@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CustomsInsertSchema } from '@/lib/validators/generated';
+import type { CustomsInsertSchema } from '@/lib/validators/generated/iris-communications/customs.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/customs
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.391Z
+// GENERATED: 2026-04-15T16:41:40.304Z
 // SOURCE: database.types.ts
 // =====================================================
 

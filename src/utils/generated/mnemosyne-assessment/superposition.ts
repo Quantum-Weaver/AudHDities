@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/superposition.ts
-// GENERATED: 2026-04-15T05:16:18.140Z
+// GENERATED: 2026-04-15T16:39:24.110Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from '@/types/generated/mnemosyne-assessment/superposition.ts';
-import { SuperpositionInsertSchema, SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition.ts';
+import type { SuperpositionRow, SuperpositionInsert, SuperpositionUpdate } from '@/types/generated/mnemosyne-assessment/superposition';
+import { SuperpositionInsertSchema, SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

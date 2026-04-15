@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-15T05:16:17.734Z
+// GENERATED: 2026-04-15T16:13:09.469Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,7 +12,7 @@ import { z } from 'zod';
 
 export const LessonsRowSchema = z.object({
   content_body: z.string().nullable(),
-  content_type: z.enum(Object.values(LessonContentType)),
+  content_type: z.enum(Object.values(LESSON_CONTENT_TYPE)),
   content_url: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
@@ -29,7 +29,7 @@ export const LessonsRowSchema = z.object({
 
 export const LessonsInsertSchema = z.object({
   content_body: z.string().nullable().optional(),
-  content_type: z.enum(Object.values(LessonContentType)).optional(),
+  content_type: z.enum(Object.values(LESSON_CONTENT_TYPE)).optional(),
   content_url: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -46,7 +46,7 @@ export const LessonsInsertSchema = z.object({
 
 export const LessonsUpdateSchema = z.object({
   content_body: z.string().nullable().optional(),
-  content_type: z.enum(Object.values(LessonContentType)).optional(),
+  content_type: z.enum(Object.values(LESSON_CONTENT_TYPE)).optional(),
   content_url: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),

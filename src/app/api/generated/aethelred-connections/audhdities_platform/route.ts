@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AudhditiesPlatformInsertSchema } from '@/lib/validators/generated';
+import type { AudhditiesPlatformInsertSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/audhdities_platform
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.261Z
+// GENERATED: 2026-04-15T16:41:40.181Z
 // SOURCE: database.types.ts
 // =====================================================
 

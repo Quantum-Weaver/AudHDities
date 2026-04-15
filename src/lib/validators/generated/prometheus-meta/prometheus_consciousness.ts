@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_consciousness.ts
-// GENERATED: 2026-04-15T05:16:17.772Z
+// GENERATED: 2026-04-15T16:13:09.480Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -20,7 +20,7 @@ export const PrometheusConsciousnessRowSchema = z.object({
   last_awakening: z.string().nullable(),
   metadata: z.any().nullable(),
   session_id: z.string(),
-  state: z.enum(Object.values(ConsciousnessState)),
+  state: z.enum(Object.values(CONSCIOUSNESS_STATE)),
   updated_at: z.string(),
 });
 
@@ -34,7 +34,7 @@ export const PrometheusConsciousnessInsertSchema = z.object({
   last_awakening: z.string().nullable().optional(),
   metadata: z.any().nullable().optional(),
   session_id: z.string().optional(),
-  state: z.enum(Object.values(ConsciousnessState)).optional(),
+  state: z.enum(Object.values(CONSCIOUSNESS_STATE)).optional(),
   updated_at: z.string().optional(),
 });
 
@@ -48,7 +48,7 @@ export const PrometheusConsciousnessUpdateSchema = z.object({
   last_awakening: z.string().nullable().optional(),
   metadata: z.any().nullable().optional(),
   session_id: z.string().optional(),
-  state: z.enum(Object.values(ConsciousnessState)).optional(),
+  state: z.enum(Object.values(CONSCIOUSNESS_STATE)).optional(),
   updated_at: z.string().optional(),
 });
 

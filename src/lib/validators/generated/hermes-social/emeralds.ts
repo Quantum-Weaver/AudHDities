@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/emeralds.ts
-// GENERATED: 2026-04-15T05:16:17.711Z
+// GENERATED: 2026-04-15T16:13:09.463Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -22,7 +22,7 @@ export const EmeraldsRowSchema = z.object({
   post_id: z.string().nullable(),
   receiver_id: z.string(),
   reply_id: z.string().nullable(),
-  status: z.enum(Object.values(EmeraldStatus)).nullable(),
+  status: z.enum(Object.values(EMERALD_STATUS)).nullable(),
 });
 
 export const EmeraldsInsertSchema = z.object({
@@ -37,7 +37,7 @@ export const EmeraldsInsertSchema = z.object({
   post_id: z.string().nullable().optional(),
   receiver_id: z.string().optional(),
   reply_id: z.string().nullable().optional(),
-  status: z.enum(Object.values(EmeraldStatus)).nullable().optional(),
+  status: z.enum(Object.values(EMERALD_STATUS)).nullable().optional(),
 });
 
 export const EmeraldsUpdateSchema = z.object({
@@ -52,7 +52,7 @@ export const EmeraldsUpdateSchema = z.object({
   post_id: z.string().nullable().optional(),
   receiver_id: z.string().optional(),
   reply_id: z.string().nullable().optional(),
-  status: z.enum(Object.values(EmeraldStatus)).nullable().optional(),
+  status: z.enum(Object.values(EMERALD_STATUS)).nullable().optional(),
 });
 
 // =====================================================

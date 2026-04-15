@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-15T05:16:18.159Z
+// GENERATED: 2026-04-15T16:39:24.114Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TransactionsRow, TransactionsInsert, TransactionsUpdate } from '@/types/generated/plutus-economics/transactions.ts';
-import { TransactionsInsertSchema, TransactionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/transactions.ts';
+import type { TransactionsRow, TransactionsInsert, TransactionsUpdate } from '@/types/generated/plutus-economics/transactions';
+import { TransactionsInsertSchema, TransactionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/transactions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

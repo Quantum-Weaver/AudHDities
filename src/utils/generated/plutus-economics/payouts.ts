@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-15T05:16:18.067Z
+// GENERATED: 2026-04-15T16:39:24.089Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from '@/types/generated/plutus-economics/payouts.ts';
-import { PayoutsInsertSchema, PayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/payouts.ts';
+import type { PayoutsRow, PayoutsInsert, PayoutsUpdate } from '@/types/generated/plutus-economics/payouts';
+import { PayoutsInsertSchema, PayoutsUpdateSchema } from '@/lib/validators/generated/plutus-economics/payouts';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

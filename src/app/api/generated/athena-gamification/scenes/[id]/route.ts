@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ScenesUpdateSchema } from '@/lib/validators/generated';
+import type { ScenesRowSchema, ScenesUpdateSchema } from '@/lib/validators/generated/athena-gamification/scenes.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/scenes/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.689Z
+// GENERATED: 2026-04-15T16:41:40.374Z
 // SOURCE: database.types.ts
 // =====================================================
 

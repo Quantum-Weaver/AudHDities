@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/translations.ts
-// GENERATED: 2026-04-15T05:16:18.162Z
+// GENERATED: 2026-04-15T16:39:24.115Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { TranslationsRow, TranslationsInsert, TranslationsUpdate } from '@/types/generated/iris-communications/translations.ts';
-import { TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations.ts';
+import type { TranslationsRow, TranslationsInsert, TranslationsUpdate } from '@/types/generated/iris-communications/translations';
+import { TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

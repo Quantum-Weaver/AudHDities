@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-15T05:16:17.666Z
+// GENERATED: 2026-04-15T16:13:09.450Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,7 +19,7 @@ export const AudhditiesPlatformRowSchema = z.object({
   operated_by: z.string().nullable(),
   release_name: z.string().nullable(),
   release_notes: z.string().nullable(),
-  status: z.enum(Object.values(PlatformStatus)).nullable(),
+  status: z.enum(Object.values(PLATFORM_STATUS)).nullable(),
   total_products: z.number().nullable(),
   total_sales: z.number().nullable(),
   total_users: z.number().nullable(),
@@ -37,7 +37,7 @@ export const AudhditiesPlatformInsertSchema = z.object({
   operated_by: z.string().nullable().optional(),
   release_name: z.string().nullable().optional(),
   release_notes: z.string().nullable().optional(),
-  status: z.enum(Object.values(PlatformStatus)).nullable().optional(),
+  status: z.enum(Object.values(PLATFORM_STATUS)).nullable().optional(),
   total_products: z.number().nullable().optional(),
   total_sales: z.number().nullable().optional(),
   total_users: z.number().nullable().optional(),
@@ -55,7 +55,7 @@ export const AudhditiesPlatformUpdateSchema = z.object({
   operated_by: z.string().nullable().optional(),
   release_name: z.string().nullable().optional(),
   release_notes: z.string().nullable().optional(),
-  status: z.enum(Object.values(PlatformStatus)).nullable().optional(),
+  status: z.enum(Object.values(PLATFORM_STATUS)).nullable().optional(),
   total_products: z.number().nullable().optional(),
   total_sales: z.number().nullable().optional(),
   total_users: z.number().nullable().optional(),

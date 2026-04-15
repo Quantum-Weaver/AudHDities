@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-15T05:16:17.973Z
+// GENERATED: 2026-04-15T16:39:24.062Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ApplicationsRow, ApplicationsInsert, ApplicationsUpdate } from '@/types/generated/themis-governance/applications.ts';
-import { ApplicationsInsertSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications.ts';
+import type { ApplicationsRow, ApplicationsInsert, ApplicationsUpdate } from '@/types/generated/themis-governance/applications';
+import { ApplicationsInsertSchema, ApplicationsUpdateSchema } from '@/lib/validators/generated/themis-governance/applications';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

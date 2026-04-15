@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/covenant_pool.ts
-// GENERATED: 2026-04-15T05:16:18.001Z
+// GENERATED: 2026-04-15T16:39:24.070Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from '@/types/generated/plutus-economics/covenant_pool.ts';
-import { CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/covenant_pool.ts';
+import type { CovenantPoolRow, CovenantPoolInsert, CovenantPoolUpdate } from '@/types/generated/plutus-economics/covenant_pool';
+import { CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/covenant_pool';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

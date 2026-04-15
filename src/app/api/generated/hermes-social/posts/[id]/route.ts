@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { PostsUpdateSchema } from '@/lib/validators/generated';
+import type { PostsRowSchema, PostsUpdateSchema } from '@/lib/validators/generated/hermes-social/posts.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/posts/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.556Z
+// GENERATED: 2026-04-15T16:41:40.339Z
 // SOURCE: database.types.ts
 // =====================================================
 

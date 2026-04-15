@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/community_profiles/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T05:16:18.301Z
+// GENERATED: 2026-04-15T16:41:40.190Z
 // SOURCE: database.types.ts
 // =====================================================
 

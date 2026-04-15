@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ProductsInsertSchema } from '@/lib/validators/generated';
+import type { ProductsInsertSchema } from '@/lib/validators/generated/plutus-economics/products.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/products
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.566Z
+// GENERATED: 2026-04-15T16:41:40.342Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AcidTestResultsInsertSchema } from '@/lib/validators/generated';
+import type { AcidTestResultsInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_results
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.204Z
+// GENERATED: 2026-04-15T16:41:40.167Z
 // SOURCE: database.types.ts
 // =====================================================
 

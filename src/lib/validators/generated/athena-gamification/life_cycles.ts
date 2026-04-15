@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T05:16:17.736Z
+// GENERATED: 2026-04-15T16:13:09.469Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,7 +16,7 @@ export const LifeCyclesRowSchema = z.object({
   ended_at: z.string().nullable(),
   id: z.string(),
   metadata: z.any().nullable(),
-  phase: z.enum(Object.values(LifeCyclePhase)),
+  phase: z.enum(Object.values(LIFE_CYCLE_PHASE)),
   started_at: z.string(),
   trigger_event: z.string().nullable(),
   user_id: z.string(),
@@ -28,7 +28,7 @@ export const LifeCyclesInsertSchema = z.object({
   ended_at: z.string().nullable().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
-  phase: z.enum(Object.values(LifeCyclePhase)).optional(),
+  phase: z.enum(Object.values(LIFE_CYCLE_PHASE)).optional(),
   started_at: z.string().optional(),
   trigger_event: z.string().nullable().optional(),
   user_id: z.string().optional(),
@@ -40,7 +40,7 @@ export const LifeCyclesUpdateSchema = z.object({
   ended_at: z.string().nullable().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
-  phase: z.enum(Object.values(LifeCyclePhase)).optional(),
+  phase: z.enum(Object.values(LIFE_CYCLE_PHASE)).optional(),
   started_at: z.string().optional(),
   trigger_event: z.string().nullable().optional(),
   user_id: z.string().optional(),

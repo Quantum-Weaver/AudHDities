@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/replies.ts
-// GENERATED: 2026-04-15T05:16:18.110Z
+// GENERATED: 2026-04-15T16:39:24.101Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RepliesRow, RepliesInsert, RepliesUpdate } from '@/types/generated/hermes-social/replies.ts';
-import { RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies.ts';
+import type { RepliesRow, RepliesInsert, RepliesUpdate } from '@/types/generated/hermes-social/replies';
+import { RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

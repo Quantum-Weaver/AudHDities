@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/etymology.ts
-// GENERATED: 2026-04-15T05:16:18.021Z
+// GENERATED: 2026-04-15T16:39:24.076Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from '@/types/generated/mnemosyne-assessment/etymology.ts';
-import { EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology.ts';
+import type { EtymologyRow, EtymologyInsert, EtymologyUpdate } from '@/types/generated/mnemosyne-assessment/etymology';
+import { EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

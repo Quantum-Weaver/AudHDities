@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LanguagesInsertSchema } from '@/lib/validators/generated';
+import type { LanguagesInsertSchema } from '@/lib/validators/generated/iris-communications/languages.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/languages
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.464Z
+// GENERATED: 2026-04-15T16:41:40.319Z
 // SOURCE: database.types.ts
 // =====================================================
 

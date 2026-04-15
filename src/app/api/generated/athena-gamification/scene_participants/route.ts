@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SceneParticipantsInsertSchema } from '@/lib/validators/generated';
+import type { SceneParticipantsInsertSchema } from '@/lib/validators/generated/athena-gamification/scene_participants.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/scene_participants
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.684Z
+// GENERATED: 2026-04-15T16:41:40.372Z
 // SOURCE: database.types.ts
 // =====================================================
 

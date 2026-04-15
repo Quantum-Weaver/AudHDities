@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { UserPrivateInsertSchema } from '@/lib/validators/generated';
+import type { UserPrivateInsertSchema } from '@/lib/validators/generated/hestia-core/user_private.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_private
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.819Z
+// GENERATED: 2026-04-15T16:41:40.402Z
 // SOURCE: database.types.ts
 // =====================================================
 

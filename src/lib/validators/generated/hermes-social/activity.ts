@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-15T05:16:17.652Z
+// GENERATED: 2026-04-15T16:13:09.445Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,42 +11,42 @@ import { z } from 'zod';
 // =====================================================
 
 export const ActivityRowSchema = z.object({
-  action_type: z.enum(Object.values(ActionType)),
+  action_type: z.enum(Object.values(ACTION_TYPE)),
   actor_id: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   id: z.string(),
   metadata: z.any().nullable(),
   target_id: z.string().nullable(),
-  target_type: z.enum(Object.values(TargetType)).nullable(),
+  target_type: z.enum(Object.values(TARGET_TYPE)).nullable(),
   user_id: z.string(),
-  visibility: z.enum(Object.values(ActivityVisibility)).nullable(),
+  visibility: z.enum(Object.values(ACTIVITY_VISIBILITY)).nullable(),
 });
 
 export const ActivityInsertSchema = z.object({
-  action_type: z.enum(Object.values(ActionType)).optional(),
+  action_type: z.enum(Object.values(ACTION_TYPE)).optional(),
   actor_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   target_id: z.string().nullable().optional(),
-  target_type: z.enum(Object.values(TargetType)).nullable().optional(),
+  target_type: z.enum(Object.values(TARGET_TYPE)).nullable().optional(),
   user_id: z.string().optional(),
-  visibility: z.enum(Object.values(ActivityVisibility)).nullable().optional(),
+  visibility: z.enum(Object.values(ACTIVITY_VISIBILITY)).nullable().optional(),
 });
 
 export const ActivityUpdateSchema = z.object({
-  action_type: z.enum(Object.values(ActionType)).optional(),
+  action_type: z.enum(Object.values(ACTION_TYPE)).optional(),
   actor_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   target_id: z.string().nullable().optional(),
-  target_type: z.enum(Object.values(TargetType)).nullable().optional(),
+  target_type: z.enum(Object.values(TARGET_TYPE)).nullable().optional(),
   user_id: z.string().optional(),
-  visibility: z.enum(Object.values(ActivityVisibility)).nullable().optional(),
+  visibility: z.enum(Object.values(ACTIVITY_VISIBILITY)).nullable().optional(),
 });
 
 // =====================================================

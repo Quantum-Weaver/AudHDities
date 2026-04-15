@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/user_private.ts
-// GENERATED: 2026-04-15T05:16:18.167Z
+// GENERATED: 2026-04-15T16:39:24.116Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from '@/types/generated/hestia-core/user_private.ts';
-import { UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private.ts';
+import type { UserPrivateRow, UserPrivateInsert, UserPrivateUpdate } from '@/types/generated/hestia-core/user_private';
+import { UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

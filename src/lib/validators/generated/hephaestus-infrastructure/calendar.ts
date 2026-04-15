@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/calendar.ts
-// GENERATED: 2026-04-15T05:16:17.670Z
+// GENERATED: 2026-04-15T16:13:09.451Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,16 +16,16 @@ export const CalendarRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string().nullable(),
   end_date: z.string().nullable(),
-  house: z.enum(Object.values(CouncilHouse)).nullable(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   id: z.string(),
   is_active: z.boolean().nullable(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   recurrence: z.any().nullable(),
   start_date: z.string(),
   title: z.string(),
-  type: z.enum(Object.values(CalendarEventType)),
+  type: z.enum(Object.values(CALENDAR_EVENT_TYPE)),
   updated_at: z.string().nullable(),
-  visibility: z.enum(Object.values(CalendarVisibility)).nullable(),
+  visibility: z.enum(Object.values(CALENDAR_VISIBILITY)).nullable(),
 });
 
 export const CalendarInsertSchema = z.object({
@@ -34,16 +34,16 @@ export const CalendarInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   end_date: z.string().nullable().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   recurrence: z.any().nullable().optional(),
   start_date: z.string().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(CalendarEventType)).optional(),
+  type: z.enum(Object.values(CALENDAR_EVENT_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
-  visibility: z.enum(Object.values(CalendarVisibility)).nullable().optional(),
+  visibility: z.enum(Object.values(CALENDAR_VISIBILITY)).nullable().optional(),
 });
 
 export const CalendarUpdateSchema = z.object({
@@ -52,16 +52,16 @@ export const CalendarUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   end_date: z.string().nullable().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   recurrence: z.any().nullable().optional(),
   start_date: z.string().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(CalendarEventType)).optional(),
+  type: z.enum(Object.values(CALENDAR_EVENT_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
-  visibility: z.enum(Object.values(CalendarVisibility)).nullable().optional(),
+  visibility: z.enum(Object.values(CALENDAR_VISIBILITY)).nullable().optional(),
 });
 
 // =====================================================

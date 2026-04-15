@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/surveys.ts
-// GENERATED: 2026-04-15T05:16:18.144Z
+// GENERATED: 2026-04-15T16:39:24.111Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SurveysRow, SurveysInsert, SurveysUpdate } from '@/types/generated/iris-communications/surveys.ts';
-import { SurveysInsertSchema, SurveysUpdateSchema } from '@/lib/validators/generated/iris-communications/surveys.ts';
+import type { SurveysRow, SurveysInsert, SurveysUpdate } from '@/types/generated/iris-communications/surveys';
+import { SurveysInsertSchema, SurveysUpdateSchema } from '@/lib/validators/generated/iris-communications/surveys';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

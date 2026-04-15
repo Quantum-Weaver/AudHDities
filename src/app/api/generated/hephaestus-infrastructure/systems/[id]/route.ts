@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { SystemsUpdateSchema } from '@/lib/validators/generated';
+import type { SystemsRowSchema, SystemsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/systems.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/systems/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.780Z
+// GENERATED: 2026-04-15T16:41:40.392Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-15T05:16:17.739Z
+// GENERATED: 2026-04-15T16:13:09.470Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,9 +23,9 @@ export const MaintenanceRowSchema = z.object({
   performed_by: z.string().nullable(),
   scheduled_end: z.string().nullable(),
   scheduled_start: z.string().nullable(),
-  status: z.enum(Object.values(MaintenanceStatus)).nullable(),
+  status: z.enum(Object.values(MAINTENANCE_STATUS)).nullable(),
   title: z.string(),
-  type: z.enum(Object.values(MaintenanceType)),
+  type: z.enum(Object.values(MAINTENANCE_TYPE)),
   updated_at: z.string().nullable(),
 });
 
@@ -42,9 +42,9 @@ export const MaintenanceInsertSchema = z.object({
   performed_by: z.string().nullable().optional(),
   scheduled_end: z.string().nullable().optional(),
   scheduled_start: z.string().nullable().optional(),
-  status: z.enum(Object.values(MaintenanceStatus)).nullable().optional(),
+  status: z.enum(Object.values(MAINTENANCE_STATUS)).nullable().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(MaintenanceType)).optional(),
+  type: z.enum(Object.values(MAINTENANCE_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -61,9 +61,9 @@ export const MaintenanceUpdateSchema = z.object({
   performed_by: z.string().nullable().optional(),
   scheduled_end: z.string().nullable().optional(),
   scheduled_start: z.string().nullable().optional(),
-  status: z.enum(Object.values(MaintenanceStatus)).nullable().optional(),
+  status: z.enum(Object.values(MAINTENANCE_STATUS)).nullable().optional(),
   title: z.string().optional(),
-  type: z.enum(Object.values(MaintenanceType)).optional(),
+  type: z.enum(Object.values(MAINTENANCE_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 

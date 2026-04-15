@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/user_quests.ts
-// GENERATED: 2026-04-15T05:16:17.891Z
+// GENERATED: 2026-04-15T16:13:09.502Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,7 +17,7 @@ export const UserQuestsRowSchema = z.object({
   id: z.string(),
   quest_id: z.string(),
   started_at: z.string().nullable(),
-  status: z.enum(Object.values(QuestStatus)).nullable(),
+  status: z.enum(Object.values(QUEST_STATUS)).nullable(),
   submission_metadata: z.any().nullable(),
   submitted_content: z.string().nullable(),
   updated_at: z.string().nullable(),
@@ -31,7 +31,7 @@ export const UserQuestsInsertSchema = z.object({
   id: z.string().optional(),
   quest_id: z.string().optional(),
   started_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(QuestStatus)).nullable().optional(),
+  status: z.enum(Object.values(QUEST_STATUS)).nullable().optional(),
   submission_metadata: z.any().nullable().optional(),
   submitted_content: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
@@ -45,7 +45,7 @@ export const UserQuestsUpdateSchema = z.object({
   id: z.string().optional(),
   quest_id: z.string().optional(),
   started_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(QuestStatus)).nullable().optional(),
+  status: z.enum(Object.values(QUEST_STATUS)).nullable().optional(),
   submission_metadata: z.any().nullable().optional(),
   submitted_content: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),

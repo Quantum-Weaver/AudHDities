@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/rate_limits.ts
-// GENERATED: 2026-04-15T05:16:18.103Z
+// GENERATED: 2026-04-15T16:39:24.099Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from '@/types/generated/themis-governance/rate_limits.ts';
-import { RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits.ts';
+import type { RateLimitsRow, RateLimitsInsert, RateLimitsUpdate } from '@/types/generated/themis-governance/rate_limits';
+import { RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

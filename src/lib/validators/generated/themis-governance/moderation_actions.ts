@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/moderation_actions.ts
-// GENERATED: 2026-04-15T05:16:17.746Z
+// GENERATED: 2026-04-15T16:13:09.471Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,7 +11,7 @@ import { z } from 'zod';
 // =====================================================
 
 export const ModerationActionsRowSchema = z.object({
-  action_type: z.enum(Object.values(ModerationActionType)),
+  action_type: z.enum(Object.values(MODERATION_ACTION_TYPE)),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   duration: z.string().nullable(),
@@ -24,11 +24,11 @@ export const ModerationActionsRowSchema = z.object({
   reverted_at: z.string().nullable(),
   reverted_by: z.string().nullable(),
   target_id: z.string(),
-  target_type: z.enum(Object.values(ModerationTargetType)),
+  target_type: z.enum(Object.values(MODERATION_TARGET_TYPE)),
 });
 
 export const ModerationActionsInsertSchema = z.object({
-  action_type: z.enum(Object.values(ModerationActionType)).optional(),
+  action_type: z.enum(Object.values(MODERATION_ACTION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   duration: z.string().nullable().optional(),
@@ -41,11 +41,11 @@ export const ModerationActionsInsertSchema = z.object({
   reverted_at: z.string().nullable().optional(),
   reverted_by: z.string().nullable().optional(),
   target_id: z.string().optional(),
-  target_type: z.enum(Object.values(ModerationTargetType)).optional(),
+  target_type: z.enum(Object.values(MODERATION_TARGET_TYPE)).optional(),
 });
 
 export const ModerationActionsUpdateSchema = z.object({
-  action_type: z.enum(Object.values(ModerationActionType)).optional(),
+  action_type: z.enum(Object.values(MODERATION_ACTION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   duration: z.string().nullable().optional(),
@@ -58,7 +58,7 @@ export const ModerationActionsUpdateSchema = z.object({
   reverted_at: z.string().nullable().optional(),
   reverted_by: z.string().nullable().optional(),
   target_id: z.string().optional(),
-  target_type: z.enum(Object.values(ModerationTargetType)).optional(),
+  target_type: z.enum(Object.values(MODERATION_TARGET_TYPE)).optional(),
 });
 
 // =====================================================

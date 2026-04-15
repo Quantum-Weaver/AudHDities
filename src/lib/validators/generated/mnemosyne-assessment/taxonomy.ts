@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-15T05:16:17.836Z
+// GENERATED: 2026-04-15T16:13:09.498Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,7 +19,7 @@ export const TaxonomyRowSchema = z.object({
   is_active: z.boolean().nullable(),
   level: z.number().nullable(),
   name: z.string(),
-  node_type: z.enum(Object.values(TaxonomyNodeType)),
+  node_type: z.enum(Object.values(TAXONOMY_NODE_TYPE)),
   parent_id: z.string().nullable(),
   path: z.string(),
   slug: z.string(),
@@ -35,7 +35,7 @@ export const TaxonomyInsertSchema = z.object({
   is_active: z.boolean().nullable().optional(),
   level: z.number().nullable().optional(),
   name: z.string().optional(),
-  node_type: z.enum(Object.values(TaxonomyNodeType)).optional(),
+  node_type: z.enum(Object.values(TAXONOMY_NODE_TYPE)).optional(),
   parent_id: z.string().nullable().optional(),
   path: z.string().optional(),
   slug: z.string().optional(),
@@ -51,7 +51,7 @@ export const TaxonomyUpdateSchema = z.object({
   is_active: z.boolean().nullable().optional(),
   level: z.number().nullable().optional(),
   name: z.string().optional(),
-  node_type: z.enum(Object.values(TaxonomyNodeType)).optional(),
+  node_type: z.enum(Object.values(TAXONOMY_NODE_TYPE)).optional(),
   parent_id: z.string().nullable().optional(),
   path: z.string().optional(),
   slug: z.string().optional(),

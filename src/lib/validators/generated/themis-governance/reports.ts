@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/reports.ts
-// GENERATED: 2026-04-15T05:16:17.797Z
+// GENERATED: 2026-04-15T16:13:09.487Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,16 +17,16 @@ export const ReportsRowSchema = z.object({
   moderation_notes: z.string().nullable(),
   moderator_id: z.string().nullable(),
   reason: z.string(),
-  report_type: z.enum(Object.values(ReportType)),
+  report_type: z.enum(Object.values(REPORT_TYPE)),
   reported_content: z.string().nullable(),
   reported_url: z.string().nullable(),
   reported_user_id: z.string().nullable(),
   reporter_id: z.string(),
   resolution: z.string().nullable(),
   resolved_at: z.string().nullable(),
-  status: z.enum(Object.values(ReportStatus)).nullable(),
+  status: z.enum(Object.values(REPORT_STATUS)).nullable(),
   target_id: z.string(),
-  target_type: z.enum(Object.values(ReportTargetType)),
+  target_type: z.enum(Object.values(REPORT_TARGET_TYPE)),
   updated_at: z.string().nullable(),
 });
 
@@ -37,16 +37,16 @@ export const ReportsInsertSchema = z.object({
   moderation_notes: z.string().nullable().optional(),
   moderator_id: z.string().nullable().optional(),
   reason: z.string().optional(),
-  report_type: z.enum(Object.values(ReportType)).optional(),
+  report_type: z.enum(Object.values(REPORT_TYPE)).optional(),
   reported_content: z.string().nullable().optional(),
   reported_url: z.string().nullable().optional(),
   reported_user_id: z.string().nullable().optional(),
   reporter_id: z.string().optional(),
   resolution: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ReportStatus)).nullable().optional(),
+  status: z.enum(Object.values(REPORT_STATUS)).nullable().optional(),
   target_id: z.string().optional(),
-  target_type: z.enum(Object.values(ReportTargetType)).optional(),
+  target_type: z.enum(Object.values(REPORT_TARGET_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -57,16 +57,16 @@ export const ReportsUpdateSchema = z.object({
   moderation_notes: z.string().nullable().optional(),
   moderator_id: z.string().nullable().optional(),
   reason: z.string().optional(),
-  report_type: z.enum(Object.values(ReportType)).optional(),
+  report_type: z.enum(Object.values(REPORT_TYPE)).optional(),
   reported_content: z.string().nullable().optional(),
   reported_url: z.string().nullable().optional(),
   reported_user_id: z.string().nullable().optional(),
   reporter_id: z.string().optional(),
   resolution: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ReportStatus)).nullable().optional(),
+  status: z.enum(Object.values(REPORT_STATUS)).nullable().optional(),
   target_id: z.string().optional(),
-  target_type: z.enum(Object.values(ReportTargetType)).optional(),
+  target_type: z.enum(Object.values(REPORT_TARGET_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
 });
 

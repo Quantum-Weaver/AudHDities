@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/posts.ts
-// GENERATED: 2026-04-15T05:16:17.759Z
+// GENERATED: 2026-04-15T16:13:09.475Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,7 +16,7 @@ export const PostsRowSchema = z.object({
   body: z.string().nullable(),
   channel_id: z.string().nullable(),
   comment_count: z.number().nullable(),
-  content_type: z.enum(Object.values(ContentType)),
+  content_type: z.enum(Object.values(CONTENT_TYPE)),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   emerald_count: z.number().nullable(),
@@ -28,7 +28,7 @@ export const PostsRowSchema = z.object({
   tips_received: z.number().nullable(),
   title: z.string().nullable(),
   updated_at: z.string().nullable(),
-  visibility: z.enum(Object.values(PostVisibility)),
+  visibility: z.enum(Object.values(POST_VISIBILITY)),
 });
 
 export const PostsInsertSchema = z.object({
@@ -37,7 +37,7 @@ export const PostsInsertSchema = z.object({
   body: z.string().nullable().optional(),
   channel_id: z.string().nullable().optional(),
   comment_count: z.number().nullable().optional(),
-  content_type: z.enum(Object.values(ContentType)).optional(),
+  content_type: z.enum(Object.values(CONTENT_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   emerald_count: z.number().nullable().optional(),
@@ -49,7 +49,7 @@ export const PostsInsertSchema = z.object({
   tips_received: z.number().nullable().optional(),
   title: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  visibility: z.enum(Object.values(PostVisibility)).optional(),
+  visibility: z.enum(Object.values(POST_VISIBILITY)).optional(),
 });
 
 export const PostsUpdateSchema = z.object({
@@ -58,7 +58,7 @@ export const PostsUpdateSchema = z.object({
   body: z.string().nullable().optional(),
   channel_id: z.string().nullable().optional(),
   comment_count: z.number().nullable().optional(),
-  content_type: z.enum(Object.values(ContentType)).optional(),
+  content_type: z.enum(Object.values(CONTENT_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   emerald_count: z.number().nullable().optional(),
@@ -70,7 +70,7 @@ export const PostsUpdateSchema = z.object({
   tips_received: z.number().nullable().optional(),
   title: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  visibility: z.enum(Object.values(PostVisibility)).optional(),
+  visibility: z.enum(Object.values(POST_VISIBILITY)).optional(),
 });
 
 // =====================================================

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_consciousness.ts
-// GENERATED: 2026-04-15T05:16:18.086Z
+// GENERATED: 2026-04-15T16:39:24.095Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from '@/types/generated/prometheus-meta/prometheus_consciousness.ts';
-import { PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts';
+import type { PrometheusConsciousnessRow, PrometheusConsciousnessInsert, PrometheusConsciousnessUpdate } from '@/types/generated/prometheus-meta/prometheus_consciousness';
+import { PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

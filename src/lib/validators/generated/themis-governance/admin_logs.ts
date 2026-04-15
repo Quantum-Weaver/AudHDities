@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-15T05:16:17.653Z
+// GENERATED: 2026-04-15T16:13:09.446Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,7 +12,7 @@ import { z } from 'zod';
 
 export const AdminLogsRowSchema = z.object({
   action: z.string(),
-  action_category: z.enum(Object.values(AdminLogCategory)),
+  action_category: z.enum(Object.values(ADMIN_LOG_CATEGORY)),
   admin_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
@@ -33,7 +33,7 @@ export const AdminLogsRowSchema = z.object({
 
 export const AdminLogsInsertSchema = z.object({
   action: z.string().optional(),
-  action_category: z.enum(Object.values(AdminLogCategory)).optional(),
+  action_category: z.enum(Object.values(ADMIN_LOG_CATEGORY)).optional(),
   admin_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -54,7 +54,7 @@ export const AdminLogsInsertSchema = z.object({
 
 export const AdminLogsUpdateSchema = z.object({
   action: z.string().optional(),
-  action_category: z.enum(Object.values(AdminLogCategory)).optional(),
+  action_category: z.enum(Object.values(ADMIN_LOG_CATEGORY)).optional(),
   admin_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),

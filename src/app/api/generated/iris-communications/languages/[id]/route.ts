@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LanguagesUpdateSchema } from '@/lib/validators/generated';
+import type { LanguagesRowSchema, LanguagesUpdateSchema } from '@/lib/validators/generated/iris-communications/languages.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/languages/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.464Z
+// GENERATED: 2026-04-15T16:41:40.319Z
 // SOURCE: database.types.ts
 // =====================================================
 

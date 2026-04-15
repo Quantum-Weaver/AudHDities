@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/user_financial.ts
-// GENERATED: 2026-04-15T05:16:18.165Z
+// GENERATED: 2026-04-15T16:39:24.116Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from '@/types/generated/hestia-core/user_financial.ts';
-import { UserFinancialInsertSchema, UserFinancialUpdateSchema } from '@/lib/validators/generated/hestia-core/user_financial.ts';
+import type { UserFinancialRow, UserFinancialInsert, UserFinancialUpdate } from '@/types/generated/hestia-core/user_financial';
+import { UserFinancialInsertSchema, UserFinancialUpdateSchema } from '@/lib/validators/generated/hestia-core/user_financial';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

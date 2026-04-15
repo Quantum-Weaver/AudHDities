@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-15T05:16:18.136Z
+// GENERATED: 2026-04-15T16:39:24.109Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from '@/types/generated/aethelred-connections/stripe_connection.ts';
-import { StripeConnectionInsertSchema, StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection.ts';
+import type { StripeConnectionRow, StripeConnectionInsert, StripeConnectionUpdate } from '@/types/generated/aethelred-connections/stripe_connection';
+import { StripeConnectionInsertSchema, StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

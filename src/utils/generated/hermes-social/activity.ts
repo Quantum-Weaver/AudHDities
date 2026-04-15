@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-15T05:16:17.937Z
+// GENERATED: 2026-04-15T16:39:24.050Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ActivityRow, ActivityInsert, ActivityUpdate } from '@/types/generated/hermes-social/activity.ts';
-import { ActivityInsertSchema, ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity.ts';
+import type { ActivityRow, ActivityInsert, ActivityUpdate } from '@/types/generated/hermes-social/activity';
+import { ActivityInsertSchema, ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

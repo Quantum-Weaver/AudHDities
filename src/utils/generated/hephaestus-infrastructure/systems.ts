@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/systems.ts
-// GENERATED: 2026-04-15T05:16:18.148Z
+// GENERATED: 2026-04-15T16:39:24.112Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SystemsRow, SystemsInsert, SystemsUpdate } from '@/types/generated/hephaestus-infrastructure/systems.ts';
-import { SystemsInsertSchema, SystemsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/systems.ts';
+import type { SystemsRow, SystemsInsert, SystemsUpdate } from '@/types/generated/hephaestus-infrastructure/systems';
+import { SystemsInsertSchema, SystemsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/systems';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

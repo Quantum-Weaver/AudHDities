@@ -30,6 +30,234 @@ export interface ResourceProfile {
 
 export const EFFICIENCY_RECORDS: ProcessingRecord[] = [
   {
+    "id": "20260415_114138",
+    "timestamp": "2026-04-15T16:41:40.540Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 32102016,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_113922",
+    "timestamp": "2026-04-15T16:39:24.395Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 325,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 325,
+    "memoryUsage": 30968704,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 95,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_113534",
+    "timestamp": "2026-04-15T16:35:36.451Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 0,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 0,
+    "memoryUsage": 33740064,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 0,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_113216",
+    "timestamp": "2026-04-15T16:32:17.617Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 2,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 2,
+    "memoryUsage": 38185208,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 2,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_113026",
+    "timestamp": "2026-04-15T16:30:29.051Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 2,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 2,
+    "memoryUsage": 38524352,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 2,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_112557",
+    "timestamp": "2026-04-15T16:25:59.450Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 37119024,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_112415",
+    "timestamp": "2026-04-15T16:24:18.000Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 36844408,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_112152",
+    "timestamp": "2026-04-15T16:21:53.708Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 35978384,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_111956",
+    "timestamp": "2026-04-15T16:19:59.028Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 36208560,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_111306",
+    "timestamp": "2026-04-15T16:13:09.836Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 335,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 335,
+    "memoryUsage": 34234888,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 105,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_111001",
+    "timestamp": "2026-04-15T16:10:03.207Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 230,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 230,
+    "memoryUsage": 35617528,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 0,
+      "utils": 0,
+      "api": 230,
+      "hooks": 0
+    }
+  },
+  {
+    "id": "20260415_104600",
+    "timestamp": "2026-04-15T15:46:02.685Z",
+    "system": "GAIA",
+    "totalFilesGenerated": 200,
+    "totalTimeMs": 0,
+    "averageTimePerFile": 0,
+    "cacheHits": 0,
+    "cacheMisses": 200,
+    "memoryUsage": 28784160,
+    "fileTypeBreakdown": {
+      "constants": 0,
+      "types": 0,
+      "validators": 105,
+      "utils": 95,
+      "api": 0,
+      "hooks": 0
+    }
+  },
+  {
     "id": "20260415_001613",
     "timestamp": "2026-04-15T05:16:19.189Z",
     "system": "GAIA",

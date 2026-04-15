@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-15T05:16:17.730Z
+// GENERATED: 2026-04-15T16:13:09.468Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -16,9 +16,9 @@ export const LearningPathsRowSchema = z.object({
   created_by: z.string().nullable(),
   creator_id: z.string(),
   description: z.string(),
-  difficulty: z.enum(Object.values(DifficultyLevel)),
+  difficulty: z.enum(Object.values(DIFFICULTY_LEVEL)),
   estimated_duration_hours: z.number().nullable(),
-  house: z.enum(Object.values(CouncilHouse)).nullable(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   id: z.string(),
   is_published: z.boolean().nullable(),
   prerequisite_path_id: z.string().nullable(),
@@ -33,9 +33,9 @@ export const LearningPathsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   creator_id: z.string().optional(),
   description: z.string().optional(),
-  difficulty: z.enum(Object.values(DifficultyLevel)).optional(),
+  difficulty: z.enum(Object.values(DIFFICULTY_LEVEL)).optional(),
   estimated_duration_hours: z.number().nullable().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   prerequisite_path_id: z.string().nullable().optional(),
@@ -50,9 +50,9 @@ export const LearningPathsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   creator_id: z.string().optional(),
   description: z.string().optional(),
-  difficulty: z.enum(Object.values(DifficultyLevel)).optional(),
+  difficulty: z.enum(Object.values(DIFFICULTY_LEVEL)).optional(),
   estimated_duration_hours: z.number().nullable().optional(),
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   prerequisite_path_id: z.string().nullable().optional(),

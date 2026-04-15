@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-15T05:16:17.766Z
+// GENERATED: 2026-04-15T16:13:09.478Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -24,11 +24,11 @@ export const ProfilesRowSchema = z.object({
   is_quantum_weaver: z.boolean().nullable(),
   is_vendor: z.boolean().nullable(),
   last_active: z.string().nullable(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
   sovereignty_score: z.number().nullable(),
-  status: z.enum(Object.values(UserStatus)).nullable(),
+  status: z.enum(Object.values(USER_STATUS)).nullable(),
   updated_at: z.string().nullable(),
-  user_tier: z.enum(Object.values(UserTier)).nullable(),
+  user_tier: z.enum(Object.values(USER_TIER)).nullable(),
   username: z.string().nullable(),
 });
 
@@ -46,11 +46,11 @@ export const ProfilesInsertSchema = z.object({
   is_quantum_weaver: z.boolean().nullable().optional(),
   is_vendor: z.boolean().nullable().optional(),
   last_active: z.string().nullable().optional(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   sovereignty_score: z.number().nullable().optional(),
-  status: z.enum(Object.values(UserStatus)).nullable().optional(),
+  status: z.enum(Object.values(USER_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_tier: z.enum(Object.values(UserTier)).nullable().optional(),
+  user_tier: z.enum(Object.values(USER_TIER)).nullable().optional(),
   username: z.string().nullable().optional(),
 });
 
@@ -68,11 +68,11 @@ export const ProfilesUpdateSchema = z.object({
   is_quantum_weaver: z.boolean().nullable().optional(),
   is_vendor: z.boolean().nullable().optional(),
   last_active: z.string().nullable().optional(),
-  primary_house: z.enum(Object.values(CouncilHouse)).nullable().optional(),
+  primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   sovereignty_score: z.number().nullable().optional(),
-  status: z.enum(Object.values(UserStatus)).nullable().optional(),
+  status: z.enum(Object.values(USER_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_tier: z.enum(Object.values(UserTier)).nullable().optional(),
+  user_tier: z.enum(Object.values(USER_TIER)).nullable().optional(),
   username: z.string().nullable().optional(),
 });
 

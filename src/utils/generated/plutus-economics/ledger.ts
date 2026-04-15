@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/ledger.ts
-// GENERATED: 2026-04-15T05:16:18.042Z
+// GENERATED: 2026-04-15T16:39:24.082Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LedgerRow, LedgerInsert, LedgerUpdate } from '@/types/generated/plutus-economics/ledger.ts';
-import { LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger.ts';
+import type { LedgerRow, LedgerInsert, LedgerUpdate } from '@/types/generated/plutus-economics/ledger';
+import { LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

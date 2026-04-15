@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-15T05:16:17.818Z
+// GENERATED: 2026-04-15T16:13:09.493Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,7 +17,7 @@ export const SettingsRowSchema = z.object({
   id: z.string(),
   is_public: z.boolean().nullable(),
   key: z.string(),
-  scope: z.enum(Object.values(SettingScope)),
+  scope: z.enum(Object.values(SETTING_SCOPE)),
   scope_id: z.string().nullable(),
   type: z.string(),
   updated_at: z.string().nullable(),
@@ -31,7 +31,7 @@ export const SettingsInsertSchema = z.object({
   id: z.string().optional(),
   is_public: z.boolean().nullable().optional(),
   key: z.string().optional(),
-  scope: z.enum(Object.values(SettingScope)).optional(),
+  scope: z.enum(Object.values(SETTING_SCOPE)).optional(),
   scope_id: z.string().nullable().optional(),
   type: z.string().optional(),
   updated_at: z.string().nullable().optional(),
@@ -45,7 +45,7 @@ export const SettingsUpdateSchema = z.object({
   id: z.string().optional(),
   is_public: z.boolean().nullable().optional(),
   key: z.string().optional(),
-  scope: z.enum(Object.values(SettingScope)).optional(),
+  scope: z.enum(Object.values(SETTING_SCOPE)).optional(),
   scope_id: z.string().nullable().optional(),
   type: z.string().optional(),
   updated_at: z.string().nullable().optional(),

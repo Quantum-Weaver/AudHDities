@@ -1,11 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
+import type { UserBadgesRowSchema } from '@/lib/validators/generated/athena-gamification/user_badges.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_badges/[id]
 // METHODS: GET, DELETE
-// GENERATED: 2026-04-15T05:16:18.804Z
+// GENERATED: 2026-04-15T16:41:40.399Z
 // SOURCE: database.types.ts
 // =====================================================
 

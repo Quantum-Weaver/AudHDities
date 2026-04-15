@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/executioner.ts
-// GENERATED: 2026-04-15T05:16:18.023Z
+// GENERATED: 2026-04-15T16:39:24.077Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ExecutionerRow, ExecutionerInsert, ExecutionerUpdate } from '@/types/generated/aethelred-connections/executioner.ts';
-import { ExecutionerInsertSchema, ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner.ts';
+import type { ExecutionerRow, ExecutionerInsert, ExecutionerUpdate } from '@/types/generated/aethelred-connections/executioner';
+import { ExecutionerInsertSchema, ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-15T05:16:17.971Z
+// GENERATED: 2026-04-15T16:39:24.061Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AnalyticsRow, AnalyticsInsert, AnalyticsUpdate } from '@/types/generated/hephaestus-infrastructure/analytics.ts';
-import { AnalyticsInsertSchema, AnalyticsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics.ts';
+import type { AnalyticsRow, AnalyticsInsert, AnalyticsUpdate } from '@/types/generated/hephaestus-infrastructure/analytics';
+import { AnalyticsInsertSchema, AnalyticsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

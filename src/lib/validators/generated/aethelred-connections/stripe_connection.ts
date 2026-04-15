@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-15T05:16:17.821Z
+// GENERATED: 2026-04-15T16:13:09.494Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -17,13 +17,13 @@ export const StripeConnectionRowSchema = z.object({
   created_by: z.string().nullable(),
   id: z.string(),
   last_sync_at: z.string().nullable(),
-  mode: z.enum(Object.values(StripeMode)).nullable(),
+  mode: z.enum(Object.values(STRIPE_MODE)).nullable(),
   operated_by: z.string().nullable(),
   payout_settings: z.any().nullable(),
   products_synced: z.number().nullable(),
   updated_at: z.string().nullable(),
   webhook_secret: z.string().nullable(),
-  webhook_status: z.enum(Object.values(WebhookStatus)).nullable(),
+  webhook_status: z.enum(Object.values(WEBHOOK_STATUS)).nullable(),
 });
 
 export const StripeConnectionInsertSchema = z.object({
@@ -33,13 +33,13 @@ export const StripeConnectionInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   last_sync_at: z.string().nullable().optional(),
-  mode: z.enum(Object.values(StripeMode)).nullable().optional(),
+  mode: z.enum(Object.values(STRIPE_MODE)).nullable().optional(),
   operated_by: z.string().nullable().optional(),
   payout_settings: z.any().nullable().optional(),
   products_synced: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
   webhook_secret: z.string().nullable().optional(),
-  webhook_status: z.enum(Object.values(WebhookStatus)).nullable().optional(),
+  webhook_status: z.enum(Object.values(WEBHOOK_STATUS)).nullable().optional(),
 });
 
 export const StripeConnectionUpdateSchema = z.object({
@@ -49,13 +49,13 @@ export const StripeConnectionUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   last_sync_at: z.string().nullable().optional(),
-  mode: z.enum(Object.values(StripeMode)).nullable().optional(),
+  mode: z.enum(Object.values(STRIPE_MODE)).nullable().optional(),
   operated_by: z.string().nullable().optional(),
   payout_settings: z.any().nullable().optional(),
   products_synced: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
   webhook_secret: z.string().nullable().optional(),
-  webhook_status: z.enum(Object.values(WebhookStatus)).nullable().optional(),
+  webhook_status: z.enum(Object.values(WEBHOOK_STATUS)).nullable().optional(),
 });
 
 // =====================================================

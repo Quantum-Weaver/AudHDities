@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/contributions.ts
-// GENERATED: 2026-04-15T05:16:17.688Z
+// GENERATED: 2026-04-15T16:13:09.457Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,7 +11,7 @@ import { z } from 'zod';
 // =====================================================
 
 export const ContributionsRowSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType)),
+  contribution_type: z.enum(Object.values(CONTRIBUTION_TYPE)),
   contributor_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
@@ -25,7 +25,7 @@ export const ContributionsRowSchema = z.object({
 });
 
 export const ContributionsInsertSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType)).optional(),
+  contribution_type: z.enum(Object.values(CONTRIBUTION_TYPE)).optional(),
   contributor_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -39,7 +39,7 @@ export const ContributionsInsertSchema = z.object({
 });
 
 export const ContributionsUpdateSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType)).optional(),
+  contribution_type: z.enum(Object.values(CONTRIBUTION_TYPE)).optional(),
   contributor_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),

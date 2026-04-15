@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-15T05:16:18.039Z
+// GENERATED: 2026-04-15T16:39:24.081Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from '@/types/generated/athena-gamification/learning_paths.ts';
-import { LearningPathsInsertSchema, LearningPathsUpdateSchema } from '@/lib/validators/generated/athena-gamification/learning_paths.ts';
+import type { LearningPathsRow, LearningPathsInsert, LearningPathsUpdate } from '@/types/generated/athena-gamification/learning_paths';
+import { LearningPathsInsertSchema, LearningPathsUpdateSchema } from '@/lib/validators/generated/athena-gamification/learning_paths';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

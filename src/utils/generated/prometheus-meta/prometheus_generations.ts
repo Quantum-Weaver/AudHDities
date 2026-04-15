@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-15T05:16:18.088Z
+// GENERATED: 2026-04-15T16:39:24.095Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PrometheusGenerationsRow, PrometheusGenerationsInsert, PrometheusGenerationsUpdate } from '@/types/generated/prometheus-meta/prometheus_generations.ts';
-import { PrometheusGenerationsInsertSchema, PrometheusGenerationsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_generations.ts';
+import type { PrometheusGenerationsRow, PrometheusGenerationsInsert, PrometheusGenerationsUpdate } from '@/types/generated/prometheus-meta/prometheus_generations';
+import { PrometheusGenerationsInsertSchema, PrometheusGenerationsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_generations';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_badges/[special]
 // METHODS: POST
-// GENERATED: 2026-04-15T05:16:18.804Z
+// GENERATED: 2026-04-15T16:41:40.399Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-15T05:16:17.993Z
+// GENERATED: 2026-04-15T16:39:24.069Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from '@/types/generated/iris-communications/contact_submissions.ts';
-import { ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions.ts';
+import type { ContactSubmissionsRow, ContactSubmissionsInsert, ContactSubmissionsUpdate } from '@/types/generated/iris-communications/contact_submissions';
+import { ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

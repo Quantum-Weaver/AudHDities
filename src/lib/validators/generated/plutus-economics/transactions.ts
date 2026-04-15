@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-15T05:16:17.839Z
+// GENERATED: 2026-04-15T16:13:09.500Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,10 +19,10 @@ export const TransactionsRowSchema = z.object({
   from_id: z.string().nullable(),
   id: z.string(),
   source_id: z.string(),
-  status: z.enum(Object.values(PaymentStatus)).nullable(),
+  status: z.enum(Object.values(PAYMENT_STATUS)).nullable(),
   stripe_transfer_id: z.string().nullable(),
   to_id: z.string().nullable(),
-  transaction_type: z.enum(Object.values(TransactionType)),
+  transaction_type: z.enum(Object.values(TRANSACTION_TYPE)),
 });
 
 export const TransactionsInsertSchema = z.object({
@@ -34,10 +34,10 @@ export const TransactionsInsertSchema = z.object({
   from_id: z.string().nullable().optional(),
   id: z.string().optional(),
   source_id: z.string().optional(),
-  status: z.enum(Object.values(PaymentStatus)).nullable().optional(),
+  status: z.enum(Object.values(PAYMENT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
   to_id: z.string().nullable().optional(),
-  transaction_type: z.enum(Object.values(TransactionType)).optional(),
+  transaction_type: z.enum(Object.values(TRANSACTION_TYPE)).optional(),
 });
 
 export const TransactionsUpdateSchema = z.object({
@@ -49,10 +49,10 @@ export const TransactionsUpdateSchema = z.object({
   from_id: z.string().nullable().optional(),
   id: z.string().optional(),
   source_id: z.string().optional(),
-  status: z.enum(Object.values(PaymentStatus)).nullable().optional(),
+  status: z.enum(Object.values(PAYMENT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
   to_id: z.string().nullable().optional(),
-  transaction_type: z.enum(Object.values(TransactionType)).optional(),
+  transaction_type: z.enum(Object.values(TRANSACTION_TYPE)).optional(),
 });
 
 // =====================================================

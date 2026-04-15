@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-15T05:16:17.838Z
+// GENERATED: 2026-04-15T16:13:09.499Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -15,7 +15,7 @@ export const TimelinesRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string().nullable(),
   event_id: z.string().nullable(),
-  event_type: z.enum(Object.values(TimelineEventType)),
+  event_type: z.enum(Object.values(TIMELINE_EVENT_TYPE)),
   id: z.string(),
   occurred_at: z.string(),
   significance_score: z.number().nullable(),
@@ -28,7 +28,7 @@ export const TimelinesInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_id: z.string().nullable().optional(),
-  event_type: z.enum(Object.values(TimelineEventType)).optional(),
+  event_type: z.enum(Object.values(TIMELINE_EVENT_TYPE)).optional(),
   id: z.string().optional(),
   occurred_at: z.string().optional(),
   significance_score: z.number().nullable().optional(),
@@ -41,7 +41,7 @@ export const TimelinesUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_id: z.string().nullable().optional(),
-  event_type: z.enum(Object.values(TimelineEventType)).optional(),
+  event_type: z.enum(Object.values(TIMELINE_EVENT_TYPE)).optional(),
   id: z.string().optional(),
   occurred_at: z.string().optional(),
   significance_score: z.number().nullable().optional(),

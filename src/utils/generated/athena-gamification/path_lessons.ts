@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/path_lessons.ts
-// GENERATED: 2026-04-15T05:16:18.065Z
+// GENERATED: 2026-04-15T16:39:24.088Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/athena-gamification/path_lessons.ts';
-import { PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons.ts';
+import type { PathLessonsRow, PathLessonsInsert, PathLessonsUpdate } from '@/types/generated/athena-gamification/path_lessons';
+import { PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

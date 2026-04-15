@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/systems.ts
-// GENERATED: 2026-04-15T05:16:17.834Z
+// GENERATED: 2026-04-15T16:13:09.498Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -21,8 +21,8 @@ export const SystemsRowSchema = z.object({
   last_incident: z.string().nullable(),
   name: z.string(),
   slug: z.string(),
-  status: z.enum(Object.values(SystemStatus)).nullable(),
-  type: z.enum(Object.values(SystemType)),
+  status: z.enum(Object.values(SYSTEM_STATUS)).nullable(),
+  type: z.enum(Object.values(SYSTEM_TYPE)),
   updated_at: z.string().nullable(),
   uptime_percent: z.number().nullable(),
   version: z.string().nullable(),
@@ -39,8 +39,8 @@ export const SystemsInsertSchema = z.object({
   last_incident: z.string().nullable().optional(),
   name: z.string().optional(),
   slug: z.string().optional(),
-  status: z.enum(Object.values(SystemStatus)).nullable().optional(),
-  type: z.enum(Object.values(SystemType)).optional(),
+  status: z.enum(Object.values(SYSTEM_STATUS)).nullable().optional(),
+  type: z.enum(Object.values(SYSTEM_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   uptime_percent: z.number().nullable().optional(),
   version: z.string().nullable().optional(),
@@ -57,8 +57,8 @@ export const SystemsUpdateSchema = z.object({
   last_incident: z.string().nullable().optional(),
   name: z.string().optional(),
   slug: z.string().optional(),
-  status: z.enum(Object.values(SystemStatus)).nullable().optional(),
-  type: z.enum(Object.values(SystemType)).optional(),
+  status: z.enum(Object.values(SYSTEM_STATUS)).nullable().optional(),
+  type: z.enum(Object.values(SYSTEM_TYPE)).optional(),
   updated_at: z.string().nullable().optional(),
   uptime_percent: z.number().nullable().optional(),
   version: z.string().nullable().optional(),

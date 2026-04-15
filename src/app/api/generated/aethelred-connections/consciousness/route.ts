@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ConsciousnessInsertSchema } from '@/lib/validators/generated';
+import type { ConsciousnessInsertSchema } from '@/lib/validators/generated/aethelred-connections/consciousness.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.314Z
+// GENERATED: 2026-04-15T16:41:40.192Z
 // SOURCE: database.types.ts
 // =====================================================
 

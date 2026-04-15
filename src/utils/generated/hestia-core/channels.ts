@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-15T05:16:17.985Z
+// GENERATED: 2026-04-15T16:39:24.066Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from '@/types/generated/hestia-core/channels.ts';
-import { ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels.ts';
+import type { ChannelsRow, ChannelsInsert, ChannelsUpdate } from '@/types/generated/hestia-core/channels';
+import { ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

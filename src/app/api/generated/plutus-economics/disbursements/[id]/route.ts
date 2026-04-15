@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { DisbursementsUpdateSchema } from '@/lib/validators/generated';
+import type { DisbursementsRowSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/disbursements/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.397Z
+// GENERATED: 2026-04-15T16:41:40.305Z
 // SOURCE: database.types.ts
 // =====================================================
 

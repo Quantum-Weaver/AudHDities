@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ResidualPoolInsertSchema } from '@/lib/validators/generated';
+import type { ResidualPoolInsertSchema } from '@/lib/validators/generated/plutus-economics/residual_pool.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.673Z
+// GENERATED: 2026-04-15T16:41:40.370Z
 // SOURCE: database.types.ts
 // =====================================================
 

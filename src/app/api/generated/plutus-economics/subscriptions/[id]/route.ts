@@ -1,11 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
+import type { SubscriptionsRowSchema } from '@/lib/validators/generated/plutus-economics/subscriptions.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/subscriptions/[id]
 // METHODS: GET, DELETE
-// GENERATED: 2026-04-15T05:16:18.732Z
+// GENERATED: 2026-04-15T16:41:40.384Z
 // SOURCE: database.types.ts
 // =====================================================
 

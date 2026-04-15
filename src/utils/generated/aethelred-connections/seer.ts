@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/seer.ts
-// GENERATED: 2026-04-15T05:16:18.131Z
+// GENERATED: 2026-04-15T16:39:24.107Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/aethelred-connections/seer.ts';
-import { SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer.ts';
+import type { SeerRow, SeerInsert, SeerUpdate } from '@/types/generated/aethelred-connections/seer';
+import { SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

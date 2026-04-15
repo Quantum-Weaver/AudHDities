@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/progress.ts
-// GENERATED: 2026-04-15T05:16:17.767Z
+// GENERATED: 2026-04-15T16:13:09.478Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -22,7 +22,7 @@ export const ProgressRowSchema = z.object({
   progress_percent: z.number().nullable(),
   score: z.number().nullable(),
   started_at: z.string().nullable(),
-  status: z.enum(Object.values(ProgressStatus)),
+  status: z.enum(Object.values(PROGRESS_STATUS)),
   updated_at: z.string().nullable(),
   user_id: z.string(),
 });
@@ -39,7 +39,7 @@ export const ProgressInsertSchema = z.object({
   progress_percent: z.number().nullable().optional(),
   score: z.number().nullable().optional(),
   started_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ProgressStatus)).optional(),
+  status: z.enum(Object.values(PROGRESS_STATUS)).optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });
@@ -56,7 +56,7 @@ export const ProgressUpdateSchema = z.object({
   progress_percent: z.number().nullable().optional(),
   score: z.number().nullable().optional(),
   started_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ProgressStatus)).optional(),
+  status: z.enum(Object.values(PROGRESS_STATUS)).optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });

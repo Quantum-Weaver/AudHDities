@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-15T05:16:17.659Z
+// GENERATED: 2026-04-15T16:13:09.448Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -13,7 +13,7 @@ import { z } from 'zod';
 export const AnalyticsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  event_category: z.enum(Object.values(AnalyticsCategory)),
+  event_category: z.enum(Object.values(ANALYTICS_CATEGORY)),
   event_name: z.string(),
   id: z.string(),
   ip_address: z.any(),
@@ -27,7 +27,7 @@ export const AnalyticsRowSchema = z.object({
 export const AnalyticsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  event_category: z.enum(Object.values(AnalyticsCategory)).optional(),
+  event_category: z.enum(Object.values(ANALYTICS_CATEGORY)).optional(),
   event_name: z.string().optional(),
   id: z.string().optional(),
   ip_address: z.any().optional(),
@@ -41,7 +41,7 @@ export const AnalyticsInsertSchema = z.object({
 export const AnalyticsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  event_category: z.enum(Object.values(AnalyticsCategory)).optional(),
+  event_category: z.enum(Object.values(ANALYTICS_CATEGORY)).optional(),
   event_name: z.string().optional(),
   id: z.string().optional(),
   ip_address: z.any().optional(),

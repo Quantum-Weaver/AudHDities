@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/audhdities_platform.ts
-// GENERATED: 2026-04-15T05:16:17.976Z
+// GENERATED: 2026-04-15T16:39:24.063Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from '@/types/generated/aethelred-connections/audhdities_platform.ts';
-import { AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform.ts';
+import type { AudhditiesPlatformRow, AudhditiesPlatformInsert, AudhditiesPlatformUpdate } from '@/types/generated/aethelred-connections/audhdities_platform';
+import { AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

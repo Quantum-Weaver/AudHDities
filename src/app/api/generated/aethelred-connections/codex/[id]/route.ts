@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { CodexUpdateSchema } from '@/lib/validators/generated';
+import type { CodexRowSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/codex/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.290Z
+// GENERATED: 2026-04-15T16:41:40.187Z
 // SOURCE: database.types.ts
 // =====================================================
 

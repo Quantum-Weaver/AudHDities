@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-15T05:16:18.124Z
+// GENERATED: 2026-04-15T16:39:24.105Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ScenesRow, ScenesInsert, ScenesUpdate } from '@/types/generated/athena-gamification/scenes.ts';
-import { ScenesInsertSchema, ScenesUpdateSchema } from '@/lib/validators/generated/athena-gamification/scenes.ts';
+import type { ScenesRow, ScenesInsert, ScenesUpdate } from '@/types/generated/athena-gamification/scenes';
+import { ScenesInsertSchema, ScenesUpdateSchema } from '@/lib/validators/generated/athena-gamification/scenes';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

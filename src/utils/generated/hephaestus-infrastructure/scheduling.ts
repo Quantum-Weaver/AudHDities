@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-15T05:16:18.126Z
+// GENERATED: 2026-04-15T16:39:24.106Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from '@/types/generated/hephaestus-infrastructure/scheduling.ts';
-import { SchedulingInsertSchema, SchedulingUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling.ts';
+import type { SchedulingRow, SchedulingInsert, SchedulingUpdate } from '@/types/generated/hephaestus-infrastructure/scheduling';
+import { SchedulingInsertSchema, SchedulingUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

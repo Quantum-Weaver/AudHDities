@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/iris-communications/regions.ts
-// GENERATED: 2026-04-15T05:16:18.108Z
+// GENERATED: 2026-04-15T16:39:24.100Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/iris-communications/regions.ts';
-import { RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions.ts';
+import type { RegionsRow, RegionsInsert, RegionsUpdate } from '@/types/generated/iris-communications/regions';
+import { RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

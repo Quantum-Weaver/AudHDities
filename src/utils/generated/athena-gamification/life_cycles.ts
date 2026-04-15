@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T05:16:18.048Z
+// GENERATED: 2026-04-15T16:39:24.083Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from '@/types/generated/athena-gamification/life_cycles.ts';
-import { LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/generated/athena-gamification/life_cycles.ts';
+import type { LifeCyclesRow, LifeCyclesInsert, LifeCyclesUpdate } from '@/types/generated/athena-gamification/life_cycles';
+import { LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/generated/athena-gamification/life_cycles';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

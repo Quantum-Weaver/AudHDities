@@ -66,7 +66,8 @@ function generateHeader(tableName: string, deityFolder: string, routeType: strin
  * Generate GET /api/generated/{deity}/{table} route (list)
  */
 function generateGetListRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
-  // Add required imports
+  const pascalName = toPascalCase(tableName);
+
   importManager.addImport('next/server', 'NextRequest');
   importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
   importManager.addImport('@/lib/api/auth', 'successResponse');
@@ -75,7 +76,7 @@ function generateGetListRoute(tableName: string, deityFolder: string, importMana
   importManager.addImport('@/lib/api/auth', 'getFilters');
   importManager.addImport('@/lib/api/auth', 'getSortParams');
   importManager.addImport('@/lib/api/auth', 'getOptionalUser');
-  
+
   return `export async function GET(request: NextRequest) {
   try {
     const supabase = await createApiSupabase();
@@ -125,12 +126,15 @@ function generateGetListRoute(tableName: string, deityFolder: string, importMana
  * Generate GET /api/generated/{deity}/{table}/[id] route (single)
  */
 function generateGetSingleRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+  const pascalName = toPascalCase(tableName);
+
   importManager.addImport('next/server', 'NextRequest');
   importManager.addImport('@/lib/api/supabase', 'createApiSupabase');
   importManager.addImport('@/lib/api/auth', 'successResponse');
   importManager.addImport('@/lib/api/auth', 'errorResponse');
   importManager.addImport('@/lib/api/auth', 'notFound');
-  
+  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}RowSchema`, true);
+
   return `export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -172,8 +176,8 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
   importManager.addImport('@/lib/api/auth', 'errorResponse');
   importManager.addImport('@/lib/api/auth', 'unauthorized');
   importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
-  importManager.addImport('@/lib/validators/generated', `${pascalName}InsertSchema`, true);
-  
+  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}InsertSchema`, true);
+
   return `export async function POST(request: NextRequest) {
   try {
     const { userId, success } = await getAuthenticatedUser(request);
@@ -220,7 +224,7 @@ function generatePutRoute(tableName: string, deityFolder: string, importManager:
   importManager.addImport('@/lib/api/auth', 'getAuthenticatedUser');
   importManager.addImport('@/lib/api/auth', 'checkOwnership');
   importManager.addImport('@/lib/api/auth', 'isAdmin');
-  importManager.addImport('@/lib/validators/generated', `${pascalName}UpdateSchema`, true);
+  importManager.addImport('@/lib/validators/generated/' + `${deityFolder}/${tableName}`, `${pascalName}UpdateSchema`, true);
   
   return `export async function PUT(
   request: NextRequest,

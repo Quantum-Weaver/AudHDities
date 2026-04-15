@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { ChancellorInsertSchema } from '@/lib/validators/generated';
+import type { ChancellorInsertSchema } from '@/lib/validators/generated/aethelred-connections/chancellor.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/chancellor
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.278Z
+// GENERATED: 2026-04-15T16:41:40.184Z
 // SOURCE: database.types.ts
 // =====================================================
 

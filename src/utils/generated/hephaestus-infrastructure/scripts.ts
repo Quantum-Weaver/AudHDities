@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/scripts.ts
-// GENERATED: 2026-04-15T05:16:18.130Z
+// GENERATED: 2026-04-15T16:39:24.107Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from '@/types/generated/hephaestus-infrastructure/scripts.ts';
-import { ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts.ts';
+import type { ScriptsRow, ScriptsInsert, ScriptsUpdate } from '@/types/generated/hephaestus-infrastructure/scripts';
+import { ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { LearningPathsUpdateSchema } from '@/lib/validators/generated';
+import type { LearningPathsRowSchema, LearningPathsUpdateSchema } from '@/lib/validators/generated/athena-gamification/learning_paths.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/learning_paths/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T05:16:18.471Z
+// GENERATED: 2026-04-15T16:41:40.320Z
 // SOURCE: database.types.ts
 // =====================================================
 

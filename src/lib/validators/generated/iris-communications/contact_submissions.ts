@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-15T05:16:17.684Z
+// GENERATED: 2026-04-15T16:13:09.456Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -14,7 +14,7 @@ export const ContactSubmissionsRowSchema = z.object({
   assigned_to: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  direction: z.enum(Object.values(ContactDirection)).nullable(),
+  direction: z.enum(Object.values(CONTACT_DIRECTION)).nullable(),
   email: z.string(),
   id: z.string(),
   message: z.string(),
@@ -23,7 +23,7 @@ export const ContactSubmissionsRowSchema = z.object({
   notes: z.string().nullable(),
   parent_id: z.string().nullable(),
   resolved_at: z.string().nullable(),
-  status: z.enum(Object.values(ContactStatus)).nullable(),
+  status: z.enum(Object.values(CONTACT_STATUS)).nullable(),
   subject: z.string(),
   thread_id: z.string().nullable(),
   updated_at: z.string().nullable(),
@@ -34,7 +34,7 @@ export const ContactSubmissionsInsertSchema = z.object({
   assigned_to: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(Object.values(ContactDirection)).nullable().optional(),
+  direction: z.enum(Object.values(CONTACT_DIRECTION)).nullable().optional(),
   email: z.string().optional(),
   id: z.string().optional(),
   message: z.string().optional(),
@@ -43,7 +43,7 @@ export const ContactSubmissionsInsertSchema = z.object({
   notes: z.string().nullable().optional(),
   parent_id: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ContactStatus)).nullable().optional(),
+  status: z.enum(Object.values(CONTACT_STATUS)).nullable().optional(),
   subject: z.string().optional(),
   thread_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
@@ -54,7 +54,7 @@ export const ContactSubmissionsUpdateSchema = z.object({
   assigned_to: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(Object.values(ContactDirection)).nullable().optional(),
+  direction: z.enum(Object.values(CONTACT_DIRECTION)).nullable().optional(),
   email: z.string().optional(),
   id: z.string().optional(),
   message: z.string().optional(),
@@ -63,7 +63,7 @@ export const ContactSubmissionsUpdateSchema = z.object({
   notes: z.string().nullable().optional(),
   parent_id: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
-  status: z.enum(Object.values(ContactStatus)).nullable().optional(),
+  status: z.enum(Object.values(CONTACT_STATUS)).nullable().optional(),
   subject: z.string().optional(),
   thread_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),

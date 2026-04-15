@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/superposition.ts
-// GENERATED: 2026-04-15T05:16:17.827Z
+// GENERATED: 2026-04-15T16:13:09.496Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,7 +19,7 @@ export const SuperpositionRowSchema = z.object({
   observer_count: z.number().nullable(),
   possible_meanings: z.any(),
   probability_distribution: z.any(),
-  status: z.enum(Object.values(SuperpositionStatus)).nullable(),
+  status: z.enum(Object.values(SUPERPOSITION_STATUS)).nullable(),
   updated_at: z.string().nullable(),
 });
 
@@ -32,7 +32,7 @@ export const SuperpositionInsertSchema = z.object({
   observer_count: z.number().nullable().optional(),
   possible_meanings: z.any().optional(),
   probability_distribution: z.any().optional(),
-  status: z.enum(Object.values(SuperpositionStatus)).nullable().optional(),
+  status: z.enum(Object.values(SUPERPOSITION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -45,7 +45,7 @@ export const SuperpositionUpdateSchema = z.object({
   observer_count: z.number().nullable().optional(),
   possible_meanings: z.any().optional(),
   probability_distribution: z.any().optional(),
-  status: z.enum(Object.values(SuperpositionStatus)).nullable().optional(),
+  status: z.enum(Object.values(SUPERPOSITION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });
 

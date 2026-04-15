@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-15T05:16:17.662Z
+// GENERATED: 2026-04-15T16:13:09.448Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,7 +12,7 @@ import { z } from 'zod';
 
 export const ApplicationsRowSchema = z.object({
   admin_notes: z.string().nullable(),
-  application_type: z.enum(Object.values(ApplicationType)),
+  application_type: z.enum(Object.values(APPLICATION_TYPE)),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   form_data: z.any(),
@@ -22,14 +22,14 @@ export const ApplicationsRowSchema = z.object({
   review_notes: z.string().nullable(),
   reviewed_at: z.string().nullable(),
   reviewed_by: z.string().nullable(),
-  status: z.enum(Object.values(ApplicationStatus)).nullable(),
+  status: z.enum(Object.values(APPLICATION_STATUS)).nullable(),
   updated_at: z.string().nullable(),
   user_id: z.string(),
 });
 
 export const ApplicationsInsertSchema = z.object({
   admin_notes: z.string().nullable().optional(),
-  application_type: z.enum(Object.values(ApplicationType)).optional(),
+  application_type: z.enum(Object.values(APPLICATION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   form_data: z.any().optional(),
@@ -39,14 +39,14 @@ export const ApplicationsInsertSchema = z.object({
   review_notes: z.string().nullable().optional(),
   reviewed_at: z.string().nullable().optional(),
   reviewed_by: z.string().nullable().optional(),
-  status: z.enum(Object.values(ApplicationStatus)).nullable().optional(),
+  status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });
 
 export const ApplicationsUpdateSchema = z.object({
   admin_notes: z.string().nullable().optional(),
-  application_type: z.enum(Object.values(ApplicationType)).optional(),
+  application_type: z.enum(Object.values(APPLICATION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   form_data: z.any().optional(),
@@ -56,7 +56,7 @@ export const ApplicationsUpdateSchema = z.object({
   review_notes: z.string().nullable().optional(),
   reviewed_at: z.string().nullable().optional(),
   reviewed_by: z.string().nullable().optional(),
-  status: z.enum(Object.values(ApplicationStatus)).nullable().optional(),
+  status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });

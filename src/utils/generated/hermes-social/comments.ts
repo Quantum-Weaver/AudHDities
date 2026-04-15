@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/comments.ts
-// GENERATED: 2026-04-15T05:16:17.989Z
+// GENERATED: 2026-04-15T16:39:24.067Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CommentsRow, CommentsInsert, CommentsUpdate } from '@/types/generated/hermes-social/comments.ts';
-import { CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/hermes-social/comments.ts';
+import type { CommentsRow, CommentsInsert, CommentsUpdate } from '@/types/generated/hermes-social/comments';
+import { CommentsInsertSchema, CommentsUpdateSchema } from '@/lib/validators/generated/hermes-social/comments';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

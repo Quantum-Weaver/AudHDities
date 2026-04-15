@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/covenant_pool.ts
-// GENERATED: 2026-04-15T05:16:17.692Z
+// GENERATED: 2026-04-15T16:13:09.458Z
 // SOURCE: database.types.ts
 // =====================================================
 

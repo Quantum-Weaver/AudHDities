@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-15T05:16:18.119Z
+// GENERATED: 2026-04-15T16:39:24.104Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { SalesRow, SalesInsert, SalesUpdate } from '@/types/generated/plutus-economics/sales.ts';
-import { SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales.ts';
+import type { SalesRow, SalesInsert, SalesUpdate } from '@/types/generated/plutus-economics/sales';
+import { SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

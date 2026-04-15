@@ -1,11 +1,12 @@
 import { errorResponse, notFound, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
+import type { AcidTestAnswersRowSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_answers/[id]
 // METHODS: GET
-// GENERATED: 2026-04-15T05:16:18.178Z
+// GENERATED: 2026-04-15T16:41:40.162Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/creator_category_links.ts
-// GENERATED: 2026-04-15T05:16:18.005Z
+// GENERATED: 2026-04-15T16:39:24.072Z
 // SOURCE: database.types.ts
 // =====================================================
 
-import type { CreatorCategoryLinksRow, CreatorCategoryLinksInsert, CreatorCategoryLinksUpdate } from '@/types/generated/hestia-core/creator_category_links.ts';
-import { CreatorCategoryLinksInsertSchema, CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links.ts';
+import type { CreatorCategoryLinksRow, CreatorCategoryLinksInsert, CreatorCategoryLinksUpdate } from '@/types/generated/hestia-core/creator_category_links';
+import { CreatorCategoryLinksInsertSchema, CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';

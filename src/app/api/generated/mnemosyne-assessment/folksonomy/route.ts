@@ -1,12 +1,12 @@
 import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { FolksonomyInsertSchema } from '@/lib/validators/generated';
+import type { FolksonomyInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy.ts';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/folksonomy
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T05:16:18.442Z
+// GENERATED: 2026-04-15T16:41:40.314Z
 // SOURCE: database.types.ts
 // =====================================================
 
