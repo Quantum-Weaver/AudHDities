@@ -1,0 +1,1 @@
+// src/components/forms/validators/post.validator.ts
