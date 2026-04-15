@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-14T22:37:52.707Z
+// GENERATED: 2026-04-15T01:18:39.382Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,45 +11,45 @@ import z from 'zod';
 // =====================================================
 
 export const PersonasRowSchema = z.object({
-  avatar_url: z.string().nullable();
-  characteristics: z.any().nullable();
-  color: z.string().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string();
-  description: z.string();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  name: z.string();
-  slug: z.string();
-  "updated_at": "z.string().nullable()";
-}),
+  avatar_url: z.string().nullable(),
+  characteristics: z.any().nullable(),
+  color: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string(),
+  description: z.string(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  name: z.string(),
+  slug: z.string(),
+  updated_at: z.string().nullable(),
+});
 
 export const PersonasInsertSchema = z.object({
-  avatar_url: z.string().nullable().optional();
-  characteristics: z.any().nullable().optional();
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().optional();
-  description: z.string().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  avatar_url: z.string().nullable().optional(),
+  characteristics: z.any().nullable().optional(),
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().optional(),
+  description: z.string().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const PersonasUpdateSchema = z.object({
-  avatar_url: z.string().nullable().optional();
-  characteristics: z.any().nullable().optional();
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().optional();
-  description: z.string().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  avatar_url: z.string().nullable().optional(),
+  characteristics: z.any().nullable().optional(),
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().optional(),
+  description: z.string().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

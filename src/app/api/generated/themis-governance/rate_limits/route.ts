@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/rate_limits
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T21:18:09.101Z
+// GENERATED: 2026-04-15T01:19:26.660Z
 // SOURCE: database.types.ts
 // =====================================================
 

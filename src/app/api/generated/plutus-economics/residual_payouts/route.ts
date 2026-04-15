@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_payouts
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T21:18:09.111Z
+// GENERATED: 2026-04-15T01:19:26.682Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/creative_categories.ts
-// GENERATED: 2026-04-14T22:37:52.689Z
+// GENERATED: 2026-04-15T01:18:39.325Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,48 +11,48 @@ import z from 'zod';
 // =====================================================
 
 export const CreativeCategoriesRowSchema = z.object({
-  color: z.string().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  description: z.string().nullable();
-  display_order: z.number().nullable();
-  icon: z.string().nullable();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  name: z.string();
-  parent_id: z.string().nullable();
-  slug: z.string();
-  "updated_at": "z.string().nullable()";
-}),
+  color: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  display_order: z.number().nullable(),
+  icon: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  name: z.string(),
+  parent_id: z.string().nullable(),
+  slug: z.string(),
+  updated_at: z.string().nullable(),
+});
 
 export const CreativeCategoriesInsertSchema = z.object({
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  display_order: z.number().nullable().optional();
-  icon: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  parent_id: z.string().nullable().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  display_order: z.number().nullable().optional(),
+  icon: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  parent_id: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const CreativeCategoriesUpdateSchema = z.object({
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  display_order: z.number().nullable().optional();
-  icon: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  parent_id: z.string().nullable().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  display_order: z.number().nullable().optional(),
+  icon: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  parent_id: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

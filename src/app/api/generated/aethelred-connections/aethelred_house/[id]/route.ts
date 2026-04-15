@@ -1,12 +1,12 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import type { AethelredHouseUpdateSchema } from '@/lib/validators/generated';
+import type { AethelredHouseUpdateSchema } from '@/lib/validators/generated/aethelred-connections/aethelred_house';
 import { NextRequest } from 'next/server';
 
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/aethelred_house/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-14T21:18:09.011Z
+// GENERATED: 2026-04-15T01:19:26.405Z
 // SOURCE: database.types.ts
 // =====================================================
 

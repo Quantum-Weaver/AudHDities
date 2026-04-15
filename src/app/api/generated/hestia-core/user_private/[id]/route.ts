@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_private/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-14T21:18:09.156Z
+// GENERATED: 2026-04-15T01:19:26.782Z
 // SOURCE: database.types.ts
 // =====================================================
 

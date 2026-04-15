@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/vendor_profiles/[special]
 // METHODS: POST
-// GENERATED: 2026-04-14T21:18:09.160Z
+// GENERATED: 2026-04-15T01:19:26.794Z
 // SOURCE: database.types.ts
 // =====================================================
 

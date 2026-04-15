@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/covenant_pool.ts
-// GENERATED: 2026-04-14T22:37:52.688Z
+// GENERATED: 2026-04-15T01:18:39.323Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,39 +11,39 @@ import z from 'zod';
 // =====================================================
 
 export const CovenantPoolRowSchema = z.object({
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  current_balance_cents: z.number().nullable();
-  id: z.string();
-  "last_distribution_at": "z.string().nullable()";
-  pledge_percent: z.number();
-  total_pledged_cents: z.number().nullable();
-  "updated_at": "z.string().nullable()";
-  user_id: z.string();
-}),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  current_balance_cents: z.number().nullable(),
+  id: z.string(),
+  last_distribution_at: z.string().nullable(),
+  pledge_percent: z.number(),
+  total_pledged_cents: z.number().nullable(),
+  updated_at: z.string().nullable(),
+  user_id: z.string(),
+});
 
 export const CovenantPoolInsertSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  current_balance_cents: z.number().nullable().optional();
-  id: z.string().optional();
-  "last_distribution_at": "z.string().nullable().optional()";
-  pledge_percent: z.number().optional();
-  total_pledged_cents: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
-  user_id: z.string().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  current_balance_cents: z.number().nullable().optional(),
+  id: z.string().optional(),
+  last_distribution_at: z.string().nullable().optional(),
+  pledge_percent: z.number().optional(),
+  total_pledged_cents: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_id: z.string().optional(),
 });
 
 export const CovenantPoolUpdateSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  current_balance_cents: z.number().nullable().optional();
-  id: z.string().optional();
-  "last_distribution_at": "z.string().nullable().optional()";
-  pledge_percent: z.number().optional();
-  total_pledged_cents: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
-  user_id: z.string().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  current_balance_cents: z.number().nullable().optional(),
+  id: z.string().optional(),
+  last_distribution_at: z.string().nullable().optional(),
+  pledge_percent: z.number().optional(),
+  total_pledged_cents: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_id: z.string().optional(),
 });
 
 // =====================================================

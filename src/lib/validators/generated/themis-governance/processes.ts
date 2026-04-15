@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-14T22:37:52.708Z
+// GENERATED: 2026-04-15T01:18:39.388Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,45 +12,45 @@ import z from 'zod';
 // =====================================================
 
 export const ProcessesRowSchema = z.object({
-  "created_at": "z.string().nullable()";
-  created_by: z.string();
-  description: z.string().nullable();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  name: z.string();
-  process_type: z.enum(Object.values(ProcessType));
-  slug: z.string();
-  steps: z.any();
-  timeout_days: z.number().nullable();
-  "updated_at": "z.string().nullable()";
-}),
+  created_at: z.string().nullable(),
+  created_by: z.string(),
+  description: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  name: z.string(),
+  process_type: z.enum(Object.values('ProcessType')),
+  slug: z.string(),
+  steps: z.any(),
+  timeout_days: z.number().nullable(),
+  updated_at: z.string().nullable(),
+});
 
 export const ProcessesInsertSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().optional();
-  description: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  process_type: z.enum(Object.values(ProcessType)).optional();
-  slug: z.string().optional();
-  steps: z.any().optional();
-  timeout_days: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  process_type: z.enum(Object.values('ProcessType')).optional(),
+  slug: z.string().optional(),
+  steps: z.any().optional(),
+  timeout_days: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const ProcessesUpdateSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().optional();
-  description: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  process_type: z.enum(Object.values(ProcessType)).optional();
-  slug: z.string().optional();
-  steps: z.any().optional();
-  timeout_days: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  process_type: z.enum(Object.values('ProcessType')).optional(),
+  slug: z.string().optional(),
+  steps: z.any().optional(),
+  timeout_days: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

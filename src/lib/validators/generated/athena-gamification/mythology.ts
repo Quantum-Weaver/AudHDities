@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-14T22:37:52.703Z
+// GENERATED: 2026-04-15T01:18:39.373Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -13,51 +13,51 @@ import z from 'zod';
 // =====================================================
 
 export const MythologyRowSchema = z.object({
-  author_id: z.string();
-  content: z.string();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  house: z.enum(Object.values(CouncilHouse)).nullable();
-  id: z.string();
-  "is_published": "z.boolean().nullable()";
-  order_index: z.number().nullable();
-  series_id: z.string().nullable();
-  slug: z.string();
-  title: z.string();
-  type: z.enum(Object.values(MythType));
-  "updated_at": "z.string().nullable()";
-}),
+  author_id: z.string(),
+  content: z.string(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  house: z.enum(Object.values('CouncilHouse')).nullable(),
+  id: z.string(),
+  is_published: z.boolean().nullable(),
+  order_index: z.number().nullable(),
+  series_id: z.string().nullable(),
+  slug: z.string(),
+  title: z.string(),
+  type: z.enum(Object.values('MythType')),
+  updated_at: z.string().nullable(),
+});
 
 export const MythologyInsertSchema = z.object({
-  author_id: z.string().optional();
-  content: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional();
-  id: z.string().optional();
-  "is_published": "z.boolean().nullable().optional()";
-  order_index: z.number().nullable().optional();
-  series_id: z.string().nullable().optional();
-  slug: z.string().optional();
-  title: z.string().optional();
-  type: z.enum(Object.values(MythType)).optional();
-  "updated_at": "z.string().nullable().optional()";
+  author_id: z.string().optional(),
+  content: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  house: z.enum(Object.values('CouncilHouse')).nullable().optional(),
+  id: z.string().optional(),
+  is_published: z.boolean().nullable().optional(),
+  order_index: z.number().nullable().optional(),
+  series_id: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  title: z.string().optional(),
+  type: z.enum(Object.values('MythType')).optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const MythologyUpdateSchema = z.object({
-  author_id: z.string().optional();
-  content: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional();
-  id: z.string().optional();
-  "is_published": "z.boolean().nullable().optional()";
-  order_index: z.number().nullable().optional();
-  series_id: z.string().nullable().optional();
-  slug: z.string().optional();
-  title: z.string().optional();
-  type: z.enum(Object.values(MythType)).optional();
-  "updated_at": "z.string().nullable().optional()";
+  author_id: z.string().optional(),
+  content: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  house: z.enum(Object.values('CouncilHouse')).nullable().optional(),
+  id: z.string().optional(),
+  is_published: z.boolean().nullable().optional(),
+  order_index: z.number().nullable().optional(),
+  series_id: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  title: z.string().optional(),
+  type: z.enum(Object.values('MythType')).optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

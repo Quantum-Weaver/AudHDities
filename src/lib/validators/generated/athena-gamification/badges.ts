@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/badges.ts
-// GENERATED: 2026-04-14T22:37:52.680Z
+// GENERATED: 2026-04-15T01:18:39.297Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -15,54 +15,54 @@ import z from 'zod';
 // =====================================================
 
 export const BadgesRowSchema = z.object({
-  badge_type: z.enum(Object.values(BadgeType));
-  color: z.string().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  description: z.string();
-  earn_condition: z.any().nullable();
-  house: z.enum(Object.values(CouncilHouse)).nullable();
-  icon: z.string().nullable();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  name: z.string();
-  rarity: z.enum(Object.values(BadgeRarity));
-  slug: z.string();
-  tier: z.enum(Object.values(BadgeTier)).nullable();
-}),
+  badge_type: z.enum(Object.values('BadgeType')),
+  color: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  description: z.string(),
+  earn_condition: z.any().nullable(),
+  house: z.enum(Object.values('CouncilHouse')).nullable(),
+  icon: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  name: z.string(),
+  rarity: z.enum(Object.values('BadgeRarity')),
+  slug: z.string(),
+  tier: z.enum(Object.values('BadgeTier')).nullable(),
+});
 
 export const BadgesInsertSchema = z.object({
-  badge_type: z.enum(Object.values(BadgeType)).optional();
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().optional();
-  earn_condition: z.any().nullable().optional();
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional();
-  icon: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  rarity: z.enum(Object.values(BadgeRarity)).optional();
-  slug: z.string().optional();
-  tier: z.enum(Object.values(BadgeTier)).nullable().optional();
+  badge_type: z.enum(Object.values('BadgeType')).optional(),
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().optional(),
+  earn_condition: z.any().nullable().optional(),
+  house: z.enum(Object.values('CouncilHouse')).nullable().optional(),
+  icon: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  rarity: z.enum(Object.values('BadgeRarity')).optional(),
+  slug: z.string().optional(),
+  tier: z.enum(Object.values('BadgeTier')).nullable().optional(),
 });
 
 export const BadgesUpdateSchema = z.object({
-  badge_type: z.enum(Object.values(BadgeType)).optional();
-  color: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().optional();
-  earn_condition: z.any().nullable().optional();
-  house: z.enum(Object.values(CouncilHouse)).nullable().optional();
-  icon: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  name: z.string().optional();
-  rarity: z.enum(Object.values(BadgeRarity)).optional();
-  slug: z.string().optional();
-  tier: z.enum(Object.values(BadgeTier)).nullable().optional();
+  badge_type: z.enum(Object.values('BadgeType')).optional(),
+  color: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().optional(),
+  earn_condition: z.any().nullable().optional(),
+  house: z.enum(Object.values('CouncilHouse')).nullable().optional(),
+  icon: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  rarity: z.enum(Object.values('BadgeRarity')).optional(),
+  slug: z.string().optional(),
+  tier: z.enum(Object.values('BadgeTier')).nullable().optional(),
 });
 
 // =====================================================

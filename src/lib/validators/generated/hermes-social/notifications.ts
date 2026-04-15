@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-14T22:37:52.704Z
+// GENERATED: 2026-04-15T01:18:39.375Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,54 +12,54 @@ import z from 'zod';
 // =====================================================
 
 export const NotificationsRowSchema = z.object({
-  action_label: z.string().nullable();
-  action_url: z.string().nullable();
-  body: z.string();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  id: z.string();
-  is_read: z.boolean().nullable();
-  metadata: z.any().nullable();
-  "read_at": "z.string().nullable()";
-  related_entity_id: z.string().nullable();
-  related_entity_type: z.string().nullable();
-  title: z.string();
-  type: z.enum(Object.values(NotificationType));
-  user_id: z.string();
-}),
+  action_label: z.string().nullable(),
+  action_url: z.string().nullable(),
+  body: z.string(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  id: z.string(),
+  is_read: z.boolean().nullable(),
+  metadata: z.any().nullable(),
+  read_at: z.string().nullable(),
+  related_entity_id: z.string().nullable(),
+  related_entity_type: z.string().nullable(),
+  title: z.string(),
+  type: z.enum(Object.values('NotificationType')),
+  user_id: z.string(),
+});
 
 export const NotificationsInsertSchema = z.object({
-  action_label: z.string().nullable().optional();
-  action_url: z.string().nullable().optional();
-  body: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  is_read: z.boolean().nullable().optional();
-  metadata: z.any().nullable().optional();
-  "read_at": "z.string().nullable().optional()";
-  related_entity_id: z.string().nullable().optional();
-  related_entity_type: z.string().nullable().optional();
-  title: z.string().optional();
-  type: z.enum(Object.values(NotificationType)).optional();
-  user_id: z.string().optional();
+  action_label: z.string().nullable().optional(),
+  action_url: z.string().nullable().optional(),
+  body: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_read: z.boolean().nullable().optional(),
+  metadata: z.any().nullable().optional(),
+  read_at: z.string().nullable().optional(),
+  related_entity_id: z.string().nullable().optional(),
+  related_entity_type: z.string().nullable().optional(),
+  title: z.string().optional(),
+  type: z.enum(Object.values('NotificationType')).optional(),
+  user_id: z.string().optional(),
 });
 
 export const NotificationsUpdateSchema = z.object({
-  action_label: z.string().nullable().optional();
-  action_url: z.string().nullable().optional();
-  body: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  is_read: z.boolean().nullable().optional();
-  metadata: z.any().nullable().optional();
-  "read_at": "z.string().nullable().optional()";
-  related_entity_id: z.string().nullable().optional();
-  related_entity_type: z.string().nullable().optional();
-  title: z.string().optional();
-  type: z.enum(Object.values(NotificationType)).optional();
-  user_id: z.string().optional();
+  action_label: z.string().nullable().optional(),
+  action_url: z.string().nullable().optional(),
+  body: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_read: z.boolean().nullable().optional(),
+  metadata: z.any().nullable().optional(),
+  read_at: z.string().nullable().optional(),
+  related_entity_id: z.string().nullable().optional(),
+  related_entity_type: z.string().nullable().optional(),
+  title: z.string().optional(),
+  type: z.enum(Object.values('NotificationType')).optional(),
+  user_id: z.string().optional(),
 });
 
 // =====================================================

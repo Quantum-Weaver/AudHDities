@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scene_participants.ts
-// GENERATED: 2026-04-14T22:37:52.722Z
+// GENERATED: 2026-04-15T01:18:39.440Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,27 +11,27 @@ import z from 'zod';
 // =====================================================
 
 export const SceneParticipantsRowSchema = z.object({
-  created_by: z.string().nullable();
-  "joined_at": "z.string().nullable()";
-  role: z.string().nullable();
-  scene_id: z.string();
-  user_id: z.string();
-}),
+  created_by: z.string().nullable(),
+  joined_at: z.string().nullable(),
+  role: z.string().nullable(),
+  scene_id: z.string(),
+  user_id: z.string(),
+});
 
 export const SceneParticipantsInsertSchema = z.object({
-  created_by: z.string().nullable().optional();
-  "joined_at": "z.string().nullable().optional()";
-  role: z.string().nullable().optional();
-  scene_id: z.string().optional();
-  user_id: z.string().optional();
+  created_by: z.string().nullable().optional(),
+  joined_at: z.string().nullable().optional(),
+  role: z.string().nullable().optional(),
+  scene_id: z.string().optional(),
+  user_id: z.string().optional(),
 });
 
 export const SceneParticipantsUpdateSchema = z.object({
-  created_by: z.string().nullable().optional();
-  "joined_at": "z.string().nullable().optional()";
-  role: z.string().nullable().optional();
-  scene_id: z.string().optional();
-  user_id: z.string().optional();
+  created_by: z.string().nullable().optional(),
+  joined_at: z.string().nullable().optional(),
+  role: z.string().nullable().optional(),
+  scene_id: z.string().optional(),
+  user_id: z.string().optional(),
 });
 
 // =====================================================

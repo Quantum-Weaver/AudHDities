@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/hearth_keeper.ts
-// GENERATED: 2026-04-14T22:37:52.697Z
+// GENERATED: 2026-04-15T01:18:39.354Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,45 +11,45 @@ import z from 'zod';
 // =====================================================
 
 export const HearthKeeperRowSchema = z.object({
-  accessibility_standards: z.any().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  crisis_resources: z.any().nullable();
-  id: z.string();
-  moderators: z.any().nullable();
-  reported_content_queue: z.any().nullable();
-  safety_protocols: z.any().nullable();
-  safety_score: z.number().nullable();
-  "updated_at": "z.string().nullable()";
-  welcome_messages: z.any().nullable();
-}),
+  accessibility_standards: z.any().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  crisis_resources: z.any().nullable(),
+  id: z.string(),
+  moderators: z.any().nullable(),
+  reported_content_queue: z.any().nullable(),
+  safety_protocols: z.any().nullable(),
+  safety_score: z.number().nullable(),
+  updated_at: z.string().nullable(),
+  welcome_messages: z.any().nullable(),
+});
 
 export const HearthKeeperInsertSchema = z.object({
-  accessibility_standards: z.any().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  crisis_resources: z.any().nullable().optional();
-  id: z.string().optional();
-  moderators: z.any().nullable().optional();
-  reported_content_queue: z.any().nullable().optional();
-  safety_protocols: z.any().nullable().optional();
-  safety_score: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
-  welcome_messages: z.any().nullable().optional();
+  accessibility_standards: z.any().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  crisis_resources: z.any().nullable().optional(),
+  id: z.string().optional(),
+  moderators: z.any().nullable().optional(),
+  reported_content_queue: z.any().nullable().optional(),
+  safety_protocols: z.any().nullable().optional(),
+  safety_score: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  welcome_messages: z.any().nullable().optional(),
 });
 
 export const HearthKeeperUpdateSchema = z.object({
-  accessibility_standards: z.any().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  crisis_resources: z.any().nullable().optional();
-  id: z.string().optional();
-  moderators: z.any().nullable().optional();
-  reported_content_queue: z.any().nullable().optional();
-  safety_protocols: z.any().nullable().optional();
-  safety_score: z.number().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
-  welcome_messages: z.any().nullable().optional();
+  accessibility_standards: z.any().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  crisis_resources: z.any().nullable().optional(),
+  id: z.string().optional(),
+  moderators: z.any().nullable().optional(),
+  reported_content_queue: z.any().nullable().optional(),
+  safety_protocols: z.any().nullable().optional(),
+  safety_score: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  welcome_messages: z.any().nullable().optional(),
 });
 
 // =====================================================

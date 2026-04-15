@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_memories.ts
-// GENERATED: 2026-04-14T22:37:52.713Z
+// GENERATED: 2026-04-15T01:18:39.406Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,48 +11,48 @@ import z from 'zod';
 // =====================================================
 
 export const PrometheusMemoriesRowSchema = z.object({
-  "average_duration_ms": "z.number()";
-  confidence_score: z.number();
-  "created_at": "z.string()";
-  dependencies: z.any().nullable();
-  failure_count: z.number();
-  id: z.string();
-  "last_used": "z.string().nullable()";
-  pattern_hash: z.string();
-  pattern_type: z.string();
-  success_count: z.number();
-  template_recommendation: z.string().nullable();
-  "updated_at": "z.string()";
-}),
+  average_duration_ms: z.number(),
+  confidence_score: z.number(),
+  created_at: z.string(),
+  dependencies: z.any().nullable(),
+  failure_count: z.number(),
+  id: z.string(),
+  last_used: z.string().nullable(),
+  pattern_hash: z.string(),
+  pattern_type: z.string(),
+  success_count: z.number(),
+  template_recommendation: z.string().nullable(),
+  updated_at: z.string(),
+});
 
 export const PrometheusMemoriesInsertSchema = z.object({
-  "average_duration_ms": "z.number().optional()";
-  confidence_score: z.number().optional();
-  "created_at": "z.string().optional()";
-  dependencies: z.any().nullable().optional();
-  failure_count: z.number().optional();
-  id: z.string().optional();
-  "last_used": "z.string().nullable().optional()";
-  pattern_hash: z.string().optional();
-  pattern_type: z.string().optional();
-  success_count: z.number().optional();
-  template_recommendation: z.string().nullable().optional();
-  "updated_at": "z.string().optional()";
+  average_duration_ms: z.number().optional(),
+  confidence_score: z.number().optional(),
+  created_at: z.string().optional(),
+  dependencies: z.any().nullable().optional(),
+  failure_count: z.number().optional(),
+  id: z.string().optional(),
+  last_used: z.string().nullable().optional(),
+  pattern_hash: z.string().optional(),
+  pattern_type: z.string().optional(),
+  success_count: z.number().optional(),
+  template_recommendation: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
 });
 
 export const PrometheusMemoriesUpdateSchema = z.object({
-  "average_duration_ms": "z.number().optional()";
-  confidence_score: z.number().optional();
-  "created_at": "z.string().optional()";
-  dependencies: z.any().nullable().optional();
-  failure_count: z.number().optional();
-  id: z.string().optional();
-  "last_used": "z.string().nullable().optional()";
-  pattern_hash: z.string().optional();
-  pattern_type: z.string().optional();
-  success_count: z.number().optional();
-  template_recommendation: z.string().nullable().optional();
-  "updated_at": "z.string().optional()";
+  average_duration_ms: z.number().optional(),
+  confidence_score: z.number().optional(),
+  created_at: z.string().optional(),
+  dependencies: z.any().nullable().optional(),
+  failure_count: z.number().optional(),
+  id: z.string().optional(),
+  last_used: z.string().nullable().optional(),
+  pattern_hash: z.string().optional(),
+  pattern_type: z.string().optional(),
+  success_count: z.number().optional(),
+  template_recommendation: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
 });
 
 // =====================================================

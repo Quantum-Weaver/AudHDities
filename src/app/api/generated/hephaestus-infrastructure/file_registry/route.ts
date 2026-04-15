@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_registry
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T21:18:09.054Z
+// GENERATED: 2026-04-15T01:19:26.526Z
 // SOURCE: database.types.ts
 // =====================================================
 

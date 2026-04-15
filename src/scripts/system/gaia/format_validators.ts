@@ -72,6 +72,9 @@ function extractEnumNames(fieldType: string): string[] {
 /**
  * Convert database type to Zod schema type
  */
+/**
+ * Convert database type to Zod schema type
+ */
 function dbTypeToZod(fieldType: string, fieldName: string): string {
   // Handle nullable types
   const isNullable = fieldType.includes(' | null');
@@ -90,11 +93,11 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   } else if (baseType.match(/^[A-Z]\w+$/)) {
     // Enum reference (PascalCase type name)
-    zodType = `z.enum(Object.values(${baseType}))`;
+    zodType = `z.enum(Object.values('${baseType}'))`;
   } else if (baseType.includes('|')) {
     // Union type - treat as enum
     const values = baseType.split('|').map(v => v.trim().replace(/['"]/g, ''));
-    zodType = `z.enum([${values.map(v => `'${v}'`).join(', ')}])`;
+    zodType = `z.enum([${values.map(v => `'${v}'`).join(' ')}])`;
   } else {
     // Fallback
     zodType = 'z.any()';
@@ -162,7 +165,7 @@ function generateRowSchema(
       
       const zodType = dbTypeToZod(fieldType, fieldName);
       const formattedField = formatFieldDeclaration(fieldName, zodType);
-      fields.push(`  ${formattedField}`);
+      fields.push(`  ${fieldName}: ${zodType},`);
     }
   }
   
@@ -170,7 +173,7 @@ function generateRowSchema(
     return `// No fields found for ${tableName} Row schema\n`;
   }
   
-  return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n}),`;
+  return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
 /**
@@ -191,7 +194,7 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
       // Make optional for insert schema
       const optionalZod = `${zodType}.optional()`;
       const formattedField = formatFieldDeclaration(fieldName, optionalZod);
-      fields.push(`  ${formattedField}`);
+      fields.push(`  ${fieldName}: ${optionalZod},`);
     }
   }
   
@@ -220,7 +223,7 @@ function generateUpdateSchema(tableName: string, updateContent: string): string 
       // Make optional for update schema
       const optionalZod = `${zodType}.optional()`;
       const formattedField = formatFieldDeclaration(fieldName, optionalZod);
-      fields.push(`  ${formattedField}`);
+      fields.push(`  ${fieldName}: ${optionalZod},`);
     }
   }
   

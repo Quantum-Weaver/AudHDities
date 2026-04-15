@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/hearth_keeper
 // METHODS: GET, POST
-// GENERATED: 2026-04-14T21:18:09.060Z
+// GENERATED: 2026-04-15T01:19:26.542Z
 // SOURCE: database.types.ts
 // =====================================================
 

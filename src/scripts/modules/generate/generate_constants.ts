@@ -14,7 +14,7 @@ export interface GenerateConstantsOptions {
   verbose?: boolean;
   dryRun?: boolean;
   forceOverwrite?: boolean;
-  outputBase?: string;  // default: 'src/lib/constants'
+  outputBase?: string; 
   askForApproval?: boolean;
 }
 

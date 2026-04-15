@@ -6,7 +6,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/posts/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-14T21:18:09.081Z
+// GENERATED: 2026-04-15T01:19:26.602Z
 // SOURCE: database.types.ts
 // =====================================================
 

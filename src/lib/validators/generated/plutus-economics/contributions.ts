@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/contributions.ts
-// GENERATED: 2026-04-14T22:37:52.687Z
+// GENERATED: 2026-04-15T01:18:39.320Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,45 +12,45 @@ import z from 'zod';
 // =====================================================
 
 export const ContributionsRowSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType));
-  contributor_id: z.string();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  description: z.string().nullable();
-  id: z.string();
-  "is_one_time": "z.boolean().nullable()";
-  is_residual_eligible: z.boolean().nullable();
-  percent_share: z.number();
-  product_id: z.string();
-  "updated_at": "z.string().nullable()";
-}),
+  contribution_type: z.enum(Object.values('ContributionType')),
+  contributor_id: z.string(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  id: z.string(),
+  is_one_time: z.boolean().nullable(),
+  is_residual_eligible: z.boolean().nullable(),
+  percent_share: z.number(),
+  product_id: z.string(),
+  updated_at: z.string().nullable(),
+});
 
 export const ContributionsInsertSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType)).optional();
-  contributor_id: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  id: z.string().optional();
-  "is_one_time": "z.boolean().nullable().optional()";
-  is_residual_eligible: z.boolean().nullable().optional();
-  percent_share: z.number().optional();
-  product_id: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  contribution_type: z.enum(Object.values('ContributionType')).optional(),
+  contributor_id: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_one_time: z.boolean().nullable().optional(),
+  is_residual_eligible: z.boolean().nullable().optional(),
+  percent_share: z.number().optional(),
+  product_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const ContributionsUpdateSchema = z.object({
-  contribution_type: z.enum(Object.values(ContributionType)).optional();
-  contributor_id: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  id: z.string().optional();
-  "is_one_time": "z.boolean().nullable().optional()";
-  is_residual_eligible: z.boolean().nullable().optional();
-  percent_share: z.number().optional();
-  product_id: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  contribution_type: z.enum(Object.values('ContributionType')).optional(),
+  contributor_id: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_one_time: z.boolean().nullable().optional(),
+  is_residual_eligible: z.boolean().nullable().optional(),
+  percent_share: z.number().optional(),
+  product_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

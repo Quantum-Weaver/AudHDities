@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-14T22:37:52.732Z
+// GENERATED: 2026-04-15T01:18:39.474Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,51 +12,51 @@ import z from 'zod';
 // =====================================================
 
 export const TaxonomyRowSchema = z.object({
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  description: z.string().nullable();
-  domain: z.string().nullable();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  level: z.number().nullable();
-  name: z.string();
-  node_type: z.enum(Object.values(TaxonomyNodeType));
-  parent_id: z.string().nullable();
-  path: z.string();
-  slug: z.string();
-  "updated_at": "z.string().nullable()";
-}),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  domain: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  level: z.number().nullable(),
+  name: z.string(),
+  node_type: z.enum(Object.values('TaxonomyNodeType')),
+  parent_id: z.string().nullable(),
+  path: z.string(),
+  slug: z.string(),
+  updated_at: z.string().nullable(),
+});
 
 export const TaxonomyInsertSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  domain: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  level: z.number().nullable().optional();
-  name: z.string().optional();
-  node_type: z.enum(Object.values(TaxonomyNodeType)).optional();
-  parent_id: z.string().nullable().optional();
-  path: z.string().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  domain: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  level: z.number().nullable().optional(),
+  name: z.string().optional(),
+  node_type: z.enum(Object.values('TaxonomyNodeType')).optional(),
+  parent_id: z.string().nullable().optional(),
+  path: z.string().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const TaxonomyUpdateSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  domain: z.string().nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  level: z.number().nullable().optional();
-  name: z.string().optional();
-  node_type: z.enum(Object.values(TaxonomyNodeType)).optional();
-  parent_id: z.string().nullable().optional();
-  path: z.string().optional();
-  slug: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  domain: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  level: z.number().nullable().optional(),
+  name: z.string().optional(),
+  node_type: z.enum(Object.values('TaxonomyNodeType')).optional(),
+  parent_id: z.string().nullable().optional(),
+  path: z.string().optional(),
+  slug: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

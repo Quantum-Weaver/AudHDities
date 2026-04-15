@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/localization.ts
-// GENERATED: 2026-04-14T22:37:52.701Z
+// GENERATED: 2026-04-15T01:18:39.364Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,48 +11,48 @@ import z from 'zod';
 // =====================================================
 
 export const LocalizationRowSchema = z.object({
-  approved_by: z.string().nullable();
-  context: z.string().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  id: z.string();
-  is_approved: z.boolean().nullable();
-  language_code: z.string();
-  plural_form: z.number().nullable();
-  resource_key: z.string();
-  translation: z.string();
-  "updated_at": "z.string().nullable()";
-  version: z.number().nullable();
-}),
+  approved_by: z.string().nullable(),
+  context: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  id: z.string(),
+  is_approved: z.boolean().nullable(),
+  language_code: z.string(),
+  plural_form: z.number().nullable(),
+  resource_key: z.string(),
+  translation: z.string(),
+  updated_at: z.string().nullable(),
+  version: z.number().nullable(),
+});
 
 export const LocalizationInsertSchema = z.object({
-  approved_by: z.string().nullable().optional();
-  context: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  is_approved: z.boolean().nullable().optional();
-  language_code: z.string().optional();
-  plural_form: z.number().nullable().optional();
-  resource_key: z.string().optional();
-  translation: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
-  version: z.number().nullable().optional();
+  approved_by: z.string().nullable().optional(),
+  context: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_approved: z.boolean().nullable().optional(),
+  language_code: z.string().optional(),
+  plural_form: z.number().nullable().optional(),
+  resource_key: z.string().optional(),
+  translation: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  version: z.number().nullable().optional(),
 });
 
 export const LocalizationUpdateSchema = z.object({
-  approved_by: z.string().nullable().optional();
-  context: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  is_approved: z.boolean().nullable().optional();
-  language_code: z.string().optional();
-  plural_form: z.number().nullable().optional();
-  resource_key: z.string().optional();
-  translation: z.string().optional();
-  "updated_at": "z.string().nullable().optional()";
-  version: z.number().nullable().optional();
+  approved_by: z.string().nullable().optional(),
+  context: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_approved: z.boolean().nullable().optional(),
+  language_code: z.string().optional(),
+  plural_form: z.number().nullable().optional(),
+  resource_key: z.string().optional(),
+  translation: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  version: z.number().nullable().optional(),
 });
 
 // =====================================================

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/residual_payouts.ts
-// GENERATED: 2026-04-14T22:37:52.720Z
+// GENERATED: 2026-04-15T01:18:39.433Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,42 +12,42 @@ import z from 'zod';
 // =====================================================
 
 export const ResidualPayoutsRowSchema = z.object({
-  amount: z.number();
-  calculation_note: z.string().nullable();
-  contributor_id: z.string();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  id: z.string();
-  "paid_at": "z.string().nullable()";
-  product_id: z.string();
-  sale_id: z.string();
-  status: z.enum(Object.values(PayoutStatus)).nullable();
-}),
+  amount: z.number(),
+  calculation_note: z.string().nullable(),
+  contributor_id: z.string(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  id: z.string(),
+  paid_at: z.string().nullable(),
+  product_id: z.string(),
+  sale_id: z.string(),
+  status: z.enum(Object.values('PayoutStatus')).nullable(),
+});
 
 export const ResidualPayoutsInsertSchema = z.object({
-  amount: z.number().optional();
-  calculation_note: z.string().nullable().optional();
-  contributor_id: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  "paid_at": "z.string().nullable().optional()";
-  product_id: z.string().optional();
-  sale_id: z.string().optional();
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional();
+  amount: z.number().optional(),
+  calculation_note: z.string().nullable().optional(),
+  contributor_id: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  paid_at: z.string().nullable().optional(),
+  product_id: z.string().optional(),
+  sale_id: z.string().optional(),
+  status: z.enum(Object.values('PayoutStatus')).nullable().optional(),
 });
 
 export const ResidualPayoutsUpdateSchema = z.object({
-  amount: z.number().optional();
-  calculation_note: z.string().nullable().optional();
-  contributor_id: z.string().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  id: z.string().optional();
-  "paid_at": "z.string().nullable().optional()";
-  product_id: z.string().optional();
-  sale_id: z.string().optional();
-  status: z.enum(Object.values(PayoutStatus)).nullable().optional();
+  amount: z.number().optional(),
+  calculation_note: z.string().nullable().optional(),
+  contributor_id: z.string().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  id: z.string().optional(),
+  paid_at: z.string().nullable().optional(),
+  product_id: z.string().optional(),
+  sale_id: z.string().optional(),
+  status: z.enum(Object.values('PayoutStatus')).nullable().optional(),
 });
 
 // =====================================================

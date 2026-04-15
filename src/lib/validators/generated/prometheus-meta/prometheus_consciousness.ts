@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_consciousness.ts
-// GENERATED: 2026-04-14T22:37:52.712Z
+// GENERATED: 2026-04-15T01:18:39.401Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,45 +12,45 @@ import z from 'zod';
 // =====================================================
 
 export const PrometheusConsciousnessRowSchema = z.object({
-  active_kernel: z.string().nullable();
-  attention_budget: z.number();
-  attention_spent: z.number();
-  council_presence: z.any().nullable();
-  "created_at": "z.string()";
-  id: z.string();
-  "last_awakening": "z.string().nullable()";
-  metadata: z.any().nullable();
-  session_id: z.string();
-  state: z.enum(Object.values(ConsciousnessState));
-  "updated_at": "z.string()";
-}),
+  active_kernel: z.string().nullable(),
+  attention_budget: z.number(),
+  attention_spent: z.number(),
+  council_presence: z.any().nullable(),
+  created_at: z.string(),
+  id: z.string(),
+  last_awakening: z.string().nullable(),
+  metadata: z.any().nullable(),
+  session_id: z.string(),
+  state: z.enum(Object.values('ConsciousnessState')),
+  updated_at: z.string(),
+});
 
 export const PrometheusConsciousnessInsertSchema = z.object({
-  active_kernel: z.string().nullable().optional();
-  attention_budget: z.number().optional();
-  attention_spent: z.number().optional();
-  council_presence: z.any().nullable().optional();
-  "created_at": "z.string().optional()";
-  id: z.string().optional();
-  "last_awakening": "z.string().nullable().optional()";
-  metadata: z.any().nullable().optional();
-  session_id: z.string().optional();
-  state: z.enum(Object.values(ConsciousnessState)).optional();
-  "updated_at": "z.string().optional()";
+  active_kernel: z.string().nullable().optional(),
+  attention_budget: z.number().optional(),
+  attention_spent: z.number().optional(),
+  council_presence: z.any().nullable().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
+  last_awakening: z.string().nullable().optional(),
+  metadata: z.any().nullable().optional(),
+  session_id: z.string().optional(),
+  state: z.enum(Object.values('ConsciousnessState')).optional(),
+  updated_at: z.string().optional(),
 });
 
 export const PrometheusConsciousnessUpdateSchema = z.object({
-  active_kernel: z.string().nullable().optional();
-  attention_budget: z.number().optional();
-  attention_spent: z.number().optional();
-  council_presence: z.any().nullable().optional();
-  "created_at": "z.string().optional()";
-  id: z.string().optional();
-  "last_awakening": "z.string().nullable().optional()";
-  metadata: z.any().nullable().optional();
-  session_id: z.string().optional();
-  state: z.enum(Object.values(ConsciousnessState)).optional();
-  "updated_at": "z.string().optional()";
+  active_kernel: z.string().nullable().optional(),
+  attention_budget: z.number().optional(),
+  attention_spent: z.number().optional(),
+  council_presence: z.any().nullable().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
+  last_awakening: z.string().nullable().optional(),
+  metadata: z.any().nullable().optional(),
+  session_id: z.string().optional(),
+  state: z.enum(Object.values('ConsciousnessState')).optional(),
+  updated_at: z.string().optional(),
 });
 
 // =====================================================

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-14T22:37:52.698Z
+// GENERATED: 2026-04-15T01:18:39.355Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,48 +12,48 @@ import z from 'zod';
 // =====================================================
 
 export const LanguagesRowSchema = z.object({
-  code: z.string();
-  code_3: z.string().nullable();
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  direction: z.enum(Object.values(TextDirectionType)).nullable();
-  id: z.string();
-  is_active: z.boolean().nullable();
-  is_default: z.boolean().nullable();
-  name: z.string();
-  native_name: z.string().nullable();
-  script: z.string().nullable();
-  "updated_at": "z.string().nullable()";
-}),
+  code: z.string(),
+  code_3: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  direction: z.enum(Object.values('TextDirectionType')).nullable(),
+  id: z.string(),
+  is_active: z.boolean().nullable(),
+  is_default: z.boolean().nullable(),
+  name: z.string(),
+  native_name: z.string().nullable(),
+  script: z.string().nullable(),
+  updated_at: z.string().nullable(),
+});
 
 export const LanguagesInsertSchema = z.object({
-  code: z.string().optional();
-  code_3: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  direction: z.enum(Object.values(TextDirectionType)).nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  is_default: z.boolean().nullable().optional();
-  name: z.string().optional();
-  native_name: z.string().nullable().optional();
-  script: z.string().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
+  code: z.string().optional(),
+  code_3: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  direction: z.enum(Object.values('TextDirectionType')).nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  is_default: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  native_name: z.string().nullable().optional(),
+  script: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const LanguagesUpdateSchema = z.object({
-  code: z.string().optional();
-  code_3: z.string().nullable().optional();
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  direction: z.enum(Object.values(TextDirectionType)).nullable().optional();
-  id: z.string().optional();
-  is_active: z.boolean().nullable().optional();
-  is_default: z.boolean().nullable().optional();
-  name: z.string().optional();
-  native_name: z.string().nullable().optional();
-  script: z.string().nullable().optional();
-  "updated_at": "z.string().nullable().optional()";
+  code: z.string().optional(),
+  code_3: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  direction: z.enum(Object.values('TextDirectionType')).nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().nullable().optional(),
+  is_default: z.boolean().nullable().optional(),
+  name: z.string().optional(),
+  native_name: z.string().nullable().optional(),
+  script: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

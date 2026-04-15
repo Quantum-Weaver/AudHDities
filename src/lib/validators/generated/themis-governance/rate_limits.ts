@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/rate_limits.ts
-// GENERATED: 2026-04-14T22:37:52.716Z
+// GENERATED: 2026-04-15T01:18:39.421Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -11,33 +11,33 @@ import z from 'zod';
 // =====================================================
 
 export const RateLimitsRowSchema = z.object({
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  endpoint: z.string();
-  id: z.string();
-  identifier: z.string();
-  request_count: z.number().nullable();
-  window_start: z.string().nullable();
-}),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  endpoint: z.string(),
+  id: z.string(),
+  identifier: z.string(),
+  request_count: z.number().nullable(),
+  window_start: z.string().nullable(),
+});
 
 export const RateLimitsInsertSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  endpoint: z.string().optional();
-  id: z.string().optional();
-  identifier: z.string().optional();
-  request_count: z.number().nullable().optional();
-  window_start: z.string().nullable().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  endpoint: z.string().optional(),
+  id: z.string().optional(),
+  identifier: z.string().optional(),
+  request_count: z.number().nullable().optional(),
+  window_start: z.string().nullable().optional(),
 });
 
 export const RateLimitsUpdateSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  endpoint: z.string().optional();
-  id: z.string().optional();
-  identifier: z.string().optional();
-  request_count: z.number().nullable().optional();
-  window_start: z.string().nullable().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  endpoint: z.string().optional(),
+  id: z.string().optional(),
+  identifier: z.string().optional(),
+  request_count: z.number().nullable().optional(),
+  window_start: z.string().nullable().optional(),
 });
 
 // =====================================================

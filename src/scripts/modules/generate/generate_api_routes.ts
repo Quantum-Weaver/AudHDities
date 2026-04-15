@@ -6,7 +6,7 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logSeparator } from '@/scripts/shared/logger.js';
 import { stageFileChange } from '../system/staging.js';
-import { API_BASE_PATH } from '@/scripts/shared/file_reader.js';
+import { API_BASE_PATH } from '@/scripts/shared/paths.js';
 import {
   generateGetListRoute,
   generateGetSingleRoute,

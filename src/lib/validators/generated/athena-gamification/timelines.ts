@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-14T22:37:52.733Z
+// GENERATED: 2026-04-15T01:18:39.476Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -12,42 +12,42 @@ import z from 'zod';
 // =====================================================
 
 export const TimelinesRowSchema = z.object({
-  "created_at": "z.string().nullable()";
-  created_by: z.string().nullable();
-  description: z.string().nullable();
-  event_id: z.string().nullable();
-  event_type: z.enum(Object.values(TimelineEventType));
-  id: z.string();
-  "occurred_at": "z.string()";
-  significance_score: z.number().nullable();
-  title: z.string();
-  user_id: z.string();
-}),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  event_id: z.string().nullable(),
+  event_type: z.enum(Object.values('TimelineEventType')),
+  id: z.string(),
+  occurred_at: z.string(),
+  significance_score: z.number().nullable(),
+  title: z.string(),
+  user_id: z.string(),
+});
 
 export const TimelinesInsertSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  event_id: z.string().nullable().optional();
-  event_type: z.enum(Object.values(TimelineEventType)).optional();
-  id: z.string().optional();
-  "occurred_at": "z.string().optional()";
-  significance_score: z.number().nullable().optional();
-  title: z.string().optional();
-  user_id: z.string().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  event_id: z.string().nullable().optional(),
+  event_type: z.enum(Object.values('TimelineEventType')).optional(),
+  id: z.string().optional(),
+  occurred_at: z.string().optional(),
+  significance_score: z.number().nullable().optional(),
+  title: z.string().optional(),
+  user_id: z.string().optional(),
 });
 
 export const TimelinesUpdateSchema = z.object({
-  "created_at": "z.string().nullable().optional()";
-  created_by: z.string().nullable().optional();
-  description: z.string().nullable().optional();
-  event_id: z.string().nullable().optional();
-  event_type: z.enum(Object.values(TimelineEventType)).optional();
-  id: z.string().optional();
-  "occurred_at": "z.string().optional()";
-  significance_score: z.number().nullable().optional();
-  title: z.string().optional();
-  user_id: z.string().optional();
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  event_id: z.string().nullable().optional(),
+  event_type: z.enum(Object.values('TimelineEventType')).optional(),
+  id: z.string().optional(),
+  occurred_at: z.string().optional(),
+  significance_score: z.number().nullable().optional(),
+  title: z.string().optional(),
+  user_id: z.string().optional(),
 });
 
 // =====================================================

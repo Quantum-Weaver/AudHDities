@@ -14,9 +14,14 @@ import type { EnrichedTable } from './enrich_objects.js';
 
 export interface FormatApiRoutesOptions {
   verbose?: boolean;
+  dryRun?: boolean;
+  forceOverwrite?: boolean;
+  outputBase?: string;
+  askForApproval?: boolean;
 }
 
 export interface FormattedApiRoute {
+  verbose?: boolean
   content: string;
   filePath: string;
   tableName: string;
