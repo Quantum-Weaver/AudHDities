@@ -4,12 +4,21 @@
 import { createServerSupabase } from '@/lib/supabase/server';
 import { type NextRequest, NextResponse } from 'next/server';
 
-export interface AuthResult {
-  success: boolean;
-  userId?: string;
-  error?: string;
-  status?: number;
-}
+export type AuthSuccess = {
+  success: true;
+  userId: string;
+  error?: never;
+  status?: never;
+};
+
+export type AuthFailure = {
+  success: false;
+  userId?: never;
+  error: string;
+  status: number;
+};
+
+export type AuthResult = AuthSuccess | AuthFailure;
 
 export interface PaginatedResponse<T> {
   data: T[];
