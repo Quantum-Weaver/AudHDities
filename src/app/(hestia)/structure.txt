@@ -1,0 +1,27 @@
+🔥 HESTIA — The Hearth
+
+Feeling: Warm, welcoming, safe, reflective
+text
+
+src/app/(hestia)/
+├── page.tsx                              # The Hearth (/)
+├── vessel/
+│   └── page.tsx                          # The Vessel (/vessel)
+├── sanctum/
+│   └── page.tsx                          # Sanctum (/vessel/sanctum)
+├── energy/
+│   ├── page.tsx                          # Energy Log (/vessel/energy)
+│   └── [id]/
+│       └── page.tsx                      # Energy Entry Detail (/vessel/energy/[id]) ✨ NEW
+├── constellation/
+│   ├── page.tsx                          # Constellation (/vessel/constellation)
+│   └── [id]/
+│       └── page.tsx                      # Connection Detail (/vessel/constellation/[id]) ✨ NEW
+├── journal/
+│   ├── page.tsx                          # The Scroll (/vessel/journal)
+│   └── [id]/
+│       └── page.tsx                      # Journal Entry Detail (/vessel/journal/[id]) ✅
+└── notifications/
+    ├── page.tsx                          # The Pulse (/notifications)
+    └── [id]/
+        └── page.tsx                      # Notification Detail (/notifications/[id]) ✨ NEW

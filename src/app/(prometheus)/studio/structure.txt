@@ -1,0 +1,24 @@
+🎨 PROMETHEUS — The Studio
+
+Feeling: Generative, fluid, sovereign, unbounded
+
+src/app/(prometheus)/studio/
+├── page.tsx                          # The Loom (/studio)
+├── music/
+│   └── page.tsx                      # Music Studio (/studio/music)
+├── art/
+│   └── page.tsx                      # Art Studio (/studio/art)
+├── animation/
+│   └── page.tsx                      # Animation Studio (/studio/animation)
+├── audio/
+│   └── page.tsx                      # Audio Studio (/studio/audio)
+├── video/
+│   └── page.tsx                      # Video Studio (/studio/video)
+├── writing/
+│   └── page.tsx                      # Writing Studio (/studio/writing)
+├── graphics/
+│   └── page.tsx                      # Graphics Lab (/studio/graphics)
+├── effects/
+│   └── page.tsx                      # Effects Lab (/studio/effects)
+└── export/
+    └── page.tsx                      # The Gateway (/studio/export)

@@ -1,89 +1,130 @@
-/* @/components/ui/ButtonGroup.tsx */
+// @/components/ui/ButtonGroup.tsx
+// NEUTRAL BUTTON GROUP FOUNDATION
+// No visual opinions. Structure only.
+// Variants come from design system via className.
+
 "use client"
+
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
-import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/Separator"
+import { forwardRef } from "react"
 
-const buttonGroupVariants = cva(
-  "flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-lg [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
-  {
-    variants: {
-      orientation: {
-        horizontal:
-          "*:data-slot:rounded-r-none [&>[data-slot]:not(:has(~[data-slot]))]:rounded-r-lg! [&>[data-slot]~[data-slot]]:rounded-l-none [&>[data-slot]~[data-slot]]:border-l-0",
-        vertical:
-          "flex-col *:data-slot:rounded-b-none [&>[data-slot]:not(:has(~[data-slot]))]:rounded-b-lg! [&>[data-slot]~[data-slot]]:rounded-t-none [&>[data-slot]~[data-slot]]:border-t-0",
-      },
-    },
-    defaultVariants: {
-      orientation: "horizontal",
-    },
+export interface ButtonGroupProps extends React.ComponentProps<"div"> {
+  /** Orientation of the button group */
+  orientation?: "horizontal" | "vertical"
+}
+
+/**
+ * Neutral Button Group Component
+ * 
+ * Groups buttons together horizontally or vertically.
+ * No visual styling—only structural layout.
+ * 
+ * Usage:
+ *   <ButtonGroup orientation="horizontal">
+ *     <Button>Save</Button>
+ *     <Button>Cancel</Button>
+ *   </ButtonGroup>
+ * 
+ * With design system variants:
+ *   <ButtonGroup className="gap-2">
+ *     <Button className="btn-primary">Save</Button>
+ *     <Button className="btn-secondary">Cancel</Button>
+ *   </ButtonGroup>
+ */
+const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+  ({ className, orientation = "horizontal", children, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        role="group"
+        data-slot="button-group"
+        data-orientation={orientation}
+        className={cn(
+          // Base structural styles (no visual opinions)
+          "flex w-fit items-stretch",
+          orientation === "horizontal"
+            ? "flex-row"
+            : "flex-col",
+          // All visual styling comes from className
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    )
   }
 )
 
-function ButtonGroup({
-  className,
-  orientation,
-  ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof buttonGroupVariants>) {
-  return (
-    <div
-      role="group"
-      data-slot="button-group"
-      data-orientation={orientation}
-      className={cn(buttonGroupVariants({ orientation }), className)}
-      {...props}
-    />
-  )
-}
+ButtonGroup.displayName = "ButtonGroup"
 
-function ButtonGroupText({
-  className,
-  render,
-  ...props
-}: useRender.ComponentProps<"div">) {
-  return useRender({
-    defaultTagName: "div",
-    props: mergeProps<"div">(
-      {
-        className: cn(
-          "flex items-center gap-2 rounded-lg border bg-muted px-2.5 text-sm font-medium [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
-          className
-        ),
+export interface ButtonGroupTextProps extends useRender.ComponentProps<"div"> {}
+
+/**
+ * Neutral Button Group Text
+ * 
+ * Text element within a button group (e.g., "or" between buttons).
+ */
+const ButtonGroupText = forwardRef<HTMLDivElement, ButtonGroupTextProps>(
+  ({ className, render, ...props }, ref) => {
+    return useRender({
+      defaultTagName: "div",
+      props: mergeProps<"div">(
+        {
+          ref,
+          className: cn(
+            // Base structural styles only
+            "flex items-center gap-2",
+            // All visual styling comes from className
+            className
+          ),
+        },
+        props
+      ),
+      render,
+      state: {
+        slot: "button-group-text",
       },
-      props
-    ),
-    render,
-    state: {
-      slot: "button-group-text",
-    },
-  })
+    })
+  }
+)
+
+ButtonGroupText.displayName = "ButtonGroupText"
+
+export interface ButtonGroupSeparatorProps extends React.ComponentProps<typeof Separator> {
+  orientation?: "horizontal" | "vertical"
 }
 
-function ButtonGroupSeparator({
-  className,
-  orientation = "vertical",
-  ...props
-}: React.ComponentProps<typeof Separator>) {
-  return (
-    <Separator
-      data-slot="button-group-separator"
-      orientation={orientation}
-      className={cn(
-        "relative self-stretch bg-input data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+/**
+ * Neutral Button Group Separator
+ * 
+ * Separator between buttons in a group.
+ */
+const ButtonGroupSeparator = forwardRef<HTMLDivElement, ButtonGroupSeparatorProps>(
+  ({ className, orientation = "vertical", ...props }, ref) => {
+    return (
+      <Separator
+        ref={ref}
+        data-slot="button-group-separator"
+        orientation={orientation}
+        className={cn(
+          // Base structural styles only
+          "relative self-stretch",
+          orientation === "vertical"
+            ? "h-auto w-px"
+            : "h-px w-auto",
+          // All visual styling comes from className
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
 
-export {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-  buttonGroupVariants,
-}
+ButtonGroupSeparator.displayName = "ButtonGroupSeparator"
+
+export { ButtonGroup, ButtonGroupSeparator, ButtonGroupText }

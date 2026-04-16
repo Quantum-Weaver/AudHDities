@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
 import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
-import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity-beam';
+import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity_beam';
 
 interface ContinuityBeamContextValue {
   /** Current beam configuration (colors, intensity, direction) */

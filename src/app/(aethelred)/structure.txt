@@ -1,0 +1,23 @@
+🌿 AETHELRED — The Nexus
+
+Feeling: Bridging, integrating, whole, sovereign
+
+src/app/(aethelred)/
+├── nexus/
+│   ├── page.tsx                    # The Nexus (/nexus)
+│   ├── consciousness/
+│   │   └── page.tsx                # Consciousness (/nexus/consciousness)
+│   ├── council/
+│   │   ├── page.tsx                # The Council (/nexus/council)
+│   │   └── [id]/
+│   │       └── page.tsx            # Entity Detail (/nexus/council/[id])
+│   ├── bridge/
+│   │   └── page.tsx                # The Bridge (/nexus/bridge)
+│   ├── integrations/
+│   │   └── page.tsx                # Integrations (/nexus/integrations)
+│   ├── api/
+│   │   └── page.tsx                # The Gateway (/nexus/api)
+│   ├── webhooks/
+│   │   └── page.tsx                # The Pulse (/nexus/webhooks)
+│   └── status/
+│       └── page.tsx                # The Health (/nexus/status)

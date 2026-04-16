@@ -1,52 +1,64 @@
-/* @/components/layout/Page.tsx */
-'use client';
-import React from 'react';
-import PanoramaViewer from '@/components/immersive/PanoramaViewer';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+// @/components/layout/Page.tsx
+// Page wrapper - every page uses this
+// Provides environment, continuity beam, status bar structure
 
-interface PageProps {
-  environment: EnvironmentKey;
-  variant?: number;
-  showForeground?: boolean;
-  animated?: boolean;
-  title?: string;
-  subtitle?:string;
-  description?: string;
-  children?: React.ReactNode;
-  className?: string;
-  showContinuityBeam?: boolean;
+"use client"
+
+import { cn } from "@/lib/utils"
+import { PanoramaViewer } from "@/components/immersive/PanoramaViewer"
+import { ContinuityBeam } from "@/components/immersive/ContinuityBeam"
+import { StatusBar } from "@/components/immersive/StatusBar"
+
+export interface PageProps {
+  /** Environment key (home, council, library, music, etc.) */
+  environment?: string
+  /** Variant of the environment (1-4) */
+  variant?: number
+  /** Show foreground elements */
+  showForeground?: boolean
+  /** Enable animations */
+  animated?: boolean
+  /** Show continuity beam */
+  showContinuityBeam?: boolean
+  /** Show status bar */
+  showStatusBar?: boolean
+  /** Additional classes */
+  className?: string
+  /** Page content */
+  children: React.ReactNode
 }
 
-export const Page: React.FC<PageProps> = ({
-  environment,
+export function Page({
+  environment = "home",
   variant = 1,
   showForeground = true,
   animated = true,
-  title,
-  description,
+  showContinuityBeam = true,
+  showStatusBar = true,
+  className,
   children,
-  className = ''
-}) => {
+}: PageProps) {
   return (
-
-    <PanoramaViewer
-      environment={environment}
-      variant={variant}
-      showForeground={showForeground}
-      animated={animated}      
-      className={className}
-    >
-      {/* Content Container */}
-      <div className="relative z-10 text-center min-h-screen">        
-        {/* Main Content */}
-        <div className="page-content px-6 pb-20">
-          <section className="page-title-section mb-8 pt-20 px-6">
-            {children}
-          </section>             
-        </div>
+    <div className={cn("relative min-h-screen", className)}>
+      {/* Immersive Background */}
+      <PanoramaViewer
+        environment={environment}
+        variant={variant}
+        showForeground={showForeground}
+        animated={animated}
+        className="fixed inset-0 -z-10"
+      />
+      
+      {/* Continuity Beam (top/bottom animated line) */}
+      {showContinuityBeam && <ContinuityBeam />}
+      
+      {/* Status Bar (sovereignty, energy, notifications) */}
+      {showStatusBar && <StatusBar />}
+      
+      {/* Page Content */}
+      <div className="relative z-10">
+        {children}
       </div>
-    </PanoramaViewer>
-  );
-};
-
-export default Page;
+    </div>
+  )
+}

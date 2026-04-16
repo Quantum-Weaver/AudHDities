@@ -1,24 +1,23 @@
-/* @/components/immersive/ContinuityBeam.tsx */
-'use client';
+// @/components/immersive/ContinuityBeam.tsx
+// Refined - uses your existing continuity-beam constants
 
-import { motion, type HTMLMotionProps } from 'framer-motion';
-import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import { getBeamAnimation } from '@/lib/constants/components/immersive/continuity-beam';
-import { GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
-import { cn } from '@/lib/utils';
+"use client";
 
-interface ContinuityBeamProps extends HTMLMotionProps<'div'> {
-  /** Override beam intensity (0-1) - overrides the calculated intensity */
+import { motion, type HTMLMotionProps } from "framer-motion";
+import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
+import { getBeamAnimation, type BeamConfig } from "@/lib/constants/components/immersive/continuity_beam";
+import { GLOW_EFFECTS } from "@/lib/constants/cosmic/effects";
+import { cn } from "@/lib/utils";
+
+export interface ContinuityBeamProps extends HTMLMotionProps<"div"> {
   intensityOverride?: number;
-  /** Custom className */
   className?: string;
-  /** Disable the beam entirely */
   disabled?: boolean;
 }
 
 export default function ContinuityBeam({
   intensityOverride,
-  className = '',
+  className = "",
   disabled = false,
   ...props
 }: ContinuityBeamProps) {
@@ -26,34 +25,33 @@ export default function ContinuityBeam({
 
   if (disabled || !activationState.active) return null;
 
-  // Get the animation from the beam config
   const beamAnimation = getBeamAnimation(beamConfig);
-  
-  // Calculate final intensity (override > config intensity mapping)
+
   const getIntensityValue = (intensity: string): number => {
     if (intensityOverride !== undefined) return intensityOverride;
     switch (beamConfig.intensity) {
-      case 'quantum': return 0.85;
-      case 'high': return 0.66;
-      case 'medium': return 0.47;
-      case 'low': return 0.33;
-      default: return 0.47;
+      case "quantum":
+        return 0.85;
+      case "high":
+        return 0.66;
+      case "medium":
+        return 0.47;
+      case "low":
+        return 0.33;
+      default:
+        return 0.47;
     }
   };
-  
+
   const finalIntensity = getIntensityValue(beamConfig.intensity);
-  
-  // Apply speed multiplier from activation state
   const adjustedDuration = (beamConfig.duration || 3) / (activationState.speedMultiplier || 1);
-  
-  // Get glow effect (fallback to quantum glow)
   const glowEffect = beamConfig.glow || GLOW_EFFECTS.quantum;
 
   return (
     <div
       className={cn(
-        'continuity-beam-container',
-        'fixed top-0 left-0 w-full h-[3px] overflow-hidden pointer-events-none z-40',
+        "continuity-beam-container",
+        "fixed top-0 left-0 w-full h-[3px] overflow-hidden pointer-events-none z-40",
         className
       )}
       data-beam-variant={beamConfig.variant}

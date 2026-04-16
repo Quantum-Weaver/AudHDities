@@ -1,0 +1,27 @@
+🛡️ THEMIS — The Council Chamber
+
+Feeling: Transparent, just, collaborative, wise
+
+src/app/(themis)/
+├── council/
+│   ├── page.tsx                    # The Council Chamber (/council)
+│   ├── proposals/
+│   │   ├── page.tsx                # Proposals (/council/proposals)
+│   │   └── [id]/
+│   │       └── page.tsx            # Proposal Detail (/council/proposals/[id])
+│   ├── voting/
+│   │   └── page.tsx                # The Vote (/council/voting)
+│   ├── delegation/
+│   │   └── page.tsx                # Delegation (/council/delegation)
+│   ├── curators/
+│   │   └── page.tsx                # Curators (/council/curators)
+│   ├── ledger/
+│   │   └── page.tsx                # The Ledger (/council/ledger)
+│   ├── reports/
+│   │   └── page.tsx                # Reports (/council/reports)
+│   ├── admin/
+│   │   └── page.tsx                # The Hearth of Governance (/council/admin)
+│   └── applications/
+│       ├── page.tsx                # Applications (/council/applications)
+│       └── [id]/
+│           └── page.tsx            # Application Detail (/council/applications/[id])

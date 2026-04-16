@@ -1,11 +1,15 @@
-/* @/components/immersive/PanoramaViewer.tsx */
-'use client';
-import { useEffect } from 'react';
-import { QuantumBackground } from './QuantumBackground';
-import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+// @/components/immersive/PanoramaViewer.tsx
+// Refined - uses your existing constants, no breaking changes
 
-interface PanoramaViewerProps {
+"use client";
+
+import { useEffect } from "react";
+import { QuantumBackground } from "./QuantumBackground";
+import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
+import type { EnvironmentKey } from "@/lib/constants/systems/assets/mapper";
+import { cn } from "@/lib/utils";
+
+export interface PanoramaViewerProps {
   environment: EnvironmentKey;
   variant?: number;
   showForeground?: boolean;
@@ -15,38 +19,37 @@ interface PanoramaViewerProps {
   parallaxIntensity?: number;
 }
 
-export default function PanoramaViewer({ 
+export default function PanoramaViewer({
   environment,
   variant = 1,
   showForeground = true,
   animated = true,
   children,
-  className = ''
+  className = "",
+  parallaxIntensity = 0.5,
 }: PanoramaViewerProps) {
   const { setEnvironment } = useContinuityBeam();
-  
+
   useEffect(() => {
     setEnvironment(environment);
-  }, [environment, setEnvironment])
-  
+  }, [environment, setEnvironment]);
+
   return (
-    <div className={`relative w-full min-h-screen ${className}`}>
-      
+    <div className={cn("relative w-full min-h-screen", className)}>
       {/* FULL SCREEN IMMERSIVE BACKGROUND */}
       <div className="fixed inset-0 -z-10">
-        <QuantumBackground 
+        <QuantumBackground
           environment={environment}
           variant={variant}
-          showForeground={showForeground}          
+          showForeground={showForeground}
           animated={animated}
-          className="w-full h-full"          
+          parallaxIntensity={parallaxIntensity}
+          className="w-full h-full"
         />
       </div>
 
       {/* CONTENT - Full screen, scrolls over background */}
-      <div className="relative w-full min-h-screen z-10">
-        {children}
-      </div>
+      <div className="relative w-full min-h-screen z-10">{children}</div>
     </div>
   );
 }
