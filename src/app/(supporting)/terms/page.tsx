@@ -1,51 +1,44 @@
-// app/(supporting)/terms/page.tsx
-// The Agreement - Terms of service, community guidelines
-// Feeling: Fair, clear, protective
+// app/(content)/docs/terms/terms/page.tsx
+import { Metadata } from 'next';
+import { Page } from '@/components/layout/Page';
+import { TermsHero } from '@/components/legal/TermsHero';
+import { ParsedTermsContent } from '@/components/legal/ParsedTermsContent';
+import { TermsFooter } from '@/components/legal/TermsFooter';
+import fs from 'fs/promises';
+import path from 'path';
+import { parseTermsMarkdown } from '@/lib/markdown/parseTerms';
 
-'use client';
-
-import { Page } from '@/components/arrchive/layout/Page';
-import { TermsSections } from '@/components/supporting/TermsSections';
-import { AcceptButton } from '@/components/supporting/AcceptButton';
-import { PrintView } from '@/components/supporting/PrintView';
-import { VersionHistory } from '@/components/supporting/VersionHistory';
-
-export const metadata = {
-  title: 'The Agreement | Sovereign Sanctuary',
-  description: 'Terms of service and community guidelines'
+export const metadata: Metadata = {
+  title: 'Terms of Service | AUDHDITIES',
+  description: 'The sacred covenant of our sanctuary',
 };
 
-export default function TermsPage() {
+export default async function TermsPage() {
+  // Read from the actual markdown file
+  const markdown = await fs.readFile(
+    path.join(process.cwd(), 'docs', 'terms', 'terms-of-service.md'),
+    'utf-8'
+  );
+  
+  // Parse the markdown into structured sections
+  const parsedTerms = parseTermsMarkdown(markdown);
+
   return (
     <Page 
       variant={1}
-      environment="council"
+      environment="docs"
       showForeground={false}
-      animated={true}
+      animated={false}   
       showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          
-          <div className="mb-8 flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-white mb-2">
-                The Agreement
-              </h1>
-              <p className="text-white/60">
-                Last updated: April 15, 2026
-              </p>
-            </div>
-            <PrintView />
-          </div>
-
-          <TermsSections />
-
-          <div className="mt-8 flex justify-between items-center pt-8 border-t border-white/10">
-            <VersionHistory />
-            <AcceptButton />
-          </div>
+    >  
+      <main className="min-h-screen">
+        <TermsHero lastUpdated={parsedTerms.lastUpdated} />
+        
+        <div className="container max-w-4xl mx-auto px-6 pb-20">
+          <ParsedTermsContent terms={parsedTerms} />
         </div>
+        
+        <TermsFooter />
       </main>
     </Page>
   );

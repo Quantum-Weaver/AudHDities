@@ -1,8 +1,8 @@
 // app/components/auth/ProtectedRoute.tsx
 'use client';
 
-import { useRequireAuth } from '@/hooks/utils/useRequireAuth';
-import { useRequireRole } from '@/hooks/utils/useRequireRole';
+import { useRequireAuth } from '@/hooks/core/useRequireAuth';
+import { useRequireRole } from '@/hooks/core/useRequireRole';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

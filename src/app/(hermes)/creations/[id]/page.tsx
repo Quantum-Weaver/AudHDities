@@ -5,9 +5,9 @@
 
 import { notFound } from 'next/navigation';
 import { Page } from '@/components/arrchive/layout/Page';
-import { ProductDetail } from '@/components/hermes/ProductDetail';
+import { ProductDetail } from '@/components/hermes/products/ProductDetail';
 import { ImageGallery } from '@/components/hermes/ImageGallery';
-import { PriceTiers } from '@/components/hermes/PriceTiers';
+import { PriceTiers } from '@/components/hermes/products/PriceTiers';
 import { ContributionBreakdown } from '@/components/hermes/ContributionBreakdown';
 import { CreatorInfo } from '@/components/hermes/CreatorInfo';
 import { CheckoutButton } from '@/components/hermes/CheckoutButton';

@@ -5,13 +5,14 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { PanoramaViewer } from "@/components/immersive/PanoramaViewer"
-import { ContinuityBeam } from "@/components/immersive/ContinuityBeam"
+import PanoramaViewer from "@/components/immersive/PanoramaViewer"
+import ContinuityBeam from "@/components/immersive/ContinuityBeam"
 import { StatusBar } from "@/components/immersive/StatusBar"
+import { EnvironmentKey } from "@/lib/constants/systems"
 
 export interface PageProps {
   /** Environment key (home, council, library, music, etc.) */
-  environment?: string
+  environment?: EnvironmentKey
   /** Variant of the environment (1-4) */
   variant?: number
   /** Show foreground elements */
