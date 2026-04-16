@@ -3,7 +3,7 @@
 // Feeling: Connected, collaborative, evolving
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { ChatInterface } from '@/components/nexus/ChatInterface';
 import { ContextMemory } from '@/components/nexus/ContextMemory';
 import { QuantumSeed } from '@/components/nexus/QuantumSeed';

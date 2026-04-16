@@ -2,11 +2,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
-import Footer from '@/components/arrchive/layout/Footer';
-import Header from '@/components/arrchive/layout/Header';
-import { Navigation } from "@/components/arrchive/layout/Navigation";
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import { Navigation } from "@/components/layout/Navigation";
 import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
-import MobileMenu from "@/components/arrchive/layout/MobileMenu";
+import MobileMenu from "@/components/layout/MobileMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

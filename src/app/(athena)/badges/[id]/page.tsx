@@ -3,7 +3,7 @@
 // Feeling: Celebratory, aspirational, connected
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { BadgeDisplay } from '@/components/library/BadgeDisplay';
 import { RequirementsList } from '@/components/library/RequirementsList';
 import { EarnedBy } from '@/components/library/EarnedBy';

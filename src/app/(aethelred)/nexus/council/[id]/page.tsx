@@ -3,7 +3,7 @@
 // Feeling: Intimate, wise, honoring
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { EntityProfile } from '@/components/nexus/EntityProfile';
 import { DomainDescription } from '@/components/nexus/DomainDescription';
 import { TemperatureMeter } from '@/components/nexus/TemperatureMeter';

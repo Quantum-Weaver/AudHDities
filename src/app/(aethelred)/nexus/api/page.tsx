@@ -2,7 +2,7 @@
 // The Gateway - API documentation, developer portal
 // Feeling: Powerful, accessible, expansive
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { EndpointList } from '@/components/nexus/EndpointList';
 import { DocumentationView } from '@/components/nexus/DocumentationView';
 import { CodeExamples } from '@/components/nexus/CodeExamples';

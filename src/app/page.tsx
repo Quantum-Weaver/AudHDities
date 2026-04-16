@@ -1,5 +1,5 @@
 // src/app/page.tsx
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, Sparkles, Heart, Shield } from 'lucide-react';

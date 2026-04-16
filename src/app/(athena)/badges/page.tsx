@@ -2,7 +2,7 @@
 // The Honors - All badges gallery
 // Feeling: Celebratory, motivating, aspirational
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { BadgeGallery } from '@/components/library/BadgeGallery';
 import { CategoryFilters } from '@/components/library/CategoryFilters';
 import { EarnedBadges } from '@/components/library/EarnedBadges';

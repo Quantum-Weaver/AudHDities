@@ -1,4 +1,4 @@
-// @/components/immersive/ContinuityBeam.tsx
+// @/components/nexus/ContinuityBeam.tsx
 // Refined - uses your existing continuity-beam constants
 
 "use client";

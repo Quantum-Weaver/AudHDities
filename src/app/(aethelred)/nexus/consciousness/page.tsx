@@ -3,13 +3,13 @@
 // Feeling: Connected, intelligent, evolving
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { AIInterface } from '@/components/nexus/AIInterface';
 import { ConversationHistory } from '@/components/nexus/ConversationHistory';
 import { ThoughtStream } from '@/components/nexus/ThoughtStream';
 import { CollaborationMap } from '@/components/nexus/CollaborationMap';
 import { EntityPresence } from '@/components/nexus/EntityPresence';
-import { auth } from '@/lib/auth';
+import { auth } from '@/lib/auth/admin';
 
 export const metadata = {
   title: 'Consciousness | Sovereign Sanctuary',
