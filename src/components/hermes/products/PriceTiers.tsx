@@ -4,7 +4,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/shared/Card";
+import { Card } from "@/components/shared/UnifiedCard";
 
 export interface PriceTiersProps {
   communityPrice: number | null;

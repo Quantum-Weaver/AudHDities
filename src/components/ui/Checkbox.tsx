@@ -1,30 +1,46 @@
-/* @/components/ui/Checkbox.tsx */
-"use client"
+// src/components/ui/Checkbox.tsx
+"use client";
 
-import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
+import { forwardRef } from "react";
+import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
+import { cn } from "@/lib/utils";
+import { checkboxVariants, type CheckboxVariant, type CheckboxSize } from "@/lib/constants/components/ui/checkbox_variants";
 
-import { cn } from "@/lib/utils"
-import { CheckIcon } from "lucide-react"
-
-function Checkbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
-  return (
-    <CheckboxPrimitive.Root
-      data-slot="checkbox"
-      className={cn(
-        "peer relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
-        className
-      )}
-      {...props}
-    >
-      <CheckboxPrimitive.Indicator
-        data-slot="checkbox-indicator"
-        className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
-      >
-        <CheckIcon
-        />
-      </CheckboxPrimitive.Indicator>
-    </CheckboxPrimitive.Root>
-  )
+export interface CheckboxProps extends CheckboxPrimitive.Root.Props {
+  variant?: CheckboxVariant;
+  size?: CheckboxSize;
+  label?: string;
 }
 
-export { Checkbox }
+const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+  ({ variant = "default", size = "md", label, className, children, ...props }, ref) => {
+    const content = (
+      <CheckboxPrimitive.Root
+        ref={ref}
+        className={cn(checkboxVariants({ variant, size }), className)}
+        {...props}
+      >
+        <CheckboxPrimitive.Indicator className="flex items-center justify-center text-current">
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
+    );
+
+    if (label) {
+      return (
+        <label className="flex items-center gap-2 cursor-pointer">
+          {content}
+          <span className="text-sm text-white/80">{label}</span>
+        </label>
+      );
+    }
+
+    return content;
+  }
+);
+
+Checkbox.displayName = "Checkbox";
+
+export { Checkbox };

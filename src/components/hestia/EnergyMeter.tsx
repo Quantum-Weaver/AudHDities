@@ -6,7 +6,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/shared/Card";
+import { Card } from "@/components/shared/UnifiedCard";
 import { createClient } from "@/lib/supabase/client";
 
 export interface EnergyMeterProps {

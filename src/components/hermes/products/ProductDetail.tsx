@@ -7,7 +7,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/shared/Card";
+import { Card } from "@/components/shared/UnifiedCard";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { MarkdownBio } from "@/components/hestia/MarkdownBio";

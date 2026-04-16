@@ -1,21 +1,30 @@
-/* @/components/ui/Label.tsx */
-"use client"
+// src/components/ui/Label.tsx
+"use client";
 
-import * as React from "react"
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
+import { labelVariants, type LabelVariant, type LabelSize } from "@/lib/constants/components/ui/label_variants";
 
-import { cn } from "@/lib/utils"
-
-function Label({ className, ...props }: React.ComponentProps<"label">) {
-  return (
-    <label
-      data-slot="label"
-      className={cn(
-        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
-      )}
-      {...props}
-    />
-  )
+export interface LabelProps extends React.ComponentProps<"label"> {
+  variant?: LabelVariant;
+  size?: LabelSize;
+  htmlFor?: string;
 }
 
-export { Label }
+const Label = forwardRef<HTMLLabelElement, LabelProps>(
+  ({ variant = "default", size = "md", className, children, ...props }, ref) => {
+    return (
+      <label
+        ref={ref}
+        className={cn(labelVariants({ variant, size }), className)}
+        {...props}
+      >
+        {children}
+      </label>
+    );
+  }
+);
+
+Label.displayName = "Label";
+
+export { Label };

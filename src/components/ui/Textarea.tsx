@@ -1,20 +1,28 @@
-/* @/components/ui/TextArea.tsx */
-"use client"
-import * as React from "react"
+// src/components/ui/TextArea.tsx
+"use client";
 
-import { cn } from "@/lib/utils"
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
+import { textareaVariants, type TextareaVariant, type TextareaSize } from "@/lib/constants/components/ui/textarea_variants";
 
-function TextArea({ className, ...props }: React.ComponentProps<"textarea">) {
-  return (
-    <textarea
-      data-slot="textarea"
-      className={cn(
-        "flex field-sizing-content min-h-16 w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
-        className
-      )}
-      {...props}
-    />
-  )
+export interface TextAreaProps extends React.ComponentProps<"textarea"> {
+  variant?: TextareaVariant;
+  size?: TextareaSize;
+  resizable?: boolean;
 }
 
-export { TextArea }
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ variant = "default", size = "md", resizable = true, className, ...props }, ref) => {
+    return (
+      <textarea
+        ref={ref}
+        className={cn(textareaVariants({ variant, size, resizable }), className)}
+        {...props}
+      />
+    );
+  }
+);
+
+TextArea.displayName = "TextArea";
+
+export { TextArea };
