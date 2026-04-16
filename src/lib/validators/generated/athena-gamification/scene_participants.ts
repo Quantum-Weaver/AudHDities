@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scene_participants.ts
-// GENERATED: 2026-04-15T19:30:35.525Z
+// GENERATED: 2026-04-16T23:20:33.911Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -22,8 +22,8 @@ export const SceneParticipantsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   joined_at: z.string().nullable().optional(),
   role: z.string().nullable().optional(),
-  scene_id: z.string().optional(),
-  user_id: z.string().optional(),
+  scene_id: z.string(),
+  user_id: z.string(),
 });
 
 export const SceneParticipantsUpdateSchema = z.object({

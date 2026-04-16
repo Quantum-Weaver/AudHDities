@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/folksonomy.ts
-// GENERATED: 2026-04-15T19:30:35.500Z
+// GENERATED: 2026-04-16T23:20:33.885Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,12 +29,12 @@ export const FolksonomyInsertSchema = z.object({
   approved_by: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
+  creator_id: z.string(),
   id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
-  tag: z.string().optional(),
-  target_id: z.string().optional(),
-  target_type: z.enum(Object.values(FOLKSONOMY_TARGET_TYPE)).optional(),
+  tag: z.string(),
+  target_id: z.string(),
+  target_type: z.enum(Object.values(FOLKSONOMY_TARGET_TYPE)),
   weight: z.number().nullable().optional(),
 });
 

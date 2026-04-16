@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/contact_submissions
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.628Z
+// GENERATED: 2026-04-16T23:20:34.019Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ContactSubmissionsRowSchema, ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ContactSubmissionsRowSchema.parse(body);
+    const validated = ContactSubmissionsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

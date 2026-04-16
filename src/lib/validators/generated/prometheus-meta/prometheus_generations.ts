@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_generations.ts
-// GENERATED: 2026-04-15T19:30:35.515Z
+// GENERATED: 2026-04-16T23:20:33.902Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,7 +29,7 @@ export const PrometheusGenerationsRowSchema = z.object({
 });
 
 export const PrometheusGenerationsInsertSchema = z.object({
-  blueprint_id: z.string().optional(),
+  blueprint_id: z.string(),
   completed_at: z.string().nullable().optional(),
   council_involved: z.any().nullable().optional(),
   created_at: z.string().optional(),
@@ -39,7 +39,7 @@ export const PrometheusGenerationsInsertSchema = z.object({
   files_generated: z.number().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
-  session_id: z.string().optional(),
+  session_id: z.string(),
   status: z.enum(Object.values(GENERATION_STATUS)).optional(),
   ziggy_present: z.boolean().optional(),
 });

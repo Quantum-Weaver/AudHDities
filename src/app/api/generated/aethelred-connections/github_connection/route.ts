@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/github_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.651Z
+// GENERATED: 2026-04-16T23:20:34.051Z
 // SOURCE: database.types.ts
 // =====================================================
 import { GithubConnectionRowSchema, GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = GithubConnectionRowSchema.parse(body);
+    const validated = GithubConnectionInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

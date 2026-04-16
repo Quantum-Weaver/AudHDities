@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/ledger
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.656Z
+// GENERATED: 2026-04-16T23:20:34.082Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LedgerRowSchema, LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = LedgerRowSchema.parse(body);
+    const validated = LedgerInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

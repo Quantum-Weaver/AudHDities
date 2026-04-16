@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/surveys
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.038Z
+// GENERATED: 2026-04-16T23:20:34.238Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SurveysRowSchema, SurveysInsertSchema, SurveysUpdateSchema } from '@/lib/validators/generated/iris-communications/surveys';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SurveysRowSchema.parse(body);
+    const validated = SurveysInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

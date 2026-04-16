@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/community_profiles
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.625Z
+// GENERATED: 2026-04-16T23:20:34.015Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CommunityProfilesRowSchema, CommunityProfilesInsertSchema, CommunityProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/community_profiles';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CommunityProfilesRowSchema.parse(body);
+    const validated = CommunityProfilesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

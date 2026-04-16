@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/admin_logs
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.608Z
+// GENERATED: 2026-04-16T23:20:33.998Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AdminLogsRowSchema, AdminLogsInsertSchema, AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AdminLogsRowSchema.parse(body);
+    const validated = AdminLogsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

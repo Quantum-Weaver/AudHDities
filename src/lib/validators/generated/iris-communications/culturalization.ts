@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/culturalization.ts
-// GENERATED: 2026-04-15T19:30:35.495Z
+// GENERATED: 2026-04-16T23:20:33.879Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -38,7 +38,7 @@ export const CulturalizationInsertSchema = z.object({
   decimal_separator: z.string().nullable().optional(),
   first_day_of_week: z.number().nullable().optional(),
   id: z.string().optional(),
-  region_id: z.string().optional(),
+  region_id: z.string(),
   thousands_separator: z.string().nullable().optional(),
   time_format: z.enum(Object.values(TIME_FORMAT_TYPE)).nullable().optional(),
   timezone: z.string().nullable().optional(),

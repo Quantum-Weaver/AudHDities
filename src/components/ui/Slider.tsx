@@ -11,13 +11,24 @@ export interface SliderProps extends SliderPrimitive.Root.Props {
 }
 
 const Slider = forwardRef<HTMLDivElement, SliderProps>(
-  ({ variant = "default", className, ...props }, ref) => {
-    const values = props.value ?? props.defaultValue ?? [0];
+  ({ variant = "default", className, value, defaultValue, ...props }, ref) => {
+    // Normalize values to array (handle both single number and array)
+    let values: number[];
+    if (value !== undefined) {
+      values = Array.isArray(value) ? value : [value];
+    } else if (defaultValue !== undefined) {
+      values = Array.isArray(defaultValue) ? defaultValue : [defaultValue];
+    } else {
+      values = [0];
+    }
+    
     const isRange = values.length > 1;
 
     return (
       <SliderPrimitive.Root
         ref={ref}
+        value={value}
+        defaultValue={defaultValue}
         className={cn("relative flex w-full touch-none select-none items-center", className)}
         {...props}
       >
@@ -25,7 +36,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(
           <SliderPrimitive.Track className={cn(sliderTrackVariants({ variant }))}>
             <SliderPrimitive.Indicator className={cn(sliderRangeVariants({ variant }))} />
           </SliderPrimitive.Track>
-          {values.map((_, index) => (
+          {values.map((_: number, index: number) => (
             <SliderPrimitive.Thumb
               key={index}
               index={index}

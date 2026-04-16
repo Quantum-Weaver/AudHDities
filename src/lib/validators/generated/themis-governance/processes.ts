@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-15T19:30:35.511Z
+// GENERATED: 2026-04-16T23:20:33.897Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,14 +28,14 @@ export const ProcessesRowSchema = z.object({
 
 export const ProcessesInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
-  created_by: z.string().optional(),
+  created_by: z.string(),
   description: z.string().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
-  name: z.string().optional(),
-  process_type: z.enum(Object.values(PROCESS_TYPE)).optional(),
-  slug: z.string().optional(),
-  steps: z.any().optional(),
+  name: z.string(),
+  process_type: z.enum(Object.values(PROCESS_TYPE)),
+  slug: z.string(),
+  steps: z.any(),
   timeout_days: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

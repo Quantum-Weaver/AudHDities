@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/emeralds.ts
-// GENERATED: 2026-04-15T19:30:35.497Z
+// GENERATED: 2026-04-16T23:20:33.882Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,16 +28,16 @@ export const EmeraldsRowSchema = z.object({
 });
 
 export const EmeraldsInsertSchema = z.object({
-  amount: z.number().optional(),
+  amount: z.number(),
   comment_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  giver_id: z.string().optional(),
+  giver_id: z.string(),
   id: z.string().optional(),
   is_residual_eligible: z.boolean().nullable().optional(),
   message: z.string().nullable().optional(),
   post_id: z.string().nullable().optional(),
-  receiver_id: z.string().optional(),
+  receiver_id: z.string(),
   reply_id: z.string().nullable().optional(),
   status: z.enum(Object.values(EMERALD_STATUS)).nullable().optional(),
 });

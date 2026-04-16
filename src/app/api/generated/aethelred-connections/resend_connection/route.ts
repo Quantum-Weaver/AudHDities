@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/resend_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.014Z
+// GENERATED: 2026-04-16T23:20:34.217Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ResendConnectionRowSchema, ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/resend_connection';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ResendConnectionRowSchema.parse(body);
+    const validated = ResendConnectionInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

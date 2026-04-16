@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-15T19:30:35.512Z
+// GENERATED: 2026-04-16T23:20:33.898Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -52,7 +52,7 @@ export const ProductsInsertSchema = z.object({
   collaborators: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
+  creator_id: z.string(),
   description: z.string().nullable().optional(),
   download_url: z.string().nullable().optional(),
   id: z.string().optional(),
@@ -64,14 +64,14 @@ export const ProductsInsertSchema = z.object({
   price_ally: z.number().nullable().optional(),
   price_community: z.number().nullable().optional(),
   price_corporate: z.number().nullable().optional(),
-  product_type: z.enum(Object.values(PRODUCT_TYPE)).optional(),
+  product_type: z.enum(Object.values(PRODUCT_TYPE)),
   residual_pool_percent: z.number().nullable().optional(),
   sanctuary_infrastructure_percent: z.number().nullable().optional(),
-  slug: z.string().optional(),
+  slug: z.string(),
   stripe_price_id: z.string().nullable().optional(),
   stripe_product_id: z.string().nullable().optional(),
   tags: z.any().nullable().optional(),
-  title: z.string().optional(),
+  title: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

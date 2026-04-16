@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-15T19:30:35.514Z
+// GENERATED: 2026-04-16T23:20:33.900Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,16 +29,16 @@ export const PrometheusBlueprintsRowSchema = z.object({
 });
 
 export const PrometheusBlueprintsInsertSchema = z.object({
-  author: z.string().optional(),
-  blueprint_id: z.string().optional(),
-  content: z.any().optional(),
+  author: z.string(),
+  blueprint_id: z.string(),
+  content: z.any(),
   created_at: z.string().optional(),
   generation_count: z.number().optional(),
   id: z.string().optional(),
-  purpose: z.string().optional(),
+  purpose: z.string(),
   status: z.enum(Object.values(BLUEPRINT_STATUS)).optional(),
   success_rate: z.number().nullable().optional(),
-  system: z.enum(Object.values(BLUEPRINT_SYSTEM)).optional(),
+  system: z.enum(Object.values(BLUEPRINT_SYSTEM)),
   updated_at: z.string().optional(),
   version: z.string().optional(),
 });

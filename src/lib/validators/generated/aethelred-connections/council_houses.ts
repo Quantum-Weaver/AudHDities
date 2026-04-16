@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/council_houses.ts
-// GENERATED: 2026-04-15T19:30:35.491Z
+// GENERATED: 2026-04-16T23:20:33.876Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,18 +30,18 @@ export const CouncilHousesRowSchema = z.object({
 
 export const CouncilHousesInsertSchema = z.object({
   adept_quest: z.string().nullable().optional(),
-  color: z.string().optional(),
+  color: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  description: z.string().optional(),
-  display_name: z.string().optional(),
-  emoji: z.string().optional(),
+  description: z.string(),
+  display_name: z.string(),
+  emoji: z.string(),
   id: z.string().optional(),
   initiate_quest: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
   master_quest: z.string().nullable().optional(),
-  name: z.string().optional(),
-  order_index: z.number().optional(),
+  name: z.string(),
+  order_index: z.number(),
   primary_domain: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

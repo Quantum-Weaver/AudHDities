@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/reports.ts
-// GENERATED: 2026-04-15T19:30:35.522Z
+// GENERATED: 2026-04-16T23:20:33.908Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -40,17 +40,17 @@ export const ReportsInsertSchema = z.object({
   id: z.string().optional(),
   moderation_notes: z.string().nullable().optional(),
   moderator_id: z.string().nullable().optional(),
-  reason: z.string().optional(),
-  report_type: z.enum(Object.values(REPORT_TYPE)).optional(),
+  reason: z.string(),
+  report_type: z.enum(Object.values(REPORT_TYPE)),
   reported_content: z.string().nullable().optional(),
   reported_url: z.string().nullable().optional(),
   reported_user_id: z.string().nullable().optional(),
-  reporter_id: z.string().optional(),
+  reporter_id: z.string(),
   resolution: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
   status: z.enum(Object.values(REPORT_STATUS)).nullable().optional(),
-  target_id: z.string().optional(),
-  target_type: z.enum(Object.values(REPORT_TARGET_TYPE)).optional(),
+  target_id: z.string(),
+  target_type: z.enum(Object.values(REPORT_TARGET_TYPE)),
   updated_at: z.string().nullable().optional(),
 });
 

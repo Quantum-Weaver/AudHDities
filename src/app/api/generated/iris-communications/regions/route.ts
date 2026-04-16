@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/regions
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.010Z
+// GENERATED: 2026-04-16T23:20:34.213Z
 // SOURCE: database.types.ts
 // =====================================================
 import { RegionsRowSchema, RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = RegionsRowSchema.parse(body);
+    const validated = RegionsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

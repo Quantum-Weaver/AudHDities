@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-15T19:30:35.528Z
+// GENERATED: 2026-04-16T23:20:33.915Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,12 +32,12 @@ export const SettingsInsertSchema = z.object({
   description: z.string().nullable().optional(),
   id: z.string().optional(),
   is_public: z.boolean().nullable().optional(),
-  key: z.string().optional(),
+  key: z.string(),
   scope: z.enum(Object.values(SETTING_SCOPE)).optional(),
   scope_id: z.string().nullable().optional(),
-  type: z.string().optional(),
+  type: z.string(),
   updated_at: z.string().nullable().optional(),
-  value: z.any().optional(),
+  value: z.any(),
 });
 
 export const SettingsUpdateSchema = z.object({

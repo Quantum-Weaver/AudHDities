@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/covenant_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.634Z
+// GENERATED: 2026-04-16T23:20:34.026Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CovenantPoolRowSchema, CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/covenant_pool';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CovenantPoolRowSchema.parse(body);
+    const validated = CovenantPoolInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

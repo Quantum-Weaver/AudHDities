@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/seer
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.025Z
+// GENERATED: 2026-04-16T23:20:34.227Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SeerRowSchema, SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SeerRowSchema.parse(body);
+    const validated = SeerInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

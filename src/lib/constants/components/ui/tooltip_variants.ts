@@ -1,5 +1,15 @@
-// src/lib/constants/components/ui/tooltip_variants.ts
+// src/lib/constants/components/ui/tooltip-variants.ts
 import { cva } from "class-variance-authority";
+
+// Define valid placement values (matching Base UI's Side type)
+export const TOOLTIP_PLACEMENTS = {
+  TOP: "top",
+  RIGHT: "right", 
+  BOTTOM: "bottom",
+  LEFT: "left",
+} as const;
+
+export type TooltipPlacement = typeof TOOLTIP_PLACEMENTS[keyof typeof TOOLTIP_PLACEMENTS];
 
 export const tooltipVariants = cva(
   "z-50 rounded-md px-2 py-1 text-xs font-medium shadow-lg transition-all duration-200",
@@ -14,10 +24,10 @@ export const tooltipVariants = cva(
         sanctuary: "bg-sanctuary-green text-white",
       },
       placement: {
-        top: "mb-2",
-        right: "ml-2",
-        bottom: "mt-2",
-        left: "mr-2",
+        top: "",
+        right: "",
+        bottom: "",
+        left: "",
       },
     },
     defaultVariants: {
@@ -28,4 +38,3 @@ export const tooltipVariants = cva(
 );
 
 export type TooltipVariant = NonNullable<Parameters<typeof tooltipVariants>[0]>['variant'];
-export type TooltipPlacement = NonNullable<Parameters<typeof tooltipVariants>[0]>['placement'];

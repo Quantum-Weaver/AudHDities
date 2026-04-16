@@ -6,16 +6,17 @@ import { Input as InputPrimitive } from "@base-ui/react/input";
 import { cn } from "@/lib/utils";
 import { inputVariants, type InputVariant, type InputSize } from "@/lib/constants/components/ui/input_variants";
 
-export interface InputProps extends React.ComponentProps<"input"> {
+// Omit 'size' from native HTML attributes to avoid conflict
+export interface InputProps extends Omit<React.ComponentProps<"input">, "size"> {
   variant?: InputVariant;
-  size?: InputSize;
+  inputSize?: InputSize;  // Renamed to avoid conflict with native 'size'
   withIcon?: "left" | "right" | "both";
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant = "default", size = "md", withIcon, iconLeft, iconRight, className, ...props }, ref) => {
+  ({ variant = "default", inputSize = "md", withIcon, iconLeft, iconRight, className, ...props }, ref) => {
     return (
       <div className="relative w-full">
         {iconLeft && (
@@ -26,7 +27,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <InputPrimitive
           ref={ref}
           className={cn(
-            inputVariants({ variant, size, withIcon }),
+            inputVariants({ variant, size: inputSize, withIcon }),
             className
           )}
           {...props}

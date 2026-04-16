@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-15T19:30:35.503Z
+// GENERATED: 2026-04-16T23:20:33.889Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -35,14 +35,14 @@ export const LessonsInsertSchema = z.object({
   content_url: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
-  description: z.string().optional(),
+  creator_id: z.string(),
+  description: z.string(),
   duration_minutes: z.number().nullable().optional(),
   id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
-  slug: z.string().optional(),
-  title: z.string().optional(),
+  slug: z.string(),
+  title: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

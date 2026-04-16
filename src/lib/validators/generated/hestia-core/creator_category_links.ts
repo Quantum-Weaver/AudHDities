@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/creator_category_links.ts
-// GENERATED: 2026-04-15T19:30:35.493Z
+// GENERATED: 2026-04-16T23:20:33.878Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -19,10 +19,10 @@ export const CreatorCategoryLinksRowSchema = z.object({
 });
 
 export const CreatorCategoryLinksInsertSchema = z.object({
-  category_id: z.string().optional(),
+  category_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
+  creator_id: z.string(),
   id: z.string().optional(),
 });
 

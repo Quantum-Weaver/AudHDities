@@ -7,16 +7,16 @@ import { textareaVariants, type TextareaVariant, type TextareaSize } from "@/lib
 
 export interface TextAreaProps extends React.ComponentProps<"textarea"> {
   variant?: TextareaVariant;
-  size?: TextareaSize;
+  textareaSize?: TextareaSize;  // Consistent naming
   resizable?: boolean;
 }
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ variant = "default", size = "md", resizable = true, className, ...props }, ref) => {
+  ({ variant = "default", textareaSize = "md", resizable = true, className, ...props }, ref) => {
     return (
       <textarea
         ref={ref}
-        className={cn(textareaVariants({ variant, size, resizable }), className)}
+        className={cn(textareaVariants({ variant, size: textareaSize, resizable }), className)}
         {...props}
       />
     );

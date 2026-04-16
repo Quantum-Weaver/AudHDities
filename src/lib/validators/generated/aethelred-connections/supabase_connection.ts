@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/supabase_connection.ts
-// GENERATED: 2026-04-15T19:30:35.531Z
+// GENERATED: 2026-04-16T23:20:33.917Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -37,9 +37,9 @@ export const SupabaseConnectionInsertSchema = z.object({
   last_migration_at: z.string().nullable().optional(),
   migrations_applied: z.any().nullable().optional(),
   operated_by: z.string().nullable().optional(),
-  project_id: z.string().optional(),
-  project_url: z.string().optional(),
-  schema_version: z.string().optional(),
+  project_id: z.string(),
+  project_url: z.string(),
+  schema_version: z.string(),
   storage_buckets: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

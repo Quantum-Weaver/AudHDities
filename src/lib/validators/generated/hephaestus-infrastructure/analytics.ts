@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-15T19:30:35.483Z
+// GENERATED: 2026-04-16T23:20:33.866Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,8 +29,8 @@ export const AnalyticsRowSchema = z.object({
 export const AnalyticsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  event_category: z.enum(Object.values(ANALYTICS_CATEGORY)).optional(),
-  event_name: z.string().optional(),
+  event_category: z.enum(Object.values(ANALYTICS_CATEGORY)),
+  event_name: z.string(),
   id: z.string().optional(),
   ip_address: z.any().optional(),
   metadata: z.any().nullable().optional(),

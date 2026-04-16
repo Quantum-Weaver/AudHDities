@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-15T19:30:35.512Z
+// GENERATED: 2026-04-16T23:20:33.898Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -43,8 +43,8 @@ export const ProfilesInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   display_name: z.string().nullable().optional(),
-  email: z.string().optional(),
-  id: z.string().optional(),
+  email: z.string(),
+  id: z.string(),
   is_admin: z.boolean().nullable().optional(),
   is_creator: z.boolean().nullable().optional(),
   is_quantum_weaver: z.boolean().nullable().optional(),

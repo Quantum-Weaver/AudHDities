@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/localization.ts
-// GENERATED: 2026-04-15T19:30:35.504Z
+// GENERATED: 2026-04-16T23:20:33.890Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,10 +32,10 @@ export const LocalizationInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
-  language_code: z.string().optional(),
+  language_code: z.string(),
   plural_form: z.number().nullable().optional(),
-  resource_key: z.string().optional(),
-  translation: z.string().optional(),
+  resource_key: z.string(),
+  translation: z.string(),
   updated_at: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });

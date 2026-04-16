@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/processes/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:35.672Z
+// GENERATED: 2026-04-16T23:20:34.174Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ProcessesRowSchema, ProcessesInsertSchema, ProcessesUpdateSchema } from '@/lib/validators/generated/themis-governance/processes';

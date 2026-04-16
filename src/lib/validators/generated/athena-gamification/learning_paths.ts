@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-15T19:30:35.502Z
+// GENERATED: 2026-04-16T23:20:33.888Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 import { DIFFICULTY_LEVEL } from '@/lib/constants/generated/athena-gamification/difficulty_level';
 
 // =====================================================
@@ -34,16 +34,16 @@ export const LearningPathsInsertSchema = z.object({
   cover_image: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
-  description: z.string().optional(),
+  creator_id: z.string(),
+  description: z.string(),
   difficulty: z.enum(Object.values(DIFFICULTY_LEVEL)).optional(),
   estimated_duration_hours: z.number().nullable().optional(),
   house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   prerequisite_path_id: z.string().nullable().optional(),
-  slug: z.string().optional(),
-  title: z.string().optional(),
+  slug: z.string(),
+  title: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

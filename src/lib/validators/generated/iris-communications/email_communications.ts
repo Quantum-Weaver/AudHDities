@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/email_communications.ts
-// GENERATED: 2026-04-15T19:30:35.497Z
+// GENERATED: 2026-04-16T23:20:33.881Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,7 +30,7 @@ export const EmailCommunicationsRowSchema = z.object({
 });
 
 export const EmailCommunicationsInsertSchema = z.object({
-  body: z.string().optional(),
+  body: z.string(),
   clicked_at: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -38,11 +38,11 @@ export const EmailCommunicationsInsertSchema = z.object({
   metadata: z.any().nullable().optional(),
   opened_at: z.string().nullable().optional(),
   provider_message_id: z.string().nullable().optional(),
-  recipient_email: z.string().optional(),
+  recipient_email: z.string(),
   recipient_id: z.string().nullable().optional(),
   sent_at: z.string().nullable().optional(),
   status: z.enum(Object.values(EMAIL_STATUS)).nullable().optional(),
-  subject: z.string().optional(),
+  subject: z.string(),
   template_id: z.string().nullable().optional(),
 });
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T19:30:35.504Z
+// GENERATED: 2026-04-16T23:20:33.889Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,10 +30,10 @@ export const LifeCyclesInsertSchema = z.object({
   ended_at: z.string().nullable().optional(),
   id: z.string().optional(),
   metadata: z.any().nullable().optional(),
-  phase: z.enum(Object.values(LIFE_CYCLE_PHASE)).optional(),
-  started_at: z.string().optional(),
+  phase: z.enum(Object.values(LIFE_CYCLE_PHASE)),
+  started_at: z.string(),
   trigger_event: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const LifeCyclesUpdateSchema = z.object({

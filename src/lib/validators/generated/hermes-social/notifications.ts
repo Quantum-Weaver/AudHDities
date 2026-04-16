@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-15T19:30:35.507Z
+// GENERATED: 2026-04-16T23:20:33.893Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,7 +32,7 @@ export const NotificationsRowSchema = z.object({
 export const NotificationsInsertSchema = z.object({
   action_label: z.string().nullable().optional(),
   action_url: z.string().nullable().optional(),
-  body: z.string().optional(),
+  body: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
@@ -41,9 +41,9 @@ export const NotificationsInsertSchema = z.object({
   read_at: z.string().nullable().optional(),
   related_entity_id: z.string().nullable().optional(),
   related_entity_type: z.string().nullable().optional(),
-  title: z.string().optional(),
-  type: z.enum(Object.values(NOTIFICATION_TYPE)).optional(),
-  user_id: z.string().optional(),
+  title: z.string(),
+  type: z.enum(Object.values(NOTIFICATION_TYPE)),
+  user_id: z.string(),
 });
 
 export const NotificationsUpdateSchema = z.object({

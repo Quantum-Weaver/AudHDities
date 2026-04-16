@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/audhdities_platform/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:35.616Z
+// GENERATED: 2026-04-16T23:20:34.006Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AudhditiesPlatformRowSchema, AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';

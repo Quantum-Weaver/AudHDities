@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/sales
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.017Z
+// GENERATED: 2026-04-16T23:20:34.220Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SalesRowSchema, SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SalesRowSchema.parse(body);
+    const validated = SalesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

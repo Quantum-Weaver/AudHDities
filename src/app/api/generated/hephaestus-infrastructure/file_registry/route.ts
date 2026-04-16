@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_registry
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.648Z
+// GENERATED: 2026-04-16T23:20:34.046Z
 // SOURCE: database.types.ts
 // =====================================================
 import { FileRegistryRowSchema, FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = FileRegistryRowSchema.parse(body);
+    const validated = FileRegistryInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

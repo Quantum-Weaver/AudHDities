@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/creative_categories.ts
-// GENERATED: 2026-04-15T19:30:35.493Z
+// GENERATED: 2026-04-16T23:20:33.877Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -34,9 +34,9 @@ export const CreativeCategoriesInsertSchema = z.object({
   icon: z.string().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   parent_id: z.string().nullable().optional(),
-  slug: z.string().optional(),
+  slug: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

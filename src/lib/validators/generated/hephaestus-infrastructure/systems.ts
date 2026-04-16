@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/systems.ts
-// GENERATED: 2026-04-15T19:30:35.533Z
+// GENERATED: 2026-04-16T23:20:33.920Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -40,10 +40,10 @@ export const SystemsInsertSchema = z.object({
   id: z.string().optional(),
   last_health_check: z.string().nullable().optional(),
   last_incident: z.string().nullable().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
+  name: z.string(),
+  slug: z.string(),
   status: z.enum(Object.values(SYSTEM_STATUS)).nullable().optional(),
-  type: z.enum(Object.values(SYSTEM_TYPE)).optional(),
+  type: z.enum(Object.values(SYSTEM_TYPE)),
   updated_at: z.string().nullable().optional(),
   uptime_percent: z.number().nullable().optional(),
   version: z.string().nullable().optional(),

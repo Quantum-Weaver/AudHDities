@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/replies.ts
-// GENERATED: 2026-04-15T19:30:35.521Z
+// GENERATED: 2026-04-16T23:20:33.907Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,9 +23,9 @@ export const RepliesRowSchema = z.object({
 });
 
 export const RepliesInsertSchema = z.object({
-  author_id: z.string().optional(),
-  comment_id: z.string().optional(),
-  content: z.string().optional(),
+  author_id: z.string(),
+  comment_id: z.string(),
+  content: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),

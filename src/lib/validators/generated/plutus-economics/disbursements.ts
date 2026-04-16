@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-15T19:30:35.496Z
+// GENERATED: 2026-04-16T23:20:33.881Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,11 +30,11 @@ export const DisbursementsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   processed_at: z.string().nullable().optional(),
-  recipient_count: z.number().optional(),
-  source_id: z.string().optional(),
-  source_pool: z.enum(Object.values(SOURCE_POOL_TYPE)).optional(),
+  recipient_count: z.number(),
+  source_id: z.string(),
+  source_pool: z.enum(Object.values(SOURCE_POOL_TYPE)),
   status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
-  total_amount_cents: z.number().optional(),
+  total_amount_cents: z.number(),
 });
 
 export const DisbursementsUpdateSchema = z.object({

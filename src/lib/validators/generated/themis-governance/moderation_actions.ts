@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/moderation_actions.ts
-// GENERATED: 2026-04-15T19:30:35.506Z
+// GENERATED: 2026-04-16T23:20:33.892Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -31,20 +31,20 @@ export const ModerationActionsRowSchema = z.object({
 });
 
 export const ModerationActionsInsertSchema = z.object({
-  action_type: z.enum(Object.values(MODERATION_ACTION_TYPE)).optional(),
+  action_type: z.enum(Object.values(MODERATION_ACTION_TYPE)),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   duration: z.string().nullable().optional(),
   id: z.string().optional(),
   is_reverted: z.boolean().nullable().optional(),
   metadata: z.any().nullable().optional(),
-  moderator_id: z.string().optional(),
+  moderator_id: z.string(),
   reason: z.string().nullable().optional(),
   revert_reason: z.string().nullable().optional(),
   reverted_at: z.string().nullable().optional(),
   reverted_by: z.string().nullable().optional(),
-  target_id: z.string().optional(),
-  target_type: z.enum(Object.values(MODERATION_TARGET_TYPE)).optional(),
+  target_id: z.string(),
+  target_type: z.enum(Object.values(MODERATION_TARGET_TYPE)),
 });
 
 export const ModerationActionsUpdateSchema = z.object({

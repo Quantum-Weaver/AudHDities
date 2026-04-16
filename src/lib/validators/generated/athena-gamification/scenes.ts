@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-15T19:30:35.525Z
+// GENERATED: 2026-04-16T23:20:33.912Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 import { SCENE_TYPE } from '@/lib/constants/generated/athena-gamification/scene_type';
 
 // =====================================================
@@ -34,8 +34,8 @@ export const ScenesRowSchema = z.object({
 export const ScenesInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_id: z.string().optional(),
-  description: z.string().optional(),
+  creator_id: z.string(),
+  description: z.string(),
   house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
@@ -43,9 +43,9 @@ export const ScenesInsertSchema = z.object({
   mythology_id: z.string().nullable().optional(),
   participant_count: z.number().nullable().optional(),
   scheduled_for: z.string().nullable().optional(),
-  slug: z.string().optional(),
-  title: z.string().optional(),
-  type: z.enum(Object.values(SCENE_TYPE)).optional(),
+  slug: z.string(),
+  title: z.string(),
+  type: z.enum(Object.values(SCENE_TYPE)),
   updated_at: z.string().nullable().optional(),
 });
 

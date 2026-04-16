@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/creative_categories
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.635Z
+// GENERATED: 2026-04-16T23:20:34.027Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CreativeCategoriesRowSchema, CreativeCategoriesInsertSchema, CreativeCategoriesUpdateSchema } from '@/lib/validators/generated/hermes-social/creative_categories';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CreativeCategoriesRowSchema.parse(body);
+    const validated = CreativeCategoriesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

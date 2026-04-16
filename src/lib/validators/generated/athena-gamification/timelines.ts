@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/timelines.ts
-// GENERATED: 2026-04-15T19:30:35.534Z
+// GENERATED: 2026-04-16T23:20:33.921Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,12 +30,12 @@ export const TimelinesInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_id: z.string().nullable().optional(),
-  event_type: z.enum(Object.values(TIMELINE_EVENT_TYPE)).optional(),
+  event_type: z.enum(Object.values(TIMELINE_EVENT_TYPE)),
   id: z.string().optional(),
-  occurred_at: z.string().optional(),
+  occurred_at: z.string(),
   significance_score: z.number().nullable().optional(),
-  title: z.string().optional(),
-  user_id: z.string().optional(),
+  title: z.string(),
+  user_id: z.string(),
 });
 
 export const TimelinesUpdateSchema = z.object({

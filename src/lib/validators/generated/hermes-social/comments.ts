@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/comments.ts
-// GENERATED: 2026-04-15T19:30:35.488Z
+// GENERATED: 2026-04-16T23:20:33.872Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -24,14 +24,14 @@ export const CommentsRowSchema = z.object({
 });
 
 export const CommentsInsertSchema = z.object({
-  author_id: z.string().optional(),
-  content: z.string().optional(),
+  author_id: z.string(),
+  content: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   is_edited: z.boolean().nullable().optional(),
   is_hidden: z.boolean().nullable().optional(),
-  post_id: z.string().optional(),
+  post_id: z.string(),
   reply_count: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

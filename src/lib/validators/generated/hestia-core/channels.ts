@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-15T19:30:35.487Z
+// GENERATED: 2026-04-16T23:20:33.871Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -39,8 +39,8 @@ export const ChannelsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  display_name: z.string().optional(),
-  handle: z.string().optional(),
+  display_name: z.string(),
+  handle: z.string(),
   id: z.string().optional(),
   owner_id: z.string().nullable().optional(),
   subscriber_count: z.number().nullable().optional(),

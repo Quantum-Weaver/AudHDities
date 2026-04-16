@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_badges
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.048Z
+// GENERATED: 2026-04-16T23:20:34.247Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserBadgesRowSchema, UserBadgesInsertSchema, UserBadgesUpdateSchema } from '@/lib/validators/generated/athena-gamification/user_badges';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = UserBadgesRowSchema.parse(body);
+    const validated = UserBadgesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-15T19:30:35.507Z
+// GENERATED: 2026-04-16T23:20:33.893Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 import { MYTH_TYPE } from '@/lib/constants/generated/athena-gamification/myth_type';
 
 // =====================================================
@@ -30,8 +30,8 @@ export const MythologyRowSchema = z.object({
 });
 
 export const MythologyInsertSchema = z.object({
-  author_id: z.string().optional(),
-  content: z.string().optional(),
+  author_id: z.string(),
+  content: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
@@ -39,9 +39,9 @@ export const MythologyInsertSchema = z.object({
   is_published: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   series_id: z.string().nullable().optional(),
-  slug: z.string().optional(),
-  title: z.string().optional(),
-  type: z.enum(Object.values(MYTH_TYPE)).optional(),
+  slug: z.string(),
+  title: z.string(),
+  type: z.enum(Object.values(MYTH_TYPE)),
   updated_at: z.string().nullable().optional(),
 });
 

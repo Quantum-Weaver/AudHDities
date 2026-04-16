@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/user_financial.ts
-// GENERATED: 2026-04-15T19:30:35.537Z
+// GENERATED: 2026-04-16T23:20:33.923Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,7 +32,7 @@ export const UserFinancialInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   crypto_addresses: z.any().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   minimum_payout: z.number().nullable().optional(),
   paypal_email: z.string().nullable().optional(),
   residual_pledge_percent: z.number().nullable().optional(),

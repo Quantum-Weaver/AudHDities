@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/github_connection.ts
-// GENERATED: 2026-04-15T19:30:35.500Z
+// GENERATED: 2026-04-16T23:20:33.886Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -41,8 +41,8 @@ export const GithubConnectionInsertSchema = z.object({
   last_commit_sha: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),
   pull_requests_open: z.number().nullable().optional(),
-  repository_name: z.string().optional(),
-  repository_url: z.string().optional(),
+  repository_name: z.string(),
+  repository_url: z.string(),
   stars: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

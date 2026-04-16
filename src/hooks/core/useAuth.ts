@@ -1,3 +1,4 @@
+// src/hooks/core/useAuth.ts
 // =====================================================
 // HOOK: useAuth
 // GENERATED: Manual (or by GAIA)

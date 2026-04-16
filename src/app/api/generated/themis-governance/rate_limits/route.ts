@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/rate_limits
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.007Z
+// GENERATED: 2026-04-16T23:20:34.211Z
 // SOURCE: database.types.ts
 // =====================================================
 import { RateLimitsRowSchema, RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = RateLimitsRowSchema.parse(body);
+    const validated = RateLimitsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

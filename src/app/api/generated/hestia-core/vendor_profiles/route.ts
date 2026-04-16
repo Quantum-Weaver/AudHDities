@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/vendor_profiles
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.069Z
+// GENERATED: 2026-04-16T23:20:34.255Z
 // SOURCE: database.types.ts
 // =====================================================
 import { VendorProfilesRowSchema, VendorProfilesInsertSchema, VendorProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/vendor_profiles';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = VendorProfilesRowSchema.parse(body);
+    const validated = VendorProfilesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

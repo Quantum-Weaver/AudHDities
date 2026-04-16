@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/stripe_connection/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:36.029Z
+// GENERATED: 2026-04-16T23:20:34.231Z
 // SOURCE: database.types.ts
 // =====================================================
 import { StripeConnectionRowSchema, StripeConnectionInsertSchema, StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection';

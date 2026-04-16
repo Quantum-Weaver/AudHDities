@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/activity.ts
-// GENERATED: 2026-04-15T19:30:35.481Z
+// GENERATED: 2026-04-16T23:20:33.863Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,7 +28,7 @@ export const ActivityRowSchema = z.object({
 });
 
 export const ActivityInsertSchema = z.object({
-  action_type: z.enum(Object.values(ACTION_TYPE)).optional(),
+  action_type: z.enum(Object.values(ACTION_TYPE)),
   actor_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -36,7 +36,7 @@ export const ActivityInsertSchema = z.object({
   metadata: z.any().nullable().optional(),
   target_id: z.string().nullable().optional(),
   target_type: z.enum(Object.values(TARGET_TYPE)).nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
   visibility: z.enum(Object.values(ACTIVITY_VISIBILITY)).nullable().optional(),
 });
 

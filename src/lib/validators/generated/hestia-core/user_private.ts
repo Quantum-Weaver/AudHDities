@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/user_private.ts
-// GENERATED: 2026-04-15T19:30:35.537Z
+// GENERATED: 2026-04-16T23:20:33.924Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -33,7 +33,7 @@ export const UserPrivateInsertSchema = z.object({
   date_of_birth: z.string().nullable().optional(),
   emergency_contact: z.any().nullable().optional(),
   government_id: z.string().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   legal_name: z.string().nullable().optional(),
   notes: z.string().nullable().optional(),
   phone_number: z.string().nullable().optional(),

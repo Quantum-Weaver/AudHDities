@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/creative_categories/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:35.635Z
+// GENERATED: 2026-04-16T23:20:34.027Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CreativeCategoriesRowSchema, CreativeCategoriesInsertSchema, CreativeCategoriesUpdateSchema } from '@/lib/validators/generated/hermes-social/creative_categories';

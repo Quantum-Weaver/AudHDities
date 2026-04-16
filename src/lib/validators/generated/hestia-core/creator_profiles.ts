@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/creator_profiles.ts
-// GENERATED: 2026-04-15T19:30:35.494Z
+// GENERATED: 2026-04-16T23:20:33.879Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -37,9 +37,9 @@ export const CreatorProfilesInsertSchema = z.object({
   creative_categories: z.any().nullable().optional(),
   creative_description: z.string().nullable().optional(),
   creator_logo_url: z.string().nullable().optional(),
-  creator_moniker: z.string().optional(),
+  creator_moniker: z.string(),
   default_residual_pool: z.number().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   portfolio_url: z.string().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
   total_earnings: z.number().nullable().optional(),

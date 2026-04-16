@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/file_registry.ts
-// GENERATED: 2026-04-15T19:30:35.499Z
+// GENERATED: 2026-04-16T23:20:33.884Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -34,15 +34,15 @@ export const FileRegistryRowSchema = z.object({
 });
 
 export const FileRegistryInsertSchema = z.object({
-  category: z.string().optional(),
+  category: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   dependencies: z.any().nullable().optional(),
-  emoji: z.string().optional(),
+  emoji: z.string(),
   example_usage: z.string().nullable().optional(),
-  file_name: z.string().optional(),
-  file_path: z.string().optional(),
-  file_type: z.string().optional(),
+  file_name: z.string(),
+  file_path: z.string(),
+  file_type: z.string(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   last_validated: z.string().nullable().optional(),

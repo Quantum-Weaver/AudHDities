@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/codex/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:35.622Z
+// GENERATED: 2026-04-16T23:20:34.012Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CodexRowSchema, CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex';

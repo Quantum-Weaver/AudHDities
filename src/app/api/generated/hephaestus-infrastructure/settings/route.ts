@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/settings
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.027Z
+// GENERATED: 2026-04-16T23:20:34.229Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SettingsRowSchema, SettingsInsertSchema, SettingsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/settings';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SettingsRowSchema.parse(body);
+    const validated = SettingsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

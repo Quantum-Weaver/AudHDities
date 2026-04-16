@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-15T19:30:35.530Z
+// GENERATED: 2026-04-16T23:20:33.916Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,7 +30,7 @@ export const StripeConnectionRowSchema = z.object({
 });
 
 export const StripeConnectionInsertSchema = z.object({
-  account_id: z.string().optional(),
+  account_id: z.string(),
   connected_accounts: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),

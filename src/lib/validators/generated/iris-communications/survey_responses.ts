@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/survey_responses.ts
-// GENERATED: 2026-04-15T19:30:35.532Z
+// GENERATED: 2026-04-16T23:20:33.919Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,15 +23,15 @@ export const SurveyResponsesRowSchema = z.object({
 });
 
 export const SurveyResponsesInsertSchema = z.object({
-  answers: z.any().optional(),
+  answers: z.any(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   duration_seconds: z.number().nullable().optional(),
   id: z.string().optional(),
   ip_address: z.any().optional(),
-  survey_id: z.string().optional(),
+  survey_id: z.string(),
   user_agent: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const SurveyResponsesUpdateSchema = z.object({

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/contributions.ts
-// GENERATED: 2026-04-15T19:30:35.491Z
+// GENERATED: 2026-04-16T23:20:33.875Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -27,16 +27,16 @@ export const ContributionsRowSchema = z.object({
 });
 
 export const ContributionsInsertSchema = z.object({
-  contribution_type: z.enum(Object.values(CONTRIBUTION_TYPE)).optional(),
-  contributor_id: z.string().optional(),
+  contribution_type: z.enum(Object.values(CONTRIBUTION_TYPE)),
+  contributor_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   id: z.string().optional(),
   is_one_time: z.boolean().nullable().optional(),
   is_residual_eligible: z.boolean().nullable().optional(),
-  percent_share: z.number().optional(),
-  product_id: z.string().optional(),
+  percent_share: z.number(),
+  product_id: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

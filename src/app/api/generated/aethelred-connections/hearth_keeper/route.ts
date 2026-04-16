@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/hearth_keeper
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.652Z
+// GENERATED: 2026-04-16T23:20:34.052Z
 // SOURCE: database.types.ts
 // =====================================================
 import { HearthKeeperRowSchema, HearthKeeperInsertSchema, HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = HearthKeeperRowSchema.parse(body);
+    const validated = HearthKeeperInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

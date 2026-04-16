@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.016Z
+// GENERATED: 2026-04-16T23:20:34.219Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ResidualPoolRowSchema, ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ResidualPoolRowSchema.parse(body);
+    const validated = ResidualPoolInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

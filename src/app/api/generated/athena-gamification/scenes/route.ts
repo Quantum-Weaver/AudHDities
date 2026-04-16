@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/scenes
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.020Z
+// GENERATED: 2026-04-16T23:20:34.223Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ScenesRowSchema, ScenesInsertSchema, ScenesUpdateSchema } from '@/lib/validators/generated/athena-gamification/scenes';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ScenesRowSchema.parse(body);
+    const validated = ScenesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

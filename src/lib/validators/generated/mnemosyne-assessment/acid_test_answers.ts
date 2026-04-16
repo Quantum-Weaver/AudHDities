@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_answers.ts
-// GENERATED: 2026-04-15T19:30:35.478Z
+// GENERATED: 2026-04-16T23:20:33.861Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -25,14 +25,14 @@ export const AcidTestAnswersRowSchema = z.object({
 
 export const AcidTestAnswersInsertSchema = z.object({
   ally_tier_price: z.number().nullable().optional(),
-  answer_text: z.string().optional(),
+  answer_text: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   indicates_nd: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   persona_contribution: z.any().nullable().optional(),
-  question_id: z.string().optional(),
+  question_id: z.string(),
   score_value: z.number().nullable().optional(),
 });
 

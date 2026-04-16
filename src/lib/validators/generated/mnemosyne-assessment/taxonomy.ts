@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/taxonomy.ts
-// GENERATED: 2026-04-15T19:30:35.534Z
+// GENERATED: 2026-04-16T23:20:33.921Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -36,11 +36,11 @@ export const TaxonomyInsertSchema = z.object({
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   level: z.number().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   node_type: z.enum(Object.values(TAXONOMY_NODE_TYPE)).optional(),
   parent_id: z.string().nullable().optional(),
-  path: z.string().optional(),
-  slug: z.string().optional(),
+  path: z.string(),
+  slug: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

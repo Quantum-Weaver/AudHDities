@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/advertising.ts
-// GENERATED: 2026-04-15T19:30:35.482Z
+// GENERATED: 2026-04-16T23:20:33.865Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,11 +32,11 @@ export const AdvertisingRowSchema = z.object({
 });
 
 export const AdvertisingInsertSchema = z.object({
-  advertiser_id: z.string().optional(),
-  bid_amount_cents: z.number().optional(),
-  bid_type: z.enum(Object.values(BID_TYPE)).optional(),
-  budget_cents: z.number().optional(),
-  campaign_name: z.string().optional(),
+  advertiser_id: z.string(),
+  bid_amount_cents: z.number(),
+  bid_type: z.enum(Object.values(BID_TYPE)),
+  budget_cents: z.number(),
+  campaign_name: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   end_date: z.string().nullable().optional(),

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/resend_connection.ts
-// GENERATED: 2026-04-15T19:30:35.523Z
+// GENERATED: 2026-04-16T23:20:33.909Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -35,8 +35,8 @@ export const ResendConnectionInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   emails_failed: z.number().nullable().optional(),
   emails_sent: z.number().nullable().optional(),
-  from_email: z.string().optional(),
-  from_name: z.string().optional(),
+  from_email: z.string(),
+  from_name: z.string(),
   id: z.string().optional(),
   last_sent_at: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),

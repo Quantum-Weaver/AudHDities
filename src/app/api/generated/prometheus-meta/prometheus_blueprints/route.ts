@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_blueprints
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.677Z
+// GENERATED: 2026-04-16T23:20:34.198Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PrometheusBlueprintsRowSchema, PrometheusBlueprintsInsertSchema, PrometheusBlueprintsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_blueprints';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = PrometheusBlueprintsRowSchema.parse(body);
+    const validated = PrometheusBlueprintsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/replies
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.011Z
+// GENERATED: 2026-04-16T23:20:34.214Z
 // SOURCE: database.types.ts
 // =====================================================
 import { RepliesRowSchema, RepliesInsertSchema, RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = RepliesRowSchema.parse(body);
+    const validated = RepliesInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

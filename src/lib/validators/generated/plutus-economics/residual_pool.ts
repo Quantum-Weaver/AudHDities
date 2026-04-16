@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/residual_pool.ts
-// GENERATED: 2026-04-15T19:30:35.524Z
+// GENERATED: 2026-04-16T23:20:33.910Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,10 +29,10 @@ export const ResidualPoolInsertSchema = z.object({
   distributed_amount_cents: z.number().nullable().optional(),
   distributed_at: z.string().nullable().optional(),
   id: z.string().optional(),
-  product_id: z.string().optional(),
+  product_id: z.string(),
   remaining_amount_cents: z.number().nullable().optional(),
-  sale_id: z.string().optional(),
-  total_amount_cents: z.number().optional(),
+  sale_id: z.string(),
+  total_amount_cents: z.number(),
   updated_at: z.string().nullable().optional(),
 });
 

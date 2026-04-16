@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/file_type_standards.ts
-// GENERATED: 2026-04-15T19:30:35.499Z
+// GENERATED: 2026-04-16T23:20:33.885Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -36,11 +36,11 @@ export const FileTypeStandardsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  display_name: z.string().optional(),
-  emoji: z.string().optional(),
+  display_name: z.string(),
+  emoji: z.string(),
   example_code: z.string().nullable().optional(),
   example_path: z.string().nullable().optional(),
-  file_type: z.string().optional(),
+  file_type: z.string(),
   id: z.string().optional(),
   must_handle_errors: z.boolean().nullable().optional(),
   must_have_interfaces: z.boolean().nullable().optional(),

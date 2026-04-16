@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/curator.ts
-// GENERATED: 2026-04-15T19:30:35.495Z
+// GENERATED: 2026-04-16T23:20:33.880Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,7 +30,7 @@ export const CuratorInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   curation_queue: z.any().nullable().optional(),
   featured_content: z.any().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   preservation_policy: z.any().nullable().optional(),
   quality_standards: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),

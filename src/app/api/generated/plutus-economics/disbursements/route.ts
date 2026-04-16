@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/disbursements
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.642Z
+// GENERATED: 2026-04-16T23:20:34.040Z
 // SOURCE: database.types.ts
 // =====================================================
 import { DisbursementsRowSchema, DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = DisbursementsRowSchema.parse(body);
+    const validated = DisbursementsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

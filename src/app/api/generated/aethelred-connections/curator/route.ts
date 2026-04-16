@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/curator
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.640Z
+// GENERATED: 2026-04-16T23:20:34.037Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CuratorRowSchema, CuratorInsertSchema, CuratorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/curator';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CuratorRowSchema.parse(body);
+    const validated = CuratorInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

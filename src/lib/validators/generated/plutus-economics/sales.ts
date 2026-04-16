@@ -1,13 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-15T19:30:35.524Z
+// GENERATED: 2026-04-16T23:20:33.910Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
 import { PAYMENT_STATUS } from '@/lib/constants/generated/plutus-economics/payment_status';
-import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
+import { USER_TIER } from '@/lib/constants/generated/plutus-economics/user_tier';
 
 // =====================================================
 // Sales SCHEMAS
@@ -37,23 +37,23 @@ export const SalesRowSchema = z.object({
 });
 
 export const SalesInsertSchema = z.object({
-  amount_cents: z.number().optional(),
+  amount_cents: z.number(),
   bigot_tax_applied: z.boolean().nullable().optional(),
-  buyer_id: z.string().optional(),
+  buyer_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  creator_earnings_cents: z.number().optional(),
-  gross_amount: z.number().optional(),
+  creator_earnings_cents: z.number(),
+  gross_amount: z.number(),
   id: z.string().optional(),
   nd_price_applied: z.boolean().nullable().optional(),
   net_amount: z.number().nullable().optional(),
   payment_processor_fee: z.number().nullable().optional(),
   payment_status: z.enum(Object.values(PAYMENT_STATUS)).nullable().optional(),
-  platform_fee_cents: z.number().optional(),
-  product_id: z.string().optional(),
+  platform_fee_cents: z.number(),
+  product_id: z.string(),
   stripe_payment_intent: z.string().nullable().optional(),
   stripe_session_id: z.string().nullable().optional(),
-  tier_applied: z.enum(Object.values(USER_TIER)).optional(),
+  tier_applied: z.enum(Object.values(USER_TIER)),
   to_creator_immediate: z.number().nullable().optional(),
   to_infrastructure: z.number().nullable().optional(),
   to_residual_pool: z.number().nullable().optional(),

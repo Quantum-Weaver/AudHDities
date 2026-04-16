@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/rate_limits.ts
-// GENERATED: 2026-04-15T19:30:35.520Z
+// GENERATED: 2026-04-16T23:20:33.906Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -23,9 +23,9 @@ export const RateLimitsRowSchema = z.object({
 export const RateLimitsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  endpoint: z.string().optional(),
+  endpoint: z.string(),
   id: z.string().optional(),
-  identifier: z.string().optional(),
+  identifier: z.string(),
   request_count: z.number().nullable().optional(),
   window_start: z.string().nullable().optional(),
 });

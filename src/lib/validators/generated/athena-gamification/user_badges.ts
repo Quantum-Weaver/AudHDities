@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/user_badges.ts
-// GENERATED: 2026-04-15T19:30:35.536Z
+// GENERATED: 2026-04-16T23:20:33.923Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -22,14 +22,14 @@ export const UserBadgesRowSchema = z.object({
 });
 
 export const UserBadgesInsertSchema = z.object({
-  badge_id: z.string().optional(),
+  badge_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   display_on_profile: z.boolean().nullable().optional(),
   earned_at: z.string().nullable().optional(),
   earned_reason: z.string().nullable().optional(),
   id: z.string().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const UserBadgesUpdateSchema = z.object({

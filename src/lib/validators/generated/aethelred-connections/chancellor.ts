@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/chancellor.ts
-// GENERATED: 2026-04-15T19:30:35.486Z
+// GENERATED: 2026-04-16T23:20:33.870Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,7 +29,7 @@ export const ChancellorInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   fee_structure: z.any().nullable().optional(),
   financial_audits: z.any().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   last_audit_at: z.string().nullable().optional(),
   operating_budget: z.any().nullable().optional(),
   payout_schedule: z.any().nullable().optional(),

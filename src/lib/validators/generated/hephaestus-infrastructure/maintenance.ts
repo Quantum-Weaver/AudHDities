@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/maintenance.ts
-// GENERATED: 2026-04-15T19:30:35.505Z
+// GENERATED: 2026-04-16T23:20:33.891Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -46,8 +46,8 @@ export const MaintenanceInsertSchema = z.object({
   scheduled_end: z.string().nullable().optional(),
   scheduled_start: z.string().nullable().optional(),
   status: z.enum(Object.values(MAINTENANCE_STATUS)).nullable().optional(),
-  title: z.string().optional(),
-  type: z.enum(Object.values(MAINTENANCE_TYPE)).optional(),
+  title: z.string(),
+  type: z.enum(Object.values(MAINTENANCE_TYPE)),
   updated_at: z.string().nullable().optional(),
 });
 

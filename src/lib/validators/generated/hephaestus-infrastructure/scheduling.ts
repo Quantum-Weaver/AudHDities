@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-15T19:30:35.526Z
+// GENERATED: 2026-04-16T23:20:33.913Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -37,13 +37,13 @@ export const SchedulingInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  function_name: z.string().optional(),
+  function_name: z.string(),
   id: z.string().optional(),
-  job_type: z.enum(Object.values(JOB_TYPE)).optional(),
+  job_type: z.enum(Object.values(JOB_TYPE)),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
   max_retries: z.number().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   next_run: z.string().nullable().optional(),
   parameters: z.any().nullable().optional(),
   retry_count: z.number().nullable().optional(),

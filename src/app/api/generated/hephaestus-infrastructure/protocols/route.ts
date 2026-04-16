@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/protocols
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.690Z
+// GENERATED: 2026-04-16T23:20:34.207Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ProtocolsRowSchema, ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ProtocolsRowSchema.parse(body);
+    const validated = ProtocolsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

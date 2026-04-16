@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/archivist.ts
-// GENERATED: 2026-04-15T19:30:35.484Z
+// GENERATED: 2026-04-16T23:20:33.867Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,7 +29,7 @@ export const ArchivistInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   documentation_standards: z.any().nullable().optional(),
   historical_records: z.any().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   last_archive_at: z.string().nullable().optional(),
   milestones: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),

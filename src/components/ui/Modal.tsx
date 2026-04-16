@@ -15,6 +15,7 @@ export interface ModalProps extends DialogPrimitive.Root.Props {
   description?: string;
   showCloseButton?: boolean;
   onClose?: () => void;
+  children?: React.ReactNode;
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
@@ -31,10 +32,8 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
               <DialogPrimitive.Close
                 onClick={onClose}
                 className="absolute top-3 right-3"
-                render={<Button variant="ghost" size="icon-sm" />}
-              >
-                <XIcon className="h-4 w-4" />
-              </DialogPrimitive.Close>
+                render={() => <Button variant="ghost" size="icon-sm"><XIcon className="h-4 w-4" /></Button>}
+              />
             )}
             {title && (
               <DialogPrimitive.Title className="text-lg font-semibold text-white mb-2">

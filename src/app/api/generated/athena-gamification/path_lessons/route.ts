@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/path_lessons
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.667Z
+// GENERATED: 2026-04-16T23:20:34.154Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PathLessonsRowSchema, PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = PathLessonsRowSchema.parse(body);
+    const validated = PathLessonsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

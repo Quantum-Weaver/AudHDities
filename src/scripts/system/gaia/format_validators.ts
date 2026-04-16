@@ -151,7 +151,7 @@ function generateRowSchema(tableName: string, rowContent: string, importedConsta
 }
 
 /**
- * Generate Insert schema (all fields optional for creation)
+ * Generate Insert schema (respect database required/optional)
  */
 function generateInsertSchema(tableName: string, insertContent: string, importedConstants: Set<string>): string {
   const lines = insertContent.split('\n');
@@ -159,15 +159,18 @@ function generateInsertSchema(tableName: string, insertContent: string, imported
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    // Insert fields often have ? for optional
-    const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
+    // Capture field with optional marker (?) and type
+    // Matches: "  field?: type" OR "  field: type"
+    const fieldMatch = line.match(/^\s*(\w+)(\?)?:\s*(.+)/);
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
+      const isOptional = fieldMatch[2] === '?';  // ✅ DETECT if field has ? modifier
+      const fieldType = fieldMatch[3].trim();
       const zodType = dbTypeToZod(fieldType, fieldName, importedConstants);
-      // Make optional for insert schema
-      const optionalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${optionalZod},`);
+      
+      // ✅ ONLY add .optional() if the database marks it optional
+      const finalZod = isOptional ? `${zodType}.optional()` : zodType;
+      fields.push(`  ${fieldName}: ${finalZod},`);
     }
   }
   
@@ -178,24 +181,24 @@ function generateInsertSchema(tableName: string, insertContent: string, imported
   return `export const ${pascalName}InsertSchema = z.object({\n${fields.join('\n')}\n});`;
 }
 
-/**
- * Generate Update schema (all fields optional)
- */
 function generateUpdateSchema(tableName: string, updateContent: string, importedConstants: Set<string>): string {
   const lines = updateContent.split('\n');
   const fields: string[] = [];
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    // Update fields often have ? for optional
-    const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
+    // Update fields also have ? for optional
+    const fieldMatch = line.match(/^\s*(\w+)(\?)?:\s*(.+)/);
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
+      const isOptional = fieldMatch[2] === '?';
+      const fieldType = fieldMatch[3].trim();
       const zodType = dbTypeToZod(fieldType, fieldName, importedConstants);
-      // Make optional for update schema
-      const optionalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${optionalZod},`);
+      
+      // Update schemas should ALWAYS be optional (they're partial updates)
+      // But preserve the database's nullability
+      const finalZod = `${zodType}.optional()`;
+      fields.push(`  ${fieldName}: ${finalZod},`);
     }
   }
   

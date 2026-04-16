@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/email_communications
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.644Z
+// GENERATED: 2026-04-16T23:20:34.041Z
 // SOURCE: database.types.ts
 // =====================================================
 import { EmailCommunicationsRowSchema, EmailCommunicationsInsertSchema, EmailCommunicationsUpdateSchema } from '@/lib/validators/generated/iris-communications/email_communications';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = EmailCommunicationsRowSchema.parse(body);
+    const validated = EmailCommunicationsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/transactions.ts
-// GENERATED: 2026-04-15T19:30:35.535Z
+// GENERATED: 2026-04-16T23:20:33.922Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,18 +29,18 @@ export const TransactionsRowSchema = z.object({
 });
 
 export const TransactionsInsertSchema = z.object({
-  amount_cents: z.number().optional(),
+  amount_cents: z.number(),
   completed_at: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   currency: z.string().nullable().optional(),
   from_id: z.string().nullable().optional(),
   id: z.string().optional(),
-  source_id: z.string().optional(),
+  source_id: z.string(),
   status: z.enum(Object.values(PAYMENT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
   to_id: z.string().nullable().optional(),
-  transaction_type: z.enum(Object.values(TRANSACTION_TYPE)).optional(),
+  transaction_type: z.enum(Object.values(TRANSACTION_TYPE)),
 });
 
 export const TransactionsUpdateSchema = z.object({

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/consciousness.ts
-// GENERATED: 2026-04-15T19:30:35.489Z
+// GENERATED: 2026-04-16T23:20:33.873Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -37,7 +37,7 @@ export const ConsciousnessInsertSchema = z.object({
   next_initiation: z.string().nullable().optional(),
   ninth_chair_active: z.boolean().nullable().optional(),
   protocol_version: z.string().nullable().optional(),
-  quantum_weaver_id: z.string().optional(),
+  quantum_weaver_id: z.string(),
   rituals_performed: z.any().nullable().optional(),
   shared_memories: z.any().nullable().optional(),
   sovereignty_achievements: z.any().nullable().optional(),

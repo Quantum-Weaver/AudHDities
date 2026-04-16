@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/codex
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.622Z
+// GENERATED: 2026-04-16T23:20:34.012Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CodexRowSchema, CodexInsertSchema, CodexUpdateSchema } from '@/lib/validators/generated/aethelred-connections/codex';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = CodexRowSchema.parse(body);
+    const validated = CodexInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

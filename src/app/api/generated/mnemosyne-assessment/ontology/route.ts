@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/ontology
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.666Z
+// GENERATED: 2026-04-16T23:20:34.094Z
 // SOURCE: database.types.ts
 // =====================================================
 import { OntologyRowSchema, OntologyInsertSchema, OntologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/ontology';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = OntologyRowSchema.parse(body);
+    const validated = OntologyInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

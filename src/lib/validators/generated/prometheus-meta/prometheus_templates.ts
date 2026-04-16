@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_templates.ts
-// GENERATED: 2026-04-15T19:30:35.517Z
+// GENERATED: 2026-04-16T23:20:33.903Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -25,14 +25,14 @@ export const PrometheusTemplatesRowSchema = z.object({
 });
 
 export const PrometheusTemplatesInsertSchema = z.object({
-  content: z.string().optional(),
+  content: z.string(),
   contexts: z.any().nullable().optional(),
   created_at: z.string().optional(),
   dependencies: z.any().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().optional(),
-  name: z.string().optional(),
-  pattern: z.string().optional(),
+  name: z.string(),
+  pattern: z.string(),
   updated_at: z.string().optional(),
   variables: z.any().nullable().optional(),
   version: z.string().optional(),

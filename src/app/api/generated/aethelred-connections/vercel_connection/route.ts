@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/vercel_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.072Z
+// GENERATED: 2026-04-16T23:20:34.257Z
 // SOURCE: database.types.ts
 // =====================================================
 import { VercelConnectionRowSchema, VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/vercel_connection';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = VercelConnectionRowSchema.parse(body);
+    const validated = VercelConnectionInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/scheduling
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.021Z
+// GENERATED: 2026-04-16T23:20:34.224Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SchedulingRowSchema, SchedulingInsertSchema, SchedulingUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SchedulingRowSchema.parse(body);
+    const validated = SchedulingInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

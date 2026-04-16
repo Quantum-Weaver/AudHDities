@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/languages.ts
-// GENERATED: 2026-04-15T19:30:35.501Z
+// GENERATED: 2026-04-16T23:20:33.887Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,7 +28,7 @@ export const LanguagesRowSchema = z.object({
 });
 
 export const LanguagesInsertSchema = z.object({
-  code: z.string().optional(),
+  code: z.string(),
   code_3: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
@@ -36,7 +36,7 @@ export const LanguagesInsertSchema = z.object({
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_default: z.boolean().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   native_name: z.string().nullable().optional(),
   script: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),

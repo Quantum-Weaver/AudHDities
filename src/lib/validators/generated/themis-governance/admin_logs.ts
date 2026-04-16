@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/admin_logs.ts
-// GENERATED: 2026-04-15T19:30:35.481Z
+// GENERATED: 2026-04-16T23:20:33.864Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -34,9 +34,9 @@ export const AdminLogsRowSchema = z.object({
 });
 
 export const AdminLogsInsertSchema = z.object({
-  action: z.string().optional(),
-  action_category: z.enum(Object.values(ADMIN_LOG_CATEGORY)).optional(),
-  admin_id: z.string().optional(),
+  action: z.string(),
+  action_category: z.enum(Object.values(ADMIN_LOG_CATEGORY)),
+  admin_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),

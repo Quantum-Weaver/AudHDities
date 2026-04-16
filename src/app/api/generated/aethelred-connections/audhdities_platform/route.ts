@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/audhdities_platform
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.616Z
+// GENERATED: 2026-04-16T23:20:34.006Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AudhditiesPlatformRowSchema, AudhditiesPlatformInsertSchema, AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AudhditiesPlatformRowSchema.parse(body);
+    const validated = AudhditiesPlatformInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

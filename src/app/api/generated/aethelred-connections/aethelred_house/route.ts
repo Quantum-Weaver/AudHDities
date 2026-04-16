@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/aethelred_house
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.611Z
+// GENERATED: 2026-04-16T23:20:34.001Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AethelredHouseRowSchema, AethelredHouseInsertSchema, AethelredHouseUpdateSchema } from '@/lib/validators/generated/aethelred-connections/aethelred_house';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AethelredHouseRowSchema.parse(body);
+    const validated = AethelredHouseInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/executioner.ts
-// GENERATED: 2026-04-15T19:30:35.498Z
+// GENERATED: 2026-04-16T23:20:33.883Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,7 +30,7 @@ export const ExecutionerInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   execution_count: z.number().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   justice_log: z.any().nullable().optional(),
   suspended_users: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),

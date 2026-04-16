@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/user_quests.ts
-// GENERATED: 2026-04-15T19:30:35.538Z
+// GENERATED: 2026-04-16T23:20:33.925Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -31,13 +31,13 @@ export const UserQuestsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
-  quest_id: z.string().optional(),
+  quest_id: z.string(),
   started_at: z.string().nullable().optional(),
   status: z.enum(Object.values(QUEST_STATUS)).nullable().optional(),
   submission_metadata: z.any().nullable().optional(),
   submitted_content: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const UserQuestsUpdateSchema = z.object({

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_answers
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.599Z
+// GENERATED: 2026-04-16T23:20:33.989Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AcidTestAnswersRowSchema, AcidTestAnswersInsertSchema, AcidTestAnswersUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_answers';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AcidTestAnswersRowSchema.parse(body);
+    const validated = AcidTestAnswersInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

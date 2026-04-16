@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-15T19:30:35.484Z
+// GENERATED: 2026-04-16T23:20:33.867Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,10 +32,10 @@ export const ApplicationsRowSchema = z.object({
 
 export const ApplicationsInsertSchema = z.object({
   admin_notes: z.string().nullable().optional(),
-  application_type: z.enum(Object.values(APPLICATION_TYPE)).optional(),
+  application_type: z.enum(Object.values(APPLICATION_TYPE)),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  form_data: z.any().optional(),
+  form_data: z.any(),
   id: z.string().optional(),
   onboarding_doc_path: z.string().nullable().optional(),
   onboarding_version: z.string().nullable().optional(),
@@ -44,7 +44,7 @@ export const ApplicationsInsertSchema = z.object({
   reviewed_by: z.string().nullable().optional(),
   status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const ApplicationsUpdateSchema = z.object({

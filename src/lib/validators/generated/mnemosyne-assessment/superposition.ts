@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/superposition.ts
-// GENERATED: 2026-04-15T19:30:35.531Z
+// GENERATED: 2026-04-16T23:20:33.918Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -27,13 +27,13 @@ export const SuperpositionRowSchema = z.object({
 
 export const SuperpositionInsertSchema = z.object({
   collapse_count: z.number().nullable().optional(),
-  concept_id: z.string().optional(),
+  concept_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   observer_count: z.number().nullable().optional(),
-  possible_meanings: z.any().optional(),
-  probability_distribution: z.any().optional(),
+  possible_meanings: z.any(),
+  probability_distribution: z.any(),
   status: z.enum(Object.values(SUPERPOSITION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

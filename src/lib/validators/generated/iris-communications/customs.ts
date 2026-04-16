@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-15T19:30:35.496Z
+// GENERATED: 2026-04-16T23:20:33.880Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,18 +29,18 @@ export const CustomsRowSchema = z.object({
 });
 
 export const CustomsInsertSchema = z.object({
-  category: z.enum(Object.values(CUSTOM_CATEGORY_TYPE)).optional(),
+  category: z.enum(Object.values(CUSTOM_CATEGORY_TYPE)),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  description: z.string().optional(),
+  description: z.string(),
   guidance: z.string().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_sensitive: z.boolean().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   persona_id: z.string().nullable().optional(),
   region_id: z.string().nullable().optional(),
-  slug: z.string().optional(),
+  slug: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

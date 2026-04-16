@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/skald
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.028Z
+// GENERATED: 2026-04-16T23:20:34.230Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SkaldRowSchema, SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = SkaldRowSchema.parse(body);
+    const validated = SkaldInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

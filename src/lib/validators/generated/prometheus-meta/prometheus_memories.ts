@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_memories.ts
-// GENERATED: 2026-04-15T19:30:35.516Z
+// GENERATED: 2026-04-16T23:20:33.902Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -33,8 +33,8 @@ export const PrometheusMemoriesInsertSchema = z.object({
   failure_count: z.number().optional(),
   id: z.string().optional(),
   last_used: z.string().nullable().optional(),
-  pattern_hash: z.string().optional(),
-  pattern_type: z.string().optional(),
+  pattern_hash: z.string(),
+  pattern_type: z.string(),
   success_count: z.number().optional(),
   template_recommendation: z.string().nullable().optional(),
   updated_at: z.string().optional(),

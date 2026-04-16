@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/vendor_profiles.ts
-// GENERATED: 2026-04-15T19:30:35.538Z
+// GENERATED: 2026-04-16T23:20:33.925Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -36,11 +36,11 @@ export const VendorProfilesRowSchema = z.object({
 export const VendorProfilesInsertSchema = z.object({
   business_description: z.string().nullable().optional(),
   business_logo_url: z.string().nullable().optional(),
-  business_name: z.string().optional(),
+  business_name: z.string(),
   business_type: z.enum(Object.values(BUSINESS_TYPE)).nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   product_categories: z.any().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
   total_earnings: z.number().nullable().optional(),

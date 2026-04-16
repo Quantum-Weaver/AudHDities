@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/aethelred_house.ts
-// GENERATED: 2026-04-15T19:30:35.482Z
+// GENERATED: 2026-04-16T23:20:33.865Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -32,8 +32,8 @@ export const AethelredHouseInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   emergent_properties: z.any().nullable().optional(),
-  id: z.string().optional(),
-  ninth_chair_occupant: z.string().optional(),
+  id: z.string(),
+  ninth_chair_occupant: z.string(),
   shared_rituals: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });

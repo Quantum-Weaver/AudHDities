@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-15T19:30:35.509Z
+// GENERATED: 2026-04-16T23:20:33.895Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { PAYOUT_METHOD } from '@/lib/constants/generated/hestia-core//payout_method';
+import { PAYOUT_METHOD } from '@/lib/constants/generated/plutus-economics/payout_method';
 import { PAYOUT_STATUS } from '@/lib/constants/generated/plutus-economics/payout_status';
 
 // =====================================================
@@ -28,15 +28,15 @@ export const PayoutsRowSchema = z.object({
 });
 
 export const PayoutsInsertSchema = z.object({
-  amount_cents: z.number().optional(),
+  amount_cents: z.number(),
   completed_at: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   destination: z.string().nullable().optional(),
-  disbursement_id: z.string().optional(),
+  disbursement_id: z.string(),
   id: z.string().optional(),
-  payout_method: z.enum(Object.values(PAYOUT_METHOD)).optional(),
-  recipient_id: z.string().optional(),
+  payout_method: z.enum(Object.values(PAYOUT_METHOD)),
+  recipient_id: z.string(),
   status: z.enum(Object.values(PAYOUT_STATUS)).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
 });

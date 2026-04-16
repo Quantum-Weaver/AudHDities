@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/localization
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.659Z
+// GENERATED: 2026-04-16T23:20:34.086Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LocalizationRowSchema, LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/localization';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = LocalizationRowSchema.parse(body);
+    const validated = LocalizationInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

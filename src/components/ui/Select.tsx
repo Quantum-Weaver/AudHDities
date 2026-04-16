@@ -5,18 +5,19 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { selectVariants, type SelectVariant, type SelectSize } from "@/lib/constants/components/ui/select_variants";
 
-export interface SelectProps extends React.ComponentProps<"select"> {
+// Omit 'size' from native select attributes
+export interface SelectProps extends Omit<React.ComponentProps<"select">, "size"> {
   variant?: SelectVariant;
-  size?: SelectSize;
+  selectSize?: SelectSize;  // Renamed to avoid conflict
   native?: boolean;
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ variant = "default", size = "md", native = false, className, children, ...props }, ref) => {
+  ({ variant = "default", selectSize = "md", native = false, className, children, ...props }, ref) => {
     return (
       <select
         ref={ref}
-        className={cn(selectVariants({ variant, size, native }), className)}
+        className={cn(selectVariants({ variant, size: selectSize, native }), className)}
         {...props}
       >
         {children}

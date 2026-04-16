@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/chancellor
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.620Z
+// GENERATED: 2026-04-16T23:20:34.010Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ChancellorRowSchema, ChancellorInsertSchema, ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ChancellorRowSchema.parse(body);
+    const validated = ChancellorInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

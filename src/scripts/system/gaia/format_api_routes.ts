@@ -186,7 +186,7 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
     }
     
     const body = await request.json();
-    const validated = ${pascalName}RowSchema.parse(body);
+    const validated = ${pascalName}InsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

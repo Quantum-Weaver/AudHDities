@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/learning_paths
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.655Z
+// GENERATED: 2026-04-16T23:20:34.081Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LearningPathsRowSchema, LearningPathsInsertSchema, LearningPathsUpdateSchema } from '@/lib/validators/generated/athena-gamification/learning_paths';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = LearningPathsRowSchema.parse(body);
+    const validated = LearningPathsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

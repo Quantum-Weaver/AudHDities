@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/skald.ts
-// GENERATED: 2026-04-15T19:30:35.529Z
+// GENERATED: 2026-04-16T23:20:33.915Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,7 +28,7 @@ export const SkaldInsertSchema = z.object({
   bard_roster: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  id: z.string(),
   inspiring_content: z.any().nullable().optional(),
   music_library: z.any().nullable().optional(),
   mythology: z.any().nullable().optional(),

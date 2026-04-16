@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/personas.ts
-// GENERATED: 2026-04-15T19:30:35.510Z
+// GENERATED: 2026-04-16T23:20:33.896Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -29,12 +29,12 @@ export const PersonasInsertSchema = z.object({
   characteristics: z.any().nullable().optional(),
   color: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
-  created_by: z.string().optional(),
-  description: z.string().optional(),
+  created_by: z.string(),
+  description: z.string(),
   id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
-  name: z.string().optional(),
-  slug: z.string().optional(),
+  name: z.string(),
+  slug: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

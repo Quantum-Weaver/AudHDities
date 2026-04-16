@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/translations
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.047Z
+// GENERATED: 2026-04-16T23:20:34.246Z
 // SOURCE: database.types.ts
 // =====================================================
 import { TranslationsRowSchema, TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = TranslationsRowSchema.parse(body);
+    const validated = TranslationsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

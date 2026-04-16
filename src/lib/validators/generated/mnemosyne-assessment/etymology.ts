@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/etymology.ts
-// GENERATED: 2026-04-15T19:30:35.498Z
+// GENERATED: 2026-04-16T23:20:33.883Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -36,16 +36,16 @@ export const EtymologyInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   cultural_context: z.string().nullable().optional(),
-  current_meaning: z.string().optional(),
+  current_meaning: z.string(),
   id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
-  language: z.string().optional(),
-  original_meaning: z.string().optional(),
+  language: z.string(),
+  original_meaning: z.string(),
   related_words: z.any().nullable().optional(),
   root: z.string().nullable().optional(),
   semantic_shift: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  word: z.string().optional(),
+  word: z.string(),
 });
 
 export const EtymologyUpdateSchema = z.object({

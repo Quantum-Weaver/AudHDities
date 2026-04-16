@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/scripts
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.024Z
+// GENERATED: 2026-04-16T23:20:34.226Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ScriptsRowSchema, ScriptsInsertSchema, ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ScriptsRowSchema.parse(body);
+    const validated = ScriptsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

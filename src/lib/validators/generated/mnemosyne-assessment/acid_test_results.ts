@@ -1,13 +1,13 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/acid_test_results.ts
-// GENERATED: 2026-04-15T19:30:35.480Z
+// GENERATED: 2026-04-16T23:20:33.863Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
 import { ACID_PERSONA } from '@/lib/constants/generated/mnemosyne-assessment/acid_persona';
-import { USER_TIER } from '@/lib/constants/generated/hestia-core//user_tier';
+import { USER_TIER } from '@/lib/constants/generated/mnemosyne-assessment/user_tier';
 
 // =====================================================
 // AcidTestResults SCHEMAS
@@ -40,7 +40,7 @@ export const AcidTestResultsInsertSchema = z.object({
   suggested_tier: z.enum(Object.values(USER_TIER)).nullable().optional(),
   total_score: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 export const AcidTestResultsUpdateSchema = z.object({

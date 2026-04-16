@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.627Z
+// GENERATED: 2026-04-16T23:20:34.017Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ConsciousnessRowSchema, ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = ConsciousnessRowSchema.parse(body);
+    const validated = ConsciousnessInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

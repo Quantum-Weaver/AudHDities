@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/personas/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-15T19:30:35.670Z
+// GENERATED: 2026-04-16T23:20:34.157Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PersonasRowSchema, PersonasInsertSchema, PersonasUpdateSchema } from '@/lib/validators/generated/iris-communications/personas';

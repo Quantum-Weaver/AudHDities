@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/path_lessons.ts
-// GENERATED: 2026-04-15T19:30:35.508Z
+// GENERATED: 2026-04-16T23:20:33.895Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -21,9 +21,9 @@ export const PathLessonsRowSchema = z.object({
 export const PathLessonsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  lesson_id: z.string().optional(),
-  order_index: z.number().optional(),
-  path_id: z.string().optional(),
+  lesson_id: z.string(),
+  order_index: z.number(),
+  path_id: z.string(),
 });
 
 export const PathLessonsUpdateSchema = z.object({

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/contact_submissions.ts
-// GENERATED: 2026-04-15T19:30:35.490Z
+// GENERATED: 2026-04-16T23:20:33.874Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -38,16 +38,16 @@ export const ContactSubmissionsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   direction: z.enum(Object.values(CONTACT_DIRECTION)).nullable().optional(),
-  email: z.string().optional(),
+  email: z.string(),
   id: z.string().optional(),
-  message: z.string().optional(),
+  message: z.string(),
   message_id: z.string().nullable().optional(),
-  name: z.string().optional(),
+  name: z.string(),
   notes: z.string().nullable().optional(),
   parent_id: z.string().nullable().optional(),
   resolved_at: z.string().nullable().optional(),
   status: z.enum(Object.values(CONTACT_STATUS)).nullable().optional(),
-  subject: z.string().optional(),
+  subject: z.string(),
   thread_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string().nullable().optional(),

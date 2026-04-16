@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_financial
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.052Z
+// GENERATED: 2026-04-16T23:20:34.250Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserFinancialRowSchema, UserFinancialInsertSchema, UserFinancialUpdateSchema } from '@/lib/validators/generated/hestia-core/user_financial';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = UserFinancialRowSchema.parse(body);
+    const validated = UserFinancialInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

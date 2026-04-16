@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-15T19:30:35.514Z
+// GENERATED: 2026-04-16T23:20:33.900Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -35,9 +35,9 @@ export const PrometheusBoundariesInsertSchema = z.object({
   is_active: z.boolean().optional(),
   path_pattern: z.string().nullable().optional(),
   pattern: z.string().nullable().optional(),
-  reason: z.string().optional(),
+  reason: z.string(),
   requires_approval: z.boolean().optional(),
-  rule_type: z.enum(Object.values(BOUNDARY_TYPE)).optional(),
+  rule_type: z.enum(Object.values(BOUNDARY_TYPE)),
   updated_at: z.string().optional(),
 });
 

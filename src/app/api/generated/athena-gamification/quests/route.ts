@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/quests
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.006Z
+// GENERATED: 2026-04-16T23:20:34.210Z
 // SOURCE: database.types.ts
 // =====================================================
 import { QuestsRowSchema, QuestsInsertSchema, QuestsUpdateSchema } from '@/lib/validators/generated/athena-gamification/quests';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = QuestsRowSchema.parse(body);
+    const validated = QuestsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

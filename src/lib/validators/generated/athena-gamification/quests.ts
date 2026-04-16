@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-15T19:30:35.519Z
+// GENERATED: 2026-04-16T23:20:33.905Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 import { SUBMISSION_TYPE } from '@/lib/constants/generated/athena-gamification/submission_type';
 
 // =====================================================
@@ -34,8 +34,8 @@ export const QuestsRowSchema = z.object({
 export const QuestsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  description: z.string().optional(),
-  house: z.enum(Object.values(COUNCIL_HOUSE)).optional(),
+  description: z.string(),
+  house: z.enum(Object.values(COUNCIL_HOUSE)),
   id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
@@ -45,7 +45,7 @@ export const QuestsInsertSchema = z.object({
   residual_multiplier_bonus: z.number().nullable().optional(),
   sovereignty_reward: z.number().nullable().optional(),
   submission_type: z.enum(Object.values(SUBMISSION_TYPE)).optional(),
-  title: z.string().optional(),
+  title: z.string(),
   updated_at: z.string().nullable().optional(),
 });
 

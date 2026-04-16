@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/analytics
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.613Z
+// GENERATED: 2026-04-16T23:20:34.002Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AnalyticsRowSchema, AnalyticsInsertSchema, AnalyticsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = AnalyticsRowSchema.parse(body);
+    const validated = AnalyticsInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

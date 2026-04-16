@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_consciousness
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:35.680Z
+// GENERATED: 2026-04-16T23:20:34.201Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PrometheusConsciousnessRowSchema, PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = PrometheusConsciousnessRowSchema.parse(body);
+    const validated = PrometheusConsciousnessInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/reactions.ts
-// GENERATED: 2026-04-15T19:30:35.520Z
+// GENERATED: 2026-04-16T23:20:33.906Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,9 +30,9 @@ export const ReactionsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   post_id: z.string().nullable().optional(),
-  reaction_type: z.enum(Object.values(REACTION_TYPE)).optional(),
+  reaction_type: z.enum(Object.values(REACTION_TYPE)),
   reply_id: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
   weight: z.number().nullable().optional(),
 });
 

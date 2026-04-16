@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/mnemosyne-assessment/ontology.ts
-// GENERATED: 2026-04-15T19:30:35.508Z
+// GENERATED: 2026-04-16T23:20:33.894Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -33,9 +33,9 @@ export const OntologyInsertSchema = z.object({
   description: z.string().nullable().optional(),
   id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
-  object_id: z.string().optional(),
-  predicate: z.enum(Object.values(ONTOLOGY_PREDICATE)).optional(),
-  subject_id: z.string().optional(),
+  object_id: z.string(),
+  predicate: z.enum(Object.values(ONTOLOGY_PREDICATE)),
+  subject_id: z.string(),
   updated_at: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });

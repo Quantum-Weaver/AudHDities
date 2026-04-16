@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/posts.ts
-// GENERATED: 2026-04-15T19:30:35.510Z
+// GENERATED: 2026-04-16T23:20:33.897Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -36,7 +36,7 @@ export const PostsRowSchema = z.object({
 
 export const PostsInsertSchema = z.object({
   allow_tipping: z.boolean().nullable().optional(),
-  author_id: z.string().optional(),
+  author_id: z.string(),
   body: z.string().nullable().optional(),
   channel_id: z.string().nullable().optional(),
   comment_count: z.number().nullable().optional(),

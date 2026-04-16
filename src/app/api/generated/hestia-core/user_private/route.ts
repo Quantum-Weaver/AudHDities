@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_private
 // METHODS: GET, POST
-// GENERATED: 2026-04-15T19:30:36.065Z
+// GENERATED: 2026-04-16T23:20:34.251Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserPrivateRowSchema, UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const validated = UserPrivateRowSchema.parse(body);
+    const validated = UserPrivateInsertSchema.parse(body);
     
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
