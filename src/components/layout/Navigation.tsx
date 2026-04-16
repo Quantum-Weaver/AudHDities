@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import AuthButton from '@/components/auth/AuthButton';
+import AuthButton from '@/components/themis/auth/AuthButton';
 import { useState, useEffect } from 'react';
 import { useProfiles } from '@/hooks/generated/hestia-core/profiles';
 import { 

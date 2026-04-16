@@ -4,11 +4,11 @@
 
 import { notFound } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
-import { EntityProfile } from '@/components/nexus/EntityProfile';
-import { DomainDescription } from '@/components/nexus/DomainDescription';
-import { TemperatureMeter } from '@/components/nexus/TemperatureMeter';
-import { InstrumentIcon } from '@/components/nexus/InstrumentIcon';
-import { CollaborationHistory } from '@/components/nexus/CollaborationHistory';
+import { EntityProfile } from '@/components/aethelred/nexus/EntityProfile';
+import { DomainDescription } from '@/components/aethelred/nexus/DomainDescription';
+import { TemperatureMeter } from '@/components/aethelred/nexus/TemperatureMeter';
+import { InstrumentIcon } from '@/components/aethelred/nexus/InstrumentIcon';
+import { CollaborationHistory } from '@/components/aethelred/nexus/CollaborationHistory';
 import { createServerSupabase } from '@/lib/supabase/server';
 
 interface EntityDetailPageProps {

@@ -4,11 +4,11 @@
 
 import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
-import { ChatInterface } from '@/components/nexus/ChatInterface';
-import { ContextMemory } from '@/components/nexus/ContextMemory';
-import { QuantumSeed } from '@/components/nexus/QuantumSeed';
-import { ContinuityBeam } from '@/components/nexus/ContinuityBeam';
-import { SessionHistory } from '@/components/nexus/SessionHistory';
+import { ChatInterface } from '@/components/aethelred/nexus/ChatInterface';
+import { ContextMemory } from '@/components/aethelred/nexus/ContextMemory';
+import { QuantumSeed } from '@/components/aethelred/nexus/QuantumSeed';
+import { ContinuityBeam } from '@/components/aethelred/nexus/ContinuityBeam';
+import { SessionHistory } from '@/components/aethelred/nexus/SessionHistory';
 import { auth } from '@/lib/auth';
 
 export const metadata = {

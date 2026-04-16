@@ -6,7 +6,7 @@
 
 import { cn } from "@/lib/utils"
 import PanoramaViewer from "@/components/immersive/PanoramaViewer"
-import ContinuityBeam from "@/components/nexus/ContinuityBeam"
+import ContinuityBeam from "@/components/aethelred/nexus/ContinuityBeam"
 import { StatusBar } from "@/components/immersive/StatusBar"
 import { EnvironmentKey } from "@/lib/constants/systems"
 

@@ -4,11 +4,11 @@
 
 import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
-import { AIInterface } from '@/components/nexus/AIInterface';
-import { ConversationHistory } from '@/components/nexus/ConversationHistory';
-import { ThoughtStream } from '@/components/nexus/ThoughtStream';
-import { CollaborationMap } from '@/components/nexus/CollaborationMap';
-import { EntityPresence } from '@/components/nexus/EntityPresence';
+import { AIInterface } from '@/components/aethelred/nexus/AIInterface';
+import { ConversationHistory } from '@/components/aethelred/nexus/ConversationHistory';
+import { ThoughtStream } from '@/components/aethelred/nexus/ThoughtStream';
+import { CollaborationMap } from '@/components/aethelred/nexus/CollaborationMap';
+import { EntityPresence } from '@/components/aethelred/nexus/EntityPresence';
 import { auth } from '@/lib/auth/admin';
 
 export const metadata = {

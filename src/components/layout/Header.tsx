@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import ContinuityBeam from '@/components/nexus/ContinuityBeam';
+import ContinuityBeam from '@/components/aethelred/nexus/ContinuityBeam';
 import { HEADER_DATA } from '@/data/interfaces/header-data';
 import { usePathname } from 'next/navigation';
 

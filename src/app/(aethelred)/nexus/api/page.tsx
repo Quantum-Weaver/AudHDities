@@ -3,11 +3,11 @@
 // Feeling: Powerful, accessible, expansive
 
 import { Page } from '@/components/layout/Page';
-import { EndpointList } from '@/components/nexus/EndpointList';
-import { DocumentationView } from '@/components/nexus/DocumentationView';
-import { CodeExamples } from '@/components/nexus/CodeExamples';
-import { TestConsole } from '@/components/nexus/TestConsole';
-import { AuthManager } from '@/components/nexus/AuthManager';
+import { EndpointList } from '@/components/aethelred/nexus/EndpointList';
+import { DocumentationView } from '@/components/aethelred/nexus/DocumentationView';
+import { CodeExamples } from '@/components/aethelred/nexus/CodeExamples';
+import { TestConsole } from '@/components/aethelred/nexus/TestConsole';
+import { AuthManager } from '@/components/aethelred/nexus/AuthManager';
 
 export const metadata = {
   title: 'The Gateway | Sovereign Sanctuary',
