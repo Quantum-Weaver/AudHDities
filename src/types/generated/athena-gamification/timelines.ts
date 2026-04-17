@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/timelines.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.730Z
-// SOURCE: database.types.ts lines 6465-6518
+// GENERATED: 2026-04-17T22:45:09.587Z
+// SOURCE: database.types.ts lines 6474-6527
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

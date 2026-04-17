@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.722Z
-// SOURCE: database.types.ts lines 5889-5951
+// GENERATED: 2026-04-17T22:45:09.569Z
+// SOURCE: database.types.ts lines 5898-5960
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

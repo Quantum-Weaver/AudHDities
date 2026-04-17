@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hermes-social/comments.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.659Z
+// GENERATED: 2026-04-17T22:45:09.354Z
 // SOURCE: database.types.ts lines 1215-1282
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useCreativeCategories
-// GENERATED: 2026-04-17T20:52:31.230Z
+// GENERATED: 2026-04-17T22:45:10.610Z
 // SOURCE: database.types.ts
 // DEITY: hermes-social
 // =====================================================

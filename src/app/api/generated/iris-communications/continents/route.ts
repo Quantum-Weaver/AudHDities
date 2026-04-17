@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/continents
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.782Z
+// GENERATED: 2026-04-17T22:45:10.135Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ContinentsRowSchema, ContinentsInsertSchema, ContinentsUpdateSchema } from '@/lib/validators/generated/iris-communications/continents';

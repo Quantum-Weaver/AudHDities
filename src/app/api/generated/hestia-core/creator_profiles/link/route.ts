@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/creator_profiles/[special]
 // METHODS: POST
-// GENERATED: 2026-04-17T20:51:57.796Z
+// GENERATED: 2026-04-17T22:45:10.165Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CreatorProfilesRowSchema, CreatorProfilesInsertSchema, CreatorProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_profiles';

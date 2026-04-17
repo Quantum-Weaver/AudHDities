@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/life_cycles
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.834Z
+// GENERATED: 2026-04-17T22:45:10.252Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LifeCyclesRowSchema, LifeCyclesInsertSchema, LifeCyclesUpdateSchema } from '@/lib/validators/generated/athena-gamification/life_cycles';

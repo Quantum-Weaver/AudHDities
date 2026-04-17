@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/sales.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.714Z
-// SOURCE: database.types.ts lines 5330-5420
+// GENERATED: 2026-04-17T22:45:09.553Z
+// SOURCE: database.types.ts lines 5339-5429
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

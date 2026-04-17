@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/user_quests/[special]
 // METHODS: POST
-// GENERATED: 2026-04-17T20:51:57.961Z
+// GENERATED: 2026-04-17T22:45:10.541Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserQuestsRowSchema, UserQuestsInsertSchema, UserQuestsUpdateSchema } from '@/lib/validators/generated/athena-gamification/user_quests';

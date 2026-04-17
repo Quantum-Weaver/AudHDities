@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_boundaries
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.868Z
+// GENERATED: 2026-04-17T22:45:10.327Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PrometheusBoundariesRowSchema, PrometheusBoundariesInsertSchema, PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_boundaries';

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/residual_pool.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.713Z
-// SOURCE: database.types.ts lines 5269-5329
+// GENERATED: 2026-04-17T22:45:09.552Z
+// SOURCE: database.types.ts lines 5278-5338
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

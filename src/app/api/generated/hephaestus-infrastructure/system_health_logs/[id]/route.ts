@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/system_health_logs/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.937Z
+// GENERATED: 2026-04-17T22:45:10.487Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SystemHealthLogsRowSchema, SystemHealthLogsInsertSchema, SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/email_communications.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.672Z
+// GENERATED: 2026-04-17T22:45:09.453Z
 // SOURCE: database.types.ts lines 2226-2291
 // =====================================================
 

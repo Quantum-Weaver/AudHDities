@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/rate_limits.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.707Z
-// SOURCE: database.types.ts lines 4807-4844
+// GENERATED: 2026-04-17T22:45:09.539Z
+// SOURCE: database.types.ts lines 4816-4853
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

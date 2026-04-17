@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useSettings
-// GENERATED: 2026-04-17T20:52:31.277Z
+// GENERATED: 2026-04-17T22:45:10.724Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================

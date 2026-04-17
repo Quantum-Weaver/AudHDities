@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useLanguages
-// GENERATED: 2026-04-17T20:52:31.243Z
+// GENERATED: 2026-04-17T22:45:10.642Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================

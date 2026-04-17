@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/comments.ts
-// GENERATED: 2026-04-17T20:52:30.905Z
+// GENERATED: 2026-04-17T22:45:09.640Z
 // SOURCE: database.types.ts
 // =====================================================
 

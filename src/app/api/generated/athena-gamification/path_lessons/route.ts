@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/path_lessons
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.849Z
+// GENERATED: 2026-04-17T22:45:10.288Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PathLessonsRowSchema, PathLessonsInsertSchema, PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';

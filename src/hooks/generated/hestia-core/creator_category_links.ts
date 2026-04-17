@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useCreatorCategoryLinks
-// GENERATED: 2026-04-17T20:52:31.231Z
+// GENERATED: 2026-04-17T22:45:10.613Z
 // SOURCE: database.types.ts
 // DEITY: hestia-core
 // =====================================================

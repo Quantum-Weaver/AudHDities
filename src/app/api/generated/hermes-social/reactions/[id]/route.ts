@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/reactions/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.890Z
+// GENERATED: 2026-04-17T22:45:10.371Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ReactionsRowSchema, ReactionsInsertSchema, ReactionsUpdateSchema } from '@/lib/validators/generated/hermes-social/reactions';

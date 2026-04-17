@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useSceneParticipants
-// GENERATED: 2026-04-17T20:52:31.272Z
+// GENERATED: 2026-04-17T22:45:10.712Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================

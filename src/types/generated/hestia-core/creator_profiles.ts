@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/creator_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T17:34:19.668Z
+// GENERATED: 2026-04-17T22:45:09.437Z
 // SOURCE: database.types.ts lines 1883-1976
 // =====================================================
 

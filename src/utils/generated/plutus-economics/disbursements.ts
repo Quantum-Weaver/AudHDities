@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/disbursements.ts
-// GENERATED: 2026-04-17T20:50:06.661Z
+// GENERATED: 2026-04-17T22:45:09.880Z
 // SOURCE: database.types.ts
 // =====================================================
 

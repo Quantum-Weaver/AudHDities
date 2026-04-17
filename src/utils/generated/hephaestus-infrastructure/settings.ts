@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/settings.ts
-// GENERATED: 2026-04-17T20:50:06.703Z
+// GENERATED: 2026-04-17T22:45:09.992Z
 // SOURCE: database.types.ts
 // =====================================================
 

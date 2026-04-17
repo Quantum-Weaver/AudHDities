@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/sales/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.905Z
+// GENERATED: 2026-04-17T22:45:10.403Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SalesRowSchema, SalesInsertSchema, SalesUpdateSchema } from '@/lib/validators/generated/plutus-economics/sales';

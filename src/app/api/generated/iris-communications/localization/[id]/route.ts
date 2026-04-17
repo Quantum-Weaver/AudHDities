@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/localization/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.836Z
+// GENERATED: 2026-04-17T22:45:10.256Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LocalizationRowSchema, LocalizationInsertSchema, LocalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/localization';

@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useAgentConversations
-// GENERATED: 2026-04-17T20:52:31.216Z
+// GENERATED: 2026-04-17T22:45:10.576Z
 // SOURCE: database.types.ts
 // DEITY: hestia-core
 // =====================================================

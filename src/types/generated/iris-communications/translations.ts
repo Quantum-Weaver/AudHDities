@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/translations.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.731Z
-// SOURCE: database.types.ts lines 6586-6659
+// GENERATED: 2026-04-17T22:45:09.591Z
+// SOURCE: database.types.ts lines 6595-6668
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

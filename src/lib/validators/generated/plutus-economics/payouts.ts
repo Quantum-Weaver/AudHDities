@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-17T20:52:30.936Z
+// GENERATED: 2026-04-17T22:45:09.713Z
 // SOURCE: database.types.ts
 // =====================================================
 

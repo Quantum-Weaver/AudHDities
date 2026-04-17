@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useEmailCommunications
-// GENERATED: 2026-04-17T20:52:31.235Z
+// GENERATED: 2026-04-17T22:45:10.624Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================

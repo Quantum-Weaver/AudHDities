@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/user_badges.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T17:34:19.732Z
-// SOURCE: database.types.ts lines 6660-6714
+// GENERATED: 2026-04-17T22:45:09.592Z
+// SOURCE: database.types.ts lines 6669-6723
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

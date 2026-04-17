@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/quests.ts
-// GENERATED: 2026-04-17T20:50:06.691Z
+// GENERATED: 2026-04-17T22:45:09.961Z
 // SOURCE: database.types.ts
 // =====================================================
 

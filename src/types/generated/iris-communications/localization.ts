@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/iris-communications/localization.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.686Z
+// GENERATED: 2026-04-17T22:45:09.493Z
 // SOURCE: database.types.ts lines 3202-3268
 // =====================================================
 

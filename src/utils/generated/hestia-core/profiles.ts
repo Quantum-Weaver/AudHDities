@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-17T20:50:06.683Z
+// GENERATED: 2026-04-17T22:45:09.940Z
 // SOURCE: database.types.ts
 // =====================================================
 

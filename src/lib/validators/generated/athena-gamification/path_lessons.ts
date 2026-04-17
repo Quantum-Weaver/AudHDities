@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/path_lessons.ts
-// GENERATED: 2026-04-17T20:52:30.935Z
+// GENERATED: 2026-04-17T22:45:09.711Z
 // SOURCE: database.types.ts
 // =====================================================
 

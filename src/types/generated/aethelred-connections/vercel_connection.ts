@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/vercel_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.736Z
-// SOURCE: database.types.ts lines 7011-7082
+// GENERATED: 2026-04-17T22:45:09.602Z
+// SOURCE: database.types.ts lines 7020-7091
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

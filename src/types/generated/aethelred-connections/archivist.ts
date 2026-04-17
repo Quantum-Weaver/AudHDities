@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/archivist.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.653Z
+// GENERATED: 2026-04-17T22:45:09.342Z
 // SOURCE: database.types.ts lines 779-832
 // =====================================================
 

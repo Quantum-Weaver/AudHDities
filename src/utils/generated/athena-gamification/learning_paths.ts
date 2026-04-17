@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-17T20:50:06.670Z
+// GENERATED: 2026-04-17T22:45:09.904Z
 // SOURCE: database.types.ts
 // =====================================================
 

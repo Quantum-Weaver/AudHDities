@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/progress/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.864Z
+// GENERATED: 2026-04-17T22:45:10.320Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ProgressRowSchema, ProgressInsertSchema, ProgressUpdateSchema } from '@/lib/validators/generated/athena-gamification/progress';

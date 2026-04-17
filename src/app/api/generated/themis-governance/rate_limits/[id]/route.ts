@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/themis-governance/rate_limits/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.887Z
+// GENERATED: 2026-04-17T22:45:10.367Z
 // SOURCE: database.types.ts
 // =====================================================
 import { RateLimitsRowSchema, RateLimitsInsertSchema, RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';

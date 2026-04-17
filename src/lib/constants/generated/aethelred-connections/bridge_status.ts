@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/aethelred-connections/bridge_status.ts
-// GENERATED: 2026-04-17T17:34:19.572Z
+// GENERATED: 2026-04-17T22:45:09.141Z
 // SOURCE: Constants.public.Enums.bridge_status
 // VALUES: 3 entries
 // =====================================================

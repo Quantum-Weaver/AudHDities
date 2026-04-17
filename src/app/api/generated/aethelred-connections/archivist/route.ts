@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/archivist
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.758Z
+// GENERATED: 2026-04-17T22:45:10.087Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ArchivistRowSchema, ArchivistInsertSchema, ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';

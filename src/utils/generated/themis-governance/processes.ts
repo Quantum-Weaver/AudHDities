@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/themis-governance/processes.ts
-// GENERATED: 2026-04-17T20:50:06.681Z
+// GENERATED: 2026-04-17T22:45:09.936Z
 // SOURCE: database.types.ts
 // =====================================================
 

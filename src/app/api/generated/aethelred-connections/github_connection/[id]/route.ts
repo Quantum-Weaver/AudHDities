@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/github_connection/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T20:51:57.822Z
+// GENERATED: 2026-04-17T22:45:10.223Z
 // SOURCE: database.types.ts
 // =====================================================
 import { GithubConnectionRowSchema, GithubConnectionInsertSchema, GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';

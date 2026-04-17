@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_blueprints.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.698Z
-// SOURCE: database.types.ts lines 4286-4330
+// GENERATED: 2026-04-17T22:45:09.521Z
+// SOURCE: database.types.ts lines 4295-4339
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

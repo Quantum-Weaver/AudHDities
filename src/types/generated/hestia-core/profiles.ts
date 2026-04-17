@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/profiles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.696Z
-// SOURCE: database.types.ts lines 4120-4205
+// GENERATED: 2026-04-17T22:45:09.517Z
+// SOURCE: database.types.ts lines 4120-4214
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';
@@ -12,6 +12,7 @@ import type { Database, Json } from '@/types/supabase/database.types';
 // =====================================================
 
 export type CouncilHouse = Database['public']['Enums']['council_house'];
+export type SensoryMode = Database['public']['Enums']['sensory_mode'];
 export type UserStatus = Database['public']['Enums']['user_status'];
 export type UserTier = Database['public']['Enums']['user_tier'];
 
@@ -39,6 +40,8 @@ export interface PublicProfiles {
   created_at: string | null;
   created_by: string | null;
   display_name: string | null;
+  dyslexia_mode: boolean | null;
+  full_name: string | null;
   id: string;
   is_admin: boolean | null;
   is_creator: boolean | null;
@@ -48,6 +51,7 @@ export interface PublicProfiles {
   nd_preferences: Json | null;
   preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  sensory_mode: SensoryMode | null;
   sensory_preferences: Json | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
@@ -67,7 +71,9 @@ export interface OwnProfiles extends PublicProfiles {
   created_at: string | null;
   created_by: string | null;
   display_name: string | null;
+  dyslexia_mode: boolean | null;
   email: string;
+  full_name: string | null;
   id: string;
   is_admin: boolean | null;
   is_creator: boolean | null;
@@ -77,6 +83,7 @@ export interface OwnProfiles extends PublicProfiles {
   nd_preferences: Json | null;
   preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  sensory_mode: SensoryMode | null;
   sensory_preferences: Json | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
@@ -97,7 +104,9 @@ export interface ProfilesFormData {
   created_at?: string | null;
   created_by?: string | null;
   display_name?: string | null;
+  dyslexia_mode?: boolean | null;
   email?: string;
+  full_name?: string | null;
   id?: string;
   is_admin?: boolean | null;
   is_creator?: boolean | null;
@@ -107,6 +116,7 @@ export interface ProfilesFormData {
   nd_preferences?: Json | null;
   preferred_environment?: string | null;
   primary_house?: CouncilHouse | null;
+  sensory_mode?: SensoryMode | null;
   sensory_preferences?: Json | null;
   sovereignty_score?: number | null;
   status?: UserStatus | null;
@@ -128,7 +138,9 @@ export interface ProfilesValidationResult {
     created_at?: string;
     created_by?: string;
     display_name?: string;
+    dyslexia_mode?: string;
     email?: string;
+    full_name?: string;
     id?: string;
     is_admin?: string;
     is_creator?: string;
@@ -138,6 +150,7 @@ export interface ProfilesValidationResult {
     nd_preferences?: string;
     preferred_environment?: string;
     primary_house?: string;
+    sensory_mode?: string;
     sensory_preferences?: string;
     sovereignty_score?: string;
     status?: string;

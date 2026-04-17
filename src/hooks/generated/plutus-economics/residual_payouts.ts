@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useResidualPayouts
-// GENERATED: 2026-04-17T20:52:31.270Z
+// GENERATED: 2026-04-17T22:45:10.708Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/hearth_keeper
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.824Z
+// GENERATED: 2026-04-17T22:45:10.229Z
 // SOURCE: database.types.ts
 // =====================================================
 import { HearthKeeperRowSchema, HearthKeeperInsertSchema, HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper';

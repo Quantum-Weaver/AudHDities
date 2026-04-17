@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/skald.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.721Z
-// SOURCE: database.types.ts lines 5835-5888
+// GENERATED: 2026-04-17T22:45:09.567Z
+// SOURCE: database.types.ts lines 5844-5897
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

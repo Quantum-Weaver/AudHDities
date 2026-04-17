@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/products.ts
-// GENERATED: 2026-04-17T20:50:06.682Z
+// GENERATED: 2026-04-17T22:45:09.938Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: usePathLessons
-// GENERATED: 2026-04-17T20:52:31.252Z
+// GENERATED: 2026-04-17T22:45:10.666Z
 // SOURCE: database.types.ts
 // DEITY: athena-gamification
 // =====================================================

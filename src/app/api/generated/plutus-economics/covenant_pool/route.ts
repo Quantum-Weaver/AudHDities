@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/covenant_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.789Z
+// GENERATED: 2026-04-17T22:45:10.152Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CovenantPoolRowSchema, CovenantPoolInsertSchema, CovenantPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/covenant_pool';

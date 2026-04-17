@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_patterns.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.703Z
-// SOURCE: database.types.ts lines 4516-4568
+// GENERATED: 2026-04-17T22:45:09.530Z
+// SOURCE: database.types.ts lines 4525-4577
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

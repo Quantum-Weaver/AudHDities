@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/entity_state_log.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.674Z
+// GENERATED: 2026-04-17T22:45:09.468Z
 // SOURCE: database.types.ts lines 2387-2416
 // =====================================================
 

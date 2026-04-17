@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/reports.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T17:34:19.711Z
-// SOURCE: database.types.ts lines 5042-5130
+// GENERATED: 2026-04-17T22:45:09.546Z
+// SOURCE: database.types.ts lines 5051-5139
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

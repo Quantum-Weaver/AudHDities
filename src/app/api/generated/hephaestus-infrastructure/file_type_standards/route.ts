@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_type_standards
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T20:51:57.819Z
+// GENERATED: 2026-04-17T22:45:10.215Z
 // SOURCE: database.types.ts
 // =====================================================
 import { FileTypeStandardsRowSchema, FileTypeStandardsInsertSchema, FileTypeStandardsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_type_standards';

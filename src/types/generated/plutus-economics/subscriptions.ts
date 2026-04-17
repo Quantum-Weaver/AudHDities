@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/subscriptions.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T17:34:19.723Z
-// SOURCE: database.types.ts lines 5952-6012
+// GENERATED: 2026-04-17T22:45:09.571Z
+// SOURCE: database.types.ts lines 5961-6021
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
