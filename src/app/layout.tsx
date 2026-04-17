@@ -2,9 +2,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/app/globals.css';
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import { Navigation } from "@/components/layout/Navigation";
+import Footer from '@/components/shared/Footer';
+import Header from '@/components/shared/Header';
+import { Navigation } from "@/components/shared/Navigation";
 import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
 import MobileMenu from "@/components/shared/MobileMenu";
 
