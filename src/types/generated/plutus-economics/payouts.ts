@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/payouts.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.442Z
-// SOURCE: database.types.ts lines 3536-3599
+// GENERATED: 2026-04-17T17:34:19.692Z
+// SOURCE: database.types.ts lines 3738-3801
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

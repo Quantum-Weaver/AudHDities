@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/channels.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.417Z
-// SOURCE: database.types.ts lines 917-988
+// GENERATED: 2026-04-17T17:34:19.657Z
+// SOURCE: database.types.ts lines 1089-1160
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

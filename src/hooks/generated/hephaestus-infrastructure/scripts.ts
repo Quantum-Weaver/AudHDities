@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useScripts
-// GENERATED: 2026-04-15T19:30:36.172Z
+// GENERATED: 2026-04-17T17:34:20.231Z
 // SOURCE: database.types.ts
 // DEITY: hephaestus-infrastructure
 // =====================================================

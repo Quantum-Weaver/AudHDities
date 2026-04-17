@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/scheduling.ts
-// GENERATED: 2026-04-15T19:30:35.588Z
+// GENERATED: 2026-04-17T17:34:19.900Z
 // SOURCE: database.types.ts
 // =====================================================
 

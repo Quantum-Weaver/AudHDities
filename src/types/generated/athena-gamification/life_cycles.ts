@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/life_cycles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.436Z
-// SOURCE: database.types.ts lines 2949-2999
+// GENERATED: 2026-04-17T17:34:19.685Z
+// SOURCE: database.types.ts lines 3151-3201
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

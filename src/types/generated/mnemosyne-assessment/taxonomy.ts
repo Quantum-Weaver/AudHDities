@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/taxonomy.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.471Z
-// SOURCE: database.types.ts lines 6155-6217
+// GENERATED: 2026-04-17T17:34:19.729Z
+// SOURCE: database.types.ts lines 6402-6464
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

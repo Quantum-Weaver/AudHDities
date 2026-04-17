@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/ontology/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T01:35:45.734Z
+// GENERATED: 2026-04-17T17:34:20.041Z
 // SOURCE: database.types.ts
 // =====================================================
 import { OntologyRowSchema, OntologyInsertSchema, OntologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/ontology';

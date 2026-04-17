@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/user_quests.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T19:30:35.475Z
-// SOURCE: database.types.ts lines 6606-6669
+// GENERATED: 2026-04-17T17:34:19.735Z
+// SOURCE: database.types.ts lines 6853-6916
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

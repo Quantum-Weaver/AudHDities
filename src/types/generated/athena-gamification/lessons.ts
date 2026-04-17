@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/lessons.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.436Z
-// SOURCE: database.types.ts lines 2883-2948
+// GENERATED: 2026-04-17T17:34:19.684Z
+// SOURCE: database.types.ts lines 3085-3150
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

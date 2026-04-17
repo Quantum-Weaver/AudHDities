@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/seer
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.966Z
+// GENERATED: 2026-04-17T17:34:20.114Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SeerRowSchema, SeerInsertSchema, SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';

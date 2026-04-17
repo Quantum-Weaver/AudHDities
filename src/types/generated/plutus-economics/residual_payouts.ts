@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/residual_payouts.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.458Z
-// SOURCE: database.types.ts lines 4987-5054
+// GENERATED: 2026-04-17T17:34:19.712Z
+// SOURCE: database.types.ts lines 5201-5268
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

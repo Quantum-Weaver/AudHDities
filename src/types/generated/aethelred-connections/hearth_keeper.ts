@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/hearth_keeper.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.433Z
-// SOURCE: database.types.ts lines 2633-2689
+// GENERATED: 2026-04-17T17:34:19.680Z
+// SOURCE: database.types.ts lines 2835-2891
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

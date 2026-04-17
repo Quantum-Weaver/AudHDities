@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/regions
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.917Z
+// GENERATED: 2026-04-17T17:34:20.087Z
 // SOURCE: database.types.ts
 // =====================================================
 import { RegionsRowSchema, RegionsInsertSchema, RegionsUpdateSchema } from '@/lib/validators/generated/iris-communications/regions';

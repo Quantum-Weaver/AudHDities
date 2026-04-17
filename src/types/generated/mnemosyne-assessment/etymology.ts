@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/etymology.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.429Z
-// SOURCE: database.types.ts lines 2215-2293
+// GENERATED: 2026-04-17T17:34:19.675Z
+// SOURCE: database.types.ts lines 2417-2495
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

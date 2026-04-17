@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/aethelred-connections/hearth_keeper.ts
-// GENERATED: 2026-04-15T19:30:35.566Z
+// GENERATED: 2026-04-17T17:34:19.867Z
 // SOURCE: database.types.ts
 // =====================================================
 

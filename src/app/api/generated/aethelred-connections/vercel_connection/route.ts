@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/vercel_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:46.082Z
+// GENERATED: 2026-04-17T17:34:20.164Z
 // SOURCE: database.types.ts
 // =====================================================
 import { VercelConnectionRowSchema, VercelConnectionInsertSchema, VercelConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/vercel_connection';

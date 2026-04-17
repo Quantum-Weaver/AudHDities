@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.464Z
-// SOURCE: database.types.ts lines 5517-5570
+// GENERATED: 2026-04-17T17:34:19.720Z
+// SOURCE: database.types.ts lines 5731-5784
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

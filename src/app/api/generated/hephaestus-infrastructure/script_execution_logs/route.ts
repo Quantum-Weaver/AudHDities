@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/script_execution_logs
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.959Z
+// GENERATED: 2026-04-17T17:34:20.109Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ScriptExecutionLogsRowSchema, ScriptExecutionLogsInsertSchema, ScriptExecutionLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs';

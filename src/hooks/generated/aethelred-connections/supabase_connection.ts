@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useSupabaseConnection
-// GENERATED: 2026-04-15T19:30:36.174Z
+// GENERATED: 2026-04-17T17:34:20.235Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

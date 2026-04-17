@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/community_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T19:30:35.419Z
-// SOURCE: database.types.ts lines 1111-1206
+// GENERATED: 2026-04-17T17:34:19.660Z
+// SOURCE: database.types.ts lines 1283-1378
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

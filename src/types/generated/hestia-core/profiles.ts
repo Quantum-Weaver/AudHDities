@@ -1,11 +1,11 @@
 // =====================================================
 // FILE: types/generated/hestia-core/profiles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.446Z
-// SOURCE: database.types.ts lines 3918-3991
+// GENERATED: 2026-04-17T17:34:19.696Z
+// SOURCE: database.types.ts lines 4120-4205
 // =====================================================
 
-import type { Database } from '@/types/supabase/database.types';
+import type { Database, Json } from '@/types/supabase/database.types';
 
 // =====================================================
 // ENUM EXPORTS (from database enums)
@@ -32,6 +32,7 @@ export type ProfilesUpdate = Database['public']['Tables']['profiles']['Update'];
  * Excludes sensitive fields: email
  */
 export interface PublicProfiles {
+  algorithm_preferences: Json | null;
   avatar_url: string | null;
   banner_url: string | null;
   bio: string | null;
@@ -44,7 +45,10 @@ export interface PublicProfiles {
   is_quantum_weaver: boolean | null;
   is_vendor: boolean | null;
   last_active: string | null;
+  nd_preferences: Json | null;
+  preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  sensory_preferences: Json | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
   updated_at: string | null;
@@ -56,6 +60,7 @@ export interface PublicProfiles {
  * Own profile - includes all fields
  */
 export interface OwnProfiles extends PublicProfiles {
+  algorithm_preferences: Json | null;
   avatar_url: string | null;
   banner_url: string | null;
   bio: string | null;
@@ -69,7 +74,10 @@ export interface OwnProfiles extends PublicProfiles {
   is_quantum_weaver: boolean | null;
   is_vendor: boolean | null;
   last_active: string | null;
+  nd_preferences: Json | null;
+  preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  sensory_preferences: Json | null;
   sovereignty_score: number | null;
   status: UserStatus | null;
   updated_at: string | null;
@@ -82,6 +90,7 @@ export interface OwnProfiles extends PublicProfiles {
  * All fields are optional for partial updates
  */
 export interface ProfilesFormData {
+  algorithm_preferences?: Json | null;
   avatar_url?: string | null;
   banner_url?: string | null;
   bio?: string | null;
@@ -95,7 +104,10 @@ export interface ProfilesFormData {
   is_quantum_weaver?: boolean | null;
   is_vendor?: boolean | null;
   last_active?: string | null;
+  nd_preferences?: Json | null;
+  preferred_environment?: string | null;
   primary_house?: CouncilHouse | null;
+  sensory_preferences?: Json | null;
   sovereignty_score?: number | null;
   status?: UserStatus | null;
   updated_at?: string | null;
@@ -109,6 +121,7 @@ export interface ProfilesFormData {
 export interface ProfilesValidationResult {
   valid: boolean;
   errors: {
+    algorithm_preferences?: string;
     avatar_url?: string;
     banner_url?: string;
     bio?: string;
@@ -122,7 +135,10 @@ export interface ProfilesValidationResult {
     is_quantum_weaver?: string;
     is_vendor?: string;
     last_active?: string;
+    nd_preferences?: string;
+    preferred_environment?: string;
     primary_house?: string;
+    sensory_preferences?: string;
     sovereignty_score?: string;
     status?: string;
     updated_at?: string;

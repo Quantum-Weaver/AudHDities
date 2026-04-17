@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.432Z
-// SOURCE: database.types.ts lines 2499-2559
+// GENERATED: 2026-04-17T17:34:19.678Z
+// SOURCE: database.types.ts lines 2701-2761
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/archivist.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.414Z
-// SOURCE: database.types.ts lines 607-660
+// GENERATED: 2026-04-17T17:34:19.653Z
+// SOURCE: database.types.ts lines 779-832
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

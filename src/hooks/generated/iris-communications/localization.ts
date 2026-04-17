@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useLocalization
-// GENERATED: 2026-04-15T19:30:36.116Z
+// GENERATED: 2026-04-17T17:34:20.200Z
 // SOURCE: database.types.ts
 // DEITY: iris-communications
 // =====================================================

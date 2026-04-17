@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/agent_conversations.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T09:51:12.346Z
+// GENERATED: 2026-04-17T17:34:19.649Z
 // SOURCE: database.types.ts lines 545-598
 // =====================================================
 

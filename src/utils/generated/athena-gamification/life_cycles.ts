@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/life_cycles.ts
-// GENERATED: 2026-04-15T19:30:35.569Z
+// GENERATED: 2026-04-17T17:34:19.871Z
 // SOURCE: database.types.ts
 // =====================================================
 

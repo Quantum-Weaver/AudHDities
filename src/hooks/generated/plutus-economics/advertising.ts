@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useAdvertising
-// GENERATED: 2026-04-15T19:30:36.075Z
+// GENERATED: 2026-04-17T17:34:20.168Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================

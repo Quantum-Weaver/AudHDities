@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useCurator
-// GENERATED: 2026-04-15T19:30:36.088Z
+// GENERATED: 2026-04-17T17:34:20.186Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

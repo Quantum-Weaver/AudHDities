@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/surveys.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.469Z
-// SOURCE: database.types.ts lines 5986-6047
+// GENERATED: 2026-04-17T17:34:19.726Z
+// SOURCE: database.types.ts lines 6200-6261
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

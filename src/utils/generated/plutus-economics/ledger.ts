@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/ledger.ts
-// GENERATED: 2026-04-15T19:30:35.568Z
+// GENERATED: 2026-04-17T17:34:19.869Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/quantum_superposition.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.453Z
-// SOURCE: database.types.ts lines 4469-4523
+// GENERATED: 2026-04-17T17:34:19.705Z
+// SOURCE: database.types.ts lines 4683-4737
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

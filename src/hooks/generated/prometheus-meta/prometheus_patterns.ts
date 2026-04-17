@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: usePrometheusPatterns
-// GENERATED: 2026-04-15T19:30:36.143Z
+// GENERATED: 2026-04-17T17:34:20.218Z
 // SOURCE: database.types.ts
 // DEITY: prometheus-meta
 // =====================================================

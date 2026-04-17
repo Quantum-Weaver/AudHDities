@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hermes-social/creative_categories.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.424Z
-// SOURCE: database.types.ts lines 1605-1664
+// GENERATED: 2026-04-17T17:34:19.666Z
+// SOURCE: database.types.ts lines 1777-1836
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useChancellor
-// GENERATED: 2026-04-15T19:30:36.080Z
+// GENERATED: 2026-04-17T17:34:20.177Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

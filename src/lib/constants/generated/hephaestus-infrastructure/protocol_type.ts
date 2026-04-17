@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hephaestus-infrastructure/protocol_type.ts
-// GENERATED: 2026-04-15T19:30:35.391Z
+// GENERATED: 2026-04-17T17:34:19.616Z
 // SOURCE: Constants.public.Enums.protocol_type
 // VALUES: 6 entries
 // =====================================================

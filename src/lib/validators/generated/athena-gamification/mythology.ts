@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-17T01:35:45.274Z
+// GENERATED: 2026-04-17T17:34:19.780Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
 import { MYTH_TYPE } from '@/lib/constants/generated/athena-gamification/myth_type';
 
 // =====================================================

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/customs.ts
-// GENERATED: 2026-04-17T01:35:45.235Z
+// GENERATED: 2026-04-17T17:34:19.763Z
 // SOURCE: database.types.ts
 // =====================================================
 

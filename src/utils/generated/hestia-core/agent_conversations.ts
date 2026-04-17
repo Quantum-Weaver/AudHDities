@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/agent_conversations.ts
-// GENERATED: 2026-04-17T09:51:12.698Z
+// GENERATED: 2026-04-17T17:34:19.840Z
 // SOURCE: database.types.ts
 // =====================================================
 

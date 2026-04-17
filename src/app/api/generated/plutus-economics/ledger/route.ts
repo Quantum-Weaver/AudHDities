@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/ledger
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.699Z
+// GENERATED: 2026-04-17T17:34:20.022Z
 // SOURCE: database.types.ts
 // =====================================================
 import { LedgerRowSchema, LedgerInsertSchema, LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';

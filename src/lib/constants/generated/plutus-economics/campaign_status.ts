@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/campaign_status.ts
-// GENERATED: 2026-04-15T19:30:34.774Z
+// GENERATED: 2026-04-17T17:34:19.575Z
 // SOURCE: Constants.public.Enums.campaign_status
 // VALUES: 4 entries
 // =====================================================

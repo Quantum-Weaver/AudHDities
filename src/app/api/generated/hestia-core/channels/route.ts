@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/channels
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.580Z
+// GENERATED: 2026-04-17T17:34:19.957Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ChannelsRowSchema, ChannelsInsertSchema, ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels';

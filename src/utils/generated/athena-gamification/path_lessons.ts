@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/path_lessons.ts
-// GENERATED: 2026-04-15T19:30:35.573Z
+// GENERATED: 2026-04-17T17:34:19.877Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -47,7 +47,7 @@ export async function getPathLessons(id: string): Promise<{ data: PathLessonsRow
     const { data, error } = await supabase
       .from('path_lessons')
       .select('*')
-      .eq('lesson_id', id)
+      .eq('id', id)
       .single();
     
     if (error) throw error;
@@ -110,7 +110,7 @@ export async function updatePathLessons(id: string, data: PathLessonsUpdate): Pr
     const { data: result, error } = await supabase
       .from('path_lessons')
       .update(validated)
-      .eq('lesson_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -133,7 +133,7 @@ export async function deletePathLessons(id: string): Promise<{ success: boolean;
     const { error } = await supabase
       .from('path_lessons')
       .delete()
-      .eq('lesson_id', id);
+      .eq('id', id);
     
     if (error) throw error;
     

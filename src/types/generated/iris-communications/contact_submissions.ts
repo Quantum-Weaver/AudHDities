@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/contact_submissions.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.421Z
-// SOURCE: database.types.ts lines 1280-1368
+// GENERATED: 2026-04-17T17:34:19.662Z
+// SOURCE: database.types.ts lines 1452-1540
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

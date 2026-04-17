@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/calendar.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.416Z
-// SOURCE: database.types.ts lines 798-859
+// GENERATED: 2026-04-17T17:34:19.655Z
+// SOURCE: database.types.ts lines 970-1031
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

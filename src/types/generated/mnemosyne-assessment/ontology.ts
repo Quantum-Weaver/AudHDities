@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/ontology.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.441Z
-// SOURCE: database.types.ts lines 3419-3489
+// GENERATED: 2026-04-17T17:34:19.690Z
+// SOURCE: database.types.ts lines 3621-3691
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

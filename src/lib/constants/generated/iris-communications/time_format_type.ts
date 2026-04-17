@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/time_format_type.ts
-// GENERATED: 2026-04-15T19:30:35.403Z
+// GENERATED: 2026-04-17T17:34:19.634Z
 // SOURCE: Constants.public.Enums.time_format_type
 // VALUES: 2 entries
 // =====================================================

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.425Z
-// SOURCE: database.types.ts lines 1805-1885
+// GENERATED: 2026-04-17T17:34:19.669Z
+// SOURCE: database.types.ts lines 1977-2057
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

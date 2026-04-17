@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_financial
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:46.056Z
+// GENERATED: 2026-04-17T17:34:20.153Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserFinancialRowSchema, UserFinancialInsertSchema, UserFinancialUpdateSchema } from '@/lib/validators/generated/hestia-core/user_financial';

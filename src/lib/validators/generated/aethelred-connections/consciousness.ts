@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/consciousness.ts
-// GENERATED: 2026-04-17T01:35:45.212Z
+// GENERATED: 2026-04-17T17:34:19.755Z
 // SOURCE: database.types.ts
 // =====================================================
 

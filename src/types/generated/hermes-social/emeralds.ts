@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hermes-social/emeralds.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.429Z
-// SOURCE: database.types.ts lines 2120-2214
+// GENERATED: 2026-04-17T17:34:19.673Z
+// SOURCE: database.types.ts lines 2292-2386
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

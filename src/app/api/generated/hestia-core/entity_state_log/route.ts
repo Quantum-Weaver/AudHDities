@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/entity_state_log
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T09:51:12.900Z
+// GENERATED: 2026-04-17T17:34:20.001Z
 // SOURCE: database.types.ts
 // =====================================================
 import { EntityStateLogRowSchema, EntityStateLogInsertSchema, EntityStateLogUpdateSchema } from '@/lib/validators/generated/hestia-core/entity_state_log';

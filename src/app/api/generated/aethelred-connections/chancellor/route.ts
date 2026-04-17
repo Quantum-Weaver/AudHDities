@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/chancellor
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.577Z
+// GENERATED: 2026-04-17T17:34:19.955Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ChancellorRowSchema, ChancellorInsertSchema, ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';

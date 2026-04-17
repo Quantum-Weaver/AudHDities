@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/email_communications.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.428Z
-// SOURCE: database.types.ts lines 2054-2119
+// GENERATED: 2026-04-17T17:34:19.672Z
+// SOURCE: database.types.ts lines 2226-2291
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

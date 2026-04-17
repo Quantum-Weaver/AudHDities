@@ -38,7 +38,6 @@ export * as iris\contact from './iris\contact/index.js';
 export * as layout from './layout/index.js';
 export * as mnemosyne from './mnemosyne/index.js';
 export * as mnemosyne\assessment from './mnemosyne\assessment/index.js';
-export * as prometheus from './prometheus/index.js';
 export * as shared from './shared/index.js';
 export * as themis from './themis/index.js';
 export * as themis\council from './themis\council/index.js';

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/processes.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.444Z
-// SOURCE: database.types.ts lines 3735-3793
+// GENERATED: 2026-04-17T17:34:19.695Z
+// SOURCE: database.types.ts lines 3937-3995
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

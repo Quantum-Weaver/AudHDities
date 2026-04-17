@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/superposition.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.468Z
-// SOURCE: database.types.ts lines 5874-5927
+// GENERATED: 2026-04-17T17:34:19.724Z
+// SOURCE: database.types.ts lines 6088-6141
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: types/generated/hestia-core/agent_activities.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T09:51:12.344Z
+// GENERATED: 2026-04-17T17:34:19.648Z
 // SOURCE: database.types.ts lines 477-544
 // =====================================================
 

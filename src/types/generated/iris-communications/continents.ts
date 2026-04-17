@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/continents.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.421Z
-// SOURCE: database.types.ts lines 1369-1406
+// GENERATED: 2026-04-17T17:34:19.662Z
+// SOURCE: database.types.ts lines 1541-1578
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

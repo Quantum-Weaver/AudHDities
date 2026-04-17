@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/text_direction_type.ts
-// GENERATED: 2026-04-15T19:30:35.403Z
+// GENERATED: 2026-04-17T17:34:19.633Z
 // SOURCE: Constants.public.Enums.text_direction_type
 // VALUES: 2 entries
 // =====================================================

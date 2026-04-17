@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/github_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.432Z
-// SOURCE: database.types.ts lines 2560-2632
+// GENERATED: 2026-04-17T17:34:19.679Z
+// SOURCE: database.types.ts lines 2762-2834
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

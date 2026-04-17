@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_blueprints.ts
-// GENERATED: 2026-04-15T19:30:35.577Z
+// GENERATED: 2026-04-17T17:34:19.883Z
 // SOURCE: database.types.ts
 // =====================================================
 

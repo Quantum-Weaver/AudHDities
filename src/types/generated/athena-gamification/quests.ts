@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/quests.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.454Z
-// SOURCE: database.types.ts lines 4524-4592
+// GENERATED: 2026-04-17T17:34:19.706Z
+// SOURCE: database.types.ts lines 4738-4806
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

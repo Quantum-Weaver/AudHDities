@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_boundaries.ts
-// GENERATED: 2026-04-17T01:35:45.295Z
+// GENERATED: 2026-04-17T17:34:19.790Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/hearth_keeper.ts
-// GENERATED: 2026-04-17T01:35:45.254Z
+// GENERATED: 2026-04-17T17:34:19.772Z
 // SOURCE: database.types.ts
 // =====================================================
 

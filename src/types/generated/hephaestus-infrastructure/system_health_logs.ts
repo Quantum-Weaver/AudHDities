@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/system_health_logs.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.470Z
-// SOURCE: database.types.ts lines 6048-6092
+// GENERATED: 2026-04-17T17:34:19.727Z
+// SOURCE: database.types.ts lines 6262-6306
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

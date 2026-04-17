@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hephaestus-infrastructure/analytics.ts
-// GENERATED: 2026-04-17T01:35:45.192Z
+// GENERATED: 2026-04-17T17:34:19.746Z
 // SOURCE: database.types.ts
 // =====================================================
 

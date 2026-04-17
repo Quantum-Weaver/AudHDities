@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/file_registry/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T01:35:45.673Z
+// GENERATED: 2026-04-17T17:34:20.007Z
 // SOURCE: database.types.ts
 // =====================================================
 import { FileRegistryRowSchema, FileRegistryInsertSchema, FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';

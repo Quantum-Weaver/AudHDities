@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_consciousness.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.449Z
-// SOURCE: database.types.ts lines 4159-4200
+// GENERATED: 2026-04-17T17:34:19.700Z
+// SOURCE: database.types.ts lines 4373-4414
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/scenes
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.949Z
+// GENERATED: 2026-04-17T17:34:20.105Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ScenesRowSchema, ScenesInsertSchema, ScenesUpdateSchema } from '@/lib/validators/generated/athena-gamification/scenes';

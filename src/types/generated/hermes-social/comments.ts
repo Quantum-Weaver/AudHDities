@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hermes-social/comments.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.419Z
-// SOURCE: database.types.ts lines 1043-1110
+// GENERATED: 2026-04-17T17:34:19.659Z
+// SOURCE: database.types.ts lines 1215-1282
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

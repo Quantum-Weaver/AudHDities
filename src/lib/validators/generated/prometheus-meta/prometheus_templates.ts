@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/prometheus-meta/prometheus_templates.ts
-// GENERATED: 2026-04-17T01:35:45.304Z
+// GENERATED: 2026-04-17T17:34:19.794Z
 // SOURCE: database.types.ts
 // =====================================================
 

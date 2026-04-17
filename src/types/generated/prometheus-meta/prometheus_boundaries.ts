@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.448Z
-// SOURCE: database.types.ts lines 4117-4158
+// GENERATED: 2026-04-17T17:34:19.699Z
+// SOURCE: database.types.ts lines 4331-4372
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

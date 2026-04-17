@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/mythology.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.439Z
-// SOURCE: database.types.ts lines 3283-3352
+// GENERATED: 2026-04-17T17:34:19.689Z
+// SOURCE: database.types.ts lines 3485-3554
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/consciousness.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.420Z
-// SOURCE: database.types.ts lines 1207-1279
+// GENERATED: 2026-04-17T17:34:19.661Z
+// SOURCE: database.types.ts lines 1379-1451
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

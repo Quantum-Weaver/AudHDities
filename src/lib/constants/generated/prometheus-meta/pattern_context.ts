@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/prometheus-meta/pattern_context.ts
-// GENERATED: 2026-04-15T19:30:35.384Z
+// GENERATED: 2026-04-17T17:34:19.606Z
 // SOURCE: Constants.public.Enums.pattern_context
 // VALUES: 4 entries
 // =====================================================

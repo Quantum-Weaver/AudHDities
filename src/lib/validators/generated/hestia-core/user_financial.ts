@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/user_financial.ts
-// GENERATED: 2026-04-17T01:35:45.364Z
+// GENERATED: 2026-04-17T17:34:19.823Z
 // SOURCE: database.types.ts
 // =====================================================
 

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/ledger.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.435Z
-// SOURCE: database.types.ts lines 2816-2882
+// GENERATED: 2026-04-17T17:34:19.683Z
+// SOURCE: database.types.ts lines 3018-3084
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

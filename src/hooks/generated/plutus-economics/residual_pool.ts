@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useResidualPool
-// GENERATED: 2026-04-15T19:30:36.169Z
+// GENERATED: 2026-04-17T17:34:20.227Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================

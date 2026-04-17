@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/badges.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.416Z
-// SOURCE: database.types.ts lines 739-797
+// GENERATED: 2026-04-17T17:34:19.654Z
+// SOURCE: database.types.ts lines 911-969
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

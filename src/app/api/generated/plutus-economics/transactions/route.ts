@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/transactions
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:46.037Z
+// GENERATED: 2026-04-17T17:34:20.145Z
 // SOURCE: database.types.ts
 // =====================================================
 import { TransactionsRowSchema, TransactionsInsertSchema, TransactionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/transactions';

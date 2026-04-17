@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/profiles.ts
-// GENERATED: 2026-04-17T01:35:45.290Z
+// GENERATED: 2026-04-17T17:34:19.787Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -15,6 +15,7 @@ import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
 // =====================================================
 
 export const ProfilesRowSchema = z.object({
+  algorithm_preferences: z.any().nullable(),
   avatar_url: z.string().nullable(),
   banner_url: z.string().nullable(),
   bio: z.string().nullable(),
@@ -28,7 +29,10 @@ export const ProfilesRowSchema = z.object({
   is_quantum_weaver: z.boolean().nullable(),
   is_vendor: z.boolean().nullable(),
   last_active: z.string().nullable(),
+  nd_preferences: z.any().nullable(),
+  preferred_environment: z.string().nullable(),
   primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable(),
+  sensory_preferences: z.any().nullable(),
   sovereignty_score: z.number().nullable(),
   status: z.enum(Object.values(USER_STATUS)).nullable(),
   updated_at: z.string().nullable(),
@@ -37,6 +41,7 @@ export const ProfilesRowSchema = z.object({
 });
 
 export const ProfilesInsertSchema = z.object({
+  algorithm_preferences: z.any().nullable().optional(),
   avatar_url: z.string().nullable().optional(),
   banner_url: z.string().nullable().optional(),
   bio: z.string().nullable().optional(),
@@ -50,7 +55,10 @@ export const ProfilesInsertSchema = z.object({
   is_quantum_weaver: z.boolean().nullable().optional(),
   is_vendor: z.boolean().nullable().optional(),
   last_active: z.string().nullable().optional(),
+  nd_preferences: z.any().nullable().optional(),
+  preferred_environment: z.string().nullable().optional(),
   primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
+  sensory_preferences: z.any().nullable().optional(),
   sovereignty_score: z.number().nullable().optional(),
   status: z.enum(Object.values(USER_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
@@ -59,20 +67,24 @@ export const ProfilesInsertSchema = z.object({
 });
 
 export const ProfilesUpdateSchema = z.object({
+  algorithm_preferences: z.any().nullable().optional(),
   avatar_url: z.string().nullable().optional(),
   banner_url: z.string().nullable().optional(),
   bio: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   display_name: z.string().nullable().optional(),
-  email: z.string(),
-  id: z.string(),
+  email: z.string().optional(),
+  id: z.string().optional(),
   is_admin: z.boolean().nullable().optional(),
   is_creator: z.boolean().nullable().optional(),
   is_quantum_weaver: z.boolean().nullable().optional(),
   is_vendor: z.boolean().nullable().optional(),
   last_active: z.string().nullable().optional(),
+  nd_preferences: z.any().nullable().optional(),
+  preferred_environment: z.string().nullable().optional(),
   primary_house: z.enum(Object.values(COUNCIL_HOUSE)).nullable().optional(),
+  sensory_preferences: z.any().nullable().optional(),
   sovereignty_score: z.number().nullable().optional(),
   status: z.enum(Object.values(USER_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/vendor_profiles.ts
-// GENERATED: 2026-04-17T01:35:45.370Z
+// GENERATED: 2026-04-17T17:34:19.826Z
 // SOURCE: database.types.ts
 // =====================================================
 

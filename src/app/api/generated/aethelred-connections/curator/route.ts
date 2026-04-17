@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/curator
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.646Z
+// GENERATED: 2026-04-17T17:34:19.990Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CuratorRowSchema, CuratorInsertSchema, CuratorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/curator';

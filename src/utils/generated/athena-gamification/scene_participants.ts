@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/scene_participants.ts
-// GENERATED: 2026-04-15T19:30:35.587Z
+// GENERATED: 2026-04-17T17:34:19.898Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -47,7 +47,7 @@ export async function getSceneParticipants(id: string): Promise<{ data: ScenePar
     const { data, error } = await supabase
       .from('scene_participants')
       .select('*')
-      .eq('user_id', id)
+      .eq('id', id)
       .single();
     
     if (error) throw error;
@@ -110,7 +110,7 @@ export async function updateSceneParticipants(id: string, data: SceneParticipant
     const { data: result, error } = await supabase
       .from('scene_participants')
       .update(validated)
-      .eq('user_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -133,7 +133,7 @@ export async function deleteSceneParticipants(id: string): Promise<{ success: bo
     const { error } = await supabase
       .from('scene_participants')
       .delete()
-      .eq('user_id', id);
+      .eq('id', id);
     
     if (error) throw error;
     

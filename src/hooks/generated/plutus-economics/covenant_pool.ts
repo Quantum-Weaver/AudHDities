@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useCovenantPool
-// GENERATED: 2026-04-15T19:30:36.086Z
+// GENERATED: 2026-04-17T17:34:20.183Z
 // SOURCE: database.types.ts
 // DEITY: plutus-economics
 // =====================================================

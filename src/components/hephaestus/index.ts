@@ -54,9 +54,9 @@ export * from './supporting/docs/StepCard.js';
 // =====================================================
 export * from './supporting/forms/AcidTestForm.js';
 export * from './supporting/forms/ApplicationForm.js';
+export * from './supporting/forms/PostForm.js';
 export * from './supporting/forms/ProfileSettingsForm.js';
 export * from './supporting/forms/channel.validator.js';
-export * from './supporting/forms/PostForm.js';
 
 // =====================================================
 // SUPPORTING/LEGAL

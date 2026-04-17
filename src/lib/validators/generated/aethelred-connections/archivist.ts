@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/archivist.ts
-// GENERATED: 2026-04-17T01:35:45.195Z
+// GENERATED: 2026-04-17T17:34:19.748Z
 // SOURCE: database.types.ts
 // =====================================================
 

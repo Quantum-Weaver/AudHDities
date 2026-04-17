@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/protocols/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T01:35:45.898Z
+// GENERATED: 2026-04-17T17:34:20.076Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ProtocolsRowSchema, ProtocolsInsertSchema, ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';

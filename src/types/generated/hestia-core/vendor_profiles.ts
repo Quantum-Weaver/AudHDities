@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/vendor_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-15T19:30:35.476Z
-// SOURCE: database.types.ts lines 6670-6763
+// GENERATED: 2026-04-17T17:34:19.735Z
+// SOURCE: database.types.ts lines 6917-7010
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

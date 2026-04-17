@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/progress.ts
-// GENERATED: 2026-04-17T01:35:45.291Z
+// GENERATED: 2026-04-17T17:34:19.788Z
 // SOURCE: database.types.ts
 // =====================================================
 

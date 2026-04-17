@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hephaestus-infrastructure/system_health_logs.ts
-// GENERATED: 2026-04-15T19:30:35.594Z
+// GENERATED: 2026-04-17T17:34:19.908Z
 // SOURCE: database.types.ts
 // =====================================================
 

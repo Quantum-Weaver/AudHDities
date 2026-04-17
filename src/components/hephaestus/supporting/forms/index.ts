@@ -3,6 +3,6 @@
 
 export * from './AcidTestForm.js';
 export * from './ApplicationForm.js';
+export * from './PostForm.js';
 export * from './ProfileSettingsForm.js';
 export * from './channel.validator.js';
-export * from './PostForm.js';

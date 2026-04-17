@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/scripts.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.464Z
-// SOURCE: database.types.ts lines 5458-5516
+// GENERATED: 2026-04-17T17:34:19.719Z
+// SOURCE: database.types.ts lines 5672-5730
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

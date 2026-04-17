@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/covenant_pool.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.423Z
-// SOURCE: database.types.ts lines 1554-1604
+// GENERATED: 2026-04-17T17:34:19.665Z
+// SOURCE: database.types.ts lines 1726-1776
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/agent_conversations
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T09:51:12.829Z
+// GENERATED: 2026-04-17T17:34:19.939Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AgentConversationsRowSchema, AgentConversationsInsertSchema, AgentConversationsUpdateSchema } from '@/lib/validators/generated/hestia-core/agent_conversations';

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/mythology.ts
-// GENERATED: 2026-04-15T19:30:35.571Z
+// GENERATED: 2026-04-17T17:34:19.875Z
 // SOURCE: database.types.ts
 // =====================================================
 

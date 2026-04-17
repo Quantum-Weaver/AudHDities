@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/regions.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-15T19:30:35.456Z
-// SOURCE: database.types.ts lines 4710-4769
+// GENERATED: 2026-04-17T17:34:19.709Z
+// SOURCE: database.types.ts lines 4924-4983
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/maintenance
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T01:35:45.715Z
+// GENERATED: 2026-04-17T17:34:20.030Z
 // SOURCE: database.types.ts
 // =====================================================
 import { MaintenanceRowSchema, MaintenanceInsertSchema, MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';

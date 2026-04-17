@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useTaxonomy
-// GENERATED: 2026-04-15T19:30:36.177Z
+// GENERATED: 2026-04-17T17:34:20.240Z
 // SOURCE: database.types.ts
 // DEITY: mnemosyne-assessment
 // =====================================================

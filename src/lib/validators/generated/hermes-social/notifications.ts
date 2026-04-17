@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hermes-social/notifications.ts
-// GENERATED: 2026-04-17T01:35:45.276Z
+// GENERATED: 2026-04-17T17:34:19.781Z
 // SOURCE: database.types.ts
 // =====================================================
 
