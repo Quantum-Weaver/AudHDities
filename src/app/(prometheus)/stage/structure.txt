@@ -2,26 +2,27 @@
 
 Feeling: Energetic, creative, flowing, euphoric
 
-src/app/(prometheus)/
-├── stage/
-│   ├── page.tsx                    # The Stage (/stage)
-│   ├── live/
-│   │   └── page.tsx                # Now Playing (/stage/live)
-│   ├── live/[id]/
-│   │   └── page.tsx                # Performance (/stage/live/[id])
-│   ├── schedule/
-│   │   └── page.tsx                # The Calendar (/stage/schedule)
-│   ├── recordings/
-│   │   └── page.tsx                # The Echo (/stage/recordings)
-│   ├── recordings/[id]/
-│   │   └── page.tsx                # Recording (/stage/recordings/[id])
-│   ├── studio/
-│   │   └── page.tsx                # The Studio (/stage/studio)
-│   ├── comedy/
-│   │   └── page.tsx                # The Comedy Hearth (/stage/comedy)
-│   ├── comedy/[id]/
-│   │   └── page.tsx                # Comedy Special (/stage/comedy/[id])
-│   ├── music/
-│   │   └── page.tsx                # The Music Realm (/stage/music)
-│   └── music/[id]/
-│       └── page.tsx                # Music Performance (/stage/music/[id])
+src/app/(prometheus)/stage/
+├── page.tsx                          # The Stage (/stage)
+├── live/
+│   ├── page.tsx                      # Now Playing (/stage/live)
+│   └── [id]/
+│       └── page.tsx                  # Live Performance (/stage/live/[id])
+├── schedule/
+│   ├── page.tsx                      # The Calendar (/stage/schedule)
+│   └── [id]/
+│       └── page.tsx                  # Event Detail (/stage/schedule/[id])
+├── recordings/
+│   ├── page.tsx                      # The Echo (/stage/recordings)
+│   └── [id]/
+│       └── page.tsx                  # Recording (/stage/recordings/[id])
+├── studio/
+│   └── page.tsx                      # The Studio (/stage/studio)
+├── comedy/
+│   ├── page.tsx                      # The Comedy Hearth (/stage/comedy)
+│   └── [id]/
+│       └── page.tsx                  # Comedy Special (/stage/comedy/[id])
+└── music/
+    ├── page.tsx                      # The Music Realm (/stage/music)
+    └── [id]/
+        └── page.tsx                  # Music Performance (/stage/music/[id])

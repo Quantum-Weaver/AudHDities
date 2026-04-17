@@ -2,44 +2,26 @@
 // Application Detail - Single application view
 // Feeling: Detailed, hopeful, transparent
 
-import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/shared/Page';
-import { ApplicationForm } from '@/components/council/ApplicationForm';
-import { ReviewStatus } from '@/components/council/ReviewStatus';
-import { ReviewerNotes } from '@/components/council/ReviewerNotes';
-import { ApprovalActions } from '@/components/council/ApprovalActions';
-import { createServerSupabase } from '@/lib/supabase/server';
-import { auth } from '@/lib/auth';
+import { Page } from '@/components/shared/Page';
 
 interface ApplicationDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
+export async function generateMetadata({ params }: ApplicationDetailPageProps) {
+  const { id } = await params;
+  return {
+    title: `Application ${id.slice(0, 8)} | Sovereign Sanctuary`,
+    description: 'Your journey begins here'
+  };
+}
+
 export default async function ApplicationDetailPage({ params }: ApplicationDetailPageProps) {
   const { id } = await params;
-  const supabase = await createServerSupabase();
-  const session = await auth();
-
-  const { data: application } = await supabase
-    .from('applications')
-    .select('*, applicant:applicant_id(*)')
-    .eq('id', id)
-    .single();
-
-  if (!application) {
-    notFound();
-  }
-
-  const isReviewer = session?.user?.is_moderator || session?.user?.is_admin || false;
-  const isOwner = session?.user?.id === application.applicant_id;
-
-  if (!isReviewer && !isOwner) {
-    redirect('/council/applications');
-  }
-
+  
   return (
     <Page 
-      variant={2}
+      variant={1}
       environment="council"
       showForeground={false}
       animated={true}
@@ -47,24 +29,8 @@ export default async function ApplicationDetailPage({ params }: ApplicationDetai
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Application Details
-            </h1>
-            <ReviewStatus status={application.status} />
-          </div>
-
-          <div className="space-y-8">
-            <ApplicationForm application={application} readOnly={!isOwner} />
-            
-            {isReviewer && (
-              <>
-                <ReviewerNotes applicationId={application.id} />
-                <ApprovalActions applicationId={application.id} />
-              </>
-            )}
-          </div>
+          {/* Content will be added when components are ready */}
+          {/* Application ID: {id} */}
         </div>
       </main>
     </Page>

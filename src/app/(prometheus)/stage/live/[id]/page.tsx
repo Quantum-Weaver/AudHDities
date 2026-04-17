@@ -1,33 +1,24 @@
 // app/(prometheus)/stage/live/[id]/page.tsx
-// Performance - Single live performance view
+// Live Performance - Single live performance view
 // Feeling: Euphoric, connected, immersive
 
-import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/shared/Page';
-import { LivePlayer } from '@/components/stage/LivePlayer';
-import { LiveChat } from '@/components/stage/LiveChat';
-import { TipJar } from '@/components/stage/TipJar';
-import { PerformanceInfo } from '@/components/stage/PerformanceInfo';
-import { createServerSupabase } from '@/lib/supabase/server';
+import { Page } from '@/components/shared/Page';
 
-interface PerformancePageProps {
+interface LivePerformancePageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function PerformancePage({ params }: PerformancePageProps) {
+export async function generateMetadata({ params }: LivePerformancePageProps) {
   const { id } = await params;
-  const supabase = await createServerSupabase();
+  return {
+    title: `Live Performance ${id.slice(0, 8)} | Sovereign Sanctuary`,
+    description: 'Witness the moment'
+  };
+}
 
-  const { data: event } = await supabase
-    .from('events')
-    .select('*, creator:creator_id(*), stream_key')
-    .eq('id', id)
-    .single();
-
-  if (!event) {
-    notFound();
-  }
-
+export default async function LivePerformancePage({ params }: LivePerformancePageProps) {
+  const { id } = await params;
+  
   return (
     <Page 
       variant={1}
@@ -37,24 +28,9 @@ export default async function PerformancePage({ params }: PerformancePageProps) 
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Content - Video Player */}
-            <div className="lg:col-span-2 space-y-6">
-              <LivePlayer 
-                streamKey={event.stream_key} 
-                title={event.title}
-              />
-              <PerformanceInfo event={event} />
-            </div>
-
-            {/* Sidebar - Chat & Tips */}
-            <div className="space-y-6">
-              <TipJar creatorId={event.creator_id} eventId={event.id} />
-              <LiveChat eventId={event.id} />
-            </div>
-          </div>
+        <div className="container max-w-4xl mx-auto px-6">
+          {/* Content will be added when components are ready */}
+          {/* Performance ID: {id} */}
         </div>
       </main>
     </Page>

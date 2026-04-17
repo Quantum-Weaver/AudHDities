@@ -2,24 +2,17 @@
 // The Welcome - Accessibility statement, accommodations
 // Feeling: Welcoming, inclusive, caring
 
-'use client';
-
 import { Page } from '@/components/shared/Page';
-import { FeatureList } from '@/components/hephaestus/supporting/FeatureList';
-import { ScreenReaderInfo } from '@/components/hephaestus/supporting/ScreenReaderInfo';
-import { KeyboardShortcuts } from '@/components/hephaestus/supporting/KeyBoardShortcuts';
-import { ContrastToggle } from '@/components/hephaestus/supporting/ContrastToggle';
-import { FontSizer } from '@/components/hephaestus/supporting/FontSizer';
 
 export const metadata = {
   title: 'The Welcome | Sovereign Sanctuary',
-  description: 'Accessibility for all'
+  description: 'Everyone belongs here'
 };
 
-export default function AccessibilityPage() {
+export default async function AccessibilityPage() {
   return (
     <Page 
-      variant={1}
+      variant={2}
       environment="home"
       showForeground={false}
       animated={true}
@@ -27,27 +20,7 @@ export default function AccessibilityPage() {
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          
-          <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              The Welcome
-            </h1>
-            <p className="text-white/60">
-              Everyone belongs here
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-8">
-              <FeatureList />
-              <ScreenReaderInfo />
-            </div>
-            <div className="space-y-8">
-              <KeyboardShortcuts />
-              <ContrastToggle />
-              <FontSizer />
-            </div>
-          </div>
+          {/* Content will be added when components are ready */}
         </div>
       </main>
     </Page>

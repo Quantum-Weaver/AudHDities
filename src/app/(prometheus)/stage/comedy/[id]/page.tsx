@@ -2,37 +2,26 @@
 // Comedy Special - Single comedy performance view
 // Feeling: Joyful, intimate, hilarious
 
-import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/shared/Page';
-import { VideoPlayer } from '@/components/stage/VideoPlayer';
-import { JokeMeter } from '@/components/stage/JokeMeter';
-import { AudienceReactions } from '@/components/stage/AudienceReactions';
-import { BehindTheScenes } from '@/components/stage/BehindTheScenes';
-import { MerchLinks } from '@/components/stage/MerchLinks';
-import { createServerSupabase } from '@/lib/supabase/server';
+import { Page } from '@/components/shared/Page';
 
 interface ComedySpecialPageProps {
   params: Promise<{ id: string }>;
 }
 
+export async function generateMetadata({ params }: ComedySpecialPageProps) {
+  const { id } = await params;
+  return {
+    title: `Comedy Special ${id.slice(0, 8)} | Sovereign Sanctuary`,
+    description: 'Joy is sacred'
+  };
+}
+
 export default async function ComedySpecialPage({ params }: ComedySpecialPageProps) {
   const { id } = await params;
-  const supabase = await createServerSupabase();
-
-  const { data: special } = await supabase
-    .from('event_recordings')
-    .select('*, event:event_id(*), creator:creator_id(*)')
-    .eq('id', id)
-    .eq('genre', 'comedy')
-    .single();
-
-  if (!special) {
-    notFound();
-  }
-
+  
   return (
     <Page 
-      variant={1}
+      variant={2}
       environment="lounge"
       showForeground={false}
       animated={true}
@@ -40,19 +29,8 @@ export default async function ComedySpecialPage({ params }: ComedySpecialPagePro
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          
-          <VideoPlayer 
-            url={special.video_url} 
-            title={special.title}
-          />
-
-          <div className="mt-6 space-y-6">
-            <h1 className="text-2xl font-bold text-white">{special.title}</h1>
-            <JokeMeter recordingId={special.id} />
-            <AudienceReactions recordingId={special.id} />
-            <BehindTheScenes recordingId={special.id} />
-            <MerchLinks creatorId={special.creator_id} />
-          </div>
+          {/* Content will be added when components are ready */}
+          {/* Comedy Special ID: {id} */}
         </div>
       </main>
     </Page>
