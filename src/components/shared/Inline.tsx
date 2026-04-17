@@ -1,4 +1,4 @@
-// @/components/layout/Inline.tsx
+// @/components/shared/Inline.tsx
 // Horizontal spacing utility
 
 "use client"

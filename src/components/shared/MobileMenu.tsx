@@ -1,4 +1,4 @@
-// src/components/ui/layout/MobileMenu.tsx - VERTICAL EXPANDABLE MENU
+// src/components/shared/MobileMenu.tsx - VERTICAL EXPANDABLE MENU
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'

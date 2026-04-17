@@ -1,4 +1,4 @@
-// @/components/layout/AspectRatio.tsx
+// @/components/shared/AspectRatio.tsx
 // Maintain aspect ratio container
 
 "use client"

@@ -1,4 +1,4 @@
-// @/components/layout/Divider.tsx
+// @/components/shared/Divider.tsx
 // Visual separator
 
 "use client"

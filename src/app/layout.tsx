@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { Navigation } from "@/components/layout/Navigation";
 import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
-import MobileMenu from "@/components/layout/MobileMenu";
+import MobileMenu from "@/components/shared/MobileMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -1,4 +1,4 @@
-// @/components/layout/Grid.tsx
+// @/components/shared/Grid.tsx
 // CSS Grid wrapper
 
 "use client"
