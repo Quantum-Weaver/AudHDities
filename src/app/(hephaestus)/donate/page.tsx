@@ -5,18 +5,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Page } from '@/components/arrchive/layout/Page';
-import { DonationTiers } from '@/components/supporting/DonationTiers';
-import { ImpactCalculator } from '@/components/supporting/ImpactCalculator';
-import { RecurringOptions } from '@/components/supporting/RecurringOptions';
-import { ThankYouNote } from '@/components/supporting/ThankYouNote';
-import { TaxReceipt } from '@/components/supporting/TaxReceipt';
+import { Page } from '@/components/layout/Page';
+import { DonationTiers } from '@/components/hephaestus/supporting/DonationTiers';
+import { ImpactCalculator } from '@/components/hephaestus/supporting/ImpactCalculator';
+import { RecurringOptions } from '@/components/hephaestus/supporting/RecurringOptions';
+import { ThankYouNote } from '@/components/hephaestus/supporting/ThankYouNote';
+import { TaxReceipt } from '@/components/hephaestus/supporting/TaxReceipt';
 
 export const metadata = {
   title: 'The Offering | Sovereign Sanctuary',
   description: 'Support the Sanctuary'
 };
-
 export default function DonatePage() {
   const [donationComplete, setDonationComplete] = useState(false);
   const [amount, setAmount] = useState(0);

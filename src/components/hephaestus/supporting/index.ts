@@ -2,10 +2,14 @@
 // Barrel exports
 
 export * from './ContrastToggle.js';
+export * from './DonationTiers.js';
 export * from './FeatureList.js';
 export * from './FontSizer.js';
+export * from './ImpactCalculator.js';
 export * from './KeyboardShortcuts.js';
+export * from './RecurringOptions.js';
 export * from './ScreenReaderInfo.js';
+export * from './ThankYouNote.js';
 
 // =====================================================
 // BUSINESS
@@ -37,7 +41,7 @@ export * from './docs/StepCard.js';
 // =====================================================
 export * from './forms/AcidTestForm.js';
 export * from './forms/ProfileSettingsForm.js';
-export * from './forms/application.validator.js';
+export * from './forms/ApplicationForm.js';
 export * from './forms/channel.validator.js';
 export * from './forms/post.validator.js';
 

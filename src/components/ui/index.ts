@@ -10,6 +10,7 @@ export * from './Input.js';
 export * from './Kbd.js';
 export * from './Label.js';
 export * from './Modal.js';
+export * from './Progress.js';
 export * from './RadioGroup.js';
 export * from './Select.js';
 export * from './Slider.js';

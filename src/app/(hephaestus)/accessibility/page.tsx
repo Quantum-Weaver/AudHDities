@@ -7,7 +7,7 @@
 import { Page } from '@/components/layout/Page';
 import { FeatureList } from '@/components/hephaestus/supporting/FeatureList';
 import { ScreenReaderInfo } from '@/components/hephaestus/supporting/ScreenReaderInfo';
-import { KeyboardShortcuts } from '@/components/hephaestus/supporting/KeyboardShortcuts';
+import { KeyboardShortcuts } from '@/components/hephaestus/supporting/KeyBoardShortcuts';
 import { ContrastToggle } from '@/components/hephaestus/supporting/ContrastToggle';
 import { FontSizer } from '@/components/hephaestus/supporting/FontSizer';
 

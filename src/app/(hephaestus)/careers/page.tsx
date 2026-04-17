@@ -1,13 +1,13 @@
 // app/(supporting)/careers/page.tsx
 // The Calling - Job listings, opportunities
 // Feeling: Hopeful, purposeful, inviting
-
-import { Page } from '@/components/arrchive/layout/Page';
-import { JobListings } from '@/components/supporting/JobListings';
-import { ApplicationForm } from '@/components/supporting/ApplicationForm';
-import { CultureDeck } from '@/components/supporting/CultureDeck';
-import { BenefitsList } from '@/components/supporting/BenefitsList';
-import { TeamStories } from '@/components/supporting/TeamStories';
+/*
+import { Page } from '@/components/layout/Page';
+import { JobListings } from '@/components/hephaestus/supporting/JobListings';
+import { ApplicationForm } from '@/components/hephaestus/supporting/forms/ApplicationForm';
+import { CultureDeck } from '@/components/hephaestus/supporting/CultureDeck';
+import { BenefitsList } from '@/components/hephaestus/supporting/BenefitsList';
+import { TeamStories } from '@/components/hephaestus/supporting/TeamStories';
 import { createServerSupabase } from '@/lib/supabase/server';
 
 export const metadata = {
@@ -60,3 +60,4 @@ export default async function CareersPage() {
     </Page>
   );
 }
+  */

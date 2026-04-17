@@ -1,13 +1,13 @@
-// app/(supporting)/press/page.tsx
+// app/(hephaestus)/press/page.tsx
 // The Scroll - Press kit, media resources
 // Feeling: Professional, informative, accessible
 
 import { Page } from '@/components/layout/Page';
-import { PressKit } from '@/components/supporting/PressKit';
-import { MediaAssets } from '@/components/supporting/MediaAssets';
-import { LogoDownloads } from '@/components/supporting/LogoDownloads';
-import { InterviewRequests } from '@/components/supporting/InterviewRequests';
-import { CoverageHighlights } from '@/components/supporting/CoverageHighlights';
+import { PressKit } from '@/components/hephaestus/supporting/PressKit';
+import { MediaAssets } from '@/components/hephaestus/supporting/MediaAssets';
+import { LogoDownloads } from '@/components/hephaestus/supporting/LogoDownloads';
+import { InterviewRequests } from '@/components/hephaestus/supporting/InterviewRequests';
+import { CoverageHighlights } from '@/components/hephaestus/supporting/CoverageHighlights';
 
 export const metadata = {
   title: 'The Scroll | Sovereign Sanctuary',
