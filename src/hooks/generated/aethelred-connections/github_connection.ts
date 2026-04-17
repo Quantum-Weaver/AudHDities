@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useGithubConnection
-// GENERATED: 2026-04-17T17:34:20.195Z
+// GENERATED: 2026-04-17T20:52:31.241Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

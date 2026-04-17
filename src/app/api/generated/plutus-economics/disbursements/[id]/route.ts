@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/disbursements/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:19.995Z
+// GENERATED: 2026-04-17T20:51:57.806Z
 // SOURCE: database.types.ts
 // =====================================================
 import { DisbursementsRowSchema, DisbursementsInsertSchema, DisbursementsUpdateSchema } from '@/lib/validators/generated/plutus-economics/disbursements';

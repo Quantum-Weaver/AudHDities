@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/calendar
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:19.953Z
+// GENERATED: 2026-04-17T20:51:57.764Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CalendarRowSchema, CalendarInsertSchema, CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';

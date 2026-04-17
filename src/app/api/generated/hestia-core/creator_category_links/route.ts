@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/creator_category_links
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:19.982Z
+// GENERATED: 2026-04-17T20:51:57.794Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CreatorCategoryLinksRowSchema, CreatorCategoryLinksInsertSchema, CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';

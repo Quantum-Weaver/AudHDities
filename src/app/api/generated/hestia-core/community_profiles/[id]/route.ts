@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/community_profiles/[id]
 // METHODS: GET, DELETE
-// GENERATED: 2026-04-17T17:34:19.962Z
+// GENERATED: 2026-04-17T20:51:57.774Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CommunityProfilesRowSchema, CommunityProfilesInsertSchema, CommunityProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/community_profiles';

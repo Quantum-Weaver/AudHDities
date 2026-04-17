@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/entity_state_log.ts
-// GENERATED: 2026-04-17T17:34:19.766Z
+// GENERATED: 2026-04-17T20:52:30.919Z
 // SOURCE: database.types.ts
 // =====================================================
 

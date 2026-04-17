@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useCouncilHouses
-// GENERATED: 2026-04-17T17:34:20.182Z
+// GENERATED: 2026-04-17T20:52:31.229Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

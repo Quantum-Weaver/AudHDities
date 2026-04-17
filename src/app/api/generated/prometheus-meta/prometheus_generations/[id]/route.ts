@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_generations/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.067Z
+// GENERATED: 2026-04-17T20:51:57.872Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PrometheusGenerationsRowSchema, PrometheusGenerationsInsertSchema, PrometheusGenerationsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_generations';

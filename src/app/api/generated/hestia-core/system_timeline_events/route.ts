@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/system_timeline_events
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:20.137Z
+// GENERATED: 2026-04-17T20:51:57.939Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SystemTimelineEventsRowSchema, SystemTimelineEventsInsertSchema, SystemTimelineEventsUpdateSchema } from '@/lib/validators/generated/hestia-core/system_timeline_events';

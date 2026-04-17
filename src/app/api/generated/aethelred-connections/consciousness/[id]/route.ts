@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/consciousness/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:19.966Z
+// GENERATED: 2026-04-17T20:51:57.778Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ConsciousnessRowSchema, ConsciousnessInsertSchema, ConsciousnessUpdateSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hestia-core/user_private
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:20.155Z
+// GENERATED: 2026-04-17T20:51:57.959Z
 // SOURCE: database.types.ts
 // =====================================================
 import { UserPrivateRowSchema, UserPrivateInsertSchema, UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';

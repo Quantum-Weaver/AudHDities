@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/supabase_connection/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.126Z
+// GENERATED: 2026-04-17T20:51:57.929Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SupabaseConnectionRowSchema, SupabaseConnectionInsertSchema, SupabaseConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection';

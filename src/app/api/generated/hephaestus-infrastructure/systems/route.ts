@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hephaestus-infrastructure/systems
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:20.139Z
+// GENERATED: 2026-04-17T20:51:57.941Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SystemsRowSchema, SystemsInsertSchema, SystemsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/systems';

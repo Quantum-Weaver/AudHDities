@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: usePrometheusBlueprints
-// GENERATED: 2026-04-17T17:34:20.212Z
+// GENERATED: 2026-04-17T20:52:31.258Z
 // SOURCE: database.types.ts
 // DEITY: prometheus-meta
 // =====================================================

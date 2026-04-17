@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/culturalization/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:19.988Z
+// GENERATED: 2026-04-17T20:51:57.800Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CulturalizationRowSchema, CulturalizationInsertSchema, CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/mythology/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.036Z
+// GENERATED: 2026-04-17T20:51:57.844Z
 // SOURCE: database.types.ts
 // =====================================================
 import { MythologyRowSchema, MythologyInsertSchema, MythologyUpdateSchema } from '@/lib/validators/generated/athena-gamification/mythology';

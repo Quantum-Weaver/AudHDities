@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/folksonomy/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.011Z
+// GENERATED: 2026-04-17T20:51:57.821Z
 // SOURCE: database.types.ts
 // =====================================================
 import { FolksonomyRowSchema, FolksonomyInsertSchema, FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy';

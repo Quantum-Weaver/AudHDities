@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/surveys/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.132Z
+// GENERATED: 2026-04-17T20:51:57.935Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SurveysRowSchema, SurveysInsertSchema, SurveysUpdateSchema } from '@/lib/validators/generated/iris-communications/surveys';

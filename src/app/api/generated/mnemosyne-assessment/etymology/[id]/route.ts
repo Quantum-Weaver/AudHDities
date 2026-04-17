@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/etymology/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.003Z
+// GENERATED: 2026-04-17T20:51:57.813Z
 // SOURCE: database.types.ts
 // =====================================================
 import { EtymologyRowSchema, EtymologyInsertSchema, EtymologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';

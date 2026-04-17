@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useAethelredHouse
-// GENERATED: 2026-04-17T17:34:20.169Z
+// GENERATED: 2026-04-17T20:52:31.210Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

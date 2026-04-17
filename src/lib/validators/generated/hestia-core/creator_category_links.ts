@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/creator_category_links.ts
-// GENERATED: 2026-04-17T17:34:19.760Z
+// GENERATED: 2026-04-17T20:52:30.912Z
 // SOURCE: database.types.ts
 // =====================================================
 

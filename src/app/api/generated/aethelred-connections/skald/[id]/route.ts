@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/skald/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:20.118Z
+// GENERATED: 2026-04-17T20:51:57.921Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SkaldRowSchema, SkaldInsertSchema, SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';

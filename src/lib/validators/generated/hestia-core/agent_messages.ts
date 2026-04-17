@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/agent_messages.ts
-// GENERATED: 2026-04-17T17:34:19.745Z
+// GENERATED: 2026-04-17T20:52:30.897Z
 // SOURCE: database.types.ts
 // =====================================================
 

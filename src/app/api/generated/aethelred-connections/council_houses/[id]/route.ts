@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/council_houses/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-17T17:34:19.976Z
+// GENERATED: 2026-04-17T20:51:57.787Z
 // SOURCE: database.types.ts
 // =====================================================
 import { CouncilHousesRowSchema, CouncilHousesInsertSchema, CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';

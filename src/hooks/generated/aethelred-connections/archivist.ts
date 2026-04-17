@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useArchivist
-// GENERATED: 2026-04-17T17:34:20.174Z
+// GENERATED: 2026-04-17T20:52:31.220Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================

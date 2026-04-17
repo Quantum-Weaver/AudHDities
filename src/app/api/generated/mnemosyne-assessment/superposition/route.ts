@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/superposition
 // METHODS: GET, POST
-// GENERATED: 2026-04-17T17:34:20.127Z
+// GENERATED: 2026-04-17T20:51:57.931Z
 // SOURCE: database.types.ts
 // =====================================================
 import { SuperpositionRowSchema, SuperpositionInsertSchema, SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition';

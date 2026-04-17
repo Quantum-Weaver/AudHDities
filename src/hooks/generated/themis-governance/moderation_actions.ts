@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useModerationActions
-// GENERATED: 2026-04-17T17:34:20.203Z
+// GENERATED: 2026-04-17T20:52:31.249Z
 // SOURCE: database.types.ts
 // DEITY: themis-governance
 // =====================================================

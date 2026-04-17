@@ -1,6 +1,6 @@
 // =====================================================
 // HOOK: useStripeConnection
-// GENERATED: 2026-04-17T17:34:20.234Z
+// GENERATED: 2026-04-17T20:52:31.278Z
 // SOURCE: database.types.ts
 // DEITY: aethelred-connections
 // =====================================================
