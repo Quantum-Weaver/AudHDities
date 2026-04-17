@@ -1,66 +1,39 @@
 // lib/constants/systems/environments/types.ts
-// Environment type definitions - separate from mapper.ts
 
-import type { EnvironmentKey as BaseEnvironmentKey } from '../assets/mapper';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 
-// Re-export the base keys
-export type { BaseEnvironmentKey };
+export type BaseEnvironmentKey = EnvironmentKey;
 
-// Extended environment key (includes dynamic variants)
-export type DynamicEnvironmentKey = BaseEnvironmentKey | 'auto' | 'adaptive';
-
-// Environment context - what influences the environment choice
-export interface EnvironmentContext {
-  // User state
-  userTier?: 'community' | 'ally' | 'corporate' | 'council';
-  sovereigntyScore?: number;
-  currentEnergy?: 'low' | 'medium' | 'high' | 'quantum';
-  currentMood?: string[];
-  
-  // Session data
-  sessionId?: string;
-  timeOfDay?: 'morning' | 'afternoon' | 'evening' | 'night';
-  dayOfWeek?: number;
-  season?: 'spring' | 'summer' | 'autumn' | 'winter';
-  
-  // Page context
-  currentRoute?: string;
-  pageType?: 'home' | 'bazaar' | 'library' | 'stage' | 'studio' | 'council' | 'connect' | 'nexus' | 'cosmic' | 'supporting' | 'auth';
-  
-  // User preferences
-  preferredEnvironment?: BaseEnvironmentKey;
-  reducedMotion?: boolean;
-  highContrast?: boolean;
-  
-  // Performance
-  devicePerformance?: 'low' | 'medium' | 'high';
-  networkSpeed?: 'slow' | 'medium' | 'fast';
+export interface PageMetadata {
+  title: string;
+  subtitle: string;
+  environment: BaseEnvironmentKey;
 }
 
-// Environment resolution result
-export interface EnvironmentResolution {
-  key: BaseEnvironmentKey;
-  variant: number;
-  reason: string;
-  confidence: number; // 0-1
+export interface PageEnvironmentConfig {
+  default: BaseEnvironmentKey;
+  title: string;
+  subtitle: string;
 }
 
-// Environment rule - for dynamic selection
-export interface EnvironmentRule {
-  name: string;
-  condition: (context: EnvironmentContext) => boolean;
-  result: BaseEnvironmentKey;
-  priority: number;
+export type PageEnvironmentMap = Record<string, PageEnvironmentConfig>;
+
+export interface HeaderTypography {
+  title: string;
+  subtitle: string;
+  quote?: string;
 }
 
-// Page to environment mapping (static fallback)
-export interface PageEnvironmentMap {
-  [route: string]: {
-    default: BaseEnvironmentKey;
-    variants?: {
-      authenticated?: BaseEnvironmentKey;
-      unauthenticated?: BaseEnvironmentKey;
-      [key: string]: BaseEnvironmentKey | undefined;
-    };
+export interface HeaderData {
+  defaultTitle: string;
+  showAncientQuoteDefault: boolean;
+  environmentTitles: Record<BaseEnvironmentKey, string>;
+  environmentSubtitles: Record<BaseEnvironmentKey, string>;
+  pageTitles: Record<string, string>;
+  pageSubtitles: Record<string, string>;
+  typography: {
+    default: HeaderTypography;
+    mobile: HeaderTypography;
+    desktop: HeaderTypography;
   };
 }

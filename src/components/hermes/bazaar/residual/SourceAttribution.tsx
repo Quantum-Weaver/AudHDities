@@ -1,4 +1,4 @@
-// src/components/residual/SourceAttribution.tsx
+// src/components/hermes/bazaar/residual/SourceAttribution.tsx
 'use client';
 
 import { motion } from 'framer-motion';

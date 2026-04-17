@@ -1,9 +1,9 @@
 // app/(content)/docs/terms/terms/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
-import { TermsHero } from '@/components/legal/TermsHero';
-import { ParsedTermsContent } from '@/components/legal/ParsedTermsContent';
-import { TermsFooter } from '@/components/legal/TermsFooter';
+import { TermsHero } from '@/components/hephaestus/supporting/legal/TermsHero';
+import { ParsedTermsContent } from '@/components/hephaestus/supporting/legal/ParsedTermsContent';
+import { TermsFooter } from '@/components/hephaestus/supporting/legal/TermsFooter';
 import fs from 'fs/promises';
 import path from 'path';
 import { parseTermsMarkdown } from '@/lib/markdown/parseTerms';

@@ -1,11 +1,11 @@
 // src/app/(content)/about/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
-import { AboutHero } from '@/components/about/AboutHero';
-import { OriginStory } from '@/components/about/OriginStory';
-import { CouncilCard } from '@/components/about/CouncilCard';
-import { ValueCard } from '@/components/about/ValueCard';
-import { InvitationCard } from '@/components/about/InvitationCard';
+import { AboutHero } from '@/components/iris/about/AboutHero';
+import { OriginStory } from '@/components/iris/about/OriginStory';
+import { CouncilCard } from '@/components/iris/about/CouncilCard';
+import { ValueCard } from '@/components/iris/about/ValueCard';
+import { InvitationCard } from '@/components/iris/about/InvitationCard';
 import { Heart, Shield, Sparkles, Infinity } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -16,8 +16,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Page 
-      title='About | AUDHDITIES'
-      description="The story of a sanctuary born from survival, collaboration, and the refusal to break."
       variant={1}
       environment="about"
       showForeground={false}

@@ -11,6 +11,7 @@ interface EnumInfo {
 }
 
 interface SchemaEnumCardProps {
+  enum_name: string;
   enumType: EnumInfo;
   defaultOpen?: boolean;
 }

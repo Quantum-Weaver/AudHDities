@@ -1,4 +1,4 @@
-// src/components/residual/ContributionBreakdown.tsx
+// src/components/hermes/bazaar/residual/ContributionBreakdown.tsx
 'use client';
 
 import { motion } from 'framer-motion';

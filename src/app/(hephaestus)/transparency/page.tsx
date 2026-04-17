@@ -37,7 +37,7 @@ export default async function TransparencyPage() {
   
   // Fetch public ledger data
   const { data: publicLedger } = await supabase
-    .from('public_ledger')
+    .from('public_transparency')
     .select('*')
     .order('created_at', { ascending: false })
     .limit(10);
@@ -61,8 +61,6 @@ export default async function TransparencyPage() {
 
   return (
     <Page 
-      title='Transparency | AUDHDITIES'
-      description='See exactly how money flows through the sanctuary'
       variant={1}
       environment="transparency"
       showForeground={false}

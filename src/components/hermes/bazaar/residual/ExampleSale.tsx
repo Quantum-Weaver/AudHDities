@@ -1,4 +1,4 @@
-// src/components/residual/ExampleSale.tsx
+// src/components/hermes/bazaar/residual/ExampleSale.tsx
 'use client';
 
 import { useState } from 'react';

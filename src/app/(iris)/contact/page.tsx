@@ -1,15 +1,14 @@
-// src/app/(content)/contact/page.tsx
-
+// app/(content)/contact/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
 import { Card } from '@/components/ui/Card';
-import ContactForm from '@/components/contact/ContactForm';
+import ContactForm from '@/components/iris/contact/ContactForm';
 import { Mail, Clock, Shield, Sparkles, Heart, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | AUDHDITIES',
-  description: 'Get in touch with the sanctuary',
+  title: 'Contact Us | Sovereign Sanctuary',
+  description: 'Get in touch with the sanctuary stewards',
 };
 
 export default function ContactPage() {
@@ -86,7 +85,7 @@ export default function ContactPage() {
                 <h3 className="text-white font-bold mb-2">Privacy</h3>
                 <p className="text-sm text-white/60">Your information is never shared</p>
                 <Link
-                  href="/docs/privacy"
+                  href="/privacy"
                   className="text-xs text-cyan-400 hover:underline inline-block mt-2"
                 >
                   Read our privacy policy →

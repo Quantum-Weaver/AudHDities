@@ -1,11 +1,11 @@
 // src/app/(contents)/vision/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
-import { VisionHero } from '@/components/vision/VisionHero';
-import { WorldWithoutExploitation } from '@/components/vision/WorldWithoutExploitation';
-import { PillarCard } from '@/components/vision/PillarCard';
-import { BigotTaxCard } from '@/components/vision/BigotTaxCard';
-import { VisionCTA } from '@/components/vision/VisionCTA';
+import { VisionHero } from '@/components/hephaestus/supporting/vision/VisionHero';
+import { WorldWithoutExploitation } from '@/components/hephaestus/supporting/vision/WorldWithoutExploitation';
+import { PillarCard } from '@/components/hephaestus/supporting/vision/PillarCard';
+import { BigotTaxCard } from '@/components/hephaestus/supporting/vision/BigotTaxCard';
+import { VisionCTA } from '@/components/hephaestus/supporting/vision/VisionCTA';
 import { DollarSign, Heart, Shield, Globe, TrendingUp, HandCoins } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -16,8 +16,6 @@ export const metadata: Metadata = {
 export default function VisionPage() {
   return (
     <Page 
-      title='Vision | AUDHDITIES'
-      description='Our vision for a sovereign, neurodivergent-first economy'
       variant={1}
       environment="vision"
       showForeground={false}

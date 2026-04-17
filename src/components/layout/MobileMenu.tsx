@@ -2,7 +2,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import AuthButton from '../../auth/AuthButton'
+import AuthButton from '../auth/AuthButton'
 
 export default function MobileMenu() {
   const [isExpanded, setIsExpanded] = useState(false)

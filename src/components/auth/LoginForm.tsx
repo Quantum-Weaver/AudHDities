@@ -1,108 +1,69 @@
-/* @/components/auth/LoginForm.tsx */
-'use client'
+// components/auth/LoginForm.tsx
+"use client";
 
-import { useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useSupabase } from '@/lib/supabase/client'
-import { Eye, EyeOff, Loader2 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { Input } from '@/components/ui/Input'
-import { Label } from '@/components/ui/Label'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
+import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useSupabase } from "@/lib/supabase/client";
+import { UnifiedForm } from "@/components/shared/UnifiedForm";
+import type { FieldValue } from "@/types/components/ui/unified_form";
 
-export default function LoginForm() {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const redirect = searchParams.get('redirect') || '/dashboard'
-  
-  const supabase = useSupabase()
-  
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+interface LoginFormProps {
+  redirectTo?: string;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
+export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const supabase = useSupabase();
+  const [error, setError] = useState<string | null>(null);
 
-    try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) throw error
-      
-      router.push(redirect)
-      router.refresh()
-    } catch (err: any) {
-      setError(err.message || 'Login failed')
-    } finally {
-      setLoading(false)
+  const redirect = searchParams.get("redirect") || redirectTo;
+
+  const handleSubmit = async (values: Record<string, FieldValue>) => {
+    setError(null);
+    
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: values.email as string,
+      password: values.password as string,
+    });
+
+    if (signInError) {
+      setError(signInError.message);
+      return;
     }
-  }
+
+    // Handle "remember me" - session duration
+    if (values.remember_me) {
+      // Supabase sessions default to long-lived, this is handled server-side
+      // The checkbox is for UI/UX only
+    }
+
+    router.push(redirect);
+    router.refresh();
+  };
 
   return (
-    <Card className="w-full max-w-md border-white/10 bg-white/5 backdrop-blur-sm">
-      <CardHeader>
-        <CardTitle className="text-2xl text-white">Return to Sanctuary</CardTitle>
-        <CardDescription className="text-white/60">
-          The Loom remembers its vessels
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-white/60">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="border-white/10 bg-white/5 text-white placeholder:text-white/30 focus:border-cyan-500"
-              placeholder="vessel@sanctuary.org"
-            />
-          </div>
+    <div className="w-full max-w-md mx-auto">
+      <div className="text-center mb-8">
+        <h1 className="text-2xl font-bold text-white mb-2">Return to the Sanctuary</h1>
+        <p className="text-white/60">Enter your credentials to continue</p>
+      </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-white/60">Password</Label>
-            <div className="relative">
-              <Input
-                id="password"
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={6}
-                className="border-white/10 bg-white/5 text-white placeholder:text-white/30 focus:border-cyan-500 pr-10"
-                placeholder="••••••••"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"
-              >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-          </div>
+      {error && (
+        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+          <p className="text-red-400 text-sm text-center">{error}</p>
+        </div>
+      )}
 
-          {error && (
-            <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
-              {error}
-            </div>
-          )}
+      <UnifiedForm variant="login" onSubmit={handleSubmit} />
 
-          <Button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-cyan-600 hover:bg-cyan-500 disabled:bg-white/5"
-          >
-            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Enter Sanctuary
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
-  )
+      <div className="mt-6 text-center">
+        <p className="text-white/40 text-sm">
+          <a href="/forgot-password" className="text-cyan-400 hover:underline">
+            Forgot your password?
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 }

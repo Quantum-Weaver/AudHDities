@@ -1,4 +1,4 @@
-// src/components/residual/FlowDiagram.tsx
+// src/components/hermes/bazaar/residual/FlowDiagram.tsx
 'use client';
 
 import { motion } from 'framer-motion';

@@ -2,11 +2,11 @@
 // Vendors - Directory of sovereign vendors
 // Feeling: Trustworthy, abundant, ethical
 
-import { Page } from '@/components/arrchive/layout/Page';
-import { VendorGrid } from '@/components/bazaar/VendorGrid';
-import { SearchBar } from '@/components/bazaar/SearchBar';
-import { FilterSidebar } from '@/components/bazaar/FilterSidebar';
-import { SortDropdown } from '@/components/bazaar/SortDropdown';
+import { Page } from '@/components/layout/Page';
+import { VendorGrid } from '@/components/hermes/bazaar/VendorGrid';
+import { SearchBar } from '@/components/hermes/bazaar/SearchBar';
+import { FilterSidebar } from '@/components/hermes/bazaar/FilterSidebar';
+import { SortDropdown } from '@/components/hermes/bazaar/SortDropdown';
 import { Pagination } from '@/components/shared/Pagination';
 import { createServerSupabase } from '@/lib/supabase/server';
 

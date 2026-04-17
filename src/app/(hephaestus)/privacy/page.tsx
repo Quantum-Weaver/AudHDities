@@ -2,9 +2,9 @@
 
 import { Metadata } from 'next';
 import { Page } from '@/components/layout/Page';
-import { PrivacyHero } from '@/components/legal/PrivacyHero';
-import { ParsedPrivacyContent } from '@/components/legal/ParsedPrivacyContent';
-import { TermsFooter } from '@/components/legal/TermsFooter';
+import { PrivacyHero } from '@/components/hephaestus/supporting/legal/PrivacyHero';
+import { ParsedPrivacyContent } from '@/components/hephaestus/supporting/legal/ParsedPrivacyContent';
+import { TermsFooter } from '@/components/hephaestus/supporting/legal/TermsFooter';
 import fs from 'fs/promises';
 import path from 'path';
 import { parsePrivacyMarkdown } from '@/lib/markdown/parsePrivacy';

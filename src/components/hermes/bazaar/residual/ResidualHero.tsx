@@ -1,4 +1,4 @@
-// src/components/residual/ResidualHero.tsx
+// src/components/hermes/bazaar/residual/ResidualHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';
