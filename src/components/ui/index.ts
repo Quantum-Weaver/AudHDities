@@ -6,6 +6,7 @@ export * from './Badge.js';
 export * from './Button.js';
 export * from './Card.js';
 export * from './Checkbox.js';
+export * from './Dialog.js';
 export * from './Input.js';
 export * from './Kbd.js';
 export * from './Label.js';
