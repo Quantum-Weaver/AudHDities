@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/agent_activities.ts
-// GENERATED: 2026-04-17T17:34:19.839Z
+// GENERATED: 2026-04-17T20:50:06.644Z
 // SOURCE: database.types.ts
 // =====================================================
 

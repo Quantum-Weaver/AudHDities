@@ -4,7 +4,7 @@
 // =====================================================
 
 import type { Json } from './supabase/database.types';
-import type { SensitivityLevel } from './supabase/enums';
+import type { SensitivityLevel } from './supabase/enums-helper';
 
 // =====================================================
 // ND PREFERENCES (stored in profiles.nd_preferences)

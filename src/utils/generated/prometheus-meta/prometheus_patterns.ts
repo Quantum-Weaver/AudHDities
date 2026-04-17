@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/prometheus-meta/prometheus_patterns.ts
-// GENERATED: 2026-04-17T17:34:19.887Z
+// GENERATED: 2026-04-17T20:50:06.688Z
 // SOURCE: database.types.ts
 // =====================================================
 

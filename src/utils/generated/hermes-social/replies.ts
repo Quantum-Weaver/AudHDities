@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hermes-social/replies.ts
-// GENERATED: 2026-04-17T17:34:19.893Z
+// GENERATED: 2026-04-17T20:50:06.694Z
 // SOURCE: database.types.ts
 // =====================================================
 

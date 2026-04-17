@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/hestia-core/channels.ts
-// GENERATED: 2026-04-17T17:34:19.849Z
+// GENERATED: 2026-04-17T20:50:06.652Z
 // SOURCE: database.types.ts
 // =====================================================
 

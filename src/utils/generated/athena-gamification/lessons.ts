@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/athena-gamification/lessons.ts
-// GENERATED: 2026-04-17T17:34:19.870Z
+// GENERATED: 2026-04-17T20:50:06.672Z
 // SOURCE: database.types.ts
 // =====================================================
 

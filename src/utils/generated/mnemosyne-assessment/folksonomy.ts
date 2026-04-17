@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/mnemosyne-assessment/folksonomy.ts
-// GENERATED: 2026-04-17T17:34:19.865Z
+// GENERATED: 2026-04-17T20:50:06.667Z
 // SOURCE: database.types.ts
 // =====================================================
 

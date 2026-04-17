@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: utils/generated/plutus-economics/residual_pool.ts
-// GENERATED: 2026-04-17T17:34:19.897Z
+// GENERATED: 2026-04-17T20:50:06.697Z
 // SOURCE: database.types.ts
 // =====================================================
 
