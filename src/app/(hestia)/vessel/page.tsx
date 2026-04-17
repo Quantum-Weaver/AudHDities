@@ -4,7 +4,7 @@
 
 import { redirect } from 'next/navigation';
 import { Page } from '@/components/layout/Page';
-import { ProfileForm } from '@/components/hestia/ProfileForm';
+import { ProfileForm } from '@/components/hestia/profiles/ProfileForm';
 import { SovereigntyScore } from '@/components/hestia/SovereigntyScore';
 import { ContributionGraph } from '@/components/hestia/ContributionGraph';
 import { ResidualLedger } from '@/components/hestia/ResidualLedger';

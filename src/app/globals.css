@@ -20,7 +20,7 @@
 /* ========================================================================== */
 
 /* Main generated CSS (includes Tailwind directives, variables, base styles) */
-@import '../styles/generated/globals-generated.css';
+@import '../styles/generated/variables.css';
 
 /* Animation variants */
 @import '../styles/generated/animations.css';

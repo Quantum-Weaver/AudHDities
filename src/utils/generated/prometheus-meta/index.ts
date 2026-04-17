@@ -1,5 +1,5 @@
 // AUTO-GENERATED - DO NOT EDIT
-// Barrel exports for this deity
+// Barrel exports
 
 export * from './prometheus_blueprints.js';
 export * from './prometheus_boundaries.js';

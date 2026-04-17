@@ -1,5 +1,5 @@
 // AUTO-GENERATED - DO NOT EDIT
-// Barrel exports for this deity
+// Barrel exports
 
 export * from './business_type.js';
 export * from './communication_style.js';

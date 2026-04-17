@@ -2,7 +2,7 @@
 // The Council Chamber - Governance hub
 // Feeling: Transparent, just, collaborative, wise
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { ProposalList } from '@/components/council/ProposalList';
 import { VotingSummary } from '@/components/council/VotingSummary';
 import { DelegateInfo } from '@/components/council/DelegateInfo';

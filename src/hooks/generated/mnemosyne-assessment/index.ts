@@ -1,5 +1,5 @@
 // AUTO-GENERATED - DO NOT EDIT
-// Barrel exports for this deity
+// Barrel exports
 
 export * from './etymology.js';
 export * from './folksonomy.js';

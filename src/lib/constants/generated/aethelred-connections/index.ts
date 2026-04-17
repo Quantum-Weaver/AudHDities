@@ -1,5 +1,5 @@
 // AUTO-GENERATED - DO NOT EDIT
-// Barrel exports for this deity
+// Barrel exports
 
 export * from './bridge_status.js';
 export * from './delivery_status.js';

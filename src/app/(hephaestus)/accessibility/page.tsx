@@ -4,12 +4,12 @@
 
 'use client';
 
-import { Page } from '@/components/arrchive/layout/Page';
-import { FeatureList } from '@/components/supporting/FeatureList';
-import { ScreenReaderInfo } from '@/components/supporting/ScreenReaderInfo';
-import { KeyboardShortcuts } from '@/components/supporting/KeyboardShortcuts';
-import { ContrastToggle } from '@/components/supporting/ContrastToggle';
-import { FontSizer } from '@/components/supporting/FontSizer';
+import { Page } from '@/components/layout/Page';
+import { FeatureList } from '@/components/hephaestus/supporting/FeatureList';
+import { ScreenReaderInfo } from '@/components/hephaestus/supporting/ScreenReaderInfo';
+import { KeyboardShortcuts } from '@/components/hephaestus/supporting/KeyboardShortcuts';
+import { ContrastToggle } from '@/components/hephaestus/supporting/ContrastToggle';
+import { FontSizer } from '@/components/hephaestus/supporting/FontSizer';
 
 export const metadata = {
   title: 'The Welcome | Sovereign Sanctuary',

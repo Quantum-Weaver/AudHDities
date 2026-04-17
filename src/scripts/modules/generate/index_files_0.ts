@@ -25,7 +25,23 @@ const DEITY_FOLDERS = [
   'iris-communications',
   'hephaestus-infrastructure',
   'aethelred-connections',
-  'prometheus-meta'
+  'prometheus-meta',
+  'admin',
+  'aethelred/nexus',
+  'athena/library',
+  'auth',
+  'cosmic',
+  'hephaestus/supporting',
+  'hermes/bazaar',
+  'hestia/',
+  'immersive',
+  'iris',
+  'layout',
+  'mnemosysne',
+  'prometheus',
+  'shared',
+  'themis',
+  'ui'
 ];
 
 const CATEGORIES = [
@@ -33,7 +49,8 @@ const CATEGORIES = [
   { name: 'hooks', path: 'src/hooks/generated' },
   { name: 'utils', path: 'src/utils/generated' },
   { name: 'constants', path: 'src/lib/constants/generated' },
-  { name: 'validators', path: 'src/lib/validators/generated' }
+  { name: 'validators', path: 'src/lib/validators/generated' },
+  { name: 'components', path: 'src/components'}
 ];
 
 const EXCLUDE_FILES = ['index.ts', 'index.js'];
@@ -154,5 +171,5 @@ for (const category of CATEGORIES) {
 console.log(`\n✨ Complete! ${isDryRun ? 'Would write' : 'Wrote'} ${totalWritten} files.\n`);
 
 if (isDryRun) {
-  console.log('To actually write files, run: tsx generate-indexes.ts\n');
+  console.log('To actually write files, run: tsx generate_indexes.ts\n');
 }

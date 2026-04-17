@@ -1,5 +1,5 @@
 // AUTO-GENERATED - DO NOT EDIT
-// Master barrel exports for all deities
+// Master barrel exports
 
 export * as aethelred_connections from './aethelred-connections/index.js';
 export * as athena_gamification from './athena-gamification/index.js';

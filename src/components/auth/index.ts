@@ -1,4 +1,8 @@
-/* @/components/auth/index.ts */
-export * from './AuthGuard';
-export * from './LoginForm';
-export * from './SignupForm';
+// AUTO-GENERATED - DO NOT EDIT
+// Barrel exports
+
+export * from './AuthButton.js';
+export * from './AuthGuard.js';
+export * from './LoginForm.js';
+export * from './ProtectedRoute.js';
+export * from './SignupForm.js';
