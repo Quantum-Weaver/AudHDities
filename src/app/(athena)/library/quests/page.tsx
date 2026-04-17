@@ -1,19 +1,19 @@
-// app/(athena)/library/badges/page.tsx
-// The Honors - All earned and available badges
-// Feeling: Celebratory, motivating, honorable
+// app/(athena)/library/quests/page.tsx
+// The Path - All available quests
+// Feeling: Adventurous, purposeful, rewarding
 
 import { Page } from '@/components/shared/Page';
 
 export const metadata = {
-  title: 'The Honors | Sovereign Sanctuary',
-  description: 'Your achievements recognized'
+  title: 'The Path | Sovereign Sanctuary',
+  description: 'Your journey awaits'
 };
 
-export default async function BadgesPage() {
+export default async function QuestsPage() {
   return (
     <Page 
       variant={2}
-      environment="observatory"
+      environment="library"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}

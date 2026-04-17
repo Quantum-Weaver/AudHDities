@@ -1,28 +1,28 @@
-// app/(athena)/library/badges/[id]/page.tsx
-// Badge Detail - Single badge view
-// Feeling: Celebratory, meaningful, aspirational
+// app/(athena)/library/quests/[id]/page.tsx
+// Quest Detail - Single quest view
+// Feeling: Challenging, rewarding, transformative
 
 import { Page } from '@/components/shared/Page';
 
-interface BadgeDetailPageProps {
+interface QuestDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: BadgeDetailPageProps) {
+export async function generateMetadata({ params }: QuestDetailPageProps) {
   const { id } = await params;
   return {
-    title: `Badge ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A mark of sovereignty'
+    title: `Quest ${id.slice(0, 8)} | Sovereign Sanctuary`,
+    description: 'A step toward sovereignty'
   };
 }
 
-export default async function BadgeDetailPage({ params }: BadgeDetailPageProps) {
+export default async function QuestDetailPage({ params }: QuestDetailPageProps) {
   const { id } = await params;
   
   return (
     <Page 
       variant={1}
-      environment="observatory"
+      environment="library"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}
@@ -30,7 +30,7 @@ export default async function BadgeDetailPage({ params }: BadgeDetailPageProps) 
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
           {/* Content will be added when components are ready */}
-          {/* Badge ID: {id} */}
+          {/* Quest ID: {id} */}
         </div>
       </main>
     </Page>

@@ -1,19 +1,19 @@
-// app/(athena)/library/badges/page.tsx
-// The Honors - All earned and available badges
-// Feeling: Celebratory, motivating, honorable
+// app/(athena)/library/courses/page.tsx
+// The Curriculum - Structured learning paths
+// Feeling: Organized, progressive, empowering
 
 import { Page } from '@/components/shared/Page';
 
 export const metadata = {
-  title: 'The Honors | Sovereign Sanctuary',
-  description: 'Your achievements recognized'
+  title: 'The Curriculum | Sovereign Sanctuary',
+  description: 'Structured wisdom'
 };
 
-export default async function BadgesPage() {
+export default async function CoursesPage() {
   return (
     <Page 
       variant={2}
-      environment="observatory"
+      environment="library"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: EditCreationPageProps) {
   };
 }
 
-export default async function EditCreationPage({ params }: EditCreationPageProps) {
+export default async function EditStudioPage({ params }: EditCreationPageProps) {
   const { id } = await params;
   
   return (

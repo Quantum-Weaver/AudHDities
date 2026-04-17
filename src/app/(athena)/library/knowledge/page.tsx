@@ -1,19 +1,19 @@
-// app/(athena)/library/badges/page.tsx
-// The Honors - All earned and available badges
-// Feeling: Celebratory, motivating, honorable
+// app/(athena)/library/knowledge/page.tsx
+// The Archive - Knowledge base, documentation
+// Feeling: Sacred, vast, discoverable
 
 import { Page } from '@/components/shared/Page';
 
 export const metadata = {
-  title: 'The Honors | Sovereign Sanctuary',
-  description: 'Your achievements recognized'
+  title: 'The Archive | Sovereign Sanctuary',
+  description: 'Preserved wisdom'
 };
 
-export default async function BadgesPage() {
+export default async function KnowledgePage() {
   return (
     <Page 
       variant={2}
-      environment="observatory"
+      environment="library"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}

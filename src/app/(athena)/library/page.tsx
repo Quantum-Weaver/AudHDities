@@ -1,19 +1,19 @@
-// app/(hestia)/page.tsx
-// The Hearth - Welcome to the Sovereign Sanctuary
-// Feeling: Warm, welcoming, safe, reflective
+// app/(athena)/library/page.tsx
+// The Library - Learning hub
+// Feeling: Curious, expansive, wise, empowering
 
 import { Page } from '@/components/shared/Page';
 
 export const metadata = {
-  title: 'The Hearth | Sovereign Sanctuary',
-  description: 'Welcome to your sanctuary'
+  title: 'The Library | Sovereign Sanctuary',
+  description: 'Knowledge awaits'
 };
 
-export default async function HearthPage() {
+export default async function LibraryPage() {
   return (
     <Page 
       variant={1}
-      environment="home"
+      environment="library"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}

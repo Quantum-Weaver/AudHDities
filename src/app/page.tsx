@@ -1,4 +1,7 @@
 // src/app/page.tsx
+// The Hearth - Welcome to the Sovereign Sanctuary
+// Feeling: Warm, welcoming, safe, reflective
+
 import { Page } from '@/components/shared/Page';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
