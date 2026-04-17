@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/plutus-economics/residual_pool
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.219Z
+// GENERATED: 2026-04-17T01:35:45.936Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ResidualPoolRowSchema, ResidualPoolInsertSchema, ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';

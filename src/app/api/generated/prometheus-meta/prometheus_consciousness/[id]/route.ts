@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/prometheus-meta/prometheus_consciousness/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-16T23:20:34.201Z
+// GENERATED: 2026-04-17T01:35:45.879Z
 // SOURCE: database.types.ts
 // =====================================================
 import { PrometheusConsciousnessRowSchema, PrometheusConsciousnessInsertSchema, PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/resend_connection
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.217Z
+// GENERATED: 2026-04-17T01:35:45.928Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ResendConnectionRowSchema, ResendConnectionInsertSchema, ResendConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/resend_connection';

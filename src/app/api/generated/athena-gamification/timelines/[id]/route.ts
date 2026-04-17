@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/athena-gamification/timelines/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-16T23:20:34.243Z
+// GENERATED: 2026-04-17T01:35:46.032Z
 // SOURCE: database.types.ts
 // =====================================================
 import { TimelinesRowSchema, TimelinesInsertSchema, TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines';

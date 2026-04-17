@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/aethelred-connections/stripe_connection.ts
-// GENERATED: 2026-04-16T23:20:33.916Z
+// GENERATED: 2026-04-17T01:35:45.340Z
 // SOURCE: database.types.ts
 // =====================================================
 

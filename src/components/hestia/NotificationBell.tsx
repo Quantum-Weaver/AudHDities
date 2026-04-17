@@ -8,7 +8,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { createClient } from "@/lib/supabase/client";
-import { useAuth } from "@/hooks/core/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 
 export interface NotificationBellProps {
   className?: string;

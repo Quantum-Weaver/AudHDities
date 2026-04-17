@@ -1,13 +1,13 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/sales.ts
-// GENERATED: 2026-04-16T23:20:33.910Z
+// GENERATED: 2026-04-17T01:35:45.325Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
 import { PAYMENT_STATUS } from '@/lib/constants/generated/plutus-economics/payment_status';
-import { USER_TIER } from '@/lib/constants/generated/plutus-economics/user_tier';
+import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
 
 // =====================================================
 // Sales SCHEMAS

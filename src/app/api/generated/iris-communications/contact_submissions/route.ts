@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/contact_submissions
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.019Z
+// GENERATED: 2026-04-17T01:35:45.603Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ContactSubmissionsRowSchema, ContactSubmissionsInsertSchema, ContactSubmissionsUpdateSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';

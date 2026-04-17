@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scene_participants.ts
-// GENERATED: 2026-04-16T23:20:33.911Z
+// GENERATED: 2026-04-17T01:35:45.326Z
 // SOURCE: database.types.ts
 // =====================================================
 

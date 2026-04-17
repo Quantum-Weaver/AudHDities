@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/aethelred-connections/executioner/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-16T23:20:34.045Z
+// GENERATED: 2026-04-17T01:35:45.668Z
 // SOURCE: database.types.ts
 // =====================================================
 import { ExecutionerRowSchema, ExecutionerInsertSchema, ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner';

@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/quantum_superposition/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-16T23:20:34.208Z
+// GENERATED: 2026-04-17T01:35:45.903Z
 // SOURCE: database.types.ts
 // =====================================================
 import { QuantumSuperpositionRowSchema, QuantumSuperpositionInsertSchema, QuantumSuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/quantum_superposition';

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/iris-communications/regions.ts
-// GENERATED: 2026-04-16T23:20:33.907Z
+// GENERATED: 2026-04-17T01:35:45.314Z
 // SOURCE: database.types.ts
 // =====================================================
 

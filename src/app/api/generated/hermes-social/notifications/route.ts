@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/notifications
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.093Z
+// GENERATED: 2026-04-17T01:35:45.731Z
 // SOURCE: database.types.ts
 // =====================================================
 import { NotificationsRowSchema, NotificationsInsertSchema, NotificationsUpdateSchema } from '@/lib/validators/generated/hermes-social/notifications';

@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/learning_paths.ts
-// GENERATED: 2026-04-16T23:20:33.888Z
+// GENERATED: 2026-04-17T01:35:45.257Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
 import { DIFFICULTY_LEVEL } from '@/lib/constants/generated/athena-gamification/difficulty_level';
 
 // =====================================================

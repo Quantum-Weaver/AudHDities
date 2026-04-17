@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/athena-gamification/scenes.ts
-// GENERATED: 2026-04-16T23:20:33.912Z
+// GENERATED: 2026-04-17T01:35:45.328Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
 import { SCENE_TYPE } from '@/lib/constants/generated/athena-gamification/scene_type';
 
 // =====================================================

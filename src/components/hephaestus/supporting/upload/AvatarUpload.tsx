@@ -3,8 +3,8 @@
 
 import { useState, useRef } from 'react'
 import { useSupabase } from '@/lib/supabase/client'
-import { Avatar, AvatarFallback, AvatarImage } from '../../ui/Avatar'
-import { Button } from '../../ui/Button'
+import { Avatar, AvatarFallback, AvatarImage } from '../../../ui/Avatar'
+import { Button } from '../../../ui/Button'
 import { Camera, Loader2 } from 'lucide-react'
 
 interface AvatarUploadProps {

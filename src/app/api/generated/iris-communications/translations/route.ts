@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/iris-communications/translations
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.246Z
+// GENERATED: 2026-04-17T01:35:46.042Z
 // SOURCE: database.types.ts
 // =====================================================
 import { TranslationsRowSchema, TranslationsInsertSchema, TranslationsUpdateSchema } from '@/lib/validators/generated/iris-communications/translations';

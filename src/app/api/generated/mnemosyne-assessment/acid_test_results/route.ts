@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/acid_test_results
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:33.995Z
+// GENERATED: 2026-04-17T01:35:45.524Z
 // SOURCE: database.types.ts
 // =====================================================
 import { AcidTestResultsRowSchema, AcidTestResultsInsertSchema, AcidTestResultsUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/acid_test_results';

@@ -1,12 +1,12 @@
 // =====================================================
 // FILE: validators/generated/plutus-economics/payouts.ts
-// GENERATED: 2026-04-16T23:20:33.895Z
+// GENERATED: 2026-04-17T01:35:45.280Z
 // SOURCE: database.types.ts
 // =====================================================
 
 import { z } from 'zod';
 
-import { PAYOUT_METHOD } from '@/lib/constants/generated/plutus-economics/payout_method';
+import { PAYOUT_METHOD } from '@/lib/constants/generated/hestia-core/payout_method';
 import { PAYOUT_STATUS } from '@/lib/constants/generated/plutus-economics/payout_status';
 
 // =====================================================

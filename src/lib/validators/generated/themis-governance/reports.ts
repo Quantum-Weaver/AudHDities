@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/reports.ts
-// GENERATED: 2026-04-16T23:20:33.908Z
+// GENERATED: 2026-04-17T01:35:45.317Z
 // SOURCE: database.types.ts
 // =====================================================
 

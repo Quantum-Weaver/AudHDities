@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/hermes-social/emeralds
 // METHODS: GET, POST
-// GENERATED: 2026-04-16T23:20:34.043Z
+// GENERATED: 2026-04-17T01:35:45.661Z
 // SOURCE: database.types.ts
 // =====================================================
 import { EmeraldsRowSchema, EmeraldsInsertSchema, EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds';

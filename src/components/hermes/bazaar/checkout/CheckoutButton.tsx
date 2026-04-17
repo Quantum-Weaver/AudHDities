@@ -1,17 +1,17 @@
-// src/components/checkout/CheckoutButton.tsx
+// components/commerce/CheckoutButton.tsx
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/core/useAuth';
+import { useAuth } from '@/hooks/useAuth';
 import { useCheckout } from '@/hooks/commerce/useCheckout';
 import { Button } from '@/components/ui/Button';
 import { Loader2, CreditCard } from 'lucide-react';
-import type { Product } from '@/types/supabase/tables/products';
+import type { ProductsRow } from '@/types/generated/plutus-economics/products';  // FIXED: correct type
 
 interface CheckoutButtonProps {
-  product: Product;
-  variant?: 'outline' | 'ghost'| 'secondary' | 'primary';
+  product: ProductsRow;  // FIXED: use ProductsRow instead of ProductsFormData
+  variant?: 'outline' | 'ghost' | 'secondary' | 'primary';
   size?: 'sm' | 'md' | 'lg';
   tier?: 'community' | 'ally' | 'corporate';
   className?: string;
@@ -55,9 +55,8 @@ export function CheckoutButton({
     }
 
     if (!user) {
-      // Store pending purchase and redirect to login
       sessionStorage.setItem('pendingPurchase', JSON.stringify({
-        productId: product.id,
+        id: product.id,
         tier,
         quantity: 1,
       }));
@@ -66,7 +65,8 @@ export function CheckoutButton({
     }
 
     await initiateCheckout({
-      productId: product.id,
+      id: product.id,
+      product: product.id,
       tier,
       quantity: 1,
     });

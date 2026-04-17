@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 // =====================================================
 // API ROUTE: /api/generated/mnemosyne-assessment/taxonomy/[id]
 // METHODS: GET, PUT, DELETE
-// GENERATED: 2026-04-16T23:20:34.242Z
+// GENERATED: 2026-04-17T01:35:46.027Z
 // SOURCE: database.types.ts
 // =====================================================
 import { TaxonomyRowSchema, TaxonomyInsertSchema, TaxonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/taxonomy';
