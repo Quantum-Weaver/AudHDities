@@ -11,5 +11,3 @@ export * from './Inline.js';
 export * from './MobileMenu.js';
 export * from './Navigation.js';
 export * from './Page.js';
-export * from './Spacer.js';
-export * from './Stack.js';

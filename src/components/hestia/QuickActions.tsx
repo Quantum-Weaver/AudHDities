@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/shared/UnifiedCard";
+import { Card } from "@/components/ui/Card";
 import { useAuth } from "@/hooks/useAuth";
 
 export interface QuickActionsProps {

@@ -3,7 +3,7 @@
 
 import { Award } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
-import { getBadgeDisplayName, getBadgeDescription } from '@/types/supabase/tables/user_badges';
+import { getBadgeDisplayName, getBadgeDescription } from '@/lib/constants/generated/athena-gamification/badge_type';
 
 interface UserBadge {
   badge: string;

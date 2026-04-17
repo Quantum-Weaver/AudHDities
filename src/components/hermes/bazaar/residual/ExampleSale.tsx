@@ -47,8 +47,8 @@ export function ExampleSale() {
             max={500}
             step={10}
             showValue={true}
-            formatValue={(v) => `$${v}`}
-            variant="primary"
+            formatValue={(v: any) => `$${v}`}
+            variant="default"
           />
         </div>
         
@@ -62,7 +62,7 @@ export function ExampleSale() {
             step={1}
             showValue={true}
             formatValue={(v) => `${v}%`}
-            variant="default"
+            variant="purple"
             disabled={true}
             helperText="Fixed at 10% (industry standard is 30-50%)"
           />
@@ -78,7 +78,7 @@ export function ExampleSale() {
             step={5}
             showValue={true}
             formatValue={(v) => `${v}%`}
-            variant="purple"
+            variant="success"
             helperText="Shared with product contributors (creator sets per product)"
           />
         </div>
@@ -93,7 +93,7 @@ export function ExampleSale() {
             step={5}
             showValue={true}
             formatValue={(v) => `${v}%`}
-            variant="primary"
+            variant="default"
             helperText="Voluntary pledge to community dignity fund (creator sets in profile)"
           />
         </div>

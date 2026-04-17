@@ -5,4 +5,4 @@ export * from './AcidTestForm.js';
 export * from './ApplicationForm.js';
 export * from './ProfileSettingsForm.js';
 export * from './channel.validator.js';
-export * from './post.validator.js';
+export * from './PostForm.js';

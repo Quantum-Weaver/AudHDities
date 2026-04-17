@@ -3,7 +3,7 @@
 
 import { useState, useRef } from 'react'
 import { useSupabase } from '@/lib/supabase/client'
-import { Button } from '../../ui/Button'
+import { Button } from '../../../ui/Button'
 import { Camera, Loader2 } from 'lucide-react'
 
 interface BannerUploadProps {

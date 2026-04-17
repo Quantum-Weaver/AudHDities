@@ -1,5 +1,6 @@
 // src/lib/constants/components/ui/slider_variants.ts
 import { cva } from "class-variance-authority";
+import { success } from "zod";
 
 export const sliderTrackVariants = cva(
   "relative h-1.5 w-full grow rounded-full bg-white/10",
@@ -11,8 +12,16 @@ export const sliderTrackVariants = cva(
         cosmic: "",
         fire: "",
         sanctuary: "",
+        primary: "",
+        success: "",
+        warning: "",
+        purple: "",
+        blue: "",
+        red: "",
+        green: "",
       },
     },
+    
     defaultVariants: {
       variant: "default",
     },
@@ -29,6 +38,13 @@ export const sliderRangeVariants = cva(
         cosmic: "bg-cosmic-blue",
         fire: "bg-fire-base",
         sanctuary: "bg-sanctuary-green",
+        primary: "bg-primary",
+        success: "bg-success",
+        warning: "bg-warning",
+        purple: "bg-purple",  
+        blue: "bg-blue",
+        red: "bg-red",
+        green: "bg-green",
       },
     },
     defaultVariants: {
@@ -47,6 +63,13 @@ export const sliderThumbVariants = cva(
         cosmic: "",
         fire: "",
         sanctuary: "",
+        primary: "",
+        success: "",
+        warning: "",
+        purple: "",
+        blue: "",
+        red: "",
+        green: "",
       },
     },
     defaultVariants: {
