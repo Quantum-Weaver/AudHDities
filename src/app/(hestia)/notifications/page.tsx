@@ -4,7 +4,7 @@
 // Environment: community (social awareness)
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { NotificationList } from '@/components/hestia/NotificationList';
 import { FilterTabs } from '@/components/hestia/FilterTabs';
 import { MarkAllRead } from '@/components/hestia/MarkAllRead';
