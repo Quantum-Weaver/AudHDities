@@ -1,6 +1,8 @@
 // AUTO-GENERATED - DO NOT EDIT
 // Barrel exports
 
+export * from './Accordion.js';
+export * from './Alert.js';
 export * from './Avatar.js';
 export * from './Badge.js';
 export * from './Button.js';
@@ -14,8 +16,10 @@ export * from './Modal.js';
 export * from './Progress.js';
 export * from './RadioGroup.js';
 export * from './Select.js';
+export * from './Skeleton.js';
 export * from './Slider.js';
 export * from './Spinner.js';
 export * from './Switch.js';
+export * from './Tabs.js';
 export * from './TextArea.js';
 export * from './Tooltip.js';

@@ -2,7 +2,7 @@
 // The Theater - Agent observability, system visualization
 // Feeling: Observant, intelligent, revealing
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/layout/Page';
 import { AgentVisualization } from '@/components/cosmic/AgentVisualization';
 import { ConversationFlow } from '@/components/cosmic/ConversationFlow';
 import { EntityActivity } from '@/components/cosmic/EntityActivity';
@@ -27,11 +27,11 @@ export default async function TheaterPage() {
     .order('created_at', { ascending: false })
     .limit(50);
 
-  // Fetch active conversations
+  // Fetch active conversations (status = 'active', NOT is_active)
   const { data: conversations } = await supabase
     .from('agent_conversations')
-    .select('*')
-    .eq('is_active', true)
+    .select('*, messages:agent_messages(*)')
+    .eq('status', 'active')
     .order('updated_at', { ascending: false });
 
   return (

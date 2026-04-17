@@ -4,14 +4,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/RadioGroup";
-import { Label } from "@/components/ui/Label";
-import { Slider } from "@/components/ui/Slider";
-import { Switch } from "@/components/ui/Switch;
-import { DOMAIN_COLORS } from "@/lib/constants/cosmic/colors";
+import { cn } from "../../lib/utils";
+import { Card } from "../ui/Card";
+import { Badge } from "../ui/Badge";
+import { RadioGroup, RadioGroupItem } from "../ui/RadioGroup";
+import { Label } from "../ui/Label";
+import { Slider } from "../ui/Slider";
+import { Switch } from "../ui/Switch";
+
 
 export interface VariantControlsProps {
   component: string;
