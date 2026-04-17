@@ -3,7 +3,7 @@
 // Also exports header data for dynamic headers
 
 import type { PageEnvironmentMap, BaseEnvironmentKey, PageMetadata, HeaderData } from './types';
-import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment-prompts';
+import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
 
 // ============================================================================
 // PAGE TO ENVIRONMENT MAPPING

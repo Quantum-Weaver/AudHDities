@@ -8,7 +8,7 @@ import { ThemeCards } from '@/components/cosmic/ThemeCard';
 import { MoodFilters } from '@/components/cosmic/MoodFilters';
 import { PreviewPanels } from '@/components/cosmic/PreviewPanels';
 import { SelectButton } from '@/components/cosmic/SelectButton';
-import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment-prompts';
+import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
 
 export const metadata = {
   title: 'The Realms | Sovereign Sanctuary',

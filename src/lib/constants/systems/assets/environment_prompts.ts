@@ -1,4 +1,4 @@
-// lib/constants/systems/assets/environment-prompts.ts
+// lib/constants/systems/assets/environment_prompts.ts
 
 export interface EnvironmentPrompt {
   environment_name: string;

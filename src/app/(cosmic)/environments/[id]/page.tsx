@@ -9,7 +9,7 @@ import { MoodIndicators } from '@/components/cosmic/MoodIndicators';
 import { ColorPalette } from '@/components/cosmic/ColorPalette';
 import { ThemeInfo } from '@/components/cosmic/ThemeInfo';
 import { ApplyButton } from '@/components/cosmic/ApplyButton';
-import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment-prompts';
+import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
 
 interface RealmDetailPageProps {
   params: Promise<{ id: string }>;

@@ -6,7 +6,7 @@
 
 import { z } from 'zod';
 
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/iris-communications/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
 
 // =====================================================
 // Surveys SCHEMAS

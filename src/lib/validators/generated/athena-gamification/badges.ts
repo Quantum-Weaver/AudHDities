@@ -9,7 +9,7 @@ import { z } from 'zod';
 import { BADGE_RARITY } from '@/lib/constants/generated/athena-gamification/badge_rarity';
 import { BADGE_TIER } from '@/lib/constants/generated/athena-gamification/badge_tier';
 import { BADGE_TYPE } from '@/lib/constants/generated/athena-gamification/badge_type';
-import { COUNCIL_HOUSE } from '@/lib/constants/generated/athena-gamification/council_house';
+import { COUNCIL_HOUSE } from '@/lib/constants/generated/hestia-core/council_house';
 
 // =====================================================
 // Badges SCHEMAS

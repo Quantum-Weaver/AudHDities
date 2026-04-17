@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { DOMAIN_COLORS } from "@/lib/constants/cosmic/colors";
-import { EnvironmentPromptMap } from "@/lib/constants/systems/assets/environment-prompts";
+import { EnvironmentPromptMap } from "@/lib/constants/systems/assets/environment_prompts";
 
 export interface ThemeCardProps {
   className?: string;

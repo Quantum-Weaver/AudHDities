@@ -7,7 +7,7 @@
 import { z } from 'zod';
 
 import { ACID_PERSONA } from '@/lib/constants/generated/mnemosyne-assessment/acid_persona';
-import { USER_TIER } from '@/lib/constants/generated/mnemosyne-assessment/user_tier';
+import { USER_TIER } from '@/lib/constants/generated/hestia-core/user_tier';
 
 // =====================================================
 // AcidTestResults SCHEMAS
