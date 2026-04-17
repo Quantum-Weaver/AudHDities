@@ -3,7 +3,7 @@
 // Feeling: Creative, fluid, expressive
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { Canvas } from '@/components/studio/Canvas';
 import { BrushTool } from '@/components/studio/BrushTool';
 import { ColorPicker } from '@/components/studio/ColorPicker';

@@ -3,7 +3,7 @@
 // Feeling: Connected, expansive, liberating
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { FormatSelector } from '@/components/studio/FormatSelector';
 import { QualitySettings } from '@/components/studio/QualitySettings';
 import { PlatformPresets } from '@/components/studio/PlatformPresets';

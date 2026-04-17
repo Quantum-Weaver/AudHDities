@@ -3,7 +3,7 @@
 // Feeling: Connected, engaged, communal
 
 import { notFound, redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { MessageFeed } from '@/components/connect/MessageFeed';
 import { MemberList } from '@/components/connect/MemberList';
 import { ChannelInfo } from '@/components/connect/ChannelInfo';

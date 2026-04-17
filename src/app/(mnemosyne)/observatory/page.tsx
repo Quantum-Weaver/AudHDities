@@ -2,7 +2,7 @@
 // The Observatory - Memory and vision hub
 // Feeling: Awe-inspiring, reflective, cosmic, visionary
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { TimelinePreview } from '@/components/observatory/TimelinePreview';
 import { PatternCloud } from '@/components/observatory/PatternCloud';
 import { VisionBoard } from '@/components/observatory/VisionBoard';

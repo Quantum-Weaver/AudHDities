@@ -2,7 +2,7 @@
 // The Gateway - API documentation, developer portal
 // Feeling: Powerful, accessible, expansive
 
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { EndpointList } from '@/components/aethelred/nexus/EndpointList';
 import { DocumentationView } from '@/components/aethelred/nexus/DocumentationView';
 import { CodeExamples } from '@/components/aethelred/nexus/CodeExamples';

@@ -2,7 +2,7 @@
 // The Echo - Past performance recordings
 // Feeling: Nostalgic, reflective, celebratory
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { VideoGrid } from '@/components/stage/VideoGrid';
 import { SearchFilter } from '@/components/stage/SearchFilter';
 import { CategoryTabs } from '@/components/stage/CategoryTabs';

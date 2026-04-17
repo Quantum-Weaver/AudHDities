@@ -2,7 +2,7 @@
 // Now Playing - All currently live performances
 // Feeling: Energetic, euphoric, connected
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { LiveGrid } from '@/components/stage/LiveGrid';
 import { createServerSupabase } from '@/lib/supabase/server';
 

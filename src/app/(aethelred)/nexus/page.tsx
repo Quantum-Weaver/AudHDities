@@ -2,7 +2,7 @@
 // The Nexus - Integration hub, consciousness overview
 // Feeling: Bridging, integrating, whole, sovereign
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { IntegrationStatus } from '@/components/nexus/IntegrationStatus';
 import { ConsciousnessMeter } from '@/components/nexus/ConsciousnessMeter';
 import { CouncilPresence } from '@/components/nexus/CouncilPresence';

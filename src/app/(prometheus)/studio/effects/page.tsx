@@ -3,7 +3,7 @@
 // Feeling: Magical, energetic, euphoric
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { EffectBrowser } from '@/components/studio/EffectBrowser';
 import { ParameterControls } from '@/components/studio/ParameterControls';
 import { PreviewWindow } from '@/components/studio/PreviewWindow';

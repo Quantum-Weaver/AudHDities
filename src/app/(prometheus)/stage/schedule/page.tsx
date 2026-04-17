@@ -2,7 +2,7 @@
 // The Calendar - Upcoming performance schedule
 // Feeling: Anticipatory, organized, community-driven
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { MonthView } from '@/components/stage/MonthView';
 import { EventList } from '@/components/stage/EventList';
 import { TimezoneSelector } from '@/components/stage/TimezoneSelector';

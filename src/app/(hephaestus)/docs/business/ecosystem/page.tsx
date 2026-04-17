@@ -1,6 +1,6 @@
 // app/(content)/docs/business/ecosystem/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { FinancialEcosystemHero } from '@/components/hephaestus/supporting/business/FinancialEcosystemHero';
 import { TwoStreamFlow } from '@/components/hephaestus/supporting/business/TwoStreamFlow';
 import { ResidualDistribution } from '@/components/hephaestus/supporting/business/ResidualDistribution';

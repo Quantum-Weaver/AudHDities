@@ -2,7 +2,7 @@
 // The Bridge - Communication hub
 // Feeling: Connected, understood, welcomed, celebrated
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { MessageSummary } from '@/components/connect/MessageSummary';
 import { ChannelList } from '@/components/connect/ChannelList';
 import { OnlineFriends } from '@/components/connect/OnlineFriends';

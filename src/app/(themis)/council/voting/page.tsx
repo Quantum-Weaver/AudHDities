@@ -2,7 +2,7 @@
 // The Vote - Active voting opportunities
 // Feeling: Engaged, empowered, responsible
 
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { ActiveProposals } from '@/components/council/ActiveProposals';
 import { VoteButtons } from '@/components/council/VoteButtons';
 import { WeightDisplay } from '@/components/council/WeightDisplay';

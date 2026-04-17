@@ -1,6 +1,6 @@
 // src/app/(contents)/vision/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { VisionHero } from '@/components/hephaestus/supporting/vision/VisionHero';
 import { WorldWithoutExploitation } from '@/components/hephaestus/supporting/vision/WorldWithoutExploitation';
 import { PillarCard } from '@/components/hephaestus/supporting/vision/PillarCard';

@@ -2,7 +2,7 @@
 // The Calling - Job listings, opportunities
 // Feeling: Hopeful, purposeful, inviting
 /*
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { JobListings } from '@/components/hephaestus/supporting/JobListings';
 import { ApplicationForm } from '@/components/hephaestus/supporting/forms/ApplicationForm';
 import { CultureDeck } from '@/components/hephaestus/supporting/CultureDeck';

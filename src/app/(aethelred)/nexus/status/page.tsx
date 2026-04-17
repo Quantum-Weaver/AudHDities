@@ -2,7 +2,7 @@
 // The Health - System status, health metrics
 // Feeling: Secure, transparent, reliable
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { SystemMetrics } from '@/components/nexus/SystemMetrics';
 import { ServiceStatus } from '@/components/nexus/ServiceStatus';
 import { IncidentHistory } from '@/components/nexus/IncidentHistory';

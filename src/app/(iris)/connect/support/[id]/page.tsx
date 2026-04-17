@@ -3,7 +3,7 @@
 // Feeling: Safe, responsive, caring
 
 import { notFound, redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { MessageThread } from '@/components/connect/MessageThread';
 import { AttachmentUpload } from '@/components/connect/AttachmentUpload';
 import { StatusBadge } from '@/components/connect/StatusBadge';

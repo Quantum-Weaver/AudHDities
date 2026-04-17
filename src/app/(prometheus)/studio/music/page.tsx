@@ -3,7 +3,7 @@
 // Feeling: Flow, creative, euphoric
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { DAWInterface } from '@/components/studio/DAWInterface';
 import { TrackList } from '@/components/studio/TrackList';
 import { MidiController } from '@/components/studio/MidiController';

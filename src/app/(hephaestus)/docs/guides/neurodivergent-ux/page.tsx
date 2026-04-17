@@ -1,7 +1,7 @@
 // app/(content)/docs/guides/neurodivergent-ux/page.tsx
 
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { UXHero } from '@/components/hephaestus/supporting/ux/UXHero';
 import { PrincipleCard } from '@/components/hephaestus/supporting/ux/PrincipleCard';
 import { CodePlayground } from '@/components/hephaestus/supporting/ux/CodePlayground';

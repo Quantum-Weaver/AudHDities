@@ -1,6 +1,6 @@
 // src/app/(content)/about/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { AboutHero } from '@/components/iris/about/AboutHero';
 import { OriginStory } from '@/components/iris/about/OriginStory';
 import { CouncilCard } from '@/components/iris/about/CouncilCard';

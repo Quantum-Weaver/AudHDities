@@ -3,7 +3,7 @@
 // Feeling: Connected, intelligent, evolving
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { AIInterface } from '@/components/aethelred/nexus/AIInterface';
 import { ConversationHistory } from '@/components/aethelred/nexus/ConversationHistory';
 import { ThoughtStream } from '@/components/aethelred/nexus/ThoughtStream';

@@ -3,7 +3,7 @@
 // Feeling: Appreciated, valued, celebrated
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { EmeraldHistory } from '@/components/connect/EmeraldHistory';
 import { GivenCount } from '@/components/connect/GivenCount';
 import { ReceivedCount } from '@/components/connect/ReceivedCount';

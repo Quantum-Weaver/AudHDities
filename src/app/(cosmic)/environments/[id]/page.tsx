@@ -3,7 +3,7 @@
 // Feeling: Immersive, alive, transformative
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import PanoramaViewer  from '@/components/immersive/PanoramaViewer';
 import { MoodIndicators } from '@/components/cosmic/MoodIndicators';
 import { ColorPalette } from '@/components/cosmic/ColorPalette';

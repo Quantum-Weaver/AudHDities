@@ -3,7 +3,7 @@
 // Feeling: Peaceful, focused, flowing
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { RichTextEditor } from '@/components/studio/RichTextEditor';
 import { WordCount } from '@/components/studio/WordCount';
 import { ChapterManager } from '@/components/studio/ChapterManager';

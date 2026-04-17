@@ -1,6 +1,6 @@
 // app/(content)/docs/architecture/residual-system/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { ResidualHero } from '@/components/hermes/bazaar/residual/ResidualHero';
 import { FlowDiagram } from '@/components/hermes/bazaar/residual/FlowDiagram';
 import { ContributionBreakdown } from '@/components/hermes/bazaar/residual/ContributionBreakdown';

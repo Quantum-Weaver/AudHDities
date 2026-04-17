@@ -1,6 +1,6 @@
 // app/(auth)/checkout/cancel/page.tsx
 import Link from "next/link";
-import { Page } from "@/components/layout/Page";
+import { Page } from "@/components/shared/Page";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { XCircle } from "lucide-react";

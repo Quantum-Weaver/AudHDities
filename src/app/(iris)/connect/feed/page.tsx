@@ -2,7 +2,7 @@
 // The Pulse - Social feed, activity stream
 // Feeling: Alive, connected, informed
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { PostStream } from '@/components/connect/PostStream';
 import { LikeButton } from '@/components/connect/LikeButton';
 import { CommentField } from '@/components/connect/CommentField';

@@ -5,7 +5,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { EffectGallery } from '@/components/cosmic/EffectGallery';
 import { ParameterSliders } from '@/components/cosmic/ParameterSliders';
 import { LiveDemo } from '@/components/cosmic/LiveDemo';

@@ -3,7 +3,7 @@
 // Feeling: Powerful, creative, transformative
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { TimelineEditor } from '@/components/studio/TimelineEditor';
 import { ClipTrimmer } from '@/components/studio/ClipTrimmer';
 import { TransitionLibrary } from '@/components/studio/TransitionLibrary';

@@ -3,7 +3,7 @@
 // Feeling: Welcoming, expansive, generous
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { InviteForm } from '@/components/connect/InviteForm';
 import { ReferralLink } from '@/components/connect/ReferralLink';
 import { SentInvites } from '@/components/connect/SentInvites';

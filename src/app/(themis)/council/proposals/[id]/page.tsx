@@ -3,7 +3,7 @@
 // Feeling: Contemplative, engaged, empowered
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ProposalText } from '@/components/council/ProposalText';
 import { DiscussionThread } from '@/components/council/DiscussionThread';
 import { VoteButtons } from '@/components/council/VoteButtons';

@@ -2,7 +2,7 @@
 // The Vision - Future possibilities
 // Feeling: Visionary, hopeful, expansive
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { FutureProjections } from '@/components/observatory/FutureProjections';
 import { PossibilityTree } from '@/components/observatory/PossibilityTree';
 import { ProbabilityMeter } from '@/components/observatory/ProbabilityMeter';

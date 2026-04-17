@@ -2,7 +2,7 @@
 // Constellations - Connection web
 // Feeling: Connected, cosmic, interwoven
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { NetworkGraph } from '@/components/observatory/NetworkGraph';
 import { ConnectionLines } from '@/components/observatory/ConnectionLines';
 import { NodeClusters } from '@/components/observatory/NodeClusters';

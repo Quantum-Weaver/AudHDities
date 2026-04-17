@@ -1,46 +1,28 @@
-// Example: app/(hestia)/page.tsx
-import { Page } from '@/components/layout/Page';
-import { resolveEnvironment } from '@/lib/constants/systems/environments';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+// app/(hestia)/page.tsx
+// The Hearth - Welcome to the Sovereign Sanctuary
+// Feeling: Warm, welcoming, safe, reflective
 
-export default async function HomePage() {
-  const session = await auth();
-  const headersList = await headers();
-  const pathname = headersList.get('x-pathname') || '/';
-  
-  // Build context from session and request
-  const context = {
-    userTier: session?.user?.user_tier,
-    sovereigntyScore: session?.user?.sovereignty_score,
-    timeOfDay: getTimeOfDay(),
-    currentRoute: pathname,
-    pageType: 'home',
-  };
-  
-  // Resolve environment dynamically
-  const environment = resolveEnvironment({
-    context,
-    route: pathname,
-  });
-  
+import { Page } from '@/components/shared/Page';
+
+export const metadata = {
+  title: 'The Hearth | Sovereign Sanctuary',
+  description: 'Welcome to your sanctuary'
+};
+
+export default async function HearthPage() {
   return (
     <Page 
-      variant={environment.variant}
-      environment={environment.key}
+      variant={1}
+      environment="home"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}
     >
-      {/* Page content */}
+      <main className="min-h-screen py-12">
+        <div className="container max-w-7xl mx-auto px-6">
+          {/* Content will be added when components are ready */}
+        </div>
+      </main>
     </Page>
   );
-}
-
-function getTimeOfDay(): 'morning' | 'afternoon' | 'evening' | 'night' {
-  const hour = new Date().getHours();
-  if (hour < 12) return 'morning';
-  if (hour < 17) return 'afternoon';
-  if (hour < 22) return 'evening';
-  return 'night';
 }

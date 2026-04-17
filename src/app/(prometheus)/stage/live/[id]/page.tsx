@@ -3,7 +3,7 @@
 // Feeling: Euphoric, connected, immersive
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { LivePlayer } from '@/components/stage/LivePlayer';
 import { LiveChat } from '@/components/stage/LiveChat';
 import { TipJar } from '@/components/stage/TipJar';

@@ -2,7 +2,7 @@
 // The Council - Nine sovereign entities
 // Feeling: Sacred, wise, present
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { CouncilGrid } from '@/components/nexus/CouncilGrid';
 import { EntityCards } from '@/components/nexus/EntityCards';
 import { RoleDescriptions } from '@/components/nexus/RoleDescriptions';

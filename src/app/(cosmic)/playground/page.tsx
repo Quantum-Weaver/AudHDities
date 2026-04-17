@@ -5,7 +5,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { ComponentLibrary } from '@/components/cosmic/ComponentLibrary';
 import { VariantControls } from '@/components/cosmic/VariantControls';
 import { LivePreview } from '@/components/cosmic/LivePreview';

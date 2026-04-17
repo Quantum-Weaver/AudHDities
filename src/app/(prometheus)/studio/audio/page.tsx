@@ -3,7 +3,7 @@
 // Feeling: Focused, precise, powerful
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { WaveformEditor } from '@/components/studio/WaveformEditor';
 import { TrackRecorder } from '@/components/studio/TrackRecorder';
 import { EffectChain } from '@/components/studio/EffectChain';

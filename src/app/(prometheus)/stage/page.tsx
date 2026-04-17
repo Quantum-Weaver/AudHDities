@@ -2,7 +2,7 @@
 // The Stage - Live performances hub
 // Feeling: Energetic, creative, flowing, euphoric
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { EventCarousel } from '@/components/stage/EventCarousel';
 import { UpcomingList } from '@/components/stage/UpcomingList';
 import { FeaturedPerformers } from '@/components/stage/FeaturedPerformers';

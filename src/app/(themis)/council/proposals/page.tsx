@@ -2,7 +2,7 @@
 // Proposals - All governance proposals
 // Feeling: Collaborative, transparent, engaging
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ProposalCards } from '@/components/council/ProposalCards';
 import { StatusFilters } from '@/components/council/StatusFilters';
 import { CategoryTags } from '@/components/council/CategoryTags';

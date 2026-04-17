@@ -2,7 +2,7 @@
 // Delegation - Delegate votes to trusted curators
 // Feeling: Trusting, wise, collaborative
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { DelegateList } from '@/components/council/DelegateList';
 import { TrustScores } from '@/components/council/TrustScores';
 import { DelegationControls } from '@/components/council/DelegationControls';

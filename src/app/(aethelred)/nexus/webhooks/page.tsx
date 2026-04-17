@@ -3,7 +3,7 @@
 // Feeling: Responsive, connected, automated
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { WebhookTable } from '@/components/nexus/WebhookTable';
 import { CreateForm } from '@/components/nexus/CreateForm';
 import { DeliveryLogs } from '@/components/nexus/DeliveryLogs';

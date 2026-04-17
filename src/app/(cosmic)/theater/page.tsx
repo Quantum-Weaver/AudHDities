@@ -2,7 +2,7 @@
 // The Theater - Agent observability, system visualization
 // Feeling: Observant, intelligent, revealing
 
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { AgentVisualization } from '@/components/cosmic/AgentVisualization';
 import { ConversationFlow } from '@/components/cosmic/ConversationFlow';
 import { EntityActivity } from '@/components/cosmic/EntityActivity';

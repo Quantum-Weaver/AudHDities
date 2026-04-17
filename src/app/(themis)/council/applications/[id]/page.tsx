@@ -3,7 +3,7 @@
 // Feeling: Detailed, hopeful, transparent
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ApplicationForm } from '@/components/council/ApplicationForm';
 import { ReviewStatus } from '@/components/council/ReviewStatus';
 import { ReviewerNotes } from '@/components/council/ReviewerNotes';

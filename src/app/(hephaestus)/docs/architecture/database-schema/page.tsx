@@ -1,7 +1,7 @@
 // app/(content)/docs/architecture/database-schema/page.tsx
 
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { SchemaHero } from '@/components/hephaestus/supporting/schema/SchemaHero';
 import { SchemaTableCard } from '@/components/hephaestus/supporting/schema/SchemaTableCard';
 import { SchemaEnumCard } from '@/components/hephaestus/supporting//schema/SchemaEnumCard';

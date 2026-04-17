@@ -2,7 +2,7 @@
 // The Comedy Hearth - Comedy performances hub
 // Feeling: Playful, intimate, joyful
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ComedyGrid } from '@/components/stage/ComedyGrid';
 import { SpecialHighlights } from '@/components/stage/SpecialHighlights';
 import { ComedianProfiles } from '@/components/stage/ComedianProfiles';

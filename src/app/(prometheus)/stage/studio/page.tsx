@@ -3,7 +3,7 @@
 // Feeling: Creative, empowering, prepared
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { StreamSetup } from '@/components/stage/StreamSetup';
 import { SceneEditor } from '@/components/stage/SceneEditor';
 import { OverlayManager } from '@/components/stage/OverlayManager';

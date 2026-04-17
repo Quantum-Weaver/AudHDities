@@ -1,6 +1,6 @@
 // app/(auth)/checkout/success/page.tsx
 import { Suspense } from "react";
-import { Page } from "@/components/layout/Page";
+import { Page } from "@/components/shared/Page";
 import { CheckoutForm } from "@/components/hermes/bazaar/checkout/CheckoutForm";
 
 export const metadata = {

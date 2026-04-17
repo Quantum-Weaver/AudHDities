@@ -3,7 +3,7 @@
 // Feeling: Abundant, curious, playful, connected
 // Environment: community (social marketplace)
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ProductGrid } from '@/components/hermes/ProductGrid';
 import { SearchBar } from '@/components/hermes/SearchBar';
 import { FilterSidebar } from '@/components/hermes/FilterSidebar';

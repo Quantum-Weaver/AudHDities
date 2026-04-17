@@ -2,7 +2,7 @@
 // The Music Realm - Music performances hub
 // Feeling: Energetic, flowing, euphoric
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { MusicGrid } from '@/components/stage/MusicGrid';
 import { GenreRadios } from '@/components/stage/GenreRadios';
 import { FeaturedArtists } from '@/components/stage/FeaturedArtists';

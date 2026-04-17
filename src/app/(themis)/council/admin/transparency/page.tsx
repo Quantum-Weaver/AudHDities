@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { TextArea } from '@/components/ui/TextArea';

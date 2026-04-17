@@ -3,7 +3,7 @@
 // Feeling: Joyful, intimate, hilarious
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { VideoPlayer } from '@/components/stage/VideoPlayer';
 import { JokeMeter } from '@/components/stage/JokeMeter';
 import { AudienceReactions } from '@/components/stage/AudienceReactions';

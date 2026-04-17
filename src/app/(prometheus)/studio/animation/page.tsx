@@ -3,7 +3,7 @@
 // Feeling: Generative, fluid, magical
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { Timeline } from '@/components/studio/Timeline';
 import { FrameEditor } from '@/components/studio/FrameEditor';
 import { OnionSkin } from '@/components/studio/OnionSkin';

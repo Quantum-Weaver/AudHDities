@@ -2,7 +2,7 @@
 // The Realms - Environment showcase, selection
 // Feeling: Immersive, beautiful, responsive, alive
 
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { EnvironmentGrid } from '@/components/cosmic/EnvironmentGrid';
 import { ThemeCards } from '@/components/cosmic/ThemeCard';
 import { MoodFilters } from '@/components/cosmic/MoodFilters';

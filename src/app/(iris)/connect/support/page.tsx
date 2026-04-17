@@ -2,7 +2,7 @@
 // The Healing Flame - Support requests, crisis resources
 // Feeling: Safe, gentle, healing, restorative
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { SupportForm } from '@/components/connect/SupportForm';
 import { CategorySelect } from '@/components/connect/CategorySelect';
 import { UrgencyIndicator } from '@/components/connect/UrgencyIndicator';

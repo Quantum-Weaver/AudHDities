@@ -1,7 +1,7 @@
 // app/(content)/docs/privacy/page.tsx
 
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { PrivacyHero } from '@/components/hephaestus/supporting/legal/PrivacyHero';
 import { ParsedPrivacyContent } from '@/components/hephaestus/supporting/legal/ParsedPrivacyContent';
 import { TermsFooter } from '@/components/hephaestus/supporting/legal/TermsFooter';

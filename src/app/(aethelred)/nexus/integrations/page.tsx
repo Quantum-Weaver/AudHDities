@@ -3,7 +3,7 @@
 // Feeling: Connected, expansive, powerful
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ConnectionCards } from '@/components/nexus/ConnectionCards';
 import { StatusIndicators } from '@/components/nexus/StatusIndicators';
 import { ReconnectButtons } from '@/components/nexus/ReconnectButtons';

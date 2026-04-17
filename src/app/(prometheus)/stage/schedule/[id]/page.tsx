@@ -3,7 +3,7 @@
 // Feeling: Anticipatory, excited, prepared
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { EventInfo } from '@/components/stage/EventInfo';
 import { ReminderButton } from '@/components/stage/ReminderButton';
 import { AddToCalendar } from '@/components/stage/AddToCalendar';

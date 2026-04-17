@@ -1,6 +1,6 @@
 // app/(content)/docs/architecture/auth-flow/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { AuthFlowHero } from '@/components/hephaestus/supporting/docs/AuthFlowHero';
 import { FlowDiagram } from '@/components/hephaestus/supporting/docs/FlowDiagram';
 import { StepCard } from '@/components/hephaestus/supporting/docs/StepCard';

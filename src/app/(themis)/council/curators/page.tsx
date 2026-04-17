@@ -2,7 +2,7 @@
 // Curators - Trusted wisdom-holders
 // Feeling: Respectful, trustworthy, wise
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { CuratorProfiles } from '@/components/council/CuratorProfiles';
 import { WisdomScores } from '@/components/council/WisdomScores';
 import { EndorsementCounts } from '@/components/council/EndorsementCounts';

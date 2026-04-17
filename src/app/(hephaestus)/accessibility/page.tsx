@@ -4,7 +4,7 @@
 
 'use client';
 
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { FeatureList } from '@/components/hephaestus/supporting/FeatureList';
 import { ScreenReaderInfo } from '@/components/hephaestus/supporting/ScreenReaderInfo';
 import { KeyboardShortcuts } from '@/components/hephaestus/supporting/KeyBoardShortcuts';

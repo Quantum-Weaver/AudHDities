@@ -2,7 +2,7 @@
 // Applications - Creator/vendor/curator applications
 // Feeling: Hopeful, aspirational, welcoming
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ApplicationList } from '@/components/council/ApplicationList';
 import { ReviewQueue } from '@/components/council/ReviewQueue';
 import { StatusFilters } from '@/components/council/StatusFilters';

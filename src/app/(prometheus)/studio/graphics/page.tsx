@@ -3,7 +3,7 @@
 // Feeling: Generative, magical, efficient
 
 import { redirect } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { BackgroundRemover } from '@/components/studio/BackgroundRemover';
 import { AssetGenerator } from '@/components/studio/AssetGenerator';
 import { FilterGallery } from '@/components/studio/FilterGallery';

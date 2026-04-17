@@ -2,7 +2,7 @@
 // Reports - Moderation reports and transparency
 // Feeling: Accountable, just, protective
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { ReportList } from '@/components/council/ReportList';
 import { StatusBadges } from '@/components/council/StatusBadges';
 import { ResolutionDetails } from '@/components/council/ResolutionDetails';

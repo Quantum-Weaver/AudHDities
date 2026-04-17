@@ -4,7 +4,7 @@
 
 'use client';
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { LanguageSelector } from '@/components/connect/LanguageSelector';
 import { TranslationToggle } from '@/components/connect/TranslationToggle';
 import { ContributeButton } from '@/components/connect/ContributeButton';

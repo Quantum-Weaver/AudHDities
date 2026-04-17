@@ -2,7 +2,7 @@
 // Ancestors - Honoring those who came before
 // Feeling: Reverent, grateful, connected across time
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { LegacyGrid } from '@/components/observatory/LegacyGrid';
 import { ContributorProfiles } from '@/components/observatory/ContributorProfiles';
 import { HonorBadges } from '@/components/observatory/HonorBadges';

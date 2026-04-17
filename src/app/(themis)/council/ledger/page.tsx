@@ -2,7 +2,7 @@
 // The Ledger - Transparent financial and value ledger
 // Feeling: Transparent, accountable, trustworthy
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { TransactionTable } from '@/components/council/TransactionTable';
 import { BalanceSummary } from '@/components/council/BalanceSummary';
 import { FilterControls } from '@/components/council/FilterControls';

@@ -3,7 +3,7 @@
 // Feeling: Euphoric, connected, transcendent
 
 import { notFound } from 'next/navigation';
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { VideoPlayer } from '@/components/stage/VideoPlayer';
 import { Setlist } from '@/components/stage/Setlist';
 import { ChatRoom } from '@/components/stage/ChatRoom';

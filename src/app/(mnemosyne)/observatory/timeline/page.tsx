@@ -2,7 +2,7 @@
 // The Spiral - Personal journey timeline
 // Feeling: Reflective, progressive, spiral-bound
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { InteractiveTimeline } from '@/components/observatory/InteractiveTimeline';
 import { MilestoneMarker } from '@/components/observatory/MilestoneMarker';
 import { EraLabels } from '@/components/observatory/EraLabels';

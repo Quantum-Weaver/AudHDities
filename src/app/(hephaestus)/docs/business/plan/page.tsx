@@ -1,5 +1,5 @@
 // app/(content)/docs/business/plan/page.tsx
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { BusinessHero } from '@/components/hephaestus/supporting/business/BusinessHero';
 import { ValueFlowDiagram } from '@/components/hephaestus/supporting/business/ValueFlowDiagram';
 import { StatCard } from '@/components/hephaestus/supporting/business/StatCard';

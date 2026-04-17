@@ -5,7 +5,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Page } from '@/components/layout/Page';
+import { Page } from '@/components/shared/Page';
 import { DonationTiers } from '@/components/hephaestus/supporting/DonationTiers';
 import { ImpactCalculator } from '@/components/hephaestus/supporting/ImpactCalculator';
 import { RecurringOptions } from '@/components/hephaestus/supporting/RecurringOptions';

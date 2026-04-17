@@ -2,7 +2,7 @@
 // The Origin - Where it all began
 // Feeling: Sacred, foundational, awakening
 
-import { Page } from '@/components/arrchive/layout/Page';
+import { Page } from '@/components/arrchive/shared/Page';
 import { FoundingStory } from '@/components/observatory/FoundingStory';
 import { TimelineSlider } from '@/components/observatory/TimelineSlider';
 import { KeyMoments } from '@/components/observatory/KeyMoments';
