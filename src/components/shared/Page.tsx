@@ -1,4 +1,4 @@
-// @/components/layout/Page.tsx
+// @/components/shared/Page.tsx
 // Page wrapper - every page uses this
 // Provides environment, continuity beam, status bar structure
 

@@ -698,7 +698,7 @@ function InvitationCardContent({ data }: { data: CardData & { type: 'invitation'
           </Badge>
         )}
         {isExpired && !data.isAccepted && (
-          <Badge variant="destructive" size="sm" className="bg-red-500/20 text-red-400">
+          <Badge variant="warning" size="sm" className="bg-red-500/20 text-red-400">
             Expired
           </Badge>
         )}

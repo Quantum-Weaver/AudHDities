@@ -68,7 +68,7 @@ export function SearchBar({
         {value && !isLoading && (
           <Button
             variant="ghost"
-            size="icon-xs"
+            size="xs"
             onClick={handleClear}
             aria-label="Clear search"
           >

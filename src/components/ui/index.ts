@@ -20,6 +20,6 @@ export * from './Slider.js';
 export * from './Spinner.js';
 export * from './Switch.js';
 export * from './Tabs.js';
-export * from './Textarea.js';
+export * from './TextArea.js';
 export * from './Tooltip.js';
-export * from './input.js';
+export * from './Input.js';

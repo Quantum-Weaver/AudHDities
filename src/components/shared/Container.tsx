@@ -1,4 +1,4 @@
-// @/components/layout/Container.tsx
+// @/components/shared/Container.tsx
 // Max-width container with responsive padding
 
 "use client"

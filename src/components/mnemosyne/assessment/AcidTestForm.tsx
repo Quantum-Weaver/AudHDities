@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Slider } from "@/components/ui/Slider";
-import { RadioGroup, RadioItem } from "@/components/ui/RadioGroup";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/RadioGroup";
 import { TextArea } from "@/components/ui/TextArea";
 import { Label } from "@/components/ui/Label";
 
@@ -126,10 +126,9 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
           className="space-y-3"
         >
           {question.answers.map((answer) => (
-            <RadioItem
+            <RadioGroupItem
               key={answer.id}
-              value={answer.id}
-              label={answer.answer_text}
+              value={answer.answer_text}
               className="w-full p-4 border border-white/10 rounded-lg data-[state=checked]:border-cyan-500 data-[state=checked]:bg-cyan-500/10"
             />
           ))}
@@ -153,8 +152,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
       return (
         <div className="space-y-4">
           <Slider
-            value={typeof currentValue === "number" ? [currentValue] : [50]}
-            onValueChange={handleSliderChange}
+            onChange={handleSliderChange}
             min={0}
             max={100}
             step={1}
