@@ -38,7 +38,7 @@ function generateContentHash(content: string): string {
  */
 function buildGeneratedPath(filePath: string): string {
   // Insert '/generated/' after the first directory after src/
-  // Example: src/types/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
+  // Example: src/types/generated/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
   const parts = filePath.split(path.sep);
   const srcIndex = parts.indexOf('src');
   if (srcIndex !== -1 && parts.length > srcIndex + 2) {

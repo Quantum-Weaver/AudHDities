@@ -19,7 +19,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
  */
 export async function createProfiles(data: ProfilesInsert): Promise<{ data: ProfilesRow | null; error: string | null }> {
   try {
-    const validated = ProfilesRowSchema.parse(data);
+    const validated = ProfilesInsertSchema.parse(data);
     const supabase = await createApiSupabase();
     
     const { data: result, error } = await supabase

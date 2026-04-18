@@ -9,6 +9,7 @@ import { ProductsRowSchema, ProductsInsertSchema, ProductsUpdateSchema } from '@
 
 import { errorResponse, getFilters, getPaginationParams, getSortParams, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
+import { success } from 'zod';
 
 // =====================================================
 // Products CRUD OPERATIONS

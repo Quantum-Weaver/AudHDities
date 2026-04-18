@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { TextArea } from '@/components/ui/TextArea';
 import { CheckCircle, XCircle, ChevronDown, ChevronUp, AlertCircle, User, Briefcase, Store } from 'lucide-react';
-import type { ApplicationWithUser } from '@/types/supabase/tables/applications';
+import type { ApplicationWithUser } from '@/types/generated/themis-governance/applications';
 
 interface ApplicationReviewProps {
   application: ApplicationWithUser;

@@ -21,7 +21,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('path_lessons')
       .select('*')
-      .eq('id', id)
+      .eq('lesson_id', id)
       .single();
     
     if (error) {
@@ -62,7 +62,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('path_lessons')
       .update(validated)
-      .eq('id', id)
+      .eq('lesson_id', id)
       .select()
       .single();
     
@@ -104,7 +104,7 @@ export async function DELETE(
     const { error } = await supabase
       .from('path_lessons')
       .delete()
-      .eq('id', id);
+      .eq('lesson_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') {

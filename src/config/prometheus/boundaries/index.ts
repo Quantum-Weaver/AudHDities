@@ -6,7 +6,7 @@
  */
 
 import type { BoundaryRule } from '@/scripts/system/prometheus/vetting';
-import { ProtocolLevel } from '@/lib/encryption';
+import { ProtocolLevel } from '@/lib/encryption/';
 
 /**
  * Boundary configuration

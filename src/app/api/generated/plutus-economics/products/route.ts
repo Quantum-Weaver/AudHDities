@@ -1,28 +1,51 @@
-import { errorResponse, getAuthenticatedUser, getFilters, getOptionalUser, getPaginationParams, getSortParams, successResponse, unauthorized } from '@/lib/api/auth';
-import { createApiSupabase } from '@/lib/api/supabase';
+// app/api/generated/plutus-economics/products/route.ts
+// =====================================================
+// PRODUCTS API - CRUD Operations
+// =====================================================
+
 import { NextRequest } from 'next/server';
+import { ZodError } from 'zod';
+
+import { createApiSupabase } from '@/lib/api/supabase';
+import {
+  getAuthenticatedUser,
+  successResponse,
+  errorResponse,
+  getPaginationParams,
+  getFilters,
+  getSortParams,
+  unauthorized,
+  forbidden,
+  notFound,
+} from '@/lib/api/auth';
+import { handleValidationError, handleDatabaseError } from '@/lib/api/errors';
+import { ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
+import { isAdmin, checkOwnership } from '@/lib/api/auth';
 
 // =====================================================
-// API ROUTE: /api/generated/plutus-economics/products
-// METHODS: GET, POST
-// GENERATED: 2026-04-17T22:45:10.310Z
-// SOURCE: database.types.ts
+// GET /api/generated/plutus-economics/products
+// List products with pagination, filtering, sorting
 // =====================================================
-import { ProductsRowSchema, ProductsInsertSchema, ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createApiSupabase();
-    const { userId } = await getOptionalUser(request);
-    const { page, limit } = getPaginationParams(request.nextUrl);
-    const filters = getFilters(request.nextUrl);
-    const { column: sortColumn, ascending } = getSortParams(request.nextUrl);
+    const { searchParams } = new URL(request.url);
+    const { page, limit } = getPaginationParams(new URL(request.url));
+    const filters = getFilters(new URL(request.url));
+    const { column: sortColumn, ascending } = getSortParams(new URL(request.url));
     
-    let query = supabase.from('products').select('*', { count: 'exact' });
+    const supabase = await createApiSupabase();
+    
+    // Start query
+    let query = supabase
+      .from('products')
+      .select('*', { count: 'exact' });
     
     // Apply filters
     Object.entries(filters).forEach(([key, value]) => {
-      query = query.eq(key, value);
+      if (value !== undefined && value !== '') {
+        query = query.eq(key, value);
+      }
     });
     
     // Apply sorting
@@ -35,49 +58,87 @@ export async function GET(request: NextRequest) {
     
     const { data, error, count } = await query;
     
-    if (error) throw error;
+    if (error) {
+      return handleDatabaseError(error);
+    }
+    
+    const totalPages = Math.ceil((count || 0) / limit);
     
     return successResponse({
-      data,
+      data: data || [],
       pagination: {
         page,
         limit,
         total: count || 0,
-        totalPages: Math.ceil((count || 0) / limit),
-        hasNext: page < Math.ceil((count || 0) / limit),
-        hasPrev: page > 1
-      }
+        totalPages,
+        hasNext: page < totalPages,
+        hasPrev: page > 1,
+      },
     });
   } catch (error) {
-    console.error('Error fetching products:', error);
-    return errorResponse('Failed to fetch products', 500);
+    console.error('GET /products error:', error);
+    if (error instanceof ZodError) {
+      return handleValidationError(error);
+    }
+    return errorResponse('Internal server error', 500);
   }
 }
+
+// =====================================================
+// POST /api/generated/plutus-economics/products
+// Create a new product
+// =====================================================
+
 export async function POST(request: NextRequest) {
   try {
-    const { userId, success } = await getAuthenticatedUser(request);
-    if (!success) {
+    // Verify authentication
+    const auth = await getAuthenticatedUser(request);
+    if (!auth.success) {
       return unauthorized();
     }
     
+    // Parse and validate request body
     const body = await request.json();
-    const validated = ProductsInsertSchema.parse(body);
+    const validatedData = ProductsInsertSchema.parse(body);
+    
+    // Ensure creator_id matches authenticated user
+    if (validatedData.creator_id !== auth.userId) {
+      return forbidden();
+    }
     
     const supabase = await createApiSupabase();
+    
+    // Check if user is a creator
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('is_creator, is_admin')
+      .eq('id', auth.userId)
+      .single();
+    
+    if (!profile?.is_creator && !profile?.is_admin) {
+      return errorResponse('Only creators can create products', 403);
+    }
+    
+    // Insert product
     const { data, error } = await supabase
       .from('products')
-      .insert({ ...validated, created_by: userId })
+      .insert({
+        ...validatedData,
+        created_by: auth.userId,
+      })
       .select()
       .single();
     
-    if (error) throw error;
+    if (error) {
+      return handleDatabaseError(error);
+    }
     
     return successResponse(data, 201);
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
-      return errorResponse('Validation failed', 400, error.issues);
+  } catch (error) {
+    console.error('POST /products error:', error);
+    if (error instanceof ZodError) {
+      return handleValidationError(error);
     }
-    console.error('Error creating products:', error);
-    return errorResponse('Failed to create products', 500);
+    return errorResponse('Internal server error', 500);
   }
 }

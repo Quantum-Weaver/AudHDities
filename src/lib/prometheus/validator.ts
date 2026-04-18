@@ -7,7 +7,7 @@
 
 import { z } from 'zod';
 
-import type { Blueprint } from '@/types/prometheus';
+import type { Blueprint } from '@/types/generated/prometheus-meta/prometheus_blueprints';
 
 /**
  * Blueprint validation schemas and logic

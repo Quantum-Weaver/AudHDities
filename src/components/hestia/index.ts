@@ -5,13 +5,11 @@ export * from './ContinueJourney.js';
 export * from './EnergyMeter.js';
 export * from './NotificationBell.js';
 export * from './QuickActions.js';
-export * from './RecentActivity.js';
 export * from './VesselCard.js';
 
 // =====================================================
 // PROFILES
 // =====================================================
-export * from './profiles/CommunityPreferences.js';
 export * from './profiles/CommunityProfile.js';
 export * from './profiles/CreatorCard.js';
 export * from './profiles/CreatorProfile.js';

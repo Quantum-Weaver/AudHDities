@@ -5,7 +5,6 @@
 // GENERATED: 2026-04-05T23:04:20.046Z
 // =====================================================
 export * from './categories';
-export * from './generated';
 export * from './preferences';
 export * from './roles';
 export * from './stripe';

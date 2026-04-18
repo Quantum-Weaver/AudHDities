@@ -36,7 +36,7 @@ export const ApplicationsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   form_data: z.any(),
-  id: z.string().optional(),
+  id: z.string(),
   onboarding_doc_path: z.string().nullable().optional(),
   onboarding_version: z.string().nullable().optional(),
   review_notes: z.string().nullable().optional(),
@@ -52,8 +52,8 @@ export const ApplicationsUpdateSchema = z.object({
   application_type: z.enum(Object.values(APPLICATION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  form_data: z.any().optional(),
-  id: z.string().optional(),
+  form_data: z.string(),
+  id: z.string(),
   onboarding_doc_path: z.string().nullable().optional(),
   onboarding_version: z.string().nullable().optional(),
   review_notes: z.string().nullable().optional(),
@@ -61,7 +61,7 @@ export const ApplicationsUpdateSchema = z.object({
   reviewed_by: z.string().nullable().optional(),
   status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  user_id: z.string(),
 });
 
 // =====================================================
