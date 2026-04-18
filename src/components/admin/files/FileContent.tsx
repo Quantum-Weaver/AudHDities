@@ -4,10 +4,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FileCode, Eye, Code, AlertCircle, Copy, Check, ChevronDown, ChevronUp } from 'lucide-react';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileContentProps {
-  file: FileRegistry;
+  file: PublicFileRegistry;
   defaultOpen?: boolean;
 }
 

@@ -7,11 +7,11 @@ import { ArrowLeft, Edit, Save, X, Trash2, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { useSupabase } from '@/lib/supabase/client';
 import FileTypeBadge from './FileTypeBadge';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileHeaderProps {
-  file: FileRegistry;
-  onUpdate: (updated: FileRegistry) => void;
+  file: PublicFileRegistry;
+  onUpdate: (updated: PublicFileRegistry) => void;
 }
 
 export default function FileHeader({ file, onUpdate }: FileHeaderProps) {

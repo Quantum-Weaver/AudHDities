@@ -1,4 +1,4 @@
-// src/components/governance/ApplicationForm.tsx
+// src/components/iris/apply/ApplicationForm.tsx
 // Application Form - Creator/Vendor applications
 // High effort form with multi-section layout, file uploads, and validation
 

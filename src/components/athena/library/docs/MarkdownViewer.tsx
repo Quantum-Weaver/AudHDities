@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { MarkdownBio } from '@/components/profiles/MarkdownBio';
+import { MarkdownBio } from '@/components/shared/MarkdownBio';
 import { Card } from '@/components/ui/Card';
 import { X } from 'lucide-react';
 

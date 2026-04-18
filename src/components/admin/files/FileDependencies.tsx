@@ -3,22 +3,22 @@
 
 import { motion } from 'framer-motion';
 import { Link, ArrowRight } from 'lucide-react';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileDependenciesProps {
-  file: FileRegistry;
-  allFiles: FileRegistry[];
+  file: PublicFileRegistry;
+  allFiles: PublicFileRegistry[];
 }
 
 export default function FileDependencies({ file, allFiles }: FileDependenciesProps) {
   // Find dependencies (simplified - would use actual import analysis)
   const dependencies = file.dependencies?.map(depPath => 
     allFiles.find(f => f.file_path === depPath)
-  ).filter(Boolean) as FileRegistry[];
+  ).filter(Boolean) as PublicFileRegistry[];
 
   const usedBy = file.used_by?.map(usePath =>
     allFiles.find(f => f.file_path === usePath)
-  ).filter(Boolean) as FileRegistry[];
+  ).filter(Boolean) as PublicFileRegistry[];
 
   if ((!dependencies || dependencies.length === 0) && (!usedBy || usedBy.length === 0)) {
     return null;

@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { CheckCircle, AlertTriangle, Archive, RefreshCw, Eye } from 'lucide-react';
 import { useSupabase } from '@/lib/supabase/client';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileActionsProps {
-  file: FileRegistry;
-  onUpdate: (updated: FileRegistry) => void;
+  file: PublicFileRegistry;
+  onUpdate: (updated: PublicFileRegistry) => void;
 }
 
 export default function FileActions({ file, onUpdate }: FileActionsProps) {
@@ -19,7 +19,7 @@ export default function FileActions({ file, onUpdate }: FileActionsProps) {
   const handleAction = async (action: 'review' | 'activate' | 'archive' | 'validate') => {
     setLoading(action);
     
-    let updates: Partial<FileRegistry> = {};
+    let updates: Partial<PublicFileRegistry> = {};
     switch (action) {
       case 'review':
         updates = { needs_review: false, last_validated: new Date().toISOString() };

@@ -7,7 +7,6 @@ export * from './CoverageHighlights.js';
 export * from './CultureDeck.js';
 export * from './DonationTiers.js';
 export * from './FeatureList.js';
-export * from './FontSizer.js';
 export * from './ImpactCalculator.js';
 export * from './InterviewRequests.js';
 export * from './JobListings.js';
@@ -49,11 +48,6 @@ export * from './docs/StepCard.js';
 // =====================================================
 // FORMS
 // =====================================================
-export * from './forms/AcidTestForm.js';
-export * from './forms/ApplicationForm.js';
-export * from './forms/PostForm.js';
-export * from './forms/ProfileSettingsForm.js';
-export * from './forms/channel.validator.js';
 
 // =====================================================
 // LEGAL
@@ -73,7 +67,6 @@ export * from './onboarding/ChecklistItem.js';
 export * from './onboarding/InfoTable.js';
 export * from './onboarding/NextSteps.js';
 export * from './onboarding/OnboardingHero.js';
-export * from './onboarding/StepCard.js';
 
 // =====================================================
 // SCHEMA

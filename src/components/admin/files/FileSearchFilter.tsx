@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, X, SlidersHorizontal } from 'lucide-react';
-import { FILE_CATEGORIES } from '@/types/supabase/tables/file_registry';
+import { FILE_CATEGORIES } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileSearchFilterProps {
   onSearch: (query: string) => void;

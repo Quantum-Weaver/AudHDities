@@ -10,17 +10,13 @@ export * from './VesselCard.js';
 // =====================================================
 // PROFILES
 // =====================================================
-export * from './profiles/CommunityProfile.js';
 export * from './profiles/CreatorCard.js';
 export * from './profiles/CreatorProfile.js';
 export * from './profiles/HouseBadge.js';
-export * from './profiles/MarkdownBio.js';
-export * from './profiles/ProfileBadges.js';
+export * from '../shared/MarkdownBio.js';
 export * from './profiles/ProfileCard.js';
-export * from './profiles/ProfileForm.js';
 export * from './profiles/ProfileHeader.js';
 export * from './profiles/ProfileIdentityCard.js';
-export * from './profiles/ProfileOverview.js';
 export * from './profiles/ProfileTabs.js';
 export * from './profiles/RoleBadge.js';
 export * from './profiles/SovereigntyScore.js';

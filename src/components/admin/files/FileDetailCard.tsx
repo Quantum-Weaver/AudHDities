@@ -6,11 +6,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSupabase } from '@/lib/supabase/client';
 import { Save, Edit, X, Check, AlertTriangle, Copy, ChevronDown, ChevronUp } from 'lucide-react';
 import FileTypeBadge from './FileTypeBadge';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileDetailCardProps {
-  file: FileRegistry;
-  onUpdate?: (updated: FileRegistry) => void;
+  file: PublicFileRegistry;
+  onUpdate?: (updated: PublicFileRegistry) => void;
   onClose?: () => void;
 }
 

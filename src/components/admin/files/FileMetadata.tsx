@@ -1,12 +1,12 @@
-// components/admin/files/FileMetadata.tsx
+// components/admin/files/file_metadata.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { Calendar, User, Hash, Tag, Layers, Activity } from 'lucide-react';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileMetadataProps {
-  file: FileRegistry;
+  file: PublicFileRegistry;
 }
 
 export default function FileMetadata({ file }: FileMetadataProps) {

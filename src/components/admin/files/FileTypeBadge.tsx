@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FILE_TYPE_EMOJIS, FILE_CATEGORIES } from '@/types/supabase/tables/file_registry';
+import { FILE_TYPE_EMOJIS, FILE_CATEGORIES } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileTypeBadgeProps {
   type: string;

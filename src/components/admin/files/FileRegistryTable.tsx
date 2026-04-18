@@ -1,4 +1,4 @@
-// components/admin/files/FileRegistryTable.tsx
+// components/admin/files/file_registry.tsx
 'use client';
 
 import { useState } from 'react';
@@ -6,22 +6,22 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Edit, Eye, AlertTriangle, CheckCircle, Archive, Search } from 'lucide-react';
 import FileTypeBadge from './FileTypeBadge';
-import type { FileRegistry } from '@/types/supabase/tables/file_registry';
+import type { PublicFileRegistry } from '@/types/generated/hephaestus-infrastructure/file_registry';
 
 interface FileRegistryTableProps {
-  files: FileRegistry[];
+  files: PublicFileRegistry[];
   onSelect?: (id: string) => void;
-  onBulkUpdate?: (ids: string[], updates: Partial<FileRegistry>) => void;
+  onBulkUpdate?: (ids: string[], updates: Partial<PublicFileRegistry>) => void;
 }
 
 export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryTableProps) {
-  const [sortField, setSortField] = useState<keyof FileRegistry>('file_path');
+  const [sortField, setSortField] = useState<keyof PublicFileRegistry>('file_path');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('all');
 
-  const handleSort = (field: keyof FileRegistry) => {
+  const handleSort = (field: keyof PublicFileRegistry) => {
     if (sortField === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
     } else {
@@ -60,7 +60,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
     }
   };
 
-  const SortIcon = ({ field }: { field: keyof FileRegistry }) => {
+  const SortIcon = ({ field }: { field: keyof PublicFileRegistry }) => {
     if (sortField !== field) return <ChevronDown size={14} className="opacity-30" />;
     return sortDirection === 'asc' ? <ChevronUp size={14} /> : <ChevronDown size={14} />;
   };

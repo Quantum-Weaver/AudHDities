@@ -15,7 +15,6 @@ export * from './EnvironmentGrid.js';
 export * from './FavoriteButton.js';
 export * from './FavoriteEffectsGallery.js';
 export * from './LiveDemo.js';
-export * from './LivePreview.js';
 export * from './MoodFilters.js';
 export * from './MoodIndicators.js';
 export * from './ObserverMode.js';
