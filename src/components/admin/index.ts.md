@@ -10,7 +10,7 @@ export * from './UserCard.js';
 export * from './files/FileActions.js';
 export * from './files/FileBulkActions.js';
 export * from './files/FileContent.js';
-export * from './files/FileDependencies.js';
+export * from './files/FileDependencies.tsx,md';
 export * from './files/FileDetailCard.js';
 export * from './files/FileHeader.js';
 export * from './files/FileHistory.js';
