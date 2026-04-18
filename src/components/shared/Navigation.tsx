@@ -59,8 +59,8 @@ export function Navigation({ className }: NavigationProps) {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className={cn('hidden md:flex items-center justify-between gap-4', className)}>
-        <div className="flex items-center gap-1">
+      <nav className={cn('justify-center h-min overflow-hidden gap-4', className)}>
+        <div className="md:flex text-center justify-center items-center gap-1">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -70,7 +70,7 @@ export function Navigation({ className }: NavigationProps) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+                  'flex items-center text-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                   isActive 
                     ? 'bg-white/10 text-white' 
                     : 'text-white/60 hover:text-white hover:bg-white/5'
@@ -87,7 +87,7 @@ export function Navigation({ className }: NavigationProps) {
             <Link
               href="/dashboard"
               className={cn(
-                'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+                'flex text-center items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                 pathname.startsWith('/dashboard')
                   ? 'bg-white/10 text-white'
                   : 'text-white/60 hover:text-white hover:bg-white/5'
@@ -97,10 +97,11 @@ export function Navigation({ className }: NavigationProps) {
               <span>Dashboard</span>
             </Link>
           )}
-        </div>
-        
+                  
         {/* Auth Button */}
         <AuthButton />
+        
+        </div>
       </nav>
 
       {/* Mobile Navigation */}

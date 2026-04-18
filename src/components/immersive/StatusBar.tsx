@@ -70,30 +70,15 @@ export function StatusBar({
 
   return (
     <div className={cn("w-full relative z-40", className)}>
-      {/* Continuity Beam */}
-      <div className="w-full h-2 relative overflow-hidden mb-4">
-        <motion.div
-          className={cn(
-            "h-full bg-gradient-to-r",
-            beamColorsMap[beamColor],
-            `opacity-${Math.min(100, Math.floor(beamIntensity * 100))}`
-          )}
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
-        <div className={cn("absolute inset-0 bg-gradient-to-r", beamColorsMap[beamColor], "opacity-20 blur-sm")} />
-      </div>
 
       {/* Main Status Bar */}
       <div
-        className="w-full h-12 relative flex items-center justify-between px-6 bg-cover bg-center"
+        className="w-full h-12 relative flex-cols items-center px-16 bg-cover bg-center"
         style={{ backgroundImage: "url(/interactive/hud-elements/hud-frame.png)" }}
       >
         {/* Left Section */}
-        <div className="flex items-center space-x-6">
-          {indicators.map((indicator, index) => (
-            <StatusIndicatorComponent key={indicator.type} indicator={indicator} delay={index * 0.2} />
-          ))}
+        <div className="flex items-center space-y-8 space-x-6">
+          <NotificationIndicator count={notifications} />
         </div>
 
         {/* Center Section */}
@@ -103,12 +88,15 @@ export function StatusBar({
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-4 bg-arcane-gold rounded-full" />
-            <span className="text-sm text-white font-bold">{currency}</span>
-          </div>
-          <NotificationIndicator count={notifications} />
+        <div className="flex items-center ml-120 space-x-4">
+          <div className="flex-cols ml-120 items-center space-x-2">
+            <div className="w-4 h-4 ml-120 bg-arcane-gold rounded-full" />
+              <span className="text-sm text-white font-bold">{currency}</span>
+            
+              {indicators.map((indicator, index) => (
+              <StatusIndicatorComponent key={indicator.type} indicator={indicator} delay={index * 0.2} />
+              ))}     
+            </div>     
         </div>
 
         {/* HUD Overlay */}
@@ -131,7 +119,7 @@ function StatusIndicatorComponent({ indicator, delay }: { indicator: StatusIndic
   const displayValue = statusBarUtils.formatStatusValue(indicator.value, indicator.format, indicator.maxValue);
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-y-8 space-x-2">
       <div className="w-24 h-3 bg-gray-800 rounded-full overflow-hidden border border-gray-600">
         <motion.div
           className={cn("h-full rounded-full", color)}

@@ -1,4 +1,4 @@
-/* @/components/shared/Header.tsx */
+// src/components/layout/Header.tsx - WITH ANCIENT ONES' QUOTE
 'use client';
 
 import Link from 'next/link';
@@ -42,8 +42,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-      {/* CONTINUITY BEAM - Now part of header */}
-      <ContinuityBeam className="absolute bottom-0 left-0 right-0" />
       
     </header>
   );

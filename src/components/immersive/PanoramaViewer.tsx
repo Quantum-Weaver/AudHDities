@@ -38,6 +38,7 @@ export default function PanoramaViewer({
     <div className={cn("relative w-full min-h-screen", className)}>
       {/* FULL SCREEN IMMERSIVE BACKGROUND */}
       <div className="fixed inset-0 -z-10">
+        
         <QuantumBackground
           environment={environment}
           variant={variant}

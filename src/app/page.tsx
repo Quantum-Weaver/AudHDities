@@ -15,6 +15,7 @@ export default function Home() {
       showForeground={false}
       animated={true}   
       showContinuityBeam={true}
+      showStatusBar={true}
     >
       <main className="min-h-screen flex items-center justify-center">
         <div className="relative w-full py-20 px-6">
