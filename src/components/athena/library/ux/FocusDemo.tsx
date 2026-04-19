@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Timer, Save, ArrowRight, Lightbulb } from 'lucide-react';
+import { Textarea } from '@/components/ui/Textarea';
 
 export function FocusDemo() {
   const [focusMode, setFocusMode] = useState(false);

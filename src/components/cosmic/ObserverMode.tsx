@@ -52,7 +52,7 @@ export function ObserverMode({ className, onModeChange }: ObserverModeProps) {
         </div>
         <Switch
           checked={isObserverMode}
-          onCheckedChange={setIsObserverMode}
+          onChange={setIsObserverMode}
           size="sm"
         />
       </div>

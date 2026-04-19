@@ -37,7 +37,7 @@ export function ContrastToggle() {
           <Contrast className="text-cyan-400" size={20} />
           <h2 className="text-xl font-bold text-white">High Contrast</h2>
         </div>
-        <Switch checked={highContrast} onCheckedChange={handleToggle} />
+        <Switch checked={highContrast} onChange={handleToggle} />
       </div>
       <p className="text-sm text-white/60 mb-4">
         Increase color contrast for better visibility and readability.

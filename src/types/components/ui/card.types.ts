@@ -1,17 +1,16 @@
-// src/types/components/ui/unified_card.ts
-// Pure types only - no values, no logic
-// DEDUPLICATED - each interface defined once
+// src/types/components/ui/card.types.ts
 
 import type { ReactNode } from 'react';
 import type { 
-  CARD_VARIANTS, 
-  CARD_SIZES, 
-  CARD_PADDINGS 
-} from '@/lib/constants/components/ui/unified_card';
+  CardType,
+  CardVariant,
+  CardSize,
+  CardPadding,
+  CardRadius,
+} from '@/lib/constants/components/ui/card.constants';
 
-export type CardVariant = typeof CARD_VARIANTS[keyof typeof CARD_VARIANTS];
-export type CardSize = typeof CARD_SIZES[keyof typeof CARD_SIZES];
-export type CardPadding = typeof CARD_PADDINGS[keyof typeof CARD_PADDINGS];
+// Re-export the primitive types from constants
+export type { CardType, CardVariant, CardSize, CardPadding, CardRadius };
 
 // =====================================================
 // BASE CARD DATA
@@ -23,6 +22,7 @@ export interface BaseCardData {
   description?: string;
   image?: string;
   href?: string;
+  type: CardType;
 }
 
 // =====================================================
@@ -65,7 +65,7 @@ export interface EventCardData extends BaseCardData {
 
 export interface ProposalCardData extends BaseCardData {
   type: 'proposal';
-  status?: 'active' | 'passed' | 'failed' | 'pending';
+  status?: 'active' | 'passed' | 'failed' | 'pending' | 'completed' | 'current';
   votesFor?: number;
   votesAgainst?: number;
   deadline?: string;

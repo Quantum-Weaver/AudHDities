@@ -49,7 +49,7 @@ export function RecurringOptions({ className, onRecurringChange }: RecurringOpti
           <p className="text-white font-medium">Monthly Giving</p>
           <p className="text-xs text-white/40">Support the Sanctuary every month</p>
         </div>
-        <Switch checked={isRecurring} onCheckedChange={handleRecurringToggle} />
+        <Switch checked={isRecurring} onChange={handleRecurringToggle} />
       </div>
 
       {isRecurring && (

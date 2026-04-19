@@ -11,7 +11,7 @@ export type TabsVariant = 'underline' | 'pill' | 'bordered' | 'minimal';
 export type TabsSize = 'sm' | 'md' | 'lg';
 export type TabsOrientation = 'horizontal' | 'vertical';
 
-interface TabsContextValue {
+export interface TabsContextValue {
   activeTab: string;
   setActiveTab: (value: string) => void;
   variant: TabsVariant;
@@ -20,7 +20,7 @@ interface TabsContextValue {
   tabsId: string;
 }
 
-const TabsContext = createContext<TabsContextValue | null>(null);
+export const TabsContext = createContext<TabsContextValue | null>(null);
 
 const useTabs = () => {
   const context = useContext(TabsContext);

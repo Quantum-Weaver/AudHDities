@@ -7,7 +7,7 @@
 import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import { Input } from "@/components/ui/index";
 import { Textarea } from "@/components/ui/Textarea";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Label } from "@/components/ui/Label";
@@ -17,7 +17,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { FORM_VARIANTS, FORM_SPACING } from "@/lib/constants/components/ui/unified_form";
 
 // Types
-import type { FieldValue } from "@/types/components/ui/unified_form";
+import type { FieldValue } from "@/types/components/ui/forms";
 
 // Utils
 import { required, email, composeValidators } from "@/utils/components/ui/unified_form";
@@ -291,7 +291,7 @@ export function UnifiedForm({
             <Checkbox
               id={field.name}
               checked={typeof value === "boolean" ? value : false}
-              onCheckedChange={(checked) => handleCheckboxChange(field.name, checked === true)}
+              onChange={(checked) => handleCheckboxChange(field.name, true)}
               disabled={isLoading || isSubmitting}
             />
             <Label htmlFor={field.name} className="text-sm text-white/80">

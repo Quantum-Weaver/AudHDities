@@ -7,7 +7,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";
+import { Tabs, TabsList, TabsTrigger, TabsPanel } from "@/components/ui/Tabs";
 import { CheckIcon, CopyIcon } from "lucide-react";
 
 export interface CodeExportProps {
@@ -15,6 +15,7 @@ export interface CodeExportProps {
   theme?: string;
   className?: string;
 }
+export const TabsContent = TabsPanel;
 
 function generateComponentCode(component: string, theme: string): string {
   const componentCode: Record<string, string> = {

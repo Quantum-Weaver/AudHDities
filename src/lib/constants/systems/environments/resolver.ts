@@ -61,10 +61,9 @@ export function resolveEnvironment(options: ResolveEnvironmentOptions): Environm
   }
   
   return {
-    key: selectedEnvironment,
     variant,
     reason: selectedReason,
-    confidence,
+    environment: selectedEnvironment
   };
 }
 

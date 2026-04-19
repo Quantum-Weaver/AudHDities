@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSupabase } from "@/lib/supabase/client";
 import { UnifiedForm } from "@/components/shared/UnifiedForm";
-import type { FieldValue } from "@/types/components/ui/unified_form";
+import type { FieldValue } from "@/types/components/ui/forms";
 
 interface LoginFormProps {
   redirectTo?: string;

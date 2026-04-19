@@ -24,7 +24,7 @@ export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectE
   /** Size of the select (renamed to avoid conflict) */
   selectSize?: SelectSize;
   /** Options for the select */
-  options: SelectOption[];
+  options?: SelectOption[];
   /** Placeholder text */
   placeholder?: string;
   /** Show required indicator */
@@ -108,7 +108,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 {placeholder}
               </option>
             )}
-            {options.map((option) => (
+            {options?.map((option) => (
               <option
                 key={option.value}
                 value={option.value}

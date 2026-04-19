@@ -1,7 +1,7 @@
 // src/lib/utils/components/ui/unified_grid.ts
 // Add these functions if missing, or verify they exist
 
-import type { GridVariant, GridColumnConfig } from '@/types/components/ui/unified_grid';
+import type { GridVariant, GridColumnConfig } from '@/types/components/ui/grids';
 import {
   GRID_VARIANTS,
   GRID_COLUMNS,

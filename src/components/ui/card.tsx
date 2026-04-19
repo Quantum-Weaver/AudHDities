@@ -1,441 +1,512 @@
-"use client";
-// components/ui/Card.tsx
-// Card Component - The room within the sanctuary
-// Provides contained surfaces for grouped content
-// Uses COSMIC design tokens for styling
+// src/components/ui/Card.tsx
+'use client';
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from './Button';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/Avatar';
-import { AspectRatioImage } from './AspectRatio';
+import { CardShadow, cardVariants, getSemanticHoverClass } from '@/lib/constants/components/ui/card.variants';
+import type { 
+  UnifiedCardProps, 
+  CardData,
+  CardMediaProps,
+  CardHeaderProps,
+  CardContentProps,
+  CardFooterProps,
+  ProductCardData,
+  QuestCardData,
+  ProposalCardData,
+  CardRadius,
+} from '@/types/components/ui/card.types';
+import {
+  getDifficultyColor,
+  getProposalStatusColor,
+  getEntityTemperatureColor,
+  getTierBadgeColor,
+  getPublicationBadgeColor,
+  getVerifiedBadgeColor,
+  getTrendIcon,
+  getTrendColorClass,
+  getStepStatus,
+  getStepStatusColor,
+  getStepProgress,
+  formatPrice,
+  getLowestPrice,
+  getPriceRange,
+  getAvailableTiers,
+  truncateText,
+  formatDate,
+  formatRelativeTime,
+  formatVoteRatio,
+  getRecommendedVariant,
+} from '@/utils/components/ui/card.utils';
+import { cardShadowClasses } from '@/lib/constants/components/ui/card.constants';
 
-export type CardVariant = 'default' | 'elevated' | 'glass' | 'outline' | 'ghost';
-export type CardPadding = 'none' | 'sm' | 'md' | 'lg' | 'xl';
-export type CardRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+// ============================================================================
+// SUB-COMPONENTS
+// ============================================================================
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Visual style of the card */
-  variant?: CardVariant;
-  /** Padding inside the card */
-  padding?: CardPadding;
-  /** Border radius */
-  radius?: CardRadius;
-  /** Make card interactive (adds hover effects) */
-  interactive?: boolean;
-  /** Make card fill height of parent */
-  fillHeight?: boolean;
-  /** Make card fill width of parent */
-  fillWidth?: boolean;
-  /** As child element */
-  asChild?: boolean;
-}
-
-/**
- * Variant classes
- */
-const variantMap: Record<CardVariant, string> = {
-  default: 'bg-white/5 border border-white/10',
-  elevated: 'bg-white/5 border border-white/10 shadow-lg',
-  glass: 'bg-white/5 backdrop-blur-md border border-white/20',
-  outline: 'bg-transparent border border-white/10',
-  ghost: 'bg-transparent border-none',
-};
-
-/**
- * Padding classes
- */
-const paddingMap: Record<CardPadding, string> = {
-  none: 'p-0',
-  sm: 'p-3',
-  md: 'p-4',
-  lg: 'p-6',
-  xl: 'p-8',
-};
-
-/**
- * Radius classes
- */
-const radiusMap: Record<CardRadius, string> = {
-  none: 'rounded-none',
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  xl: 'rounded-xl',
-  '2xl': 'rounded-2xl',
-  full: 'rounded-full',
-};
-
-/**
- * Interactive hover classes
- */
-const interactiveClasses = 'transition-all duration-200 hover:scale-[1.02] hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10 cursor-pointer';
-
-/**
- * Card Component
- * 
- * A flexible container for grouped content.
- * 
- * @example
- * <Card>
- *   <CardHeader>
- *     <CardTitle>Profile</CardTitle>
- *   </CardHeader>
- *   <CardBody>
- *     <p>Content goes here</p>
- *   </CardBody>
- *   <CardFooter>
- *     <Button>Action</Button>
- *   </CardFooter>
- * </Card>
- * 
- * @example
- * <Card variant="glass" interactive padding="lg">
- *   <img src="/image.jpg" alt="Card image" />
- *   <h3>Title</h3>
- *   <p>Description</p>
- * </Card>
- */
-export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  (
-    {
-      children,
-      variant = 'default',
-      padding = 'md',
-      radius = 'lg',
-      interactive = false,
-      fillHeight = false,
-      fillWidth = true,
-      asChild = false,
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    const baseClasses = cn(
-      variantMap[variant],
-      paddingMap[padding],
-      radiusMap[radius],
-      fillHeight && 'h-full',
-      fillWidth && 'w-full',
-      interactive && interactiveClasses,
-      className
-    );
+export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(
+  ({ src, alt, fallbackIcon, className, ...props }, ref) => {
+    if (!src && !fallbackIcon) return null;
     
     return (
-      <div ref={ref} className={baseClasses} {...props}>
-        {children}
+      <div
+        ref={ref}
+        className={cn(
+          "relative overflow-hidden bg-[var(--color-surface)]/20",
+          className
+        )}
+        {...props}
+      >
+        {src ? (
+          <img
+            src={src}
+            alt={alt || "Card image"}
+            className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+        ) : fallbackIcon ? (
+          <div className="flex h-full w-full items-center justify-center text-4xl">
+            {fallbackIcon}
+          </div>
+        ) : null}
       </div>
     );
   }
 );
 
-Card.displayName = 'Card';
+CardMedia.displayName = "CardMedia";
 
-// ============================================================================
-// CARD COMPOSITION COMPONENTS
-// ============================================================================
-
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Remove bottom spacing */
-  noSpacing?: boolean;
-}
-
-/**
- * CardHeader - Top section of a card
- * Typically contains title, subtitle, and action buttons
- */
-export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
-  ({ children, noSpacing = false, className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'flex flex-col space-y-1.5',
-        !noSpacing && 'pb-4 border-b border-white/10',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-);
-CardHeader.displayName = 'CardHeader';
-
-export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  /** As child element (render as different heading level) */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-}
-
-/**
- * CardTitle - Title within a card header
- */
-export const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
-  ({ children, as: Component = 'h3', className, ...props }, ref) => (
-    <Component
-      ref={ref}
-      className={cn('text-lg font-semibold leading-none tracking-tight text-white', className)}
-      {...props}
-    >
-      {children}
-    </Component>
-  )
-);
-CardTitle.displayName = 'CardTitle';
-
-export interface CardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
-
-/**
- * CardDescription - Description text within a card header
- */
-export const CardDescription = React.forwardRef<HTMLParagraphElement, CardDescriptionProps>(
-  ({ children, className, ...props }, ref) => (
-    <p
-      ref={ref}
-      className={cn('text-sm text-white/60', className)}
-      {...props}
-    >
-      {children}
-    </p>
-  )
-);
-CardDescription.displayName = 'CardDescription';
-
-export interface CardBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Remove vertical spacing */
-  noSpacing?: boolean;
-}
-
-/**
- * CardBody - Main content area of a card
- */
-export const CardBody = React.forwardRef<HTMLDivElement, CardBodyProps>(
-  ({ children, noSpacing = false, className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(!noSpacing && 'py-4', className)}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-);
-CardBody.displayName = 'CardBody';
-
-export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Remove top spacing */
-  noSpacing?: boolean;
-}
-
-/**
- * CardFooter - Bottom section of a card
- * Typically contains actions like buttons or links
- */
-export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
-  ({ children, noSpacing = false, className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'flex items-center gap-3',
-        !noSpacing && 'pt-4 border-t border-white/10',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-);
-CardFooter.displayName = 'CardFooter';
-
-export interface CardImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  /** Position of the image */
-  position?: 'top' | 'bottom';
-}
-
-/**
- * CardImage - Image within a card (full width)
- */
-export const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
-  ({ src, alt, position = 'top', className, ...props }, ref) => (
-    <div className={cn(position === 'top' ? '-mt-px' : '-mb-px', 'mx-0 overflow-hidden')}>
-      <img
-        ref={ref}
-        src={src}
-        alt={alt}
-        className={cn(
-          'w-full object-cover',
-          position === 'top' ? 'rounded-t-[calc(1rem-1px)]' : 'rounded-b-[calc(1rem-1px)]',
-          className
-        )}
-        {...props}
-      />
-    </div>
-  )
-);
-CardImage.displayName = 'CardImage';
-
-// ============================================================================
-// VARIANT SHORTCUTS
-// ============================================================================
-
-/**
- * GlassCard - Frosted glass effect
- */
-export const GlassCard = React.forwardRef<HTMLDivElement, Omit<CardProps, 'variant'>>(
-  (props, ref) => <Card ref={ref} variant="glass" {...props} />
-);
-GlassCard.displayName = 'GlassCard';
-
-/**
- * ElevatedCard - With shadow
- */
-export const ElevatedCard = React.forwardRef<HTMLDivElement, Omit<CardProps, 'variant'>>(
-  (props, ref) => <Card ref={ref} variant="elevated" {...props} />
-);
-ElevatedCard.displayName = 'ElevatedCard';
-
-/**
- * OutlineCard - Bordered only, no background
- */
-export const OutlineCard = React.forwardRef<HTMLDivElement, Omit<CardProps, 'variant'>>(
-  (props, ref) => <Card ref={ref} variant="outline" {...props} />
-);
-OutlineCard.displayName = 'OutlineCard';
-
-/**
- * InteractiveCard - With hover effects
- */
-export const InteractiveCard = React.forwardRef<HTMLDivElement, Omit<CardProps, 'interactive'>>(
-  (props, ref) => <Card ref={ref} interactive {...props} />
-);
-InteractiveCard.displayName = 'InteractiveCard';
-
-// ============================================================================
-// COMPOSITION COMPONENTS
-// ============================================================================
-
-export interface ProductCardProps {
-  image: string;
-  title: string;
-  price: number;
-  currency?: string;
-  onAction?: () => void;
-  actionLabel?: string;
-  variant?: CardVariant;
-}
-
-/**
- * ProductCard - Pre-built product card
- * 
- * @example
- * <ProductCard
- *   image="/product.jpg"
- *   title="Quantum Weaver Hoodie"
- *   price={49.99}
- *   onAction={() => addToCart()}
- * />
- */
-export const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
-  ({ image, title, price, currency = '$', onAction, actionLabel = 'Purchase', variant = 'glass' }, ref) => (
-    <Card ref={ref} variant={variant} interactive padding="none" className="overflow-hidden">
-      <AspectRatioImage src={image} alt={title} ratio="1/1" />
-      <CardBody className="p-4">
-        <CardTitle className="mb-1">{title}</CardTitle>
-        <p className="text-cyan-400 font-semibold">{currency}{price.toFixed(2)}</p>
-      </CardBody>
-      <CardFooter className="p-4 pt-0">
-        <Button onClick={onAction} size="sm" className="w-full">{actionLabel}</Button>
-      </CardFooter>
-    </Card>
-  )
-);
-ProductCard.displayName = 'ProductCard';
-
-export interface UserCardProps {
-  avatar: string;
-  name: string;
-  role?: string;
-  onFollow?: () => void;
-  isFollowing?: boolean;
-  variant?: CardVariant;
-}
-
-/**
- * UserCard - Pre-built user/profile card
- * 
- * @example
- * <UserCard
- *   avatar="/avatar.jpg"
- *   name="Quantum Weaver"
- *   role="Creator"
- *   onFollow={() => follow()}
- * />
- */
-export const UserCard = React.forwardRef<HTMLDivElement, UserCardProps>(
-  ({ avatar, name, role, onFollow, isFollowing = false, variant = 'glass' }, ref) => (
-    <Card ref={ref} variant={variant} interactive padding="md" className="text-center">
-      <Avatar src={avatar} alt={name} size="xl" className="mx-auto mb-3" />
-      <CardTitle>{name}</CardTitle>
-      {role && <CardDescription>{role}</CardDescription>}
-      <CardFooter className="justify-center mt-4">
-        {onFollow && (
-          <Button onClick={onFollow} size="sm" variant={isFollowing ? 'outline' : 'primary'}>
-            {isFollowing ? 'Following' : 'Follow'}
-          </Button>
-        )}
-      </CardFooter>
-    </Card>
-  )
-);
-UserCard.displayName = 'UserCard';
-
-export interface MetricCardProps {
-  title: string;
-  value: string | number;
-  icon?: React.ReactNode;
-  trend?: 'up' | 'down' | 'neutral';
-  trendValue?: string;
-  variant?: CardVariant;
-}
-
-/**
- * MetricCard - Pre-built metric/stat card
- * 
- * @example
- * <MetricCard
- *   title="Total Sales"
- *   value="$12,345"
- *   icon={<DollarSign />}
- *   trend="up"
- *   trendValue="+12%"
- * />
- */
-export const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps>(
-  ({ title, value, icon, trend, trendValue, variant = 'glass' }, ref) => (
-    <Card ref={ref} variant={variant} padding="md">
-      <div className="flex justify-between items-start">
-        <div>
-          <CardDescription>{title}</CardDescription>
-          <CardTitle className="text-2xl mt-1">{value}</CardTitle>
-          {trend && trendValue && (
-            <p className={cn(
-              'text-xs mt-2',
-              trend === 'up' && 'text-green-400',
-              trend === 'down' && 'text-red-400',
-              trend === 'neutral' && 'text-white/40'
-            )}>
-              {trend === 'up' && '↑'} {trend === 'down' && '↓'} {trendValue}
-            </p>
-          )}
+export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
+  ({ title, subtitle, badge, actions, className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={cn("space-y-2", className)} {...props}>
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex-1 space-y-1">
+            <h3 className="font-semibold text-[var(--color-star-dust)] line-clamp-2">
+              {title}
+            </h3>
+            {subtitle && (
+              <p className="text-sm text-[var(--color-star-dust)]/60 line-clamp-1">
+                {subtitle}
+              </p>
+            )}
+          </div>
+          {badge && <div className="flex-shrink-0">{badge}</div>}
         </div>
-        {icon && (
-          <div className="p-2 rounded-full bg-white/10">
-            {icon}
+        {actions && <div className="flex items-center gap-2">{actions}</div>}
+      </div>
+    );
+  }
+);
+
+CardHeader.displayName = "CardHeader";
+
+export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
+  ({ description, metadata, className, ...props }, ref) => {
+    if (!description && (!metadata || metadata.length === 0)) return null;
+    
+    return (
+      <div ref={ref} className={cn("space-y-3", className)} {...props}>
+        {description && (
+          <p className="text-sm text-[var(--color-star-dust)]/80 line-clamp-3">
+            {description}
+          </p>
+        )}
+        {metadata && metadata.length > 0 && (
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
+            {metadata.map((item, index) => (
+              <div key={index} className="flex items-center gap-1">
+                <span className="text-[var(--color-star-dust)]/50">{item.label}:</span>
+                <span className="font-medium text-[var(--color-star-dust)]/80">
+                  {item.value}
+                </span>
+              </div>
+            ))}
           </div>
         )}
       </div>
-    </Card>
-  )
+    );
+  }
 );
-MetricCard.displayName = 'MetricCard';
+
+CardContent.displayName = "CardContent";
+
+export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
+  ({ actions, className, ...props }, ref) => {
+    if (!actions || actions.length === 0) return null;
+    
+    return (
+      <div
+        ref={ref}
+        className={cn("flex flex-wrap items-center gap-2", className)}
+        {...props}
+      >
+        {actions.map((action, index) => (
+          <div key={index}>{action}</div>
+        ))}
+      </div>
+    );
+  }
+);
+
+CardFooter.displayName = "CardFooter";
+
+// ============================================================================
+// BADGE COMPONENTS
+// ============================================================================
+
+interface DifficultyBadgeProps {
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'master';
+}
+
+export const DifficultyBadge: React.FC<DifficultyBadgeProps> = ({ difficulty }) => {
+  const colorClass = getDifficultyColor(difficulty);
+  const labels = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced', master: 'Master' };
+  
+  return (
+    <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium", colorClass)}>
+      {labels[difficulty]}
+    </span>
+  );
+};
+
+interface StatusBadgeProps {
+  status: 'active' | 'passed' | 'failed' | 'pending' | 'completed' | 'current';
+}
+
+export const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
+  const colorClass = getProposalStatusColor(status);
+  const labels = { active: 'Active', passed: 'Passed', failed: 'Failed', pending: 'Pending', completed: 'Completed', current: 'Current' };
+  
+  return (
+    <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium", colorClass)}>
+      {labels[status as keyof typeof labels] || status}
+    </span>
+  );
+};
+
+interface TierBadgeProps {
+  tier: 'community' | 'ally' | 'corporate' | 'council';
+}
+
+export const TierBadge: React.FC<TierBadgeProps> = ({ tier }) => {
+  const colorClass = getTierBadgeColor(tier);
+  const labels = { community: 'Community', ally: 'Ally', corporate: 'Corporate', council: 'Council' };
+  
+  return (
+    <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium", colorClass)}>
+      {labels[tier]}
+    </span>
+  );
+};
+
+interface PriceBadgeProps {
+  data: { price?: number; priceCommunity?: number; priceAlly?: number; priceCorporate?: number };
+  showLowest?: boolean;
+}
+
+export const PriceBadge: React.FC<PriceBadgeProps> = ({ data, showLowest = false }) => {
+  const lowestPrice = getLowestPrice(data as any);
+  const priceRange = getPriceRange(data as any);
+  const displayText = showLowest && lowestPrice ? formatPrice(lowestPrice) : priceRange;
+  
+  if (!displayText) return null;
+  
+  return (
+    <span className="inline-flex items-center rounded-full bg-[var(--color-quantum-purple)]/20 px-2 py-0.5 text-xs font-medium text-[var(--color-quantum-purple)]">
+      {displayText}
+    </span>
+  );
+};
+
+// ============================================================================
+// MAIN CARD COMPONENT
+// ============================================================================
+
+export interface CardProps extends UnifiedCardProps {
+  /** Whether to auto-recommend variant based on data type */
+  autoVariant?: boolean;
+  radius: CardRadius;
+  shadow: CardShadow;  
+}
+
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ 
+    variant,
+    data,
+    size,
+    padding,
+    interactive = false,
+    radius,
+    shadow,
+    href,
+    onClick,
+    className,
+    children,
+    autoVariant = false,
+    ...props 
+  }, ref) => {
+    
+    // Auto-recommend variant if enabled and no explicit variant provided
+    const effectiveVariant = autoVariant && !variant ? getRecommendedVariant(data.type) : variant;
+    
+    // Get semantic hover class for interactive cards
+    const semanticHover = interactive ? getSemanticHoverClass(data.type, interactive) : '';
+    
+    // Handle click navigation if href provided
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (onClick) {
+        onClick(data);
+      }
+      if (href && !onClick) {
+        window.location.href = href;
+      }
+    };
+    
+    const isClickable = !!(href || onClick);
+    
+    // Build card classes
+    const cardClasses = cn(
+      cardVariants({ 
+        variant: effectiveVariant, 
+        size, 
+        padding, 
+        radius, 
+        shadow, 
+        interactive: interactive || isClickable 
+      }),
+      semanticHover,
+      isClickable && !interactive && 'cursor-pointer',
+      className
+    );
+    
+    // Render content
+    const cardContent = (
+      <>
+        {children}
+      </>
+    );
+    
+    // Wrap with anchor or div - separated to avoid onClick type conflict
+    const isAnchor = !!(href && !onClick);
+    
+    if (isAnchor) {
+      return (
+        <a
+          ref={ref as any}
+          className={cardClasses}
+          href={href}
+          {...props}
+        >
+          {cardContent}
+        </a>
+      );
+    }
+    
+    return (
+      <div
+        ref={ref}
+        className={cardClasses}
+        onClick={handleClick}
+        {...props}
+      >
+        {cardContent}
+      </div>
+    );
+  }
+);
+
+Card.displayName = "Card";
+
+// ============================================================================
+// TYPE-SPECIFIC CARD RENDERERS
+// ============================================================================
+
+interface ProductCardRendererProps {
+  data: CardData;
+  variant?: CardProps['variant'];
+  radius: CardProps['radius'],
+  shadow?: CardProps['shadow'],   
+  interactive?: boolean;
+}
+
+export const ProductCardRenderer: React.FC<ProductCardRendererProps> = ({ 
+  data, 
+  variant = 'interactive',
+  radius,
+  shadow,
+  interactive = true
+}) => {
+  const productData = data as ProductCardData;
+  const tiers = getAvailableTiers(productData);
+  const lowestPrice = getLowestPrice(productData);
+  
+  return (
+    <Card data={data} variant={variant} interactive={interactive} radius={radius} shadow={shadow}>
+      {productData.image && <CardMedia src={productData.image} alt={productData.title} />}
+      <CardHeader 
+        title={productData.title} 
+        subtitle={productData.description}
+        badge={
+          <div className="flex gap-1">
+            {productData.isPublished !== undefined && (
+              <span className={getPublicationBadgeColor(productData.isPublished)}>
+                {productData.isPublished ? 'Published' : 'Draft'}
+              </span>
+            )}
+            {lowestPrice && <PriceBadge data={productData} showLowest />}
+          </div>
+        }
+      />
+      <CardContent 
+        metadata={[
+          ...(tiers.length > 0 ? [{ label: 'Available Tiers', value: tiers.join(', ') }] : []),
+          ...(productData.residualPercent ? [{ label: 'Residual', value: `${productData.residualPercent}%` }] : []),
+        ]}
+      />
+      {productData.creator && (
+        <CardFooter 
+          actions={[
+            <span key="creator" className="text-xs text-[var(--color-star-dust)]/50">
+              by {productData.creator.name}
+            </span>
+          ]}
+        />
+      )}
+    </Card>
+  );
+};
+
+interface QuestCardRendererProps {
+  data: CardData;
+  variant?: CardProps['variant'];
+  radius: CardProps['radius'],
+  shadow?: CardProps['shadow'], 
+  interactive?: boolean;
+}
+
+export const QuestCardRenderer: React.FC<QuestCardRendererProps> = ({ 
+  data, 
+  variant = 'glow',
+  radius,
+  shadow,
+  interactive = true
+}) => {
+  const questData = data as QuestCardData;
+  
+  return (
+    <Card data={data} variant={variant} interactive={interactive} radius={radius} shadow={shadow}>
+      {questData.image && <CardMedia src={questData.image} alt={questData.title} />}
+      <CardHeader 
+        title={questData.title} 
+        subtitle={questData.description}
+        badge={questData.difficulty && <DifficultyBadge difficulty={questData.difficulty} />}
+      />
+      <CardContent 
+        metadata={[
+          ...(questData.reward ? [{ label: 'Reward', value: `${questData.reward} XP` }] : []),
+          ...(questData.duration ? [{ label: 'Duration', value: questData.duration }] : []),
+          ...(questData.isCompleted ? [{ label: 'Status', value: 'Completed' }] : []),
+        ]}
+      />
+      {questData.prerequisites && questData.prerequisites.length > 0 && (
+        <CardFooter 
+          actions={[
+            <span key="prereq" className="text-xs text-[var(--color-star-dust)]/50">
+              Prerequisites: {questData.prerequisites.length}
+            </span>
+          ]}
+        />
+      )}
+    </Card>
+  );
+};
+
+interface ProposalCardRendererProps {
+  data: CardData;
+  variant?: CardProps['variant'];
+  radius: CardProps['radius'],
+  shadow?: CardProps['shadow'],  
+  interactive?: boolean;
+}
+
+export const ProposalCardRenderer: React.FC<ProposalCardRendererProps> = ({ 
+  data, 
+  variant = 'elevated',
+  radius,
+  shadow,  
+  interactive = true 
+}) => {
+  const proposalData = data as ProposalCardData;
+  const voteRatio = proposalData.votesFor && proposalData.votesAgainst 
+    ? formatVoteRatio(proposalData.votesFor, proposalData.votesAgainst)
+    : null;
+  
+  return (
+    <Card data={data} variant={variant} interactive={interactive} radius={radius} shadow={shadow}>
+      <CardHeader 
+        title={proposalData.title} 
+        subtitle={proposalData.description}
+        badge={proposalData.status && <StatusBadge status={proposalData.status} />}
+      />
+      <CardContent 
+        metadata={[
+          ...(proposalData.votesFor !== undefined ? [{ label: 'For', value: proposalData.votesFor.toString() }] : []),
+          ...(proposalData.votesAgainst !== undefined ? [{ label: 'Against', value: proposalData.votesAgainst.toString() }] : []),
+          ...(voteRatio ? [{ label: 'Support', value: voteRatio }] : []),
+          ...(proposalData.deadline ? [{ label: 'Deadline', value: formatRelativeTime(proposalData.deadline) || '' }] : []),
+        ]}
+      />
+      {proposalData.proposer && (
+        <CardFooter 
+          actions={[
+            <span key="proposer" className="text-xs text-[var(--color-star-dust)]/50">
+              Proposed by {proposalData.proposer}
+            </span>
+          ]}
+        />
+      )}
+    </Card>
+  );
+};
+
+// ============================================================================
+// SMART CARD - Automatically selects renderer based on data type
+// ============================================================================
+
+export interface SmartCardProps extends Omit<CardProps, 'data' | 'variant'> {
+  data: CardData;
+  variant?: CardProps['variant'];
+}
+
+export const SmartCard: React.FC<SmartCardProps> = ({ data, variant, ...props }) => {
+  // Auto-recommend variant if not explicitly provided
+  const effectiveVariant = variant || getRecommendedVariant(data.type);
+  
+  // Select appropriate renderer based on data type
+  if (data.type === 'product') {
+    return <ProductCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+  
+  if (data.type === 'quest') {
+    return <QuestCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+  
+  if (data.type === 'proposal') {
+    return <ProposalCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+  
+  // Fallback to generic card
+  return (
+    <Card data={data} variant={effectiveVariant} {...props}>
+      {data.image && <CardMedia src={data.image} alt={data.title} />}
+      <CardHeader title={data.title} subtitle={data.description} />
+      {data.description && <CardContent description={truncateText(data.description, 150)} />}
+    </Card>
+  );
+};
+
+// ============================================================================
+// DEFAULT EXPORT
+// ============================================================================
+
+export default Card;

@@ -11,7 +11,7 @@ import type {
   FormSection,
   WizardStep,
   FormVariant,
-} from '@/types/components/ui/unified_form';
+} from '@/types/components/ui/forms';
 
 import {
   FORM_VARIANTS,

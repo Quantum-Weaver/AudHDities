@@ -23,7 +23,7 @@ import type {
   UnifiedGridProps, 
   GridItemProps,
   GridColumnConfig,  // Now imported from types file
-} from "@/types/components/ui/unified_grid";
+} from "@/types/components/ui/grids";
 
 // Utils
 import {
