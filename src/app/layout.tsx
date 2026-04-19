@@ -5,12 +5,10 @@ import '@/app/globals.css';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en">      
         <AppShell>
           {children}
-        </AppShell>
-      </body>
+        </AppShell>      
     </html>
   );
 }

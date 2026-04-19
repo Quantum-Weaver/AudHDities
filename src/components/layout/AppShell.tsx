@@ -12,6 +12,7 @@ import ContinuityBeam from '@/components/immersive/ContinuityBeam';
 import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/immersive/StatusBar';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
+import { ScrollArea } from '../ui';
 import { cn } from '@/lib/utils';
 
 export interface AppShellProps {
@@ -56,10 +57,10 @@ export function AppShell({
 
           </div>
           {/* Scrollable content - fills remaining space */}
-          <main className={cn("flex-1 relative w-full", className)}>
+          <ScrollArea className={cn("flex-1 relative w-full", className)}>
             {children}
-          </main>
-        </VStack>
+          </ScrollArea>
+        </VStack>        
       </ContinuityBeamProvider>
     </EnvironmentProvider>
   );
