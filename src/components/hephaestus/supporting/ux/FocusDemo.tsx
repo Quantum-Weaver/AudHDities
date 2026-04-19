@@ -68,7 +68,7 @@ export function FocusDemo() {
               placeholder="Your name"
               className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-white/40 focus:outline-none focus:border-cyan-500/50"
             />
-            <textarea
+            <Textarea
               placeholder="Your message"
               rows={3}
               className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-white/40 focus:outline-none focus:border-cyan-500/50"

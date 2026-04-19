@@ -1,78 +1,238 @@
-/* @/components/ui/Alert.tsx */
-"use client"
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+// components/ui/Alert.tsx
+// Alert Component - The voice of the interface
+// Communicates important information to users
 
-import { cn } from "@/lib/utils"
+import React from 'react';
+import { cn } from '@/lib/utils';
+import {
+  AlertCircle,
+  CheckCircle,
+  Info,
+  XCircle,
+  X,
+  Zap,
+  Sparkles,
+} from 'lucide-react';
 
-const alertVariants = cva(
-  "group/alert relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4",
-  {
-    variants: {
-      variant: {
-        default: "bg-card text-card-foreground",
-        destructive:
-          "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",
-      },
+export type AlertVariant = 'info' | 'success' | 'warning' | 'error' | 'quantum';
+
+export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Visual variant of the alert */
+  variant?: AlertVariant;
+  /** Alert title */
+  title?: string;
+  /** Alert description/message */
+  description?: string;
+  /** Show dismiss button */
+  dismissible?: boolean;
+  /** Callback when dismissed */
+  onDismiss?: () => void;
+  /** Custom icon (overrides default) */
+  icon?: React.ReactNode;
+  /** Action button */
+  action?: React.ReactNode;
+  /** Make alert compact (smaller padding) */
+  compact?: boolean;
+}
+
+const variantStyles: Record<AlertVariant, string> = {
+  info: 'bg-blue-500/10 border-blue-500/30',
+  success: 'bg-green-500/10 border-green-500/30',
+  warning: 'bg-yellow-500/10 border-yellow-500/30',
+  error: 'bg-red-500/10 border-red-500/30',
+  quantum: 'bg-quantum-purple/10 border-quantum-purple/30',
+};
+
+const iconColorStyles: Record<AlertVariant, string> = {
+  info: 'text-blue-400',
+  success: 'text-green-400',
+  warning: 'text-yellow-400',
+  error: 'text-red-400',
+  quantum: 'text-quantum-purple',
+};
+
+const defaultIcons: Record<AlertVariant, React.ReactNode> = {
+  info: <Info className="h-5 w-5" />,
+  success: <CheckCircle className="h-5 w-5" />,
+  warning: <AlertCircle className="h-5 w-5" />,
+  error: <XCircle className="h-5 w-5" />,
+  quantum: <Sparkles className="h-5 w-5" />,
+};
+
+/**
+ * Alert Component
+ * 
+ * @example
+ * <Alert variant="success" title="Success!" description="Your changes have been saved." />
+ * 
+ * @example
+ * <Alert variant="error" dismissible onDismiss={() => setShowAlert(false)}>
+ *   Something went wrong. Please try again.
+ * </Alert>
+ * 
+ * @example
+ * <Alert variant="quantum" title="Quantum Update" action={<Button size="sm">Undo</Button>}>
+ *   Your profile has been updated.
+ * </Alert>
+ */
+export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  (
+    {
+      variant = 'info',
+      title,
+      description,
+      children,
+      dismissible = false,
+      onDismiss,
+      icon,
+      action,
+      compact = false,
+      className,
+      ...props
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    ref
+  ) => {
+    const [dismissed, setDismissed] = React.useState(false);
+    
+    const handleDismiss = () => {
+      setDismissed(true);
+      onDismiss?.();
+    };
+    
+    if (dismissed) {
+      return null;
+    }
+    
+    const displayIcon = icon || defaultIcons[variant];
+    const hasContent = title || description || children;
+    
+    return (
+      <div
+        ref={ref}
+        role="alert"
+        className={cn(
+          'relative rounded-lg border p-4',
+          variantStyles[variant],
+          compact && 'p-3',
+          className
+        )}
+        {...props}
+      >
+        <div className="flex gap-3">
+          <div className={cn('flex-shrink-0', iconColorStyles[variant])}>
+            {displayIcon}
+          </div>
+          
+          <div className="flex-1">
+            {title && (
+              <h5 className={cn('font-medium text-white', compact ? 'text-sm' : 'text-base')}>
+                {title}
+              </h5>
+            )}
+            
+            {description && (
+              <div className={cn('text-white/70', title ? 'mt-1' : '', compact ? 'text-xs' : 'text-sm')}>
+                {description}
+              </div>
+            )}
+            
+            {children && (
+              <div className={cn('text-white/70', title ? 'mt-1' : '', compact ? 'text-xs' : 'text-sm')}>
+                {children}
+              </div>
+            )}
+          </div>
+          
+          {action && (
+            <div className="flex-shrink-0">
+              {action}
+            </div>
+          )}
+          
+          {dismissible && (
+            <button
+              type="button"
+              onClick={handleDismiss}
+              className={cn(
+                'flex-shrink-0 rounded-md p-1 transition-colors',
+                'text-white/40 hover:text-white/80 hover:bg-white/10',
+                'focus:outline-none focus:ring-2 focus:ring-white/20'
+              )}
+              aria-label="Dismiss"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      </div>
+    );
   }
-)
+);
 
-function Alert({
-  className,
-  variant,
-  ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
-  return (
-    <div
-      data-slot="alert"
-      role="alert"
-      className={cn(alertVariants({ variant }), className)}
-      {...props}
-    />
-  )
+Alert.displayName = 'Alert';
+
+// ============================================================================
+// VARIANT SHORTCUTS
+// ============================================================================
+
+export const InfoAlert = React.forwardRef<HTMLDivElement, Omit<AlertProps, 'variant'>>(
+  (props, ref) => <Alert ref={ref} variant="info" {...props} />
+);
+InfoAlert.displayName = 'InfoAlert';
+
+export const SuccessAlert = React.forwardRef<HTMLDivElement, Omit<AlertProps, 'variant'>>(
+  (props, ref) => <Alert ref={ref} variant="success" {...props} />
+);
+SuccessAlert.displayName = 'SuccessAlert';
+
+export const WarningAlert = React.forwardRef<HTMLDivElement, Omit<AlertProps, 'variant'>>(
+  (props, ref) => <Alert ref={ref} variant="warning" {...props} />
+);
+WarningAlert.displayName = 'WarningAlert';
+
+export const ErrorAlert = React.forwardRef<HTMLDivElement, Omit<AlertProps, 'variant'>>(
+  (props, ref) => <Alert ref={ref} variant="error" {...props} />
+);
+ErrorAlert.displayName = 'ErrorAlert';
+
+export const QuantumAlert = React.forwardRef<HTMLDivElement, Omit<AlertProps, 'variant'>>(
+  (props, ref) => <Alert ref={ref} variant="quantum" {...props} />
+);
+QuantumAlert.displayName = 'QuantumAlert';
+
+// ============================================================================
+// ALERT GROUP
+// ============================================================================
+
+export interface AlertGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Spacing between alerts */
+  spacing?: 'sm' | 'md' | 'lg';
 }
 
-function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="alert-title"
-      className={cn(
-        "font-heading font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+const groupSpacingClasses: Record<string, string> = {
+  sm: 'space-y-2',
+  md: 'space-y-3',
+  lg: 'space-y-4',
+};
 
-function AlertDescription({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
+/**
+ * AlertGroup - Container for multiple alerts
+ * 
+ * @example
+ * <AlertGroup>
+ *   <Alert variant="success">Success message</Alert>
+ *   <Alert variant="warning">Warning message</Alert>
+ * </AlertGroup>
+ */
+export const AlertGroup = React.forwardRef<HTMLDivElement, AlertGroupProps>(
+  ({ children, spacing = 'md', className, ...props }, ref) => (
     <div
-      data-slot="alert-description"
-      className={cn(
-        "text-sm text-balance text-muted-foreground md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
-        className
-      )}
+      ref={ref}
+      className={cn(groupSpacingClasses[spacing], className)}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
-}
-
-function AlertAction({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="alert-action"
-      className={cn("absolute top-2 right-2", className)}
-      {...props}
-    />
-  )
-}
-
-export { Alert, AlertTitle, AlertDescription, AlertAction }
+);
+AlertGroup.displayName = 'AlertGroup';

@@ -140,7 +140,7 @@ export default function FileHeader({ file, onUpdate }: FileHeaderProps) {
         <div className="mt-6 pt-6 border-t border-white/10">
           <h3 className="text-sm font-medium text-white/60 mb-2">Purpose</h3>
           {isEditing ? (
-            <textarea
+            <Textarea
               value={purpose}
               onChange={(e) => setPurpose(e.target.value)}
               rows={3}

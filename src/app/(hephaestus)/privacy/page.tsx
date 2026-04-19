@@ -1,4 +1,4 @@
-// app/(content)/docs/privacy/page.tsx
+// app/(content)/privacy/page.tsx
 
 import { Metadata } from 'next';
 import { Page } from '@/components/shared/Page';

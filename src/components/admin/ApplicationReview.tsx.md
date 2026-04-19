@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { TextArea } from '@/components/ui/TextArea';
+import { Textarea } from '@/components/ui/Textarea';
 import { CheckCircle, XCircle, ChevronDown, ChevronUp, AlertCircle, User, Briefcase, Store } from 'lucide-react';
 import type { ApplicationWithUser } from '@/types/generated/themis-governance/applications';
 
@@ -295,7 +295,7 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
           
           {/* Review Notes Input */}
           <div>
-            <TextArea
+            <Textarea
               label="Review Notes"
               placeholder="Add notes about this application (required for rejection)..."
               value={reviewNotes}

@@ -85,7 +85,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/plutus-economics/products.ts` |
 | **Generated Hooks** | `hooks/generated/plutus-economics/useProducts.ts` |
 | **Generated APIs** | `lib/api/generated/plutus-economics/products.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select, Switch, Slider, Card |
+| **UI Primitives** | Button, Input, Textarea, Select, Switch, Slider, Card |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators, formatting) |
 
 ---
@@ -100,7 +100,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/themis-governance/applications.ts` |
 | **Generated Hooks** | `hooks/generated/themis-governance/useApplications.ts` |
 | **Generated APIs** | `lib/api/generated/themis-governance/applications.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select, FileUpload |
+| **UI Primitives** | Button, Input, Textarea, Select, FileUpload |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators, file handling) |
 
 ---
@@ -115,7 +115,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/hestia-core/profiles.ts` |
 | **Generated Hooks** | `hooks/generated/hestia-core/useProfiles.ts` |
 | **Generated APIs** | `lib/api/generated/hestia-core/profiles.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select, AvatarUpload |
+| **UI Primitives** | Button, Input, Textarea, Select, AvatarUpload |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators) |
 
 ---
@@ -145,7 +145,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/athena-gamification/quests.ts` |
 | **Generated Hooks** | `hooks/generated/athena-gamification/useQuests.ts`, `useUserQuests.ts` |
 | **Generated APIs** | `lib/api/generated/athena-gamification/quests.ts` |
-| **UI Primitives** | Button, TextArea, FileUpload |
+| **UI Primitives** | Button, Textarea, FileUpload |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators) |
 
 ---
@@ -160,7 +160,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/prometheus-stage/events.ts` |
 | **Generated Hooks** | `hooks/generated/prometheus-stage/useEvents.ts` |
 | **Generated APIs** | `lib/api/generated/prometheus-stage/events.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select, DateTimePicker |
+| **UI Primitives** | Button, Input, Textarea, Select, DateTimePicker |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators, date formatting) |
 
 ---
@@ -175,7 +175,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/themis-governance/proposals.ts` |
 | **Generated Hooks** | `hooks/generated/themis-governance/useProposals.ts` |
 | **Generated APIs** | `lib/api/generated/themis-governance/proposals.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select, RichTextEditor |
+| **UI Primitives** | Button, Input, Textarea, Select, RichTextEditor |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (validators) |
 
 ---
@@ -220,7 +220,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/iris-communications/contact.ts` |
 | **Generated Hooks** | `hooks/generated/iris-communications/useContactSubmissions.ts` |
 | **Generated APIs** | `lib/api/generated/iris-communications/contact.ts` |
-| **UI Primitives** | Button, Input, TextArea |
+| **UI Primitives** | Button, Input, Textarea |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (email, required validators) |
 
 ---
@@ -235,7 +235,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/iris-communications/support.ts` |
 | **Generated Hooks** | `hooks/generated/iris-communications/useSupportTickets.ts` |
 | **Generated APIs** | `lib/api/generated/iris-communications/support.ts` |
-| **UI Primitives** | Button, TextArea, Select |
+| **UI Primitives** | Button, Textarea, Select |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (required validator) |
 
 ---
@@ -250,7 +250,7 @@ src/components/
 | **Generated Validators** | `lib/validators/generated/hermes-social/channels.ts` |
 | **Generated Hooks** | `hooks/generated/hermes-social/useChannels.ts` |
 | **Generated APIs** | `lib/api/generated/hermes-social/channels.ts` |
-| **UI Primitives** | Button, Input, TextArea, Select |
+| **UI Primitives** | Button, Input, Textarea, Select |
 | **Shared Utils** | `utils/components/ui/unified_form.ts` (required validator) |
 
 ---

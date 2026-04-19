@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Switch } from "@/components/ui/Switch";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/RadioGroup";
@@ -112,10 +112,10 @@ export function LivePreview({ component, theme = 'quantum', className }: LivePre
           </div>
         );
 
-      case 'textarea':
+      case 'Textarea':
         return (
           <div className="max-w-sm mx-auto">
-            <TextArea placeholder="Enter your message here..." rows={4} />
+            <Textarea placeholder="Enter your message here..." rows={4} />
           </div>
         );
 

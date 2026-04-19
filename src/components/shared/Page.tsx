@@ -1,32 +1,30 @@
 // @/components/shared/Page.tsx
-// Page wrapper - every page uses this
-// Provides environment, continuity beam, status bar structure
+// Page wrapper - provides immersive background for content
+// Does NOT include header/beam/statusbar (those are in AppShell)
 
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import PanoramaViewer from "@/components/immersive/PanoramaViewer"
-import ContinuityBeam from "@/components/immersive/ContinuityBeam"
-import { StatusBar } from "@/components/immersive/StatusBar"
-import { EnvironmentKey } from "@/lib/constants/systems"
+import { cn } from "@/lib/utils";
+import PanoramaViewer from "@/components/immersive/PanoramaViewer";
+import type { EnvironmentKey } from "@/lib/constants/systems";
 
 export interface PageProps {
   /** Environment key (home, council, library, music, etc.) */
-  environment?: EnvironmentKey
+  environment?: EnvironmentKey;
   /** Variant of the environment (1-4) */
-  variant?: number
+  variant?: number;
   /** Show foreground elements */
-  showForeground?: boolean
+  showForeground?: boolean;
   /** Enable animations */
-  animated?: boolean
-  /** Show continuity beam */
-  showContinuityBeam?: boolean
-  /** Show status bar */
-  showStatusBar?: boolean
+  animated?: boolean;
+  /** Show continuity beam (deprecated - use AppShell prop instead) */
+  showContinuityBeam?: boolean;
+  /** Show status bar (deprecated - use AppShell prop instead) */
+  showStatusBar?: boolean;
   /** Additional classes */
-  className?: string
+  className?: string;
   /** Page content */
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function Page({
@@ -34,14 +32,12 @@ export function Page({
   variant = 1,
   showForeground = true,
   animated = true,
-  showContinuityBeam = true,
-  showStatusBar = true,
   className,
   children,
 }: PageProps) {
   return (
-    <div className={cn("relative min-h-screen", className)}>
-      {/* Immersive Background */}
+    <div className={cn("relative", className)}>
+      {/* Immersive Background - fixed, behind content */}
       <PanoramaViewer
         environment={environment}
         variant={variant}
@@ -50,16 +46,10 @@ export function Page({
         className="fixed inset-0 -z-10"
       />
       
-      {/* Continuity Beam (top/bottom animated line) */}
-      {showContinuityBeam && <ContinuityBeam />}
-      
-      {/* Status Bar (sovereignty, energy, notifications) */}
-      {showStatusBar && <StatusBar />}
-      
-      {/* Page Content */}
+      {/* Page Content - scrolls over background */}
       <div className="relative z-10">
         {children}
       </div>
     </div>
-  )
+  );
 }

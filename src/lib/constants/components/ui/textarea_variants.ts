@@ -1,7 +1,7 @@
-// src/lib/constants/components/ui/textarea_variants.ts
+// src/lib/constants/components/ui/Textarea_variants.ts
 import { cva } from "class-variance-authority";
 
-export const textareaVariants = cva(
+export const TextareaVariants = cva(
   "w-full rounded-lg border bg-transparent px-3 py-2 text-sm transition-all duration-200 outline-none placeholder:text-star-dust/40 disabled:cursor-not-allowed disabled:opacity-50 resize-vertical",
   {
     variants: {
@@ -30,5 +30,5 @@ export const textareaVariants = cva(
   }
 );
 
-export type TextareaVariant = NonNullable<Parameters<typeof textareaVariants>[0]>['variant'];
-export type TextareaSize = NonNullable<Parameters<typeof textareaVariants>[0]>['size'];
+export type TextareaVariant = NonNullable<Parameters<typeof TextareaVariants>[0]>['variant'];
+export type TextareaSize = NonNullable<Parameters<typeof TextareaVariants>[0]>['size'];

@@ -218,7 +218,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     <label className="block text-sm text-white/60 mb-1">
                       Bio
                     </label>
-                    <textarea
+                    <Textarea
                       {...field}
                       rows={4}
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // UI Primitives
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Label } from "@/components/ui/Label";
 import { Card } from "@/components/ui/Card";
 import { Spinner } from "@/components/ui/Spinner";
@@ -114,7 +114,7 @@ export function QuestSubmissionForm({
   };
   
   // Handle text input change
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextareaElement>) => {
     setFormData(prev => ({ ...prev, submitted_content: e.target.value }));
     if (errors.submitted_content) {
       setErrors(prev => ({ ...prev, submitted_content: undefined }));
@@ -285,7 +285,7 @@ export function QuestSubmissionForm({
             <Label htmlFor="submission" variant="required">
               Your Response
             </Label>
-            <TextArea
+            <Textarea
               id="submission"
               placeholder="Enter your response here..."
               value={formData.submitted_content}

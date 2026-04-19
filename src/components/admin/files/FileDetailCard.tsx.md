@@ -139,7 +139,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
         <div>
           <label className="block text-xs font-medium text-white/40 mb-1 uppercase tracking-wider">Purpose</label>
           {isEditing ? (
-            <textarea
+            <Textarea
               value={formData.purpose}
               onChange={(e) => setFormData({ ...formData, purpose: e.target.value })}
               rows={2}

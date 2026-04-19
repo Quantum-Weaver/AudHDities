@@ -1,4 +1,4 @@
-// app/(content)/docs/terms/terms/page.tsx
+// app/(content)/terms/terms/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/shared/Page';
 import { TermsHero } from '@/components/hephaestus/supporting/legal/TermsHero';

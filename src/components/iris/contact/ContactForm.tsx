@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Spinner } from "@/components/ui/Spinner";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import type { ContactSubmissionsInsertInput } from "@/lib/validators/generated/iris-communications/contact_submissions";
@@ -285,7 +285,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
         <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
           Message <span className="text-red-400">*</span>
         </label>
-        <TextArea
+        <Textarea
           id="message"
           value={formData.message}
           onChange={(e) => handleChange("message", e.target.value)}

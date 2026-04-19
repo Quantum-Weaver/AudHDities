@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 // Base UI Components
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
 import { Switch } from "@/components/ui/Switch";
 import { Slider } from "@/components/ui/Slider";
@@ -248,7 +248,7 @@ export function ProductForm({
         {/* Description */}
         <div className="space-y-2">
           <Label htmlFor="description">Description</Label>
-          <TextArea
+          <Textarea
             id="description"
             placeholder="Tell people about your product. What makes it special? What problem does it solve?"
             rows={5}

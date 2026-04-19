@@ -41,7 +41,7 @@ const components: ComponentItem[] = [
   
   // Form Components
   { id: 'input', name: 'Input', category: 'form', icon: <Type size={16} />, variants: ['default', 'error', 'success', 'warning', 'disabled', 'filled'] },
-  { id: 'textarea', name: 'TextArea', category: 'form', icon: <Type size={16} />, variants: ['default', 'error', 'success', 'resizable'] },
+  { id: 'Textarea', name: 'Textarea', category: 'form', icon: <Type size={16} />, variants: ['default', 'error', 'success', 'resizable'] },
   { id: 'select', name: 'Select', category: 'form', icon: <ChevronDown size={16} />, variants: ['default', 'error', 'native'] },
   { id: 'checkbox', name: 'Checkbox', category: 'form', icon: <CheckSquare size={16} />, variants: ['default', 'rounded', 'card'] },
   { id: 'radio', name: 'Radio', category: 'form', icon: <Circle size={16} />, variants: ['default', 'card', 'button'] },

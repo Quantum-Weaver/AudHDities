@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // UI Primitives
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
 import { Label } from "@/components/ui/Label";
 import { Card } from "@/components/ui/Card";
@@ -502,7 +502,7 @@ export function ApplicationForm({
           <Label htmlFor="description" variant="required">
             Description
           </Label>
-          <TextArea
+          <Textarea
             id="description"
             value={formData.description}
             onChange={(e) => updateField("description", e.target.value)}
@@ -527,7 +527,7 @@ export function ApplicationForm({
           <Label htmlFor="experience" variant="required">
             Experience
           </Label>
-          <TextArea
+          <Textarea
             id="experience"
             value={formData.experience}
             onChange={(e) => updateField("experience", e.target.value)}
@@ -552,7 +552,7 @@ export function ApplicationForm({
           <Label htmlFor="motivation" variant="required">
             Motivation
           </Label>
-          <TextArea
+          <Textarea
             id="motivation"
             value={formData.motivation}
             onChange={(e) => updateField("motivation", e.target.value)}
@@ -605,7 +605,7 @@ export function ApplicationForm({
         
         <div>
           <Label htmlFor="additional_info">Anything else you'd like to share?</Label>
-          <TextArea
+          <Textarea
             id="additional_info"
             value={formData.additional_info}
             onChange={(e) => updateField("additional_info", e.target.value)}

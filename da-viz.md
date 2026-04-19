@@ -643,7 +643,7 @@ Let me call the council to order.
 |-----------|---------------------|-----------------|
 | `Button` | button | Variants: primary, secondary, outline, ghost, danger; sizes: sm, md, lg; loading state |
 | `Input` | input | Variants: text, email, password, search; error state; label; helper text |
-| `Textarea` | textarea | Auto-resize; character count; error state |
+| `Textarea` | Textarea | Auto-resize; character count; error state |
 | `Select` | select | Searchable; multi-select; grouped options |
 | `Checkbox` | checkbox | Indeterminate state; label |
 | `Radio` | radio | Group; label |

@@ -67,7 +67,7 @@ export const INPUT_VARIANTS = {
   TEL: 'tel',
   URL: 'url',
   SEARCH: 'search',
-  TEXTAREA: 'textarea',
+  Textarea: 'Textarea',
   SELECT: 'select',
   MULTI_SELECT: 'multi-select',
   CHECKBOX: 'checkbox',

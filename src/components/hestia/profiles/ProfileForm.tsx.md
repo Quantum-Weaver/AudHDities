@@ -13,7 +13,7 @@ import Image from "next/image";
 // UI Primitives
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
 import { Label } from "@/components/ui/Label";
 import { Card } from "@/components/ui/Card";
@@ -263,7 +263,7 @@ export function ProfileForm({ userId, onSuccess, onCancel }: ProfileFormProps) {
 
         <div>
           <Label htmlFor="bio">Bio</Label>
-          <TextArea
+          <Textarea
             id="bio"
             {...register("bio", {
               maxLength: { value: 500, message: "Must be less than 500 characters" },

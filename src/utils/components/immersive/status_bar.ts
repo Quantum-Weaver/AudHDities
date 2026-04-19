@@ -1,4 +1,5 @@
-// @/utils/components/immersive/status-bar.ts
+// @/utils/components/immersive/status_bar.ts
+// Status Bar Utilities - Updated for sovereignty support
 
 import type { StatusType, StatusFormat, ConsciousnessState, StatusBarUtils } from '@/types/components/immersive/status_bar';
 
@@ -9,21 +10,42 @@ const statusColors: Record<StatusType, string> = {
   energy: 'bg-yellow-500',
   stamina: 'bg-orange-500',
   focus: 'bg-cyan-500',
+  sovereignty: 'bg-gradient-to-r from-cyan-400 to-purple-400',
+};
+
+const statusTextColors: Record<StatusType, string> = {
+  health: 'text-red-400',
+  experience: 'text-blue-400',
+  mana: 'text-purple-400',
+  energy: 'text-yellow-400',
+  stamina: 'text-orange-400',
+  focus: 'text-cyan-400',
+  sovereignty: 'text-cyan-400',
 };
 
 export const statusBarUtils: StatusBarUtils = {
   getStatusColor: (type: StatusType, value: number, maxValue: number): string => {
     const percentage = (value / maxValue) * 100;
+    
+    // Special handling for health (changes color based on threshold)
     if (type === 'health') {
       if (percentage < 30) return 'bg-red-600';
       if (percentage < 60) return 'bg-yellow-500';
       return 'bg-green-500';
     }
+    
+    // Special handling for energy
     if (type === 'energy') {
       if (percentage < 30) return 'bg-gray-500';
       if (percentage < 60) return 'bg-cyan-500';
       return 'bg-teal-500';
     }
+    
+    // Sovereignty uses gradient
+    if (type === 'sovereignty') {
+      return 'bg-gradient-to-r from-cyan-400 to-purple-400';
+    }
+    
     return statusColors[type] || 'bg-gray-500';
   },
 
@@ -38,7 +60,10 @@ export const statusBarUtils: StatusBarUtils = {
       case 'level':
         return `Lv ${Math.floor(value)}`;
       case 'points':
-        return `${value} pts`;
+        // Format large numbers with K/M suffix
+        if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+        if (value >= 1000) return `${(value / 1000).toFixed(0)}K`;
+        return `${value}`;
       case 'time':
         const minutes = Math.floor(value / 60);
         const seconds = Math.floor(value % 60);
@@ -81,4 +106,37 @@ export const statusBarUtils: StatusBarUtils = {
 
     return Math.min(0.95, Math.max(0.1, score));
   },
+
+  getMetricValue: (type: StatusType, userData: Record<string, any>): number => {
+    const metricMap: Record<StatusType, string> = {
+      health: 'health',
+      experience: 'experience',
+      mana: 'mana',
+      energy: 'energy',
+      stamina: 'stamina',
+      focus: 'focus',
+      sovereignty: 'sovereigntyScore',
+    };
+    
+    const key = metricMap[type];
+    return userData[key] ?? 0;
+  },
+
+  getMetricMax: (type: StatusType): number => {
+    const maxMap: Record<StatusType, number> = {
+      health: 100,
+      experience: 100,
+      mana: 100,
+      energy: 100,
+      stamina: 100,
+      focus: 100,
+      sovereignty: 10000,
+    };
+    return maxMap[type];
+  },
+};
+
+// Export helper for text colors
+export const getStatusTextColor = (type: StatusType): string => {
+  return statusTextColors[type] || 'text-white';
 };

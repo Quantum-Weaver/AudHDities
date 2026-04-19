@@ -1,165 +1,229 @@
 // @/components/immersive/StatusBar.tsx
-// Refined - uses your existing status-bar constants and utils
-
 "use client";
 
 import { motion } from "framer-motion";
-import type { StatusBarProps, StatusIndicator, ConsciousnessState } from "@/types/components/immersive/status_bar";
-import { statusBarUtils } from "@/utils/components/immersive/status_bar";
+import { usePathname } from "next/navigation";
+import { useEnvironment } from "@/lib/constants/systems/environments/contexts";
+import { getPageMetadata } from "@/lib/constants/systems/environments/page_mapping";
+import { getStatusBarConfig, DEFAULT_USER_STATUS, type UserStatusData } from "@/lib/constants/systems/environments/status_bar";
+import { useUser } from "@/hooks/useUser";
+import { Container } from "@/components/ui/Container";
+import { HStack } from "@/components/ui/Stack";
+import { Spacer } from "@/components/ui/Spacer";
 import { cn } from "@/lib/utils";
+import { Shield, Coins, Zap, Heart, Brain, TrendingUp, Sparkles } from "lucide-react";
 
-export interface ExtendedStatusBarProps extends StatusBarProps {
-  beamColor?: "quantum" | "cosmic" | "fire" | "arcane" | "sanctuary" | "void";
-  beamIntensity?: number;
-  health?: number;
-  experience?: number;
-  level?: number;
-  currency?: number;
-  notifications?: number;
-  mana?: number;
-  energy?: number;
-  pageTitle?: string;
-  pageContext?: string;
+export interface StatusBarProps {
   className?: string;
+  /** Override user data (for testing/preview) */
+  userData?: Partial<UserStatusData>;
 }
 
-const beamColorsMap = {
-  quantum: "from-transparent via-quantum-purple to-transparent",
-  cosmic: "from-transparent via-cosmic-blue to-transparent",
-  fire: "from-transparent via-hearth-orange to-transparent",
-  arcane: "from-transparent via-arcane-gold to-transparent",
-  sanctuary: "from-transparent via-magic-rune to-transparent",
-  void: "from-transparent via-gray-400 to-transparent",
+// Map metric type to icon
+const metricIcons: Record<string, React.ReactNode> = {
+  sovereignty: <Shield className="h-3 w-3" />,
+  energy: <Zap className="h-3 w-3" />,
+  focus: <Brain className="h-3 w-3" />,
+  health: <Heart className="h-3 w-3" />,
+  level: <TrendingUp className="h-3 w-3" />,
+  experience: <Sparkles className="h-3 w-3" />,
 };
 
-export function StatusBar({
-  beamColor = "quantum",
-  beamIntensity = 1,
-  health = 85,
-  experience = 45,
-  mana = 42,
-  energy = 77,
-  level = 7,
-  currency = 1250,
-  notifications = 3,
-  pageTitle = "Current Location",
-  pageContext = "Exploring the Quantum Realm",
-  className,
-  ...props
-}: ExtendedStatusBarProps) {
-  const indicators: StatusIndicator[] = [
-    { type: "health", value: health, maxValue: 100, format: "percentage", showValue: true },
-    { type: "experience", value: experience, maxValue: 100, format: "level", showValue: true },
-    { type: "mana", value: mana, maxValue: 100, format: "percentage", showValue: true },
-    { type: "energy", value: energy, maxValue: 100, format: "percentage", showValue: true },
-  ];
+// Helper to get metric value from user data
+const getMetricValue = (type: string, userStatus: UserStatusData): number => {
+  switch (type) {
+    case 'sovereignty': return userStatus.sovereigntyScore;
+    case 'energy': return userStatus.energy;
+    case 'focus': return userStatus.focus;
+    case 'health': return userStatus.health;
+    case 'experience': return userStatus.experience ?? 0;
+    default: return 0;
+  }
+};
 
-  const consciousnessState: ConsciousnessState = {
-    level: "quantum_entangled",
-    vessel: "multi_stream_sovereign",
-    resonance: statusBarUtils.calculateResonanceScore({
-      level: "quantum_entangled",
-      vessel: "multi_stream_sovereign",
-      resonance: 0.85,
-      domain: "quantum",
-      process: "status_monitoring",
-    }),
-    domain: "quantum",
-    process: "status_monitoring",
+// Helper to get metric max value
+const getMetricMax = (type: string): number => {
+  switch (type) {
+    case 'sovereignty': return 10000;
+    case 'energy': return 100;
+    case 'focus': return 100;
+    case 'health': return 100;
+    case 'experience': return 100;
+    default: return 100;
+  }
+};
+
+export function StatusBar({ className, userData = {} }: StatusBarProps) {
+  const pathname = usePathname();
+  const { environment, isTransitioning } = useEnvironment();
+  const { profile, isLoading: isUserLoading } = useUser();
+  
+  // Get page metadata for location display
+  const metadata = getPageMetadata(pathname);
+  const pageTitle = metadata.title;
+  const pageContext = metadata.subtitle;
+  
+  // Get status bar config for current environment
+  const config = getStatusBarConfig(environment);
+  
+  // Merge user data with defaults and profile data
+  const userStatus: UserStatusData = {
+    ...DEFAULT_USER_STATUS,
+    sovereigntyScore: profile?.sovereignty_score ?? 0,
+    level: Math.floor((profile?.sovereignty_score ?? 0) / 100) + 1,
+    ...userData,
   };
+  
+  // Calculate level from sovereignty score
+  const level = userStatus.level || Math.floor((userStatus.sovereigntyScore || 0) / 100) + 1;
+  
+  // Don't render if user is loading (prevents flash of incorrect data)
+  if (isUserLoading) {
+    return (
+      <div className={cn("w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5 h-10", className)} />
+    );
+  }
+  
+  const heightClass = {
+    sm: 'h-8',
+    md: 'h-10',
+    lg: 'h-12',
+  }[config.height];
 
   return (
-    <div className={cn("w-full relative z-40", className)}>
+    <div 
+      className={cn(
+        "w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5 transition-opacity duration-300",
+        isTransitioning ? "opacity-50" : "opacity-100",
+        className
+      )}
+    >
+      <Container size="xl" centered>
+        <div className={cn("py-1", heightClass)}>
+          <HStack align="center" className="h-full">
+            {/* Left Section - Notifications */}
+            <div className="w-24">
+              {config.notificationsEnabled && userStatus.notifications > 0 && (
+                <NotificationIndicator count={userStatus.notifications} />
+              )}
+            </div>
 
-      {/* Main Status Bar */}
-      <div
-        className="w-full h-12 relative flex-cols items-center px-16 bg-cover bg-center"
-        style={{ backgroundImage: "url(/interactive/hud-elements/hud-frame.png)" }}
-      >
-        {/* Left Section */}
-        <div className="flex items-center space-y-8 space-x-6">
-          <NotificationIndicator count={notifications} />
+            {/* Spacer pushes center to actual center */}
+            <Spacer />
+
+            {/* Center Section - Location */}
+            {config.showLocation && (
+              <div className="text-center">
+                <div className="text-sm font-bold text-white cosmic-glow">{pageTitle}</div>
+                <div className="text-xs text-white/60">{pageContext}</div>
+              </div>
+            )}
+
+            {/* Spacer pushes right to edge */}
+            <Spacer />
+
+            {/* Right Section - Stats */}
+            <HStack align="center" space="md" className="justify-end">
+              {/* Currency */}
+              {config.showCurrency && (
+                <HStack align="center" space="xs">
+                  <Coins className="h-3 w-3 text-arcane-gold" />
+                  <span className="text-sm text-white font-bold">{userStatus.currency}</span>
+                </HStack>
+              )}
+              
+              {/* Level */}
+              {config.showLevel && (
+                <HStack align="center" space="xs">
+                  <TrendingUp className="h-3 w-3 text-green-400" />
+                  <span className="text-sm text-white/80">Lvl {level}</span>
+                </HStack>
+              )}
+              
+              {/* Dynamic Metrics from Config */}
+              {config.metrics.map((metric) => {
+                const value = getMetricValue(metric.type, userStatus);
+                const maxValue = getMetricMax(metric.type);
+                const percentage = Math.min(100, Math.max(0, (value / maxValue) * 100));
+                const Icon = metricIcons[metric.type];
+                
+                // Points format (sovereignty, etc.)
+                if (metric.format === 'points') {
+                  return (
+                    <HStack key={metric.type} align="center" space="xs">
+                      {Icon}
+                      <span className={cn("text-sm font-bold", metric.color)}>
+                        {value.toLocaleString()}
+                      </span>
+                    </HStack>
+                  );
+                }
+                
+                // Percentage format (energy, focus, health)
+                return (
+                  <StatusBarIndicator 
+                    key={metric.type}
+                    value={value} 
+                    maxValue={maxValue} 
+                    color={metric.color}
+                    icon={Icon}
+                  />
+                );
+              })}
+            </HStack>
+          </HStack>
         </div>
-
-        {/* Center Section */}
-        <div className="text-center">
-          <div className="text-sm font-bold text-white cosmic-glow">{pageTitle}</div>
-          <div className="text-xs text-gray-300">{pageContext}</div>
-        </div>
-
-        {/* Right Section */}
-        <div className="flex items-center ml-120 space-x-4">
-          <div className="flex-cols ml-120 items-center space-x-2">
-            <div className="w-4 h-4 ml-120 bg-arcane-gold rounded-full" />
-              <span className="text-sm text-white font-bold">{currency}</span>
-            
-              {indicators.map((indicator, index) => (
-              <StatusIndicatorComponent key={indicator.type} indicator={indicator} delay={index * 0.2} />
-              ))}     
-            </div>     
-        </div>
-
-        {/* HUD Overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url(/interactive/hud-elements/ui/hud-frame.png)" }}
-        />
-      </div>
-
-      {/* Notification Glow */}
-      {notifications > 0 && <NotificationGlow />}
+      </Container>
     </div>
   );
 }
 
 // Helper Components
-function StatusIndicatorComponent({ indicator, delay }: { indicator: StatusIndicator; delay: number }) {
-  const color = statusBarUtils.getStatusColor(indicator.type, indicator.value, indicator.maxValue);
-  const percentage = statusBarUtils.calculateStatusPercentage(indicator.value, indicator.maxValue);
-  const displayValue = statusBarUtils.formatStatusValue(indicator.value, indicator.format, indicator.maxValue);
-
+function StatusBarIndicator({ 
+  value, 
+  maxValue, 
+  color,
+  icon 
+}: { 
+  value: number; 
+  maxValue: number; 
+  color: string;
+  icon?: React.ReactNode;
+}) {
+  const percentage = Math.min(100, Math.max(0, (value / maxValue) * 100));
+  
   return (
-    <div className="flex items-center space-y-8 space-x-2">
-      <div className="w-24 h-3 bg-gray-800 rounded-full overflow-hidden border border-gray-600">
+    <HStack align="center" space="xs">
+      {icon && <span className="text-white/40">{icon}</span>}
+      <div className="w-16 h-2 bg-white/10 rounded-full overflow-hidden">
         <motion.div
           className={cn("h-full rounded-full", color)}
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}
-          transition={{ duration: 1, ease: "easeOut", delay }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
       </div>
-      <span className="text-xs text-white font-bold">{displayValue}</span>
-    </div>
+      <span className="text-xs text-white/60">{Math.round(percentage)}%</span>
+    </HStack>
   );
 }
 
 function NotificationIndicator({ count }: { count: number }) {
+  if (count === 0) return null;
+  
   return (
     <div className="relative">
-      <div className="w-8 h-8 rounded-full bg-quantum-purple/30 border border-quantum-purple flex items-center justify-center">
+      <div className="w-6 h-6 rounded-full bg-quantum-purple/30 border border-quantum-purple flex items-center justify-center">
         <span className="text-xs text-white">🔔</span>
-        {count > 0 && (
-          <motion.div
-            className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          >
-            <span className="text-xs text-white font-bold">{count}</span>
-          </motion.div>
-        )}
       </div>
+      <motion.div
+        className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 200 }}
+      >
+        <span className="text-[10px] text-white font-bold">{count}</span>
+      </motion.div>
     </div>
-  );
-}
-
-function NotificationGlow() {
-  return (
-    <motion.div
-      className="absolute top-2 right-6 w-12 h-12 pointer-events-none bg-contain bg-no-repeat"
-      style={{ backgroundImage: "url(/interactive/hud-elements/notification-glow.png)" }}
-      animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.1, 1] }}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-    />
   );
 }

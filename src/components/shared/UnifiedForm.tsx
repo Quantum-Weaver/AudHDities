@@ -8,7 +8,7 @@ import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Label } from "@/components/ui/Label";
 import { Spinner } from "@/components/ui/Spinner";
@@ -56,7 +56,7 @@ const CONTACT_FIELDS = [
   },
   {
     name: "message",
-    type: "textarea" as const,
+    type: "Textarea" as const,
     label: "Message",
     placeholder: "Your message...",
     required: true,
@@ -263,14 +263,14 @@ export function UnifiedForm({
     const isTouched = touched[field.name];
 
     switch (field.type) {
-      case "textarea":
+      case "Textarea":
         return (
           <div key={field.name} className="space-y-2">
             <Label htmlFor={field.name} className="text-sm font-medium text-white">
               {field.label}
               {field.required && <span className="text-red-400 ml-1">*</span>}
             </Label>
-            <TextArea
+            <Textarea
               id={field.name}
               name={field.name}
               value={typeof value === "string" ? value : ""}

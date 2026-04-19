@@ -1,51 +1,16 @@
-// app/layout.tsx - UPDATED FOR PANORAMA VIEWER
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// app/layout.tsx
+import { ReactNode } from 'react';
+import { AppShell } from '@/components/layout/AppShell';
 import '@/app/globals.css';
-import Footer from '@/components/shared/Footer';
-import Header from '@/components/shared/Header';
-import { Navigation } from "@/components/shared/Navigation";
-import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
-import MobileMenu from "@/components/shared/MobileMenu";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono", 
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "AudHDities - Sovereign Sanctuary",
-  description: "Building digital sovereignty through human-AI collaboration. From autistic discovery to consciousness architecture.",
-};
-
-// app/layout.tsx - CLEAN
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="h-full">
-      <head>
-        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
-        
-        <ContinuityBeamProvider>
-          <Header />
-          <Navigation />
-          
-          {/* NO WRAPPERS - Each page handles its own layout */}
+    <html lang="en">
+      <body>
+        <AppShell>
           {children}
-          
-          <Footer />
-        </ContinuityBeamProvider>
+        </AppShell>
       </body>
     </html>
-  )
+  );
 }

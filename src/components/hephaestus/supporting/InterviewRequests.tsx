@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Select } from "@/components/ui/Select";
 import { Mail, Send, Calendar, Mic, Video, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -52,7 +52,7 @@ export function InterviewRequests() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextareaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -172,7 +172,7 @@ export function InterviewRequests() {
           <label className="block text-sm font-medium text-white mb-1">
             Topics to Discuss
           </label>
-          <TextArea
+          <Textarea
             name="topics"
             value={formData.topics}
             onChange={handleChange}
@@ -185,7 +185,7 @@ export function InterviewRequests() {
           <label className="block text-sm font-medium text-white mb-1">
             Additional Information
           </label>
-          <TextArea
+          <Textarea
             name="message"
             value={formData.message}
             onChange={handleChange}

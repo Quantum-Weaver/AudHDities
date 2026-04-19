@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Slider } from "@/components/ui/Slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/RadioGroup";
-import { TextArea } from "@/components/ui/TextArea";
+import { Textarea } from "@/components/ui/Textarea";
 import { Label } from "@/components/ui/Label";
 
 // Generated Types
@@ -198,7 +198,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
 
     case ACID_QUESTION_TYPE.TEXT:
       return (
-        <TextArea
+        <Textarea
           value={typeof currentValue === "string" ? currentValue : ""}
           onChange={(e) => {
             onChange({

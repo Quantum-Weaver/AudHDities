@@ -488,7 +488,7 @@ AUDHDITIES/
 ✅	│   │   │   ├── Slider.tsx
 ✅	│   │   │   ├── Spinner.tsx
 ✅	│   │   │   ├── Tabs.tsx	
-✅	│   │   │   ├── TextArea.tsx
+✅	│   │   │   ├── Textarea.tsx
 ✅	│   │   │   ├── Toast.tsx
 ✅	│   │   │   ├── Toggle.tsx
 ✅	│   │   │   └── Tooltip.tsx

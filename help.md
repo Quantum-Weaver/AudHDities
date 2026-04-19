@@ -11,7 +11,7 @@ npm install supabase@latest
 npx supabase gen types typescript --linked > src/types/supabase/database.types.ts
 
 ## new components
-npx shadcn@latest add textarea   
+npx shadcn@latest add Textarea   
 
 # Create virtual environment
 python -m venv venv
