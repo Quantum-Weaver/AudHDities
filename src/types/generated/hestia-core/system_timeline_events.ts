@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/system_timeline_events.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T22:45:09.582Z
-// SOURCE: database.types.ts lines 6316-6348
+// GENERATED: 2026-04-19T20:39:34.681Z
+// SOURCE: database.types.ts lines 6349-6381
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

@@ -2,7 +2,8 @@
 'use client';
 
 import { useCallback, useMemo } from 'react';
-import { useProfile } from './generated/hestia-core/profiles';
+import { useProfiles } from './generated/hestia-core/profiles';
+
 import type { NDPreferences, SensoryPreferences } from '@/types/preferences';
 import { DEFAULT_ND_PREFERENCES, DEFAULT_SENSORY_PREFERENCES } from '@/types/preferences';
 

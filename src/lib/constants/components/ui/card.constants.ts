@@ -279,14 +279,7 @@ export const CARD_TYPE_TO_VISUAL_VARIANT: Record<CardType, CardVariant> = {
   [CARD_TYPES.SCHEMA_FUNCTION]: CARD_VARIANTS.GHOST,
 } as const;
 
-export const CARD_SHADOW_CONFIG = {
-  none: CARD_SHADOW_CLASSES.none,
-  sm: CARD_SHADOW_CLASSES.sm,
-  md: CARD_SHADOW_CLASSES.md,
-  lg: CARD_SHADOW_CLASSES.lg,
-  xl: CARD_SHADOW_CLASSES.xl,
-  '2xl': CARD_SHADOW_CLASSES['2xl'],
-} as const;
+export const CARD_SHADOW_CONFIG = CARD_SHADOW_CLASSES;
 
 // ============================================================================
 // 18. DEFAULT VALUES

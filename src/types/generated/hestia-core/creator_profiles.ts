@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/creator_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T22:45:09.437Z
-// SOURCE: database.types.ts lines 1883-1976
+// GENERATED: 2026-04-19T20:39:34.632Z
+// SOURCE: database.types.ts lines 1903-2003
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
@@ -39,12 +39,12 @@ export interface CreatorProfilesFormData {
   default_residual_pool?: number | null;
   id?: string;
   portfolio_url?: string | null;
+  profile_id?: string;
   stripe_account_id?: string | null;
   total_earnings?: number | null;
   total_products?: number | null;
   total_sales?: number | null;
   updated_at?: string | null;
-  username?: string | null;
   verified_at?: string | null;
   verified_badge?: boolean | null;
   verified_by?: string | null;

@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/vendor_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T22:45:09.601Z
-// SOURCE: database.types.ts lines 6926-7019
+// GENERATED: 2026-04-19T20:39:34.688Z
+// SOURCE: database.types.ts lines 6959-7059
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
@@ -39,12 +39,12 @@ export interface VendorProfilesFormData {
   created_by?: string | null;
   id?: string;
   product_categories?: string[] | null;
+  profile_id?: string;
   stripe_account_id?: string | null;
   total_earnings?: number | null;
   total_products?: number | null;
   total_sales?: number | null;
   updated_at?: string | null;
-  username?: string | null;
   verified_at?: string | null;
   verified_badge?: boolean | null;
   verified_by?: string | null;

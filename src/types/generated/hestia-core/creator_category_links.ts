@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/creator_category_links.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T22:45:09.435Z
-// SOURCE: database.types.ts lines 1837-1882
+// GENERATED: 2026-04-19T20:39:34.631Z
+// SOURCE: database.types.ts lines 1857-1902
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';

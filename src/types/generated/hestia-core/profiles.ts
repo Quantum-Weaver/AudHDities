@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/profiles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T22:45:09.517Z
-// SOURCE: database.types.ts lines 4120-4214
+// GENERATED: 2026-04-19T20:39:34.655Z
+// SOURCE: database.types.ts lines 4147-4247
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';
@@ -11,6 +11,7 @@ import type { Database, Json } from '@/types/supabase/database.types';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
+export type BadgeType = Database['public']['Enums']['badge_type'];
 export type CouncilHouse = Database['public']['Enums']['council_house'];
 export type SensoryMode = Database['public']['Enums']['sensory_mode'];
 export type UserStatus = Database['public']['Enums']['user_status'];
@@ -35,6 +36,7 @@ export type ProfilesUpdate = Database['public']['Tables']['profiles']['Update'];
 export interface PublicProfiles {
   algorithm_preferences: Json | null;
   avatar_url: string | null;
+  badges: BadgeType | null;
   banner_url: string | null;
   bio: string | null;
   created_at: string | null;
@@ -51,6 +53,7 @@ export interface PublicProfiles {
   nd_preferences: Json | null;
   preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  pronouns: string | null;
   sensory_mode: SensoryMode | null;
   sensory_preferences: Json | null;
   sovereignty_score: number | null;
@@ -66,6 +69,7 @@ export interface PublicProfiles {
 export interface OwnProfiles extends PublicProfiles {
   algorithm_preferences: Json | null;
   avatar_url: string | null;
+  badges: BadgeType | null;
   banner_url: string | null;
   bio: string | null;
   created_at: string | null;
@@ -83,6 +87,7 @@ export interface OwnProfiles extends PublicProfiles {
   nd_preferences: Json | null;
   preferred_environment: string | null;
   primary_house: CouncilHouse | null;
+  pronouns: string | null;
   sensory_mode: SensoryMode | null;
   sensory_preferences: Json | null;
   sovereignty_score: number | null;
@@ -99,6 +104,7 @@ export interface OwnProfiles extends PublicProfiles {
 export interface ProfilesFormData {
   algorithm_preferences?: Json | null;
   avatar_url?: string | null;
+  badges?: BadgeType | null;
   banner_url?: string | null;
   bio?: string | null;
   created_at?: string | null;
@@ -116,6 +122,7 @@ export interface ProfilesFormData {
   nd_preferences?: Json | null;
   preferred_environment?: string | null;
   primary_house?: CouncilHouse | null;
+  pronouns?: string | null;
   sensory_mode?: SensoryMode | null;
   sensory_preferences?: Json | null;
   sovereignty_score?: number | null;
@@ -133,6 +140,7 @@ export interface ProfilesValidationResult {
   errors: {
     algorithm_preferences?: string;
     avatar_url?: string;
+    badges?: string;
     banner_url?: string;
     bio?: string;
     created_at?: string;
@@ -150,6 +158,7 @@ export interface ProfilesValidationResult {
     nd_preferences?: string;
     preferred_environment?: string;
     primary_house?: string;
+    pronouns?: string;
     sensory_mode?: string;
     sensory_preferences?: string;
     sovereignty_score?: string;

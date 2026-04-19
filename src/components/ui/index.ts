@@ -196,22 +196,8 @@ export {
 export {
   Card,
   CardHeader,
-  CardTitle,
-  CardDescription,
-  CardBody,
   CardFooter,
-  CardImage,
-  GlassCard,
-  ElevatedCard,
-  OutlineCard,
-  InteractiveCard,
-  ProductCard,
-  UserCard,
-  MetricCard,
   type CardProps,
-  type CardVariant,
-  type CardPadding,
-  type CardRadius,
 } from './Card';
 
 export {

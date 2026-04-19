@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/community_profiles.ts
-// GENERATED: 2026-04-17T22:45:09.642Z
+// GENERATED: 2026-04-19T20:54:20.645Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -30,10 +30,10 @@ export const CommunityProfilesRowSchema = z.object({
   mentor_since: z.string().nullable(),
   nd_identity: z.any().nullable(),
   peer_endorsements: z.number().nullable(),
+  profile_id: z.string(),
   sensory_accommodations: z.any().nullable(),
   support_needs: z.any().nullable(),
   updated_at: z.string().nullable(),
-  username: z.string().nullable(),
 });
 
 export const CommunityProfilesInsertSchema = z.object({
@@ -54,10 +54,10 @@ export const CommunityProfilesInsertSchema = z.object({
   mentor_since: z.string().nullable().optional(),
   nd_identity: z.any().nullable().optional(),
   peer_endorsements: z.number().nullable().optional(),
+  profile_id: z.string(),
   sensory_accommodations: z.any().nullable().optional(),
   support_needs: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  username: z.string().nullable().optional(),
 });
 
 export const CommunityProfilesUpdateSchema = z.object({
@@ -78,10 +78,10 @@ export const CommunityProfilesUpdateSchema = z.object({
   mentor_since: z.string().nullable().optional(),
   nd_identity: z.any().nullable().optional(),
   peer_endorsements: z.number().nullable().optional(),
+  profile_id: z.string().optional(),
   sensory_accommodations: z.any().nullable().optional(),
   support_needs: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  username: z.string().nullable().optional(),
 });
 
 // =====================================================

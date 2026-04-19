@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T22:45:09.594Z
-// SOURCE: database.types.ts lines 6724-6801
+// GENERATED: 2026-04-19T20:39:34.685Z
+// SOURCE: database.types.ts lines 6757-6834
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';

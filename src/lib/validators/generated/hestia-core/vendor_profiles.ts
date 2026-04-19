@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/hestia-core/vendor_profiles.ts
-// GENERATED: 2026-04-17T22:45:09.808Z
+// GENERATED: 2026-04-19T20:54:20.700Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -21,12 +21,12 @@ export const VendorProfilesRowSchema = z.object({
   created_by: z.string().nullable(),
   id: z.string(),
   product_categories: z.any().nullable(),
+  profile_id: z.string(),
   stripe_account_id: z.string().nullable(),
   total_earnings: z.number().nullable(),
   total_products: z.number().nullable(),
   total_sales: z.number().nullable(),
   updated_at: z.string().nullable(),
-  username: z.string().nullable(),
   verified_at: z.string().nullable(),
   verified_badge: z.boolean().nullable(),
   verified_by: z.string().nullable(),
@@ -42,12 +42,12 @@ export const VendorProfilesInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string(),
   product_categories: z.any().nullable().optional(),
+  profile_id: z.string(),
   stripe_account_id: z.string().nullable().optional(),
   total_earnings: z.number().nullable().optional(),
   total_products: z.number().nullable().optional(),
   total_sales: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  username: z.string().nullable().optional(),
   verified_at: z.string().nullable().optional(),
   verified_badge: z.boolean().nullable().optional(),
   verified_by: z.string().nullable().optional(),
@@ -63,12 +63,12 @@ export const VendorProfilesUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   id: z.string().optional(),
   product_categories: z.any().nullable().optional(),
+  profile_id: z.string().optional(),
   stripe_account_id: z.string().nullable().optional(),
   total_earnings: z.number().nullable().optional(),
   total_products: z.number().nullable().optional(),
   total_sales: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  username: z.string().nullable().optional(),
   verified_at: z.string().nullable().optional(),
   verified_badge: z.boolean().nullable().optional(),
   verified_by: z.string().nullable().optional(),

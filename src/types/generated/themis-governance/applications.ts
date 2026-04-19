@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/applications.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-17T22:45:09.340Z
-// SOURCE: database.types.ts lines 706-778
+// GENERATED: 2026-04-19T20:39:34.620Z
+// SOURCE: database.types.ts lines 706-791
 // =====================================================
 
 import type { Database, Json } from '@/types/supabase/database.types';
@@ -44,6 +44,8 @@ export interface PublicApplications {
   status: ApplicationStatus | null;
   updated_at: string | null;
   user_id: string;
+  verification_notes: string | null;
+  verified_by_profile_id: string | null;
 }
 
 /**
@@ -65,6 +67,8 @@ export interface ApplicationsFormData {
   status?: ApplicationStatus | null;
   updated_at?: string | null;
   user_id?: string;
+  verification_notes?: string | null;
+  verified_by_profile_id?: string | null;
 }
 
 /**
@@ -87,6 +91,8 @@ export interface ApplicationsValidationResult {
     status?: string;
     updated_at?: string;
     user_id?: string;
+    verification_notes?: string;
+    verified_by_profile_id?: string;
   };
 }
 

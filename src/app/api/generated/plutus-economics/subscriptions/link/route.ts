@@ -3,12 +3,12 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { NextRequest } from 'next/server';
 
 // =====================================================
-// API ROUTE: /api/generated/hestia-core/vendor_profiles/[special]
+// API ROUTE: /api/generated/plutus-economics/subscriptions/[special]
 // METHODS: POST
-// GENERATED: 2026-04-19T20:39:34.979Z
+// GENERATED: 2026-04-19T20:39:34.956Z
 // SOURCE: database.types.ts
 // =====================================================
-import { VendorProfilesRowSchema, VendorProfilesInsertSchema, VendorProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/vendor_profiles';
+import { SubscriptionsRowSchema, SubscriptionsInsertSchema, SubscriptionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/subscriptions';
 
 export async function POST(
   request: NextRequest,
@@ -25,7 +25,7 @@ export async function POST(
     
     // Special route logic for link
     const { data, error } = await supabase
-      .rpc('vendor_profiles_link', { ...body, p_user_id: userId });
+      .rpc('subscriptions_link', { ...body, p_user_id: userId });
     
     if (error) throw error;
     

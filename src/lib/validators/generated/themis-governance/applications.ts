@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: validators/generated/themis-governance/applications.ts
-// GENERATED: 2026-04-17T22:45:09.626Z
+// GENERATED: 2026-04-19T20:54:20.639Z
 // SOURCE: database.types.ts
 // =====================================================
 
@@ -28,6 +28,8 @@ export const ApplicationsRowSchema = z.object({
   status: z.enum(Object.values(APPLICATION_STATUS)).nullable(),
   updated_at: z.string().nullable(),
   user_id: z.string(),
+  verification_notes: z.string().nullable(),
+  verified_by_profile_id: z.string().nullable(),
 });
 
 export const ApplicationsInsertSchema = z.object({
@@ -36,7 +38,7 @@ export const ApplicationsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   form_data: z.any(),
-  id: z.string(),
+  id: z.string().optional(),
   onboarding_doc_path: z.string().nullable().optional(),
   onboarding_version: z.string().nullable().optional(),
   review_notes: z.string().nullable().optional(),
@@ -45,6 +47,8 @@ export const ApplicationsInsertSchema = z.object({
   status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
   user_id: z.string(),
+  verification_notes: z.string().nullable().optional(),
+  verified_by_profile_id: z.string().nullable().optional(),
 });
 
 export const ApplicationsUpdateSchema = z.object({
@@ -52,8 +56,8 @@ export const ApplicationsUpdateSchema = z.object({
   application_type: z.enum(Object.values(APPLICATION_TYPE)).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  form_data: z.string(),
-  id: z.string(),
+  form_data: z.any().optional(),
+  id: z.string().optional(),
   onboarding_doc_path: z.string().nullable().optional(),
   onboarding_version: z.string().nullable().optional(),
   review_notes: z.string().nullable().optional(),
@@ -61,7 +65,9 @@ export const ApplicationsUpdateSchema = z.object({
   reviewed_by: z.string().nullable().optional(),
   status: z.enum(Object.values(APPLICATION_STATUS)).nullable().optional(),
   updated_at: z.string().nullable().optional(),
-  user_id: z.string(),
+  user_id: z.string().optional(),
+  verification_notes: z.string().nullable().optional(),
+  verified_by_profile_id: z.string().nullable().optional(),
 });
 
 // =====================================================

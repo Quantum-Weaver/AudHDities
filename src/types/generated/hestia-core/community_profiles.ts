@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/community_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-17T22:45:09.356Z
-// SOURCE: database.types.ts lines 1283-1378
+// GENERATED: 2026-04-19T20:39:34.626Z
+// SOURCE: database.types.ts lines 1296-1398
 // =====================================================
 
 import type { Database } from '@/types/supabase/database.types';
@@ -48,9 +48,9 @@ export interface CommunityProfilesFormData {
   mentor_since?: string | null;
   nd_identity?: string[] | null;
   peer_endorsements?: number | null;
+  profile_id?: string;
   sensory_accommodations?: string[] | null;
   support_needs?: string[] | null;
   updated_at?: string | null;
-  username?: string | null;
 }
 
