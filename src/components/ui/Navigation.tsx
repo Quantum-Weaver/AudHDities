@@ -83,7 +83,6 @@ export function Navigation({ className }: NavigationProps) {
     <>
       {/* Desktop Navigation */}
       <nav className={cn('md:block', className)}>
-        <Container size="xl" centered>
           <HStack align="center" justify="between" className="h-14">
             {/* Left side - Logo/Brand */}
             <Link href="/" className="flex-shrink-0">
@@ -121,7 +120,6 @@ export function Navigation({ className }: NavigationProps) {
               <AuthButton />
             </HStack>
           </HStack>
-        </Container>
       </nav>
 
       {/* Mobile Navigation */}

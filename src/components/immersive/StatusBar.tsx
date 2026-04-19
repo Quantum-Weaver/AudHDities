@@ -3,10 +3,8 @@
 
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEnvironment } from "@/lib/constants/systems/environments/contexts";
+import { useStatusBar } from "@/hooks/useStatusBar";
 import { getPageMetadata } from "@/lib/constants/systems/environments/page_mapping";
-import { getStatusBarConfig, DEFAULT_USER_STATUS, type UserStatusData } from "@/lib/constants/systems/environments/status_bar";
-import { useUser } from "@/hooks/useUser";
 import { Container } from "@/components/ui/Container";
 import { HStack } from "@/components/ui/Stack";
 import { Spacer } from "@/components/ui/Spacer";
@@ -16,7 +14,14 @@ import { Shield, Coins, Zap, Heart, Brain, TrendingUp, Sparkles } from "lucide-r
 export interface StatusBarProps {
   className?: string;
   /** Override user data (for testing/preview) */
-  userData?: Partial<UserStatusData>;
+  userData?: Partial<{
+    sovereigntyScore: number;
+    energy: number;
+    focus: number;
+    health: number;
+    currency: number;
+    notifications: number;
+  }>;
 }
 
 // Map metric type to icon
@@ -29,66 +34,52 @@ const metricIcons: Record<string, React.ReactNode> = {
   experience: <Sparkles className="h-3 w-3" />,
 };
 
-// Helper to get metric value from user data
-const getMetricValue = (type: string, userStatus: UserStatusData): number => {
-  switch (type) {
-    case 'sovereignty': return userStatus.sovereigntyScore;
-    case 'energy': return userStatus.energy;
-    case 'focus': return userStatus.focus;
-    case 'health': return userStatus.health;
-    case 'experience': return userStatus.experience ?? 0;
-    default: return 0;
-  }
-};
-
-// Helper to get metric max value
-const getMetricMax = (type: string): number => {
-  switch (type) {
-    case 'sovereignty': return 10000;
-    case 'energy': return 100;
-    case 'focus': return 100;
-    case 'health': return 100;
-    case 'experience': return 100;
-    default: return 100;
-  }
-};
-
 export function StatusBar({ className, userData = {} }: StatusBarProps) {
   const pathname = usePathname();
-  const { environment, isTransitioning } = useEnvironment();
-  const { profile, isLoading: isUserLoading } = useUser();
+  const { config, userStatus: baseUserStatus, isLoading, isTransitioning, level } = useStatusBar();
   
   // Get page metadata for location display
   const metadata = getPageMetadata(pathname);
   const pageTitle = metadata.title;
   const pageContext = metadata.subtitle;
   
-  // Get status bar config for current environment
-  const config = getStatusBarConfig(environment);
+  // Merge with override user data
+  const userStatus = { ...baseUserStatus, ...userData };
   
-  // Merge user data with defaults and profile data
-  const userStatus: UserStatusData = {
-    ...DEFAULT_USER_STATUS,
-    sovereigntyScore: profile?.sovereignty_score ?? 0,
-    level: Math.floor((profile?.sovereignty_score ?? 0) / 100) + 1,
-    ...userData,
+  // Helper to get metric value
+  const getMetricValue = (type: string): number => {
+    switch (type) {
+      case 'sovereignty': return userStatus.sovereigntyScore;
+      case 'energy': return userStatus.energy;
+      case 'focus': return userStatus.focus;
+      case 'health': return userStatus.health;
+      case 'experience': return 0;
+      default: return 0;
+    }
   };
   
-  // Calculate level from sovereignty score
-  const level = userStatus.level || Math.floor((userStatus.sovereigntyScore || 0) / 100) + 1;
-  
-  // Don't render if user is loading (prevents flash of incorrect data)
-  if (isUserLoading) {
-    return (
-      <div className={cn("w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5 h-10", className)} />
-    );
-  }
+  // Helper to get metric max
+  const getMetricMax = (type: string): number => {
+    switch (type) {
+      case 'sovereignty': return 10000;
+      case 'energy': return 100;
+      case 'focus': return 100;
+      case 'health': return 100;
+      case 'experience': return 100;
+      default: return 100;
+    }
+  };
   
   const heightClass = {
     sm: 'h-8',
     md: 'h-10',
     lg: 'h-12',
   }[config.height];
+  
+  // Don't render while loading (prevents flash)
+  if (isLoading) {
+    return <div className={cn("w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5", heightClass, className)} />;
+  }
 
   return (
     <div 
@@ -142,12 +133,11 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
               
               {/* Dynamic Metrics from Config */}
               {config.metrics.map((metric) => {
-                const value = getMetricValue(metric.type, userStatus);
+                const value = getMetricValue(metric.type);
                 const maxValue = getMetricMax(metric.type);
-                const percentage = Math.min(100, Math.max(0, (value / maxValue) * 100));
                 const Icon = metricIcons[metric.type];
                 
-                // Points format (sovereignty, etc.)
+                // Points format (sovereignty)
                 if (metric.format === 'points') {
                   return (
                     <HStack key={metric.type} align="center" space="xs">

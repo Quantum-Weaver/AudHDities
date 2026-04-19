@@ -1,11 +1,11 @@
 // @/components/layout/AppShell.tsx
 // App Shell - The sovereign container for all pages
-// Stacks Header, ContinuityBeam, StatusBar, and Content correctly
+// Stacks Header, ContinuityBeam, StatusBar, Navigation, and Content correctly
 
 "use client";
 
 import { ReactNode } from 'react';
-import { VStack } from '@/components/ui/Stack';
+import { VStack, HStack } from '@/components/ui/Stack';
 import Header from '@/components/layout/Header';
 import { Navigation } from '@/components/ui/Navigation';
 import ContinuityBeam from '@/components/immersive/ContinuityBeam';
@@ -38,21 +38,29 @@ export function AppShell({
 }: AppShellProps) {
   return (
     <EnvironmentProvider debug={process.env.NODE_ENV === 'development'}>
-    <ContinuityBeamProvider>
-      <VStack space="none" className="min-h-screen">
-        {/* Fixed top section - no gaps, no scroll */}
-        {showHeader && <Header />}        
-        {showContinuityBeam && <ContinuityBeam />}
-        <div className="container">
-          {showNavigation && <Navigation />}
-          {showStatusBar && <StatusBar />}
-        </div>
-        {/* Scrollable content - fills remaining space */}
-        <main className={cn("flex-1 relative", className)}>
-          {children}
-        </main>
-      </VStack>
-    </ContinuityBeamProvider>
+      <ContinuityBeamProvider>
+        <VStack space="none" className="min-h-screen w-full">
+          {/* Fixed top section - no gaps, no scroll, each takes full width */}
+          
+          {/* Header - topmost */}
+          {showHeader && <Header />}
+          <div className='w-min'>
+            {/* Continuity Beam - directly below header */}
+            {showContinuityBeam && <ContinuityBeam />}
+
+            {/* Status Bar - below continuity beam */}
+            {showStatusBar && <StatusBar />}
+        
+            {/* Navigation - below status bar */}
+            {showNavigation && <Navigation />}
+
+          </div>
+          {/* Scrollable content - fills remaining space */}
+          <main className={cn("flex-1 relative w-full", className)}>
+            {children}
+          </main>
+        </VStack>
+      </ContinuityBeamProvider>
     </EnvironmentProvider>
   );
 }
