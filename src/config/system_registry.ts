@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-04-19T21:08:22.234Z",
+  "updatedAt": "2026-04-20T17:46:47.348Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,21 +47,29 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260419_160819",
+      "id": "20260420_124647",
       "system": "GAIA",
-      "startTime": "2026-04-19T21:08:19.125Z",
-      "endTime": "2026-04-19T21:08:22.233Z",
+      "startTime": "2026-04-20T17:46:47.344Z",
+      "endTime": "2026-04-20T17:46:47.348Z",
       "status": "success",
       "generatedFiles": [],
       "errors": [],
       "warnings": [],
-      "notes": [
-        "Found 110 tables, 4 views, 53 functions, 114 enums",
-        "Directory discovery: 532 existing files found",
-        "Extracted: 110 tables, 4 views, 53 functions, 114 runtime enums"
-      ]
+      "notes": []
     },
-    "runs": [],
+    "runs": [
+      {
+        "id": "20260420_124647",
+        "system": "GAIA",
+        "startTime": "2026-04-20T17:46:47.344Z",
+        "endTime": "2026-04-20T17:46:47.348Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [],
+        "notes": []
+      }
+    ],
     "files": {}
   },
   "settings": {

@@ -12,7 +12,7 @@ import ContinuityBeam from '@/components/immersive/ContinuityBeam';
 import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/immersive/StatusBar';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
-import { ScrollArea } from '../ui/Index';
+import { ScrollArea } from '../ui/ScrollArea';
 import { cn } from '@/lib/utils';
 
 export interface AppShellProps {

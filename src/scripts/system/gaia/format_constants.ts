@@ -3,15 +3,15 @@
 // FORMAT CONSTANTS (GAIA)
 // ============================================================================
 // Purpose: Format runtime enums into constant object files
-// Dependencies: types from extractRuntimeEnums, config from object-categories
+// Dependencies: RuntimeEnumInfo from extract_runtime_enums.ts
+// Output: src/lib/constants/generated/{deityFolder}/{enumName}.ts
+// 
+// NOTE: Constants are derived from runtime enums, NOT from tables.
+// They do NOT go through table enrichment.
 // ============================================================================
 
 import type { RuntimeEnumInfo } from './extract_runtime_enums.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ImportManager } from '../../shared/import_manager.js';
-import { cleanEnumValue } from '../../shared/quote_manager.js';
-import type { ObjectCategory } from '@/config/object_categories.js';
-import { EnrichedRuntimeEnum } from './enrich_objects.js';
 
 export interface FormatConstantsOptions {
   verbose?: boolean;
@@ -23,7 +23,6 @@ export interface FormattedConstant {
   enumName: string;
   values: string[];
   deityFolder: string;
-  category: ObjectCategory;
 }
 
 /**
@@ -60,18 +59,11 @@ function generateHeader(enumName: string, deityFolder: string, values: string[])
 
 /**
  * Check if a constant key needs quotes in the object literal
- * - Contains slashes (date formats like 'YYYY-MM-DD', 'MM/DD/YYYY')
- * - Starts with a number (time formats like '12H', '24H')
- * - Contains special characters
  */
 function needsQuotedKey(key: string): boolean {
-  // Contains slash (date formats)
   if (key.includes('/')) return true;
-  // Contains hyphen (date formats like 'YYYY-MM-DD' - though hyphen is fine, but safe to quote)
   if (key.includes('-')) return true;
-  // Starts with a number (time formats like '12H', '24H')
   if (/^\d/.test(key)) return true;
-  // Contains other special characters
   if (/[^a-zA-Z0-9_]/.test(key)) return true;
   return false;
 }
@@ -84,7 +76,6 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
   const constName = toUpperSnakeCase(enumName);
   const typeName = toPascalCase(enumName);
   
-  // Special handling for time_format_type and date_format_type
   const needsQuoteWrapping = enumName === 'time_format_type' || enumName === 'date_format_type';
   
   if (!values || values.length === 0) {
@@ -97,10 +88,11 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
   
   for (const value of values) {
     const key = toUpperSnakeCase(value);
-    const cleanValue = cleanEnumValue(value);
+    const cleanValue = value;
     
     if (needsQuoteWrapping) {
-      // For time_format_type and date_format_type: wrap key in quotes
+      content += `  "${key}": '${cleanValue}',\n`;
+    } else if (needsQuotedKey(key)) {
       content += `  "${key}": '${cleanValue}',\n`;
     } else {
       content += `  ${key}: '${cleanValue}',\n`;
@@ -115,34 +107,28 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
 
 /**
  * Format a single runtime enum into a constant file
- * Resolves deity folder from object-categories config
+ * 
+ * @param enumInfo - Runtime enum info (from extraction, not enrichment)
+ * @param deityFolder - Where to place the constant file
+ * @param options - Optional settings
  */
 export function formatConstant(
-  enumInfo: EnrichedRuntimeEnum,  // Extends RuntimeEnumInfo - has all properties
+  enumInfo: RuntimeEnumInfo,
+  deityFolder: string,
   options?: FormatConstantsOptions
 ): FormattedConstant | null {
   const { verbose = false } = options || {};
-  const { name: enumName, deityFolder, category, shouldGenerateConstants, values } = enumInfo;
-  
-  // Check if this enum needs constant generation (using pre-resolved flag)
-  if (!shouldGenerateConstants) {
-    if (verbose) {
-      logDebug(`Skipping constant for ${enumName} (not configured for constant generation)`);
-    }
-    return null;
-  }
+  const { name: enumName, values } = enumInfo;
   
   if (verbose) {
     logDebug(`Formatting constant: ${enumName} -> ${deityFolder}`);
   }
   
-  // Skip if no values
   if (!values || values.length === 0) {
     logWarning(`Skipping constant for ${enumName}: no values found`);
     return null;
   }
   
-  // Pass the full enumInfo - it has startLine, endLine, content, etc.
   const content = formatConstantContent(enumInfo, deityFolder);
   const filePath = `src/lib/constants/generated/${deityFolder}/${enumName}.ts`;
   
@@ -155,16 +141,20 @@ export function formatConstant(
     filePath,
     enumName,
     values,
-    deityFolder,
-    category
+    deityFolder
   };
 }
 
 /**
  * Format multiple runtime enums into constant files
+ * 
+ * @param enums - Array of runtime enum info
+ * @param getDeityFolder - Function to determine deity folder for each enum
+ * @param options - Optional settings
  */
 export function formatConstants(
-  enums: EnrichedRuntimeEnum[],  // ← Changed from RuntimeEnumInfo[]
+  enums: RuntimeEnumInfo[],
+  getDeityFolder: (enumName: string) => string,
   options?: FormatConstantsOptions
 ): FormattedConstant[] {
   const { verbose = false } = options || {};
@@ -175,12 +165,13 @@ export function formatConstants(
   }
   
   for (const enumInfo of enums) {
-    const formatted = formatConstant(enumInfo, options);
+    const deityFolder = getDeityFolder(enumInfo.name);
+    const formatted = formatConstant(enumInfo, deityFolder, options);
     if (formatted) {
       results.push(formatted);
       
       if (verbose) {
-        logDebug(`  Formatted: ${enumInfo.name} -> ${formatted.deityFolder}`);
+        logDebug(`  Formatted: ${enumInfo.name} -> ${deityFolder}`);
       }
     }
   }

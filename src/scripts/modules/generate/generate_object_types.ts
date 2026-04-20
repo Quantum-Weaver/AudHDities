@@ -16,7 +16,7 @@ export interface GenerateObjectTypesOptions {
   verbose?: boolean;
   dryRun?: boolean;           // Simulate writing without actually writing
   forceOverwrite?: boolean;   // Overwrite existing files without asking
-  outputBase?: string;        // Base output path (default: 'src/types')
+  outputBase?: string;        // Base output path (default: 'types')
   askForApproval?: boolean;   // Ask before overwriting existing files
 }
 
@@ -164,7 +164,7 @@ export async function generateSingleTypeFile(
   deityGroup: string,
   options: GenerateObjectTypesOptions = {}
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
-  const { outputBase = 'src/types', verbose = false } = options;
+  const { outputBase = 'types', verbose = false } = options;
   
   // Build output path
   const outputPath = path.join(PROJECT_ROOT, outputBase, deityGroup, `${tableName}.ts`);
@@ -312,7 +312,7 @@ export async function previewTypeGeneration(
   formattedMap: Map<string, FormattedTypeContent>,
   deityGroup: string
 ): Promise<void> {
-  const { outputBase = 'src/types' } = {};
+  const { outputBase = 'types' } = {};
   
   logInfo(`PREVIEW: Would generate ${formattedMap.size} type files for deity: ${deityGroup}`);
   console.log('');

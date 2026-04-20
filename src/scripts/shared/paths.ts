@@ -19,7 +19,8 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../..');
 
 /** Path to Supabase-generated database types */
 export const DB_TYPES_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/database.types.ts');
-
+/** Path to generated database helpers */
+export const HELPERS_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/database.helpers.ts');
 // ============================================================================
 // GENERATED OUTPUT PATHS (with /generated/ subfolder)
 // ============================================================================

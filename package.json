@@ -11,6 +11,7 @@
     "vercel-build": "npm run cosmic:generate && next build",
     "postinstall": "echo '🛠️ AudHDities Sanctuary - The Loom Awaits'",
     "generate:enums": "tsx src/scripts/system/gaia.ts",
+    "inspect-schema": "src/scripts/inspect_schema.ts",
     "generate:enums:verbose": "tsx src/scripts/system/gaia/generate_enums_file.ts --verbose",    
     "generate:indexes": "tsx src/scripts/modules/generate/index_files.ts",
     "generate:indexes:verbose": "tsx src/scripts/modules/generate/index_files.ts --verbose",

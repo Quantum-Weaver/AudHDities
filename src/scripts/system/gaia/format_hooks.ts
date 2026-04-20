@@ -1,16 +1,14 @@
-// src/scripts/generators/gaia/format_hooks.ts
+// src/scripts/system/gaia/format_hooks.ts
 // ============================================================================
-// FORMAT HOOKS (GAIA)
+// FORMAT HOOKS (GAIA) - ACCEPTS SINGLE TABLE OBJECT
 // ============================================================================
 // Purpose: Format table definitions into React hooks
-// Dependencies: EnrichedTable from enrich_objects
+// Dependencies: EnrichedTable (single object, not array)
 // Output: src/hooks/generated/{deityFolder}/{tableName}.ts
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories.js';
-import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ImportManager } from '../../shared/import_manager.js';
 import type { EnrichedTable } from './enrich_objects.js';
+import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatHooksOptions {
   verbose?: boolean;
@@ -20,66 +18,36 @@ export interface FormattedHook {
   content: string;
   filePath: string;
   tableName: string;
-  hookType: 'useTable' | 'useTableList' | 'useCreateTable' | 'useUpdateTable' | 'useDeleteTable';
   deityFolder: string;
-  category: ObjectCategory;
 }
 
-/**
- * Convert snake_case to PascalCase for type names
- */
 function toPascalCase(str: string): string {
-  return str
-    .split('_')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('');
+  return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
 }
 
-/**
- * Convert table name to hook name (e.g., profiles -> useProfiles)
- */
-function toHookName(tableName: string): string {
-  const pascalName = toPascalCase(tableName);
-  return `use${pascalName}`;
-}
-
-/**
- * Generate header comment for hook file with complete import paths
- */
 function generateHeader(table: EnrichedTable): string {
   const timestamp = new Date().toISOString();
   const { name: tableName, deityFolder } = table;
-  const hookName = toHookName(tableName);
   const pascalName = toPascalCase(tableName);
   
-  // Build the correct import path with deity folder and file name
-  const typesImportPath = `@/types/generated/${deityFolder}/${tableName}`;
-  
   return `// =====================================================
-// HOOK: ${hookName}
+// HOOKS: ${pascalName}
 // GENERATED: ${timestamp}
-// SOURCE: database.types.ts
 // DEITY: ${deityFolder}
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '${typesImportPath}';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}';
 
 `;
 }
 
-/**
- * Generate use[Table] hook (fetch single record)
- */
 function generateUseTableHook(table: EnrichedTable): string {
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
+  const hookName = `use${pascalName}`;
   
-  return `/**
- * Hook to fetch a single ${tableName} record
- */
-export function ${hookName}(id: string | undefined) {
+  return `export function ${hookName}(id: string | undefined) {
   const [data, setData] = useState<${pascalName}Row | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -117,18 +85,12 @@ export function ${hookName}(id: string | undefined) {
 `;
 }
 
-/**
- * Generate use[Table]List hook (fetch list with pagination)
- */
 function generateUseTableListHook(table: EnrichedTable): string {
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
+  const hookName = `use${pascalName}List`;
   
-  return `/**
- * Hook to fetch a list of ${tableName} records with pagination
- */
-export function ${hookName}List(params?: {
+  return `export function ${hookName}(params?: {
   page?: number;
   limit?: number;
   filters?: Record<string, string>;
@@ -181,18 +143,12 @@ export function ${hookName}List(params?: {
 `;
 }
 
-/**
- * Generate useCreate[Table] hook (create mutation)
- */
 function generateUseCreateTableHook(table: EnrichedTable): string {
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
+  const hookName = `useCreate${pascalName}`;
   
-  return `/**
- * Hook to create a new ${tableName} record
- */
-export function useCreate${pascalName}() {
+  return `export function ${hookName}() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -229,18 +185,12 @@ export function useCreate${pascalName}() {
 `;
 }
 
-/**
- * Generate useUpdate[Table] hook (update mutation)
- */
 function generateUseUpdateTableHook(table: EnrichedTable): string {
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
+  const hookName = `useUpdate${pascalName}`;
   
-  return `/**
- * Hook to update a ${tableName} record
- */
-export function useUpdate${pascalName}() {
+  return `export function ${hookName}() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -277,18 +227,12 @@ export function useUpdate${pascalName}() {
 `;
 }
 
-/**
- * Generate useDelete[Table] hook (delete mutation)
- */
 function generateUseDeleteTableHook(table: EnrichedTable): string {
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const hookName = toHookName(tableName);
+  const hookName = `useDelete${pascalName}`;
   
-  return `/**
- * Hook to delete a ${tableName} record
- */
-export function useDelete${pascalName}() {
+  return `export function ${hookName}() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -324,73 +268,43 @@ export function useDelete${pascalName}() {
 }
 
 /**
- * Format a table into hook files
- * Accepts EnrichedTable (pre-resolved configuration)
+ * Format a single table into hook files
+ * Accepts EnrichedTable (single object)
  */
 export function formatHooks(
   table: EnrichedTable,
   options?: FormatHooksOptions
 ): FormattedHook[] {
   const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, category, shouldGenerateHooks, rowContent } = table;
+  const { name: tableName, deityFolder, shouldGenerateHooks } = table;
   const results: FormattedHook[] = [];
   
-  // Check if this table needs hooks (using pre-resolved flag from enrichment)
   if (!shouldGenerateHooks) {
-    if (verbose) {
-      logDebug(`Skipping hooks for ${tableName} (not configured for hooks)`);
-    }
+    if (verbose) logDebug(`Skipping hooks for ${tableName}`);
     return results;
   }
   
-  if (verbose) {
-    logDebug(`Formatting hooks for: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
-  }
+  if (verbose) logDebug(`Formatting hooks for: ${tableName} -> ${deityFolder}`);
   
-  // Validate row content exists
-  if (!rowContent || rowContent.trim() === '') {
-    logWarning(`No row content for ${tableName}, skipping hooks generation`);
-    return results;
-  }
-  
-  // Generate the complete file content
   let content = generateHeader(table);
-  
-  content += `// =====================================================\n`;
-  content += `// ${toPascalCase(tableName)} HOOKS\n`;
-  content += `// =====================================================\n\n`;
-  
   content += generateUseTableHook(table);
-  content += `\n`;
   content += generateUseTableListHook(table);
-  content += `\n`;
   content += generateUseCreateTableHook(table);
-  content += `\n`;
   content += generateUseUpdateTableHook(table);
-  content += `\n`;
   content += generateUseDeleteTableHook(table);
   
   const filePath = `src/hooks/generated/${deityFolder}/${tableName}.ts`;
   
-  results.push({
-    content,
-    filePath,
-    tableName,
-    hookType: 'useTable',
-    deityFolder,
-    category
-  });
+  results.push({ content, filePath, tableName, deityFolder });
   
-  if (verbose) {
-    logDebug(`  Formatted hooks for ${tableName} -> ${filePath}`);
-  }
+  if (verbose) logDebug(`  Generated hooks for ${tableName}`);
   
   return results;
 }
 
 /**
  * Format multiple tables into hook files
- * Accepts pre-enriched tables - no callbacks needed
+ * Accepts array of EnrichedTable
  */
 export function formatMultipleHooks(
   tables: EnrichedTable[],
@@ -399,25 +313,8 @@ export function formatMultipleHooks(
   const { verbose = false } = options || {};
   const results: FormattedHook[] = [];
   
-  if (verbose) {
-    logDebug(`Formatting hooks for ${tables.length} tables...`);
-  }
-  
   for (const table of tables) {
-    // Skip if no row content
-    if (!table.rowContent || table.rowContent.trim() === '') {
-      if (verbose) {
-        logDebug(`  Skipping hooks for ${table.name} (no row content)`);
-      }
-      continue;
-    }
-    
-    const hooks = formatHooks(table, options);
-    results.push(...hooks);
-    
-    if (verbose) {
-      logDebug(`  Formatted hooks for ${table.name} -> ${table.deityFolder}`);
-    }
+    results.push(...formatHooks(table, options));
   }
   
   if (verbose) {
