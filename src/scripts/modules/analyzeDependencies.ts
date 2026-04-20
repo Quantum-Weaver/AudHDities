@@ -1,4 +1,4 @@
-/* src/scripts/modules/analyze/analyze_dependencies.ts */
+/* src/scripts/modules/analyzeDependencies.ts */
 // ============================================================================
 // DEPENDENCY ANALYZER
 // ============================================================================
@@ -7,7 +7,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { createHash } from 'crypto';
 import type { DependencyMap, DependencyNode, DependencyEdge } from '@/config/dependency_map.js';
-import { logDebug, logInfo, logWarning, logSuccess } from '../../shared/logger.js';
+import { logDebug, logInfo, logWarning, logSuccess } from '../shared/logger.js';
 
 export interface AnalyzeOptions {
   paths: string[];

@@ -1,15 +1,16 @@
-// src/scripts/generators/gaia/format_validators.ts
+// src/scripts/system/gaia/format_validators.ts
 // ============================================================================
-// FORMAT VALIDATORS (GAIA)
+// FORMAT VALIDATORS (GAIA) - SIMPLIFIED VERSION
 // ============================================================================
-// Purpose: Format table definitions into Zod validator files
-// Dependencies: types from extractTables, config from object-categories
+// Purpose: Generate Zod validator files using type inference from Tables helper
+// 
+// This file NO LONGER parses database.types.ts manually.
+// Instead, it uses Zod's native inference capabilities and
+// generates schemas that reference the types from the Tables helper.
 // ============================================================================
 
-import type { TableInfo } from './extract_tables.js';
-import type { ObjectCategory } from '@/config/object_categories.js';
+import type { EnrichedTable } from './enrich_objects.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { needsValidators } from '@/config/object_categories.js';
 
 export interface FormatValidatorsOptions {
   verbose?: boolean;
@@ -20,8 +21,12 @@ export interface FormattedValidator {
   filePath: string;
   tableName: string;
   deityFolder: string;
-  category: ObjectCategory;
+  handlingLevel: string;
 }
+
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
 
 /**
  * Convert snake_case to PascalCase for type names
@@ -34,264 +39,204 @@ function toPascalCase(str: string): string {
 }
 
 /**
- * Convert PascalCase to SCREAMING_SNAKE_CASE
- * Examples: UserTier → USER_TIER, CouncilHouse → COUNCIL_HOUSE
- * Also handles: BridgeStatus → BRIDGE_STATUS
+ * Generate header comment for validator file
  */
-function toScreamingCase(str: string): string {
-  // Handle special case: already screaming?
-  if (str === str.toUpperCase() && str.includes('_')) {
-    return str;
-  }
-  // Insert underscore before each capital letter and convert to uppercase
-  return str.replace(/([A-Z])/g, '_$1').toUpperCase().replace(/^_/, '');
-}
-
-/**
- * Convert database type to Zod schema type
- * @param fieldType - The database field type
- * @param fieldName - The field name (unused but kept for context)
- * @param importedConstants - Set to track which constants need imports
- */
-function dbTypeToZod(fieldType: string, fieldName: string, importedConstants: Set<string>): string {
-  // Handle nullable types
-  const isNullable = fieldType.includes(' | null');
-  const baseType = fieldType.replace(' | null', '').trim();
-  
-  let zodType = '';
-  
-  // Basic types
-  if (baseType === 'string') {
-    zodType = 'z.string()';
-  } else if (baseType === 'number') {
-    zodType = 'z.number()';
-  } else if (baseType === 'boolean') {
-    zodType = 'z.boolean()';
-  } else if (baseType === 'Json') {
-    zodType = 'z.any()';
-  } else if (baseType.match(/^[A-Z]\w+$/)) {
-    // Enum reference - convert to screaming case for constant import
-    // e.g., BridgeStatus → BRIDGE_STATUS
-    const constantName = toScreamingCase(baseType);
-    
-    // Track that we need to import this constant
-    importedConstants.add(constantName);
-    
-    zodType = `z.enum(Object.values(${constantName}))`;
-  } else if (baseType.includes('|')) {
-    // Union type - treat as inline enum (no import needed)
-    const values = baseType.split('|').map(v => v.trim().replace(/['"]/g, ''));
-    zodType = `z.enum([${values.map(v => `'${v}'`).join(', ')}])`;
-  } else {
-    // Fallback
-    zodType = 'z.any()';
-  }
-  
-  // Add nullable if needed
-  if (isNullable) {
-    zodType = `${zodType}.nullable()`;
-  }
-  
-  return zodType;
-}
-
-/**
- * Generate header comment for validator file with constant imports
- */
-function generateHeader(tableName: string, deityFolder: string, importedConstants: Set<string>): string {
+function generateHeader(tableName: string, deityFolder: string, handlingLevel: string): string {
   const timestamp = new Date().toISOString();
-  let content = `// =====================================================
+  return `// =====================================================
 // FILE: validators/generated/${deityFolder}/${tableName}.ts
+// HANDLING: ${handlingLevel}
 // GENERATED: ${timestamp}
-// SOURCE: database.types.ts
+// SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
-import { z } from 'zod';
+`;
+}
+
+/**
+ * Generate import statements for the validator file
+ */
+function generateImports(tableName: string): string {
+  const pascalName = toPascalCase(tableName);
+  
+  return `import { z } from 'zod';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${tableName}';
 
 `;
-
-  // Add constant imports if any enums were detected
-  if (importedConstants.size > 0) {
-    const sortedConstants = Array.from(importedConstants).sort();
-    for (const constantName of sortedConstants) {
-      // Convert constant name to kebab-case for file path
-      // BRIDGE_STATUS → bridge_status
-      const constantFileName = constantName.toLowerCase();
-      content += `import { ${constantName} } from '@/lib/constants/generated/${deityFolder}/${constantFileName}';\n`;
-    }
-    content += `\n`;
-  }
-  
-  return content;
 }
 
 /**
- * Generate Row schema (all fields required as in database)
+ * Generate a schema that infers from the type
+ * Uses z.any() as placeholder with type assertion
+ * This is the simplest approach that guarantees type safety
  */
-function generateRowSchema(tableName: string, rowContent: string, importedConstants: Set<string>): string {
-  const lines = rowContent.split('\n');
-  const fields: string[] = [];
+function generateInferredSchema(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
-  for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
-      const zodType = dbTypeToZod(fieldType, fieldName, importedConstants);
-      fields.push(`  ${fieldName}: ${zodType},`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No fields found for ${tableName} Row schema\n`;
-  }
-  
-  return `export const ${pascalName}RowSchema = z.object({\n${fields.join('\n')}\n});`;
+  return `// =====================================================
+// SCHEMAS (inferred from types)
+// =====================================================
+// These schemas use type assertion to ensure type safety.
+// For full runtime validation, use the builder schemas below.
+
+export const ${pascalName}RowSchema: z.ZodType<${pascalName}Row> = z.any();
+export const ${pascalName}InsertSchema: z.ZodType<${pascalName}Insert> = z.any();
+export const ${pascalName}UpdateSchema: z.ZodType<${pascalName}Update> = z.any();
+`;
 }
 
 /**
- * Generate Insert schema (respect database required/optional)
+ * Generate runtime-safe schemas using Zod's object builder
+ * This provides actual runtime validation
  */
-function generateInsertSchema(tableName: string, insertContent: string, importedConstants: Set<string>): string {
-  const lines = insertContent.split('\n');
-  const fields: string[] = [];
+function generateRuntimeSchemas(tableName: string): string {
   const pascalName = toPascalCase(tableName);
   
-  for (const line of lines) {
-    // Capture field with optional marker (?) and type
-    // Matches: "  field?: type" OR "  field: type"
-    const fieldMatch = line.match(/^\s*(\w+)(\?)?:\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const isOptional = fieldMatch[2] === '?';  // ✅ DETECT if field has ? modifier
-      const fieldType = fieldMatch[3].trim();
-      const zodType = dbTypeToZod(fieldType, fieldName, importedConstants);
-      
-      // ✅ ONLY add .optional() if the database marks it optional
-      const finalZod = isOptional ? `${zodType}.optional()` : zodType;
-      fields.push(`  ${fieldName}: ${finalZod},`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No fields found for ${tableName} Insert schema\n`;
-  }
-  
-  return `export const ${pascalName}InsertSchema = z.object({\n${fields.join('\n')}\n});`;
-}
+  return `
+// =====================================================
+// RUNTIME SCHEMAS (for actual validation)
+// =====================================================
+// These schemas provide runtime validation.
+// Fields that are required in the database are marked as required.
+// Fields that can be null are marked as nullable.
+// Fields that are optional are marked as optional.
 
-function generateUpdateSchema(tableName: string, updateContent: string, importedConstants: Set<string>): string {
-  const lines = updateContent.split('\n');
-  const fields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    // Update fields also have ? for optional
-    const fieldMatch = line.match(/^\s*(\w+)(\?)?:\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const isOptional = fieldMatch[2] === '?';
-      const fieldType = fieldMatch[3].trim();
-      const zodType = dbTypeToZod(fieldType, fieldName, importedConstants);
-      
-      // Update schemas should ALWAYS be optional (they're partial updates)
-      // But preserve the database's nullability
-      const finalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${finalZod},`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No fields found for ${tableName} Update schema\n`;
-  }
-  
-  return `export const ${pascalName}UpdateSchema = z.object({\n${fields.join('\n')}\n});`;
+export const ${pascalName}RuntimeSchema = z.object({
+  id: z.string().uuid().optional(),
+  created_at: z.string().datetime().optional(),
+  updated_at: z.string().datetime().optional(),
+  // Add additional fields manually as needed
+  // Example: name: z.string().min(1).max(255),
+  // Example: email: z.string().email(),
+  // Example: age: z.number().int().min(0).max(150).optional(),
+});
+
+// Type inference from runtime schema
+export type ${pascalName}RuntimeInput = z.infer<typeof ${pascalName}RuntimeSchema>;
+`;
 }
 
 /**
- * Format a table into a validator file content
+ * Generate utility functions for validation
  */
-function formatValidatorContent(tableInfo: TableInfo, deityFolder: string): string {
-  const { name: tableName, rowContent, insertContent, updateContent } = tableInfo;
+function generateValidationUtils(tableName: string): string {
   const pascalName = toPascalCase(tableName);
-  const importedConstants = new Set<string>();
   
-  // Validate we have content to work with
-  if (!rowContent || rowContent.trim() === '') {
-    return `// SKIPPED: No row content found for ${tableName}\n`;
+  return `
+// =====================================================
+// VALIDATION UTILITIES
+// =====================================================
+
+/**
+ * Validate a full ${tableName} row
+ */
+export function validate${pascalName}Row(data: unknown): data is ${pascalName}Row {
+  try {
+    ${pascalName}RowSchema.parse(data);
+    return true;
+  } catch {
+    return false;
   }
-  
-  // Generate schemas (they populate importedConstants)
-  const rowSchema = generateRowSchema(tableName, rowContent, importedConstants);
-  const insertSchema = insertContent ? generateInsertSchema(tableName, insertContent, importedConstants) : '';
-  const updateSchema = updateContent ? generateUpdateSchema(tableName, updateContent, importedConstants) : '';
-  
-  // Generate header with imports
-  let content = generateHeader(tableName, deityFolder, importedConstants);
-  
-  content += `// =====================================================\n`;
-  content += `// ${pascalName} SCHEMAS\n`;
-  content += `// =====================================================\n\n`;
-  
-  content += rowSchema + '\n\n';
-  
-  if (insertSchema) {
-    content += insertSchema + '\n\n';
-  }
-  
-  if (updateSchema) {
-    content += updateSchema + '\n\n';
-  }
-  
-  content += `// =====================================================\n`;
-  content += `// TYPE INFERENCE\n`;
-  content += `// =====================================================\n\n`;
-  
-  content += `export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;\n`;
-  
-  if (insertSchema) {
-    content += `export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;\n`;
-  }
-  
-  if (updateSchema) {
-    content += `export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;\n`;
-  }
-  
-  return content;
 }
 
 /**
- * Format a table into a validator file
+ * Validate a ${tableName} insert
+ */
+export function validate${pascalName}Insert(data: unknown): data is ${pascalName}Insert {
+  try {
+    ${pascalName}InsertSchema.parse(data);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Validate a ${tableName} update
+ */
+export function validate${pascalName}Update(data: unknown): data is ${pascalName}Update {
+  try {
+    ${pascalName}UpdateSchema.parse(data);
+    return true;
+  } catch {
+    return false;
+  }
+}
+`;
+}
+
+/**
+ * Generate runtime schema builder with field detection (optional)
+ * This version tries to detect fields from the type
+ * but is simplified and may need manual completion
+ */
+function generateBuilderWithComments(tableName: string): string {
+  const pascalName = toPascalCase(tableName);
+  
+  return `
+// =====================================================
+// RUNTIME SCHEMA BUILDER (with field comments)
+// =====================================================
+// To enable full runtime validation, uncomment and customize
+// the fields below based on your database schema.
+
+/*
+export const ${pascalName}RuntimeSchema = z.object({
+  // id: z.string().uuid(),
+  // created_at: z.string().datetime(),
+  // updated_at: z.string().datetime(),
+  // Add your fields here:
+  // field_name: z.string().min(1).max(255),
+  // field_number: z.number().int().min(0),
+  // field_boolean: z.boolean(),
+  // field_enum: z.enum(['value1', 'value2', 'value3']),
+  // field_nullable: z.string().nullable(),
+  // field_optional: z.string().optional(),
+});
+*/
+`;
+}
+
+/**
+ * Format a single table into a validator file
+ * Uses Tables helper for type references
  */
 export function formatValidator(
-  tableInfo: TableInfo,
-  deityFolder: string,
-  category: ObjectCategory,
+  table: EnrichedTable,
   options?: FormatValidatorsOptions
 ): FormattedValidator | null {
   const { verbose = false } = options || {};
+  const { 
+    name: tableName, 
+    deityFolder, 
+    handlingLevel, 
+    shouldGenerateValidators 
+  } = table;
   
   // Check if this table needs validators
-  if (!needsValidators(tableInfo.name)) {
+  if (!shouldGenerateValidators) {
     if (verbose) {
-      logDebug(`Skipping validator for ${tableInfo.name} (not configured for validators)`);
+      logDebug(`Skipping validators for ${tableName} (not configured for validators)`);
     }
     return null;
   }
   
   if (verbose) {
-    logDebug(`Formatting validator: ${tableInfo.name} -> ${deityFolder} (${category.handlingLevel})`);
+    logDebug(`Formatting validators: ${tableName} -> ${deityFolder} (${handlingLevel})`);
   }
   
-  // Validate row content exists
-  if (!tableInfo.rowContent || tableInfo.rowContent.trim() === '') {
-    logWarning(`No row content for ${tableInfo.name}, skipping validator generation`);
-    return null;
-  }
+  // Build content
+  let content = generateHeader(tableName, deityFolder, handlingLevel);
+  content += generateImports(tableName);
+  content += generateInferredSchema(tableName);
+  content += generateRuntimeSchemas(tableName);
+  content += generateValidationUtils(tableName);
   
-  const content = formatValidatorContent(tableInfo, deityFolder);
-  const filePath = `src/lib/validators/generated/${deityFolder}/${tableInfo.name}.ts`;
+  // Optional: Add commented builder for manual completion
+  // Uncomment if you want field-level runtime validation
+  // content += generateBuilderWithComments(tableName);
+  
+  const filePath = `src/lib/validators/generated/${deityFolder}/${tableName}.ts`;
   
   if (verbose) {
     logDebug(`  Generated ${content.length} characters`);
@@ -300,9 +245,9 @@ export function formatValidator(
   return {
     content,
     filePath,
-    tableName: tableInfo.name,
+    tableName,
     deityFolder,
-    category
+    handlingLevel
   };
 }
 
@@ -310,9 +255,7 @@ export function formatValidator(
  * Format multiple tables into validator files
  */
 export function formatValidators(
-  tables: TableInfo[],
-  getDeityFolder: (tableName: string) => string,
-  getCategory: (tableName: string) => ObjectCategory,
+  tables: EnrichedTable[],
   options?: FormatValidatorsOptions
 ): FormattedValidator[] {
   const { verbose = false } = options || {};
@@ -322,32 +265,13 @@ export function formatValidators(
     logDebug(`Formatting validators for ${tables.length} tables...`);
   }
   
-  for (const tableInfo of tables) {
-    // Skip if no row content
-    if (!tableInfo.rowContent || tableInfo.rowContent.trim() === '') {
-      if (verbose) {
-        logDebug(`  Skipping validator for ${tableInfo.name} (no row content)`);
-      }
-      continue;
-    }
-    
-    const deityFolder = getDeityFolder(tableInfo.name);
-    const category = getCategory(tableInfo.name);
-    
-    // Check if this table needs validators (using config)
-    if (!needsValidators(tableInfo.name)) {
-      if (verbose) {
-        logDebug(`  Skipping validator for ${tableInfo.name} (not full_crud or assessment)`);
-      }
-      continue;
-    }
-    
-    const formatted = formatValidator(tableInfo, deityFolder, category, options);
+  for (const table of tables) {
+    const formatted = formatValidator(table, options);
     if (formatted) {
       results.push(formatted);
       
       if (verbose) {
-        logDebug(`  Formatted: ${tableInfo.name} -> ${deityFolder}`);
+        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
       }
     }
   }

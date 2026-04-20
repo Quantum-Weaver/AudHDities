@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 // =====================================================
 
 const COMPONENTS_ROOT = path.join(process.cwd(), 'src/components');
-const OUTPUT_FILE = path.join(process.cwd(), 'scripts/output/components-inventory.json');
+const OUTPUT_FILE = path.join(process.cwd(), 'src/scripts/output/components-inventory.json');
 
 // Patterns to match component exports
 const EXPORT_PATTERNS = [

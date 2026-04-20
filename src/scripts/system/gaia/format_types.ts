@@ -1,17 +1,17 @@
 // src/scripts/system/gaia/format_types.ts
 // ============================================================================
-// FORMAT TYPES (GAIA)
+// FORMAT TYPES (GAIA) - SIMPLIFIED VERSION
 // ============================================================================
-// Purpose: Format table definitions into TypeScript type files
-// Dependencies: EnrichedTable from enrich_objects, config from object-categories
+// Purpose: Re-export types from Tables helper with custom derived types
+// 
+// This file NO LONGER parses database.types.ts manually.
+// Instead, it re-exports from the Tables helper and adds derived types
+// (Public interfaces with sensitive fields removed, Form interfaces, etc.)
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories.js';
-import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { ImportManager } from '../../shared/import_manager.js';
-import { formatFieldDeclaration, parseFieldLine } from '../../shared/quote_manager.js';
-import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
 import type { EnrichedTable } from './enrich_objects.js';
+import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
+import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 
 export interface FormatTypesOptions {
   verbose?: boolean;
@@ -21,9 +21,13 @@ export interface FormattedType {
   content: string;
   filePath: string;
   tableName: string;
-  category: ObjectCategory;
   deityFolder: string;
+  handlingLevel: string;
 }
+
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
 
 /**
  * Convert snake_case to PascalCase for type names
@@ -36,318 +40,220 @@ function toPascalCase(str: string): string {
 }
 
 /**
- * Generate enum exports from detected enum references
+ * Get sensitive fields for a specific table (can be overridden per table)
  */
-function generateEnumExports(enumRefs: string[]): string {
-  if (enumRefs.length === 0) return '';
+function getSensitiveFieldsForTable(tableName: string): string[] {
+  // Default sensitive fields from config
+  const baseFields = [...SENSITIVE_FIELDS];
   
-  const lines: string[] = [];
-  lines.push(`// =====================================================`);
-  lines.push(`// ENUM EXPORTS (from database enums)`);
-  lines.push(`// =====================================================`);
-  lines.push(``);
+  // Table-specific sensitive fields
+  const tableOverrides: Record<string, string[]> = {
+    'profiles': ['email', 'stripe_account_id', 'crisis_contact_email', 'crisis_contact_phone', 'crisis_contact_name', 'crisis_instructions'],
+    'user_private': ['legal_name', 'date_of_birth', 'phone_number', 'address', 'government_id', 'emergency_contact', 'crisis_plan', 'notes'],
+    'user_financial': ['stripe_account_id', 'paypal_email', 'bank_account_last4', 'bank_routing_last4', 'crypto_addresses'],
+    'applications': ['form_data', 'admin_notes', 'review_notes', 'onboarding_doc_path'],
+    'contact_submissions': ['email', 'message', 'notes'],
+    'email_communications': ['recipient_email', 'body', 'metadata'],
+  };
   
-  for (const enumRef of enumRefs) {
-    const exportName = toPascalCase(enumRef);
-    lines.push(`export type ${exportName} = Database['public']['Enums']['${enumRef}'];`);
-  }
-  
-  return lines.join('\n');
-}
-
-/**
- * Generate public interface (excludes sensitive fields)
- * Uses formatFieldDeclaration for proper quote wrapping of time/date fields
- */
-function generatePublicInterface(
-  tableName: string,
-  rowContent: string,
-  sensitiveFields: string[] = SENSITIVE_FIELDS
-): string {
-  const lines = rowContent.split('\n');
-  const publicFields: string[] = [];
-  const excludedFields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      const { fieldName, fieldType } = parsed;
-      if (!sensitiveFields.includes(fieldName)) {
-        publicFields.push(`  ${formatFieldDeclaration(fieldName, fieldType)}`);
-      } else {
-        excludedFields.push(fieldName);
-      }
-    }
-  }
-  
-  if (publicFields.length === 0) {
-    return '';
-  }
-  
-  const interfaceName = `Public${pascalName}`;
-  
-  let result = `/**\n`;
-  result += ` * Public view of ${tableName}\n`;
-  if (excludedFields.length > 0) {
-    result += ` * Excludes sensitive fields: ${excludedFields.join(', ')}\n`;
-  }
-  result += ` */\n`;
-  result += `export interface ${interfaceName} {\n`;
-  result += publicFields.join('\n');
-  result += `\n}\n`;
-  
-  return result;
-}
-
-/**
- * Generate own profile interface (includes sensitive fields)
- * Only generated for 'profiles' table
- * Uses formatFieldDeclaration for proper quote wrapping
- */
-function generateOwnProfileInterface(
-  tableName: string,
-  rowContent: string
-): string {
-  if (tableName !== 'profiles') return '';
-  
-  const lines = rowContent.split('\n');
-  const fields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      const { fieldName, fieldType } = parsed;
-      fields.push(`  ${formatFieldDeclaration(fieldName, fieldType)}`);
-    }
-  }
-  
-  if (fields.length === 0) return '';
-  
-  let result = `/**\n`;
-  result += ` * Own profile - includes all fields\n`;
-  result += ` */\n`;
-  result += `export interface Own${pascalName} extends Public${pascalName} {\n`;
-  result += fields.join('\n');
-  result += `\n}\n`;
-  
-  return result;
-}
-
-/**
- * Generate form data interface (all fields optional)
- * Uses formatFieldDeclaration for proper quote wrapping
- */
-function generateFormDataInterface(tableName: string, rowContent: string): string {
-  const lines = rowContent.split('\n');
-  const fields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      const { fieldName, fieldType } = parsed;
-      // Make optional for form data
-      fields.push(`  ${fieldName}?: ${fieldType};`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No form fields available for ${tableName}\n`;
-  }
-  
-  const interfaceName = `${pascalName}FormData`;
-  
-  let result = `/**\n`;
-  result += ` * Form data for ${tableName}\n`;
-  result += ` * All fields are optional for partial updates\n`;
-  result += ` */\n`;
-  result += `export interface ${interfaceName} {\n`;
-  result += fields.join('\n');
-  result += `\n}\n`;
-  
-  return result;
-}
-
-/**
- * Generate validation result interface
- */
-function generateValidationResultInterface(tableName: string, rowContent: string): string {
-  const lines = rowContent.split('\n');
-  const fields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    const parsed = parseFieldLine(line);
-    if (parsed) {
-      const { fieldName } = parsed;
-      fields.push(`    ${fieldName}?: string;`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No validation fields available for ${tableName}\n`;
-  }
-  
-  const interfaceName = `${pascalName}ValidationResult`;
-  
-  let result = `/**\n`;
-  result += ` * Validation result for ${tableName}\n`;
-  result += ` */\n`;
-  result += `export interface ${interfaceName} {\n`;
-  result += `  valid: boolean;\n`;
-  result += `  errors: {\n`;
-  result += fields.join('\n');
-  result += `\n  };\n`;
-  result += `}\n`;
-  
-  return result;
+  const tableSpecific = tableOverrides[tableName] || [];
+  return [...baseFields, ...tableSpecific];
 }
 
 /**
  * Generate header comment for type file
  */
-function generateHeader(
-  tableName: string,
-  deityFolder: string,
-  category: ObjectCategory,
-  startLine: number,
-  endLine: number
-): string {
+function generateHeader(tableName: string, deityFolder: string, handlingLevel: string): string {
   const timestamp = new Date().toISOString();
   return `// =====================================================
 // FILE: types/generated/${deityFolder}/${tableName}.ts
-// HANDLING: ${category.handlingLevel}
+// HANDLING: ${handlingLevel}
 // GENERATED: ${timestamp}
-// SOURCE: database.types.ts lines ${startLine}-${endLine}
+// SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 `;
 }
 
 /**
- * Format a table into a type file content
+ * Generate import statement for Tables helper
  */
-function formatTypeContent(table: EnrichedTable): string {
-  const { 
-    name: tableName, 
-    rowContent, 
-    enumRefs, 
-    hasJson, 
-    startLine, 
-    endLine,
-    deityFolder,
-    category
-  } = table;
-  const pascalName = toPascalCase(tableName);
-  
-  // Validate we have content to work with
-  if (!rowContent || rowContent.trim() === '') {
-    logWarning(`No row content for ${tableName}, skipping type generation`);
-    return `// SKIPPED: No row content found for ${tableName}\n`;
-  }
-  
-  // Use ImportManager to collect and deduplicate imports
-  const importManager = new ImportManager();
-  
-  // Add Database import
-  importManager.addImport('@/types/supabase/database.types', 'Database', true);
-  
-  // Add Json import if needed
-  if (hasJson) {
-    importManager.addImport('@/types/supabase/database.types', 'Json', true);
-  }
-  
-  const importBlock = importManager.getImportBlock();
-  
-  let content = generateHeader(tableName, deityFolder, category, startLine, endLine);
-  
-  if (importBlock) {
-    content += importBlock + '\n\n';
-  }
-  
-  // Add enum exports
-  const enumExports = generateEnumExports(enumRefs);
-  if (enumExports) {
-    content += enumExports + '\n\n';
-  }
-  
-  // Core types section
-  content += `// =====================================================\n`;
-  content += `// CORE TYPES\n`;
-  content += `// =====================================================\n\n`;
-  
-  if (category.generateRow) {
-    content += `export type ${pascalName}Row = Database['public']['Tables']['${tableName}']['Row'];\n`;
-  }
-  
-  if (category.generateInsert) {
-    content += `export type ${pascalName}Insert = Database['public']['Tables']['${tableName}']['Insert'];\n`;
-  }
-  
-  if (category.generateUpdate) {
-    content += `export type ${pascalName}Update = Database['public']['Tables']['${tableName}']['Update'];\n`;
-  }
-  
-  content += `\n`;
-  
-  // Derived types section
-  content += `// =====================================================\n`;
-  content += `// DERIVED TYPES\n`;
-  content += `// =====================================================\n\n`;
-  
-  // Public interface
-  if (category.generatePublicInterface && rowContent) {
-    const publicInterface = generatePublicInterface(tableName, rowContent);
-    if (publicInterface) {
-      content += publicInterface + '\n';
-    }
-  }
-  
-  // Own profile interface (special case for profiles table)
-  if (tableName === 'profiles') {
-    const ownProfile = generateOwnProfileInterface(tableName, rowContent);
-    if (ownProfile) {
-      content += ownProfile + '\n';
-    }
-  }
-  
-  // Form data interface
-  if (category.generateFormInterface && rowContent) {
-    content += generateFormDataInterface(tableName, rowContent) + '\n';
-  }
-  
-  // Validation result interface
-  if (category.generateValidationInterface && rowContent) {
-    content += generateValidationResultInterface(tableName, rowContent) + '\n';
-  }
-  
-  return content;
+function generateTablesImport(): string {
+  return `import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/tables';\n`;
 }
 
 /**
- * Format a table into a type file
- * Accepts EnrichedTable directly - no need for additional callbacks
+ * Generate core type exports (Row, Insert, Update)
+ */
+function generateCoreTypes(tableName: string): string {
+  const pascalName = toPascalCase(tableName);
+  
+  return `// =====================================================
+// CORE TYPES (from Tables helper)
+// =====================================================
+
+export type ${pascalName}Row = Tables<'${tableName}'>;
+export type ${pascalName}Insert = TablesInsert<'${tableName}'>;
+export type ${pascalName}Update = TablesUpdate<'${tableName}'>;
+`;
+}
+
+/**
+ * Generate Public interface (excludes sensitive fields)
+ * Uses Omit to remove sensitive fields from Row type
+ */
+function generatePublicInterface(tableName: string, sensitiveFields: string[]): string {
+  const pascalName = toPascalCase(tableName);
+  const interfaceName = `Public${pascalName}`;
+  
+  if (sensitiveFields.length === 0) {
+    return `// =====================================================
+// PUBLIC INTERFACE (no sensitive fields to omit)
+// =====================================================
+
+export type ${interfaceName} = ${pascalName}Row;
+`;
+  }
+  
+  const omitFields = sensitiveFields.map(f => `'${f}'`).join(' | ');
+  
+  return `// =====================================================
+// PUBLIC INTERFACE (excludes sensitive fields)
+// =====================================================
+// Excluded fields: ${sensitiveFields.join(', ')}
+
+export type ${interfaceName} = Omit<${pascalName}Row, ${omitFields}>;
+`;
+}
+
+/**
+ * Generate Own Profile interface (includes all fields, only for profiles table)
+ */
+function generateOwnProfileInterface(tableName: string): string {
+  if (tableName !== 'profiles') return '';
+  
+  const pascalName = toPascalCase(tableName);
+  const interfaceName = `Own${pascalName}`;
+  
+  return `
+// =====================================================
+// OWN PROFILE INTERFACE (includes all fields)
+// =====================================================
+// For the authenticated user viewing their own profile
+
+export type ${interfaceName} = ${pascalName}Row;
+`;
+}
+
+/**
+ * Generate Form Data interface (all fields optional)
+ */
+function generateFormDataInterface(tableName: string): string {
+  const pascalName = toPascalCase(tableName);
+  const interfaceName = `${pascalName}FormData`;
+  
+  return `
+// =====================================================
+// FORM DATA INTERFACE (all fields optional)
+// =====================================================
+
+export type ${interfaceName} = Partial<${pascalName}Insert>;
+`;
+}
+
+/**
+ * Generate Validation Result interface
+ */
+function generateValidationResultInterface(tableName: string): string {
+  const pascalName = toPascalCase(tableName);
+  const interfaceName = `${pascalName}ValidationResult`;
+  
+  // For validation result, we need to know which fields exist
+  // Since we don't parse fields anymore, we use a generic approach
+  return `
+// =====================================================
+// VALIDATION RESULT INTERFACE
+// =====================================================
+
+export interface ${interfaceName} {
+  valid: boolean;
+  errors: Record<string, string>;
+  warnings: Record<string, string>;
+  touched: Record<string, boolean>;
+}
+`;
+}
+
+/**
+ * Generate enum type re-exports for enums referenced by this table
+ * Note: This is optional now since Enums<'name'> can be used directly
+ */
+function generateEnumReExports(tableName: string, enumRefs: string[]): string {
+  if (enumRefs.length === 0) return '';
+  
+  const lines: string[] = [];
+  lines.push(`// =====================================================`);
+  lines.push(`// ENUM TYPE RE-EXPORTS (for convenience)`);
+  lines.push(`// =====================================================`);
+  lines.push(``);
+  
+  for (const enumRef of enumRefs) {
+    const pascalName = toPascalCase(enumRef);
+    lines.push(`export type ${pascalName} = Enums<'${enumRef}'>;`);
+  }
+  
+  return lines.join('\n');
+}
+
+/**
+ * Format a single table into a type file
+ * Uses Tables helper for core types, adds derived types
  */
 export function formatType(
   table: EnrichedTable,
   options?: FormatTypesOptions
 ): FormattedType | null {
   const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, category, rowContent } = table;
+  const { 
+    name: tableName, 
+    deityFolder, 
+    handlingLevel, 
+    shouldGenerateTypes 
+  } = table;
   
-  if (verbose) {
-    logDebug(`Formatting type: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
-  }
-  
-  // Validate row content exists
-  if (!rowContent || rowContent.trim() === '') {
-    logWarning(`No row content for ${tableName}, skipping type generation`);
+  // Check if this table needs type generation
+  if (!shouldGenerateTypes) {
+    if (verbose) {
+      logDebug(`Skipping types for ${tableName} (not configured for type generation)`);
+    }
     return null;
   }
   
-  const content = formatTypeContent(table);
+  if (verbose) {
+    logDebug(`Formatting types: ${tableName} -> ${deityFolder} (${handlingLevel})`);
+  }
+  
+  const sensitiveFields = getSensitiveFieldsForTable(tableName);
+  
+  // Build content
+  let content = generateHeader(tableName, deityFolder, handlingLevel);
+  content += generateTablesImport();
+  content += `\n`;
+  content += generateCoreTypes(tableName);
+  content += `\n`;
+  content += generatePublicInterface(tableName, sensitiveFields);
+  
+  const ownProfile = generateOwnProfileInterface(tableName);
+  if (ownProfile) content += ownProfile;
+  
+  content += generateFormDataInterface(tableName);
+  content += `\n`;
+  content += generateValidationResultInterface(tableName);
+  
+  // Optional: Add enum re-exports (if we had enumRefs from enrichment)
+  // For now, we skip since Enums<'name'> can be used directly
+  // content += generateEnumReExports(tableName, table.enumRefs || []);
+  
   const filePath = `src/types/generated/${deityFolder}/${tableName}.ts`;
   
   if (verbose) {
@@ -358,14 +264,13 @@ export function formatType(
     content,
     filePath,
     tableName,
-    category,
-    deityFolder
+    deityFolder,
+    handlingLevel
   };
 }
 
 /**
  * Format multiple tables into type files
- * Accepts EnrichedTable array directly - no callbacks needed
  */
 export function formatTypes(
   tables: EnrichedTable[],
@@ -375,7 +280,7 @@ export function formatTypes(
   const results: FormattedType[] = [];
   
   if (verbose) {
-    logDebug(`Formatting ${tables.length} tables...`);
+    logDebug(`Formatting types for ${tables.length} tables...`);
   }
   
   for (const table of tables) {
@@ -384,7 +289,7 @@ export function formatTypes(
       results.push(formatted);
       
       if (verbose) {
-        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder} (${table.category.handlingLevel})`);
+        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
       }
     }
   }

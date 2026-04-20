@@ -2,7 +2,7 @@
 
 import { getDeityFolderForObject } from "@/config/object_categories";
 import { EnumMappingEntry } from "./enrich_objects";
-import { TableInfo } from "./extract_tables";
+import { TableInfo } from "../../../../.temp/helpers/archive/extract_tables";
 
 interface EnumReference {
   enumName: string;
