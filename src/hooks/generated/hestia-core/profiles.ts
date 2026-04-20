@@ -4,7 +4,7 @@
 // =====================================================
 
 import { useState, useEffect } from 'react';
-import type { ProfilesRow } from '@/types/hestia-core/profiles';
+import type { ProfilesRow } from '@/types/generated/hestia-core/profiles';
 
 export function useProfiles(id?: string) {
   const [data, setData] = useState<ProfilesRow | null>(null);

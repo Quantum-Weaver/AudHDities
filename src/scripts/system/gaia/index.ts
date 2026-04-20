@@ -372,7 +372,7 @@ async function generateArtifactsForTable(
     try {
       // Main API route (list + create)
       const mainApiContent = generateMainApiRoute(tableInfo);
-      const mainApiPath = `src/app/api/${tableInfo.deityFolder}/${tableInfo.name}/route.ts`;
+      const mainApiPath = `src/app/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/route.ts`;
       
       const mainWriteResult = await writeGeneratedFile(
         mainApiPath,
@@ -390,7 +390,7 @@ async function generateArtifactsForTable(
       
       // Single record API route (get/put/delete)
       const singleApiContent = generateSingleApiRoute(tableInfo);
-      const singleApiPath = `src/app/api/${tableInfo.deityFolder}/${tableInfo.name}/[id]/route.ts`;
+      const singleApiPath = `src/app/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/[id]/route.ts`;
       
       const singleWriteResult = await writeGeneratedFile(
         singleApiPath,

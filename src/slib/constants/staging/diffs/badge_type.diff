@@ -1,8 +1,0 @@
---- a/lib\constants\generated\hestia-core\badge_type.ts
-+++ b/lib\constants\generated\hestia-core\badge_type.ts (staged)
-@@ -3,57 +3,57 @@
--// GENERATED: 2026-04-20T22:33:01.130Z
-+// GENERATED: 2026-04-20T22:57:11.105Z
- // SOURCE: Constants.public.Enums.badge_type
- // =====================================================
- 

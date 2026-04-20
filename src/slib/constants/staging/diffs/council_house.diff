@@ -1,8 +1,0 @@
---- a/lib\constants\generated\hestia-core\council_house.ts
-+++ b/lib\constants\generated\hestia-core\council_house.ts (staged)
-@@ -3,17 +3,17 @@
--// GENERATED: 2026-04-20T22:33:01.131Z
-+// GENERATED: 2026-04-20T22:57:11.108Z
- // SOURCE: Constants.public.Enums.council_house
- // =====================================================
- 

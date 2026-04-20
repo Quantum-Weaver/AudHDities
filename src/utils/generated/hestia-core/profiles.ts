@@ -4,7 +4,7 @@
 // =====================================================
 
 import { createClient } from '@/lib/supabase/client';
-import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/hestia-core/profiles';
+import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/generated/hestia-core/profiles';
 
 export async function createProfiles(data: ProfilesInsert) {
   const supabase = createClient();
