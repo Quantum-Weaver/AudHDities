@@ -38,7 +38,7 @@ export function useProfiles(id?: string) {
     setLoading(true);
     try {
       const response = await fetch(`/api/generated/hestia-core/profiles/${id}`);
-      const result = await response.json();
+      const result = await responseon();
       
       if (result.success) {
         setData(result.data);
@@ -114,7 +114,7 @@ export function useProfilesList(filters?: ProfilesFilters) {
       
       const url = `/api/generated/hestia-core/profiles?${searchParams.toString()}`;
       const response = await fetch(url);
-      const result = await response.json();
+      const result = await responseon();
       
       if (result.success) {
         setData(result.data.data || result.data || []);
@@ -151,7 +151,7 @@ export function useCreateProfiles() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return result.data;
     } catch (err) {
@@ -178,7 +178,7 @@ export function useUpdateProfiles() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return result.data;
     } catch (err) {
@@ -203,7 +203,7 @@ export function useDeleteProfiles() {
       const response = await fetch(`/api/generated/hestia-core/profiles/${id}`, {
         method: 'DELETE',
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return true;
     } catch (err) {

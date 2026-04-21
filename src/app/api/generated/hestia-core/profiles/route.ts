@@ -57,14 +57,14 @@ export async function GET(request: NextRequest) {
       return item;
     });
     
-    return NextResponse.json({
+    return NextResponseon({
       success: true,
       data: sanitizedData,
       pagination: { limit, offset, total: count || 0 }
     });
   } catch (error) {
     console.error('Error fetching profiles:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to fetch profiles' },
       { status: 500 }
     );
@@ -74,11 +74,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
-    const body = await request.json();
+    const body = await requeston();
     
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
       );
@@ -98,16 +98,16 @@ export async function POST(request: NextRequest) {
     
     if (error) throw error;
     
-    return NextResponse.json({ success: true, data }, { status: 201 });
+    return NextResponseon({ success: true, data }, { status: 201 });
   } catch (error: any) {
     if (error.name === 'ZodError') {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Validation failed', details: error.issues },
         { status: 400 }
       );
     }
     console.error('Error creating profiles:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to create profiles' },
       { status: 500 }
     );
