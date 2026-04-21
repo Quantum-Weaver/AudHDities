@@ -18,9 +18,10 @@ import {
 import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { DEITY_GROUPS } from '@/config/deity_groups.js';
-import { formatTypes, FormatTypesOptions, FormattedType, formatType } from './format_types.js';
+import { generateTypeFile, FormatTypesOptions, FormattedType } from './format_types.js';
 import { EnrichedTable } from './enrich_objects.js'
 import { Json } from '@/types/supabase/database.types.js';
+import { JSONSchema } from 'zod/v4/core';
 export interface SimpleTable {
   name: string;
   deityFolder: string;
@@ -57,6 +58,10 @@ export function enrichSimpleTable(
     deityFolder: table.deityFolder,
     handlingLevel: table.handlingLevel,
     category: table.category,
+    type: 'table',
+    hasJson: table.hasJson,
+    enumRefs: table.enumRefs,
+    content: table.handlingLevel,
     shouldGenerateTypes: needsTypeGeneration(table.name),
     shouldGenerateValidators: needsValidators(table.name),
     shouldGenerateUtils: needsUtils(table.name),

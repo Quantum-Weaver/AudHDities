@@ -3,32 +3,78 @@
 // ENRICH OBJECTS (GAIA) - SIMPLIFIED VERSION
 // ============================================================================
 // Purpose: Resolve configuration for extracted objects once, before generation
-// 
-// NOTE: This version NO LONGER requires rowContent, insertContent, updateContent,
-// enumRefs, or hasJson because those are provided by the Tables helper.
 // ============================================================================
 
 import type { ObjectCategory } from '@/config/object_categories.js';
-import { getDeityFolderForObject, getObjectCategory, needsTypeGeneration, needsValidators, needsUtils, needsApiRoutes, needsHooks, needsConstantGeneration } from '@/config/object_categories.js';
+import { 
+  getDeityFolderForObject, 
+  getObjectCategory, 
+  needsTypeGeneration, 
+  needsValidators, 
+  needsUtils, 
+  needsApiRoutes, 
+  needsHooks, 
+  needsConstantGeneration 
+} from '@/config/object_categories.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
-import { type DefaultSchema } from '@/types/supabase/database.helpers.js';
-import { Json, Database } from '@/types/supabase/database.types.js';
-import { JSONSchema } from 'zod/v4/core';
+
+// ============================================================================
+// INPUT TYPES (What we receive from extractors)
+// ============================================================================
+
+export interface RawTable {
+  name: string;
+  content: string;
+  rowContent?: string;
+  insertContent?: string;
+  updateContent?: string;
+  enumRefs?: string[];
+  hasJson?: boolean;
+}
+
+export interface RawView {
+  name: string;
+  content: string;
+}
+
+export interface RawFunction {
+  name: string;
+  content: string;
+  args?: string;
+  returns?: string;
+}
+
+export interface RawRuntimeEnum {
+  name: string;
+  values: string[];
+  content: string;
+}
+
+export interface RawTypeEnum {
+  name: string;
+  values: string[];
+  content: string;
+}
 
 // ============================================================================
 // ENRICHED INTERFACES (Simplified)
 // ============================================================================
-export type PublicTableNames = keyof DefaultSchema["Tables"];
 
 export interface EnrichedTable {
   name: string;
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
-  type?: 'table';
-  enumRefs: Json;
+  type: 'table';
+  
+  // Original content
+  content: string;
+  rowContent?: string;
+  insertContent?: string;
+  updateContent?: string;
+  enumRefs: string[];
   hasJson: boolean;
-  content: Json;
   
   // Generation flags (derived from category)
   shouldGenerateTypes: boolean;
@@ -37,7 +83,7 @@ export interface EnrichedTable {
   shouldGenerateApiRoutes: boolean;
   shouldGenerateHooks: boolean;
   
-  // Optional: For debugging/display only (not used for generation)
+  // Optional: For debugging/display only
   notes?: string;
 }
 
@@ -47,12 +93,11 @@ export interface EnrichedView {
   category: ObjectCategory;
   handlingLevel: string;
   type: 'view';
-
-  enumRefs: Json;
-  hasJson: boolean;
-  content: Json;
   
-  // Generation flags (derived from category)
+  content: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  
   shouldGenerateTypes: boolean;
   shouldGenerateValidators: boolean;
   shouldGenerateUtils: boolean;
@@ -66,12 +111,13 @@ export interface EnrichedFunction {
   category: ObjectCategory;
   handlingLevel: string;
   type: 'function';
-
-  enumRefs: Json;
-  hasJson: boolean;
-  content: Json;
   
-  // Generation flags (derived from category)
+  content: string;
+  args?: string;
+  returns?: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  
   shouldGenerateTypes: boolean;
   shouldGenerateValidators: boolean;
   shouldGenerateUtils: boolean;
@@ -86,12 +132,12 @@ export interface EnrichedRuntimeEnum {
   category: ObjectCategory;
   handlingLevel: string;
   type: 'runtime_enum';
-
-  enumRefs: Json;
-  hasJson: boolean;
-  content: Json;
   
-  // Generation flags (derived from category)
+  content: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  
+  shouldGenerateConstants: boolean;
   shouldGenerateTypes: boolean;
   shouldGenerateValidators: boolean;
   shouldGenerateUtils: boolean;
@@ -101,16 +147,16 @@ export interface EnrichedRuntimeEnum {
 
 export interface EnrichedTypeEnum {
   name: string;
+  values: string[];
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
   type: 'type_enum';
-
-  enumRefs: Json;
-  hasJson: boolean;
-  content: Json;
   
-  // Generation flags (derived from category)
+  content: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  
   shouldGenerateTypes: boolean;
   shouldGenerateValidators: boolean;
   shouldGenerateUtils: boolean;
@@ -124,34 +170,40 @@ export interface EnrichedTypeEnum {
 
 /**
  * Enrich a table with configuration and generation flags
- * NO LONGER needs rowContent, insertContent, etc. — those come from Tables helper
  */
 export function enrichTable(
-  tableName: string,
+  rawTable: RawTable,
   options?: { verbose?: boolean }
 ): EnrichedTable {
   const { verbose = false } = options || {};
   
-  const deityFolder = getDeityFolderForObject('table', tableName);
-  const category = getObjectCategory('table', tableName);
+  const deityFolder = getDeityFolderForObject('table', rawTable.name);
+  const category = getObjectCategory('table', rawTable.name);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
-    logDebug(`Enriching table: ${tableName} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`Enriching table: ${rawTable.name} -> ${deityFolder} (${handlingLevel})`);
   }
 
   return {
-    name: tableName,
+    name: rawTable.name,
     deityFolder,
     category,
     handlingLevel,
-    content,
-    needsJson
-    shouldGenerateTypes: needsTypeGeneration(tableName),
-    shouldGenerateValidators: needsValidators(tableName),
-    shouldGenerateUtils: needsUtils(tableName),
-    shouldGenerateApiRoutes: needsApiRoutes(tableName),
-    shouldGenerateHooks: needsHooks(tableName),
+    type: 'table',
+    
+    content: rawTable.content,
+    rowContent: rawTable.rowContent,
+    insertContent: rawTable.insertContent,
+    updateContent: rawTable.updateContent,
+    enumRefs: rawTable.enumRefs || [],
+    hasJson: rawTable.hasJson || false,
+    
+    shouldGenerateTypes: needsTypeGeneration(rawTable.name),
+    shouldGenerateValidators: needsValidators(rawTable.name),
+    shouldGenerateUtils: needsUtils(rawTable.name),
+    shouldGenerateApiRoutes: needsApiRoutes(rawTable.name),
+    shouldGenerateHooks: needsHooks(rawTable.name),
   };
 }
 
@@ -159,14 +211,14 @@ export function enrichTable(
  * Enrich multiple tables
  */
 export function enrichTables(
-  tableNames: string[],
+  rawTables: RawTable[],
   options?: { verbose?: boolean }
 ): EnrichedTable[] {
   const { verbose = false } = options || {};
   const results: EnrichedTable[] = [];
   
-  for (const tableName of tableNames) {
-    results.push(enrichTable(tableName, options));
+  for (const rawTable of rawTables) {
+    results.push(enrichTable(rawTable, options));
   }
   
   if (verbose) {
@@ -177,30 +229,38 @@ export function enrichTables(
 }
 
 /**
- * Enrich a view with configuration and generation flags
+ * Enrich a view
  */
 export function enrichView(
-  viewName: string,
+  rawView: RawView,
   options?: { verbose?: boolean }
 ): EnrichedView {
   const { verbose = false } = options || {};
   
-  const deityFolder = getDeityFolderForObject('view', viewName);
-  const category = getObjectCategory('view', viewName);
+  const deityFolder = getDeityFolderForObject('view', rawView.name);
+  const category = getObjectCategory('view', rawView.name);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
-    logDebug(`Enriching view: ${viewName} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`Enriching view: ${rawView.name} -> ${deityFolder} (${handlingLevel})`);
   }
   
   return {
-    name: viewName,
+    name: rawView.name,
     deityFolder,
     category,
     handlingLevel,
     type: 'view',
-    shouldGenerateTypes: true,  // Views always generate Row types
-    shouldGenerateApiRoutes: needsApiRoutes(viewName),
+    
+    content: rawView.content,
+    enumRefs: [],
+    hasJson: false,
+    
+    shouldGenerateTypes: category.generateRow,
+    shouldGenerateValidators: false,
+    shouldGenerateUtils: false,
+    shouldGenerateApiRoutes: category.generateApiGetList || category.generateApiGetSingle,
+    shouldGenerateHooks: false,
   };
 }
 
@@ -208,14 +268,14 @@ export function enrichView(
  * Enrich multiple views
  */
 export function enrichViews(
-  viewNames: string[],
+  rawViews: RawView[],
   options?: { verbose?: boolean }
 ): EnrichedView[] {
   const { verbose = false } = options || {};
   const results: EnrichedView[] = [];
   
-  for (const viewName of viewNames) {
-    results.push(enrichView(viewName, options));
+  for (const rawView of rawViews) {
+    results.push(enrichView(rawView, options));
   }
   
   if (verbose) {
@@ -226,29 +286,40 @@ export function enrichViews(
 }
 
 /**
- * Enrich a function with configuration and generation flags
+ * Enrich a function
  */
 export function enrichFunction(
-  functionName: string,
+  rawFunction: RawFunction,
   options?: { verbose?: boolean }
 ): EnrichedFunction {
   const { verbose = false } = options || {};
   
-  const deityFolder = getDeityFolderForObject('function', functionName);
-  const category = getObjectCategory('function', functionName);
+  const deityFolder = getDeityFolderForObject('function', rawFunction.name);
+  const category = getObjectCategory('function', rawFunction.name);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
-    logDebug(`Enriching function: ${functionName} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`Enriching function: ${rawFunction.name} -> ${deityFolder} (${handlingLevel})`);
   }
   
   return {
-    name: functionName,
+    name: rawFunction.name,
     deityFolder,
     category,
     handlingLevel,
     type: 'function',
-    shouldGenerateApiRoutes: needsApiRoutes(functionName),
+    
+    content: rawFunction.content,
+    args: rawFunction.args,
+    returns: rawFunction.returns,
+    enumRefs: [],
+    hasJson: false,
+    
+    shouldGenerateTypes: false,
+    shouldGenerateValidators: false,
+    shouldGenerateUtils: false,
+    shouldGenerateApiRoutes: category.generateApiPost,
+    shouldGenerateHooks: false,
   };
 }
 
@@ -256,14 +327,14 @@ export function enrichFunction(
  * Enrich multiple functions
  */
 export function enrichFunctions(
-  functionNames: string[],
+  rawFunctions: RawFunction[],
   options?: { verbose?: boolean }
 ): EnrichedFunction[] {
   const { verbose = false } = options || {};
   const results: EnrichedFunction[] = [];
   
-  for (const functionName of functionNames) {
-    results.push(enrichFunction(functionName, options));
+  for (const rawFunction of rawFunctions) {
+    results.push(enrichFunction(rawFunction, options));
   }
   
   if (verbose) {
@@ -274,33 +345,40 @@ export function enrichFunctions(
 }
 
 /**
- * Enrich a runtime enum with configuration and generation flags
+ * Enrich a runtime enum
  */
 export function enrichRuntimeEnum(
-  enumInfo: { name: string; values: string[] },
+  rawEnum: RawRuntimeEnum,
   options?: { verbose?: boolean }
 ): EnrichedRuntimeEnum {
   const { verbose = false } = options || {};
   
-  // Import dynamically to avoid circular dependency
-  const { getEnumFolder } = require('@/config/enum_mapping.js');
-  
-  const deityFolder = getEnumFolder(enumInfo.name);
-  const category = getObjectCategory('runtime_enum', enumInfo.name);
+  const deityFolder = getEnumFolder(rawEnum.name);
+  const category = getObjectCategory('runtime_enum', rawEnum.name);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
-    logDebug(`Enriching runtime enum: ${enumInfo.name} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`Enriching runtime enum: ${rawEnum.name} -> ${deityFolder} (${handlingLevel})`);
   }
   
   return {
-    name: enumInfo.name,
-    values: enumInfo.values,
+    name: rawEnum.name,
+    values: rawEnum.values,
     deityFolder,
     category,
     handlingLevel,
     type: 'runtime_enum',
-    shouldGenerateConstants: needsConstantGeneration(enumInfo.name),
+    
+    content: rawEnum.content,
+    enumRefs: [],
+    hasJson: false,
+    
+    shouldGenerateConstants: needsConstantGeneration(rawEnum.name),
+    shouldGenerateTypes: false,
+    shouldGenerateValidators: false,
+    shouldGenerateUtils: false,
+    shouldGenerateApiRoutes: false,
+    shouldGenerateHooks: false,
   };
 }
 
@@ -308,14 +386,14 @@ export function enrichRuntimeEnum(
  * Enrich multiple runtime enums
  */
 export function enrichRuntimeEnums(
-  enums: Array<{ name: string; values: string[] }>,
+  rawEnums: RawRuntimeEnum[],
   options?: { verbose?: boolean }
 ): EnrichedRuntimeEnum[] {
   const { verbose = false } = options || {};
   const results: EnrichedRuntimeEnum[] = [];
   
-  for (const enumInfo of enums) {
-    results.push(enrichRuntimeEnum(enumInfo, options));
+  for (const rawEnum of rawEnums) {
+    results.push(enrichRuntimeEnum(rawEnum, options));
   }
   
   if (verbose) {
@@ -326,29 +404,39 @@ export function enrichRuntimeEnums(
 }
 
 /**
- * Enrich a type enum with configuration and generation flags
+ * Enrich a type enum
  */
 export function enrichTypeEnum(
-  enumName: string,
+  rawEnum: RawTypeEnum,
   options?: { verbose?: boolean }
 ): EnrichedTypeEnum {
   const { verbose = false } = options || {};
   
-  const deityFolder = getDeityFolderForObject('type_enum', enumName);
-  const category = getObjectCategory('type_enum', enumName);
+  const deityFolder = getDeityFolderForObject('type_enum', rawEnum.name);
+  const category = getObjectCategory('type_enum', rawEnum.name);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
-    logDebug(`Enriching type enum: ${enumName} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`Enriching type enum: ${rawEnum.name} -> ${deityFolder} (${handlingLevel})`);
   }
   
   return {
-    name: enumName,
+    name: rawEnum.name,
+    values: rawEnum.values,
     deityFolder,
     category,
     handlingLevel,
     type: 'type_enum',
-    shouldGenerateConstants: false, // Type enums don't generate constants
+    
+    content: rawEnum.content,
+    enumRefs: [],
+    hasJson: false,
+    
+    shouldGenerateTypes: true,
+    shouldGenerateValidators: false,
+    shouldGenerateUtils: false,
+    shouldGenerateApiRoutes: false,
+    shouldGenerateHooks: false,
   };
 }
 
@@ -356,14 +444,14 @@ export function enrichTypeEnum(
  * Enrich multiple type enums
  */
 export function enrichTypeEnums(
-  enumNames: string[],
+  rawEnums: RawTypeEnum[],
   options?: { verbose?: boolean }
 ): EnrichedTypeEnum[] {
   const { verbose = false } = options || {};
   const results: EnrichedTypeEnum[] = [];
   
-  for (const enumName of enumNames) {
-    results.push(enrichTypeEnum(enumName, options));
+  for (const rawEnum of rawEnums) {
+    results.push(enrichTypeEnum(rawEnum, options));
   }
   
   if (verbose) {
@@ -389,11 +477,11 @@ export interface EnrichedExtractionResult {
  * Enrich all extracted objects at once
  */
 export function enrichAll(
-  tableNames: string[],
-  viewNames: string[],
-  functionNames: string[],
-  runtimeEnums: Array<{ name: string; values: string[] }>,
-  typeEnumNames: string[],
+  rawTables: RawTable[],
+  rawViews: RawView[],
+  rawFunctions: RawFunction[],
+  rawRuntimeEnums: RawRuntimeEnum[],
+  rawTypeEnums: RawTypeEnum[],
   options?: { verbose?: boolean }
 ): EnrichedExtractionResult {
   const { verbose = false } = options || {};
@@ -403,10 +491,10 @@ export function enrichAll(
   }
   
   return {
-    tables: enrichTables(tableNames, options),
-    views: enrichViews(viewNames, options),
-    functions: enrichFunctions(functionNames, options),
-    runtimeEnums: enrichRuntimeEnums(runtimeEnums, options),
-    typeEnums: enrichTypeEnums(typeEnumNames, options),
+    tables: enrichTables(rawTables, options),
+    views: enrichViews(rawViews, options),
+    functions: enrichFunctions(rawFunctions, options),
+    runtimeEnums: enrichRuntimeEnums(rawRuntimeEnums, options),
+    typeEnums: enrichTypeEnums(rawTypeEnums, options),
   };
 }

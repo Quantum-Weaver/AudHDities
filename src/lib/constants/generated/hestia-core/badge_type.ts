@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/badge_type.ts
-// GENERATED: 2026-04-20T23:04:55.089Z
+// GENERATED: 2026-04-21T20:46:32.430Z
 // SOURCE: Constants.public.Enums.badge_type
 // =====================================================
 

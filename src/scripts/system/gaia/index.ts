@@ -1,25 +1,19 @@
 // scripts/system/gaia/index.ts - THE ORCHESTRATOR (uses your helpers)
-import { readDatabaseTypes } from '../../shared/file_reader.js';
-import { findMarkers } from '../../modules/system/find_markers.js';
-import { findAllClosingBraces } from '../../modules/system/find_closing_braces.js';
-import { countAllCollections } from '../../modules/system/count_items.js';
-import { extractObject } from '../../modules/extract/extract_object.js';
-import { parseTableContent } from '../../modules/format/format_object_types.js';
-import { formatObjectTypes } from '../../modules/format/format_object_types.js';
-import { formatObjectConstants } from '../../modules/format/format_object_constants.js';
-import { generateMultipleTypeFiles } from '../../modules/generate/generate_object_types.js';
-import { generateMultipleConstantFiles } from '../../modules/generate/generate_object_constants.js';
-import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
-
-import { getObjectCategory } from '../../../config/object_categories.js';
-import { FormatValidatorsOptions, type FormattedValidator } from './format_validators.js';
-import { formatUtils, type FormattedUtility } from './format_utils.js';
-import type { enrichTable, EnrichedTable, } from './enrich_objects.js';
-import type { Database } from '@/types/supabase/database.types';
-
-import { formatHooks, type FormattedHook } from './format_hooks.js';
-import { getAllTableNames, getFolderNameForTable, DEITY_GROUPS } from '@/config/deity_groups.js';
-import { logSuccess, logInfo, logError, logStep, logSeparator, logWarning, logDebug } from '../../shared/logger.js';
+import { readDatabaseTypes } from '../../shared/file_reader';
+import { findMarkers } from '../../modules/system/find_markers';
+import { findAllClosingBraces } from '../../modules/system/find_closing_braces';
+import { countAllCollections } from '../../modules/system/count_items';
+import { extractObject } from '../../modules/extract/extract_object';
+import { parseTableContent } from '../../modules/format/format_object_types';
+import { formatObjectTypes } from '../../modules/format/format_object_types';
+import { formatObjectConstants } from '../../modules/format/format_object_constants';
+import { generateMultipleTypeFiles } from '../../modules/generate/generate_object_types';
+import { generateMultipleConstantFiles } from '../../modules/generate/generate_object_constants';
+import { ensureAllDirectories } from '../../modules/discover/discover_directories';
+import { getObjectCategory } from '../../../config/object_categories';
+import { ENUM_MAPPING, getEnumFolder } from '@/config/enum_mapping';
+import { getAllTableNames, getFolderNameForTable, DEITY_GROUPS } from '@/config/deity_groups';
+import { logSuccess, logInfo, logError, logStep, logSeparator, logWarning, logDebug } from '../../shared/logger';
 
 import * as readline from 'readline';
 
@@ -31,6 +25,15 @@ interface GaiaOptions {
   interactive: boolean;
   force: boolean;
 }
+
+interface TableInfo {
+  name: string;
+  deityFolder: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  rowContent: string;
+}
+
 interface TableDependencies {
   enums: string[];
   needsValidator: boolean;
@@ -39,31 +42,24 @@ interface TableDependencies {
   needsHooks: boolean;
 }
 
-interface TableInfo {
-  name: string;
-  deityFolder: string;
-  enumRefs: string[];
-  hasJson: boolean;
-  rowContent: string;
-  tableDependencies?: TableDependencies[];
-}
-
-
-
 // ============================================================================
 // HELPERS
 // ============================================================================
+/**
+ * Convert snake_case to PascalCase for type names
+ */
 function toPascalCase(str: string): string {
-  return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  return str
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
 }
 
+
 /**
- * Get the actual TypeScript type of a table's Row
- * This is a compile-time type, but we can use it to generate runtime schemas
+ * Generate runtime schema using Zod's native inference from the actual type
+ * This requires importing the actual type at runtime
  */
-type TableRow<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row'];
-type TableInsert<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert'];
-type TableUpdate<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update'];
 
 
 function askUser(question: string): Promise<string> {
@@ -291,11 +287,11 @@ async function processTable(
 // GENERATE ALL ARTIFACTS FOR A TABLE (USING writeGeneratedFile)
 // ============================================================================
 
-import { writeGeneratedFile, type WriteOptions } from './writeGeneratedFile.js';
-import { SystemLogger } from '@/scripts/shared/system_logger.js';
+import { writeGeneratedFile, type WriteOptions } from './write_generated_file';
+import { SystemLogger } from '@/scripts/shared/system_logger';
 
 async function generateArtifactsForTable(
-  tableInfo: EnrichedTable,
+  tableInfo: TableInfo,
   tableObj: any,
   category: any,
   options: GaiaOptions,
@@ -510,72 +506,85 @@ async function generateArtifactsForTable(
 // VALIDATOR GENERATOR - Using Runtime Type Information
 // ============================================================================
 
-function generateValidatorContent(table: EnrichedTable): string {
-  const { name: tableName, deityFolder, } = table;
-  const pascalName = toPascalCase(tableName);
+function generateValidatorContent(tableInfo: TableInfo): string {
+  const pascalName = toPascalCase(tableInfo.name);
+  
+  // Build the complete Zod schema based on parsed table content
+  const zodFields = buildZodFields(tableInfo.name, tableInfo.enumRefs);
   
   return `// =====================================================
 // VALIDATOR: ${pascalName}
-// DEITY: ${deityFolder}
+// DEITY: ${tableInfo.deityFolder}
 // GENERATED: ${new Date().toISOString()}
 // =====================================================
-// NOTE: This validator uses the Tables helper for type inference.
-// The actual types are imported from the Tables helper at runtime.
+// NOTE: Runtime validation using Zod with database type inference
 // =====================================================
 
 import { z } from 'zod';
-import type { Database } from '@/types/supabase/database.types';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${tableInfo.deityFolder}/${tableInfo.name}';
+
+// Import runtime enums for validation
+import { 
+  ${tableInfo.enumRefs.map(e => e.toUpperCase()).join(', ')} 
+} from '@/lib/constants/generated/${tableInfo.deityFolder}';
 
 // =====================================================
-// TYPE INFERENCE (from Tables helper)
+// FIELD VALIDATION SCHEMAS
 // =====================================================
 
-type TableRow = Database['public']['Tables']['${tableName}']['Row'];
-type TableInsert = Database['public']['Tables']['${tableName}']['Insert'];
-type TableUpdate = Database['public']['Tables']['${tableName}']['Update'];
+${zodFields}
 
 // =====================================================
-// RUNTIME SCHEMA (inferred from type structure)
+// ROW SCHEMA (full database row)
 // =====================================================
 
-// Helper to convert a type to a Zod schema
-// This is a simplified version - in practice, you'd need a full type-to-zod converter
-function typeToZod<T>(): z.ZodType<T> {
-  // This is a placeholder - the actual implementation would traverse the type
-  return z.any() as z.ZodType<T>;
-}
-
-export const ${pascalName}RowSchema: z.ZodType<TableRow> = typeToZod<TableRow>();
-export const ${pascalName}InsertSchema: z.ZodType<TableInsert> = typeToZod<TableInsert>();
-export const ${pascalName}UpdateSchema: z.ZodType<TableUpdate> = typeToZod<TableUpdate>();
+export const ${pascalName}RowSchema = z.object({
+${generateRowFields(tableInfo.rowContent)}
+});
 
 // =====================================================
-// TYPE EXPORTS
+// INSERT SCHEMA (for creation - optional fields)
 // =====================================================
 
-export type ${pascalName}RowInput = TableRow;
-export type ${pascalName}InsertInput = TableInsert;
-export type ${pascalName}UpdateInput = TableUpdate;
+export const ${pascalName}InsertSchema = z.object({
+${generateInsertFields(tableInfo.rowContent)}
+});
 
 // =====================================================
-// VALIDATION FUNCTIONS
+// UPDATE SCHEMA (for updates - all optional)
 // =====================================================
 
-export function validate${pascalName}Row(data: unknown): TableRow {
+export const ${pascalName}UpdateSchema = z.object({
+${generateUpdateFields(tableInfo.rowContent)}
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;
+export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;
+export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;
+
+// =====================================================
+// VALIDATION HELPERS
+// =====================================================
+
+export function validate${pascalName}Row(data: unknown): ${pascalName}RowInput {
   return ${pascalName}RowSchema.parse(data);
 }
 
-export function validate${pascalName}Insert(data: unknown): TableInsert {
+export function validate${pascalName}Insert(data: unknown): ${pascalName}InsertInput {
   return ${pascalName}InsertSchema.parse(data);
 }
 
-export function validate${pascalName}Update(data: unknown): TableUpdate {
+export function validate${pascalName}Update(data: unknown): ${pascalName}UpdateInput {
   return ${pascalName}UpdateSchema.parse(data);
 }
 
 export function safeValidate${pascalName}Insert(data: unknown): {
   success: boolean;
-  data?: TableInsert;
+  data?: ${pascalName}InsertInput;
   error?: z.ZodError;
 } {
   const result = ${pascalName}InsertSchema.safeParse(data);
@@ -586,63 +595,7 @@ export function safeValidate${pascalName}Insert(data: unknown): {
 }
 `;
 }
-export function formatValidator(
-  table: EnrichedTable,
-  options?: FormatValidatorsOptions
-): FormattedValidator | null {
-  const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, shouldGenerateValidators } = table;
-  
-  if (!shouldGenerateValidators) {
-    if (verbose) logDebug(`Skipping validators for ${tableName}`);
-    return null;
-  }
-  
-  if (verbose) logDebug(`Formatting validators for: ${tableName} -> ${deityFolder}`);
-  
-  const content = generateValidatorContent(table);
-  const filePath = `src/lib/validators/generated/${deityFolder}/${tableName}.ts`;
-  
-  if (verbose) {
-    logDebug(`  Generated ${content.length} characters`);
-  }
-  
-  return {
-    content,
-    filePath,
-    tableName,
-    deityFolder
-  };
-}
 
-export function formatValidators(
-  tables: EnrichedTable[],
-  options?: FormatValidatorsOptions
-): FormattedValidator[] {
-  const { verbose = false } = options || {};
-  const results: FormattedValidator[] = [];
-  
-  if (verbose) {
-    logDebug(`Formatting validators for ${tables.length} tables...`);
-  }
-  
-  for (const table of tables) {
-    const formatted = formatValidator(table, options);
-    if (formatted) {
-      results.push(formatted);
-      
-      if (verbose) {
-        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
-      }
-    }
-  }
-  
-  if (verbose) {
-    logSuccess(`Formatted ${results.length} validator files`);
-  }
-  
-  return results;
-}
 // ============================================================================
 // HELPER FUNCTIONS FOR BUILDING ZOD SCHEMAS
 // ============================================================================
@@ -657,9 +610,14 @@ function buildZodFields(rowContent: string, enumRefs: string[]): string {
       const fieldName = match[1];
       let fieldType = match[2].trim();
       const isNullable = fieldType.includes(' | null');
+      const isOptional = fieldName === 'id' || fieldName.includes('?') || fieldType.includes('?');
       
       // Clean up type
-      fieldType = fieldType.replace(' | null', '').trim();
+      fieldType = fieldType
+        .replace(' | null', '')
+        .replace('?', '')
+        .replace(';', '')
+        .trim();
       
       let zodType = '';
       
@@ -667,27 +625,64 @@ function buildZodFields(rowContent: string, enumRefs: string[]): string {
       if (fieldType === 'string') {
         zodType = 'z.string()';
         if (fieldName === 'email') zodType = 'z.string().email()';
-        if (fieldName === 'username') zodType = 'z.string().min(3).max(50).regex(/^[a-zA-Z0-9_]+$/)';
-      } else if (fieldType === 'number') {
+        if (fieldName === 'slug') zodType = 'z.string().regex(/^[a-z0-9-]+$/)';
+      } 
+      else if (fieldType === 'number') {
         zodType = 'z.number()';
-      } else if (fieldType === 'boolean') {
+      } 
+      else if (fieldType === 'boolean') {
         zodType = 'z.boolean()';
-      } else if (fieldType === 'Json') {
+      } 
+      else if (fieldType === 'Json') {
         zodType = 'z.any()';
-      } else if (enumRefs.some(ref => fieldType.includes(ref))) {
-        // Find which enum it is
+      }
+      else if (fieldType === 'string[]' || fieldType.match(/text\[\]/)) {
+        zodType = 'z.array(z.string())';
+      }
+      else if (fieldType === 'number[]') {
+        zodType = 'z.array(z.number())';
+      }
+      else if (fieldType.match(/timestamp/)) {
+        zodType = 'z.string().datetime()';
+      }
+      else if (enumRefs.some(ref => fieldType.includes(ref))) {
         const enumRef = enumRefs.find(ref => fieldType.includes(ref));
         if (enumRef) {
           zodType = `z.enum(Object.values(${enumRef.toUpperCase()}))`;
         } else {
           zodType = 'z.string()';
         }
-      } else {
+      }
+      else if (fieldType.includes('|')) {
+        // Union type - handle basic cases
+        const types = fieldType.split('|').map(t => t.trim());
+        const hasString = types.includes('string');
+        const hasNumber = types.includes('number');
+        const hasBoolean = types.includes('boolean');
+        if (hasString && hasNumber) {
+          zodType = 'z.union([z.string(), z.number()])';
+        } else if (hasString) {
+          zodType = 'z.string()';
+        } else if (hasNumber) {
+          zodType = 'z.number()';
+        } else if (hasBoolean) {
+          zodType = 'z.boolean()';
+        } else {
+          zodType = 'z.any()';
+        }
+      }
+      else {
         zodType = 'z.any()';
       }
       
-      if (isNullable) {
+      if (isNullable && !isOptional) {
         zodType = `${zodType}.nullable()`;
+      }
+      if (isOptional && !isNullable) {
+        zodType = `${zodType}.optional()`;
+      }
+      if (isOptional && isNullable) {
+        zodType = `${zodType}.nullable().optional()`;
       }
       
       fields.push(`  ${fieldName}: ${zodType},`);
@@ -895,14 +890,14 @@ export async function GET(request: NextRequest) {
       return item;
     });
     
-    return NextResponse.json({
+    return NextResponseon({
       success: true,
       data: sanitizedData,
       pagination: { limit, offset, total: count || 0 }
     });
   } catch (error) {
     console.error('Error fetching ${tableInfo.name}:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to fetch ${tableInfo.name}' },
       { status: 500 }
     );
@@ -912,11 +907,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
-    const body = await request.json();
+    const body = await requeston();
     
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
       );
@@ -936,16 +931,16 @@ export async function POST(request: NextRequest) {
     
     if (error) throw error;
     
-    return NextResponse.json({ success: true, data }, { status: 201 });
+    return NextResponseon({ success: true, data }, { status: 201 });
   } catch (error: any) {
     if (error.name === 'ZodError') {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Validation failed', details: error.issues },
         { status: 400 }
       );
     }
     console.error('Error creating ${tableInfo.name}:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to create ${tableInfo.name}' },
       { status: 500 }
     );
@@ -988,7 +983,7 @@ export async function GET(
     
     if (error) {
       if (error.code === 'PGRST116') {
-        return NextResponse.json(
+        return NextResponseon(
           { success: false, error: '${tableInfo.name} not found' },
           { status: 404 }
         );
@@ -1002,13 +997,13 @@ export async function GET(
     
     if (!isOwner && data.email) {
       const { email, ...rest } = data;
-      return NextResponse.json({ success: true, data: rest });
+      return NextResponseon({ success: true, data: rest });
     }
     
-    return NextResponse.json({ success: true, data });
+    return NextResponseon({ success: true, data });
   } catch (error) {
     console.error('Error fetching ${tableInfo.name}:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to fetch ${tableInfo.name}' },
       { status: 500 }
     );
@@ -1022,11 +1017,11 @@ export async function PUT(
   try {
     const { id } = await params;
     const supabase = await createServerSupabase();
-    const body = await request.json();
+    const body = await requeston();
     
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
       );
@@ -1047,7 +1042,7 @@ export async function PUT(
         .single();
       
       if (!profile?.is_admin) {
-        return NextResponse.json(
+        return NextResponseon(
           { success: false, error: 'Forbidden' },
           { status: 403 }
         );
@@ -1065,7 +1060,7 @@ export async function PUT(
     
     if (error) {
       if (error.code === 'PGRST116') {
-        return NextResponse.json(
+        return NextResponseon(
           { success: false, error: '${tableInfo.name} not found' },
           { status: 404 }
         );
@@ -1073,16 +1068,16 @@ export async function PUT(
       throw error;
     }
     
-    return NextResponse.json({ success: true, data });
+    return NextResponseon({ success: true, data });
   } catch (error: any) {
     if (error.name === 'ZodError') {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Validation failed', details: error.issues },
         { status: 400 }
       );
     }
     console.error('Error updating ${tableInfo.name}:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to update ${tableInfo.name}' },
       { status: 500 }
     );
@@ -1099,7 +1094,7 @@ export async function DELETE(
     
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
-      return NextResponse.json(
+      return NextResponseon(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
       );
@@ -1120,7 +1115,7 @@ export async function DELETE(
         .single();
       
       if (!profile?.is_admin) {
-        return NextResponse.json(
+        return NextResponseon(
           { success: false, error: 'Forbidden' },
           { status: 403 }
         );
@@ -1134,7 +1129,7 @@ export async function DELETE(
     
     if (error) {
       if (error.code === 'PGRST116') {
-        return NextResponse.json(
+        return NextResponseon(
           { success: false, error: '${tableInfo.name} not found' },
           { status: 404 }
         );
@@ -1142,10 +1137,10 @@ export async function DELETE(
       throw error;
     }
     
-    return NextResponse.json({ success: true, data: { deleted: true } });
+    return NextResponseon({ success: true, data: { deleted: true } });
   } catch (error) {
     console.error('Error deleting ${tableInfo.name}:', error);
-    return NextResponse.json(
+    return NextResponseon(
       { success: false, error: 'Failed to delete ${tableInfo.name}' },
       { status: 500 }
     );
@@ -1291,7 +1286,7 @@ export function use${pascalName}(id?: string) {
     setLoading(true);
     try {
       const response = await fetch(\`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`);
-      const result = await response.json();
+      const result = await responseon();
       
       if (result.success) {
         setData(result.data);
@@ -1339,7 +1334,7 @@ export function use${pascalName}List(filters?: ${pascalName}Filters) {
       
       const url = \`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}?\${searchParams.toString()}\`;
       const response = await fetch(url);
-      const result = await response.json();
+      const result = await responseon();
       
       if (result.success) {
         setData(result.data.data || result.data || []);
@@ -1376,7 +1371,7 @@ export function useCreate${pascalName}() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return result.data;
     } catch (err) {
@@ -1403,7 +1398,7 @@ export function useUpdate${pascalName}() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return result.data;
     } catch (err) {
@@ -1428,7 +1423,7 @@ export function useDelete${pascalName}() {
       const response = await fetch(\`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`, {
         method: 'DELETE',
       });
-      const result = await response.json();
+      const result = await responseon();
       if (!result.success) throw new Error(result.error);
       return true;
     } catch (err) {

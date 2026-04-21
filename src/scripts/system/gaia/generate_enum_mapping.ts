@@ -1,8 +1,8 @@
 // src/scripts/system/gaia/generate_enum_mapping.ts
 
 import { getDeityFolderForObject } from "@/config/object_categories";
-import { EnumMappingEntry } from "./enrich_objects";
-import { TableInfo } from "../../../../.temp/helpers/archive/extract_tables";
+import { EnumMappingEntry } from "@/config/enum_mapping";
+import { TableInfo } from "./index";
 
 interface EnumReference {
   enumName: string;

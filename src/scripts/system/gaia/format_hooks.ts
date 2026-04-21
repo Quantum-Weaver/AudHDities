@@ -11,7 +11,6 @@ import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { ImportManager } from '../../shared/import_manager.js';
 import type { EnrichedTable } from './enrich_objects.js';
-import type { DefaultSchema } from '@/types/supabase/database.helpers.js';
 
 export interface FormatHooksOptions {
   verbose?: boolean;
@@ -328,14 +327,12 @@ export function useDelete${pascalName}() {
  * Format a table into hook files
  * Accepts EnrichedTable (pre-resolved configuration)
  */
-export function formatHooks(
+export function generateHooksForTable(
   table: EnrichedTable,
   options?: FormatHooksOptions
 ): FormattedHook[] {
   const { verbose = false } = options || {};
-
-  const { name: tableName, deityFolder, category, shouldGenerateHooks } = table;
-  type  rowContent = DefaultSchema['Tables'][""`${tableName}`"];
+  const { name: tableName, deityFolder, category, shouldGenerateHooks, rowContent } = table;
   const results: FormattedHook[] = [];
   
   // Check if this table needs hooks (using pre-resolved flag from enrichment)
@@ -395,7 +392,7 @@ export function formatHooks(
  * Format multiple tables into hook files
  * Accepts pre-enriched tables - no callbacks needed
  */
-export function formatMultipleHooks(
+export function generateHooksForTables(
   tables: EnrichedTable[],
   options?: FormatHooksOptions
 ): FormattedHook[] {
@@ -415,7 +412,7 @@ export function formatMultipleHooks(
       continue;
     }
     
-    const hooks = formatHooks(table, options);
+    const hooks = generateHooksForTable(table, options);
     results.push(...hooks);
     
     if (verbose) {

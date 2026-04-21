@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-, "src/components/admin/files/FileDependencies.tsx,md", ".temp/helpers/archive/extract_functions.ts", "src/scripts/system/gaia/extract_runtime_enums.ts", ".temp/helpers/archive/extract_tables.ts", ".temp/helpers/archive/extract_type_enums.ts", ".temp/helpers/archive/extract_views.ts"  ],
+  ],
   "exclude": [
     "node_modules",
     "**/staging/**",

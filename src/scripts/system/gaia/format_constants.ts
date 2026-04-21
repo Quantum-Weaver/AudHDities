@@ -12,6 +12,7 @@
 
 import type { RuntimeEnumInfo } from './extract_runtime_enums.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { TableInfo } from './index'
 
 export interface FormatConstantsOptions {
   verbose?: boolean;
@@ -22,7 +23,7 @@ export interface FormattedConstant {
   filePath: string;
   enumName: string;
   values: string[];
-  deityFolder: string;
+  deityFolder: TableInfo["deityFolder"];
 }
 
 /**
@@ -114,7 +115,7 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
  */
 export function formatConstant(
   enumInfo: RuntimeEnumInfo,
-  deityFolder: string,
+  deityFolder: TableInfo["deityFolder"],
   options?: FormatConstantsOptions
 ): FormattedConstant | null {
   const { verbose = false } = options || {};

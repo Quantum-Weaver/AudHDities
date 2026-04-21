@@ -1,17 +1,28 @@
 /* src/scripts/modules/format/format_api_file.ts */
 // Generates individual API route content with import tracking
 
-
 export interface GeneratedRoute {
   imports: string[];
   code: string;
 }
+
+/**
+ * Convert snake_case to PascalCase for type names
+ */
 function toPascalCase(str: string): string {
   return str
     .split('_')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
 }
+
+/**
+ * Convert string to UPPER_SNAKE_CASE for constant keys
+ */
+function toUpperSnakeCase(str: string): string {
+  return str.toUpperCase();
+}
+
 /**
  * Generate GET /api/[table] route (list)
  */

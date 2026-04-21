@@ -11,6 +11,7 @@
 import type { EnrichedTable } from './enrich_objects.js';
 import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
+import { TableInfo } from './index.js';
 
 export interface FormatTypesOptions {
   verbose?: boolean;
@@ -20,7 +21,7 @@ export interface FormattedType {
   content: string;
   filePath: string;
   tableName: string;
-  deityFolder: string;
+  deityFolder: TableInfo["deityFolder"];
   handlingLevel: string;
 }
 
@@ -145,7 +146,7 @@ export interface ${pascalName}ValidationResult {
  * Format a single table into a type file
  * Uses Tables helper — no parsing needed
  */
-export function formatType(
+export function generateTypeFile(
   table: EnrichedTable,
   options?: FormatTypesOptions
 ): FormattedType | null {
@@ -182,7 +183,7 @@ export function formatType(
 /**
  * Format multiple tables into type files
  */
-export function formatTypes(
+export function generateMultipleTypeFiles(
   tables: EnrichedTable[],
   options?: FormatTypesOptions
 ): FormattedType[] {
@@ -192,7 +193,7 @@ export function formatTypes(
   if (verbose) logDebug(`Formatting types for ${tables.length} tables...`);
   
   for (const table of tables) {
-    const formatted = formatType(table, options);
+    const formatted = generateTypeFile(table, options);
     if (formatted) results.push(formatted);
   }
   
