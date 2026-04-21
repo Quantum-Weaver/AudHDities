@@ -45,6 +45,22 @@ interface TableDependencies {
 // ============================================================================
 // HELPERS
 // ============================================================================
+/**
+ * Convert snake_case to PascalCase for type names
+ */
+function toPascalCase(str: string): string {
+  return str
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
+
+/**
+ * Generate runtime schema using Zod's native inference from the actual type
+ * This requires importing the actual type at runtime
+ */
+
 
 function askUser(question: string): Promise<string> {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -487,116 +503,613 @@ async function generateArtifactsForTable(
 }
 
 // ============================================================================
-// CONTENT GENERATION FUNCTIONS (Placeholders - implement as needed)
+// VALIDATOR GENERATOR - Using Runtime Type Information
 // ============================================================================
 
 function generateValidatorContent(tableInfo: TableInfo): string {
-  const pascalName = tableInfo.name.split('_').map(p => p[0].toUpperCase() + p.slice(1)).join('');
+  const pascalName = toPascalCase(tableInfo.name);
+  
+  // Build the complete Zod schema based on parsed table content
+  const zodFields = buildZodFields(tableInfo.name, tableInfo.enumRefs);
   
   return `// =====================================================
 // VALIDATOR: ${pascalName}
 // DEITY: ${tableInfo.deityFolder}
+// GENERATED: ${new Date().toISOString()}
+// =====================================================
+// NOTE: Runtime validation using Zod with database type inference
 // =====================================================
 
 import { z } from 'zod';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${tableInfo.deityFolder}/${tableInfo.name}';
+
+// Import runtime enums for validation
+import { 
+  ${tableInfo.enumRefs.map(e => e.toUpperCase()).join(', ')} 
+} from '@/lib/constants/generated/${tableInfo.deityFolder}';
+
+// =====================================================
+// FIELD VALIDATION SCHEMAS
+// =====================================================
+
+${zodFields}
+
+// =====================================================
+// ROW SCHEMA (full database row)
+// =====================================================
 
 export const ${pascalName}RowSchema = z.object({
-  // TODO: Implement based on table schema
+${generateRowFields(tableInfo.rowContent)}
 });
+
+// =====================================================
+// INSERT SCHEMA (for creation - optional fields)
+// =====================================================
 
 export const ${pascalName}InsertSchema = z.object({
-  // TODO: Implement based on table schema
+${generateInsertFields(tableInfo.rowContent)}
 });
 
+// =====================================================
+// UPDATE SCHEMA (for updates - all optional)
+// =====================================================
+
 export const ${pascalName}UpdateSchema = z.object({
-  // TODO: Implement based on table schema
+${generateUpdateFields(tableInfo.rowContent)}
 });
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;
+export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;
+export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;
+
+// =====================================================
+// VALIDATION HELPERS
+// =====================================================
+
+export function validate${pascalName}Row(data: unknown): ${pascalName}RowInput {
+  return ${pascalName}RowSchema.parse(data);
+}
+
+export function validate${pascalName}Insert(data: unknown): ${pascalName}InsertInput {
+  return ${pascalName}InsertSchema.parse(data);
+}
+
+export function validate${pascalName}Update(data: unknown): ${pascalName}UpdateInput {
+  return ${pascalName}UpdateSchema.parse(data);
+}
+
+export function safeValidate${pascalName}Insert(data: unknown): {
+  success: boolean;
+  data?: ${pascalName}InsertInput;
+  error?: z.ZodError;
+} {
+  const result = ${pascalName}InsertSchema.safeParse(data);
+  if (result.success) {
+    return { success: true, data: result.data };
+  }
+  return { success: false, error: result.error };
+}
 `;
 }
 
+// ============================================================================
+// HELPER FUNCTIONS FOR BUILDING ZOD SCHEMAS
+// ============================================================================
+
+function buildZodFields(rowContent: string, enumRefs: string[]): string {
+  const lines = rowContent.split('\n');
+  const fields: string[] = [];
+  
+  for (const line of lines) {
+    const match = line.match(/^\s*(\w+):\s*(.+?)(;?)$/);
+    if (match) {
+      const fieldName = match[1];
+      let fieldType = match[2].trim();
+      const isNullable = fieldType.includes(' | null');
+      
+      // Clean up type
+      fieldType = fieldType.replace(' | null', '').trim();
+      
+      let zodType = '';
+      
+      // Handle different type mappings
+      if (fieldType === 'string') {
+        zodType = 'z.string()';
+        if (fieldName === 'email') zodType = 'z.string().email()';
+        if (fieldName === 'username') zodType = 'z.string().min(3).max(50).regex(/^[a-zA-Z0-9_]+$/)';
+      } else if (fieldType === 'number') {
+        zodType = 'z.number()';
+      } else if (fieldType === 'boolean') {
+        zodType = 'z.boolean()';
+      } else if (fieldType === 'Json') {
+        zodType = 'z.any()';
+      } else if (enumRefs.some(ref => fieldType.includes(ref))) {
+        // Find which enum it is
+        const enumRef = enumRefs.find(ref => fieldType.includes(ref));
+        if (enumRef) {
+          zodType = `z.enum(Object.values(${enumRef.toUpperCase()}))`;
+        } else {
+          zodType = 'z.string()';
+        }
+      } else {
+        zodType = 'z.any()';
+      }
+      
+      if (isNullable) {
+        zodType = `${zodType}.nullable()`;
+      }
+      
+      fields.push(`  ${fieldName}: ${zodType},`);
+    }
+  }
+  
+  return fields.join('\n');
+}
+
+function generateRowFields(rowContent: string): string {
+  const lines = rowContent.split('\n');
+  const fields: string[] = [];
+  
+  for (const line of lines) {
+    const match = line.match(/^\s*(\w+):\s*(.+?)(;?)$/);
+    if (match) {
+      const fieldName = match[1];
+      let fieldType = match[2].trim();
+      const isNullable = fieldType.includes(' | null');
+      
+      fieldType = fieldType.replace(' | null', '').trim();
+      
+      let zodType = '';
+      
+      if (fieldType === 'string') {
+        zodType = 'z.string()';
+        if (fieldName === 'email') zodType = 'z.string().email()';
+      } else if (fieldType === 'number') {
+        zodType = 'z.number()';
+      } else if (fieldType === 'boolean') {
+        zodType = 'z.boolean()';
+      } else if (fieldType === 'Json') {
+        zodType = 'z.any()';
+      } else if (fieldType.includes('Enums')) {
+        zodType = 'z.string()';
+      } else {
+        zodType = 'z.any()';
+      }
+      
+      if (isNullable) {
+        zodType = `${zodType}.nullable()`;
+      }
+      
+      fields.push(`  ${fieldName}: ${zodType},`);
+    }
+  }
+  
+  return fields.join('\n');
+}
+
+function generateInsertFields(rowContent: string): string {
+  const lines = rowContent.split('\n');
+  const fields: string[] = [];
+  
+  for (const line of lines) {
+    const match = line.match(/^\s*(\w+):\s*(.+?)(;?)$/);
+    if (match) {
+      const fieldName = match[1];
+      let fieldType = match[2].trim();
+      const isNullable = fieldType.includes(' | null');
+      
+      fieldType = fieldType.replace(' | null', '').trim();
+      
+      let zodType = '';
+      
+      // For insert, id and email are required, others optional
+      if (fieldName === 'id' || fieldName === 'email') {
+        if (fieldType === 'string') {
+          zodType = fieldName === 'email' ? 'z.string().email()' : 'z.string().uuid()';
+        } else {
+          zodType = 'z.string()';
+        }
+      } else {
+        if (fieldType === 'string') {
+          zodType = 'z.string()';
+        } else if (fieldType === 'number') {
+          zodType = 'z.number()';
+        } else if (fieldType === 'boolean') {
+          zodType = 'z.boolean()';
+        } else if (fieldType === 'Json') {
+          zodType = 'z.any()';
+        } else {
+          zodType = 'z.any()';
+        }
+        
+        if (isNullable) {
+          zodType = `${zodType}.nullable()`;
+        }
+        zodType = `${zodType}.optional()`;
+      }
+      
+      fields.push(`  ${fieldName}: ${zodType},`);
+    }
+  }
+  
+  return fields.join('\n');
+}
+
+function generateUpdateFields(rowContent: string): string {
+  const lines = rowContent.split('\n');
+  const fields: string[] = [];
+  
+  for (const line of lines) {
+    const match = line.match(/^\s*(\w+):\s*(.+?)(;?)$/);
+    if (match) {
+      const fieldName = match[1];
+      let fieldType = match[2].trim();
+      const isNullable = fieldType.includes(' | null');
+      
+      fieldType = fieldType.replace(' | null', '').trim();
+      
+      let zodType = '';
+      
+      if (fieldType === 'string') {
+        zodType = 'z.string()';
+      } else if (fieldType === 'number') {
+        zodType = 'z.number()';
+      } else if (fieldType === 'boolean') {
+        zodType = 'z.boolean()';
+      } else if (fieldType === 'Json') {
+        zodType = 'z.any()';
+      } else {
+        zodType = 'z.any()';
+      }
+      
+      if (isNullable) {
+        zodType = `${zodType}.nullable()`;
+      }
+      zodType = `${zodType}.optional()`;
+      
+      fields.push(`  ${fieldName}: ${zodType},`);
+    }
+  }
+  
+  return fields.join('\n');
+}
+
 function generateMainApiRoute(tableInfo: TableInfo): string {
-  const pascalName = tableInfo.name.split('_').map(p => p[0].toUpperCase() + p.slice(1)).join('');
+  const pascalName = toPascalCase(tableInfo.name);
+  const hasEmail = tableInfo.rowContent.includes('email:');
+  const hasCreatedBy = tableInfo.rowContent.includes('created_by:');
+  
+  // Build imports
+  const imports = new Set<string>();
+  imports.add(`import { NextRequest, NextResponse } from 'next/server';`);
+  imports.add(`import { createServerSupabase } from '@/lib/supabase/server';`);
+  imports.add(`import { ${pascalName}InsertSchema } from '@/lib/validators/generated/${tableInfo.deityFolder}/${tableInfo.name}';`);
+  
+  // Add enum imports if needed
+  for (const enumRef of tableInfo.enumRefs) {
+    imports.add(`import { ${enumRef.toUpperCase()} } from '@/lib/constants/generated/${tableInfo.deityFolder}/${enumRef}';`);
+  }
+  
+  const importBlock = Array.from(imports).sort().join('\n');
   
   return `// =====================================================
-// API ROUTE: /api/${tableInfo.deityFolder}/${tableInfo.name}
+// API ROUTE: /api/generated/${tableInfo.deityFolder}/${tableInfo.name}
 // =====================================================
 
-import { NextRequest, NextResponse } from 'next/server';
-import { createServerSupabase } from '@/lib/supabase/server';
+${importBlock}
 
 export async function GET(request: NextRequest) {
-  const supabase = await createServerSupabase();
-  const { data, error } = await supabase.from('${tableInfo.name}').select('*');
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const supabase = await createServerSupabase();
+    const searchParams = request.nextUrl.searchParams;
+    const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 100);
+    const offset = parseInt(searchParams.get('offset') || '0');
+    
+    let query = supabase.from('${tableInfo.name}').select('*', { count: 'exact' });
+    
+    // Apply filters with enum validation if needed
+    for (const [key, value] of searchParams.entries()) {
+      if (!['limit', 'offset', 'sort', 'order'].includes(key)) {
+        // Check if this field is an enum
+        const isEnumField = ${JSON.stringify(tableInfo.enumRefs)}.some(ref => 
+          key === ref || key.endsWith('_' + ref)
+        );
+        if (isEnumField) {
+          // Validate enum value before applying filter
+          const enumValues = ${tableInfo.enumRefs.map(e => `${e.toUpperCase()}`).join(', ')};
+          if (Object.values(enumValues).includes(value)) {
+            query = query.eq(key, value);
+          }
+        } else {
+          query = query.eq(key, value);
+        }
+      }
+    }
+    
+    const sort = searchParams.get('sort') || 'created_at';
+    const order = searchParams.get('order') === 'asc';
+    query = query.order(sort, { ascending: order });
+    query = query.range(offset, offset + limit - 1);
+    
+    const { data, error, count } = await query;
+    if (error) throw error;
+    
+    // Remove email for non-owners if present
+    const { data: { user } } = await supabase.auth.getUser();
+    const sanitizedData = data?.map(item => {
+      if (${hasEmail} && item.email && item.id !== user?.id) {
+        const { email, ...rest } = item;
+        return rest;
+      }
+      return item;
+    });
+    
+    return NextResponse.json({
+      success: true,
+      data: sanitizedData,
+      pagination: { limit, offset, total: count || 0 }
+    });
+  } catch (error) {
+    console.error('Error fetching ${tableInfo.name}:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to fetch ${tableInfo.name}' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ success: true, data });
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = await createServerSupabase();
-  const body = await request.json();
-  const { data, error } = await supabase.from('${tableInfo.name}').insert(body).select().single();
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const supabase = await createServerSupabase();
+    const body = await request.json();
+    
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+    
+    const validated = ${pascalName}InsertSchema.parse(body);
+    
+    const insertData = ${hasCreatedBy} 
+      ? { ...validated, created_by: user.id }
+      : validated;
+    
+    const { data, error } = await supabase
+      .from('${tableInfo.name}')
+      .insert(insertData)
+      .select()
+      .single();
+    
+    if (error) throw error;
+    
+    return NextResponse.json({ success: true, data }, { status: 201 });
+  } catch (error: any) {
+    if (error.name === 'ZodError') {
+      return NextResponse.json(
+        { success: false, error: 'Validation failed', details: error.issues },
+        { status: 400 }
+      );
+    }
+    console.error('Error creating ${tableInfo.name}:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to create ${tableInfo.name}' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ success: true, data }, { status: 201 });
 }
 `;
 }
 
 function generateSingleApiRoute(tableInfo: TableInfo): string {
+  const pascalName = tableInfo.name.split('_').map(p => p[0].toUpperCase() + p.slice(1)).join('');
+  
+  // COLLECT IMPORTS FIRST
+  const imports = new Set<string>();
+  imports.add(`import { NextRequest, NextResponse } from 'next/server';`);
+  imports.add(`import { createServerSupabase } from '@/lib/supabase/server';`);
+  imports.add(`import { ${pascalName}UpdateSchema } from '@/lib/validators/generated/${tableInfo.deityFolder}/${tableInfo.name}';`);
+  
+  // BUILD IMPORT BLOCK
+  const importBlock = Array.from(imports).sort().join('\n');
+  
   return `// =====================================================
-// API ROUTE: /api/${tableInfo.deityFolder}/${tableInfo.name}/[id]
+// API ROUTE: /api/generated/${tableInfo.deityFolder}/${tableInfo.name}/[id]
 // =====================================================
 
-import { NextRequest, NextResponse } from 'next/server';
-import { createServerSupabase } from '@/lib/supabase/server';
+${importBlock}
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
-  const supabase = await createServerSupabase();
-  const { data, error } = await supabase.from('${tableInfo.name}').select('*').eq('id', id).single();
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const { id } = await params;
+    const supabase = await createServerSupabase();
+    
+    const { data, error } = await supabase
+      .from('${tableInfo.name}')
+      .select('*')
+      .eq('id', id)
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { success: false, error: '${tableInfo.name} not found' },
+          { status: 404 }
+        );
+      }
+      throw error;
+    }
+    
+    // Remove email for non-owners (customize as needed)
+    const { data: { user } } = await supabase.auth.getUser();
+    const isOwner = user?.id === data.id;
+    
+    if (!isOwner && data.email) {
+      const { email, ...rest } = data;
+      return NextResponse.json({ success: true, data: rest });
+    }
+    
+    return NextResponse.json({ success: true, data });
+  } catch (error) {
+    console.error('Error fetching ${tableInfo.name}:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to fetch ${tableInfo.name}' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ success: true, data });
 }
 
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
-  const supabase = await createServerSupabase();
-  const body = await request.json();
-  const { data, error } = await supabase.from('${tableInfo.name}').update(body).eq('id', id).select().single();
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const { id } = await params;
+    const supabase = await createServerSupabase();
+    const body = await request.json();
+    
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+    
+    // Check ownership
+    const { data: existing } = await supabase
+      .from('${tableInfo.name}')
+      .select('created_by')
+      .eq('id', id)
+      .single();
+    
+    if (existing && existing.created_by !== user.id) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('is_admin')
+        .eq('id', user.id)
+        .single();
+      
+      if (!profile?.is_admin) {
+        return NextResponse.json(
+          { success: false, error: 'Forbidden' },
+          { status: 403 }
+        );
+      }
+    }
+    
+    const validated = ${pascalName}UpdateSchema.parse(body);
+    
+    const { data, error } = await supabase
+      .from('${tableInfo.name}')
+      .update(validated)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { success: false, error: '${tableInfo.name} not found' },
+          { status: 404 }
+        );
+      }
+      throw error;
+    }
+    
+    return NextResponse.json({ success: true, data });
+  } catch (error: any) {
+    if (error.name === 'ZodError') {
+      return NextResponse.json(
+        { success: false, error: 'Validation failed', details: error.issues },
+        { status: 400 }
+      );
+    }
+    console.error('Error updating ${tableInfo.name}:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to update ${tableInfo.name}' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ success: true, data });
 }
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
-  const supabase = await createServerSupabase();
-  const { error } = await supabase.from('${tableInfo.name}').delete().eq('id', id);
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const { id } = await params;
+    const supabase = await createServerSupabase();
+    
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+    
+    // Check ownership
+    const { data: existing } = await supabase
+      .from('${tableInfo.name}')
+      .select('created_by')
+      .eq('id', id)
+      .single();
+    
+    if (existing && existing.created_by !== user.id) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('is_admin')
+        .eq('id', user.id)
+        .single();
+      
+      if (!profile?.is_admin) {
+        return NextResponse.json(
+          { success: false, error: 'Forbidden' },
+          { status: 403 }
+        );
+      }
+    }
+    
+    const { error } = await supabase
+      .from('${tableInfo.name}')
+      .delete()
+      .eq('id', id);
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { success: false, error: '${tableInfo.name} not found' },
+          { status: 404 }
+        );
+      }
+      throw error;
+    }
+    
+    return NextResponse.json({ success: true, data: { deleted: true } });
+  } catch (error) {
+    console.error('Error deleting ${tableInfo.name}:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to delete ${tableInfo.name}' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ success: true, data: { deleted: true } });
 }
 `;
 }
 
 function generateUtilsContent(tableInfo: TableInfo): string {
-  const pascalName = tableInfo.name.split('_').map(p => p[0].toUpperCase() + p.slice(1)).join('');
+  const pascalName = toPascalCase(tableInfo.name);
+  const hasCreatedBy = tableInfo.rowContent.includes('created_by:');
   
   return `// =====================================================
 // UTILITIES: ${pascalName}
@@ -605,109 +1118,281 @@ function generateUtilsContent(tableInfo: TableInfo): string {
 
 import { createClient } from '@/lib/supabase/client';
 import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${tableInfo.deityFolder}/${tableInfo.name}';
+import { ${pascalName}InsertSchema, ${pascalName}UpdateSchema } from '@/lib/validators/generated/${tableInfo.deityFolder}/${tableInfo.name}';
 
-export async function create${pascalName}(data: ${pascalName}Insert) {
+export async function create${pascalName}(data: ${pascalName}Insert): Promise<${pascalName}Row> {
+  const validated = ${pascalName}InsertSchema.parse(data);
   const supabase = createClient();
-  const { data: result, error } = await supabase.from('${tableInfo.name}').insert(data).select().single();
+  
+  const { data: result, error } = await supabase
+    .from('${tableInfo.name}')
+    .insert(validated)
+    .select()
+    .single();
+  
   if (error) throw error;
   return result;
 }
 
-export async function get${pascalName}(id: string) {
+export async function get${pascalName}(id: string): Promise<${pascalName}Row> {
   const supabase = createClient();
-  const { data, error } = await supabase.from('${tableInfo.name}').select('*').eq('id', id).single();
+  const { data, error } = await supabase
+    .from('${tableInfo.name}')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
   if (error) throw error;
   return data;
 }
 
-export async function list${pascalName}() {
+export async function list${pascalName}(params?: {
+  page?: number;
+  limit?: number;
+  filters?: Record<string, string>;
+  sort?: string;
+  order?: 'asc' | 'desc';
+}): Promise<{ data: ${pascalName}Row[]; total: number }> {
+  const { page = 1, limit = 20, filters = {}, sort = 'created_at', order = 'desc' } = params || {};
   const supabase = createClient();
-  const { data, error } = await supabase.from('${tableInfo.name}').select('*');
+  
+  let query = supabase.from('${tableInfo.name}').select('*', { count: 'exact' });
+  
+  for (const [key, value] of Object.entries(filters)) {
+    query = query.eq(key, value);
+  }
+  
+  query = query.order(sort, { ascending: order === 'asc' });
+  
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.range(from, to);
+  
+  const { data, error, count } = await query;
   if (error) throw error;
-  return data;
+  
+  return { data: data || [], total: count || 0 };
 }
 
-export async function update${pascalName}(id: string, data: ${pascalName}Update) {
+export async function update${pascalName}(id: string, data: ${pascalName}Update): Promise<${pascalName}Row> {
+  const validated = ${pascalName}UpdateSchema.parse(data);
   const supabase = createClient();
-  const { data: result, error } = await supabase.from('${tableInfo.name}').update(data).eq('id', id).select().single();
+  
+  const { data: result, error } = await supabase
+    .from('${tableInfo.name}')
+    .update(validated)
+    .eq('id', id)
+    .select()
+    .single();
+  
   if (error) throw error;
   return result;
 }
 
-export async function delete${pascalName}(id: string) {
+export async function delete${pascalName}(id: string): Promise<boolean> {
   const supabase = createClient();
-  const { error } = await supabase.from('${tableInfo.name}').delete().eq('id', id);
+  const { error } = await supabase
+    .from('${tableInfo.name}')
+    .delete()
+    .eq('id', id);
+  
   if (error) throw error;
   return true;
 }
 `;
 }
 
+
 function generateHooksContent(tableInfo: TableInfo): string {
-  const pascalName = tableInfo.name.split('_').map(p => p[0].toUpperCase() + p.slice(1)).join('');
-  const hookName = `use${pascalName}`;
+  const pascalName = toPascalCase(tableInfo.name);
+  const hasPagination = true; // All tables benefit from pagination
+  const hasFilters = tableInfo.enumRefs.length > 0 || tableInfo.hasJson;
   
   return `// =====================================================
-// HOOK: ${hookName}
+// HOOK: use${pascalName}
 // DEITY: ${tableInfo.deityFolder}
 // =====================================================
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { ${pascalName}Row } from '@/types/generated/${tableInfo.deityFolder}/${tableInfo.name}';
 
-export function ${hookName}(id?: string) {
+${hasFilters ? `// Import enums for filter validation
+import { 
+  ${tableInfo.enumRefs.map(e => e.toUpperCase()).join(', ')} 
+} from '@/lib/constants/generated/${tableInfo.deityFolder}';
+` : ''}
+
+export interface ${pascalName}Filters {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  order?: 'asc' | 'desc';
+${tableInfo.enumRefs.map(e => `  ${e}?: ${toPascalCase(e)};`).join('\n')}
+}
+
+export function use${pascalName}(id?: string) {
   const [data, setData] = useState<${pascalName}Row | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     if (!id) {
       setLoading(false);
       return;
     }
     
-    fetch(\`/api/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`)
-      .then(res => res.json())
-      .then(result => {
-        if (result.success) {
-          setData(result.data);
-        } else {
-          setError(result.error);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
+    setLoading(true);
+    try {
+      const response = await fetch(\`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`);
+      const result = await response.json();
+      
+      if (result.success) {
+        setData(result.data);
+        setError(null);
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
   }, [id]);
 
-  return { data, loading, error, refetch: () => {} };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
 }
 
-export function use${pascalName}List() {
+export function use${pascalName}List(filters?: ${pascalName}Filters) {
   const [data, setData] = useState<${pascalName}Row[]>([]);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetch(\`/api/${tableInfo.deityFolder}/${tableInfo.name}\`)
-      .then(res => res.json())
-      .then(result => {
-        if (result.success) {
-          setData(result.data);
-        } else {
-          setError(result.error);
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const searchParams = new URLSearchParams();
+      if (filters?.page) searchParams.set('page', String(filters.page));
+      if (filters?.limit) searchParams.set('limit', String(filters.limit));
+      if (filters?.sort) searchParams.set('sort', filters.sort);
+      if (filters?.order) searchParams.set('order', filters.order);
+      
+      // Add enum filters with validation
+      ${tableInfo.enumRefs.map(e => `
+      if (filters?.${e}) {
+        const validValues = Object.values(${e.toUpperCase()});
+        if (validValues.includes(filters.${e})) {
+          searchParams.set('${e}', filters.${e});
         }
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
+      }`).join('\n')}
+      
+      const url = \`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}?\${searchParams.toString()}\`;
+      const response = await fetch(url);
+      const result = await response.json();
+      
+      if (result.success) {
+        setData(result.data.data || result.data || []);
+        setTotal(result.data.pagination?.total || result.data.length || 0);
+        setError(null);
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+  }, [filters]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, total, loading, error, refetch: fetchData };
+}
+
+// Mutation hooks
+export function useCreate${pascalName}() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const create = useCallback(async (data: ${pascalName}Insert) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/generated/${tableInfo.deityFolder}/${tableInfo.name}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error);
+      return result.data;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+      throw err;
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  return { data, loading, error, refetch: () => {} };
+  return { create, loading, error };
+}
+
+export function useUpdate${pascalName}() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const update = useCallback(async (id: string, data: ${pascalName}Update) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(\`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error);
+      return result.data;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return { update, loading, error };
+}
+
+export function useDelete${pascalName}() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const deleteRecord = useCallback(async (id: string) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(\`/api/generated/${tableInfo.deityFolder}/${tableInfo.name}/\${id}\`, {
+        method: 'DELETE',
+      });
+      const result = await response.json();
+      if (!result.success) throw new Error(result.error);
+      return true;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return { delete: deleteRecord, loading, error };
 }
 `;
 }

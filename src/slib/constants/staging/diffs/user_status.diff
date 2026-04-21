@@ -1,0 +1,8 @@
+--- a/lib\constants\generated\hestia-core\user_status.ts
++++ b/lib\constants\generated\hestia-core\user_status.ts (staged)
+@@ -3,11 +3,11 @@
+-// GENERATED: 2026-04-20T23:04:55.092Z
++// GENERATED: 2026-04-21T00:23:20.056Z
+ // SOURCE: Constants.public.Enums.user_status
+ // =====================================================
+ 
