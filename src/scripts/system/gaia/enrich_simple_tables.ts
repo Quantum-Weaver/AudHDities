@@ -20,11 +20,15 @@ import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { DEITY_GROUPS } from '@/config/deity_groups.js';
 import { formatTypes, FormatTypesOptions, FormattedType, formatType } from './format_types.js';
 import { EnrichedTable } from './enrich_objects.js'
+import { Json } from '@/types/supabase/database.types.js';
 export interface SimpleTable {
   name: string;
   deityFolder: string;
   handlingLevel: string;
   category: any;
+  enumRefs: string[];
+  hasJson: boolean;
+  rowContent: Json;
 }
 
 

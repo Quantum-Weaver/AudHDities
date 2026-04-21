@@ -1,7 +1,7 @@
 // =====================================================
 // VALIDATOR: Profiles
 // DEITY: hestia-core
-// GENERATED: 2026-04-21T00:23:20.043Z
+// GENERATED: 2026-04-21T02:14:09.774Z
 // =====================================================
 // NOTE: Runtime validation using Zod with database type inference
 // =====================================================

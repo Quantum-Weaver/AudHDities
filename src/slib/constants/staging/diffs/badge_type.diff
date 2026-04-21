@@ -1,8 +1,120 @@
 --- a/lib\constants\generated\hestia-core\badge_type.ts
 +++ b/lib\constants\generated\hestia-core\badge_type.ts (staged)
-@@ -3,57 +3,57 @@
+@@ -1,59 +1,59 @@
+-// =====================================================
++// =====================================================
+-// FILE: constants/generated/hestia-core/badge_type.ts
++// FILE: constants/generated/hestia-core/badge_type.ts
 -// GENERATED: 2026-04-20T23:04:55.089Z
-+// GENERATED: 2026-04-21T00:23:20.050Z
- // SOURCE: Constants.public.Enums.badge_type
- // =====================================================
- 
++// GENERATED: 2026-04-21T02:14:09.782Z
+-// SOURCE: Constants.public.Enums.badge_type
++// SOURCE: Constants.public.Enums.badge_type
+-// =====================================================
++// =====================================================
+-
++
+-export const BADGE_TYPE = {
++export const BADGE_TYPE = {
+-  QUANTUM_WEAVER: 'quantum_weaver',
++  QUANTUM_WEAVER: 'quantum_weaver',
+-  FOUNDING_COUNCIL: 'founding_council',
++  FOUNDING_COUNCIL: 'founding_council',
+-  GENESIS_BLOCK: 'genesis_block',
++  GENESIS_BLOCK: 'genesis_block',
+-  SANCTUARY_GUARDIAN: 'sanctuary_guardian',
++  SANCTUARY_GUARDIAN: 'sanctuary_guardian',
+-  VERIFIED_CREATOR: 'verified_creator',
++  VERIFIED_CREATOR: 'verified_creator',
+-  VERIFIED_VENDOR: 'verified_vendor',
++  VERIFIED_VENDOR: 'verified_vendor',
+-  COMMUNITY_LEADER: 'community_leader',
++  COMMUNITY_LEADER: 'community_leader',
+-  FIRST_SALE: 'first_sale',
++  FIRST_SALE: 'first_sale',
+-  FIRST_PURCHASE: 'first_purchase',
++  FIRST_PURCHASE: 'first_purchase',
+-  FIRST_QUEST: 'first_quest',
++  FIRST_QUEST: 'first_quest',
+-  QUEST_MASTER: 'quest_master',
++  QUEST_MASTER: 'quest_master',
+-  SOVEREIGN_SEEKER: 'sovereign_seeker',
++  SOVEREIGN_SEEKER: 'sovereign_seeker',
+-  SOVEREIGN_ADEPT: 'sovereign_adept',
++  SOVEREIGN_ADEPT: 'sovereign_adept',
+-  SOVEREIGN_MASTER: 'sovereign_master',
++  SOVEREIGN_MASTER: 'sovereign_master',
+-  CONTRIBUTOR_CONCEPT: 'contributor_concept',
++  CONTRIBUTOR_CONCEPT: 'contributor_concept',
+-  CONTRIBUTOR_CODE: 'contributor_code',
++  CONTRIBUTOR_CODE: 'contributor_code',
+-  CONTRIBUTOR_DESIGN: 'contributor_design',
++  CONTRIBUTOR_DESIGN: 'contributor_design',
+-  CONTRIBUTOR_CONTENT: 'contributor_content',
++  CONTRIBUTOR_CONTENT: 'contributor_content',
+-  CONTRIBUTOR_TESTING: 'contributor_testing',
++  CONTRIBUTOR_TESTING: 'contributor_testing',
+-  HEARTH_KEEPER_INITIATE: 'hearth_keeper_initiate',
++  HEARTH_KEEPER_INITIATE: 'hearth_keeper_initiate',
+-  HEARTH_KEEPER_ADEPT: 'hearth_keeper_adept',
++  HEARTH_KEEPER_ADEPT: 'hearth_keeper_adept',
+-  HEARTH_KEEPER_MASTER: 'hearth_keeper_master',
++  HEARTH_KEEPER_MASTER: 'hearth_keeper_master',
+-  CHANCELLOR_INITIATE: 'chancellor_initiate',
++  CHANCELLOR_INITIATE: 'chancellor_initiate',
+-  CHANCELLOR_ADEPT: 'chancellor_adept',
++  CHANCELLOR_ADEPT: 'chancellor_adept',
+-  CHANCELLOR_MASTER: 'chancellor_master',
++  CHANCELLOR_MASTER: 'chancellor_master',
+-  SEER_INITIATE: 'seer_initiate',
++  SEER_INITIATE: 'seer_initiate',
+-  SEER_ADEPT: 'seer_adept',
++  SEER_ADEPT: 'seer_adept',
+-  SEER_MASTER: 'seer_master',
++  SEER_MASTER: 'seer_master',
+-  AETHELRED_INITIATE: 'aethelred_initiate',
++  AETHELRED_INITIATE: 'aethelred_initiate',
+-  AETHELRED_ADEPT: 'aethelred_adept',
++  AETHELRED_ADEPT: 'aethelred_adept',
+-  AETHELRED_MASTER: 'aethelred_master',
++  AETHELRED_MASTER: 'aethelred_master',
+-  CURATOR_INITIATE: 'curator_initiate',
++  CURATOR_INITIATE: 'curator_initiate',
+-  CURATOR_ADEPT: 'curator_adept',
++  CURATOR_ADEPT: 'curator_adept',
+-  CURATOR_MASTER: 'curator_master',
++  CURATOR_MASTER: 'curator_master',
+-  ARCHIVIST_INITIATE: 'archivist_initiate',
++  ARCHIVIST_INITIATE: 'archivist_initiate',
+-  ARCHIVIST_ADEPT: 'archivist_adept',
++  ARCHIVIST_ADEPT: 'archivist_adept',
+-  ARCHIVIST_MASTER: 'archivist_master',
++  ARCHIVIST_MASTER: 'archivist_master',
+-  SKALD_INITIATE: 'skald_initiate',
++  SKALD_INITIATE: 'skald_initiate',
+-  SKALD_ADEPT: 'skald_adept',
++  SKALD_ADEPT: 'skald_adept',
+-  SKALD_MASTER: 'skald_master',
++  SKALD_MASTER: 'skald_master',
+-  CODEX_INITIATE: 'codex_initiate',
++  CODEX_INITIATE: 'codex_initiate',
+-  CODEX_ADEPT: 'codex_adept',
++  CODEX_ADEPT: 'codex_adept',
+-  CODEX_MASTER: 'codex_master',
++  CODEX_MASTER: 'codex_master',
+-  EXECUTIONER_INITIATE: 'executioner_initiate',
++  EXECUTIONER_INITIATE: 'executioner_initiate',
+-  EXECUTIONER_ADEPT: 'executioner_adept',
++  EXECUTIONER_ADEPT: 'executioner_adept',
+-  EXECUTIONER_MASTER: 'executioner_master',
++  EXECUTIONER_MASTER: 'executioner_master',
+-  BIGOT_TAX_EXEMPT: 'bigot_tax_exempt',
++  BIGOT_TAX_EXEMPT: 'bigot_tax_exempt',
+-  DATA_SOVEREIGN: 'data_sovereign',
++  DATA_SOVEREIGN: 'data_sovereign',
+-  PRIVACY_PIONEER: 'privacy_pioneer',
++  PRIVACY_PIONEER: 'privacy_pioneer',
+-} as const;
++} as const;
+-
++
+ export type BadgeType = typeof BADGE_TYPE[keyof typeof BADGE_TYPE];

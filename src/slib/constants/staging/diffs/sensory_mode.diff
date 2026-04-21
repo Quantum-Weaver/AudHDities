@@ -1,8 +1,28 @@
 --- a/lib\constants\generated\hestia-core\sensory_mode.ts
 +++ b/lib\constants\generated\hestia-core\sensory_mode.ts (staged)
-@@ -3,11 +3,11 @@
+@@ -1,13 +1,13 @@
+-// =====================================================
++// =====================================================
+-// FILE: constants/generated/hestia-core/sensory_mode.ts
++// FILE: constants/generated/hestia-core/sensory_mode.ts
 -// GENERATED: 2026-04-20T23:04:55.091Z
-+// GENERATED: 2026-04-21T00:23:20.054Z
- // SOURCE: Constants.public.Enums.sensory_mode
- // =====================================================
- 
++// GENERATED: 2026-04-21T02:14:09.792Z
+-// SOURCE: Constants.public.Enums.sensory_mode
++// SOURCE: Constants.public.Enums.sensory_mode
+-// =====================================================
++// =====================================================
+-
++
+-export const SENSORY_MODE = {
++export const SENSORY_MODE = {
+-  HEARTH: 'hearth',
++  HEARTH: 'hearth',
+-  QUANTUM: 'quantum',
++  QUANTUM: 'quantum',
+-  VOID: 'void',
++  VOID: 'void',
+-} as const;
++} as const;
+-
++
+ export type SensoryMode = typeof SENSORY_MODE[keyof typeof SENSORY_MODE];

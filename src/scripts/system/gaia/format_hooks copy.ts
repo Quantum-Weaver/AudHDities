@@ -11,7 +11,6 @@ import type { ObjectCategory } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../shared/logger.js';
 import { ImportManager } from '../../shared/import_manager.js';
 import type { EnrichedTable } from './enrich_objects.js';
-import type { DefaultSchema } from '@/types/supabase/database.helpers.js';
 
 export interface FormatHooksOptions {
   verbose?: boolean;
@@ -333,9 +332,7 @@ export function formatHooks(
   options?: FormatHooksOptions
 ): FormattedHook[] {
   const { verbose = false } = options || {};
-
-  const { name: tableName, deityFolder, category, shouldGenerateHooks } = table;
-  type  rowContent = DefaultSchema['Tables'][""`${tableName}`"];
+  const { name: tableName, deityFolder, category, shouldGenerateHooks, rowContent } = table;
   const results: FormattedHook[] = [];
   
   // Check if this table needs hooks (using pre-resolved flag from enrichment)

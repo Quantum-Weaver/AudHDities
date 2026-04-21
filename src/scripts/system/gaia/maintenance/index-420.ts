@@ -10,14 +10,8 @@ import { formatObjectConstants } from '../../modules/format/format_object_consta
 import { generateMultipleTypeFiles } from '../../modules/generate/generate_object_types.js';
 import { generateMultipleConstantFiles } from '../../modules/generate/generate_object_constants.js';
 import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
-
 import { getObjectCategory } from '../../../config/object_categories.js';
-import { FormatValidatorsOptions, type FormattedValidator } from './format_validators.js';
-import { formatUtils, type FormattedUtility } from './format_utils.js';
-import type { enrichTable, EnrichedTable, } from './enrich_objects.js';
-import type { Database } from '@/types/supabase/database.types';
 
-import { formatHooks, type FormattedHook } from './format_hooks.js';
 import { getAllTableNames, getFolderNameForTable, DEITY_GROUPS } from '@/config/deity_groups.js';
 import { logSuccess, logInfo, logError, logStep, logSeparator, logWarning, logDebug } from '../../shared/logger.js';
 
@@ -31,6 +25,15 @@ interface GaiaOptions {
   interactive: boolean;
   force: boolean;
 }
+
+interface TableInfo {
+  name: string;
+  deityFolder: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  rowContent: string;
+}
+
 interface TableDependencies {
   enums: string[];
   needsValidator: boolean;
@@ -39,31 +42,24 @@ interface TableDependencies {
   needsHooks: boolean;
 }
 
-interface TableInfo {
-  name: string;
-  deityFolder: string;
-  enumRefs: string[];
-  hasJson: boolean;
-  rowContent: string;
-  tableDependencies?: TableDependencies[];
-}
-
-
-
 // ============================================================================
 // HELPERS
 // ============================================================================
+/**
+ * Convert snake_case to PascalCase for type names
+ */
 function toPascalCase(str: string): string {
-  return str.split('_').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  return str
+    .split('_')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
 }
 
+
 /**
- * Get the actual TypeScript type of a table's Row
- * This is a compile-time type, but we can use it to generate runtime schemas
+ * Generate runtime schema using Zod's native inference from the actual type
+ * This requires importing the actual type at runtime
  */
-type TableRow<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row'];
-type TableInsert<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert'];
-type TableUpdate<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update'];
 
 
 function askUser(question: string): Promise<string> {
@@ -295,7 +291,7 @@ import { writeGeneratedFile, type WriteOptions } from './writeGeneratedFile.js';
 import { SystemLogger } from '@/scripts/shared/system_logger.js';
 
 async function generateArtifactsForTable(
-  tableInfo: EnrichedTable,
+  tableInfo: TableInfo,
   tableObj: any,
   category: any,
   options: GaiaOptions,
@@ -510,72 +506,85 @@ async function generateArtifactsForTable(
 // VALIDATOR GENERATOR - Using Runtime Type Information
 // ============================================================================
 
-function generateValidatorContent(table: EnrichedTable): string {
-  const { name: tableName, deityFolder, } = table;
-  const pascalName = toPascalCase(tableName);
+function generateValidatorContent(tableInfo: TableInfo): string {
+  const pascalName = toPascalCase(tableInfo.name);
+  
+  // Build the complete Zod schema based on parsed table content
+  const zodFields = buildZodFields(tableInfo.name, tableInfo.enumRefs);
   
   return `// =====================================================
 // VALIDATOR: ${pascalName}
-// DEITY: ${deityFolder}
+// DEITY: ${tableInfo.deityFolder}
 // GENERATED: ${new Date().toISOString()}
 // =====================================================
-// NOTE: This validator uses the Tables helper for type inference.
-// The actual types are imported from the Tables helper at runtime.
+// NOTE: Runtime validation using Zod with database type inference
 // =====================================================
 
 import { z } from 'zod';
-import type { Database } from '@/types/supabase/database.types';
+import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${tableInfo.deityFolder}/${tableInfo.name}';
+
+// Import runtime enums for validation
+import { 
+  ${tableInfo.enumRefs.map(e => e.toUpperCase()).join(', ')} 
+} from '@/lib/constants/generated/${tableInfo.deityFolder}';
 
 // =====================================================
-// TYPE INFERENCE (from Tables helper)
+// FIELD VALIDATION SCHEMAS
 // =====================================================
 
-type TableRow = Database['public']['Tables']['${tableName}']['Row'];
-type TableInsert = Database['public']['Tables']['${tableName}']['Insert'];
-type TableUpdate = Database['public']['Tables']['${tableName}']['Update'];
+${zodFields}
 
 // =====================================================
-// RUNTIME SCHEMA (inferred from type structure)
+// ROW SCHEMA (full database row)
 // =====================================================
 
-// Helper to convert a type to a Zod schema
-// This is a simplified version - in practice, you'd need a full type-to-zod converter
-function typeToZod<T>(): z.ZodType<T> {
-  // This is a placeholder - the actual implementation would traverse the type
-  return z.any() as z.ZodType<T>;
-}
-
-export const ${pascalName}RowSchema: z.ZodType<TableRow> = typeToZod<TableRow>();
-export const ${pascalName}InsertSchema: z.ZodType<TableInsert> = typeToZod<TableInsert>();
-export const ${pascalName}UpdateSchema: z.ZodType<TableUpdate> = typeToZod<TableUpdate>();
+export const ${pascalName}RowSchema = z.object({
+${generateRowFields(tableInfo.rowContent)}
+});
 
 // =====================================================
-// TYPE EXPORTS
+// INSERT SCHEMA (for creation - optional fields)
 // =====================================================
 
-export type ${pascalName}RowInput = TableRow;
-export type ${pascalName}InsertInput = TableInsert;
-export type ${pascalName}UpdateInput = TableUpdate;
+export const ${pascalName}InsertSchema = z.object({
+${generateInsertFields(tableInfo.rowContent)}
+});
 
 // =====================================================
-// VALIDATION FUNCTIONS
+// UPDATE SCHEMA (for updates - all optional)
 // =====================================================
 
-export function validate${pascalName}Row(data: unknown): TableRow {
+export const ${pascalName}UpdateSchema = z.object({
+${generateUpdateFields(tableInfo.rowContent)}
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type ${pascalName}RowInput = z.infer<typeof ${pascalName}RowSchema>;
+export type ${pascalName}InsertInput = z.infer<typeof ${pascalName}InsertSchema>;
+export type ${pascalName}UpdateInput = z.infer<typeof ${pascalName}UpdateSchema>;
+
+// =====================================================
+// VALIDATION HELPERS
+// =====================================================
+
+export function validate${pascalName}Row(data: unknown): ${pascalName}RowInput {
   return ${pascalName}RowSchema.parse(data);
 }
 
-export function validate${pascalName}Insert(data: unknown): TableInsert {
+export function validate${pascalName}Insert(data: unknown): ${pascalName}InsertInput {
   return ${pascalName}InsertSchema.parse(data);
 }
 
-export function validate${pascalName}Update(data: unknown): TableUpdate {
+export function validate${pascalName}Update(data: unknown): ${pascalName}UpdateInput {
   return ${pascalName}UpdateSchema.parse(data);
 }
 
 export function safeValidate${pascalName}Insert(data: unknown): {
   success: boolean;
-  data?: TableInsert;
+  data?: ${pascalName}InsertInput;
   error?: z.ZodError;
 } {
   const result = ${pascalName}InsertSchema.safeParse(data);
@@ -586,63 +595,7 @@ export function safeValidate${pascalName}Insert(data: unknown): {
 }
 `;
 }
-export function formatValidator(
-  table: EnrichedTable,
-  options?: FormatValidatorsOptions
-): FormattedValidator | null {
-  const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, shouldGenerateValidators } = table;
-  
-  if (!shouldGenerateValidators) {
-    if (verbose) logDebug(`Skipping validators for ${tableName}`);
-    return null;
-  }
-  
-  if (verbose) logDebug(`Formatting validators for: ${tableName} -> ${deityFolder}`);
-  
-  const content = generateValidatorContent(table);
-  const filePath = `src/lib/validators/generated/${deityFolder}/${tableName}.ts`;
-  
-  if (verbose) {
-    logDebug(`  Generated ${content.length} characters`);
-  }
-  
-  return {
-    content,
-    filePath,
-    tableName,
-    deityFolder
-  };
-}
 
-export function formatValidators(
-  tables: EnrichedTable[],
-  options?: FormatValidatorsOptions
-): FormattedValidator[] {
-  const { verbose = false } = options || {};
-  const results: FormattedValidator[] = [];
-  
-  if (verbose) {
-    logDebug(`Formatting validators for ${tables.length} tables...`);
-  }
-  
-  for (const table of tables) {
-    const formatted = formatValidator(table, options);
-    if (formatted) {
-      results.push(formatted);
-      
-      if (verbose) {
-        logDebug(`  Formatted: ${table.name} -> ${table.deityFolder}`);
-      }
-    }
-  }
-  
-  if (verbose) {
-    logSuccess(`Formatted ${results.length} validator files`);
-  }
-  
-  return results;
-}
 // ============================================================================
 // HELPER FUNCTIONS FOR BUILDING ZOD SCHEMAS
 // ============================================================================

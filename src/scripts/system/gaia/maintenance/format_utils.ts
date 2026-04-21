@@ -273,7 +273,7 @@ export function formatUtility(
   options?: FormatUtilsOptions
 ): FormattedUtility | null {
   const { verbose = false } = options || {};
-  const { name: tableName, deityFolder, category, shouldGenerateUtils } = table;
+  const { name: tableName, deityFolder, category, shouldGenerateUtils, rowContent } = table;
   
   // Check if this table needs utilities (using pre-resolved flag from enrichment)
   if (!shouldGenerateUtils) {
@@ -285,6 +285,12 @@ export function formatUtility(
   
   if (verbose) {
     logDebug(`Formatting utility: ${tableName} -> ${deityFolder} (${category.handlingLevel})`);
+  }
+  
+  // Validate row content exists
+  if (!rowContent || rowContent.trim() === '') {
+    logWarning(`No row content for ${tableName}, skipping utility generation`);
+    return null;
   }
   
   const content = formatUtilityContent(table);
@@ -319,6 +325,13 @@ export function formatUtils(
   }
   
   for (const table of tables) {
+    // Skip if no row content
+    if (!table.rowContent || table.rowContent.trim() === '') {
+      if (verbose) {
+        logDebug(`  Skipping utility for ${table.name} (no row content)`);
+      }
+      continue;
+    }
     
     const formatted = formatUtility(table, options);
     if (formatted) {
