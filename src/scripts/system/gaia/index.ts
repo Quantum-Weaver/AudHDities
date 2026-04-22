@@ -3,7 +3,7 @@ import { readDatabaseTypes } from '../../shared/file_reader';
 import { findMarkers } from '../../modules/system/find_markers';
 import { findAllClosingBraces } from '../../modules/system/find_closing_braces';
 import { countAllCollections } from '../../modules/system/count_items';
-import { extractObject } from '../../modules/extract/extract_object';
+import { extractObject } from './extract/extract_object';
 import { parseTableContent } from '../../modules/format/format_object_types';
 import { formatObjectTypes } from '../../modules/format/format_object_types';
 import { formatObjectConstants } from '../../modules/format/format_object_constants';

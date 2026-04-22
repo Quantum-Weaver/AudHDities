@@ -1,5 +1,5 @@
 // ============================================================================
-                                              /* src/scripts/system/cosmic.ts */
+/* src/scripts/system/cosmic/index.ts */
 // COSMIC GENERATOR - MAIN ORCHESTRATOR
 // ============================================================================
 // Purpose: Run all generation modules in sequence

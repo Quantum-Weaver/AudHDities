@@ -1,7 +1,7 @@
 // scripts/system/gaia/phases/phase3_enrich_table.ts
 // PHASE 3: Extract and enrich a single table
 
-import { extractObject } from '../../../modules/extract/extract_object.js';
+import { extractObject } from '../extract/extract_object.js';
 import { parseTableContent } from '../../../modules/format/format_object_types.js';
 import { logError, logInfo, logDebug, logSuccess } from '../../../shared/logger.js';
 import type { GaiaOptions } from '../index.js';

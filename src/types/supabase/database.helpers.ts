@@ -186,7 +186,6 @@ export type CompositeTypes<
  * All table names in the public schema
  */
 export type PublicTableNames = keyof DefaultSchema["Tables"];
-
 /**
  * All view names in the public schema
  */

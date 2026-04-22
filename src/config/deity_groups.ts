@@ -1,13 +1,16 @@
 // @/config/deity_groups.ts
 // Deity-based table grouping for the Sovereign Sanctuary
 
+import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
+
 export interface DeityGroup {
   name: string;
   domain: string;
   sequence: number;
   folderName: string;
   description: string;
-  tables: string[];
+  tables: PublicTableNames[];      // ✅ Tables only
+  views?: PublicViewNames[];       // ✅ Views separately (optional)
 }
 
 export const DEITY_GROUPS: DeityGroup[] = [
@@ -15,7 +18,7 @@ export const DEITY_GROUPS: DeityGroup[] = [
     name: 'hestia',
     domain: 'core',
     sequence: 1,
-folderName: 'hestia-core',
+    folderName: 'hestia-core',
     description: 'Core identity architecture - users, profiles, channels',
     tables: [
       'profiles',
@@ -25,13 +28,16 @@ folderName: 'hestia-core',
       'vendor_profiles',
       'community_profiles',
       'channels'
+    ],
+    views: [
+      'personalized_feed'  // Example view
     ]
   },
   {
     name: 'plutus',
     domain: 'economics',
-    sequence:2,
-folderName: 'plutus-economics',
+    sequence: 2,
+    folderName: 'plutus-economics',
     description: 'Economic engine - products, sales, residuals, subscriptions',
     tables: [
       'products',
@@ -52,7 +58,7 @@ folderName: 'plutus-economics',
     name: 'hermes',
     domain: 'social',
     sequence: 3,
-folderName: 'hermes-social',
+    folderName: 'hermes-social',
     description: 'Social engagement - posts, comments, reactions, messages',
     tables: [
       'creative_categories',
@@ -63,15 +69,17 @@ folderName: 'hermes-social',
       'messages',
       'activity',
       'emeralds',
-      'notifications',
-      'personalized_feed'
+      'notifications'
+    ],
+    views: [
+      'personalized_feed'  // This is a view, not a table
     ]
   },
   {
     name: 'athena',
     domain: 'gamification',
     sequence: 4,
-folderName: 'athena-gamification',
+    folderName: 'athena-gamification',
     description: 'Gamification - quests, badges, learning paths',
     tables: [
       'quests',
@@ -93,7 +101,7 @@ folderName: 'athena-gamification',
     name: 'mnemosyne',
     domain: 'assessment',
     sequence: 5,
-folderName: 'mnemosyne-assessment',
+    folderName: 'mnemosyne-assessment',
     description: 'Assessment and discovery - acid test, taxonomy, ontology',
     tables: [
       'acid_test_questions',
@@ -111,7 +119,7 @@ folderName: 'mnemosyne-assessment',
     name: 'themis',
     domain: 'governance',
     sequence: 6,
-folderName: 'themis-governance',
+    folderName: 'themis-governance',
     description: 'Governance and moderation - reports, logs, applications',
     tables: [
       'reports',
@@ -119,15 +127,17 @@ folderName: 'themis-governance',
       'admin_logs',
       'applications',
       'processes',
-      'rate_limits',
-      'public_transparency'
+      'rate_limits'
+    ],
+    views: [
+      'public_transparency'  // This is a view
     ]
   },
   {
     name: 'iris',
     domain: 'communications',
     sequence: 7,
-folderName: 'iris-communications',
+    folderName: 'iris-communications',
     description: 'Communications - localization, contact, surveys',
     tables: [
       'continents',
@@ -148,7 +158,7 @@ folderName: 'iris-communications',
     name: 'hephaestus',
     domain: 'infrastructure',
     sequence: 8,
-folderName: 'hephaestus-infrastructure',
+    folderName: 'hephaestus-infrastructure',
     description: 'Infrastructure and tools - file registry, settings, logs',
     tables: [
       'file_type_standards',
@@ -169,7 +179,7 @@ folderName: 'hephaestus-infrastructure',
     name: 'aethelred',
     domain: 'connections',
     sequence: 9,
-folderName: 'aethelred-connections',
+    folderName: 'aethelred-connections',
     description: 'All-connecting architecture - integrations, council, consciousness',
     tables: [
       'supabase_connection',
@@ -191,9 +201,6 @@ folderName: 'aethelred-connections',
       'executioner'
     ]
   },
-// ============================================================================
-// NEW: PROMETHEUS META-SYSTEM
-// ============================================================================
   {
     name: 'prometheus',
     domain: 'meta',
@@ -212,25 +219,112 @@ folderName: 'aethelred-connections',
   }
 ];
 
-// Helper functions
-export function getDeityGroupForTable(tableName: string): DeityGroup | undefined {
+// ============================================================================
+// TYPE-SAFE HELPER FUNCTIONS
+// ============================================================================
+
+/**
+ * Get the deity group for a table
+ */
+export function getDeityGroupForTable(tableName: PublicTableNames): DeityGroup | undefined {
   return DEITY_GROUPS.find(group => group.tables.includes(tableName));
 }
 
-export function getFolderNameForTable(tableName: string): string | undefined {
+/**
+ * Get the deity group for a view
+ */
+export function getDeityGroupForView(viewName: PublicViewNames): DeityGroup | undefined {
+  return DEITY_GROUPS.find(group => group.views?.includes(viewName));
+}
+
+/**
+ * Get the folder name for a table
+ */
+export function getFolderNameForTable(tableName: PublicTableNames): string | undefined {
   const group = getDeityGroupForTable(tableName);
   return group?.folderName;
 }
 
+/**
+ * Get the folder name for a view
+ */
+export function getFolderNameForView(viewName: PublicViewNames): string | undefined {
+  const group = getDeityGroupForView(viewName);
+  return group?.folderName;
+}
+
+/**
+ * Get all table names across all deity groups
+ */
+export function getAllTableNames(): PublicTableNames[] {
+  return DEITY_GROUPS.flatMap(group => group.tables);
+}
+
+/**
+ * Get all view names across all deity groups
+ */
+export function getAllViewNames(): PublicViewNames[] {
+  return DEITY_GROUPS.flatMap(group => group.views || []);
+}
+
+/**
+ * Get all table and view names combined
+ */
+export function getAllNames(): (PublicTableNames | PublicViewNames)[] {
+  return [...getAllTableNames(), ...getAllViewNames()];
+}
+
+/**
+ * Get deity groups sorted by table count
+ */
 export function getDeityGroupsByTableCount(): DeityGroup[] {
   return [...DEITY_GROUPS].sort((a, b) => b.tables.length - a.tables.length);
 }
 
-export function getAllTableNames(): string[] {
-  return DEITY_GROUPS.flatMap(group => group.tables);
-}
-
-export function getTablesWithoutGroup(allTables: string[]): string[] {
+/**
+ * Find tables that don't belong to any deity group
+ */
+export function getTablesWithoutGroup(allTables: PublicTableNames[]): PublicTableNames[] {
   const groupedTables = new Set(getAllTableNames());
   return allTables.filter(table => !groupedTables.has(table));
 }
+
+/**
+ * Find views that don't belong to any deity group
+ */
+export function getViewsWithoutGroup(allViews: PublicViewNames[]): PublicViewNames[] {
+  const groupedViews = new Set(getAllViewNames());
+  return allViews.filter(view => !groupedViews.has(view));
+}
+
+/**
+ * Get the folder name for any object (table or view)
+ */
+export function getFolderNameForObject(name: PublicTableNames | PublicViewNames): string | undefined {
+  // Try as table first
+  const tableFolder = getFolderNameForTable(name as PublicTableNames);
+  if (tableFolder) return tableFolder;
+  
+  // Try as view
+  return getFolderNameForView(name as PublicViewNames);
+}
+
+/**
+ * Check if a name is a table in any deity group
+ */
+export function isTable(name: string): name is PublicTableNames {
+  return getAllTableNames().includes(name as PublicTableNames);
+}
+
+/**
+ * Check if a name is a view in any deity group
+ */
+export function isView(name: string): name is PublicViewNames {
+  return getAllViewNames().includes(name as PublicViewNames);
+}
+
+// ============================================================================
+// TYPE EXPORTS
+// ============================================================================
+
+export type { PublicTableNames, PublicViewNames };
