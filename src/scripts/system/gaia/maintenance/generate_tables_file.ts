@@ -15,13 +15,13 @@ import { createHash } from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../..');
 
 // ============================================================================
 // PATHS
 // ============================================================================
 
-const OUTPUT_PATH = path.join(PROJECT_ROOT, 'types/supabase/database.helpers.ts');
+const OUTPUT_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/database.helpers.ts');
 
 // ============================================================================
 // TYPES

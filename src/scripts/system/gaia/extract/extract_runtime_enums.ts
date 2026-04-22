@@ -18,7 +18,6 @@ export interface RuntimeEnumInfo {
   startLine: number;      // 1-indexed start line
   endLine: number;        // 1-indexed end line
   type: 'runtime_enum';
-  deityFolder: TableInfo["deityFolder"];
 }
 
 export interface ExtractRuntimeEnumsOptions {
@@ -128,7 +127,6 @@ export function extractRuntimeEnumByName(
       const result: RuntimeEnumInfo = {
         name: enumName,
         values,
-        deityFolder,
         content: fullEnumLine,
         startLine: i + 1,
         endLine: j,
@@ -194,7 +192,6 @@ export async function extractRuntimeEnums(
       if (values.length > 0) {
         runtimeEnums.push({
           name: enumName,
-          deityFolder,
           values,
           content: fullEnumLine,
           startLine: i + 1,

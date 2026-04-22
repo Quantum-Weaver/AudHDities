@@ -1,17 +1,19 @@
-// src/scripts/system/gaia/generate_enum_mapping.ts
+// src/scripts/system/gaia/maintenance/generate_enum_mapping.ts
+// ============================================================================
+// GENERATE ENUM MAPPING
+// ============================================================================
 
-import { getDeityFolderForObject } from "@/config/object_categories";
-import { EnumMappingEntry } from "@/config/enum_mapping";
-import { TableInfo } from "../index";
+import { getDeityFolderForObject } from "@/config/object_categories.js";
+import type { EnumMappingEntry } from "@/config/enum_mapping.js";
+import type { EnrichedTable } from "../enrich/enrich_objects.js";
 
 interface EnumReference {
   enumName: string;
   tableName: string;
   deityFolder: string;
-  tablePriority: number;  // Based on deity group priority
+  tablePriority: number;
 }
 
-// Priority weights by deity (higher = more important)
 const DEITY_PRIORITY: Record<string, number> = {
   'hestia-core': 100,
   'plutus-economics': 90,
@@ -21,23 +23,33 @@ const DEITY_PRIORITY: Record<string, number> = {
   'themis-governance': 50,
   'iris-communications': 40,
   'hephaestus-infrastructure': 30,
-  'aethelred-connections': 20
+  'aethelred-connections': 20,
+  'prometheus-meta': 10,
 };
 
 const MANUAL_OVERRIDES: Record<string, string> = {
   'payout_method': 'hestia-core',
   'user_tier': 'hestia-core',
   'council_house': 'hestia-core',
-  // Add more as needed
 };
-export function generateEnumMapping(tables: TableInfo[]): Record<string, EnumMappingEntry> {
+
+/**
+ * Generate enum mapping from enriched tables
+ * Note: enumRefs are no longer on EnrichedTable - 
+ * we need to get them from the original extraction or regenerate
+ */
+export function generateEnumMapping(
+  tables: EnrichedTable[],
+  getEnumRefsForTable: (tableName: string) => string[]
+): Record<string, EnumMappingEntry> {
   const references: Map<string, EnumReference[]> = new Map();
   
   for (const table of tables) {
-    const deityFolder = getDeityFolderForObject('runtime_enum', table.name);
+    const deityFolder = table.deityFolder;
     const priority = DEITY_PRIORITY[deityFolder] || 0;
+    const enumRefs = getEnumRefsForTable(table.name);
     
-    for (const enumRef of table.enumRefs) {
+    for (const enumRef of enumRefs) {
       if (!references.has(enumRef)) {
         references.set(enumRef, []);
       }
@@ -53,17 +65,16 @@ export function generateEnumMapping(tables: TableInfo[]): Record<string, EnumMap
   const mapping: Record<string, EnumMappingEntry> = {};
   
   for (const [enumName, refs] of references) {
-        if (MANUAL_OVERRIDES[enumName]) {
+    if (MANUAL_OVERRIDES[enumName]) {
       mapping[enumName] = {
         enumName,
         deityFolder: MANUAL_OVERRIDES[enumName],
         referencedIn: refs.map(r => r.tableName),
-        priority: 100  // Highest priority ensures it's respected
+        priority: 100
       };
       continue;
     }
     
-    // Find the reference with highest priority
     const bestMatch = refs.reduce((best, current) => 
       current.tablePriority > best.tablePriority ? current : best, refs[0]);
     
@@ -75,7 +86,6 @@ export function generateEnumMapping(tables: TableInfo[]): Record<string, EnumMap
     };
   }
   
-  // Add default fallback
   mapping.default = {
     enumName: 'default',
     deityFolder: 'hestia-core',

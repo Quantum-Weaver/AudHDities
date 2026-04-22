@@ -5,8 +5,7 @@
 // Purpose: Extract all function definitions from database.types.ts
 // Dependencies: extractObject from modules/extract
 // ============================================================================
-
-import  type { ExtractedObject } from '../../../shared/types.js';
+import type { ExtractedObject } from '../../../shared/types.js';
 import { extractObject } from './extract_object.js';
 import { logDebug, logSuccess, logWarning, logError } from '../../../shared/logger.js';
 

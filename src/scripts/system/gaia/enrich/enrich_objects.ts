@@ -1,6 +1,6 @@
 // src/scripts/system/gaia/enrich/enrich_objects.ts
 // ============================================================================
-// ENRICH OBJECTS (GAIA) - SIMPLIFIED VERSION
+// ENRICH OBJECTS (GAIA) - TYPE-SAFE VERSION
 // ============================================================================
 // Purpose: Resolve configuration for extracted objects once, before generation
 // 
@@ -8,20 +8,31 @@
 // enumRefs, or hasJson because those are provided by the Tables helper.
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories.js';
-import { getDeityFolderForObject, getObjectCategory, needsTypeGeneration, needsValidators, needsUtils, needsApiRoutes, needsHooks, needsConstantGeneration } from '@/config/object_categories.js';
-import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
+import type { ObjectCategory } from '@/config/object_categories';
+import { 
+  getDeityFolderForObject, 
+  getObjectCategory, 
+  needsTypeGeneration, 
+  needsValidators, 
+  needsUtils, 
+  needsApiRoutes, 
+  needsHooks, 
+  needsConstantGeneration, 
+  needsViewApiRoutes
+} from '@/config/object_categories';
+import { logDebug, logSuccess, logWarning } from '../../../shared/logger';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers';
 
 // ============================================================================
-// ENRICHED INTERFACES (Simplified)
+// ENRICHED INTERFACES (Type-Safe)
 // ============================================================================
 
 export interface EnrichedTable {
-  name: string;
+  name: PublicTableNames;
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
-  type?: 'table';
+  type: 'table';
   
   // Generation flags (derived from category)
   shouldGenerateTypes: boolean;
@@ -30,22 +41,22 @@ export interface EnrichedTable {
   shouldGenerateApiRoutes: boolean;
   shouldGenerateHooks: boolean;
   
-  // Optional: For debugging/display only (not used for generation)
+  // Optional: For debugging/display only
   notes?: string;
 }
 
 export interface EnrichedView {
-  name: string;
+  name: PublicViewNames;
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
   type: 'view';
   shouldGenerateTypes: boolean;
-  shouldGenerateApiRoutes: boolean;
+  shouldGenerateViewApiRoutes: boolean;
 }
 
 export interface EnrichedFunction {
-  name: string;
+  name: string;  // Functions don't have a helper type union
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
@@ -54,7 +65,7 @@ export interface EnrichedFunction {
 }
 
 export interface EnrichedRuntimeEnum {
-  name: string;
+  name: PublicEnumNames;
   values: string[];
   deityFolder: string;
   category: ObjectCategory;
@@ -64,7 +75,7 @@ export interface EnrichedRuntimeEnum {
 }
 
 export interface EnrichedTypeEnum {
-  name: string;
+  name: PublicEnumNames;
   deityFolder: string;
   category: ObjectCategory;
   handlingLevel: string;
@@ -73,15 +84,14 @@ export interface EnrichedTypeEnum {
 }
 
 // ============================================================================
-// ENRICHMENT FUNCTIONS
+// ENRICHMENT FUNCTIONS (Type-Safe Parameters)
 // ============================================================================
 
 /**
  * Enrich a table with configuration and generation flags
- * NO LONGER needs rowContent, insertContent, etc. — those come from Tables helper
  */
 export function enrichTable(
-  tableName: string,
+  tableName: PublicTableNames,
   options?: { verbose?: boolean }
 ): EnrichedTable {
   const { verbose = false } = options || {};
@@ -99,6 +109,7 @@ export function enrichTable(
     deityFolder,
     category,
     handlingLevel,
+    type: 'table',
     shouldGenerateTypes: needsTypeGeneration(tableName),
     shouldGenerateValidators: needsValidators(tableName),
     shouldGenerateUtils: needsUtils(tableName),
@@ -111,7 +122,7 @@ export function enrichTable(
  * Enrich multiple tables
  */
 export function enrichTables(
-  tableNames: string[],
+  tableNames: PublicTableNames[],
   options?: { verbose?: boolean }
 ): EnrichedTable[] {
   const { verbose = false } = options || {};
@@ -128,11 +139,16 @@ export function enrichTables(
   return results;
 }
 
+// ============================================================================
+// ENRICH VIEW FUNCTION (FIXED)
+// ============================================================================
+
 /**
  * Enrich a view with configuration and generation flags
+ * Views are READ-ONLY - they only get Row types and GET API routes
  */
 export function enrichView(
-  viewName: string,
+  viewName: PublicViewNames,
   options?: { verbose?: boolean }
 ): EnrichedView {
   const { verbose = false } = options || {};
@@ -143,6 +159,7 @@ export function enrichView(
   
   if (verbose) {
     logDebug(`Enriching view: ${viewName} -> ${deityFolder} (${handlingLevel})`);
+    logDebug(`  API Routes: ${category.generateApiGetList ? 'GET list' : ''} ${category.generateApiGetSingle ? 'GET single' : ''}`);
   }
   
   return {
@@ -151,8 +168,8 @@ export function enrichView(
     category,
     handlingLevel,
     type: 'view',
-    shouldGenerateTypes: true,  // Views always generate Row types
-    shouldGenerateApiRoutes: needsApiRoutes(viewName),
+    shouldGenerateTypes: true,
+    shouldGenerateViewApiRoutes: category.generateApiGetList || category.generateApiGetSingle,
   };
 }
 
@@ -160,7 +177,7 @@ export function enrichView(
  * Enrich multiple views
  */
 export function enrichViews(
-  viewNames: string[],
+  viewNames: PublicViewNames[],
   options?: { verbose?: boolean }
 ): EnrichedView[] {
   const { verbose = false } = options || {};
@@ -200,7 +217,7 @@ export function enrichFunction(
     category,
     handlingLevel,
     type: 'function',
-    shouldGenerateApiRoutes: needsApiRoutes(functionName),
+    shouldGenerateApiRoutes: category.generateApiPost || category.generateApiSpecial.length > 0,
   };
 }
 
@@ -228,17 +245,17 @@ export function enrichFunctions(
 /**
  * Enrich a runtime enum with configuration and generation flags
  */
-export function enrichRuntimeEnum(
+export async function enrichRuntimeEnum(
   enumInfo: { name: string; values: string[] },
   options?: { verbose?: boolean }
-): EnrichedRuntimeEnum {
+): Promise<EnrichedRuntimeEnum> {
   const { verbose = false } = options || {};
   
-  // Import dynamically to avoid circular dependency
-  const { getEnumFolder } = require('@/config/enum_mapping.js');
+  // Dynamic import to avoid circular dependency
+  const { getEnumFolder } = await import('@/config/enum_mapping.js');
   
   const deityFolder = getEnumFolder(enumInfo.name);
-  const category = getObjectCategory('runtime_enum', enumInfo.name);
+  const category = getObjectCategory('runtime_enum', enumInfo.name as PublicEnumNames);
   const handlingLevel = category.handlingLevel;
   
   if (verbose) {
@@ -246,28 +263,28 @@ export function enrichRuntimeEnum(
   }
   
   return {
-    name: enumInfo.name,
+    name: enumInfo.name as PublicEnumNames,
     values: enumInfo.values,
     deityFolder,
     category,
     handlingLevel,
     type: 'runtime_enum',
-    shouldGenerateConstants: needsConstantGeneration(enumInfo.name),
+    shouldGenerateConstants: needsConstantGeneration(enumInfo.name as PublicEnumNames),
   };
 }
 
 /**
  * Enrich multiple runtime enums
  */
-export function enrichRuntimeEnums(
+export async function enrichRuntimeEnums(
   enums: Array<{ name: string; values: string[] }>,
   options?: { verbose?: boolean }
-): EnrichedRuntimeEnum[] {
+): Promise<EnrichedRuntimeEnum[]> {
   const { verbose = false } = options || {};
   const results: EnrichedRuntimeEnum[] = [];
   
   for (const enumInfo of enums) {
-    results.push(enrichRuntimeEnum(enumInfo, options));
+    results.push(await enrichRuntimeEnum(enumInfo, options));
   }
   
   if (verbose) {
@@ -281,7 +298,7 @@ export function enrichRuntimeEnums(
  * Enrich a type enum with configuration and generation flags
  */
 export function enrichTypeEnum(
-  enumName: string,
+  enumName: PublicEnumNames,
   options?: { verbose?: boolean }
 ): EnrichedTypeEnum {
   const { verbose = false } = options || {};
@@ -308,7 +325,7 @@ export function enrichTypeEnum(
  * Enrich multiple type enums
  */
 export function enrichTypeEnums(
-  enumNames: string[],
+  enumNames: PublicEnumNames[],
   options?: { verbose?: boolean }
 ): EnrichedTypeEnum[] {
   const { verbose = false } = options || {};
@@ -340,25 +357,27 @@ export interface EnrichedExtractionResult {
 /**
  * Enrich all extracted objects at once
  */
-export function enrichAll(
-  tableNames: string[],
-  viewNames: string[],
+export async function enrichAll(
+  tableNames: PublicTableNames[],
+  viewNames: PublicViewNames[],
   functionNames: string[],
   runtimeEnums: Array<{ name: string; values: string[] }>,
-  typeEnumNames: string[],
+  typeEnumNames: PublicEnumNames[],
   options?: { verbose?: boolean }
-): EnrichedExtractionResult {
+): Promise<EnrichedExtractionResult> {
   const { verbose = false } = options || {};
   
   if (verbose) {
     logDebug('Enriching all extracted objects...');
   }
   
+  const runtimeEnumsEnriched = await enrichRuntimeEnums(runtimeEnums, options);
+  
   return {
     tables: enrichTables(tableNames, options),
     views: enrichViews(viewNames, options),
     functions: enrichFunctions(functionNames, options),
-    runtimeEnums: enrichRuntimeEnums(runtimeEnums, options),
+    runtimeEnums: runtimeEnumsEnriched,
     typeEnums: enrichTypeEnums(typeEnumNames, options),
   };
 }

@@ -1,8 +1,8 @@
-// src/scripts/system/gaia/format/format_constants.ts
+// src/scripts/system/gaia/generate/generate_constants.ts
 // ============================================================================
-// FORMAT CONSTANTS (GAIA)
+// GENERATE CONSTANTS (GAIA)
 // ============================================================================
-// Purpose: Format runtime enums into constant object files
+// Purpose: Generate runtime enum constant files
 // Dependencies: RuntimeEnumInfo from extract_runtime_enums.ts
 // Output: src/lib/constants/generated/{deityFolder}/{enumName}.ts
 // 
@@ -12,27 +12,33 @@
 
 import type { RuntimeEnumInfo } from '../extract/extract_runtime_enums.js';
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
-import { TableInfo } from '../index'
 
-export interface FormatConstantsOptions {
+// ============================================================================
+// TYPES
+// ============================================================================
+
+export interface GenerateConstantsOptions {
   verbose?: boolean;
 }
 
-export interface FormattedConstant {
+export interface GeneratedConstant {
   content: string;
   filePath: string;
   enumName: string;
-  values: string[];
-  deityFolder: TableInfo["deityFolder"];
+  values: string[];  
 }
 
+// ============================================================================
+// HELPER FUNCTIONS
+// ============================================================================
+
 /**
- * Convert snake_case to PascalCase for type names
+ * Convert snake_case to PascalCase
  */
 function toPascalCase(str: string): string {
   return str
     .split('_')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
     .join('');
 }
 
@@ -70,9 +76,9 @@ function needsQuotedKey(key: string): boolean {
 }
 
 /**
- * Format a runtime enum into a constant file content
+ * Generate a runtime enum constant file content
  */
-function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): string {
+function generateConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): string {
   const { name: enumName, values } = enumInfo;
   const constName = toUpperSnakeCase(enumName);
   const typeName = toPascalCase(enumName);
@@ -106,23 +112,27 @@ function formatConstantContent(enumInfo: RuntimeEnumInfo, deityFolder: string): 
   return content;
 }
 
+// ============================================================================
+// MAIN GENERATION FUNCTIONS
+// ============================================================================
+
 /**
- * Format a single runtime enum into a constant file
+ * Generate a single runtime enum constant file
  * 
  * @param enumInfo - Runtime enum info (from extraction, not enrichment)
  * @param deityFolder - Where to place the constant file
  * @param options - Optional settings
  */
-export function formatConstant(
+export function generateConstant(
   enumInfo: RuntimeEnumInfo,
-  deityFolder: TableInfo["deityFolder"],
-  options?: FormatConstantsOptions
-): FormattedConstant | null {
+  deityFolder: string,
+  options?: GenerateConstantsOptions
+): GeneratedConstant | null {
   const { verbose = false } = options || {};
   const { name: enumName, values } = enumInfo;
   
   if (verbose) {
-    logDebug(`Formatting constant: ${enumName} -> ${deityFolder}`);
+    logDebug(`Generating constant: ${enumName} -> ${deityFolder}`);
   }
   
   if (!values || values.length === 0) {
@@ -130,7 +140,7 @@ export function formatConstant(
     return null;
   }
   
-  const content = formatConstantContent(enumInfo, deityFolder);
+  const content = generateConstantContent(enumInfo, deityFolder);
   const filePath = `src/lib/constants/generated/${deityFolder}/${enumName}.ts`;
   
   if (verbose) {
@@ -142,44 +152,64 @@ export function formatConstant(
     filePath,
     enumName,
     values,
-    deityFolder
   };
 }
 
 /**
- * Format multiple runtime enums into constant files
+ * Generate multiple runtime enum constant files
  * 
  * @param enums - Array of runtime enum info
  * @param getDeityFolder - Function to determine deity folder for each enum
  * @param options - Optional settings
  */
-export function formatConstants(
+export function generateConstants(
   enums: RuntimeEnumInfo[],
   getDeityFolder: (enumName: string) => string,
-  options?: FormatConstantsOptions
-): FormattedConstant[] {
+  options?: GenerateConstantsOptions
+): GeneratedConstant[] {
   const { verbose = false } = options || {};
-  const results: FormattedConstant[] = [];
+  const results: GeneratedConstant[] = [];
   
   if (verbose) {
-    logDebug(`Formatting ${enums.length} runtime enums...`);
+    logDebug(`Generating ${enums.length} runtime enums...`);
   }
   
   for (const enumInfo of enums) {
     const deityFolder = getDeityFolder(enumInfo.name);
-    const formatted = formatConstant(enumInfo, deityFolder, options);
-    if (formatted) {
-      results.push(formatted);
+    const generated = generateConstant(enumInfo, deityFolder, options);  // ✅ FIXED: call generateConstant, not generateConstantContent
+    
+    if (generated) {
+      results.push(generated);
       
       if (verbose) {
-        logDebug(`  Formatted: ${enumInfo.name} -> ${deityFolder}`);
+        logDebug(`  Generated: ${enumInfo.name} -> ${deityFolder}`);
       }
     }
   }
   
   if (verbose) {
-    logSuccess(`Formatted ${results.length} constants`);
+    logSuccess(`Generated ${results.length} constants`);
   }
   
   return results;
+}
+
+// ============================================================================
+// CONVENIENCE FUNCTION (Using enum_mapping directly)
+// ============================================================================
+
+/**
+ * Generate constants using enum_mapping.ts for deity folder resolution
+ * This is the preferred method - uses the authoritative enum mapping
+ */
+export async function generateConstantsWithMapping(
+  enums: RuntimeEnumInfo[],
+  options?: GenerateConstantsOptions
+): Promise<GeneratedConstant[]> {
+  const { verbose = false } = options || {};
+  
+  // Dynamic import to avoid circular dependency
+  const { getEnumFolder } = await import('@/config/enum_mapping.js');
+  
+  return generateConstants(enums, (enumName) => getEnumFolder(enumName), options);
 }

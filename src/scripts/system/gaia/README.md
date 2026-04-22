@@ -252,24 +252,25 @@ PHASE 0: FOUNDATION
 ✅ 04. object_categories.ts - Add type-safe table name parameters
 
 PHASE 1: SHARED UTILITIES
-□ 05. paths.ts - Add helper import path constants
-□ 06. types.ts - Add PublicTableNames, PublicEnumNames type references
-□ 07. import_manager.ts - Add helper import templates
-□ 08. helper_imports.ts - CREATE NEW file
+✅ 05. paths.ts - Add helper import path constants
+✅ 06. types.ts - Add PublicTableNames, PublicEnumNames type references
+✅ 07. import_manager.ts - Add helper import templates
+✅ 08. helper_imports.ts - CREATE NEW file
+□ 08.5. Incorporate enums.helpers.ts	- Yes	Add to paths and import templates
 
 PHASE 2: EXTRACTION LAYER
-□ 09. extract_names.ts - CREATE NEW file
-□ 10. extract_runtime_enums.ts - Review, keep as-is
-□ 11. extract_functions.ts - Review, keep as-is
-□ 12. extract_object.ts - Review, keep as-is
-□ 13. DELETE extract_tables.ts
-□ 14. DELETE extract_views.ts
-□ 15. DELETE extract_type_enums.ts
+✅ 09. extract_names.ts - CREATE NEW file
+✅ 10. extract_runtime_enums.ts - Review, keep as-is
+✅ 11. extract_functions.ts - Review, keep as-is
+✅ 12. extract_object.ts - Review, keep as-is
+✅ 13. DELETE extract_tables.ts
+✅ 14. DELETE extract_views.ts
+✅ 15. DELETE extract_type_enums.ts
 
 PHASE 3: ENRICHMENT LAYER
-□ 16. enrich_objects.ts - Remove rowContent, enumRefs, hasJson from EnrichedTable
-□ 17. enrich_objects.ts - Update enrichTable() signature
-□ 18. enrich_objects.ts - Review all enrichment functions
+✅ 16. enrich_objects.ts - Remove rowContent, enumRefs, hasJson from EnrichedTable
+✅ 17. enrich_objects.ts - Update enrichTable() signature
+✅ 18. enrich_objects.ts - Review all enrichment functions
 
 PHASE 4: GENERATION LAYER
 □ 19. generate_types.ts - CREATE NEW file

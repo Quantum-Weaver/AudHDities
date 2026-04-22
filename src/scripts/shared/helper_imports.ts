@@ -6,11 +6,18 @@
 /**
  * Convert snake_case to PascalCase
  */
-function toPascalCase(str: string): string {
+export function toPascalCase(str: string): string {
   return str
     .split('_')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
     .join('');
+}
+
+/**
+ * Convert string to UPPER_SNAKE_CASE for constant keys
+ */
+export function toUpperSnakeCase(str: string): string {
+  return str.toUpperCase();
 }
 
 export const HELPER_IMPORTS = {
