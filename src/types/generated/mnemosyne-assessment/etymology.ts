@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/etymology.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:09.885Z
+// GENERATED: 2026-04-22T18:24:19.121Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

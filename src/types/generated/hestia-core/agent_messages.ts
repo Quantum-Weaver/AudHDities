@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_messages.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:09.563Z
+// GENERATED: 2026-04-22T18:24:18.675Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.624Z
+// GENERATED: 2026-04-22T18:24:19.793Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

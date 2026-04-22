@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_status.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T18:15:11.762Z
+// GENERATED: 2026-04-22T18:24:20.913Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

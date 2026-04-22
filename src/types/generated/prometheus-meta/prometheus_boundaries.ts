@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.358Z
+// GENERATED: 2026-04-22T18:24:19.517Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

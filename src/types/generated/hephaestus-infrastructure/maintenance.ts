@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/maintenance.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.071Z
+// GENERATED: 2026-04-22T18:24:19.313Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

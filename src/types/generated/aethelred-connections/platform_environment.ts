@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/platform_environment.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T18:15:11.672Z
+// GENERATED: 2026-04-22T18:24:20.811Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

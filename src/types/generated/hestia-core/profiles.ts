@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/profiles.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:22:34.513Z
+// GENERATED: 2026-04-22T18:24:19.474Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

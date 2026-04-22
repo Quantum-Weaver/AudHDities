@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/system_timeline_events.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.860Z
+// GENERATED: 2026-04-22T18:24:19.996Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

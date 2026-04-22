@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CouncilHousesInsertSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T18:15:09.744Z
+// Generated: 2026-04-22T18:24:18.952Z
 // Table: council_houses
 
 export async function GET(request: NextRequest) {

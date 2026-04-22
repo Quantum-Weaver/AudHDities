@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_blueprints.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.347Z
+// GENERATED: 2026-04-22T18:24:19.503Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

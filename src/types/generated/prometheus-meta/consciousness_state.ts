@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/consciousness_state.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T18:15:11.558Z
+// GENERATED: 2026-04-22T18:24:20.682Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

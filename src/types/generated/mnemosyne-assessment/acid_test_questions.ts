@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/acid_test_questions.ts
 // TYPE: table
 // HANDLING: assessment
-// GENERATED: 2026-04-22T18:15:09.467Z
+// GENERATED: 2026-04-22T18:24:18.556Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

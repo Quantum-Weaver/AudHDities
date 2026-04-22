@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/personas.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:10.262Z
+// GENERATED: 2026-04-22T18:24:19.420Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

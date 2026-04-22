@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EtymologyInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/etymology';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T18:15:09.887Z
+// Generated: 2026-04-22T18:24:19.126Z
 // Table: etymology
 
 export async function GET(request: NextRequest) {

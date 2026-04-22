@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LearningPathsInsertSchema } from '@/lib/validators/generated/athena-gamification/learning_paths';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T18:15:09.997Z
+// Generated: 2026-04-22T18:24:19.246Z
 // Table: learning_paths
 
 export async function GET(request: NextRequest) {

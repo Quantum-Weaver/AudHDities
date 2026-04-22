@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/action_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T18:15:11.492Z
+// GENERATED: 2026-04-22T18:24:20.616Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

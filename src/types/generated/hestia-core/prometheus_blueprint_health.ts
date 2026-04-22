@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/prometheus_blueprint_health.ts
 // TYPE: view
 // HANDLING: read_only_view
-// GENERATED: 2026-04-22T18:15:11.019Z
+// GENERATED: 2026-04-22T18:24:20.158Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

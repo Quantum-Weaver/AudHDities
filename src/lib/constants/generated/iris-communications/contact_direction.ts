@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/contact_direction.ts
-// GENERATED: 2026-04-22T18:15:11.255Z
+// GENERATED: 2026-04-22T18:24:20.370Z
 // SOURCE: Constants.public.Enums.contact_direction
 // VALUES: 2 entries
 // =====================================================

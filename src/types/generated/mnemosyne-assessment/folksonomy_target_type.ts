@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/folksonomy_target_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T18:15:11.608Z
+// GENERATED: 2026-04-22T18:24:20.742Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

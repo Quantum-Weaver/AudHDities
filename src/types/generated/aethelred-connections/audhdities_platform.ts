@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/audhdities_platform.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T18:15:09.609Z
+// GENERATED: 2026-04-22T18:24:18.734Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
