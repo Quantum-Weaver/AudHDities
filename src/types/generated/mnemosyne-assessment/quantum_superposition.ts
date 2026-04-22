@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/quantum_superposition.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:48:50.619Z
+// GENERATED: 2026-04-22T18:15:10.462Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
@@ -20,4 +20,33 @@ export type QuantumSuperpositionUpdate = TablesUpdate<'quantum_superposition'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
+
+/**
+ * Public view of quantum_superposition
+ */
+export interface PublicQuantumSuperposition {
+  chosen_meaning: string;
+  collapse_reason: string | null;
+  confidence: number;
+  created_at: string | null;
+  created_by: string | null;
+  id: string;
+  superposition_id: string;
+  user_id: string;
+}
+
+/**
+ * Form data for quantum_superposition
+ * All fields are optional for partial updates
+ */
+export interface QuantumSuperpositionFormData {
+  chosen_meaning?: string;
+  collapse_reason?: string | null;
+  confidence?: number;
+  created_at?: string | null;
+  created_by?: string | null;
+  id?: string;
+  superposition_id?: string;
+  user_id?: string;
+}
 

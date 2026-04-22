@@ -5,6 +5,7 @@
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
+import type { PublicTableNames } from '@/types/supabase/database.helpers';
 
 export interface FormatObjectTypesOptions {
   verbose?: boolean;
@@ -440,7 +441,7 @@ export function formatMultipleObjectTypes(
   const results = new Map<string, FormattedTypeContent>();
   
   for (const object of objects) {
-    const category = categories.get(object.name) || getObjectCategory('table', object.name);
+    const category = categories.get(object.name) || getObjectCategory('table', object.name as PublicTableNames);
     const formatted = formatObjectTypes(object, category, options);
     results.set(object.name, formatted);
   }

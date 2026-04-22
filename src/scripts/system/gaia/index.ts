@@ -495,7 +495,9 @@ async function generateTableArtifacts(
   table: EnrichedTable,
   writeOptions: WriteOptions,
   stats: GenerationStats,
-  logger: SystemLogger
+  logger: SystemLogger,
+  lines: string[],
+  markersWithBraces: any
 ): Promise<void> {
   const { name: tableName, deityFolder } = table;
   
@@ -506,36 +508,37 @@ async function generateTableArtifacts(
   // ====================================================
   // TYPES
   // ====================================================
-  if (table.shouldGenerateTypes) {
-    try {
-      const result = generateTableTypes(table);
-      const writeResult = await writeGeneratedFile(
-        result.filePath,
-        result.content,
-        [`EnrichedTable:${tableName}`],
-        writeOptions
-      );
-      
-      if (writeResult.success && writeResult.action !== 'skipped') {
-        stats.filesWritten.push(writeResult.filePath);
-        logger.addGeneratedFile(writeResult.filePath);
-        if (writeOptions.verbose) logSuccess(`      ✓ types: ${result.filePath}`);
-      } else if (writeResult.action === 'skipped') {
-        stats.filesSkipped.push(writeResult.filePath);
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: tableName, error: `types: ${msg}` });
-      logError(`      ✗ types: ${msg}`);
+if (table.shouldGenerateTypes) {
+  try {
+    // ✅ CHANGE THIS LINE - pass lines and markers
+    const result = generateTableTypes(table, lines, markersWithBraces);
+    const writeResult = await writeGeneratedFile(
+      result.filePath,
+      result.content,
+      [`EnrichedTable:${tableName}`],
+      writeOptions
+    );
+    
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      stats.filesWritten.push(writeResult.filePath);
+      logger.addGeneratedFile(writeResult.filePath);
+      if (writeOptions.verbose) logSuccess(`      ✓ types: ${result.filePath}`);
+    } else if (writeResult.action === 'skipped') {
+      stats.filesSkipped.push(writeResult.filePath);
     }
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error);
+    stats.errors.push({ object: tableName, error: `types: ${msg}` });
+    logError(`      ✗ types: ${msg}`);
   }
+}
   
   // ====================================================
   // VALIDATORS
   // ====================================================
   if (table.shouldGenerateValidators) {
     try {
-      const result = generateValidator(table);
+      const result = await generateValidator(table);  // ✅ ADD await
       if (result) {
         const writeResult = await writeGeneratedFile(
           result.filePath,
@@ -1025,7 +1028,7 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   
   // Tables
   for (const table of enriched.tables) {
-    await generateTableArtifacts(table, writeOptions, stats, logger);
+    await generateTableArtifacts(table, writeOptions, stats, logger, lines, markersWithBraces);
   }
   
   // Views

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:50.955Z
+// Generated: 2026-04-22T18:15:10.845Z
 // Table: system_health_logs
 
 export async function GET(

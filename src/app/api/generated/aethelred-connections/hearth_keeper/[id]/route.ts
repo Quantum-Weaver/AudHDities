@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:50.206Z
+// Generated: 2026-04-22T18:15:09.970Z
 // Table: hearth_keeper
 
 export async function GET(

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/lesson_content_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:48:51.486Z
+// GENERATED: 2026-04-22T18:15:11.625Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/email_status.ts
-// GENERATED: 2026-04-22T05:48:51.245Z
+// GENERATED: 2026-04-22T18:15:11.290Z
 // SOURCE: Constants.public.Enums.email_status
 // VALUES: 7 entries
 // =====================================================

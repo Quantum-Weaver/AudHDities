@@ -1,22 +1,22 @@
 // src/scripts/system/gaia/generate/generate_types.ts
 // ============================================================================
-// GENERATE TYPES (GAIA) - Using Proven Row Content Parsing
+// GENERATE TYPES (GAIA) - Complete with Derived Interfaces
 // ============================================================================
 
 import type { EnrichedTable, EnrichedView, EnrichedTypeEnum } from '../enrich/enrich_objects.js';
-import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
-import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
+import { logSuccess, logWarning } from '../../../shared/logger.js';
+import { extractObject } from '../extract/extract_object.js';
+import { 
+  parseTableContent, 
+  toPascalCase,
+  generatePublicInterface as generatePublicInterfaceFromContent,
+  generateFormDataInterface as generateFormDataInterfaceFromContent,
+  generateEnumExports as generateEnumExportsFromRefs,
+} from '../../../modules/format/format_object_types.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
-
-export interface GenerateTypesOptions {
-  verbose?: boolean;
-}
+// ============================================================================
+// TYPES
+// ============================================================================
 
 export interface GeneratedTypeFile {
   content: string;
@@ -26,16 +26,16 @@ export interface GeneratedTypeFile {
   deityFolder: string;
 }
 
+interface ParsedTableContent {
+  rowContent: string;
+  enumRefs: string[];
+  hasJson: boolean;
+  success: boolean;
+}
+
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
-
-function toPascalCase(str: string): string {
-  return str
-    .split('_')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join('');
-}
 
 function generateHeader(objectName: string, deityFolder: string, objectType: string, handlingLevel: string): string {
   const timestamp = new Date().toISOString();
@@ -50,216 +50,61 @@ function generateHeader(objectName: string, deityFolder: string, objectType: str
 `;
 }
 
-// ============================================================================
-// ROW CONTENT EXTRACTION (Proven Method)
-// ============================================================================
-
-interface ParsedTableContent {
-  rowContent: string;
-  enumRefs: string[];
-  hasJson: boolean;
-}
-
-function extractRowContent(tableName: string): ParsedTableContent | null {
-  try {
-    const dbTypesPath = path.join(PROJECT_ROOT, 'src/types/supabase/database.types.ts');
-    const content = fs.readFileSync(dbTypesPath, 'utf-8');
-    const lines = content.split('\n');
-    
-    // Find the table's start line
-    let tableStartLine = -1;
-    const tablePattern = new RegExp(`^\\s{6}${tableName}:\\s*\\{`);
-    
-    for (let i = 0; i < lines.length; i++) {
-      if (lines[i].match(tablePattern)) {
-        tableStartLine = i;
-        break;
-      }
-    }
-    
-    if (tableStartLine === -1) return null;
-    
-    // Find Row section within the table
-    let rowStartLine = -1;
-    let rowEndLine = -1;
-    let insertStartLine = -1;
-    let inTable = true;
-    let braceDepth = 0;
-    let foundOpen = false;
-    
-    for (let i = tableStartLine; i < lines.length && inTable; i++) {
-      const line = lines[i];
-      
-      // Track braces to know when we exit the table
-      for (const char of line) {
-        if (char === '{') { braceDepth++; foundOpen = true; }
-        if (char === '}') braceDepth--;
-      }
-      
-      if (foundOpen && braceDepth === 0) {
-        inTable = false;
-      }
-      
-      if (line.match(/^\s*Row:\s*\{/)) {
-        rowStartLine = i;
-      }
-      if (line.match(/^\s*Insert:\s*\{/)) {
-        insertStartLine = i;
-        if (rowStartLine !== -1) {
-          rowEndLine = i - 1;
-        }
-      }
-    }
-    
-    if (rowStartLine === -1 || rowEndLine === -1) return null;
-    
-    // Extract Row content
-    const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
-    let rowContent = rowLines.join('\n').trim();
-    
-    if (rowContent.endsWith('}')) {
-      rowContent = rowContent.slice(0, -1).trim();
-    }
-    
-    // Find enum references
-    const enumRefs: string[] = [];
-    const enumPattern = /Database\["public"\]\["Enums"\]\["(\w+)"\]/g;
-    let match;
-    
-    while ((match = enumPattern.exec(rowContent)) !== null) {
-      if (!enumRefs.includes(match[1])) {
-        enumRefs.push(match[1]);
-      }
-    }
-    
-    // Clean up enum references
-    for (const enumRef of enumRefs) {
-      const pascalCase = toPascalCase(enumRef);
-      rowContent = rowContent.replace(
-        new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'),
-        pascalCase
-      );
-    }
-    
-    const hasJson = rowContent.includes('Json');
-    
-    return { rowContent, enumRefs, hasJson };
-    
-  } catch (error) {
-    return null;
-  }
-}
-
-// ============================================================================
-// DERIVED TYPE GENERATION (Proven Methods)
-// ============================================================================
-
-function generatePublicInterface(
+function extractRowContent(
   tableName: string,
-  rowContent: string,
-  sensitiveFields: string[] = SENSITIVE_FIELDS as unknown as string[]
-): string {
-  const lines = rowContent.split('\n');
-  const publicFields: string[] = [];
-  const excludedFields: string[] = [];
-  const pascalName = toPascalCase(tableName);
+  lines: string[],
+  markers: any
+): ParsedTableContent {
+  const extracted = extractObject(
+    lines,
+    markers.tablesLine,
+    markers.tablesEndLine,
+    tableName,
+    { verbose: false }
+  );
   
-  for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      if (!sensitiveFields.includes(fieldName)) {
-        publicFields.push(`  ${line.trim()};`);
-      } else {
-        excludedFields.push(fieldName);
-      }
-    }
+  if (!extracted) {
+    return { rowContent: '', enumRefs: [], hasJson: false, success: false };
   }
   
-  if (publicFields.length === 0) {
-    return `// No public fields available (all fields are sensitive)\n`;
-  }
+  const parsed = parseTableContent(extracted.content);
   
-  const interfaceName = `Public${pascalName}`;
-  
-  let result = `/**\n`;
-  result += ` * Public view of ${tableName}\n`;
-  if (excludedFields.length > 0) {
-    result += ` * Excludes sensitive fields: ${excludedFields.join(', ')}\n`;
-  }
-  result += ` */\n`;
-  result += `export interface ${interfaceName} {\n`;
-  result += publicFields.join('\n');
-  result += `\n}\n`;
-  
-  return result;
+  return {
+    rowContent: parsed.rowContent,
+    enumRefs: parsed.enumRefs,
+    hasJson: parsed.hasJson,
+    success: true,
+  };
+}
+
+function generatePublicInterface(tableName: string, rowContent: string): string {
+  return generatePublicInterfaceFromContent(tableName, rowContent);
 }
 
 function generateFormDataInterface(tableName: string, rowContent: string): string {
-  const lines = rowContent.split('\n');
-  const fields: string[] = [];
-  const pascalName = toPascalCase(tableName);
-  
-  for (const line of lines) {
-    const fieldMatch = line.match(/^\s*(\w+):\s*(.+)/);
-    if (fieldMatch) {
-      const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
-      fields.push(`  ${fieldName}?: ${fieldType};`);
-    }
-  }
-  
-  if (fields.length === 0) {
-    return `// No form fields available\n`;
-  }
-  
-  const interfaceName = `${pascalName}FormData`;
-  
-  let result = `/**\n`;
-  result += ` * Form data for ${tableName}\n`;
-  result += ` * All fields are optional for partial updates\n`;
-  result += ` */\n`;
-  result += `export interface ${interfaceName} {\n`;
-  result += fields.join('\n');
-  result += `\n}\n`;
-  
-  return result;
+  return generateFormDataInterfaceFromContent(tableName, rowContent);
 }
 
 function generateEnumExports(enumRefs: string[]): string {
-  if (enumRefs.length === 0) return '';
-  
-  const lines: string[] = [];
-  lines.push(`// =====================================================`);
-  lines.push(`// ENUM EXPORTS (from database enums)`);
-  lines.push(`// =====================================================`);
-  lines.push(``);
-  
-  for (const enumRef of enumRefs) {
-    const exportName = toPascalCase(enumRef);
-    lines.push(`export type ${exportName} = Database['public']['Enums']['${enumRef}'];`);
-  }
-  
-  return lines.join('\n');
+  return generateEnumExportsFromRefs(enumRefs);
 }
 
 // ============================================================================
 // TABLE TYPE GENERATION
 // ============================================================================
 
-export function generateTableTypes(table: EnrichedTable): GeneratedTypeFile {
+export function generateTableTypes(
+  table: EnrichedTable,
+  lines: string[],
+  markers: any
+): GeneratedTypeFile {
   const { name: tableName, deityFolder, category, handlingLevel } = table;
   const pascalName = toPascalCase(tableName);
   
-  // Extract row content using proven method
-  const parsed = extractRowContent(tableName);
-  const rowContent = parsed?.rowContent || '';
-  const enumRefs = parsed?.enumRefs || [];
-  const hasJson = parsed?.hasJson || false;
-  
-  if (!rowContent) {
-    logWarning(`Could not extract row content for ${tableName}, generating basic types only`);
-  }
+  const parsed = extractRowContent(tableName, lines, markers);
+  const rowContent = parsed.rowContent;
+  const enumRefs = parsed.enumRefs;
+  const hasJson = parsed.hasJson;
   
   let content = generateHeader(tableName, deityFolder, 'table', handlingLevel);
   
@@ -276,44 +121,44 @@ export function generateTableTypes(table: EnrichedTable): GeneratedTypeFile {
   content += `// CORE TYPES\n`;
   content += `// =====================================================\n\n`;
   
-  // Enum exports
   const enumExports = generateEnumExports(enumRefs);
   if (enumExports) {
-    content += enumExports + '\n\n';
+    content += enumExports + '\n';
   }
   
   if (category.generateRow) {
     content += `export type ${pascalName}Row = Tables<'${tableName}'>;\n`;
   }
-  
   if (category.generateInsert) {
     content += `export type ${pascalName}Insert = TablesInsert<'${tableName}'>;\n`;
   }
-  
   if (category.generateUpdate) {
     content += `export type ${pascalName}Update = TablesUpdate<'${tableName}'>;\n`;
   }
   
   // Derived types
-  if (category.generatePublicInterface || category.generateFormInterface) {
+  if (rowContent) {
     content += `\n// =====================================================\n`;
     content += `// DERIVED TYPES\n`;
     content += `// =====================================================\n\n`;
+    
+    if (category.generatePublicInterface) {
+      const publicInterface = generatePublicInterface(tableName, rowContent);
+      if (publicInterface) {
+        content += publicInterface + '\n';
+      }
+    }
+    if (category.generateFormInterface) {
+      const formInterface = generateFormDataInterface(tableName, rowContent);
+      if (formInterface) {
+        content += formInterface + '\n';
+      }
+    }
   }
-  
-  if (category.generatePublicInterface && rowContent) {
-    content += generatePublicInterface(tableName, rowContent) + '\n';
-  }
-  
-  if (category.generateFormInterface && rowContent) {
-    content += generateFormDataInterface(tableName, rowContent) + '\n';
-  }
-  
-  const filePath = `src/types/generated/${deityFolder}/${tableName}.ts`;
   
   return {
     content,
-    filePath,
+    filePath: `src/types/generated/${deityFolder}/${tableName}.ts`,
     objectName: tableName,
     objectType: 'table',
     deityFolder,
@@ -330,18 +175,14 @@ export function generateViewTypes(view: EnrichedView): GeneratedTypeFile {
   
   let content = generateHeader(viewName, deityFolder, 'view', handlingLevel);
   content += `import type { Tables } from '@/types/supabase/database.helpers';\n\n`;
-  
   content += `// =====================================================\n`;
   content += `// VIEW TYPE (Read-only)\n`;
   content += `// =====================================================\n\n`;
-  
   content += `export type ${pascalName}Row = Tables<'${viewName}'>;\n`;
-  
-  const filePath = `src/types/generated/${deityFolder}/${viewName}.ts`;
   
   return {
     content,
-    filePath,
+    filePath: `src/types/generated/${deityFolder}/${viewName}.ts`,
     objectName: viewName,
     objectType: 'view',
     deityFolder,
@@ -360,11 +201,9 @@ export function generateTypeEnumFile(typeEnum: EnrichedTypeEnum): GeneratedTypeF
   content += `import type { Enums } from '@/types/supabase/database.helpers';\n\n`;
   content += `export type ${pascalName} = Enums<'${enumName}'>;\n`;
   
-  const filePath = `src/types/generated/${deityFolder}/${enumName}.ts`;
-  
   return {
     content,
-    filePath,
+    filePath: `src/types/generated/${deityFolder}/${enumName}.ts`,
     objectName: enumName,
     objectType: 'type_enum',
     deityFolder,
@@ -377,47 +216,16 @@ export function generateTypeEnumFile(typeEnum: EnrichedTypeEnum): GeneratedTypeF
 
 export function generateMultipleTableTypes(
   tables: EnrichedTable[],
-  options?: GenerateTypesOptions
+  lines: string[],
+  markers: any
 ): GeneratedTypeFile[] {
-  const { verbose = false } = options || {};
-  const results: GeneratedTypeFile[] = [];
-  
-  for (const table of tables) {
-    if (table.shouldGenerateTypes) {
-      results.push(generateTableTypes(table));
-    }
-  }
-  
-  if (verbose) {
-    logSuccess(`Generated ${results.length} table type files`);
-  }
-  
-  return results;
+  return tables.filter(t => t.shouldGenerateTypes).map(t => generateTableTypes(t, lines, markers));
 }
 
-export function generateMultipleViewTypes(
-  views: EnrichedView[],
-  options?: GenerateTypesOptions
-): GeneratedTypeFile[] {
-  const results: GeneratedTypeFile[] = [];
-  
-  for (const view of views) {
-    if (view.shouldGenerateTypes) {
-      results.push(generateViewTypes(view));
-    }
-  }
-  
-  return results;
+export function generateMultipleViewTypes(views: EnrichedView[]): GeneratedTypeFile[] {
+  return views.filter(v => v.shouldGenerateTypes).map(generateViewTypes);
 }
 
-export function generateMultipleTypeEnumFiles(
-  typeEnums: EnrichedTypeEnum[]
-): GeneratedTypeFile[] {
-  const results: GeneratedTypeFile[] = [];
-  
-  for (const typeEnum of typeEnums) {
-    results.push(generateTypeEnumFile(typeEnum));
-  }
-  
-  return results;
+export function generateMultipleTypeEnumFiles(typeEnums: EnrichedTypeEnum[]): GeneratedTypeFile[] {
+  return typeEnums.map(generateTypeEnumFile);
 }

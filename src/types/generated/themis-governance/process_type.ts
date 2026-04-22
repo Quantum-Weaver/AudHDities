@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/process_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:48:51.526Z
+// GENERATED: 2026-04-22T18:15:11.678Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

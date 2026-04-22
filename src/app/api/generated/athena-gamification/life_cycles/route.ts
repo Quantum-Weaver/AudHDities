@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LifeCyclesInsertSchema } from '@/lib/validators/generated/athena-gamification/life_cycles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:50.341Z
+// Generated: 2026-04-22T18:15:10.040Z
 // Table: life_cycles
 
 export async function GET(request: NextRequest) {

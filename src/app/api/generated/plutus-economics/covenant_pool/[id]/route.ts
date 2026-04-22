@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CovenantPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/covenant_pool';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:49.958Z
+// Generated: 2026-04-22T18:15:09.755Z
 // Table: covenant_pool
 
 export async function GET(

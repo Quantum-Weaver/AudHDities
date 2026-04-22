@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AudhditiesPlatformInsertSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:49.782Z
+// Generated: 2026-04-22T18:15:09.613Z
 // Table: audhdities_platform
 
 export async function GET(request: NextRequest) {

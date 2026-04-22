@@ -2,7 +2,7 @@ import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin
 import { createApiSupabase } from '@/lib/api/supabase';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:49.935Z
+// Generated: 2026-04-22T18:15:09.736Z
 // Table: contributions
 
 export async function GET(

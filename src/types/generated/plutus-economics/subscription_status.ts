@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/subscription_status.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:48:51.567Z
+// GENERATED: 2026-04-22T18:15:11.731Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

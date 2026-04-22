@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CreativeCategoriesUpdateSchema } from '@/lib/validators/generated/hermes-social/creative_categories';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:49.972Z
+// Generated: 2026-04-22T18:15:09.767Z
 // Table: creative_categories
 
 export async function GET(

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AgentConversationsUpdateSchema } from '@/lib/validators/generated/hestia-core/agent_conversations';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:48:49.706Z
+// Generated: 2026-04-22T18:15:09.553Z
 // Table: agent_conversations
 
 export async function GET(
