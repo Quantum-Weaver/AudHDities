@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/athena-gamification/progress.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.108Z
+// GENERATED: 2026-04-22T05:48:50.507Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/progress_status.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.227Z
+// GENERATED: 2026-04-22T05:48:51.532Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

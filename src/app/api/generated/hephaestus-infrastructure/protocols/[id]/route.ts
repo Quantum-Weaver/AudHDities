@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:15:35.263Z
+// Generated: 2026-04-22T05:48:50.608Z
 // Table: protocols
 
 export async function GET(

@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/posts.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.346Z
+// GENERATED: 2026-04-22T05:48:50.462Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

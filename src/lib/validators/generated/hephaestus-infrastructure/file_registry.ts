@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hephaestus-infrastructure/file_registry.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.699Z
+// GENERATED: 2026-04-22T05:48:50.144Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

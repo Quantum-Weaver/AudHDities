@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/subscriptions.ts
 // TYPE: table
 // HANDLING: join_table
-// GENERATED: 2026-04-22T05:20:53.651Z
+// GENERATED: 2026-04-22T05:48:50.892Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

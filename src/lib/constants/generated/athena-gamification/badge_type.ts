@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/athena-gamification/badge_type.ts
-// GENERATED: 2026-04-22T05:15:36.179Z
+// GENERATED: 2026-04-22T05:48:51.187Z
 // SOURCE: Constants.public.Enums.badge_type
 // VALUES: 49 entries
 // =====================================================

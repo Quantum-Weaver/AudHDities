@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/emeralds.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.145Z
+// GENERATED: 2026-04-22T05:48:50.079Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

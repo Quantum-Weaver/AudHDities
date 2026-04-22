@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/stripe_mode.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.274Z
+// GENERATED: 2026-04-22T05:48:51.563Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

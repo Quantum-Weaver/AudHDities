@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/prometheus-meta/prometheus_boundaries.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.153Z
+// GENERATED: 2026-04-22T05:48:50.531Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

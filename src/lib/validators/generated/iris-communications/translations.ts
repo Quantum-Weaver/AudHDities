@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/iris-communications/translations.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.862Z
+// GENERATED: 2026-04-22T05:48:51.039Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

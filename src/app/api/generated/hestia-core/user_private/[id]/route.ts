@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:15:35.906Z
+// Generated: 2026-04-22T05:48:51.078Z
 // Table: user_private
 
 export async function GET(

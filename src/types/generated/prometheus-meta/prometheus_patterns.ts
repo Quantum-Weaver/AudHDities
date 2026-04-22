@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_patterns.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.438Z
+// GENERATED: 2026-04-22T05:48:50.581Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/custom_category_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.105Z
+// GENERATED: 2026-04-22T05:48:51.454Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

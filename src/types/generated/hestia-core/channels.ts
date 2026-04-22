@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/channels.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.015Z
+// GENERATED: 2026-04-22T05:48:49.835Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

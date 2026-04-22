@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/vercel_connection.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.786Z
+// GENERATED: 2026-04-22T05:48:51.103Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

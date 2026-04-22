@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hermes-social/activity.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.159Z
+// GENERATED: 2026-04-22T05:48:49.624Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

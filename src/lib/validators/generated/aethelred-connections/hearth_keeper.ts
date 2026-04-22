@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/hearth_keeper.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.763Z
+// GENERATED: 2026-04-22T05:48:50.204Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

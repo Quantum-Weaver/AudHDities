@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/audhdities_platform.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.308Z
+// GENERATED: 2026-04-22T05:48:49.779Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

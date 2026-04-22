@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/plutus-economics/disbursements.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.596Z
+// GENERATED: 2026-04-22T05:48:50.052Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

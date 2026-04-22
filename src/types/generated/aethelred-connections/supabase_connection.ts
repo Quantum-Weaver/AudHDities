@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/supabase_connection.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.657Z
+// GENERATED: 2026-04-22T05:48:50.902Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/translations.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.745Z
+// GENERATED: 2026-04-22T05:48:51.037Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

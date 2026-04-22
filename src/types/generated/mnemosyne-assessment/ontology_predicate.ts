@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/ontology_predicate.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.189Z
+// GENERATED: 2026-04-22T05:48:51.506Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

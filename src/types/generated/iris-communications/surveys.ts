@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/surveys.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.681Z
+// GENERATED: 2026-04-22T05:48:50.938Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_action_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.025Z
+// GENERATED: 2026-04-22T05:48:51.401Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

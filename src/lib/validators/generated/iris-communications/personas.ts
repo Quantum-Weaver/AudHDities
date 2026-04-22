@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/iris-communications/personas.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.016Z
+// GENERATED: 2026-04-22T05:48:50.452Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

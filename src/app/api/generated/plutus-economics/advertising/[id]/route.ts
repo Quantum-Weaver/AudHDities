@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AdvertisingUpdateSchema } from '@/lib/validators/generated/plutus-economics/advertising';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:15:34.192Z
+// Generated: 2026-04-22T05:48:49.657Z
 // Table: advertising
 
 export async function GET(

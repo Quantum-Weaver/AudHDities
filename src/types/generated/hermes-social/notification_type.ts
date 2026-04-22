@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/notification_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.185Z
+// GENERATED: 2026-04-22T05:48:51.505Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/prometheus-meta/prometheus_memories.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.212Z
+// GENERATED: 2026-04-22T05:48:50.568Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

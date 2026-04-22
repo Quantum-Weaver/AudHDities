@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/council_houses.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.474Z
+// GENERATED: 2026-04-22T05:48:49.942Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

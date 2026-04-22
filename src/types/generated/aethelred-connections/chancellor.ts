@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/chancellor.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.008Z
+// GENERATED: 2026-04-22T05:48:49.820Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

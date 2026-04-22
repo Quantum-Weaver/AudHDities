@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/iris-communications/contact_submissions.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.435Z
+// GENERATED: 2026-04-22T05:48:49.905Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

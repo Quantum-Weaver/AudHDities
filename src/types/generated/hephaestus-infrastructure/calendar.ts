@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/calendar.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.001Z
+// GENERATED: 2026-04-22T05:48:49.806Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

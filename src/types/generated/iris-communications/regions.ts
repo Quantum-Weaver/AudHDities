@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/regions.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.503Z
+// GENERATED: 2026-04-22T05:48:50.674Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

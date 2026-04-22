@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/supabase_status.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.281Z
+// GENERATED: 2026-04-22T05:48:51.568Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

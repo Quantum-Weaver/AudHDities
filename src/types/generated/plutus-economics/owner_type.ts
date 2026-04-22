@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/owner_type.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.191Z
+// GENERATED: 2026-04-22T05:48:51.508Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/contact_submissions.ts
 // TYPE: table
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:20:53.051Z
+// GENERATED: 2026-04-22T05:48:49.903Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hephaestus-infrastructure/scheduling.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.484Z
+// GENERATED: 2026-04-22T05:48:50.797Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

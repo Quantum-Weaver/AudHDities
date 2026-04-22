@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBadgesInsertSchema } from '@/lib/validators/generated/athena-gamification/user_badges';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T05:15:35.879Z
+// Generated: 2026-04-22T05:48:51.056Z
 // Table: user_badges
 
 export async function GET(request: NextRequest) {

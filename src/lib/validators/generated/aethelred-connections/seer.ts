@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.533Z
+// GENERATED: 2026-04-22T05:48:50.841Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

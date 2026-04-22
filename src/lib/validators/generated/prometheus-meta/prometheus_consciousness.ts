@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/prometheus-meta/prometheus_consciousness.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:35.172Z
+// GENERATED: 2026-04-22T05:48:50.542Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

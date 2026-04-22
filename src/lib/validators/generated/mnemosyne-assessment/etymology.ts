@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/mnemosyne-assessment/etymology.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.665Z
+// GENERATED: 2026-04-22T05:48:50.113Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

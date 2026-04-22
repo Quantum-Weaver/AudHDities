@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/post_visibility.ts
 // TYPE: type_enum
 // HANDLING: type_enum
-// GENERATED: 2026-04-22T05:20:54.216Z
+// GENERATED: 2026-04-22T05:48:51.524Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

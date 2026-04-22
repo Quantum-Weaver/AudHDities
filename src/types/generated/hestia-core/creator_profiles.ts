@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/creator_profiles.ts
 // TYPE: table
 // HANDLING: join_table
-// GENERATED: 2026-04-22T05:20:53.103Z
+// GENERATED: 2026-04-22T05:48:49.995Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

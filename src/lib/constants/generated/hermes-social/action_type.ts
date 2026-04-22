@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hermes-social/action_type.ts
-// GENERATED: 2026-04-22T05:15:36.150Z
+// GENERATED: 2026-04-22T05:48:51.154Z
 // SOURCE: Constants.public.Enums.action_type
 // VALUES: 10 entries
 // =====================================================

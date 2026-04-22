@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/curator.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T05:15:34.565Z
+// GENERATED: 2026-04-22T05:48:50.022Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

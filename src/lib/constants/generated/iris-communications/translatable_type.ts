@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/translatable_type.ts
-// GENERATED: 2026-04-22T05:15:36.418Z
+// GENERATED: 2026-04-22T05:48:51.373Z
 // SOURCE: Constants.public.Enums.translatable_type
 // VALUES: 6 entries
 // =====================================================
