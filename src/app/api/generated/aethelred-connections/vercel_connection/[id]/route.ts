@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VercelConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/vercel_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:06.639Z
+// Generated: 2026-04-22T05:15:35.943Z
 // Table: vercel_connection
 
 export async function GET(

@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/plutus-economics/contributions.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-22T04:38:05.187Z
+// GENERATED: 2026-04-22T05:15:34.463Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

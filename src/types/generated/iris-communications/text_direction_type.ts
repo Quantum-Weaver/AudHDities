@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/text_direction_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.590Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.301Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

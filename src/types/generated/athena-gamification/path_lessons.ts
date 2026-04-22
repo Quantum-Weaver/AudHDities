@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/path_lessons.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:05.749Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.314Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type PathLessonsUpdate = TablesUpdate<'path_lessons'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicPathLessons = Omit<PathLessonsRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type PathLessonsFormData = Partial<PathLessonsInsert>;
 

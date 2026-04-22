@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/survey_audience_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.578Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.288Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

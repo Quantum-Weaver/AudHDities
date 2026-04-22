@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/job_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.353Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.148Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

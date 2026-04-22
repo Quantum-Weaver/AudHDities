@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/bid_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.269Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.050Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

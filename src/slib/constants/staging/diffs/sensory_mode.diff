@@ -1,8 +1,0 @@
---- a/lib\constants\generated\hestia-core\sensory_mode.ts
-+++ b/lib\constants\generated\hestia-core\sensory_mode.ts (staged)
-@@ -3,11 +3,11 @@
--// GENERATED: 2026-04-21T20:46:32.432Z
-+// GENERATED: 2026-04-21T21:16:50.800Z
- // SOURCE: Constants.public.Enums.sensory_mode
- // =====================================================
- 

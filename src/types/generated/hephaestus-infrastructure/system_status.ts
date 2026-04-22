@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/system_status.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.581Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.291Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

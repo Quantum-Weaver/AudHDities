@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/themis-governance/rate_limits.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:06.005Z
+// GENERATED: 2026-04-22T05:15:35.308Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

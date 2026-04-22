@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:06.308Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.641Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type StripeConnectionUpdate = TablesUpdate<'stripe_connection'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicStripeConnection = Omit<StripeConnectionRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type StripeConnectionFormData = Partial<StripeConnectionInsert>;
 

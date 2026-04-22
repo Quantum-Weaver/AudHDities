@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/badges.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:05.066Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:52.992Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type BadgesUpdate = TablesUpdate<'badges'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicBadges = Omit<BadgesRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type BadgesFormData = Partial<BadgesInsert>;
 

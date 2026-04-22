@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/quest_status.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.532Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.234Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

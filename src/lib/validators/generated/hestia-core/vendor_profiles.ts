@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hestia-core/vendor_profiles.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-22T04:38:06.613Z
+// GENERATED: 2026-04-22T05:15:35.929Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

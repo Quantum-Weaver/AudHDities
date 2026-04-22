@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/report_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.544Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.250Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

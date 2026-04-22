@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SystemTimelineEventsInsertSchema } from '@/lib/validators/generated/hestia-core/system_timeline_events';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:06.435Z
+// Generated: 2026-04-22T05:15:35.785Z
 // Table: system_timeline_events
 
 export async function GET(request: NextRequest) {

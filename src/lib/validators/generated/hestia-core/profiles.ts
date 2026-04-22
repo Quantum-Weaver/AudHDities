@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hestia-core/profiles.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.829Z
+// GENERATED: 2026-04-22T05:15:35.090Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

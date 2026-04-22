@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/plutus-economics/residual_pool.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:06.117Z
+// GENERATED: 2026-04-22T05:15:35.424Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/shipping_requirements.ts
-// GENERATED: 2026-04-22T04:38:07.179Z
+// GENERATED: 2026-04-22T05:15:36.377Z
 // SOURCE: Constants.public.Enums.shipping_requirements
 // VALUES: 7 entries
 // =====================================================

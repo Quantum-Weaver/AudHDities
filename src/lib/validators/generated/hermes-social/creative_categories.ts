@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/hermes-social/creative_categories.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.224Z
+// GENERATED: 2026-04-22T05:15:34.505Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

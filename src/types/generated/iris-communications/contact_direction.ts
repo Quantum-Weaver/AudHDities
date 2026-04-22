@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/contact_direction.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.299Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.081Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

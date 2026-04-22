@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FileTypeStandardsInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_type_standards';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:05.402Z
+// Generated: 2026-04-22T05:15:34.719Z
 // Table: file_type_standards
 
 export async function GET(request: NextRequest) {

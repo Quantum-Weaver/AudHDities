@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/user_tier.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.604Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.318Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

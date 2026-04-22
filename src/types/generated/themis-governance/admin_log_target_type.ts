@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/admin_log_target_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.245Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.022Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

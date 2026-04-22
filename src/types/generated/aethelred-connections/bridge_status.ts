@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/aethelred-connections/bridge_status.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.280Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.060Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

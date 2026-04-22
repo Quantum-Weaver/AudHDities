@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/timelines.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:06.479Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.725Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type TimelinesUpdate = TablesUpdate<'timelines'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicTimelines = Omit<TimelinesRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type TimelinesFormData = Partial<TimelinesInsert>;
 

@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/communication_style.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.294Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.076Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

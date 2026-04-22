@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/script_execution_logs.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:06.215Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.600Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type ScriptExecutionLogsUpdate = TablesUpdate<'script_execution_logs'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicScriptExecutionLogs = Omit<ScriptExecutionLogsRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type ScriptExecutionLogsFormData = Partial<ScriptExecutionLogsInsert>;
 

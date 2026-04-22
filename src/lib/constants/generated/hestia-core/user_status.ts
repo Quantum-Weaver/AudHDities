@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/user_status.ts
-// GENERATED: 2026-04-21T20:46:32.433Z
+// GENERATED: 2026-04-22T05:15:36.421Z
 // SOURCE: Constants.public.Enums.user_status
+// VALUES: 3 entries
 // =====================================================
 
 export const USER_STATUS = {

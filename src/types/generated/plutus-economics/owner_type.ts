@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/owner_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.491Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.191Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/blueprint_system.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.273Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.055Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

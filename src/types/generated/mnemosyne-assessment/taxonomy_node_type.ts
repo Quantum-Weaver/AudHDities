@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/mnemosyne-assessment/taxonomy_node_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.588Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.298Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

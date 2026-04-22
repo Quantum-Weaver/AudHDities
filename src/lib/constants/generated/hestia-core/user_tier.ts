@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/user_tier.ts
-// GENERATED: 2026-04-21T20:46:32.434Z
+// GENERATED: 2026-04-22T05:15:36.424Z
 // SOURCE: Constants.public.Enums.user_tier
+// VALUES: 4 entries
 // =====================================================
 
 export const USER_TIER = {

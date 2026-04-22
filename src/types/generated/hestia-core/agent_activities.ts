@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/hestia-core/agent_activities.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:04.976Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:52.937Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type AgentActivitiesUpdate = TablesUpdate<'agent_activities'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicAgentActivities = Omit<AgentActivitiesRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type AgentActivitiesFormData = Partial<AgentActivitiesInsert>;
 

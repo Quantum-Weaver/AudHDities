@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MessagesInsertSchema } from '@/lib/validators/generated/hermes-social/messages';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:05.588Z
+// Generated: 2026-04-22T05:15:34.909Z
 // Table: messages
 
 export async function GET(request: NextRequest) {

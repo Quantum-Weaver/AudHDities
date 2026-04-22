@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/submission_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.568Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.276Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

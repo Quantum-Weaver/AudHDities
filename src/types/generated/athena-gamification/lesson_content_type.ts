@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/lesson_content_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.362Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.157Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

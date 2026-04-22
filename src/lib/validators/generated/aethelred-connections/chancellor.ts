@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/chancellor.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.094Z
+// GENERATED: 2026-04-22T05:15:34.353Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

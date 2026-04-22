@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/iris-communications/email_status.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.331Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.121Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

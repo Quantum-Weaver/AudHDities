@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/themis-governance/moderation_actions.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.603Z
+// GENERATED: 2026-04-22T05:15:34.924Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

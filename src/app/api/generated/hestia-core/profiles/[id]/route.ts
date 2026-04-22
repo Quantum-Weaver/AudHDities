@@ -1,10 +1,10 @@
-// =====================================================
-// API ROUTE: /api/generated/hestia-core/profiles/[id]
-// =====================================================
-
-import { NextRequest, NextResponse } from 'next/server';
+import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
+import { createApiSupabase } from '@/lib/api/supabase';
 import { ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
-import { createServerSupabase } from '@/lib/supabase/server';
+import { NextRequest } from 'next/server';
+
+// Generated: 2026-04-22T05:15:35.092Z
+// Table: profiles
 
 export async function GET(
   request: NextRequest,
@@ -12,7 +12,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createServerSupabase();
+    const supabase = await createApiSupabase();
     
     const { data, error } = await supabase
       .from('profiles')
@@ -21,31 +21,14 @@ export async function GET(
       .single();
     
     if (error) {
-      if (error.code === 'PGRST116') {
-        return NextResponseon(
-          { success: false, error: 'profiles not found' },
-          { status: 404 }
-        );
-      }
+      if (error.code === 'PGRST116') return notFound('profiles');
       throw error;
     }
     
-    // Remove email for non-owners (customize as needed)
-    const { data: { user } } = await supabase.auth.getUser();
-    const isOwner = user?.id === data.id;
-    
-    if (!isOwner && data.email) {
-      const { email, ...rest } = data;
-      return NextResponseon({ success: true, data: rest });
-    }
-    
-    return NextResponseon({ success: true, data });
+    return successResponse(data);
   } catch (error) {
     console.error('Error fetching profiles:', error);
-    return NextResponseon(
-      { success: false, error: 'Failed to fetch profiles' },
-      { status: 500 }
-    );
+    return errorResponse('Failed to fetch profiles', 500);
   }
 }
 
@@ -55,41 +38,17 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createServerSupabase();
-    const body = await requeston();
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) return unauthorized();
     
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponseon(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+    const ownsRecord = await checkOwnership(userId, 'profiles', id);
+    const admin = await isAdmin(userId);
+    if (!ownsRecord && !admin) return forbidden();
     
-    // Check ownership
-    const { data: existing } = await supabase
-      .from('profiles')
-      .select('created_by')
-      .eq('id', id)
-      .single();
-    
-    if (existing && existing.created_by !== user.id) {
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('is_admin')
-        .eq('id', user.id)
-        .single();
-      
-      if (!profile?.is_admin) {
-        return NextResponseon(
-          { success: false, error: 'Forbidden' },
-          { status: 403 }
-        );
-      }
-    }
-    
+    const body = await request.json();
     const validated = ProfilesUpdateSchema.parse(body);
     
+    const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('profiles')
       .update(validated)
@@ -98,28 +57,17 @@ export async function PUT(
       .single();
     
     if (error) {
-      if (error.code === 'PGRST116') {
-        return NextResponseon(
-          { success: false, error: 'profiles not found' },
-          { status: 404 }
-        );
-      }
+      if (error.code === 'PGRST116') return notFound('profiles');
       throw error;
     }
     
-    return NextResponseon({ success: true, data });
+    return successResponse(data);
   } catch (error: any) {
     if (error.name === 'ZodError') {
-      return NextResponseon(
-        { success: false, error: 'Validation failed', details: error.issues },
-        { status: 400 }
-      );
+      return errorResponse('Validation failed', 400, error.issues);
     }
     console.error('Error updating profiles:', error);
-    return NextResponseon(
-      { success: false, error: 'Failed to update profiles' },
-      { status: 500 }
-    );
+    return errorResponse('Failed to update profiles', 500);
   }
 }
 
@@ -129,59 +77,24 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createServerSupabase();
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) return unauthorized();
     
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponseon(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+    const ownsRecord = await checkOwnership(userId, 'profiles', id);
+    const admin = await isAdmin(userId);
+    if (!ownsRecord && !admin) return forbidden();
     
-    // Check ownership
-    const { data: existing } = await supabase
-      .from('profiles')
-      .select('created_by')
-      .eq('id', id)
-      .single();
-    
-    if (existing && existing.created_by !== user.id) {
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('is_admin')
-        .eq('id', user.id)
-        .single();
-      
-      if (!profile?.is_admin) {
-        return NextResponseon(
-          { success: false, error: 'Forbidden' },
-          { status: 403 }
-        );
-      }
-    }
-    
-    const { error } = await supabase
-      .from('profiles')
-      .delete()
-      .eq('id', id);
+    const supabase = await createApiSupabase();
+    const { error } = await supabase.from('profiles').delete().eq('id', id);
     
     if (error) {
-      if (error.code === 'PGRST116') {
-        return NextResponseon(
-          { success: false, error: 'profiles not found' },
-          { status: 404 }
-        );
-      }
+      if (error.code === 'PGRST116') return notFound('profiles');
       throw error;
     }
     
-    return NextResponseon({ success: true, data: { deleted: true } });
+    return successResponse({ deleted: true });
   } catch (error) {
     console.error('Error deleting profiles:', error);
-    return NextResponseon(
-      { success: false, error: 'Failed to delete profiles' },
-      { status: 500 }
-    );
+    return errorResponse('Failed to delete profiles', 500);
   }
 }

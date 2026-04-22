@@ -34,7 +34,7 @@ import { generateValidator } from './generate/generate_validators.js';
 import { generateConstant } from './generate/generate_constants.js';
 import { generateTableApiRoutes, generateViewApiRoutes, generateFunctionApiRoute } from './generate/generate_api_routes.js';
 import { generateHooks } from './generate/generate_hooks.js';
-
+import { generateUtils } from './generate/generate_utils.js';
 // File writing
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
@@ -489,6 +489,8 @@ async function showGenerationPlan(
 // ARTIFACT GENERATION
 // ============================================================================
 
+// In index.ts - This is the correct, aligned version
+
 async function generateTableArtifacts(
   table: EnrichedTable,
   writeOptions: WriteOptions,
@@ -501,7 +503,9 @@ async function generateTableArtifacts(
     logDebug(`\n  📦 Table: ${tableName} -> ${deityFolder}`);
   }
   
-  // Types
+  // ====================================================
+  // TYPES
+  // ====================================================
   if (table.shouldGenerateTypes) {
     try {
       const result = generateTableTypes(table);
@@ -526,7 +530,9 @@ async function generateTableArtifacts(
     }
   }
   
-  // Validators
+  // ====================================================
+  // VALIDATORS
+  // ====================================================
   if (table.shouldGenerateValidators) {
     try {
       const result = generateValidator(table);
@@ -553,7 +559,9 @@ async function generateTableArtifacts(
     }
   }
   
-  // API Routes
+  // ====================================================
+  // API ROUTES
+  // ====================================================
   if (table.shouldGenerateApiRoutes) {
     try {
       const routes = generateTableApiRoutes(table);
@@ -580,7 +588,9 @@ async function generateTableArtifacts(
     }
   }
   
-  // Hooks
+  // ====================================================
+  // HOOKS
+  // ====================================================
   if (table.shouldGenerateHooks) {
     try {
       const result = generateHooks(table);
@@ -604,6 +614,35 @@ async function generateTableArtifacts(
       const msg = error instanceof Error ? error.message : String(error);
       stats.errors.push({ object: tableName, error: `hooks: ${msg}` });
       logError(`      ✗ hooks: ${msg}`);
+    }
+  }
+  
+  // ====================================================
+  // UTILS
+  // ====================================================
+  if (table.shouldGenerateUtils) {
+    try {
+      const result = generateUtils(table);
+      if (result) {
+        const writeResult = await writeGeneratedFile(
+          result.filePath,
+          result.content,
+          [`EnrichedTable:${tableName}`],
+          writeOptions
+        );
+        
+        if (writeResult.success && writeResult.action !== 'skipped') {
+          stats.filesWritten.push(writeResult.filePath);
+          logger.addGeneratedFile(writeResult.filePath);
+          if (writeOptions.verbose) logSuccess(`      ✓ utils: ${result.filePath}`);
+        } else if (writeResult.action === 'skipped') {
+          stats.filesSkipped.push(writeResult.filePath);
+        }
+      }
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      stats.errors.push({ object: tableName, error: `utils: ${msg}` });
+      logError(`      ✗ utils: ${msg}`);
     }
   }
   

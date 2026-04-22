@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.413Z
+// GENERATED: 2026-04-22T05:15:34.731Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

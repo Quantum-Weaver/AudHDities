@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LocalizationInsertSchema } from '@/lib/validators/generated/iris-communications/localization';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:05.545Z
+// Generated: 2026-04-22T05:15:34.873Z
 // Table: localization
 
 export async function GET(request: NextRequest) {

@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/hestia-core/agent_conversations.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:04.989Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:52.946Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type AgentConversationsUpdate = TablesUpdate<'agent_conversations'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicAgentConversations = Omit<AgentConversationsRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type AgentConversationsFormData = Partial<AgentConversationsInsert>;
 

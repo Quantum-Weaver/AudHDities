@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/personalized_feed.ts
 // TYPE: view
-// GENERATED: 2026-04-22T04:38:06.661Z
+// HANDLING: read_only_view
+// GENERATED: 2026-04-22T05:20:53.794Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

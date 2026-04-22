@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TimelinesUpdateSchema } from '@/lib/validators/generated/athena-gamification/timelines';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-22T04:38:06.485Z
+// Generated: 2026-04-22T05:15:35.834Z
 // Table: timelines
 
 export async function GET(

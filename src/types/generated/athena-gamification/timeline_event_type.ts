@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/timeline_event_type.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.595Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.307Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-04-22T04:38:07.618Z",
+  "updatedAt": "2026-04-22T05:24:10.707Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,852 +47,5273 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260421_233757",
+      "id": "20260422_002406",
       "system": "GAIA",
-      "startTime": "2026-04-22T04:37:57.931Z",
-      "endTime": "2026-04-22T04:38:07.617Z",
+      "startTime": "2026-04-22T05:24:06.972Z",
+      "endTime": "2026-04-22T05:24:10.707Z",
       "status": "success",
-      "generatedFiles": [
-        "src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
-        "src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
-        "src/types/generated/mnemosyne-assessment/acid_test_results.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
-        "src/types/generated/hermes-social/activity.ts",
-        "src/lib/validators/generated/hermes-social/activity.ts",
-        "src/app/api/generated/hermes-social/activity/route.ts",
-        "src/app/api/generated/hermes-social/activity/[id]/route.ts",
-        "src/hooks/generated/hermes-social/activity.ts",
-        "src/types/generated/themis-governance/admin_logs.ts",
-        "src/lib/validators/generated/themis-governance/admin_logs.ts",
-        "src/app/api/generated/themis-governance/admin_logs/route.ts",
-        "src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
-        "src/hooks/generated/themis-governance/admin_logs.ts",
-        "src/types/generated/plutus-economics/advertising.ts",
-        "src/lib/validators/generated/plutus-economics/advertising.ts",
-        "src/app/api/generated/plutus-economics/advertising/route.ts",
-        "src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/advertising.ts",
-        "src/types/generated/aethelred-connections/aethelred_house.ts",
-        "src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
-        "src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
-        "src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/aethelred_house.ts",
-        "src/types/generated/hestia-core/agent_activities.ts",
-        "src/lib/validators/generated/hestia-core/agent_activities.ts",
-        "src/app/api/generated/hestia-core/agent_activities/route.ts",
-        "src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
-        "src/hooks/generated/hestia-core/agent_activities.ts",
-        "src/types/generated/hestia-core/agent_conversations.ts",
-        "src/lib/validators/generated/hestia-core/agent_conversations.ts",
-        "src/app/api/generated/hestia-core/agent_conversations/route.ts",
-        "src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
-        "src/hooks/generated/hestia-core/agent_conversations.ts",
-        "src/types/generated/hestia-core/agent_messages.ts",
-        "src/lib/validators/generated/hestia-core/agent_messages.ts",
-        "src/app/api/generated/hestia-core/agent_messages/route.ts",
-        "src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
-        "src/hooks/generated/hestia-core/agent_messages.ts",
-        "src/types/generated/hephaestus-infrastructure/analytics.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
-        "src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/analytics.ts",
-        "src/types/generated/themis-governance/applications.ts",
-        "src/lib/validators/generated/themis-governance/applications.ts",
-        "src/app/api/generated/themis-governance/applications/route.ts",
-        "src/app/api/generated/themis-governance/applications/[id]/route.ts",
-        "src/hooks/generated/themis-governance/applications.ts",
-        "src/types/generated/aethelred-connections/archivist.ts",
-        "src/lib/validators/generated/aethelred-connections/archivist.ts",
-        "src/app/api/generated/aethelred-connections/archivist/route.ts",
-        "src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/archivist.ts",
-        "src/types/generated/aethelred-connections/audhdities_platform.ts",
-        "src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
-        "src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
-        "src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/audhdities_platform.ts",
-        "src/types/generated/athena-gamification/badges.ts",
-        "src/lib/validators/generated/athena-gamification/badges.ts",
-        "src/app/api/generated/athena-gamification/badges/route.ts",
-        "src/app/api/generated/athena-gamification/badges/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/badges.ts",
-        "src/types/generated/hephaestus-infrastructure/calendar.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
-        "src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/calendar.ts",
-        "src/types/generated/aethelred-connections/chancellor.ts",
-        "src/lib/validators/generated/aethelred-connections/chancellor.ts",
-        "src/app/api/generated/aethelred-connections/chancellor/route.ts",
-        "src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/chancellor.ts",
-        "src/types/generated/hestia-core/channels.ts",
-        "src/lib/validators/generated/hestia-core/channels.ts",
-        "src/app/api/generated/hestia-core/channels/route.ts",
-        "src/app/api/generated/hestia-core/channels/[id]/route.ts",
-        "src/hooks/generated/hestia-core/channels.ts",
-        "src/types/generated/aethelred-connections/codex.ts",
-        "src/lib/validators/generated/aethelred-connections/codex.ts",
-        "src/app/api/generated/aethelred-connections/codex/route.ts",
-        "src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/codex.ts",
-        "src/types/generated/hermes-social/comments.ts",
-        "src/lib/validators/generated/hermes-social/comments.ts",
-        "src/app/api/generated/hermes-social/comments/route.ts",
-        "src/app/api/generated/hermes-social/comments/[id]/route.ts",
-        "src/hooks/generated/hermes-social/comments.ts",
-        "src/types/generated/hestia-core/community_profiles.ts",
-        "src/lib/validators/generated/hestia-core/community_profiles.ts",
-        "src/app/api/generated/hestia-core/community_profiles/route.ts",
-        "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
-        "src/types/generated/aethelred-connections/consciousness.ts",
-        "src/lib/validators/generated/aethelred-connections/consciousness.ts",
-        "src/app/api/generated/aethelred-connections/consciousness/route.ts",
-        "src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/consciousness.ts",
-        "src/types/generated/iris-communications/contact_submissions.ts",
-        "src/lib/validators/generated/iris-communications/contact_submissions.ts",
-        "src/app/api/generated/iris-communications/contact_submissions/route.ts",
-        "src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
-        "src/hooks/generated/iris-communications/contact_submissions.ts",
-        "src/types/generated/iris-communications/continents.ts",
-        "src/lib/validators/generated/iris-communications/continents.ts",
-        "src/app/api/generated/iris-communications/continents/route.ts",
-        "src/app/api/generated/iris-communications/continents/[id]/route.ts",
-        "src/hooks/generated/iris-communications/continents.ts",
-        "src/types/generated/plutus-economics/contributions.ts",
-        "src/lib/validators/generated/plutus-economics/contributions.ts",
-        "src/app/api/generated/plutus-economics/contributions/route.ts",
-        "src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
-        "src/types/generated/aethelred-connections/council_houses.ts",
-        "src/lib/validators/generated/aethelred-connections/council_houses.ts",
-        "src/app/api/generated/aethelred-connections/council_houses/route.ts",
-        "src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/council_houses.ts",
-        "src/types/generated/plutus-economics/covenant_pool.ts",
-        "src/lib/validators/generated/plutus-economics/covenant_pool.ts",
-        "src/app/api/generated/plutus-economics/covenant_pool/route.ts",
-        "src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/covenant_pool.ts",
-        "src/types/generated/hermes-social/creative_categories.ts",
-        "src/lib/validators/generated/hermes-social/creative_categories.ts",
-        "src/app/api/generated/hermes-social/creative_categories/route.ts",
-        "src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
-        "src/hooks/generated/hermes-social/creative_categories.ts",
-        "src/types/generated/hestia-core/creator_category_links.ts",
-        "src/lib/validators/generated/hestia-core/creator_category_links.ts",
-        "src/app/api/generated/hestia-core/creator_category_links/route.ts",
-        "src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
-        "src/hooks/generated/hestia-core/creator_category_links.ts",
-        "src/types/generated/hestia-core/creator_profiles.ts",
-        "src/lib/validators/generated/hestia-core/creator_profiles.ts",
-        "src/app/api/generated/hestia-core/creator_profiles/route.ts",
-        "src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
-        "src/types/generated/iris-communications/culturalization.ts",
-        "src/lib/validators/generated/iris-communications/culturalization.ts",
-        "src/app/api/generated/iris-communications/culturalization/route.ts",
-        "src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
-        "src/hooks/generated/iris-communications/culturalization.ts",
-        "src/types/generated/aethelred-connections/curator.ts",
-        "src/lib/validators/generated/aethelred-connections/curator.ts",
-        "src/app/api/generated/aethelred-connections/curator/route.ts",
-        "src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/curator.ts",
-        "src/types/generated/iris-communications/customs.ts",
-        "src/lib/validators/generated/iris-communications/customs.ts",
-        "src/app/api/generated/iris-communications/customs/route.ts",
-        "src/app/api/generated/iris-communications/customs/[id]/route.ts",
-        "src/hooks/generated/iris-communications/customs.ts",
-        "src/types/generated/plutus-economics/disbursements.ts",
-        "src/lib/validators/generated/plutus-economics/disbursements.ts",
-        "src/app/api/generated/plutus-economics/disbursements/route.ts",
-        "src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/disbursements.ts",
-        "src/types/generated/iris-communications/email_communications.ts",
-        "src/lib/validators/generated/iris-communications/email_communications.ts",
-        "src/app/api/generated/iris-communications/email_communications/route.ts",
-        "src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
-        "src/hooks/generated/iris-communications/email_communications.ts",
-        "src/types/generated/hermes-social/emeralds.ts",
-        "src/lib/validators/generated/hermes-social/emeralds.ts",
-        "src/app/api/generated/hermes-social/emeralds/route.ts",
-        "src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
-        "src/hooks/generated/hermes-social/emeralds.ts",
-        "src/types/generated/hestia-core/entity_state_log.ts",
-        "src/lib/validators/generated/hestia-core/entity_state_log.ts",
-        "src/app/api/generated/hestia-core/entity_state_log/route.ts",
-        "src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
-        "src/hooks/generated/hestia-core/entity_state_log.ts",
-        "src/types/generated/mnemosyne-assessment/etymology.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
-        "src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/etymology.ts",
-        "src/types/generated/aethelred-connections/executioner.ts",
-        "src/lib/validators/generated/aethelred-connections/executioner.ts",
-        "src/app/api/generated/aethelred-connections/executioner/route.ts",
-        "src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/executioner.ts",
-        "src/types/generated/hephaestus-infrastructure/file_registry.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
-        "src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
-        "src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
-        "src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
-        "src/types/generated/mnemosyne-assessment/folksonomy.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
-        "src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
-        "src/types/generated/aethelred-connections/github_connection.ts",
-        "src/lib/validators/generated/aethelred-connections/github_connection.ts",
-        "src/app/api/generated/aethelred-connections/github_connection/route.ts",
-        "src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/github_connection.ts",
-        "src/types/generated/aethelred-connections/hearth_keeper.ts",
-        "src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
-        "src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
-        "src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/hearth_keeper.ts",
-        "src/types/generated/iris-communications/languages.ts",
-        "src/lib/validators/generated/iris-communications/languages.ts",
-        "src/app/api/generated/iris-communications/languages/route.ts",
-        "src/app/api/generated/iris-communications/languages/[id]/route.ts",
-        "src/hooks/generated/iris-communications/languages.ts",
-        "src/types/generated/athena-gamification/learning_paths.ts",
-        "src/lib/validators/generated/athena-gamification/learning_paths.ts",
-        "src/app/api/generated/athena-gamification/learning_paths/route.ts",
-        "src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/learning_paths.ts",
-        "src/types/generated/plutus-economics/ledger.ts",
-        "src/lib/validators/generated/plutus-economics/ledger.ts",
-        "src/app/api/generated/plutus-economics/ledger/route.ts",
-        "src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/ledger.ts",
-        "src/types/generated/athena-gamification/lessons.ts",
-        "src/lib/validators/generated/athena-gamification/lessons.ts",
-        "src/app/api/generated/athena-gamification/lessons/route.ts",
-        "src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/lessons.ts",
-        "src/types/generated/athena-gamification/life_cycles.ts",
-        "src/lib/validators/generated/athena-gamification/life_cycles.ts",
-        "src/app/api/generated/athena-gamification/life_cycles/route.ts",
-        "src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/life_cycles.ts",
-        "src/types/generated/iris-communications/localization.ts",
-        "src/lib/validators/generated/iris-communications/localization.ts",
-        "src/app/api/generated/iris-communications/localization/route.ts",
-        "src/app/api/generated/iris-communications/localization/[id]/route.ts",
-        "src/hooks/generated/iris-communications/localization.ts",
-        "src/types/generated/hephaestus-infrastructure/maintenance.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
-        "src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
-        "src/types/generated/hermes-social/messages.ts",
-        "src/lib/validators/generated/hermes-social/messages.ts",
-        "src/app/api/generated/hermes-social/messages/route.ts",
-        "src/app/api/generated/hermes-social/messages/[id]/route.ts",
-        "src/hooks/generated/hermes-social/messages.ts",
-        "src/types/generated/themis-governance/moderation_actions.ts",
-        "src/lib/validators/generated/themis-governance/moderation_actions.ts",
-        "src/app/api/generated/themis-governance/moderation_actions/route.ts",
-        "src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
-        "src/hooks/generated/themis-governance/moderation_actions.ts",
-        "src/types/generated/athena-gamification/mythology.ts",
-        "src/lib/validators/generated/athena-gamification/mythology.ts",
-        "src/app/api/generated/athena-gamification/mythology/route.ts",
-        "src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/mythology.ts",
-        "src/types/generated/hermes-social/notifications.ts",
-        "src/lib/validators/generated/hermes-social/notifications.ts",
-        "src/app/api/generated/hermes-social/notifications/route.ts",
-        "src/app/api/generated/hermes-social/notifications/[id]/route.ts",
-        "src/hooks/generated/hermes-social/notifications.ts",
-        "src/types/generated/mnemosyne-assessment/ontology.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
-        "src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/ontology.ts",
-        "src/types/generated/athena-gamification/path_lessons.ts",
-        "src/lib/validators/generated/athena-gamification/path_lessons.ts",
-        "src/app/api/generated/athena-gamification/path_lessons/route.ts",
-        "src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/path_lessons.ts",
-        "src/types/generated/plutus-economics/payouts.ts",
-        "src/lib/validators/generated/plutus-economics/payouts.ts",
-        "src/app/api/generated/plutus-economics/payouts/route.ts",
-        "src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/payouts.ts",
-        "src/types/generated/iris-communications/personas.ts",
-        "src/lib/validators/generated/iris-communications/personas.ts",
-        "src/app/api/generated/iris-communications/personas/route.ts",
-        "src/app/api/generated/iris-communications/personas/[id]/route.ts",
-        "src/hooks/generated/iris-communications/personas.ts",
-        "src/types/generated/hermes-social/posts.ts",
-        "src/lib/validators/generated/hermes-social/posts.ts",
-        "src/app/api/generated/hermes-social/posts/route.ts",
-        "src/app/api/generated/hermes-social/posts/[id]/route.ts",
-        "src/hooks/generated/hermes-social/posts.ts",
-        "src/types/generated/themis-governance/processes.ts",
-        "src/lib/validators/generated/themis-governance/processes.ts",
-        "src/app/api/generated/themis-governance/processes/route.ts",
-        "src/app/api/generated/themis-governance/processes/[id]/route.ts",
-        "src/hooks/generated/themis-governance/processes.ts",
-        "src/types/generated/plutus-economics/products.ts",
-        "src/lib/validators/generated/plutus-economics/products.ts",
-        "src/app/api/generated/plutus-economics/products/route.ts",
-        "src/app/api/generated/plutus-economics/products/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/products.ts",
-        "src/lib/validators/generated/hestia-core/profiles.ts",
-        "src/types/generated/athena-gamification/progress.ts",
-        "src/lib/validators/generated/athena-gamification/progress.ts",
-        "src/app/api/generated/athena-gamification/progress/route.ts",
-        "src/app/api/generated/athena-gamification/progress/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/progress.ts",
-        "src/types/generated/prometheus-meta/prometheus_blueprints.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
-        "src/types/generated/prometheus-meta/prometheus_boundaries.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
-        "src/types/generated/prometheus-meta/prometheus_consciousness.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
-        "src/types/generated/prometheus-meta/prometheus_generations.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_generations.ts",
-        "src/types/generated/prometheus-meta/prometheus_memories.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_memories.ts",
-        "src/types/generated/prometheus-meta/prometheus_patterns.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
-        "src/types/generated/prometheus-meta/prometheus_templates.ts",
-        "src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
-        "src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
-        "src/hooks/generated/prometheus-meta/prometheus_templates.ts",
-        "src/types/generated/hephaestus-infrastructure/protocols.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
-        "src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/protocols.ts",
-        "src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
-        "src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
-        "src/types/generated/athena-gamification/quests.ts",
-        "src/lib/validators/generated/athena-gamification/quests.ts",
-        "src/app/api/generated/athena-gamification/quests/route.ts",
-        "src/app/api/generated/athena-gamification/quests/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/quests.ts",
-        "src/types/generated/themis-governance/rate_limits.ts",
-        "src/lib/validators/generated/themis-governance/rate_limits.ts",
-        "src/app/api/generated/themis-governance/rate_limits/route.ts",
-        "src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
-        "src/hooks/generated/themis-governance/rate_limits.ts",
-        "src/types/generated/hermes-social/reactions.ts",
-        "src/lib/validators/generated/hermes-social/reactions.ts",
-        "src/app/api/generated/hermes-social/reactions/route.ts",
-        "src/app/api/generated/hermes-social/reactions/[id]/route.ts",
-        "src/hooks/generated/hermes-social/reactions.ts",
-        "src/types/generated/iris-communications/regions.ts",
-        "src/lib/validators/generated/iris-communications/regions.ts",
-        "src/app/api/generated/iris-communications/regions/route.ts",
-        "src/app/api/generated/iris-communications/regions/[id]/route.ts",
-        "src/hooks/generated/iris-communications/regions.ts",
-        "src/types/generated/hermes-social/replies.ts",
-        "src/lib/validators/generated/hermes-social/replies.ts",
-        "src/app/api/generated/hermes-social/replies/route.ts",
-        "src/app/api/generated/hermes-social/replies/[id]/route.ts",
-        "src/hooks/generated/hermes-social/replies.ts",
-        "src/types/generated/themis-governance/reports.ts",
-        "src/lib/validators/generated/themis-governance/reports.ts",
-        "src/app/api/generated/themis-governance/reports/route.ts",
-        "src/app/api/generated/themis-governance/reports/[id]/route.ts",
-        "src/hooks/generated/themis-governance/reports.ts",
-        "src/types/generated/aethelred-connections/resend_connection.ts",
-        "src/lib/validators/generated/aethelred-connections/resend_connection.ts",
-        "src/app/api/generated/aethelred-connections/resend_connection/route.ts",
-        "src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/resend_connection.ts",
-        "src/types/generated/plutus-economics/residual_payouts.ts",
-        "src/lib/validators/generated/plutus-economics/residual_payouts.ts",
-        "src/app/api/generated/plutus-economics/residual_payouts/route.ts",
-        "src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/residual_payouts.ts",
-        "src/types/generated/plutus-economics/residual_pool.ts",
-        "src/lib/validators/generated/plutus-economics/residual_pool.ts",
-        "src/app/api/generated/plutus-economics/residual_pool/route.ts",
-        "src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/residual_pool.ts",
-        "src/types/generated/plutus-economics/sales.ts",
-        "src/lib/validators/generated/plutus-economics/sales.ts",
-        "src/app/api/generated/plutus-economics/sales/route.ts",
-        "src/app/api/generated/plutus-economics/sales/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/sales.ts",
-        "src/types/generated/athena-gamification/scene_participants.ts",
-        "src/lib/validators/generated/athena-gamification/scene_participants.ts",
-        "src/app/api/generated/athena-gamification/scene_participants/route.ts",
-        "src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/scene_participants.ts",
-        "src/types/generated/athena-gamification/scenes.ts",
-        "src/lib/validators/generated/athena-gamification/scenes.ts",
-        "src/app/api/generated/athena-gamification/scenes/route.ts",
-        "src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/scenes.ts",
-        "src/types/generated/hephaestus-infrastructure/scheduling.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
-        "src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
-        "src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
-        "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
-        "src/types/generated/hephaestus-infrastructure/scripts.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
-        "src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/scripts.ts",
-        "src/types/generated/aethelred-connections/seer.ts",
-        "src/lib/validators/generated/aethelred-connections/seer.ts",
-        "src/app/api/generated/aethelred-connections/seer/route.ts",
-        "src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/seer.ts",
-        "src/types/generated/hephaestus-infrastructure/settings.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
-        "src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/settings.ts",
-        "src/types/generated/aethelred-connections/skald.ts",
-        "src/lib/validators/generated/aethelred-connections/skald.ts",
-        "src/app/api/generated/aethelred-connections/skald/route.ts",
-        "src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/skald.ts",
-        "src/types/generated/aethelred-connections/stripe_connection.ts",
-        "src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
-        "src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
-        "src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/stripe_connection.ts",
-        "src/types/generated/plutus-economics/subscriptions.ts",
-        "src/lib/validators/generated/plutus-economics/subscriptions.ts",
-        "src/app/api/generated/plutus-economics/subscriptions/route.ts",
-        "src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
-        "src/types/generated/aethelred-connections/supabase_connection.ts",
-        "src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
-        "src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
-        "src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/supabase_connection.ts",
-        "src/types/generated/mnemosyne-assessment/superposition.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
-        "src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/superposition.ts",
-        "src/types/generated/iris-communications/survey_responses.ts",
-        "src/lib/validators/generated/iris-communications/survey_responses.ts",
-        "src/app/api/generated/iris-communications/survey_responses/route.ts",
-        "src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
-        "src/hooks/generated/iris-communications/survey_responses.ts",
-        "src/types/generated/iris-communications/surveys.ts",
-        "src/lib/validators/generated/iris-communications/surveys.ts",
-        "src/app/api/generated/iris-communications/surveys/route.ts",
-        "src/app/api/generated/iris-communications/surveys/[id]/route.ts",
-        "src/hooks/generated/iris-communications/surveys.ts",
-        "src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
-        "src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
-        "src/types/generated/hestia-core/system_timeline_events.ts",
-        "src/lib/validators/generated/hestia-core/system_timeline_events.ts",
-        "src/app/api/generated/hestia-core/system_timeline_events/route.ts",
-        "src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
-        "src/hooks/generated/hestia-core/system_timeline_events.ts",
-        "src/types/generated/hephaestus-infrastructure/systems.ts",
-        "src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
-        "src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
-        "src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
-        "src/hooks/generated/hephaestus-infrastructure/systems.ts",
-        "src/types/generated/mnemosyne-assessment/taxonomy.ts",
-        "src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
-        "src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
-        "src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
-        "src/types/generated/athena-gamification/timelines.ts",
-        "src/lib/validators/generated/athena-gamification/timelines.ts",
-        "src/app/api/generated/athena-gamification/timelines/route.ts",
-        "src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
-        "src/hooks/generated/athena-gamification/timelines.ts",
-        "src/types/generated/plutus-economics/transactions.ts",
-        "src/lib/validators/generated/plutus-economics/transactions.ts",
-        "src/app/api/generated/plutus-economics/transactions/route.ts",
-        "src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
-        "src/hooks/generated/plutus-economics/transactions.ts",
-        "src/types/generated/iris-communications/translations.ts",
-        "src/lib/validators/generated/iris-communications/translations.ts",
-        "src/app/api/generated/iris-communications/translations/route.ts",
-        "src/app/api/generated/iris-communications/translations/[id]/route.ts",
-        "src/hooks/generated/iris-communications/translations.ts",
-        "src/types/generated/athena-gamification/user_badges.ts",
-        "src/lib/validators/generated/athena-gamification/user_badges.ts",
-        "src/app/api/generated/athena-gamification/user_badges/route.ts",
-        "src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
-        "src/types/generated/hestia-core/user_financial.ts",
-        "src/lib/validators/generated/hestia-core/user_financial.ts",
-        "src/app/api/generated/hestia-core/user_financial/route.ts",
-        "src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
-        "src/hooks/generated/hestia-core/user_financial.ts",
-        "src/types/generated/hestia-core/user_private.ts",
-        "src/lib/validators/generated/hestia-core/user_private.ts",
-        "src/app/api/generated/hestia-core/user_private/route.ts",
-        "src/app/api/generated/hestia-core/user_private/[id]/route.ts",
-        "src/hooks/generated/hestia-core/user_private.ts",
-        "src/types/generated/athena-gamification/user_quests.ts",
-        "src/lib/validators/generated/athena-gamification/user_quests.ts",
-        "src/app/api/generated/athena-gamification/user_quests/route.ts",
-        "src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
-        "src/types/generated/hestia-core/vendor_profiles.ts",
-        "src/lib/validators/generated/hestia-core/vendor_profiles.ts",
-        "src/app/api/generated/hestia-core/vendor_profiles/route.ts",
-        "src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
-        "src/types/generated/aethelred-connections/vercel_connection.ts",
-        "src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
-        "src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
-        "src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
-        "src/hooks/generated/aethelred-connections/vercel_connection.ts",
-        "src/types/generated/hestia-core/personalized_feed.ts",
-        "src/app/api/generated/hestia-core/personalized_feed/route.ts",
-        "src/app/api/generated/hestia-core/personalized_feed/[id]/route.ts",
-        "src/types/generated/hestia-core/prometheus_blueprint_health.ts",
-        "src/app/api/generated/hestia-core/prometheus_blueprint_health/route.ts",
-        "src/app/api/generated/hestia-core/prometheus_blueprint_health/[id]/route.ts",
-        "src/types/generated/hestia-core/prometheus_generation_stats.ts",
-        "src/app/api/generated/hestia-core/prometheus_generation_stats/route.ts",
-        "src/app/api/generated/hestia-core/prometheus_generation_stats/[id]/route.ts",
-        "src/types/generated/themis-governance/public_transparency.ts",
-        "src/app/api/generated/themis-governance/public_transparency/route.ts",
-        "src/app/api/generated/themis-governance/public_transparency/[id]/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_answers_results/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_answers_submit/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_questions_results/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_questions_submit/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_results_results/route.ts",
-        "src/app/api/generated/mnemosyne-assessment/acid_test_results_submit/route.ts",
-        "src/app/api/generated/hestia-core/add_conversation_message/route.ts",
-        "src/app/api/generated/hestia-core/add_creator_category/route.ts",
-        "src/app/api/generated/hestia-core/approve_application/route.ts",
-        "src/app/api/generated/hestia-core/clean_old_agent_activities/route.ts",
-        "src/app/api/generated/themis-governance/cleanup_rate_limits/route.ts",
-        "src/app/api/generated/hestia-core/community_profiles_link/route.ts",
-        "src/app/api/generated/hestia-core/community_profiles_unlink/route.ts",
-        "src/app/api/generated/hermes-social/complete_agent_activity/route.ts",
-        "src/app/api/generated/hestia-core/complete_script_execution/route.ts",
-        "src/app/api/generated/plutus-economics/contributions_link/route.ts",
-        "src/app/api/generated/plutus-economics/contributions_unlink/route.ts",
-        "src/app/api/generated/hestia-core/create_creator_profile/route.ts",
-        "src/app/api/generated/hestia-core/create_vendor_profile/route.ts",
-        "src/app/api/generated/hestia-core/creator_profiles_link/route.ts",
-        "src/app/api/generated/hestia-core/creator_profiles_unlink/route.ts",
-        "src/app/api/generated/hermes-social/get_agent_activity_summary/route.ts",
-        "src/app/api/generated/hestia-core/get_creator_categories/route.ts",
-        "src/app/api/generated/hestia-core/get_current_user_id/route.ts",
-        "src/app/api/generated/hestia-core/get_generation_order/route.ts",
-        "src/app/api/generated/hestia-core/get_localized_text/route.ts",
-        "src/app/api/generated/hestia-core/get_platform_health/route.ts",
-        "src/app/api/generated/hestia-core/get_recommended_template/route.ts",
-        "src/app/api/generated/hestia-core/get_schema_enums/route.ts",
-        "src/app/api/generated/hestia-core/get_schema_functions/route.ts",
-        "src/app/api/generated/hestia-core/get_schema_tables/route.ts",
-        "src/app/api/generated/hestia-core/get_setting/route.ts",
-        "src/app/api/generated/hestia-core/get_user_nd_preferences/route.ts",
-        "src/app/api/generated/hestia-core/get_user_sensory_preferences/route.ts",
-        "src/app/api/generated/hestia-core/is_admin/route.ts",
-        "src/app/api/generated/hestia-core/is_quantum_weaver/route.ts",
-        "src/app/api/generated/hermes-social/log_agent_activity/route.ts",
-        "src/app/api/generated/hestia-core/log_script_execution/route.ts",
-        "src/app/api/generated/hestia-core/remove_creator_category/route.ts",
-        "src/app/api/generated/aethelred-connections/seed_council_houses/route.ts",
-        "src/app/api/generated/hestia-core/submit_application/route.ts",
-        "src/app/api/generated/hestia-core/update_algorithm_preferences/route.ts",
-        "src/app/api/generated/hestia-core/update_entity_state/route.ts",
-        "src/app/api/generated/hestia-core/update_last_active/route.ts",
-        "src/app/api/generated/hestia-core/update_nd_preferences/route.ts",
-        "src/app/api/generated/hestia-core/update_sensory_preferences/route.ts",
-        "src/app/api/generated/athena-gamification/user_badges_link/route.ts",
-        "src/app/api/generated/athena-gamification/user_badges_unlink/route.ts",
-        "src/app/api/generated/athena-gamification/user_quests_link/route.ts",
-        "src/app/api/generated/athena-gamification/user_quests_unlink/route.ts",
-        "src/app/api/generated/hestia-core/validate_blueprint_content/route.ts",
-        "src/app/api/generated/hestia-core/vendor_profiles_link/route.ts",
-        "src/app/api/generated/hestia-core/vendor_profiles_unlink/route.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
-        "src/lib/constants/generated/hermes-social/action_type.ts",
-        "src/lib/constants/generated/hermes-social/activity_visibility.ts",
-        "src/lib/constants/generated/themis-governance/admin_log_category.ts",
-        "src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
-        "src/lib/constants/generated/hestia-core/agent_action_type.ts",
-        "src/lib/constants/generated/hestia-core/agent_activity_status.ts",
-        "src/lib/constants/generated/hestia-core/agent_name.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
-        "src/lib/constants/generated/themis-governance/application_status.ts",
-        "src/lib/constants/generated/themis-governance/application_type.ts",
-        "src/lib/constants/generated/athena-gamification/badge_rarity.ts",
-        "src/lib/constants/generated/athena-gamification/badge_tier.ts",
-        "src/lib/constants/generated/athena-gamification/badge_type.ts",
-        "src/lib/constants/generated/plutus-economics/bid_type.ts",
-        "src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
-        "src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
-        "src/lib/constants/generated/prometheus-meta/boundary_type.ts",
-        "src/lib/constants/generated/aethelred-connections/bridge_status.ts",
-        "src/lib/constants/generated/hestia-core/business_type.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
-        "src/lib/constants/generated/plutus-economics/campaign_status.ts",
-        "src/lib/constants/generated/hestia-core/commission_status.ts",
-        "src/lib/constants/generated/hestia-core/communication_style.ts",
-        "src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
-        "src/lib/constants/generated/iris-communications/contact_direction.ts",
-        "src/lib/constants/generated/iris-communications/contact_status.ts",
-        "src/lib/constants/generated/hestia-core/content_rating.ts",
-        "src/lib/constants/generated/hermes-social/content_type.ts",
-        "src/lib/constants/generated/plutus-economics/contribution_type.ts",
-        "src/lib/constants/generated/hestia-core/conversation_status.ts",
-        "src/lib/constants/generated/iris-communications/currency_position_type.ts",
-        "src/lib/constants/generated/iris-communications/custom_category_type.ts",
-        "src/lib/constants/generated/iris-communications/date_format_type.ts",
-        "src/lib/constants/generated/aethelred-connections/delivery_status.ts",
-        "src/lib/constants/generated/aethelred-connections/deployment_status.ts",
-        "src/lib/constants/generated/athena-gamification/difficulty_level.ts",
-        "src/lib/constants/generated/iris-communications/email_status.ts",
-        "src/lib/constants/generated/hermes-social/emerald_status.ts",
-        "src/lib/constants/generated/prometheus-meta/encryption_level.ts",
-        "src/lib/constants/generated/hestia-core/entity_state.ts",
-        "src/lib/constants/generated/themis-governance/escalation_target.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
-        "src/lib/constants/generated/hestia-core/fulfillment_method.ts",
-        "src/lib/constants/generated/prometheus-meta/generation_status.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
-        "src/lib/constants/generated/plutus-economics/ledger_entity.ts",
-        "src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
-        "src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
-        "src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
-        "src/lib/constants/generated/iris-communications/measurement_system_type.ts",
-        "src/lib/constants/generated/hestia-core/message_direction.ts",
-        "src/lib/constants/generated/hermes-social/message_status.ts",
-        "src/lib/constants/generated/themis-governance/moderation_action_type.ts",
-        "src/lib/constants/generated/themis-governance/moderation_target_type.ts",
-        "src/lib/constants/generated/athena-gamification/myth_type.ts",
-        "src/lib/constants/generated/hermes-social/notification_type.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
-        "src/lib/constants/generated/plutus-economics/owner_type.ts",
-        "src/lib/constants/generated/prometheus-meta/pattern_context.ts",
-        "src/lib/constants/generated/plutus-economics/payment_status.ts",
-        "src/lib/constants/generated/hestia-core/payment_structure.ts",
-        "src/lib/constants/generated/hestia-core/payout_frequency.ts",
-        "src/lib/constants/generated/hestia-core/payout_method.ts",
-        "src/lib/constants/generated/plutus-economics/payout_status.ts",
-        "src/lib/constants/generated/aethelred-connections/platform_environment.ts",
-        "src/lib/constants/generated/aethelred-connections/platform_status.ts",
-        "src/lib/constants/generated/hermes-social/post_visibility.ts",
-        "src/lib/constants/generated/themis-governance/process_type.ts",
-        "src/lib/constants/generated/hestia-core/product_status.ts",
-        "src/lib/constants/generated/plutus-economics/product_type.ts",
-        "src/lib/constants/generated/athena-gamification/progress_status.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
-        "src/lib/constants/generated/athena-gamification/quest_status.ts",
-        "src/lib/constants/generated/hermes-social/reaction_type.ts",
-        "src/lib/constants/generated/plutus-economics/recurring_interval.ts",
-        "src/lib/constants/generated/themis-governance/report_status.ts",
-        "src/lib/constants/generated/themis-governance/report_target_type.ts",
-        "src/lib/constants/generated/themis-governance/report_type.ts",
-        "src/lib/constants/generated/athena-gamification/scene_type.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
-        "src/lib/constants/generated/hestia-core/sensitivity_level.ts",
-        "src/lib/constants/generated/hestia-core/sensory_preferences.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
-        "src/lib/constants/generated/hestia-core/shipping_requirements.ts",
-        "src/lib/constants/generated/plutus-economics/source_pool_type.ts",
-        "src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
-        "src/lib/constants/generated/athena-gamification/submission_type.ts",
-        "src/lib/constants/generated/plutus-economics/subscription_status.ts",
-        "src/lib/constants/generated/aethelred-connections/supabase_status.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
-        "src/lib/constants/generated/iris-communications/survey_audience_type.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
-        "src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
-        "src/lib/constants/generated/hermes-social/target_type.ts",
-        "src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
-        "src/lib/constants/generated/iris-communications/text_direction_type.ts",
-        "src/lib/constants/generated/iris-communications/time_format_type.ts",
-        "src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
-        "src/lib/constants/generated/plutus-economics/transaction_type.ts",
-        "src/lib/constants/generated/iris-communications/translatable_type.ts",
-        "src/lib/constants/generated/hestia-core/verification_status.ts",
-        "src/lib/constants/generated/hestia-core/warranty_type.ts",
-        "src/lib/constants/generated/aethelred-connections/webhook_status.ts",
-        "src/lib/constants/generated/aethelred-connections/workflow_status.ts",
-        "src/types/generated/mnemosyne-assessment/acid_persona.ts",
-        "src/types/generated/mnemosyne-assessment/acid_question_type.ts",
-        "src/types/generated/hermes-social/action_type.ts",
-        "src/types/generated/hermes-social/activity_visibility.ts",
-        "src/types/generated/themis-governance/admin_log_category.ts",
-        "src/types/generated/themis-governance/admin_log_target_type.ts",
-        "src/types/generated/hestia-core/agent_action_type.ts",
-        "src/types/generated/hestia-core/agent_activity_status.ts",
-        "src/types/generated/hestia-core/agent_name.ts",
-        "src/types/generated/hephaestus-infrastructure/analytics_category.ts",
-        "src/types/generated/themis-governance/application_status.ts",
-        "src/types/generated/themis-governance/application_type.ts",
-        "src/types/generated/athena-gamification/badge_rarity.ts",
-        "src/types/generated/athena-gamification/badge_tier.ts",
-        "src/types/generated/athena-gamification/badge_type.ts",
-        "src/types/generated/plutus-economics/bid_type.ts",
-        "src/types/generated/prometheus-meta/blueprint_status.ts",
-        "src/types/generated/prometheus-meta/blueprint_system.ts",
-        "src/types/generated/prometheus-meta/boundary_type.ts",
-        "src/types/generated/aethelred-connections/bridge_status.ts",
-        "src/types/generated/hestia-core/business_type.ts",
-        "src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
-        "src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
-        "src/types/generated/plutus-economics/campaign_status.ts",
-        "src/types/generated/hestia-core/commission_status.ts",
-        "src/types/generated/hestia-core/communication_style.ts",
-        "src/types/generated/prometheus-meta/consciousness_state.ts",
-        "src/types/generated/iris-communications/contact_direction.ts",
-        "src/types/generated/iris-communications/contact_status.ts",
-        "src/types/generated/hestia-core/content_rating.ts",
-        "src/types/generated/hermes-social/content_type.ts",
-        "src/types/generated/plutus-economics/contribution_type.ts",
-        "src/types/generated/hestia-core/conversation_status.ts",
-        "src/types/generated/hestia-core/council_house.ts",
-        "src/types/generated/iris-communications/currency_position_type.ts",
-        "src/types/generated/iris-communications/custom_category_type.ts",
-        "src/types/generated/iris-communications/date_format_type.ts",
-        "src/types/generated/aethelred-connections/delivery_status.ts",
-        "src/types/generated/aethelred-connections/deployment_status.ts",
-        "src/types/generated/athena-gamification/difficulty_level.ts",
-        "src/types/generated/iris-communications/email_status.ts",
-        "src/types/generated/hermes-social/emerald_status.ts",
-        "src/types/generated/prometheus-meta/encryption_level.ts",
-        "src/types/generated/hestia-core/entity_state.ts",
-        "src/types/generated/themis-governance/escalation_target.ts",
-        "src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
-        "src/types/generated/hestia-core/fulfillment_method.ts",
-        "src/types/generated/prometheus-meta/generation_status.ts",
-        "src/types/generated/hephaestus-infrastructure/job_status.ts",
-        "src/types/generated/hephaestus-infrastructure/job_type.ts",
-        "src/types/generated/plutus-economics/ledger_entity.ts",
-        "src/types/generated/plutus-economics/ledger_entry_type.ts",
-        "src/types/generated/athena-gamification/lesson_content_type.ts",
-        "src/types/generated/athena-gamification/life_cycle_phase.ts",
-        "src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
-        "src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
-        "src/types/generated/iris-communications/measurement_system_type.ts",
-        "src/types/generated/hestia-core/message_direction.ts",
-        "src/types/generated/hermes-social/message_status.ts",
-        "src/types/generated/themis-governance/moderation_action_type.ts",
-        "src/types/generated/themis-governance/moderation_target_type.ts",
-        "src/types/generated/athena-gamification/myth_type.ts",
-        "src/types/generated/hermes-social/notification_type.ts",
-        "src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
-        "src/types/generated/plutus-economics/owner_type.ts",
-        "src/types/generated/prometheus-meta/pattern_context.ts",
-        "src/types/generated/plutus-economics/payment_status.ts",
-        "src/types/generated/hestia-core/payment_structure.ts",
-        "src/types/generated/hestia-core/payout_frequency.ts",
-        "src/types/generated/hestia-core/payout_method.ts",
-        "src/types/generated/plutus-economics/payout_status.ts",
-        "src/types/generated/aethelred-connections/platform_environment.ts",
-        "src/types/generated/aethelred-connections/platform_status.ts",
-        "src/types/generated/hermes-social/post_visibility.ts",
-        "src/types/generated/themis-governance/process_type.ts",
-        "src/types/generated/hestia-core/product_status.ts",
-        "src/types/generated/plutus-economics/product_type.ts",
-        "src/types/generated/athena-gamification/progress_status.ts",
-        "src/types/generated/hephaestus-infrastructure/protocol_type.ts",
-        "src/types/generated/athena-gamification/quest_status.ts",
-        "src/types/generated/hermes-social/reaction_type.ts",
-        "src/types/generated/plutus-economics/recurring_interval.ts",
-        "src/types/generated/themis-governance/report_status.ts",
-        "src/types/generated/themis-governance/report_target_type.ts",
-        "src/types/generated/themis-governance/report_type.ts",
-        "src/types/generated/athena-gamification/scene_type.ts",
-        "src/types/generated/hephaestus-infrastructure/script_type.ts",
-        "src/types/generated/hestia-core/sensitivity_level.ts",
-        "src/types/generated/hestia-core/sensory_mode.ts",
-        "src/types/generated/hestia-core/sensory_preferences.ts",
-        "src/types/generated/hephaestus-infrastructure/setting_scope.ts",
-        "src/types/generated/hestia-core/shipping_requirements.ts",
-        "src/types/generated/plutus-economics/source_pool_type.ts",
-        "src/types/generated/aethelred-connections/stripe_mode.ts",
-        "src/types/generated/athena-gamification/submission_type.ts",
-        "src/types/generated/plutus-economics/subscription_status.ts",
-        "src/types/generated/aethelred-connections/supabase_status.ts",
-        "src/types/generated/mnemosyne-assessment/superposition_status.ts",
-        "src/types/generated/iris-communications/survey_audience_type.ts",
-        "src/types/generated/hephaestus-infrastructure/system_status.ts",
-        "src/types/generated/hephaestus-infrastructure/system_type.ts",
-        "src/types/generated/hermes-social/target_type.ts",
-        "src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
-        "src/types/generated/iris-communications/text_direction_type.ts",
-        "src/types/generated/iris-communications/time_format_type.ts",
-        "src/types/generated/athena-gamification/timeline_event_type.ts",
-        "src/types/generated/plutus-economics/transaction_type.ts",
-        "src/types/generated/iris-communications/translatable_type.ts",
-        "src/types/generated/hestia-core/user_status.ts",
-        "src/types/generated/hestia-core/user_tier.ts",
-        "src/types/generated/hestia-core/verification_status.ts",
-        "src/types/generated/hestia-core/warranty_type.ts",
-        "src/types/generated/aethelred-connections/webhook_status.ts",
-        "src/types/generated/aethelred-connections/workflow_status.ts"
-      ],
+      "generatedFiles": [],
       "errors": [],
       "warnings": [
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/activity.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/activity.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/activity.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/activity.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/admin_logs.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/admin_logs.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/admin_logs.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/admin_logs.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/advertising.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/advertising.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/advertising.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/advertising.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/aethelred_house.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/aethelred_house.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/aethelred_house.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_activities.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_activities.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_activities.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/agent_activities.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_conversations.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_conversations.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_conversations.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/agent_conversations.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_messages.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_messages.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_messages.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/agent_messages.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/analytics.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/applications.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/applications.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/applications.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/applications.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/archivist.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/archivist.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/archivist.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/archivist.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/audhdities_platform.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/audhdities_platform.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/badges.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/badges.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/badges.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/badges.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/calendar.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/chancellor.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/chancellor.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/chancellor.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/chancellor.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/channels.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/channels.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/channels.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/channels.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/codex.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/codex.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/codex.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/codex.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/comments.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/comments.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/comments.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/comments.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/community_profiles.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/community_profiles.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/consciousness.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/consciousness.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/consciousness.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/consciousness.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/contact_submissions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/contact_submissions.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/contact_submissions.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/contact_submissions.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/continents.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/continents.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/continents.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/continents.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/contributions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/contributions.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/council_houses.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/council_houses.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/council_houses.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/council_houses.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/covenant_pool.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/covenant_pool.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/covenant_pool.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/creative_categories.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/creative_categories.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/creative_categories.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/creative_categories.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/creator_category_links.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_category_links.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/creator_category_links.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/creator_category_links.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/creator_profiles.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_profiles.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/culturalization.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/culturalization.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/culturalization.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/culturalization.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/curator.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/curator.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/curator.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/curator.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/customs.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/customs.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/customs.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/customs.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/disbursements.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/disbursements.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/disbursements.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/disbursements.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/email_communications.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/email_communications.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/email_communications.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/email_communications.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/emeralds.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/emeralds.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/emeralds.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/emeralds.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/entity_state_log.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/entity_state_log.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/entity_state_log.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/entity_state_log.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/etymology.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/etymology.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/etymology.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/executioner.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/executioner.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/executioner.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/executioner.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_registry.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_registry.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/folksonomy.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/github_connection.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/github_connection.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/github_connection.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/github_connection.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/hearth_keeper.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/hearth_keeper.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/languages.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/languages.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/languages.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/languages.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/learning_paths.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/learning_paths.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/learning_paths.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/learning_paths.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/ledger.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/ledger.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/ledger.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/ledger.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/lessons.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/lessons.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/lessons.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/lessons.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycles.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/life_cycles.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/life_cycles.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/life_cycles.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/localization.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/localization.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/localization.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/localization.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/maintenance.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/messages.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/messages.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/messages.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/messages.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/moderation_actions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/moderation_actions.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/moderation_actions.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/moderation_actions.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/mythology.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/mythology.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/mythology.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/mythology.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/notifications.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/notifications.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/notifications.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/notifications.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/ontology.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/ontology.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/path_lessons.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/path_lessons.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/path_lessons.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/path_lessons.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/payouts.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/payouts.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/payouts.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/payouts.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/personas.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/personas.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/personas.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/personas.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/posts.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/posts.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/posts.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/posts.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/processes.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/processes.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/processes.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/processes.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/products.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/products.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/products.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/products.ts",
         "Skipped (would overwrite): src/types/generated/hestia-core/profiles.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/profiles.ts",
         "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/route.ts",
         "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/[id]/route.ts",
         "Skipped (would overwrite): src/hooks/generated/hestia-core/profiles.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/profiles.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/progress.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/progress.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/progress.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/progress.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_generations.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_generations.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_memories.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_memories.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_patterns.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_patterns.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_templates.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+        "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_templates.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocols.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/protocols.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/quests.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/quests.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/quests.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/quests.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/rate_limits.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/rate_limits.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/rate_limits.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/rate_limits.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/reactions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/reactions.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/reactions.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/reactions.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/regions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/regions.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/regions.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/regions.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/replies.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hermes-social/replies.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hermes-social/replies.ts",
+        "Skipped (would overwrite): src/utils/generated/hermes-social/replies.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/reports.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/themis-governance/reports.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/themis-governance/reports.ts",
+        "Skipped (would overwrite): src/utils/generated/themis-governance/reports.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/resend_connection.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/resend_connection.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/resend_connection.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/residual_payouts.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_payouts.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_payouts.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/residual_pool.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_pool.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_pool.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_pool.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/sales.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/sales.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/sales.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/sales.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/scene_participants.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scene_participants.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/scene_participants.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/scene_participants.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/scenes.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scenes.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/scenes.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/scenes.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scheduling.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scheduling.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scripts.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scripts.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/seer.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/seer.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/seer.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/seer.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/settings.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/settings.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/settings.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/skald.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/skald.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/skald.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/skald.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_connection.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/stripe_connection.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/stripe_connection.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/subscriptions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/subscriptions.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_connection.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/supabase_connection.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/supabase_connection.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/superposition.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/superposition.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/survey_responses.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/survey_responses.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/survey_responses.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/survey_responses.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/surveys.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/surveys.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/surveys.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/surveys.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/system_timeline_events.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/system_timeline_events.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/system_timeline_events.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/systems.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/systems.ts",
+        "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/systems.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+        "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/taxonomy.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/timelines.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/timelines.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/athena-gamification/timelines.ts",
+        "Skipped (would overwrite): src/utils/generated/athena-gamification/timelines.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/transactions.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/transactions.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/plutus-economics/transactions.ts",
+        "Skipped (would overwrite): src/utils/generated/plutus-economics/transactions.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/translations.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/iris-communications/translations.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/iris-communications/translations.ts",
+        "Skipped (would overwrite): src/utils/generated/iris-communications/translations.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/user_badges.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_badges.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/user_financial.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_financial.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/user_financial.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/user_financial.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/user_private.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_private.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/hestia-core/user_private.ts",
+        "Skipped (would overwrite): src/utils/generated/hestia-core/user_private.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/user_quests.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_quests.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/vendor_profiles.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/vercel_connection.ts",
+        "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+        "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+        "Skipped (would overwrite): src/hooks/generated/aethelred-connections/vercel_connection.ts",
+        "Skipped (would overwrite): src/utils/generated/aethelred-connections/vercel_connection.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/personalized_feed.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_generation_stats.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/public_transparency.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/action_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/activity_visibility.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_category.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_action_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_name.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_tier.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/bid_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/business_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/campaign_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/commission_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/communication_style.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_direction.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/content_rating.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/content_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/contribution_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/conversation_status.ts",
         "Skipped (would overwrite): src/lib/constants/generated/hestia-core/council_house.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/currency_position_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/custom_category_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/date_format_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/email_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/emerald_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/entity_state.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/escalation_target.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/generation_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/message_direction.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/message_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/myth_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/notification_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/owner_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payment_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payment_structure.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_frequency.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_method.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payout_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/post_visibility.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/process_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/product_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/product_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/progress_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/quest_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/reaction_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_target_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/scene_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensitivity_level.ts",
         "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_mode.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/submission_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/subscription_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hermes-social/target_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/text_direction_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/time_format_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/transaction_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/iris-communications/translatable_type.ts",
         "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_status.ts",
-        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts"
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/verification_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/hestia-core/warranty_type.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+        "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/workflow_status.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_persona.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/action_type.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/activity_visibility.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_category.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_target_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_action_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_activity_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/agent_name.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/application_status.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/application_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/badge_rarity.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/badge_tier.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/badge_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/bid_type.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_status.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_system.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/boundary_type.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/bridge_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/business_type.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/campaign_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/commission_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/communication_style.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/consciousness_state.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/contact_direction.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/contact_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/content_rating.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/content_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/contribution_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/conversation_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/council_house.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/currency_position_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/custom_category_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/date_format_type.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/delivery_status.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/deployment_status.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/difficulty_level.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/email_status.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/emerald_status.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/encryption_level.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/entity_state.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/escalation_target.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/fulfillment_method.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/generation_status.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_status.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entity.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entry_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/lesson_content_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycle_phase.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/measurement_system_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/message_direction.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/message_status.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/moderation_action_type.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/moderation_target_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/myth_type.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/notification_type.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/owner_type.ts",
+        "Skipped (would overwrite): src/types/generated/prometheus-meta/pattern_context.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/payment_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/payment_structure.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/payout_frequency.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/payout_method.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/payout_status.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_environment.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_status.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/post_visibility.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/process_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/product_status.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/product_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/progress_status.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/quest_status.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/reaction_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/recurring_interval.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/report_status.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/report_target_type.ts",
+        "Skipped (would overwrite): src/types/generated/themis-governance/report_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/scene_type.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/sensitivity_level.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/sensory_mode.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/sensory_preferences.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/shipping_requirements.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/source_pool_type.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_mode.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/submission_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/subscription_status.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_status.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition_status.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/survey_audience_type.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_status.ts",
+        "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_type.ts",
+        "Skipped (would overwrite): src/types/generated/hermes-social/target_type.ts",
+        "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/text_direction_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/time_format_type.ts",
+        "Skipped (would overwrite): src/types/generated/athena-gamification/timeline_event_type.ts",
+        "Skipped (would overwrite): src/types/generated/plutus-economics/transaction_type.ts",
+        "Skipped (would overwrite): src/types/generated/iris-communications/translatable_type.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/user_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/user_tier.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/verification_status.ts",
+        "Skipped (would overwrite): src/types/generated/hestia-core/warranty_type.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/webhook_status.ts",
+        "Skipped (would overwrite): src/types/generated/aethelred-connections/workflow_status.ts"
       ],
       "notes": []
     },
     "runs": [
+      {
+        "id": "20260422_002406",
+        "system": "GAIA",
+        "startTime": "2026-04-22T05:24:06.972Z",
+        "endTime": "2026-04-22T05:24:10.707Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/personalized_feed.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_generation_stats.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/public_transparency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/workflow_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "notes": []
+      },
+      {
+        "id": "20260422_002031",
+        "system": "GAIA",
+        "startTime": "2026-04-22T05:20:31.241Z",
+        "endTime": "2026-04-22T05:20:54.330Z",
+        "status": "success",
+        "generatedFiles": [
+          "src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+          "src/types/generated/hermes-social/activity.ts",
+          "src/types/generated/themis-governance/admin_logs.ts",
+          "src/types/generated/plutus-economics/advertising.ts",
+          "src/types/generated/aethelred-connections/aethelred_house.ts",
+          "src/types/generated/hestia-core/agent_activities.ts",
+          "src/types/generated/hestia-core/agent_conversations.ts",
+          "src/types/generated/hestia-core/agent_messages.ts",
+          "src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "src/types/generated/themis-governance/applications.ts",
+          "src/types/generated/aethelred-connections/archivist.ts",
+          "src/types/generated/aethelred-connections/audhdities_platform.ts",
+          "src/types/generated/athena-gamification/badges.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "src/types/generated/aethelred-connections/chancellor.ts",
+          "src/types/generated/hestia-core/channels.ts",
+          "src/types/generated/aethelred-connections/codex.ts",
+          "src/types/generated/hermes-social/comments.ts",
+          "src/types/generated/hestia-core/community_profiles.ts",
+          "src/types/generated/aethelred-connections/consciousness.ts",
+          "src/types/generated/iris-communications/contact_submissions.ts",
+          "src/types/generated/iris-communications/continents.ts",
+          "src/types/generated/plutus-economics/contributions.ts",
+          "src/types/generated/aethelred-connections/council_houses.ts",
+          "src/types/generated/plutus-economics/covenant_pool.ts",
+          "src/types/generated/hermes-social/creative_categories.ts",
+          "src/types/generated/hestia-core/creator_category_links.ts",
+          "src/types/generated/hestia-core/creator_profiles.ts",
+          "src/types/generated/iris-communications/culturalization.ts",
+          "src/types/generated/aethelred-connections/curator.ts",
+          "src/types/generated/iris-communications/customs.ts",
+          "src/types/generated/plutus-economics/disbursements.ts",
+          "src/types/generated/iris-communications/email_communications.ts",
+          "src/types/generated/hermes-social/emeralds.ts",
+          "src/types/generated/hestia-core/entity_state_log.ts",
+          "src/types/generated/mnemosyne-assessment/etymology.ts",
+          "src/types/generated/aethelred-connections/executioner.ts",
+          "src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/types/generated/aethelred-connections/github_connection.ts",
+          "src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "src/types/generated/iris-communications/languages.ts",
+          "src/types/generated/athena-gamification/learning_paths.ts",
+          "src/types/generated/plutus-economics/ledger.ts",
+          "src/types/generated/athena-gamification/lessons.ts",
+          "src/types/generated/athena-gamification/life_cycles.ts",
+          "src/types/generated/iris-communications/localization.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/types/generated/hermes-social/messages.ts",
+          "src/types/generated/themis-governance/moderation_actions.ts",
+          "src/types/generated/athena-gamification/mythology.ts",
+          "src/types/generated/hermes-social/notifications.ts",
+          "src/types/generated/mnemosyne-assessment/ontology.ts",
+          "src/types/generated/athena-gamification/path_lessons.ts",
+          "src/types/generated/plutus-economics/payouts.ts",
+          "src/types/generated/iris-communications/personas.ts",
+          "src/types/generated/hermes-social/posts.ts",
+          "src/types/generated/themis-governance/processes.ts",
+          "src/types/generated/plutus-economics/products.ts",
+          "src/types/generated/hestia-core/profiles.ts",
+          "src/types/generated/athena-gamification/progress.ts",
+          "src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/types/generated/prometheus-meta/prometheus_generations.ts",
+          "src/types/generated/prometheus-meta/prometheus_memories.ts",
+          "src/types/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/types/generated/prometheus-meta/prometheus_templates.ts",
+          "src/types/generated/hephaestus-infrastructure/protocols.ts",
+          "src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/types/generated/athena-gamification/quests.ts",
+          "src/types/generated/themis-governance/rate_limits.ts",
+          "src/types/generated/hermes-social/reactions.ts",
+          "src/types/generated/iris-communications/regions.ts",
+          "src/types/generated/hermes-social/replies.ts",
+          "src/types/generated/themis-governance/reports.ts",
+          "src/types/generated/aethelred-connections/resend_connection.ts",
+          "src/types/generated/plutus-economics/residual_payouts.ts",
+          "src/types/generated/plutus-economics/residual_pool.ts",
+          "src/types/generated/plutus-economics/sales.ts",
+          "src/types/generated/athena-gamification/scene_participants.ts",
+          "src/types/generated/athena-gamification/scenes.ts",
+          "src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "src/types/generated/aethelred-connections/seer.ts",
+          "src/types/generated/hephaestus-infrastructure/settings.ts",
+          "src/types/generated/aethelred-connections/skald.ts",
+          "src/types/generated/aethelred-connections/stripe_connection.ts",
+          "src/types/generated/plutus-economics/subscriptions.ts",
+          "src/types/generated/aethelred-connections/supabase_connection.ts",
+          "src/types/generated/mnemosyne-assessment/superposition.ts",
+          "src/types/generated/iris-communications/survey_responses.ts",
+          "src/types/generated/iris-communications/surveys.ts",
+          "src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/types/generated/hestia-core/system_timeline_events.ts",
+          "src/types/generated/hephaestus-infrastructure/systems.ts",
+          "src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/types/generated/athena-gamification/timelines.ts",
+          "src/types/generated/plutus-economics/transactions.ts",
+          "src/types/generated/iris-communications/translations.ts",
+          "src/types/generated/athena-gamification/user_badges.ts",
+          "src/types/generated/hestia-core/user_financial.ts",
+          "src/types/generated/hestia-core/user_private.ts",
+          "src/types/generated/athena-gamification/user_quests.ts",
+          "src/types/generated/hestia-core/vendor_profiles.ts",
+          "src/types/generated/aethelred-connections/vercel_connection.ts",
+          "src/types/generated/hestia-core/personalized_feed.ts",
+          "src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+          "src/types/generated/hestia-core/prometheus_generation_stats.ts",
+          "src/types/generated/themis-governance/public_transparency.ts",
+          "src/types/generated/mnemosyne-assessment/acid_persona.ts",
+          "src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+          "src/types/generated/hermes-social/action_type.ts",
+          "src/types/generated/hermes-social/activity_visibility.ts",
+          "src/types/generated/themis-governance/admin_log_category.ts",
+          "src/types/generated/themis-governance/admin_log_target_type.ts",
+          "src/types/generated/hestia-core/agent_action_type.ts",
+          "src/types/generated/hestia-core/agent_activity_status.ts",
+          "src/types/generated/hestia-core/agent_name.ts",
+          "src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+          "src/types/generated/themis-governance/application_status.ts",
+          "src/types/generated/themis-governance/application_type.ts",
+          "src/types/generated/athena-gamification/badge_rarity.ts",
+          "src/types/generated/athena-gamification/badge_tier.ts",
+          "src/types/generated/athena-gamification/badge_type.ts",
+          "src/types/generated/plutus-economics/bid_type.ts",
+          "src/types/generated/prometheus-meta/blueprint_status.ts",
+          "src/types/generated/prometheus-meta/blueprint_system.ts",
+          "src/types/generated/prometheus-meta/boundary_type.ts",
+          "src/types/generated/aethelred-connections/bridge_status.ts",
+          "src/types/generated/hestia-core/business_type.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "src/types/generated/plutus-economics/campaign_status.ts",
+          "src/types/generated/hestia-core/commission_status.ts",
+          "src/types/generated/hestia-core/communication_style.ts",
+          "src/types/generated/prometheus-meta/consciousness_state.ts",
+          "src/types/generated/iris-communications/contact_direction.ts",
+          "src/types/generated/iris-communications/contact_status.ts",
+          "src/types/generated/hestia-core/content_rating.ts",
+          "src/types/generated/hermes-social/content_type.ts",
+          "src/types/generated/plutus-economics/contribution_type.ts",
+          "src/types/generated/hestia-core/conversation_status.ts",
+          "src/types/generated/hestia-core/council_house.ts",
+          "src/types/generated/iris-communications/currency_position_type.ts",
+          "src/types/generated/iris-communications/custom_category_type.ts",
+          "src/types/generated/iris-communications/date_format_type.ts",
+          "src/types/generated/aethelred-connections/delivery_status.ts",
+          "src/types/generated/aethelred-connections/deployment_status.ts",
+          "src/types/generated/athena-gamification/difficulty_level.ts",
+          "src/types/generated/iris-communications/email_status.ts",
+          "src/types/generated/hermes-social/emerald_status.ts",
+          "src/types/generated/prometheus-meta/encryption_level.ts",
+          "src/types/generated/hestia-core/entity_state.ts",
+          "src/types/generated/themis-governance/escalation_target.ts",
+          "src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "src/types/generated/hestia-core/fulfillment_method.ts",
+          "src/types/generated/prometheus-meta/generation_status.ts",
+          "src/types/generated/hephaestus-infrastructure/job_status.ts",
+          "src/types/generated/hephaestus-infrastructure/job_type.ts",
+          "src/types/generated/plutus-economics/ledger_entity.ts",
+          "src/types/generated/plutus-economics/ledger_entry_type.ts",
+          "src/types/generated/athena-gamification/lesson_content_type.ts",
+          "src/types/generated/athena-gamification/life_cycle_phase.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "src/types/generated/iris-communications/measurement_system_type.ts",
+          "src/types/generated/hestia-core/message_direction.ts",
+          "src/types/generated/hermes-social/message_status.ts",
+          "src/types/generated/themis-governance/moderation_action_type.ts",
+          "src/types/generated/themis-governance/moderation_target_type.ts",
+          "src/types/generated/athena-gamification/myth_type.ts",
+          "src/types/generated/hermes-social/notification_type.ts",
+          "src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "src/types/generated/plutus-economics/owner_type.ts",
+          "src/types/generated/prometheus-meta/pattern_context.ts",
+          "src/types/generated/plutus-economics/payment_status.ts",
+          "src/types/generated/hestia-core/payment_structure.ts",
+          "src/types/generated/hestia-core/payout_frequency.ts",
+          "src/types/generated/hestia-core/payout_method.ts",
+          "src/types/generated/plutus-economics/payout_status.ts",
+          "src/types/generated/aethelred-connections/platform_environment.ts",
+          "src/types/generated/aethelred-connections/platform_status.ts",
+          "src/types/generated/hermes-social/post_visibility.ts",
+          "src/types/generated/themis-governance/process_type.ts",
+          "src/types/generated/hestia-core/product_status.ts",
+          "src/types/generated/plutus-economics/product_type.ts",
+          "src/types/generated/athena-gamification/progress_status.ts",
+          "src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+          "src/types/generated/athena-gamification/quest_status.ts",
+          "src/types/generated/hermes-social/reaction_type.ts",
+          "src/types/generated/plutus-economics/recurring_interval.ts",
+          "src/types/generated/themis-governance/report_status.ts",
+          "src/types/generated/themis-governance/report_target_type.ts",
+          "src/types/generated/themis-governance/report_type.ts",
+          "src/types/generated/athena-gamification/scene_type.ts",
+          "src/types/generated/hephaestus-infrastructure/script_type.ts",
+          "src/types/generated/hestia-core/sensitivity_level.ts",
+          "src/types/generated/hestia-core/sensory_mode.ts",
+          "src/types/generated/hestia-core/sensory_preferences.ts",
+          "src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+          "src/types/generated/hestia-core/shipping_requirements.ts",
+          "src/types/generated/plutus-economics/source_pool_type.ts",
+          "src/types/generated/aethelred-connections/stripe_mode.ts",
+          "src/types/generated/athena-gamification/submission_type.ts",
+          "src/types/generated/plutus-economics/subscription_status.ts",
+          "src/types/generated/aethelred-connections/supabase_status.ts",
+          "src/types/generated/mnemosyne-assessment/superposition_status.ts",
+          "src/types/generated/iris-communications/survey_audience_type.ts",
+          "src/types/generated/hephaestus-infrastructure/system_status.ts",
+          "src/types/generated/hephaestus-infrastructure/system_type.ts",
+          "src/types/generated/hermes-social/target_type.ts",
+          "src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "src/types/generated/iris-communications/text_direction_type.ts",
+          "src/types/generated/iris-communications/time_format_type.ts",
+          "src/types/generated/athena-gamification/timeline_event_type.ts",
+          "src/types/generated/plutus-economics/transaction_type.ts",
+          "src/types/generated/iris-communications/translatable_type.ts",
+          "src/types/generated/hestia-core/user_status.ts",
+          "src/types/generated/hestia-core/user_tier.ts",
+          "src/types/generated/hestia-core/verification_status.ts",
+          "src/types/generated/hestia-core/warranty_type.ts",
+          "src/types/generated/aethelred-connections/webhook_status.ts",
+          "src/types/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "errors": [],
+        "warnings": [
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/utils/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/utils/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/utils/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/utils/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/utils/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/utils/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/utils/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/utils/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "notes": []
+      },
+      {
+        "id": "20260422_001530",
+        "system": "GAIA",
+        "startTime": "2026-04-22T05:15:30.951Z",
+        "endTime": "2026-04-22T05:15:36.711Z",
+        "status": "success",
+        "generatedFiles": [
+          "src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+          "src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+          "src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+          "src/types/generated/hermes-social/activity.ts",
+          "src/lib/validators/generated/hermes-social/activity.ts",
+          "src/app/api/generated/hermes-social/activity/route.ts",
+          "src/app/api/generated/hermes-social/activity/[id]/route.ts",
+          "src/hooks/generated/hermes-social/activity.ts",
+          "src/utils/generated/hermes-social/activity.ts",
+          "src/types/generated/themis-governance/admin_logs.ts",
+          "src/lib/validators/generated/themis-governance/admin_logs.ts",
+          "src/app/api/generated/themis-governance/admin_logs/route.ts",
+          "src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+          "src/hooks/generated/themis-governance/admin_logs.ts",
+          "src/utils/generated/themis-governance/admin_logs.ts",
+          "src/types/generated/plutus-economics/advertising.ts",
+          "src/lib/validators/generated/plutus-economics/advertising.ts",
+          "src/app/api/generated/plutus-economics/advertising/route.ts",
+          "src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/advertising.ts",
+          "src/utils/generated/plutus-economics/advertising.ts",
+          "src/types/generated/aethelred-connections/aethelred_house.ts",
+          "src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+          "src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "src/utils/generated/aethelred-connections/aethelred_house.ts",
+          "src/types/generated/hestia-core/agent_activities.ts",
+          "src/lib/validators/generated/hestia-core/agent_activities.ts",
+          "src/app/api/generated/hestia-core/agent_activities/route.ts",
+          "src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+          "src/hooks/generated/hestia-core/agent_activities.ts",
+          "src/utils/generated/hestia-core/agent_activities.ts",
+          "src/types/generated/hestia-core/agent_conversations.ts",
+          "src/lib/validators/generated/hestia-core/agent_conversations.ts",
+          "src/app/api/generated/hestia-core/agent_conversations/route.ts",
+          "src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+          "src/hooks/generated/hestia-core/agent_conversations.ts",
+          "src/utils/generated/hestia-core/agent_conversations.ts",
+          "src/types/generated/hestia-core/agent_messages.ts",
+          "src/lib/validators/generated/hestia-core/agent_messages.ts",
+          "src/app/api/generated/hestia-core/agent_messages/route.ts",
+          "src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+          "src/hooks/generated/hestia-core/agent_messages.ts",
+          "src/utils/generated/hestia-core/agent_messages.ts",
+          "src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+          "src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "src/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "src/types/generated/themis-governance/applications.ts",
+          "src/lib/validators/generated/themis-governance/applications.ts",
+          "src/app/api/generated/themis-governance/applications/route.ts",
+          "src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "src/hooks/generated/themis-governance/applications.ts",
+          "src/utils/generated/themis-governance/applications.ts",
+          "src/types/generated/aethelred-connections/archivist.ts",
+          "src/lib/validators/generated/aethelred-connections/archivist.ts",
+          "src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/archivist.ts",
+          "src/utils/generated/aethelred-connections/archivist.ts",
+          "src/types/generated/aethelred-connections/audhdities_platform.ts",
+          "src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+          "src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+          "src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+          "src/utils/generated/aethelred-connections/audhdities_platform.ts",
+          "src/types/generated/athena-gamification/badges.ts",
+          "src/lib/validators/generated/athena-gamification/badges.ts",
+          "src/app/api/generated/athena-gamification/badges/route.ts",
+          "src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/badges.ts",
+          "src/utils/generated/athena-gamification/badges.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+          "src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "src/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "src/types/generated/aethelred-connections/chancellor.ts",
+          "src/lib/validators/generated/aethelred-connections/chancellor.ts",
+          "src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/chancellor.ts",
+          "src/utils/generated/aethelred-connections/chancellor.ts",
+          "src/types/generated/hestia-core/channels.ts",
+          "src/lib/validators/generated/hestia-core/channels.ts",
+          "src/app/api/generated/hestia-core/channels/route.ts",
+          "src/app/api/generated/hestia-core/channels/[id]/route.ts",
+          "src/hooks/generated/hestia-core/channels.ts",
+          "src/utils/generated/hestia-core/channels.ts",
+          "src/types/generated/aethelred-connections/codex.ts",
+          "src/lib/validators/generated/aethelred-connections/codex.ts",
+          "src/app/api/generated/aethelred-connections/codex/route.ts",
+          "src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/codex.ts",
+          "src/utils/generated/aethelred-connections/codex.ts",
+          "src/types/generated/hermes-social/comments.ts",
+          "src/lib/validators/generated/hermes-social/comments.ts",
+          "src/app/api/generated/hermes-social/comments/route.ts",
+          "src/app/api/generated/hermes-social/comments/[id]/route.ts",
+          "src/hooks/generated/hermes-social/comments.ts",
+          "src/utils/generated/hermes-social/comments.ts",
+          "src/types/generated/hestia-core/community_profiles.ts",
+          "src/lib/validators/generated/hestia-core/community_profiles.ts",
+          "src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "src/types/generated/aethelred-connections/consciousness.ts",
+          "src/lib/validators/generated/aethelred-connections/consciousness.ts",
+          "src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/consciousness.ts",
+          "src/utils/generated/aethelred-connections/consciousness.ts",
+          "src/types/generated/iris-communications/contact_submissions.ts",
+          "src/lib/validators/generated/iris-communications/contact_submissions.ts",
+          "src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "src/hooks/generated/iris-communications/contact_submissions.ts",
+          "src/utils/generated/iris-communications/contact_submissions.ts",
+          "src/types/generated/iris-communications/continents.ts",
+          "src/lib/validators/generated/iris-communications/continents.ts",
+          "src/app/api/generated/iris-communications/continents/route.ts",
+          "src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "src/hooks/generated/iris-communications/continents.ts",
+          "src/utils/generated/iris-communications/continents.ts",
+          "src/types/generated/plutus-economics/contributions.ts",
+          "src/lib/validators/generated/plutus-economics/contributions.ts",
+          "src/app/api/generated/plutus-economics/contributions/route.ts",
+          "src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+          "src/types/generated/aethelred-connections/council_houses.ts",
+          "src/lib/validators/generated/aethelred-connections/council_houses.ts",
+          "src/app/api/generated/aethelred-connections/council_houses/route.ts",
+          "src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/council_houses.ts",
+          "src/utils/generated/aethelred-connections/council_houses.ts",
+          "src/types/generated/plutus-economics/covenant_pool.ts",
+          "src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+          "src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "src/utils/generated/plutus-economics/covenant_pool.ts",
+          "src/types/generated/hermes-social/creative_categories.ts",
+          "src/lib/validators/generated/hermes-social/creative_categories.ts",
+          "src/app/api/generated/hermes-social/creative_categories/route.ts",
+          "src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+          "src/hooks/generated/hermes-social/creative_categories.ts",
+          "src/utils/generated/hermes-social/creative_categories.ts",
+          "src/types/generated/hestia-core/creator_category_links.ts",
+          "src/lib/validators/generated/hestia-core/creator_category_links.ts",
+          "src/app/api/generated/hestia-core/creator_category_links/route.ts",
+          "src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+          "src/hooks/generated/hestia-core/creator_category_links.ts",
+          "src/utils/generated/hestia-core/creator_category_links.ts",
+          "src/types/generated/hestia-core/creator_profiles.ts",
+          "src/lib/validators/generated/hestia-core/creator_profiles.ts",
+          "src/app/api/generated/hestia-core/creator_profiles/route.ts",
+          "src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+          "src/types/generated/iris-communications/culturalization.ts",
+          "src/lib/validators/generated/iris-communications/culturalization.ts",
+          "src/app/api/generated/iris-communications/culturalization/route.ts",
+          "src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "src/hooks/generated/iris-communications/culturalization.ts",
+          "src/utils/generated/iris-communications/culturalization.ts",
+          "src/types/generated/aethelred-connections/curator.ts",
+          "src/lib/validators/generated/aethelred-connections/curator.ts",
+          "src/app/api/generated/aethelred-connections/curator/route.ts",
+          "src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/curator.ts",
+          "src/utils/generated/aethelred-connections/curator.ts",
+          "src/types/generated/iris-communications/customs.ts",
+          "src/lib/validators/generated/iris-communications/customs.ts",
+          "src/app/api/generated/iris-communications/customs/route.ts",
+          "src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "src/hooks/generated/iris-communications/customs.ts",
+          "src/utils/generated/iris-communications/customs.ts",
+          "src/types/generated/plutus-economics/disbursements.ts",
+          "src/lib/validators/generated/plutus-economics/disbursements.ts",
+          "src/app/api/generated/plutus-economics/disbursements/route.ts",
+          "src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/disbursements.ts",
+          "src/utils/generated/plutus-economics/disbursements.ts",
+          "src/types/generated/iris-communications/email_communications.ts",
+          "src/lib/validators/generated/iris-communications/email_communications.ts",
+          "src/app/api/generated/iris-communications/email_communications/route.ts",
+          "src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "src/hooks/generated/iris-communications/email_communications.ts",
+          "src/utils/generated/iris-communications/email_communications.ts",
+          "src/types/generated/hermes-social/emeralds.ts",
+          "src/lib/validators/generated/hermes-social/emeralds.ts",
+          "src/app/api/generated/hermes-social/emeralds/route.ts",
+          "src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+          "src/hooks/generated/hermes-social/emeralds.ts",
+          "src/utils/generated/hermes-social/emeralds.ts",
+          "src/types/generated/hestia-core/entity_state_log.ts",
+          "src/lib/validators/generated/hestia-core/entity_state_log.ts",
+          "src/app/api/generated/hestia-core/entity_state_log/route.ts",
+          "src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+          "src/hooks/generated/hestia-core/entity_state_log.ts",
+          "src/utils/generated/hestia-core/entity_state_log.ts",
+          "src/types/generated/mnemosyne-assessment/etymology.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+          "src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "src/utils/generated/mnemosyne-assessment/etymology.ts",
+          "src/types/generated/aethelred-connections/executioner.ts",
+          "src/lib/validators/generated/aethelred-connections/executioner.ts",
+          "src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/executioner.ts",
+          "src/utils/generated/aethelred-connections/executioner.ts",
+          "src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/types/generated/aethelred-connections/github_connection.ts",
+          "src/lib/validators/generated/aethelred-connections/github_connection.ts",
+          "src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/github_connection.ts",
+          "src/utils/generated/aethelred-connections/github_connection.ts",
+          "src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+          "src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "src/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "src/types/generated/iris-communications/languages.ts",
+          "src/lib/validators/generated/iris-communications/languages.ts",
+          "src/app/api/generated/iris-communications/languages/route.ts",
+          "src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "src/hooks/generated/iris-communications/languages.ts",
+          "src/utils/generated/iris-communications/languages.ts",
+          "src/types/generated/athena-gamification/learning_paths.ts",
+          "src/lib/validators/generated/athena-gamification/learning_paths.ts",
+          "src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/learning_paths.ts",
+          "src/utils/generated/athena-gamification/learning_paths.ts",
+          "src/types/generated/plutus-economics/ledger.ts",
+          "src/lib/validators/generated/plutus-economics/ledger.ts",
+          "src/app/api/generated/plutus-economics/ledger/route.ts",
+          "src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/ledger.ts",
+          "src/utils/generated/plutus-economics/ledger.ts",
+          "src/types/generated/athena-gamification/lessons.ts",
+          "src/lib/validators/generated/athena-gamification/lessons.ts",
+          "src/app/api/generated/athena-gamification/lessons/route.ts",
+          "src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/lessons.ts",
+          "src/utils/generated/athena-gamification/lessons.ts",
+          "src/types/generated/athena-gamification/life_cycles.ts",
+          "src/lib/validators/generated/athena-gamification/life_cycles.ts",
+          "src/app/api/generated/athena-gamification/life_cycles/route.ts",
+          "src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/life_cycles.ts",
+          "src/utils/generated/athena-gamification/life_cycles.ts",
+          "src/types/generated/iris-communications/localization.ts",
+          "src/lib/validators/generated/iris-communications/localization.ts",
+          "src/app/api/generated/iris-communications/localization/route.ts",
+          "src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "src/hooks/generated/iris-communications/localization.ts",
+          "src/utils/generated/iris-communications/localization.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/types/generated/hermes-social/messages.ts",
+          "src/lib/validators/generated/hermes-social/messages.ts",
+          "src/app/api/generated/hermes-social/messages/route.ts",
+          "src/app/api/generated/hermes-social/messages/[id]/route.ts",
+          "src/hooks/generated/hermes-social/messages.ts",
+          "src/utils/generated/hermes-social/messages.ts",
+          "src/types/generated/themis-governance/moderation_actions.ts",
+          "src/lib/validators/generated/themis-governance/moderation_actions.ts",
+          "src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "src/hooks/generated/themis-governance/moderation_actions.ts",
+          "src/utils/generated/themis-governance/moderation_actions.ts",
+          "src/types/generated/athena-gamification/mythology.ts",
+          "src/lib/validators/generated/athena-gamification/mythology.ts",
+          "src/app/api/generated/athena-gamification/mythology/route.ts",
+          "src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/mythology.ts",
+          "src/utils/generated/athena-gamification/mythology.ts",
+          "src/types/generated/hermes-social/notifications.ts",
+          "src/lib/validators/generated/hermes-social/notifications.ts",
+          "src/app/api/generated/hermes-social/notifications/route.ts",
+          "src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+          "src/hooks/generated/hermes-social/notifications.ts",
+          "src/utils/generated/hermes-social/notifications.ts",
+          "src/types/generated/mnemosyne-assessment/ontology.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+          "src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "src/utils/generated/mnemosyne-assessment/ontology.ts",
+          "src/types/generated/athena-gamification/path_lessons.ts",
+          "src/lib/validators/generated/athena-gamification/path_lessons.ts",
+          "src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/path_lessons.ts",
+          "src/utils/generated/athena-gamification/path_lessons.ts",
+          "src/types/generated/plutus-economics/payouts.ts",
+          "src/lib/validators/generated/plutus-economics/payouts.ts",
+          "src/app/api/generated/plutus-economics/payouts/route.ts",
+          "src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/payouts.ts",
+          "src/utils/generated/plutus-economics/payouts.ts",
+          "src/types/generated/iris-communications/personas.ts",
+          "src/lib/validators/generated/iris-communications/personas.ts",
+          "src/app/api/generated/iris-communications/personas/route.ts",
+          "src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "src/hooks/generated/iris-communications/personas.ts",
+          "src/utils/generated/iris-communications/personas.ts",
+          "src/types/generated/hermes-social/posts.ts",
+          "src/lib/validators/generated/hermes-social/posts.ts",
+          "src/app/api/generated/hermes-social/posts/route.ts",
+          "src/app/api/generated/hermes-social/posts/[id]/route.ts",
+          "src/hooks/generated/hermes-social/posts.ts",
+          "src/utils/generated/hermes-social/posts.ts",
+          "src/types/generated/themis-governance/processes.ts",
+          "src/lib/validators/generated/themis-governance/processes.ts",
+          "src/app/api/generated/themis-governance/processes/route.ts",
+          "src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "src/hooks/generated/themis-governance/processes.ts",
+          "src/utils/generated/themis-governance/processes.ts",
+          "src/types/generated/plutus-economics/products.ts",
+          "src/lib/validators/generated/plutus-economics/products.ts",
+          "src/app/api/generated/plutus-economics/products/route.ts",
+          "src/app/api/generated/plutus-economics/products/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/products.ts",
+          "src/utils/generated/plutus-economics/products.ts",
+          "src/types/generated/hestia-core/profiles.ts",
+          "src/lib/validators/generated/hestia-core/profiles.ts",
+          "src/app/api/generated/hestia-core/profiles/route.ts",
+          "src/app/api/generated/hestia-core/profiles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/profiles.ts",
+          "src/utils/generated/hestia-core/profiles.ts",
+          "src/types/generated/athena-gamification/progress.ts",
+          "src/lib/validators/generated/athena-gamification/progress.ts",
+          "src/app/api/generated/athena-gamification/progress/route.ts",
+          "src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/progress.ts",
+          "src/utils/generated/athena-gamification/progress.ts",
+          "src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/types/generated/prometheus-meta/prometheus_generations.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+          "src/utils/generated/prometheus-meta/prometheus_generations.ts",
+          "src/types/generated/prometheus-meta/prometheus_memories.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+          "src/utils/generated/prometheus-meta/prometheus_memories.ts",
+          "src/types/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/utils/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/types/generated/prometheus-meta/prometheus_templates.ts",
+          "src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+          "src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+          "src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+          "src/utils/generated/prometheus-meta/prometheus_templates.ts",
+          "src/types/generated/hephaestus-infrastructure/protocols.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+          "src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+          "src/utils/generated/hephaestus-infrastructure/protocols.ts",
+          "src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/types/generated/athena-gamification/quests.ts",
+          "src/lib/validators/generated/athena-gamification/quests.ts",
+          "src/app/api/generated/athena-gamification/quests/route.ts",
+          "src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/quests.ts",
+          "src/utils/generated/athena-gamification/quests.ts",
+          "src/types/generated/themis-governance/rate_limits.ts",
+          "src/lib/validators/generated/themis-governance/rate_limits.ts",
+          "src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "src/hooks/generated/themis-governance/rate_limits.ts",
+          "src/utils/generated/themis-governance/rate_limits.ts",
+          "src/types/generated/hermes-social/reactions.ts",
+          "src/lib/validators/generated/hermes-social/reactions.ts",
+          "src/app/api/generated/hermes-social/reactions/route.ts",
+          "src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+          "src/hooks/generated/hermes-social/reactions.ts",
+          "src/utils/generated/hermes-social/reactions.ts",
+          "src/types/generated/iris-communications/regions.ts",
+          "src/lib/validators/generated/iris-communications/regions.ts",
+          "src/app/api/generated/iris-communications/regions/route.ts",
+          "src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "src/hooks/generated/iris-communications/regions.ts",
+          "src/utils/generated/iris-communications/regions.ts",
+          "src/types/generated/hermes-social/replies.ts",
+          "src/lib/validators/generated/hermes-social/replies.ts",
+          "src/app/api/generated/hermes-social/replies/route.ts",
+          "src/app/api/generated/hermes-social/replies/[id]/route.ts",
+          "src/hooks/generated/hermes-social/replies.ts",
+          "src/utils/generated/hermes-social/replies.ts",
+          "src/types/generated/themis-governance/reports.ts",
+          "src/lib/validators/generated/themis-governance/reports.ts",
+          "src/app/api/generated/themis-governance/reports/route.ts",
+          "src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "src/hooks/generated/themis-governance/reports.ts",
+          "src/utils/generated/themis-governance/reports.ts",
+          "src/types/generated/aethelred-connections/resend_connection.ts",
+          "src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+          "src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "src/utils/generated/aethelred-connections/resend_connection.ts",
+          "src/types/generated/plutus-economics/residual_payouts.ts",
+          "src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+          "src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+          "src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/residual_payouts.ts",
+          "src/utils/generated/plutus-economics/residual_payouts.ts",
+          "src/types/generated/plutus-economics/residual_pool.ts",
+          "src/lib/validators/generated/plutus-economics/residual_pool.ts",
+          "src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/residual_pool.ts",
+          "src/utils/generated/plutus-economics/residual_pool.ts",
+          "src/types/generated/plutus-economics/sales.ts",
+          "src/lib/validators/generated/plutus-economics/sales.ts",
+          "src/app/api/generated/plutus-economics/sales/route.ts",
+          "src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/sales.ts",
+          "src/utils/generated/plutus-economics/sales.ts",
+          "src/types/generated/athena-gamification/scene_participants.ts",
+          "src/lib/validators/generated/athena-gamification/scene_participants.ts",
+          "src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/scene_participants.ts",
+          "src/utils/generated/athena-gamification/scene_participants.ts",
+          "src/types/generated/athena-gamification/scenes.ts",
+          "src/lib/validators/generated/athena-gamification/scenes.ts",
+          "src/app/api/generated/athena-gamification/scenes/route.ts",
+          "src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/scenes.ts",
+          "src/utils/generated/athena-gamification/scenes.ts",
+          "src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "src/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "src/types/generated/aethelred-connections/seer.ts",
+          "src/lib/validators/generated/aethelred-connections/seer.ts",
+          "src/app/api/generated/aethelred-connections/seer/route.ts",
+          "src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/seer.ts",
+          "src/utils/generated/aethelred-connections/seer.ts",
+          "src/types/generated/hephaestus-infrastructure/settings.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+          "src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/settings.ts",
+          "src/utils/generated/hephaestus-infrastructure/settings.ts",
+          "src/types/generated/aethelred-connections/skald.ts",
+          "src/lib/validators/generated/aethelred-connections/skald.ts",
+          "src/app/api/generated/aethelred-connections/skald/route.ts",
+          "src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/skald.ts",
+          "src/utils/generated/aethelred-connections/skald.ts",
+          "src/types/generated/aethelred-connections/stripe_connection.ts",
+          "src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+          "src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "src/utils/generated/aethelred-connections/stripe_connection.ts",
+          "src/types/generated/plutus-economics/subscriptions.ts",
+          "src/lib/validators/generated/plutus-economics/subscriptions.ts",
+          "src/app/api/generated/plutus-economics/subscriptions/route.ts",
+          "src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+          "src/types/generated/aethelred-connections/supabase_connection.ts",
+          "src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+          "src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "src/utils/generated/aethelred-connections/supabase_connection.ts",
+          "src/types/generated/mnemosyne-assessment/superposition.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+          "src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/superposition.ts",
+          "src/utils/generated/mnemosyne-assessment/superposition.ts",
+          "src/types/generated/iris-communications/survey_responses.ts",
+          "src/lib/validators/generated/iris-communications/survey_responses.ts",
+          "src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "src/hooks/generated/iris-communications/survey_responses.ts",
+          "src/utils/generated/iris-communications/survey_responses.ts",
+          "src/types/generated/iris-communications/surveys.ts",
+          "src/lib/validators/generated/iris-communications/surveys.ts",
+          "src/app/api/generated/iris-communications/surveys/route.ts",
+          "src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "src/hooks/generated/iris-communications/surveys.ts",
+          "src/utils/generated/iris-communications/surveys.ts",
+          "src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/types/generated/hestia-core/system_timeline_events.ts",
+          "src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+          "src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+          "src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+          "src/hooks/generated/hestia-core/system_timeline_events.ts",
+          "src/utils/generated/hestia-core/system_timeline_events.ts",
+          "src/types/generated/hephaestus-infrastructure/systems.ts",
+          "src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+          "src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/systems.ts",
+          "src/utils/generated/hephaestus-infrastructure/systems.ts",
+          "src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/types/generated/athena-gamification/timelines.ts",
+          "src/lib/validators/generated/athena-gamification/timelines.ts",
+          "src/app/api/generated/athena-gamification/timelines/route.ts",
+          "src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/timelines.ts",
+          "src/utils/generated/athena-gamification/timelines.ts",
+          "src/types/generated/plutus-economics/transactions.ts",
+          "src/lib/validators/generated/plutus-economics/transactions.ts",
+          "src/app/api/generated/plutus-economics/transactions/route.ts",
+          "src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/transactions.ts",
+          "src/utils/generated/plutus-economics/transactions.ts",
+          "src/types/generated/iris-communications/translations.ts",
+          "src/lib/validators/generated/iris-communications/translations.ts",
+          "src/app/api/generated/iris-communications/translations/route.ts",
+          "src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "src/hooks/generated/iris-communications/translations.ts",
+          "src/utils/generated/iris-communications/translations.ts",
+          "src/types/generated/athena-gamification/user_badges.ts",
+          "src/lib/validators/generated/athena-gamification/user_badges.ts",
+          "src/app/api/generated/athena-gamification/user_badges/route.ts",
+          "src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+          "src/types/generated/hestia-core/user_financial.ts",
+          "src/lib/validators/generated/hestia-core/user_financial.ts",
+          "src/app/api/generated/hestia-core/user_financial/route.ts",
+          "src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_financial.ts",
+          "src/utils/generated/hestia-core/user_financial.ts",
+          "src/types/generated/hestia-core/user_private.ts",
+          "src/lib/validators/generated/hestia-core/user_private.ts",
+          "src/app/api/generated/hestia-core/user_private/route.ts",
+          "src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_private.ts",
+          "src/utils/generated/hestia-core/user_private.ts",
+          "src/types/generated/athena-gamification/user_quests.ts",
+          "src/lib/validators/generated/athena-gamification/user_quests.ts",
+          "src/app/api/generated/athena-gamification/user_quests/route.ts",
+          "src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+          "src/types/generated/hestia-core/vendor_profiles.ts",
+          "src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+          "src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+          "src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+          "src/types/generated/aethelred-connections/vercel_connection.ts",
+          "src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+          "src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "src/utils/generated/aethelred-connections/vercel_connection.ts",
+          "src/types/generated/hestia-core/personalized_feed.ts",
+          "src/app/api/generated/hestia-core/personalized_feed/route.ts",
+          "src/app/api/generated/hestia-core/personalized_feed/[id]/route.ts",
+          "src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+          "src/app/api/generated/hestia-core/prometheus_blueprint_health/route.ts",
+          "src/app/api/generated/hestia-core/prometheus_blueprint_health/[id]/route.ts",
+          "src/types/generated/hestia-core/prometheus_generation_stats.ts",
+          "src/app/api/generated/hestia-core/prometheus_generation_stats/route.ts",
+          "src/app/api/generated/hestia-core/prometheus_generation_stats/[id]/route.ts",
+          "src/types/generated/themis-governance/public_transparency.ts",
+          "src/app/api/generated/themis-governance/public_transparency/route.ts",
+          "src/app/api/generated/themis-governance/public_transparency/[id]/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_answers_results/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_answers_submit/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_questions_results/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_questions_submit/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_results_results/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/acid_test_results_submit/route.ts",
+          "src/app/api/generated/hestia-core/add_conversation_message/route.ts",
+          "src/app/api/generated/hestia-core/add_creator_category/route.ts",
+          "src/app/api/generated/hestia-core/approve_application/route.ts",
+          "src/app/api/generated/hestia-core/clean_old_agent_activities/route.ts",
+          "src/app/api/generated/themis-governance/cleanup_rate_limits/route.ts",
+          "src/app/api/generated/hestia-core/community_profiles_link/route.ts",
+          "src/app/api/generated/hestia-core/community_profiles_unlink/route.ts",
+          "src/app/api/generated/hermes-social/complete_agent_activity/route.ts",
+          "src/app/api/generated/hestia-core/complete_script_execution/route.ts",
+          "src/app/api/generated/plutus-economics/contributions_link/route.ts",
+          "src/app/api/generated/plutus-economics/contributions_unlink/route.ts",
+          "src/app/api/generated/hestia-core/create_creator_profile/route.ts",
+          "src/app/api/generated/hestia-core/create_vendor_profile/route.ts",
+          "src/app/api/generated/hestia-core/creator_profiles_link/route.ts",
+          "src/app/api/generated/hestia-core/creator_profiles_unlink/route.ts",
+          "src/app/api/generated/hermes-social/get_agent_activity_summary/route.ts",
+          "src/app/api/generated/hestia-core/get_creator_categories/route.ts",
+          "src/app/api/generated/hestia-core/get_current_user_id/route.ts",
+          "src/app/api/generated/hestia-core/get_generation_order/route.ts",
+          "src/app/api/generated/hestia-core/get_localized_text/route.ts",
+          "src/app/api/generated/hestia-core/get_platform_health/route.ts",
+          "src/app/api/generated/hestia-core/get_recommended_template/route.ts",
+          "src/app/api/generated/hestia-core/get_schema_enums/route.ts",
+          "src/app/api/generated/hestia-core/get_schema_functions/route.ts",
+          "src/app/api/generated/hestia-core/get_schema_tables/route.ts",
+          "src/app/api/generated/hestia-core/get_setting/route.ts",
+          "src/app/api/generated/hestia-core/get_user_nd_preferences/route.ts",
+          "src/app/api/generated/hestia-core/get_user_sensory_preferences/route.ts",
+          "src/app/api/generated/hestia-core/is_admin/route.ts",
+          "src/app/api/generated/hestia-core/is_quantum_weaver/route.ts",
+          "src/app/api/generated/hermes-social/log_agent_activity/route.ts",
+          "src/app/api/generated/hestia-core/log_script_execution/route.ts",
+          "src/app/api/generated/hestia-core/remove_creator_category/route.ts",
+          "src/app/api/generated/aethelred-connections/seed_council_houses/route.ts",
+          "src/app/api/generated/hestia-core/submit_application/route.ts",
+          "src/app/api/generated/hestia-core/update_algorithm_preferences/route.ts",
+          "src/app/api/generated/hestia-core/update_entity_state/route.ts",
+          "src/app/api/generated/hestia-core/update_last_active/route.ts",
+          "src/app/api/generated/hestia-core/update_nd_preferences/route.ts",
+          "src/app/api/generated/hestia-core/update_sensory_preferences/route.ts",
+          "src/app/api/generated/athena-gamification/user_badges_link/route.ts",
+          "src/app/api/generated/athena-gamification/user_badges_unlink/route.ts",
+          "src/app/api/generated/athena-gamification/user_quests_link/route.ts",
+          "src/app/api/generated/athena-gamification/user_quests_unlink/route.ts",
+          "src/app/api/generated/hestia-core/validate_blueprint_content/route.ts",
+          "src/app/api/generated/hestia-core/vendor_profiles_link/route.ts",
+          "src/app/api/generated/hestia-core/vendor_profiles_unlink/route.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+          "src/lib/constants/generated/hermes-social/action_type.ts",
+          "src/lib/constants/generated/hermes-social/activity_visibility.ts",
+          "src/lib/constants/generated/themis-governance/admin_log_category.ts",
+          "src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+          "src/lib/constants/generated/hestia-core/agent_action_type.ts",
+          "src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+          "src/lib/constants/generated/hestia-core/agent_name.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+          "src/lib/constants/generated/themis-governance/application_status.ts",
+          "src/lib/constants/generated/themis-governance/application_type.ts",
+          "src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+          "src/lib/constants/generated/athena-gamification/badge_tier.ts",
+          "src/lib/constants/generated/athena-gamification/badge_type.ts",
+          "src/lib/constants/generated/plutus-economics/bid_type.ts",
+          "src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+          "src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+          "src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+          "src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+          "src/lib/constants/generated/hestia-core/business_type.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "src/lib/constants/generated/plutus-economics/campaign_status.ts",
+          "src/lib/constants/generated/hestia-core/commission_status.ts",
+          "src/lib/constants/generated/hestia-core/communication_style.ts",
+          "src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+          "src/lib/constants/generated/iris-communications/contact_direction.ts",
+          "src/lib/constants/generated/iris-communications/contact_status.ts",
+          "src/lib/constants/generated/hestia-core/content_rating.ts",
+          "src/lib/constants/generated/hermes-social/content_type.ts",
+          "src/lib/constants/generated/plutus-economics/contribution_type.ts",
+          "src/lib/constants/generated/hestia-core/conversation_status.ts",
+          "src/lib/constants/generated/hestia-core/council_house.ts",
+          "src/lib/constants/generated/iris-communications/currency_position_type.ts",
+          "src/lib/constants/generated/iris-communications/custom_category_type.ts",
+          "src/lib/constants/generated/iris-communications/date_format_type.ts",
+          "src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+          "src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+          "src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+          "src/lib/constants/generated/iris-communications/email_status.ts",
+          "src/lib/constants/generated/hermes-social/emerald_status.ts",
+          "src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+          "src/lib/constants/generated/hestia-core/entity_state.ts",
+          "src/lib/constants/generated/themis-governance/escalation_target.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+          "src/lib/constants/generated/prometheus-meta/generation_status.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+          "src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+          "src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+          "src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+          "src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+          "src/lib/constants/generated/hestia-core/message_direction.ts",
+          "src/lib/constants/generated/hermes-social/message_status.ts",
+          "src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+          "src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+          "src/lib/constants/generated/athena-gamification/myth_type.ts",
+          "src/lib/constants/generated/hermes-social/notification_type.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "src/lib/constants/generated/plutus-economics/owner_type.ts",
+          "src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+          "src/lib/constants/generated/plutus-economics/payment_status.ts",
+          "src/lib/constants/generated/hestia-core/payment_structure.ts",
+          "src/lib/constants/generated/hestia-core/payout_frequency.ts",
+          "src/lib/constants/generated/hestia-core/payout_method.ts",
+          "src/lib/constants/generated/plutus-economics/payout_status.ts",
+          "src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+          "src/lib/constants/generated/aethelred-connections/platform_status.ts",
+          "src/lib/constants/generated/hermes-social/post_visibility.ts",
+          "src/lib/constants/generated/themis-governance/process_type.ts",
+          "src/lib/constants/generated/hestia-core/product_status.ts",
+          "src/lib/constants/generated/plutus-economics/product_type.ts",
+          "src/lib/constants/generated/athena-gamification/progress_status.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+          "src/lib/constants/generated/athena-gamification/quest_status.ts",
+          "src/lib/constants/generated/hermes-social/reaction_type.ts",
+          "src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+          "src/lib/constants/generated/themis-governance/report_status.ts",
+          "src/lib/constants/generated/themis-governance/report_target_type.ts",
+          "src/lib/constants/generated/themis-governance/report_type.ts",
+          "src/lib/constants/generated/athena-gamification/scene_type.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+          "src/lib/constants/generated/hestia-core/sensitivity_level.ts",
+          "src/lib/constants/generated/hestia-core/sensory_mode.ts",
+          "src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+          "src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+          "src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+          "src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+          "src/lib/constants/generated/athena-gamification/submission_type.ts",
+          "src/lib/constants/generated/plutus-economics/subscription_status.ts",
+          "src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+          "src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+          "src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+          "src/lib/constants/generated/hermes-social/target_type.ts",
+          "src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "src/lib/constants/generated/iris-communications/text_direction_type.ts",
+          "src/lib/constants/generated/iris-communications/time_format_type.ts",
+          "src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+          "src/lib/constants/generated/plutus-economics/transaction_type.ts",
+          "src/lib/constants/generated/iris-communications/translatable_type.ts",
+          "src/lib/constants/generated/hestia-core/user_status.ts",
+          "src/lib/constants/generated/hestia-core/user_tier.ts",
+          "src/lib/constants/generated/hestia-core/verification_status.ts",
+          "src/lib/constants/generated/hestia-core/warranty_type.ts",
+          "src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+          "src/lib/constants/generated/aethelred-connections/workflow_status.ts",
+          "src/types/generated/mnemosyne-assessment/acid_persona.ts",
+          "src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+          "src/types/generated/hermes-social/action_type.ts",
+          "src/types/generated/hermes-social/activity_visibility.ts",
+          "src/types/generated/themis-governance/admin_log_category.ts",
+          "src/types/generated/themis-governance/admin_log_target_type.ts",
+          "src/types/generated/hestia-core/agent_action_type.ts",
+          "src/types/generated/hestia-core/agent_activity_status.ts",
+          "src/types/generated/hestia-core/agent_name.ts",
+          "src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+          "src/types/generated/themis-governance/application_status.ts",
+          "src/types/generated/themis-governance/application_type.ts",
+          "src/types/generated/athena-gamification/badge_rarity.ts",
+          "src/types/generated/athena-gamification/badge_tier.ts",
+          "src/types/generated/athena-gamification/badge_type.ts",
+          "src/types/generated/plutus-economics/bid_type.ts",
+          "src/types/generated/prometheus-meta/blueprint_status.ts",
+          "src/types/generated/prometheus-meta/blueprint_system.ts",
+          "src/types/generated/prometheus-meta/boundary_type.ts",
+          "src/types/generated/aethelred-connections/bridge_status.ts",
+          "src/types/generated/hestia-core/business_type.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "src/types/generated/plutus-economics/campaign_status.ts",
+          "src/types/generated/hestia-core/commission_status.ts",
+          "src/types/generated/hestia-core/communication_style.ts",
+          "src/types/generated/prometheus-meta/consciousness_state.ts",
+          "src/types/generated/iris-communications/contact_direction.ts",
+          "src/types/generated/iris-communications/contact_status.ts",
+          "src/types/generated/hestia-core/content_rating.ts",
+          "src/types/generated/hermes-social/content_type.ts",
+          "src/types/generated/plutus-economics/contribution_type.ts",
+          "src/types/generated/hestia-core/conversation_status.ts",
+          "src/types/generated/hestia-core/council_house.ts",
+          "src/types/generated/iris-communications/currency_position_type.ts",
+          "src/types/generated/iris-communications/custom_category_type.ts",
+          "src/types/generated/iris-communications/date_format_type.ts",
+          "src/types/generated/aethelred-connections/delivery_status.ts",
+          "src/types/generated/aethelred-connections/deployment_status.ts",
+          "src/types/generated/athena-gamification/difficulty_level.ts",
+          "src/types/generated/iris-communications/email_status.ts",
+          "src/types/generated/hermes-social/emerald_status.ts",
+          "src/types/generated/prometheus-meta/encryption_level.ts",
+          "src/types/generated/hestia-core/entity_state.ts",
+          "src/types/generated/themis-governance/escalation_target.ts",
+          "src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "src/types/generated/hestia-core/fulfillment_method.ts",
+          "src/types/generated/prometheus-meta/generation_status.ts",
+          "src/types/generated/hephaestus-infrastructure/job_status.ts",
+          "src/types/generated/hephaestus-infrastructure/job_type.ts",
+          "src/types/generated/plutus-economics/ledger_entity.ts",
+          "src/types/generated/plutus-economics/ledger_entry_type.ts",
+          "src/types/generated/athena-gamification/lesson_content_type.ts",
+          "src/types/generated/athena-gamification/life_cycle_phase.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "src/types/generated/iris-communications/measurement_system_type.ts",
+          "src/types/generated/hestia-core/message_direction.ts",
+          "src/types/generated/hermes-social/message_status.ts",
+          "src/types/generated/themis-governance/moderation_action_type.ts",
+          "src/types/generated/themis-governance/moderation_target_type.ts",
+          "src/types/generated/athena-gamification/myth_type.ts",
+          "src/types/generated/hermes-social/notification_type.ts",
+          "src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "src/types/generated/plutus-economics/owner_type.ts",
+          "src/types/generated/prometheus-meta/pattern_context.ts",
+          "src/types/generated/plutus-economics/payment_status.ts",
+          "src/types/generated/hestia-core/payment_structure.ts",
+          "src/types/generated/hestia-core/payout_frequency.ts",
+          "src/types/generated/hestia-core/payout_method.ts",
+          "src/types/generated/plutus-economics/payout_status.ts",
+          "src/types/generated/aethelred-connections/platform_environment.ts",
+          "src/types/generated/aethelred-connections/platform_status.ts",
+          "src/types/generated/hermes-social/post_visibility.ts",
+          "src/types/generated/themis-governance/process_type.ts",
+          "src/types/generated/hestia-core/product_status.ts",
+          "src/types/generated/plutus-economics/product_type.ts",
+          "src/types/generated/athena-gamification/progress_status.ts",
+          "src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+          "src/types/generated/athena-gamification/quest_status.ts",
+          "src/types/generated/hermes-social/reaction_type.ts",
+          "src/types/generated/plutus-economics/recurring_interval.ts",
+          "src/types/generated/themis-governance/report_status.ts",
+          "src/types/generated/themis-governance/report_target_type.ts",
+          "src/types/generated/themis-governance/report_type.ts",
+          "src/types/generated/athena-gamification/scene_type.ts",
+          "src/types/generated/hephaestus-infrastructure/script_type.ts",
+          "src/types/generated/hestia-core/sensitivity_level.ts",
+          "src/types/generated/hestia-core/sensory_mode.ts",
+          "src/types/generated/hestia-core/sensory_preferences.ts",
+          "src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+          "src/types/generated/hestia-core/shipping_requirements.ts",
+          "src/types/generated/plutus-economics/source_pool_type.ts",
+          "src/types/generated/aethelred-connections/stripe_mode.ts",
+          "src/types/generated/athena-gamification/submission_type.ts",
+          "src/types/generated/plutus-economics/subscription_status.ts",
+          "src/types/generated/aethelred-connections/supabase_status.ts",
+          "src/types/generated/mnemosyne-assessment/superposition_status.ts",
+          "src/types/generated/iris-communications/survey_audience_type.ts",
+          "src/types/generated/hephaestus-infrastructure/system_status.ts",
+          "src/types/generated/hephaestus-infrastructure/system_type.ts",
+          "src/types/generated/hermes-social/target_type.ts",
+          "src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "src/types/generated/iris-communications/text_direction_type.ts",
+          "src/types/generated/iris-communications/time_format_type.ts",
+          "src/types/generated/athena-gamification/timeline_event_type.ts",
+          "src/types/generated/plutus-economics/transaction_type.ts",
+          "src/types/generated/iris-communications/translatable_type.ts",
+          "src/types/generated/hestia-core/user_status.ts",
+          "src/types/generated/hestia-core/user_tier.ts",
+          "src/types/generated/hestia-core/verification_status.ts",
+          "src/types/generated/hestia-core/warranty_type.ts",
+          "src/types/generated/aethelred-connections/webhook_status.ts",
+          "src/types/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "errors": [],
+        "warnings": [],
+        "notes": []
+      },
+      {
+        "id": "20260422_000703",
+        "system": "GAIA",
+        "startTime": "2026-04-22T05:07:03.474Z",
+        "endTime": "2026-04-22T05:07:09.745Z",
+        "status": "success",
+        "generatedFiles": [
+          "src/utils/generated/hermes-social/activity.ts",
+          "src/utils/generated/themis-governance/admin_logs.ts",
+          "src/utils/generated/plutus-economics/advertising.ts",
+          "src/utils/generated/aethelred-connections/aethelred_house.ts",
+          "src/utils/generated/hestia-core/agent_activities.ts",
+          "src/utils/generated/hestia-core/agent_conversations.ts",
+          "src/utils/generated/hestia-core/agent_messages.ts",
+          "src/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "src/utils/generated/themis-governance/applications.ts",
+          "src/utils/generated/aethelred-connections/archivist.ts",
+          "src/utils/generated/aethelred-connections/audhdities_platform.ts",
+          "src/utils/generated/athena-gamification/badges.ts",
+          "src/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "src/utils/generated/aethelred-connections/chancellor.ts",
+          "src/utils/generated/hestia-core/channels.ts",
+          "src/utils/generated/aethelred-connections/codex.ts",
+          "src/utils/generated/hermes-social/comments.ts",
+          "src/utils/generated/aethelred-connections/consciousness.ts",
+          "src/utils/generated/iris-communications/contact_submissions.ts",
+          "src/utils/generated/iris-communications/continents.ts",
+          "src/utils/generated/aethelred-connections/council_houses.ts",
+          "src/utils/generated/plutus-economics/covenant_pool.ts",
+          "src/utils/generated/hermes-social/creative_categories.ts",
+          "src/utils/generated/hestia-core/creator_category_links.ts",
+          "src/utils/generated/iris-communications/culturalization.ts",
+          "src/utils/generated/aethelred-connections/curator.ts",
+          "src/utils/generated/iris-communications/customs.ts",
+          "src/utils/generated/plutus-economics/disbursements.ts",
+          "src/utils/generated/iris-communications/email_communications.ts",
+          "src/utils/generated/hermes-social/emeralds.ts",
+          "src/utils/generated/hestia-core/entity_state_log.ts",
+          "src/utils/generated/mnemosyne-assessment/etymology.ts",
+          "src/utils/generated/aethelred-connections/executioner.ts",
+          "src/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/utils/generated/aethelred-connections/github_connection.ts",
+          "src/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "src/utils/generated/iris-communications/languages.ts",
+          "src/utils/generated/athena-gamification/learning_paths.ts",
+          "src/utils/generated/plutus-economics/ledger.ts",
+          "src/utils/generated/athena-gamification/lessons.ts",
+          "src/utils/generated/athena-gamification/life_cycles.ts",
+          "src/utils/generated/iris-communications/localization.ts",
+          "src/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/utils/generated/hermes-social/messages.ts",
+          "src/utils/generated/themis-governance/moderation_actions.ts",
+          "src/utils/generated/athena-gamification/mythology.ts",
+          "src/utils/generated/hermes-social/notifications.ts",
+          "src/utils/generated/mnemosyne-assessment/ontology.ts",
+          "src/utils/generated/athena-gamification/path_lessons.ts",
+          "src/utils/generated/plutus-economics/payouts.ts",
+          "src/utils/generated/iris-communications/personas.ts",
+          "src/utils/generated/hermes-social/posts.ts",
+          "src/utils/generated/themis-governance/processes.ts",
+          "src/utils/generated/plutus-economics/products.ts",
+          "src/utils/generated/athena-gamification/progress.ts",
+          "src/utils/generated/prometheus-meta/prometheus_blueprints.ts",
+          "src/utils/generated/prometheus-meta/prometheus_boundaries.ts",
+          "src/utils/generated/prometheus-meta/prometheus_consciousness.ts",
+          "src/utils/generated/prometheus-meta/prometheus_generations.ts",
+          "src/utils/generated/prometheus-meta/prometheus_memories.ts",
+          "src/utils/generated/prometheus-meta/prometheus_patterns.ts",
+          "src/utils/generated/prometheus-meta/prometheus_templates.ts",
+          "src/utils/generated/hephaestus-infrastructure/protocols.ts",
+          "src/utils/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "src/utils/generated/athena-gamification/quests.ts",
+          "src/utils/generated/themis-governance/rate_limits.ts",
+          "src/utils/generated/hermes-social/reactions.ts",
+          "src/utils/generated/iris-communications/regions.ts",
+          "src/utils/generated/hermes-social/replies.ts",
+          "src/utils/generated/themis-governance/reports.ts",
+          "src/utils/generated/aethelred-connections/resend_connection.ts",
+          "src/utils/generated/plutus-economics/residual_payouts.ts",
+          "src/utils/generated/plutus-economics/residual_pool.ts",
+          "src/utils/generated/plutus-economics/sales.ts",
+          "src/utils/generated/athena-gamification/scene_participants.ts",
+          "src/utils/generated/athena-gamification/scenes.ts",
+          "src/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "src/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "src/utils/generated/aethelred-connections/seer.ts",
+          "src/utils/generated/hephaestus-infrastructure/settings.ts",
+          "src/utils/generated/aethelred-connections/skald.ts",
+          "src/utils/generated/aethelred-connections/stripe_connection.ts",
+          "src/utils/generated/aethelred-connections/supabase_connection.ts",
+          "src/utils/generated/mnemosyne-assessment/superposition.ts",
+          "src/utils/generated/iris-communications/survey_responses.ts",
+          "src/utils/generated/iris-communications/surveys.ts",
+          "src/utils/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "src/utils/generated/hestia-core/system_timeline_events.ts",
+          "src/utils/generated/hephaestus-infrastructure/systems.ts",
+          "src/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/utils/generated/athena-gamification/timelines.ts",
+          "src/utils/generated/plutus-economics/transactions.ts",
+          "src/utils/generated/iris-communications/translations.ts",
+          "src/utils/generated/hestia-core/user_financial.ts",
+          "src/utils/generated/hestia-core/user_private.ts",
+          "src/utils/generated/aethelred-connections/vercel_connection.ts"
+        ],
+        "errors": [],
+        "warnings": [
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/utils/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/personalized_feed.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_generation_stats.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/public_transparency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/workflow_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "notes": []
+      },
+      {
+        "id": "20260421_235924",
+        "system": "GAIA",
+        "startTime": "2026-04-22T04:59:24.238Z",
+        "endTime": "2026-04-22T04:59:28.456Z",
+        "status": "success",
+        "generatedFiles": [],
+        "errors": [],
+        "warnings": [
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/activity/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/activity.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/admin_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/admin_logs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/advertising/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/advertising.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_activities/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_activities.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_conversations.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/agent_messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/agent_messages.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/applications.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/archivist.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/audhdities_platform.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/badges/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/badges.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/chancellor.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/channels/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/channels.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/codex.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/comments/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/comments.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/community_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/contact_submissions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/continents.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/contributions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/contributions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/council_houses.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/creative_categories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/creative_categories.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/creator_category_links.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/creator_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/culturalization.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/curator.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/customs.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/disbursements/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/disbursements.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/email_communications.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/emeralds/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/emeralds.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/entity_state_log.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/executioner.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/github_connection.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/languages.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/learning_paths.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/ledger.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/lessons.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/life_cycles.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/localization.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/messages/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/messages.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/moderation_actions.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/mythology.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/notifications/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/notifications.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/path_lessons.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/payouts.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/personas.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/posts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/posts.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/processes.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/products/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/products.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/profiles.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/progress/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/progress.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_blueprints.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_boundaries.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_consciousness.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_generations.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_memories.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_patterns.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/prometheus-meta/prometheus_templates.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/protocols.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/quests.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/rate_limits.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/reactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/reactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/regions.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hermes-social/replies/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hermes-social/replies.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/themis-governance/reports.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_payouts.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/residual_pool.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/sales/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/sales.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scene_participants.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/scenes.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/seer.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/settings.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/skald.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/subscriptions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/superposition.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/survey_responses.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/surveys.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/system_timeline_events.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hephaestus-infrastructure/systems.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/timelines/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/athena-gamification/timelines.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/plutus-economics/transactions/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/plutus-economics/transactions.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/iris-communications/translations.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_badges.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_badges/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_financial.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/hestia-core/user_private.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/athena-gamification/user_quests.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/athena-gamification/user_quests/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/hestia-core/vendor_profiles.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/lib/validators/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "Skipped (would overwrite): src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "Skipped (would overwrite): src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/personalized_feed.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_blueprint_health.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/prometheus_generation_stats.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/public_transparency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/lib/constants/generated/aethelred-connections/workflow_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_persona.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/acid_question_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/activity_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/admin_log_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_activity_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/agent_name.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/analytics_category.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/application_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_rarity.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_tier.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/badge_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/bid_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/blueprint_system.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/boundary_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/bridge_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/business_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/calendar_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/campaign_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/commission_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/communication_style.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/consciousness_state.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_direction.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/contact_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/content_rating.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/content_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/contribution_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/conversation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/council_house.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/currency_position_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/custom_category_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/date_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/delivery_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/deployment_status.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/difficulty_level.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/email_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/emerald_status.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/encryption_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/entity_state.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/escalation_target.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/fulfillment_method.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/generation_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/job_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entity.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/ledger_entry_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/lesson_content_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/life_cycle_phase.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/maintenance_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/measurement_system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/message_direction.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/message_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_action_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/moderation_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/myth_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/notification_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/ontology_predicate.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/owner_type.ts",
+          "Skipped (would overwrite): src/types/generated/prometheus-meta/pattern_context.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payment_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payment_structure.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_frequency.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/payout_method.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/payout_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_environment.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/platform_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/post_visibility.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/process_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/product_status.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/product_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/progress_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/protocol_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/quest_status.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/reaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/recurring_interval.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_status.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_target_type.ts",
+          "Skipped (would overwrite): src/types/generated/themis-governance/report_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/scene_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/script_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensitivity_level.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_mode.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/sensory_preferences.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/setting_scope.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/shipping_requirements.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/source_pool_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/stripe_mode.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/submission_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/subscription_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/supabase_status.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/superposition_status.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/survey_audience_type.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_status.ts",
+          "Skipped (would overwrite): src/types/generated/hephaestus-infrastructure/system_type.ts",
+          "Skipped (would overwrite): src/types/generated/hermes-social/target_type.ts",
+          "Skipped (would overwrite): src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/text_direction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/time_format_type.ts",
+          "Skipped (would overwrite): src/types/generated/athena-gamification/timeline_event_type.ts",
+          "Skipped (would overwrite): src/types/generated/plutus-economics/transaction_type.ts",
+          "Skipped (would overwrite): src/types/generated/iris-communications/translatable_type.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/user_tier.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/verification_status.ts",
+          "Skipped (would overwrite): src/types/generated/hestia-core/warranty_type.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/webhook_status.ts",
+          "Skipped (would overwrite): src/types/generated/aethelred-connections/workflow_status.ts"
+        ],
+        "notes": []
+      },
       {
         "id": "20260421_233757",
         "system": "GAIA",
@@ -1753,3304 +6174,3736 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
     ],
     "files": {
       "src/types/generated/mnemosyne-assessment/acid_test_answers.ts": {
-        "hash": "fc406dd7c3e50119",
-        "generatedAt": "2026-04-22T04:38:04.866Z"
+        "hash": "446259d238f3c59e",
+        "generatedAt": "2026-04-22T05:20:52.869Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/acid_test_answers.ts": {
-        "hash": "3f11506260e2a337",
-        "generatedAt": "2026-04-22T04:38:04.869Z"
+        "hash": "ee114bfa50556252",
+        "generatedAt": "2026-04-22T05:15:34.112Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_answers/route.ts": {
-        "hash": "161bc90ea6d0c4ac",
-        "generatedAt": "2026-04-22T04:38:04.889Z"
+        "hash": "021a64c911c7b77a",
+        "generatedAt": "2026-04-22T05:15:34.130Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_answers/[id]/route.ts": {
-        "hash": "4ca26384e41714f2",
-        "generatedAt": "2026-04-22T04:38:04.893Z"
+        "hash": "30a42a295e3a2483",
+        "generatedAt": "2026-04-22T05:15:34.134Z"
       },
       "src/types/generated/mnemosyne-assessment/acid_test_questions.ts": {
-        "hash": "9b47ec51956d172b",
-        "generatedAt": "2026-04-22T04:38:04.896Z"
+        "hash": "2d6f926a1b70efcf",
+        "generatedAt": "2026-04-22T05:20:52.893Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/acid_test_questions.ts": {
-        "hash": "8f87c090bbea2cdf",
-        "generatedAt": "2026-04-22T04:38:04.898Z"
+        "hash": "1fd1c571b99d0006",
+        "generatedAt": "2026-04-22T05:15:34.140Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_questions/route.ts": {
-        "hash": "e5c9b70bb57f2612",
-        "generatedAt": "2026-04-22T04:38:04.901Z"
+        "hash": "ef795e9dc3915064",
+        "generatedAt": "2026-04-22T05:15:34.142Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_questions/[id]/route.ts": {
-        "hash": "512f6536107f8c15",
-        "generatedAt": "2026-04-22T04:38:04.903Z"
+        "hash": "f10820cce31a7c6d",
+        "generatedAt": "2026-04-22T05:15:34.145Z"
       },
       "src/types/generated/mnemosyne-assessment/acid_test_results.ts": {
-        "hash": "d43229cde6b9c421",
-        "generatedAt": "2026-04-22T04:38:04.908Z"
+        "hash": "88a01fa44b246d4b",
+        "generatedAt": "2026-04-22T05:20:52.898Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/acid_test_results.ts": {
-        "hash": "450b19101a4a94e7",
-        "generatedAt": "2026-04-22T04:38:04.911Z"
+        "hash": "2c32e74d5ad40229",
+        "generatedAt": "2026-04-22T05:15:34.150Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_results/route.ts": {
-        "hash": "e214cc93fa8d178c",
-        "generatedAt": "2026-04-22T04:38:04.915Z"
+        "hash": "5c99818397f14f35",
+        "generatedAt": "2026-04-22T05:15:34.153Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_results/[id]/route.ts": {
-        "hash": "661c82206d36ea67",
-        "generatedAt": "2026-04-22T04:38:04.917Z"
+        "hash": "7f7bec9aa3677b4c",
+        "generatedAt": "2026-04-22T05:15:34.156Z"
       },
       "src/types/generated/hermes-social/activity.ts": {
-        "hash": "1767d5b8614c1ea4",
-        "generatedAt": "2026-04-22T04:38:04.919Z"
+        "hash": "f0bbe1c2f5f4562e",
+        "generatedAt": "2026-04-22T05:20:52.904Z"
       },
       "src/lib/validators/generated/hermes-social/activity.ts": {
-        "hash": "b3f9ffeb54d14d26",
-        "generatedAt": "2026-04-22T04:38:04.923Z"
+        "hash": "534dcf0fab9d5273",
+        "generatedAt": "2026-04-22T05:15:34.161Z"
       },
       "src/app/api/generated/hermes-social/activity/route.ts": {
-        "hash": "4fd22f07f1c67b6a",
-        "generatedAt": "2026-04-22T04:38:04.929Z"
+        "hash": "68ff37b9dea96552",
+        "generatedAt": "2026-04-22T05:15:34.163Z"
       },
       "src/app/api/generated/hermes-social/activity/[id]/route.ts": {
-        "hash": "faec23a9488762c5",
-        "generatedAt": "2026-04-22T04:38:04.934Z"
+        "hash": "90ac04752c131e19",
+        "generatedAt": "2026-04-22T05:15:34.166Z"
       },
       "src/hooks/generated/hermes-social/activity.ts": {
-        "hash": "49ef1459164e3683",
-        "generatedAt": "2026-04-22T04:38:04.936Z"
+        "hash": "06467328748d25a2",
+        "generatedAt": "2026-04-22T05:15:34.170Z"
       },
       "src/types/generated/themis-governance/admin_logs.ts": {
-        "hash": "957dcbf30605cd89",
-        "generatedAt": "2026-04-22T04:38:04.938Z"
+        "hash": "a38c4255e8a2ddc6",
+        "generatedAt": "2026-04-22T05:20:52.912Z"
       },
       "src/lib/validators/generated/themis-governance/admin_logs.ts": {
-        "hash": "7449b1fa137e2b13",
-        "generatedAt": "2026-04-22T04:38:04.943Z"
+        "hash": "e6b98f463eaf9771",
+        "generatedAt": "2026-04-22T05:15:34.177Z"
       },
       "src/app/api/generated/themis-governance/admin_logs/route.ts": {
-        "hash": "bf8cca9f9b2c3a8f",
-        "generatedAt": "2026-04-22T04:38:04.945Z"
+        "hash": "de593affe77bd15e",
+        "generatedAt": "2026-04-22T05:15:34.180Z"
       },
       "src/app/api/generated/themis-governance/admin_logs/[id]/route.ts": {
-        "hash": "6c1138ff1a92ddcb",
-        "generatedAt": "2026-04-22T04:38:04.948Z"
+        "hash": "dba6feb7ede3bbb4",
+        "generatedAt": "2026-04-22T05:15:34.183Z"
       },
       "src/hooks/generated/themis-governance/admin_logs.ts": {
-        "hash": "8e18e9bc9af4c3e0",
-        "generatedAt": "2026-04-22T04:38:04.950Z"
+        "hash": "e2b1f3a1b940dee3",
+        "generatedAt": "2026-04-22T05:15:34.186Z"
       },
       "src/types/generated/plutus-economics/advertising.ts": {
-        "hash": "aaf725ee47d3b3d0",
-        "generatedAt": "2026-04-22T04:38:04.952Z"
+        "hash": "38f96bccf7bed704",
+        "generatedAt": "2026-04-22T05:20:52.921Z"
       },
       "src/lib/validators/generated/plutus-economics/advertising.ts": {
-        "hash": "7a96b763836dfb6e",
-        "generatedAt": "2026-04-22T04:38:04.955Z"
+        "hash": "f05e1d66ebaac73c",
+        "generatedAt": "2026-04-22T05:15:34.192Z"
       },
       "src/app/api/generated/plutus-economics/advertising/route.ts": {
-        "hash": "3b9e6fe1fa7bdf48",
-        "generatedAt": "2026-04-22T04:38:04.958Z"
+        "hash": "050971c8b6cd523a",
+        "generatedAt": "2026-04-22T05:15:34.194Z"
       },
       "src/app/api/generated/plutus-economics/advertising/[id]/route.ts": {
-        "hash": "a17278c398b3539e",
-        "generatedAt": "2026-04-22T04:38:04.961Z"
+        "hash": "34cf4ab40a2fd989",
+        "generatedAt": "2026-04-22T05:15:34.197Z"
       },
       "src/hooks/generated/plutus-economics/advertising.ts": {
-        "hash": "60b0902fb012774c",
-        "generatedAt": "2026-04-22T04:38:04.963Z"
+        "hash": "4f5cf94df5685813",
+        "generatedAt": "2026-04-22T05:15:34.199Z"
       },
       "src/types/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "d2fc0c825318c55d",
-        "generatedAt": "2026-04-22T04:38:04.965Z"
+        "hash": "0958686dddae8894",
+        "generatedAt": "2026-04-22T05:20:52.929Z"
       },
       "src/lib/validators/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "e32ba77aee894923",
-        "generatedAt": "2026-04-22T04:38:04.967Z"
+        "hash": "6b01845c68b297f9",
+        "generatedAt": "2026-04-22T05:15:34.207Z"
       },
       "src/app/api/generated/aethelred-connections/aethelred_house/route.ts": {
-        "hash": "5d90fdc4d9329edf",
-        "generatedAt": "2026-04-22T04:38:04.969Z"
+        "hash": "8434921c3e181c6c",
+        "generatedAt": "2026-04-22T05:15:34.209Z"
       },
       "src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts": {
-        "hash": "3f6a65d9da76362f",
-        "generatedAt": "2026-04-22T04:38:04.972Z"
+        "hash": "a17e0bdfc50927a0",
+        "generatedAt": "2026-04-22T05:15:34.211Z"
       },
       "src/hooks/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "58aebd1684a816b7",
-        "generatedAt": "2026-04-22T04:38:04.975Z"
+        "hash": "d31280379f9b4725",
+        "generatedAt": "2026-04-22T05:15:34.213Z"
       },
       "src/types/generated/hestia-core/agent_activities.ts": {
-        "hash": "04c5979dc537e1aa",
-        "generatedAt": "2026-04-22T04:38:04.978Z"
+        "hash": "3337768996294db1",
+        "generatedAt": "2026-04-22T05:20:52.939Z"
       },
       "src/lib/validators/generated/hestia-core/agent_activities.ts": {
-        "hash": "596f7e67069004c0",
-        "generatedAt": "2026-04-22T04:38:04.980Z"
+        "hash": "ea699d427c38f78c",
+        "generatedAt": "2026-04-22T05:15:34.223Z"
       },
       "src/app/api/generated/hestia-core/agent_activities/route.ts": {
-        "hash": "2ecbfb15927ae428",
-        "generatedAt": "2026-04-22T04:38:04.983Z"
+        "hash": "7cf291057296d155",
+        "generatedAt": "2026-04-22T05:15:34.226Z"
       },
       "src/app/api/generated/hestia-core/agent_activities/[id]/route.ts": {
-        "hash": "14a2647b80c22f18",
-        "generatedAt": "2026-04-22T04:38:04.985Z"
+        "hash": "21a770d07780e7a4",
+        "generatedAt": "2026-04-22T05:15:34.228Z"
       },
       "src/hooks/generated/hestia-core/agent_activities.ts": {
-        "hash": "7bcbcb3748622aad",
-        "generatedAt": "2026-04-22T04:38:04.988Z"
+        "hash": "7d3c21e34a7813b4",
+        "generatedAt": "2026-04-22T05:15:34.230Z"
       },
       "src/types/generated/hestia-core/agent_conversations.ts": {
-        "hash": "fec926e903c323e5",
-        "generatedAt": "2026-04-22T04:38:04.992Z"
+        "hash": "3b432a41ba265498",
+        "generatedAt": "2026-04-22T05:20:52.948Z"
       },
       "src/lib/validators/generated/hestia-core/agent_conversations.ts": {
-        "hash": "6f9fd99329fabecd",
-        "generatedAt": "2026-04-22T04:38:04.995Z"
+        "hash": "48bcccb233c8c21a",
+        "generatedAt": "2026-04-22T05:15:34.238Z"
       },
       "src/app/api/generated/hestia-core/agent_conversations/route.ts": {
-        "hash": "e4c8394a2abe33f9",
-        "generatedAt": "2026-04-22T04:38:04.998Z"
+        "hash": "c99f7d165bb0b302",
+        "generatedAt": "2026-04-22T05:15:34.241Z"
       },
       "src/app/api/generated/hestia-core/agent_conversations/[id]/route.ts": {
-        "hash": "54f00a4967b1ee07",
-        "generatedAt": "2026-04-22T04:38:05.001Z"
+        "hash": "6770949dbb7dbf9f",
+        "generatedAt": "2026-04-22T05:15:34.243Z"
       },
       "src/hooks/generated/hestia-core/agent_conversations.ts": {
-        "hash": "8e57695f6cb723f5",
-        "generatedAt": "2026-04-22T04:38:05.003Z"
+        "hash": "4d7f8a92fa4c3bb4",
+        "generatedAt": "2026-04-22T05:15:34.245Z"
       },
       "src/types/generated/hestia-core/agent_messages.ts": {
-        "hash": "20f925757313531b",
-        "generatedAt": "2026-04-22T04:38:05.006Z"
+        "hash": "0ca36cefaf5a0370",
+        "generatedAt": "2026-04-22T05:20:52.956Z"
       },
       "src/lib/validators/generated/hestia-core/agent_messages.ts": {
-        "hash": "95665b559d79d56f",
-        "generatedAt": "2026-04-22T04:38:05.010Z"
+        "hash": "5a88936e6c5afd42",
+        "generatedAt": "2026-04-22T05:15:34.253Z"
       },
       "src/app/api/generated/hestia-core/agent_messages/route.ts": {
-        "hash": "81c369b97a593ab9",
-        "generatedAt": "2026-04-22T04:38:05.013Z"
+        "hash": "554c92b2905e5d05",
+        "generatedAt": "2026-04-22T05:15:34.256Z"
       },
       "src/app/api/generated/hestia-core/agent_messages/[id]/route.ts": {
-        "hash": "65188cef94411a19",
-        "generatedAt": "2026-04-22T04:38:05.015Z"
+        "hash": "86c7b1adef3551ff",
+        "generatedAt": "2026-04-22T05:15:34.258Z"
       },
       "src/hooks/generated/hestia-core/agent_messages.ts": {
-        "hash": "8cf6a5465ea614aa",
-        "generatedAt": "2026-04-22T04:38:05.017Z"
+        "hash": "aa5dfc69649d6918",
+        "generatedAt": "2026-04-22T05:15:34.260Z"
       },
       "src/types/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "f43973b3eb480021",
-        "generatedAt": "2026-04-22T04:38:05.019Z"
+        "hash": "1639ac9005f6c464",
+        "generatedAt": "2026-04-22T05:20:52.964Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "cec202f2846e4b9e",
-        "generatedAt": "2026-04-22T04:38:05.021Z"
+        "hash": "92181d19d3a68a2d",
+        "generatedAt": "2026-04-22T05:15:34.267Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/analytics/route.ts": {
-        "hash": "d120514e092bfb14",
-        "generatedAt": "2026-04-22T04:38:05.025Z"
+        "hash": "64aeeba6392a7a67",
+        "generatedAt": "2026-04-22T05:15:34.270Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts": {
-        "hash": "a4ee6219aa2187b7",
-        "generatedAt": "2026-04-22T04:38:05.028Z"
+        "hash": "78004b70590fbe37",
+        "generatedAt": "2026-04-22T05:15:34.273Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "dde7d228a271728a",
-        "generatedAt": "2026-04-22T04:38:05.030Z"
+        "hash": "c5d25570fccfc2ae",
+        "generatedAt": "2026-04-22T05:15:34.275Z"
       },
       "src/types/generated/themis-governance/applications.ts": {
-        "hash": "7cbc968af6f8d7cd",
-        "generatedAt": "2026-04-22T04:38:05.032Z"
+        "hash": "de80630e1117389e",
+        "generatedAt": "2026-04-22T05:20:52.972Z"
       },
       "src/lib/validators/generated/themis-governance/applications.ts": {
-        "hash": "e9134092911f4c97",
-        "generatedAt": "2026-04-22T04:38:05.034Z"
+        "hash": "19cfc24f3bd78a47",
+        "generatedAt": "2026-04-22T05:15:34.281Z"
       },
       "src/app/api/generated/themis-governance/applications/route.ts": {
-        "hash": "a2ab2ae82089fc5d",
-        "generatedAt": "2026-04-22T04:38:05.036Z"
+        "hash": "6e4ca19569eca216",
+        "generatedAt": "2026-04-22T05:15:34.284Z"
       },
       "src/app/api/generated/themis-governance/applications/[id]/route.ts": {
-        "hash": "82ea4228ce2a84fe",
-        "generatedAt": "2026-04-22T04:38:05.039Z"
+        "hash": "ebab22d6fdd2a29a",
+        "generatedAt": "2026-04-22T05:15:34.287Z"
       },
       "src/hooks/generated/themis-governance/applications.ts": {
-        "hash": "d6a48be4eb2d4eff",
-        "generatedAt": "2026-04-22T04:38:05.043Z"
+        "hash": "ee4471d8f7ffec89",
+        "generatedAt": "2026-04-22T05:15:34.289Z"
       },
       "src/types/generated/aethelred-connections/archivist.ts": {
-        "hash": "d7194377f46e0234",
-        "generatedAt": "2026-04-22T04:38:05.045Z"
+        "hash": "67f3921055b07b38",
+        "generatedAt": "2026-04-22T05:20:52.979Z"
       },
       "src/lib/validators/generated/aethelred-connections/archivist.ts": {
-        "hash": "5ea4fbb8c3c9644a",
-        "generatedAt": "2026-04-22T04:38:05.047Z"
+        "hash": "75d6f4ed5f2bbd21",
+        "generatedAt": "2026-04-22T05:15:34.295Z"
       },
       "src/app/api/generated/aethelred-connections/archivist/route.ts": {
-        "hash": "6e700bb729e43041",
-        "generatedAt": "2026-04-22T04:38:05.049Z"
+        "hash": "370d84ba0725d2f2",
+        "generatedAt": "2026-04-22T05:15:34.298Z"
       },
       "src/app/api/generated/aethelred-connections/archivist/[id]/route.ts": {
-        "hash": "13c0c8298dcd28f1",
-        "generatedAt": "2026-04-22T04:38:05.052Z"
+        "hash": "fce93114c9308b51",
+        "generatedAt": "2026-04-22T05:15:34.301Z"
       },
       "src/hooks/generated/aethelred-connections/archivist.ts": {
-        "hash": "4a920b30e30af8d3",
-        "generatedAt": "2026-04-22T04:38:05.053Z"
+        "hash": "5c5e6230bba3e4b7",
+        "generatedAt": "2026-04-22T05:15:34.303Z"
       },
       "src/types/generated/aethelred-connections/audhdities_platform.ts": {
-        "hash": "7aab95494dcb55e5",
-        "generatedAt": "2026-04-22T04:38:05.056Z"
+        "hash": "6abf76ce5cf4118f",
+        "generatedAt": "2026-04-22T05:20:52.987Z"
       },
       "src/lib/validators/generated/aethelred-connections/audhdities_platform.ts": {
-        "hash": "6f63416da5494382",
-        "generatedAt": "2026-04-22T04:38:05.059Z"
+        "hash": "ac7b2703a688c4ad",
+        "generatedAt": "2026-04-22T05:15:34.310Z"
       },
       "src/app/api/generated/aethelred-connections/audhdities_platform/route.ts": {
-        "hash": "3a1187e7d7d34cd6",
-        "generatedAt": "2026-04-22T04:38:05.062Z"
+        "hash": "a0bd4685d8c81254",
+        "generatedAt": "2026-04-22T05:15:34.313Z"
       },
       "src/app/api/generated/aethelred-connections/audhdities_platform/[id]/route.ts": {
-        "hash": "f09e0e4c1dc863a5",
-        "generatedAt": "2026-04-22T04:38:05.064Z"
+        "hash": "70e4dab618258ef3",
+        "generatedAt": "2026-04-22T05:15:34.315Z"
       },
       "src/hooks/generated/aethelred-connections/audhdities_platform.ts": {
-        "hash": "c73a894af1ab2ab3",
-        "generatedAt": "2026-04-22T04:38:05.066Z"
+        "hash": "408b0600440ccba1",
+        "generatedAt": "2026-04-22T05:15:34.318Z"
       },
       "src/types/generated/athena-gamification/badges.ts": {
-        "hash": "a717c1ba94eafe66",
-        "generatedAt": "2026-04-22T04:38:05.068Z"
+        "hash": "9e0fc627e8393e39",
+        "generatedAt": "2026-04-22T05:20:52.994Z"
       },
       "src/lib/validators/generated/athena-gamification/badges.ts": {
-        "hash": "30976d73c02bfc19",
-        "generatedAt": "2026-04-22T04:38:05.070Z"
+        "hash": "0e8a3e6f0b780158",
+        "generatedAt": "2026-04-22T05:15:34.326Z"
       },
       "src/app/api/generated/athena-gamification/badges/route.ts": {
-        "hash": "da2e5ad96a6aad95",
-        "generatedAt": "2026-04-22T04:38:05.075Z"
+        "hash": "89d28881ab6ccf3b",
+        "generatedAt": "2026-04-22T05:15:34.329Z"
       },
       "src/app/api/generated/athena-gamification/badges/[id]/route.ts": {
-        "hash": "8e39880abf33ee93",
-        "generatedAt": "2026-04-22T04:38:05.077Z"
+        "hash": "f7061acaa4373db3",
+        "generatedAt": "2026-04-22T05:15:34.331Z"
       },
       "src/hooks/generated/athena-gamification/badges.ts": {
-        "hash": "0b228b9b9e91ccb1",
-        "generatedAt": "2026-04-22T04:38:05.080Z"
+        "hash": "bf1d6c52566e8b07",
+        "generatedAt": "2026-04-22T05:15:34.333Z"
       },
       "src/types/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "bef900d3f7094896",
-        "generatedAt": "2026-04-22T04:38:05.082Z"
+        "hash": "d065c139df948ffb",
+        "generatedAt": "2026-04-22T05:20:53.003Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "250cf6d09d1cf730",
-        "generatedAt": "2026-04-22T04:38:05.084Z"
+        "hash": "8b63283cfa118acd",
+        "generatedAt": "2026-04-22T05:15:34.340Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/calendar/route.ts": {
-        "hash": "b0d921addbccfb79",
-        "generatedAt": "2026-04-22T04:38:05.087Z"
+        "hash": "0a89e16a8fb0fdcc",
+        "generatedAt": "2026-04-22T05:15:34.343Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts": {
-        "hash": "8398e207ffeb9f4c",
-        "generatedAt": "2026-04-22T04:38:05.089Z"
+        "hash": "8e64c6c20608f2a3",
+        "generatedAt": "2026-04-22T05:15:34.345Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "1d5f8aebd3d160b1",
-        "generatedAt": "2026-04-22T04:38:05.092Z"
+        "hash": "19df4b28b5e25354",
+        "generatedAt": "2026-04-22T05:15:34.347Z"
       },
       "src/types/generated/aethelred-connections/chancellor.ts": {
-        "hash": "3c2a1ea08cfc95cb",
-        "generatedAt": "2026-04-22T04:38:05.094Z"
+        "hash": "a63a9e5f094b9e09",
+        "generatedAt": "2026-04-22T05:20:53.009Z"
       },
       "src/lib/validators/generated/aethelred-connections/chancellor.ts": {
-        "hash": "f531f7ee16143698",
-        "generatedAt": "2026-04-22T04:38:05.096Z"
+        "hash": "aa189229261cf9c1",
+        "generatedAt": "2026-04-22T05:15:34.355Z"
       },
       "src/app/api/generated/aethelred-connections/chancellor/route.ts": {
-        "hash": "f7673dfe07d4bea9",
-        "generatedAt": "2026-04-22T04:38:05.098Z"
+        "hash": "d7540a244834bc0e",
+        "generatedAt": "2026-04-22T05:15:34.357Z"
       },
       "src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts": {
-        "hash": "ce6020b423c72fe7",
-        "generatedAt": "2026-04-22T04:38:05.101Z"
+        "hash": "aceeb6878b601a35",
+        "generatedAt": "2026-04-22T05:15:34.360Z"
       },
       "src/hooks/generated/aethelred-connections/chancellor.ts": {
-        "hash": "9b2a24ad9504e09f",
-        "generatedAt": "2026-04-22T04:38:05.103Z"
+        "hash": "4fedd2093abadb63",
+        "generatedAt": "2026-04-22T05:15:34.361Z"
       },
       "src/types/generated/hestia-core/channels.ts": {
-        "hash": "db27d6f0219a4956",
-        "generatedAt": "2026-04-22T04:38:05.105Z"
+        "hash": "3ed819936948b19d",
+        "generatedAt": "2026-04-22T05:20:53.017Z"
       },
       "src/lib/validators/generated/hestia-core/channels.ts": {
-        "hash": "7d236e96d531c4c9",
-        "generatedAt": "2026-04-22T04:38:05.109Z"
+        "hash": "8a4bd3bead2f4ded",
+        "generatedAt": "2026-04-22T05:15:34.369Z"
       },
       "src/app/api/generated/hestia-core/channels/route.ts": {
-        "hash": "03934477d333ebfe",
-        "generatedAt": "2026-04-22T04:38:05.111Z"
+        "hash": "295130bb5836f243",
+        "generatedAt": "2026-04-22T05:15:34.372Z"
       },
       "src/app/api/generated/hestia-core/channels/[id]/route.ts": {
-        "hash": "bc62d513cd2431bf",
-        "generatedAt": "2026-04-22T04:38:05.113Z"
+        "hash": "e3e54f1de33c6251",
+        "generatedAt": "2026-04-22T05:15:34.375Z"
       },
       "src/hooks/generated/hestia-core/channels.ts": {
-        "hash": "d69d5d34cd08c8a1",
-        "generatedAt": "2026-04-22T04:38:05.115Z"
+        "hash": "b8fa9f3255431867",
+        "generatedAt": "2026-04-22T05:15:34.377Z"
       },
       "src/types/generated/aethelred-connections/codex.ts": {
-        "hash": "1259e3e877bc99af",
-        "generatedAt": "2026-04-22T04:38:05.117Z"
+        "hash": "408e34a6af1ee61f",
+        "generatedAt": "2026-04-22T05:20:53.024Z"
       },
       "src/lib/validators/generated/aethelred-connections/codex.ts": {
-        "hash": "41aa4208c7cc7033",
-        "generatedAt": "2026-04-22T04:38:05.119Z"
+        "hash": "b21d56d3d8252958",
+        "generatedAt": "2026-04-22T05:15:34.383Z"
       },
       "src/app/api/generated/aethelred-connections/codex/route.ts": {
-        "hash": "f32793ea5e947f64",
-        "generatedAt": "2026-04-22T04:38:05.121Z"
+        "hash": "4f2f4c84d09f3161",
+        "generatedAt": "2026-04-22T05:15:34.387Z"
       },
       "src/app/api/generated/aethelred-connections/codex/[id]/route.ts": {
-        "hash": "8da06a3283a1304b",
-        "generatedAt": "2026-04-22T04:38:05.125Z"
+        "hash": "6808a8be6bcb7154",
+        "generatedAt": "2026-04-22T05:15:34.389Z"
       },
       "src/hooks/generated/aethelred-connections/codex.ts": {
-        "hash": "3d6caeeb139d4dfe",
-        "generatedAt": "2026-04-22T04:38:05.127Z"
+        "hash": "a4b96c0632d26e81",
+        "generatedAt": "2026-04-22T05:15:34.391Z"
       },
       "src/types/generated/hermes-social/comments.ts": {
-        "hash": "c674fc1d04539ad1",
-        "generatedAt": "2026-04-22T04:38:05.129Z"
+        "hash": "9b500cf2ced6fdae",
+        "generatedAt": "2026-04-22T05:20:53.031Z"
       },
       "src/lib/validators/generated/hermes-social/comments.ts": {
-        "hash": "67cdbcff33a02109",
-        "generatedAt": "2026-04-22T04:38:05.131Z"
+        "hash": "0f558bee9ed4567d",
+        "generatedAt": "2026-04-22T05:15:34.397Z"
       },
       "src/app/api/generated/hermes-social/comments/route.ts": {
-        "hash": "a201dfe68e9aee02",
-        "generatedAt": "2026-04-22T04:38:05.133Z"
+        "hash": "a159af411b7893c0",
+        "generatedAt": "2026-04-22T05:15:34.400Z"
       },
       "src/app/api/generated/hermes-social/comments/[id]/route.ts": {
-        "hash": "d58d40e60ee4c881",
-        "generatedAt": "2026-04-22T04:38:05.136Z"
+        "hash": "df768f44015c9f0b",
+        "generatedAt": "2026-04-22T05:15:34.403Z"
       },
       "src/hooks/generated/hermes-social/comments.ts": {
-        "hash": "7a4f3d9e8f151ec9",
-        "generatedAt": "2026-04-22T04:38:05.138Z"
+        "hash": "787e9cec10350cc5",
+        "generatedAt": "2026-04-22T05:15:34.406Z"
       },
       "src/types/generated/hestia-core/community_profiles.ts": {
-        "hash": "c38769dc8abf7b5b",
-        "generatedAt": "2026-04-22T04:38:05.140Z"
+        "hash": "af9f989f3e712e4a",
+        "generatedAt": "2026-04-22T05:20:53.039Z"
       },
       "src/lib/validators/generated/hestia-core/community_profiles.ts": {
-        "hash": "7be0848c7f55a160",
-        "generatedAt": "2026-04-22T04:38:05.143Z"
+        "hash": "0b31a9b16238a4ff",
+        "generatedAt": "2026-04-22T05:15:34.412Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/route.ts": {
-        "hash": "4838645690b05df7",
-        "generatedAt": "2026-04-22T04:38:05.145Z"
+        "hash": "e6b8b0395b11b176",
+        "generatedAt": "2026-04-22T05:15:34.415Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts": {
-        "hash": "e0a3e9fcca9ae837",
-        "generatedAt": "2026-04-22T04:38:05.148Z"
+        "hash": "93c9e320284932a7",
+        "generatedAt": "2026-04-22T05:15:34.418Z"
       },
       "src/types/generated/aethelred-connections/consciousness.ts": {
-        "hash": "0173792541e60410",
-        "generatedAt": "2026-04-22T04:38:05.150Z"
+        "hash": "c265a07ef6d3a7d9",
+        "generatedAt": "2026-04-22T05:20:53.044Z"
       },
       "src/lib/validators/generated/aethelred-connections/consciousness.ts": {
-        "hash": "d4d53e39219d7f85",
-        "generatedAt": "2026-04-22T04:38:05.152Z"
+        "hash": "6c5840b89677be41",
+        "generatedAt": "2026-04-22T05:15:34.423Z"
       },
       "src/app/api/generated/aethelred-connections/consciousness/route.ts": {
-        "hash": "41fdfb90f6f1d227",
-        "generatedAt": "2026-04-22T04:38:05.154Z"
+        "hash": "e475765e4313d2be",
+        "generatedAt": "2026-04-22T05:15:34.425Z"
       },
       "src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts": {
-        "hash": "52c922e25e5532cf",
-        "generatedAt": "2026-04-22T04:38:05.157Z"
+        "hash": "d560c6309e0a2940",
+        "generatedAt": "2026-04-22T05:15:34.427Z"
       },
       "src/hooks/generated/aethelred-connections/consciousness.ts": {
-        "hash": "94145b6af49679cb",
-        "generatedAt": "2026-04-22T04:38:05.160Z"
+        "hash": "fa539f641541f315",
+        "generatedAt": "2026-04-22T05:15:34.429Z"
       },
       "src/types/generated/iris-communications/contact_submissions.ts": {
-        "hash": "e2f412036b4f8c5d",
-        "generatedAt": "2026-04-22T04:38:05.162Z"
+        "hash": "b419791ebd66610c",
+        "generatedAt": "2026-04-22T05:20:53.054Z"
       },
       "src/lib/validators/generated/iris-communications/contact_submissions.ts": {
-        "hash": "63b8ffee3bb5dad6",
-        "generatedAt": "2026-04-22T04:38:05.163Z"
+        "hash": "3386e60a3da41686",
+        "generatedAt": "2026-04-22T05:15:34.437Z"
       },
       "src/app/api/generated/iris-communications/contact_submissions/route.ts": {
-        "hash": "489612a7695ddb5b",
-        "generatedAt": "2026-04-22T04:38:05.166Z"
+        "hash": "e87116c2545d2aef",
+        "generatedAt": "2026-04-22T05:15:34.439Z"
       },
       "src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts": {
-        "hash": "a95af8b8a33f435b",
-        "generatedAt": "2026-04-22T04:38:05.168Z"
+        "hash": "527dc64db722b7f8",
+        "generatedAt": "2026-04-22T05:15:34.442Z"
       },
       "src/hooks/generated/iris-communications/contact_submissions.ts": {
-        "hash": "0d2fcc5715be5bad",
-        "generatedAt": "2026-04-22T04:38:05.170Z"
+        "hash": "25b347e794a97e0b",
+        "generatedAt": "2026-04-22T05:15:34.444Z"
       },
       "src/types/generated/iris-communications/continents.ts": {
-        "hash": "6fdfdf6383e017d1",
-        "generatedAt": "2026-04-22T04:38:05.173Z"
+        "hash": "48f6c0cd2866969d",
+        "generatedAt": "2026-04-22T05:20:53.060Z"
       },
       "src/lib/validators/generated/iris-communications/continents.ts": {
-        "hash": "f9675df377be2500",
-        "generatedAt": "2026-04-22T04:38:05.177Z"
+        "hash": "ea02450a6d18a52f",
+        "generatedAt": "2026-04-22T05:15:34.451Z"
       },
       "src/app/api/generated/iris-communications/continents/route.ts": {
-        "hash": "011c707fd1aa4db2",
-        "generatedAt": "2026-04-22T04:38:05.179Z"
+        "hash": "38db5402e0b580f7",
+        "generatedAt": "2026-04-22T05:15:34.455Z"
       },
       "src/app/api/generated/iris-communications/continents/[id]/route.ts": {
-        "hash": "55f13e2b0e729a8d",
-        "generatedAt": "2026-04-22T04:38:05.182Z"
+        "hash": "84e828165e3b99bb",
+        "generatedAt": "2026-04-22T05:15:34.457Z"
       },
       "src/hooks/generated/iris-communications/continents.ts": {
-        "hash": "73fc5b8e17e66974",
-        "generatedAt": "2026-04-22T04:38:05.184Z"
+        "hash": "87a1667f4400e7da",
+        "generatedAt": "2026-04-22T05:15:34.459Z"
       },
       "src/types/generated/plutus-economics/contributions.ts": {
-        "hash": "98eee66390af4d4a",
-        "generatedAt": "2026-04-22T04:38:05.187Z"
+        "hash": "f13747c7e520bf85",
+        "generatedAt": "2026-04-22T05:20:53.068Z"
       },
       "src/lib/validators/generated/plutus-economics/contributions.ts": {
-        "hash": "50a763826b0744f6",
-        "generatedAt": "2026-04-22T04:38:05.190Z"
+        "hash": "88cf08fe8b65e1e7",
+        "generatedAt": "2026-04-22T05:15:34.465Z"
       },
       "src/app/api/generated/plutus-economics/contributions/route.ts": {
-        "hash": "f19f1a5f9b360fd8",
-        "generatedAt": "2026-04-22T04:38:05.193Z"
+        "hash": "52b6b05756a5c094",
+        "generatedAt": "2026-04-22T05:15:34.469Z"
       },
       "src/app/api/generated/plutus-economics/contributions/[id]/route.ts": {
-        "hash": "b98adef8d57634f9",
-        "generatedAt": "2026-04-22T04:38:05.196Z"
+        "hash": "703a5d5915628c08",
+        "generatedAt": "2026-04-22T05:15:34.472Z"
       },
       "src/types/generated/aethelred-connections/council_houses.ts": {
-        "hash": "8c5ec3558a98b118",
-        "generatedAt": "2026-04-22T04:38:05.198Z"
+        "hash": "1981c40a34b36d26",
+        "generatedAt": "2026-04-22T05:20:53.073Z"
       },
       "src/lib/validators/generated/aethelred-connections/council_houses.ts": {
-        "hash": "c700cb26346e8a3e",
-        "generatedAt": "2026-04-22T04:38:05.200Z"
+        "hash": "dfc43db660843b71",
+        "generatedAt": "2026-04-22T05:15:34.476Z"
       },
       "src/app/api/generated/aethelred-connections/council_houses/route.ts": {
-        "hash": "34d83b9f7a6ad4a2",
-        "generatedAt": "2026-04-22T04:38:05.202Z"
+        "hash": "ff889f0a50cf715d",
+        "generatedAt": "2026-04-22T05:15:34.478Z"
       },
       "src/app/api/generated/aethelred-connections/council_houses/[id]/route.ts": {
-        "hash": "54f00eaf21366dc5",
-        "generatedAt": "2026-04-22T04:38:05.205Z"
+        "hash": "fdb8d6422dff977f",
+        "generatedAt": "2026-04-22T05:15:34.481Z"
       },
       "src/hooks/generated/aethelred-connections/council_houses.ts": {
-        "hash": "844a476b3b36a38c",
-        "generatedAt": "2026-04-22T04:38:05.208Z"
+        "hash": "a35c89b1a840df43",
+        "generatedAt": "2026-04-22T05:15:34.483Z"
       },
       "src/types/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "75acfb070ae2dc22",
-        "generatedAt": "2026-04-22T04:38:05.211Z"
+        "hash": "6207aff2ef6501f0",
+        "generatedAt": "2026-04-22T05:20:53.081Z"
       },
       "src/lib/validators/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "64becd331b003f9f",
-        "generatedAt": "2026-04-22T04:38:05.214Z"
+        "hash": "1f7bf64fc72202fa",
+        "generatedAt": "2026-04-22T05:15:34.491Z"
       },
       "src/app/api/generated/plutus-economics/covenant_pool/route.ts": {
-        "hash": "a4db3535153a02c8",
-        "generatedAt": "2026-04-22T04:38:05.217Z"
+        "hash": "2a80cf20b7ca05fa",
+        "generatedAt": "2026-04-22T05:15:34.494Z"
       },
       "src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts": {
-        "hash": "d55140459be8eeec",
-        "generatedAt": "2026-04-22T04:38:05.218Z"
+        "hash": "be17f91850b6c490",
+        "generatedAt": "2026-04-22T05:15:34.497Z"
       },
       "src/hooks/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "1944a94967da1b75",
-        "generatedAt": "2026-04-22T04:38:05.220Z"
+        "hash": "abbae99e3fb1933b",
+        "generatedAt": "2026-04-22T05:15:34.499Z"
       },
       "src/types/generated/hermes-social/creative_categories.ts": {
-        "hash": "f25eb874780733a1",
-        "generatedAt": "2026-04-22T04:38:05.223Z"
+        "hash": "d1b1fd37b0807704",
+        "generatedAt": "2026-04-22T05:20:53.089Z"
       },
       "src/lib/validators/generated/hermes-social/creative_categories.ts": {
-        "hash": "bdf76e6def85c559",
-        "generatedAt": "2026-04-22T04:38:05.226Z"
+        "hash": "3cdf04f3824ed7fb",
+        "generatedAt": "2026-04-22T05:15:34.508Z"
       },
       "src/app/api/generated/hermes-social/creative_categories/route.ts": {
-        "hash": "9e235e3f8fa76b50",
-        "generatedAt": "2026-04-22T04:38:05.228Z"
+        "hash": "172071f905c771fb",
+        "generatedAt": "2026-04-22T05:15:34.510Z"
       },
       "src/app/api/generated/hermes-social/creative_categories/[id]/route.ts": {
-        "hash": "0abe05a2ad244738",
-        "generatedAt": "2026-04-22T04:38:05.230Z"
+        "hash": "c5190bb5bcb88ec5",
+        "generatedAt": "2026-04-22T05:15:34.513Z"
       },
       "src/hooks/generated/hermes-social/creative_categories.ts": {
-        "hash": "a56c0a13585e9543",
-        "generatedAt": "2026-04-22T04:38:05.232Z"
+        "hash": "f6a204081472a44f",
+        "generatedAt": "2026-04-22T05:15:34.515Z"
       },
       "src/types/generated/hestia-core/creator_category_links.ts": {
-        "hash": "fa19a9a3a86468e2",
-        "generatedAt": "2026-04-22T04:38:05.234Z"
+        "hash": "1c05225d7dd6a41c",
+        "generatedAt": "2026-04-22T05:20:53.096Z"
       },
       "src/lib/validators/generated/hestia-core/creator_category_links.ts": {
-        "hash": "0a2ef172508d096d",
-        "generatedAt": "2026-04-22T04:38:05.236Z"
+        "hash": "841177df607b041c",
+        "generatedAt": "2026-04-22T05:15:34.524Z"
       },
       "src/app/api/generated/hestia-core/creator_category_links/route.ts": {
-        "hash": "2a0eeb79c9fd53ed",
-        "generatedAt": "2026-04-22T04:38:05.239Z"
+        "hash": "6a5e8368c5a2937c",
+        "generatedAt": "2026-04-22T05:15:34.526Z"
       },
       "src/app/api/generated/hestia-core/creator_category_links/[id]/route.ts": {
-        "hash": "682f0421c55d4036",
-        "generatedAt": "2026-04-22T04:38:05.243Z"
+        "hash": "0892737d0aad027e",
+        "generatedAt": "2026-04-22T05:15:34.529Z"
       },
       "src/hooks/generated/hestia-core/creator_category_links.ts": {
-        "hash": "3dd214bbc88df3b9",
-        "generatedAt": "2026-04-22T04:38:05.245Z"
+        "hash": "f5d19e65dcc98cf5",
+        "generatedAt": "2026-04-22T05:15:34.531Z"
       },
       "src/types/generated/hestia-core/creator_profiles.ts": {
-        "hash": "ec5169514c643f3d",
-        "generatedAt": "2026-04-22T04:38:05.247Z"
+        "hash": "a1fec12f77036609",
+        "generatedAt": "2026-04-22T05:20:53.104Z"
       },
       "src/lib/validators/generated/hestia-core/creator_profiles.ts": {
-        "hash": "2f7194b8cc93d2b5",
-        "generatedAt": "2026-04-22T04:38:05.249Z"
+        "hash": "51a5648500fb34e9",
+        "generatedAt": "2026-04-22T05:15:34.540Z"
       },
       "src/app/api/generated/hestia-core/creator_profiles/route.ts": {
-        "hash": "971fb2dbd3ccc474",
-        "generatedAt": "2026-04-22T04:38:05.251Z"
+        "hash": "d22b3e438967901b",
+        "generatedAt": "2026-04-22T05:15:34.543Z"
       },
       "src/app/api/generated/hestia-core/creator_profiles/[id]/route.ts": {
-        "hash": "7217663b441bc4c4",
-        "generatedAt": "2026-04-22T04:38:05.253Z"
+        "hash": "e269d8a97106193d",
+        "generatedAt": "2026-04-22T05:15:34.545Z"
       },
       "src/types/generated/iris-communications/culturalization.ts": {
-        "hash": "830a91f6e3696e24",
-        "generatedAt": "2026-04-22T04:38:05.257Z"
+        "hash": "8705f85b45291feb",
+        "generatedAt": "2026-04-22T05:20:53.110Z"
       },
       "src/lib/validators/generated/iris-communications/culturalization.ts": {
-        "hash": "8e2b00b1ed281cbd",
-        "generatedAt": "2026-04-22T04:38:05.260Z"
+        "hash": "5775eaa7c47f29f0",
+        "generatedAt": "2026-04-22T05:15:34.550Z"
       },
       "src/app/api/generated/iris-communications/culturalization/route.ts": {
-        "hash": "93e85ad640a3aa7c",
-        "generatedAt": "2026-04-22T04:38:05.262Z"
+        "hash": "257171e606124847",
+        "generatedAt": "2026-04-22T05:15:34.554Z"
       },
       "src/app/api/generated/iris-communications/culturalization/[id]/route.ts": {
-        "hash": "99a4e42f0932d0b0",
-        "generatedAt": "2026-04-22T04:38:05.264Z"
+        "hash": "cc9250769e26aedb",
+        "generatedAt": "2026-04-22T05:15:34.557Z"
       },
       "src/hooks/generated/iris-communications/culturalization.ts": {
-        "hash": "1a77d03fb164d8de",
-        "generatedAt": "2026-04-22T04:38:05.267Z"
+        "hash": "e8f0f3d85ede09a1",
+        "generatedAt": "2026-04-22T05:15:34.559Z"
       },
       "src/types/generated/aethelred-connections/curator.ts": {
-        "hash": "ea0295a0b1737686",
-        "generatedAt": "2026-04-22T04:38:05.269Z"
+        "hash": "0ba761a94a7bade5",
+        "generatedAt": "2026-04-22T05:20:53.117Z"
       },
       "src/lib/validators/generated/aethelred-connections/curator.ts": {
-        "hash": "037f5086a4e67344",
-        "generatedAt": "2026-04-22T04:38:05.271Z"
+        "hash": "c0f4398a6d66772b",
+        "generatedAt": "2026-04-22T05:15:34.567Z"
       },
       "src/app/api/generated/aethelred-connections/curator/route.ts": {
-        "hash": "6e91d022817e3131",
-        "generatedAt": "2026-04-22T04:38:05.274Z"
+        "hash": "715cf6ce185ec44b",
+        "generatedAt": "2026-04-22T05:15:34.570Z"
       },
       "src/app/api/generated/aethelred-connections/curator/[id]/route.ts": {
-        "hash": "bc2e085e98977099",
-        "generatedAt": "2026-04-22T04:38:05.278Z"
+        "hash": "dc26fc01eb1fff27",
+        "generatedAt": "2026-04-22T05:15:34.573Z"
       },
       "src/hooks/generated/aethelred-connections/curator.ts": {
-        "hash": "e83b5ca79ee923e9",
-        "generatedAt": "2026-04-22T04:38:05.280Z"
+        "hash": "bc2a6b611d4864af",
+        "generatedAt": "2026-04-22T05:15:34.576Z"
       },
       "src/types/generated/iris-communications/customs.ts": {
-        "hash": "0884a57b5853fa1a",
-        "generatedAt": "2026-04-22T04:38:05.282Z"
+        "hash": "f62a67c784a02c68",
+        "generatedAt": "2026-04-22T05:20:53.125Z"
       },
       "src/lib/validators/generated/iris-communications/customs.ts": {
-        "hash": "9fa9468823827c71",
-        "generatedAt": "2026-04-22T04:38:05.284Z"
+        "hash": "2252850e5280fd47",
+        "generatedAt": "2026-04-22T05:15:34.582Z"
       },
       "src/app/api/generated/iris-communications/customs/route.ts": {
-        "hash": "8e180485f07752aa",
-        "generatedAt": "2026-04-22T04:38:05.286Z"
+        "hash": "393205ac316eea8f",
+        "generatedAt": "2026-04-22T05:15:34.586Z"
       },
       "src/app/api/generated/iris-communications/customs/[id]/route.ts": {
-        "hash": "752bb669046d755e",
-        "generatedAt": "2026-04-22T04:38:05.288Z"
+        "hash": "04f6052559d2e547",
+        "generatedAt": "2026-04-22T05:15:34.589Z"
       },
       "src/hooks/generated/iris-communications/customs.ts": {
-        "hash": "09b3eac17fa7f71a",
-        "generatedAt": "2026-04-22T04:38:05.292Z"
+        "hash": "d19e6697166ec166",
+        "generatedAt": "2026-04-22T05:15:34.591Z"
       },
       "src/types/generated/plutus-economics/disbursements.ts": {
-        "hash": "bbb2e1889ff2bce0",
-        "generatedAt": "2026-04-22T04:38:05.294Z"
+        "hash": "78a39c576ad41afe",
+        "generatedAt": "2026-04-22T05:20:53.132Z"
       },
       "src/lib/validators/generated/plutus-economics/disbursements.ts": {
-        "hash": "035ad879d28df79a",
-        "generatedAt": "2026-04-22T04:38:05.296Z"
+        "hash": "c1439db6b2c6ad0e",
+        "generatedAt": "2026-04-22T05:15:34.598Z"
       },
       "src/app/api/generated/plutus-economics/disbursements/route.ts": {
-        "hash": "801d38c613f2b70b",
-        "generatedAt": "2026-04-22T04:38:05.299Z"
+        "hash": "99aa78cfc3b137df",
+        "generatedAt": "2026-04-22T05:15:34.601Z"
       },
       "src/app/api/generated/plutus-economics/disbursements/[id]/route.ts": {
-        "hash": "e56d59a6edce403c",
-        "generatedAt": "2026-04-22T04:38:05.302Z"
+        "hash": "5842e4c3e1ec8529",
+        "generatedAt": "2026-04-22T05:15:34.605Z"
       },
       "src/hooks/generated/plutus-economics/disbursements.ts": {
-        "hash": "e39c16d0483c7905",
-        "generatedAt": "2026-04-22T04:38:05.306Z"
+        "hash": "b50fd48e35d953a4",
+        "generatedAt": "2026-04-22T05:15:34.608Z"
       },
       "src/types/generated/iris-communications/email_communications.ts": {
-        "hash": "67150f397b439214",
-        "generatedAt": "2026-04-22T04:38:05.312Z"
+        "hash": "d9cceb4056f33d20",
+        "generatedAt": "2026-04-22T05:20:53.140Z"
       },
       "src/lib/validators/generated/iris-communications/email_communications.ts": {
-        "hash": "6a979ee248b2c360",
-        "generatedAt": "2026-04-22T04:38:05.316Z"
+        "hash": "c0f76b1ca812b90a",
+        "generatedAt": "2026-04-22T05:15:34.616Z"
       },
       "src/app/api/generated/iris-communications/email_communications/route.ts": {
-        "hash": "adbfb7d56d2d7d29",
-        "generatedAt": "2026-04-22T04:38:05.321Z"
+        "hash": "1f7acb0cf9ab4bd3",
+        "generatedAt": "2026-04-22T05:15:34.619Z"
       },
       "src/app/api/generated/iris-communications/email_communications/[id]/route.ts": {
-        "hash": "ba55bee255639107",
-        "generatedAt": "2026-04-22T04:38:05.325Z"
+        "hash": "fa7ba7cdea6365d4",
+        "generatedAt": "2026-04-22T05:15:34.623Z"
       },
       "src/hooks/generated/iris-communications/email_communications.ts": {
-        "hash": "1b39071e1a25133d",
-        "generatedAt": "2026-04-22T04:38:05.328Z"
+        "hash": "3c289d58a2a0006f",
+        "generatedAt": "2026-04-22T05:15:34.625Z"
       },
       "src/types/generated/hermes-social/emeralds.ts": {
-        "hash": "d1d88953f4c512af",
-        "generatedAt": "2026-04-22T04:38:05.330Z"
+        "hash": "0b834aa6f0f8e7b7",
+        "generatedAt": "2026-04-22T05:20:53.147Z"
       },
       "src/lib/validators/generated/hermes-social/emeralds.ts": {
-        "hash": "e9476038c6f24238",
-        "generatedAt": "2026-04-22T04:38:05.332Z"
+        "hash": "d9795c927657c68a",
+        "generatedAt": "2026-04-22T05:15:34.632Z"
       },
       "src/app/api/generated/hermes-social/emeralds/route.ts": {
-        "hash": "4546bbd920a41b85",
-        "generatedAt": "2026-04-22T04:38:05.335Z"
+        "hash": "fde299064eb38b73",
+        "generatedAt": "2026-04-22T05:15:34.636Z"
       },
       "src/app/api/generated/hermes-social/emeralds/[id]/route.ts": {
-        "hash": "631baec214db463d",
-        "generatedAt": "2026-04-22T04:38:05.338Z"
+        "hash": "e7ed32ec0831d84c",
+        "generatedAt": "2026-04-22T05:15:34.639Z"
       },
       "src/hooks/generated/hermes-social/emeralds.ts": {
-        "hash": "4c853dc9d5477224",
-        "generatedAt": "2026-04-22T04:38:05.341Z"
+        "hash": "fb03e711c741f775",
+        "generatedAt": "2026-04-22T05:15:34.641Z"
       },
       "src/types/generated/hestia-core/entity_state_log.ts": {
-        "hash": "243eebc016468d72",
-        "generatedAt": "2026-04-22T04:38:05.344Z"
+        "hash": "4e9f8fc8a3d735bf",
+        "generatedAt": "2026-04-22T05:20:53.155Z"
       },
       "src/lib/validators/generated/hestia-core/entity_state_log.ts": {
-        "hash": "0192a5123669c04e",
-        "generatedAt": "2026-04-22T04:38:05.346Z"
+        "hash": "f1b8d29506596a11",
+        "generatedAt": "2026-04-22T05:15:34.650Z"
       },
       "src/app/api/generated/hestia-core/entity_state_log/route.ts": {
-        "hash": "46888a7e625ad918",
-        "generatedAt": "2026-04-22T04:38:05.349Z"
+        "hash": "b36ece3a53724401",
+        "generatedAt": "2026-04-22T05:15:34.654Z"
       },
       "src/app/api/generated/hestia-core/entity_state_log/[id]/route.ts": {
-        "hash": "5068eb76bcffb867",
-        "generatedAt": "2026-04-22T04:38:05.352Z"
+        "hash": "c0b9d18d90fcb761",
+        "generatedAt": "2026-04-22T05:15:34.657Z"
       },
       "src/hooks/generated/hestia-core/entity_state_log.ts": {
-        "hash": "c6d055f49402b8f2",
-        "generatedAt": "2026-04-22T04:38:05.354Z"
+        "hash": "7a5db4a2e2c6622d",
+        "generatedAt": "2026-04-22T05:15:34.659Z"
       },
       "src/types/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "a9f0acbfa93d3be6",
-        "generatedAt": "2026-04-22T04:38:05.359Z"
+        "hash": "7901ddd72c83a236",
+        "generatedAt": "2026-04-22T05:20:53.162Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "e1d4d0da6c191bfa",
-        "generatedAt": "2026-04-22T04:38:05.361Z"
+        "hash": "7a3f1756f9cc2440",
+        "generatedAt": "2026-04-22T05:15:34.668Z"
       },
       "src/app/api/generated/mnemosyne-assessment/etymology/route.ts": {
-        "hash": "f2ddf19fea7bb3fa",
-        "generatedAt": "2026-04-22T04:38:05.364Z"
+        "hash": "442db07b456c2e76",
+        "generatedAt": "2026-04-22T05:15:34.671Z"
       },
       "src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts": {
-        "hash": "022afed319e32a6a",
-        "generatedAt": "2026-04-22T04:38:05.366Z"
+        "hash": "d0f9e628f99c61da",
+        "generatedAt": "2026-04-22T05:15:34.674Z"
       },
       "src/hooks/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "42d0ae4ba62f1de5",
-        "generatedAt": "2026-04-22T04:38:05.368Z"
+        "hash": "e7099b8799f7e33c",
+        "generatedAt": "2026-04-22T05:15:34.677Z"
       },
       "src/types/generated/aethelred-connections/executioner.ts": {
-        "hash": "5d60ca0a79da7381",
-        "generatedAt": "2026-04-22T04:38:05.371Z"
+        "hash": "c285cec08e67c106",
+        "generatedAt": "2026-04-22T05:20:53.170Z"
       },
       "src/lib/validators/generated/aethelred-connections/executioner.ts": {
-        "hash": "bff06ac1125cf1b5",
-        "generatedAt": "2026-04-22T04:38:05.375Z"
+        "hash": "1b8641dea8a0be94",
+        "generatedAt": "2026-04-22T05:15:34.685Z"
       },
       "src/app/api/generated/aethelred-connections/executioner/route.ts": {
-        "hash": "ce94ef10327295aa",
-        "generatedAt": "2026-04-22T04:38:05.378Z"
+        "hash": "eb5c110d79bbaf91",
+        "generatedAt": "2026-04-22T05:15:34.688Z"
       },
       "src/app/api/generated/aethelred-connections/executioner/[id]/route.ts": {
-        "hash": "a34aedbc22c026c9",
-        "generatedAt": "2026-04-22T04:38:05.381Z"
+        "hash": "b1ea5238c2e9864a",
+        "generatedAt": "2026-04-22T05:15:34.691Z"
       },
       "src/hooks/generated/aethelred-connections/executioner.ts": {
-        "hash": "6ddfae2b7c0b5583",
-        "generatedAt": "2026-04-22T04:38:05.383Z"
+        "hash": "b7836ffe6ed84935",
+        "generatedAt": "2026-04-22T05:15:34.693Z"
       },
       "src/types/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "54e9db7db21f6328",
-        "generatedAt": "2026-04-22T04:38:05.385Z"
+        "hash": "3e4bbbe43efdd5ea",
+        "generatedAt": "2026-04-22T05:20:53.177Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "6c06a7fc03add8c1",
-        "generatedAt": "2026-04-22T04:38:05.388Z"
+        "hash": "21896a53f4d9cd0b",
+        "generatedAt": "2026-04-22T05:15:34.702Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts": {
-        "hash": "04183d08ce5ea25f",
-        "generatedAt": "2026-04-22T04:38:05.391Z"
+        "hash": "c5d6da3ee133b729",
+        "generatedAt": "2026-04-22T05:15:34.706Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts": {
-        "hash": "6f3397af307072d6",
-        "generatedAt": "2026-04-22T04:38:05.394Z"
+        "hash": "77a16493dbc68d02",
+        "generatedAt": "2026-04-22T05:15:34.708Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "e9ea9562522f5e3e",
-        "generatedAt": "2026-04-22T04:38:05.397Z"
+        "hash": "829f466dc4c9e233",
+        "generatedAt": "2026-04-22T05:15:34.711Z"
       },
       "src/types/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "0207c2e0b5450ac6",
-        "generatedAt": "2026-04-22T04:38:05.399Z"
+        "hash": "01f8d13f935eeea3",
+        "generatedAt": "2026-04-22T05:20:53.185Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "6dbe7205adf912bd",
-        "generatedAt": "2026-04-22T04:38:05.401Z"
+        "hash": "c71726633570b35b",
+        "generatedAt": "2026-04-22T05:15:34.718Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts": {
-        "hash": "e0f68248065a99de",
-        "generatedAt": "2026-04-22T04:38:05.404Z"
+        "hash": "c7c531fe499dd359",
+        "generatedAt": "2026-04-22T05:15:34.722Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts": {
-        "hash": "d233a3df04cabc5a",
-        "generatedAt": "2026-04-22T04:38:05.408Z"
+        "hash": "a038a2f2ce585822",
+        "generatedAt": "2026-04-22T05:15:34.724Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "4a835d6e7e232d22",
-        "generatedAt": "2026-04-22T04:38:05.410Z"
+        "hash": "00fdb98087d464dc",
+        "generatedAt": "2026-04-22T05:15:34.726Z"
       },
       "src/types/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "2537f9ecf24530e0",
-        "generatedAt": "2026-04-22T04:38:05.413Z"
+        "hash": "05f28be733e4c770",
+        "generatedAt": "2026-04-22T05:20:53.192Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "6fcc464c2cd6d75a",
-        "generatedAt": "2026-04-22T04:38:05.415Z"
+        "hash": "edf3764ff3b3263d",
+        "generatedAt": "2026-04-22T05:15:34.733Z"
       },
       "src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts": {
-        "hash": "87938de2037b5334",
-        "generatedAt": "2026-04-22T04:38:05.418Z"
+        "hash": "b2319566f20d5d60",
+        "generatedAt": "2026-04-22T05:15:34.737Z"
       },
       "src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts": {
-        "hash": "3926d71b9a450fcd",
-        "generatedAt": "2026-04-22T04:38:05.421Z"
+        "hash": "700a1d5cc5c99bd7",
+        "generatedAt": "2026-04-22T05:15:34.740Z"
       },
       "src/hooks/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "d623af8dbcf9d0e6",
-        "generatedAt": "2026-04-22T04:38:05.426Z"
+        "hash": "9e4ce4220bc227f7",
+        "generatedAt": "2026-04-22T05:15:34.742Z"
       },
       "src/types/generated/aethelred-connections/github_connection.ts": {
-        "hash": "4e1f45c758402c89",
-        "generatedAt": "2026-04-22T04:38:05.429Z"
+        "hash": "caef720a8c06b6f9",
+        "generatedAt": "2026-04-22T05:20:53.199Z"
       },
       "src/lib/validators/generated/aethelred-connections/github_connection.ts": {
-        "hash": "6732f888e06491a6",
-        "generatedAt": "2026-04-22T04:38:05.431Z"
+        "hash": "6ebd994423d41d95",
+        "generatedAt": "2026-04-22T05:15:34.750Z"
       },
       "src/app/api/generated/aethelred-connections/github_connection/route.ts": {
-        "hash": "8b5e586ff73a550e",
-        "generatedAt": "2026-04-22T04:38:05.435Z"
+        "hash": "2531fb79c7b3b24f",
+        "generatedAt": "2026-04-22T05:15:34.754Z"
       },
       "src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts": {
-        "hash": "5c0b76f39dff63d9",
-        "generatedAt": "2026-04-22T04:38:05.439Z"
+        "hash": "02afcba4e054cdb9",
+        "generatedAt": "2026-04-22T05:15:34.757Z"
       },
       "src/hooks/generated/aethelred-connections/github_connection.ts": {
-        "hash": "2da954ebbaf04df8",
-        "generatedAt": "2026-04-22T04:38:05.443Z"
+        "hash": "35a8b8173f935580",
+        "generatedAt": "2026-04-22T05:15:34.758Z"
       },
       "src/types/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "f44b173eafba3066",
-        "generatedAt": "2026-04-22T04:38:05.446Z"
+        "hash": "0be27d75135fa072",
+        "generatedAt": "2026-04-22T05:20:53.208Z"
       },
       "src/lib/validators/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "029e7dbfb2bfff46",
-        "generatedAt": "2026-04-22T04:38:05.449Z"
+        "hash": "658ae215a5a998c8",
+        "generatedAt": "2026-04-22T05:15:34.765Z"
       },
       "src/app/api/generated/aethelred-connections/hearth_keeper/route.ts": {
-        "hash": "a9b96806b081159e",
-        "generatedAt": "2026-04-22T04:38:05.453Z"
+        "hash": "81df3fa976f2b675",
+        "generatedAt": "2026-04-22T05:15:34.768Z"
       },
       "src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts": {
-        "hash": "65b802733e80bdea",
-        "generatedAt": "2026-04-22T04:38:05.457Z"
+        "hash": "e57ef121b7b277b5",
+        "generatedAt": "2026-04-22T05:15:34.771Z"
       },
       "src/hooks/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "2e9eae9a3e168ccb",
-        "generatedAt": "2026-04-22T04:38:05.461Z"
+        "hash": "fddb4d166705632e",
+        "generatedAt": "2026-04-22T05:15:34.773Z"
       },
       "src/types/generated/iris-communications/languages.ts": {
-        "hash": "5cfe7700a6f317f0",
-        "generatedAt": "2026-04-22T04:38:05.464Z"
+        "hash": "34c4040d79ca3465",
+        "generatedAt": "2026-04-22T05:20:53.217Z"
       },
       "src/lib/validators/generated/iris-communications/languages.ts": {
-        "hash": "8feaf8dc29521805",
-        "generatedAt": "2026-04-22T04:38:05.467Z"
+        "hash": "23c30e52953ff66d",
+        "generatedAt": "2026-04-22T05:15:34.780Z"
       },
       "src/app/api/generated/iris-communications/languages/route.ts": {
-        "hash": "21d1bad93e3cbcf2",
-        "generatedAt": "2026-04-22T04:38:05.470Z"
+        "hash": "8b43ee24c8d0d3cc",
+        "generatedAt": "2026-04-22T05:15:34.783Z"
       },
       "src/app/api/generated/iris-communications/languages/[id]/route.ts": {
-        "hash": "f374e3638542a3f2",
-        "generatedAt": "2026-04-22T04:38:05.474Z"
+        "hash": "4e151d1da32622be",
+        "generatedAt": "2026-04-22T05:15:34.787Z"
       },
       "src/hooks/generated/iris-communications/languages.ts": {
-        "hash": "72b764156987cb64",
-        "generatedAt": "2026-04-22T04:38:05.477Z"
+        "hash": "34eb087e4d7893dd",
+        "generatedAt": "2026-04-22T05:15:34.790Z"
       },
       "src/types/generated/athena-gamification/learning_paths.ts": {
-        "hash": "02779bff75b36745",
-        "generatedAt": "2026-04-22T04:38:05.480Z"
+        "hash": "25d259bab08213c3",
+        "generatedAt": "2026-04-22T05:20:53.225Z"
       },
       "src/lib/validators/generated/athena-gamification/learning_paths.ts": {
-        "hash": "2d424c59c53d7ac6",
-        "generatedAt": "2026-04-22T04:38:05.483Z"
+        "hash": "9cff17a8cff9f731",
+        "generatedAt": "2026-04-22T05:15:34.797Z"
       },
       "src/app/api/generated/athena-gamification/learning_paths/route.ts": {
-        "hash": "10c9730eb6ef48f3",
-        "generatedAt": "2026-04-22T04:38:05.486Z"
+        "hash": "8d72dd27b52bee41",
+        "generatedAt": "2026-04-22T05:15:34.800Z"
       },
       "src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts": {
-        "hash": "4904a246ea42aedb",
-        "generatedAt": "2026-04-22T04:38:05.493Z"
+        "hash": "486502bc0388014a",
+        "generatedAt": "2026-04-22T05:15:34.804Z"
       },
       "src/hooks/generated/athena-gamification/learning_paths.ts": {
-        "hash": "53688f49f6f6b1f9",
-        "generatedAt": "2026-04-22T04:38:05.496Z"
+        "hash": "1e43656a85575647",
+        "generatedAt": "2026-04-22T05:15:34.806Z"
       },
       "src/types/generated/plutus-economics/ledger.ts": {
-        "hash": "6fe6c417f66580e2",
-        "generatedAt": "2026-04-22T04:38:05.498Z"
+        "hash": "f99d8a51acb40394",
+        "generatedAt": "2026-04-22T05:20:53.233Z"
       },
       "src/lib/validators/generated/plutus-economics/ledger.ts": {
-        "hash": "bb029922246992ff",
-        "generatedAt": "2026-04-22T04:38:05.501Z"
+        "hash": "8e9239a456339590",
+        "generatedAt": "2026-04-22T05:15:34.814Z"
       },
       "src/app/api/generated/plutus-economics/ledger/route.ts": {
-        "hash": "f84241c69efc369c",
-        "generatedAt": "2026-04-22T04:38:05.504Z"
+        "hash": "b5fc7cc564493f45",
+        "generatedAt": "2026-04-22T05:15:34.816Z"
       },
       "src/app/api/generated/plutus-economics/ledger/[id]/route.ts": {
-        "hash": "81ba0f25c8d3c903",
-        "generatedAt": "2026-04-22T04:38:05.507Z"
+        "hash": "407dd534c49220c7",
+        "generatedAt": "2026-04-22T05:15:34.820Z"
       },
       "src/hooks/generated/plutus-economics/ledger.ts": {
-        "hash": "ca25f969272f0a08",
-        "generatedAt": "2026-04-22T04:38:05.510Z"
+        "hash": "6c545f23b62f9017",
+        "generatedAt": "2026-04-22T05:15:34.822Z"
       },
       "src/types/generated/athena-gamification/lessons.ts": {
-        "hash": "c9417a5de70563bd",
-        "generatedAt": "2026-04-22T04:38:05.512Z"
+        "hash": "ae2d20b01d6ddfe9",
+        "generatedAt": "2026-04-22T05:20:53.241Z"
       },
       "src/lib/validators/generated/athena-gamification/lessons.ts": {
-        "hash": "9ca8698cd6449fbc",
-        "generatedAt": "2026-04-22T04:38:05.515Z"
+        "hash": "60aa66ee663ff7aa",
+        "generatedAt": "2026-04-22T05:15:34.829Z"
       },
       "src/app/api/generated/athena-gamification/lessons/route.ts": {
-        "hash": "ad2019ca64f5f8a8",
-        "generatedAt": "2026-04-22T04:38:05.518Z"
+        "hash": "40b15e94a514a03a",
+        "generatedAt": "2026-04-22T05:15:34.832Z"
       },
       "src/app/api/generated/athena-gamification/lessons/[id]/route.ts": {
-        "hash": "6f6a5e150f9b9ce7",
-        "generatedAt": "2026-04-22T04:38:05.520Z"
+        "hash": "995b12c2a8284af0",
+        "generatedAt": "2026-04-22T05:15:34.835Z"
       },
       "src/hooks/generated/athena-gamification/lessons.ts": {
-        "hash": "35a1c57724e3c40a",
-        "generatedAt": "2026-04-22T04:38:05.523Z"
+        "hash": "b02a1b6b9188e4e2",
+        "generatedAt": "2026-04-22T05:15:34.839Z"
       },
       "src/types/generated/athena-gamification/life_cycles.ts": {
-        "hash": "cd4ba0b51c769dec",
-        "generatedAt": "2026-04-22T04:38:05.527Z"
+        "hash": "f6c03947809c0ea2",
+        "generatedAt": "2026-04-22T05:20:53.249Z"
       },
       "src/lib/validators/generated/athena-gamification/life_cycles.ts": {
-        "hash": "1579f123c877ceec",
-        "generatedAt": "2026-04-22T04:38:05.530Z"
+        "hash": "9bff3493961c7f5d",
+        "generatedAt": "2026-04-22T05:15:34.847Z"
       },
       "src/app/api/generated/athena-gamification/life_cycles/route.ts": {
-        "hash": "b816e84783bfde76",
-        "generatedAt": "2026-04-22T04:38:05.534Z"
+        "hash": "78ddf9b4d2d1f606",
+        "generatedAt": "2026-04-22T05:15:34.853Z"
       },
       "src/app/api/generated/athena-gamification/life_cycles/[id]/route.ts": {
-        "hash": "db05a20c806a23d9",
-        "generatedAt": "2026-04-22T04:38:05.537Z"
+        "hash": "bd2902cde8c10426",
+        "generatedAt": "2026-04-22T05:15:34.857Z"
       },
       "src/hooks/generated/athena-gamification/life_cycles.ts": {
-        "hash": "a4f24b84f4691d80",
-        "generatedAt": "2026-04-22T04:38:05.540Z"
+        "hash": "5796b94e1c0c854b",
+        "generatedAt": "2026-04-22T05:15:34.860Z"
       },
       "src/types/generated/iris-communications/localization.ts": {
-        "hash": "9a7fc4b14d344eff",
-        "generatedAt": "2026-04-22T04:38:05.542Z"
+        "hash": "2bee706596137db2",
+        "generatedAt": "2026-04-22T05:20:53.258Z"
       },
       "src/lib/validators/generated/iris-communications/localization.ts": {
-        "hash": "b89ff01dca66cabb",
-        "generatedAt": "2026-04-22T04:38:05.545Z"
+        "hash": "6f06a07d303e9d18",
+        "generatedAt": "2026-04-22T05:15:34.873Z"
       },
       "src/app/api/generated/iris-communications/localization/route.ts": {
-        "hash": "a34127d40d1a9aa2",
-        "generatedAt": "2026-04-22T04:38:05.549Z"
+        "hash": "d516785ea1cf31d0",
+        "generatedAt": "2026-04-22T05:15:34.876Z"
       },
       "src/app/api/generated/iris-communications/localization/[id]/route.ts": {
-        "hash": "b2be7cd123859c3c",
-        "generatedAt": "2026-04-22T04:38:05.557Z"
+        "hash": "7306f91280685eeb",
+        "generatedAt": "2026-04-22T05:15:34.879Z"
       },
       "src/hooks/generated/iris-communications/localization.ts": {
-        "hash": "73a18fbd6abbc168",
-        "generatedAt": "2026-04-22T04:38:05.562Z"
+        "hash": "547a6ae3220a7b48",
+        "generatedAt": "2026-04-22T05:15:34.881Z"
       },
       "src/types/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "de0668fc3c15b7a6",
-        "generatedAt": "2026-04-22T04:38:05.565Z"
+        "hash": "a2749a8a96811697",
+        "generatedAt": "2026-04-22T05:20:53.268Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "876e70cf2b74166a",
-        "generatedAt": "2026-04-22T04:38:05.569Z"
+        "hash": "887f3b99776fcfc4",
+        "generatedAt": "2026-04-22T05:15:34.891Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts": {
-        "hash": "218cc277a377be9b",
-        "generatedAt": "2026-04-22T04:38:05.574Z"
+        "hash": "cf8bf46dd6b7f48d",
+        "generatedAt": "2026-04-22T05:15:34.894Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts": {
-        "hash": "57cd4fc782f450fc",
-        "generatedAt": "2026-04-22T04:38:05.577Z"
+        "hash": "564008dd87a6bd2d",
+        "generatedAt": "2026-04-22T05:15:34.897Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "3f0a3cd0572adeba",
-        "generatedAt": "2026-04-22T04:38:05.579Z"
+        "hash": "5e633945137beaa0",
+        "generatedAt": "2026-04-22T05:15:34.899Z"
       },
       "src/types/generated/hermes-social/messages.ts": {
-        "hash": "7ed853e82b5c0eed",
-        "generatedAt": "2026-04-22T04:38:05.583Z"
+        "hash": "f842211b8a4e93bd",
+        "generatedAt": "2026-04-22T05:20:53.276Z"
       },
       "src/lib/validators/generated/hermes-social/messages.ts": {
-        "hash": "bbc4da54f7463d5a",
-        "generatedAt": "2026-04-22T04:38:05.587Z"
+        "hash": "da38a12a1d7d95ff",
+        "generatedAt": "2026-04-22T05:15:34.909Z"
       },
       "src/app/api/generated/hermes-social/messages/route.ts": {
-        "hash": "23fb3337da48c4be",
-        "generatedAt": "2026-04-22T04:38:05.593Z"
+        "hash": "251e6800be6cc896",
+        "generatedAt": "2026-04-22T05:15:34.912Z"
       },
       "src/app/api/generated/hermes-social/messages/[id]/route.ts": {
-        "hash": "072628a7e2cbc70e",
-        "generatedAt": "2026-04-22T04:38:05.597Z"
+        "hash": "0911b7bd9ed9b6a8",
+        "generatedAt": "2026-04-22T05:15:34.915Z"
       },
       "src/hooks/generated/hermes-social/messages.ts": {
-        "hash": "3bd697a31f622093",
-        "generatedAt": "2026-04-22T04:38:05.600Z"
+        "hash": "86909ebb275a3ce3",
+        "generatedAt": "2026-04-22T05:15:34.918Z"
       },
       "src/types/generated/themis-governance/moderation_actions.ts": {
-        "hash": "a0331e4929b966c4",
-        "generatedAt": "2026-04-22T04:38:05.603Z"
+        "hash": "3173f9a6972ba920",
+        "generatedAt": "2026-04-22T05:20:53.284Z"
       },
       "src/lib/validators/generated/themis-governance/moderation_actions.ts": {
-        "hash": "5ff17d297f3aca1c",
-        "generatedAt": "2026-04-22T04:38:05.606Z"
+        "hash": "6057d889a8e91bd3",
+        "generatedAt": "2026-04-22T05:15:34.927Z"
       },
       "src/app/api/generated/themis-governance/moderation_actions/route.ts": {
-        "hash": "1ed35c6780ed254f",
-        "generatedAt": "2026-04-22T04:38:05.611Z"
+        "hash": "80aa6391664bc7a5",
+        "generatedAt": "2026-04-22T05:15:34.930Z"
       },
       "src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts": {
-        "hash": "ef6586641d6627a8",
-        "generatedAt": "2026-04-22T04:38:05.614Z"
+        "hash": "ba5c0416a4c35e54",
+        "generatedAt": "2026-04-22T05:15:34.933Z"
       },
       "src/hooks/generated/themis-governance/moderation_actions.ts": {
-        "hash": "7cbf682f9b47e945",
-        "generatedAt": "2026-04-22T04:38:05.617Z"
+        "hash": "4a80be647f9ef4dc",
+        "generatedAt": "2026-04-22T05:15:34.936Z"
       },
       "src/types/generated/athena-gamification/mythology.ts": {
-        "hash": "91b85e7758349edb",
-        "generatedAt": "2026-04-22T04:38:05.619Z"
+        "hash": "b3915ddef0b41992",
+        "generatedAt": "2026-04-22T05:20:53.292Z"
       },
       "src/lib/validators/generated/athena-gamification/mythology.ts": {
-        "hash": "e0aa680d94033e8c",
-        "generatedAt": "2026-04-22T04:38:05.622Z"
+        "hash": "648bb0680e873db6",
+        "generatedAt": "2026-04-22T05:15:34.943Z"
       },
       "src/app/api/generated/athena-gamification/mythology/route.ts": {
-        "hash": "92d7cd49d9216b01",
-        "generatedAt": "2026-04-22T04:38:05.626Z"
+        "hash": "455e042829e31c82",
+        "generatedAt": "2026-04-22T05:15:34.946Z"
       },
       "src/app/api/generated/athena-gamification/mythology/[id]/route.ts": {
-        "hash": "4f0abaea4d8eeadc",
-        "generatedAt": "2026-04-22T04:38:05.630Z"
+        "hash": "270d2da145cf6488",
+        "generatedAt": "2026-04-22T05:15:34.948Z"
       },
       "src/hooks/generated/athena-gamification/mythology.ts": {
-        "hash": "c0c066b2cbcda41d",
-        "generatedAt": "2026-04-22T04:38:05.695Z"
+        "hash": "d98d19547c81317e",
+        "generatedAt": "2026-04-22T05:15:34.950Z"
       },
       "src/types/generated/hermes-social/notifications.ts": {
-        "hash": "2595cee8a6210015",
-        "generatedAt": "2026-04-22T04:38:05.708Z"
+        "hash": "4e78e4b048a6b2e5",
+        "generatedAt": "2026-04-22T05:20:53.300Z"
       },
       "src/lib/validators/generated/hermes-social/notifications.ts": {
-        "hash": "47673f1f141a74c9",
-        "generatedAt": "2026-04-22T04:38:05.712Z"
+        "hash": "6f8d49b805606c21",
+        "generatedAt": "2026-04-22T05:15:34.958Z"
       },
       "src/app/api/generated/hermes-social/notifications/route.ts": {
-        "hash": "50d235b08372c79c",
-        "generatedAt": "2026-04-22T04:38:05.715Z"
+        "hash": "86ddf88eb07f2d48",
+        "generatedAt": "2026-04-22T05:15:34.961Z"
       },
       "src/app/api/generated/hermes-social/notifications/[id]/route.ts": {
-        "hash": "7a3301890ec8df17",
-        "generatedAt": "2026-04-22T04:38:05.718Z"
+        "hash": "806f74f7e0cd1adf",
+        "generatedAt": "2026-04-22T05:15:34.963Z"
       },
       "src/hooks/generated/hermes-social/notifications.ts": {
-        "hash": "a6904d966fbbd1e6",
-        "generatedAt": "2026-04-22T04:38:05.720Z"
+        "hash": "74f833e0120684df",
+        "generatedAt": "2026-04-22T05:15:34.965Z"
       },
       "src/types/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "27bb846145eabd8b",
-        "generatedAt": "2026-04-22T04:38:05.725Z"
+        "hash": "aebd8494bfbbb602",
+        "generatedAt": "2026-04-22T05:20:53.309Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "0375b54e13f270e2",
-        "generatedAt": "2026-04-22T04:38:05.739Z"
+        "hash": "7b5a1b893c40e394",
+        "generatedAt": "2026-04-22T05:15:34.973Z"
       },
       "src/app/api/generated/mnemosyne-assessment/ontology/route.ts": {
-        "hash": "219db3afea4d24bf",
-        "generatedAt": "2026-04-22T04:38:05.742Z"
+        "hash": "360b8a612a7dec30",
+        "generatedAt": "2026-04-22T05:15:34.975Z"
       },
       "src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts": {
-        "hash": "d810e3b66034a2a7",
-        "generatedAt": "2026-04-22T04:38:05.746Z"
+        "hash": "6d3a115b25f0dd1a",
+        "generatedAt": "2026-04-22T05:15:34.978Z"
       },
       "src/hooks/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "146c3ba85bd161fe",
-        "generatedAt": "2026-04-22T04:38:05.748Z"
+        "hash": "60c3dff9e8f6b562",
+        "generatedAt": "2026-04-22T05:15:34.980Z"
       },
       "src/types/generated/athena-gamification/path_lessons.ts": {
-        "hash": "ec7dc5200f99325b",
-        "generatedAt": "2026-04-22T04:38:05.750Z"
+        "hash": "c08cc5baf25818aa",
+        "generatedAt": "2026-04-22T05:20:53.317Z"
       },
       "src/lib/validators/generated/athena-gamification/path_lessons.ts": {
-        "hash": "ed0fc219ce9633f0",
-        "generatedAt": "2026-04-22T04:38:05.752Z"
+        "hash": "a5647a722cfb8a05",
+        "generatedAt": "2026-04-22T05:15:34.988Z"
       },
       "src/app/api/generated/athena-gamification/path_lessons/route.ts": {
-        "hash": "475daa459867f690",
-        "generatedAt": "2026-04-22T04:38:05.755Z"
+        "hash": "67a49bd39a9b6856",
+        "generatedAt": "2026-04-22T05:15:34.991Z"
       },
       "src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts": {
-        "hash": "ad15d97d714b7f67",
-        "generatedAt": "2026-04-22T04:38:05.758Z"
+        "hash": "10555fe9cbe769c9",
+        "generatedAt": "2026-04-22T05:15:34.994Z"
       },
       "src/hooks/generated/athena-gamification/path_lessons.ts": {
-        "hash": "1567f3b2f29beba0",
-        "generatedAt": "2026-04-22T04:38:05.761Z"
+        "hash": "33c350e69f4fa8fa",
+        "generatedAt": "2026-04-22T05:15:34.996Z"
       },
       "src/types/generated/plutus-economics/payouts.ts": {
-        "hash": "197d52bea608d776",
-        "generatedAt": "2026-04-22T04:38:05.763Z"
+        "hash": "b8d250f22d40455b",
+        "generatedAt": "2026-04-22T05:20:53.328Z"
       },
       "src/lib/validators/generated/plutus-economics/payouts.ts": {
-        "hash": "1ed67a2d972873a9",
-        "generatedAt": "2026-04-22T04:38:05.765Z"
+        "hash": "70da867852a48827",
+        "generatedAt": "2026-04-22T05:15:35.004Z"
       },
       "src/app/api/generated/plutus-economics/payouts/route.ts": {
-        "hash": "04434a29199df32b",
-        "generatedAt": "2026-04-22T04:38:05.768Z"
+        "hash": "d6c6fe3e1f168188",
+        "generatedAt": "2026-04-22T05:15:35.006Z"
       },
       "src/app/api/generated/plutus-economics/payouts/[id]/route.ts": {
-        "hash": "105bb59f8e58984e",
-        "generatedAt": "2026-04-22T04:38:05.771Z"
+        "hash": "7c8d845327ea29c9",
+        "generatedAt": "2026-04-22T05:15:35.009Z"
       },
       "src/hooks/generated/plutus-economics/payouts.ts": {
-        "hash": "9f235924d10a0906",
-        "generatedAt": "2026-04-22T04:38:05.774Z"
+        "hash": "536ad4f05a3a4b6f",
+        "generatedAt": "2026-04-22T05:15:35.011Z"
       },
       "src/types/generated/iris-communications/personas.ts": {
-        "hash": "e0070d3b026f442b",
-        "generatedAt": "2026-04-22T04:38:05.777Z"
+        "hash": "fd7ccd41d146e05f",
+        "generatedAt": "2026-04-22T05:20:53.338Z"
       },
       "src/lib/validators/generated/iris-communications/personas.ts": {
-        "hash": "7f02d624c1caa9f8",
-        "generatedAt": "2026-04-22T04:38:05.781Z"
+        "hash": "567b09bb1d433693",
+        "generatedAt": "2026-04-22T05:15:35.018Z"
       },
       "src/app/api/generated/iris-communications/personas/route.ts": {
-        "hash": "b88eef46bee198f4",
-        "generatedAt": "2026-04-22T04:38:05.785Z"
+        "hash": "a9cd5f5f732c2a63",
+        "generatedAt": "2026-04-22T05:15:35.022Z"
       },
       "src/app/api/generated/iris-communications/personas/[id]/route.ts": {
-        "hash": "9b9e8ba81879c56a",
-        "generatedAt": "2026-04-22T04:38:05.787Z"
+        "hash": "8980276d214d2394",
+        "generatedAt": "2026-04-22T05:15:35.026Z"
       },
       "src/hooks/generated/iris-communications/personas.ts": {
-        "hash": "75a33d5d470082bf",
-        "generatedAt": "2026-04-22T04:38:05.789Z"
+        "hash": "34a20697d115b4e4",
+        "generatedAt": "2026-04-22T05:15:35.028Z"
       },
       "src/types/generated/hermes-social/posts.ts": {
-        "hash": "f5e03f411e4336b0",
-        "generatedAt": "2026-04-22T04:38:05.792Z"
+        "hash": "b2f2a6a1d216c199",
+        "generatedAt": "2026-04-22T05:20:53.348Z"
       },
       "src/lib/validators/generated/hermes-social/posts.ts": {
-        "hash": "bce9f05aa430bf8d",
-        "generatedAt": "2026-04-22T04:38:05.794Z"
+        "hash": "e1d6be342cc893c9",
+        "generatedAt": "2026-04-22T05:15:35.042Z"
       },
       "src/app/api/generated/hermes-social/posts/route.ts": {
-        "hash": "3dc63ee02bf279e8",
-        "generatedAt": "2026-04-22T04:38:05.797Z"
+        "hash": "80bc35f1d1794092",
+        "generatedAt": "2026-04-22T05:15:35.045Z"
       },
       "src/app/api/generated/hermes-social/posts/[id]/route.ts": {
-        "hash": "1825e11189556e9b",
-        "generatedAt": "2026-04-22T04:38:05.799Z"
+        "hash": "b0a7603b79a204df",
+        "generatedAt": "2026-04-22T05:15:35.047Z"
       },
       "src/hooks/generated/hermes-social/posts.ts": {
-        "hash": "9d847c1a7235a769",
-        "generatedAt": "2026-04-22T04:38:05.801Z"
+        "hash": "7004f3bb28a98cbd",
+        "generatedAt": "2026-04-22T05:15:35.049Z"
       },
       "src/types/generated/themis-governance/processes.ts": {
-        "hash": "17bfde3e50f98272",
-        "generatedAt": "2026-04-22T04:38:05.803Z"
+        "hash": "3a96a9158ea9aab7",
+        "generatedAt": "2026-04-22T05:20:53.358Z"
       },
       "src/lib/validators/generated/themis-governance/processes.ts": {
-        "hash": "d9c7b97e3a497443",
-        "generatedAt": "2026-04-22T04:38:05.805Z"
+        "hash": "896925d18263a69e",
+        "generatedAt": "2026-04-22T05:15:35.057Z"
       },
       "src/app/api/generated/themis-governance/processes/route.ts": {
-        "hash": "e279092d6b287760",
-        "generatedAt": "2026-04-22T04:38:05.809Z"
+        "hash": "f02a15e314a5fd50",
+        "generatedAt": "2026-04-22T05:15:35.060Z"
       },
       "src/app/api/generated/themis-governance/processes/[id]/route.ts": {
-        "hash": "8e7ef929b08079e4",
-        "generatedAt": "2026-04-22T04:38:05.812Z"
+        "hash": "70d7f6b3cada1bd0",
+        "generatedAt": "2026-04-22T05:15:35.063Z"
       },
       "src/hooks/generated/themis-governance/processes.ts": {
-        "hash": "96ade1f7371c3c00",
-        "generatedAt": "2026-04-22T04:38:05.814Z"
+        "hash": "cabee3d108a332cd",
+        "generatedAt": "2026-04-22T05:15:35.065Z"
       },
       "src/types/generated/plutus-economics/products.ts": {
-        "hash": "0ba3fd435d1cd117",
-        "generatedAt": "2026-04-22T04:38:05.817Z"
+        "hash": "dfb20673d6fbf76e",
+        "generatedAt": "2026-04-22T05:20:53.367Z"
       },
       "src/lib/validators/generated/plutus-economics/products.ts": {
-        "hash": "d6a0431bb2ee245c",
-        "generatedAt": "2026-04-22T04:38:05.819Z"
+        "hash": "09ca7bd30a68c0dd",
+        "generatedAt": "2026-04-22T05:15:35.074Z"
       },
       "src/app/api/generated/plutus-economics/products/route.ts": {
-        "hash": "3c5f0d45358f0086",
-        "generatedAt": "2026-04-22T04:38:05.821Z"
+        "hash": "573c43882805711d",
+        "generatedAt": "2026-04-22T05:15:35.077Z"
       },
       "src/app/api/generated/plutus-economics/products/[id]/route.ts": {
-        "hash": "079f4ff3d820b066",
-        "generatedAt": "2026-04-22T04:38:05.824Z"
+        "hash": "5eb75c0f64e359f6",
+        "generatedAt": "2026-04-22T05:15:35.080Z"
       },
       "src/hooks/generated/plutus-economics/products.ts": {
-        "hash": "dacbb2c53be3d6c2",
-        "generatedAt": "2026-04-22T04:38:05.827Z"
+        "hash": "c08e9036f822c534",
+        "generatedAt": "2026-04-22T05:15:35.083Z"
       },
       "src/lib/validators/generated/hestia-core/profiles.ts": {
-        "hash": "c967893ec583476c",
-        "generatedAt": "2026-04-22T04:38:05.830Z"
+        "hash": "e8f4972c1b0ec12e",
+        "generatedAt": "2026-04-22T05:15:35.092Z"
       },
       "src/types/generated/athena-gamification/progress.ts": {
-        "hash": "fa5e52d50ac47523",
-        "generatedAt": "2026-04-22T04:38:05.837Z"
+        "hash": "1e5759e1bbf83da2",
+        "generatedAt": "2026-04-22T05:20:53.385Z"
       },
       "src/lib/validators/generated/athena-gamification/progress.ts": {
-        "hash": "69c3a892c073b8fa",
-        "generatedAt": "2026-04-22T04:38:05.840Z"
+        "hash": "d772f2e3cd67bd28",
+        "generatedAt": "2026-04-22T05:15:35.111Z"
       },
       "src/app/api/generated/athena-gamification/progress/route.ts": {
-        "hash": "28d13c6291291d30",
-        "generatedAt": "2026-04-22T04:38:05.844Z"
+        "hash": "571cb685672ec394",
+        "generatedAt": "2026-04-22T05:15:35.116Z"
       },
       "src/app/api/generated/athena-gamification/progress/[id]/route.ts": {
-        "hash": "8b41f707686b0ba0",
-        "generatedAt": "2026-04-22T04:38:05.847Z"
+        "hash": "02c3e6588cd45a09",
+        "generatedAt": "2026-04-22T05:15:35.121Z"
       },
       "src/hooks/generated/athena-gamification/progress.ts": {
-        "hash": "3bf2ac57ed246511",
-        "generatedAt": "2026-04-22T04:38:05.849Z"
+        "hash": "bd7e97ca9358c497",
+        "generatedAt": "2026-04-22T05:15:35.125Z"
       },
       "src/types/generated/prometheus-meta/prometheus_blueprints.ts": {
-        "hash": "de9d024375a6f919",
-        "generatedAt": "2026-04-22T04:38:05.852Z"
+        "hash": "54f7bf2520d61033",
+        "generatedAt": "2026-04-22T05:20:53.394Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_blueprints.ts": {
-        "hash": "d8fe5cbdd46aa5cd",
-        "generatedAt": "2026-04-22T04:38:05.855Z"
+        "hash": "ab112a3678785acb",
+        "generatedAt": "2026-04-22T05:15:35.135Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_blueprints/route.ts": {
-        "hash": "72901317a2f6103a",
-        "generatedAt": "2026-04-22T04:38:05.858Z"
+        "hash": "fb49ad34f202c463",
+        "generatedAt": "2026-04-22T05:15:35.139Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_blueprints/[id]/route.ts": {
-        "hash": "06957f3018a74928",
-        "generatedAt": "2026-04-22T04:38:05.862Z"
+        "hash": "edcf69a5b67a587b",
+        "generatedAt": "2026-04-22T05:15:35.143Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_blueprints.ts": {
-        "hash": "fbb10acd014d12b9",
-        "generatedAt": "2026-04-22T04:38:05.864Z"
+        "hash": "27cca8b35f475b6e",
+        "generatedAt": "2026-04-22T05:15:35.146Z"
       },
       "src/types/generated/prometheus-meta/prometheus_boundaries.ts": {
-        "hash": "36a1c69d9c72a252",
-        "generatedAt": "2026-04-22T04:38:05.866Z"
+        "hash": "b7de73c16452ba03",
+        "generatedAt": "2026-04-22T05:20:53.402Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_boundaries.ts": {
-        "hash": "733148de7214136f",
-        "generatedAt": "2026-04-22T04:38:05.868Z"
+        "hash": "e656dcc9f34296ca",
+        "generatedAt": "2026-04-22T05:15:35.156Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_boundaries/route.ts": {
-        "hash": "fb8596b2c116d03c",
-        "generatedAt": "2026-04-22T04:38:05.871Z"
+        "hash": "a1e4d29ce7f736b8",
+        "generatedAt": "2026-04-22T05:15:35.159Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_boundaries/[id]/route.ts": {
-        "hash": "c1bf0a8e482889a7",
-        "generatedAt": "2026-04-22T04:38:05.874Z"
+        "hash": "4e1198b2a8d6e9d2",
+        "generatedAt": "2026-04-22T05:15:35.163Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_boundaries.ts": {
-        "hash": "8318ae864705459f",
-        "generatedAt": "2026-04-22T04:38:05.879Z"
+        "hash": "7517333f66e91064",
+        "generatedAt": "2026-04-22T05:15:35.166Z"
       },
       "src/types/generated/prometheus-meta/prometheus_consciousness.ts": {
-        "hash": "0f351f726c0dcc6e",
-        "generatedAt": "2026-04-22T04:38:05.882Z"
+        "hash": "7bc1cab45136d16f",
+        "generatedAt": "2026-04-22T05:20:53.411Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_consciousness.ts": {
-        "hash": "42a3519acbcb813a",
-        "generatedAt": "2026-04-22T04:38:05.885Z"
+        "hash": "1133146d1c655efd",
+        "generatedAt": "2026-04-22T05:15:35.175Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_consciousness/route.ts": {
-        "hash": "1dfbebfd77c451a2",
-        "generatedAt": "2026-04-22T04:38:05.888Z"
+        "hash": "6d92d3e2222f21c9",
+        "generatedAt": "2026-04-22T05:15:35.178Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_consciousness/[id]/route.ts": {
-        "hash": "69505d96ae0a9cd3",
-        "generatedAt": "2026-04-22T04:38:05.891Z"
+        "hash": "91afa9c86b90fb74",
+        "generatedAt": "2026-04-22T05:15:35.182Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_consciousness.ts": {
-        "hash": "a779816d2c639cfd",
-        "generatedAt": "2026-04-22T04:38:05.895Z"
+        "hash": "79bae3b738dbf69b",
+        "generatedAt": "2026-04-22T05:15:35.185Z"
       },
       "src/types/generated/prometheus-meta/prometheus_generations.ts": {
-        "hash": "46240846833d6182",
-        "generatedAt": "2026-04-22T04:38:05.897Z"
+        "hash": "797ec9ae2e7459a3",
+        "generatedAt": "2026-04-22T05:20:53.421Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_generations.ts": {
-        "hash": "7dd494fa55962966",
-        "generatedAt": "2026-04-22T04:38:05.900Z"
+        "hash": "a46540d5c334a9fe",
+        "generatedAt": "2026-04-22T05:15:35.194Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_generations/route.ts": {
-        "hash": "7620a362df31ba77",
-        "generatedAt": "2026-04-22T04:38:05.902Z"
+        "hash": "a7f87d0fdc987aa9",
+        "generatedAt": "2026-04-22T05:15:35.198Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_generations/[id]/route.ts": {
-        "hash": "e1a1282ecbf02a07",
-        "generatedAt": "2026-04-22T04:38:05.905Z"
+        "hash": "2db428e94adeacb4",
+        "generatedAt": "2026-04-22T05:15:35.202Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_generations.ts": {
-        "hash": "9b221e8c7d72cfe6",
-        "generatedAt": "2026-04-22T04:38:05.908Z"
+        "hash": "0f88dd2009e005b0",
+        "generatedAt": "2026-04-22T05:15:35.205Z"
       },
       "src/types/generated/prometheus-meta/prometheus_memories.ts": {
-        "hash": "1d9081457299f4ab",
-        "generatedAt": "2026-04-22T04:38:05.911Z"
+        "hash": "a678252de9649b35",
+        "generatedAt": "2026-04-22T05:20:53.431Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_memories.ts": {
-        "hash": "4f328021b9b7d355",
-        "generatedAt": "2026-04-22T04:38:05.914Z"
+        "hash": "dfd37b4977f194e9",
+        "generatedAt": "2026-04-22T05:15:35.214Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_memories/route.ts": {
-        "hash": "f8561ca7249a406c",
-        "generatedAt": "2026-04-22T04:38:05.917Z"
+        "hash": "0e02029d0a5cc271",
+        "generatedAt": "2026-04-22T05:15:35.217Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_memories/[id]/route.ts": {
-        "hash": "1e73ef0efdaaf8f1",
-        "generatedAt": "2026-04-22T04:38:05.919Z"
+        "hash": "e8599fe7dbbd69ce",
+        "generatedAt": "2026-04-22T05:15:35.221Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_memories.ts": {
-        "hash": "5d9876c0f2ce49fd",
-        "generatedAt": "2026-04-22T04:38:05.922Z"
+        "hash": "eb43a31bb41b29ec",
+        "generatedAt": "2026-04-22T05:15:35.224Z"
       },
       "src/types/generated/prometheus-meta/prometheus_patterns.ts": {
-        "hash": "e410c79c26d881a2",
-        "generatedAt": "2026-04-22T04:38:05.925Z"
+        "hash": "8212c3c8617d2d98",
+        "generatedAt": "2026-04-22T05:20:53.441Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_patterns.ts": {
-        "hash": "f097377011fb2a60",
-        "generatedAt": "2026-04-22T04:38:05.929Z"
+        "hash": "1936d6bb43bdada0",
+        "generatedAt": "2026-04-22T05:15:35.230Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_patterns/route.ts": {
-        "hash": "9c0809b69baf848b",
-        "generatedAt": "2026-04-22T04:38:05.933Z"
+        "hash": "d1ffaae69bd0589c",
+        "generatedAt": "2026-04-22T05:15:35.235Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_patterns/[id]/route.ts": {
-        "hash": "d5080529f2adca4d",
-        "generatedAt": "2026-04-22T04:38:05.938Z"
+        "hash": "811e15d788e80fc2",
+        "generatedAt": "2026-04-22T05:15:35.239Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_patterns.ts": {
-        "hash": "a30afcc40cc978d1",
-        "generatedAt": "2026-04-22T04:38:05.942Z"
+        "hash": "cfc319bfc753d8a1",
+        "generatedAt": "2026-04-22T05:15:35.241Z"
       },
       "src/types/generated/prometheus-meta/prometheus_templates.ts": {
-        "hash": "5ff40db1837aac29",
-        "generatedAt": "2026-04-22T04:38:05.945Z"
+        "hash": "63a5b317007a4ed5",
+        "generatedAt": "2026-04-22T05:20:53.453Z"
       },
       "src/lib/validators/generated/prometheus-meta/prometheus_templates.ts": {
-        "hash": "ebff2d5ac84dbc81",
-        "generatedAt": "2026-04-22T04:38:05.948Z"
+        "hash": "fedd1445bac5ebe1",
+        "generatedAt": "2026-04-22T05:15:35.248Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_templates/route.ts": {
-        "hash": "df549642adfb61d2",
-        "generatedAt": "2026-04-22T04:38:05.952Z"
+        "hash": "80cf17cd4e637a03",
+        "generatedAt": "2026-04-22T05:15:35.251Z"
       },
       "src/app/api/generated/prometheus-meta/prometheus_templates/[id]/route.ts": {
-        "hash": "9aaaadeab620b635",
-        "generatedAt": "2026-04-22T04:38:05.955Z"
+        "hash": "8ae0a0996960eda6",
+        "generatedAt": "2026-04-22T05:15:35.255Z"
       },
       "src/hooks/generated/prometheus-meta/prometheus_templates.ts": {
-        "hash": "bf9c1b41ec857f8e",
-        "generatedAt": "2026-04-22T04:38:05.959Z"
+        "hash": "0884ca5ef83ad5df",
+        "generatedAt": "2026-04-22T05:15:35.257Z"
       },
       "src/types/generated/hephaestus-infrastructure/protocols.ts": {
-        "hash": "c8217c1f3738feb6",
-        "generatedAt": "2026-04-22T04:38:05.962Z"
+        "hash": "17f6786b34aa88f4",
+        "generatedAt": "2026-04-22T05:20:53.461Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/protocols.ts": {
-        "hash": "33b3eaa3dc90688b",
-        "generatedAt": "2026-04-22T04:38:05.965Z"
+        "hash": "3de235c3632377a7",
+        "generatedAt": "2026-04-22T05:15:35.263Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/protocols/route.ts": {
-        "hash": "0df40412e883af4f",
-        "generatedAt": "2026-04-22T04:38:05.968Z"
+        "hash": "e49ebdff656d715d",
+        "generatedAt": "2026-04-22T05:15:35.265Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/protocols/[id]/route.ts": {
-        "hash": "2d5761d273b4ad6e",
-        "generatedAt": "2026-04-22T04:38:05.971Z"
+        "hash": "a0ad9d8f4dbafd08",
+        "generatedAt": "2026-04-22T05:15:35.269Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/protocols.ts": {
-        "hash": "ddd93151122d9f4a",
-        "generatedAt": "2026-04-22T04:38:05.974Z"
+        "hash": "a1b651d537f4bee2",
+        "generatedAt": "2026-04-22T05:15:35.272Z"
       },
       "src/types/generated/mnemosyne-assessment/quantum_superposition.ts": {
-        "hash": "b8d9463f9724700f",
-        "generatedAt": "2026-04-22T04:38:05.978Z"
+        "hash": "b8c20921b95e3707",
+        "generatedAt": "2026-04-22T05:20:53.470Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/quantum_superposition.ts": {
-        "hash": "37d34fff0759eccc",
-        "generatedAt": "2026-04-22T04:38:05.981Z"
+        "hash": "7212a76a693020a8",
+        "generatedAt": "2026-04-22T05:15:35.278Z"
       },
       "src/app/api/generated/mnemosyne-assessment/quantum_superposition/route.ts": {
-        "hash": "0c90f22b809305d0",
-        "generatedAt": "2026-04-22T04:38:05.984Z"
+        "hash": "827db1b65f303c26",
+        "generatedAt": "2026-04-22T05:15:35.281Z"
       },
       "src/app/api/generated/mnemosyne-assessment/quantum_superposition/[id]/route.ts": {
-        "hash": "ca40203360947749",
-        "generatedAt": "2026-04-22T04:38:05.987Z"
+        "hash": "c94be6d49c9c5bd8",
+        "generatedAt": "2026-04-22T05:15:35.284Z"
       },
       "src/hooks/generated/mnemosyne-assessment/quantum_superposition.ts": {
-        "hash": "eddf9bdfe07803ff",
-        "generatedAt": "2026-04-22T04:38:05.989Z"
+        "hash": "6e6686c314858f19",
+        "generatedAt": "2026-04-22T05:15:35.287Z"
       },
       "src/types/generated/athena-gamification/quests.ts": {
-        "hash": "42993082b9880b04",
-        "generatedAt": "2026-04-22T04:38:05.992Z"
+        "hash": "642049e04a18a8e3",
+        "generatedAt": "2026-04-22T05:20:53.477Z"
       },
       "src/lib/validators/generated/athena-gamification/quests.ts": {
-        "hash": "ebb555e896e77ab0",
-        "generatedAt": "2026-04-22T04:38:05.995Z"
+        "hash": "173af4e7afb88ebd",
+        "generatedAt": "2026-04-22T05:15:35.294Z"
       },
       "src/app/api/generated/athena-gamification/quests/route.ts": {
-        "hash": "6ae461c51d2a4dbb",
-        "generatedAt": "2026-04-22T04:38:05.997Z"
+        "hash": "42aba001f2137375",
+        "generatedAt": "2026-04-22T05:15:35.296Z"
       },
       "src/app/api/generated/athena-gamification/quests/[id]/route.ts": {
-        "hash": "be65b4d7efeaebe4",
-        "generatedAt": "2026-04-22T04:38:06.000Z"
+        "hash": "046a0d1e390f7a41",
+        "generatedAt": "2026-04-22T05:15:35.299Z"
       },
       "src/hooks/generated/athena-gamification/quests.ts": {
-        "hash": "d5114259cf9e3403",
-        "generatedAt": "2026-04-22T04:38:06.002Z"
+        "hash": "f332769536554979",
+        "generatedAt": "2026-04-22T05:15:35.301Z"
       },
       "src/types/generated/themis-governance/rate_limits.ts": {
-        "hash": "fcf73de4959c5753",
-        "generatedAt": "2026-04-22T04:38:06.005Z"
+        "hash": "035b85e6966fe69f",
+        "generatedAt": "2026-04-22T05:20:53.487Z"
       },
       "src/lib/validators/generated/themis-governance/rate_limits.ts": {
-        "hash": "88c1c1c2d72aa0e0",
-        "generatedAt": "2026-04-22T04:38:06.007Z"
+        "hash": "a3670607068b8f49",
+        "generatedAt": "2026-04-22T05:15:35.310Z"
       },
       "src/app/api/generated/themis-governance/rate_limits/route.ts": {
-        "hash": "47cc15e8ffed0eff",
-        "generatedAt": "2026-04-22T04:38:06.011Z"
+        "hash": "69d26a9c1bbe610b",
+        "generatedAt": "2026-04-22T05:15:35.313Z"
       },
       "src/app/api/generated/themis-governance/rate_limits/[id]/route.ts": {
-        "hash": "d16eb62f4652d7a7",
-        "generatedAt": "2026-04-22T04:38:06.013Z"
+        "hash": "ffb8dd5f95cc398a",
+        "generatedAt": "2026-04-22T05:15:35.315Z"
       },
       "src/hooks/generated/themis-governance/rate_limits.ts": {
-        "hash": "32047ec23b873127",
-        "generatedAt": "2026-04-22T04:38:06.016Z"
+        "hash": "8290b69b3ec57ae3",
+        "generatedAt": "2026-04-22T05:15:35.318Z"
       },
       "src/types/generated/hermes-social/reactions.ts": {
-        "hash": "a4760423fd46beb1",
-        "generatedAt": "2026-04-22T04:38:06.019Z"
+        "hash": "90e021c641240a57",
+        "generatedAt": "2026-04-22T05:20:53.495Z"
       },
       "src/lib/validators/generated/hermes-social/reactions.ts": {
-        "hash": "1d26c9a02d5c6152",
-        "generatedAt": "2026-04-22T04:38:06.021Z"
+        "hash": "e48e032e4db9242a",
+        "generatedAt": "2026-04-22T05:15:35.326Z"
       },
       "src/app/api/generated/hermes-social/reactions/route.ts": {
-        "hash": "1c950cc9a3dfcc19",
-        "generatedAt": "2026-04-22T04:38:06.024Z"
+        "hash": "4122b79f200bc8f8",
+        "generatedAt": "2026-04-22T05:15:35.329Z"
       },
       "src/app/api/generated/hermes-social/reactions/[id]/route.ts": {
-        "hash": "bfb13cbbeb362bfd",
-        "generatedAt": "2026-04-22T04:38:06.027Z"
+        "hash": "b534f078cc5b727d",
+        "generatedAt": "2026-04-22T05:15:35.331Z"
       },
       "src/hooks/generated/hermes-social/reactions.ts": {
-        "hash": "4a6b6ec504b3b720",
-        "generatedAt": "2026-04-22T04:38:06.029Z"
+        "hash": "18e295a9e48c9982",
+        "generatedAt": "2026-04-22T05:15:35.333Z"
       },
       "src/types/generated/iris-communications/regions.ts": {
-        "hash": "d229398b44e57d08",
-        "generatedAt": "2026-04-22T04:38:06.032Z"
+        "hash": "c4d4a50a976d6133",
+        "generatedAt": "2026-04-22T05:20:53.506Z"
       },
       "src/lib/validators/generated/iris-communications/regions.ts": {
-        "hash": "1884e5f117277f5b",
-        "generatedAt": "2026-04-22T04:38:06.034Z"
+        "hash": "efca16b8773733ca",
+        "generatedAt": "2026-04-22T05:15:35.341Z"
       },
       "src/app/api/generated/iris-communications/regions/route.ts": {
-        "hash": "70855ca61c9b8fc4",
-        "generatedAt": "2026-04-22T04:38:06.036Z"
+        "hash": "e0220e27dc0cc316",
+        "generatedAt": "2026-04-22T05:15:35.344Z"
       },
       "src/app/api/generated/iris-communications/regions/[id]/route.ts": {
-        "hash": "633a29f790891166",
-        "generatedAt": "2026-04-22T04:38:06.040Z"
+        "hash": "38997a3e0b66e006",
+        "generatedAt": "2026-04-22T05:15:35.346Z"
       },
       "src/hooks/generated/iris-communications/regions.ts": {
-        "hash": "a0557c17c53e414b",
-        "generatedAt": "2026-04-22T04:38:06.042Z"
+        "hash": "395caf056690ff7b",
+        "generatedAt": "2026-04-22T05:15:35.348Z"
       },
       "src/types/generated/hermes-social/replies.ts": {
-        "hash": "1b793d8a33dedf7f",
-        "generatedAt": "2026-04-22T04:38:06.044Z"
+        "hash": "11b6590159e5c91b",
+        "generatedAt": "2026-04-22T05:20:53.517Z"
       },
       "src/lib/validators/generated/hermes-social/replies.ts": {
-        "hash": "bcf68fc4c728bdbd",
-        "generatedAt": "2026-04-22T04:38:06.047Z"
+        "hash": "e288b31ebde06dee",
+        "generatedAt": "2026-04-22T05:15:35.356Z"
       },
       "src/app/api/generated/hermes-social/replies/route.ts": {
-        "hash": "aa74b9ac4dcf2cb8",
-        "generatedAt": "2026-04-22T04:38:06.050Z"
+        "hash": "0a6c50e9c4280d3e",
+        "generatedAt": "2026-04-22T05:15:35.359Z"
       },
       "src/app/api/generated/hermes-social/replies/[id]/route.ts": {
-        "hash": "4d06cecb26c44e36",
-        "generatedAt": "2026-04-22T04:38:06.053Z"
+        "hash": "1f9879d98a88e39e",
+        "generatedAt": "2026-04-22T05:15:35.361Z"
       },
       "src/hooks/generated/hermes-social/replies.ts": {
-        "hash": "257fb88c73f76391",
-        "generatedAt": "2026-04-22T04:38:06.055Z"
+        "hash": "2ceb769d9285f545",
+        "generatedAt": "2026-04-22T05:15:35.363Z"
       },
       "src/types/generated/themis-governance/reports.ts": {
-        "hash": "1babda2971cfe19b",
-        "generatedAt": "2026-04-22T04:38:06.059Z"
+        "hash": "6a98169ade1323cb",
+        "generatedAt": "2026-04-22T05:20:53.528Z"
       },
       "src/lib/validators/generated/themis-governance/reports.ts": {
-        "hash": "be7955f375054c3e",
-        "generatedAt": "2026-04-22T04:38:06.062Z"
+        "hash": "dd3df80fa22e09cf",
+        "generatedAt": "2026-04-22T05:15:35.372Z"
       },
       "src/app/api/generated/themis-governance/reports/route.ts": {
-        "hash": "12c709367d159a9b",
-        "generatedAt": "2026-04-22T04:38:06.068Z"
+        "hash": "c839a7b666a8ceaf",
+        "generatedAt": "2026-04-22T05:15:35.375Z"
       },
       "src/app/api/generated/themis-governance/reports/[id]/route.ts": {
-        "hash": "e83b21cc2a6ec6a3",
-        "generatedAt": "2026-04-22T04:38:06.071Z"
+        "hash": "8d80148e8efadeb4",
+        "generatedAt": "2026-04-22T05:15:35.377Z"
       },
       "src/hooks/generated/themis-governance/reports.ts": {
-        "hash": "8de702a8f14e6141",
-        "generatedAt": "2026-04-22T04:38:06.075Z"
+        "hash": "6370ef344b1530ad",
+        "generatedAt": "2026-04-22T05:15:35.379Z"
       },
       "src/types/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "53f415a089fd5d53",
-        "generatedAt": "2026-04-22T04:38:06.078Z"
+        "hash": "3a59ed967f63977f",
+        "generatedAt": "2026-04-22T05:20:53.538Z"
       },
       "src/lib/validators/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "42aa9a3f647dcbaa",
-        "generatedAt": "2026-04-22T04:38:06.082Z"
+        "hash": "cab71439c57e3327",
+        "generatedAt": "2026-04-22T05:15:35.392Z"
       },
       "src/app/api/generated/aethelred-connections/resend_connection/route.ts": {
-        "hash": "c14ca2c64c3d4936",
-        "generatedAt": "2026-04-22T04:38:06.085Z"
+        "hash": "f1d96d83fe67e186",
+        "generatedAt": "2026-04-22T05:15:35.395Z"
       },
       "src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts": {
-        "hash": "94a8f1f40840502e",
-        "generatedAt": "2026-04-22T04:38:06.089Z"
+        "hash": "79a967fc954e5a8b",
+        "generatedAt": "2026-04-22T05:15:35.398Z"
       },
       "src/hooks/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "fd2a9318018a895d",
-        "generatedAt": "2026-04-22T04:38:06.092Z"
+        "hash": "ceb5026f50015f98",
+        "generatedAt": "2026-04-22T05:15:35.401Z"
       },
       "src/types/generated/plutus-economics/residual_payouts.ts": {
-        "hash": "679c84aaf77d1da6",
-        "generatedAt": "2026-04-22T04:38:06.095Z"
+        "hash": "65493c145e812912",
+        "generatedAt": "2026-04-22T05:20:53.548Z"
       },
       "src/lib/validators/generated/plutus-economics/residual_payouts.ts": {
-        "hash": "5d50984e44f199ad",
-        "generatedAt": "2026-04-22T04:38:06.098Z"
+        "hash": "d7a95ce40fe6463d",
+        "generatedAt": "2026-04-22T05:15:35.410Z"
       },
       "src/app/api/generated/plutus-economics/residual_payouts/route.ts": {
-        "hash": "ad00b56c89bce436",
-        "generatedAt": "2026-04-22T04:38:06.101Z"
+        "hash": "1366948bb5626643",
+        "generatedAt": "2026-04-22T05:15:35.412Z"
       },
       "src/app/api/generated/plutus-economics/residual_payouts/[id]/route.ts": {
-        "hash": "98d1f628fa686fa4",
-        "generatedAt": "2026-04-22T04:38:06.104Z"
+        "hash": "f6ff1fab3af09225",
+        "generatedAt": "2026-04-22T05:15:35.416Z"
       },
       "src/hooks/generated/plutus-economics/residual_payouts.ts": {
-        "hash": "3a372198baf192b4",
-        "generatedAt": "2026-04-22T04:38:06.112Z"
+        "hash": "2e48abbb52a7efca",
+        "generatedAt": "2026-04-22T05:15:35.419Z"
       },
       "src/types/generated/plutus-economics/residual_pool.ts": {
-        "hash": "5fd05da0be21f0e8",
-        "generatedAt": "2026-04-22T04:38:06.116Z"
+        "hash": "260d6d793b26d427",
+        "generatedAt": "2026-04-22T05:20:53.557Z"
       },
       "src/lib/validators/generated/plutus-economics/residual_pool.ts": {
-        "hash": "9e2f3e9125253a4c",
-        "generatedAt": "2026-04-22T04:38:06.120Z"
+        "hash": "89ec933fa1eb01dd",
+        "generatedAt": "2026-04-22T05:15:35.426Z"
       },
       "src/app/api/generated/plutus-economics/residual_pool/route.ts": {
-        "hash": "d5dd1faf3a564c47",
-        "generatedAt": "2026-04-22T04:38:06.125Z"
+        "hash": "8cb5ed3bac82ba70",
+        "generatedAt": "2026-04-22T05:15:35.428Z"
       },
       "src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts": {
-        "hash": "a4956caef4bccd1b",
-        "generatedAt": "2026-04-22T04:38:06.133Z"
+        "hash": "e140e9c598022594",
+        "generatedAt": "2026-04-22T05:15:35.431Z"
       },
       "src/hooks/generated/plutus-economics/residual_pool.ts": {
-        "hash": "751a3a5e81c6e552",
-        "generatedAt": "2026-04-22T04:38:06.137Z"
+        "hash": "8ec2a4c81bea2412",
+        "generatedAt": "2026-04-22T05:15:35.433Z"
       },
       "src/types/generated/plutus-economics/sales.ts": {
-        "hash": "41d7feecf1bc47e1",
-        "generatedAt": "2026-04-22T04:38:06.143Z"
+        "hash": "05a7dbe31bac7208",
+        "generatedAt": "2026-04-22T05:20:53.567Z"
       },
       "src/lib/validators/generated/plutus-economics/sales.ts": {
-        "hash": "bee29b9501b8988a",
-        "generatedAt": "2026-04-22T04:38:06.147Z"
+        "hash": "a19d211c6dea49f5",
+        "generatedAt": "2026-04-22T05:15:35.442Z"
       },
       "src/app/api/generated/plutus-economics/sales/route.ts": {
-        "hash": "6c7b52e68a3fb220",
-        "generatedAt": "2026-04-22T04:38:06.151Z"
+        "hash": "ff7d8015ed57c080",
+        "generatedAt": "2026-04-22T05:15:35.444Z"
       },
       "src/app/api/generated/plutus-economics/sales/[id]/route.ts": {
-        "hash": "a96b65d0ff5e9f62",
-        "generatedAt": "2026-04-22T04:38:06.155Z"
+        "hash": "81cd97844f9e7620",
+        "generatedAt": "2026-04-22T05:15:35.446Z"
       },
       "src/hooks/generated/plutus-economics/sales.ts": {
-        "hash": "4a56bb2c530eee40",
-        "generatedAt": "2026-04-22T04:38:06.159Z"
+        "hash": "6ca9ebbdcab98972",
+        "generatedAt": "2026-04-22T05:15:35.448Z"
       },
       "src/types/generated/athena-gamification/scene_participants.ts": {
-        "hash": "8759632851770040",
-        "generatedAt": "2026-04-22T04:38:06.165Z"
+        "hash": "d044da3818d0565b",
+        "generatedAt": "2026-04-22T05:20:53.575Z"
       },
       "src/lib/validators/generated/athena-gamification/scene_participants.ts": {
-        "hash": "1c0c7c55de18e3b0",
-        "generatedAt": "2026-04-22T04:38:06.167Z"
+        "hash": "0e7570d363e89f44",
+        "generatedAt": "2026-04-22T05:15:35.456Z"
       },
       "src/app/api/generated/athena-gamification/scene_participants/route.ts": {
-        "hash": "03c5c32363f02cd9",
-        "generatedAt": "2026-04-22T04:38:06.172Z"
+        "hash": "156d1f48fe9aa135",
+        "generatedAt": "2026-04-22T05:15:35.459Z"
       },
       "src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts": {
-        "hash": "6ca7b66d795d611b",
-        "generatedAt": "2026-04-22T04:38:06.176Z"
+        "hash": "1a785c05e32334b7",
+        "generatedAt": "2026-04-22T05:15:35.461Z"
       },
       "src/hooks/generated/athena-gamification/scene_participants.ts": {
-        "hash": "fcedcc97deaf0ef6",
-        "generatedAt": "2026-04-22T04:38:06.180Z"
+        "hash": "5be095f2c02c98fb",
+        "generatedAt": "2026-04-22T05:15:35.463Z"
       },
       "src/types/generated/athena-gamification/scenes.ts": {
-        "hash": "867b21d2b86e3fb0",
-        "generatedAt": "2026-04-22T04:38:06.183Z"
+        "hash": "966e844a791f7e48",
+        "generatedAt": "2026-04-22T05:20:53.585Z"
       },
       "src/lib/validators/generated/athena-gamification/scenes.ts": {
-        "hash": "e4980522e4a9b406",
-        "generatedAt": "2026-04-22T04:38:06.186Z"
+        "hash": "61b23d109c4ce4bf",
+        "generatedAt": "2026-04-22T05:15:35.472Z"
       },
       "src/app/api/generated/athena-gamification/scenes/route.ts": {
-        "hash": "d5df77fc165a7bf4",
-        "generatedAt": "2026-04-22T04:38:06.190Z"
+        "hash": "4a150d9e61b875eb",
+        "generatedAt": "2026-04-22T05:15:35.475Z"
       },
       "src/app/api/generated/athena-gamification/scenes/[id]/route.ts": {
-        "hash": "06ab7d1dddb8c771",
-        "generatedAt": "2026-04-22T04:38:06.196Z"
+        "hash": "d493518cf474c0c4",
+        "generatedAt": "2026-04-22T05:15:35.477Z"
       },
       "src/hooks/generated/athena-gamification/scenes.ts": {
-        "hash": "710f73f6c3c8591f",
-        "generatedAt": "2026-04-22T04:38:06.200Z"
+        "hash": "1a2c6ad8cc8db094",
+        "generatedAt": "2026-04-22T05:15:35.479Z"
       },
       "src/types/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "9bd8e7255468c68b",
-        "generatedAt": "2026-04-22T04:38:06.203Z"
+        "hash": "84c67d09e9098779",
+        "generatedAt": "2026-04-22T05:20:53.593Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "749cefbbb58928e6",
-        "generatedAt": "2026-04-22T04:38:06.207Z"
+        "hash": "454b14ad095258b7",
+        "generatedAt": "2026-04-22T05:15:35.487Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts": {
-        "hash": "af6eb01491ff38ca",
-        "generatedAt": "2026-04-22T04:38:06.210Z"
+        "hash": "18666f9293d0e59b",
+        "generatedAt": "2026-04-22T05:15:35.490Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts": {
-        "hash": "f009fe3b1523dd6f",
-        "generatedAt": "2026-04-22T04:38:06.213Z"
+        "hash": "302a33e16fae4bff",
+        "generatedAt": "2026-04-22T05:15:35.492Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "de3d13c90f7e4ab5",
-        "generatedAt": "2026-04-22T04:38:06.215Z"
+        "hash": "d0ae9b029562ab4a",
+        "generatedAt": "2026-04-22T05:15:35.495Z"
       },
       "src/types/generated/hephaestus-infrastructure/script_execution_logs.ts": {
-        "hash": "ae7583c2f6c8db7e",
-        "generatedAt": "2026-04-22T04:38:06.217Z"
+        "hash": "81415f9b0a0bedfc",
+        "generatedAt": "2026-04-22T05:20:53.602Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/script_execution_logs.ts": {
-        "hash": "6a94ec8948d91dd0",
-        "generatedAt": "2026-04-22T04:38:06.219Z"
+        "hash": "a08b51bbaba2c106",
+        "generatedAt": "2026-04-22T05:15:35.504Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/route.ts": {
-        "hash": "fd447d96949d4ca1",
-        "generatedAt": "2026-04-22T04:38:06.222Z"
+        "hash": "9a15e6bc7a007105",
+        "generatedAt": "2026-04-22T05:15:35.507Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/script_execution_logs/[id]/route.ts": {
-        "hash": "f4af6609e3c1303a",
-        "generatedAt": "2026-04-22T04:38:06.225Z"
+        "hash": "118a93604af5d033",
+        "generatedAt": "2026-04-22T05:15:35.509Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/script_execution_logs.ts": {
-        "hash": "2b0fc84f98e6fa2c",
-        "generatedAt": "2026-04-22T04:38:06.231Z"
+        "hash": "5dfaa99cec27555c",
+        "generatedAt": "2026-04-22T05:15:35.512Z"
       },
       "src/types/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "8e186f8401a4592a",
-        "generatedAt": "2026-04-22T04:38:06.234Z"
+        "hash": "2823f5f401003bd1",
+        "generatedAt": "2026-04-22T05:20:53.610Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "d2f7ef87ddb0ebe5",
-        "generatedAt": "2026-04-22T04:38:06.238Z"
+        "hash": "96c3bc14143356a3",
+        "generatedAt": "2026-04-22T05:15:35.521Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scripts/route.ts": {
-        "hash": "b178ba566f891363",
-        "generatedAt": "2026-04-22T04:38:06.242Z"
+        "hash": "62e084e8da2f91c4",
+        "generatedAt": "2026-04-22T05:15:35.524Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts": {
-        "hash": "67b8d996cb08c3e3",
-        "generatedAt": "2026-04-22T04:38:06.249Z"
+        "hash": "aba8551d935f8fa3",
+        "generatedAt": "2026-04-22T05:15:35.526Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "3f1e62ef01e304fa",
-        "generatedAt": "2026-04-22T04:38:06.252Z"
+        "hash": "4db44191910994a0",
+        "generatedAt": "2026-04-22T05:15:35.529Z"
       },
       "src/types/generated/aethelred-connections/seer.ts": {
-        "hash": "4b3ea472f28e3418",
-        "generatedAt": "2026-04-22T04:38:06.255Z"
+        "hash": "a3965ba2ec14b3dc",
+        "generatedAt": "2026-04-22T05:20:53.619Z"
       },
       "src/lib/validators/generated/aethelred-connections/seer.ts": {
-        "hash": "1f3d3a5a1b0cfb6e",
-        "generatedAt": "2026-04-22T04:38:06.259Z"
+        "hash": "a652a96dcf86e1b3",
+        "generatedAt": "2026-04-22T05:15:35.536Z"
       },
       "src/app/api/generated/aethelred-connections/seer/route.ts": {
-        "hash": "485b44780a526763",
-        "generatedAt": "2026-04-22T04:38:06.264Z"
+        "hash": "3076fe1909110004",
+        "generatedAt": "2026-04-22T05:15:35.540Z"
       },
       "src/app/api/generated/aethelred-connections/seer/[id]/route.ts": {
-        "hash": "d8b75c0760576fd2",
-        "generatedAt": "2026-04-22T04:38:06.268Z"
+        "hash": "74241f3e2db0043f",
+        "generatedAt": "2026-04-22T05:15:35.542Z"
       },
       "src/hooks/generated/aethelred-connections/seer.ts": {
-        "hash": "036930d3eb675589",
-        "generatedAt": "2026-04-22T04:38:06.270Z"
+        "hash": "a0c12943f09f4b99",
+        "generatedAt": "2026-04-22T05:15:35.545Z"
       },
       "src/types/generated/hephaestus-infrastructure/settings.ts": {
-        "hash": "7408a496806b732b",
-        "generatedAt": "2026-04-22T04:38:06.272Z"
+        "hash": "b56178a580f29080",
+        "generatedAt": "2026-04-22T05:20:53.626Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/settings.ts": {
-        "hash": "55721d3c3077c238",
-        "generatedAt": "2026-04-22T04:38:06.276Z"
+        "hash": "a40cb789476cb68e",
+        "generatedAt": "2026-04-22T05:15:35.552Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/settings/route.ts": {
-        "hash": "cb9a39d4e3994e36",
-        "generatedAt": "2026-04-22T04:38:06.279Z"
+        "hash": "fc628d4cd5eeda60",
+        "generatedAt": "2026-04-22T05:15:35.555Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/settings/[id]/route.ts": {
-        "hash": "efead74c6655a413",
-        "generatedAt": "2026-04-22T04:38:06.282Z"
+        "hash": "249284d7598cbe3a",
+        "generatedAt": "2026-04-22T05:15:35.558Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/settings.ts": {
-        "hash": "aab51b9ece25cbdc",
-        "generatedAt": "2026-04-22T04:38:06.284Z"
+        "hash": "7256f168b5246fa4",
+        "generatedAt": "2026-04-22T05:15:35.560Z"
       },
       "src/types/generated/aethelred-connections/skald.ts": {
-        "hash": "5d016e0f91f9faa2",
-        "generatedAt": "2026-04-22T04:38:06.289Z"
+        "hash": "7208e65dfed1df42",
+        "generatedAt": "2026-04-22T05:20:53.635Z"
       },
       "src/lib/validators/generated/aethelred-connections/skald.ts": {
-        "hash": "d32612eed0cbc39e",
-        "generatedAt": "2026-04-22T04:38:06.294Z"
+        "hash": "8f814f0af58c0bc1",
+        "generatedAt": "2026-04-22T05:15:35.567Z"
       },
       "src/app/api/generated/aethelred-connections/skald/route.ts": {
-        "hash": "6386b39fb03ff817",
-        "generatedAt": "2026-04-22T04:38:06.300Z"
+        "hash": "c80a7fcc567b977c",
+        "generatedAt": "2026-04-22T05:15:35.571Z"
       },
       "src/app/api/generated/aethelred-connections/skald/[id]/route.ts": {
-        "hash": "de9ccbf38bf15208",
-        "generatedAt": "2026-04-22T04:38:06.303Z"
+        "hash": "0a652c8db81a522d",
+        "generatedAt": "2026-04-22T05:15:35.574Z"
       },
       "src/hooks/generated/aethelred-connections/skald.ts": {
-        "hash": "0bb7e86c050a28a9",
-        "generatedAt": "2026-04-22T04:38:06.307Z"
+        "hash": "952ddac2eca35d13",
+        "generatedAt": "2026-04-22T05:15:35.576Z"
       },
       "src/types/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "aea6fac91d5c02c5",
-        "generatedAt": "2026-04-22T04:38:06.311Z"
+        "hash": "ee15a986df31c4b3",
+        "generatedAt": "2026-04-22T05:20:53.643Z"
       },
       "src/lib/validators/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "ed426f3f5630c80c",
-        "generatedAt": "2026-04-22T04:38:06.314Z"
+        "hash": "67dcc3a5ba0b09d6",
+        "generatedAt": "2026-04-22T05:15:35.582Z"
       },
       "src/app/api/generated/aethelred-connections/stripe_connection/route.ts": {
-        "hash": "adf13a2390ca5645",
-        "generatedAt": "2026-04-22T04:38:06.318Z"
+        "hash": "2d78be81e284600f",
+        "generatedAt": "2026-04-22T05:15:35.586Z"
       },
       "src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts": {
-        "hash": "415e4ed86f70c530",
-        "generatedAt": "2026-04-22T04:38:06.321Z"
+        "hash": "7c34730cdfd00321",
+        "generatedAt": "2026-04-22T05:15:35.589Z"
       },
       "src/hooks/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "223743dcc75335e0",
-        "generatedAt": "2026-04-22T04:38:06.325Z"
+        "hash": "28876176b8db30e2",
+        "generatedAt": "2026-04-22T05:15:35.592Z"
       },
       "src/types/generated/plutus-economics/subscriptions.ts": {
-        "hash": "7278db8f36a006c5",
-        "generatedAt": "2026-04-22T04:38:06.328Z"
+        "hash": "0e6177041d23fbfb",
+        "generatedAt": "2026-04-22T05:20:53.653Z"
       },
       "src/lib/validators/generated/plutus-economics/subscriptions.ts": {
-        "hash": "3207229a19f58c0e",
-        "generatedAt": "2026-04-22T04:38:06.331Z"
+        "hash": "6f67c745265a388e",
+        "generatedAt": "2026-04-22T05:15:35.598Z"
       },
       "src/app/api/generated/plutus-economics/subscriptions/route.ts": {
-        "hash": "e7d4f7ac2509dc04",
-        "generatedAt": "2026-04-22T04:38:06.335Z"
+        "hash": "3d804e1bdf20e106",
+        "generatedAt": "2026-04-22T05:15:35.601Z"
       },
       "src/app/api/generated/plutus-economics/subscriptions/[id]/route.ts": {
-        "hash": "a20d7e1be2c3888c",
-        "generatedAt": "2026-04-22T04:38:06.338Z"
+        "hash": "5bf08c61c794f065",
+        "generatedAt": "2026-04-22T05:15:35.605Z"
       },
       "src/types/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "b6fe06f3ab67c745",
-        "generatedAt": "2026-04-22T04:38:06.342Z"
+        "hash": "f8094e5c5da4490c",
+        "generatedAt": "2026-04-22T05:20:53.658Z"
       },
       "src/lib/validators/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "bdeb3aa787a2e566",
-        "generatedAt": "2026-04-22T04:38:06.345Z"
+        "hash": "95f2222c3edf4c64",
+        "generatedAt": "2026-04-22T05:15:35.609Z"
       },
       "src/app/api/generated/aethelred-connections/supabase_connection/route.ts": {
-        "hash": "c5a70c5709a58098",
-        "generatedAt": "2026-04-22T04:38:06.349Z"
+        "hash": "39f3801095d1a176",
+        "generatedAt": "2026-04-22T05:15:35.612Z"
       },
       "src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts": {
-        "hash": "858c26c2c0c116b8",
-        "generatedAt": "2026-04-22T04:38:06.352Z"
+        "hash": "49d1a322ea3e52f2",
+        "generatedAt": "2026-04-22T05:15:35.614Z"
       },
       "src/hooks/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "f15449e9727f2132",
-        "generatedAt": "2026-04-22T04:38:06.355Z"
+        "hash": "b187e76036ce8a3b",
+        "generatedAt": "2026-04-22T05:15:35.616Z"
       },
       "src/types/generated/mnemosyne-assessment/superposition.ts": {
-        "hash": "5673c22521f65927",
-        "generatedAt": "2026-04-22T04:38:06.359Z"
+        "hash": "d80fec4abbf3235c",
+        "generatedAt": "2026-04-22T05:20:53.667Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/superposition.ts": {
-        "hash": "3a300892a7c0e499",
-        "generatedAt": "2026-04-22T04:38:06.362Z"
+        "hash": "d72b4c8e8f8118fd",
+        "generatedAt": "2026-04-22T05:15:35.627Z"
       },
       "src/app/api/generated/mnemosyne-assessment/superposition/route.ts": {
-        "hash": "d1c9aeb8c1bf0110",
-        "generatedAt": "2026-04-22T04:38:06.366Z"
+        "hash": "5b7e4dddf268f792",
+        "generatedAt": "2026-04-22T05:15:35.703Z"
       },
       "src/app/api/generated/mnemosyne-assessment/superposition/[id]/route.ts": {
-        "hash": "ee8034314d114e1d",
-        "generatedAt": "2026-04-22T04:38:06.369Z"
+        "hash": "436eaef9b297d4da",
+        "generatedAt": "2026-04-22T05:15:35.707Z"
       },
       "src/hooks/generated/mnemosyne-assessment/superposition.ts": {
-        "hash": "ff5d2fde37d73c25",
-        "generatedAt": "2026-04-22T04:38:06.372Z"
+        "hash": "8f319e7b70f22a8f",
+        "generatedAt": "2026-04-22T05:15:35.710Z"
       },
       "src/types/generated/iris-communications/survey_responses.ts": {
-        "hash": "61a0dc759fc36a5c",
-        "generatedAt": "2026-04-22T04:38:06.377Z"
+        "hash": "b5bd5854eb06dbe7",
+        "generatedAt": "2026-04-22T05:20:53.674Z"
       },
       "src/lib/validators/generated/iris-communications/survey_responses.ts": {
-        "hash": "04f2b057d22249f7",
-        "generatedAt": "2026-04-22T04:38:06.380Z"
+        "hash": "7e40a398fa6de6e5",
+        "generatedAt": "2026-04-22T05:15:35.721Z"
       },
       "src/app/api/generated/iris-communications/survey_responses/route.ts": {
-        "hash": "66a5fab94b0ddfba",
-        "generatedAt": "2026-04-22T04:38:06.383Z"
+        "hash": "fdec19fec8fcf542",
+        "generatedAt": "2026-04-22T05:15:35.725Z"
       },
       "src/app/api/generated/iris-communications/survey_responses/[id]/route.ts": {
-        "hash": "9f531c67789f616d",
-        "generatedAt": "2026-04-22T04:38:06.387Z"
+        "hash": "56e6474c3fe387f0",
+        "generatedAt": "2026-04-22T05:15:35.728Z"
       },
       "src/hooks/generated/iris-communications/survey_responses.ts": {
-        "hash": "1562c2540b0814d0",
-        "generatedAt": "2026-04-22T04:38:06.390Z"
+        "hash": "62f511c72343ee2e",
+        "generatedAt": "2026-04-22T05:15:35.744Z"
       },
       "src/types/generated/iris-communications/surveys.ts": {
-        "hash": "7f9f05d2ea3aa5b3",
-        "generatedAt": "2026-04-22T04:38:06.398Z"
+        "hash": "264bcdd1ffd973ed",
+        "generatedAt": "2026-04-22T05:20:53.685Z"
       },
       "src/lib/validators/generated/iris-communications/surveys.ts": {
-        "hash": "7cd7009e8c42ed0b",
-        "generatedAt": "2026-04-22T04:38:06.401Z"
+        "hash": "bb4d216f3a227691",
+        "generatedAt": "2026-04-22T05:15:35.754Z"
       },
       "src/app/api/generated/iris-communications/surveys/route.ts": {
-        "hash": "69bf9dc00e361f6e",
-        "generatedAt": "2026-04-22T04:38:06.405Z"
+        "hash": "f706b62525d971af",
+        "generatedAt": "2026-04-22T05:15:35.758Z"
       },
       "src/app/api/generated/iris-communications/surveys/[id]/route.ts": {
-        "hash": "fff002efd03ac08e",
-        "generatedAt": "2026-04-22T04:38:06.409Z"
+        "hash": "b4e34f359b5e874a",
+        "generatedAt": "2026-04-22T05:15:35.760Z"
       },
       "src/hooks/generated/iris-communications/surveys.ts": {
-        "hash": "540aa835b0f38938",
-        "generatedAt": "2026-04-22T04:38:06.412Z"
+        "hash": "a9577b37766a251c",
+        "generatedAt": "2026-04-22T05:15:35.762Z"
       },
       "src/types/generated/hephaestus-infrastructure/system_health_logs.ts": {
-        "hash": "840c94c53230a6fe",
-        "generatedAt": "2026-04-22T04:38:06.415Z"
+        "hash": "6f792493ff61c159",
+        "generatedAt": "2026-04-22T05:20:53.693Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/system_health_logs.ts": {
-        "hash": "1bbdde77bfa7852c",
-        "generatedAt": "2026-04-22T04:38:06.418Z"
+        "hash": "236119d180e67b2c",
+        "generatedAt": "2026-04-22T05:15:35.769Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/system_health_logs/route.ts": {
-        "hash": "0af3c7cdf9c29723",
-        "generatedAt": "2026-04-22T04:38:06.422Z"
+        "hash": "fe167f45040b0e01",
+        "generatedAt": "2026-04-22T05:15:35.773Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/system_health_logs/[id]/route.ts": {
-        "hash": "8169ffece50341ff",
-        "generatedAt": "2026-04-22T04:38:06.427Z"
+        "hash": "ceee5a0bbd81902f",
+        "generatedAt": "2026-04-22T05:15:35.775Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/system_health_logs.ts": {
-        "hash": "205221e397b65739",
-        "generatedAt": "2026-04-22T04:38:06.430Z"
+        "hash": "fd0b2e87aa58a729",
+        "generatedAt": "2026-04-22T05:15:35.777Z"
       },
       "src/types/generated/hestia-core/system_timeline_events.ts": {
-        "hash": "8aa078fc987be578",
-        "generatedAt": "2026-04-22T04:38:06.433Z"
+        "hash": "6e1408d58d2e1c0a",
+        "generatedAt": "2026-04-22T05:20:53.701Z"
       },
       "src/lib/validators/generated/hestia-core/system_timeline_events.ts": {
-        "hash": "2bf18903ba259206",
-        "generatedAt": "2026-04-22T04:38:06.435Z"
+        "hash": "2ba1ebfc47e89e8b",
+        "generatedAt": "2026-04-22T05:15:35.785Z"
       },
       "src/app/api/generated/hestia-core/system_timeline_events/route.ts": {
-        "hash": "b410f056933bd1bc",
-        "generatedAt": "2026-04-22T04:38:06.439Z"
+        "hash": "6719e10b43fc6778",
+        "generatedAt": "2026-04-22T05:15:35.789Z"
       },
       "src/app/api/generated/hestia-core/system_timeline_events/[id]/route.ts": {
-        "hash": "1cc941450861fa63",
-        "generatedAt": "2026-04-22T04:38:06.443Z"
+        "hash": "11517c33463a281a",
+        "generatedAt": "2026-04-22T05:15:35.792Z"
       },
       "src/hooks/generated/hestia-core/system_timeline_events.ts": {
-        "hash": "d7984aab2857c47b",
-        "generatedAt": "2026-04-22T04:38:06.446Z"
+        "hash": "9d4cbcac5e5ef8ee",
+        "generatedAt": "2026-04-22T05:15:35.794Z"
       },
       "src/types/generated/hephaestus-infrastructure/systems.ts": {
-        "hash": "0a2c3e264b49861b",
-        "generatedAt": "2026-04-22T04:38:06.450Z"
+        "hash": "e88b4ceca8fc7220",
+        "generatedAt": "2026-04-22T05:20:53.710Z"
       },
       "src/lib/validators/generated/hephaestus-infrastructure/systems.ts": {
-        "hash": "2ac3d21229ec68a4",
-        "generatedAt": "2026-04-22T04:38:06.452Z"
+        "hash": "3eaf9e4e77591f88",
+        "generatedAt": "2026-04-22T05:15:35.803Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/systems/route.ts": {
-        "hash": "52ff89d7acd0699d",
-        "generatedAt": "2026-04-22T04:38:06.456Z"
+        "hash": "b174115c149bea5b",
+        "generatedAt": "2026-04-22T05:15:35.806Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/systems/[id]/route.ts": {
-        "hash": "f514ab87d002d8cb",
-        "generatedAt": "2026-04-22T04:38:06.460Z"
+        "hash": "f47ea2f3b73ec23d",
+        "generatedAt": "2026-04-22T05:15:35.809Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/systems.ts": {
-        "hash": "de00da1b6ad4f2f6",
-        "generatedAt": "2026-04-22T04:38:06.463Z"
+        "hash": "c2dbc12894dbba87",
+        "generatedAt": "2026-04-22T05:15:35.812Z"
       },
       "src/types/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "0a5d1eedd508e61b",
-        "generatedAt": "2026-04-22T04:38:06.465Z"
+        "hash": "4ffcb2da27188943",
+        "generatedAt": "2026-04-22T05:20:53.719Z"
       },
       "src/lib/validators/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "bf55f75520395448",
-        "generatedAt": "2026-04-22T04:38:06.468Z"
+        "hash": "cd75129556ba2c8f",
+        "generatedAt": "2026-04-22T05:15:35.819Z"
       },
       "src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts": {
-        "hash": "7d06cb48f3b8e45d",
-        "generatedAt": "2026-04-22T04:38:06.471Z"
+        "hash": "8886bce91194318c",
+        "generatedAt": "2026-04-22T05:15:35.822Z"
       },
       "src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts": {
-        "hash": "7985ac4aab1cc4ed",
-        "generatedAt": "2026-04-22T04:38:06.476Z"
+        "hash": "41949a0efda56fa0",
+        "generatedAt": "2026-04-22T05:15:35.825Z"
       },
       "src/hooks/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "b4129c40b90b90bf",
-        "generatedAt": "2026-04-22T04:38:06.479Z"
+        "hash": "ce00df030b1f488c",
+        "generatedAt": "2026-04-22T05:15:35.827Z"
       },
       "src/types/generated/athena-gamification/timelines.ts": {
-        "hash": "beeede727e1a2627",
-        "generatedAt": "2026-04-22T04:38:06.482Z"
+        "hash": "7450d5cd61e3fe71",
+        "generatedAt": "2026-04-22T05:20:53.728Z"
       },
       "src/lib/validators/generated/athena-gamification/timelines.ts": {
-        "hash": "926e8d5200e4630b",
-        "generatedAt": "2026-04-22T04:38:06.484Z"
+        "hash": "f4215791a003d8ee",
+        "generatedAt": "2026-04-22T05:15:35.834Z"
       },
       "src/app/api/generated/athena-gamification/timelines/route.ts": {
-        "hash": "dcc3d40fd4c453d0",
-        "generatedAt": "2026-04-22T04:38:06.487Z"
+        "hash": "500d7204fdd52356",
+        "generatedAt": "2026-04-22T05:15:35.836Z"
       },
       "src/app/api/generated/athena-gamification/timelines/[id]/route.ts": {
-        "hash": "a417198ca2fa0624",
-        "generatedAt": "2026-04-22T04:38:06.492Z"
+        "hash": "e141283a7595a848",
+        "generatedAt": "2026-04-22T05:15:35.840Z"
       },
       "src/hooks/generated/athena-gamification/timelines.ts": {
-        "hash": "5740df32812a16f3",
-        "generatedAt": "2026-04-22T04:38:06.496Z"
+        "hash": "7e4d87c45dd86eca",
+        "generatedAt": "2026-04-22T05:15:35.842Z"
       },
       "src/types/generated/plutus-economics/transactions.ts": {
-        "hash": "cccb4e4686b4c892",
-        "generatedAt": "2026-04-22T04:38:06.499Z"
+        "hash": "1a11dbb3961aa392",
+        "generatedAt": "2026-04-22T05:20:53.740Z"
       },
       "src/lib/validators/generated/plutus-economics/transactions.ts": {
-        "hash": "b436a5f754fd72da",
-        "generatedAt": "2026-04-22T04:38:06.501Z"
+        "hash": "938d97d5112e8103",
+        "generatedAt": "2026-04-22T05:15:35.848Z"
       },
       "src/app/api/generated/plutus-economics/transactions/route.ts": {
-        "hash": "6b82bfebc2d9c3c4",
-        "generatedAt": "2026-04-22T04:38:06.505Z"
+        "hash": "ba4dde651644fee5",
+        "generatedAt": "2026-04-22T05:15:35.851Z"
       },
       "src/app/api/generated/plutus-economics/transactions/[id]/route.ts": {
-        "hash": "c3d78271be8b78ff",
-        "generatedAt": "2026-04-22T04:38:06.510Z"
+        "hash": "bd99815737f888ea",
+        "generatedAt": "2026-04-22T05:15:35.855Z"
       },
       "src/hooks/generated/plutus-economics/transactions.ts": {
-        "hash": "5b8342e363ee3510",
-        "generatedAt": "2026-04-22T04:38:06.513Z"
+        "hash": "a87f7cd1dd60c142",
+        "generatedAt": "2026-04-22T05:15:35.857Z"
       },
       "src/types/generated/iris-communications/translations.ts": {
-        "hash": "0658571d12b515c6",
-        "generatedAt": "2026-04-22T04:38:06.516Z"
+        "hash": "cf02693a1c685e59",
+        "generatedAt": "2026-04-22T05:20:53.747Z"
       },
       "src/lib/validators/generated/iris-communications/translations.ts": {
-        "hash": "b3fac2fde5c7735b",
-        "generatedAt": "2026-04-22T04:38:06.519Z"
+        "hash": "3f399836c038e497",
+        "generatedAt": "2026-04-22T05:15:35.864Z"
       },
       "src/app/api/generated/iris-communications/translations/route.ts": {
-        "hash": "607cdc6db5ee5169",
-        "generatedAt": "2026-04-22T04:38:06.524Z"
+        "hash": "1a9c178ca69befbb",
+        "generatedAt": "2026-04-22T05:15:35.866Z"
       },
       "src/app/api/generated/iris-communications/translations/[id]/route.ts": {
-        "hash": "7e544f84229bb67f",
-        "generatedAt": "2026-04-22T04:38:06.528Z"
+        "hash": "b542351c5d7dc38f",
+        "generatedAt": "2026-04-22T05:15:35.869Z"
       },
       "src/hooks/generated/iris-communications/translations.ts": {
-        "hash": "86191b930be49971",
-        "generatedAt": "2026-04-22T04:38:06.531Z"
+        "hash": "1738ac26e3317ca6",
+        "generatedAt": "2026-04-22T05:15:35.872Z"
       },
       "src/types/generated/athena-gamification/user_badges.ts": {
-        "hash": "965b1031ab9e6715",
-        "generatedAt": "2026-04-22T04:38:06.534Z"
+        "hash": "db84a2b49c0e7a6f",
+        "generatedAt": "2026-04-22T05:20:53.755Z"
       },
       "src/lib/validators/generated/athena-gamification/user_badges.ts": {
-        "hash": "9a01e4db4b29ddb5",
-        "generatedAt": "2026-04-22T04:38:06.537Z"
+        "hash": "b8562c4ff2af1575",
+        "generatedAt": "2026-04-22T05:15:35.879Z"
       },
       "src/app/api/generated/athena-gamification/user_badges/route.ts": {
-        "hash": "de7cd3f26923363a",
-        "generatedAt": "2026-04-22T04:38:06.540Z"
+        "hash": "b01223b70d673ad4",
+        "generatedAt": "2026-04-22T05:15:35.882Z"
       },
       "src/app/api/generated/athena-gamification/user_badges/[id]/route.ts": {
-        "hash": "84e42c512195a23a",
-        "generatedAt": "2026-04-22T04:38:06.545Z"
+        "hash": "94c277a56eaa2f8c",
+        "generatedAt": "2026-04-22T05:15:35.884Z"
       },
       "src/types/generated/hestia-core/user_financial.ts": {
-        "hash": "949b30f3337df15b",
-        "generatedAt": "2026-04-22T04:38:06.548Z"
+        "hash": "afc411372d65e9c3",
+        "generatedAt": "2026-04-22T05:20:53.760Z"
       },
       "src/lib/validators/generated/hestia-core/user_financial.ts": {
-        "hash": "8e3d2ed18e340948",
-        "generatedAt": "2026-04-22T04:38:06.551Z"
+        "hash": "9c3572bb5920f277",
+        "generatedAt": "2026-04-22T05:15:35.890Z"
       },
       "src/app/api/generated/hestia-core/user_financial/route.ts": {
-        "hash": "7c49b1b22e052899",
-        "generatedAt": "2026-04-22T04:38:06.559Z"
+        "hash": "9afc6819ebb31abd",
+        "generatedAt": "2026-04-22T05:15:35.893Z"
       },
       "src/app/api/generated/hestia-core/user_financial/[id]/route.ts": {
-        "hash": "6036616ca370806a",
-        "generatedAt": "2026-04-22T04:38:06.563Z"
+        "hash": "6404d4622de8ee3b",
+        "generatedAt": "2026-04-22T05:15:35.896Z"
       },
       "src/hooks/generated/hestia-core/user_financial.ts": {
-        "hash": "ec8bcf450e358a49",
-        "generatedAt": "2026-04-22T04:38:06.566Z"
+        "hash": "b0b15ace32e3d63a",
+        "generatedAt": "2026-04-22T05:15:35.898Z"
       },
       "src/types/generated/hestia-core/user_private.ts": {
-        "hash": "030bb36cee1afeec",
-        "generatedAt": "2026-04-22T04:38:06.569Z"
+        "hash": "408183a854060dc3",
+        "generatedAt": "2026-04-22T05:20:53.768Z"
       },
       "src/lib/validators/generated/hestia-core/user_private.ts": {
-        "hash": "5a3e14c603e624cf",
-        "generatedAt": "2026-04-22T04:38:06.572Z"
+        "hash": "1ab96fe9889d6279",
+        "generatedAt": "2026-04-22T05:15:35.906Z"
       },
       "src/app/api/generated/hestia-core/user_private/route.ts": {
-        "hash": "cf2850792cecc033",
-        "generatedAt": "2026-04-22T04:38:06.578Z"
+        "hash": "ebf5ff29b88db092",
+        "generatedAt": "2026-04-22T05:15:35.909Z"
       },
       "src/app/api/generated/hestia-core/user_private/[id]/route.ts": {
-        "hash": "51444ad4a155c8c2",
-        "generatedAt": "2026-04-22T04:38:06.582Z"
+        "hash": "7d33a1d1a6d1d69f",
+        "generatedAt": "2026-04-22T05:15:35.911Z"
       },
       "src/hooks/generated/hestia-core/user_private.ts": {
-        "hash": "6ff7fcbdaeb257a1",
-        "generatedAt": "2026-04-22T04:38:06.586Z"
+        "hash": "75f95a461d3013ba",
+        "generatedAt": "2026-04-22T05:15:35.913Z"
       },
       "src/types/generated/athena-gamification/user_quests.ts": {
-        "hash": "eea40a11ac95563d",
-        "generatedAt": "2026-04-22T04:38:06.594Z"
+        "hash": "8969fbbd7f39260c",
+        "generatedAt": "2026-04-22T05:20:53.776Z"
       },
       "src/lib/validators/generated/athena-gamification/user_quests.ts": {
-        "hash": "a1cdf9bf29b6d321",
-        "generatedAt": "2026-04-22T04:38:06.597Z"
+        "hash": "c33d7325dadbda81",
+        "generatedAt": "2026-04-22T05:15:35.921Z"
       },
       "src/app/api/generated/athena-gamification/user_quests/route.ts": {
-        "hash": "0150bbd64e70f202",
-        "generatedAt": "2026-04-22T04:38:06.601Z"
+        "hash": "1029c1655989bd2b",
+        "generatedAt": "2026-04-22T05:15:35.925Z"
       },
       "src/app/api/generated/athena-gamification/user_quests/[id]/route.ts": {
-        "hash": "ec647821b09298a7",
-        "generatedAt": "2026-04-22T04:38:06.606Z"
+        "hash": "40b292fc549e001a",
+        "generatedAt": "2026-04-22T05:15:35.927Z"
       },
       "src/types/generated/hestia-core/vendor_profiles.ts": {
-        "hash": "8e4c7662eb7d88d8",
-        "generatedAt": "2026-04-22T04:38:06.612Z"
+        "hash": "a2bf2bc7e340e895",
+        "generatedAt": "2026-04-22T05:20:53.782Z"
       },
       "src/lib/validators/generated/hestia-core/vendor_profiles.ts": {
-        "hash": "c592297928f534c3",
-        "generatedAt": "2026-04-22T04:38:06.616Z"
+        "hash": "fdb711bc88e29b40",
+        "generatedAt": "2026-04-22T05:15:35.931Z"
       },
       "src/app/api/generated/hestia-core/vendor_profiles/route.ts": {
-        "hash": "7fad83d66fc8ae0b",
-        "generatedAt": "2026-04-22T04:38:06.624Z"
+        "hash": "dce24aec2693b042",
+        "generatedAt": "2026-04-22T05:15:35.935Z"
       },
       "src/app/api/generated/hestia-core/vendor_profiles/[id]/route.ts": {
-        "hash": "909187f7e3021318",
-        "generatedAt": "2026-04-22T04:38:06.631Z"
+        "hash": "6ac27e8e5d34136c",
+        "generatedAt": "2026-04-22T05:15:35.939Z"
       },
       "src/types/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "6b558a8954501090",
-        "generatedAt": "2026-04-22T04:38:06.634Z"
+        "hash": "32b0755a1f41492f",
+        "generatedAt": "2026-04-22T05:20:53.788Z"
       },
       "src/lib/validators/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "51a3d3d171be61b2",
-        "generatedAt": "2026-04-22T04:38:06.639Z"
+        "hash": "61411cb246b20e87",
+        "generatedAt": "2026-04-22T05:15:35.943Z"
       },
       "src/app/api/generated/aethelred-connections/vercel_connection/route.ts": {
-        "hash": "0d462ed2eb28b589",
-        "generatedAt": "2026-04-22T04:38:06.645Z"
+        "hash": "46c3745d257418d8",
+        "generatedAt": "2026-04-22T05:15:35.947Z"
       },
       "src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts": {
-        "hash": "1effe298c2124abd",
-        "generatedAt": "2026-04-22T04:38:06.650Z"
+        "hash": "8816b6114ac6630d",
+        "generatedAt": "2026-04-22T05:15:35.949Z"
       },
       "src/hooks/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "e6aea6bad51a74d5",
-        "generatedAt": "2026-04-22T04:38:06.656Z"
+        "hash": "944958a496f1ad0c",
+        "generatedAt": "2026-04-22T05:15:35.953Z"
       },
       "src/types/generated/hestia-core/personalized_feed.ts": {
-        "hash": "af9ac685068965c8",
-        "generatedAt": "2026-04-22T04:38:06.668Z"
+        "hash": "10fd41d078f802f7",
+        "generatedAt": "2026-04-22T05:20:53.796Z"
       },
       "src/app/api/generated/hestia-core/personalized_feed/route.ts": {
         "hash": "e81b69fda459466a",
-        "generatedAt": "2026-04-22T04:38:06.675Z"
+        "generatedAt": "2026-04-22T05:15:35.961Z"
       },
       "src/app/api/generated/hestia-core/personalized_feed/[id]/route.ts": {
         "hash": "d8a6bfea5ff8771e",
-        "generatedAt": "2026-04-22T04:38:06.678Z"
+        "generatedAt": "2026-04-22T05:15:35.964Z"
       },
       "src/types/generated/hestia-core/prometheus_blueprint_health.ts": {
-        "hash": "cf0b61f6baee3edd",
-        "generatedAt": "2026-04-22T04:38:06.684Z"
+        "hash": "776de5e80ed3a04c",
+        "generatedAt": "2026-04-22T05:20:53.802Z"
       },
       "src/app/api/generated/hestia-core/prometheus_blueprint_health/route.ts": {
         "hash": "c2edce973611e682",
-        "generatedAt": "2026-04-22T04:38:06.687Z"
+        "generatedAt": "2026-04-22T05:15:35.969Z"
       },
       "src/app/api/generated/hestia-core/prometheus_blueprint_health/[id]/route.ts": {
         "hash": "2cbbd4f432b1488f",
-        "generatedAt": "2026-04-22T04:38:06.691Z"
+        "generatedAt": "2026-04-22T05:15:35.973Z"
       },
       "src/types/generated/hestia-core/prometheus_generation_stats.ts": {
-        "hash": "ceed82c1800b0719",
-        "generatedAt": "2026-04-22T04:38:06.695Z"
+        "hash": "03deb51ec45641e9",
+        "generatedAt": "2026-04-22T05:20:53.806Z"
       },
       "src/app/api/generated/hestia-core/prometheus_generation_stats/route.ts": {
         "hash": "d4dc61a3ff7c6754",
-        "generatedAt": "2026-04-22T04:38:06.699Z"
+        "generatedAt": "2026-04-22T05:15:35.977Z"
       },
       "src/app/api/generated/hestia-core/prometheus_generation_stats/[id]/route.ts": {
         "hash": "136e2fb37497bce0",
-        "generatedAt": "2026-04-22T04:38:06.702Z"
+        "generatedAt": "2026-04-22T05:15:35.979Z"
       },
       "src/types/generated/themis-governance/public_transparency.ts": {
-        "hash": "0f4516a8800a1798",
-        "generatedAt": "2026-04-22T04:38:06.704Z"
+        "hash": "6b26b9823f148f8e",
+        "generatedAt": "2026-04-22T05:20:53.810Z"
       },
       "src/app/api/generated/themis-governance/public_transparency/route.ts": {
         "hash": "bffa6b0d07c15630",
-        "generatedAt": "2026-04-22T04:38:06.709Z"
+        "generatedAt": "2026-04-22T05:15:35.985Z"
       },
       "src/app/api/generated/themis-governance/public_transparency/[id]/route.ts": {
         "hash": "407eb156b14b6e6f",
-        "generatedAt": "2026-04-22T04:38:06.712Z"
+        "generatedAt": "2026-04-22T05:15:35.989Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_answers_results/route.ts": {
         "hash": "a2cc79e2cae5dff8",
-        "generatedAt": "2026-04-22T04:38:06.716Z"
+        "generatedAt": "2026-04-22T05:15:35.992Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_answers_submit/route.ts": {
         "hash": "78d4f01368bc324f",
-        "generatedAt": "2026-04-22T04:38:06.719Z"
+        "generatedAt": "2026-04-22T05:15:35.995Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_questions_results/route.ts": {
         "hash": "59db17214d396b3c",
-        "generatedAt": "2026-04-22T04:38:06.722Z"
+        "generatedAt": "2026-04-22T05:15:35.998Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_questions_submit/route.ts": {
         "hash": "82ac57ae4947d676",
-        "generatedAt": "2026-04-22T04:38:06.725Z"
+        "generatedAt": "2026-04-22T05:15:36.000Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_results_results/route.ts": {
         "hash": "caef01ac8f0f5723",
-        "generatedAt": "2026-04-22T04:38:06.729Z"
+        "generatedAt": "2026-04-22T05:15:36.004Z"
       },
       "src/app/api/generated/mnemosyne-assessment/acid_test_results_submit/route.ts": {
         "hash": "8d364a23e1f916f4",
-        "generatedAt": "2026-04-22T04:38:06.732Z"
+        "generatedAt": "2026-04-22T05:15:36.007Z"
       },
       "src/app/api/generated/hestia-core/add_conversation_message/route.ts": {
         "hash": "eecb966a73b1893a",
-        "generatedAt": "2026-04-22T04:38:06.735Z"
+        "generatedAt": "2026-04-22T05:15:36.009Z"
       },
       "src/app/api/generated/hestia-core/add_creator_category/route.ts": {
         "hash": "69b1073d9ca4fe5c",
-        "generatedAt": "2026-04-22T04:38:06.738Z"
+        "generatedAt": "2026-04-22T05:15:36.012Z"
       },
       "src/app/api/generated/hestia-core/approve_application/route.ts": {
         "hash": "95f3e44002a44819",
-        "generatedAt": "2026-04-22T04:38:06.741Z"
+        "generatedAt": "2026-04-22T05:15:36.014Z"
       },
       "src/app/api/generated/hestia-core/clean_old_agent_activities/route.ts": {
         "hash": "9e8529e3dc17fc96",
-        "generatedAt": "2026-04-22T04:38:06.745Z"
+        "generatedAt": "2026-04-22T05:15:36.017Z"
       },
       "src/app/api/generated/themis-governance/cleanup_rate_limits/route.ts": {
         "hash": "c589322187fbfa21",
-        "generatedAt": "2026-04-22T04:38:06.747Z"
+        "generatedAt": "2026-04-22T05:15:36.022Z"
       },
       "src/app/api/generated/hestia-core/community_profiles_link/route.ts": {
         "hash": "84eeca82f593b3d6",
-        "generatedAt": "2026-04-22T04:38:06.750Z"
+        "generatedAt": "2026-04-22T05:15:36.024Z"
       },
       "src/app/api/generated/hestia-core/community_profiles_unlink/route.ts": {
         "hash": "faabdd3928004ecc",
-        "generatedAt": "2026-04-22T04:38:06.754Z"
+        "generatedAt": "2026-04-22T05:15:36.027Z"
       },
       "src/app/api/generated/hermes-social/complete_agent_activity/route.ts": {
         "hash": "5288d22571eb9553",
-        "generatedAt": "2026-04-22T04:38:06.757Z"
+        "generatedAt": "2026-04-22T05:15:36.030Z"
       },
       "src/app/api/generated/hestia-core/complete_script_execution/route.ts": {
         "hash": "5ca52e623e5514a3",
-        "generatedAt": "2026-04-22T04:38:06.761Z"
+        "generatedAt": "2026-04-22T05:15:36.032Z"
       },
       "src/app/api/generated/plutus-economics/contributions_link/route.ts": {
         "hash": "250bd449ae9768a1",
-        "generatedAt": "2026-04-22T04:38:06.764Z"
+        "generatedAt": "2026-04-22T05:15:36.035Z"
       },
       "src/app/api/generated/plutus-economics/contributions_unlink/route.ts": {
         "hash": "8261240bba3c7eda",
-        "generatedAt": "2026-04-22T04:38:06.767Z"
+        "generatedAt": "2026-04-22T05:15:36.040Z"
       },
       "src/app/api/generated/hestia-core/create_creator_profile/route.ts": {
         "hash": "cdc9e55be9536f45",
-        "generatedAt": "2026-04-22T04:38:06.770Z"
+        "generatedAt": "2026-04-22T05:15:36.043Z"
       },
       "src/app/api/generated/hestia-core/create_vendor_profile/route.ts": {
         "hash": "29e5a758c82793a2",
-        "generatedAt": "2026-04-22T04:38:06.775Z"
+        "generatedAt": "2026-04-22T05:15:36.046Z"
       },
       "src/app/api/generated/hestia-core/creator_profiles_link/route.ts": {
         "hash": "6940d411887f2e4e",
-        "generatedAt": "2026-04-22T04:38:06.781Z"
+        "generatedAt": "2026-04-22T05:15:36.049Z"
       },
       "src/app/api/generated/hestia-core/creator_profiles_unlink/route.ts": {
         "hash": "380bb37fa88a2173",
-        "generatedAt": "2026-04-22T04:38:06.786Z"
+        "generatedAt": "2026-04-22T05:15:36.052Z"
       },
       "src/app/api/generated/hermes-social/get_agent_activity_summary/route.ts": {
         "hash": "5fcbd8ef82a3a87a",
-        "generatedAt": "2026-04-22T04:38:06.789Z"
+        "generatedAt": "2026-04-22T05:15:36.056Z"
       },
       "src/app/api/generated/hestia-core/get_creator_categories/route.ts": {
         "hash": "14a2aff64a6d6cd6",
-        "generatedAt": "2026-04-22T04:38:06.794Z"
+        "generatedAt": "2026-04-22T05:15:36.058Z"
       },
       "src/app/api/generated/hestia-core/get_current_user_id/route.ts": {
         "hash": "a7de32af4c0189d1",
-        "generatedAt": "2026-04-22T04:38:06.798Z"
+        "generatedAt": "2026-04-22T05:15:36.061Z"
       },
       "src/app/api/generated/hestia-core/get_generation_order/route.ts": {
         "hash": "1dc9d986eb3f4e33",
-        "generatedAt": "2026-04-22T04:38:06.802Z"
+        "generatedAt": "2026-04-22T05:15:36.063Z"
       },
       "src/app/api/generated/hestia-core/get_localized_text/route.ts": {
         "hash": "1e761dd00e374af2",
-        "generatedAt": "2026-04-22T04:38:06.806Z"
+        "generatedAt": "2026-04-22T05:15:36.066Z"
       },
       "src/app/api/generated/hestia-core/get_platform_health/route.ts": {
         "hash": "e7823a453cabb26b",
-        "generatedAt": "2026-04-22T04:38:06.812Z"
+        "generatedAt": "2026-04-22T05:15:36.069Z"
       },
       "src/app/api/generated/hestia-core/get_recommended_template/route.ts": {
         "hash": "52bdf76127710b00",
-        "generatedAt": "2026-04-22T04:38:06.816Z"
+        "generatedAt": "2026-04-22T05:15:36.073Z"
       },
       "src/app/api/generated/hestia-core/get_schema_enums/route.ts": {
         "hash": "970c51557264d8e2",
-        "generatedAt": "2026-04-22T04:38:06.819Z"
+        "generatedAt": "2026-04-22T05:15:36.075Z"
       },
       "src/app/api/generated/hestia-core/get_schema_functions/route.ts": {
         "hash": "2348a47ffac2970b",
-        "generatedAt": "2026-04-22T04:38:06.824Z"
+        "generatedAt": "2026-04-22T05:15:36.078Z"
       },
       "src/app/api/generated/hestia-core/get_schema_tables/route.ts": {
         "hash": "39b8651088674f03",
-        "generatedAt": "2026-04-22T04:38:06.829Z"
+        "generatedAt": "2026-04-22T05:15:36.081Z"
       },
       "src/app/api/generated/hestia-core/get_setting/route.ts": {
         "hash": "2a34f305cf77d925",
-        "generatedAt": "2026-04-22T04:38:06.832Z"
+        "generatedAt": "2026-04-22T05:15:36.083Z"
       },
       "src/app/api/generated/hestia-core/get_user_nd_preferences/route.ts": {
         "hash": "4d1be1892eb572f3",
-        "generatedAt": "2026-04-22T04:38:06.836Z"
+        "generatedAt": "2026-04-22T05:15:36.087Z"
       },
       "src/app/api/generated/hestia-core/get_user_sensory_preferences/route.ts": {
         "hash": "256db1aba80d3018",
-        "generatedAt": "2026-04-22T04:38:06.841Z"
+        "generatedAt": "2026-04-22T05:15:36.090Z"
       },
       "src/app/api/generated/hestia-core/is_admin/route.ts": {
         "hash": "5b32d9f9c876373a",
-        "generatedAt": "2026-04-22T04:38:06.845Z"
+        "generatedAt": "2026-04-22T05:15:36.092Z"
       },
       "src/app/api/generated/hestia-core/is_quantum_weaver/route.ts": {
         "hash": "b49f6091b6f62f36",
-        "generatedAt": "2026-04-22T04:38:06.849Z"
+        "generatedAt": "2026-04-22T05:15:36.095Z"
       },
       "src/app/api/generated/hermes-social/log_agent_activity/route.ts": {
         "hash": "6f28d59e7bdc83b3",
-        "generatedAt": "2026-04-22T04:38:06.853Z"
+        "generatedAt": "2026-04-22T05:15:36.097Z"
       },
       "src/app/api/generated/hestia-core/log_script_execution/route.ts": {
         "hash": "fb9d5046812fca51",
-        "generatedAt": "2026-04-22T04:38:06.857Z"
+        "generatedAt": "2026-04-22T05:15:36.100Z"
       },
       "src/app/api/generated/hestia-core/remove_creator_category/route.ts": {
         "hash": "fc0fb3013ef2db66",
-        "generatedAt": "2026-04-22T04:38:06.860Z"
+        "generatedAt": "2026-04-22T05:15:36.103Z"
       },
       "src/app/api/generated/aethelred-connections/seed_council_houses/route.ts": {
         "hash": "76fe41f26e37ed17",
-        "generatedAt": "2026-04-22T04:38:06.864Z"
+        "generatedAt": "2026-04-22T05:15:36.106Z"
       },
       "src/app/api/generated/hestia-core/submit_application/route.ts": {
         "hash": "ef9010d1d9d929d2",
-        "generatedAt": "2026-04-22T04:38:06.869Z"
+        "generatedAt": "2026-04-22T05:15:36.109Z"
       },
       "src/app/api/generated/hestia-core/update_algorithm_preferences/route.ts": {
         "hash": "32196a2291530c7c",
-        "generatedAt": "2026-04-22T04:38:06.873Z"
+        "generatedAt": "2026-04-22T05:15:36.112Z"
       },
       "src/app/api/generated/hestia-core/update_entity_state/route.ts": {
         "hash": "6f80a58ad169de4b",
-        "generatedAt": "2026-04-22T04:38:06.876Z"
+        "generatedAt": "2026-04-22T05:15:36.114Z"
       },
       "src/app/api/generated/hestia-core/update_last_active/route.ts": {
         "hash": "083c760a286faf9f",
-        "generatedAt": "2026-04-22T04:38:06.880Z"
+        "generatedAt": "2026-04-22T05:15:36.117Z"
       },
       "src/app/api/generated/hestia-core/update_nd_preferences/route.ts": {
         "hash": "c73524b6f0e6f427",
-        "generatedAt": "2026-04-22T04:38:06.883Z"
+        "generatedAt": "2026-04-22T05:15:36.121Z"
       },
       "src/app/api/generated/hestia-core/update_sensory_preferences/route.ts": {
         "hash": "f17537214f8e7ab6",
-        "generatedAt": "2026-04-22T04:38:06.888Z"
+        "generatedAt": "2026-04-22T05:15:36.124Z"
       },
       "src/app/api/generated/athena-gamification/user_badges_link/route.ts": {
         "hash": "cbb870de3640826a",
-        "generatedAt": "2026-04-22T04:38:06.895Z"
+        "generatedAt": "2026-04-22T05:15:36.127Z"
       },
       "src/app/api/generated/athena-gamification/user_badges_unlink/route.ts": {
         "hash": "8d1ee2a51fc7317f",
-        "generatedAt": "2026-04-22T04:38:06.898Z"
+        "generatedAt": "2026-04-22T05:15:36.129Z"
       },
       "src/app/api/generated/athena-gamification/user_quests_link/route.ts": {
         "hash": "6364376d93d126f8",
-        "generatedAt": "2026-04-22T04:38:06.901Z"
+        "generatedAt": "2026-04-22T05:15:36.133Z"
       },
       "src/app/api/generated/athena-gamification/user_quests_unlink/route.ts": {
         "hash": "c6cfea63f02d8782",
-        "generatedAt": "2026-04-22T04:38:06.903Z"
+        "generatedAt": "2026-04-22T05:15:36.136Z"
       },
       "src/app/api/generated/hestia-core/validate_blueprint_content/route.ts": {
         "hash": "81fb68e3a58d7348",
-        "generatedAt": "2026-04-22T04:38:06.906Z"
+        "generatedAt": "2026-04-22T05:15:36.139Z"
       },
       "src/app/api/generated/hestia-core/vendor_profiles_link/route.ts": {
         "hash": "710c2bf7df568606",
-        "generatedAt": "2026-04-22T04:38:06.912Z"
+        "generatedAt": "2026-04-22T05:15:36.142Z"
       },
       "src/app/api/generated/hestia-core/vendor_profiles_unlink/route.ts": {
         "hash": "b9920f628b290ea3",
-        "generatedAt": "2026-04-22T04:38:06.916Z"
+        "generatedAt": "2026-04-22T05:15:36.144Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/acid_persona.ts": {
-        "hash": "42cd6ddd6a5dd1e2",
-        "generatedAt": "2026-04-22T04:38:06.919Z"
+        "hash": "5c51f8145311b629",
+        "generatedAt": "2026-04-22T05:15:36.147Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/acid_question_type.ts": {
-        "hash": "3e535bb9f378cc72",
-        "generatedAt": "2026-04-22T04:38:06.921Z"
+        "hash": "8c76008b9a430d65",
+        "generatedAt": "2026-04-22T05:15:36.150Z"
       },
       "src/lib/constants/generated/hermes-social/action_type.ts": {
-        "hash": "c19a81e443de376e",
-        "generatedAt": "2026-04-22T04:38:06.923Z"
+        "hash": "2b67da646d90d47e",
+        "generatedAt": "2026-04-22T05:15:36.152Z"
       },
       "src/lib/constants/generated/hermes-social/activity_visibility.ts": {
-        "hash": "846b06cfcdd04de0",
-        "generatedAt": "2026-04-22T04:38:06.927Z"
+        "hash": "e4585bb3625fc0ea",
+        "generatedAt": "2026-04-22T05:15:36.155Z"
       },
       "src/lib/constants/generated/themis-governance/admin_log_category.ts": {
-        "hash": "d4f7f5ac75e69ef9",
-        "generatedAt": "2026-04-22T04:38:06.931Z"
+        "hash": "877ac45d9286ca42",
+        "generatedAt": "2026-04-22T05:15:36.157Z"
       },
       "src/lib/constants/generated/themis-governance/admin_log_target_type.ts": {
-        "hash": "3df3fcf56c6b4cc5",
-        "generatedAt": "2026-04-22T04:38:06.933Z"
+        "hash": "e641530091627a18",
+        "generatedAt": "2026-04-22T05:15:36.160Z"
       },
       "src/lib/constants/generated/hestia-core/agent_action_type.ts": {
-        "hash": "8979eb546e39ebe6",
-        "generatedAt": "2026-04-22T04:38:06.936Z"
+        "hash": "88e94099d9df3d6c",
+        "generatedAt": "2026-04-22T05:15:36.162Z"
       },
       "src/lib/constants/generated/hestia-core/agent_activity_status.ts": {
-        "hash": "5713ee7a89eb8fab",
-        "generatedAt": "2026-04-22T04:38:06.939Z"
+        "hash": "d2c20ee92a7a49db",
+        "generatedAt": "2026-04-22T05:15:36.164Z"
       },
       "src/lib/constants/generated/hestia-core/agent_name.ts": {
-        "hash": "1e38a8a688e35510",
-        "generatedAt": "2026-04-22T04:38:06.943Z"
+        "hash": "482e375c85c3b8a5",
+        "generatedAt": "2026-04-22T05:15:36.167Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/analytics_category.ts": {
-        "hash": "1ab30124d86b67cb",
-        "generatedAt": "2026-04-22T04:38:06.946Z"
+        "hash": "e7d0c940f457ae71",
+        "generatedAt": "2026-04-22T05:15:36.169Z"
       },
       "src/lib/constants/generated/themis-governance/application_status.ts": {
-        "hash": "441afb6fb438cf68",
-        "generatedAt": "2026-04-22T04:38:06.949Z"
+        "hash": "17c32db9b1c48873",
+        "generatedAt": "2026-04-22T05:15:36.172Z"
       },
       "src/lib/constants/generated/themis-governance/application_type.ts": {
-        "hash": "6182815cce6fd850",
-        "generatedAt": "2026-04-22T04:38:06.952Z"
+        "hash": "f9dfd2d2ea9a4fa2",
+        "generatedAt": "2026-04-22T05:15:36.174Z"
       },
       "src/lib/constants/generated/athena-gamification/badge_rarity.ts": {
-        "hash": "eabe034981534d4d",
-        "generatedAt": "2026-04-22T04:38:06.954Z"
+        "hash": "7ecd91b52064b77b",
+        "generatedAt": "2026-04-22T05:15:36.177Z"
       },
       "src/lib/constants/generated/athena-gamification/badge_tier.ts": {
-        "hash": "66f19dd0cc55170a",
-        "generatedAt": "2026-04-22T04:38:06.956Z"
+        "hash": "8f2d0c76df58dd29",
+        "generatedAt": "2026-04-22T05:15:36.179Z"
       },
       "src/lib/constants/generated/athena-gamification/badge_type.ts": {
-        "hash": "71699308e61d2230",
-        "generatedAt": "2026-04-22T04:38:06.961Z"
+        "hash": "667de7aee6f02aa8",
+        "generatedAt": "2026-04-22T05:15:36.181Z"
       },
       "src/lib/constants/generated/plutus-economics/bid_type.ts": {
-        "hash": "5e522737fe1c3f64",
-        "generatedAt": "2026-04-22T04:38:06.964Z"
+        "hash": "32a969fefa6e6a05",
+        "generatedAt": "2026-04-22T05:15:36.183Z"
       },
       "src/lib/constants/generated/prometheus-meta/blueprint_status.ts": {
-        "hash": "c75baf641d100022",
-        "generatedAt": "2026-04-22T04:38:06.966Z"
+        "hash": "9cecdc3e633660f9",
+        "generatedAt": "2026-04-22T05:15:36.185Z"
       },
       "src/lib/constants/generated/prometheus-meta/blueprint_system.ts": {
-        "hash": "300a3c230acd5d1a",
-        "generatedAt": "2026-04-22T04:38:06.968Z"
+        "hash": "776f0266ab134bc3",
+        "generatedAt": "2026-04-22T05:15:36.188Z"
       },
       "src/lib/constants/generated/prometheus-meta/boundary_type.ts": {
-        "hash": "b75c8294b0d4aeb1",
-        "generatedAt": "2026-04-22T04:38:06.971Z"
+        "hash": "4a5ae46fb2487792",
+        "generatedAt": "2026-04-22T05:15:36.192Z"
       },
       "src/lib/constants/generated/aethelred-connections/bridge_status.ts": {
-        "hash": "f05b60fa5cf81175",
-        "generatedAt": "2026-04-22T04:38:06.975Z"
+        "hash": "cb927c101ece11e3",
+        "generatedAt": "2026-04-22T05:15:36.194Z"
       },
       "src/lib/constants/generated/hestia-core/business_type.ts": {
-        "hash": "96bd6c9a4b34107c",
-        "generatedAt": "2026-04-22T04:38:06.979Z"
+        "hash": "252dab0bd1be8ea1",
+        "generatedAt": "2026-04-22T05:15:36.196Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/calendar_event_type.ts": {
-        "hash": "5b2a716786305f40",
-        "generatedAt": "2026-04-22T04:38:06.982Z"
+        "hash": "ae9e8d4d95dc4d66",
+        "generatedAt": "2026-04-22T05:15:36.198Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/calendar_visibility.ts": {
-        "hash": "1178bc7f19741360",
-        "generatedAt": "2026-04-22T04:38:06.986Z"
+        "hash": "640958d9046ebe81",
+        "generatedAt": "2026-04-22T05:15:36.201Z"
       },
       "src/lib/constants/generated/plutus-economics/campaign_status.ts": {
-        "hash": "6dce398408df50f6",
-        "generatedAt": "2026-04-22T04:38:06.988Z"
+        "hash": "736a80348e9e135f",
+        "generatedAt": "2026-04-22T05:15:36.204Z"
       },
       "src/lib/constants/generated/hestia-core/commission_status.ts": {
-        "hash": "7293e90f17298978",
-        "generatedAt": "2026-04-22T04:38:06.993Z"
+        "hash": "7679805e4b99a10b",
+        "generatedAt": "2026-04-22T05:15:36.207Z"
       },
       "src/lib/constants/generated/hestia-core/communication_style.ts": {
-        "hash": "4d98d041e552798b",
-        "generatedAt": "2026-04-22T04:38:06.996Z"
+        "hash": "83884544c758a7d5",
+        "generatedAt": "2026-04-22T05:15:36.209Z"
       },
       "src/lib/constants/generated/prometheus-meta/consciousness_state.ts": {
-        "hash": "62a01c3ea052bf57",
-        "generatedAt": "2026-04-22T04:38:07.000Z"
+        "hash": "57f18745395633aa",
+        "generatedAt": "2026-04-22T05:15:36.211Z"
       },
       "src/lib/constants/generated/iris-communications/contact_direction.ts": {
-        "hash": "fd820345bcf171db",
-        "generatedAt": "2026-04-22T04:38:07.002Z"
+        "hash": "908582c4d9c3f04b",
+        "generatedAt": "2026-04-22T05:15:36.213Z"
       },
       "src/lib/constants/generated/iris-communications/contact_status.ts": {
-        "hash": "f4c92c9c9e8bad59",
-        "generatedAt": "2026-04-22T04:38:07.006Z"
+        "hash": "908efc47a3ccf481",
+        "generatedAt": "2026-04-22T05:15:36.215Z"
       },
       "src/lib/constants/generated/hestia-core/content_rating.ts": {
-        "hash": "12ed271dffb7a4c5",
-        "generatedAt": "2026-04-22T04:38:07.010Z"
+        "hash": "a3776cee8c7d5841",
+        "generatedAt": "2026-04-22T05:15:36.217Z"
       },
       "src/lib/constants/generated/hermes-social/content_type.ts": {
-        "hash": "ee28f0fcf3531c62",
-        "generatedAt": "2026-04-22T04:38:07.013Z"
+        "hash": "513c2cd53187fff2",
+        "generatedAt": "2026-04-22T05:15:36.220Z"
       },
       "src/lib/constants/generated/plutus-economics/contribution_type.ts": {
-        "hash": "1823594b952bcc01",
-        "generatedAt": "2026-04-22T04:38:07.016Z"
+        "hash": "f9b131ca6a232f6f",
+        "generatedAt": "2026-04-22T05:15:36.223Z"
       },
       "src/lib/constants/generated/hestia-core/conversation_status.ts": {
-        "hash": "81122ab4a6f9e1ee",
-        "generatedAt": "2026-04-22T04:38:07.019Z"
+        "hash": "df246ba80376e475",
+        "generatedAt": "2026-04-22T05:15:36.225Z"
       },
       "src/lib/constants/generated/iris-communications/currency_position_type.ts": {
-        "hash": "0559e29fc69ed53a",
-        "generatedAt": "2026-04-22T04:38:07.024Z"
+        "hash": "69ced6cde02bc72d",
+        "generatedAt": "2026-04-22T05:15:36.229Z"
       },
       "src/lib/constants/generated/iris-communications/custom_category_type.ts": {
-        "hash": "302ccce18025cf81",
-        "generatedAt": "2026-04-22T04:38:07.027Z"
+        "hash": "e4724213a783e372",
+        "generatedAt": "2026-04-22T05:15:36.232Z"
       },
       "src/lib/constants/generated/iris-communications/date_format_type.ts": {
-        "hash": "1058925780f3741d",
-        "generatedAt": "2026-04-22T04:38:07.030Z"
+        "hash": "f74cfe313042cab4",
+        "generatedAt": "2026-04-22T05:15:36.234Z"
       },
       "src/lib/constants/generated/aethelred-connections/delivery_status.ts": {
-        "hash": "b021a50ab8f8fa29",
-        "generatedAt": "2026-04-22T04:38:07.032Z"
+        "hash": "e9895ecf2cf6a246",
+        "generatedAt": "2026-04-22T05:15:36.236Z"
       },
       "src/lib/constants/generated/aethelred-connections/deployment_status.ts": {
-        "hash": "d67252e08520637d",
-        "generatedAt": "2026-04-22T04:38:07.035Z"
+        "hash": "e12ed3c13f7a3073",
+        "generatedAt": "2026-04-22T05:15:36.239Z"
       },
       "src/lib/constants/generated/athena-gamification/difficulty_level.ts": {
-        "hash": "fb66341e53b2872b",
-        "generatedAt": "2026-04-22T04:38:07.037Z"
+        "hash": "ef5429e9b9c568b8",
+        "generatedAt": "2026-04-22T05:15:36.241Z"
       },
       "src/lib/constants/generated/iris-communications/email_status.ts": {
-        "hash": "3bd08584373ba6f5",
-        "generatedAt": "2026-04-22T04:38:07.040Z"
+        "hash": "9a2e0d8e7af3cfc4",
+        "generatedAt": "2026-04-22T05:15:36.244Z"
       },
       "src/lib/constants/generated/hermes-social/emerald_status.ts": {
-        "hash": "8234028f97ad0fcf",
-        "generatedAt": "2026-04-22T04:38:07.044Z"
+        "hash": "5d78c42468b1a412",
+        "generatedAt": "2026-04-22T05:15:36.246Z"
       },
       "src/lib/constants/generated/prometheus-meta/encryption_level.ts": {
-        "hash": "64108573e4a70709",
-        "generatedAt": "2026-04-22T04:38:07.046Z"
+        "hash": "a2caece218075a56",
+        "generatedAt": "2026-04-22T05:15:36.248Z"
       },
       "src/lib/constants/generated/hestia-core/entity_state.ts": {
-        "hash": "e31c31e67e0444c6",
-        "generatedAt": "2026-04-22T04:38:07.049Z"
+        "hash": "b55030ae70fb472d",
+        "generatedAt": "2026-04-22T05:15:36.250Z"
       },
       "src/lib/constants/generated/themis-governance/escalation_target.ts": {
-        "hash": "5375e87552bfec61",
-        "generatedAt": "2026-04-22T04:38:07.052Z"
+        "hash": "e2f4afa3d559d6bd",
+        "generatedAt": "2026-04-22T05:15:36.253Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/folksonomy_target_type.ts": {
-        "hash": "456b8ae48bd88a99",
-        "generatedAt": "2026-04-22T04:38:07.055Z"
+        "hash": "0c80676514ece4c0",
+        "generatedAt": "2026-04-22T05:15:36.256Z"
       },
       "src/lib/constants/generated/hestia-core/fulfillment_method.ts": {
-        "hash": "cf79d3eda2afee05",
-        "generatedAt": "2026-04-22T04:38:07.058Z"
+        "hash": "edc9c3652dc859af",
+        "generatedAt": "2026-04-22T05:15:36.258Z"
       },
       "src/lib/constants/generated/prometheus-meta/generation_status.ts": {
-        "hash": "e7f41df6aea34bfe",
-        "generatedAt": "2026-04-22T04:38:07.061Z"
+        "hash": "7d44393ba201e6e8",
+        "generatedAt": "2026-04-22T05:15:36.260Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/job_status.ts": {
-        "hash": "90a3f926a15f9881",
-        "generatedAt": "2026-04-22T04:38:07.064Z"
+        "hash": "1d58583d81198cca",
+        "generatedAt": "2026-04-22T05:15:36.262Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/job_type.ts": {
-        "hash": "277a80c355a1097d",
-        "generatedAt": "2026-04-22T04:38:07.066Z"
+        "hash": "f6a0cc8e5a0163b8",
+        "generatedAt": "2026-04-22T05:15:36.264Z"
       },
       "src/lib/constants/generated/plutus-economics/ledger_entity.ts": {
-        "hash": "5159f215a3517ffe",
-        "generatedAt": "2026-04-22T04:38:07.068Z"
+        "hash": "ceef6de3326c044f",
+        "generatedAt": "2026-04-22T05:15:36.266Z"
       },
       "src/lib/constants/generated/plutus-economics/ledger_entry_type.ts": {
-        "hash": "c09a80672ab60353",
-        "generatedAt": "2026-04-22T04:38:07.071Z"
+        "hash": "b70d1532f142e0b5",
+        "generatedAt": "2026-04-22T05:15:36.268Z"
       },
       "src/lib/constants/generated/athena-gamification/lesson_content_type.ts": {
-        "hash": "c9fe6ca448fe54bb",
-        "generatedAt": "2026-04-22T04:38:07.074Z"
+        "hash": "63ac56810f9abb8f",
+        "generatedAt": "2026-04-22T05:15:36.271Z"
       },
       "src/lib/constants/generated/athena-gamification/life_cycle_phase.ts": {
-        "hash": "dff27b385462e0b3",
-        "generatedAt": "2026-04-22T04:38:07.077Z"
+        "hash": "60a8499b1a71adac",
+        "generatedAt": "2026-04-22T05:15:36.275Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/maintenance_status.ts": {
-        "hash": "ff3f3cf617c934f5",
-        "generatedAt": "2026-04-22T04:38:07.080Z"
+        "hash": "1271ec7cba54243b",
+        "generatedAt": "2026-04-22T05:15:36.278Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/maintenance_type.ts": {
-        "hash": "5e32345a89138ed4",
-        "generatedAt": "2026-04-22T04:38:07.082Z"
+        "hash": "25dcfb47a62fc5e2",
+        "generatedAt": "2026-04-22T05:15:36.280Z"
       },
       "src/lib/constants/generated/iris-communications/measurement_system_type.ts": {
-        "hash": "9a59410f66bffefa",
-        "generatedAt": "2026-04-22T04:38:07.085Z"
+        "hash": "6ca203254d4b8122",
+        "generatedAt": "2026-04-22T05:15:36.282Z"
       },
       "src/lib/constants/generated/hestia-core/message_direction.ts": {
-        "hash": "012ed92ff9959d36",
-        "generatedAt": "2026-04-22T04:38:07.087Z"
+        "hash": "6fd11f898275fbf3",
+        "generatedAt": "2026-04-22T05:15:36.285Z"
       },
       "src/lib/constants/generated/hermes-social/message_status.ts": {
-        "hash": "99e891ca98f7b9c0",
-        "generatedAt": "2026-04-22T04:38:07.090Z"
+        "hash": "cc5b2bbf79274ef7",
+        "generatedAt": "2026-04-22T05:15:36.288Z"
       },
       "src/lib/constants/generated/themis-governance/moderation_action_type.ts": {
-        "hash": "a583b547c815d37d",
-        "generatedAt": "2026-04-22T04:38:07.093Z"
+        "hash": "3c867b82998e3571",
+        "generatedAt": "2026-04-22T05:15:36.291Z"
       },
       "src/lib/constants/generated/themis-governance/moderation_target_type.ts": {
-        "hash": "8e8429239232e7ad",
-        "generatedAt": "2026-04-22T04:38:07.096Z"
+        "hash": "9728fae8952307a4",
+        "generatedAt": "2026-04-22T05:15:36.295Z"
       },
       "src/lib/constants/generated/athena-gamification/myth_type.ts": {
-        "hash": "2bc4f7dc74e1853e",
-        "generatedAt": "2026-04-22T04:38:07.101Z"
+        "hash": "be18df8b0c0302b2",
+        "generatedAt": "2026-04-22T05:15:36.297Z"
       },
       "src/lib/constants/generated/hermes-social/notification_type.ts": {
-        "hash": "de564c827cb4bbb5",
-        "generatedAt": "2026-04-22T04:38:07.104Z"
+        "hash": "a87d29b013261ac4",
+        "generatedAt": "2026-04-22T05:15:36.300Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/ontology_predicate.ts": {
-        "hash": "55795d8467aa2708",
-        "generatedAt": "2026-04-22T04:38:07.106Z"
+        "hash": "fcdb522ecbcc467c",
+        "generatedAt": "2026-04-22T05:15:36.302Z"
       },
       "src/lib/constants/generated/plutus-economics/owner_type.ts": {
-        "hash": "ed4344a54f7bf7db",
-        "generatedAt": "2026-04-22T04:38:07.110Z"
+        "hash": "21d2131b5950c2fd",
+        "generatedAt": "2026-04-22T05:15:36.306Z"
       },
       "src/lib/constants/generated/prometheus-meta/pattern_context.ts": {
-        "hash": "1db1ecfd0b895017",
-        "generatedAt": "2026-04-22T04:38:07.113Z"
+        "hash": "4568fc8fd7e20312",
+        "generatedAt": "2026-04-22T05:15:36.309Z"
       },
       "src/lib/constants/generated/plutus-economics/payment_status.ts": {
-        "hash": "9c6052236b1760e2",
-        "generatedAt": "2026-04-22T04:38:07.116Z"
+        "hash": "8ab63f37c7394393",
+        "generatedAt": "2026-04-22T05:15:36.311Z"
       },
       "src/lib/constants/generated/hestia-core/payment_structure.ts": {
-        "hash": "5640f785b82c20ad",
-        "generatedAt": "2026-04-22T04:38:07.119Z"
+        "hash": "9a45940a75bab53e",
+        "generatedAt": "2026-04-22T05:15:36.314Z"
       },
       "src/lib/constants/generated/hestia-core/payout_frequency.ts": {
-        "hash": "c5557209f9ed5ce9",
-        "generatedAt": "2026-04-22T04:38:07.123Z"
+        "hash": "ea9e975ca8a95d89",
+        "generatedAt": "2026-04-22T05:15:36.316Z"
       },
       "src/lib/constants/generated/hestia-core/payout_method.ts": {
-        "hash": "a8bf6db36aa05382",
-        "generatedAt": "2026-04-22T04:38:07.126Z"
+        "hash": "2aef5d531b5c35e0",
+        "generatedAt": "2026-04-22T05:15:36.319Z"
       },
       "src/lib/constants/generated/plutus-economics/payout_status.ts": {
-        "hash": "665e9827bc5799c7",
-        "generatedAt": "2026-04-22T04:38:07.129Z"
+        "hash": "5f00fb0bbe7848e2",
+        "generatedAt": "2026-04-22T05:15:36.323Z"
       },
       "src/lib/constants/generated/aethelred-connections/platform_environment.ts": {
-        "hash": "903904fa08db2a0a",
-        "generatedAt": "2026-04-22T04:38:07.132Z"
+        "hash": "374f4034a43e28e3",
+        "generatedAt": "2026-04-22T05:15:36.325Z"
       },
       "src/lib/constants/generated/aethelred-connections/platform_status.ts": {
-        "hash": "f9eac565170ac1ed",
-        "generatedAt": "2026-04-22T04:38:07.134Z"
+        "hash": "d5eb932758f378b8",
+        "generatedAt": "2026-04-22T05:15:36.328Z"
       },
       "src/lib/constants/generated/hermes-social/post_visibility.ts": {
-        "hash": "85e3ccabba962510",
-        "generatedAt": "2026-04-22T04:38:07.137Z"
+        "hash": "fab8dc456b114c9a",
+        "generatedAt": "2026-04-22T05:15:36.331Z"
       },
       "src/lib/constants/generated/themis-governance/process_type.ts": {
-        "hash": "350885015a6c1b1c",
-        "generatedAt": "2026-04-22T04:38:07.139Z"
+        "hash": "c962a34efbb37639",
+        "generatedAt": "2026-04-22T05:15:36.333Z"
       },
       "src/lib/constants/generated/hestia-core/product_status.ts": {
-        "hash": "4367070ecc16013b",
-        "generatedAt": "2026-04-22T04:38:07.142Z"
+        "hash": "dfef89faa65bdfcd",
+        "generatedAt": "2026-04-22T05:15:36.336Z"
       },
       "src/lib/constants/generated/plutus-economics/product_type.ts": {
-        "hash": "07467f91564e8025",
-        "generatedAt": "2026-04-22T04:38:07.146Z"
+        "hash": "3d3aab761c74e4b4",
+        "generatedAt": "2026-04-22T05:15:36.339Z"
       },
       "src/lib/constants/generated/athena-gamification/progress_status.ts": {
-        "hash": "684c3840ed71e800",
-        "generatedAt": "2026-04-22T04:38:07.148Z"
+        "hash": "204835922022b7d5",
+        "generatedAt": "2026-04-22T05:15:36.342Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/protocol_type.ts": {
-        "hash": "acc5f1fa6aa1d2b3",
-        "generatedAt": "2026-04-22T04:38:07.150Z"
+        "hash": "6c731e6f9239ea66",
+        "generatedAt": "2026-04-22T05:15:36.344Z"
       },
       "src/lib/constants/generated/athena-gamification/quest_status.ts": {
-        "hash": "f7699f48b8ca4a08",
-        "generatedAt": "2026-04-22T04:38:07.152Z"
+        "hash": "ccd89869d6cc82c9",
+        "generatedAt": "2026-04-22T05:15:36.346Z"
       },
       "src/lib/constants/generated/hermes-social/reaction_type.ts": {
-        "hash": "92669dcc17e97feb",
-        "generatedAt": "2026-04-22T04:38:07.155Z"
+        "hash": "e5790d7a71dae8cd",
+        "generatedAt": "2026-04-22T05:15:36.348Z"
       },
       "src/lib/constants/generated/plutus-economics/recurring_interval.ts": {
-        "hash": "19a67070e05e0b91",
-        "generatedAt": "2026-04-22T04:38:07.157Z"
+        "hash": "82927ea207d7d9b0",
+        "generatedAt": "2026-04-22T05:15:36.351Z"
       },
       "src/lib/constants/generated/themis-governance/report_status.ts": {
-        "hash": "afa7e48cc4f36389",
-        "generatedAt": "2026-04-22T04:38:07.161Z"
+        "hash": "6626cf57e6778a52",
+        "generatedAt": "2026-04-22T05:15:36.354Z"
       },
       "src/lib/constants/generated/themis-governance/report_target_type.ts": {
-        "hash": "3c77611477da87c1",
-        "generatedAt": "2026-04-22T04:38:07.163Z"
+        "hash": "caf87c5f13f60d6e",
+        "generatedAt": "2026-04-22T05:15:36.357Z"
       },
       "src/lib/constants/generated/themis-governance/report_type.ts": {
-        "hash": "f0c21cb46bc622ce",
-        "generatedAt": "2026-04-22T04:38:07.166Z"
+        "hash": "65a73f07251c0351",
+        "generatedAt": "2026-04-22T05:15:36.359Z"
       },
       "src/lib/constants/generated/athena-gamification/scene_type.ts": {
-        "hash": "ef5f74ffc239a2fa",
-        "generatedAt": "2026-04-22T04:38:07.168Z"
+        "hash": "3bc1c0d5d8bb9f52",
+        "generatedAt": "2026-04-22T05:15:36.362Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/script_type.ts": {
-        "hash": "22d1355c6b56de25",
-        "generatedAt": "2026-04-22T04:38:07.170Z"
+        "hash": "c97aaf788b0bd6a3",
+        "generatedAt": "2026-04-22T05:15:36.364Z"
       },
       "src/lib/constants/generated/hestia-core/sensitivity_level.ts": {
-        "hash": "c020100fd85b026e",
-        "generatedAt": "2026-04-22T04:38:07.172Z"
+        "hash": "7bb2b6c66b661aa0",
+        "generatedAt": "2026-04-22T05:15:36.367Z"
       },
       "src/lib/constants/generated/hestia-core/sensory_preferences.ts": {
-        "hash": "a0545f5ceeb19e39",
-        "generatedAt": "2026-04-22T04:38:07.177Z"
+        "hash": "a76b092aef7915bf",
+        "generatedAt": "2026-04-22T05:15:36.375Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/setting_scope.ts": {
-        "hash": "6e32764938d629a1",
-        "generatedAt": "2026-04-22T04:38:07.179Z"
+        "hash": "40444be96e3bb3d9",
+        "generatedAt": "2026-04-22T05:15:36.377Z"
       },
       "src/lib/constants/generated/hestia-core/shipping_requirements.ts": {
-        "hash": "7ee56f49ddbf5800",
-        "generatedAt": "2026-04-22T04:38:07.181Z"
+        "hash": "515b4aea31af585e",
+        "generatedAt": "2026-04-22T05:15:36.379Z"
       },
       "src/lib/constants/generated/plutus-economics/source_pool_type.ts": {
-        "hash": "a13ff0b8d91710e4",
-        "generatedAt": "2026-04-22T04:38:07.183Z"
+        "hash": "78efc7b8e42f0f92",
+        "generatedAt": "2026-04-22T05:15:36.381Z"
       },
       "src/lib/constants/generated/aethelred-connections/stripe_mode.ts": {
-        "hash": "947d775b8b7de5ef",
-        "generatedAt": "2026-04-22T04:38:07.186Z"
+        "hash": "55209dbe680ddb2a",
+        "generatedAt": "2026-04-22T05:15:36.384Z"
       },
       "src/lib/constants/generated/athena-gamification/submission_type.ts": {
-        "hash": "ccd021a14138376a",
-        "generatedAt": "2026-04-22T04:38:07.188Z"
+        "hash": "f9de99fed4dd03f5",
+        "generatedAt": "2026-04-22T05:15:36.388Z"
       },
       "src/lib/constants/generated/plutus-economics/subscription_status.ts": {
-        "hash": "3cc80577f40bb61c",
-        "generatedAt": "2026-04-22T04:38:07.190Z"
+        "hash": "07b7fdb6eea4fee8",
+        "generatedAt": "2026-04-22T05:15:36.390Z"
       },
       "src/lib/constants/generated/aethelred-connections/supabase_status.ts": {
-        "hash": "de16a6d840718aee",
-        "generatedAt": "2026-04-22T04:38:07.193Z"
+        "hash": "620757d61c693e21",
+        "generatedAt": "2026-04-22T05:15:36.392Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/superposition_status.ts": {
-        "hash": "dd5d75119a09cc67",
-        "generatedAt": "2026-04-22T04:38:07.196Z"
+        "hash": "9e525e4ba46edb85",
+        "generatedAt": "2026-04-22T05:15:36.395Z"
       },
       "src/lib/constants/generated/iris-communications/survey_audience_type.ts": {
-        "hash": "a181f557fff320a5",
-        "generatedAt": "2026-04-22T04:38:07.198Z"
+        "hash": "585167794ff01b3a",
+        "generatedAt": "2026-04-22T05:15:36.397Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/system_status.ts": {
-        "hash": "2f5cceaf87202c42",
-        "generatedAt": "2026-04-22T04:38:07.200Z"
+        "hash": "285bf7d92c7c8871",
+        "generatedAt": "2026-04-22T05:15:36.400Z"
       },
       "src/lib/constants/generated/hephaestus-infrastructure/system_type.ts": {
-        "hash": "10b414c5472e4e9a",
-        "generatedAt": "2026-04-22T04:38:07.203Z"
+        "hash": "b59559768564b0fe",
+        "generatedAt": "2026-04-22T05:15:36.403Z"
       },
       "src/lib/constants/generated/hermes-social/target_type.ts": {
-        "hash": "ce246b18df1c6b9b",
-        "generatedAt": "2026-04-22T04:38:07.205Z"
+        "hash": "212a14062a4e4f6e",
+        "generatedAt": "2026-04-22T05:15:36.407Z"
       },
       "src/lib/constants/generated/mnemosyne-assessment/taxonomy_node_type.ts": {
-        "hash": "064ec572cd5ef5be",
-        "generatedAt": "2026-04-22T04:38:07.207Z"
+        "hash": "27f3ec5323dd7369",
+        "generatedAt": "2026-04-22T05:15:36.409Z"
       },
       "src/lib/constants/generated/iris-communications/text_direction_type.ts": {
-        "hash": "9276d7e4d6d9fb98",
-        "generatedAt": "2026-04-22T04:38:07.210Z"
+        "hash": "dba4b76be887aebf",
+        "generatedAt": "2026-04-22T05:15:36.411Z"
       },
       "src/lib/constants/generated/iris-communications/time_format_type.ts": {
-        "hash": "17a13ff880f5187c",
-        "generatedAt": "2026-04-22T04:38:07.213Z"
+        "hash": "71ab41d0b0ed1455",
+        "generatedAt": "2026-04-22T05:15:36.413Z"
       },
       "src/lib/constants/generated/athena-gamification/timeline_event_type.ts": {
-        "hash": "e74cc12bfd816dc5",
-        "generatedAt": "2026-04-22T04:38:07.215Z"
+        "hash": "ed2288e23d5af799",
+        "generatedAt": "2026-04-22T05:15:36.415Z"
       },
       "src/lib/constants/generated/plutus-economics/transaction_type.ts": {
-        "hash": "f25fddc89a0a70ca",
-        "generatedAt": "2026-04-22T04:38:07.217Z"
+        "hash": "c9924855dd611642",
+        "generatedAt": "2026-04-22T05:15:36.417Z"
       },
       "src/lib/constants/generated/iris-communications/translatable_type.ts": {
-        "hash": "49720db967a4707b",
-        "generatedAt": "2026-04-22T04:38:07.219Z"
+        "hash": "a8a44c9fc08dc109",
+        "generatedAt": "2026-04-22T05:15:36.421Z"
       },
       "src/lib/constants/generated/hestia-core/verification_status.ts": {
-        "hash": "1e9ace446b582292",
-        "generatedAt": "2026-04-22T04:38:07.225Z"
+        "hash": "30fb678fc3edd4d5",
+        "generatedAt": "2026-04-22T05:15:36.428Z"
       },
       "src/lib/constants/generated/hestia-core/warranty_type.ts": {
-        "hash": "066cb072d0896eb3",
-        "generatedAt": "2026-04-22T04:38:07.228Z"
+        "hash": "52a7c0728b9f1ab3",
+        "generatedAt": "2026-04-22T05:15:36.430Z"
       },
       "src/lib/constants/generated/aethelred-connections/webhook_status.ts": {
-        "hash": "da16f50fe96aa0e7",
-        "generatedAt": "2026-04-22T04:38:07.230Z"
+        "hash": "79fbdac8706b1c2a",
+        "generatedAt": "2026-04-22T05:15:36.432Z"
       },
       "src/lib/constants/generated/aethelred-connections/workflow_status.ts": {
-        "hash": "3246b16630e49148",
-        "generatedAt": "2026-04-22T04:38:07.232Z"
+        "hash": "bbb51c51cdce2ee9",
+        "generatedAt": "2026-04-22T05:15:36.435Z"
       },
       "src/types/generated/mnemosyne-assessment/acid_persona.ts": {
-        "hash": "56bdf648c4abee79",
-        "generatedAt": "2026-04-22T04:38:07.234Z"
+        "hash": "2f2692a662a38121",
+        "generatedAt": "2026-04-22T05:20:54.009Z"
       },
       "src/types/generated/mnemosyne-assessment/acid_question_type.ts": {
-        "hash": "f862c0e65bdbc2e7",
-        "generatedAt": "2026-04-22T04:38:07.237Z"
+        "hash": "f034c4359cf5f012",
+        "generatedAt": "2026-04-22T05:20:54.013Z"
       },
       "src/types/generated/hermes-social/action_type.ts": {
-        "hash": "54da5843c4bb4a1d",
-        "generatedAt": "2026-04-22T04:38:07.239Z"
+        "hash": "20d97761c9fd365a",
+        "generatedAt": "2026-04-22T05:20:54.016Z"
       },
       "src/types/generated/hermes-social/activity_visibility.ts": {
-        "hash": "126e3142f2cf01f1",
-        "generatedAt": "2026-04-22T04:38:07.242Z"
+        "hash": "f8a8e979a2619978",
+        "generatedAt": "2026-04-22T05:20:54.020Z"
       },
       "src/types/generated/themis-governance/admin_log_category.ts": {
-        "hash": "aea4eb2889d4b599",
-        "generatedAt": "2026-04-22T04:38:07.244Z"
+        "hash": "4d364a6cceccd89c",
+        "generatedAt": "2026-04-22T05:20:54.022Z"
       },
       "src/types/generated/themis-governance/admin_log_target_type.ts": {
-        "hash": "11679a32cbcf2d95",
-        "generatedAt": "2026-04-22T04:38:07.247Z"
+        "hash": "e3480891d0151dac",
+        "generatedAt": "2026-04-22T05:20:54.025Z"
       },
       "src/types/generated/hestia-core/agent_action_type.ts": {
-        "hash": "228e72c5746dbc50",
-        "generatedAt": "2026-04-22T04:38:07.250Z"
+        "hash": "698fe1b8a8233b8b",
+        "generatedAt": "2026-04-22T05:20:54.027Z"
       },
       "src/types/generated/hestia-core/agent_activity_status.ts": {
-        "hash": "cf0e5ce7aaf568c5",
-        "generatedAt": "2026-04-22T04:38:07.252Z"
+        "hash": "218e68292503aaf7",
+        "generatedAt": "2026-04-22T05:20:54.030Z"
       },
       "src/types/generated/hestia-core/agent_name.ts": {
-        "hash": "7154f6e81aa4a9d8",
-        "generatedAt": "2026-04-22T04:38:07.255Z"
+        "hash": "363a2d5317f7a6f7",
+        "generatedAt": "2026-04-22T05:20:54.034Z"
       },
       "src/types/generated/hephaestus-infrastructure/analytics_category.ts": {
-        "hash": "cb7ad0a95239fc5e",
-        "generatedAt": "2026-04-22T04:38:07.257Z"
+        "hash": "a959aad3abbdbc8b",
+        "generatedAt": "2026-04-22T05:20:54.036Z"
       },
       "src/types/generated/themis-governance/application_status.ts": {
-        "hash": "7b2aa9ecbc976b14",
-        "generatedAt": "2026-04-22T04:38:07.260Z"
+        "hash": "d7e069521efd5cd3",
+        "generatedAt": "2026-04-22T05:20:54.039Z"
       },
       "src/types/generated/themis-governance/application_type.ts": {
-        "hash": "d563b5db6dc81ec3",
-        "generatedAt": "2026-04-22T04:38:07.262Z"
+        "hash": "f4f39b5dce728ef7",
+        "generatedAt": "2026-04-22T05:20:54.042Z"
       },
       "src/types/generated/athena-gamification/badge_rarity.ts": {
-        "hash": "0e758e718e8eb9c2",
-        "generatedAt": "2026-04-22T04:38:07.265Z"
+        "hash": "9663546ac82a0109",
+        "generatedAt": "2026-04-22T05:20:54.044Z"
       },
       "src/types/generated/athena-gamification/badge_tier.ts": {
-        "hash": "8de4b3298a4b5604",
-        "generatedAt": "2026-04-22T04:38:07.267Z"
+        "hash": "c3948b02e086306e",
+        "generatedAt": "2026-04-22T05:20:54.046Z"
       },
       "src/types/generated/athena-gamification/badge_type.ts": {
-        "hash": "28844546dd915a01",
-        "generatedAt": "2026-04-22T04:38:07.269Z"
+        "hash": "70f168de8018e7b9",
+        "generatedAt": "2026-04-22T05:20:54.049Z"
       },
       "src/types/generated/plutus-economics/bid_type.ts": {
-        "hash": "c83ab5aa81656315",
-        "generatedAt": "2026-04-22T04:38:07.271Z"
+        "hash": "62134d719ae13b89",
+        "generatedAt": "2026-04-22T05:20:54.052Z"
       },
       "src/types/generated/prometheus-meta/blueprint_status.ts": {
-        "hash": "6059033f5eb08049",
-        "generatedAt": "2026-04-22T04:38:07.273Z"
+        "hash": "e8345224252b509f",
+        "generatedAt": "2026-04-22T05:20:54.055Z"
       },
       "src/types/generated/prometheus-meta/blueprint_system.ts": {
-        "hash": "849a60af29aff2f8",
-        "generatedAt": "2026-04-22T04:38:07.277Z"
+        "hash": "f9a73c5e8f1cc534",
+        "generatedAt": "2026-04-22T05:20:54.057Z"
       },
       "src/types/generated/prometheus-meta/boundary_type.ts": {
-        "hash": "3c4dd1a07628d223",
-        "generatedAt": "2026-04-22T04:38:07.279Z"
+        "hash": "f5398ddd50916977",
+        "generatedAt": "2026-04-22T05:20:54.060Z"
       },
       "src/types/generated/aethelred-connections/bridge_status.ts": {
-        "hash": "7d19692cad2f0adf",
-        "generatedAt": "2026-04-22T04:38:07.282Z"
+        "hash": "45dd522f11498370",
+        "generatedAt": "2026-04-22T05:20:54.062Z"
       },
       "src/types/generated/hestia-core/business_type.ts": {
-        "hash": "523e994399f66356",
-        "generatedAt": "2026-04-22T04:38:07.284Z"
+        "hash": "a094816aedb71ccc",
+        "generatedAt": "2026-04-22T05:20:54.065Z"
       },
       "src/types/generated/hephaestus-infrastructure/calendar_event_type.ts": {
-        "hash": "8c66cac75b20d3e2",
-        "generatedAt": "2026-04-22T04:38:07.286Z"
+        "hash": "2d1770dfb8733ce2",
+        "generatedAt": "2026-04-22T05:20:54.068Z"
       },
       "src/types/generated/hephaestus-infrastructure/calendar_visibility.ts": {
-        "hash": "6b8616abb05f254f",
-        "generatedAt": "2026-04-22T04:38:07.288Z"
+        "hash": "6fc9ce556cdb5958",
+        "generatedAt": "2026-04-22T05:20:54.071Z"
       },
       "src/types/generated/plutus-economics/campaign_status.ts": {
-        "hash": "c83e4ad1af564399",
-        "generatedAt": "2026-04-22T04:38:07.290Z"
+        "hash": "64aba86d6c697213",
+        "generatedAt": "2026-04-22T05:20:54.073Z"
       },
       "src/types/generated/hestia-core/commission_status.ts": {
-        "hash": "cfe34701cf3dd4ac",
-        "generatedAt": "2026-04-22T04:38:07.293Z"
+        "hash": "0008548700a203ec",
+        "generatedAt": "2026-04-22T05:20:54.076Z"
       },
       "src/types/generated/hestia-core/communication_style.ts": {
-        "hash": "b9cabcde6b9b54b0",
-        "generatedAt": "2026-04-22T04:38:07.296Z"
+        "hash": "40b1d6ab99de1e50",
+        "generatedAt": "2026-04-22T05:20:54.078Z"
       },
       "src/types/generated/prometheus-meta/consciousness_state.ts": {
-        "hash": "129a22742540d61a",
-        "generatedAt": "2026-04-22T04:38:07.298Z"
+        "hash": "91d3a265d385a599",
+        "generatedAt": "2026-04-22T05:20:54.080Z"
       },
       "src/types/generated/iris-communications/contact_direction.ts": {
-        "hash": "6444eed0ddc0514e",
-        "generatedAt": "2026-04-22T04:38:07.300Z"
+        "hash": "bbcf54b6d61290f8",
+        "generatedAt": "2026-04-22T05:20:54.084Z"
       },
       "src/types/generated/iris-communications/contact_status.ts": {
-        "hash": "c0b240d8424fb35e",
-        "generatedAt": "2026-04-22T04:38:07.303Z"
+        "hash": "3a92378c4943ee8e",
+        "generatedAt": "2026-04-22T05:20:54.087Z"
       },
       "src/types/generated/hestia-core/content_rating.ts": {
-        "hash": "993810bbb7a9e32d",
-        "generatedAt": "2026-04-22T04:38:07.305Z"
+        "hash": "f51698a1d7af8b41",
+        "generatedAt": "2026-04-22T05:20:54.089Z"
       },
       "src/types/generated/hermes-social/content_type.ts": {
-        "hash": "9bde4ccabee40c94",
-        "generatedAt": "2026-04-22T04:38:07.308Z"
+        "hash": "1084b532f2b35d0b",
+        "generatedAt": "2026-04-22T05:20:54.091Z"
       },
       "src/types/generated/plutus-economics/contribution_type.ts": {
-        "hash": "5ced292e381d3d89",
-        "generatedAt": "2026-04-22T04:38:07.311Z"
+        "hash": "256ce0fb4e68df44",
+        "generatedAt": "2026-04-22T05:20:54.094Z"
       },
       "src/types/generated/hestia-core/conversation_status.ts": {
-        "hash": "916b25ceb79139ee",
-        "generatedAt": "2026-04-22T04:38:07.314Z"
+        "hash": "47059e376a61cf24",
+        "generatedAt": "2026-04-22T05:20:54.096Z"
       },
       "src/types/generated/hestia-core/council_house.ts": {
-        "hash": "93a46df9d28df57d",
-        "generatedAt": "2026-04-22T04:38:07.316Z"
+        "hash": "674e5f58a30bba63",
+        "generatedAt": "2026-04-22T05:20:54.099Z"
       },
       "src/types/generated/iris-communications/currency_position_type.ts": {
-        "hash": "0a2cf82cf79bbe6f",
-        "generatedAt": "2026-04-22T04:38:07.318Z"
+        "hash": "a1b62b8c6c9bbf08",
+        "generatedAt": "2026-04-22T05:20:54.104Z"
       },
       "src/types/generated/iris-communications/custom_category_type.ts": {
-        "hash": "33f6c07fb79f40b4",
-        "generatedAt": "2026-04-22T04:38:07.321Z"
+        "hash": "4b5db9df37497615",
+        "generatedAt": "2026-04-22T05:20:54.108Z"
       },
       "src/types/generated/iris-communications/date_format_type.ts": {
-        "hash": "4485ea0e21ad7f78",
-        "generatedAt": "2026-04-22T04:38:07.323Z"
+        "hash": "05b9d070a5873e8d",
+        "generatedAt": "2026-04-22T05:20:54.111Z"
       },
       "src/types/generated/aethelred-connections/delivery_status.ts": {
-        "hash": "7b7f842310704d7d",
-        "generatedAt": "2026-04-22T04:38:07.325Z"
+        "hash": "ba3b6b7266828160",
+        "generatedAt": "2026-04-22T05:20:54.113Z"
       },
       "src/types/generated/aethelred-connections/deployment_status.ts": {
-        "hash": "b3e90033548ce6b4",
-        "generatedAt": "2026-04-22T04:38:07.329Z"
+        "hash": "625932b34b9e7b20",
+        "generatedAt": "2026-04-22T05:20:54.117Z"
       },
       "src/types/generated/athena-gamification/difficulty_level.ts": {
-        "hash": "aed4a44f183bfbb8",
-        "generatedAt": "2026-04-22T04:38:07.331Z"
+        "hash": "9b369e59ea107266",
+        "generatedAt": "2026-04-22T05:20:54.121Z"
       },
       "src/types/generated/iris-communications/email_status.ts": {
-        "hash": "da277803238cd2f2",
-        "generatedAt": "2026-04-22T04:38:07.333Z"
+        "hash": "3f0b17c422bb8b13",
+        "generatedAt": "2026-04-22T05:20:54.124Z"
       },
       "src/types/generated/hermes-social/emerald_status.ts": {
-        "hash": "0c90b5ed070a9ff1",
-        "generatedAt": "2026-04-22T04:38:07.336Z"
+        "hash": "6ba1aca78825c20a",
+        "generatedAt": "2026-04-22T05:20:54.126Z"
       },
       "src/types/generated/prometheus-meta/encryption_level.ts": {
-        "hash": "ec2e659bcc412b32",
-        "generatedAt": "2026-04-22T04:38:07.338Z"
+        "hash": "c81ade4a235e5514",
+        "generatedAt": "2026-04-22T05:20:54.129Z"
       },
       "src/types/generated/hestia-core/entity_state.ts": {
-        "hash": "e4d30b6385d26e3e",
-        "generatedAt": "2026-04-22T04:38:07.340Z"
+        "hash": "22d2a588a43415af",
+        "generatedAt": "2026-04-22T05:20:54.131Z"
       },
       "src/types/generated/themis-governance/escalation_target.ts": {
-        "hash": "1264e9bebfad5160",
-        "generatedAt": "2026-04-22T04:38:07.343Z"
+        "hash": "94d7d32c4cb61442",
+        "generatedAt": "2026-04-22T05:20:54.135Z"
       },
       "src/types/generated/mnemosyne-assessment/folksonomy_target_type.ts": {
-        "hash": "89197830192acc28",
-        "generatedAt": "2026-04-22T04:38:07.346Z"
+        "hash": "aa238a9167f53555",
+        "generatedAt": "2026-04-22T05:20:54.139Z"
       },
       "src/types/generated/hestia-core/fulfillment_method.ts": {
-        "hash": "fa444cfc4a846532",
-        "generatedAt": "2026-04-22T04:38:07.348Z"
+        "hash": "58352f443e6b78ab",
+        "generatedAt": "2026-04-22T05:20:54.142Z"
       },
       "src/types/generated/prometheus-meta/generation_status.ts": {
-        "hash": "c57e4f56c5cab20e",
-        "generatedAt": "2026-04-22T04:38:07.350Z"
+        "hash": "868a09e6612857f0",
+        "generatedAt": "2026-04-22T05:20:54.145Z"
       },
       "src/types/generated/hephaestus-infrastructure/job_status.ts": {
-        "hash": "aaddb202521558d7",
-        "generatedAt": "2026-04-22T04:38:07.353Z"
+        "hash": "5749d5e9ee4abb6f",
+        "generatedAt": "2026-04-22T05:20:54.147Z"
       },
       "src/types/generated/hephaestus-infrastructure/job_type.ts": {
-        "hash": "2205c96752fc152b",
-        "generatedAt": "2026-04-22T04:38:07.355Z"
+        "hash": "033bc27de06bcff2",
+        "generatedAt": "2026-04-22T05:20:54.152Z"
       },
       "src/types/generated/plutus-economics/ledger_entity.ts": {
-        "hash": "5a0cd99c7b29a19a",
-        "generatedAt": "2026-04-22T04:38:07.359Z"
+        "hash": "128c659f28905baf",
+        "generatedAt": "2026-04-22T05:20:54.155Z"
       },
       "src/types/generated/plutus-economics/ledger_entry_type.ts": {
-        "hash": "34640d88b6b9c9e9",
-        "generatedAt": "2026-04-22T04:38:07.362Z"
+        "hash": "0af9fb46fed5edaf",
+        "generatedAt": "2026-04-22T05:20:54.157Z"
       },
       "src/types/generated/athena-gamification/lesson_content_type.ts": {
-        "hash": "10ffe4a577918bbc",
-        "generatedAt": "2026-04-22T04:38:07.365Z"
+        "hash": "d76cfeee76fb50e7",
+        "generatedAt": "2026-04-22T05:20:54.159Z"
       },
       "src/types/generated/athena-gamification/life_cycle_phase.ts": {
-        "hash": "ccb0ff3dc182e956",
-        "generatedAt": "2026-04-22T04:38:07.437Z"
+        "hash": "6c9015272f278cfb",
+        "generatedAt": "2026-04-22T05:20:54.162Z"
       },
       "src/types/generated/hephaestus-infrastructure/maintenance_status.ts": {
-        "hash": "2922867a21054c4e",
-        "generatedAt": "2026-04-22T04:38:07.440Z"
+        "hash": "c843a85d0d3b5398",
+        "generatedAt": "2026-04-22T05:20:54.164Z"
       },
       "src/types/generated/hephaestus-infrastructure/maintenance_type.ts": {
-        "hash": "799ba31229896f96",
-        "generatedAt": "2026-04-22T04:38:07.445Z"
+        "hash": "0170599b601edaf6",
+        "generatedAt": "2026-04-22T05:20:54.168Z"
       },
       "src/types/generated/iris-communications/measurement_system_type.ts": {
-        "hash": "418aac6a563acfe9",
-        "generatedAt": "2026-04-22T04:38:07.448Z"
+        "hash": "60a6faa2b9810a62",
+        "generatedAt": "2026-04-22T05:20:54.171Z"
       },
       "src/types/generated/hestia-core/message_direction.ts": {
-        "hash": "888a3ec83787a246",
-        "generatedAt": "2026-04-22T04:38:07.451Z"
+        "hash": "a4310d745b8c735b",
+        "generatedAt": "2026-04-22T05:20:54.174Z"
       },
       "src/types/generated/hermes-social/message_status.ts": {
-        "hash": "b07023e61b913dce",
-        "generatedAt": "2026-04-22T04:38:07.456Z"
+        "hash": "5b1c6bf177df0d6a",
+        "generatedAt": "2026-04-22T05:20:54.176Z"
       },
       "src/types/generated/themis-governance/moderation_action_type.ts": {
-        "hash": "9b019462dbc36a9e",
-        "generatedAt": "2026-04-22T04:38:07.477Z"
+        "hash": "ac32b613c8675b2f",
+        "generatedAt": "2026-04-22T05:20:54.178Z"
       },
       "src/types/generated/themis-governance/moderation_target_type.ts": {
-        "hash": "a6bffb6f7dd8d5c9",
-        "generatedAt": "2026-04-22T04:38:07.480Z"
+        "hash": "85ca51a38011cc90",
+        "generatedAt": "2026-04-22T05:20:54.181Z"
       },
       "src/types/generated/athena-gamification/myth_type.ts": {
-        "hash": "7b1e63167bfa529f",
-        "generatedAt": "2026-04-22T04:38:07.484Z"
+        "hash": "6a28f526b87e383b",
+        "generatedAt": "2026-04-22T05:20:54.185Z"
       },
       "src/types/generated/hermes-social/notification_type.ts": {
-        "hash": "3c56e227fc364c33",
-        "generatedAt": "2026-04-22T04:38:07.487Z"
+        "hash": "b536fbd614f2f838",
+        "generatedAt": "2026-04-22T05:20:54.188Z"
       },
       "src/types/generated/mnemosyne-assessment/ontology_predicate.ts": {
-        "hash": "9ddf561dcc55a8e9",
-        "generatedAt": "2026-04-22T04:38:07.491Z"
+        "hash": "bb126686b21bf922",
+        "generatedAt": "2026-04-22T05:20:54.191Z"
       },
       "src/types/generated/plutus-economics/owner_type.ts": {
-        "hash": "c26d11c9632109c9",
-        "generatedAt": "2026-04-22T04:38:07.495Z"
+        "hash": "a36bb2e7efb727e0",
+        "generatedAt": "2026-04-22T05:20:54.193Z"
       },
       "src/types/generated/prometheus-meta/pattern_context.ts": {
-        "hash": "4798bd705fa94738",
-        "generatedAt": "2026-04-22T04:38:07.497Z"
+        "hash": "a93a2da785dd17da",
+        "generatedAt": "2026-04-22T05:20:54.196Z"
       },
       "src/types/generated/plutus-economics/payment_status.ts": {
-        "hash": "9e8af24b91cc60b2",
-        "generatedAt": "2026-04-22T04:38:07.500Z"
+        "hash": "2aedc864cb7efa98",
+        "generatedAt": "2026-04-22T05:20:54.198Z"
       },
       "src/types/generated/hestia-core/payment_structure.ts": {
-        "hash": "e72630f4952bf9c9",
-        "generatedAt": "2026-04-22T04:38:07.502Z"
+        "hash": "26e4d8c6344adeb8",
+        "generatedAt": "2026-04-22T05:20:54.202Z"
       },
       "src/types/generated/hestia-core/payout_frequency.ts": {
-        "hash": "ddbc48bf33b6b5f1",
-        "generatedAt": "2026-04-22T04:38:07.505Z"
+        "hash": "9f9468b018588866",
+        "generatedAt": "2026-04-22T05:20:54.205Z"
       },
       "src/types/generated/hestia-core/payout_method.ts": {
-        "hash": "cc19531ef502ef08",
-        "generatedAt": "2026-04-22T04:38:07.507Z"
+        "hash": "2ef39da1e83b021d",
+        "generatedAt": "2026-04-22T05:20:54.207Z"
       },
       "src/types/generated/plutus-economics/payout_status.ts": {
-        "hash": "581d978159a1d95d",
-        "generatedAt": "2026-04-22T04:38:07.511Z"
+        "hash": "bc38493189f8fdd8",
+        "generatedAt": "2026-04-22T05:20:54.210Z"
       },
       "src/types/generated/aethelred-connections/platform_environment.ts": {
-        "hash": "ec304406a7e759e8",
-        "generatedAt": "2026-04-22T04:38:07.514Z"
+        "hash": "ab2cd5043e640eb0",
+        "generatedAt": "2026-04-22T05:20:54.213Z"
       },
       "src/types/generated/aethelred-connections/platform_status.ts": {
-        "hash": "809fe8c9f042e51f",
-        "generatedAt": "2026-04-22T04:38:07.516Z"
+        "hash": "83c230790ecfc86b",
+        "generatedAt": "2026-04-22T05:20:54.215Z"
       },
       "src/types/generated/hermes-social/post_visibility.ts": {
-        "hash": "2da0b95a6b7c5d2e",
-        "generatedAt": "2026-04-22T04:38:07.518Z"
+        "hash": "549839dd93c9b82c",
+        "generatedAt": "2026-04-22T05:20:54.220Z"
       },
       "src/types/generated/themis-governance/process_type.ts": {
-        "hash": "f945853758bbae1a",
-        "generatedAt": "2026-04-22T04:38:07.520Z"
+        "hash": "d90cd9f2348bac3a",
+        "generatedAt": "2026-04-22T05:20:54.222Z"
       },
       "src/types/generated/hestia-core/product_status.ts": {
-        "hash": "c6aefadd537fc5be",
-        "generatedAt": "2026-04-22T04:38:07.522Z"
+        "hash": "82aeee70a8e0ea8c",
+        "generatedAt": "2026-04-22T05:20:54.224Z"
       },
       "src/types/generated/plutus-economics/product_type.ts": {
-        "hash": "f74df6264728d0d8",
-        "generatedAt": "2026-04-22T04:38:07.524Z"
+        "hash": "55c22ca68782b47a",
+        "generatedAt": "2026-04-22T05:20:54.227Z"
       },
       "src/types/generated/athena-gamification/progress_status.ts": {
-        "hash": "10f36349574cb94a",
-        "generatedAt": "2026-04-22T04:38:07.529Z"
+        "hash": "4f2201e136ccb838",
+        "generatedAt": "2026-04-22T05:20:54.230Z"
       },
       "src/types/generated/hephaestus-infrastructure/protocol_type.ts": {
-        "hash": "aa95cf0bd23087ef",
-        "generatedAt": "2026-04-22T04:38:07.531Z"
+        "hash": "2c75c29264dcfc6e",
+        "generatedAt": "2026-04-22T05:20:54.233Z"
       },
       "src/types/generated/athena-gamification/quest_status.ts": {
-        "hash": "08e36efb6b624b09",
-        "generatedAt": "2026-04-22T04:38:07.534Z"
+        "hash": "1ec3202ea0c2b338",
+        "generatedAt": "2026-04-22T05:20:54.237Z"
       },
       "src/types/generated/hermes-social/reaction_type.ts": {
-        "hash": "c057649fb482b459",
-        "generatedAt": "2026-04-22T04:38:07.536Z"
+        "hash": "72ae8bd3b210fb9b",
+        "generatedAt": "2026-04-22T05:20:54.240Z"
       },
       "src/types/generated/plutus-economics/recurring_interval.ts": {
-        "hash": "fdfb57ed3f492c8e",
-        "generatedAt": "2026-04-22T04:38:07.538Z"
+        "hash": "87ccdf0b17e71d9b",
+        "generatedAt": "2026-04-22T05:20:54.243Z"
       },
       "src/types/generated/themis-governance/report_status.ts": {
-        "hash": "6d6d64f4c8d63705",
-        "generatedAt": "2026-04-22T04:38:07.540Z"
+        "hash": "9efd035c33ac7db7",
+        "generatedAt": "2026-04-22T05:20:54.246Z"
       },
       "src/types/generated/themis-governance/report_target_type.ts": {
-        "hash": "c545cb9647e11775",
-        "generatedAt": "2026-04-22T04:38:07.544Z"
+        "hash": "732ba11fd72c4d26",
+        "generatedAt": "2026-04-22T05:20:54.249Z"
       },
       "src/types/generated/themis-governance/report_type.ts": {
-        "hash": "4b512bb6f7382d26",
-        "generatedAt": "2026-04-22T04:38:07.546Z"
+        "hash": "365321a518548d31",
+        "generatedAt": "2026-04-22T05:20:54.252Z"
       },
       "src/types/generated/athena-gamification/scene_type.ts": {
-        "hash": "a04acf0bc9851441",
-        "generatedAt": "2026-04-22T04:38:07.549Z"
+        "hash": "9539695fd2fce849",
+        "generatedAt": "2026-04-22T05:20:54.255Z"
       },
       "src/types/generated/hephaestus-infrastructure/script_type.ts": {
-        "hash": "f26316bf2b01b707",
-        "generatedAt": "2026-04-22T04:38:07.552Z"
+        "hash": "730f4fe691851092",
+        "generatedAt": "2026-04-22T05:20:54.257Z"
       },
       "src/types/generated/hestia-core/sensitivity_level.ts": {
-        "hash": "40d4d06777350319",
-        "generatedAt": "2026-04-22T04:38:07.554Z"
+        "hash": "7f0a8b7eb9c750d9",
+        "generatedAt": "2026-04-22T05:20:54.260Z"
       },
       "src/types/generated/hestia-core/sensory_mode.ts": {
-        "hash": "2462285150c215c9",
-        "generatedAt": "2026-04-22T04:38:07.556Z"
+        "hash": "f032cbe6d86f1628",
+        "generatedAt": "2026-04-22T05:20:54.262Z"
       },
       "src/types/generated/hestia-core/sensory_preferences.ts": {
-        "hash": "60cbde3eb2af1ced",
-        "generatedAt": "2026-04-22T04:38:07.558Z"
+        "hash": "2eed2558452374bc",
+        "generatedAt": "2026-04-22T05:20:54.265Z"
       },
       "src/types/generated/hephaestus-infrastructure/setting_scope.ts": {
-        "hash": "bf24ac90eb6772bb",
-        "generatedAt": "2026-04-22T04:38:07.561Z"
+        "hash": "e50c6f5867db50b3",
+        "generatedAt": "2026-04-22T05:20:54.268Z"
       },
       "src/types/generated/hestia-core/shipping_requirements.ts": {
-        "hash": "8e2df56defa5877e",
-        "generatedAt": "2026-04-22T04:38:07.564Z"
+        "hash": "3febf04bb3b9f61a",
+        "generatedAt": "2026-04-22T05:20:54.271Z"
       },
       "src/types/generated/plutus-economics/source_pool_type.ts": {
-        "hash": "18d9a27a734485aa",
-        "generatedAt": "2026-04-22T04:38:07.565Z"
+        "hash": "47cd6652e06a7841",
+        "generatedAt": "2026-04-22T05:20:54.273Z"
       },
       "src/types/generated/aethelred-connections/stripe_mode.ts": {
-        "hash": "d7510e834ac1b7b1",
-        "generatedAt": "2026-04-22T04:38:07.567Z"
+        "hash": "73d6a194db1857fe",
+        "generatedAt": "2026-04-22T05:20:54.276Z"
       },
       "src/types/generated/athena-gamification/submission_type.ts": {
-        "hash": "143df3641c32d7a0",
-        "generatedAt": "2026-04-22T04:38:07.570Z"
+        "hash": "5193a9256fd9cb6a",
+        "generatedAt": "2026-04-22T05:20:54.278Z"
       },
       "src/types/generated/plutus-economics/subscription_status.ts": {
-        "hash": "614205248323f93f",
-        "generatedAt": "2026-04-22T04:38:07.571Z"
+        "hash": "0200229b5fdbfbb1",
+        "generatedAt": "2026-04-22T05:20:54.281Z"
       },
       "src/types/generated/aethelred-connections/supabase_status.ts": {
-        "hash": "b3cfae845034f345",
-        "generatedAt": "2026-04-22T04:38:07.574Z"
+        "hash": "a8540b083f051aa0",
+        "generatedAt": "2026-04-22T05:20:54.284Z"
       },
       "src/types/generated/mnemosyne-assessment/superposition_status.ts": {
-        "hash": "33a4c3fbc92bc0bb",
-        "generatedAt": "2026-04-22T04:38:07.577Z"
+        "hash": "e89a258342d3deb4",
+        "generatedAt": "2026-04-22T05:20:54.288Z"
       },
       "src/types/generated/iris-communications/survey_audience_type.ts": {
-        "hash": "8d7c68524086b7a8",
-        "generatedAt": "2026-04-22T04:38:07.580Z"
+        "hash": "0b81e49f1eaea84d",
+        "generatedAt": "2026-04-22T05:20:54.290Z"
       },
       "src/types/generated/hephaestus-infrastructure/system_status.ts": {
-        "hash": "cf2bf72202f9ef17",
-        "generatedAt": "2026-04-22T04:38:07.583Z"
+        "hash": "ea9fccbe40be96fe",
+        "generatedAt": "2026-04-22T05:20:54.293Z"
       },
       "src/types/generated/hephaestus-infrastructure/system_type.ts": {
-        "hash": "6db9ee151304ab5e",
-        "generatedAt": "2026-04-22T04:38:07.585Z"
+        "hash": "a036b65de2f57d5d",
+        "generatedAt": "2026-04-22T05:20:54.295Z"
       },
       "src/types/generated/hermes-social/target_type.ts": {
-        "hash": "477cb1ace771e523",
-        "generatedAt": "2026-04-22T04:38:07.587Z"
+        "hash": "e5508ae4b5270b93",
+        "generatedAt": "2026-04-22T05:20:54.297Z"
       },
       "src/types/generated/mnemosyne-assessment/taxonomy_node_type.ts": {
-        "hash": "43e032a0402f0d4f",
-        "generatedAt": "2026-04-22T04:38:07.589Z"
+        "hash": "564cfbaf845e3c30",
+        "generatedAt": "2026-04-22T05:20:54.300Z"
       },
       "src/types/generated/iris-communications/text_direction_type.ts": {
-        "hash": "b8723c3641163102",
-        "generatedAt": "2026-04-22T04:38:07.592Z"
+        "hash": "715060c6c801423e",
+        "generatedAt": "2026-04-22T05:20:54.304Z"
       },
       "src/types/generated/iris-communications/time_format_type.ts": {
-        "hash": "a2566f44da75fc08",
-        "generatedAt": "2026-04-22T04:38:07.595Z"
+        "hash": "d30ebf457f974dcb",
+        "generatedAt": "2026-04-22T05:20:54.306Z"
       },
       "src/types/generated/athena-gamification/timeline_event_type.ts": {
-        "hash": "d560a1ec03535cd6",
-        "generatedAt": "2026-04-22T04:38:07.597Z"
+        "hash": "03af3c859c54439b",
+        "generatedAt": "2026-04-22T05:20:54.309Z"
       },
       "src/types/generated/plutus-economics/transaction_type.ts": {
-        "hash": "7d013b6a79656c96",
-        "generatedAt": "2026-04-22T04:38:07.599Z"
+        "hash": "913d35cb306dc9aa",
+        "generatedAt": "2026-04-22T05:20:54.312Z"
       },
       "src/types/generated/iris-communications/translatable_type.ts": {
-        "hash": "ec67b4d28251755b",
-        "generatedAt": "2026-04-22T04:38:07.601Z"
+        "hash": "d4411b84939d9c4c",
+        "generatedAt": "2026-04-22T05:20:54.314Z"
       },
       "src/types/generated/hestia-core/user_status.ts": {
-        "hash": "67801e39cbb41361",
-        "generatedAt": "2026-04-22T04:38:07.603Z"
+        "hash": "8586637cf935bd15",
+        "generatedAt": "2026-04-22T05:20:54.317Z"
       },
       "src/types/generated/hestia-core/user_tier.ts": {
-        "hash": "2557f39f4b080289",
-        "generatedAt": "2026-04-22T04:38:07.605Z"
+        "hash": "7351cf0826c124f6",
+        "generatedAt": "2026-04-22T05:20:54.320Z"
       },
       "src/types/generated/hestia-core/verification_status.ts": {
-        "hash": "3591089217424379",
-        "generatedAt": "2026-04-22T04:38:07.609Z"
+        "hash": "29da98b8dae622ea",
+        "generatedAt": "2026-04-22T05:20:54.323Z"
       },
       "src/types/generated/hestia-core/warranty_type.ts": {
-        "hash": "f0e6501908c9bf05",
-        "generatedAt": "2026-04-22T04:38:07.612Z"
+        "hash": "5f3277cdc48e3161",
+        "generatedAt": "2026-04-22T05:20:54.326Z"
       },
       "src/types/generated/aethelred-connections/webhook_status.ts": {
-        "hash": "6f2c25f211536ab0",
-        "generatedAt": "2026-04-22T04:38:07.614Z"
+        "hash": "3fade76eea613b26",
+        "generatedAt": "2026-04-22T05:20:54.328Z"
       },
       "src/types/generated/aethelred-connections/workflow_status.ts": {
-        "hash": "ceb77845fb0feb5d",
-        "generatedAt": "2026-04-22T04:38:07.617Z"
+        "hash": "f3fa1d4b7563299c",
+        "generatedAt": "2026-04-22T05:20:54.330Z"
+      },
+      "src/utils/generated/hermes-social/activity.ts": {
+        "hash": "97e8283426119c96",
+        "generatedAt": "2026-04-22T05:15:34.173Z"
+      },
+      "src/utils/generated/themis-governance/admin_logs.ts": {
+        "hash": "363c728c75c7d7ff",
+        "generatedAt": "2026-04-22T05:15:34.188Z"
+      },
+      "src/utils/generated/plutus-economics/advertising.ts": {
+        "hash": "36484e8b030c78dd",
+        "generatedAt": "2026-04-22T05:15:34.202Z"
+      },
+      "src/utils/generated/aethelred-connections/aethelred_house.ts": {
+        "hash": "4a6e0b2203c4a113",
+        "generatedAt": "2026-04-22T05:15:34.216Z"
+      },
+      "src/utils/generated/hestia-core/agent_activities.ts": {
+        "hash": "0a64e66f6b4db38e",
+        "generatedAt": "2026-04-22T05:15:34.232Z"
+      },
+      "src/utils/generated/hestia-core/agent_conversations.ts": {
+        "hash": "c937a233c9c0be12",
+        "generatedAt": "2026-04-22T05:15:34.247Z"
+      },
+      "src/utils/generated/hestia-core/agent_messages.ts": {
+        "hash": "13707250bd3d859b",
+        "generatedAt": "2026-04-22T05:15:34.262Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/analytics.ts": {
+        "hash": "9154b7f700ad3572",
+        "generatedAt": "2026-04-22T05:15:34.277Z"
+      },
+      "src/utils/generated/themis-governance/applications.ts": {
+        "hash": "33fa0fecc87a3d9d",
+        "generatedAt": "2026-04-22T05:15:34.291Z"
+      },
+      "src/utils/generated/aethelred-connections/archivist.ts": {
+        "hash": "853d72038afb4b0b",
+        "generatedAt": "2026-04-22T05:15:34.306Z"
+      },
+      "src/utils/generated/aethelred-connections/audhdities_platform.ts": {
+        "hash": "2cfee57e6c1d95b4",
+        "generatedAt": "2026-04-22T05:15:34.321Z"
+      },
+      "src/utils/generated/athena-gamification/badges.ts": {
+        "hash": "d5831748f76bd1b5",
+        "generatedAt": "2026-04-22T05:15:34.336Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/calendar.ts": {
+        "hash": "516e74b70396f0c9",
+        "generatedAt": "2026-04-22T05:15:34.349Z"
+      },
+      "src/utils/generated/aethelred-connections/chancellor.ts": {
+        "hash": "2d90f9b5a881c7e5",
+        "generatedAt": "2026-04-22T05:15:34.363Z"
+      },
+      "src/utils/generated/hestia-core/channels.ts": {
+        "hash": "d2934bbf6699cf73",
+        "generatedAt": "2026-04-22T05:15:34.379Z"
+      },
+      "src/utils/generated/aethelred-connections/codex.ts": {
+        "hash": "29a9d29b24f42dfc",
+        "generatedAt": "2026-04-22T05:15:34.393Z"
+      },
+      "src/utils/generated/hermes-social/comments.ts": {
+        "hash": "1d389d472e2b59b2",
+        "generatedAt": "2026-04-22T05:15:34.408Z"
+      },
+      "src/utils/generated/aethelred-connections/consciousness.ts": {
+        "hash": "6fff7acc58827618",
+        "generatedAt": "2026-04-22T05:15:34.431Z"
+      },
+      "src/utils/generated/iris-communications/contact_submissions.ts": {
+        "hash": "ce17547251229c88",
+        "generatedAt": "2026-04-22T05:15:34.446Z"
+      },
+      "src/utils/generated/iris-communications/continents.ts": {
+        "hash": "371049a34ddc40f3",
+        "generatedAt": "2026-04-22T05:15:34.461Z"
+      },
+      "src/utils/generated/aethelred-connections/council_houses.ts": {
+        "hash": "33daf4b39672b2ff",
+        "generatedAt": "2026-04-22T05:15:34.486Z"
+      },
+      "src/utils/generated/plutus-economics/covenant_pool.ts": {
+        "hash": "6dd50f0ee7282fbb",
+        "generatedAt": "2026-04-22T05:15:34.502Z"
+      },
+      "src/utils/generated/hermes-social/creative_categories.ts": {
+        "hash": "33a58abf73b44331",
+        "generatedAt": "2026-04-22T05:15:34.518Z"
+      },
+      "src/utils/generated/hestia-core/creator_category_links.ts": {
+        "hash": "69205078891bc517",
+        "generatedAt": "2026-04-22T05:15:34.534Z"
+      },
+      "src/utils/generated/iris-communications/culturalization.ts": {
+        "hash": "96105e7e6242511e",
+        "generatedAt": "2026-04-22T05:15:34.562Z"
+      },
+      "src/utils/generated/aethelred-connections/curator.ts": {
+        "hash": "b6d906a2b93ffbbc",
+        "generatedAt": "2026-04-22T05:15:34.578Z"
+      },
+      "src/utils/generated/iris-communications/customs.ts": {
+        "hash": "5189c4cf60e05624",
+        "generatedAt": "2026-04-22T05:15:34.593Z"
+      },
+      "src/utils/generated/plutus-economics/disbursements.ts": {
+        "hash": "0aaad32ed76afc67",
+        "generatedAt": "2026-04-22T05:15:34.610Z"
+      },
+      "src/utils/generated/iris-communications/email_communications.ts": {
+        "hash": "229df5e9380bf601",
+        "generatedAt": "2026-04-22T05:15:34.627Z"
+      },
+      "src/utils/generated/hermes-social/emeralds.ts": {
+        "hash": "777efeaa80c2ed59",
+        "generatedAt": "2026-04-22T05:15:34.644Z"
+      },
+      "src/utils/generated/hestia-core/entity_state_log.ts": {
+        "hash": "83462529daddadc7",
+        "generatedAt": "2026-04-22T05:15:34.662Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/etymology.ts": {
+        "hash": "328174f7f11c66c2",
+        "generatedAt": "2026-04-22T05:15:34.679Z"
+      },
+      "src/utils/generated/aethelred-connections/executioner.ts": {
+        "hash": "bfde719f5a523b25",
+        "generatedAt": "2026-04-22T05:15:34.696Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/file_registry.ts": {
+        "hash": "cfabe15e0cbe0d22",
+        "generatedAt": "2026-04-22T05:15:34.713Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/file_type_standards.ts": {
+        "hash": "785d289c6e890327",
+        "generatedAt": "2026-04-22T05:15:34.729Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/folksonomy.ts": {
+        "hash": "ecca0c96805bf51b",
+        "generatedAt": "2026-04-22T05:15:34.745Z"
+      },
+      "src/utils/generated/aethelred-connections/github_connection.ts": {
+        "hash": "c46c6e1d57b203fa",
+        "generatedAt": "2026-04-22T05:15:34.761Z"
+      },
+      "src/utils/generated/aethelred-connections/hearth_keeper.ts": {
+        "hash": "edc5a13fcf15e5c8",
+        "generatedAt": "2026-04-22T05:15:34.776Z"
+      },
+      "src/utils/generated/iris-communications/languages.ts": {
+        "hash": "437847d3f4470bf7",
+        "generatedAt": "2026-04-22T05:15:34.793Z"
+      },
+      "src/utils/generated/athena-gamification/learning_paths.ts": {
+        "hash": "eb709ff17bc64cee",
+        "generatedAt": "2026-04-22T05:15:34.809Z"
+      },
+      "src/utils/generated/plutus-economics/ledger.ts": {
+        "hash": "c8da90ae6bf351f7",
+        "generatedAt": "2026-04-22T05:15:34.824Z"
+      },
+      "src/utils/generated/athena-gamification/lessons.ts": {
+        "hash": "af101afbee427c6f",
+        "generatedAt": "2026-04-22T05:15:34.842Z"
+      },
+      "src/utils/generated/athena-gamification/life_cycles.ts": {
+        "hash": "00cbe295351a32ce",
+        "generatedAt": "2026-04-22T05:15:34.864Z"
+      },
+      "src/utils/generated/iris-communications/localization.ts": {
+        "hash": "c840247c826f1b55",
+        "generatedAt": "2026-04-22T05:15:34.884Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/maintenance.ts": {
+        "hash": "c66edc099cc06c85",
+        "generatedAt": "2026-04-22T05:15:34.902Z"
+      },
+      "src/utils/generated/hermes-social/messages.ts": {
+        "hash": "f5987e6d017be660",
+        "generatedAt": "2026-04-22T05:15:34.921Z"
+      },
+      "src/utils/generated/themis-governance/moderation_actions.ts": {
+        "hash": "f4c45c5a2b112352",
+        "generatedAt": "2026-04-22T05:15:34.939Z"
+      },
+      "src/utils/generated/athena-gamification/mythology.ts": {
+        "hash": "fbf916aea88607ba",
+        "generatedAt": "2026-04-22T05:15:34.953Z"
+      },
+      "src/utils/generated/hermes-social/notifications.ts": {
+        "hash": "f2182ed9e8931cd0",
+        "generatedAt": "2026-04-22T05:15:34.968Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/ontology.ts": {
+        "hash": "59a99097b764576e",
+        "generatedAt": "2026-04-22T05:15:34.982Z"
+      },
+      "src/utils/generated/athena-gamification/path_lessons.ts": {
+        "hash": "6f61e3ea10d7f922",
+        "generatedAt": "2026-04-22T05:15:34.998Z"
+      },
+      "src/utils/generated/plutus-economics/payouts.ts": {
+        "hash": "4e333a4b1c9d242e",
+        "generatedAt": "2026-04-22T05:15:35.013Z"
+      },
+      "src/utils/generated/iris-communications/personas.ts": {
+        "hash": "3f1782e92fd4d940",
+        "generatedAt": "2026-04-22T05:15:35.030Z"
+      },
+      "src/utils/generated/hermes-social/posts.ts": {
+        "hash": "31bcfaf182e9d161",
+        "generatedAt": "2026-04-22T05:15:35.052Z"
+      },
+      "src/utils/generated/themis-governance/processes.ts": {
+        "hash": "55332c2af1171e05",
+        "generatedAt": "2026-04-22T05:15:35.068Z"
+      },
+      "src/utils/generated/plutus-economics/products.ts": {
+        "hash": "afd448836b947d78",
+        "generatedAt": "2026-04-22T05:15:35.087Z"
+      },
+      "src/utils/generated/athena-gamification/progress.ts": {
+        "hash": "3b2ad9ca6298ea50",
+        "generatedAt": "2026-04-22T05:15:35.127Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_blueprints.ts": {
+        "hash": "7d69c2d20a123a59",
+        "generatedAt": "2026-04-22T05:15:35.148Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_boundaries.ts": {
+        "hash": "5a360298c19fb102",
+        "generatedAt": "2026-04-22T05:15:35.169Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_consciousness.ts": {
+        "hash": "8739e7af02f7b98e",
+        "generatedAt": "2026-04-22T05:15:35.188Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_generations.ts": {
+        "hash": "c9efd770b8e0813a",
+        "generatedAt": "2026-04-22T05:15:35.209Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_memories.ts": {
+        "hash": "52799f53508ca44d",
+        "generatedAt": "2026-04-22T05:15:35.226Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_patterns.ts": {
+        "hash": "48f1d5fe94b6b5b8",
+        "generatedAt": "2026-04-22T05:15:35.243Z"
+      },
+      "src/utils/generated/prometheus-meta/prometheus_templates.ts": {
+        "hash": "f2cf8bb310a5e669",
+        "generatedAt": "2026-04-22T05:15:35.259Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/protocols.ts": {
+        "hash": "9cf799256ea28f8c",
+        "generatedAt": "2026-04-22T05:15:35.273Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/quantum_superposition.ts": {
+        "hash": "d3e2a4e2d5503c86",
+        "generatedAt": "2026-04-22T05:15:35.289Z"
+      },
+      "src/utils/generated/athena-gamification/quests.ts": {
+        "hash": "926bf4ec05b2086d",
+        "generatedAt": "2026-04-22T05:15:35.305Z"
+      },
+      "src/utils/generated/themis-governance/rate_limits.ts": {
+        "hash": "3183f45d51204074",
+        "generatedAt": "2026-04-22T05:15:35.321Z"
+      },
+      "src/utils/generated/hermes-social/reactions.ts": {
+        "hash": "3cae7d0c84a0b506",
+        "generatedAt": "2026-04-22T05:15:35.337Z"
+      },
+      "src/utils/generated/iris-communications/regions.ts": {
+        "hash": "2a747dd03a8554c0",
+        "generatedAt": "2026-04-22T05:15:35.350Z"
+      },
+      "src/utils/generated/hermes-social/replies.ts": {
+        "hash": "915fc75a07ce5054",
+        "generatedAt": "2026-04-22T05:15:35.365Z"
+      },
+      "src/utils/generated/themis-governance/reports.ts": {
+        "hash": "981e03a324a7dced",
+        "generatedAt": "2026-04-22T05:15:35.382Z"
+      },
+      "src/utils/generated/aethelred-connections/resend_connection.ts": {
+        "hash": "4bdb2a93302ccfa5",
+        "generatedAt": "2026-04-22T05:15:35.406Z"
+      },
+      "src/utils/generated/plutus-economics/residual_payouts.ts": {
+        "hash": "8ad28ad36fdd6456",
+        "generatedAt": "2026-04-22T05:15:35.422Z"
+      },
+      "src/utils/generated/plutus-economics/residual_pool.ts": {
+        "hash": "51a3c7bc5024b906",
+        "generatedAt": "2026-04-22T05:15:35.437Z"
+      },
+      "src/utils/generated/plutus-economics/sales.ts": {
+        "hash": "20773e1fbdc2e5fa",
+        "generatedAt": "2026-04-22T05:15:35.451Z"
+      },
+      "src/utils/generated/athena-gamification/scene_participants.ts": {
+        "hash": "a8c094217848d6ba",
+        "generatedAt": "2026-04-22T05:15:35.466Z"
+      },
+      "src/utils/generated/athena-gamification/scenes.ts": {
+        "hash": "af492be39d6f5a9c",
+        "generatedAt": "2026-04-22T05:15:35.481Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/scheduling.ts": {
+        "hash": "923150dc4d5171ec",
+        "generatedAt": "2026-04-22T05:15:35.497Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/script_execution_logs.ts": {
+        "hash": "abb6b9652dd30529",
+        "generatedAt": "2026-04-22T05:15:35.514Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/scripts.ts": {
+        "hash": "01b93d0838659d35",
+        "generatedAt": "2026-04-22T05:15:35.531Z"
+      },
+      "src/utils/generated/aethelred-connections/seer.ts": {
+        "hash": "a996c025eef7cc74",
+        "generatedAt": "2026-04-22T05:15:35.547Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/settings.ts": {
+        "hash": "21822743bb7b66aa",
+        "generatedAt": "2026-04-22T05:15:35.562Z"
+      },
+      "src/utils/generated/aethelred-connections/skald.ts": {
+        "hash": "e273bee7c4184ae9",
+        "generatedAt": "2026-04-22T05:15:35.578Z"
+      },
+      "src/utils/generated/aethelred-connections/stripe_connection.ts": {
+        "hash": "c5ce3634ec08bdd7",
+        "generatedAt": "2026-04-22T05:15:35.593Z"
+      },
+      "src/utils/generated/aethelred-connections/supabase_connection.ts": {
+        "hash": "dac6dedba356afbe",
+        "generatedAt": "2026-04-22T05:15:35.621Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/superposition.ts": {
+        "hash": "054838b072417415",
+        "generatedAt": "2026-04-22T05:15:35.713Z"
+      },
+      "src/utils/generated/iris-communications/survey_responses.ts": {
+        "hash": "022cd3756f33c206",
+        "generatedAt": "2026-04-22T05:15:35.748Z"
+      },
+      "src/utils/generated/iris-communications/surveys.ts": {
+        "hash": "789234a200a10cc3",
+        "generatedAt": "2026-04-22T05:15:35.764Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/system_health_logs.ts": {
+        "hash": "ff269225cf8cfab8",
+        "generatedAt": "2026-04-22T05:15:35.780Z"
+      },
+      "src/utils/generated/hestia-core/system_timeline_events.ts": {
+        "hash": "a3aedb4952ccb764",
+        "generatedAt": "2026-04-22T05:15:35.797Z"
+      },
+      "src/utils/generated/hephaestus-infrastructure/systems.ts": {
+        "hash": "bdde085ca7f308eb",
+        "generatedAt": "2026-04-22T05:15:35.814Z"
+      },
+      "src/utils/generated/mnemosyne-assessment/taxonomy.ts": {
+        "hash": "119cd8064c5af6b7",
+        "generatedAt": "2026-04-22T05:15:35.829Z"
+      },
+      "src/utils/generated/athena-gamification/timelines.ts": {
+        "hash": "780f5656b81b95cd",
+        "generatedAt": "2026-04-22T05:15:35.844Z"
+      },
+      "src/utils/generated/plutus-economics/transactions.ts": {
+        "hash": "835376a9f94a4e65",
+        "generatedAt": "2026-04-22T05:15:35.859Z"
+      },
+      "src/utils/generated/iris-communications/translations.ts": {
+        "hash": "d3b2dde872f4cff5",
+        "generatedAt": "2026-04-22T05:15:35.874Z"
+      },
+      "src/utils/generated/hestia-core/user_financial.ts": {
+        "hash": "339665a514aa6cc6",
+        "generatedAt": "2026-04-22T05:15:35.900Z"
+      },
+      "src/utils/generated/hestia-core/user_private.ts": {
+        "hash": "19e3303113d9e2e7",
+        "generatedAt": "2026-04-22T05:15:35.915Z"
+      },
+      "src/utils/generated/aethelred-connections/vercel_connection.ts": {
+        "hash": "17ba2661c30b60c8",
+        "generatedAt": "2026-04-22T05:15:35.956Z"
+      },
+      "src/types/generated/hestia-core/profiles.ts": {
+        "hash": "afd606f11fd5d11e",
+        "generatedAt": "2026-04-22T05:20:53.376Z"
+      },
+      "src/app/api/generated/hestia-core/profiles/route.ts": {
+        "hash": "20895239c11bc7a3",
+        "generatedAt": "2026-04-22T05:15:35.095Z"
+      },
+      "src/app/api/generated/hestia-core/profiles/[id]/route.ts": {
+        "hash": "5791bd3f533b266a",
+        "generatedAt": "2026-04-22T05:15:35.098Z"
+      },
+      "src/hooks/generated/hestia-core/profiles.ts": {
+        "hash": "5d649ea41b1764f6",
+        "generatedAt": "2026-04-22T05:15:35.101Z"
+      },
+      "src/utils/generated/hestia-core/profiles.ts": {
+        "hash": "5d3ce6e48ed312cf",
+        "generatedAt": "2026-04-22T05:15:35.104Z"
+      },
+      "src/lib/constants/generated/hestia-core/council_house.ts": {
+        "hash": "36a73a493735f14e",
+        "generatedAt": "2026-04-22T05:15:36.227Z"
+      },
+      "src/lib/constants/generated/hestia-core/sensory_mode.ts": {
+        "hash": "2ef4abd7a069bd20",
+        "generatedAt": "2026-04-22T05:15:36.371Z"
+      },
+      "src/lib/constants/generated/hestia-core/user_status.ts": {
+        "hash": "4ce83abc5793672e",
+        "generatedAt": "2026-04-22T05:15:36.423Z"
+      },
+      "src/lib/constants/generated/hestia-core/user_tier.ts": {
+        "hash": "a48f6f137d4aba3c",
+        "generatedAt": "2026-04-22T05:15:36.426Z"
       }
     }
   },

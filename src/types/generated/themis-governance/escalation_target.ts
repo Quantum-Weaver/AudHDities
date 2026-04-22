@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/themis-governance/escalation_target.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.341Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.132Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

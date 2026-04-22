@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/hermes-social/creative_categories.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:05.221Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.088Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type CreativeCategoriesUpdate = TablesUpdate<'creative_categories'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicCreativeCategories = Omit<CreativeCategoriesRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type CreativeCategoriesFormData = Partial<CreativeCategoriesInsert>;
 

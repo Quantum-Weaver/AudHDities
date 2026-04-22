@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/plutus-economics/subscriptions.ts
 // HANDLING: join_table
-// GENERATED: 2026-04-22T04:38:06.329Z
+// GENERATED: 2026-04-22T05:15:35.596Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

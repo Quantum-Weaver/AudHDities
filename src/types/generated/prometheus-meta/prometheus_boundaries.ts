@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:05.864Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.400Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type PrometheusBoundariesUpdate = TablesUpdate<'prometheus_boundaries'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicPrometheusBoundaries = Omit<PrometheusBoundariesRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type PrometheusBoundariesFormData = Partial<PrometheusBoundariesInsert>;
 

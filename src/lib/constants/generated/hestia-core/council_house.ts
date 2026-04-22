@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/council_house.ts
-// GENERATED: 2026-04-21T20:46:32.431Z
+// GENERATED: 2026-04-22T05:15:36.225Z
 // SOURCE: Constants.public.Enums.council_house
+// VALUES: 9 entries
 // =====================================================
 
 export const COUNCIL_HOUSE = {

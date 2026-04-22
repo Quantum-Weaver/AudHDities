@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/hephaestus-infrastructure/file_type_standards.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:05.397Z
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T05:20:53.182Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,11 +20,4 @@ export type FileTypeStandardsUpdate = TablesUpdate<'file_type_standards'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Public interface (sensitive fields excluded)
-// export type PublicFileTypeStandards = Omit<FileTypeStandardsRow, 'email' | 'password' | '...'>;
-// TODO: Generate based on sensitive_fields config
-
-// Form data interface (all fields optional)
-// export type FileTypeStandardsFormData = Partial<FileTypeStandardsInsert>;
 

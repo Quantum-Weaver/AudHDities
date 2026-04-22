@@ -1,11 +1,13 @@
 // =====================================================
 // FILE: types/generated/plutus-economics/subscriptions.ts
 // TYPE: table
-// GENERATED: 2026-04-22T04:38:06.326Z
+// HANDLING: join_table
+// GENERATED: 2026-04-22T05:20:53.651Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { Database } from '@/types/supabase/database.types';
 
 // =====================================================
 // CORE TYPES
@@ -18,7 +20,4 @@ export type SubscriptionsUpdate = TablesUpdate<'subscriptions'>;
 // =====================================================
 // DERIVED TYPES
 // =====================================================
-
-// Form data interface (all fields optional)
-// export type SubscriptionsFormData = Partial<SubscriptionsInsert>;
 

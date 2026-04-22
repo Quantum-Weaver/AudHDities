@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:05.257Z
+// GENERATED: 2026-04-22T05:15:34.548Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

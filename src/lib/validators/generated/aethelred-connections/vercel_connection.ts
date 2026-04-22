@@ -1,7 +1,7 @@
 // =====================================================
 // FILE: lib/validators/generated/aethelred-connections/vercel_connection.ts
 // HANDLING: full_crud
-// GENERATED: 2026-04-22T04:38:06.635Z
+// GENERATED: 2026-04-22T05:15:35.941Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

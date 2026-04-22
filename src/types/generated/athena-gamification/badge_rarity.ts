@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/badge_rarity.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.263Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.042Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

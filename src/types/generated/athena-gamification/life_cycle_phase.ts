@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/life_cycle_phase.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.366Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.160Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

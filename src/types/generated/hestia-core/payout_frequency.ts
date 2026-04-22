@@ -1,7 +1,8 @@
 // =====================================================
 // FILE: types/generated/hestia-core/payout_frequency.ts
 // TYPE: type_enum
-// GENERATED: 2026-04-22T04:38:07.503Z
+// HANDLING: type_enum
+// GENERATED: 2026-04-22T05:20:54.203Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
