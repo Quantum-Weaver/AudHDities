@@ -534,35 +534,6 @@ if (table.shouldGenerateTypes) {
 }
   
   // ====================================================
-  // VALIDATORS
-  // ====================================================
-  if (table.shouldGenerateValidators) {
-    try {
-      const result = await generateValidator(table);  // ✅ ADD await
-      if (result) {
-        const writeResult = await writeGeneratedFile(
-          result.filePath,
-          result.content,
-          [`EnrichedTable:${tableName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ validator: ${result.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
-        }
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: tableName, error: `validator: ${msg}` });
-      logError(`      ✗ validator: ${msg}`);
-    }
-  }
-  
-  // ====================================================
   // API ROUTES
   // ====================================================
   if (table.shouldGenerateApiRoutes) {
@@ -1022,36 +993,68 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
     logInfo('[DRY RUN] Would ensure directories');
   }
   
-  // ===== PHASE 6: GENERATION =====
+  // ===== PHASE 6: GENERATION (Tables, Views, Functions, Enums) =====
   logStep('\n🚀 Phase 6: Generation');
   logSeparator('─', 40);
-  
+
   // Tables
   for (const table of enriched.tables) {
     await generateTableArtifacts(table, writeOptions, stats, logger, lines, markersWithBraces);
   }
-  
+
   // Views
   for (const view of enriched.views) {
     await generateViewArtifacts(view, writeOptions, stats, logger);
   }
-  
+
   // Functions
   for (const fn of enriched.functions) {
     await generateFunctionArtifacts(fn, writeOptions, stats, logger);
   }
-  
+
   // Runtime Enums
   for (const enum_ of enriched.runtimeEnums) {
     await generateRuntimeEnumArtifacts(enum_, writeOptions, stats, logger);
   }
-  
+
   // Type Enums
   for (const enum_ of enriched.typeEnums) {
     await generateTypeEnumArtifacts(enum_, writeOptions, stats, logger);
   }
-  
-  // ===== PHASE 7: SUMMARY =====
+
+  // ===== PHASE 7: VALIDATORS (After all types exist) =====
+  logStep('\n🔒 Phase 7: Validator Generation');
+  logSeparator('─', 40);
+
+  for (const table of enriched.tables) {
+    if (table.shouldGenerateValidators) {
+      try {
+        const result = await generateValidator(table);
+        if (result) {
+          const writeResult = await writeGeneratedFile(
+            result.filePath,
+            result.content,
+            [`EnrichedTable:${table.name}`],
+            writeOptions
+          );
+          
+          if (writeResult.success && writeResult.action !== 'skipped') {
+            stats.filesWritten.push(writeResult.filePath);
+            logger.addGeneratedFile(writeResult.filePath);
+            if (writeOptions.verbose) logSuccess(`      ✓ validator: ${result.filePath}`);
+          } else if (writeResult.action === 'skipped') {
+            stats.filesSkipped.push(writeResult.filePath);
+          }
+        }
+      } catch (error) {
+        const msg = error instanceof Error ? error.message : String(error);
+        stats.errors.push({ object: table.name, error: `validator: ${msg}` });
+        logError(`      ✗ validator: ${msg}`);
+      }
+    }
+  }
+
+  // ===== PHASE 8: SUMMARY =====
   stats.endTime = new Date();
   
   const runStatus = stats.errors.length === 0 ? 'success' : 'partial';

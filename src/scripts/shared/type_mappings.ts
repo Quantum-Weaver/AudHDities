@@ -104,11 +104,18 @@ export const AUTO_GENERATED_FIELDS: string[] = [
 export function toCamelCase(str: string): string {
   return str
     .split('_')
-    .map((part, index) => 
-      index === 0 
-        ? part.toLowerCase() 
+    .map((part, index) => index === 0 ? part.toLowerCase() 
         : part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()
     )
+    .join('');
+}
+/**
+ * Convert PascalCase to camelCase
+ */
+export function pascalToCamelCase(str: string): string {
+  return str
+  .split('')
+  .map(part => part.charAt(0).toLowerCase())
     .join('');
 }
 

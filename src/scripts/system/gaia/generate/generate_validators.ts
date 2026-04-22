@@ -15,10 +15,11 @@ export interface GeneratedValidator {
   handlingLevel: string;
 }
 
-export function generateValidator(
+// generate_validators.ts
+export async function generateValidator(
   table: EnrichedTable,
   options?: GenerateValidatorsOptions
-): GeneratedValidator | null {
+): Promise<GeneratedValidator | null> {
   const { verbose = false } = options || {};
   const { name: tableName, deityFolder, handlingLevel, shouldGenerateValidators } = table;
   
@@ -29,8 +30,8 @@ export function generateValidator(
   
   if (verbose) logDebug(`Generating validator: ${tableName} -> ${deityFolder}`);
   
-  // ✅ Call the builder to generate content from type file
-  const content = generateValidatorContent(tableName, deityFolder, handlingLevel);
+  // ✅ Await the async builder
+  const content = await generateValidatorContent(tableName, deityFolder, handlingLevel);
   
   if (!content) {
     if (verbose) logDebug(`Failed to build validator for ${tableName}`);
@@ -46,15 +47,15 @@ export function generateValidator(
   };
 }
 
-export function generateValidators(
+export async function generateValidators(
   tables: EnrichedTable[],
   options?: GenerateValidatorsOptions
-): GeneratedValidator[] {
+): Promise<GeneratedValidator[] | null> {
   const { verbose = false } = options || {};
   const results: GeneratedValidator[] = [];
   
   for (const table of tables) {
-    const generated = generateValidator(table, options);
+    const generated = await generateValidator(table, options);
     if (generated) results.push(generated);
   }
   

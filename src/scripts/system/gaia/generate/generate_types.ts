@@ -9,11 +9,13 @@ import { extractObject } from '../extract/extract_object.js';
 import { 
   parseTableContent, 
   toPascalCase,
-  generatePublicInterface as generatePublicInterfaceFromContent,
-  generateFormDataInterface as generateFormDataInterfaceFromContent,
   generateEnumExports as generateEnumExportsFromRefs,
 } from '../../../modules/format/format_object_types.js';
-
+import { formatRowContent, type RawField } from '../format/format_row_content.js';
+import { formatInsertContent } from '../format/format_insert_content.js';
+import { formatUpdateContent } from '../format/format_update_content.js';
+import { formatPublicContent } from '../format/format_public_content.js';
+import { formatFormContent } from '../format/format_form_content.js';
 // ============================================================================
 // TYPES
 // ============================================================================
@@ -50,7 +52,11 @@ function generateHeader(objectName: string, deityFolder: string, objectType: str
 `;
 }
 
-function extractRowContent(
+// ============================================================================
+// EXTRACTION & PARSING
+// ============================================================================
+
+export function extractRowContent(
   tableName: string,
   lines: string[],
   markers: any
@@ -77,21 +83,39 @@ function extractRowContent(
   };
 }
 
-function generatePublicInterface(tableName: string, rowContent: string): string {
-  return generatePublicInterfaceFromContent(tableName, rowContent);
-}
-
-function generateFormDataInterface(tableName: string, rowContent: string): string {
-  return generateFormDataInterfaceFromContent(tableName, rowContent);
-}
-
-function generateEnumExports(enumRefs: string[]): string {
+export function generateEnumExports(enumRefs: string[]): string {
   return generateEnumExportsFromRefs(enumRefs);
 }
 
 // ============================================================================
 // TABLE TYPE GENERATION
 // ============================================================================
+
+// Helper to parse rowContent string into RawField[]
+function parseRowContentToFields(rowContent: string): RawField[] {
+  const lines = rowContent.split('\n');
+  const fields: RawField[] = [];
+  
+  for (const line of lines) {
+    // Match: "fieldName: type" or "fieldName: type | null"
+    const match = line.match(/^\s*(\w+):\s*(.+?)(;?)$/);
+    if (!match) continue;
+    
+    const fieldName = match[1];
+    let fieldType = match[2].trim();
+    
+    const isNullable = fieldType.includes('| null');
+    fieldType = fieldType.replace(/\| null/g, '').trim();
+    
+    fields.push({
+      name: fieldName,
+      type: fieldType,
+      isNullable,
+    });
+  }
+  
+  return fields;
+}
 
 export function generateTableTypes(
   table: EnrichedTable,
@@ -105,6 +129,9 @@ export function generateTableTypes(
   const rowContent = parsed.rowContent;
   const enumRefs = parsed.enumRefs;
   const hasJson = parsed.hasJson;
+  
+  // Parse rowContent into structured fields
+  const fields = rowContent ? parseRowContentToFields(rowContent) : [];
   
   let content = generateHeader(tableName, deityFolder, 'table', handlingLevel);
   
@@ -136,24 +163,26 @@ export function generateTableTypes(
     content += `export type ${pascalName}Update = TablesUpdate<'${tableName}'>;\n`;
   }
   
-  // Derived types
-  if (rowContent) {
+  // Derived types - using NEW formatters
+  if (fields.length > 0) {
     content += `\n// =====================================================\n`;
     content += `// DERIVED TYPES\n`;
     content += `// =====================================================\n\n`;
     
-    if (category.generatePublicInterface) {
-      const publicInterface = generatePublicInterface(tableName, rowContent);
-      if (publicInterface) {
-        content += publicInterface + '\n';
-      }
-    }
-    if (category.generateFormInterface) {
-      const formInterface = generateFormDataInterface(tableName, rowContent);
-      if (formInterface) {
-        content += formInterface + '\n';
-      }
-    }
+    // Row interface (all fields)
+    content += formatRowContent(tableName, fields) + '\n\n';
+    
+    // Insert interface (exclude auto-generated)
+    content += formatInsertContent(tableName, fields) + '\n\n';
+    
+    // Update interface (all optional)
+    content += formatUpdateContent(tableName, fields) + '\n\n';
+    
+    // Public interface (exclude sensitive)
+    content += formatPublicContent(tableName, fields) + '\n\n';
+    
+    // Form interface (editable, all optional)
+    content += formatFormContent(tableName, fields) + '\n';
   }
   
   return {
