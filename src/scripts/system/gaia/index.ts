@@ -127,24 +127,48 @@ async function getInteractiveOptions(): Promise<GaiaOptions> {
   if (choice === '2') {
     target = 'table';
     const allTables = getAllTableNames();
-    console.log('\nAvailable tables:');
+    console.log('\n📊 Available tables:');
     console.log(`  ${allTables.slice(0, 20).join(', ')}${allTables.length > 20 ? '...' : ''}`);
+    console.log(`  (${allTables.length} total tables)`);
     console.log('');
     targetValue = await askUser('Enter table name: ');
+    
+    if (!allTables.includes(targetValue as PublicTableNames)) {
+      logWarning(`Table "${targetValue}" not found in deity_groups.ts`);
+      const confirm = await askUser('Continue anyway? (y/N): ');
+      if (confirm.toLowerCase() !== 'y') {
+        console.log('\n❌ Generation cancelled.');
+        process.exit(0);
+      }
+    }
+    
   } else if (choice === '3') {
     target = 'view';
     const allViews = getAllViewNames();
-    console.log('\nAvailable views:');
+    console.log('\n📊 Available views:');
     console.log(`  ${allViews.join(', ')}`);
+    console.log(`  (${allViews.length} total views)`);
     console.log('');
     targetValue = await askUser('Enter view name: ');
+    
+    if (!allViews.includes(targetValue as PublicViewNames)) {
+      logWarning(`View "${targetValue}" not found`);
+      const confirm = await askUser('Continue anyway? (y/N): ');
+      if (confirm.toLowerCase() !== 'y') {
+        console.log('\n❌ Generation cancelled.');
+        process.exit(0);
+      }
+    }
+    
   } else if (choice === '4') {
     target = 'deity';
-    console.log('\nAvailable deity groups:');
+    console.log('\n📊 Available deity groups:');
     DEITY_GROUPS.forEach((g, i) => {
-      console.log(`  ${i + 1}) ${g.name} (${g.folderName}) - ${g.tables.length} tables, ${g.views?.length || 0} views`);
+      console.log(`  ${i + 1}) ${g.name} (${g.folderName})`);
+      console.log(`     ${g.tables.length} tables, ${g.views?.length || 0} views`);
+      console.log(`     ${g.description}`);
+      console.log('');
     });
-    console.log('');
     const deityChoice = await askUser('Enter deity name or number: ');
     
     const num = parseInt(deityChoice);
@@ -152,6 +176,16 @@ async function getInteractiveOptions(): Promise<GaiaOptions> {
       targetValue = DEITY_GROUPS[num - 1].folderName;
     } else {
       targetValue = deityChoice;
+    }
+    
+    const deityExists = DEITY_GROUPS.some(g => g.folderName === targetValue || g.name === targetValue);
+    if (!deityExists) {
+      logWarning(`Deity "${targetValue}" not found`);
+      const confirm = await askUser('Continue anyway? (y/N): ');
+      if (confirm.toLowerCase() !== 'y') {
+        console.log('\n❌ Generation cancelled.');
+        process.exit(0);
+      }
     }
   }
   
@@ -991,10 +1025,18 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
 // ============================================================================
 
 async function main() {
-  let options = parseOptions();
+  let options: GaiaOptions;
   
-  if (options.interactive) {
+  // Check if interactive mode is requested via CLI
+  const args = process.argv.slice(2);
+  const interactiveFlag = args.includes('--interactive') || args.includes('-i');
+  
+  if (interactiveFlag || args.length === 0) {
+    // ALWAYS show interactive prompt if no arguments or --interactive
     options = await getInteractiveOptions();
+  } else {
+    // Parse CLI options only if arguments provided and not interactive
+    options = parseOptions();
   }
   
   try {

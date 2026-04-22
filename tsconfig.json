@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, ".temp/archive/fix_validators_and_apis.ts"  ],
   "exclude": [
     "node_modules",
     "**/staging/**",

@@ -1,45 +1,41 @@
-/* @/scripts/shared/check_object_config.ts */
-
+// @/scripts/shared/check_object_config.ts
+// ============================================================================
+// CHECK OBJECT CONFIG - Type-Safe Configuration Validation
+// ============================================================================
 // Phase 2: Check object configuration against deity_groups.ts
 // Determines output folder, deity group, and generation rules for each object
+// ============================================================================
 
 import type { ObjectConfig, ConfigRules, ExtractedObject } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 
+// Import type-safe helpers
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+
 // Import the deity groups configuration
 import { 
   DEITY_GROUPS, 
-  getDeityGroupForTable, 
+  getDeityGroupForTable,
+  getDeityGroupForView,
   getFolderNameForTable,
+  getFolderNameForView,
   getAllTableNames,
+  getAllViewNames,
   getTablesWithoutGroup,
+  getViewsWithoutGroup,
   type DeityGroup 
 } from '@/config/deity_groups.js';
 
+// Import the single source of truth for sensitive fields
+import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
+
 export interface CheckObjectConfigOptions {
   verbose?: boolean;
-  defaultOutputBase?: string;  // Base path for output files (default: '@/types')
+  defaultOutputBase?: string;
 }
 
-// Sensitive fields to exclude from public interfaces
-export const DEFAULT_SENSITIVE_FIELDS: string[] = [
-  'email',
-  'password',
-  'stripe_account_id',
-  'stripe_account',
-  'crisis_contact_email',
-  'crisis_contact_phone',
-  'crisis_contact_name',
-  'crisis_instructions',
-  'access_token',
-  'refresh_token',
-  'api_key',
-  'secret_key',
-  'private_key',
-  'encrypted_data',
-  'verification_token',
-  'reset_token'
-];
+// ✅ Use the imported SENSITIVE_FIELDS - no duplication!
+export const DEFAULT_SENSITIVE_FIELDS: string[] = [...SENSITIVE_FIELDS];
 
 // Default configuration rules
 export const DEFAULT_CONFIG_RULES: ConfigRules = {
@@ -50,18 +46,18 @@ export const DEFAULT_CONFIG_RULES: ConfigRules = {
   enumMapping: {}
 };
 
+// ============================================================================
+// TABLE CONFIGURATION (Type-Safe)
+// ============================================================================
+
 /**
  * Get configuration for a table object
- * 
- * @param tableName - Name of the table
- * @param options - Optional configuration
- * @returns ObjectConfig with deity group, folder, and rules
  */
 export function getTableConfig(
-  tableName: string,
-  options: CheckObjectConfigOptions = {}
+  tableName: PublicTableNames,
+  options?: CheckObjectConfigOptions
 ): ObjectConfig {
-  const { verbose = false } = options;
+  const { verbose = false } = options || {};
   
   const deityGroup = getDeityGroupForTable(tableName);
   const folderName = getFolderNameForTable(tableName);
@@ -76,52 +72,56 @@ export function getTableConfig(
   
   return {
     deityGroup: deityGroup?.name || 'unassigned',
-    outputFolder: folderName ? `${folderName}` : 'unassigned',
-    skipGeneration: !deityGroup,  // Skip if no deity group assigned
-    sensitiveFields: [...DEFAULT_SENSITIVE_FIELDS]
+    outputFolder: folderName || 'unassigned',
+    skipGeneration: !deityGroup,
+    sensitiveFields: SENSITIVE_FIELDS  // ✅ Direct use
   };
 }
+
+// ============================================================================
+// VIEW CONFIGURATION (Type-Safe)
+// ============================================================================
 
 /**
  * Get configuration for a view object
- * 
- * @param viewName - Name of the view
- * @param options - Optional configuration
- * @returns ObjectConfig with rules
  */
 export function getViewConfig(
-  viewName: string,
-  options: CheckObjectConfigOptions = {}
+  viewName: PublicViewNames,
+  options?: CheckObjectConfigOptions
 ): ObjectConfig {
-  const { verbose = false } = options;
+  const { verbose = false } = options || {};
   
-  // Views currently go to a default folder (can be customized later)
-  // Check if view matches any table pattern? Not for now.
+  const deityGroup = getDeityGroupForView(viewName);
+  const folderName = getFolderNameForView(viewName);
   
   if (verbose) {
-    logDebug(`View "${viewName}" → Default folder: views`);
+    if (deityGroup) {
+      logDebug(`View "${viewName}" → Deity: ${deityGroup.name}, Folder: ${folderName}`);
+    } else {
+      logDebug(`View "${viewName}" → Default folder: views`);
+    }
   }
   
   return {
-    deityGroup: 'views',
-    outputFolder: 'views',
+    deityGroup: deityGroup?.name || 'views',
+    outputFolder: folderName || 'views',
     skipGeneration: false,
-    sensitiveFields: [...DEFAULT_SENSITIVE_FIELDS]
+    sensitiveFields: SENSITIVE_FIELDS  // ✅ Direct use
   };
 }
 
+// ============================================================================
+// FUNCTION CONFIGURATION
+// ============================================================================
+
 /**
  * Get configuration for a function object
- * 
- * @param functionName - Name of the function
- * @param options - Optional configuration
- * @returns ObjectConfig with rules
  */
 export function getFunctionConfig(
   functionName: string,
-  options: CheckObjectConfigOptions = {}
+  options?: CheckObjectConfigOptions
 ): ObjectConfig {
-  const { verbose = false } = options;
+  const { verbose = false } = options || {};
   
   if (verbose) {
     logDebug(`Function "${functionName}" → Default folder: functions`);
@@ -131,58 +131,59 @@ export function getFunctionConfig(
     deityGroup: 'functions',
     outputFolder: 'functions',
     skipGeneration: false,
-    sensitiveFields: [...DEFAULT_SENSITIVE_FIELDS]
+    sensitiveFields: SENSITIVE_FIELDS  // ✅ Direct use
   };
 }
 
+// ============================================================================
+// ENUM CONFIGURATION (Type-Safe)
+// ============================================================================
+
 /**
  * Get configuration for an enum object
- * 
- * @param enumName - Name of the enum
- * @param options - Optional configuration
- * @returns ObjectConfig with rules
  */
 export function getEnumConfig(
-  enumName: string,
-  options: CheckObjectConfigOptions = {}
+  enumName: PublicEnumNames,
+  options?: CheckObjectConfigOptions
 ): ObjectConfig {
-  const { verbose = false } = options;
+  const { verbose = false } = options || {};
   
+  // Dynamic import for enum folder (handled by enum_mapping)
   if (verbose) {
-    logDebug(`Enum "${enumName}" → Default folder: enums`);
+    logDebug(`Enum "${enumName}" → Folder determined by enum_mapping.ts`);
   }
   
   return {
     deityGroup: 'enums',
-    outputFolder: 'enums',
+    outputFolder: 'enums',  // Will be overridden by actual mapping
     skipGeneration: false,
-    sensitiveFields: []
+    sensitiveFields: []  // Enums don't have sensitive fields
   };
 }
 
+// ============================================================================
+// GENERIC OBJECT CONFIGURATION
+// ============================================================================
+
 /**
  * Get configuration for any object based on its type
- * 
- * @param object - ExtractedObject
- * @param options - Optional configuration
- * @returns ObjectConfig with all rules
  */
 export function getObjectConfig(
   object: ExtractedObject,
-  options: CheckObjectConfigOptions = {}
+  options?: CheckObjectConfigOptions
 ): ObjectConfig {
-  const { verbose = false } = options;
+  const { verbose = false } = options || {};
   
   switch (object.type) {
     case 'table':
-      return getTableConfig(object.name, options);
+      return getTableConfig(object.name as PublicTableNames, options);
     case 'view':
-      return getViewConfig(object.name, options);
+      return getViewConfig(object.name as PublicViewNames, options);
     case 'function':
       return getFunctionConfig(object.name, options);
     case 'type_enum':
     case 'runtime_enum':
-      return getEnumConfig(object.name, options);
+      return getEnumConfig(object.name as PublicEnumNames, options);
     default:
       if (verbose) {
         logWarning(`Unknown object type for "${object.name}", using default config`);
@@ -196,52 +197,58 @@ export function getObjectConfig(
   }
 }
 
+// ============================================================================
+// VALIDATION HELPERS
+// ============================================================================
+
 /**
  * Get all tables that are missing deity group assignments
- * 
- * @param allTableNames - Array of all table names from the database
- * @returns Array of unassigned table names
  */
-export function getUnassignedTables(allTableNames: string[]): string[] {
+export function getUnassignedTables(allTableNames: PublicTableNames[]): PublicTableNames[] {
   return getTablesWithoutGroup(allTableNames);
 }
 
 /**
- * Get summary of all deity groups with their assigned tables
- * 
- * @returns Array of objects with deity name, folder, and table count
+ * Get all views that are missing deity group assignments
+ */
+export function getUnassignedViews(allViewNames: PublicViewNames[]): PublicViewNames[] {
+  return getViewsWithoutGroup(allViewNames);
+}
+
+/**
+ * Get summary of all deity groups with their assigned tables and views
  */
 export function getDeityGroupSummary(): Array<{
   name: string;
   domain: string;
   folderName: string;
   tableCount: number;
+  viewCount: number;
   tables: string[];
+  views: string[];
 }> {
   return DEITY_GROUPS.map(group => ({
     name: group.name,
     domain: group.domain,
     folderName: group.folderName,
     tableCount: group.tables.length,
-    tables: [...group.tables]
+    viewCount: group.views?.length || 0,
+    tables: [...group.tables],
+    views: group.views ? [...group.views] : []
   }));
 }
 
 /**
  * Validate that all expected tables have deity assignments
- * 
- * @param allTableNames - Array of all table names from the database
- * @param options - Optional configuration
- * @returns Object with validation results
  */
 export function validateTableAssignments(
-  allTableNames: string[],
-  options: CheckObjectConfigOptions = {}
-): { valid: boolean; unassigned: string[]; warnings: string[] } {
-  const { verbose = false } = options;
+  allTableNames: PublicTableNames[],
+  options?: CheckObjectConfigOptions
+): { valid: boolean; unassigned: PublicTableNames[]; warnings: string[] } {
+  const { verbose = false } = options || {};
   
   const assignedTables = new Set(getAllTableNames());
-  const unassigned: string[] = [];
+  const unassigned: PublicTableNames[] = [];
   const warnings: string[] = [];
   
   for (const table of allTableNames) {
@@ -273,13 +280,46 @@ export function validateTableAssignments(
 }
 
 /**
+ * Validate that all expected views have deity assignments
+ */
+export function validateViewAssignments(
+  allViewNames: PublicViewNames[],
+  options?: CheckObjectConfigOptions
+): { valid: boolean; unassigned: PublicViewNames[]; warnings: string[] } {
+  const { verbose = false } = options || {};
+  
+  const assignedViews = new Set(getAllViewNames());
+  const unassigned: PublicViewNames[] = [];
+  const warnings: string[] = [];
+  
+  for (const view of allViewNames) {
+    if (!assignedViews.has(view)) {
+      unassigned.push(view);
+      warnings.push(`View "${view}" has no deity group assignment`);
+    }
+  }
+  
+  if (verbose) {
+    if (unassigned.length === 0) {
+      logSuccess(`All ${allViewNames.length} views have deity group assignments`);
+    } else {
+      logWarning(`${unassigned.length} of ${allViewNames.length} views are unassigned`);
+    }
+  }
+  
+  return {
+    valid: unassigned.length === 0,
+    unassigned,
+    warnings
+  };
+}
+
+// ============================================================================
+// OUTPUT PATH GENERATION
+// ============================================================================
+
+/**
  * Get output path for a generated file based on object config
- * 
- * @param object - ExtractedObject
- * @param config - ObjectConfig
- * @param fileType - Type of file ('types', 'constants', 'utils', 'api')
- * @param basePath - Base output path (default: '@')
- * @returns Full output file path
  */
 export function getOutputPath(
   object: ExtractedObject,

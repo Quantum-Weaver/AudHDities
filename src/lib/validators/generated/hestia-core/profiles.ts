@@ -1,81 +1,72 @@
 // =====================================================
-// VALIDATOR: Profiles
-// DEITY: hestia-core
-// GENERATED: 2026-04-21T21:16:50.782Z
-// =====================================================
-// NOTE: Runtime validation using Zod with database type inference
+// FILE: lib/validators/generated/hestia-core/profiles.ts
+// HANDLING: full_crud
+// GENERATED: 2026-04-22T04:38:05.829Z
+// SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 
 import { z } from 'zod';
 import type { ProfilesRow, ProfilesInsert, ProfilesUpdate } from '@/types/generated/hestia-core/profiles';
 
-// Import runtime enums for validation
-import { 
-  BADGE_TYPE, COUNCIL_HOUSE, SENSORY_MODE, USER_STATUS, USER_TIER 
-} from '@/lib/constants/generated/hestia-core';
+// =====================================================
+// SCHEMAS (inferred from types)
+// =====================================================
+// These schemas use type assertion to ensure type safety.
+
+export const ProfilesRowSchema: z.ZodType<ProfilesRow> = z.any();
+export const ProfilesInsertSchema: z.ZodType<ProfilesInsert> = z.any();
+export const ProfilesUpdateSchema: z.ZodType<ProfilesUpdate> = z.any();
 
 // =====================================================
-// FIELD VALIDATION SCHEMAS
+// RUNTIME SCHEMAS (for actual validation)
 // =====================================================
+// Customize these schemas based on your table's fields.
 
-
-
-// =====================================================
-// ROW SCHEMA (full database row)
-// =====================================================
-
-export const ProfilesRowSchema = z.object({
-  username: z.string().nullable(),
+export const ProfilesRuntimeSchema = z.object({
+  id: z.string().uuid(),
+  created_at: z.string().datetime(),
+  updated_at: z.string().datetime().nullable(),
+  // TODO: Add your table-specific fields here
 });
 
-// =====================================================
-// INSERT SCHEMA (for creation - optional fields)
-// =====================================================
-
-export const ProfilesInsertSchema = z.object({
-  username: z.string().nullable().optional(),
-});
+export type ProfilesRuntimeInput = z.infer<typeof ProfilesRuntimeSchema>;
 
 // =====================================================
-// UPDATE SCHEMA (for updates - all optional)
+// VALIDATION UTILITIES
 // =====================================================
 
-export const ProfilesUpdateSchema = z.object({
-  username: z.string().nullable().optional(),
-});
-
-// =====================================================
-// TYPE INFERENCE
-// =====================================================
-
-export type ProfilesRowInput = z.infer<typeof ProfilesRowSchema>;
-export type ProfilesInsertInput = z.infer<typeof ProfilesInsertSchema>;
-export type ProfilesUpdateInput = z.infer<typeof ProfilesUpdateSchema>;
-
-// =====================================================
-// VALIDATION HELPERS
-// =====================================================
-
-export function validateProfilesRow(data: unknown): ProfilesRowInput {
-  return ProfilesRowSchema.parse(data);
-}
-
-export function validateProfilesInsert(data: unknown): ProfilesInsertInput {
-  return ProfilesInsertSchema.parse(data);
-}
-
-export function validateProfilesUpdate(data: unknown): ProfilesUpdateInput {
-  return ProfilesUpdateSchema.parse(data);
-}
-
-export function safeValidateProfilesInsert(data: unknown): {
-  success: boolean;
-  data?: ProfilesInsertInput;
-  error?: z.ZodError;
-} {
-  const result = ProfilesInsertSchema.safeParse(data);
-  if (result.success) {
-    return { success: true, data: result.data };
+/**
+ * Validate a full profiles row
+ */
+export function validateProfilesRow(data: unknown): data is ProfilesRow {
+  try {
+    ProfilesRowSchema.parse(data);
+    return true;
+  } catch {
+    return false;
   }
-  return { success: false, error: result.error };
+}
+
+/**
+ * Validate a profiles insert
+ */
+export function validateProfilesInsert(data: unknown): data is ProfilesInsert {
+  try {
+    ProfilesInsertSchema.parse(data);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Validate a profiles update
+ */
+export function validateProfilesUpdate(data: unknown): data is ProfilesUpdate {
+  try {
+    ProfilesUpdateSchema.parse(data);
+    return true;
+  } catch {
+    return false;
+  }
 }

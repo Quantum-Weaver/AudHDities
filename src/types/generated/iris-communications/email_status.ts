@@ -1,0 +1,10 @@
+// =====================================================
+// FILE: types/generated/iris-communications/email_status.ts
+// TYPE: type_enum
+// GENERATED: 2026-04-22T04:38:07.331Z
+// SOURCE: database.types.ts (via Tables helper)
+// =====================================================
+
+import type { Enums } from '@/types/supabase/database.helpers';
+
+export type EmailStatus = Enums<'email_status'>;
