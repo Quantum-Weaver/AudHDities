@@ -132,7 +132,14 @@ export function generateTableTypes(
   
   // Parse rowContent into structured fields
   const fields = rowContent ? parseRowContentToFields(rowContent) : [];
-  
+  console.log('\n' + '='.repeat(60));
+  console.log(`DEBUG: ${tableName} - rowContent from extractRowContent:`);
+  console.log('='.repeat(60));
+  console.log('"' + rowContent + '"');
+  console.log('Length: ' + rowContent.length);
+  console.log('Success: ' + parsed.success);
+  console.log('='.repeat(60) + '\n');
+
   let content = generateHeader(tableName, deityFolder, 'table', handlingLevel);
   
   // Imports
@@ -168,16 +175,8 @@ export function generateTableTypes(
     content += `\n// =====================================================\n`;
     content += `// DERIVED TYPES\n`;
     content += `// =====================================================\n\n`;
-    
-    // Row interface (all fields)
-    content += formatRowContent(tableName, fields) + '\n\n';
-    
-    // Insert interface (exclude auto-generated)
-    content += formatInsertContent(tableName, fields) + '\n\n';
-    
-    // Update interface (all optional)
-    content += formatUpdateContent(tableName, fields) + '\n\n';
-    
+    content += `// Full fields for validation (internal use)\n`;
+    content += formatRowContent(tableName, fields) + '\n\n';    
     // Public interface (exclude sensitive)
     content += formatPublicContent(tableName, fields) + '\n\n';
     

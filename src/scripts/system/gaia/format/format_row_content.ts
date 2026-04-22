@@ -18,7 +18,7 @@ export function formatRowContent(tableName: string, fields: RawField[]): string 
   const pascalName = toPascalCase(tableName);
   const lines: string[] = [];
   
-  lines.push(`export interface ${pascalName}Row {`);
+  lines.push(`export interface ${pascalName}AllFields {`);
   
   for (const field of fields) {
     const nullable = field.isNullable ? ' | null' : '';

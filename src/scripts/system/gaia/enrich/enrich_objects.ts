@@ -8,7 +8,7 @@
 // enumRefs, or hasJson because those are provided by the Tables helper.
 // ============================================================================
 
-import type { ObjectCategory } from '@/config/object_categories';
+import type { ObjectCategory } from '@/config/object_categories.js';
 import { 
   getDeityFolderForObject, 
   getObjectCategory, 
@@ -19,9 +19,9 @@ import {
   needsHooks, 
   needsConstantGeneration, 
   needsViewApiRoutes
-} from '@/config/object_categories';
-import { logDebug, logSuccess, logWarning } from '../../../shared/logger';
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers';
+} from '@/config/object_categories.js';
+import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
 
 // ============================================================================
 // ENRICHED INTERFACES (Type-Safe)

@@ -151,3 +151,6 @@ git remote add origin https://github.com/Quantum-Weaver/AudHDities.git
 git fetch origin
 git pull origin superposition
 ```
+
+
+npx tsx src/scripts/system/gaia/format/test_formatters.ts

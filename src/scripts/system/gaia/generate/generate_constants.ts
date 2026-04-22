@@ -10,8 +10,8 @@
 // They do NOT go through table enrichment.
 // ============================================================================
 
-import type { RuntimeEnumInfo } from '../extract/extract_runtime_enums';
-import { logDebug, logSuccess, logWarning } from '../../../shared/logger';
+import type { RuntimeEnumInfo } from '../extract/extract_runtime_enums.js';
+import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
 
 // ============================================================================
 // TYPES

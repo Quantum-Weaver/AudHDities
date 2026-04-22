@@ -13,11 +13,11 @@ import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
 
 // Use existing shared utilities
-import { readDatabaseTypes } from '../../../shared/file_reader';
-import { findMarkers } from '../../../modules/system/find_markers';
-import { findAllClosingBraces } from '../../../modules/system/find_closing_braces';
-import { extractRuntimeEnums } from '../extract/extract_runtime_enums';
-import { logInfo, logSuccess, logError, logWarning, logDebug } from '../../../shared/logger';
+import { readDatabaseTypes } from '../../../shared/file_reader.js';
+import { findMarkers } from '../../../modules/system/find_markers.js';
+import { findAllClosingBraces } from '../../../modules/system/find_closing_braces.js';
+import { extractRuntimeEnums } from '../extract/extract_runtime_enums.js';
+import { logInfo, logSuccess, logError, logWarning, logDebug } from '../../../shared/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
