@@ -108,7 +108,6 @@ async function extractAllRuntimeEnums(verbose: boolean): Promise<Array<{ name: s
   logInfo('Extracting runtime enums...');
   const runtimeEnums = await extractRuntimeEnums(
     lines,
-    'hestia-core', // Default deity folder (will be overridden by enum_mapping later)
     markersWithBraces.constantsEnumsLine,
     markersWithBraces.constantsEnumsEndLine,
     { verbose }

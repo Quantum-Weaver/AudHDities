@@ -1,6 +1,6 @@
 // ============================================================================
 // src/scripts/system/gaia/extract/extract_runtime_enums.ts
-// EXTRACT RUNTIME ENUMS (GAIA)
+// EXTRACT RUNTIME ENUMS (GAIA) - FIXED
 // ============================================================================
 // Purpose: Extract runtime enum values from Constants.public.Enums section
 // 
@@ -9,7 +9,6 @@
 // ============================================================================
 
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
-import { TableInfo } from '../index.js';
 
 export interface RuntimeEnumInfo {
   name: string;           // Original snake_case name from database (e.g., 'user_tier')
@@ -89,7 +88,6 @@ export function extractRuntimeEnumNames(
  */
 export function extractRuntimeEnumByName(
   lines: string[],
-  deityFolder: TableInfo["deityFolder"],
   constantsEnumsStartLine: number,
   constantsEnumsEndLine: number,
   enumName: string,
@@ -154,7 +152,6 @@ export function extractRuntimeEnumByName(
  */
 export async function extractRuntimeEnums(
   lines: string[],
-  deityFolder: TableInfo["deityFolder"],
   constantsEnumsStartLine: number,
   constantsEnumsEndLine: number,
   options?: ExtractRuntimeEnumsOptions
@@ -228,7 +225,7 @@ export async function extractRuntimeEnumsByDeity(
   lines: string[],
   constantsEnumsStartLine: number,
   constantsEnumsEndLine: number,
-  deityFolder: TableInfo["deityFolder"],
+  deityFolder: string,
   options?: ExtractRuntimeEnumsOptions
 ): Promise<RuntimeEnumInfo[]> {
   const { verbose = false } = options || {};
@@ -236,9 +233,10 @@ export async function extractRuntimeEnumsByDeity(
   // Dynamic import to avoid circular dependency
   const { getEnumFolder } = await import('@/config/enum_mapping.js');
   
-  const allEnums = await extractRuntimeEnums(lines, deityFolder, constantsEnumsStartLine, constantsEnumsEndLine, options);
+  const allEnums = await extractRuntimeEnums(lines, constantsEnumsStartLine, constantsEnumsEndLine, options);
+  
   const filteredEnums = allEnums.filter(enumInfo => {
-    const enumDeity = deityFolder;
+    const enumDeity = getEnumFolder(enumInfo.name);
     return enumDeity === deityFolder;
   });
   
@@ -257,7 +255,6 @@ export function countRuntimeEnums(
   lines: string[],
   constantsEnumsStartLine: number,
   constantsEnumsEndLine: number,
-  folder: TableInfo["deityFolder"],
   options?: ExtractRuntimeEnumsOptions
 ): number {
   const { verbose = false } = options || {};
