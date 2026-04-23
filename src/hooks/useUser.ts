@@ -6,28 +6,11 @@
 import { createClient } from '@/lib/supabase/client';
 import { useEffect, useState, useCallback } from 'react';
 import type { User } from '@supabase/supabase-js';
-
-export interface UserProfile {
-  id: string;
-  username: string | null;
-  display_name: string | null;
-  avatar_url: string | null;
-  email: string;
-  user_tier: 'community' | 'ally' | 'corporate' | 'council';
-  sovereignty_score: number;
-  is_admin: boolean;
-  is_creator: boolean;
-  is_vendor: boolean;
-  is_quantum_weaver: boolean;
-  primary_house: string | null;
-  status: 'active' | 'suspended' | 'deleted';
-  created_at: string;
-  updated_at: string;
-}
+import type { ProfilesRow } from '@/types/generated/hestia-core/profiles';
 
 export interface UseUserReturn {
   user: User | null;
-  profile: UserProfile | null;
+  profile: ProfilesRow | null;
   isLoading: boolean;
   error: Error | null;
   isAuthenticated: boolean;
@@ -35,7 +18,7 @@ export interface UseUserReturn {
   isCreator: boolean;
   isVendor: boolean;
   isQuantumWeaver: boolean;
-  userTier: UserProfile['user_tier'] | null;
+  userTier: ProfilesRow['user_tier'] | null;
   sovereigntyScore: number;
   refetch: () => Promise<void>;
 }
@@ -43,10 +26,11 @@ export interface UseUserReturn {
 /**
  * Client-side hook to get current user and profile
  * Automatically reacts to auth state changes
- * 
+ * Uses generated API route for profile data
+ *
  * @example
  * const { user, profile, isLoading, isAuthenticated } = useUser();
- * 
+ *
  * if (isLoading) return <div>Loading...</div>;
  * if (!isAuthenticated) return <LoginButton />;
  * return <div>Welcome, {profile?.display_name}</div>;
@@ -54,24 +38,26 @@ export interface UseUserReturn {
 export function useUser(): UseUserReturn {
   const supabase = createClient();
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [profile, setProfile] = useState<ProfilesRow | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchProfile = useCallback(async (userId: string) => {
-    const { data, error: profileError } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .single();
+  const fetchProfile = useCallback(async (userId: string): Promise<ProfilesRow | null> => {
+    try {
+      const response = await fetch(`/api/generated/hestia-core/profiles/${userId}`);
+      const result = await response.json();
 
-    if (profileError) {
-      console.error('Error fetching profile:', profileError);
+      if (result.success) {
+        return result.data as ProfilesRow;
+      } else {
+        console.error('Error fetching profile:', result.error);
+        return null;
+      }
+    } catch (err) {
+      console.error('Error fetching profile:', err);
       return null;
     }
-
-    return data as UserProfile;
-  }, [supabase]);
+  }, []);
 
   const loadUser = useCallback(async () => {
     setIsLoading(true);
@@ -106,7 +92,7 @@ export function useUser(): UseUserReturn {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user || null);
-      
+
       if (session?.user) {
         const userProfile = await fetchProfile(session.user.id);
         setProfile(userProfile);

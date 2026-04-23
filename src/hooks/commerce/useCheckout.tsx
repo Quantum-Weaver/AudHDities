@@ -3,12 +3,12 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@/lib/supabase/client';
-import { useAuth } from '@/hooks/useAuth';  // FIXED: correct import path
+import { useAuth } from '@/hooks/useAuth';
+import { useProducts } from '@/hooks/generated/plutus-economics/products.js';
 
 interface CheckoutParams {
   id: string;
-  product: string;
+  product?: string;
   tier?: 'community' | 'ally' | 'corporate';
   quantity?: number;
 }
@@ -24,7 +24,6 @@ export function useCheckout(): UseCheckoutReturn {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const { user } = useAuth();
-  const supabase = createClient();
 
   const initiateCheckout = useCallback(async (params: CheckoutParams) => {
     const { id, tier = 'ally', quantity = 1 } = params;
@@ -39,16 +38,15 @@ export function useCheckout(): UseCheckoutReturn {
     setError(null);
 
     try {
-      // Fetch product details using generated types
-      const { data: product, error: productError } = await supabase
-        .from('products')
-        .select('*')
-        .eq('id', id)
-        .single();
+      // Fetch product via generated API
+      const response = await fetch(`/api/generated/plutus-economics/products/${id}`);
+      const result = await response.json();
 
-      if (productError || !product) {
+      if (!result.success || !result.data) {
         throw new Error('Product not found');
       }
+
+      const product = result.data;
 
       if (!product.is_published || !product.active) {
         throw new Error('This product is no longer available');
@@ -73,7 +71,7 @@ export function useCheckout(): UseCheckoutReturn {
       }
 
       // Create checkout session
-      const response = await fetch('/api/checkout', {
+      const checkoutResponse = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -83,18 +81,18 @@ export function useCheckout(): UseCheckoutReturn {
         }),
       });
 
-      const data = await response.json();
+      const checkoutData = await checkoutResponse.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create checkout session');
+      if (!checkoutResponse.ok) {
+        throw new Error(checkoutData.error || 'Failed to create checkout session');
       }
 
-      if (!data.url) {
+      if (!checkoutData.url) {
         throw new Error('No checkout URL returned');
       }
 
       // Redirect to Stripe Checkout
-      window.location.href = data.url;
+      window.location.href = checkoutData.url;
 
     } catch (err) {
       console.error('Checkout error:', err);
@@ -102,7 +100,7 @@ export function useCheckout(): UseCheckoutReturn {
     } finally {
       setLoading(false);
     }
-  }, [user, router, supabase]);
+  }, [user, router]);
 
   return { initiateCheckout, loading, error };
 }

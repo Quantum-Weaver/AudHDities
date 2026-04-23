@@ -2,60 +2,24 @@
 'use client';
 
 import { useAuth } from './useAuth';
-import { createClient } from '@/lib/supabase/client';
-import { useEffect, useState } from 'react';
-import type { Database } from '@/types/supabase/database.types';
-
-export type Profile = Database['public']['Tables']['profiles']['Row'];
+import { useMemo } from 'react';
 
 export function usePermissions() {
-  const { user } = useAuth();
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isCreator, setIsCreator] = useState(false);
-  const [isCommunity, setIsCommunity] = useState(false);
-  const [isVendor, setIsVendor] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const supabase = createClient();
+  const { user, profile, loading } = useAuth();
 
-  useEffect(() => {
-    if (!user) {
-      setIsAdmin(false);
-      setIsCreator(false);
-      setIsVendor(false);
-      setIsCommunity(false);
-      setLoading(false);
-      return;
-    }
+  const isAdmin = profile?.is_admin === true;
+  const isCreator = profile?.is_creator === true;
+  const isVendor = profile?.is_vendor === true;
+  const isCommunity = profile?.user_tier === 'community' || profile?.user_tier === 'council';
 
-    const fetchPermissions = async () => {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('is_admin, is_creator, is_vendor, user_tier')
-        .eq('id', user.id)
-        .single();
-
-      if (!error && data) {
-        // FIXED: Remove hardcoded =false assignments
-        setIsAdmin(data.is_admin === true);
-        setIsCreator(data.is_creator === true);
-        setIsVendor(data.is_vendor === true);
-        setIsCommunity(data.user_tier === 'community' || data.user_tier === 'council');
-      }
-      
-      setLoading(false);
-    };
-
-    fetchPermissions();
-  }, [user, supabase]);
-
-  const can = {
+  const can = useMemo(() => ({
     viewAll: isAdmin,
     editAny: isAdmin,
     createProducts: isCreator || isAdmin,
     createVendorItems: isVendor || isAdmin,
     moderate: isAdmin,
     accessCommunityTier: isCommunity,
-  };
+  }), [isAdmin, isCreator, isVendor, isCommunity]);
 
   return { isAdmin, isCreator, isVendor, isCommunity, can, loading };
 }

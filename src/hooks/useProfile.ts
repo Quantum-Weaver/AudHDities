@@ -1,9 +1,13 @@
 // app/hooks/useProfile.ts
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-import { createClient } from '@/lib/supabase/client.js';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useAuth } from './useAuth.js';
+import { useProfiles, useProfilesList, useUpdateProfiles } from '@/hooks/generated/hestia-core/profiles.js';
+import { useCreatorProfiles, useCreateCreatorProfiles, useUpdateCreatorProfiles } from '@/hooks/generated/hestia-core/creator_profiles.js';
+import { useVendorProfiles, useCreateVendorProfiles, useUpdateVendorProfiles } from '@/hooks/generated/hestia-core/vendor_profiles.js';
+import { useCommunityProfiles, useCreateCommunityProfiles, useUpdateCommunityProfiles } from '@/hooks/generated/hestia-core/community_profiles.js';
+import { useApplicationsList, useCreateApplications } from '@/hooks/generated/themis-governance/applications.js';
 import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers.js';
 import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '@/types/preferences.js';
 
@@ -21,51 +25,29 @@ export type CommunityProfile = Tables<'community_profiles'>;
 
 export type Application = Tables<'applications'>;
 
-export interface UnifiedPreferences {
-  nd: NDPreferences;
-  sensory: SensoryPreferences;
-  algorithm: AlgorithmPreferences;
-}
-
 // ============================================================================
-// DEFAULT PREFERENCES
+// DEFAULT PREFERENCES (unchanged — business logic)
 // ============================================================================
 
 export const DEFAULT_ND_PREFERENCES: NDPreferences = {
-  reduced_motion: false,
-  high_contrast: false,
-  focus_mode: false,
-  sound_notifications: true,
-  visual_timers: true,
-  tl_dr_enabled: true,
-  dyslexia_friendly: false,
-  adhd_friendly: false,
-  autism_friendly: false,
+  reduced_motion: false, high_contrast: false, focus_mode: false,
+  sound_notifications: true, visual_timers: true, tl_dr_enabled: true,
+  dyslexia_friendly: false, adhd_friendly: false, autism_friendly: false,
 };
 
 export const DEFAULT_SENSORY_PREFERENCES: SensoryPreferences = {
-  light_sensitivity: 'medium',
-  sound_sensitivity: 'medium',
-  crowd_sensitivity: 'medium',
-  touch_sensitivity: 'low',
-  vestibular_sensitivity: 'low',
-  olfactory_sensitivity: 'low',
+  light_sensitivity: 'medium', sound_sensitivity: 'medium', crowd_sensitivity: 'medium',
+  touch_sensitivity: 'low', vestibular_sensitivity: 'low', olfactory_sensitivity: 'low',
 };
 
 export const DEFAULT_ALGORITHM_PREFERENCES: AlgorithmPreferences = {
-  hide_politics: false,
-  recommend_new: true,
-  hide_marketing: false,
-  recommend_related: true,
-  recommend_trending: true,
-  hide_trauma_content: true,
-  show_boosted_content: true,
-  show_subscribed_only: false,
-  chronological_preferred: false,
+  hide_politics: false, recommend_new: true, hide_marketing: false,
+  recommend_related: true, recommend_trending: true, hide_trauma_content: true,
+  show_boosted_content: true, show_subscribed_only: false, chronological_preferred: false,
 };
 
 // ============================================================================
-// PREFERENCE PARSERS
+// PREFERENCE PARSERS (unchanged — business logic)
 // ============================================================================
 
 export function parseNDPreferences(json: unknown): NDPreferences {
@@ -126,7 +108,7 @@ export interface ProfilePermissions {
 }
 
 // ============================================================================
-// MAIN USE PROFILE HOOK
+// MAIN USE PROFILE HOOK — Now uses generated hooks
 // ============================================================================
 
 export interface UseProfileReturn {
@@ -145,152 +127,77 @@ export interface UseProfileReturn {
 
 export function useProfile(targetUserId?: string): UseProfileReturn {
   const { user } = useAuth();
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  const [permissions, setPermissions] = useState<ProfilePermissions>({
-    canEdit: false,
-    isOwner: false,
-    isAdmin: false,
-    isModerator: false,
-    canViewPrivate: false,
-  });
-  
-  const supabase = createClient();
   const profileId = targetUserId || user?.id;
 
-  const fetchProfile = useCallback(async () => {
-    if (!profileId) {
-      setProfile(null);
-      setLoading(false);
-      return;
-    }
+  // Use generated hooks
+  const { data: profile, loading, error, refetch } = useProfiles(profileId);
+  const { update } = useUpdateProfiles();
 
-    try {
-      setLoading(true);
-      setError(null);
+  const permissions = useMemo((): ProfilePermissions => {
+    const isOwner = user?.id === profileId;
+    const isAdmin = profile?.is_admin === true;
+    const isModerator = profile?.is_moderator === true;
+    return {
+      canEdit: isOwner || isAdmin,
+      isOwner,
+      isAdmin,
+      isModerator,
+      canViewPrivate: isOwner || isAdmin || isModerator,
+    };
+  }, [user, profileId, profile]);
 
-      const { data, error: fetchError } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', profileId)
-        .single();
+  const updateProfile = useCallback(async (updates: Partial<ProfileUpdate>): Promise<Profile | null> => {
+    if (!profileId || !permissions.canEdit) throw new Error('Not authorized');
+    const result = await update(profileId, updates as ProfileUpdate);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [profileId, permissions.canEdit, update, refetch]);
 
-      if (fetchError) throw fetchError;
-
-      setProfile(data);
-      
-      const isOwner = user?.id === profileId;
-      const isAdmin = data?.is_admin === true;
-      const isModerator = data?.is_moderator === true;
-      
-      setPermissions({
-        canEdit: isOwner || isAdmin,
-        isOwner,
-        isAdmin,
-        isModerator,
-        canViewPrivate: isOwner || isAdmin || isModerator,
-      });
-
-    } catch (err) {
-      console.error('Error fetching profile:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch profile'));
-    } finally {
-      setLoading(false);
-    }
-  }, [profileId, user, supabase]);
-
-  useEffect(() => {
-    fetchProfile();
-  }, [fetchProfile]);
-
-  const updateProfile = async (updates: Partial<ProfileUpdate>): Promise<Profile | null> => {
-    if (!profileId || !permissions.canEdit) {
-      throw new Error('Not authorized to edit this profile');
-    }
-
-    try {
-      const { data, error: updateError } = await supabase
-        .from('profiles')
-        .update({
-          ...updates,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', profileId)
-        .select()
-        .single();
-
-      if (updateError) throw updateError;
-      
-      setProfile(data);
-      return data;
-      
-    } catch (err) {
-      console.error('Error updating profile:', err);
-      throw err;
-    }
-  };
-
-  const updateNDPreferences = async (preferences: Partial<NDPreferences>) => {
+  const updateNDPreferences = useCallback(async (prefs: Partial<NDPreferences>) => {
     if (!profile) return;
     const current = parseNDPreferences(profile.nd_preferences);
-    const updated = { ...current, ...preferences };
-    await updateProfile({ nd_preferences: updated as any });
-  };
+    await updateProfile({ nd_preferences: { ...current, ...prefs } as any });
+  }, [profile, updateProfile]);
 
-  const updateSensoryPreferences = async (preferences: Partial<SensoryPreferences>) => {
+  const updateSensoryPreferences = useCallback(async (prefs: Partial<SensoryPreferences>) => {
     if (!profile) return;
     const current = parseSensoryPreferences(profile.sensory_preferences);
-    const updated = { ...current, ...preferences };
-    await updateProfile({ sensory_preferences: updated as any });
-  };
+    await updateProfile({ sensory_preferences: { ...current, ...prefs } as any });
+  }, [profile, updateProfile]);
 
-  const updateAlgorithmPreferences = async (preferences: Partial<AlgorithmPreferences>) => {
+  const updateAlgorithmPreferences = useCallback(async (prefs: Partial<AlgorithmPreferences>) => {
     if (!profile) return;
     const current = parseAlgorithmPreferences(profile.algorithm_preferences);
-    const updated = { ...current, ...preferences };
-    await updateProfile({ algorithm_preferences: updated as any });
-  };
+    await updateProfile({ algorithm_preferences: { ...current, ...prefs } as any });
+  }, [profile, updateProfile]);
 
-  const awardBadge = async (badgeName: string): Promise<boolean> => {
-    if (!profileId || !permissions.canEdit) return false;
-
+  const awardBadge = useCallback(async (badgeName: string): Promise<boolean> => {
     try {
-      const { error } = await supabase.rpc('award_badge', {
-        p_profile_id: profileId,
-        p_badge_name: badgeName,
+      const response = await fetch('/api/rpc/award_badge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_user_id: profileId, p_badge_slug: badgeName }),
       });
-
-      if (error) throw error;
-      
-      await fetchProfile();
-      return true;
-      
-    } catch (err) {
-      console.error('Error awarding badge:', err);
+      const result = await response.json();
+      if (result.success) { await refetch(); return true; }
       return false;
-    }
-  };
+    } catch { return false; }
+  }, [profileId, refetch]);
 
-  const hasBadge = (badgeName: string): boolean => {
+  const hasBadge = useCallback((badgeName: string): boolean => {
     if (!profile?.badges) return false;
-    if (Array.isArray(profile.badges)) {
-      return profile.badges.includes(badgeName);
-    }
+    if (Array.isArray(profile.badges)) return profile.badges.includes(badgeName);
     return false;
-  };
-
-  const refreshProfile = async () => {
-    await fetchProfile();
-  };
+  }, [profile]);
 
   return {
     profile,
     loading,
-    error,
+    error: error ? new Error(error) : null,
     permissions,
     updateProfile,
-    refreshProfile,
+    refreshProfile: refetch,
     updateNDPreferences,
     updateSensoryPreferences,
     updateAlgorithmPreferences,
@@ -308,39 +215,14 @@ export function useCurrentProfile() {
 }
 
 export function useProfileByUsername(username: string) {
-  const supabase = createClient();
-  const [profileId, setProfileId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchId = async () => {
-      if (!username) {
-        setLoading(false);
-        return;
-      }
-      const { data } = await supabase
-        .from('profiles')
-        .select('id')
-        .eq('username', username)
-        .maybeSingle();
-      
-      setProfileId(data?.id || null);
-      setLoading(false);
-    };
-
-    fetchId();
-  }, [username, supabase]);
-
-  const profile = useProfile(profileId || undefined);
-  
-  return {
-    ...profile,
-    loading: loading || profile.loading,
-  };
+  const { data: profiles, loading } = useProfilesList({ filters: { username }, limit: 1 });
+  const profileId = profiles?.[0]?.id;
+  const profile = useProfile(profileId);
+  return { ...profile, loading: loading || profile.loading };
 }
 
 // ============================================================================
-// CREATOR PROFILE HOOK
+// CREATOR PROFILE HOOK — Uses generated hooks
 // ============================================================================
 
 export interface UseCreatorProfileReturn {
@@ -355,141 +237,53 @@ export interface UseCreatorProfileReturn {
   applicationStatus: string | null;
 }
 
-export function useCreatorProfile() {
+export function useCreatorProfile(): UseCreatorProfileReturn {
   const { user } = useAuth();
   const { profile } = useProfile();
-  const [creatorProfile, setCreatorProfile] = useState<CreatorProfile | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  const [applicationStatus, setApplicationStatus] = useState<string | null>(null);
-  
-  const supabase = createClient();
+
+  const { data: creatorProfile, loading, error, refetch } = useCreatorProfiles(user?.id ? undefined : undefined);
+  const { create: createProfile } = useCreateCreatorProfiles();
+  const { update: updateProfile } = useUpdateCreatorProfiles();
+
+  const { data: applications } = useApplicationsList({ 
+    filters: { application_type: 'creator' },
+    limit: 100 
+  });
+  const appStatus = applications?.find(a => a.application_type === 'creator')?.status || null;
+
   const canEdit = profile?.is_creator === true || profile?.is_admin === true;
 
-  const fetchCreatorProfile = useCallback(async () => {
-    if (!user) {
-      setCreatorProfile(null);
-      setLoading(false);
-      return;
-    }
-
-    try {
-      setLoading(true);
-      setError(null);
-
-      const { data, error: fetchError } = await supabase
-        .from('creator_profiles')
-        .select('*')
-        .eq('profile_id', user.id)
-        .maybeSingle();
-
-      if (fetchError) throw fetchError;
-      
-      setCreatorProfile(data);
-
-      if (!data) {
-        const { data: appData } = await supabase
-          .from('applications')
-          .select('status')
-          .eq('user_id', user.id)
-          .eq('application_type', 'creator')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle();
-        
-        setApplicationStatus(appData?.status || null);
-      } else {
-        setApplicationStatus(null);
-      }
-
-    } catch (err) {
-      console.error('Error fetching creator profile:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch creator profile'));
-    } finally {
-      setLoading(false);
-    }
-  }, [user, supabase]);
-
-  useEffect(() => {
-    fetchCreatorProfile();
-  }, [fetchCreatorProfile]);
-
-  const createCreatorProfile = async (
-    data: Partial<Omit<CreatorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<CreatorProfile | null> => {
+  const createCreatorProfile = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
+    const result = await createProfile({ ...data, profile_id: user.id } as any);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [user, createProfile, refetch]);
 
-    try {
-      const { data: newProfile, error: createError } = await supabase
-        .from('creator_profiles')
-        .insert({
-          ...data,
-          profile_id: user.id,
-        })
-        .select()
-        .single();
-
-      if (createError) throw createError;
-      
-      setCreatorProfile(newProfile);
-      await supabase.from('profiles').update({ is_creator: true }).eq('id', user.id);
-      
-      return newProfile;
-      
-    } catch (err) {
-      console.error('Error creating creator profile:', err);
-      throw err;
-    }
-  };
-
-  const updateCreatorProfile = async (
-    updates: Partial<Omit<CreatorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<CreatorProfile | null> => {
+  const updateCreatorProfile = useCallback(async (updates: any) => {
     if (!creatorProfile || !canEdit) throw new Error('Not authorized');
-
-    try {
-      const { data, error: updateError } = await supabase
-        .from('creator_profiles')
-        .update({
-          ...updates,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', creatorProfile.id)
-        .select()
-        .single();
-
-      if (updateError) throw updateError;
-      
-      setCreatorProfile(data);
-      return data;
-      
-    } catch (err) {
-      console.error('Error updating creator profile:', err);
-      throw err;
-    }
-  };
-
-  const refreshCreatorProfile = async () => {
-    await fetchCreatorProfile();
-  };
-
-  const hasActiveApplication = applicationStatus === 'pending' || applicationStatus === 'in_review';
+    const result = await updateProfile(creatorProfile.id, updates);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [creatorProfile, canEdit, updateProfile, refetch]);
 
   return {
     creatorProfile,
     loading,
-    error,
+    error: error ? new Error(error) : null,
     canEdit,
     createCreatorProfile,
     updateCreatorProfile,
-    refreshCreatorProfile,
-    hasActiveApplication,
-    applicationStatus,
+    refreshCreatorProfile: refetch,
+    hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing',
+    applicationStatus: appStatus,
   };
 }
 
 // ============================================================================
-// VENDOR PROFILE HOOK
+// VENDOR PROFILE HOOK — Uses generated hooks
 // ============================================================================
 
 export interface UseVendorProfileReturn {
@@ -504,141 +298,53 @@ export interface UseVendorProfileReturn {
   applicationStatus: string | null;
 }
 
-export function useVendorProfile() {
+export function useVendorProfile(): UseVendorProfileReturn {
   const { user } = useAuth();
   const { profile } = useProfile();
-  const [vendorProfile, setVendorProfile] = useState<VendorProfile | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  const [applicationStatus, setApplicationStatus] = useState<string | null>(null);
-  
-  const supabase = createClient();
+
+  const { data: vendorProfile, loading, error, refetch } = useVendorProfiles(user?.id ? undefined : undefined);
+  const { create: createProfile } = useCreateVendorProfiles();
+  const { update: updateProfile } = useUpdateVendorProfiles();
+
+  const { data: applications } = useApplicationsList({ 
+    filters: { application_type: 'vendor' },
+    limit: 100 
+  });
+  const appStatus = applications?.find(a => a.application_type === 'vendor')?.status || null;
+
   const canEdit = profile?.is_vendor === true || profile?.is_admin === true;
 
-  const fetchVendorProfile = useCallback(async () => {
-    if (!user) {
-      setVendorProfile(null);
-      setLoading(false);
-      return;
-    }
-
-    try {
-      setLoading(true);
-      setError(null);
-
-      const { data, error: fetchError } = await supabase
-        .from('vendor_profiles')
-        .select('*')
-        .eq('profile_id', user.id)
-        .maybeSingle();
-
-      if (fetchError) throw fetchError;
-      
-      setVendorProfile(data);
-
-      if (!data) {
-        const { data: appData } = await supabase
-          .from('applications')
-          .select('status')
-          .eq('user_id', user.id)
-          .eq('application_type', 'vendor')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle();
-        
-        setApplicationStatus(appData?.status || null);
-      } else {
-        setApplicationStatus(null);
-      }
-
-    } catch (err) {
-      console.error('Error fetching vendor profile:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch vendor profile'));
-    } finally {
-      setLoading(false);
-    }
-  }, [user, supabase]);
-
-  useEffect(() => {
-    fetchVendorProfile();
-  }, [fetchVendorProfile]);
-
-  const createVendorProfile = async (
-    data: Partial<Omit<VendorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<VendorProfile | null> => {
+  const createVendorProfile = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
+    const result = await createProfile({ ...data, profile_id: user.id } as any);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [user, createProfile, refetch]);
 
-    try {
-      const { data: newProfile, error: createError } = await supabase
-        .from('vendor_profiles')
-        .insert({
-          ...data,
-          profile_id: user.id,
-        })
-        .select()
-        .single();
-
-      if (createError) throw createError;
-      
-      setVendorProfile(newProfile);
-      await supabase.from('profiles').update({ is_vendor: true }).eq('id', user.id);
-      
-      return newProfile;
-      
-    } catch (err) {
-      console.error('Error creating vendor profile:', err);
-      throw err;
-    }
-  };
-
-  const updateVendorProfile = async (
-    updates: Partial<Omit<VendorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<VendorProfile | null> => {
+  const updateVendorProfile = useCallback(async (updates: any) => {
     if (!vendorProfile || !canEdit) throw new Error('Not authorized');
-
-    try {
-      const { data, error: updateError } = await supabase
-        .from('vendor_profiles')
-        .update({
-          ...updates,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', vendorProfile.id)
-        .select()
-        .single();
-
-      if (updateError) throw updateError;
-      
-      setVendorProfile(data);
-      return data;
-      
-    } catch (err) {
-      console.error('Error updating vendor profile:', err);
-      throw err;
-    }
-  };
-
-  const refreshVendorProfile = async () => {
-    await fetchVendorProfile();
-  };
-
-  const hasActiveApplication = applicationStatus === 'pending' || applicationStatus === 'in_review';
+    const result = await updateProfile(vendorProfile.id, updates);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [vendorProfile, canEdit, updateProfile, refetch]);
 
   return {
     vendorProfile,
     loading,
-    error,
+    error: error ? new Error(error) : null,
     canEdit,
     createVendorProfile,
     updateVendorProfile,
-    refreshVendorProfile,
-    hasActiveApplication,
-    applicationStatus,
+    refreshVendorProfile: refetch,
+    hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing',
+    applicationStatus: appStatus,
   };
 }
 
 // ============================================================================
-// COMMUNITY PROFILE HOOK
+// COMMUNITY PROFILE HOOK — Uses generated hooks
 // ============================================================================
 
 export interface UseCommunityProfileReturn {
@@ -652,121 +358,43 @@ export interface UseCommunityProfileReturn {
   hasJoinedHouse: boolean;
 }
 
-export function useCommunityProfile() {
+export function useCommunityProfile(): UseCommunityProfileReturn {
   const { user } = useAuth();
-  const [communityProfile, setCommunityProfile] = useState<CommunityProfile | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  
-  const supabase = createClient();
-  const canEdit = true;
 
-  const fetchCommunityProfile = useCallback(async () => {
-    if (!user) {
-      setCommunityProfile(null);
-      setLoading(false);
-      return;
-    }
+  const { data: communityProfile, loading, error, refetch } = useCommunityProfiles(user?.id ? undefined : undefined);
+  const { create: createProfile } = useCreateCommunityProfiles();
+  const { update: updateProfile } = useUpdateCommunityProfiles();
 
-    try {
-      setLoading(true);
-      setError(null);
-
-      const { data, error: fetchError } = await supabase
-        .from('community_profiles')
-        .select('*')
-        .eq('profile_id', user.id)
-        .maybeSingle();
-
-      if (fetchError) throw fetchError;
-      
-      setCommunityProfile(data);
-
-    } catch (err) {
-      console.error('Error fetching community profile:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch community profile'));
-    } finally {
-      setLoading(false);
-    }
-  }, [user, supabase]);
-
-  useEffect(() => {
-    fetchCommunityProfile();
-  }, [fetchCommunityProfile]);
-
-  const createCommunityProfile = async (
-    data: Partial<Omit<CommunityProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<CommunityProfile | null> => {
+  const createCommunityProfile = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
+    const result = await createProfile({ ...data, profile_id: user.id } as any);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [user, createProfile, refetch]);
 
-    try {
-      const { data: newProfile, error: createError } = await supabase
-        .from('community_profiles')
-        .insert({
-          ...data,
-          profile_id: user.id,
-        })
-        .select()
-        .single();
-
-      if (createError) throw createError;
-      
-      setCommunityProfile(newProfile);
-      return newProfile;
-      
-    } catch (err) {
-      console.error('Error creating community profile:', err);
-      throw err;
-    }
-  };
-
-  const updateCommunityProfile = async (
-    updates: Partial<Omit<CommunityProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>
-  ): Promise<CommunityProfile | null> => {
+  const updateCommunityProfile = useCallback(async (updates: any) => {
     if (!communityProfile) throw new Error('No community profile found');
-
-    try {
-      const { data, error: updateError } = await supabase
-        .from('community_profiles')
-        .update({
-          ...updates,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', communityProfile.id)
-        .select()
-        .single();
-
-      if (updateError) throw updateError;
-      
-      setCommunityProfile(data);
-      return data;
-      
-    } catch (err) {
-      console.error('Error updating community profile:', err);
-      throw err;
-    }
-  };
-
-  const refreshCommunityProfile = async () => {
-    await fetchCommunityProfile();
-  };
-
-  const hasJoinedHouse = !!communityProfile?.joined_house;
+    const result = await updateProfile(communityProfile.id, updates);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [communityProfile, updateProfile, refetch]);
 
   return {
     communityProfile,
     loading,
-    error,
-    canEdit,
+    error: error ? new Error(error) : null,
+    canEdit: true,
     createCommunityProfile,
     updateCommunityProfile,
-    refreshCommunityProfile,
-    hasJoinedHouse,
+    refreshCommunityProfile: refetch,
+    hasJoinedHouse: !!communityProfile?.joined_house,
   };
 }
 
 // ============================================================================
-// APPLICATION HOOK (for creator/vendor applications)
+// APPLICATION HOOK — Uses generated hooks
 // ============================================================================
 
 export interface UseApplicationReturn {
@@ -777,88 +405,36 @@ export interface UseApplicationReturn {
   refreshApplication: () => Promise<void>;
 }
 
-export function useApplication(applicationType: 'creator' | 'vendor') {
+export function useApplication(applicationType: 'creator' | 'vendor'): UseApplicationReturn {
   const { user } = useAuth();
-  const [application, setApplication] = useState<Application | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  
-  const supabase = createClient();
+  // Use the list hook instead of single hook
+  const { data: applications, loading, error, refetch } = useApplicationsList({ 
+    filters: { application_type: applicationType },
+    limit: 100 
+  });
+  const { create } = useCreateApplications();
 
-  const fetchApplication = useCallback(async () => {
-    if (!user) {
-      setApplication(null);
-      setLoading(false);
-      return;
-    }
+  // applications is now an array — find works
+  const application = applications?.find(a => a.user_id === user?.id) || null;
 
-    try {
-      setLoading(true);
-      setError(null);
-
-      const { data, error: fetchError } = await supabase
-        .from('applications')
-        .select('*')
-        .eq('user_id', user.id)
-        .eq('application_type', applicationType)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .maybeSingle();
-
-      if (fetchError) throw fetchError;
-      
-      setApplication(data);
-
-    } catch (err) {
-      console.error('Error fetching application:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch application'));
-    } finally {
-      setLoading(false);
-    }
-  }, [user, applicationType, supabase]);
-
-  useEffect(() => {
-    fetchApplication();
-  }, [fetchApplication]);
-
-  const submitApplication = async (
-    appType: 'creator' | 'vendor',
-    formData: Record<string, unknown>
-  ): Promise<Application | null> => {
+  const submitApplication = useCallback(async (appType: 'creator' | 'vendor', formData: Record<string, unknown>) => {
     if (!user) throw new Error('Not authenticated');
-
-    try {
-      const { data, error: insertError } = await supabase
-        .from('applications')
-        .insert({
-          user_id: user.id,
-          application_type: appType,
-          form_data: formData,
-          status: 'pending',
-        })
-        .select()
-        .single();
-
-      if (insertError) throw insertError;
-      
-      setApplication(data);
-      return data;
-      
-    } catch (err) {
-      console.error('Error submitting application:', err);
-      throw err;
-    }
-  };
-
-  const refreshApplication = async () => {
-    await fetchApplication();
-  };
+    const result = await create({
+      user_id: user.id,
+      application_type: appType,
+      form_data: formData,
+      status: 'pending',
+    } as any);
+    if (result.error) throw new Error(result.error);
+    await refetch();
+    return result.data;
+  }, [user, create, refetch]);
 
   return {
     application,
     loading,
-    error,
+    error: error ? new Error(error) : null,
     submitApplication,
-    refreshApplication,
+    refreshApplication: refetch,
   };
 }

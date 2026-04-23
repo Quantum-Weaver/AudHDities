@@ -944,9 +944,6 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   
   // ===== PHASE 4: PLAN =====
   logStep('\n📋 Phase 4: Generation Plan');
-  
-  // ===== PHASE 4: PLAN =====
-  logStep('\n📋 Phase 4: Generation Plan');
 
   const plan = calculateGenerationPlan(
     enriched.tables,

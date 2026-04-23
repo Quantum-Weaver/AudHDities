@@ -1,7 +1,7 @@
 // =====================================================
 // GENERATED ENUMS HELPER - DO NOT EDIT MANUALLY
 // =====================================================
-// Generated: 2026-04-22T00:31:48.690Z
+// Generated: 2026-04-23T16:40:23.119Z
 // Source: database.types.ts Constants.Enums
 // Purpose: Runtime enum values and type-safe helpers
 // =====================================================
@@ -147,7 +147,7 @@ export const ENUM_VALUES = {
   applicationType: ['creator', 'vendor', 'mentor', 'moderator'] as const,
   badgeRarity: ['common', 'rare', 'epic', 'legendary', 'mythic'] as const,
   badgeTier: ['initiate', 'adept', 'master'] as const,
-  badgeType: ['quantum_weaver', 'founding_council', 'genesis_block', 'sanctuary_guardian', 'verified_creator', 'verified_vendor', 'community_leader', 'first_sale', 'first_purchase', 'first_quest', 'quest_master', 'sovereign_seeker', 'sovereign_adept', 'sovereign_master', 'contributor_concept', 'contributor_code', 'contributor_design', 'contributor_content', 'contributor_testing', 'hearth_keeper_initiate', 'hearth_keeper_adept', 'hearth_keeper_master', 'chancellor_initiate', 'chancellor_adept', 'chancellor_master', 'seer_initiate', 'seer_adept', 'seer_master', 'aethelred_initiate', 'aethelred_adept', 'aethelred_master', 'curator_initiate', 'curator_adept', 'curator_master', 'archivist_initiate', 'archivist_adept', 'archivist_master', 'skald_initiate', 'skald_adept', 'skald_master', 'codex_initiate', 'codex_adept', 'codex_master', 'executioner_initiate', 'executioner_adept', 'executioner_master', 'bigot_tax_exempt', 'data_sovereign', 'privacy_pioneer'] as const,
+  badgeType: ['quantum_weaver', 'founding_council', 'genesis_block', 'sanctuary_guardian', 'verified_creator', 'verified_vendor', 'community_leader', 'first_sale', 'first_purchase', 'first_quest', 'quest_master', 'sovereign_seeker', 'sovereign_adept', 'sovereign_master', 'contributor_concept', 'contributor_code', 'contributor_design', 'contributor_content', 'contributor_testing', 'hearth_keeper_initiate', 'hearth_keeper_adept', 'hearth_keeper_master', 'chancellor_initiate', 'chancellor_adept', 'chancellor_master', 'seer_initiate', 'seer_adept', 'seer_master', 'aethelred_initiate', 'aethelred_adept', 'aethelred_master', 'curator_initiate', 'curator_adept', 'curator_master', 'archivist_initiate', 'archivist_adept', 'archivist_master', 'skald_initiate', 'skald_adept', 'skald_master', 'codex_initiate', 'codex_adept', 'codex_master', 'executioner_initiate', 'executioner_adept', 'executioner_master', 'bigot_tax_exempt', 'data_sovereign', 'privacy_pioneer', 'bubble_collector', 'discovery'] as const,
   bidType: ['cpm', 'cpc', 'cpa'] as const,
   blueprintStatus: ['draft', 'active', 'archived', 'deprecated'] as const,
   blueprintSystem: ['COSMIC', 'GAIA', 'PROMETHEUS'] as const,

@@ -1,10 +1,10 @@
-// scripts/list-tables.ts
+// scripts/shared/list-tables.ts
 // Extract all table names from database.types.ts
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { getProjectRoot } from '../../../shared/paths.js'
+import { getProjectRoot } from './paths.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
