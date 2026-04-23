@@ -1,11 +1,10 @@
 // components/auth/LoginForm.tsx
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useSupabase } from "@/lib/supabase/client";
-import { UnifiedForm } from "@/components/shared/UnifiedForm";
-import type { FieldValue } from "@/types/components/ui/forms";
+import { useAuth } from "@/hooks/useAuth";
+import { Input, Form, FormField, FormActions, Alert, Button } from "@/components/ui";
 
 interface LoginFormProps {
   redirectTo?: string;
@@ -14,32 +13,32 @@ interface LoginFormProps {
 export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const supabase = useSupabase();
+  const { signIn } = useAuth();
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [values, setValues] = useState({ email: "", password: "" });
 
   const redirect = searchParams.get("redirect") || redirectTo;
 
-  const handleSubmit = async (values: Record<string, FieldValue>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
     setError(null);
-    
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: values.email as string,
-      password: values.password as string,
-    });
+
+    const { error: signInError } = await signIn(values.email, values.password);
 
     if (signInError) {
       setError(signInError.message);
+      setIsLoading(false);
       return;
-    }
-
-    // Handle "remember me" - session duration
-    if (values.remember_me) {
-      // Supabase sessions default to long-lived, this is handled server-side
-      // The checkbox is for UI/UX only
     }
 
     router.push(redirect);
     router.refresh();
+  };
+
+  const handleChange = (name: string, value: string) => {
+    setValues(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -50,17 +49,47 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
       </div>
 
       {error && (
-        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
-          <p className="text-red-400 text-sm text-center">{error}</p>
-        </div>
+        <Alert variant="error" className="mb-6">{error}</Alert>
       )}
 
-      <UnifiedForm variant="login" onSubmit={handleSubmit} />
+      <Form onSubmit={handleSubmit}>
+        <FormField label="Email" required>
+          <Input
+            type="email"
+            value={values.email}
+            onChange={(e) => handleChange("email", e.target.value)}
+            placeholder="your@email.com"
+            disabled={isLoading}
+          />
+        </FormField>
 
-      <div className="mt-6 text-center">
+        <FormField label="Password" required>
+          <Input
+            type="password"
+            value={values.password}
+            onChange={(e) => handleChange("password", e.target.value)}
+            placeholder="Enter your password"
+            disabled={isLoading}
+          />
+        </FormField>
+
+        <FormActions>
+          <Button type="submit" disabled={isLoading} className="w-full">
+            {isLoading ? "Entering..." : "Enter the Sanctuary"}
+          </Button>
+        </FormActions>
+      </Form>
+
+      <div className="mt-6 text-center space-y-2">
         <p className="text-white/40 text-sm">
           <a href="/forgot-password" className="text-cyan-400 hover:underline">
             Forgot your password?
+          </a>
+        </p>
+        <p className="text-white/40 text-sm">
+          New to the Sanctuary?{" "}
+          <a href="/signup" className="text-cyan-400 hover:underline">
+            Initialize Consciousness
           </a>
         </p>
       </div>

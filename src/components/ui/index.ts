@@ -1,6 +1,6 @@
 // components/ui/index.ts
 // Component Index - Single export file for all UI components
-// Last Updated: April 18, 2026
+// Last Updated: April 23, 2026
 
 // ============================================================================
 // LAYOUT COMPONENTS
@@ -183,11 +183,27 @@ export {
 
 export {
   Avatar,
+  AvatarImage,
+  AvatarFallback,
+  AvatarBadge,
+  AvatarStatusIndicator,
   AvatarGroup,
+  QuantumAvatar,
+  CosmicAvatar,
+  GlowingAvatar,
+  InteractiveAvatar,
   type AvatarProps,
+  type AvatarImageProps,
+  type AvatarFallbackProps,
   type AvatarSize,
   type AvatarStatus,
+  type AvatarVariant,
 } from './Avatar';
+
+export {
+  Kbd,
+  KbdGroup,
+} from './Kbd';
 
 // ============================================================================
 // CARD & SECTION COMPONENTS
@@ -195,9 +211,19 @@ export {
 
 export {
   Card,
+  CardMedia,
   CardHeader,
+  CardContent,
   CardFooter,
-  type CardProps,
+  SmartCard,
+  ProductCardRenderer,
+  QuestCardRenderer,
+  ProposalCardRenderer,
+  DifficultyBadge,
+  StatusBadge,
+  TierBadge,
+  PriceBadge,
+  type CardProps
 } from './Card';
 
 export {
@@ -218,6 +244,8 @@ export {
 // ============================================================================
 // NAVIGATION COMPONENTS
 // ============================================================================
+
+export { Button, IconButton, type ButtonProps, type IconButtonProps } from './Button';
 
 export {
   Tabs,
@@ -319,10 +347,20 @@ export {
 } from './Radio';
 
 export {
+  RadioGroup as RadioGroupBase,
+  RadioGroupItem,
+} from './RadioGroup';
+
+export {
   Switch,
   type SwitchProps,
   type SwitchSize,
 } from './Switch';
+
+export {
+  Slider,
+  type SliderProps,
+} from './Slider';
 
 export {
   Label,
@@ -357,6 +395,23 @@ export {
   type ValidationResult,
   type ValidatorFunction,
 } from './FormValidation';
+
+// ============================================================================
+// DIALOG COMPONENTS
+// ============================================================================
+
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from './Dialog';
 
 // ============================================================================
 // FEEDBACK COMPONENTS
@@ -427,3 +482,8 @@ export {
   type DrawerSide,
   type DrawerSize,
 } from './Drawer';
+
+export {
+  Spinner,
+  type SpinnerProps,
+} from './Spinner';

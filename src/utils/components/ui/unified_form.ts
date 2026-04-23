@@ -1,13 +1,11 @@
 // src/utils/components/ui/unified_form.ts
 // Pure logic only - no values, no side effects
-// ALIGNED WITH constants and types
+// ALIGNED WITH constants, types, and GAIA-generated Zod validators
 
 import type { 
   FieldValue, 
   FieldConfig, 
   ValidationResult,
-  ValidatorFn,
-  AsyncValidatorFn,
   FormSection,
   WizardStep,
   FormVariant,
@@ -40,7 +38,7 @@ export function isFileArrayValue(value: FieldValue): value is File[] {
 }
 
 // =====================================================
-// VALIDATION HELPERS
+// VALIDATION STATE HELPERS
 // =====================================================
 
 export function getValidationState(
@@ -68,46 +66,55 @@ export function isValid(validation: ValidationResult): boolean {
 }
 
 // =====================================================
+// ZOD VALIDATION HELPER
+// =====================================================
+// Use GAIA-generated Zod schemas instead of custom validators.
+// Example:
+//   import { ProfilesInsertSchema } from '@/lib/validators/generated/hestia-core/profiles';
+//   const result = ProfilesInsertSchema.safeParse(formData);
+
+export function zodErrorsToValidationResult(
+  zodResult: { success: false; error: { issues: Array<{ path: (string | number)[]; message: string }> } }
+): ValidationResult {
+  const errors: Record<string, string> = {};
+  for (const issue of zodResult.error.issues) {
+    const fieldName = String(issue.path[0] || 'form');
+    if (!errors[fieldName]) {
+      errors[fieldName] = issue.message;
+    }
+  }
+  return {
+    valid: false,
+    errors,
+    warnings: {},
+    touched: {},
+  };
+}
+
+// =====================================================
 // FIELD EXTRACTION
 // =====================================================
 
-/**
- * Get field names for a form variant (returns mutable array)
- */
 export function getFieldsForVariant(variant: FormVariant): string[] {
   const config = VARIANT_FIELD_CONFIGS[variant];
   if (!config?.fields) return [];
-  // Spread creates a mutable copy, breaking the readonly constraint
   return [...config.fields];
 }
 
-/**
- * Get layout for a form variant
- */
 export function getLayoutForVariant(variant: FormVariant): string {
   return VARIANT_FIELD_CONFIGS[variant]?.layout || 'vertical';
 }
 
-/**
- * Get size for a form variant
- */
 export function getSizeForVariant(variant: FormVariant): string {
   return VARIANT_FIELD_CONFIGS[variant]?.size || 'md';
 }
 
-/**
- * Get field names as readonly (no copy, more efficient)
- */
 export function getFieldsForVariantReadonly(variant: FormVariant): readonly string[] {
   return VARIANT_FIELD_CONFIGS[variant]?.fields || [];
 }
 
-/**
- * Check if a variant has a specific field
- */
 export function variantHasField(variant: FormVariant, fieldName: string): boolean {
-  const fields = getFieldsForVariantReadonly(variant);
-  return fields.includes(fieldName);
+  return getFieldsForVariantReadonly(variant).includes(fieldName);
 }
 
 // =====================================================
@@ -263,192 +270,6 @@ export function formatFileSize(bytes: number): string {
 }
 
 // =====================================================
-// VALIDATOR FACTORIES
-// =====================================================
-
-export const required = (message: string = 'This field is required'): ValidatorFn => {
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return message;
-    return null;
-  };
-};
-
-export const email = (message: string = 'Please enter a valid email address'): ValidatorFn => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return message;
-    if (!emailRegex.test(value)) return message;
-    return null;
-  };
-};
-
-export const minLength = (length: number, message?: string): ValidatorFn => {
-  const defaultMessage = `Must be at least ${length} characters`;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return defaultMessage;
-    if (value.length < length) return message || defaultMessage;
-    return null;
-  };
-};
-
-export const maxLength = (length: number, message?: string): ValidatorFn => {
-  const defaultMessage = `Cannot exceed ${length} characters`;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return defaultMessage;
-    if (value.length > length) return message || defaultMessage;
-    return null;
-  };
-};
-
-export const min = (minVal: number, message?: string): ValidatorFn => {
-  const defaultMessage = `Must be at least ${minVal}`;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'number') return defaultMessage;
-    if (value < minVal) return message || defaultMessage;
-    return null;
-  };
-};
-
-export const max = (maxVal: number, message?: string): ValidatorFn => {
-  const defaultMessage = `Cannot exceed ${maxVal}`;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'number') return defaultMessage;
-    if (value > maxVal) return message || defaultMessage;
-    return null;
-  };
-};
-
-export const pattern = (regex: RegExp, message: string): ValidatorFn => {
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return message;
-    if (!regex.test(value)) return message;
-    return null;
-  };
-};
-
-export const url = (message: string = 'Please enter a valid URL'): ValidatorFn => {
-  const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return message;
-    if (!urlRegex.test(value)) return message;
-    return null;
-  };
-};
-
-export const phone = (message: string = 'Please enter a valid phone number'): ValidatorFn => {
-  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-  return (value: FieldValue) => {
-    if (isEmpty(value)) return null;
-    if (typeof value !== 'string') return message;
-    if (!phoneRegex.test(value)) return message;
-    return null;
-  };
-};
-
-export const match = (fieldName: string, message?: string): ValidatorFn => {
-  const defaultMessage = `Must match ${fieldName}`;
-  return (value: FieldValue, allValues?: Record<string, FieldValue>) => {
-    if (isEmpty(value)) return null;
-    const matchValue = allValues?.[fieldName];
-    if (value !== matchValue) return message || defaultMessage;
-    return null;
-  };
-};
-
-// =====================================================
-// VALIDATOR COMPOSITION
-// =====================================================
-
-export function composeValidators(...validators: ValidatorFn[]): ValidatorFn {
-  return (value: FieldValue, allValues?: Record<string, FieldValue>) => {
-    for (const validator of validators) {
-      const error = validator(value, allValues);
-      if (error) return error;
-    }
-    return null;
-  };
-}
-
-export function composeAsyncValidators(...validators: AsyncValidatorFn[]): AsyncValidatorFn {
-  return async (value: FieldValue, allValues?: Record<string, FieldValue>) => {
-    for (const validator of validators) {
-      const error = await validator(value, allValues);
-      if (error) return error;
-    }
-    return null;
-  };
-}
-
-// =====================================================
-// VALIDATION RESULT HELPERS
-// =====================================================
-
-export function createValidationResult(
-  errors: Record<string, string> = {},
-  warnings: Record<string, string> = {},
-  touched: Record<string, boolean> = {}
-): ValidationResult {
-  return {
-    valid: Object.keys(errors).length === 0,
-    errors,
-    warnings,
-    touched,
-  };
-}
-
-export function mergeValidationResults(
-  a: ValidationResult,
-  b: ValidationResult
-): ValidationResult {
-  return {
-    valid: a.valid && b.valid,
-    errors: { ...a.errors, ...b.errors },
-    warnings: { ...a.warnings, ...b.warnings },
-    touched: { ...a.touched, ...b.touched },
-  };
-}
-
-export function addFieldError(
-  result: ValidationResult,
-  fieldName: string,
-  error: string
-): ValidationResult {
-  return {
-    ...result,
-    valid: false,
-    errors: { ...result.errors, [fieldName]: error },
-  };
-}
-
-export function addFieldWarning(
-  result: ValidationResult,
-  fieldName: string,
-  warning: string
-): ValidationResult {
-  return {
-    ...result,
-    warnings: { ...result.warnings, [fieldName]: warning },
-  };
-}
-
-export function markFieldTouched(
-  result: ValidationResult,
-  fieldName: string
-): ValidationResult {
-  return {
-    ...result,
-    touched: { ...result.touched, [fieldName]: true },
-  };
-}
-
-// =====================================================
 // FORM DATA HELPERS
 // =====================================================
 
@@ -456,29 +277,19 @@ export function serializeFormData(data: Record<string, FieldValue>): FormData {
   const formData = new FormData();
   
   for (const [key, value] of Object.entries(data)) {
-    // Skip undefined/null
     if (value === undefined || value === null) continue;
     
-    // File
     if (value instanceof File) {
       formData.append(key, value);
-    }
-    // File array
-    else if (Array.isArray(value) && value.every(v => v instanceof File)) {
+    } else if (Array.isArray(value) && value.every(v => v instanceof File)) {
       for (const file of value) {
         formData.append(`${key}[]`, file);
       }
-    }
-    // Date
-    else if (value instanceof Date) {
+    } else if (value instanceof Date) {
       formData.append(key, value.toISOString());
-    }
-    // Object (JSON)
-    else if (typeof value === 'object') {
+    } else if (typeof value === 'object') {
       formData.append(key, JSON.stringify(value));
-    }
-    // Primitive
-    else {
+    } else {
       formData.append(key, String(value));
     }
   }
@@ -486,41 +297,28 @@ export function serializeFormData(data: Record<string, FieldValue>): FormData {
   return formData;
 }
 
-/**
- * Deserialize FormData to Record<string, string | File>
- * Note: This returns a simpler type because FormData cannot
- * automatically reconstruct complex nested objects.
- * For complex data, use JSON serialization instead.
- */
 export function deserializeFormDataSimple(
   formData: FormData
 ): Record<string, string | File> {
   const data: Record<string, string | File> = {};
   
   for (const [key, value] of formData.entries()) {
-    // FormDataEntryValue is either string or File
     data[key] = value;
   }
   
   return data;
 }
 
-/**
- * Convert simple FormData result to FieldValue record
- * with intelligent type detection
- */
 export function convertToFieldValues(
   simpleData: Record<string, string | File>
 ): Record<string, FieldValue> {
   const result: Record<string, FieldValue> = {};
   
   for (const [key, value] of Object.entries(simpleData)) {
-    // Handle multi-value keys (ends with [])
     const isArrayKey = key.endsWith('[]');
     const baseKey = isArrayKey ? key.slice(0, -2) : key;
     
     if (isArrayKey) {
-      // Collect array values
       if (!result[baseKey]) {
         result[baseKey] = [];
       }
@@ -534,18 +332,11 @@ export function convertToFieldValues(
   return result;
 }
 
-/**
- * Complete deserialize with type conversion
- */
 export function deserializeFormData(formData: FormData): Record<string, FieldValue> {
   const simple = deserializeFormDataSimple(formData);
   return convertToFieldValues(simple);
 }
 
-/**
- * Try to parse JSON strings in form data
- * Useful when receiving serialized objects from API
- */
 export function parseJsonFields(
   data: Record<string, FieldValue>,
   fieldsToParse: string[]

@@ -1,9 +1,9 @@
 /* @/components/auth/AuthGuard.tsx */
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-import { useSupabase } from '@/lib/supabase/client'
+import { useAuth } from '@/hooks/useAuth'
 import { Loader2 } from 'lucide-react'
 
 interface AuthGuardProps {
@@ -19,43 +19,27 @@ export default function AuthGuard({
 }: AuthGuardProps) {
   const router = useRouter()
   const pathname = usePathname()
-  const [isLoading, setIsLoading] = useState(true)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const { user, loading } = useAuth()
 
   useEffect(() => {
-    const supabase = useSupabase()
-    
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      const authenticated = !!session
-      
-      setIsAuthenticated(authenticated)
+    if (loading) return
 
-      if (requireAuth && !authenticated) {
-        router.push(`${redirectTo}?redirect=${encodeURIComponent(pathname)}`)
-      } else if (!requireAuth && authenticated) {
-        router.push('/dashboard')
-      }
-
-      setIsLoading(false)
+    if (requireAuth && !user) {
+      router.push(`${redirectTo}?redirect=${encodeURIComponent(pathname)}`)
+    } else if (!requireAuth && user) {
+      router.push('/dashboard')
     }
+  }, [user, loading, requireAuth, redirectTo, router, pathname])
 
-    checkAuth()
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
-      checkAuth()
-    })
-
-    return () => subscription.unsubscribe()
-  }, [router, pathname, requireAuth, redirectTo])
-
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-cyan-400" />
       </div>
     )
   }
+
+  if (requireAuth && !user) return null
 
   return <>{children}</>
 }
