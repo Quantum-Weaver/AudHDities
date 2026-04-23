@@ -41,7 +41,7 @@ export interface PublicSurveys {
   questions: Json;
   response_count: number | null;
   starts_at: string | null;
-  target_audience:;
+  target_audience: SurveyAudienceType;
   target_house: CouncilHouse | null;
   title: string;
   updated_at: string | null;

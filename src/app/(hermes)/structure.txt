@@ -1,0 +1,27 @@
+🦊 HERMES — The Bazaar
+
+Feeling: Abundant, curious, playful, connected
+
+src/app/(hermes)/
+├── bazaar/
+│   ├── page.tsx                      # The Bazaar (/bazaar)
+│   ├── creations/
+│   │   ├── page.tsx                  # Creations (/bazaar/creations)
+│   │   └── [id]/
+│   │       └── page.tsx              # Creation Detail (/bazaar/creations/[id])
+│   ├── creators/
+│   │   ├── page.tsx                  # Creators (/bazaar/creators)
+│   │   └── [id]/
+│   │       └── page.tsx              # Creator Sanctuary (/bazaar/creators/[id])
+│   ├── vendors/
+│   │   ├── page.tsx                  # Vendors (/bazaar/vendors)
+│   │   └── [id]/
+│   │       └── page.tsx              # Vendor Sanctuary (/bazaar/vendors/[id])
+│   ├── studio/
+│   │   ├── page.tsx                  # The Loom (/bazaar/studio)
+│   │   └── [id]/
+│   │       └── page.tsx              # Edit Creation (/bazaar/studio/[id])
+│   ├── contributions/
+│   │   └── page.tsx                  # Contributions Ledger (/bazaar/contributions)
+│   └── checkout/
+│       └── page.tsx                  # The Exchange (/bazaar/checkout)

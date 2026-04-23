@@ -1,0 +1,64 @@
+// =====================================================
+// FILE: validators/translations.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import { ENUM_VALUES } from '@/types/supabase/enums';
+import z from 'zod';
+
+// =====================================================
+// Translations SCHEMAS
+// =====================================================
+
+export const TranslationsRowSchema = z.object({
+  approved_by: z.string().nullable(),
+  created_at: z.string().nullable(),
+  created_by: z.string().nullable(),
+  field_name: z.string(),
+  id: z.string(),
+  is_approved: z.boolean().nullable(),
+  language_id: z.string(),
+  translatable_id: z.string(),
+  translatable_type: z.enum(ENUM_VALUES.translatableType),
+  translation: z.string(),
+  translator_id: z.string().nullable(),
+  updated_at: z.string().nullable(),
+});
+
+export const TranslationsInsertSchema = z.object({
+  approved_by: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  field_name: z.string(),
+  id: z.string().optional(),
+  is_approved: z.boolean().nullable().optional(),
+  language_id: z.string(),
+  translatable_id: z.string(),
+  translatable_type: z.enum(ENUM_VALUES.translatableType),
+  translation: z.string(),
+  translator_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+});
+
+export const TranslationsUpdateSchema = z.object({
+  approved_by: z.string().nullable().optional(),
+  created_at: z.string().nullable().optional(),
+  created_by: z.string().nullable().optional(),
+  field_name: z.string().optional(),
+  id: z.string().optional(),
+  is_approved: z.boolean().nullable().optional(),
+  language_id: z.string().optional(),
+  translatable_id: z.string().optional(),
+  translatable_type: z.enum(ENUM_VALUES.translatableType).optional(),
+  translation: z.string().optional(),
+  translator_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type TranslationsRowInput = z.infer<typeof TranslationsRowSchema>;
+export type TranslationsInsertInput = z.infer<typeof TranslationsInsertSchema>;
+export type TranslationsUpdateInput = z.infer<typeof TranslationsUpdateSchema>;

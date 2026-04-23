@@ -33,7 +33,7 @@ export type VercelConnectionUpdate = TablesUpdate<'vercel_connection'>;
 export interface PublicVercelConnection {
   created_at: string | null;
   created_by: string | null;
-  deployment_status:;
+  deployment_status: DeploymentStatus;
   deployment_url: string;
   domain_config: Json | null;
   environment_variables: Json | null;

@@ -2,10 +2,10 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { createClient } from '@/lib/supabase/client';
-import { useAuth } from './useAuth';
-import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/tables-helper';
-import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '@/types/preferences';
+import { createClient } from '@/lib/supabase/client.js';
+import { useAuth } from './useAuth.js';
+import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers.js';
+import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '@/types/preferences.js';
 
 // ============================================================================
 // TYPES - Derived from database schema

@@ -1,0 +1,20 @@
+🏛️ MNEMOSYNE — The Observatory
+
+Feeling: Awe-inspiring, reflective, cosmic, visionary
+
+
+src/app/(mnemosyne)/
+├── observatory/
+│   ├── page.tsx                    # The Observatory (/observatory)
+│   ├── timeline/
+│   │   └── page.tsx                # The Spiral (/observatory/timeline)
+│   ├── patterns/
+│   │   └── page.tsx                # Pattern Recognition (/observatory/patterns)
+│   ├── prophecy/
+│   │   └── page.tsx                # The Vision (/observatory/prophecy)
+│   ├── ancestors/
+│   │   └── page.tsx                # Ancestors (/observatory/ancestors)
+│   ├── constellations/
+│   │   └── page.tsx                # Constellations (/observatory/constellations)
+│   └── origin/
+│       └── page.tsx                # The Origin (/observatory/origin)

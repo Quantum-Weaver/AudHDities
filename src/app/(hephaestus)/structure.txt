@@ -1,0 +1,22 @@
+
+src/app/(supporting)/
+├── about/
+│   └── page.tsx                    # The Origin (/about)
+├── vision/
+│   └── page.tsx                    # The Prophecy (/vision)
+├── transparency/
+│   └── page.tsx                    # The Ledger (/transparency)
+├── privacy/
+│   └── page.tsx                    # The Covenant (/privacy)
+├── terms/
+│   └── page.tsx                    # The Agreement (/terms)
+├── accessibility/
+│   └── page.tsx                    # The Welcome (/accessibility)
+├── contact/
+│   └── page.tsx                    # The Hearth Call (/contact)
+├── press/
+│   └── page.tsx                    # The Scroll (/press)
+├── careers/
+│   └── page.tsx                    # The Calling (/careers)
+└── donate/
+    └── page.tsx                    # The Offering (/donate)

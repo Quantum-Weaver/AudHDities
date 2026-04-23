@@ -1,0 +1,10 @@
+--- a/lib\validators\generated\hestia-core\profiles.ts
++++ b/lib\validators\generated\hestia-core\profiles.ts (staged)
+@@ -55,62 +55,62 @@
+-  email: z.string(),
++  email: z.string().optional(),
+   full_name: z.string().nullable().optional(),
+-  id: z.string(),
++  id: z.string().optional(),
+   is_admin: z.boolean().nullable().optional(),
+   is_creator: z.boolean().nullable().optional(),

@@ -32,7 +32,7 @@ export type SupabaseConnectionUpdate = TablesUpdate<'supabase_connection'>;
  */
 export interface PublicSupabaseConnection {
   api_keys: Json | null;
-  connection_status:;
+  connection_status: SupabaseStatus;
   created_at: string | null;
   created_by: string | null;
   edge_functions: string[] | null;

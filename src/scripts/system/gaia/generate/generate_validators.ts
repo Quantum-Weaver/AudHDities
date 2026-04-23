@@ -204,15 +204,20 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    // Insert fields often have ? for optional
-    const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
+    const fieldMatch = line.match(/^\s*(\w+)(\??):\s*(.+)/);
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
-      const fieldType = fieldMatch[2].trim();
+      const hasQuestionMark = fieldMatch[2] === '?';
+      const fieldType = fieldMatch[3].trim();
+      
       const zodType = dbTypeToZod(fieldType, fieldName);
-      // Make optional for insert schema
-      const optionalZod = `${zodType}.optional()`;
-      fields.push(`  ${fieldName}: ${optionalZod},`);
+      
+      // If field has '?', make it optional; otherwise required
+      if (hasQuestionMark) {
+        fields.push(`  ${fieldName}: ${zodType}.optional(),`);
+      } else {
+        fields.push(`  ${fieldName}: ${zodType},`);
+      }
     }
   }
   

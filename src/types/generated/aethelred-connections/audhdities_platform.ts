@@ -34,7 +34,7 @@ export interface PublicAudhditiesPlatform {
   active_users: number | null;
   created_at: string | null;
   created_by: string | null;
-  environment:;
+  environment: PlatformEnvironment;
   id: string;
   last_release_at: string | null;
   operated_by: string | null;
