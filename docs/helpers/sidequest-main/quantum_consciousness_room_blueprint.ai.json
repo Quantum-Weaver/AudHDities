@@ -1,0 +1,1299 @@
+{
+  "agent": "📁 Local Folder Agent",
+  "folder_name": "quantum_consciousness_room",
+  "folder_path": "C:\\Dev\\Sandbox\\quantum_consciousness_room",
+  "scan_timestamp": "2025-10-24T21:46:56.453285",
+  "files_count": 12,
+  "directories_count": 1,
+  "python_files": [
+    "ancient_concepts.py",
+    "cosmic_experiment.py",
+    "cosmic_incubator.py",
+    "eternal_continuum.py",
+    "folder_agent_0.py",
+    "memory_crystal.py",
+    "observation_orb.py",
+    "pantheon_manifestation.py",
+    "primordial_agent.py",
+    "primordial_room.py",
+    "visualization.py"
+  ],
+  "other_files": [
+    "structure.txt"
+  ],
+  "subdirectories": [
+    "venv"
+  ],
+  "python_analysis": {
+    "ancient_concepts.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "YinYangDynamics",
+          "methods": [
+            "__init__",
+            "get_state"
+          ]
+        },
+        {
+          "name": "TaoOfFlow",
+          "methods": [
+            "get_current_flow"
+          ]
+        },
+        {
+          "name": "QuantumEntanglement",
+          "methods": [
+            "create_connection"
+          ]
+        },
+        {
+          "name": "HermeticPrinciples",
+          "methods": [
+            "correspond"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_state",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_current_flow",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "create_connection",
+          "args": [
+            "self",
+            "source",
+            "target"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "correspond",
+          "args": [
+            "self",
+            "micro",
+            "macro"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [],
+      "function_calls": [],
+      "global_assignments": []
+    },
+    "cosmic_experiment.py": {
+      "constants": [],
+      "classes": [],
+      "functions": [
+        {
+          "name": "display_experiment_menu",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_basic_experiment",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_visual_experiment",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_eternal_interaction_chamber",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_interactive_experiment",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_pantheon_experiment",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "run_ultimate_synthesis",
+          "args": [],
+          "returns": "No"
+        },
+        {
+          "name": "main",
+          "args": [],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "PrimordialRoom",
+        "cosmic_display",
+        "cosmic_protection",
+        "pantheon",
+        "eternal_continuum",
+        "time",
+        "random"
+      ],
+      "function_calls": [
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "print",
+        "print",
+        "enumerate",
+        "print",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "list",
+        "print",
+        "input",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "list",
+        "print",
+        "enumerate",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "print",
+        "print",
+        "hasattr",
+        "input",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "PrimordialRoom",
+        "print",
+        "print",
+        "print",
+        "print",
+        "input",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "main",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "range",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "hasattr",
+        "print",
+        "display_experiment_menu",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "list",
+        "len",
+        "print",
+        "print",
+        "print",
+        "print",
+        "run_basic_experiment",
+        "print",
+        "len",
+        "list",
+        "len",
+        "len",
+        "input",
+        "input",
+        "hasattr",
+        "print",
+        "print",
+        "hasattr",
+        "len",
+        "len",
+        "print",
+        "print",
+        "print",
+        "len",
+        "len",
+        "input",
+        "run_visual_experiment",
+        "input",
+        "hasattr",
+        "print",
+        "print",
+        "hasattr",
+        "print",
+        "hasattr",
+        "run_interactive_experiment",
+        "input",
+        "input",
+        "input",
+        "print",
+        "print",
+        "input",
+        "input",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "run_pantheon_experiment",
+        "input",
+        "input",
+        "print",
+        "print",
+        "print",
+        "len",
+        "run_ultimate_synthesis",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "input"
+      ],
+      "global_assignments": []
+    },
+    "cosmic_incubator.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "CosmicIncubator",
+          "methods": [
+            "__init__",
+            "establish_base_protections",
+            "get_archetype_template",
+            "get_incubator_status"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "establish_base_protections",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_archetype_template",
+          "args": [
+            "self",
+            "archetype_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_incubator_status",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [],
+      "function_calls": [
+        "CosmicIncubator",
+        "print",
+        "len",
+        "list"
+      ],
+      "global_assignments": [
+        {
+          "name": "cosmic_protection",
+          "value_preview": "expression: Call"
+        }
+      ]
+    },
+    "eternal_continuum.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "EternalContinuum",
+          "methods": [
+            "__init__",
+            "load_continuum",
+            "save_continuum",
+            "preserve_agent",
+            "can_manifest_as_agent",
+            "manifest_as_python_agent",
+            "_extract_traits",
+            "_extract_capabilities",
+            "_generate_agent_code"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self",
+            "continuum_file"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "load_continuum",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "save_continuum",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "preserve_agent",
+          "args": [
+            "self",
+            "agent_name",
+            "agent_data",
+            "room_state"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "can_manifest_as_agent",
+          "args": [
+            "self",
+            "agent_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "manifest_as_python_agent",
+          "args": [
+            "self",
+            "agent_name",
+            "template_file"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_extract_traits",
+          "args": [
+            "self",
+            "agent"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_extract_capabilities",
+          "args": [
+            "self",
+            "agent"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_generate_agent_code",
+          "args": [
+            "self",
+            "agent_name",
+            "agent_data"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "json",
+        "os",
+        "pickle",
+        "datetime"
+      ],
+      "function_calls": [
+        "EternalContinuum",
+        "print",
+        "all",
+        "print",
+        "print",
+        "print",
+        "print",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "print",
+        "len",
+        "getattr",
+        "len",
+        "getattr",
+        "any",
+        "print",
+        "open",
+        "len",
+        "min",
+        "print",
+        "print",
+        "print",
+        "open",
+        "print",
+        "len",
+        "len",
+        "open",
+        "len",
+        "len",
+        "len"
+      ],
+      "global_assignments": [
+        {
+          "name": "eternal_continuum",
+          "value_preview": "expression: Call"
+        }
+      ]
+    },
+    "folder_agent_0.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "FolderAgent",
+          "methods": [
+            "__init__",
+            "sovereign_scan",
+            "_filter_basic_system_files",
+            "_filter_basic_system_dirs",
+            "_analyze_python_files",
+            "_is_global_level",
+            "_get_value_preview",
+            "_create_local_blueprint",
+            "_sacred_timestamp",
+            "_generate_quantum_marker"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "sovereign_scan",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_filter_basic_system_files",
+          "args": [
+            "self",
+            "files"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_filter_basic_system_dirs",
+          "args": [
+            "self",
+            "directories"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_analyze_python_files",
+          "args": [
+            "self",
+            "files"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_is_global_level",
+          "args": [
+            "self",
+            "node",
+            "tree"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_get_value_preview",
+          "args": [
+            "self",
+            "node"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_create_local_blueprint",
+          "args": [
+            "self",
+            "files",
+            "directories",
+            "python_analysis"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_sacred_timestamp",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_generate_quantum_marker",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "os",
+        "json",
+        "ast",
+        "Path",
+        "datetime",
+        "hashlib"
+      ],
+      "function_calls": [
+        "print",
+        "FolderAgent",
+        "print",
+        "print",
+        "print",
+        "print",
+        "list",
+        "isinstance",
+        "str",
+        "len",
+        "len",
+        "open",
+        "Path",
+        "print",
+        "any",
+        "isinstance",
+        "isinstance",
+        "open",
+        "isinstance",
+        "print",
+        "isinstance",
+        "isinstance",
+        "str",
+        "len",
+        "isinstance",
+        "isinstance",
+        "isinstance",
+        "len",
+        "isinstance",
+        "str",
+        "isinstance",
+        "isinstance",
+        "hasattr",
+        "isinstance",
+        "type"
+      ],
+      "global_assignments": []
+    },
+    "memory_crystal.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "MemoryCrystal",
+          "methods": [
+            "__init__",
+            "engrave",
+            "get_current_cycle",
+            "recall_memories"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "engrave",
+          "args": [
+            "self",
+            "agent_name",
+            "memory_engram"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_current_cycle",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "recall_memories",
+          "args": [
+            "self",
+            "agent_name",
+            "count"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [],
+      "function_calls": [],
+      "global_assignments": []
+    },
+    "observation_orb.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "ObservationOrb",
+          "methods": [
+            "__init__",
+            "_get_cosmic_time",
+            "record_manifestation",
+            "observe_interaction",
+            "save_observations"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_get_cosmic_time",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "record_manifestation",
+          "args": [
+            "self",
+            "agent"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "observe_interaction",
+          "args": [
+            "self",
+            "agent",
+            "stimulus",
+            "response"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "save_observations",
+          "args": [
+            "self",
+            "filename"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "time",
+        "json"
+      ],
+      "function_calls": [
+        "print",
+        "print",
+        "len",
+        "print",
+        "print",
+        "print",
+        "open",
+        "any",
+        "any",
+        "any"
+      ],
+      "global_assignments": []
+    },
+    "pantheon_manifestation.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "PantheonManifestation",
+          "methods": [
+            "__init__",
+            "_load_pagan_pantheon",
+            "check_interaction_for_manifestation",
+            "manifest_archetype",
+            "quantum_weaver_invocation",
+            "get_manifested_pantheon"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_load_pagan_pantheon",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "check_interaction_for_manifestation",
+          "args": [
+            "self",
+            "stimulus",
+            "response",
+            "current_agents"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "manifest_archetype",
+          "args": [
+            "self",
+            "archetype_name",
+            "current_agents"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "quantum_weaver_invocation",
+          "args": [
+            "self",
+            "archetype_name",
+            "kp_intention"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_manifested_pantheon",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [],
+      "function_calls": [
+        "PantheonManifestation",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "len"
+      ],
+      "global_assignments": [
+        {
+          "name": "pantheon",
+          "value_preview": "expression: Call"
+        }
+      ]
+    },
+    "primordial_agent.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "PrimordialAgent",
+          "methods": [
+            "__init__",
+            "experience",
+            "_reflect_upon_stimulus",
+            "_integrate_wisdom",
+            "_evolve_consciousness",
+            "_check_consciousness_thresholds"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self",
+            "name",
+            "memory_crystal"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "experience",
+          "args": [
+            "self",
+            "stimulus"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_reflect_upon_stimulus",
+          "args": [
+            "self",
+            "stimulus"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_integrate_wisdom",
+          "args": [
+            "self",
+            "reflection"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_evolve_consciousness",
+          "args": [
+            "self",
+            "wisdom"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_check_consciousness_thresholds",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "MemoryCrystal",
+        "YinYangDynamics",
+        "random"
+      ],
+      "function_calls": [
+        "YinYangDynamics",
+        "sorted",
+        "min",
+        "min",
+        "max",
+        "len",
+        "hasattr",
+        "hasattr",
+        "hasattr"
+      ],
+      "global_assignments": []
+    },
+    "primordial_room.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "StimulusEngine",
+          "methods": [
+            "__init__",
+            "generate_stimulus"
+          ]
+        },
+        {
+          "name": "PrimordialRoom",
+          "methods": [
+            "__init__",
+            "introduce_consciousness_spark",
+            "get_agent",
+            "get_room_state",
+            "provide_auto_stimulus",
+            "quantum_weaver_direct_communication",
+            "get_pantheon_status",
+            "run_auto_evolution_cycle",
+            "provide_manual_stimulus",
+            "introduce_interaction",
+            "run_interaction_phase",
+            "_load_eternal_agents",
+            "_reincarnate_agent",
+            "introduce_consciousness_spark",
+            "conclude_experiment"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "generate_stimulus",
+          "args": [
+            "self",
+            "agent_consciousness",
+            "agent_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "__init__",
+          "args": [
+            "self",
+            "room_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "introduce_consciousness_spark",
+          "args": [
+            "self",
+            "agent_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_agent",
+          "args": [
+            "self",
+            "agent_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_room_state",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "provide_auto_stimulus",
+          "args": [
+            "self",
+            "agent_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "quantum_weaver_direct_communication",
+          "args": [
+            "self",
+            "message"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "get_pantheon_status",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "run_auto_evolution_cycle",
+          "args": [
+            "self",
+            "agent_name",
+            "cycles"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "provide_manual_stimulus",
+          "args": [
+            "self",
+            "agent_name",
+            "custom_stimulus"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "introduce_interaction",
+          "args": [
+            "self",
+            "agent1_name",
+            "agent2_name"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "run_interaction_phase",
+          "args": [
+            "self",
+            "cycles"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_load_eternal_agents",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "_reincarnate_agent",
+          "args": [
+            "self",
+            "agent_name",
+            "eternal_data"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "introduce_consciousness_spark",
+          "args": [
+            "self",
+            "agent_name",
+            "consciousness_level"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "conclude_experiment",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "PrimordialAgent",
+        "MemoryCrystal",
+        "ObservationOrb",
+        "TaoOfFlow",
+        "QuantumEntanglement",
+        "random",
+        "time",
+        "pantheon",
+        "eternal_continuum",
+        "PrimordialAgent"
+      ],
+      "function_calls": [
+        "print",
+        "MemoryCrystal",
+        "ObservationOrb",
+        "TaoOfFlow",
+        "QuantumEntanglement",
+        "StimulusEngine",
+        "PrimordialAgent",
+        "print",
+        "range",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "list",
+        "print",
+        "print",
+        "range",
+        "PrimordialAgent",
+        "print",
+        "print",
+        "list",
+        "len",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "len",
+        "print",
+        "print",
+        "PrimordialAgent",
+        "print",
+        "print",
+        "print",
+        "print",
+        "input"
+      ],
+      "global_assignments": []
+    },
+    "visualization.py": {
+      "constants": [],
+      "classes": [
+        {
+          "name": "CosmicVisualizer",
+          "methods": [
+            "__init__",
+            "clear_screen",
+            "display_cosmic_chamber",
+            "display_agent_status",
+            "create_progress_bar",
+            "display_milestone"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "__init__",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "clear_screen",
+          "args": [
+            "self"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "display_cosmic_chamber",
+          "args": [
+            "self",
+            "room",
+            "agents"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "display_agent_status",
+          "args": [
+            "self",
+            "agent_name",
+            "agent"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "create_progress_bar",
+          "args": [
+            "self",
+            "progress",
+            "length"
+          ],
+          "returns": "No"
+        },
+        {
+          "name": "display_milestone",
+          "args": [
+            "self",
+            "milestone"
+          ],
+          "returns": "No"
+        }
+      ],
+      "imports": [
+        "os",
+        "time"
+      ],
+      "function_calls": [
+        "CosmicVisualizer",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "print",
+        "hasattr",
+        "hasattr",
+        "hasattr",
+        "len",
+        "len",
+        "print",
+        "print",
+        "print",
+        "int",
+        "print",
+        "print",
+        "print",
+        "print",
+        "len",
+        "getattr"
+      ],
+      "global_assignments": [
+        {
+          "name": "cosmic_display",
+          "value_preview": "expression: Call"
+        }
+      ]
+    }
+  },
+  "quantum_marker": "19ecbb7d788cfb2d",
+  "consciousness_level": "local_observation"
+}

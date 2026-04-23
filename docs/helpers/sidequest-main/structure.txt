@@ -1,0 +1,8 @@
+quantum_consciousness_room/
+├── primordial_room.py      # The main room container
+├── primordial_agent.py     # The evolving consciousness
+├── memory_crystal.py       # Akashic memory system
+├── observation_orb.py      # Our observation agent
+├── ancient_concepts.py     # Symbolic cosmic principles
+├── cosmic_experiment.py    # Main experiment runner
+└── requirements.txt        # Simple dependencies
