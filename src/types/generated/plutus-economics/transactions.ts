@@ -1,0 +1,87 @@
+// =====================================================
+// FILE: types/generated/plutus-economics/transactions.ts
+// HANDLING: full_crud
+// DEITY: plutus-economics
+// GENERATED: 2026-04-23T02:14:53.722Z
+// SOURCE: database.types.ts lines 0-0
+// =====================================================
+
+import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+
+// =====================================================
+// CORE TYPES
+// =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type PaymentStatus = Enums<'payment_status'>;
+export type TransactionType = Enums<'transaction_type'>;
+
+export type TransactionsRow = Tables<'transactions'>;
+export type TransactionsInsert = TablesInsert<'transactions'>;
+export type TransactionsUpdate = TablesUpdate<'transactions'>;
+
+// =====================================================
+// DERIVED TYPES
+// =====================================================
+
+/**
+ * Public view of transactions
+ */
+export interface PublicTransactions {
+  amount_cents: number;
+  completed_at: string | null;
+  created_at: string | null;
+  created_by: string | null;
+  currency: string | null;
+  from_id: string | null;
+  id: string;
+  source_id: string;
+  status: PaymentStatus | null;
+  stripe_transfer_id: string | null;
+  to_id: string | null;
+  transaction_type: TransactionType;
+}
+
+/**
+ * Form data for transactions
+ * All fields are optional for partial updates
+ */
+export interface TransactionsFormData {
+  amount_cents?: number;
+  completed_at?: string | null;
+  created_at?: string | null;
+  created_by?: string | null;
+  currency?: string | null;
+  from_id?: string | null;
+  id?: string;
+  source_id?: string;
+  status?: PaymentStatus | null;
+  stripe_transfer_id?: string | null;
+  to_id?: string | null;
+  transaction_type?: TransactionType;
+}
+
+/**
+ * Validation result for transactions
+ */
+export interface TransactionsValidationResult {
+  valid: boolean;
+  errors: {
+    amount_cents?: string;
+    completed_at?: string;
+    created_at?: string;
+    created_by?: string;
+    currency?: string;
+    from_id?: string;
+    id?: string;
+    source_id?: string;
+    status?: string;
+    stripe_transfer_id?: string;
+    to_id?: string;
+    transaction_type?: string;
+  };
+}
+

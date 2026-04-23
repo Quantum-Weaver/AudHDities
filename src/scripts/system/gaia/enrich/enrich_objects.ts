@@ -22,6 +22,7 @@ import {
 } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
 import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+import { TableInfo } from '../extract/extract_tables.js';
 
 // ============================================================================
 // ENRICHED INTERFACES (Type-Safe)
@@ -33,7 +34,11 @@ export interface EnrichedTable {
   category: ObjectCategory;
   handlingLevel: string;
   type: 'table';
-  
+  rowContent: string;
+  insertContent: string;
+  updateContent: string;
+  enumRefs: string[];
+  hasJson: boolean;
   // Generation flags (derived from category)
   shouldGenerateTypes: boolean;
   shouldGenerateValidators: boolean;
@@ -92,6 +97,7 @@ export interface EnrichedTypeEnum {
  */
 export function enrichTable(
   tableName: PublicTableNames,
+  tableInfo: TableInfo,
   options?: { verbose?: boolean }
 ): EnrichedTable {
   const { verbose = false } = options || {};
@@ -115,6 +121,11 @@ export function enrichTable(
     shouldGenerateUtils: needsUtils(tableName),
     shouldGenerateApiRoutes: needsApiRoutes(tableName),
     shouldGenerateHooks: needsHooks(tableName),
+    rowContent: tableInfo.rowContent,
+    insertContent: tableInfo.insertContent,
+    updateContent: tableInfo.updateContent,
+    enumRefs: tableInfo.enumRefs,
+    hasJson: tableInfo.hasJson,   
   };
 }
 
@@ -123,13 +134,19 @@ export function enrichTable(
  */
 export function enrichTables(
   tableNames: PublicTableNames[],
+  tableInfoMap: Map<string, TableInfo>,  // ✅ Pass the extracted data
   options?: { verbose?: boolean }
 ): EnrichedTable[] {
   const { verbose = false } = options || {};
   const results: EnrichedTable[] = [];
   
   for (const tableName of tableNames) {
-    results.push(enrichTable(tableName, options));
+    const tableInfo = tableInfoMap.get(tableName);
+    if (!tableInfo) {
+      logWarning(`No extracted data for table: ${tableName}`);
+      continue;
+    }
+    results.push(enrichTable(tableName, tableInfo, options));
   }
   
   if (verbose) {
@@ -359,10 +376,10 @@ export interface EnrichedExtractionResult {
  */
 export async function enrichAll(
   tableNames: PublicTableNames[],
+  tableInfoMap: Map<string, TableInfo>,
   viewNames: PublicViewNames[],
   functionNames: string[],
   runtimeEnums: Array<{ name: string; values: string[] }>,
-  typeEnumNames: PublicEnumNames[],
   options?: { verbose?: boolean }
 ): Promise<EnrichedExtractionResult> {
   const { verbose = false } = options || {};
@@ -374,10 +391,11 @@ export async function enrichAll(
   const runtimeEnumsEnriched = await enrichRuntimeEnums(runtimeEnums, options);
   
   return {
-    tables: enrichTables(tableNames, options),
+    tables: enrichTables(tableNames, tableInfoMap, options),
     views: enrichViews(viewNames, options),
     functions: enrichFunctions(functionNames, options),
     runtimeEnums: runtimeEnumsEnriched,
-    typeEnums: enrichTypeEnums(typeEnumNames, options),
+    typeEnums: [],
   };
 }
+

@@ -38,8 +38,8 @@ export const TYPE_MAPPINGS: TypeMapping[] = [
   
   // Date/Time
   { pattern: /^Date$/, zodType: 'z.date()' },
-  { pattern: /^timestamp$/, zodType: 'z.string().datetime()' },
-  { pattern: /^timestamptz$/, zodType: 'z.string().datetime()' },
+  { pattern: /^timestamp$/, zodType: 'z.iso.datetime()' },
+  { pattern: /^timestamptz$/, zodType: 'z.iso.datetime()' },
 ];
 
 // ============================================================================

@@ -161,13 +161,13 @@ export function generateTableTypes(
   }
   
   if (category.generateRow) {
-    content += `export type ${pascalName}Row = Tables<'${tableName}'>;\n`;
+    content += `export type ${pascalName}RowSchema = Tables<'${tableName}'>;\n`;
   }
   if (category.generateInsert) {
-    content += `export type ${pascalName}Insert = TablesInsert<'${tableName}'>;\n`;
+    content += `export type ${pascalName}InsertSchema = TablesInsert<'${tableName}'>;\n`;
   }
   if (category.generateUpdate) {
-    content += `export type ${pascalName}Update = TablesUpdate<'${tableName}'>;\n`;
+    content += `export type ${pascalName}UpdateSchema = TablesUpdate<'${tableName}'>;\n`;
   }
   
   // Derived types - using NEW formatters
@@ -206,7 +206,7 @@ export function generateViewTypes(view: EnrichedView): GeneratedTypeFile {
   content += `// =====================================================\n`;
   content += `// VIEW TYPE (Read-only)\n`;
   content += `// =====================================================\n\n`;
-  content += `export type ${pascalName}Row = Tables<'${viewName}'>;\n`;
+  content += `export type ${pascalName}RowSchema = Tables<'${viewName}'>;\n`;
   
   return {
     content,

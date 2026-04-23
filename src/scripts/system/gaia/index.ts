@@ -14,7 +14,6 @@ import path from 'path';
 import { readDatabaseTypes } from '../../shared/file_reader.js';
 import { logSuccess, logInfo, logError, logStep, logSeparator, logWarning, logDebug, logHeader } from '../../shared/logger.js';
 import { SystemLogger } from '../../shared/system_logger.js';
-import { intelligentPause } from '../../shared/pause.js';
 
 // Core parsing
 import { findMarkers } from '../../modules/system/find_markers.js';
@@ -24,24 +23,28 @@ import { findAllClosingBraces } from '../../modules/system/find_closing_braces.j
 import { extractAllNames } from './extract/extract_names.js';
 import { extractRuntimeEnums } from './extract/extract_runtime_enums.js';
 import { extractFunctions } from './extract/extract_functions.js';
+import { extractTables } from './extract/extract_tables.js';
 
 // Enrichment layer
-import { enrichAll, type EnrichedTable, type EnrichedView, type EnrichedFunction, type EnrichedRuntimeEnum, type EnrichedTypeEnum } from './enrich/enrich_objects.js';
+import { enrichAll, type EnrichedTable, type EnrichedView, type EnrichedFunction, type EnrichedRuntimeEnum } from './enrich/enrich_objects.js';
 
 // Generation layer
-import { generateTableTypes, generateViewTypes, generateTypeEnumFile } from './generate/generate_types.js';
-import { generateValidator } from './generate/generate_validators.js';
+import { generateViewTypes } from './generate/generate_types.js';
 import { generateConstant } from './generate/generate_constants.js';
 import { generateTableApiRoutes, generateViewApiRoutes, generateFunctionApiRoute } from './generate/generate_api_routes.js';
 import { generateHooks } from './generate/generate_hooks.js';
 import { generateUtils } from './generate/generate_utils.js';
+
 // File writing
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
 // Configuration
-import { getAllTableNames, getAllViewNames, getFolderNameForTable, getFolderNameForView, DEITY_GROUPS } from '@/config/deity_groups.js';
+import { getAllTableNames, getAllViewNames, DEITY_GROUPS } from '@/config/deity_groups.js';
 import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
+import { formatObjectTypes } from './format/format_object_types.js';
+import { ExtractedObjectWithDetails } from '@/scripts/shared/types.js';
+import { generateValidatorForTable } from './generate/generate_validators.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -64,7 +67,6 @@ interface GenerationPlan {
   views: number;
   functions: number;
   runtimeEnums: number;
-  typeEnums: number;
   
   typeFiles: number;
   validatorFiles: number;
@@ -81,7 +83,6 @@ interface GenerationStats {
   viewsProcessed: number;
   functionsProcessed: number;
   runtimeEnumsProcessed: number;
-  typeEnumsProcessed: number;
   
   filesWritten: string[];
   filesSkipped: string[];
@@ -256,7 +257,6 @@ interface FilteredObjects {
   tableNames: PublicTableNames[];
   viewNames: PublicViewNames[];
   functionNames: string[];
-  typeEnumNames: string[];
   runtimeEnums: Array<{ name: string; values: string[] }>;
 }
 
@@ -264,7 +264,6 @@ function filterObjects(
   allTables: PublicTableNames[],
   allViews: PublicViewNames[],
   allFunctions: string[],
-  allTypeEnums: string[],
   allRuntimeEnums: Array<{ name: string; values: string[] }>,
   options: GaiaOptions
 ): FilteredObjects {
@@ -275,7 +274,6 @@ function filterObjects(
       tableNames: allTables,
       viewNames: allViews,
       functionNames: allFunctions,
-      typeEnumNames: allTypeEnums,
       runtimeEnums: allRuntimeEnums,
     };
   }
@@ -287,7 +285,7 @@ function filterObjects(
     
     if (!deityGroup) {
       logWarning(`Deity "${targetValue}" not found`);
-      return { tableNames: [], viewNames: [], functionNames: [], typeEnumNames: [], runtimeEnums: [] };
+      return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
     }
     
     return {
@@ -299,7 +297,6 @@ function filterObjects(
         }
         return false;
       }),
-      typeEnumNames: allTypeEnums,
       runtimeEnums: allRuntimeEnums.filter(e => {
         const { getEnumFolder } = require('@/config/enum_mapping.js');
         return getEnumFolder(e.name) === deityGroup.folderName;
@@ -313,12 +310,11 @@ function filterObjects(
         tableNames: [targetValue as PublicTableNames],
         viewNames: [],
         functionNames: [],
-        typeEnumNames: [],
         runtimeEnums: [],
       };
     }
     logWarning(`Table "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], typeEnumNames: [], runtimeEnums: [] };
+    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
   }
   
   if (target === 'view' && targetValue) {
@@ -327,12 +323,11 @@ function filterObjects(
         tableNames: [],
         viewNames: [targetValue as PublicViewNames],
         functionNames: [],
-        typeEnumNames: [],
         runtimeEnums: [],
       };
     }
     logWarning(`View "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], typeEnumNames: [], runtimeEnums: [] };
+    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
   }
   
   if (target === 'function' && targetValue) {
@@ -341,15 +336,14 @@ function filterObjects(
         tableNames: [],
         viewNames: [],
         functionNames: [targetValue],
-        typeEnumNames: [],
         runtimeEnums: [],
       };
     }
     logWarning(`Function "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], typeEnumNames: [], runtimeEnums: [] };
+    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
   }
   
-  return { tableNames: [], viewNames: [], functionNames: [], typeEnumNames: [], runtimeEnums: [] };
+  return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
 }
 
 // ============================================================================
@@ -360,8 +354,7 @@ function calculateGenerationPlan(
   tables: EnrichedTable[],
   views: EnrichedView[],
   functions: EnrichedFunction[],
-  runtimeEnums: EnrichedRuntimeEnum[],
-  typeEnums: EnrichedTypeEnum[]
+  runtimeEnums: EnrichedRuntimeEnum[]
 ): GenerationPlan {
   let typeFiles = 0;
   let validatorFiles = 0;
@@ -374,7 +367,7 @@ function calculateGenerationPlan(
   for (const table of tables) {
     if (table.shouldGenerateTypes) typeFiles++;
     if (table.shouldGenerateValidators) validatorFiles++;
-    if (table.shouldGenerateApiRoutes) apiRouteFiles += 2; // list + single
+    if (table.shouldGenerateApiRoutes) apiRouteFiles += 2;
     if (table.shouldGenerateHooks) hookFiles++;
     if (table.shouldGenerateUtils) utilFiles++;
   }
@@ -395,9 +388,6 @@ function calculateGenerationPlan(
     if (enum_.shouldGenerateConstants) constantFiles++;
   }
   
-  // Type Enums
-  typeFiles += typeEnums.length;
-  
   const totalFiles = typeFiles + validatorFiles + constantFiles + apiRouteFiles + hookFiles + utilFiles;
   
   return {
@@ -405,7 +395,6 @@ function calculateGenerationPlan(
     views: views.length,
     functions: functions.length,
     runtimeEnums: runtimeEnums.length,
-    typeEnums: typeEnums.length,
     typeFiles,
     validatorFiles,
     constantFiles,
@@ -435,7 +424,6 @@ async function showGenerationPlan(
   console.log(`     Views:        ${plan.views}`);
   console.log(`     Functions:    ${plan.functions}`);
   console.log(`     Runtime Enums: ${plan.runtimeEnums}`);
-  console.log(`     Type Enums:   ${plan.typeEnums}`);
   console.log('');
   
   logInfo(`📁 FILES TO GENERATE:`);
@@ -505,16 +493,36 @@ async function generateTableArtifacts(
     logDebug(`\n  📦 Table: ${tableName} -> ${deityFolder}`);
   }
   
-  // ====================================================
-  // TYPES
-  // ====================================================
+// ====================================================
+// TYPES
+// ====================================================
 if (table.shouldGenerateTypes) {
   try {
-    // ✅ CHANGE THIS LINE - pass lines and markers
-    const result = generateTableTypes(table, lines, markersWithBraces);
+    // Build ExtractedObjectWithDetails from TableInfo
+    const object: ExtractedObjectWithDetails = {
+      name: table.name,
+      type: 'table',
+      content: '',
+      startLine: 0,
+      endLine: 0,
+      rowContent: table.rowContent,
+      insertContent: table.insertContent,
+      updateContent: table.updateContent,
+      enumRefs: table.enumRefs,
+      hasJson: table.hasJson,
+    };
+
+    const formatted = formatObjectTypes(object, table.category, {
+      deityGroup: table.deityFolder,
+      outputFolder: `generated/${table.deityFolder}`,
+    });
+    
+    // ✅ Build the file path separately
+    const filePath = `src/types/generated/${table.deityFolder}/${table.name}.ts`;
+    
     const writeResult = await writeGeneratedFile(
-      result.filePath,
-      result.content,
+      filePath,
+      formatted.fullContent,  // ✅ Use fullContent, not result.content
       [`EnrichedTable:${tableName}`],
       writeOptions
     );
@@ -522,7 +530,7 @@ if (table.shouldGenerateTypes) {
     if (writeResult.success && writeResult.action !== 'skipped') {
       stats.filesWritten.push(writeResult.filePath);
       logger.addGeneratedFile(writeResult.filePath);
-      if (writeOptions.verbose) logSuccess(`      ✓ types: ${result.filePath}`);
+      if (writeOptions.verbose) logSuccess(`      ✓ types: ${filePath}`);
     } else if (writeResult.action === 'skipped') {
       stats.filesSkipped.push(writeResult.filePath);
     }
@@ -777,43 +785,6 @@ async function generateRuntimeEnumArtifacts(
   stats.runtimeEnumsProcessed++;
 }
 
-async function generateTypeEnumArtifacts(
-  enum_: EnrichedTypeEnum,
-  writeOptions: WriteOptions,
-  stats: GenerationStats,
-  logger: SystemLogger
-): Promise<void> {
-  const { name: enumName, deityFolder } = enum_;
-  
-  if (writeOptions.verbose) {
-    logDebug(`\n  📝 Type Enum: ${enumName} -> ${deityFolder}`);
-  }
-  
-  try {
-    const result = generateTypeEnumFile(enum_);
-    const writeResult = await writeGeneratedFile(
-      result.filePath,
-      result.content,
-      [`TypeEnum:${enumName}`],
-      writeOptions
-    );
-    
-    if (writeResult.success && writeResult.action !== 'skipped') {
-      stats.filesWritten.push(writeResult.filePath);
-      logger.addGeneratedFile(writeResult.filePath);
-      if (writeOptions.verbose) logSuccess(`      ✓ types: ${result.filePath}`);
-    } else if (writeResult.action === 'skipped') {
-      stats.filesSkipped.push(writeResult.filePath);
-    }
-  } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    stats.errors.push({ object: enumName, error: `types: ${msg}` });
-    logError(`      ✗ types: ${msg}`);
-  }
-  
-  stats.typeEnumsProcessed++;
-}
-
 // ============================================================================
 // SUMMARY DISPLAY
 // ============================================================================
@@ -832,7 +803,6 @@ function displaySummary(stats: GenerationStats, dryRun: boolean): void {
   console.log(`    Views:        ${stats.viewsProcessed}`);
   console.log(`    Functions:    ${stats.functionsProcessed}`);
   console.log(`    Runtime Enums: ${stats.runtimeEnumsProcessed}`);
-  console.log(`    Type Enums:   ${stats.typeEnumsProcessed}`);
   console.log('');
   
   console.log(`  Files:`);
@@ -879,7 +849,6 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
     viewsProcessed: 0,
     functionsProcessed: 0,
     runtimeEnumsProcessed: 0,
-    typeEnumsProcessed: 0,
     filesWritten: [],
     filesSkipped: [],
     errors: [],
@@ -915,7 +884,7 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   const markersWithBraces = findAllClosingBraces(lines, markers, { verbose });
   
   const names = extractAllNames(lines, markersWithBraces, { verbose });
-  logSuccess(`Found: ${names.tables.length} tables, ${names.views.length} views, ${names.functions.length} functions, ${names.typeEnums.length} type enums`);
+  logSuccess(`Found: ${names.tables.length} tables, ${names.views.length} views, ${names.functions.length} functions`);
   
   const runtimeEnums = await extractRuntimeEnums(
     lines,
@@ -939,7 +908,6 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
     names.tables as PublicTableNames[],
     names.views as PublicViewNames[],
     names.functions,
-    names.typeEnums,
     runtimeEnums.map(e => ({ name: e.name, values: e.values })),
     options
   );
@@ -955,28 +923,38 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   // ===== PHASE 3: ENRICH =====
   logStep('\n⚙️  Phase 3: Enrichment');
   
+  const extractedTables = await extractTables(
+    lines,
+    markersWithBraces.tablesLine,
+    markersWithBraces.tablesEndLine,
+    { verbose }
+  );
+  const tableInfoMap = new Map(extractedTables.map(t => [t.name, t]));
+
   const enriched = await enrichAll(
     filtered.tableNames,
+    tableInfoMap,
     filtered.viewNames,
     filtered.functionNames,
     filtered.runtimeEnums,
-    filtered.typeEnumNames as any,
     { verbose }
   );
-  
-  logSuccess(`Enriched: ${enriched.tables.length} tables, ${enriched.views.length} views, ${enriched.functions.length} functions`);
+
+  logSuccess(`Enriched: ${enriched.tables.length} tables, ${enriched.views.length} views, ${enriched.functions.length} functions`);  
   
   // ===== PHASE 4: PLAN =====
   logStep('\n📋 Phase 4: Generation Plan');
   
+  // ===== PHASE 4: PLAN =====
+  logStep('\n📋 Phase 4: Generation Plan');
+
   const plan = calculateGenerationPlan(
     enriched.tables,
     enriched.views,
     enriched.functions,
-    enriched.runtimeEnums,
-    enriched.typeEnums
+    enriched.runtimeEnums
   );
-  
+
   const shouldProceed = await showGenerationPlan(plan, options);
   if (!shouldProceed) {
     logger.endRun('success');
@@ -1017,11 +995,6 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
     await generateRuntimeEnumArtifacts(enum_, writeOptions, stats, logger);
   }
 
-  // Type Enums
-  for (const enum_ of enriched.typeEnums) {
-    await generateTypeEnumArtifacts(enum_, writeOptions, stats, logger);
-  }
-
   // ===== PHASE 7: VALIDATORS (After all types exist) =====
   logStep('\n🔒 Phase 7: Validator Generation');
   logSeparator('─', 40);
@@ -1029,22 +1002,43 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   for (const table of enriched.tables) {
     if (table.shouldGenerateValidators) {
       try {
-        const result = await generateValidator(table);
-        if (result) {
-          const writeResult = await writeGeneratedFile(
-            result.filePath,
-            result.content,
-            [`EnrichedTable:${table.name}`],
-            writeOptions
-          );
-          
-          if (writeResult.success && writeResult.action !== 'skipped') {
-            stats.filesWritten.push(writeResult.filePath);
-            logger.addGeneratedFile(writeResult.filePath);
-            if (writeOptions.verbose) logSuccess(`      ✓ validator: ${result.filePath}`);
-          } else if (writeResult.action === 'skipped') {
-            stats.filesSkipped.push(writeResult.filePath);
+        // Build the full table content from extracted sections
+        const tableContent = `{
+    Row: {
+  ${table.rowContent}
+    }
+    Insert: {
+  ${table.insertContent}
+    }
+    Update: {
+  ${table.updateContent}
+    }
+  }`;
+        
+        const result = await generateValidatorForTable(
+          table.name,
+          tableContent,
+          { 
+            verbose: writeOptions.verbose, 
+            dryRun: writeOptions.dryRun, 
+            forceOverwrite: writeOptions.force,
+            outputBase: `lib/validators/generated/${table.deityFolder}`
           }
+        );
+        
+        if (result.success && result.action !== 'skipped' && result.action !== 'staged') {
+          stats.filesWritten.push(result.filePath);
+          logger.addGeneratedFile(result.filePath);
+          if (writeOptions.verbose) logSuccess(`      ✓ validator: ${result.filePath} (${result.action})`);
+        } else if (result.action === 'skipped') {
+          stats.filesSkipped.push(result.filePath);
+          if (writeOptions.verbose) logDebug(`      ⏭️ validator skipped: ${result.filePath}`);
+        } else if (result.action === 'staged') {
+          stats.filesWritten.push(result.filePath);
+          if (writeOptions.verbose) logWarning(`      📝 validator staged: ${result.filePath}`);
+        } else if (!result.success) {
+          stats.errors.push({ object: table.name, error: `validator: ${result.message}` });
+          logError(`      ✗ validator: ${result.message}`);
         }
       } catch (error) {
         const msg = error instanceof Error ? error.message : String(error);
