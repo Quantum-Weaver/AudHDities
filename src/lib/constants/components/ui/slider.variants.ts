@@ -1,27 +1,32 @@
-import { cva } from "class-variance-authority";
+// src/lib/constants/components/ui/slider.variants.ts
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    SLIDER VARIANTS                                        ║
+// ║                    CVA definitions — imports from constants only          ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+import { cva } from 'class-variance-authority';
 import {
   SLIDER_RANGE_COLOR_CLASSES,
   SLIDER_TRACK_SIZE_CLASSES,
   SLIDER_THUMB_SIZE_CLASSES,
+  SLIDER_THUMB_BASE_CLASSES,
   SLIDER_FOCUS_COLOR_CLASSES,
+  SLIDER_TRACK_BG_CLASS,
   DEFAULT_SLIDER_VARIANT,
   DEFAULT_SLIDER_SIZE,
-} from "./slider.constants";
+} from './slider.constants';
 
-// ============================================================================
-// SLIDER TRACK VARIANTS
-// ============================================================================
-
+// ─── Track Variants ────────────────────────────────────────────────────────
 export const sliderTrackVariants = cva(
-  "relative w-full grow rounded-full bg-white/10",
+  `relative w-full grow rounded-full ${SLIDER_TRACK_BG_CLASS}`,
   {
     variants: {
       variant: {
-        default: "",
-        quantum: "",
-        cosmic: "",
-        fire: "",
-        sanctuary: "",
+        default: '',
+        quantum: '',
+        cosmic: '',
+        fire: '',
+        sanctuary: '',
       },
       size: {
         sm: SLIDER_TRACK_SIZE_CLASSES.sm,
@@ -36,34 +41,25 @@ export const sliderTrackVariants = cva(
   }
 );
 
-// ============================================================================
-// SLIDER RANGE (FILL) VARIANTS
-// ============================================================================
-
-export const sliderRangeVariants = cva(
-  "absolute h-full rounded-full",
-  {
-    variants: {
-      variant: {
-        default: SLIDER_RANGE_COLOR_CLASSES.default,
-        quantum: SLIDER_RANGE_COLOR_CLASSES.quantum,
-        cosmic: SLIDER_RANGE_COLOR_CLASSES.cosmic,
-        fire: SLIDER_RANGE_COLOR_CLASSES.fire,
-        sanctuary: SLIDER_RANGE_COLOR_CLASSES.sanctuary,
-      },
+// ─── Range (Fill) Variants ─────────────────────────────────────────────────
+export const sliderRangeVariants = cva('absolute h-full rounded-full', {
+  variants: {
+    variant: {
+      default: SLIDER_RANGE_COLOR_CLASSES.default,
+      quantum: SLIDER_RANGE_COLOR_CLASSES.quantum,
+      cosmic: SLIDER_RANGE_COLOR_CLASSES.cosmic,
+      fire: SLIDER_RANGE_COLOR_CLASSES.fire,
+      sanctuary: SLIDER_RANGE_COLOR_CLASSES.sanctuary,
     },
-    defaultVariants: {
-      variant: DEFAULT_SLIDER_VARIANT,
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: DEFAULT_SLIDER_VARIANT,
+  },
+});
 
-// ============================================================================
-// SLIDER THUMB VARIANTS
-// ============================================================================
-
+// ─── Thumb Variants ────────────────────────────────────────────────────────
 export const sliderThumbVariants = cva(
-  "block rounded-full border border-white/20 bg-white shadow-lg transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50",
+  SLIDER_THUMB_BASE_CLASSES.join(' '),
   {
     variants: {
       variant: {
@@ -86,9 +82,10 @@ export const sliderThumbVariants = cva(
   }
 );
 
-// ============================================================================
-// TYPE EXPORTS
-// ============================================================================
-
-export type SliderVariant = NonNullable<Parameters<typeof sliderRangeVariants>[0]>['variant'];
-export type SliderSize = NonNullable<Parameters<typeof sliderThumbVariants>[0]>['size'];
+// ─── Type Exports ──────────────────────────────────────────────────────────
+export type SliderVariantProp = NonNullable<
+  Parameters<typeof sliderRangeVariants>[0]
+>['variant'];
+export type SliderSizeProp = NonNullable<
+  Parameters<typeof sliderThumbVariants>[0]
+>['size'];

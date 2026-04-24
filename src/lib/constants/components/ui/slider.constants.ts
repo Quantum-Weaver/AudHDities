@@ -1,15 +1,22 @@
-// ============================================================================
-// SLIDER CONSTANTS — Pure values derived from COSMIC tokens
-// All color classes use CSS custom properties from the COSMIC system
-// ============================================================================
+// src/lib/constants/components/ui/slider.constants.ts
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    SLIDER CONSTANTS                                       ║
+// ║                    Pure values derived from COSMIC tokens                 ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import {
-  QUANTUM_COLORS,
-  STATUS_COLORS,
-} from '@/lib/constants/cosmic/colors';
+import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
+import { SPACING_SCALE } from '@/lib/constants/cosmic/dimensions';
+import { FONT_SIZES } from '@/lib/constants/cosmic/dimensions';
+
+// ─── Color References ──────────────────────────────────────────────────────
+const starDust = QUANTUM_COLORS['starDust'];       // #E0E0E0
+const quantumPurple = QUANTUM_COLORS['quantum.purple']; // #6C5CE7
+const cosmicBlue = QUANTUM_COLORS['cosmic.blue'];    // #0984E3
+const fireBase = QUANTUM_COLORS['fire.base'];        // #E17055
+const sanctuaryGreen = QUANTUM_COLORS['sanctuary.green']; // #00B894
 
 // ============================================================================
-// SLIDER VARIANTS — Maps to COSMIC color tokens
+// SLIDER VARIANTS
 // ============================================================================
 
 export const SLIDER_VARIANTS = {
@@ -19,6 +26,8 @@ export const SLIDER_VARIANTS = {
   FIRE: 'fire',
   SANCTUARY: 'sanctuary',
 } as const;
+
+export type SliderVariant = (typeof SLIDER_VARIANTS)[keyof typeof SLIDER_VARIANTS];
 
 // ============================================================================
 // SLIDER SIZES
@@ -30,40 +39,42 @@ export const SLIDER_SIZES = {
   LG: 'lg',
 } as const;
 
+export type SliderSize = (typeof SLIDER_SIZES)[keyof typeof SLIDER_SIZES];
+
 // ============================================================================
-// RANGE (FILL) COLOR CLASSES — One per variant
+// RANGE (FILL) COLOR CLASSES
 // ============================================================================
 
 export const SLIDER_RANGE_COLOR_CLASSES: Record<SliderVariant, string> = {
-  default: `bg-[var(--color-quantum-purple)]`,
-  quantum: `bg-[var(--color-quantum-purple)]`,
-  cosmic: `bg-[var(--color-cosmic-blue)]`,
-  fire: `bg-[var(--color-fire-base)]`,
-  sanctuary: `bg-[var(--color-sanctuary-green)]`,
+  default: `bg-[${quantumPurple}]`,
+  quantum: `bg-[${quantumPurple}]`,
+  cosmic: `bg-[${cosmicBlue}]`,
+  fire: `bg-[${fireBase}]`,
+  sanctuary: `bg-[${sanctuaryGreen}]`,
 };
 
 // ============================================================================
-// VALUE DISPLAY COLOR CLASSES — Matches range fill color
+// VALUE DISPLAY COLOR CLASSES
 // ============================================================================
 
 export const SLIDER_VALUE_COLOR_CLASSES: Record<SliderVariant, string> = {
-  default: `text-[var(--color-quantum-purple)]`,
-  quantum: `text-[var(--color-quantum-purple)]`,
-  cosmic: `text-[var(--color-cosmic-blue)]`,
-  fire: `text-[var(--color-fire-base)]`,
-  sanctuary: `text-[var(--color-sanctuary-green)]`,
+  default: `text-[${quantumPurple}]`,
+  quantum: `text-[${quantumPurple}]`,
+  cosmic: `text-[${cosmicBlue}]`,
+  fire: `text-[${fireBase}]`,
+  sanctuary: `text-[${sanctuaryGreen}]`,
 };
 
 // ============================================================================
-// FOCUS RING COLOR CLASSES — For keyboard accessibility
+// FOCUS RING COLOR CLASSES
 // ============================================================================
 
 export const SLIDER_FOCUS_COLOR_CLASSES: Record<SliderVariant, string> = {
-  default: `focus-visible:ring-[var(--color-quantum-purple)]/50`,
-  quantum: `focus-visible:ring-[var(--color-quantum-purple)]/50`,
-  cosmic: `focus-visible:ring-[var(--color-cosmic-blue)]/50`,
-  fire: `focus-visible:ring-[var(--color-fire-base)]/50`,
-  sanctuary: `focus-visible:ring-[var(--color-sanctuary-green)]/50`,
+  default: `focus-visible:ring-[${quantumPurple}]/50`,
+  quantum: `focus-visible:ring-[${quantumPurple}]/50`,
+  cosmic: `focus-visible:ring-[${cosmicBlue}]/50`,
+  fire: `focus-visible:ring-[${fireBase}]/50`,
+  sanctuary: `focus-visible:ring-[${sanctuaryGreen}]/50`,
 };
 
 // ============================================================================
@@ -77,13 +88,23 @@ export const SLIDER_TRACK_SIZE_CLASSES: Record<SliderSize, string> = {
 };
 
 // ============================================================================
-// THUMB SIZE CLASSES
+// THUMB SIZE CLASSES (Tailwind)
 // ============================================================================
 
 export const SLIDER_THUMB_SIZE_CLASSES: Record<SliderSize, string> = {
   sm: 'h-3 w-3',
   md: 'h-4 w-4',
   lg: 'h-5 w-5',
+};
+
+// ============================================================================
+// THUMB PIXEL SIZE (for positioning calculations)
+// ============================================================================
+
+export const SLIDER_THUMB_PIXEL_SIZE: Record<SliderSize, number> = {
+  sm: 12,
+  md: 16,
+  lg: 20,
 };
 
 // ============================================================================
@@ -97,18 +118,55 @@ export const SLIDER_VALUE_SIZE_CLASSES: Record<SliderSize, string> = {
 };
 
 // ============================================================================
+// LABEL COLOR CLASSES
+// ============================================================================
+
+export const SLIDER_LABEL_COLOR_CLASS = `text-[${starDust}]/80`;
+export const SLIDER_HELPER_TEXT_COLOR_CLASS = `text-[${starDust}]/40`;
+
+// ============================================================================
+// TRACK BACKGROUND
+// ============================================================================
+
+export const SLIDER_TRACK_BG_CLASS = `bg-[${starDust}]/10`;
+
+// ============================================================================
+// MARKS COLOR
+// ============================================================================
+
+export const SLIDER_MARK_COLOR_CLASS = `bg-[${starDust}]/20`;
+
+// ============================================================================
+// THUMB BASE CLASSES (applied to all variants)
+// ============================================================================
+
+export const SLIDER_THUMB_BASE_CLASSES = [
+  'block',
+  'rounded-full',
+  'border',
+  `border-[${starDust}]/20`,
+  `bg-[${starDust}]`,
+  'shadow-lg',
+  'transition-colors',
+  'focus-visible:outline-none',
+  'focus-visible:ring-2',
+  'disabled:pointer-events-none',
+  'disabled:opacity-50',
+] as const;
+
+// ============================================================================
+// CONTAINER SPACING
+// ============================================================================
+
+export const SLIDER_CONTAINER_SPACING = 'space-y-2';
+export const SLIDER_TRACK_CONTAINER_SPACING = 'py-2';
+
+// ============================================================================
 // DEFAULT VALUES
 // ============================================================================
 
-export const DEFAULT_SLIDER_VARIANT: SliderVariant = SLIDER_VARIANTS.DEFAULT;
-export const DEFAULT_SLIDER_SIZE: SliderSize = SLIDER_SIZES.MD;
+export const DEFAULT_SLIDER_VARIANT = SLIDER_VARIANTS.DEFAULT;
+export const DEFAULT_SLIDER_SIZE = SLIDER_SIZES.MD;
 export const DEFAULT_SLIDER_MIN = 0;
 export const DEFAULT_SLIDER_MAX = 100;
 export const DEFAULT_SLIDER_STEP = 1;
-
-// ============================================================================
-// TYPE EXPORTS
-// ============================================================================
-
-export type SliderVariant = (typeof SLIDER_VARIANTS)[keyof typeof SLIDER_VARIANTS];
-export type SliderSize = (typeof SLIDER_SIZES)[keyof typeof SLIDER_SIZES];

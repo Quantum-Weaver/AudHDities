@@ -15,7 +15,7 @@ import {
   FORM_VARIANTS,
   VALIDATION_STATES,
   VARIANT_FIELD_CONFIGS,
-} from '@/lib/constants/components/ui/unified_form';
+} from '@/lib/constants/components/ui/form.variants';
 
 // =====================================================
 // VALUE HELPERS

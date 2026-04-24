@@ -1,10 +1,9 @@
 // src/components/hermes/ProductCard.tsx
-// src/components/hermes/ProductCard.tsx
 'use client';
 
 import React, { useMemo } from 'react';
-import { Card, CardRibbon } from '@/components/ui/Card';
-import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
+import { Card } from '@/components/ui/Card';
+import { CardMedia, CardRibbon, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { Progress } from '@/components/ui/Progress';

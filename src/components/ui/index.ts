@@ -210,12 +210,10 @@ export {
 // ============================================================================
 
 export {
-  Card,
   CardMedia,
   CardHeader,
   CardContent,
   CardFooter,
-  SmartCard,
   ProductCardRenderer,
   QuestCardRenderer,
   ProposalCardRenderer,
@@ -223,6 +221,11 @@ export {
   StatusBadge,
   TierBadge,
   PriceBadge,
+} from './cards';
+
+export {
+  Card,
+  SmartCard,
   type CardProps
 } from './Card';
 
@@ -451,7 +454,6 @@ export {
   TooltipWithShortcut,
   TooltipGroup,
   type TooltipProviderProps,
-  type TooltipProps,
   type TooltipTriggerProps,
   type TooltipContentProps,
   type TooltipVariant,

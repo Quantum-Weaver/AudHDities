@@ -5,6 +5,7 @@
 import type { ReactNode } from 'react';
 import type { 
   FORM_VARIANTS,
+  FORM_SPACING,
   FORM_SIZES,
   FORM_LAYOUTS,
   INPUT_VARIANTS,
@@ -12,7 +13,7 @@ import type {
   LABEL_POSITIONS,
   HELPER_POSITIONS,
   WIZARD_STEP_STATUS,
-} from '@/lib/constants/components/ui/unified_form';
+} from '@/lib/constants/components/ui/form.variants';
 
 // =====================================================
 // CORE TYPE ALIASES
@@ -20,6 +21,7 @@ import type {
 
 export type FormVariant = typeof FORM_VARIANTS[keyof typeof FORM_VARIANTS];
 export type FormSize = typeof FORM_SIZES[keyof typeof FORM_SIZES];
+export type FormSpacing = typeof FORM_SPACING[keyof typeof FORM_SPACING];
 export type FormLayout = typeof FORM_LAYOUTS[keyof typeof FORM_LAYOUTS];
 export type InputVariant = typeof INPUT_VARIANTS[keyof typeof INPUT_VARIANTS];
 export type ValidationState = typeof VALIDATION_STATES[keyof typeof VALIDATION_STATES];

@@ -196,6 +196,7 @@ export interface SchemaFunctionCardData extends BaseCardData {
 export type CardData =
   | ProductCardData
   | QuestCardData
+  | CouncilCardData
   | EventCardData
   | ProposalCardData
   | EntityCardData

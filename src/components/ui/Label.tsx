@@ -1,11 +1,12 @@
 // components/ui/Label.tsx
-// Label Component - The identifier for form fields
-// Provides consistent labeling with required/optional indicators
+'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { labelVariants } from '@/lib/constants/components/ui/label_variants';
+import type { LabelVariant, LabelSize } from '@/lib/constants/components/ui/label_variants';
 
-export type LabelSize = 'sm' | 'md' | 'lg';
+export type { LabelSize };
 
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   /** Size of the label */
@@ -19,12 +20,6 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
   /** Disabled state */
   disabled?: boolean;
 }
-
-const sizeClasses: Record<LabelSize, string> = {
-  sm: 'text-xs',
-  md: 'text-sm',
-  lg: 'text-base',
-};
 
 /**
  * Label Component
@@ -52,26 +47,23 @@ export const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
     },
     ref
   ) => {
-    const colorClasses = cn(
-      'font-medium transition-colors duration-200',
-      error && 'text-red-400',
-      disabled && 'text-white/40',
-      !error && !disabled && 'text-white/80'
-    );
+    // Determine variant from props
+    let variant: LabelVariant = 'default';
+    if (error) variant = 'error';
+    else if (required) variant = 'required';
+    else if (optional) variant = 'optional';
     
     return (
       <label
         ref={ref}
         className={cn(
-          sizeClasses[size],
-          colorClasses,
+          labelVariants({ variant, size }),
+          disabled && 'opacity-50',
           className
         )}
         {...props}
       >
         {children}
-        {required && <span className="ml-1 text-cyan-400">*</span>}
-        {optional && <span className="ml-1 text-white/40 text-xs">(optional)</span>}
       </label>
     );
   }

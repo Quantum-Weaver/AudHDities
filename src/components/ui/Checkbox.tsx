@@ -1,42 +1,57 @@
 // components/ui/Checkbox.tsx
-// Checkbox Component - The binary choice gateway
-// Allows users to select yes/no or multiple options
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    CHECKBOX COMPONENT                                     ║
+// ║                    The binary choice gateway                               ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import React from 'react';
+'use client';
+
+import React, { useId } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
-  /** Label text */
-  label?: string;
-  /** Error message */
-  error?: string;
-  /** Helper text */
-  helper?: string;
-  /** Size of the checkbox */
-  size?: 'sm' | 'md' | 'lg';
-}
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  CheckboxProps,
+  CheckboxGroupProps,
+} from '@/types/components/ui/checkbox.types';
 
-const sizeClasses = {
-  sm: 'w-3.5 h-3.5',
-  md: 'w-4 h-4',
-  lg: 'w-5 h-5',
-};
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  CHECKBOX_SIZE,
+  CHECK_ICON_SIZE,
+  CHECKBOX_LABEL_SIZE,
+  CHECKBOX_SPACING,
+  CHECKBOX_TEXT_OPACITY,
+  CHECKBOX_ERROR,
+} from '@/lib/constants/components/ui/checkbox.constants';
 
-const labelSizeClasses = {
-  sm: 'text-sm',
-  md: 'text-base',
-  lg: 'text-lg',
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import { checkboxVariants } from '@/lib/constants/components/ui/checkbox.variants';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CHECKBOX
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Checkbox Component
- * 
+ * Checkbox — A binary choice input with label, helper text, and error state.
+ *
  * @example
  * <Checkbox label="I agree to the terms" />
- * 
+ *
  * @example
- * <Checkbox label="Subscribe to newsletter" defaultChecked />
+ * <Checkbox
+ *   label="Subscribe to newsletter"
+ *   variant="card"
+ *   size="lg"
+ *   defaultChecked
+ * />
+ *
+ * @example
+ * <Checkbox
+ *   label="Accept"
+ *   error="This field is required"
+ * />
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
@@ -44,9 +59,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       error,
       helper,
-      size = 'md',
+      variant = 'default',
+      size = 'MD',
       className,
-      id,
+      id: externalId,
       disabled,
       checked,
       defaultChecked,
@@ -54,33 +70,34 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref
   ) => {
-    const checkboxId = id || `checkbox-${Math.random().toString(36).slice(2, 9)}`;
+    const generatedId = useId();
+    const checkboxId = externalId || `checkbox-${generatedId}`;
     const hasError = !!error;
-    
+    const isChecked = checked ?? defaultChecked;
+
     return (
       <div className="flex flex-col gap-1">
-        <div className="flex items-start gap-2">
-          <div className="relative flex items-center justify-center mt-0.5">
+        <div className={cn('flex items-start', CHECKBOX_SPACING.GAP)}>
+          {/* ── Checkbox Input + Custom Check Icon ── */}
+          <div className="relative flex items-center justify-center mt-0.5 shrink-0">
             <input
               ref={ref}
               type="checkbox"
               id={checkboxId}
               className={cn(
-                'appearance-none rounded border transition-all duration-200',
-                'bg-white/5 border-white/20',
-                'checked:bg-cyan-500 checked:border-cyan-500',
-                'focus:outline-none focus:ring-2 focus:ring-cyan-400/20',
-                'disabled:opacity-50 disabled:cursor-not-allowed',
-                'cursor-pointer',
-                sizeClasses[size],
-                hasError && 'border-red-400',
+                checkboxVariants({ variant, size }),
+                hasError && CHECKBOX_ERROR.BORDER,
                 className
               )}
               checked={checked}
               defaultChecked={defaultChecked}
               aria-invalid={hasError}
               aria-describedby={
-                helper ? `${checkboxId}-helper` : hasError ? `${checkboxId}-error` : undefined
+                helper && !hasError
+                  ? `${checkboxId}-helper`
+                  : hasError
+                    ? `${checkboxId}-error`
+                    : undefined
               }
               disabled={disabled}
               {...props}
@@ -88,38 +105,55 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             <Check
               className={cn(
                 'absolute pointer-events-none text-white transition-opacity',
-                'h-2 w-2',
-                size === 'sm' && 'h-2 w-2',
-                size === 'md' && 'h-2.5 w-2.5',
-                size === 'lg' && 'h-3 w-3',
-                (checked || defaultChecked) ? 'opacity-100' : 'opacity-0'
+                CHECK_ICON_SIZE[size],
+                isChecked ? 'opacity-100' : 'opacity-0'
               )}
+              aria-hidden="true"
             />
           </div>
-          
+
+          {/* ── Label ── */}
           {label && (
             <label
               htmlFor={checkboxId}
               className={cn(
-                'text-white/80 cursor-pointer select-none',
-                labelSizeClasses[size],
-                disabled && 'opacity-50 cursor-not-allowed',
-                hasError && 'text-red-400'
+                'cursor-pointer select-none',
+                CHECKBOX_LABEL_SIZE[size],
+                CHECKBOX_TEXT_OPACITY.LABEL,
+                disabled && CHECKBOX_TEXT_OPACITY.DISABLED,
+                hasError && CHECKBOX_ERROR.TEXT
               )}
             >
               {label}
             </label>
           )}
         </div>
-        
+
+        {/* ── Helper Text ── */}
         {helper && !hasError && (
-          <p id={`${checkboxId}-helper`} className="text-xs text-white/40 pl-6">
+          <p
+            id={`${checkboxId}-helper`}
+            className={cn(
+              'text-xs',
+              CHECKBOX_TEXT_OPACITY.HELPER,
+              CHECKBOX_SPACING.HELPER_INDENT
+            )}
+          >
             {helper}
           </p>
         )}
-        
+
+        {/* ── Error Text ── */}
         {hasError && (
-          <p id={`${checkboxId}-error`} className="text-xs text-red-400 pl-6">
+          <p
+            id={`${checkboxId}-error`}
+            className={cn(
+              'text-xs',
+              CHECKBOX_ERROR.TEXT,
+              CHECKBOX_SPACING.HELPER_INDENT
+            )}
+            role="alert"
+          >
             {error}
           </p>
         )}
@@ -129,3 +163,82 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 );
 
 Checkbox.displayName = 'Checkbox';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CHECKBOX GROUP
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * CheckboxGroup — A group of related checkboxes with shared state management.
+ *
+ * @example
+ * <CheckboxGroup
+ *   options={[
+ *     { value: 'quantum', label: 'Quantum' },
+ *     { value: 'cosmic', label: 'Cosmic' },
+ *   ]}
+ *   value={selected}
+ *   onChange={setSelected}
+ * />
+ */
+function CheckboxGroup({
+  options,
+  value = [],
+  onChange,
+  variant,
+  size = 'MD',
+  error,
+  orientation = 'vertical',
+  className,
+}: CheckboxGroupProps) {
+  const handleToggle = (optionValue: string) => {
+    const newValues = value.includes(optionValue)
+      ? value.filter((v) => v !== optionValue)
+      : [...value, optionValue];
+    onChange?.(newValues);
+  };
+
+  return (
+    <div
+      className={cn(
+        'flex',
+        orientation === 'vertical' ? 'flex-col gap-2' : 'flex-row flex-wrap gap-4',
+        className
+      )}
+      role="group"
+    >
+      {options.map((option) => (
+        <Checkbox
+          key={option.value}
+          label={option.label}
+          helper={option.helper}
+          disabled={option.disabled}
+          variant={variant}
+          size={size}
+          checked={value.includes(option.value)}
+          onChange={() => handleToggle(option.value)}
+        />
+      ))}
+      {error && (
+        <p className={cn('text-xs', CHECKBOX_ERROR.TEXT)} role="alert">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+CheckboxGroup.displayName = 'CheckboxGroup';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export { CheckboxGroup };
+export type {
+  CheckboxProps,
+  CheckboxGroupProps,
+  CheckboxVariant,
+  CheckboxSizeVariant,
+  CheckboxSize,
+} from '@/types/components/ui/checkbox.types';

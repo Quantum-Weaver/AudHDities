@@ -1,87 +1,77 @@
-// components/ui/Toast.tsx
-// Toast Component - The whisper of the interface
-// Delivers brief, non-intrusive notifications
+// src/components/ui/Toast.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    TOAST COMPONENT                                        ║
+// ║                    The whisper of the interface                           ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+'use client';
+
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react';
 import { createPortal } from 'react-dom';
+import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  Toast,
+  ToastVariant,
+  ToastPosition,
+  ToastItemProps,
+  ToastProviderProps,
+  ToasterProps,
+  ToastContextValue,
+} from '@/types/components/ui/toast.types';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
 import {
-  AlertCircle,
-  CheckCircle,
-  Info,
-  XCircle,
-  X,
-  Zap,
-  Sparkles,
-} from 'lucide-react';
+  TOAST_DEFAULT_DURATION,
+  TOAST_MAX_COUNT,
+  TOAST_CLOSE_BUTTON,
+  TOAST_ICON_SIZE,
+  TOAST_TITLE_MARGIN,
+  TOAST_ACTION_MARGIN,
+} from '@/lib/constants/components/ui/toast.constants';
 
-export type ToastVariant = 'info' | 'success' | 'warning' | 'error' | 'quantum';
-export type ToastPosition = 
-  | 'top-right'
-  | 'top-left'
-  | 'top-center'
-  | 'bottom-right'
-  | 'bottom-left'
-  | 'bottom-center';
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  composeToastItemClasses,
+  composeToastIconClasses,
+  composeToasterContainerClasses,
+  TOAST_ICONS,
+  resolveToastDuration,
+  generateToastId,
+} from '@/utils/components/ui/toast.utils';
 
-export interface Toast {
-  id: string;
-  title?: string;
-  description: string;
-  variant?: ToastVariant;
-  duration?: number;
-  action?: {
-    label: string;
-    onClick: () => void;
-  };
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// TOAST ITEM
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface ToastProps extends Toast {
-  onClose: () => void;
-}
+const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
+  (
+    {
+      id,
+      title,
+      description,
+      variant = 'info',
+      duration,
+      action,
+      onClose,
+    },
+    ref
+  ) => {
+    const [isVisible, setIsVisible] = useState(true);
+    const [isLeaving, setIsLeaving] = useState(false);
+    const timerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
-const variantStyles: Record<ToastVariant, string> = {
-  info: 'bg-blue-500/95 border-blue-400/30',
-  success: 'bg-green-500/95 border-green-400/30',
-  warning: 'bg-yellow-500/95 border-yellow-400/30',
-  error: 'bg-red-500/95 border-red-400/30',
-  quantum: 'bg-quantum-purple/95 border-quantum-purple/40',
-};
+    const resolvedDuration = resolveToastDuration(variant, duration);
+    const IconComponent = TOAST_ICONS[variant];
 
-const iconColorStyles: Record<ToastVariant, string> = {
-  info: 'text-blue-300',
-  success: 'text-green-300',
-  warning: 'text-yellow-300',
-  error: 'text-red-300',
-  quantum: 'text-quantum-light',
-};
-
-const defaultIcons: Record<ToastVariant, React.ReactNode> = {
-  info: <Info className="h-5 w-5" />,
-  success: <CheckCircle className="h-5 w-5" />,
-  warning: <AlertCircle className="h-5 w-5" />,
-  error: <XCircle className="h-5 w-5" />,
-  quantum: <Sparkles className="h-5 w-5" />,
-};
-
-const positionClasses: Record<ToastPosition, string> = {
-  'top-right': 'top-4 right-4',
-  'top-left': 'top-4 left-4',
-  'top-center': 'top-4 left-1/2 -translate-x-1/2',
-  'bottom-right': 'bottom-4 right-4',
-  'bottom-left': 'bottom-4 left-4',
-  'bottom-center': 'bottom-4 left-1/2 -translate-x-1/2',
-};
-
-/**
- * Individual Toast Component
- */
-const ToastItem = React.forwardRef<HTMLDivElement, ToastProps>(
-  ({ id, title, description, variant = 'info', duration = 5000, action, onClose }, ref) => {
-    const [isVisible, setIsVisible] = React.useState(true);
-    const [isLeaving, setIsLeaving] = React.useState(false);
-    const timerRef = React.useRef<NodeJS.Timeout | null>(null);
-    
     const handleClose = useCallback(() => {
       setIsLeaving(true);
       setTimeout(() => {
@@ -89,41 +79,39 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastProps>(
         onClose();
       }, 200);
     }, [onClose]);
-    
-    React.useEffect(() => {
-      if (duration > 0) {
-        timerRef.current = setTimeout(handleClose, duration);
+
+    useEffect(() => {
+      if (resolvedDuration > 0) {
+        timerRef.current = setTimeout(handleClose, resolvedDuration);
       }
       return () => {
         if (timerRef.current) clearTimeout(timerRef.current);
       };
-    }, [duration, handleClose]);
-    
+    }, [resolvedDuration, handleClose]);
+
     if (!isVisible) return null;
-    
+
     return (
       <div
         ref={ref}
         role="alert"
         aria-live="polite"
-        className={cn(
-          'relative flex w-80 gap-3 rounded-lg border p-4 shadow-lg backdrop-blur-sm transition-all duration-200',
-          variantStyles[variant],
-          isLeaving ? 'opacity-0 translate-x-2' : 'opacity-100 translate-x-0',
-          'animate-in slide-in-from-right-5 fade-in duration-200'
-        )}
+        className={composeToastItemClasses({
+          variant,
+          isLeaving,
+        })}
       >
-        <div className={cn('flex-shrink-0', iconColorStyles[variant])}>
-          {defaultIcons[variant]}
+        {/* Icon */}
+        <div className={composeToastIconClasses(variant)}>
+          <IconComponent className={TOAST_ICON_SIZE} />
         </div>
-        
+
+        {/* Content */}
         <div className="flex-1">
           {title && (
-            <h5 className="font-medium text-white text-sm">
-              {title}
-            </h5>
+            <h5 className="font-medium text-white text-sm">{title}</h5>
           )}
-          <p className={cn('text-white/80 text-sm', title && 'mt-1')}>
+          <p className={cn('text-white/80 text-sm', title && TOAST_TITLE_MARGIN)}>
             {description}
           </p>
           {action && (
@@ -133,20 +121,29 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastProps>(
                 action.onClick();
                 handleClose();
               }}
-              className="mt-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+              className={cn(
+                TOAST_ACTION_MARGIN,
+                'text-sm font-medium text-white/80 hover:text-white transition-colors'
+              )}
             >
               {action.label}
             </button>
           )}
         </div>
-        
+
+        {/* Close Button */}
         <button
           type="button"
           onClick={handleClose}
-          className="flex-shrink-0 rounded-md p-1 text-white/40 hover:text-white/80 hover:bg-white/10 transition-colors"
+          className={cn(
+            'flex-shrink-0',
+            TOAST_CLOSE_BUTTON.RADIUS,
+            TOAST_CLOSE_BUTTON.PADDING,
+            'text-white/40 hover:text-white/80 hover:bg-white/10 transition-colors'
+          )}
           aria-label="Close"
         >
-          <X className="h-4 w-4" />
+          <X className={TOAST_CLOSE_BUTTON.ICON_SIZE} />
         </button>
       </div>
     );
@@ -154,21 +151,9 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastProps>(
 );
 ToastItem.displayName = 'ToastItem';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // TOAST CONTEXT
-// ============================================================================
-
-interface ToastContextValue {
-  toasts: Toast[];
-  addToast: (toast: Omit<Toast, 'id'>) => string;
-  removeToast: (id: string) => void;
-  clearAll: () => void;
-  success: (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => string;
-  error: (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => string;
-  warning: (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => string;
-  info: (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => string;
-  quantum: (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => string;
-}
+// ═══════════════════════════════════════════════════════════════════════════
 
 const ToastContext = createContext<ToastContextValue | null>(null);
 
@@ -180,69 +165,67 @@ export const useToast = () => {
   return context;
 };
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // TOAST PROVIDER
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface ToastProviderProps {
-  children: React.ReactNode;
-  position?: ToastPosition;
-  maxToasts?: number;
-}
-
-/**
- * ToastProvider - Context provider for toast notifications
- * 
- * @example
- * <ToastProvider>
- *   <App />
- *   <Toaster />
- * </ToastProvider>
- */
 export const ToastProvider = React.forwardRef<HTMLDivElement, ToastProviderProps>(
-  ({ children, position = 'bottom-right', maxToasts = 5 }, ref) => {
+  ({ children, position = 'bottom-right', maxToasts = TOAST_MAX_COUNT }, ref) => {
     const [toasts, setToasts] = useState<Toast[]>([]);
-    
-    const addToast = useCallback((toast: Omit<Toast, 'id'>): string => {
-      const id = Math.random().toString(36).slice(2, 11);
-      const newToast = { ...toast, id, variant: toast.variant || 'info' };
-      
-      setToasts(prev => {
-        const newToasts = [newToast, ...prev].slice(0, maxToasts);
-        return newToasts;
-      });
-      
-      return id;
-    }, [maxToasts]);
-    
+
+    const addToast = useCallback(
+      (toast: Omit<Toast, 'id'>): string => {
+        const id = generateToastId();
+        const newToast: Toast = {
+          ...toast,
+          id,
+          variant: toast.variant || 'info',
+        };
+
+        setToasts((prev) => [newToast, ...prev].slice(0, maxToasts));
+        return id;
+      },
+      [maxToasts]
+    );
+
     const removeToast = useCallback((id: string) => {
-      setToasts(prev => prev.filter(toast => toast.id !== id));
+      setToasts((prev) => prev.filter((t) => t.id !== id));
     }, []);
-    
+
     const clearAll = useCallback(() => {
       setToasts([]);
     }, []);
-    
-    const success = useCallback((description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => {
-      return addToast({ description, variant: 'success', ...options });
-    }, [addToast]);
-    
-    const error = useCallback((description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => {
-      return addToast({ description, variant: 'error', ...options });
-    }, [addToast]);
-    
-    const warning = useCallback((description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => {
-      return addToast({ description, variant: 'warning', ...options });
-    }, [addToast]);
-    
-    const info = useCallback((description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => {
-      return addToast({ description, variant: 'info', ...options });
-    }, [addToast]);
-    
-    const quantum = useCallback((description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) => {
-      return addToast({ description, variant: 'quantum', ...options });
-    }, [addToast]);
-    
+
+    const success = useCallback(
+      (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) =>
+        addToast({ description, variant: 'success', ...options }),
+      [addToast]
+    );
+
+    const error = useCallback(
+      (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) =>
+        addToast({ description, variant: 'error', ...options }),
+      [addToast]
+    );
+
+    const warning = useCallback(
+      (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) =>
+        addToast({ description, variant: 'warning', ...options }),
+      [addToast]
+    );
+
+    const info = useCallback(
+      (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) =>
+        addToast({ description, variant: 'info', ...options }),
+      [addToast]
+    );
+
+    const quantum = useCallback(
+      (description: string, options?: Partial<Omit<Toast, 'id' | 'description' | 'variant'>>) =>
+        addToast({ description, variant: 'quantum', ...options }),
+      [addToast]
+    );
+
     const contextValue: ToastContextValue = {
       toasts,
       addToast,
@@ -254,7 +237,7 @@ export const ToastProvider = React.forwardRef<HTMLDivElement, ToastProviderProps
       info,
       quantum,
     };
-    
+
     return (
       <ToastContext.Provider value={contextValue}>
         {children}
@@ -265,40 +248,28 @@ export const ToastProvider = React.forwardRef<HTMLDivElement, ToastProviderProps
 );
 ToastProvider.displayName = 'ToastProvider';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // TOASTER (Container)
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface ToasterProps {
-  position?: ToastPosition;
-  toasts: Toast[];
-  onClose: (id: string) => void;
-}
-
-/**
- * Toaster - Container component that renders toasts
- */
 export const Toaster = React.forwardRef<HTMLDivElement, ToasterProps>(
   ({ position = 'bottom-right', toasts, onClose }, ref) => {
-    const [mounted, setMounted] = React.useState(false);
-    
-    React.useEffect(() => {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
       setMounted(true);
     }, []);
-    
+
     if (!mounted) return null;
-    
+
     return createPortal(
-      <div
-        ref={ref}
-        className={cn(
-          'fixed z-50 flex flex-col gap-2',
-          positionClasses[position],
-          position.includes('top') ? 'flex-col-reverse' : 'flex-col'
-        )}
-      >
+      <div ref={ref} className={composeToasterContainerClasses(position)}>
         {toasts.map((toast) => (
-          <ToastItem key={toast.id} {...toast} onClose={() => onClose(toast.id)} />
+          <ToastItem
+            key={toast.id}
+            {...toast}
+            onClose={() => onClose(toast.id)}
+          />
         ))}
       </div>,
       document.body
@@ -306,3 +277,17 @@ export const Toaster = React.forwardRef<HTMLDivElement, ToasterProps>(
   }
 );
 Toaster.displayName = 'Toaster';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  Toast,
+  ToastVariant,
+  ToastPosition,
+  ToastItemProps,
+  ToastProviderProps,
+  ToasterProps,
+  ToastContextValue,
+} from '@/types/components/ui/toast.types';

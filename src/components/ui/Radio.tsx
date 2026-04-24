@@ -1,9 +1,12 @@
 // components/ui/Radio.tsx
-// Radio Component - The exclusive choice gateway
-// Allows users to select one option from a group
+'use client';
 
 import React, { createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
+
+// ============================================================================
+// TYPES
+// ============================================================================
 
 export type RadioSize = 'sm' | 'md' | 'lg';
 
@@ -24,37 +27,44 @@ const useRadioGroup = () => {
   return context;
 };
 
+// ============================================================================
+// CONSTANTS — derived from COSMIC tokens
+// ============================================================================
+
+const radioSizeClasses: Record<RadioSize, string> = {
+  sm: 'w-3.5 h-3.5',
+  md: 'w-4 h-4',
+  lg: 'w-5 h-5',
+};
+
+const radioInnerSizeClasses: Record<RadioSize, string> = {
+  sm: 'h-1.5 w-1.5',
+  md: 'h-2 w-2',
+  lg: 'h-2.5 w-2.5',
+};
+
+const radioLabelSizeClasses: Record<RadioSize, string> = {
+  sm: 'text-sm',
+  md: 'text-base',
+  lg: 'text-lg',
+};
+
+// ============================================================================
+// RADIO GROUP
+// ============================================================================
+
 export interface RadioGroupProps {
-  /** Name of the radio group */
   name: string;
-  /** Current value */
   value: string;
-  /** Callback when value changes */
   onChange: (value: string) => void;
-  /** Size of radio buttons */
   size?: RadioSize;
-  /** Children (Radio components) */
   children: React.ReactNode;
   className?: string;
 }
 
-/**
- * RadioGroup - Container for radio buttons
- * 
- * @example
- * <RadioGroup name="payment" value="card" onChange={setPaymentMethod}>
- *   <Radio value="card">Credit Card</Radio>
- *   <Radio value="paypal">PayPal</Radio>
- * </RadioGroup>
- */
 export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ name, value, onChange, size = 'md', children, className }, ref) => {
-    const contextValue: RadioGroupContextValue = {
-      name,
-      value,
-      onChange,
-      size,
-    };
+    const contextValue: RadioGroupContextValue = { name, value, onChange, size };
     
     return (
       <RadioGroupContext.Provider value={contextValue}>
@@ -67,32 +77,17 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
 );
 RadioGroup.displayName = 'RadioGroup';
 
+// ============================================================================
+// RADIO
+// ============================================================================
+
 export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
-  /** Value of this radio option */
   value: string;
-  /** Label text */
   label?: string;
-  /** Error message */
   error?: string;
-  /** Helper text */
   helper?: string;
 }
 
-const radioSizeClasses = {
-  sm: 'w-3.5 h-3.5',
-  md: 'w-4 h-4',
-  lg: 'w-5 h-5',
-};
-
-const radioLabelSizeClasses = {
-  sm: 'text-sm',
-  md: 'text-base',
-  lg: 'text-lg',
-};
-
-/**
- * Radio - Individual radio button (must be used within RadioGroup)
- */
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ value, label, error, helper, className, id, disabled, ...props }, ref) => {
     const { name, value: groupValue, onChange, size } = useRadioGroup();
@@ -114,16 +109,16 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               onChange={(e) => onChange(e.target.value)}
               className={cn(
                 'appearance-none rounded-full border transition-all duration-200',
-                'bg-white/5 border-white/20',
-                'checked:bg-cyan-500 checked:border-cyan-500',
-                'focus:outline-none focus:ring-2 focus:ring-cyan-400/20',
+                'bg-[var(--color-surface)]/5 border-[var(--color-star-dust)]/20',
+                'checked:bg-[var(--color-neurospark)] checked:border-[var(--color-neurospark)]',
+                'focus:outline-none focus:ring-2 focus:ring-[var(--color-neurospark)]/20',
                 'disabled:opacity-50 disabled:cursor-not-allowed',
                 'cursor-pointer',
                 radioSizeClasses[size],
-                hasError && 'border-red-400',
+                hasError && 'border-[var(--color-error)]',
                 className
               )}
-              aria-invalid={hasError}
+              aria-invalid={hasError || undefined}
               aria-describedby={
                 helper ? `${radioId}-helper` : hasError ? `${radioId}-error` : undefined
               }
@@ -133,9 +128,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             <div
               className={cn(
                 'absolute rounded-full bg-white transition-all',
-                size === 'sm' && 'h-1.5 w-1.5',
-                size === 'md' && 'h-2 w-2',
-                size === 'lg' && 'h-2.5 w-2.5',
+                radioInnerSizeClasses[size],
                 isChecked ? 'opacity-100' : 'opacity-0'
               )}
             />
@@ -145,10 +138,10 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             <label
               htmlFor={radioId}
               className={cn(
-                'text-white/80 cursor-pointer select-none',
+                'text-[var(--color-star-dust)]/80 cursor-pointer select-none',
                 radioLabelSizeClasses[size],
                 disabled && 'opacity-50 cursor-not-allowed',
-                hasError && 'text-red-400'
+                hasError && 'text-[var(--color-error)]'
               )}
             >
               {label}
@@ -157,13 +150,13 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         </div>
         
         {helper && !hasError && (
-          <p id={`${radioId}-helper`} className="text-xs text-white/40 pl-6">
+          <p id={`${radioId}-helper`} className="text-xs text-[var(--color-star-dust)]/40 pl-6">
             {helper}
           </p>
         )}
         
         {hasError && (
-          <p id={`${radioId}-error`} className="text-xs text-red-400 pl-6">
+          <p id={`${radioId}-error`} className="text-xs text-[var(--color-error)] pl-6" role="alert">
             {error}
           </p>
         )}

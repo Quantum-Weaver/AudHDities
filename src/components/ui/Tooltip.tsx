@@ -1,31 +1,58 @@
-// components/ui/Tooltip.tsx
-// Tooltip Component - The guide of the interface
-// Provides contextual hints on hover or focus
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    TOOLTIP COMPONENT                                      ║
+// ║                    The guide of the interface                              ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"use client";
+'use client';
 
 import React from 'react';
-import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
-import { cn } from "@/lib/utils";
+import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
+import { cn } from '@/lib/utils';
 
-export type TooltipVariant = 'default' | 'dark' | 'quantum' | 'cosmic';
-export type TooltipSide = 'top' | 'bottom' | 'left' | 'right';
-export type TooltipAlign = 'start' | 'center' | 'end';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  TooltipProviderProps,
+  TooltipRootProps,
+  TooltipTriggerProps,
+  TooltipContentProps,
+  TooltipWithIconProps,
+  TooltipWithShortcutProps,
+  TooltipGroupProps,
+} from '@/types/components/ui/tooltip.types';
 
-export interface TooltipProviderProps extends TooltipPrimitive.Provider.Props {
-  /** Delay in ms before showing tooltip */
-  delay?: number;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  TOOLTIP_DEFAULT_DELAY,
+  TOOLTIP_OFFSET,
+  TOOLTIP_MAX_WIDTH,
+  TOOLTIP_GROUP_SPACING,
+  TOOLTIP_SHORTCUT_TRIGGER_CLASSES,
+  TOOLTIP_SHORTCUT_KBD_CLASSES,
+  TOOLTIP_SHORTCUT_KBD_INNER_CLASSES,
+  TOOLTIP_ICON_TRIGGER_CLASSES,
+} from '@/lib/constants/components/ui/tooltip.constants';
 
-/**
- * TooltipProvider - Wraps app to provide tooltip context
- * 
- * @example
- * <TooltipProvider delay={300}>
- *   <App />
- * </TooltipProvider>
- */
-function TooltipProvider({ delay = 300, ...props }: TooltipProviderProps) {
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  tooltipContentVariants,
+  tooltipArrowVariants,
+} from '@/lib/constants/components/ui/tooltip.variants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  composeTooltipContentClasses,
+  composeTooltipArrowClasses,
+  resolveTooltipMaxWidth,
+} from '@/utils/components/ui/tooltip.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PROVIDER
+// ═══════════════════════════════════════════════════════════════════════════
+
+function TooltipProvider({
+  delay = TOOLTIP_DEFAULT_DELAY,
+  ...props
+}: TooltipProviderProps) {
   return (
     <TooltipPrimitive.Provider
       data-slot="tooltip-provider"
@@ -35,82 +62,47 @@ function TooltipProvider({ delay = 300, ...props }: TooltipProviderProps) {
   );
 }
 
-export interface TooltipProps extends TooltipPrimitive.Root.Props {
-  /** Visual variant */
-  variant?: TooltipVariant;
+// ═══════════════════════════════════════════════════════════════════════════
+// ROOT
+// ═══════════════════════════════════════════════════════════════════════════
+
+function Tooltip({ variant = 'default', ...props }: TooltipRootProps) {
+  return (
+    <TooltipPrimitive.Root
+      data-slot="tooltip"
+      data-variant={variant}
+      {...props}
+    />
+  );
 }
 
-/**
- * Tooltip - Root component that manages open state
- * 
- * @example
- * <Tooltip>
- *   <TooltipTrigger>Hover me</TooltipTrigger>
- *   <TooltipContent>Helpful information</TooltipContent>
- * </Tooltip>
- */
-function Tooltip({ variant = 'default', ...props }: TooltipProps) {
-  return <TooltipPrimitive.Root data-slot="tooltip" data-variant={variant} {...props} />;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// TRIGGER
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface TooltipTriggerProps extends TooltipPrimitive.Trigger.Props {}
-
-/**
- * TooltipTrigger - The element that triggers the tooltip
- */
 function TooltipTrigger({ ...props }: TooltipTriggerProps) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
-export interface TooltipContentProps extends TooltipPrimitive.Popup.Props {
-  /** Side of the trigger to show the tooltip */
-  side?: TooltipSide;
-  /** Offset from the trigger */
-  sideOffset?: number;
-  /** Alignment of the tooltip */
-  align?: TooltipAlign;
-  /** Offset from alignment */
-  alignOffset?: number;
-  /** Variant of the tooltip */
-  variant?: TooltipVariant;
-  /** Max width of the tooltip */
-  maxWidth?: string | number;
-  /** Show arrow pointing to trigger */
-  showArrow?: boolean;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTENT
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * Variant styles for tooltip content
- */
-const variantContentStyles: Record<TooltipVariant, string> = {
-  default: 'bg-foreground text-background',
-  dark: 'bg-deep-space text-star-dust border border-white/10',
-  quantum: 'bg-quantum-purple text-white shadow-lg shadow-quantum-purple/20',
-  cosmic: 'bg-cosmic-blue text-white shadow-lg shadow-cosmic-blue/20',
-};
-
-/**
- * TooltipContent - The content that appears in the tooltip
- * 
- * @example
- * <TooltipContent side="top" variant="quantum">
- *   This is a quantum tooltip
- * </TooltipContent>
- */
 function TooltipContent({
   className,
-  side = "top",
-  sideOffset = 4,
-  align = "center",
-  alignOffset = 0,
+  side = 'top',
+  sideOffset = TOOLTIP_OFFSET.SIDE,
+  align = 'center',
+  alignOffset = TOOLTIP_OFFSET.ALIGN,
   variant = 'default',
-  maxWidth = 240,
+  maxWidth = TOOLTIP_MAX_WIDTH,
   showArrow = true,
   children,
   ...props
 }: TooltipContentProps) {
-  const maxWidthStyle = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
-  
+  const contentVariantClass = tooltipContentVariants({ variant });
+  const arrowVariantClass = tooltipArrowVariants({ variant });
+
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Positioner
@@ -119,43 +111,24 @@ function TooltipContent({
         side={side}
         sideOffset={sideOffset}
         className="isolate z-50"
-        style={{ maxWidth: maxWidthStyle }}
+        style={{ maxWidth: resolveTooltipMaxWidth(maxWidth) }}
       >
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
-          className={cn(
-            "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md px-3 py-1.5 text-xs shadow-lg",
-            "has-data-[slot=kbd]:pr-1.5",
-            "data-[side=bottom]:slide-in-from-top-2",
-            "data-[side=inline-end]:slide-in-from-left-2",
-            "data-[side=inline-start]:slide-in-from-right-2",
-            "data-[side=left]:slide-in-from-right-2",
-            "data-[side=right]:slide-in-from-left-2",
-            "data-[side=top]:slide-in-from-bottom-2",
-            "data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95",
-            "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
-            "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-            variantContentStyles[variant],
-            className
-          )}
+          className={composeTooltipContentClasses({
+            variantClass: contentVariantClass,
+            side,
+            className,
+          })}
           {...props}
         >
           {children}
           {showArrow && (
-            <TooltipPrimitive.Arrow 
-              className={cn(
-                "z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px]",
-                variant === 'default' && "bg-foreground",
-                variant === 'dark' && "bg-deep-space",
-                variant === 'quantum' && "bg-quantum-purple",
-                variant === 'cosmic' && "bg-cosmic-blue",
-                "data-[side=bottom]:top-1",
-                "data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2",
-                "data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2",
-                "data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2",
-                "data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2",
-                "data-[side=top]:-bottom-2.5"
-              )}
+            <TooltipPrimitive.Arrow
+              className={composeTooltipArrowClasses({
+                variantClass: arrowVariantClass,
+                side,
+              })}
             />
           )}
         </TooltipPrimitive.Popup>
@@ -164,87 +137,26 @@ function TooltipContent({
   );
 }
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // VARIANT SHORTCUTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * DarkTooltip - Pre-configured dark variant
- */
-function DarkTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="dark" {...props}>
-      {children}
-    </Tooltip>
-  );
+function DarkTooltip({ children, ...props }: TooltipRootProps) {
+  return <Tooltip variant="dark" {...props}>{children}</Tooltip>;
 }
 
-/**
- * QuantumTooltip - Pre-configured quantum variant
- */
-function QuantumTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="quantum" {...props}>
-      {children}
-    </Tooltip>
-  );
+function QuantumTooltip({ children, ...props }: TooltipRootProps) {
+  return <Tooltip variant="quantum" {...props}>{children}</Tooltip>;
 }
 
-/**
- * CosmicTooltip - Pre-configured cosmic variant
- */
-function CosmicTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="cosmic" {...props}>
-      {children}
-    </Tooltip>
-  );
+function CosmicTooltip({ children, ...props }: TooltipRootProps) {
+  return <Tooltip variant="cosmic" {...props}>{children}</Tooltip>;
 }
 
-// ============================================================================
-// COMPOSITION COMPONENTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPOSITION: Icon + Tooltip
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface TooltipWithIconProps {
-  /** Icon to display */
-  icon: React.ReactNode;
-  /** Tooltip content */
-  content: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-  /** Icon wrapper className */
-  className?: string;
-}
-
-/**
- * TooltipWithIcon - Pre-composed icon + tooltip
- * 
- * @example
- * <TooltipWithIcon icon={<HelpCircle />} content="Help" />
- */
-// components/ui/Tooltip.tsx (corrected section)
-
-export interface TooltipWithIconProps {
-  /** Icon to display */
-  icon: React.ReactNode;
-  /** Tooltip content */
-  content: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-  /** Icon wrapper className */
-  className?: string;
-}
-
-/**
- * TooltipWithIcon - Pre-composed icon + tooltip
- * 
- * @example
- * <TooltipWithIcon icon={<HelpCircle />} content="Help" />
- */
 function TooltipWithIcon({
   icon,
   content,
@@ -256,7 +168,7 @@ function TooltipWithIcon({
     <Tooltip>
       <TooltipTrigger
         className={cn(
-          "inline-flex cursor-help items-center justify-center rounded-md p-1 text-white/60 transition-colors hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-cyan-400/20",
+          ...TOOLTIP_ICON_TRIGGER_CLASSES,
           className
         )}
       >
@@ -269,40 +181,10 @@ function TooltipWithIcon({
   );
 }
 
-export interface TooltipWithShortcutProps {
-  /** Label text */
-  label: string;
-  /** Keyboard shortcut (e.g., "⌘K") */
-  shortcut: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPOSITION: Shortcut + Tooltip
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * TooltipWithShortcut - Tooltip that displays a keyboard shortcut
- * 
- * @example
- * <TooltipWithShortcut label="Search" shortcut="⌘K" />
- */
-// components/ui/Tooltip.tsx (corrected section)
-
-export interface TooltipWithShortcutProps {
-  /** Label text */
-  label: string;
-  /** Keyboard shortcut (e.g., "⌘K") */
-  shortcut: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-}
-
-/**
- * TooltipWithShortcut - Tooltip that displays a keyboard shortcut
- * 
- * @example
- * <TooltipWithShortcut label="Search" shortcut="⌘K" />
- */
 function TooltipWithShortcut({
   label,
   shortcut,
@@ -312,16 +194,16 @@ function TooltipWithShortcut({
   return (
     <Tooltip>
       <TooltipTrigger
-        className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
+        className={cn(...TOOLTIP_SHORTCUT_TRIGGER_CLASSES)}
       >
         {label}
-        <kbd className="rounded bg-white/10 px-1.5 py-0.5 text-xs font-mono">
+        <kbd className={cn(...TOOLTIP_SHORTCUT_KBD_CLASSES)}>
           {shortcut}
         </kbd>
       </TooltipTrigger>
       <TooltipContent side={side} variant={variant}>
         <span className="mr-1">{label}</span>
-        <kbd className="rounded bg-white/20 px-1.5 py-0.5 text-xs font-mono">
+        <kbd className={cn(...TOOLTIP_SHORTCUT_KBD_INNER_CLASSES)}>
           {shortcut}
         </kbd>
       </TooltipContent>
@@ -329,35 +211,23 @@ function TooltipWithShortcut({
   );
 }
 
-export interface TooltipGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Spacing between tooltip triggers */
-  spacing?: 'sm' | 'md' | 'lg';
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPOSITION: Tooltip Group
+// ═══════════════════════════════════════════════════════════════════════════
 
-const groupSpacingClasses: Record<string, string> = {
-  sm: 'gap-1',
-  md: 'gap-2',
-  lg: 'gap-3',
-};
-
-/**
- * TooltipGroup - Container for multiple tooltip triggers
- * 
- * @example
- * <TooltipGroup>
- *   <TooltipWithIcon icon={<SettingsIcon />} content="Settings" />
- *   <TooltipWithIcon icon={<HelpIcon />} content="Help" />
- * </TooltipGroup>
- */
 function TooltipGroup({
   children,
-  spacing = 'md',
+  spacing = 'MD',
   className,
   ...props
 }: TooltipGroupProps) {
   return (
     <div
-      className={cn('flex items-center', groupSpacingClasses[spacing], className)}
+      className={cn(
+        'flex items-center',
+        TOOLTIP_GROUP_SPACING[spacing],
+        className
+      )}
       {...props}
     >
       {children}
@@ -365,18 +235,34 @@ function TooltipGroup({
   );
 }
 
-// Export all components
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
 export {
   TooltipProvider,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-  // Variant shortcuts
   DarkTooltip,
   QuantumTooltip,
   CosmicTooltip,
-  // Composition components
   TooltipWithIcon,
   TooltipWithShortcut,
   TooltipGroup,
 };
+
+export type {
+  TooltipProviderProps,
+  TooltipRootProps,
+  TooltipTriggerProps,
+  TooltipContentProps,
+  TooltipWithIconProps,
+  TooltipWithShortcutProps,
+  TooltipGroupProps,
+  TooltipSide,
+  TooltipAlign,
+  TooltipVariant,
+  TooltipPlacement,
+  TooltipGroupSpacing,
+} from '@/types/components/ui/tooltip.types';

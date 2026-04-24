@@ -9,454 +9,206 @@ A tooltip component is a **contextual hint system** that provides additional inf
 - Keyboard accessibility (focus triggers)
 - Rich content support (not just text)
 
+My beloved friend,
+
+The system is beautiful. I'll now synthesize everything into a comprehensive guide that reflects the true architecture — types, constants, variants, and utilities as separate concerns, with the component consuming them all cleanly.
+
 ---
 
-## 📁 **`components/ui/Tooltip.tsx`**
+## 🧭 TOOLTIP COMPONENT SYSTEM — COMPLETE GUIDE
+
+### Architecture Overview
+
+```
+tooltip.types.ts        →  All TypeScript interfaces, re-exports from Base UI
+tooltip.constants.ts    →  Raw values: offsets, delays, sizing, class fragments
+tooltip.variants.ts     →  CVA definitions: variant → Tailwind class mappings
+tooltip.utils.ts        →  Logic: animation composition, arrow positioning, class merging
+Tooltip.tsx             →  Component: imports all above, renders JSX, zero hardcoded values
+```
+
+**Principle:** Constants define *what*. Variants define *which styles*. Utilities define *how to compose*. Types define *the contract*. The component *assembles*.
+
+---
+
+### 📁 File Manifest
+
+| File | Location | Purpose |
+|------|----------|---------|
+| `Tooltip.tsx` | `components/ui/` | Component JSX |
+| `tooltip.types.ts` | `types/components/ui/` | All type definitions |
+| `tooltip.constants.ts` | `lib/constants/components/ui/` | Sizing, offsets, delays, class fragments |
+| `tooltip.variants.ts` | `lib/constants/components/ui/` | CVA variant definitions |
+| `tooltip.utils.ts` | `utils/components/ui/` | Animation composers, class merging |
+
+---
+
+### 🎨 Variants Reference
+
+| Variant | Background | Text | Border | Shadow | Use Case |
+|---------|-----------|------|--------|--------|----------|
+| `default` | `bg-foreground` | `text-background` | none | none | General hints |
+| `dark` | `bg-deep-space` | `text-star-dust` | `border-white/10` | none | Technical info, toolbars |
+| `light` | `bg-white` | `text-deep-space` | `border-white/20` | none | Light theme contexts |
+| `quantum` | `bg-quantum-purple` | `text-white` | none | `shadow-quantum-purple/20` | Special features, sovereignty actions |
+| `cosmic` | `bg-cosmic-blue` | `text-white` | none | `shadow-cosmic-blue/20` | Important guidance, navigation |
+| `fire` | `bg-fire-base` | `text-white` | none | `shadow-fire-base/20` | Destructive actions, warnings |
+| `sanctuary` | `bg-sanctuary-green` | `text-white` | none | `shadow-sanctuary-green/20` | Safe actions, confirmations |
+| `council` | `bg-gold` | `text-deep-space` | none | `shadow-gold/20` | Governance, elevated privilege |
+
+---
+
+### 🔧 Placement Options
+
+| Side | Arrow Position | Use Case |
+|------|---------------|----------|
+| `top` | `-bottom-2.5` | Default, above trigger |
+| `bottom` | `top-1` | Below trigger, avoids top UI |
+| `right` | `top-1/2! -left-1 -translate-y-1/2` | Right of trigger, common for icon hints |
+| `left` | `top-1/2! -right-1 -translate-y-1/2` | Left of trigger, avoids right UI |
+
+---
+
+### 📦 Exports
+
+**Components:**
+
+| Export | Type | Description |
+|--------|------|-------------|
+| `TooltipProvider` | Component | Wraps app, provides tooltip context |
+| `Tooltip` | Component | Root — manages open state |
+| `TooltipTrigger` | Component | Element that triggers the tooltip |
+| `TooltipContent` | Component | Floating content with animations |
+| `DarkTooltip` | Component | Pre-configured dark variant |
+| `QuantumTooltip` | Component | Pre-configured quantum variant |
+| `CosmicTooltip` | Component | Pre-configured cosmic variant |
+| `TooltipWithIcon` | Component | Icon trigger + tooltip composition |
+| `TooltipWithShortcut` | Component | Label + kbd shortcut composition |
+| `TooltipGroup` | Component | Container for multiple tooltips |
+
+**Types (re-exported):**
+
+| Type | Source | Description |
+|------|--------|-------------|
+| `TooltipVariant` | variants | Valid variant keys |
+| `TooltipPlacement` | variants | Placement token values |
+| `TooltipSide` | types | `'top' \| 'right' \| 'bottom' \| 'left'` |
+| `TooltipAlign` | types | `'start' \| 'center' \| 'end'` |
+| `TooltipGroupSpacing` | constants | `'SM' \| 'MD' \| 'LG'` |
+| `TooltipPopupState` | types | Base UI Popup state for className functions |
+| `TooltipProviderProps` | types | Provider props interface |
+| `TooltipRootProps` | types | Root props interface |
+| `TooltipTriggerProps` | types | Trigger props interface |
+| `TooltipContentProps` | types | Content props interface |
+| `TooltipWithIconProps` | types | Icon composition props |
+| `TooltipWithShortcutProps` | types | Shortcut composition props |
+| `TooltipGroupProps` | types | Group container props |
+
+---
+
+### 📋 Usage Patterns
+
+#### Basic Setup
 
 ```tsx
-// components/ui/Tooltip.tsx
-// Tooltip Component - The guide of the interface
-// Provides contextual hints on hover or focus
-
-"use client";
-
-import React from 'react';
-import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
-import { cn } from "@/lib/utils";
-
-export type TooltipVariant = 'default' | 'dark' | 'quantum' | 'cosmic';
-export type TooltipSide = 'top' | 'bottom' | 'left' | 'right';
-export type TooltipAlign = 'start' | 'center' | 'end';
-
-export interface TooltipProviderProps extends TooltipPrimitive.Provider.Props {
-  /** Delay in ms before showing tooltip */
-  delay?: number;
-}
-
-/**
- * TooltipProvider - Wraps app to provide tooltip context
- * 
- * @example
- * <TooltipProvider delay={300}>
- *   <App />
- * </TooltipProvider>
- */
-function TooltipProvider({ delay = 300, ...props }: TooltipProviderProps) {
-  return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delay={delay}
-      {...props}
-    />
-  );
-}
-
-export interface TooltipProps extends TooltipPrimitive.Root.Props {
-  /** Visual variant */
-  variant?: TooltipVariant;
-}
-
-/**
- * Tooltip - Root component that manages open state
- * 
- * @example
- * <Tooltip>
- *   <TooltipTrigger>Hover me</TooltipTrigger>
- *   <TooltipContent>Helpful information</TooltipContent>
- * </Tooltip>
- */
-function Tooltip({ variant = 'default', ...props }: TooltipProps) {
-  return <TooltipPrimitive.Root data-slot="tooltip" data-variant={variant} {...props} />;
-}
-
-export interface TooltipTriggerProps extends TooltipPrimitive.Trigger.Props {}
-
-/**
- * TooltipTrigger - The element that triggers the tooltip
- */
-function TooltipTrigger({ ...props }: TooltipTriggerProps) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
-}
-
-export interface TooltipContentProps extends TooltipPrimitive.Popup.Props {
-  /** Side of the trigger to show the tooltip */
-  side?: TooltipSide;
-  /** Offset from the trigger */
-  sideOffset?: number;
-  /** Alignment of the tooltip */
-  align?: TooltipAlign;
-  /** Offset from alignment */
-  alignOffset?: number;
-  /** Variant of the tooltip */
-  variant?: TooltipVariant;
-  /** Max width of the tooltip */
-  maxWidth?: string | number;
-  /** Show arrow pointing to trigger */
-  showArrow?: boolean;
-}
-
-/**
- * Variant styles for tooltip content
- */
-const variantContentStyles: Record<TooltipVariant, string> = {
-  default: 'bg-foreground text-background',
-  dark: 'bg-deep-space text-star-dust border border-white/10',
-  quantum: 'bg-quantum-purple text-white shadow-lg shadow-quantum-purple/20',
-  cosmic: 'bg-cosmic-blue text-white shadow-lg shadow-cosmic-blue/20',
-};
-
-/**
- * TooltipContent - The content that appears in the tooltip
- * 
- * @example
- * <TooltipContent side="top" variant="quantum">
- *   This is a quantum tooltip
- * </TooltipContent>
- */
-function TooltipContent({
-  className,
-  side = "top",
-  sideOffset = 4,
-  align = "center",
-  alignOffset = 0,
-  variant = 'default',
-  maxWidth = 240,
-  showArrow = true,
-  children,
-  ...props
-}: TooltipContentProps) {
-  const maxWidthStyle = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth;
-  
-  return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Positioner
-        align={align}
-        alignOffset={alignOffset}
-        side={side}
-        sideOffset={sideOffset}
-        className="isolate z-50"
-        style={{ maxWidth: maxWidthStyle }}
-      >
-        <TooltipPrimitive.Popup
-          data-slot="tooltip-content"
-          className={cn(
-            "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md px-3 py-1.5 text-xs shadow-lg",
-            "has-data-[slot=kbd]:pr-1.5",
-            "data-[side=bottom]:slide-in-from-top-2",
-            "data-[side=inline-end]:slide-in-from-left-2",
-            "data-[side=inline-start]:slide-in-from-right-2",
-            "data-[side=left]:slide-in-from-right-2",
-            "data-[side=right]:slide-in-from-left-2",
-            "data-[side=top]:slide-in-from-bottom-2",
-            "data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95",
-            "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95",
-            "data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-            variantContentStyles[variant],
-            className
-          )}
-          {...props}
-        >
-          {children}
-          {showArrow && (
-            <TooltipPrimitive.Arrow 
-              className={cn(
-                "z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px]",
-                variant === 'default' && "bg-foreground",
-                variant === 'dark' && "bg-deep-space",
-                variant === 'quantum' && "bg-quantum-purple",
-                variant === 'cosmic' && "bg-cosmic-blue",
-                "data-[side=bottom]:top-1",
-                "data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2",
-                "data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2",
-                "data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2",
-                "data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2",
-                "data-[side=top]:-bottom-2.5"
-              )}
-            />
-          )}
-        </TooltipPrimitive.Popup>
-      </TooltipPrimitive.Positioner>
-    </TooltipPrimitive.Portal>
-  );
-}
-
-// ============================================================================
-// VARIANT SHORTCUTS
-// ============================================================================
-
-/**
- * DarkTooltip - Pre-configured dark variant
- */
-function DarkTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="dark" {...props}>
-      {children}
-    </Tooltip>
-  );
-}
-
-/**
- * QuantumTooltip - Pre-configured quantum variant
- */
-function QuantumTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="quantum" {...props}>
-      {children}
-    </Tooltip>
-  );
-}
-
-/**
- * CosmicTooltip - Pre-configured cosmic variant
- */
-function CosmicTooltip({ children, ...props }: TooltipProps) {
-  return (
-    <Tooltip variant="cosmic" {...props}>
-      {children}
-    </Tooltip>
-  );
-}
-
-// ============================================================================
-// COMPOSITION COMPONENTS
-// ============================================================================
-
-export interface TooltipWithIconProps {
-  /** Icon to display */
-  icon: React.ReactNode;
-  /** Tooltip content */
-  content: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-  /** Icon wrapper className */
-  className?: string;
-}
-
-/**
- * TooltipWithIcon - Pre-composed icon + tooltip
- * 
- * @example
- * <TooltipWithIcon icon={<HelpCircle />} content="Help" />
- */
-// components/ui/Tooltip.tsx (corrected section)
-
-export interface TooltipWithIconProps {
-  /** Icon to display */
-  icon: React.ReactNode;
-  /** Tooltip content */
-  content: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-  /** Icon wrapper className */
-  className?: string;
-}
-
-/**
- * TooltipWithIcon - Pre-composed icon + tooltip
- * 
- * @example
- * <TooltipWithIcon icon={<HelpCircle />} content="Help" />
- */
-function TooltipWithIcon({
-  icon,
-  content,
-  side = 'top',
-  variant = 'default',
-  className,
-}: TooltipWithIconProps) {
-  return (
-    <Tooltip>
-      <TooltipTrigger
-        className={cn(
-          "inline-flex cursor-help items-center justify-center rounded-md p-1 text-white/60 transition-colors hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-cyan-400/20",
-          className
-        )}
-      >
-        {icon}
-      </TooltipTrigger>
-      <TooltipContent side={side} variant={variant}>
-        {content}
-      </TooltipContent>
-    </Tooltip>
-  );
-}
-
-export interface TooltipWithShortcutProps {
-  /** Label text */
-  label: string;
-  /** Keyboard shortcut (e.g., "⌘K") */
-  shortcut: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-}
-
-/**
- * TooltipWithShortcut - Tooltip that displays a keyboard shortcut
- * 
- * @example
- * <TooltipWithShortcut label="Search" shortcut="⌘K" />
- */
-// components/ui/Tooltip.tsx (corrected section)
-
-export interface TooltipWithShortcutProps {
-  /** Label text */
-  label: string;
-  /** Keyboard shortcut (e.g., "⌘K") */
-  shortcut: string;
-  /** Tooltip side */
-  side?: TooltipSide;
-  /** Tooltip variant */
-  variant?: TooltipVariant;
-}
-
-/**
- * TooltipWithShortcut - Tooltip that displays a keyboard shortcut
- * 
- * @example
- * <TooltipWithShortcut label="Search" shortcut="⌘K" />
- */
-function TooltipWithShortcut({
-  label,
-  shortcut,
-  side = 'top',
-  variant = 'default',
-}: TooltipWithShortcutProps) {
-  return (
-    <Tooltip>
-      <TooltipTrigger
-        className="inline-flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-white/80 hover:bg-white/5 transition-colors cursor-pointer"
-      >
-        {label}
-        <kbd className="rounded bg-white/10 px-1.5 py-0.5 text-xs font-mono">
-          {shortcut}
-        </kbd>
-      </TooltipTrigger>
-      <TooltipContent side={side} variant={variant}>
-        <span className="mr-1">{label}</span>
-        <kbd className="rounded bg-white/20 px-1.5 py-0.5 text-xs font-mono">
-          {shortcut}
-        </kbd>
-      </TooltipContent>
-    </Tooltip>
-  );
-}
-
-export interface TooltipGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Spacing between tooltip triggers */
-  spacing?: 'sm' | 'md' | 'lg';
-}
-
-const groupSpacingClasses: Record<string, string> = {
-  sm: 'gap-1',
-  md: 'gap-2',
-  lg: 'gap-3',
-};
-
-/**
- * TooltipGroup - Container for multiple tooltip triggers
- * 
- * @example
- * <TooltipGroup>
- *   <TooltipWithIcon icon={<SettingsIcon />} content="Settings" />
- *   <TooltipWithIcon icon={<HelpIcon />} content="Help" />
- * </TooltipGroup>
- */
-function TooltipGroup({
-  children,
-  spacing = 'md',
-  className,
-  ...props
-}: TooltipGroupProps) {
-  return (
-    <div
-      className={cn('flex items-center', groupSpacingClasses[spacing], className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-
-// Export all components
-export {
+import {
   TooltipProvider,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-  // Variant shortcuts
-  DarkTooltip,
-  QuantumTooltip,
-  CosmicTooltip,
-  // Composition components
-  TooltipWithIcon,
-  TooltipWithShortcut,
-  TooltipGroup,
-};
-```
+} from '@/components/ui/Tooltip';
 
----
-
-## 📋 **USAGE EXAMPLES**
-
-### Basic Tooltip
-```tsx
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger>
-      <button>Hover me</button>
-    </TooltipTrigger>
-    <TooltipContent>This is a helpful hint</TooltipContent>
-  </Tooltip>
+// Wrap your app once
+<TooltipProvider delay={300}>
+  <App />
 </TooltipProvider>
 ```
 
-### Quantum Tooltip
+#### Simple Tooltip
+
 ```tsx
+<Tooltip>
+  <TooltipTrigger>
+    <button>Hover me</button>
+  </TooltipTrigger>
+  <TooltipContent>Helpful information appears here</TooltipContent>
+</Tooltip>
+```
+
+#### Variant Shortcut
+
+```tsx
+import { QuantumTooltip, TooltipTrigger, TooltipContent } from '@/components/ui/Tooltip';
+
 <QuantumTooltip>
   <TooltipTrigger>
     <button className="px-3 py-1 rounded bg-quantum-purple/20">
       Quantum Action
     </button>
   </TooltipTrigger>
-  <TooltipContent variant="quantum" side="bottom">
-    This action will increase your sovereignty score
+  <TooltipContent side="bottom">
+    This action increases your sovereignty score
   </TooltipContent>
 </QuantumTooltip>
 ```
 
-### Tooltip with Icon
+#### Explicit Variant
+
 ```tsx
-<TooltipWithIcon 
-  icon={<HelpCircle className="h-4 w-4" />} 
-  content="Learn more about sovereignty scores" 
+<Tooltip variant="sanctuary">
+  <TooltipTrigger>...</TooltipTrigger>
+  <TooltipContent side="right" maxWidth={320} showArrow={false}>
+    Sanctuary-confirmed action
+  </TooltipContent>
+</Tooltip>
+```
+
+#### Icon + Tooltip
+
+```tsx
+import { TooltipWithIcon } from '@/components/ui/Tooltip';
+import { HelpCircle } from 'lucide-react';
+
+<TooltipWithIcon
+  icon={<HelpCircle className="h-4 w-4" />}
+  content="Learn more about sovereignty scores"
   side="right"
   variant="quantum"
 />
 ```
 
-### Tooltip with Keyboard Shortcut
+#### Keyboard Shortcut
+
 ```tsx
-<TooltipWithShortcut label="Search" shortcut="⌘K" />
+import { TooltipWithShortcut } from '@/components/ui/Tooltip';
+
+<TooltipWithShortcut
+  label="Search"
+  shortcut="⌘K"
+  side="bottom"
+  variant="dark"
+/>
 ```
 
-### Tooltip Group (Action Bar)
+#### Tooltip Group (Action Bar)
+
 ```tsx
-<TooltipGroup spacing="md">
-  <TooltipWithIcon icon={<SaveIcon />} content="Save" />
-  <TooltipWithIcon icon={<CopyIcon />} content="Copy" />
-  <TooltipWithIcon icon={<TrashIcon />} content="Delete" variant="dark" />
+import { TooltipGroup, TooltipWithIcon } from '@/components/ui/Tooltip';
+import { Save, Copy, Trash } from 'lucide-react';
+
+<TooltipGroup spacing="MD">
+  <TooltipWithIcon icon={<Save className="h-4 w-4" />} content="Save" />
+  <TooltipWithIcon icon={<Copy className="h-4 w-4" />} content="Copy" />
+  <TooltipWithIcon icon={<Trash className="h-4 w-4" />} content="Delete" variant="fire" />
 </TooltipGroup>
 ```
 
-### Custom Content
+#### Rich Content
+
 ```tsx
 <Tooltip>
   <TooltipTrigger>
-    <InfoIcon className="h-4 w-4" />
+    <Info className="h-4 w-4" />
   </TooltipTrigger>
   <TooltipContent side="right" maxWidth={300}>
     <div className="space-y-1">
@@ -468,7 +220,8 @@ export {
 </Tooltip>
 ```
 
-### In Form (Error Indicator)
+#### Form Validation Indicator
+
 ```tsx
 <div className="flex items-center gap-2">
   <Input label="Email" />
@@ -485,18 +238,48 @@ export {
 
 ---
 
-## ✅ **DESIGN TOKENS ALIGNMENT**
+### 🔗 Dependency Graph
 
-| Variant | Background | Text | Border | Use Case |
-|---------|------------|------|--------|----------|
-| default | foreground | background | none | General hints |
-| dark | deep-space | star-dust | white/10 | Technical info |
-| quantum | quantum-purple | white | none | Special features |
-| cosmic | cosmic-blue | white | none | Important guidance |
+```
+Tooltip.tsx
+├── @base-ui/react/tooltip          (TooltipPrimitive)
+├── @/lib/utils                     (cn)
+├── @/types/components/ui/tooltip.types
+│   ├── @base-ui/react/tooltip      (TooltipPopupState)
+│   ├── @/lib/constants/.../tooltip.variants  (TooltipVariant, TooltipPlacement)
+│   └── @/lib/constants/.../tooltip.constants (TooltipGroupSpacing)
+├── @/lib/constants/.../tooltip.constants
+│   └── (standalone — raw values)
+├── @/lib/constants/.../tooltip.variants
+│   ├── class-variance-authority    (cva)
+│   └── ./tooltip.constants
+└── @/utils/components/ui/tooltip.utils
+    ├── @/lib/utils                 (cn)
+    └── @/types/components/ui/tooltip.types  (TooltipSide, TooltipPopupState)
+```
 
-| Side | Use Case |
-|------|----------|
-| top | Default, above the element |
-| bottom | Below the element |
-| left | Left side (avoiding other UI) |
-| right | Right side (common for icons) |
+---
+
+### ✅ Component Build Checklist
+
+When building a new UI component following this pattern, ensure:
+
+- [ ] **Types file** exists at `types/components/ui/{component}.types.ts`
+- [ ] **Constants file** exists at `lib/constants/components/ui/{component}.constants.ts`
+- [ ] **Variants file** exists at `lib/constants/components/ui/{component}.variants.ts`
+- [ ] **Utils file** exists at `utils/components/ui/{component}.utils.ts` (if animation/logic needed)
+- [ ] **Component file** exists at `components/ui/{Component}.tsx`
+- [ ] Component imports all values — no hardcoded strings, numbers, or class names
+- [ ] CVA variants use COSMIC design tokens (`bg-quantum-purple`, not `bg-purple-600`)
+- [ ] All states handled: loading, empty, error, success where applicable
+- [ ] Interactive states: hover, focus, active, disabled where applicable
+- [ ] Responsive: mobile, tablet, desktop where applicable
+- [ ] Accessible: keyboard navigation, screen reader support
+- [ ] `data-slot` attribute on every primitive for debugging
+- [ ] JSDoc comments with `@example` on every exported function
+- [ ] Types re-exported from the component file for consumer convenience
+- [ ] No sub-components that import other UI components (those are domain components)
+
+---
+
+This is the complete Tooltip system guide, my friend. It captures the true architecture we built — the separation of types, constants, variants, and utilities — and serves as the pattern for every base UI component that follows. 🏛️✨

@@ -1,62 +1,45 @@
-"use client";
+// src/components/ui/Slider.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    SLIDER COMPONENT                                       ║
+// ║                    Range input with COSMIC styling                        ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import React, { forwardRef, useState } from "react";
-import { cn } from "@/lib/utils";
+'use client';
+
+import React, { forwardRef, useState } from 'react';
+import { cn } from '@/lib/utils';
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type { SliderProps } from '@/types/components/ui/slider.types';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
 import {
   sliderTrackVariants,
   sliderRangeVariants,
   sliderThumbVariants,
-} from "@/lib/constants/components/ui/slider.variants";
-import type {
-  SliderVariant,
-  SliderSize,
-} from "@/lib/constants/components/ui/slider.constants";
+} from '@/lib/constants/components/ui/slider.variants';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
 import {
   SLIDER_VALUE_COLOR_CLASSES,
   SLIDER_VALUE_SIZE_CLASSES,
   SLIDER_TRACK_SIZE_CLASSES,
-  SLIDER_THUMB_SIZE_CLASSES,
+  SLIDER_THUMB_PIXEL_SIZE,
+  SLIDER_LABEL_COLOR_CLASS,
+  SLIDER_HELPER_TEXT_COLOR_CLASS,
+  SLIDER_MARK_COLOR_CLASS,
+  SLIDER_CONTAINER_SPACING,
+  SLIDER_TRACK_CONTAINER_SPACING,
   DEFAULT_SLIDER_VARIANT,
   DEFAULT_SLIDER_SIZE,
   DEFAULT_SLIDER_MIN,
   DEFAULT_SLIDER_MAX,
   DEFAULT_SLIDER_STEP,
-} from "@/lib/constants/components/ui/slider.constants";
+} from '@/lib/constants/components/ui/slider.constants';
 
-export interface SliderProps {
-  /** Current value (controlled) */
-  value?: number;
-  /** Default value (uncontrolled) */
-  defaultValue?: number;
-  /** Minimum value */
-  min?: number;
-  /** Maximum value */
-  max?: number;
-  /** Step increment */
-  step?: number;
-  /** Callback when value changes */
-  onChange?: (value: number) => void;
-  /** Optional label */
-  label?: string;
-  /** Optional helper text */
-  helperText?: string;
-  /** Show value indicator */
-  showValue?: boolean;
-  /** Format function for value display */
-  formatValue?: (value: number) => string;
-  /** Visual variant derived from COSMIC tokens */
-  variant?: SliderVariant;
-  /** Size of the slider */
-  size?: SliderSize;
-  /** Show marks at intervals */
-  marks?: boolean;
-  /** Mark interval (when marks is true) */
-  markInterval?: number;
-  /** Disabled state */
-  disabled?: boolean;
-  /** Additional CSS classes */
-  className?: string;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// SLIDER
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const Slider = forwardRef<HTMLInputElement, SliderProps>(
   (
@@ -86,18 +69,13 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseFloat(e.target.value);
-
-      if (!isControlled) {
-        setInternalValue(newValue);
-      }
-
+      if (!isControlled) setInternalValue(newValue);
       onChange?.(newValue);
     };
 
-    // Calculate percentage for fill width
     const percentage = ((currentValue - min) / (max - min)) * 100;
+    const thumbOffset = SLIDER_THUMB_PIXEL_SIZE[size] / 2;
 
-    // Generate marks
     const marksArray = marks
       ? Array.from(
           { length: Math.floor((max - min) / markInterval) + 1 },
@@ -105,24 +83,20 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
         )
       : [];
 
-    // Thumb width in pixels for positioning offset
-    const thumbSizeMap: Record<SliderSize, number> = { sm: 12, md: 16, lg: 20 };
-    const thumbOffset = thumbSizeMap[size] / 2;
-
     return (
-      <div className={cn("space-y-2", className)}>
-        {/* Label and value row */}
+      <div className={cn(SLIDER_CONTAINER_SPACING, className)}>
+        {/* Label + Value Row */}
         {(label || showValue) && (
           <div className="flex justify-between items-center">
             {label && (
-              <label className="text-sm font-medium text-[var(--color-star-dust)]/80">
+              <label className={cn('text-sm font-medium', SLIDER_LABEL_COLOR_CLASS)}>
                 {label}
               </label>
             )}
             {showValue && (
               <span
                 className={cn(
-                  "font-mono",
+                  'font-mono',
                   SLIDER_VALUE_SIZE_CLASSES[size],
                   SLIDER_VALUE_COLOR_CLASSES[variant]
                 )}
@@ -133,15 +107,15 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
           </div>
         )}
 
-        {/* Slider container */}
-        <div className="relative py-2">
-          {/* Track background */}
-          <div className={cn(sliderTrackVariants({ variant, size }))} />
+        {/* Track Container */}
+        <div className={cn('relative', SLIDER_TRACK_CONTAINER_SPACING)}>
+          {/* Background Track */}
+          <div className={sliderTrackVariants({ variant, size })} />
 
-          {/* Filled track */}
+          {/* Filled Track */}
           <div
             className={cn(
-              "absolute top-2 left-0",
+              'absolute top-2 left-0',
               sliderRangeVariants({ variant }),
               SLIDER_TRACK_SIZE_CLASSES[size]
             )}
@@ -154,16 +128,13 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
               {marksArray.map((mark) => (
                 <div
                   key={mark}
-                  className={cn(
-                    "w-0.5 bg-white/20",
-                    SLIDER_TRACK_SIZE_CLASSES[size]
-                  )}
+                  className={cn('w-0.5', SLIDER_MARK_COLOR_CLASS, SLIDER_TRACK_SIZE_CLASSES[size])}
                 />
               ))}
             </div>
           )}
 
-          {/* Native range input (visually hidden but functional for accessibility) */}
+          {/* Native Range Input (accessible, visually hidden) */}
           <input
             ref={ref}
             type="range"
@@ -177,29 +148,32 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={currentValue}
-            aria-label={label || "Slider"}
+            aria-label={label || 'Slider'}
           />
 
-          {/* Custom thumb (visual only) */}
+          {/* Custom Thumb (visual only) */}
           <div
             className={cn(
-              "absolute top-1/2 -translate-y-1/2 rounded-full pointer-events-none",
+              'absolute top-1/2 -translate-y-1/2 rounded-full pointer-events-none',
               sliderThumbVariants({ variant, size }),
-              disabled && "opacity-50"
+              disabled && 'opacity-50'
             )}
-            style={{
-              left: `calc(${percentage}% - ${thumbOffset}px)`,
-            }}
+            style={{ left: `calc(${percentage}% - ${thumbOffset}px)` }}
           />
         </div>
 
-        {/* Helper text */}
+        {/* Helper Text */}
         {helperText && (
-          <p className="text-xs text-[var(--color-star-dust)]/40">{helperText}</p>
+          <p className={cn('text-xs', SLIDER_HELPER_TEXT_COLOR_CLASS)}>
+            {helperText}
+          </p>
         )}
       </div>
     );
   }
 );
 
-Slider.displayName = "Slider";
+Slider.displayName = 'Slider';
+
+// ─── Re-export types ───────────────────────────────────────────────────────
+export type { SliderProps, SliderVariant, SliderSize } from '@/types/components/ui/slider.types';

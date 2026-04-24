@@ -1,4 +1,4 @@
-// tailwind.config.js
+// tailwind.config.mjs
 // MANUAL - Thin wrapper around generated config
 // DO NOT duplicate colors, animations, etc. here.
 // Only add project-specific overrides or plugins.
