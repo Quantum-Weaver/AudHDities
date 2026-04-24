@@ -9,7 +9,7 @@ import { useProducts } from '@/hooks/generated/plutus-economics/products.js';
 interface CheckoutParams {
   id: string;
   product?: string;
-  tier?: 'community' | 'ally' | 'corporate';
+  tier?: 'community' | 'ally' | 'corporate' | 'council';
   quantity?: number;
 }
 

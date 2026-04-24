@@ -6,8 +6,9 @@ import type {
   CardVariant,
   CardSize,
   CardPadding,
-  CardRadius,
+  CardRadius
 } from '@/lib/constants/components/ui/card.constants';
+import { CardShadow } from '@/lib/constants/components/ui/card.variants'
 
 // Re-export the primitive types from constants
 export type { CardType, CardVariant, CardSize, CardPadding, CardRadius };
@@ -227,6 +228,8 @@ export interface UnifiedCardProps {
   onClick?: (data: CardData) => void;
   className?: string;
   children?: ReactNode;
+  radius: CardRadius;    // Required but not in UnifiedCardProps
+  shadow: CardShadow; 
 }
 
 // =====================================================
@@ -241,8 +244,8 @@ export interface CardMediaProps {
 }
 
 export interface CardHeaderProps {
-  title: string;
-  subtitle?: string;
+  title: ReactNode;
+  subtitle?: ReactNode;
   badge?: ReactNode;
   actions?: ReactNode;
   className?: string;

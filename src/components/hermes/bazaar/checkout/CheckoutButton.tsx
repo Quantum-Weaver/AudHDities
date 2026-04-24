@@ -7,13 +7,14 @@ import { useAuth } from '@/hooks/useAuth';
 import { useCheckout } from '@/hooks/commerce/useCheckout';
 import { Button } from '@/components/ui/Button';
 import { Loader2, CreditCard } from 'lucide-react';
-import type { ProductsRow } from '@/types/generated/plutus-economics/products';  // FIXED: correct type
+import type { ProductsRow } from '@/types/generated/plutus-economics/products';
+import type { PurchaseTier } from '@/hooks/commerce/useProduct';
 
 interface CheckoutButtonProps {
-  product: ProductsRow;  // FIXED: use ProductsRow instead of ProductsFormData
+  product: ProductsRow;
   variant?: 'outline' | 'ghost' | 'secondary' | 'primary';
   size?: 'sm' | 'md' | 'lg';
-  tier?: 'community' | 'ally' | 'corporate';
+  tier?: PurchaseTier;
   className?: string;
   children?: React.ReactNode;
 }
@@ -31,9 +32,10 @@ export function CheckoutButton({
   const { initiateCheckout, loading, error } = useCheckout();
   const [localError, setLocalError] = useState<string | null>(null);
 
-  // Determine price based on tier
   const getPrice = (): number | null => {
-    switch (tier) {
+    // Council gets community pricing
+    const effectiveTier = tier === 'council' ? 'community' : tier;
+    switch (effectiveTier) {
       case 'community':
         return product.price_community ?? null;
       case 'corporate':
@@ -97,11 +99,11 @@ export function CheckoutButton({
       </Button>
       
       {displayError && (
-        <p className="text-sm text-red-400">{displayError}</p>
+        <p className="text-sm text-[var(--color-error)]">{displayError}</p>
       )}
       
       {!isAvailable && !displayError && (
-        <p className="text-sm text-yellow-400">
+        <p className="text-sm text-[var(--color-warning)]">
           This product is currently not available for purchase
         </p>
       )}

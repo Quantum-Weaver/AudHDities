@@ -9,7 +9,7 @@ export * from './DonationTiers.js';
 export * from './FeatureList.js';
 export * from './ImpactCalculator.js';
 export * from './InterviewRequests.js';
-export * from './JobListings.js';
+export * from './JobCard.js';
 export * from './KeyboardShortcuts.js';
 export * from './LogoDownloads.js';
 export * from './MediaAssets.js';

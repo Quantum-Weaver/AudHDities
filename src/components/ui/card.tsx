@@ -39,116 +39,149 @@ import {
   getRecommendedVariant,
 } from '@/utils/components/ui/card.utils';
 import { cardShadowClasses } from '@/lib/constants/components/ui/card.constants';
+import { UserCardRenderer } from '../hestia/UserCard';
+import { StatCardRenderer } from '../shared/StatCardRenderer';
+import { EntityCardRenderer } from '../aethelred/EntityCardRenderer';
+import { VendorCardRenderer } from '../hermes/bazaar/VendorCard';
+import { CreatorCardRenderer } from '../hermes/bazaar/CreatorCard';
+import { EventCardRenderer } from '../prometheus/EventCard';
+import Link from 'next/link';
+import { CardMedia } from './cards/CardMedia';
+import { CardHeader } from './cards/CardHeader';
+import { CardContent } from './cards/CardContent';
+import { CardFooter } from './cards/CardFooter';
 
 // ============================================================================
-// SUB-COMPONENTS
+// CARD RIBBON — Corner ribbon overlay
 // ============================================================================
 
-export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(
-  ({ src, alt, fallbackIcon, className, ...props }, ref) => {
-    if (!src && !fallbackIcon) return null;
-    
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          "relative overflow-hidden bg-[var(--color-surface)]/20",
-          className
-        )}
-        {...props}
-      >
-        {src ? (
-          <img
-            src={src}
-            alt={alt || "Card image"}
-            className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-          />
-        ) : fallbackIcon ? (
-          <div className="flex h-full w-full items-center justify-center text-4xl">
-            {fallbackIcon}
-          </div>
-        ) : null}
-      </div>
-    );
-  }
-);
+export type RibbonPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+export type RibbonColor = 'fire' | 'quantum' | 'cosmic' | 'hearth' | 'success' | 'warning' | 'error' | 'neurospark' | 'sanctuary';
 
-CardMedia.displayName = "CardMedia";
+export interface CardRibbonProps {
+  /** Text displayed inside the ribbon */
+  text: string;
+  /** Corner position */
+  position?: RibbonPosition;
+  /** Color scheme derived from COSMIC tokens */
+  color?: RibbonColor;
+  /** Additional CSS classes */
+  className?: string;
+}
 
-export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
-  ({ title, subtitle, badge, actions, className, ...props }, ref) => {
-    return (
-      <div ref={ref} className={cn("space-y-2", className)} {...props}>
-        <div className="flex items-start justify-between gap-2">
-          <div className="flex-1 space-y-1">
-            <h3 className="font-semibold text-[var(--color-star-dust)] line-clamp-2">
-              {title}
-            </h3>
-            {subtitle && (
-              <p className="text-sm text-[var(--color-star-dust)]/60 line-clamp-1">
-                {subtitle}
-              </p>
-            )}
-          </div>
-          {badge && <div className="flex-shrink-0">{badge}</div>}
-        </div>
-        {actions && <div className="flex items-center gap-2">{actions}</div>}
-      </div>
-    );
-  }
-);
+const ribbonColorMap: Record<RibbonColor, { bg: string; text: string; shadow: string }> = {
+  fire: {
+    bg: 'bg-[var(--color-fire-base)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-fire-base)]/30',
+  },
+  quantum: {
+    bg: 'bg-[var(--color-quantum-purple)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-quantum-purple)]/30',
+  },
+  cosmic: {
+    bg: 'bg-[var(--color-cosmic-blue)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-cosmic-blue)]/30',
+  },
+  hearth: {
+    bg: 'bg-[var(--color-hearth-gold)]',
+    text: 'text-[var(--color-deepSpace)]',
+    shadow: 'shadow-[var(--color-hearth-gold)]/30',
+  },
+  success: {
+    bg: 'bg-[var(--color-success)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-success)]/30',
+  },
+  warning: {
+    bg: 'bg-[var(--color-warning)]',
+    text: 'text-[var(--color-deepSpace)]',
+    shadow: 'shadow-[var(--color-warning)]/30',
+  },
+  error: {
+    bg: 'bg-[var(--color-error)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-error)]/30',
+  },
+  neurospark: {
+    bg: 'bg-[var(--color-neurospark)]',
+    text: 'text-[var(--color-deepSpace)]',
+    shadow: 'shadow-[var(--color-neurospark)]/30',
+  },
+  sanctuary: {
+    bg: 'bg-[var(--color-sanctuary-green)]',
+    text: 'text-white',
+    shadow: 'shadow-[var(--color-sanctuary-green)]/30',
+  },
+};
 
-CardHeader.displayName = "CardHeader";
+const ribbonPositionClasses: Record<RibbonPosition, string> = {
+  'top-right': '-rotate-45 translate-x-[42%] -translate-y-[10%] right-0 top-0 origin-top-left',
+  'top-left': 'rotate-45 -translate-x-[42%] -translate-y-[10%] left-0 top-0 origin-top-right',
+  'bottom-right': 'rotate-45 translate-x-[42%] translate-y-[10%] right-0 bottom-0 origin-bottom-left',
+  'bottom-left': '-rotate-45 -translate-x-[42%] translate-y-[10%] left-0 bottom-0 origin-bottom-right',
+};
 
-export const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
-  ({ description, metadata, className, ...props }, ref) => {
-    if (!description && (!metadata || metadata.length === 0)) return null;
-    
-    return (
-      <div ref={ref} className={cn("space-y-3", className)} {...props}>
-        {description && (
-          <p className="text-sm text-[var(--color-star-dust)]/80 line-clamp-3">
-            {description}
-          </p>
-        )}
-        {metadata && metadata.length > 0 && (
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs">
-            {metadata.map((item, index) => (
-              <div key={index} className="flex items-center gap-1">
-                <span className="text-[var(--color-star-dust)]/50">{item.label}:</span>
-                <span className="font-medium text-[var(--color-star-dust)]/80">
-                  {item.value}
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  }
-);
+const ribbonWidthClasses: Record<string, string> = {
+  'top-right': 'w-32',
+  'top-left': 'w-32',
+  'bottom-right': 'w-32',
+  'bottom-left': 'w-32',
+};
 
-CardContent.displayName = "CardContent";
+/**
+ * CardRibbon — Corner ribbon overlay for cards
+ * 
+ * Renders a diagonal banner across a card corner. The parent Card must have
+ * `overflow-hidden` (already set by cardVariants base classes).
+ * 
+ * @example
+ * // LIVE ribbon on an EventCard
+ * <Card data={data} variant="glass" radius="lg" shadow="md">
+ *   <CardRibbon text="LIVE" position="top-right" color="fire" />
+ *   <CardHeader title={data.title} />
+ * </Card>
+ * 
+ * @example
+ * // Featured ribbon on a ProductCard
+ * <CardRibbon text="Featured" color="hearth" />
+ * 
+ * @example
+ * // New ribbon on a QuestCard
+ * <CardRibbon text="New" position="top-left" color="quantum" />
+ */
+export const CardRibbon: React.FC<CardRibbonProps> = ({
+  text,
+  position = 'top-right',
+  color = 'quantum',
+  className,
+}) => {
+  const colorClasses = ribbonColorMap[color];
 
-export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
-  ({ actions, className, ...props }, ref) => {
-    if (!actions || actions.length === 0) return null;
-    
-    return (
-      <div
-        ref={ref}
-        className={cn("flex flex-wrap items-center gap-2", className)}
-        {...props}
-      >
-        {actions.map((action, index) => (
-          <div key={index}>{action}</div>
-        ))}
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      className={cn(
+        'absolute z-10 flex items-center justify-center py-1 px-8',
+        'text-xs font-bold uppercase tracking-wider',
+        'shadow-lg',
+        ribbonPositionClasses[position],
+        ribbonWidthClasses[position],
+        colorClasses.bg,
+        colorClasses.text,
+        colorClasses.shadow,
+        className
+      )}
+      aria-label={text}
+      role="status"
+    >
+      {text}
+    </div>
+  );
+};
 
-CardFooter.displayName = "CardFooter";
+CardRibbon.displayName = 'CardRibbon';
 
 // ============================================================================
 // BADGE COMPONENTS
@@ -226,7 +259,11 @@ export interface CardProps extends UnifiedCardProps {
   /** Whether to auto-recommend variant based on data type */
   autoVariant?: boolean;
   radius: CardRadius;
-  shadow: CardShadow;  
+  shadow: CardShadow;
+  /** Inline styles forwarded to the DOM element */
+  style?: React.CSSProperties;
+  /** Additional CSS classes */
+  className?: string;
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -243,7 +280,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     className,
     children,
     autoVariant = false,
-    ...props 
+    style,
+    ...restProps 
   }, ref) => {
     
     // Auto-recommend variant if enabled and no explicit variant provided
@@ -252,13 +290,13 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     // Get semantic hover class for interactive cards
     const semanticHover = interactive ? getSemanticHoverClass(data.type, interactive) : '';
     
-    // Handle click navigation if href provided
+    // Handle click navigation
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (onClick) {
         onClick(data);
       }
       if (href && !onClick) {
-        window.location.href = href;
+        // Next.js Link handles navigation; no manual push needed
       }
     };
     
@@ -286,19 +324,19 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       </>
     );
     
-    // Wrap with anchor or div - separated to avoid onClick type conflict
+    // Use Next.js Link for client-side navigation when href provided without custom onClick
     const isAnchor = !!(href && !onClick);
     
     if (isAnchor) {
       return (
-        <a
+        <Link
           ref={ref as any}
           className={cardClasses}
           href={href}
-          {...props}
+          style={style}
         >
           {cardContent}
-        </a>
+        </Link>
       );
     }
     
@@ -306,8 +344,9 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cardClasses}
-        onClick={handleClick}
-        {...props}
+        onClick={isClickable ? handleClick : undefined}
+        style={style}
+        {...restProps}
       >
         {cardContent}
       </div>
@@ -495,9 +534,41 @@ export const SmartCard: React.FC<SmartCardProps> = ({ data, variant, ...props })
     return <ProposalCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
   
+  if (data.type === 'event') {
+    return <EventCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+
+  if (data.type === 'creator') {
+    return <CreatorCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+
+  if (data.type === 'vendor') {
+    return <VendorCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+
+  if (data.type === 'entity') {
+    return <EntityCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+
+  if (data.type === 'stat') {
+    return <StatCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }
+
+  if (data.type === 'user') {
+    return <UserCardRenderer data={data} variant={effectiveVariant} {...props} />;
+  }  
+  
   // Fallback to generic card
   return (
-    <Card data={data} variant={effectiveVariant} {...props}>
+    <Card 
+      data={data} 
+      variant={effectiveVariant} 
+      radius={props.radius} 
+      shadow={props.shadow}
+      className={props.className}
+      style={props.style}
+      onClick={props.onClick}
+    >
       {data.image && <CardMedia src={data.image} alt={data.title} />}
       <CardHeader title={data.title} subtitle={data.description} />
       {data.description && <CardContent description={truncateText(data.description, 150)} />}

@@ -50,6 +50,10 @@ export const CARD_VARIANTS = {
   ELEVATED: 'elevated',
   OUTLINE: 'outline',
   GHOST: 'ghost',
+  QUANTUM: 'quantum',
+  COSMIC: 'cosmic',
+  SANCTUARY: 'sanctuary',
+  COUNCIL: 'council',
 } as const;
 
 // ============================================================================
@@ -98,6 +102,10 @@ export const CARD_VARIANT_CLASSES = {
   [CARD_VARIANTS.ELEVATED]: `bg-[${QUANTUM_COLORS.surface}]/5 border border-[${QUANTUM_COLORS['starDust']}]/10 shadow-xl`,
   [CARD_VARIANTS.OUTLINE]: `bg-transparent border border-[${QUANTUM_COLORS['starDust']}]/10`,
   [CARD_VARIANTS.GHOST]: `bg-transparent border-none`,
+  [CARD_VARIANTS.QUANTUM]: `bg-gradient-to-br from-[${QUANTUM_COLORS['quantum.purple']}]/10 to-transparent border border-[${QUANTUM_COLORS['quantum.purple']}]/30 animate-pulse`,
+  [CARD_VARIANTS.COSMIC]: `bg-[${QUANTUM_COLORS.deepSpace}]/80 border border-[${QUANTUM_COLORS['cosmic.blue']}]/20 backdrop-blur-sm`,
+  [CARD_VARIANTS.SANCTUARY]: `bg-gradient-to-br from-[${QUANTUM_COLORS['hearth.gold']}]/10 to-[${QUANTUM_COLORS['fire.base']}]/5 border border-[${QUANTUM_COLORS['hearth.gold']}]/20`,
+  [CARD_VARIANTS.COUNCIL]: `bg-gradient-to-br from-[${QUANTUM_COLORS['entity.aethelred']}]/10 to-transparent border border-[${QUANTUM_COLORS['entity.aethelred']}]/30`,  
 } as const;
 
 // ============================================================================

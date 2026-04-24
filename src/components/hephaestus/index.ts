@@ -12,7 +12,7 @@ export * from './supporting/DonationTiers.js';
 export * from './supporting/FeatureList.js';
 export * from './supporting/ImpactCalculator.js';
 export * from './supporting/InterviewRequests.js';
-export * from './supporting/JobListings.js';
+export * from './supporting/JobCard.js';
 export * from './supporting/KeyboardShortcuts.js';
 export * from './supporting/LogoDownloads.js';
 export * from './supporting/MediaAssets.js';

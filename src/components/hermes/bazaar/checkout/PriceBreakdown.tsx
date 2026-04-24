@@ -4,7 +4,7 @@
 import { Card } from '@/components/ui/Card';
 import { Info } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/Tooltip';
-import { formatPrice } from '@/lib/stripe/formatting';
+import { formatPrice } from '@/utils/components/ui/card.utils';
 
 interface PriceBreakdownProps {
   subtotal: number;
@@ -17,7 +17,7 @@ interface PriceBreakdownProps {
 
 export function PriceBreakdown({
   subtotal,
-  platformFeePercent = 10,  // Updated from 30% to 10%
+  platformFeePercent = 10,
   showResidualPool = true,
   residualPoolPercent = 50,
   showBigotTax = false,
@@ -30,24 +30,30 @@ export function PriceBreakdown({
   const total = subtotal + (showBigotTax ? bigotTaxAmount : 0);
 
   return (
-    <Card className="p-6 space-y-4">
-      <h3 className="text-lg font-bold text-white">Price Breakdown</h3>
+    <Card
+      data={{ id: 'price-breakdown', title: 'Price Breakdown', type: 'product' }}
+      variant="default"
+      radius="lg"
+      shadow="sm"
+      padding="lg"
+    >
+      <h3 className="text-lg font-bold text-[var(--color-star-dust)] mb-4">Price Breakdown</h3>
       
       <div className="space-y-3">
         {/* Subtotal */}
         <div className="flex justify-between items-center">
-          <span className="text-white/60">Subtotal</span>
-          <span className="text-white font-medium">{formatPrice(subtotal)}</span>
+          <span className="text-[var(--color-star-dust)]/60">Subtotal</span>
+          <span className="text-[var(--color-star-dust)] font-medium">{formatPrice(subtotal)}</span>
         </div>
         
         {/* Platform Fee */}
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-1">
-            <span className="text-white/60">Platform Fee ({platformFeePercent}%)</span>
+            <span className="text-[var(--color-star-dust)]/60">Platform Fee ({platformFeePercent}%)</span>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <Info size={14} className="text-white/30" />
+                  <Info size={14} className="text-[var(--color-star-dust)]/30" />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p className="text-sm">10% platform fee — the lowest in the industry. Covers operations and the residual pool.</p>
@@ -55,24 +61,24 @@ export function PriceBreakdown({
               </Tooltip>
             </TooltipProvider>
           </div>
-          <span className="text-white/60">{formatPrice(platformFee)}</span>
+          <span className="text-[var(--color-star-dust)]/60">{formatPrice(platformFee)}</span>
         </div>
         
         {/* Creator Earnings */}
-        <div className="flex justify-between items-center pb-2 border-b border-white/10">
-          <span className="text-white/60">Creator Earnings</span>
-          <span className="text-green-400 font-medium">{formatPrice(creatorEarnings)}</span>
+        <div className="flex justify-between items-center pb-2 border-b border-[var(--color-star-dust)]/10">
+          <span className="text-[var(--color-star-dust)]/60">Creator Earnings</span>
+          <span className="text-[var(--color-sanctuary-green)] font-medium">{formatPrice(creatorEarnings)}</span>
         </div>
         
         {/* Residual Pool */}
         {showResidualPool && residualPool > 0 && (
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-1">
-              <span className="text-white/40 text-sm">→ Residual Pool ({residualPoolPercent}% of fee)</span>
+              <span className="text-[var(--color-star-dust)]/40 text-sm">→ Residual Pool ({residualPoolPercent}% of fee)</span>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Info size={12} className="text-white/30" />
+                    <Info size={12} className="text-[var(--color-star-dust)]/30" />
                   </TooltipTrigger>
                   <TooltipContent>
                     <p className="text-sm">Shared with contributors forever — the "background actor dividend"</p>
@@ -80,25 +86,25 @@ export function PriceBreakdown({
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <span className="text-purple-400 text-sm">{formatPrice(residualPool)}</span>
+            <span className="text-[var(--color-quantum-purple)] text-sm">{formatPrice(residualPool)}</span>
           </div>
         )}
         
         {/* Infrastructure */}
         <div className="flex justify-between items-center">
-          <span className="text-white/40 text-sm">→ Infrastructure</span>
-          <span className="text-cyan-400 text-sm">{formatPrice(infrastructure)}</span>
+          <span className="text-[var(--color-star-dust)]/40 text-sm">→ Infrastructure</span>
+          <span className="text-[var(--color-neurospark)] text-sm">{formatPrice(infrastructure)}</span>
         </div>
         
         {/* Bigot Tax */}
         {showBigotTax && bigotTaxAmount > 0 && (
-          <div className="flex justify-between items-center pt-2 border-t border-white/10">
+          <div className="flex justify-between items-center pt-2 border-t border-[var(--color-star-dust)]/10">
             <div className="flex items-center gap-1">
-              <span className="text-white/60">Bigot Tax</span>
+              <span className="text-[var(--color-star-dust)]/60">Bigot Tax</span>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Info size={14} className="text-white/30" />
+                    <Info size={14} className="text-[var(--color-star-dust)]/30" />
                   </TooltipTrigger>
                   <TooltipContent>
                     <p className="text-sm">Additional fee for corporate/non-aligned purchases. Funds community access.</p>
@@ -106,20 +112,20 @@ export function PriceBreakdown({
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <span className="text-yellow-400">{formatPrice(bigotTaxAmount)}</span>
+            <span className="text-[var(--color-fire-base)]">{formatPrice(bigotTaxAmount)}</span>
           </div>
         )}
         
         {/* Total */}
-        <div className="flex justify-between items-center pt-3 border-t border-white/20">
-          <span className="text-white font-bold">Total</span>
-          <span className="text-xl font-bold text-white">{formatPrice(total)}</span>
+        <div className="flex justify-between items-center pt-3 border-t border-[var(--color-star-dust)]/20">
+          <span className="text-[var(--color-star-dust)] font-bold">Total</span>
+          <span className="text-xl font-bold text-[var(--color-star-dust)]">{formatPrice(total)}</span>
         </div>
       </div>
       
       {/* Note about residuals */}
       {showResidualPool && residualPoolPercent > 0 && (
-        <p className="text-xs text-white/30 text-center mt-4">
+        <p className="text-xs text-[var(--color-star-dust)]/30 text-center mt-4">
           * {residualPoolPercent}% of platform fees go to contributors who helped create this product — forever
         </p>
       )}
