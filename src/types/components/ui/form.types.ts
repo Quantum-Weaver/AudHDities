@@ -1,4 +1,4 @@
-// src/types/components/ui/unified_form.ts
+// src/types/components/ui/form.types.ts
 // Pure types only - no values, no logic
 // ALIGNED WITH constants/unified_form.ts
 

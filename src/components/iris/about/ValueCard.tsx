@@ -1,40 +1,72 @@
-// src/components/about/ValueCard.tsx
+// src/components/iris/about/ValueCard.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import { Card } from '@/components/ui/Card';
+import { quickAnimations } from '@/lib/constants/cosmic/motion';
+import type { CardData } from '@/types/components/ui/card.types';
+
+// ============================================================================
+// TYPES
+// ============================================================================
+
+export type ValueCardAccent = 'cyan' | 'purple' | 'pink' | 'green';
 
 interface ValueCardProps {
   icon: ReactNode;
   title: string;
   description: string;
-  color: 'cyan' | 'purple' | 'pink' | 'green';
+  color: ValueCardAccent;
   delay?: number;
 }
 
-const borderColors = {
-  cyan: 'border-l-cyan-400',
-  purple: 'border-l-purple-400',
-  pink: 'border-l-pink-400',
-  green: 'border-l-green-400',
+// ============================================================================
+// COSMIC-DERIVED COLOR MAPS
+// ============================================================================
+
+const borderColors: Record<ValueCardAccent, string> = {
+  cyan: 'border-l-[var(--color-cosmic-blue)]',
+  purple: 'border-l-[var(--color-quantum-purple)]',
+  pink: 'border-l-[var(--color-fire-base)]',
+  green: 'border-l-[var(--color-sanctuary-green)]',
 };
 
-const shadowColors = {
-  cyan: 'shadow-cyan-500/10',
-  purple: 'shadow-purple-500/10',
-  pink: 'shadow-pink-500/10',
-  green: 'shadow-green-500/10',
+const shadowColors: Record<ValueCardAccent, string> = {
+  cyan: 'shadow-[var(--color-cosmic-blue)]/10',
+  purple: 'shadow-[var(--color-quantum-purple)]/10',
+  pink: 'shadow-[var(--color-fire-base)]/10',
+  green: 'shadow-[var(--color-sanctuary-green)]/10',
 };
 
-const iconColors = {
-  cyan: 'text-cyan-400',
-  purple: 'text-purple-400',
-  pink: 'text-pink-400',
-  green: 'text-green-400',
+const iconColors: Record<ValueCardAccent, string> = {
+  cyan: 'text-[var(--color-cosmic-blue)]',
+  purple: 'text-[var(--color-quantum-purple)]',
+  pink: 'text-[var(--color-fire-base)]',
+  green: 'text-[var(--color-sanctuary-green)]',
 };
+
+// ============================================================================
+// FALLBACK CARD DATA — Satisfies CardProps.data requirement
+// ============================================================================
+
+function buildValueCardData(title: string, description: string): CardData {
+  return {
+    id: `value-${title.toLowerCase().replace(/\s+/g, '-')}`,
+    type: 'value',
+    title,
+    description,
+    value: title, // Required by ValueCardData — serves as display fallback
+  };
+}
+
+// ============================================================================
+// VALUE CARD COMPONENT
+// ============================================================================
 
 export function ValueCard({ icon, title, description, color, delay = 0 }: ValueCardProps) {
+  const cardData = buildValueCardData(title, description);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -42,7 +74,13 @@ export function ValueCard({ icon, title, description, color, delay = 0 }: ValueC
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
     >
-      <Card className={`p-6 border-l-4 ${borderColors[color]} hover:shadow-lg ${shadowColors[color]} transition-all duration-300`}>
+      <Card
+        data={cardData}
+        variant="ghost"
+        radius="lg"
+        shadow="md"
+        className={`p-6 border-l-4 ${borderColors[color]} hover:shadow-lg ${shadowColors[color]} transition-all duration-300`}
+      >
         <div className={iconColors[color]}>{icon}</div>
         <h3 className="text-xl font-bold text-white mt-4 mb-2">{title}</h3>
         <p className="text-white/60">{description}</p>

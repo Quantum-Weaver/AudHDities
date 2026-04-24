@@ -1,4 +1,4 @@
-// src/utils/components/ui/unified_form.ts
+// src/utils/components/ui/form.utils.ts
 // Pure logic only - no values, no side effects
 // ALIGNED WITH constants, types, and GAIA-generated Zod validators
 
@@ -9,7 +9,7 @@ import type {
   FormSection,
   WizardStep,
   FormVariant,
-} from '@/types/components/ui/forms';
+} from '@/types/components/ui/form.types';
 
 import {
   FORM_VARIANTS,

@@ -1,4 +1,3 @@
-// components/auth/LoginForm.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -16,16 +15,14 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
   const { signIn } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [values, setValues] = useState({ email: "", password: "" });
 
   const redirect = searchParams.get("redirect") || redirectTo;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (data: Record<string, any>) => {
     setIsLoading(true);
     setError(null);
 
-    const { error: signInError } = await signIn(values.email, values.password);
+    const { error: signInError } = await signIn(data.email as string, data.password as string);
 
     if (signInError) {
       setError(signInError.message);
@@ -35,10 +32,6 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
 
     router.push(redirect);
     router.refresh();
-  };
-
-  const handleChange = (name: string, value: string) => {
-    setValues(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -55,9 +48,8 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
       <Form onSubmit={handleSubmit}>
         <FormField label="Email" required>
           <Input
+            name="email"
             type="email"
-            value={values.email}
-            onChange={(e) => handleChange("email", e.target.value)}
             placeholder="your@email.com"
             disabled={isLoading}
           />
@@ -65,9 +57,8 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
 
         <FormField label="Password" required>
           <Input
+            name="password"
             type="password"
-            value={values.password}
-            onChange={(e) => handleChange("password", e.target.value)}
             placeholder="Enter your password"
             disabled={isLoading}
           />

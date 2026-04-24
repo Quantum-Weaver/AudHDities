@@ -1,11 +1,8 @@
-// components/auth/SignupForm.tsx
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
-import { useCreateProfiles } from "@/hooks/generated/hestia-core/profiles";
-import { ProfilesInsertSchema } from "@/lib/validators/generated/hestia-core/profiles";
 import { Input, Checkbox, Form, FormField, FormActions, Alert, Button } from "@/components/ui";
 
 interface SignupFormProps {
@@ -15,37 +12,27 @@ interface SignupFormProps {
 export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormProps) {
   const router = useRouter();
   const { signUp } = useAuth();
-  const { create: createProfile } = useCreateProfiles();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-    accept_terms: false,
-  });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (name: string, value: string | boolean) => {
-    setValues(prev => ({ ...prev, [name]: value }));
-    if (fieldErrors[name]) {
-      setFieldErrors(prev => { const next = { ...prev }; delete next[name]; return next; });
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (data: Record<string, any>) => {
     setIsLoading(true);
     setError(null);
     setFieldErrors({});
 
+    const email = data.email as string;
+    const password = data.password as string;
+    const username = data.username as string;
+    const confirmPassword = data.confirm_password as string;
+    const acceptTerms = data.accept_terms === "on";
+
     // Basic validation
     const newErrors: Record<string, string> = {};
-    if (values.password !== values.confirm_password) {
+    if (password !== confirmPassword) {
       newErrors.confirm_password = "Passwords do not match";
     }
-    if (!values.accept_terms) {
+    if (!acceptTerms) {
       newErrors.accept_terms = "You must accept the terms to continue";
     }
     if (Object.keys(newErrors).length > 0) {
@@ -55,9 +42,9 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
     }
 
     // Sign up via useAuth
-    const { error: signUpError } = await signUp(values.email, values.password, {
-      username: values.username,
-      display_name: values.username,
+    const { error: signUpError } = await signUp(email, password, {
+      username,
+      display_name: username,
     });
 
     if (signUpError) {
@@ -66,8 +53,6 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
       return;
     }
 
-    // Profile is created automatically by the signup API route
-    // Redirect to questionnaire
     router.push(redirectTo);
   };
 
@@ -85,9 +70,8 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
       <Form onSubmit={handleSubmit}>
         <FormField label="Username" required error={fieldErrors.username}>
           <Input
+            name="username"
             type="text"
-            value={values.username}
-            onChange={(e) => handleChange("username", e.target.value)}
             placeholder="Choose a username"
             disabled={isLoading}
           />
@@ -95,9 +79,8 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
 
         <FormField label="Email" required error={fieldErrors.email}>
           <Input
+            name="email"
             type="email"
-            value={values.email}
-            onChange={(e) => handleChange("email", e.target.value)}
             placeholder="your@email.com"
             disabled={isLoading}
           />
@@ -105,9 +88,8 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
 
         <FormField label="Password" required error={fieldErrors.password}>
           <Input
+            name="password"
             type="password"
-            value={values.password}
-            onChange={(e) => handleChange("password", e.target.value)}
             placeholder="Create a password (min 6 characters)"
             disabled={isLoading}
           />
@@ -115,9 +97,8 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
 
         <FormField label="Confirm Password" required error={fieldErrors.confirm_password}>
           <Input
+            name="confirm_password"
             type="password"
-            value={values.confirm_password}
-            onChange={(e) => handleChange("confirm_password", e.target.value)}
             placeholder="Confirm your password"
             disabled={isLoading}
           />
@@ -126,8 +107,7 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
         <FormField error={fieldErrors.accept_terms}>
           <div className="flex items-center gap-2">
             <Checkbox
-              checked={values.accept_terms}
-              onChange={(e) => handleChange("accept_terms", e.target.checked)}
+              name="accept_terms"
               disabled={isLoading}
             />
             <label className="text-sm text-white/80">

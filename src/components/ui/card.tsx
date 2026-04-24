@@ -40,7 +40,7 @@ import {
 } from '@/utils/components/ui/card.utils';
 import { cardShadowClasses } from '@/lib/constants/components/ui/card.constants';
 import { UserCardRenderer } from '../hestia/UserCard';
-import { StatCardRenderer } from '../shared/StatCardRenderer';
+import { StatCardRenderer } from '../shared/StatCard';
 import { EntityCardRenderer } from '../aethelred/EntityCardRenderer';
 import { VendorCardRenderer } from '../hermes/bazaar/VendorCard';
 import { CreatorCardRenderer } from '../hermes/bazaar/CreatorCard';

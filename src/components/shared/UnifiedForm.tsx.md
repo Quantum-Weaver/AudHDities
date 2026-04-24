@@ -7,7 +7,7 @@
 import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Index";
+import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Label } from "@/components/ui/Label";
@@ -17,10 +17,8 @@ import { Spinner } from "@/components/ui/Spinner";
 import { FORM_VARIANTS, FORM_SPACING } from "@/lib/constants/components/ui/unified_form";
 
 // Types
-import type { FieldValue } from "@/types/components/ui/forms";
+import type { FieldValue } from "@/types/components/ui/form.types";
 
-// Utils
-import { required, email, composeValidators } from "@/utils/components/ui/unified_form";
 
 // =====================================================
 // FIELD CONFIGURATIONS BY VARIANT

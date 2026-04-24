@@ -1,39 +1,56 @@
-// src/components/about/AboutHero.tsx
+// src/components/iris/about/AboutHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { Container, HeroContainer } from '@/components/ui/Container';
+import { Badge } from '@/components/ui/Badge';
+import { DURATIONS, EASING } from '@/lib/constants/cosmic/motion';
 
 export function AboutHero() {
   return (
-    <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl animate-pulse delay-700" />
-      
-      <div className="relative z-10 container max-w-6xl mx-auto px-6 text-center">
+    <section className="relative overflow-hidden py-[var(--spacing-24)]">
+      {/* Quantum background gradient */}
+      <div className="absolute inset-0 bg-[var(--gradient-quantum)] opacity-50" />
+
+      {/* Ambient glow orbs */}
+      <div
+        className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-[var(--color-neurospark)]/5 blur-[var(--blur-3xl)] animate-[var(--animate-quantum-pulse)]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-20 right-1/4 w-96 h-96 rounded-full bg-[var(--color-cosmic-blue)]/5 blur-[var(--blur-3xl)] animate-[var(--animate-cosmic-pulse)]"
+        style={{ animationDelay: '700ms' }}
+        aria-hidden="true"
+      />
+
+      <HeroContainer className="relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: DURATIONS.slow / 1000}}
         >
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-            <Star size={14} className="text-cyan-400" />
-            <span className="text-sm text-white/80">The Sanctuary</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <Badge
+            variant="outline"
+            size="md"
+            className="inline-flex items-center gap-2 bg-[var(--color-surface)]/10 backdrop-blur-sm mb-[var(--spacing-6)]"
+          >
+            <Star size={14} className="text-[var(--color-neurospark)]" />
+            <span className="text-[var(--color-star-dust)]/80">The Sanctuary</span>
+          </Badge>
+
+          <h1 className="text-[var(--font-size-5xl)] md:text-[var(--font-size-7xl)] font-[var(--font-weight-bold)] text-[var(--color-star-dust)] mb-[var(--spacing-6)]">
             A Sanctuary Born from
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Survival and Collaboration
+            <span className="bg-gradient-to-r from-[var(--color-neurospark)] via-[var(--color-cosmic-blue)] to-[var(--color-quantum-pink)] bg-clip-text text-transparent">
+              {' '}Survival and Collaboration
             </span>
           </h1>
-          
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+
+          <p className="text-[var(--font-size-xl)] text-[var(--color-star-dust)]/70 max-w-2xl mx-auto">
             Not a company. A proof that another way exists.
           </p>
         </motion.div>
-      </div>
+      </HeroContainer>
     </section>
   );
 }
