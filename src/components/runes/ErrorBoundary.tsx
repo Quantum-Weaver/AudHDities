@@ -20,6 +20,7 @@ import type {
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   ERROR_BOUNDARY_DEFAULTS,
+  ERROR_BOUNDARY_VARIANTS,
   type ErrorBoundaryVariant,
 } from '@/lib/constants/components/runes/error_boundary.constants';
 
@@ -31,6 +32,7 @@ import {
   errorBoundaryMessageVariants,
   ERROR_BOUNDARY_ACTION_VARIANT_MAP,
 } from '@/lib/constants/components/runes/error_boundary.variants';
+import { executeRecovery, getRecoveryAction, getSeverity, serializeError, createResetState, logError } from '@/lib/utils/components/runes/error_boundary.utils';
 
 /**
  * ErrorBoundary — Catches render errors and displays a variant-aware fallback.
@@ -57,12 +59,23 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+    const severity = getSeverity(
+      this.props.variant ?? ERROR_BOUNDARY_VARIANTS.GRACEFUL_DEGRADATION
+    );
+    const serialized = serializeError(error, errorInfo, severity);
+    logError(serialized);  // Pass the full serialized object
     this.props.onError?.(error, errorInfo);
   }
 
   handleReset = () => {
-    this.setState({ hasError: false, error: null });
+    const severity = getSeverity(this.props.variant ?? ERROR_BOUNDARY_VARIANTS.GRACEFUL_DEGRADATION);
+    const action = getRecoveryAction(severity);
+
+    if (action === 'retry') {
+      this.setState(createResetState());
+    } else {
+      executeRecovery(action, this.props.safeRoute);
+    }
   };
 
   render() {

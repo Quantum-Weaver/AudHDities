@@ -20,6 +20,9 @@ import type {
   PageNumberItem,
 } from '@/types/components/vegvisir/pagination.types';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────────
+import { getPageNumbers, getPageRange } from '@/lib/utils/components/vegvisir/pagination.utils';
+
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   PAGINATION_BUTTON_SIZE,
@@ -39,65 +42,6 @@ import {
   paginationActiveButtonVariants,
   paginationSelectVariants,
 } from '@/lib/constants/components/vegvisir/pagination.variants';
-
-// ═══════════════════════════════════════════════════════════════════════════
-// PAGE NUMBER GENERATOR
-// ═══════════════════════════════════════════════════════════════════════════
-
-/**
- * Generate the array of page numbers and ellipses to display.
- * Pure logic — no styling dependencies.
- */
-function getPageNumbers(
-  currentPage: number,
-  totalPages: number,
-  siblingCount: number,
-  compact: boolean
-): PageNumberItem[] {
-  const totalPageNumbers = siblingCount * 2 + (compact ? 3 : 5);
-
-  // All pages fit — no ellipsis needed
-  if (totalPages <= totalPageNumbers) {
-    return Array.from({ length: totalPages }, (_, i) => i + 1);
-  }
-
-  const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
-  const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages);
-
-  const showLeftEllipsis = leftSiblingIndex > 2;
-  const showRightEllipsis = rightSiblingIndex < totalPages - 1;
-
-  const firstPageIndex = 1;
-  const lastPageIndex = totalPages;
-
-  // Only right ellipsis needed
-  if (!showLeftEllipsis && showRightEllipsis) {
-    const leftItemCount = (compact ? 3 : 5) + siblingCount;
-    const leftRange = Array.from({ length: leftItemCount }, (_, i) => i + 1);
-    return [...leftRange, 'ellipsis', lastPageIndex];
-  }
-
-  // Only left ellipsis needed
-  if (showLeftEllipsis && !showRightEllipsis) {
-    const rightItemCount = (compact ? 3 : 5) + siblingCount;
-    const rightRange = Array.from(
-      { length: rightItemCount },
-      (_, i) => totalPages - rightItemCount + i + 1
-    );
-    return [firstPageIndex, 'ellipsis', ...rightRange];
-  }
-
-  // Both ellipses needed
-  if (showLeftEllipsis && showRightEllipsis) {
-    const middleRange = Array.from(
-      { length: rightSiblingIndex - leftSiblingIndex + 1 },
-      (_, i) => leftSiblingIndex + i
-    );
-    return [firstPageIndex, 'ellipsis', ...middleRange, 'ellipsis', lastPageIndex];
-  }
-
-  return [];
-}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PAGINATION
@@ -145,7 +89,12 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
     },
     ref
   ) => {
-    const pageNumbers = getPageNumbers(currentPage, totalPages, siblingCount, compact);
+    const pageNumbers = getPageNumbers({
+      currentPage,
+      totalPages,
+      siblingCount,
+      compact,
+    });
     const sizeConfig = PAGINATION_BUTTON_SIZE[size];
 
     const handlePageChange = (page: number) => {
@@ -370,8 +319,7 @@ export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoPro
       );
     }
 
-    const start = (currentPage - 1) * pageSize + 1;
-    const end = Math.min(currentPage * pageSize, totalItems);
+    const { start, end } = getPageRange(currentPage, pageSize, totalItems);
 
     return (
       <div ref={ref} className={cn('text-sm text-white/60', className)}>

@@ -7,7 +7,7 @@ import { ResidualDistribution } from '@/components/hephaestus/supporting/busines
 import { TransparencyLedger } from '@/components/hephaestus/supporting/business/TransparencyLedger';
 import { SustainabilityMetrics } from '@/components/hephaestus/supporting/business/SustainabilityMetrics';
 import { DignityFloor } from '@/components/hephaestus/supporting/business/DignityFloor';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { Button } from '@/components/yggdrasil/Button';
 import { ArrowRight, Shield, Users, DollarSign, Heart, TrendingUp, HandCoins } from 'lucide-react';
 import Link from 'next/link';

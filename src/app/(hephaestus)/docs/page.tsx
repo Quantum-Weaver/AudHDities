@@ -1,7 +1,7 @@
 // src/app/(content)/docs/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { DocsHero } from '@/components/hephaestus/supporting/docs/DocsHero';
 import Link from 'next/link';
 import { 

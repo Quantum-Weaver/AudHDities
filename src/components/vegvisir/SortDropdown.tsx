@@ -17,6 +17,12 @@ import type {
   SortDirection,
 } from "@/types/components/vegvisir/sort_dropdown.types";
 
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  findSortOption,
+  resolveSortSelection,
+} from '@/lib/utils/components/vegvisir/sort_dropdown.utils';
+
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   SORT_DROPDOWN_Z_INDEX,
@@ -59,16 +65,11 @@ export function SortDropdown({
 }: SortDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const currentOption = options.find((o) => o.id === value) || options[0];
+  const currentOption = findSortOption(options, value);
 
   const handleSelect = (option: SortOption) => {
-    let newDirection: SortDirection = direction;
-    if (option.id === value) {
-      newDirection = direction === "asc" ? "desc" : "asc";
-    } else {
-      newDirection = option.defaultDirection || "asc";
-    }
-    onChange(option.id, newDirection);
+    const result = resolveSortSelection(options, option.id, value, direction);
+    onChange(result.value, result.direction);
     setIsOpen(false);
   };
 

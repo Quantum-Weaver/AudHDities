@@ -12,6 +12,9 @@ import { Button } from '@/components/yggdrasil/Button';
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { EmptyStateProps } from '@/types/components/runes/empty_state.types';
 
+// ─── Utilitiees ─────────────────────────────────────────────────────────────────
+import { resolveActionButtonVariant, getLayoutClasses } from '@/lib/utils/components/runes/empty_state.utils';
+
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   emptyStateContainerVariants,
@@ -49,6 +52,7 @@ export function EmptyState({
   layout = 'centered',
 }: EmptyStateProps) {
   const isHorizontal = layout === 'horizontal';
+  const layoutClasses = getLayoutClasses(layout);
 
   return (
     <div
@@ -85,7 +89,7 @@ export function EmptyState({
         {actionLabel && onAction && (
           <Button
             onClick={onAction}
-            variant={variant === 'default' ? 'secondary' : 'ghost'}
+            variant={resolveActionButtonVariant(variant)}
             size="sm"
           >
             {actionLabel}

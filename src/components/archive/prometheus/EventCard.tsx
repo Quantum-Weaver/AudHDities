@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Card, CardRibbon } from '@/components/runes/cards/Card';
+import { Card, CardRibbon } from '@/components/runes/Card';
 import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Badge } from '@/components/runes/Badge';
 import { Calendar, Clock, MapPin, Radio } from 'lucide-react';

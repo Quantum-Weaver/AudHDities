@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';

@@ -16,6 +16,11 @@ import type {
   CheckboxGroupProps,
 } from '@/types/components/forging/checkbox.types';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────────
+import {
+  toggleCheckboxValue,
+} from '@/lib/utils/components/forging/checkbox.utils';
+
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   CHECKBOX_SIZE,
@@ -191,13 +196,6 @@ function CheckboxGroup({
   orientation = 'vertical',
   className,
 }: CheckboxGroupProps) {
-  const handleToggle = (optionValue: string) => {
-    const newValues = value.includes(optionValue)
-      ? value.filter((v) => v !== optionValue)
-      : [...value, optionValue];
-    onChange?.(newValues);
-  };
-
   return (
     <div
       className={cn(
@@ -216,7 +214,10 @@ function CheckboxGroup({
           variant={variant}
           size={size}
           checked={value.includes(option.value)}
-          onChange={() => handleToggle(option.value)}
+          onChange={() => {
+            const result = toggleCheckboxValue(value, option.value);
+            onChange?.(result.newValues);
+          }}
         />
       ))}
       {error && (

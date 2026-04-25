@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardMedia, CardRibbon, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';

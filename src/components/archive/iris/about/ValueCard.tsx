@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { quickAnimations } from '@/lib/constants/cosmic/motion';
 import type { CardData } from '@/types/components/runes/card.types';
 

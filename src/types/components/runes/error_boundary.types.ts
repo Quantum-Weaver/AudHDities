@@ -10,8 +10,10 @@ import type {
   ErrorBoundarySeverity,
 } from '@/lib/constants/components/runes/error_boundary.constants';
 
+import { SerializedError } from '@/lib/utils/components/runes/error_boundary.utils';
+
 // ─── Re-exports ────────────────────────────────────────────────────────────
-export type { ErrorBoundaryVariant, ErrorBoundarySeverity };
+export type { ErrorBoundaryVariant, ErrorBoundarySeverity, SerializedError };
 
 // ─── Props ─────────────────────────────────────────────────────────────────
 export interface ErrorBoundaryProps {
@@ -23,6 +25,10 @@ export interface ErrorBoundaryProps {
   variant?: ErrorBoundaryVariant;
   /** Called when an error is caught */
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
+  /** Custom logger — receives a SerializedError */
+  onLogError?: (serialized: SerializedError) => void;
+  /** Safe route for navigate recovery action */
+  safeRoute?: string;  
 }
 
 // ─── State ─────────────────────────────────────────────────────────────────

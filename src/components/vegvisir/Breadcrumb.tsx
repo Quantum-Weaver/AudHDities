@@ -7,6 +7,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronRight, Home, Slash, MoreHorizontal } from 'lucide-react';
+import { ensureHomeItem, truncateItems } from '@/lib/utils/components/vegvisir/breadcrumb.utils';
 
 export type BreadcrumbSize = 'sm' | 'md' | 'lg';
 export type BreadcrumbSeparator = 'chevron' | 'slash' | 'dot' | 'arrow';
@@ -58,28 +59,17 @@ export const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
     },
     ref
   ) => {
-    let displayItems = [...items];
-    if (showHome) {
-      const hasHome = items.some(item => item.label === 'Home' || item.href === '/');
-      if (!hasHome) {
-        displayItems = [
-          { label: 'Home', href: homeHref, icon: <Home className="h-3 w-3" /> },
-          ...displayItems,
-        ];
-      }
-    }
+const displayItems = showHome
+  ? ensureHomeItem(items, homeHref)
+  : [...items];
     
-    let truncatedItems = displayItems;
-    let isTruncated = false;
-    let hiddenItems: BreadcrumbItem[] = [];
-    
-    if (maxItems > 0 && displayItems.length > maxItems) {
-      isTruncated = true;
-      const firstItems = displayItems.slice(0, 1);
-      const lastItems = displayItems.slice(-(maxItems - 1));
-      hiddenItems = displayItems.slice(1, -(maxItems - 1));
-      truncatedItems = [...firstItems, { label: '...', disabled: true }, ...lastItems];
-    }
+  let truncatedItems = displayItems;
+  let isTruncated = false;
+  let hiddenItems: BreadcrumbItem[] = [];
+
+  if (maxItems > 0 && displayItems.length > maxItems) {
+    ({ visibleItems: truncatedItems, hiddenItems, isTruncated } = truncateItems(displayItems, maxItems));
+  }
     
     const separatorIcon = separatorIcons[separator];
     

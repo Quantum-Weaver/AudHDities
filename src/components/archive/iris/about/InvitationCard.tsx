@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Button } from '@/components/yggdrasil/Button';
 import type { InvitationCardData } from '@/types/components/runes/card.types';

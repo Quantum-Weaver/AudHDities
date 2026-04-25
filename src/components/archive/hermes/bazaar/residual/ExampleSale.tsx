@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, DollarSign, Users, Heart } from 'lucide-react';
 import { Slider } from '@/components/forging/Slider';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import type { CardData } from '@/types/components/runes/card.types';
 

@@ -8,7 +8,7 @@ import { CodeBlock } from '@/components/hephaestus/supporting/docs/CodeBlock';
 import { ProtectedRoutesTable } from '@/components/hephaestus/supporting/docs/ProtectedRoutesTable';
 import fs from 'fs/promises';
 import path from 'path';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 
 export const metadata: Metadata = {
   title: 'Auth Flow | AUDHDITIES Architecture',

@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import { MarkdownBio } from '@/components/bifrost/MarkdownBio';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { X } from 'lucide-react';
 
 interface MarkdownViewerProps {

@@ -15,6 +15,14 @@ import type {
   FilterOption,
 } from "@/types/components/vegvisir/filter_bar.types";
 
+// ─── Utilities ─────────────────────────────────────────────────────────────────
+import {
+  isAllSelected,
+  isOptionSelected,
+  hasFilterCount,
+  formatFilterCount,
+} from "@/lib/utils/components/vegvisir/filter_bar.utils";
+
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   FILTER_BAR_DEFAULT_ALL_LABEL,
@@ -114,9 +122,9 @@ function FilterButton({
       onClick={() => onSelect(option.id)}
     >
       {option.label}
-      {option.count !== undefined && (
+      {hasFilterCount(option) && (
         <span className={cn(countClass)}>
-          ({option.count})
+          {formatFilterCount(option.count)}
         </span>
       )}
     </Button>

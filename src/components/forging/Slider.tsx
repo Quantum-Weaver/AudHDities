@@ -24,7 +24,6 @@ import {
   SLIDER_VALUE_COLOR_CLASSES,
   SLIDER_VALUE_SIZE_CLASSES,
   SLIDER_TRACK_SIZE_CLASSES,
-  SLIDER_THUMB_PIXEL_SIZE,
   SLIDER_LABEL_COLOR_CLASS,
   SLIDER_HELPER_TEXT_COLOR_CLASS,
   SLIDER_MARK_COLOR_CLASS,
@@ -36,6 +35,14 @@ import {
   DEFAULT_SLIDER_MAX,
   DEFAULT_SLIDER_STEP,
 } from '@/lib/constants/components/forging/slider.constants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  valueToPercentage,
+  thumbPositionOffset,
+  generateMarks,
+  snapToStep,
+} from '@/lib/utils/components/forging/slider.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDER
@@ -69,19 +76,13 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = parseFloat(e.target.value);
-      if (!isControlled) setInternalValue(newValue);
-      onChange?.(newValue);
+      const snapped = snapToStep(newValue, min, max, step);
+      if (!isControlled) setInternalValue(snapped);
+      onChange?.(snapped);
     };
 
-    const percentage = ((currentValue - min) / (max - min)) * 100;
-    const thumbOffset = SLIDER_THUMB_PIXEL_SIZE[size] / 2;
-
-    const marksArray = marks
-      ? Array.from(
-          { length: Math.floor((max - min) / markInterval) + 1 },
-          (_, i) => min + i * markInterval
-        )
-      : [];
+    const percentage = valueToPercentage(currentValue, min, max);
+    const marksArray = marks ? generateMarks(min, max, markInterval) : [];
 
     return (
       <div className={cn(SLIDER_CONTAINER_SPACING, className)}>
@@ -158,7 +159,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
               sliderThumbVariants({ variant, size }),
               disabled && 'opacity-50'
             )}
-            style={{ left: `calc(${percentage}% - ${thumbOffset}px)` }}
+            style={{ left: thumbPositionOffset(percentage, size) }}
           />
         </div>
 

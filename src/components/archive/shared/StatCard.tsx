@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardHeader, CardContent } from '@/components/ui/cards';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import type { CardData, StatCardData } from '@/types/components/runes/card.types';

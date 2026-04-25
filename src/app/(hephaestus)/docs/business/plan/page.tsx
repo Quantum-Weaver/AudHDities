@@ -4,7 +4,7 @@ import { BusinessHero } from '@/components/hephaestus/supporting/business/Busine
 import { ValueFlowDiagram } from '@/components/hephaestus/supporting/business/ValueFlowDiagram';
 import { StatCard } from '@/components/hephaestus/supporting/business/StatCard';
 import { ProjectionTable } from '@/components/hephaestus/supporting/business/ProjectionTable';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { Button } from '@/components/yggdrasil/Button';
 import { Target, Shield, Heart, Eye, Sparkles, TrendingUp, HandCoins } from 'lucide-react';
 import Link from 'next/link';

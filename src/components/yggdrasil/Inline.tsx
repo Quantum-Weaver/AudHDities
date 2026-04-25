@@ -6,20 +6,29 @@
 
 'use client';
 
+import React, { Children } from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { InlineProps } from '@/types/components/yggdrasil/inline.types';
+import type {
+  InlineProps,
+  InlineSpace,
+  InlineAlign,
+} from '@/types/components/yggdrasil/inline.types';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import { inlineVariants } from '@/lib/constants/components/yggdrasil/inline.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   INLINE_DEFAULT_SPACE,
   INLINE_DEFAULT_ALIGN,
-  INLINE_BASE_CLASSES,
-  INLINE_WRAP_CLASS,
-  INLINE_SPACE_TO_GAP_CLASS,
-  INLINE_ALIGN_TO_JUSTIFY_CLASS,
 } from '@/lib/constants/components/yggdrasil/inline.constants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  getResponsiveVariant,
+} from '@/lib/utils/components/yggdrasil/inline.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // INLINE
@@ -28,8 +37,9 @@ import {
 /**
  * Inline — Horizontal flex container with consistent spacing.
  *
- * Wraps children in a flex row with configurable gap, alignment, and wrapping.
- * Spacing values map directly to the COSMIC 4px grid scale.
+ * Wraps children in a flex row with configurable gap, alignment, wrapping,
+ * and responsive stacking behavior. Spacing values map directly to the
+ * COSMIC 4px grid scale.
  *
  * @example
  * // Default spacing (gap-4), start-aligned, wraps on mobile
@@ -40,33 +50,51 @@ import {
  *
  * @example
  * // Tight spacing, centered, no wrap
- * <Inline space={2} align="center" wrap={false}>
+ * <Inline space="2" align="center" wrap={false}>
  *   <Badge>Quantum</Badge>
  *   <Badge>Cosmic</Badge>
  * </Inline>
  *
  * @example
- * // Spread between, responsive wrap
- * <Inline space={6} align="between">
+ * // Spread between, auto-responsive stacking
+ * <Inline space="6" align="between" responsive="stackOnMobile">
  *   <Logo />
  *   <Nav />
  *   <UserMenu />
+ * </Inline>
+ *
+ * @example
+ * // Auto-detect responsive behavior from child count
+ * <Inline space="4" align="start" responsive="auto" wrap>
+ *   <StatCard />
+ *   <StatCard />
+ *   <StatCard />
+ *   <StatCard />
  * </Inline>
  */
 export function Inline({
   space = INLINE_DEFAULT_SPACE,
   align = INLINE_DEFAULT_ALIGN,
   wrap = true,
+  responsive = 'none',
   className,
   children,
 }: InlineProps) {
+  // Auto-detect responsive variant based on child count
+  const resolvedResponsive =
+    responsive === 'auto'
+      ? getResponsiveVariant(Children.count(children))
+      : responsive;
+
   return (
     <div
       className={cn(
-        INLINE_BASE_CLASSES,
-        INLINE_SPACE_TO_GAP_CLASS[space],
-        INLINE_ALIGN_TO_JUSTIFY_CLASS[align],
-        wrap && INLINE_WRAP_CLASS,
+        inlineVariants({
+          space,
+          align,
+          wrap: wrap ? true : false,
+          responsive: resolvedResponsive,
+        }),
         className
       )}
     >
@@ -76,4 +104,8 @@ export function Inline({
 }
 
 // ─── Re-export types for convenience ───────────────────────────────────────
-export type { InlineProps, InlineSpace, InlineAlign } from '@/types/components/yggdrasil/inline.types';
+export type {
+  InlineProps,
+  InlineSpace,
+  InlineAlign,
+} from '@/types/components/yggdrasil/inline.types';

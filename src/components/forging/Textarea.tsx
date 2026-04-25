@@ -12,6 +12,9 @@ import { cn } from '@/lib/utils';
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { TextareaProps } from '@/types/components/forging/textarea.types';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────────
+import { generateTextareaId, getTextareaAriaDescribedBy } from '@/lib/utils/components/forging/textare.utils';
+
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
   TEXTAREA_DEFAULT_ROWS,
@@ -61,8 +64,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     },
     ref
   ) => {
-    const textareaId =
-      id || `textarea-${Math.random().toString(36).slice(2, 9)}`;
+    const textareaId = id || generateTextareaId();
     const hasError = !!error;
 
     return (
@@ -111,13 +113,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             className
           )}
           aria-invalid={hasError}
-          aria-describedby={
-            helper
-              ? `${textareaId}-helper`
-              : hasError
-                ? `${textareaId}-error`
-                : undefined
-          }
+          aria-describedby={getTextareaAriaDescribedBy(textareaId, !!helper, hasError)}
           disabled={disabled}
           {...props}
         />

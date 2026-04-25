@@ -7,7 +7,7 @@ import { ContributionBreakdown } from '@/components/hermes/bazaar/residual/Contr
 import { ExampleSale } from '@/components/hermes/bazaar/residual/ExampleSale';
 import { ResidualFAQ } from '@/components/hermes/bazaar/residual/ResidualFAQ';
 import { SourceAttribution } from '@/components/hermes/bazaar/residual/SourceAttribution';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { Heart, Shield, Infinity, HandCoins, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {

@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/runes/cards/';
 import type { CardVariant } from '@/lib/constants/components/runes/card.constants';
 import { COUNCIL_COLORS } from '@/lib/constants/cosmic/colors';

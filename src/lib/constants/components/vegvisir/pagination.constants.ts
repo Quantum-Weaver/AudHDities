@@ -1,7 +1,7 @@
 // src/lib/constants/components/vegvisir/pagination.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║                    PAGINATION CONSTANTS                                    ║
-// ║                    Single source of truth — sizing, defaults, tokens       ║
+// ║                    PAGINATION CONSTANTS                                   ║
+// ║                    Single source of truth — sizing, defaults, tokens      ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 // ─── Button Sizing ─────────────────────────────────────────────────────────

@@ -12,6 +12,14 @@ import { cn } from '@/lib/utils';
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { InputProps } from '@/types/components/forging/input.types';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────────
+import {
+  generateInputId,
+  resolveIconModifier,
+  getInputAriaDescribedBy,
+  resolveInputVariant,
+} from '@/lib/utils/components/forging/input.utils';
+
 // ─── Variants ──────────────────────────────────────────────────────────────
 import { inputVariants } from '@/lib/constants/components/forging/input.variants';
 
@@ -69,18 +77,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const inputId =
-      id || `input-${Math.random().toString(36).slice(2, 9)}`;
+    const inputId = generateInputId(id);
     const hasError = !!error;
-
-    // Determine icon modifier for variant classes
-    const iconModifier = leftIcon && rightIcon
-      ? 'both'
-      : leftIcon
-        ? 'left'
-        : rightIcon
-          ? 'right'
-          : undefined;
+    const iconModifier = resolveIconModifier(leftIcon, rightIcon);
 
     return (
       <div
@@ -130,13 +129,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               className
             )}
             aria-invalid={hasError}
-            aria-describedby={
-              helper
-                ? `${inputId}-helper`
-                : hasError
-                  ? `${inputId}-error`
-                  : undefined
-            }
+            aria-describedby={getInputAriaDescribedBy(inputId, hasError, !!helper)}
             disabled={disabled}
             {...props}
           />

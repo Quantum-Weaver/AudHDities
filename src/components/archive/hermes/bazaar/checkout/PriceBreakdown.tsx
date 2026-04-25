@@ -1,7 +1,7 @@
 // src/components/checkout/PriceBreakdown.tsx
 'use client';
 
-import { Card } from '@/components/runes/cards/Card';
+import { Card } from '@/components/runes/Card';
 import { Info } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/seidr/Tooltip';
 import { formatPrice } from '@/lib/utils/components/runes/card.utils';
