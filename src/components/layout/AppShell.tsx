@@ -7,7 +7,7 @@
 import { ReactNode } from 'react';
 import { VStack, HStack } from '@/components/ui/Stack';
 import Header from '@/components/layout/Header';
-import { Navigation } from '@/components/ui/Navigation';
+import { Navigation } from '@/components/layout/Navigation';
 import ContinuityBeam from '@/components/immersive/ContinuityBeam';
 import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/immersive/StatusBar';
@@ -42,20 +42,18 @@ export function AppShell({
       <ContinuityBeamProvider>
         <VStack space="none" className="min-h-screen w-full">
           {/* Fixed top section - no gaps, no scroll, each takes full width */}
-          
           {/* Header - topmost */}
           {showHeader && <Header />}
-          <div className='w-min'>
-            {/* Continuity Beam - directly below header */}
-            {showContinuityBeam && <ContinuityBeam />}
+          
+          {/* Continuity Beam - directly below header */}
+          {showContinuityBeam && <ContinuityBeam />}
 
-            {/* Status Bar - below continuity beam */}
-            {showStatusBar && <StatusBar />}
-        
-            {/* Navigation - below status bar */}
-            {showNavigation && <Navigation />}
-
-          </div>
+          {/* Status Bar - below continuity beam */}
+          {showStatusBar && <StatusBar />}
+      
+          {/* Navigation - below status bar */}
+          {showNavigation && <Navigation />}
+          
           {/* Scrollable content - fills remaining space */}
           <ScrollArea className={cn("flex-1 relative w-full", className)}>
             {children}
