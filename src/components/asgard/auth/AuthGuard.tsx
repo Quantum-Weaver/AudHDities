@@ -1,45 +1,72 @@
-/* @/components/auth/AuthGuard.tsx */
-'use client'
+/* @/components/asgard/auth/AuthGuard.tsx */
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    AUTH GUARD                                             ║
+// ║                    Zero hardcoded values                                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import { useEffect } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
-import { useAuth } from '@/hooks/useAuth'
-import { Loader2 } from 'lucide-react'
+'use client';
 
-interface AuthGuardProps {
-  children: React.ReactNode
-  requireAuth?: boolean
-  redirectTo?: string
-}
+import { useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { useAuth } from '@/hooks/useAuth';
+import { Loader2 } from 'lucide-react';
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type { AuthGuardProps } from '@/types/components/asgard/auth/auth.types';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  AUTH_LABELS,
+  AUTH_ROUTES,
+} from '@/lib/constants/components/asgard/auth/auth.constants';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  authLoadingVariants,
+  authSpinnerVariants,
+  authLoadingTextVariants,
+} from '@/lib/constants/components/asgard/auth/auth.variants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import { buildRedirectUrl } from '@/lib/utils/components/asgard/auth/auth.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPONENT
+// ═══════════════════════════════════════════════════════════════════════════
 
 export default function AuthGuard({
   children,
   requireAuth = true,
-  redirectTo = '/login',
+  redirectTo = AUTH_ROUTES.LOGIN,
 }: AuthGuardProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const { user, loading } = useAuth()
+  const router = useRouter();
+  const pathname = usePathname();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (loading) return
+    if (loading) return;
 
     if (requireAuth && !user) {
-      router.push(`${redirectTo}?redirect=${encodeURIComponent(pathname)}`)
+      router.push(buildRedirectUrl(redirectTo, pathname));
     } else if (!requireAuth && user) {
-      router.push('/dashboard')
+      router.push(AUTH_ROUTES.DASHBOARD);
     }
-  }, [user, loading, requireAuth, redirectTo, router, pathname])
+  }, [user, loading, requireAuth, redirectTo, router, pathname]);
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-cyan-400" />
+      <div className={authLoadingVariants()}>
+        <div className="flex flex-col items-center gap-3">
+          <Loader2 className={authSpinnerVariants({ size: 'default' })} />
+          <span className={authLoadingTextVariants()}>
+            {AUTH_LABELS.LOADING}
+          </span>
+        </div>
       </div>
-    )
+    );
   }
 
-  if (requireAuth && !user) return null
+  if (requireAuth && !user) return null;
 
-  return <>{children}</>
+  return <>{children}</>;
 }

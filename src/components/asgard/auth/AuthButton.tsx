@@ -1,10 +1,32 @@
-// components/auth/AuthButton.tsx
+// components/asgard/auth/AuthButton.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    AUTH BUTTON                                            ║
+// ║                    Zero hardcoded values                                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
 'use client';
 
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User, LogOut } from 'lucide-react';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  AUTH_BUTTON_VARIANTS,
+  AUTH_LABELS,
+  AUTH_ICON_SIZE,
+  AUTH_ROUTES,
+} from '@/lib/constants/components/asgard/auth/auth.constants';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  authButtonVariants,
+} from '@/lib/constants/components/asgard/auth/auth.variants';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// COMPONENT
+// ═══════════════════════════════════════════════════════════════════════════
 
 export default function AuthButton() {
   const router = useRouter();
@@ -13,7 +35,7 @@ export default function AuthButton() {
   const handleLogout = async () => {
     try {
       await signOut();
-      router.push('/');
+      router.push(AUTH_ROUTES.HOME);
       router.refresh();
     } catch (error) {
       console.error('Logout error:', error);
@@ -24,22 +46,22 @@ export default function AuthButton() {
     return (
       <button
         onClick={handleLogout}
-        className="flex items-center gap-2 px-4 py-2 text-white/80 hover:text-white transition-colors"
-        aria-label="Logout"
+        className={authButtonVariants({ variant: AUTH_BUTTON_VARIANTS.AUTHENTICATED })}
+        aria-label={AUTH_LABELS.EXIT}
       >
-        <LogOut size={18} />
-        <span className="hidden sm:inline">Exit</span>
+        <LogOut size={AUTH_ICON_SIZE} />
+        <span className="hidden sm:inline">{AUTH_LABELS.EXIT}</span>
       </button>
     );
   }
 
   return (
     <Link
-      href="/login"
-      className="flex items-center gap-2 px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/40 border border-cyan-500/30 rounded-lg text-cyan-400 transition-colors"
+      href={AUTH_ROUTES.LOGIN}
+      className={authButtonVariants({ variant: AUTH_BUTTON_VARIANTS.UNAUTHENTICATED })}
     >
-      <User size={18} />
-      <span className="hidden sm:inline">Enter</span>
+      <User size={AUTH_ICON_SIZE} />
+      <span className="hidden sm:inline">{AUTH_LABELS.ENTER}</span>
     </Link>
   );
 }

@@ -1,4 +1,4 @@
-// app/components/auth/ProtectedRoute.tsx
+// app/components/asgard/auth/ProtectedRoute.tsx
 'use client';
 
 import { useRequireAuth } from '@/hooks/useRequireAuth';

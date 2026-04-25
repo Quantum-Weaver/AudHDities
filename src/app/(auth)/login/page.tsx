@@ -1,28 +1,56 @@
 /* @/app/(auth)/login/page.tsx */
-import { Metadata } from 'next'
-import Link from 'next/link'
-import LoginForm from '@/components/asgard/auth/LoginForm'
-import AuthGuard from '@/components/asgard/auth/AuthGuard'
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    LOGIN PAGE                                             ║
+// ║                    Zero hardcoded values                                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+import { Metadata } from 'next';
+import Link from 'next/link';
+import LoginForm from '@/components/asgard/auth/LoginForm';
+import AuthGuard from '@/components/asgard/auth/AuthGuard';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  AUTH_METADATA,
+  AUTH_LABELS,
+  AUTH_ROUTES,
+} from '@/lib/constants/components/asgard/auth/auth.constants';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  authPageVariants,
+  authPageContentVariants,
+  authPageFooterVariants,
+  authLinkVariants,
+} from '@/lib/constants/components/asgard/auth/auth.variants';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// METADATA
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const metadata: Metadata = {
-  title: 'Login | AUDHDITIES',
-  description: 'Return to the sanctuary',
-}
+  title: AUTH_METADATA.LOGIN.title,
+  description: AUTH_METADATA.LOGIN.description,
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PAGE
+// ═══════════════════════════════════════════════════════════════════════════
 
 export default function LoginPage() {
   return (
     <AuthGuard requireAuth={false}>
-      <main className="flex min-h-screen items-center justify-center p-6 bg-gradient-to-b from-black via-purple-950/20 to-black">
-        <div className="w-full max-w-md">
+      <main className={authPageVariants()}>
+        <div className={authPageContentVariants()}>
           <LoginForm />
-          <p className="mt-6 text-center text-white/60">
-            New to the Sanctuary?{' '}
-            <Link href="/signup" className="text-cyan-400 hover:text-cyan-300">
-              Initialize consciousness
+          <p className={authPageFooterVariants()}>
+            {AUTH_LABELS.NEW_TO_SANCTUARY}{' '}
+            <Link href={AUTH_ROUTES.SIGNUP} className={authLinkVariants()}>
+              {AUTH_LABELS.INITIALIZE_CONSCIOUSNESS}
             </Link>
           </p>
         </div>
       </main>
     </AuthGuard>
-  )
+  );
 }

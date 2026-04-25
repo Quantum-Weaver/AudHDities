@@ -1,9 +1,15 @@
+// app/components/asgard/auth/SignupForm.tsx
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
-import { Input, Checkbox, Form, FormField, FormActions, Alert, Button } from "@/components/ui";
+import { Input } from "@/components/forging/Input";
+import { Checkbox } from "@/components/forging/Checkbox";
+import { Form, FormActions } from "@/components/forging/Form";
+import { FormField } from "@/components/forging/FormField";
+import { Alert } from "@/components/seidr/Alert";
+import { Button } from "@/components/yggdrasil/Button";
 
 interface SignupFormProps {
   redirectTo?: string;
