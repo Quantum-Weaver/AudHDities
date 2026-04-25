@@ -24,14 +24,14 @@ import {
   toastIconColorVariants,
   toastPositionVariants,
   getToastContainerDirection,
-} from '@/lib/constants/components/ui/toast.variants';
+} from '@/lib/constants/components/seidr/toast.variants';
 import {
   TOAST_BASE_CLASSES,
   TOAST_CONTAINER_BASE_CLASSES,
   TOAST_ICON_SIZE,
   TOAST_DURATION_BY_VARIANT,
   TOAST_CLOSE_ANIMATION_DURATION,
-} from '@/lib/constants/components/ui/toast.constants';
+} from '@/lib/constants/components/seidr/toast.constants';
 
 // ─── Icon Mapping ──────────────────────────────────────────────────────────
 /** Maps each toast variant to its default Lucide icon component */

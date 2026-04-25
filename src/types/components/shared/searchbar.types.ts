@@ -10,7 +10,7 @@ import type {
   SearchbarTheme,
   SearchbarSize,
   SearchbarSpinnerTheme,
-} from '@/lib/constants/components/shared/searchbar.variants';
+} from '@/lib/constants/components/vegvisir/searchbar.variants';
 
 // ─── Re-exports from variants ──────────────────────────────────────────────
 export type {

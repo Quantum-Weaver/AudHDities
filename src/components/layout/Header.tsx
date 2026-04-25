@@ -24,7 +24,7 @@ import {
   headerContentVariants,
   headerTitleVariants,
   headerSubtitleVariants,
-} from '@/lib/constants/components/layout/header.variants';
+} from '@/lib/constants/components/bifrost/header.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

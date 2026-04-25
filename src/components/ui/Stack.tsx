@@ -23,7 +23,7 @@ import type {
 import {
   STACK_DIVIDER_WRAPPER_VERTICAL,
   STACK_DIVIDER_WRAPPER_HORIZONTAL,
-} from '@/lib/constants/components/ui/stack.constants';
+} from '@/lib/constants/components/hof/stack.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import { composeStackClasses } from '@/utils/components/ui/stack.utils';

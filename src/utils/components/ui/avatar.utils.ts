@@ -11,7 +11,7 @@ import {
   AVATAR_BADGE_SIZE_MAP,
   AVATAR_BADGE_FONT_SIZE_MAP,
   AVATAR_BADGE_POSITION_CLASSES,
-} from '@/lib/constants/components/ui/avatar.constants';
+} from '@/lib/constants/components/runes/avatar.constants';
 import type {
   AvatarSize,
   AvatarBadgePosition,

@@ -5,7 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/ui/cards/';
-import type { CardVariant } from '@/lib/constants/components/ui/card.constants';
+import type { CardVariant } from '@/lib/constants/components/runes/card.constants';
 import { COUNCIL_COLORS } from '@/lib/constants/cosmic/colors';
 import { QUICK_ANIMATIONS } from '@/lib/constants/cosmic/motion';
 import { cn } from '@/lib/utils';

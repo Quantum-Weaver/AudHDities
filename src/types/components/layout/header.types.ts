@@ -7,7 +7,7 @@
 import type {
   HEADER_VARIANTS,
   HEADER_DENSITIES,
-} from '@/lib/constants/components/layout/header.constants';
+} from '@/lib/constants/components/bifrost/header.constants';
 
 // ─── Variant types derived from constants ──────────────────────────────────
 export type HeaderVariant =

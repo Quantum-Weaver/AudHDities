@@ -22,7 +22,7 @@ import {
   SKELETON_CARD_BG,
   SKELETON_SPACING,
   SKELETON_DEFAULTS,
-} from '@/lib/constants/components/ui/skeleton.constants';
+} from '../../lib/constants/components/runes/skeleton.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -30,7 +30,7 @@ import {
   SKELETON_VARIANTS,
   SKELETON_ANIMATIONS,
   SKELETON_SIZES,
-} from '@/lib/constants/components/ui/skeleton.variants';
+} from '../../lib/constants/components/runes/skeleton.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

@@ -23,7 +23,7 @@ import {
   SCROLL_INDICATOR_TRANSITION,
   SCROLL_TO_TOP_BUTTON_BG,
   SCROLL_TO_TOP_BUTTON_HOVER_BG,
-} from '@/lib/constants/components/ui/scroll_area.constants';
+} from '@/lib/constants/components/hof/scroll_area.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

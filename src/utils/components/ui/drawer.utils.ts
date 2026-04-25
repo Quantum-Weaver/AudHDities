@@ -10,11 +10,11 @@ import {
   DRAWER_POSITION_CLASSES,
   DRAWER_BORDER_CLASSES,
   DRAWER_TRANSITION_DURATION,
-} from '@/lib/constants/components/ui/drawer.constants';
+} from '@/lib/constants/components/seidr/drawer.constants';
 import type {
   DrawerSide,
   DrawerSize,
-} from '@/lib/constants/components/ui/drawer.variants';
+} from '@/lib/constants/components/seidr/drawer.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SIZE RESOLUTION

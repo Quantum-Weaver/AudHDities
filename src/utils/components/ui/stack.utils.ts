@@ -17,7 +17,7 @@ import {
   STACK_JUSTIFY_VERTICAL_MAP,
   STACK_JUSTIFY_HORIZONTAL_MAP,
   STACK_RESPONSIVE_PREFIX,
-} from '@/lib/constants/components/ui/stack.constants';
+} from '@/lib/constants/components/hof/stack.constants';
 
 /**
  * Resolves the spacing class string, including responsive overrides.

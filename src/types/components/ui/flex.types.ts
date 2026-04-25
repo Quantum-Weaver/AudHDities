@@ -11,7 +11,7 @@ import type {
   FLEX_ALIGN,
   FLEX_GAP,
   FLEX_ALIGN_SELF,
-} from '@/lib/constants/components/ui/flex.constants';
+} from '@/lib/constants/components/hof/flex.constants';
 
 // ─── Direction type (accepts the raw string values) ────────────────────────
 export type FlexDirection =

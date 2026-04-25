@@ -8,7 +8,7 @@ import type {
   AspectRatioValue,
   ObjectFit,
   AspectRatioRoundedSize,
-} from '@/lib/constants/components/ui/aspect_ratio.constants';
+} from '@/lib/constants/components/hof/aspect_ratio.constants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { AspectRatioValue, ObjectFit, AspectRatioRoundedSize };

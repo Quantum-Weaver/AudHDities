@@ -64,7 +64,7 @@ import {
   SIDEBAR_USER_NAME_WEIGHT,
   SIDEBAR_USER_EMAIL_SIZE,
   SIDEBAR_FOOTER_GAP,
-} from '@/lib/constants/components/ui/sidebar.constants';
+} from '@/lib/constants/components/vegvisir/sidebar.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -72,7 +72,7 @@ import {
   sidebarNavItemVariants,
   sidebarBadgeVariants,
   sidebarGroupLabelVariants,
-} from '@/lib/constants/components/ui/sidebar.variants';
+} from '@/lib/constants/components/vegvisir/sidebar.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

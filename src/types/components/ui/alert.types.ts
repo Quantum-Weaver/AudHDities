@@ -4,8 +4,8 @@
 // ║                    All type definitions for the Alert component           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import type { AlertVariant } from '@/lib/constants/components/ui/alert.variants';
-import type { AlertGroupSpacing } from '@/lib/constants/components/ui/alert.constants';
+import type { AlertVariant } from '@/lib/constants/components/seidr/alert.variants';
+import type { AlertGroupSpacing } from '@/lib/constants/components/seidr/alert.constants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { AlertVariant, AlertGroupSpacing };

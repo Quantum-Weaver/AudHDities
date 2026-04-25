@@ -37,13 +37,13 @@ import {
   MODAL_FOOTER_ALIGN,
   MODAL_SEPARATOR_BORDER,
   MODAL_OPEN_ANIMATION,
-} from '@/lib/constants/components/ui/modal.constants';
+} from '@/lib/constants/components/seidr/modal.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   modalOverlayVariants,
   modalContentVariants,
-} from '@/lib/constants/components/ui/modal.variants';
+} from '@/lib/constants/components/seidr/modal.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

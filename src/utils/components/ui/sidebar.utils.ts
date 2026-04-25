@@ -11,7 +11,7 @@ import {
   SIDEBAR_ITEM_BASE_PADDING_LEFT,
   SIDEBAR_ITEM_PADDING_RIGHT,
   SIDEBAR_MOBILE_BREAKPOINT,
-} from '@/lib/constants/components/ui/sidebar.constants';
+} from '@/lib/constants/components/vegvisir/sidebar.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // WIDTH RESOLUTION

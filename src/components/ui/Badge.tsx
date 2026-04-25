@@ -28,7 +28,7 @@ import {
   BADGE_REMOVE_PADDING,
   BADGE_REMOVE_ICON_SIZE,
   BADGE_GROUP_SPACING,
-} from '@/lib/constants/components/ui/badge.constants';
+} from '@/lib/constants/components/runes/badge.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // BADGE

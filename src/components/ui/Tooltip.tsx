@@ -30,13 +30,13 @@ import {
   TOOLTIP_SHORTCUT_KBD_CLASSES,
   TOOLTIP_SHORTCUT_KBD_INNER_CLASSES,
   TOOLTIP_ICON_TRIGGER_CLASSES,
-} from '@/lib/constants/components/ui/tooltip.constants';
+} from '@/lib/constants/components/seidr/tooltip.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   tooltipContentVariants,
   tooltipArrowVariants,
-} from '@/lib/constants/components/ui/tooltip.variants';
+} from '@/lib/constants/components/seidr/tooltip.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

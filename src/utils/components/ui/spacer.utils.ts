@@ -15,8 +15,8 @@ import {
   type SpacerAxis,
   type SpacerDirection,
   type SpacerResponsiveBreakpoint,
-} from '@/lib/constants/components/ui/spacer.constants';
-import { buildDirectionClass } from '@/lib/constants/components/ui/spacer.variants';
+} from '@/lib/constants/components/hof/spacer.constants';
+import { buildDirectionClass } from '@/lib/constants/components/hof/spacer.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DIRECTIONAL CLASS RESOLVER

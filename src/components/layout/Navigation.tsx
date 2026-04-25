@@ -32,7 +32,7 @@ import {
   NAV_ITEM_STATES,
   NAV_ICON_SIZE,
   NAV_MOBILE_BREAKPOINT,
-} from '@/lib/constants/components/layout/navigation.constants';
+} from '@/lib/constants/components/bifrost/navigation.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -43,7 +43,7 @@ import {
   navMobileMenuVariants,
   navMobileToggleVariants,
   navDividerVariants,
-} from '@/lib/constants/components/layout/navigation.variants';
+} from '@/lib/constants/components/bifrost/navigation.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

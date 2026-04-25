@@ -24,14 +24,14 @@ import {
   SEARCHBAR_SPINNER_CLASSES,
   SEARCHBAR_CLEAR_LABEL,
   SEARCHBAR_CLEAR_ARIA_LABEL,
-} from "@/lib/constants/components/shared/searchbar.constants";
+} from "@/lib/constants/components/vegvisir/searchbar.constants";
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   searchbarContainerVariants,
   searchbarInputVariants,
   searchbarSpinnerVariants,
-} from "@/lib/constants/components/shared/searchbar.variants";
+} from "@/lib/constants/components/vegvisir/searchbar.variants";
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import { createDebouncedSearch } from "@/utils/components/shared/searchbar.utils";

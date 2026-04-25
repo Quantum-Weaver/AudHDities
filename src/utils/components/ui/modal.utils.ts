@@ -5,7 +5,7 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { useEffect, useCallback, useState, type RefObject } from 'react';
-import { MODAL_TRANSITION_DURATION } from '@/lib/constants/components/ui/modal.constants';
+import { MODAL_TRANSITION_DURATION } from '@/lib/constants/components/seidr/modal.constants';
 
 // ─── Focus Trap ────────────────────────────────────────────────────────────
 /**

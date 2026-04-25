@@ -7,7 +7,7 @@
 import type {
   NAVIGATION_VARIANTS,
   NAV_ITEM_STATES,
-} from '@/lib/constants/components/layout/navigation.constants';
+} from '@/lib/constants/components/bifrost/navigation.constants';
 
 // ─── Variant types derived from constants ──────────────────────────────────
 export type NavVariant =

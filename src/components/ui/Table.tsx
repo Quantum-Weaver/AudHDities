@@ -26,7 +26,7 @@ import {
   tableCellVariants,
   tableRowVariants,
   tableSortIconColors,
-} from '@/lib/constants/components/ui/table.variants';
+} from '@/lib/constants/components/runes/table.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -39,7 +39,7 @@ import {
   TABLE_TEXT_CAPTION,
   TABLE_SORT_ICON_SIZE,
   TABLE_SORT_ICON_OFFSET,
-} from '@/lib/constants/components/ui/table.constants';
+} from '@/lib/constants/components/runes/table.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TABLE ROOT

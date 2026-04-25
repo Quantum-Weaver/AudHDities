@@ -7,7 +7,7 @@
 import type {
   InlineSpace,
   InlineAlign,
-} from '@/lib/constants/components/shared/inline.constants';
+} from '@/lib/constants/components/yggdrasil/inline.constants';
 
 // ─── Re-exports from constants ─────────────────────────────────────────────
 export type { InlineSpace, InlineAlign };

@@ -9,7 +9,7 @@ import type {
   SidebarPosition,
   SidebarBadgeVariant,
   SidebarGroupLabelVariant,
-} from '@/lib/constants/components/ui/sidebar.variants';
+} from '@/lib/constants/components/vegvisir/sidebar.variants';
 
 // ─── Re-exports from variants ──────────────────────────────────────────────
 export type {

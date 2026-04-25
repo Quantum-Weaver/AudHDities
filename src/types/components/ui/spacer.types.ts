@@ -9,7 +9,7 @@ import type {
   SpacerAxis,
   SpacerDirection,
   SpacerResponsiveBreakpoint,
-} from '@/lib/constants/components/ui/spacer.constants';
+} from '@/lib/constants/components/hof/spacer.constants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { SpacerSize, SpacerAxis, SpacerDirection, SpacerResponsiveBreakpoint };

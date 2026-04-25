@@ -29,7 +29,7 @@ import {
   DIVIDER_LABEL_ICON_SIZE,
   DIVIDER_SECTION_SUBTITLE,
   DIVIDER_SECTION_PADDING,
-} from '@/lib/constants/components/ui/divider.constants';
+} from '@/lib/constants/components/hof/divider.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

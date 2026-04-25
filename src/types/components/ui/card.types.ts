@@ -7,7 +7,7 @@ import type {
   CardSize,
   CardPadding,
   CardRadius
-} from '@/lib/constants/components/ui/card.constants';
+} from '@/lib/constants/components/runes/card.constants';
 import { CardShadow } from '@/lib/constants/components/ui/card.variants'
 
 // Re-export the primitive types from constants

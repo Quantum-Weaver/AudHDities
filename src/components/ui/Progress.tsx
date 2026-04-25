@@ -28,7 +28,7 @@ import {
   PROGRESS_SVG_ROTATION,
   PROGRESS_INDETERMINATE_WIDTH,
   PROGRESS_BASE_CLASSES,
-} from '@/lib/constants/components/ui/progress.constants';
+} from '@/lib/constants/components/runes/progress.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {

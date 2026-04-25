@@ -27,7 +27,7 @@ import type {
   ErrorAlertProps,
   QuantumAlertProps,
 } from '@/types/components/ui/alert.types';
-import type { AlertVariant } from '@/lib/constants/components/ui/alert.variants';
+import type { AlertVariant } from '@/lib/constants/components/seidr/alert.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -36,7 +36,7 @@ import {
   ALERT_DISMISS_COLORS,
   ALERT_FOCUS_RING,
   ALERT_GROUP_SPACING,
-} from '@/lib/constants/components/ui/alert.constants';
+} from '@/lib/constants/components/seidr/alert.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

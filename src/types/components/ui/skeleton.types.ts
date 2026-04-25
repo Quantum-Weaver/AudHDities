@@ -8,7 +8,7 @@ import type {
   SkeletonVariant,
   SkeletonAnimation,
   SkeletonSize,
-} from '@/lib/constants/components/ui/skeleton.variants';
+} from '../../../lib/constants/components/runes/skeleton.variants';
 import type { BORDER_RADII } from '@/lib/constants/cosmic';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────

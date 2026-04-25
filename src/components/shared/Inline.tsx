@@ -19,7 +19,7 @@ import {
   INLINE_WRAP_CLASS,
   INLINE_SPACE_TO_GAP_CLASS,
   INLINE_ALIGN_TO_JUSTIFY_CLASS,
-} from '@/lib/constants/components/shared/inline.constants';
+} from '@/lib/constants/components/yggdrasil/inline.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // INLINE

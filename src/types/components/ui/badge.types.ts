@@ -10,7 +10,7 @@ import type {
 } from '@/lib/constants/components/ui/badge.variants';
 import type {
   BadgeGroupSpacing,
-} from '@/lib/constants/components/ui/badge.constants';
+} from '@/lib/constants/components/runes/badge.constants';
 // ─── Re-exports from constants/variants ────────────────────────────────────
 export type { BadgeVariant, BadgeSizeKey, BadgeGroupSpacing };
 

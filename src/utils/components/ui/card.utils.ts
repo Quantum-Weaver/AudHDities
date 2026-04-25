@@ -30,7 +30,7 @@ import {
   STATUS_COLOR_CLASSES,
   TEMPERATURE_COLOR_CLASSES,
   BADGE_COLOR_CLASSES,
-} from '@/lib/constants/components/ui/card.constants';
+} from '@/lib/constants/components/runes/card.constants';
 
 // =====================================================
 // TYPE GUARDS
@@ -405,7 +405,7 @@ export function getVoteStatus(votesFor: number, votesAgainst: number): 'passed' 
 // TYPE-TO-VARIANT RECOMMENDATION
 // =====================================================
 
-import { CARD_TYPE_TO_VISUAL_VARIANT, type CardVariant } from '@/lib/constants/components/ui/card.constants';
+import { CARD_TYPE_TO_VISUAL_VARIANT, type CardVariant } from '@/lib/constants/components/runes/card.constants';
 
 export function getRecommendedVariant(cardType: string): CardVariant {
   const variant = CARD_TYPE_TO_VISUAL_VARIANT[cardType as keyof typeof CARD_TYPE_TO_VISUAL_VARIANT];

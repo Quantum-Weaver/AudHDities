@@ -8,7 +8,7 @@ import type { ReactNode } from 'react';
 import type {
   ToastVariantKey,
   ToastPositionKey,
-} from '@/lib/constants/components/ui/toast.variants';
+} from '@/lib/constants/components/seidr/toast.variants';
 
 // ─── Re-exports from constants ─────────────────────────────────────────────
 export type ToastVariant = ToastVariantKey;

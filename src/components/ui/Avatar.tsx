@@ -44,7 +44,7 @@ import {
   AVATAR_INTERACTIVE_HOVER_SCALE,
   AVATAR_INTERACTIVE_CURSOR,
   AVATAR_GLOW_SHADOW,
-} from '@/lib/constants/components/ui/avatar.constants';
+} from '@/lib/constants/components/runes/avatar.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {

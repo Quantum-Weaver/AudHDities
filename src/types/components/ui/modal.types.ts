@@ -8,12 +8,12 @@ import type { ReactNode, HTMLAttributes } from 'react';
 import type {
   ModalVariant,
   ModalSize,
-} from '@/lib/constants/components/ui/modal.variants';
+} from '@/lib/constants/components/seidr/modal.variants';
 import type {
   ModalSizeKey,
   ModalPositionKey,
   ModalFooterAlignKey,
-} from '@/lib/constants/components/ui/modal.constants';
+} from '@/lib/constants/components/seidr/modal.constants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { ModalVariant, ModalSize, ModalSizeKey, ModalPositionKey, ModalFooterAlignKey };

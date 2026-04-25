@@ -26,12 +26,12 @@ import {
   SORT_DROPDOWN_TRIGGER_VARIANT,
   SORT_DROPDOWN_TRIGGER_SIZE,
   SORT_DROPDOWN_TYPOGRAPHY,
-} from "@/lib/constants/components/shared/sort_dropdown.constants";
+} from "@/lib/constants/components/vegvisir/sort_dropdown.constants";
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   sortDropdownOptionVariants,
-} from "@/lib/constants/components/shared/sort_dropdown.variants";
+} from "@/lib/constants/components/vegvisir/sort_dropdown.variants";
 
 /**
  * SortDropdown — A dropdown selector for sort options with direction toggle.

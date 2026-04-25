@@ -8,7 +8,7 @@ import type {
   DrawerSide,
   DrawerSize,
   DrawerFooterAlign,
-} from '@/lib/constants/components/ui/drawer.variants';
+} from '@/lib/constants/components/seidr/drawer.variants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { DrawerSide, DrawerSize, DrawerFooterAlign };

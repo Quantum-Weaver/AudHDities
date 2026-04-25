@@ -20,7 +20,7 @@ import {
   GRID_ALIGN_MAP,
   GRID_JUSTIFY_MAP,
   GRID_FLOW_MAP,
-} from '@/lib/constants/components/ui/grid.constants';
+} from '@/lib/constants/components/hof/grid.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

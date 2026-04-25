@@ -26,7 +26,7 @@ import {
   SPACER_AXIS,
   SPACER_DIRECTION,
   SPACER_FLEX_CLASSES,
-} from '@/lib/constants/components/ui/spacer.constants';
+} from '@/lib/constants/components/hof/spacer.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import { composeSpacerClasses } from '@/utils/components/ui/spacer.utils';

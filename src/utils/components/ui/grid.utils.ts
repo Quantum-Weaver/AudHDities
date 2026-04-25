@@ -11,7 +11,7 @@ import {
   RESPONSIVE_PREFIX,
   GRID_MAX_SPAN,
   type GridSpacing,
-} from '@/lib/constants/components/ui/grid.constants';
+} from '@/lib/constants/components/hof/grid.constants';
 
 import type {
   GridColumnConfig,
@@ -24,7 +24,7 @@ import {
   RESPONSIVE_BREAKPOINTS,
   getGridColsClass,
   type BreakpointKey,
-} from '@/lib/constants/components/ui/grid.variants';
+} from '@/lib/constants/components/hof/grid.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COLUMN CLASS RESOLUTION

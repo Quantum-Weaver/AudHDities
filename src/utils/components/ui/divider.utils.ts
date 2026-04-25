@@ -14,7 +14,7 @@ import {
   DIVIDER_SPACING_HORIZONTAL,
   DIVIDER_SPACING_VERTICAL,
   DIVIDER_LINE_BASE,
-} from '@/lib/constants/components/ui/divider.constants';
+} from '@/lib/constants/components/hof/divider.constants';
 import type {
   DividerThickness,
   DividerLength,
@@ -27,7 +27,7 @@ import {
   dividerColorVerticalVariants,
   dividerLineStyleVariants,
   dividerLineStyleVerticalVariants,
-} from '@/lib/constants/components/ui/divider.variants';
+} from '@/lib/constants/components/hof/divider.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PUBLIC API

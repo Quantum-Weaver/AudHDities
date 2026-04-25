@@ -66,7 +66,7 @@ export const UserCardRenderer: React.FC<UserCardRendererProps> = ({
         subtitle={userData.description}
         badge={
           userData.role ? (
-            <Badge variant="outline" size="sm" className={roleBadgeColors[userData.role] || ''}>
+            <Badge variant="outline" size="SM" className={roleBadgeColors[userData.role] || ''}>
               {userData.role.replace('_', ' ')}
             </Badge>
           ) : undefined
@@ -92,7 +92,7 @@ export const UserCardRenderer: React.FC<UserCardRendererProps> = ({
       {userData.role && (
         <CardFooter
           actions={[
-            <Badge key="role" variant="outline" size="sm" className={roleBadgeColors[userData.role] || ''}>
+            <Badge key="role" variant="outline" size="SM" className={roleBadgeColors[userData.role] || ''}>
               {userData.role.replace('_', ' ')}
             </Badge>
           ]}

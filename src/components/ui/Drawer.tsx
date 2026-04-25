@@ -67,12 +67,12 @@ import {
   DRAWER_FILTER_BUTTON_APPLY_RADIUS,
   DRAWER_FILTER_BUTTON_APPLY_SIZE,
   DRAWER_FILTER_BUTTON_APPLY_WEIGHT,
-} from '@/lib/constants/components/ui/drawer.constants';
+} from '@/lib/constants/components/seidr/drawer.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   drawerFooterAlignVariants,
-} from '@/lib/constants/components/ui/drawer.variants';
+} from '@/lib/constants/components/seidr/drawer.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

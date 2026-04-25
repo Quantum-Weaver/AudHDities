@@ -10,7 +10,7 @@ import type {
   ScrollbarThickness,
   SnapDirection,
   ScrollAreaRoundedSize,
-} from '@/lib/constants/components/ui/scroll_area.constants';
+} from '@/lib/constants/components/hof/scroll_area.constants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type {

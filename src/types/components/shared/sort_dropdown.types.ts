@@ -4,7 +4,7 @@
 // ║                    All type definitions                                   ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import type { SortDropdownPanelSize } from '@/lib/constants/components/shared/sort_dropdown.variants';
+import type { SortDropdownPanelSize } from '@/lib/constants/components/vegvisir/sort_dropdown.variants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { SortDropdownPanelSize };

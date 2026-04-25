@@ -27,12 +27,12 @@ import {
   CONTAINER_FOOTER_MARGIN_TOP,
   CONTAINER_FOOTER_PADDING_TOP,
   CONTAINER_FOOTER_DIVIDER,
-} from '@/lib/constants/components/ui/container.constants';
+} from '@/lib/constants/components/hof/container.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   containerVariants,
-} from '@/lib/constants/components/ui/container.variants';
+} from '@/lib/constants/components/hof/container.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

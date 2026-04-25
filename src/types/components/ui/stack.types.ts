@@ -9,7 +9,7 @@ import type {
   StackAlign,
   StackJustify,
   StackDirection,
-} from '@/lib/constants/components/ui/stack.constants';
+} from '@/lib/constants/components/hof/stack.constants';
 
 // ─── Re-exports ─────────────────────────────────────────────────────────────
 export type { StackSpacing, StackAlign, StackJustify, StackDirection };

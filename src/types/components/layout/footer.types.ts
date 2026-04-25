@@ -4,7 +4,7 @@
 // ║                    All type definitions for the Footer component          ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import type { FooterVariant, FooterSize } from '@/lib/constants/components/layout/footer.variants';
+import type { FooterVariant, FooterSize } from '@/lib/constants/components/bifrost/footer.variants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { FooterVariant, FooterSize };

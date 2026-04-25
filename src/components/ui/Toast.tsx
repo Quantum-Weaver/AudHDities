@@ -36,7 +36,7 @@ import {
   TOAST_ICON_SIZE,
   TOAST_TITLE_MARGIN,
   TOAST_ACTION_MARGIN,
-} from '@/lib/constants/components/ui/toast.constants';
+} from '@/lib/constants/components/seidr/toast.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

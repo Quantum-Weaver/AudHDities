@@ -11,7 +11,7 @@ import type {
 
 import {
   HEADER_VARIANTS,
-} from '@/lib/constants/components/layout/header.constants';
+} from '@/lib/constants/components/bifrost/header.constants';
 
 // ─── Domain → Variant Mapping ──────────────────────────────────────────────
 const DOMAIN_VARIANT_MAP: Record<string, HeaderVariant> = {

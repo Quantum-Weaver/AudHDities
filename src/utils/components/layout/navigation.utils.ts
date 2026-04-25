@@ -10,7 +10,7 @@ import type {
   NavigationFilterContext,
 } from '@/types/components/layout/navigation.types';
 
-import { NAV_ITEM_STATES } from '@/lib/constants/components/layout/navigation.constants';
+import { NAV_ITEM_STATES } from '@/lib/constants/components/bifrost/navigation.constants';
 
 /**
  * Determine the state of a navigation item based on current path.

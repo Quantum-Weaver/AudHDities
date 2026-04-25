@@ -10,10 +10,10 @@ import type {
   GridAlign,
   GridJustify,
   GridFlow,
-} from '@/lib/constants/components/ui/grid.constants';
+} from '@/lib/constants/components/hof/grid.constants';
 import type {
   GRID_VARIANTS,
-} from '@/lib/constants/components/ui/grid.variants';
+} from '@/lib/constants/components/hof/grid.variants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type {

@@ -5,7 +5,7 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import type { ProgressLabelPosition } from '@/lib/constants/components/ui/progress.variants';
-import { PROGRESS_LABEL_POSITION_LAYOUTS } from '@/lib/constants/components/ui/progress.constants';
+import { PROGRESS_LABEL_POSITION_LAYOUTS } from '@/lib/constants/components/runes/progress.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PERCENTAGE CALCULATION

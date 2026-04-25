@@ -25,13 +25,13 @@ import {
   ASPECT_RATIO_VALUES,
   ASPECT_RATIO_MEDIA_BASE,
   ASPECT_RATIO_FALLBACK_BG,
-} from '@/lib/constants/components/ui/aspect_ratio.constants';
+} from '@/lib/constants/components/hof/aspect_ratio.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   aspectRatioContainerVariants,
   aspectRatioInnerVariants,
-} from '@/lib/constants/components/ui/aspect_ratio.variants';
+} from '@/lib/constants/components/hof/aspect_ratio.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

@@ -11,12 +11,12 @@ import {
   CONTAINER_PADDING_TOP_CLASSES,
   CONTAINER_PADDING_BOTTOM_CLASSES,
   CONTAINER_RESPONSIVE_PADDING_X_CLASSES,
-} from '@/lib/constants/components/ui/container.constants';
+} from '@/lib/constants/components/hof/container.constants';
 import type {
   ContainerSize,
   ContainerPadding,
   ContainerVisualVariant,
-} from '@/lib/constants/components/ui/container.variants';
+} from '@/lib/constants/components/hof/container.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SIZE RESOLUTION

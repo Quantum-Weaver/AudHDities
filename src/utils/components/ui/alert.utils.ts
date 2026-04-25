@@ -5,18 +5,18 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { cn } from '@/lib/utils';
-import type { AlertVariant } from '@/lib/constants/components/ui/alert.variants';
+import type { AlertVariant } from '@/lib/constants/components/seidr/alert.variants';
 import {
   alertContainerVariants,
   alertIconColorVariants,
-} from '@/lib/constants/components/ui/alert.variants';
+} from '@/lib/constants/components/seidr/alert.variants';
 import {
   ALERT_PADDING,
   ALERT_GAP,
   ALERT_BORDER_RADIUS,
   ALERT_CONTENT_GAP,
   ALERT_TYPOGRAPHY,
-} from '@/lib/constants/components/ui/alert.constants';
+} from '@/lib/constants/components/seidr/alert.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CLASS COMPOSERS

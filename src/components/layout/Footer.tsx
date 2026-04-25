@@ -20,10 +20,10 @@ import {
   FOOTER_COPYRIGHT_SIZE,
   FOOTER_LINKS_SIZE,
   FOOTER_TEXT_OPACITY,
-} from '@/lib/constants/components/layout/footer.constants';
+} from '@/lib/constants/components/bifrost/footer.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
-import { footerVariants } from '@/lib/constants/components/layout/footer.variants';
+import { footerVariants } from '@/lib/constants/components/bifrost/footer.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FOOTER

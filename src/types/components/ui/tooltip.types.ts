@@ -7,8 +7,8 @@ import type { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
 import type {
   TooltipVariant,
   TooltipPlacement,
-} from '@/lib/constants/components/ui/tooltip.variants';
-import type { TooltipGroupSpacing } from '@/lib/constants/components/ui/tooltip.constants';
+} from '@/lib/constants/components/seidr/tooltip.variants';
+import type { TooltipGroupSpacing } from '@/lib/constants/components/seidr/tooltip.constants';
 
 // ─── Re-exports from constants ─────────────────────────────────────────────
 export type { TooltipVariant, TooltipPlacement, TooltipGroupSpacing };

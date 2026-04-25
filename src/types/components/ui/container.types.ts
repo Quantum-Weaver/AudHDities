@@ -8,7 +8,7 @@ import type {
   ContainerSize,
   ContainerPadding,
   ContainerVisualVariant,
-} from '@/lib/constants/components/ui/container.variants';
+} from '@/lib/constants/components/hof/container.variants';
 
 // ─── Re-exports ────────────────────────────────────────────────────────────
 export type { ContainerSize, ContainerPadding, ContainerVisualVariant };

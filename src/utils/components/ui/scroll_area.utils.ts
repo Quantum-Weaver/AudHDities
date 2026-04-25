@@ -5,18 +5,18 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { cn } from '@/lib/utils';
-import { scrollAreaVariants } from '@/lib/constants/components/ui/scroll_area.variants';
+import { scrollAreaVariants } from '@/lib/constants/components/hof/scroll_area.variants';
 import {
   SCROLL_SHADOW_INSET,
   SNAP_DIRECTION,
-} from '@/lib/constants/components/ui/scroll_area.constants';
+} from '@/lib/constants/components/hof/scroll_area.constants';
 import type {
   ScrollOrientation,
   ScrollbarVisibility,
   ScrollbarThickness,
   ScrollAreaRoundedSize,
   SnapDirection,
-} from '@/lib/constants/components/ui/scroll_area.constants';
+} from '@/lib/constants/components/hof/scroll_area.constants';
 
 // ─── Size Resolution ───────────────────────────────────────────────────────
 /**

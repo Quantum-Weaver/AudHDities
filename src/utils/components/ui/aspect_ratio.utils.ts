@@ -9,12 +9,12 @@ import {
   ASPECT_RATIO_VALUES,
   OBJECT_FIT_CLASSES,
   ROUNDED_SIZE_CLASSES,
-} from '@/lib/constants/components/ui/aspect_ratio.constants';
+} from '@/lib/constants/components/hof/aspect_ratio.constants';
 import type {
   AspectRatioValue,
   ObjectFit,
   AspectRatioRoundedSize,
-} from '@/lib/constants/components/ui/aspect_ratio.constants';
+} from '@/lib/constants/components/hof/aspect_ratio.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PERCENTAGE CALCULATION

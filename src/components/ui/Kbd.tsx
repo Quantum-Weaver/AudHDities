@@ -19,7 +19,7 @@ import {
   KBD_DARK_TOOLTIP_CLASSES,
   KBD_SVG_CLASSES,
   KBD_GROUP_BASE_CLASSES,
-} from '@/lib/constants/components/ui/kbd.constants';
+} from '@/lib/constants/components/runes/kbd.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // KBD

@@ -8,12 +8,12 @@ import type {
   DividerVariant,
   DividerLineStyle,
   DividerOrientation,
-} from '@/lib/constants/components/ui/divider.variants';
+} from '@/lib/constants/components/hof/divider.variants';
 import type {
   DividerThickness,
   DividerLength,
   DividerSpacingSize,
-} from '@/lib/constants/components/ui/divider.constants';
+} from '@/lib/constants/components/hof/divider.constants';
 
 // ─── Re-exports ─────────────────────────────────────────────────────────────
 export type {
