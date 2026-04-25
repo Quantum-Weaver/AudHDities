@@ -3,6 +3,10 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",    
     "type-check": "tsc --noEmit",
     "vercel-build": "npm run cosmic:generate && next build",
     "postinstall": "echo '🛠️ AudHDities Sanctuary - The Loom Awaits'",
