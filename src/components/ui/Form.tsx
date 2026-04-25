@@ -40,7 +40,7 @@ import {
   getFieldNameFromChild,
   collectFormData,
   scrollToFirstError,
-} from '@/utils/components/ui/form.utils';
+} from '@/lib/utils/components/ui/form.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

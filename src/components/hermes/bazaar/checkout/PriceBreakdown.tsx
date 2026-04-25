@@ -4,7 +4,7 @@
 import { Card } from '@/components/ui/Card';
 import { Info } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/Tooltip';
-import { formatPrice } from '@/utils/components/ui/card.utils';
+import { formatPrice } from '@/lib/utils/components/ui/card.utils';
 
 interface PriceBreakdownProps {
   subtotal: number;

@@ -45,7 +45,7 @@ import {
   composeAlertTitleClasses,
   composeAlertBodyClasses,
   getAlertFlexGap,
-} from '@/utils/components/ui/alert.utils';
+} from '@/lib/utils/components/ui/alert.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DEFAULT ICONS

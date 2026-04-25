@@ -46,7 +46,7 @@ import {
   TOAST_ICONS,
   resolveToastDuration,
   generateToastId,
-} from '@/utils/components/ui/toast.utils';
+} from '@/lib/utils/components/ui/toast.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TOAST ITEM

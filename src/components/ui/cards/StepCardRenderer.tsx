@@ -6,7 +6,7 @@ import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
 import { StatusBadge } from '../badges/StatusBadge';
-import { getStepStatus, getStepProgress } from '@/utils/components/ui/card.utils';
+import { getStepStatus, getStepProgress } from '@/lib/utils/components/ui/card.utils';
 import type { CardData, StepCardData } from '@/types/components/ui/card.types';
 import type { CardProps } from '@/components/ui/Card';
 

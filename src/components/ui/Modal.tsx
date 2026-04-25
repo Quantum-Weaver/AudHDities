@@ -52,7 +52,7 @@ import {
   useScrollLock,
   useMounted,
   useModalState,
-} from '@/utils/components/ui/modal.utils';
+} from '@/lib/utils/components/ui/modal.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MODAL

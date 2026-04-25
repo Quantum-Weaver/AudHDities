@@ -26,7 +26,7 @@ import {
 } from '@/lib/constants/components/hof/stack.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { composeStackClasses } from '@/utils/components/ui/stack.utils';
+import { composeStackClasses } from '@/lib/utils/components/ui/stack.utils';
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 import { Divider } from '@/components/ui/Divider';

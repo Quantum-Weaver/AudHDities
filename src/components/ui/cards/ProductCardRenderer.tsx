@@ -7,7 +7,7 @@ import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
 import { PriceBadge } from '../badges/PriceBadge';
-import { getAvailableTiers, getLowestPrice, getPublicationBadgeColor } from '@/utils/components/ui/card.utils';
+import { getAvailableTiers, getLowestPrice, getPublicationBadgeColor } from '@/lib/utils/components/ui/card.utils';
 import type { CardData, ProductCardData } from '@/types/components/ui/card.types';
 import type { CardProps } from '@/components/ui/Card';
 

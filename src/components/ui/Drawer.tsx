@@ -81,7 +81,7 @@ import {
   getDrawerPositionClass,
   getDrawerBorderClass,
   lockBodyScroll,
-} from '@/utils/components/ui/drawer.utils';
+} from '@/lib/utils/components/ui/drawer.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DRAWER — ROOT

@@ -38,7 +38,7 @@ import {
   getAspectRatioPadding,
   getObjectFitClass,
   isMediaElement,
-} from '@/utils/components/ui/aspect_ratio.utils';
+} from '@/lib/utils/components/ui/aspect_ratio.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // ASPECT RATIO — ROOT

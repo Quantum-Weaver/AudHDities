@@ -28,7 +28,7 @@ import {
 import {
   generateRadioId,
   getRadioDescriptionId,
-} from '@/utils/components/ui/radio.utils';
+} from '@/lib/utils/components/ui/radio.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

@@ -28,7 +28,7 @@ import {
   getResponsiveGapClasses,
   resolveFlexBasis,
   getAlignSelfClass,
-} from '@/utils/components/ui/flex.utils';
+} from '@/lib/utils/components/ui/flex.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FLEX — ROOT

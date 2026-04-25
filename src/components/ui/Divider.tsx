@@ -36,7 +36,7 @@ import {
   composeDividerLineClasses,
   getDividerSpacingClass,
   getDividerFlexClasses,
-} from '@/utils/components/ui/divider.utils';
+} from '@/lib/utils/components/ui/divider.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DIVIDER

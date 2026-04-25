@@ -55,7 +55,7 @@ import {
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {
   executeValidator,
-} from '@/utils/components/ui/form_validation.utils';
+} from '@/lib/utils/components/ui/form_validation.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

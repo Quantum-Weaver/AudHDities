@@ -38,7 +38,7 @@ import {
   resolveSkeletonVariantClass,
   resolveSkeletonRoundedClass,
   resolveSkeletonCustomStyle,
-} from '@/utils/components/ui/skeleton.utils';
+} from '@/lib/utils/components/ui/skeleton.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MAIN SKELETON

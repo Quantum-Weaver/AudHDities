@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { getTierBadgeColor } from '@/utils/components/ui/card.utils';
+import { getTierBadgeColor } from '@/lib/utils/components/ui/card.utils';
 
 // ============================================================================
 // TYPES

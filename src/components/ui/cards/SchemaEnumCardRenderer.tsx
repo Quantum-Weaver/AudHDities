@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/Card';
 import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
-import { getSchemaTypeIcon } from '@/utils/components/ui/card.utils';
+import { getSchemaTypeIcon } from '@/lib/utils/components/ui/card.utils';
 import type { CardData, SchemaEnumCardData } from '@/types/components/ui/card.types';
 import type { CardProps } from '@/components/ui/Card';
 

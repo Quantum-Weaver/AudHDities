@@ -43,7 +43,7 @@ import {
   composeTabsListClasses,
   composeTabsTriggerClasses,
   composeTabsPanelClasses,
-} from '@/utils/components/ui/tabs.utils';
+} from '@/lib/utils/components/ui/tabs.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

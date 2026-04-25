@@ -57,7 +57,7 @@ import type { DialogOverlayVariant } from '@/lib/constants/components/ui/dialog.
 import {
   getDialogOverlayAnimationClasses,
   getDialogContentAnimationClasses,
-} from '@/utils/components/ui/dialog.utils';
+} from '@/lib/utils/components/ui/dialog.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // VARIANT MAPPING

@@ -29,7 +29,7 @@ import {
 } from '@/lib/constants/components/hof/spacer.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { composeSpacerClasses } from '@/utils/components/ui/spacer.utils';
+import { composeSpacerClasses } from '@/lib/utils/components/ui/spacer.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SPACER

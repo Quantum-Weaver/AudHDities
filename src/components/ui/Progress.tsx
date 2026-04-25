@@ -45,7 +45,7 @@ import {
   formatProgressLabel,
   calculateCircularProgressGeometry,
   calculateStrokeDashoffset,
-} from '@/utils/components/ui/progress.utils';
+} from '@/lib/utils/components/ui/progress.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PROGRESS — LINEAR

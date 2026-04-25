@@ -57,7 +57,7 @@ import {
   getAccordionTriggerPadding,
   getNestedIndent,
   computeExpandedValues,
-} from '@/utils/components/ui/accordion.utils';
+} from '@/lib/utils/components/ui/accordion.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

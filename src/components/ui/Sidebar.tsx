@@ -82,7 +82,7 @@ import {
   getMobileDrawerTranslate,
   isSidebarItemActive,
   hasSidebarItemChildren,
-} from '@/utils/components/ui/sidebar.utils';
+} from '@/lib/utils/components/ui/sidebar.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT

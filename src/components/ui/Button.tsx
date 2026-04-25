@@ -10,7 +10,7 @@ import {
   getButtonIconSizeClass, 
   getButtonAriaLabel,
   getLoadingSpinnerVariant,
-} from '@/utils/components/ui/button.utils';
+} from '@/lib/utils/components/ui/button.utils';
 import type { ButtonProps, IconButtonProps } from '@/types/components/ui/button.types';
 
 // ============================================================================

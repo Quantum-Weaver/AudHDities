@@ -19,7 +19,7 @@ import {
   composeSwitchLabelClasses,
   composeSwitchHelperClasses,
   generateSwitchId,
-} from '@/utils/components/ui/switch.utils';
+} from '@/lib/utils/components/ui/switch.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SWITCH

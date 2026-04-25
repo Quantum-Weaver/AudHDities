@@ -43,7 +43,7 @@ import {
   composeTooltipContentClasses,
   composeTooltipArrowClasses,
   resolveTooltipMaxWidth,
-} from '@/utils/components/ui/tooltip.utils';
+} from '@/lib/utils/components/ui/tooltip.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PROVIDER

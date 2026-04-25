@@ -29,7 +29,7 @@ import {
 import {
   composeScrollAreaClasses,
   getScrollAreaSizeStyle,
-} from '@/utils/components/ui/scroll_area.utils';
+} from '@/lib/utils/components/ui/scroll_area.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SCROLL AREA

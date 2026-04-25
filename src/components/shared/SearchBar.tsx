@@ -34,7 +34,7 @@ import {
 } from "@/lib/constants/components/vegvisir/searchbar.variants";
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { createDebouncedSearch } from "@/utils/components/shared/searchbar.utils";
+import { createDebouncedSearch } from "@/lib/utils/components/shared/searchbar.utils";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

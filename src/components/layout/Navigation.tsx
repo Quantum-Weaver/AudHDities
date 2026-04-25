@@ -49,7 +49,7 @@ import {
 import {
   getNavItemState,
   filterNavItemsByContext,
-} from '@/utils/components/layout/navigation.utils';
+} from '@/lib/utils/components/layout/navigation.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

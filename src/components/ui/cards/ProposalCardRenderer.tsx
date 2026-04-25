@@ -6,7 +6,7 @@ import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
 import { StatusBadge } from '../badges/StatusBadge';
-import { formatVoteRatio, formatRelativeTime } from '@/utils/components/ui/card.utils';
+import { formatVoteRatio, formatRelativeTime } from '@/lib/utils/components/ui/card.utils';
 import type { CardData, ProposalCardData } from '@/types/components/ui/card.types';
 import type { CardProps } from '@/components/ui/Card';
 

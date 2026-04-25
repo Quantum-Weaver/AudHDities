@@ -15,7 +15,7 @@ import {
   SKELETON_BUTTON_SIZE,
   SKELETON_BADGE_SIZE,
   SKELETON_VARIANT_BASE,
-} from '../../../lib/constants/components/runes/skeleton.constants';
+} from '../../../constants/components/runes/skeleton.constants';
 import { BORDER_RADII } from '@/lib/constants/cosmic';
 
 // ─── Size Resolution ───────────────────────────────────────────────────────

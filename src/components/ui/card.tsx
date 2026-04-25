@@ -10,7 +10,7 @@ import type {
   CardData,
   CardRadius,
 } from '@/types/components/ui/card.types';
-import { getRecommendedVariant, truncateText } from '@/utils/components/ui/card.utils';
+import { getRecommendedVariant, truncateText } from '@/lib/utils/components/ui/card.utils';
 
 // Sub-components
 import { CardMedia } from './cards/CardMedia';

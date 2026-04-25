@@ -34,7 +34,7 @@ import {
 import {
   composeSelectTriggerClasses,
   composeSelectLabelClasses,
-} from '@/utils/components/ui//select.utils';
+} from '@/lib/utils/components/ui/select.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SELECT

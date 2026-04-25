@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { getDifficultyColor } from '@/utils/components/ui/card.utils';
+import { getDifficultyColor } from '@/lib/utils/components/ui/card.utils';
 
 // ============================================================================
 // TYPES

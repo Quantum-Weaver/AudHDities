@@ -29,7 +29,7 @@ import {
   buildResponsiveGapClass,
   buildResponsiveSpanClass,
   resolveStartClass,
-} from '@/utils/components/ui/grid.utils';
+} from '@/lib/utils/components/ui/grid.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // GRID — ROOT

@@ -42,7 +42,7 @@ import {
   getContainerPaddingTopClass,
   getContainerPaddingBottomClass,
   resolveContainerVisualVariant,
-} from '@/utils/components/ui/container.utils';
+} from '@/lib/utils/components/ui/container.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTAINER

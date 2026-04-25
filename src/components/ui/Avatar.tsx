@@ -60,7 +60,7 @@ import {
   getAvatarBadgePositionClass,
   getAvatarBadgeSizeClass,
   getAvatarBadgeFontSizeClass,
-} from '@/utils/components/ui/avatar.utils';
+} from '@/lib/utils/components/ui/avatar.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // AVATAR — ROOT

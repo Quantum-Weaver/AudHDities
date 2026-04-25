@@ -32,7 +32,7 @@ import {
   composeSpinnerClasses,
   getSpinnerDelayStyle,
   getSpinnerIndices,
-} from '@/utils/components/ui/spinner.utils';
+} from '@/lib/utils/components/ui/spinner.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SPINNER

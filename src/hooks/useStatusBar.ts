@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 import { useEnvironment } from '@/lib/constants/systems/environments/contexts';
 import { useUser } from '@/hooks/useUser';
 import { getStatusBarConfig, DEFAULT_USER_STATUS, type UserStatusData, type StatusBarConfig } from '@/lib/constants/systems/environments/status_bar';
-import { statusBarUtils } from '@/utils/components/immersive/status_bar';
+import { statusBarUtils } from '@/lib/utils/components/immersive/status_bar';
 import type { StatusType, StatusIndicator } from '@/types/components/immersive/status_bar';
 
 export interface UseStatusBarReturn {

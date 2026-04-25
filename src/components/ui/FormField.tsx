@@ -40,7 +40,7 @@ import {
   generateFieldId,
   getHelperId,
   getErrorId,
-} from '@/utils/components/ui/form_field.utils';
+} from '@/lib/utils/components/ui/form_field.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FORM FIELD
