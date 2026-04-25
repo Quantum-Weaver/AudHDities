@@ -1,35 +1,30 @@
-// components/ui/Label.tsx
+// src/components/ui/Label.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    LABEL COMPONENT                                        ║
+// ║                    Form field label with variant support                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
 'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { labelVariants } from '@/lib/constants/components/ui/label_variants';
-import type { LabelVariant, LabelSize } from '@/lib/constants/components/ui/label_variants';
+import { labelVariants } from '@/lib/constants/components/ui/label.variants';
+import { LABEL_DISABLED_OPACITY } from '@/lib/constants/components/ui/label.constants';
+import type { LabelVariant, LabelSize } from '@/lib/constants/components/ui/label.variants';
+import type { LabelProps } from '@/types/components/ui/label.types';
 
 export type { LabelSize };
-
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  /** Size of the label */
-  size?: LabelSize;
-  /** Show required indicator (*) */
-  required?: boolean;
-  /** Show optional indicator text */
-  optional?: boolean;
-  /** Error state (changes text color) */
-  error?: boolean;
-  /** Disabled state */
-  disabled?: boolean;
-}
+export type { LabelProps };
 
 /**
- * Label Component
- * 
+ * Label — Form field label with required, optional, and error states.
+ *
  * @example
  * <Label htmlFor="email" required>Email Address</Label>
- * 
+ *
  * @example
  * <Label htmlFor="bio" optional>Biography</Label>
- * 
+ *
  * @example
  * <Label htmlFor="name" error>Name is required</Label>
  */
@@ -47,18 +42,18 @@ export const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
     },
     ref
   ) => {
-    // Determine variant from props
+    // Determine variant from props — mutually exclusive priority
     let variant: LabelVariant = 'default';
     if (error) variant = 'error';
     else if (required) variant = 'required';
     else if (optional) variant = 'optional';
-    
+
     return (
       <label
         ref={ref}
         className={cn(
           labelVariants({ variant, size }),
-          disabled && 'opacity-50',
+          disabled && LABEL_DISABLED_OPACITY,
           className
         )}
         {...props}

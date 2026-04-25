@@ -1,10 +1,10 @@
-// src/utils/components/ui/header.ts
+// src/utils/components/ui/header.utils.ts
 // ============================================================================
 // HEADER UTILS - PURE LOGIC FUNCTIONS
 // ============================================================================
 
-import { HEADER_VARIANTS } from '@/lib/constants/components/ui/variants';
-import type { HeaderProps, HeaderVariant, HeaderConsciousnessLevel } from '@/types/components/ui/header';
+import { HEADER_VARIANTS } from '@/lib/constants/components/ui/header.variants';
+import type { HeaderProps, HeaderVariant, HeaderConsciousnessLevel } from '@/types/components/ui/header.types';
 
 /**
  * Get complete header configuration for a variant

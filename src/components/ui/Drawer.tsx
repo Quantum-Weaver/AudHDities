@@ -1,8 +1,11 @@
-// components/ui/Drawer.tsx
-// Drawer Component - The side chamber of the interface
-// Provides slide-out panels for additional content
+// src/components/ui/Drawer.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    DRAWER COMPONENT                                       ║
+// ║                    The side chamber of the interface                      ║
+// ║                    All values from COSMIC constants                       ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"use client";
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -10,107 +13,82 @@ import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import { ScrollArea } from './ScrollArea';
 
-export type DrawerSide = 'left' | 'right' | 'top' | 'bottom';
-export type DrawerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  DrawerProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+  FilterDrawerProps,
+  DrawerSide,
+} from '@/types/components/ui/drawer.types';
 
-export interface DrawerProps {
-  /** Whether the drawer is open */
-  open: boolean;
-  /** Callback when drawer should close */
-  onClose: () => void;
-  /** Drawer title */
-  title?: string;
-  /** Drawer description/subtitle */
-  description?: string;
-  /** Side from which the drawer slides in */
-  side?: DrawerSide;
-  /** Size of the drawer */
-  size?: DrawerSize;
-  /** Show close button in header */
-  showCloseButton?: boolean;
-  /** Close drawer when clicking backdrop */
-  closeOnBackdropClick?: boolean;
-  /** Close drawer when pressing Escape key */
-  closeOnEscape?: boolean;
-  /** Prevent scroll on body when drawer is open */
-  preventScroll?: boolean;
-  /** Remove padding from drawer content */
-  noPadding?: boolean;
-  /** Custom className for the drawer container */
-  className?: string;
-  /** Custom className for the drawer content */
-  contentClassName?: string;
-  /** Custom className for the backdrop */
-  backdropClassName?: string;
-  /** Children */
-  children: React.ReactNode;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  DRAWER_Z_INDEX,
+  DRAWER_BACKDROP_BG,
+  DRAWER_BACKDROP_BLUR,
+  DRAWER_BACKDROP_TRANSITION,
+  DRAWER_PANEL_BG,
+  DRAWER_BORDER_COLOR,
+  DRAWER_SHADOW,
+  DRAWER_TRANSITION_DURATION,
+  DRAWER_TRANSITION_EASING,
+  DRAWER_HEADER_PADDING,
+  DRAWER_HEADER_BORDER,
+  DRAWER_TITLE_SIZE,
+  DRAWER_TITLE_WEIGHT,
+  DRAWER_DESCRIPTION_SIZE,
+  DRAWER_DESCRIPTION_COLOR,
+  DRAWER_DESCRIPTION_MARGIN_TOP,
+  DRAWER_CLOSE_BUTTON_PADDING,
+  DRAWER_CLOSE_BUTTON_RADIUS,
+  DRAWER_CLOSE_BUTTON_COLOR,
+  DRAWER_CLOSE_BUTTON_HOVER_COLOR,
+  DRAWER_CLOSE_BUTTON_HOVER_BG,
+  DRAWER_CLOSE_ICON_SIZE,
+  DRAWER_BODY_PADDING,
+  DRAWER_FOOTER_PADDING,
+  DRAWER_FOOTER_BORDER,
+  DRAWER_FOOTER_GAP,
+  DRAWER_EXIT_ANIMATION_DELAY,
+  DRAWER_FILTER_BUTTON_RESET_COLOR,
+  DRAWER_FILTER_BUTTON_RESET_HOVER,
+  DRAWER_FILTER_BUTTON_RESET_PADDING_X,
+  DRAWER_FILTER_BUTTON_RESET_PADDING_Y,
+  DRAWER_FILTER_BUTTON_RESET_RADIUS,
+  DRAWER_FILTER_BUTTON_RESET_SIZE,
+  DRAWER_FILTER_BUTTON_RESET_WEIGHT,
+  DRAWER_FILTER_BUTTON_APPLY_BG,
+  DRAWER_FILTER_BUTTON_APPLY_HOVER_BG,
+  DRAWER_FILTER_BUTTON_APPLY_COLOR,
+  DRAWER_FILTER_BUTTON_APPLY_PADDING_X,
+  DRAWER_FILTER_BUTTON_APPLY_PADDING_Y,
+  DRAWER_FILTER_BUTTON_APPLY_RADIUS,
+  DRAWER_FILTER_BUTTON_APPLY_SIZE,
+  DRAWER_FILTER_BUTTON_APPLY_WEIGHT,
+} from '@/lib/constants/components/ui/drawer.constants';
 
-const sizeClasses: Record<DrawerSide, Record<DrawerSize, string>> = {
-  left: {
-    sm: 'w-64',
-    md: 'w-80',
-    lg: 'w-96',
-    xl: 'w-[32rem]',
-    full: 'w-full',
-  },
-  right: {
-    sm: 'w-64',
-    md: 'w-80',
-    lg: 'w-96',
-    xl: 'w-[32rem]',
-    full: 'w-full',
-  },
-  top: {
-    sm: 'h-32',
-    md: 'h-48',
-    lg: 'h-64',
-    xl: 'h-80',
-    full: 'h-full',
-  },
-  bottom: {
-    sm: 'h-32',
-    md: 'h-48',
-    lg: 'h-64',
-    xl: 'h-80',
-    full: 'h-full',
-  },
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  drawerFooterAlignVariants,
+} from '@/lib/constants/components/ui/drawer.variants';
 
-const animationClasses: Record<DrawerSide, { enter: string; exit: string }> = {
-  left: {
-    enter: 'translate-x-0',
-    exit: '-translate-x-full',
-  },
-  right: {
-    enter: 'translate-x-0',
-    exit: 'translate-x-full',
-  },
-  top: {
-    enter: 'translate-y-0',
-    exit: '-translate-y-full',
-  },
-  bottom: {
-    enter: 'translate-y-0',
-    exit: 'translate-y-full',
-  },
-};
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  getDrawerSizeClass,
+  getDrawerAnimationClass,
+  getDrawerPositionClass,
+  getDrawerBorderClass,
+  lockBodyScroll,
+} from '@/utils/components/ui/drawer.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DRAWER — ROOT
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Drawer Component
- * 
- * @example
- * <Drawer open={isOpen} onClose={() => setIsOpen(false)} title="Filters" side="right">
- *   <div className="space-y-4">
- *     <Input placeholder="Search" />
- *     <Select options={options} />
- *   </div>
- * </Drawer>
- * 
- * @example
- * <Drawer open={isOpen} onClose={onClose} side="bottom" size="lg" title="Comments">
- *   <CommentList comments={comments} />
- * </Drawer>
+ * Drawer — Slide-out panel from any screen edge.
  */
 export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
   (
@@ -135,85 +113,93 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
   ) => {
     const [mounted, setMounted] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
-    
-    // Handle mounting for portal
+
     useEffect(() => {
       setMounted(true);
       return () => setMounted(false);
     }, []);
-    
-    // Handle scroll locking
+
+    // Scroll lock
     useEffect(() => {
       if (preventScroll && open) {
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        return () => {
-          document.body.style.overflow = originalOverflow;
-        };
+        return lockBodyScroll();
       }
     }, [open, preventScroll]);
-    
-    // Handle Escape key
+
+    // Escape key
     useEffect(() => {
+      if (!closeOnEscape || !open) return;
+
       const handleEscape = (event: KeyboardEvent) => {
-        if (closeOnEscape && event.key === 'Escape' && open) {
-          onClose();
-        }
+        if (event.key === 'Escape') onClose();
       };
-      
-      if (open) {
-        document.addEventListener('keydown', handleEscape);
-      }
-      
-      return () => {
-        document.removeEventListener('keydown', handleEscape);
-      };
+
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
     }, [open, closeOnEscape, onClose]);
-    
-    // Handle animation timing
+
+    // Animation timing
     useEffect(() => {
       if (open) {
         setIsAnimating(true);
       } else {
-        const timer = setTimeout(() => setIsAnimating(false), 200);
+        const timer = setTimeout(
+          () => setIsAnimating(false),
+          DRAWER_EXIT_ANIMATION_DELAY
+        );
         return () => clearTimeout(timer);
       }
     }, [open]);
-    
+
     const handleBackdropClick = (e: React.MouseEvent) => {
       if (closeOnBackdropClick && e.target === e.currentTarget) {
         onClose();
       }
     };
-    
+
     if (!mounted) return null;
-    
-    const sizeClass = sizeClasses[side][size];
-    const animation = animationClasses[side];
-    
+
+    const sizeClass = getDrawerSizeClass(side, size);
+    const animationClass = getDrawerAnimationClass(side, open);
+    const positionClass = getDrawerPositionClass(side);
+    const borderClass = getDrawerBorderClass(side);
+
     return createPortal(
       <div
         className={cn(
-          'fixed inset-0 z-50 transition-all duration-200',
+          'fixed inset-0',
+          DRAWER_Z_INDEX,
+          'transition-all',
+          DRAWER_BACKDROP_TRANSITION,
           open ? 'opacity-100' : 'opacity-0 pointer-events-none',
           backdropClassName
         )}
         onClick={handleBackdropClick}
       >
         {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-        
-        {/* Drawer Container */}
+        <div
+          className={cn(
+            'absolute inset-0',
+            DRAWER_BACKDROP_BG,
+            DRAWER_BACKDROP_BLUR
+          )}
+        />
+
+        {/* Panel */}
         <div
           ref={ref}
           className={cn(
-            'fixed bg-surface border-white/10 shadow-2xl transition-transform duration-300 ease-out',
-            side === 'left' && 'left-0 top-0 bottom-0 border-r',
-            side === 'right' && 'right-0 top-0 bottom-0 border-l',
-            side === 'top' && 'top-0 left-0 right-0 border-b',
-            side === 'bottom' && 'bottom-0 left-0 right-0 border-t',
+            'fixed',
+            DRAWER_PANEL_BG,
+            DRAWER_BORDER_COLOR,
+            DRAWER_SHADOW,
+            'transition-transform',
+            DRAWER_TRANSITION_DURATION,
+            DRAWER_TRANSITION_EASING,
+            positionClass,
+            borderClass,
             sizeClass,
-            open ? animation.enter : animation.exit,
+            animationClass,
             className
           )}
           role="dialog"
@@ -223,19 +209,36 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
         >
           {/* Header */}
           {(title || showCloseButton) && (
-            <div className={cn(
-              'flex items-center justify-between',
-              !noPadding && 'p-4 border-b border-white/10',
-              noPadding && 'p-4 border-b border-white/10'
-            )}>
+            <div
+              className={cn(
+                'flex items-center justify-between',
+                DRAWER_HEADER_PADDING,
+                DRAWER_HEADER_BORDER,
+                DRAWER_BORDER_COLOR
+              )}
+            >
               <div>
                 {title && (
-                  <h2 id="drawer-title" className="text-lg font-semibold text-white">
+                  <h2
+                    id="drawer-title"
+                    className={cn(
+                      'text-white',
+                      DRAWER_TITLE_SIZE,
+                      DRAWER_TITLE_WEIGHT
+                    )}
+                  >
                     {title}
                   </h2>
                 )}
                 {description && (
-                  <p id="drawer-description" className="text-sm text-white/60 mt-1">
+                  <p
+                    id="drawer-description"
+                    className={cn(
+                      DRAWER_DESCRIPTION_SIZE,
+                      DRAWER_DESCRIPTION_COLOR,
+                      DRAWER_DESCRIPTION_MARGIN_TOP
+                    )}
+                  >
                     {description}
                   </p>
                 )}
@@ -244,17 +247,30 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full p-1 text-white/40 transition-colors hover:text-white/80 hover:bg-white/10"
+                  className={cn(
+                    DRAWER_CLOSE_BUTTON_PADDING,
+                    DRAWER_CLOSE_BUTTON_RADIUS,
+                    DRAWER_CLOSE_BUTTON_COLOR,
+                    'transition-colors',
+                    DRAWER_CLOSE_BUTTON_HOVER_COLOR,
+                    DRAWER_CLOSE_BUTTON_HOVER_BG
+                  )}
                   aria-label="Close drawer"
                 >
-                  <X className="h-5 w-5" />
+                  <X className={DRAWER_CLOSE_ICON_SIZE} />
                 </button>
               )}
             </div>
           )}
-          
+
           {/* Content */}
-          <ScrollArea className={cn('flex-1', !noPadding && 'p-4', contentClassName)}>
+          <ScrollArea
+            className={cn(
+              'flex-1',
+              !noPadding && DRAWER_BODY_PADDING,
+              contentClassName
+            )}
+          >
             {children}
           </ScrollArea>
         </div>
@@ -265,36 +281,39 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
 );
 Drawer.displayName = 'Drawer';
 
-// ============================================================================
-// DRAWER COMPOSITION COMPONENTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
+// DRAWER HEADER
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface DrawerHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Show close button */
-  showCloseButton?: boolean;
-  /** Callback when close button is clicked */
-  onClose?: () => void;
-}
-
-/**
- * DrawerHeader - Header section of a drawer
- */
 export const DrawerHeader = React.forwardRef<HTMLDivElement, DrawerHeaderProps>(
   ({ children, showCloseButton = true, onClose, className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex items-center justify-between p-4 border-b border-white/10', className)}
+      className={cn(
+        'flex items-center justify-between',
+        DRAWER_HEADER_PADDING,
+        DRAWER_HEADER_BORDER,
+        DRAWER_BORDER_COLOR,
+        className
+      )}
       {...props}
     >
       <div className="flex-1">{children}</div>
-      {showCloseButton && (
+      {showCloseButton && onClose && (
         <button
           type="button"
           onClick={onClose}
-          className="rounded-full p-1 text-white/40 transition-colors hover:text-white/80 hover:bg-white/10"
+          className={cn(
+            DRAWER_CLOSE_BUTTON_PADDING,
+            DRAWER_CLOSE_BUTTON_RADIUS,
+            DRAWER_CLOSE_BUTTON_COLOR,
+            'transition-colors',
+            DRAWER_CLOSE_BUTTON_HOVER_COLOR,
+            DRAWER_CLOSE_BUTTON_HOVER_BG
+          )}
           aria-label="Close drawer"
         >
-          <X className="h-5 w-5" />
+          <X className={DRAWER_CLOSE_ICON_SIZE} />
         </button>
       )}
     </div>
@@ -302,19 +321,19 @@ export const DrawerHeader = React.forwardRef<HTMLDivElement, DrawerHeaderProps>(
 );
 DrawerHeader.displayName = 'DrawerHeader';
 
-export interface DrawerBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Remove padding */
-  noPadding?: boolean;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// DRAWER BODY
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * DrawerBody - Body section of a drawer
- */
 export const DrawerBody = React.forwardRef<HTMLDivElement, DrawerBodyProps>(
   ({ children, noPadding = false, className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex-1', !noPadding && 'p-4', className)}
+      className={cn(
+        'flex-1',
+        !noPadding && DRAWER_BODY_PADDING,
+        className
+      )}
       {...props}
     >
       {children}
@@ -323,27 +342,20 @@ export const DrawerBody = React.forwardRef<HTMLDivElement, DrawerBodyProps>(
 );
 DrawerBody.displayName = 'DrawerBody';
 
-export interface DrawerFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Align footer buttons */
-  align?: 'left' | 'center' | 'right';
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// DRAWER FOOTER
+// ═══════════════════════════════════════════════════════════════════════════
 
-const footerAlignClasses = {
-  left: 'justify-start',
-  center: 'justify-center',
-  right: 'justify-end',
-};
-
-/**
- * DrawerFooter - Footer section of a drawer (for actions)
- */
 export const DrawerFooter = React.forwardRef<HTMLDivElement, DrawerFooterProps>(
   ({ children, align = 'right', className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        'flex gap-3 p-4 border-t border-white/10',
-        footerAlignClasses[align],
+        drawerFooterAlignVariants({ align }),
+        DRAWER_FOOTER_PADDING,
+        DRAWER_FOOTER_BORDER,
+        DRAWER_BORDER_COLOR,
+        DRAWER_FOOTER_GAP,
         className
       )}
       {...props}
@@ -354,48 +366,24 @@ export const DrawerFooter = React.forwardRef<HTMLDivElement, DrawerFooterProps>(
 );
 DrawerFooter.displayName = 'DrawerFooter';
 
-// ============================================================================
-// VARIANT SHORTCUTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
+// FILTER DRAWER
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface FilterDrawerProps {
-  /** Whether drawer is open */
-  open: boolean;
-  /** Callback when drawer closes */
-  onClose: () => void;
-  /** Current filter values */
-  filters?: Record<string, any>;
-  /** Callback when filters are applied */
-  onApply?: (filters: Record<string, any>) => void;
-  /** Callback when filters are reset */
-  onReset?: () => void;
-}
-
-/**
- * FilterDrawer - Pre-built filter drawer for search/filter interfaces
- * 
- * @example
- * <FilterDrawer
- *   open={isOpen}
- *   onClose={() => setIsOpen(false)}
- *   filters={filters}
- *   onApply={setFilters}
- * />
- */
 export const FilterDrawer = React.forwardRef<HTMLDivElement, FilterDrawerProps>(
   ({ open, onClose, filters = {}, onApply, onReset }, ref) => {
     const [localFilters, setLocalFilters] = useState(filters);
-    
+
     const handleApply = () => {
       onApply?.(localFilters);
       onClose();
     };
-    
+
     const handleReset = () => {
       setLocalFilters({});
       onReset?.();
     };
-    
+
     return (
       <Drawer
         ref={ref}
@@ -406,23 +394,41 @@ export const FilterDrawer = React.forwardRef<HTMLDivElement, FilterDrawerProps>(
         size="md"
       >
         <DrawerBody>
-          {/* Filter content would go here - to be customized by parent */}
           <div className="space-y-4">
-            <p className="text-white/60">Filter controls go here</p>
+            <p className={DRAWER_DESCRIPTION_COLOR}>Filter controls go here</p>
           </div>
         </DrawerBody>
         <DrawerFooter>
           <button
             type="button"
             onClick={handleReset}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-white/60 transition-colors hover:text-white/80"
+            className={cn(
+              DRAWER_FILTER_BUTTON_RESET_PADDING_X,
+              DRAWER_FILTER_BUTTON_RESET_PADDING_Y,
+              DRAWER_FILTER_BUTTON_RESET_RADIUS,
+              DRAWER_FILTER_BUTTON_RESET_SIZE,
+              DRAWER_FILTER_BUTTON_RESET_WEIGHT,
+              DRAWER_FILTER_BUTTON_RESET_COLOR,
+              'transition-colors',
+              DRAWER_FILTER_BUTTON_RESET_HOVER
+            )}
           >
             Reset
           </button>
           <button
             type="button"
             onClick={handleApply}
-            className="rounded-lg bg-cyan-500/20 px-4 py-2 text-sm font-medium text-cyan-400 transition-colors hover:bg-cyan-500/30"
+            className={cn(
+              DRAWER_FILTER_BUTTON_APPLY_BG,
+              DRAWER_FILTER_BUTTON_APPLY_PADDING_X,
+              DRAWER_FILTER_BUTTON_APPLY_PADDING_Y,
+              DRAWER_FILTER_BUTTON_APPLY_RADIUS,
+              DRAWER_FILTER_BUTTON_APPLY_SIZE,
+              DRAWER_FILTER_BUTTON_APPLY_WEIGHT,
+              DRAWER_FILTER_BUTTON_APPLY_COLOR,
+              'transition-colors',
+              DRAWER_FILTER_BUTTON_APPLY_HOVER_BG
+            )}
           >
             Apply Filters
           </button>
@@ -433,18 +439,31 @@ export const FilterDrawer = React.forwardRef<HTMLDivElement, FilterDrawerProps>(
 );
 FilterDrawer.displayName = 'FilterDrawer';
 
-/**
- * useDrawer - Hook for managing drawer state
- * 
- * @example
- * const { isOpen, open, close, toggle } = useDrawer();
- */
+// ═══════════════════════════════════════════════════════════════════════════
+// HOOK
+// ═══════════════════════════════════════════════════════════════════════════
+
 export const useDrawer = (initialState = false) => {
   const [isOpen, setIsOpen] = React.useState(initialState);
-  
+
   const open = React.useCallback(() => setIsOpen(true), []);
   const close = React.useCallback(() => setIsOpen(false), []);
-  const toggle = React.useCallback(() => setIsOpen(prev => !prev), []);
-  
+  const toggle = React.useCallback(() => setIsOpen((prev) => !prev), []);
+
   return { isOpen, open, close, toggle };
 };
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  DrawerProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+  FilterDrawerProps,
+  DrawerSide,
+  DrawerSize,
+  DrawerFooterAlign,
+} from '@/types/components/ui/drawer.types';

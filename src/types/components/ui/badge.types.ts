@@ -1,3 +1,4 @@
+// src/types/components/ui/badge.types.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    BADGE TYPES                                            ║
 // ║                    All type definitions for the Badge component           ║

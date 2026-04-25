@@ -13,7 +13,7 @@ import type {
   LABEL_POSITIONS,
   HELPER_POSITIONS,
   WIZARD_STEP_STATUS,
-} from '@/lib/constants/components/ui/form.variants';
+} from '@/lib/constants/components/ui/form.constants';
 
 // =====================================================
 // CORE TYPE ALIASES

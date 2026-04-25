@@ -1,61 +1,57 @@
-// components/ui/Table.tsx
-// Table Component - The structured data grid
-// Presents tabular data with sorting and accessibility
+// src/components/ui/Table.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    TABLE COMPONENT                                        ║
+// ║                    The structured data grid                                ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+'use client';
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-export type TableVariant = 'default' | 'bordered' | 'minimal';
-export type TableSize = 'sm' | 'md' | 'lg';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  TableProps,
+  TableRowProps,
+  TableHeadProps,
+  TableCellProps,
+  TableVariant,
+  TableSize,
+} from '@/types/components/ui/table.types';
 
-export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
-  /** Visual variant */
-  variant?: TableVariant;
-  /** Size of table cells */
-  size?: TableSize;
-  /** Make table full width */
-  fullWidth?: boolean;
-}
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  tableVariants,
+  tableCellVariants,
+  tableRowVariants,
+  tableSortIconColors,
+} from '@/lib/constants/components/ui/table.variants';
 
-const variantClasses: Record<TableVariant, string> = {
-  default: 'w-full caption-bottom text-sm',
-  bordered: 'w-full caption-bottom text-sm border border-white/10 rounded-lg',
-  minimal: 'w-full caption-bottom text-sm',
-};
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  TABLE_BORDER_RADIUS,
+  TABLE_WRAPPER_CLASSES,
+  TABLE_LAST_ROW_NO_BORDER,
+  TABLE_FOOTER_BG,
+  TABLE_TEXT_MUTED,
+  TABLE_TEXT_HOVER,
+  TABLE_TEXT_CAPTION,
+  TABLE_SORT_ICON_SIZE,
+  TABLE_SORT_ICON_OFFSET,
+} from '@/lib/constants/components/ui/table.constants';
 
-const cellSizeClasses: Record<TableSize, string> = {
-  sm: 'px-2 py-1.5',
-  md: 'px-3 py-2',
-  lg: 'px-4 py-3',
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE ROOT
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * Table Component
- * 
- * @example
- * <Table>
- *   <TableHeader>
- *     <TableRow>
- *       <TableHead>Name</TableHead>
- *       <TableHead>Role</TableHead>
- *     </TableRow>
- *   </TableHeader>
- *   <TableBody>
- *     <TableRow>
- *       <TableCell>Quantum Weaver</TableCell>
- *       <TableCell>Creator</TableCell>
- *     </TableRow>
- *   </TableBody>
- * </Table>
- */
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({ variant = 'default', size = 'md', fullWidth = true, className, children, ...props }, ref) => (
-    <div className={cn('relative overflow-x-auto', variant === 'bordered' && 'rounded-lg')}>
+    <div className={cn(TABLE_WRAPPER_CLASSES, variant === 'bordered' && TABLE_BORDER_RADIUS)}>
       <table
         ref={ref}
         className={cn(
-          variantClasses[variant],
+          tableVariants({ variant }),
           fullWidth && 'w-full',
           className
         )}
@@ -68,6 +64,10 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(
 );
 Table.displayName = 'Table';
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE HEADER
+// ═══════════════════════════════════════════════════════════════════════════
+
 export const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
@@ -76,13 +76,21 @@ export const TableHeader = React.forwardRef<
 ));
 TableHeader.displayName = 'TableHeader';
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE BODY
+// ═══════════════════════════════════════════════════════════════════════════
+
 export const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <tbody ref={ref} className={cn('[&_tr:last-child]:border-0', className)} {...props} />
+  <tbody ref={ref} className={cn(TABLE_LAST_ROW_NO_BORDER, className)} {...props} />
 ));
 TableBody.displayName = 'TableBody';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE FOOTER
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
@@ -90,49 +98,40 @@ export const TableFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tfoot
     ref={ref}
-    className={cn('border-t bg-white/5 font-medium', className)}
+    className={cn('border-t', TABLE_FOOTER_BG, 'font-medium', className)}
     {...props}
   />
 ));
 TableFooter.displayName = 'TableFooter';
 
-export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-  /** Make row interactive */
-  interactive?: boolean;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE ROW
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
   ({ className, interactive = false, ...props }, ref) => (
     <tr
       ref={ref}
-      className={cn(
-        'border-b border-white/10 transition-colors',
-        interactive && 'hover:bg-white/5 cursor-pointer',
-        className
-      )}
+      className={cn(tableRowVariants({ interactive }), className)}
       {...props}
     />
   )
 );
 TableRow.displayName = 'TableRow';
 
-export interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
-  /** Sort direction */
-  sortDirection?: 'asc' | 'desc' | null;
-  /** Callback when sort is requested */
-  onSort?: () => void;
-  /** Size of the cell */
-  size?: TableSize;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE HEAD
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
   ({ className, children, sortDirection, onSort, size = 'md', ...props }, ref) => (
     <th
       ref={ref}
       className={cn(
-        'text-left align-middle font-medium text-white/60',
-        cellSizeClasses[size],
-        onSort && 'cursor-pointer select-none hover:text-white/80',
+        'text-left align-middle font-medium',
+        TABLE_TEXT_MUTED,
+        tableCellVariants({ size }),
+        onSort && `cursor-pointer select-none ${TABLE_TEXT_HOVER}`,
         className
       )}
       onClick={onSort}
@@ -144,14 +143,20 @@ export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
           <span className="inline-flex flex-col">
             <ChevronUp
               className={cn(
-                'h-3 w-3 -mb-1',
-                sortDirection === 'asc' ? 'text-cyan-400' : 'text-white/30'
+                TABLE_SORT_ICON_SIZE,
+                TABLE_SORT_ICON_OFFSET.up,
+                sortDirection === 'asc'
+                  ? tableSortIconColors.active
+                  : tableSortIconColors.inactive
               )}
             />
             <ChevronDown
               className={cn(
-                'h-3 w-3 -mt-1',
-                sortDirection === 'desc' ? 'text-cyan-400' : 'text-white/30'
+                TABLE_SORT_ICON_SIZE,
+                TABLE_SORT_ICON_OFFSET.down,
+                sortDirection === 'desc'
+                  ? tableSortIconColors.active
+                  : tableSortIconColors.inactive
               )}
             />
           </span>
@@ -162,26 +167,38 @@ export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
 );
 TableHead.displayName = 'TableHead';
 
-export interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
-  /** Size of the cell */
-  size?: TableSize;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE CELL
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, size = 'md', ...props }, ref) => (
     <td
       ref={ref}
-      className={cn('align-middle', cellSizeClasses[size], className)}
+      className={cn(tableCellVariants({ size }), className)}
       {...props}
     />
   )
 );
 TableCell.displayName = 'TableCell';
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TABLE CAPTION
+// ═══════════════════════════════════════════════════════════════════════════
+
 export const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
   React.HTMLAttributes<HTMLTableCaptionElement>
 >(({ className, ...props }, ref) => (
-  <caption ref={ref} className={cn('mt-4 text-sm text-white/40', className)} {...props} />
+  <caption ref={ref} className={cn('mt-4 text-sm', TABLE_TEXT_CAPTION, className)} {...props} />
 ));
 TableCaption.displayName = 'TableCaption';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TYPE EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  TableVariant,
+  TableSize,
+} from '@/types/components/ui/table.types';

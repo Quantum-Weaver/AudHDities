@@ -1,3 +1,4 @@
+// src/utils/components/ui/badge.utils.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    BADGE UTILITIES                                        ║
 // ║                    Color resolvers and helpers for specialized badges     ║

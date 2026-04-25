@@ -1,59 +1,53 @@
-// components/ui/Input.tsx
-// Input Component - The gateway for text entry
-// Collects single-line text input from users
+// src/components/ui/Input.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    INPUT COMPONENT                                        ║
+// ║                    The gateway for text entry                             ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-export type InputSize = 'sm' | 'md' | 'lg';
-export type InputVariant = 'default' | 'glass' | 'outline';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type { InputProps } from '@/types/components/ui/input.types';
 
-export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  /** Label text */
-  label?: string;
-  /** Error message */
-  error?: string;
-  /** Helper text */
-  helper?: string;
-  /** Size of the input (renamed from 'size' to avoid conflict with native input size) */
-  inputSize?: InputSize;
-  /** Visual variant */
-  variant?: InputVariant;
-  /** Show required indicator */
-  required?: boolean;
-  /** Show optional indicator */
-  optional?: boolean;
-  /** Left icon */
-  leftIcon?: React.ReactNode;
-  /** Right icon */
-  rightIcon?: React.ReactNode;
-  /** Full width */
-  fullWidth?: boolean;
-}
+// ─── Variants ──────────────────────────────────────────────────────────────
+import { inputVariants } from '@/lib/constants/components/ui/input.variants';
 
-const sizeClasses: Record<InputSize, string> = {
-  sm: 'px-2 py-1 text-sm h-8',
-  md: 'px-3 py-2 text-base h-10',
-  lg: 'px-4 py-3 text-lg h-12',
-};
-
-const variantClasses: Record<InputVariant, string> = {
-  default: 'bg-white/5 border-white/10 focus:border-cyan-400',
-  glass: 'bg-white/10 backdrop-blur-sm border-white/20 focus:border-cyan-400',
-  outline: 'bg-transparent border-white/20 focus:border-cyan-400',
-};
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  INPUT_WRAPPER_CLASSES,
+  INPUT_FULL_WIDTH_CLASS,
+  INPUT_LABEL_CLASSES,
+  INPUT_LABEL_ERROR_CLASSES,
+  INPUT_HELPER_CLASSES,
+  INPUT_ERROR_CLASSES,
+  INPUT_REQUIRED_INDICATOR,
+  INPUT_OPTIONAL_INDICATOR,
+  INPUT_CONTAINER_CLASSES,
+  INPUT_ICON_CONTAINER_CLASSES,
+} from '@/lib/constants/components/ui/input.constants';
 
 /**
- * Input Component
- * 
+ * Input — Single-line text entry with label, icons, and validation states.
+ *
  * @example
  * <Input label="Email" placeholder="you@example.com" />
- * 
+ *
  * @example
- * <Input label="Password" type="password" error="Password is required" />
- * 
+ * <Input
+ *   label="Password"
+ *   type="password"
+ *   error="Password is required"
+ * />
+ *
  * @example
- * <Input leftIcon={<MailIcon />} placeholder="Email" />
+ * <Input
+ *   leftIcon={<MailIcon />}
+ *   placeholder="Email"
+ *   variant="filled"
+ * />
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -75,71 +69,96 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const inputId = id || `input-${Math.random().toString(36).slice(2, 9)}`;
+    const inputId =
+      id || `input-${Math.random().toString(36).slice(2, 9)}`;
     const hasError = !!error;
-    
+
+    // Determine icon modifier for variant classes
+    const iconModifier = leftIcon && rightIcon
+      ? 'both'
+      : leftIcon
+        ? 'left'
+        : rightIcon
+          ? 'right'
+          : undefined;
+
     return (
-      <div className={cn('flex flex-col gap-1.5', fullWidth && 'w-full')}>
+      <div
+        className={cn(
+          INPUT_WRAPPER_CLASSES,
+          fullWidth && INPUT_FULL_WIDTH_CLASS
+        )}
+      >
+        {/* ── Label ────────────────────────────────────────────── */}
         {label && (
           <label
             htmlFor={inputId}
             className={cn(
-              'text-sm font-medium text-white/80',
-              hasError && 'text-red-400'
+              INPUT_LABEL_CLASSES,
+              hasError && INPUT_LABEL_ERROR_CLASSES
             )}
           >
             {label}
-            {required && <span className="ml-1 text-cyan-400">*</span>}
-            {optional && <span className="ml-1 text-white/40 text-xs">(optional)</span>}
+            {required && (
+              <span className={INPUT_REQUIRED_INDICATOR}>*</span>
+            )}
+            {optional && (
+              <span className={INPUT_OPTIONAL_INDICATOR}>(optional)</span>
+            )}
           </label>
         )}
-        
-        <div className="relative">
+
+        {/* ── Input Container ──────────────────────────────────── */}
+        <div className={INPUT_CONTAINER_CLASSES}>
+          {/* Left Icon */}
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40">
+            <div className={cn(INPUT_ICON_CONTAINER_CLASSES, 'left-3')}>
               {leftIcon}
             </div>
           )}
-          
+
           <input
             ref={ref}
             id={inputId}
             className={cn(
-              'rounded-lg border transition-all duration-200',
-              'placeholder:text-white/30',
-              'focus:outline-none focus:ring-2 focus:ring-cyan-400/20',
-              'disabled:opacity-50 disabled:cursor-not-allowed',
-              sizeClasses[inputSize],
-              variantClasses[variant],
-              hasError && 'border-red-400 focus:border-red-400 focus:ring-red-400/20',
-              leftIcon && 'pl-9',
-              rightIcon && 'pr-9',
-              fullWidth && 'w-full',
+              inputVariants({
+                variant: hasError ? 'error' : variant,
+                size: inputSize,
+                withIcon: iconModifier,
+              }),
+              fullWidth && INPUT_FULL_WIDTH_CLASS,
               className
             )}
             aria-invalid={hasError}
             aria-describedby={
-              helper ? `${inputId}-helper` : hasError ? `${inputId}-error` : undefined
+              helper
+                ? `${inputId}-helper`
+                : hasError
+                  ? `${inputId}-error`
+                  : undefined
             }
             disabled={disabled}
             {...props}
           />
-          
+
+          {/* Right Icon */}
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40">
+            <div className={cn(INPUT_ICON_CONTAINER_CLASSES, 'right-3')}>
               {rightIcon}
             </div>
           )}
         </div>
-        
+
+        {/* ── Helper Text ──────────────────────────────────────── */}
         {helper && !hasError && (
-          <p id={`${inputId}-helper`} className="text-xs text-white/40">
+          <p id={`${inputId}-helper`} className={INPUT_HELPER_CLASSES}>
             {helper}
           </p>
         )}
-        
+
+        {/* ── Error Text ───────────────────────────────────────── */}
         {hasError && (
-          <p id={`${inputId}-error`} className="text-xs text-red-400">
+          <p id={`${inputId}-error`} className={INPUT_ERROR_CLASSES}>
             {error}
           </p>
         )}
@@ -149,3 +168,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
+
+// Re-export types for convenience
+export type {
+  InputProps,
+  InputVariant,
+  InputSize,
+} from '@/types/components/ui/input.types';

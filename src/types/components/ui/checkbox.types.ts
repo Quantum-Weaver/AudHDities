@@ -1,6 +1,7 @@
+// src/types/components/ui/checkbox.types.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    CHECKBOX TYPES                                         ║
-// ║                    All type definitions for the Checkbox component         ║
+// ║                    All type definitions for the Checkbox component        ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import type {

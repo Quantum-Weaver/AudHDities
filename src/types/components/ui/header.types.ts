@@ -1,4 +1,4 @@
-// src/types/components/ui/header.ts
+// src/types/components/ui/header.types.ts
 // ============================================================================
 // HEADER TYPES - PURE SHAPES ONLY
 // ============================================================================

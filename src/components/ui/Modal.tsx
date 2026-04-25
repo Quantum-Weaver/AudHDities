@@ -1,81 +1,96 @@
-// components/ui/Modal.tsx
-// Modal Component - The gateway of the interface
-// Interrupts workflow to capture attention or require decisions
+// src/components/ui/Modal.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    MODAL COMPONENT                                        ║
+// ║                    The gateway of the interface                            ║
+// ║                    Interrupts workflow to capture attention                ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
 "use client";
 
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 
-export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
-export type ModalPosition = 'center' | 'top';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  ModalProps,
+  ModalHeaderProps,
+  ModalBodyProps,
+  ModalFooterProps,
+  ConfirmationModalProps,
+} from '@/types/components/ui/modal.types';
 
-export interface ModalProps {
-  /** Whether the modal is open */
-  open: boolean;
-  /** Callback when modal should close */
-  onClose: () => void;
-  /** Modal title */
-  title?: string;
-  /** Modal description/subtitle */
-  description?: string;
-  /** Size of the modal */
-  size?: ModalSize;
-  /** Position of the modal */
-  position?: ModalPosition;
-  /** Show close button in header */
-  showCloseButton?: boolean;
-  /** Close modal when clicking backdrop */
-  closeOnBackdropClick?: boolean;
-  /** Close modal when pressing Escape key */
-  closeOnEscape?: boolean;
-  /** Prevent scroll on body when modal is open */
-  preventScroll?: boolean;
-  /** Remove padding from modal content */
-  noPadding?: boolean;
-  /** Custom className for the modal container */
-  className?: string;
-  /** Custom className for the modal content */
-  contentClassName?: string;
-  /** Custom className for the backdrop */
-  backdropClassName?: string;
-  /** Children */
-  children: React.ReactNode;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  MODAL_CONTAINER_RADIUS,
+  MODAL_CONTAINER_MARGIN,
+  MODAL_CONTAINER_PADDING,
+  MODAL_HEADER_PADDING_BOTTOM,
+  MODAL_HEADER_PADDING,
+  MODAL_BODY_PADDING_Y,
+  MODAL_FOOTER_PADDING_TOP,
+  MODAL_FOOTER_GAP,
+  MODAL_CLOSE_ICON_SIZE,
+  MODAL_POSITION_CLASSES,
+  MODAL_SIZE_MAX_WIDTH,
+  MODAL_FOOTER_ALIGN,
+  MODAL_SEPARATOR_BORDER,
+  MODAL_OPEN_ANIMATION,
+} from '@/lib/constants/components/ui/modal.constants';
 
-const sizeClasses: Record<ModalSize, string> = {
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
-  full: 'max-w-[90vw] w-full',
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  modalOverlayVariants,
+  modalContentVariants,
+} from '@/lib/constants/components/ui/modal.variants';
 
-const positionClasses: Record<ModalPosition, string> = {
-  center: 'items-center',
-  top: 'items-start pt-16',
-};
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  useFocusTrap,
+  useEscapeKey,
+  useScrollLock,
+  useMounted,
+  useModalState,
+} from '@/utils/components/ui/modal.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Modal Component
- * 
+ * Modal — Interrupts workflow to capture attention, gather input, or confirm actions.
+ *
+ * Renders via portal to document.body. Supports focus trapping, escape-to-close,
+ * backdrop-click-to-close, and scroll locking. Composable with ModalHeader,
+ * ModalBody, and ModalFooter sub-components.
+ *
  * @example
- * <Modal open={isOpen} onClose={() => setIsOpen(false)} title="Confirm Action">
- *   <p>Are you sure you want to proceed?</p>
- *   <div className="flex gap-2 mt-4">
- *     <Button onClick={() => setIsOpen(false)}>Cancel</Button>
- *     <Button variant="primary" onClick={handleConfirm}>Confirm</Button>
- *   </div>
- * </Modal>
- * 
- * @example
- * <Modal open={isOpen} onClose={onClose} size="lg" closeOnBackdropClick>
- *   <ModalHeader>Settings</ModalHeader>
- *   <ModalBody>...</ModalBody>
+ * // Basic usage with composition sub-components
+ * <Modal open={isOpen} onClose={close} size="lg">
+ *   <ModalHeader onClose={close}>
+ *     <h2>Settings</h2>
+ *   </ModalHeader>
+ *   <ModalBody>
+ *     <p>Configure your preferences below.</p>
+ *   </ModalBody>
  *   <ModalFooter>
- *     <Button>Save</Button>
+ *     <Button variant="ghost" onClick={close}>Cancel</Button>
+ *     <Button variant="primary" onClick={handleSave}>Save</Button>
+ *   </ModalFooter>
+ * </Modal>
+ *
+ * @example
+ * // Simple with title/description props
+ * <Modal
+ *   open={isOpen}
+ *   onClose={() => setIsOpen(false)}
+ *   title="Confirm Action"
+ *   description="Are you sure you want to proceed?"
+ * >
+ *   <ModalFooter>
+ *     <Button variant="ghost" onClick={() => setIsOpen(false)}>Cancel</Button>
+ *     <Button variant="primary" onClick={handleConfirm}>Confirm</Button>
  *   </ModalFooter>
  * </Modal>
  */
@@ -87,7 +102,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       title,
       description,
       size = 'md',
-      position = 'center',
+      position = 'CENTER',
       showCloseButton = true,
       closeOnBackdropClick = true,
       closeOnEscape = true,
@@ -100,107 +115,46 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     },
     ref
   ) => {
-    const [mounted, setMounted] = React.useState(false);
+    const mounted = useMounted();
     const modalRef = useRef<HTMLDivElement>(null);
-    
-    // Handle Escape key
-    useEffect(() => {
-      const handleEscape = (event: KeyboardEvent) => {
-        if (closeOnEscape && event.key === 'Escape' && open) {
-          onClose();
-        }
-      };
-      
-      if (open) {
-        document.addEventListener('keydown', handleEscape);
-      }
-      
-      return () => {
-        document.removeEventListener('keydown', handleEscape);
-      };
-    }, [open, closeOnEscape, onClose]);
-    
-    // Handle scroll locking
-    useEffect(() => {
-      if (preventScroll && open) {
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        return () => {
-          document.body.style.overflow = originalOverflow;
-        };
-      }
-    }, [open, preventScroll]);
-    
-    // Handle mounting for portal
-    useEffect(() => {
-      setMounted(true);
-      return () => setMounted(false);
-    }, []);
-    
-    // Focus trap
-    useEffect(() => {
-      if (open && modalRef.current) {
-        const focusableElements = modalRef.current.querySelectorAll(
-          'button, [href], input, select, Textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const firstElement = focusableElements[0] as HTMLElement;
-        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-        
-        const handleTab = (e: KeyboardEvent) => {
-          if (e.key !== 'Tab') return;
-          
-          if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-              e.preventDefault();
-              lastElement?.focus();
-            }
-          } else {
-            if (document.activeElement === lastElement) {
-              e.preventDefault();
-              firstElement?.focus();
-            }
-          }
-        };
-        
-        firstElement?.focus();
-        document.addEventListener('keydown', handleTab);
-        
-        return () => {
-          document.removeEventListener('keydown', handleTab);
-        };
-      }
-    }, [open]);
-    
-    // Handle backdrop click
+
+    // Accessibility behaviors
+    useEscapeKey(onClose, open, closeOnEscape);
+    useScrollLock(open, preventScroll);
+    useFocusTrap(modalRef, open);
+
+    // Backdrop click handler
     const handleBackdropClick = (e: React.MouseEvent) => {
       if (closeOnBackdropClick && e.target === e.currentTarget) {
         onClose();
       }
     };
-    
+
     if (!mounted || !open) return null;
-    
+
     return createPortal(
       <div
         className={cn(
-          'fixed inset-0 z-50 flex justify-center',
-          positionClasses[position],
-          'animate-in fade-in duration-200',
+          modalOverlayVariants({ variant: 'default' }),
+          'flex justify-center',
+          MODAL_POSITION_CLASSES[position],
+          MODAL_OPEN_ANIMATION,
           backdropClassName
         )}
         onClick={handleBackdropClick}
       >
-        {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-        
         {/* Modal Container */}
         <div
           ref={ref}
           className={cn(
-            'relative z-10 m-4 w-full rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl',
-            sizeClasses[size],
-            noPadding ? 'overflow-hidden' : 'p-6',
-            'animate-in zoom-in-95 fade-in duration-200',
+            'relative z-10',
+            MODAL_CONTAINER_MARGIN,
+            'w-full',
+            MODAL_CONTAINER_RADIUS,
+            'bg-star-dust/5 backdrop-blur-md border border-star-dust/10 shadow-2xl',
+            MODAL_SIZE_MAX_WIDTH[size as keyof typeof MODAL_SIZE_MAX_WIDTH] || MODAL_SIZE_MAX_WIDTH.MD,
+            noPadding ? 'overflow-hidden' : MODAL_CONTAINER_PADDING,
+            MODAL_OPEN_ANIMATION,
             className
           )}
           role="dialog"
@@ -210,19 +164,28 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         >
           {/* Header */}
           {(title || showCloseButton) && (
-            <div className={cn(
-              'flex items-center justify-between',
-              !noPadding && 'pb-4 border-b border-white/10',
-              noPadding && 'p-4 border-b border-white/10'
-            )}>
+            <div
+              className={cn(
+                'flex items-center justify-between',
+                noPadding ? MODAL_HEADER_PADDING : MODAL_HEADER_PADDING_BOTTOM,
+                'border-b',
+                MODAL_SEPARATOR_BORDER
+              )}
+            >
               <div>
                 {title && (
-                  <h2 id="modal-title" className="text-xl font-semibold text-white">
+                  <h2
+                    id="modal-title"
+                    className="text-xl font-semibold text-star-dust"
+                  >
                     {title}
                   </h2>
                 )}
                 {description && (
-                  <p id="modal-description" className="text-sm text-white/60 mt-1">
+                  <p
+                    id="modal-description"
+                    className="text-sm text-star-dust/60 mt-1"
+                  >
                     {description}
                   </p>
                 )}
@@ -231,17 +194,23 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full p-1 text-white/40 transition-colors hover:text-white/80 hover:bg-white/10"
+                  className="rounded-full p-1 text-star-dust/40 transition-colors hover:text-star-dust/80 hover:bg-star-dust/10"
                   aria-label="Close modal"
                 >
-                  <X className="h-5 w-5" />
+                  <X className={MODAL_CLOSE_ICON_SIZE} />
                 </button>
               )}
             </div>
           )}
-          
+
           {/* Content */}
-          <div ref={modalRef} className={cn(!noPadding && 'py-4', contentClassName)}>
+          <div
+            ref={modalRef}
+            className={cn(
+              !noPadding && MODAL_BODY_PADDING_Y,
+              contentClassName
+            )}
+          >
             {children}
           </div>
         </div>
@@ -253,30 +222,33 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
 
 Modal.displayName = 'Modal';
 
-// ============================================================================
-// MODAL COMPOSITION COMPONENTS
-// ============================================================================
-
-export interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Show close button */
-  showCloseButton?: boolean;
-  /** Callback when close button is clicked */
-  onClose?: () => void;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// MODAL HEADER
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * ModalHeader - Header section of a modal
- * 
+ * ModalHeader — Header section with title area and optional close button.
+ *
  * @example
- * <ModalHeader showCloseButton onClose={onClose}>
- *   <h2>Title</h2>
+ * <ModalHeader onClose={close}>
+ *   <h2>Settings</h2>
+ *   <p className="text-sm text-star-dust/60">Manage your preferences</p>
  * </ModalHeader>
  */
 export const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
-  ({ children, showCloseButton = true, onClose, className, ...props }, ref) => (
+  (
+    { children, showCloseButton = true, onClose, className, ...props },
+    ref
+  ) => (
     <div
       ref={ref}
-      className={cn('flex items-center justify-between pb-4 border-b border-white/10', className)}
+      className={cn(
+        'flex items-center justify-between',
+        MODAL_HEADER_PADDING_BOTTOM,
+        'border-b',
+        MODAL_SEPARATOR_BORDER,
+        className
+      )}
       {...props}
     >
       <div className="flex-1">{children}</div>
@@ -284,10 +256,10 @@ export const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
         <button
           type="button"
           onClick={onClose}
-          className="rounded-full p-1 text-white/40 transition-colors hover:text-white/80 hover:bg-white/10"
+          className="rounded-full p-1 text-star-dust/40 transition-colors hover:text-star-dust/80 hover:bg-star-dust/10"
           aria-label="Close modal"
         >
-          <X className="h-5 w-5" />
+          <X className={MODAL_CLOSE_ICON_SIZE} />
         </button>
       )}
     </div>
@@ -295,24 +267,28 @@ export const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
 );
 ModalHeader.displayName = 'ModalHeader';
 
-export interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Remove padding */
-  noPadding?: boolean;
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// MODAL BODY
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * ModalBody - Body section of a modal
- * 
+ * ModalBody — Scrollable body section for modal content.
+ *
  * @example
  * <ModalBody>
- *   <p>Modal content goes here</p>
+ *   <p>Your content here.</p>
+ * </ModalBody>
+ *
+ * @example
+ * <ModalBody noPadding>
+ *   <img src="full-bleed-image.jpg" alt="" />
  * </ModalBody>
  */
 export const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
   ({ children, noPadding = false, className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(!noPadding && 'py-4', className)}
+      className={cn(!noPadding && MODAL_BODY_PADDING_Y, className)}
       {...props}
     >
       {children}
@@ -321,33 +297,30 @@ export const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
 );
 ModalBody.displayName = 'ModalBody';
 
-export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Align footer buttons */
-  align?: 'left' | 'center' | 'right';
-}
-
-const footerAlignClasses = {
-  left: 'justify-start',
-  center: 'justify-center',
-  right: 'justify-end',
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// MODAL FOOTER
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * ModalFooter - Footer section of a modal (for actions)
- * 
+ * ModalFooter — Footer section for action buttons.
+ *
  * @example
- * <ModalFooter align="right">
+ * <ModalFooter align="RIGHT">
  *   <Button variant="ghost">Cancel</Button>
- *   <Button variant="primary">Confirm</Button>
+ *   <Button variant="primary">Save</Button>
  * </ModalFooter>
  */
 export const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
-  ({ children, align = 'right', className, ...props }, ref) => (
+  ({ children, align = 'RIGHT', className, ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        'flex gap-3 pt-4 border-t border-white/10',
-        footerAlignClasses[align],
+        'flex',
+        MODAL_FOOTER_GAP,
+        MODAL_FOOTER_PADDING_TOP,
+        'border-t',
+        MODAL_SEPARATOR_BORDER,
+        MODAL_FOOTER_ALIGN[align],
         className
       )}
       {...props}
@@ -358,43 +331,27 @@ export const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
 );
 ModalFooter.displayName = 'ModalFooter';
 
-// ============================================================================
-// VARIANT SHORTCUTS
-// ============================================================================
-
-export interface ConfirmationModalProps {
-  /** Whether modal is open */
-  open: boolean;
-  /** Callback when modal closes */
-  onClose: () => void;
-  /** Callback when confirmed */
-  onConfirm: () => void;
-  /** Title of confirmation */
-  title?: string;
-  /** Description of confirmation */
-  description?: string;
-  /** Confirm button text */
-  confirmText?: string;
-  /** Cancel button text */
-  cancelText?: string;
-  /** Variant of confirmation */
-  variant?: 'default' | 'danger';
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// CONFIRMATION MODAL
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * ConfirmationModal - Pre-built confirmation dialog
- * 
+ * ConfirmationModal — Pre-built confirmation dialog with danger variant support.
+ *
  * @example
  * <ConfirmationModal
  *   open={isOpen}
  *   onClose={() => setIsOpen(false)}
  *   onConfirm={handleDelete}
  *   title="Delete Item"
- *   description="Are you sure you want to delete this item? This action cannot be undone."
+ *   description="This action cannot be undone."
  *   variant="danger"
  * />
  */
-export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationModalProps>(
+export const ConfirmationModal = React.forwardRef<
+  HTMLDivElement,
+  ConfirmationModalProps
+>(
   (
     {
       open,
@@ -412,7 +369,7 @@ export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationMo
       onConfirm();
       onClose();
     };
-    
+
     return (
       <Modal
         ref={ref}
@@ -422,12 +379,12 @@ export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationMo
         size="sm"
         showCloseButton={false}
       >
-        <p className="text-white/70">{description}</p>
-        <ModalFooter align="right" className="mt-6">
+        <p className="text-star-dust/70">{description}</p>
+        <ModalFooter align="RIGHT" className="mt-6">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg px-4 py-2 text-sm font-medium text-white/60 transition-colors hover:text-white/80"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-star-dust/60 transition-colors hover:text-star-dust/80"
           >
             {cancelText}
           </button>
@@ -437,8 +394,8 @@ export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationMo
             className={cn(
               'rounded-lg px-4 py-2 text-sm font-medium transition-colors',
               variant === 'danger'
-                ? 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
-                : 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
+                ? 'bg-fire-base/20 text-fire-base hover:bg-fire-base/30'
+                : 'bg-neurospark/20 text-neurospark hover:bg-neurospark/30'
             )}
           >
             {confirmText}
@@ -450,18 +407,37 @@ export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationMo
 );
 ConfirmationModal.displayName = 'ConfirmationModal';
 
+// ═══════════════════════════════════════════════════════════════════════════
+// HOOK
+// ═══════════════════════════════════════════════════════════════════════════
+
 /**
- * useModal - Hook for managing modal state
- * 
+ * useModal — Hook for managing modal open/close state.
+ *
  * @example
  * const { isOpen, open, close, toggle } = useModal();
+ *
+ * return (
+ *   <>
+ *     <Button onClick={open}>Open Modal</Button>
+ *     <Modal open={isOpen} onClose={close}>
+ *       <ModalBody><p>Content</p></ModalBody>
+ *     </Modal>
+ *   </>
+ * );
  */
-export const useModal = (initialState = false) => {
-  const [isOpen, setIsOpen] = React.useState(initialState);
-  
-  const open = useCallback(() => setIsOpen(true), []);
-  const close = useCallback(() => setIsOpen(false), []);
-  const toggle = useCallback(() => setIsOpen(prev => !prev), []);
-  
-  return { isOpen, open, close, toggle };
-};
+export { useModalState as useModal };
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  ModalProps,
+  ModalHeaderProps,
+  ModalBodyProps,
+  ModalFooterProps,
+  ConfirmationModalProps,
+} from '@/types/components/ui/modal.types';
+
+export type { UseModalReturn } from '@/types/components/ui/modal.types';

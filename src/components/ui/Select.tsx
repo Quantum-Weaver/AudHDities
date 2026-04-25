@@ -1,45 +1,44 @@
-// components/ui/Select.tsx
-// Select Component - The choice gateway
-// Allows users to select from a list of options
+// src/components/ui/Select.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    SELECT COMPONENT                                        ║
+// ║                    The choice gateway                                       ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import React from 'react';
+'use client';
+
+import React, { useId } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 
-export type SelectSize = 'sm' | 'md' | 'lg';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  SelectProps,
+  SelectOption,
+} from '@/types/components/ui/select.types';
 
-export interface SelectOption {
-  value: string;
-  label: string;
-  disabled?: boolean;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  SELECT_CHEVRON_COLOR,
+  SELECT_CHEVRON_SIZE,
+  SELECT_HELPER_COLOR,
+  SELECT_ERROR_TEXT_COLOR,
+  SELECT_GAP,
+  SELECT_OPTION_BG,
+  SELECT_TEXT_COLOR,
+  SELECT_PLACEHOLDER_COLOR,
+  SELECT_REQUIRED_STAR_COLOR,
+  SELECT_OPTIONAL_TEXT_COLOR,
+} from '@/lib/constants/components/ui/select.constants';
 
-export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
-  /** Label text */
-  label?: string;
-  /** Error message */
-  error?: string;
-  /** Helper text */
-  helper?: string;
-  /** Size of the select (renamed to avoid conflict) */
-  selectSize?: SelectSize;
-  /** Options for the select */
-  options?: SelectOption[];
-  /** Placeholder text */
-  placeholder?: string;
-  /** Show required indicator */
-  required?: boolean;
-  /** Show optional indicator */
-  optional?: boolean;
-  /** Full width */
-  fullWidth?: boolean;
-}
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  composeSelectTriggerClasses,
+  composeSelectLabelClasses,
+} from '@/utils/components/ui//select.utils';
 
-const sizeClasses: Record<SelectSize, string> = {
-  sm: 'px-2 py-1 text-sm h-8',
-  md: 'px-3 py-2 text-base h-10',
-  lg: 'px-4 py-3 text-lg h-12',
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// SELECT
+// ═══════════════════════════════════════════════════════════════════════════
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (
@@ -53,6 +52,8 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       required = false,
       optional = false,
       fullWidth = true,
+      variant = 'default',
+      native = false,
       className,
       id,
       disabled,
@@ -61,50 +62,60 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref
   ) => {
-    const selectId = id || `select-${Math.random().toString(36).slice(2, 9)}`;
+    const generatedId = useId();
+    const selectId = id || `select-${generatedId}`;
     const hasError = !!error;
-    
+
+    const triggerClasses = composeSelectTriggerClasses({
+      variant,
+      size: selectSize,
+      native,
+      fullWidth,
+      hasError,
+      className,
+    });
+
+    const labelClasses = composeSelectLabelClasses(hasError);
+
     return (
-      <div className={cn('flex flex-col gap-1.5', fullWidth && 'w-full')}>
+      <div className={cn('flex flex-col', SELECT_GAP, fullWidth && 'w-full')}>
         {label && (
-          <label
-            htmlFor={selectId}
-            className={cn(
-              'text-sm font-medium text-white/80',
-              hasError && 'text-red-400'
-            )}
-          >
+          <label htmlFor={selectId} className={labelClasses}>
             {label}
-            {required && <span className="ml-1 text-cyan-400">*</span>}
-            {optional && <span className="ml-1 text-white/40 text-xs">(optional)</span>}
+            {required && (
+              <span className={cn('ml-1', SELECT_REQUIRED_STAR_COLOR)}>*</span>
+            )}
+            {optional && (
+              <span className={cn('ml-1 text-xs', SELECT_OPTIONAL_TEXT_COLOR)}>
+                (optional)
+              </span>
+            )}
           </label>
         )}
-        
+
         <div className="relative">
           <select
             ref={ref}
             id={selectId}
-            className={cn(
-              'rounded-lg border transition-all duration-200 appearance-none',
-              'bg-white/5 border-white/10',
-              'text-white',
-              'focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20',
-              'disabled:opacity-50 disabled:cursor-not-allowed',
-              sizeClasses[selectSize],
-              hasError && 'border-red-400 focus:border-red-400 focus:ring-red-400/20',
-              fullWidth && 'w-full',
-              className
-            )}
+            className={triggerClasses}
             aria-invalid={hasError}
             aria-describedby={
-              helper ? `${selectId}-helper` : hasError ? `${selectId}-error` : undefined
+              helper && !hasError
+                ? `${selectId}-helper`
+                : hasError
+                  ? `${selectId}-error`
+                  : undefined
             }
             disabled={disabled}
             defaultValue={defaultValue || (placeholder ? '' : undefined)}
             {...props}
           >
             {placeholder && (
-              <option value="" disabled className="text-white/60">
+              <option
+                value=""
+                disabled
+                className={cn(SELECT_PLACEHOLDER_COLOR, SELECT_OPTION_BG)}
+              >
                 {placeholder}
               </option>
             )}
@@ -113,24 +124,32 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 key={option.value}
                 value={option.value}
                 disabled={option.disabled}
-                className="bg-surface text-white"
+                className={cn(SELECT_OPTION_BG, SELECT_TEXT_COLOR)}
               >
                 {option.label}
               </option>
             ))}
           </select>
-          
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none h-4 w-4" />
+
+          {!native && (
+            <ChevronDown
+              className={cn(
+                'absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none',
+                SELECT_CHEVRON_COLOR,
+                SELECT_CHEVRON_SIZE
+              )}
+            />
+          )}
         </div>
-        
+
         {helper && !hasError && (
-          <p id={`${selectId}-helper`} className="text-xs text-white/40">
+          <p id={`${selectId}-helper`} className={cn('text-xs', SELECT_HELPER_COLOR)}>
             {helper}
           </p>
         )}
-        
+
         {hasError && (
-          <p id={`${selectId}-error`} className="text-xs text-red-400">
+          <p id={`${selectId}-error`} className={cn('text-xs', SELECT_ERROR_TEXT_COLOR)}>
             {error}
           </p>
         )}
@@ -140,3 +159,15 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 Select.displayName = 'Select';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RE-EXPORT TYPES
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  SelectProps,
+  SelectOption,
+  SelectSize,
+  SelectVariant,
+  SelectSizeVariant,
+} from '@/types/components/ui/select.types';
