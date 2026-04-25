@@ -1,4 +1,4 @@
-// scripts/audit/component_files.ts
+// scripts/audit/component-files.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    COMPONENT FILE AUDITOR                                 ║
 // ║                    Lists all constants, types, utils, and variants        ║
@@ -12,16 +12,16 @@ import * as path from 'node:path';
 const PROJECT_ROOT = path.resolve(__dirname, '../../../');
 
 const COMPONENT_DIRS = {
-  constants: path.join(PROJECT_ROOT, 'src/lib/constants/components/'),
-  components: path.join(PROJECT_ROOT, 'src/components/'),
-  types: path.join(PROJECT_ROOT, 'src/types/components/'),
-  utils: path.join(PROJECT_ROOT, 'src/utils/components/'),
+  constants: path.join(PROJECT_ROOT, 'src/lib/constants/components'),
+  types: path.join(PROJECT_ROOT, 'src/types/components'),
+  utils: path.join(PROJECT_ROOT, 'src/utils/components'),
+  components: path.join(PROJECT_ROOT, 'src/components'),
 } as const;
 
-const COMPONENT_CATEGORIES = ['ui', 'layout', 'shared', 'immersive'] as const;
+const COMPONENT_CATEGORIES = ['ui', 'layout', 'shared', 'immersive', 'auth'] as const;
 type ComponentCategory = (typeof COMPONENT_CATEGORIES)[number];
 
-// ─── Components to audit ───────────────────────────────────────────────────
+// ─── Components to audit (underscore notation) ─────────────────────────────
 
 const COMPONENTS = [
   'accordion',
@@ -124,18 +124,57 @@ function checkFile(baseDir: string, relativePath: string): FileEntry | null {
 }
 
 /**
+ * Convert underscore_component_name to PascalCase filename.
+ * Handles multi-word names correctly.
+ */
+function toPascalCase(underscoreName: string): string {
+  return underscoreName
+    .split('_')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
+/**
+ * Try multiple possible filenames for a component.
+ * PascalCase is primary, but also checks for common aliases.
+ */
+function findComponentFile(
+  categoryDir: string,
+  underscoreName: string
+): FileEntry | null {
+  const pascalName = toPascalCase(underscoreName);
+
+  // Primary: PascalCase
+  const primary = checkFile(categoryDir, `${pascalName}.tsx`);
+  if (primary) return primary;
+
+  // Fallback: underscore notation (some components might use this)
+  const fallback = checkFile(categoryDir, `${underscoreName}.tsx`);
+  if (fallback) return fallback;
+
+  // Fallback: index file in folder
+  const indexFile = checkFile(
+    path.join(categoryDir, pascalName),
+    'index.tsx'
+  );
+  if (indexFile) return indexFile;
+
+  return null;
+}
+
+/**
  * Find which category folder contains a component's files.
- * Searches constants and types directories.
+ * Searches constants, types, and utils directories.
  */
 function findComponentCategory(
-  componentName: string
+  underscoreName: string
 ): ComponentCategory | 'unknown' {
   // Check constants directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.constants, category);
     if (
-      fs.existsSync(path.join(dir, `${componentName}.constants.ts`)) ||
-      fs.existsSync(path.join(dir, `${componentName}.variants.ts`))
+      fs.existsSync(path.join(dir, `${underscoreName}.constants.ts`)) ||
+      fs.existsSync(path.join(dir, `${underscoreName}.variants.ts`))
     ) {
       return category;
     }
@@ -144,7 +183,15 @@ function findComponentCategory(
   // Check types directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.types, category);
-    if (fs.existsSync(path.join(dir, `${componentName}.types.ts`))) {
+    if (fs.existsSync(path.join(dir, `${underscoreName}.types.ts`))) {
+      return category;
+    }
+  }
+
+  // Check utils directory
+  for (const category of COMPONENT_CATEGORIES) {
+    const dir = path.join(COMPONENT_DIRS.utils, category);
+    if (fs.existsSync(path.join(dir, `${underscoreName}.utils.ts`))) {
       return category;
     }
   }
@@ -153,10 +200,18 @@ function findComponentCategory(
 }
 
 /**
- * Normalize component name for file lookup (kebab-case).
+ * Check all categories for a file pattern.
+ * Returns the entry from the first category that has it.
  */
-function normalizeName(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '-');
+function findInCategories(
+  baseDir: string,
+  filename: string
+): FileEntry | null {
+  for (const category of COMPONENT_CATEGORIES) {
+    const entry = checkFile(path.join(baseDir, category), filename);
+    if (entry) return entry;
+  }
+  return null;
 }
 
 // ─── Scanner ───────────────────────────────────────────────────────────────
@@ -164,72 +219,48 @@ function normalizeName(name: string): string {
 /**
  * Scan for all supporting files of a single component.
  */
-function scanComponent(componentName: string): ComponentReport {
-  const normalized = normalizeName(componentName);
-  const category = findComponentCategory(normalized);
+function scanComponent(underscoreName: string): ComponentReport {
+  const category = findComponentCategory(underscoreName);
 
-  // Determine the category path for lookups
-  const constantsCategoryDir =
-    category !== 'unknown'
-      ? path.join(COMPONENT_DIRS.constants, category)
-      : null;
-
-  const typesCategoryDir =
-    category !== 'unknown'
-      ? path.join(COMPONENT_DIRS.types, category)
-      : null;
-
-  // Check constants
+  // Check constants and variants (categorized)
   let constantsEntry: FileEntry | null = null;
   let variantsEntry: FileEntry | null = null;
 
-  if (constantsCategoryDir) {
+  if (category !== 'unknown') {
+    const constantsDir = path.join(COMPONENT_DIRS.constants, category);
     constantsEntry = checkFile(
-      constantsCategoryDir,
-      FILE_PATTERNS.constants(normalized)
+      constantsDir,
+      FILE_PATTERNS.constants(underscoreName)
     );
     variantsEntry = checkFile(
-      constantsCategoryDir,
-      FILE_PATTERNS.variants(normalized)
+      constantsDir,
+      FILE_PATTERNS.variants(underscoreName)
     );
   }
 
-  // Check types
+  // Check types (categorized)
   let typesEntry: FileEntry | null = null;
-  if (typesCategoryDir) {
-    typesEntry = checkFile(
-      typesCategoryDir,
-      FILE_PATTERNS.types(normalized)
-    );
+  if (category !== 'unknown') {
+    const typesDir = path.join(COMPONENT_DIRS.types, category);
+    typesEntry = checkFile(typesDir, FILE_PATTERNS.types(underscoreName));
   }
 
-  // Check utils (flat directory, not categorized)
-  const utilsEntry = checkFile(
-    COMPONENT_DIRS.utils,
-    FILE_PATTERNS.utils(normalized)
-  );
+  // Check utils (categorized — parallel to types)
+  let utilsEntry: FileEntry | null = null;
+  if (category !== 'unknown') {
+    const utilsDir = path.join(COMPONENT_DIRS.utils, category);
+    utilsEntry = checkFile(utilsDir, FILE_PATTERNS.utils(underscoreName));
+  }
 
   // Check component file
   let componentEntry: FileEntry | null = null;
   if (category !== 'unknown') {
-    const componentDir = path.join(
-      PROJECT_ROOT,
-      'src/components',
-      category
-    );
-    const pascalName = normalized
-      .split('-')
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join('');
-
-    // Try both kebab-case and PascalCase filenames
-    componentEntry =
-      checkFile(componentDir, `${normalized}.tsx`) ||
-      checkFile(componentDir, `${pascalName}.tsx`);
+    const componentDir = path.join(PROJECT_ROOT, 'src/components', category);
+    componentEntry = findComponentFile(componentDir, underscoreName);
   }
 
   return {
-    component: normalized,
+    component: underscoreName,
     category,
     constants: constantsEntry,
     variants: variantsEntry,
@@ -246,7 +277,7 @@ function scanComponent(componentName: string): ComponentReport {
  */
 function formatSize(bytes?: number): string {
   if (bytes === undefined) return '    -';
-  if (bytes < 1024) return `${bytes}B`;
+  if (bytes < 1024) return `${bytes}B`.padStart(5);
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)}KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
 }
@@ -263,9 +294,15 @@ function statusEmoji(entry: FileEntry | null): string {
  * Print a full report to the console.
  */
 function printReport(reports: ComponentReport[]): void {
-  console.log('\n╔═══════════════════════════════════════════════════════════════════════════╗');
-  console.log('║                    COMPONENT FILE AUDIT REPORT                             ║');
-  console.log('╚═══════════════════════════════════════════════════════════════════════════╝\n');
+  console.log(
+    '\n╔══════════════════════════════════════════════════════════════════════════════════════════════╗'
+  );
+  console.log(
+    '║                         COMPONENT FILE AUDIT REPORT                                          ║'
+  );
+  console.log(
+    '╚══════════════════════════════════════════════════════════════════════════════════════════════╝\n'
+  );
 
   // Summary counts
   let totalConsts = 0;
@@ -282,35 +319,65 @@ function printReport(reports: ComponentReport[]): void {
     if (report.componentFile) totalComponents++;
   }
 
-  console.log('┌─────────────────────────────────────────────────────────────────────────────┐');
-  console.log('│                              SUMMARY                                         │');
-  console.log('├─────────────────────────────────────────────────────────────────────────────┤');
-  console.log(`│  Components audited:        ${String(reports.length).padStart(3)}                                           │`);
-  console.log(`│  With constants files:      ${String(totalConsts).padStart(3)}  ✅                                         │`);
-  console.log(`│  With variants files:       ${String(totalVars).padStart(3)}  ✅                                         │`);
-  console.log(`│  With types files:          ${String(totalTypes).padStart(3)}  ✅                                         │`);
-  console.log(`│  With utils files:          ${String(totalUtils).padStart(3)}  ✅                                         │`);
-  console.log(`│  With component files:      ${String(totalComponents).padStart(3)}  ✅                                         │`);
-  console.log('└─────────────────────────────────────────────────────────────────────────────┘\n');
+  console.log(
+    '┌──────────────────────────────────────────────────────────────────────────────────────────────┐'
+  );
+  console.log(
+    '│                                         SUMMARY                                               │'
+  );
+  console.log(
+    '├──────────────────────────────────────────────────────────────────────────────────────────────┤'
+  );
+  console.log(
+    `│  Components audited:        ${String(reports.length).padStart(3)}                                                    │`
+  );
+  console.log(
+    `│  With constants files:      ${String(totalConsts).padStart(3)}  ✅                                                  │`
+  );
+  console.log(
+    `│  With variants files:       ${String(totalVars).padStart(3)}  ✅                                                  │`
+  );
+  console.log(
+    `│  With types files:          ${String(totalTypes).padStart(3)}  ✅                                                  │`
+  );
+  console.log(
+    `│  With utils files:          ${String(totalUtils).padStart(3)}  ✅                                                  │`
+  );
+  console.log(
+    `│  With component files:      ${String(totalComponents).padStart(3)}  ✅                                                  │`
+  );
+  console.log(
+    '└──────────────────────────────────────────────────────────────────────────────────────────────┘\n'
+  );
 
   // Detailed table
-  console.log('┌──────────────────────┬──────────┬───────────┬──────────┬──────────┬──────────┬───────────┐');
-  console.log('│ Component            │ Category │ Constants │ Variants │ Types    │ Utils    │ Component │');
-  console.log('├──────────────────────┼──────────┼───────────┼──────────┼──────────┼──────────┼───────────┤');
+  console.log(
+    '┌────────────────────┬──────────┬───────────┬──────────┬──────────┬──────────┬───────────┐'
+  );
+  console.log(
+    '│ Component          │ Category │ Constants │ Variants │ Types    │ Utils    │ Component │'
+  );
+  console.log(
+    '├────────────────────┼──────────┼───────────┼──────────┼──────────┼──────────┼───────────┤'
+  );
 
   for (const report of reports) {
-    const name = report.component.padEnd(20);
+    const name = report.component.padEnd(18);
     const cat = report.category.padEnd(8);
-    const c = `${statusEmoji(report.constants)} ${formatSize(report.constants?.size)}`.padEnd(9);
-    const v = `${statusEmoji(report.variants)} ${formatSize(report.variants?.size)}`.padEnd(8);
-    const t = `${statusEmoji(report.types)} ${formatSize(report.types?.size)}`.padEnd(8);
-    const u = `${statusEmoji(report.utils)} ${formatSize(report.utils?.size)}`.padEnd(8);
-    const comp = `${statusEmoji(report.componentFile)} ${formatSize(report.componentFile?.size)}`.padEnd(9);
+    const c = `${statusEmoji(report.constants)} ${formatSize(report.constants?.size)}`.padEnd(10);
+    const v = `${statusEmoji(report.variants)} ${formatSize(report.variants?.size)}`.padEnd(9);
+    const t = `${statusEmoji(report.types)} ${formatSize(report.types?.size)}`.padEnd(9);
+    const u = `${statusEmoji(report.utils)} ${formatSize(report.utils?.size)}`.padEnd(9);
+    const comp = `${statusEmoji(report.componentFile)} ${formatSize(report.componentFile?.size)}`.padEnd(10);
 
-    console.log(`│ ${name} │ ${cat} │ ${c} │ ${v} │ ${t} │ ${u} │ ${comp} │`);
+    console.log(
+      `│ ${name} │ ${cat} │ ${c}│ ${v}│ ${t}│ ${u}│ ${comp}│`
+    );
   }
 
-  console.log('└──────────────────────┴──────────┴───────────┴──────────┴──────────┴──────────┴───────────┘\n');
+  console.log(
+    '└────────────────────┴──────────┴───────────┴──────────┴──────────┴──────────┴───────────┘\n'
+  );
 
   // Missing files summary
   const missingConsts = reports.filter((r) => !r.constants);
@@ -320,22 +387,58 @@ function printReport(reports: ComponentReport[]): void {
   const missingComponents = reports.filter((r) => !r.componentFile);
 
   if (missingConsts.length > 0) {
-    console.log(`❌ Missing constants (${missingConsts.length}): ${missingConsts.map((r) => r.component).join(', ')}`);
+    console.log(
+      `❌ Missing constants (${missingConsts.length}): ${missingConsts.map((r) => r.component).join(', ')}`
+    );
   }
   if (missingVars.length > 0) {
-    console.log(`❌ Missing variants  (${missingVars.length}): ${missingVars.map((r) => r.component).join(', ')}`);
+    console.log(
+      `❌ Missing variants  (${missingVars.length}): ${missingVars.map((r) => r.component).join(', ')}`
+    );
   }
   if (missingTypes.length > 0) {
-    console.log(`❌ Missing types     (${missingTypes.length}): ${missingTypes.map((r) => r.component).join(', ')}`);
+    console.log(
+      `❌ Missing types     (${missingTypes.length}): ${missingTypes.map((r) => r.component).join(', ')}`
+    );
   }
   if (missingUtils.length > 0) {
-    console.log(`❌ Missing utils     (${missingUtils.length}): ${missingUtils.map((r) => r.component).join(', ')}`);
+    console.log(
+      `❌ Missing utils     (${missingUtils.length}): ${missingUtils.map((r) => r.component).join(', ')}`
+    );
   }
   if (missingComponents.length > 0) {
-    console.log(`❌ Missing component (${missingComponents.length}): ${missingComponents.map((r) => r.component).join(', ')}`);
+    console.log(
+      `❌ Missing component (${missingComponents.length}): ${missingComponents.map((r) => r.component).join(', ')}`
+    );
   }
 
-  console.log('\n');
+  // Components with all supporting files but no component file
+  const orphanedSupport = reports.filter(
+    (r) =>
+      (r.constants || r.variants || r.types || r.utils) && !r.componentFile
+  );
+  if (orphanedSupport.length > 0) {
+    console.log(
+      `\n⚠️  Support files exist but NO component: ${orphanedSupport.map((r) => r.component).join(', ')}`
+    );
+  }
+
+  // Components with a component file but no supporting files
+  const noSupport = reports.filter(
+    (r) =>
+      r.componentFile &&
+      !r.constants &&
+      !r.variants &&
+      !r.types &&
+      !r.utils
+  );
+  if (noSupport.length > 0) {
+    console.log(
+      `⚠️  Component exists but NO supporting files: ${noSupport.map((r) => r.component).join(', ')}`
+    );
+  }
+
+  console.log('');
 }
 
 /**
