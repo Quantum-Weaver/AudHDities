@@ -2,7 +2,7 @@
 // The Library - Learning hub
 // Feeling: Curious, expansive, wise, empowering
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Library | Sovereign Sanctuary',

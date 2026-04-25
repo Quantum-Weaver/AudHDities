@@ -2,7 +2,7 @@
 // The Stage - Live performances hub
 // Feeling: Energetic, creative, flowing, euphoric
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Stage | Sovereign Sanctuary',

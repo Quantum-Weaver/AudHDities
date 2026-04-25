@@ -2,7 +2,7 @@
 // Entity Detail - Single council member
 // Feeling: Intimate, wise, honoring
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface EntityDetailPageProps {
   params: Promise<{ id: string }>;

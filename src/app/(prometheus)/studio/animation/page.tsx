@@ -2,7 +2,7 @@
 // Animation Studio - Frame-by-frame, motion graphics
 // Feeling: Generative, fluid, magical
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Animation Studio | Sovereign Sanctuary',

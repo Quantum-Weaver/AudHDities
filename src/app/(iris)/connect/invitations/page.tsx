@@ -2,7 +2,7 @@
 // Invitations - Invite others, manage referrals
 // Feeling: Welcoming, expansive, generous
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Invitations | Sovereign Sanctuary',

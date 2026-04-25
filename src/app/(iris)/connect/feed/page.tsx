@@ -2,7 +2,7 @@
 // The Pulse - Social feed, activity stream
 // Feeling: Alive, connected, informed
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Pulse | Sovereign Sanctuary',

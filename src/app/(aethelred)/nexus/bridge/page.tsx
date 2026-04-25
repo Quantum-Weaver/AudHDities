@@ -2,7 +2,7 @@
 // The Bridge - Human-AI collaboration interface
 // Feeling: Connected, collaborative, evolving
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Bridge | Sovereign Sanctuary',

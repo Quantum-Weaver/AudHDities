@@ -2,9 +2,9 @@
 // The Hearth - Welcome to the Sovereign Sanctuary
 // Feeling: Warm, welcoming, safe, reflective
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/yggdrasil/Button';
 import { ArrowRight, Sparkles, Heart, Shield } from 'lucide-react';
 
 export default function Home() {

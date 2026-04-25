@@ -2,7 +2,7 @@
 // The Vessel - User profile, sovereignty, contributions
 // Feeling: Reflective, sovereign, whole
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Vessel | Sovereign Sanctuary',

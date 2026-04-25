@@ -2,7 +2,7 @@
 // Pattern Recognition - Insights from data
 // Feeling: Revealing, intelligent, illuminating
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Pattern Recognition | Sovereign Sanctuary',

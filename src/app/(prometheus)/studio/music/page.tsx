@@ -2,7 +2,7 @@
 // Music Studio - Compose, record, produce music
 // Feeling: Flow, creative, euphoric
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Music Studio | Sovereign Sanctuary',

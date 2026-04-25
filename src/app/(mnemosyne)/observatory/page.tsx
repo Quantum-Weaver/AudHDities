@@ -2,7 +2,7 @@
 // The Observatory - Memory and vision hub
 // Feeling: Awe-inspiring, reflective, cosmic, visionary
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Observatory | Sovereign Sanctuary',

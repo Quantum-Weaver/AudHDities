@@ -2,7 +2,7 @@
 // The Grimoire - Effect gallery, animation showcase
 // Feeling: Magical, inspirational, playful
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Grimoire | Sovereign Sanctuary',

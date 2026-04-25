@@ -2,7 +2,7 @@
 // The Bazaar - Marketplace hub
 // Feeling: Abundant, curious, playful, connected
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Bazaar | Sovereign Sanctuary',

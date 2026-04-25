@@ -2,7 +2,7 @@
 // Support Thread - Individual support conversation
 // Feeling: Safe, responsive, caring
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface SupportThreadPageProps {
   params: Promise<{ id: string }>;

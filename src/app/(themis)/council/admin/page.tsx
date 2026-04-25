@@ -3,7 +3,7 @@
 // Feeling: Responsible, powerful, careful
 // ACCESS: Admin only
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Hearth of Governance | Sovereign Sanctuary',

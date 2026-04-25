@@ -2,7 +2,7 @@
 // Creator Sanctuary - Single creator profile
 // Feeling: Honoring, inspiring, connected
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface CreatorSanctuaryPageProps {
   params: Promise<{ id: string }>;

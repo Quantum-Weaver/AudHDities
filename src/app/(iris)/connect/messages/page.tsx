@@ -2,7 +2,7 @@
 // The Stream - Direct messages inbox
 // Feeling: Connected, organized, responsive
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Stream | Sovereign Sanctuary',

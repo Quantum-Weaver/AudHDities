@@ -2,7 +2,7 @@
 // The Welcome - Accessibility statement, accommodations
 // Feeling: Welcoming, inclusive, caring
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Welcome | Sovereign Sanctuary',

@@ -2,7 +2,7 @@
 // The Bridge - Communication hub
 // Feeling: Connected, understood, welcomed, celebrated
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Bridge | Sovereign Sanctuary',

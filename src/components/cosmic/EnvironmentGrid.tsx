@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/runes/cards/Card";
+import { Badge } from "@/components/runes/Badge";
 import { DOMAIN_COLORS, MOOD_COLORS } from "@/lib/constants/cosmic/colors";
 import { GLOW_EFFECTS } from "@/lib/constants/cosmic/effects";
 

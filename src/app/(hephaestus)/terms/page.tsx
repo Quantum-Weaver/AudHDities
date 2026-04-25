@@ -1,6 +1,6 @@
 // app/(content)/terms/terms/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { TermsHero } from '@/components/hephaestus/supporting/legal/TermsHero';
 import { ParsedTermsContent } from '@/components/hephaestus/supporting/legal/ParsedTermsContent';
 import { TermsFooter } from '@/components/hephaestus/supporting/legal/TermsFooter';

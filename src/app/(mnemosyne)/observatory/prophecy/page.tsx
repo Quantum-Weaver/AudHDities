@@ -2,7 +2,7 @@
 // The Vision - Future projections, possibilities
 // Feeling: Hopeful, visionary, expansive
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Vision | Sovereign Sanctuary',

@@ -2,7 +2,7 @@
 // The Echo - Past performance recordings
 // Feeling: Nostalgic, reflective, celebratory
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Echo | Sovereign Sanctuary',

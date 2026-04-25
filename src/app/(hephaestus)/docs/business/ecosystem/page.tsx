@@ -1,14 +1,14 @@
 // app/(content)/docs/business/ecosystem/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { FinancialEcosystemHero } from '@/components/hephaestus/supporting/business/FinancialEcosystemHero';
 import { TwoStreamFlow } from '@/components/hephaestus/supporting/business/TwoStreamFlow';
 import { ResidualDistribution } from '@/components/hephaestus/supporting/business/ResidualDistribution';
 import { TransparencyLedger } from '@/components/hephaestus/supporting/business/TransparencyLedger';
 import { SustainabilityMetrics } from '@/components/hephaestus/supporting/business/SustainabilityMetrics';
 import { DignityFloor } from '@/components/hephaestus/supporting/business/DignityFloor';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/runes/cards/Card';
+import { Button } from '@/components/yggdrasil/Button';
 import { ArrowRight, Shield, Users, DollarSign, Heart, TrendingUp, HandCoins } from 'lucide-react';
 import Link from 'next/link';
 

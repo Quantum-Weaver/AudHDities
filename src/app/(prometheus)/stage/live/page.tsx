@@ -2,7 +2,7 @@
 // Now Playing - All currently live performances
 // Feeling: Energetic, euphoric, connected
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Now Playing | Sovereign Sanctuary',

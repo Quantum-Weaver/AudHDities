@@ -2,7 +2,7 @@
 // Journal Entry - Single journal entry view
 // Feeling: Peaceful, reflective, sacred
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface JournalEntryPageProps {
   params: Promise<{ id: string }>;

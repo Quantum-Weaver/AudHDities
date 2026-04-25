@@ -2,7 +2,7 @@
 // The Calling - Job listings, opportunities
 // Feeling: Hopeful, purposeful, inviting
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Calling | Sovereign Sanctuary',

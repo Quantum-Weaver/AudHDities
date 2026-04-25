@@ -1,6 +1,6 @@
 // app/(content)/docs/architecture/auth-flow/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { AuthFlowHero } from '@/components/hephaestus/supporting/docs/AuthFlowHero';
 import { FlowDiagram } from '@/components/hephaestus/supporting/docs/FlowDiagram';
 import { StepCard } from '@/components/hephaestus/supporting/docs/StepCard';
@@ -8,7 +8,7 @@ import { CodeBlock } from '@/components/hephaestus/supporting/docs/CodeBlock';
 import { ProtectedRoutesTable } from '@/components/hephaestus/supporting/docs/ProtectedRoutesTable';
 import fs from 'fs/promises';
 import path from 'path';
-import { Card } from '@/components/ui/Card';
+import { Card } from '@/components/runes/cards/Card';
 
 export const metadata: Metadata = {
   title: 'Auth Flow | AUDHDITIES Architecture',

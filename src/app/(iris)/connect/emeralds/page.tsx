@@ -2,7 +2,7 @@
 // Emeralds - Given and received emeralds (likes/tips)
 // Feeling: Appreciated, valued, celebrated
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Emeralds | Sovereign Sanctuary',

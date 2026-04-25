@@ -2,7 +2,7 @@
 // The Loom - Create new product/service
 // Feeling: Generative, fluid, sovereign
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Loom | Sovereign Sanctuary',

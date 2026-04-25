@@ -2,7 +2,7 @@
 // The Voice - Language settings, translations
 // Feeling: Understood, welcomed, global
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Voice | Sovereign Sanctuary',

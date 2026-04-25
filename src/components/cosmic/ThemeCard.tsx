@@ -6,8 +6,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/runes/cards/Card";
+import { Button } from "@/components/yggdrasil/Button";
 import { DOMAIN_COLORS } from "@/lib/constants/cosmic/colors";
 import { EnvironmentPromptMap } from "@/lib/constants/systems/assets/environment_prompts";
 

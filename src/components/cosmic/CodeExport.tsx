@@ -5,9 +5,9 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Tabs, TabsList, TabsTrigger, TabsPanel } from "@/components/ui/Tabs";
+import { Card } from "@/components/runes/cards/Card";
+import { Button } from "@/components/yggdrasil/Button";
+import { Tabs, TabsList, TabsTrigger, TabsPanel } from "@/components/vegvisir/Tabs";
 import { CheckIcon, CopyIcon } from "lucide-react";
 
 export interface CodeExportProps {

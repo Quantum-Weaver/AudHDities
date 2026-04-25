@@ -2,7 +2,7 @@
 // Reports - Moderation reports and transparency
 // Feeling: Accountable, just, protective
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Reports | Sovereign Sanctuary',

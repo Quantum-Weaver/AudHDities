@@ -2,7 +2,7 @@
 // Channel View - Single channel view
 // Feeling: Connected, engaged, communal
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ChannelViewPageProps {
   params: Promise<{ id: string }>;

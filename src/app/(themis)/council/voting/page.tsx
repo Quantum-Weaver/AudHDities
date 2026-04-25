@@ -2,7 +2,7 @@
 // The Vote - Active voting opportunities
 // Feeling: Engaged, empowered, responsible
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Vote | Sovereign Sanctuary',

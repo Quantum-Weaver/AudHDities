@@ -2,7 +2,7 @@
 // Applications - Creator/vendor/curator applications
 // Feeling: Hopeful, aspirational, welcoming
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Applications | Sovereign Sanctuary',

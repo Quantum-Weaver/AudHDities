@@ -2,7 +2,7 @@
 // The Curriculum - Structured learning paths
 // Feeling: Organized, progressive, empowering
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Curriculum | Sovereign Sanctuary',

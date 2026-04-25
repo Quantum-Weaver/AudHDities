@@ -2,7 +2,7 @@
 // Ancestors - Honoring past contributors
 // Feeling: Sacred, honoring, connected
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Ancestors | Sovereign Sanctuary',

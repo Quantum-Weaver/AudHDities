@@ -2,7 +2,7 @@
 // The Exchange - Checkout, payment flow
 // Feeling: Secure, smooth, completing
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Exchange | Sovereign Sanctuary',

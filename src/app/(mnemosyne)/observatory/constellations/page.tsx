@@ -2,7 +2,7 @@
 // Constellations - Connection web, collaboration map
 // Feeling: Cosmic, interconnected, beautiful
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Constellations | Sovereign Sanctuary',

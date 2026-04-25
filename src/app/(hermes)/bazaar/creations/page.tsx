@@ -2,7 +2,7 @@
 // Creations - All products, services, art
 // Feeling: Abundant, discoverable, diverse
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Creations | Sovereign Sanctuary',

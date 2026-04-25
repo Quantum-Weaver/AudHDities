@@ -2,7 +2,7 @@
 // Quest Detail - Single quest view
 // Feeling: Challenging, rewarding, transformative
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface QuestDetailPageProps {
   params: Promise<{ id: string }>;

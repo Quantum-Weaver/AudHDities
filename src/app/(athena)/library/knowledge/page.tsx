@@ -2,7 +2,7 @@
 // The Archive - Knowledge base, documentation
 // Feeling: Sacred, vast, discoverable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Archive | Sovereign Sanctuary',

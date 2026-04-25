@@ -2,7 +2,7 @@
 // Conversation - Single message thread
 // Feeling: Intimate, connected, flowing
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ConversationPageProps {
   params: Promise<{ id: string }>;

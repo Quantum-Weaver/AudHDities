@@ -2,7 +2,7 @@
 // Event Detail - Single scheduled event view
 // Feeling: Anticipatory, excited, prepared
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface EventDetailPageProps {
   params: Promise<{ id: string }>;

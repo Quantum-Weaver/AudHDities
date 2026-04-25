@@ -2,7 +2,7 @@
 // The Health - System status, health metrics
 // Feeling: Secure, transparent, reliable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Health | Sovereign Sanctuary',

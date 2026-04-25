@@ -2,7 +2,7 @@
 // The Music Realm - Music performances hub
 // Feeling: Energetic, flowing, euphoric
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Music Realm | Sovereign Sanctuary',

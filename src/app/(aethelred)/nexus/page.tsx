@@ -2,7 +2,7 @@
 // The Nexus - Integration hub, consciousness overview
 // Feeling: Bridging, integrating, whole, sovereign
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Nexus | Sovereign Sanctuary',

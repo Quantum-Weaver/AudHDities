@@ -6,9 +6,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Switch } from "@/components/ui/Switch";
+import { Card } from "@/components/runes/cards/Card";
+import { Button } from "@/components/yggdrasil/Button";
+import { Switch } from "@/components/forging/Switch";
 import { Eye, EyeOff, Zap, Brain, Network, Globe } from "lucide-react";
 import { MOOD_COLORS, ENERGY_COLORS } from "@/lib/constants/cosmic/colors";
 

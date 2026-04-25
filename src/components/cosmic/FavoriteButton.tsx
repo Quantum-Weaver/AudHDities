@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/yggdrasil/Button";
 import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
 

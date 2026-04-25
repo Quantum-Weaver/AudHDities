@@ -2,7 +2,7 @@
 // The Theater - Agent observability, system visualization
 // Feeling: Observant, intelligent, revealing
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Theater | Sovereign Sanctuary',

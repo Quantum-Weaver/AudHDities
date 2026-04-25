@@ -2,7 +2,7 @@
 // The Gateway - Export, publish, share across platforms
 // Feeling: Connected, expansive, liberating
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Gateway | Sovereign Sanctuary',

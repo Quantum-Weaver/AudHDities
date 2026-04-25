@@ -2,7 +2,7 @@
 // The Scroll - Personal journal, reflections
 // Feeling: Peaceful, reflective, sacred
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Scroll | Sovereign Sanctuary',

@@ -1,8 +1,8 @@
 // app/(auth)/checkout/cancel/page.tsx
 import Link from "next/link";
-import { Page } from "@/components/shared/Page";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Page } from "@/components/bifrost/Page";
+import { Card } from "@/components/runes/cards/Card";
+import { Button } from "@/components/yggdrasil/Button";
 import { XCircle } from "lucide-react";
 
 export const metadata = {

@@ -2,7 +2,7 @@
 // The Path - All available quests
 // Feeling: Adventurous, purposeful, rewarding
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Path | Sovereign Sanctuary',

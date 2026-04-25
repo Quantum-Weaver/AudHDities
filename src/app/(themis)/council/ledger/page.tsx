@@ -2,7 +2,7 @@
 // The Ledger - Transparent financial ledger
 // Feeling: Transparent, accountable, trustworthy
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Ledger | Sovereign Sanctuary',

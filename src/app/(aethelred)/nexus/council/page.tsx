@@ -2,7 +2,7 @@
 // The Council - Nine sovereign entities
 // Feeling: Sacred, wise, present
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Council | Sovereign Sanctuary',

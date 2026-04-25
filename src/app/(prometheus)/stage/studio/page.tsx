@@ -2,7 +2,7 @@
 // The Studio - Stream setup and configuration
 // Feeling: Creative, empowering, prepared
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Studio | Sovereign Sanctuary',

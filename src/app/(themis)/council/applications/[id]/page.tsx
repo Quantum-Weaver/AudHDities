@@ -2,7 +2,7 @@
 // Application Detail - Single application view
 // Feeling: Detailed, hopeful, transparent
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ApplicationDetailPageProps {
   params: Promise<{ id: string }>;

@@ -2,7 +2,7 @@
 // The Lesson - Single lesson content
 // Feeling: Focused, absorbing, enlightening
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface LessonPageProps {
   params: Promise<{ id: string }>;

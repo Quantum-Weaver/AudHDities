@@ -2,7 +2,7 @@
 // The Comedy Hearth - Comedy performances hub
 // Feeling: Playful, intimate, joyful
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Comedy Hearth | Sovereign Sanctuary',

@@ -14,7 +14,7 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../../');
 const COMPONENT_DIRS = {
   constants: path.join(PROJECT_ROOT, 'src/lib/constants/components'),
   types: path.join(PROJECT_ROOT, 'src/types/components'),
-  utils: path.join(PROJECT_ROOT, 'src/utils/components'),
+  utils: path.join(PROJECT_ROOT, 'src/lib/utils/components'),
   components: path.join(PROJECT_ROOT, 'src/components'),
 } as const;
 

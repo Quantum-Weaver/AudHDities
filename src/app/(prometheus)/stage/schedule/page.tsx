@@ -2,7 +2,7 @@
 // The Calendar - Upcoming performance schedule
 // Feeling: Anticipatory, organized, community-driven
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Calendar | Sovereign Sanctuary',

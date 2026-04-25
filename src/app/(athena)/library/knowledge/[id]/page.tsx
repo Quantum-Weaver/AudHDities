@@ -2,7 +2,7 @@
 // Scroll Detail - Single knowledge article
 // Feeling: Sacred, enlightening, timeless
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ScrollDetailPageProps {
   params: Promise<{ id: string }>;

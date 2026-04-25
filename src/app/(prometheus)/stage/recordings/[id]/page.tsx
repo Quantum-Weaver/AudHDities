@@ -2,7 +2,7 @@
 // Recording - Single recorded performance view
 // Feeling: Intimate, warm, reflective
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface RecordingPageProps {
   params: Promise<{ id: string }>;

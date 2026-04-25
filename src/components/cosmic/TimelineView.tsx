@@ -5,9 +5,9 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/runes/cards/Card";
+import { Badge } from "@/components/runes/Badge";
+import { Button } from "@/components/yggdrasil/Button";
 import { MOOD_COLORS } from "@/lib/constants/cosmic/colors";
 
 export interface TimelineEvent {

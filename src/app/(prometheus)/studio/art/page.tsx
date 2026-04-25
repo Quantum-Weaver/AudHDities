@@ -2,7 +2,7 @@
 // Art Studio - Draw, paint, design
 // Feeling: Creative, fluid, expressive
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Art Studio | Sovereign Sanctuary',

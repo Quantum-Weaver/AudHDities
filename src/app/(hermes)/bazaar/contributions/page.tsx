@@ -2,7 +2,7 @@
 // Contributions Ledger - All contributions, residuals
 // Feeling: Transparent, valuable, accountable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Contributions Ledger | Sovereign Sanctuary',

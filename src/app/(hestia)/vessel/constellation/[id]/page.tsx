@@ -2,7 +2,7 @@
 // Connection Detail - Single connection/collaboration view
 // Feeling: Connected, expansive, cosmic
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ConnectionDetailPageProps {
   params: Promise<{ id: string }>;

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useStatusBar } from "@/hooks/useStatusBar";
 import { getPageMetadata } from "@/lib/constants/systems/environments/page_mapping";
-import { Container } from "@/components/ui/Container";
-import { HStack } from "@/components/ui/Stack";
-import { Spacer } from "@/components/ui/Spacer";
+import { Container } from "@/components/hof/Container";
+import { HStack } from "@/components/hof/Stack";
+import { Spacer } from "@/components/hof/Spacer";
 import { cn } from "@/lib/utils";
 import { Shield, Coins, Zap, Heart, Brain, TrendingUp, Sparkles } from "lucide-react";
 

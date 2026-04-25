@@ -2,7 +2,7 @@
 // Integrations - External connections
 // Feeling: Connected, expansive, powerful
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Integrations | Sovereign Sanctuary',

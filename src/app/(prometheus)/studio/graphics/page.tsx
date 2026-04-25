@@ -2,7 +2,7 @@
 // Effects Lab - Magic, particles, glows
 // Feeling: Magical, energetic, euphoric
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Effects Lab | Sovereign Sanctuary',

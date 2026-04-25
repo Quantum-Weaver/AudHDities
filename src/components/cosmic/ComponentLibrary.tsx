@@ -4,8 +4,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/runes/cards/Card";
+import { Badge } from "@/components/runes/Badge";
 import { 
   Square, 
   Type, 

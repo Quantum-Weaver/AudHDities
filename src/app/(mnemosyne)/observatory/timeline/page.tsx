@@ -2,7 +2,7 @@
 // The Spiral - Personal journey timeline
 // Feeling: Reflective, dimensional, revealing
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Spiral | Sovereign Sanctuary',

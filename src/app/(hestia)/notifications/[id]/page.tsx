@@ -2,7 +2,7 @@
 // Notification Detail - Single notification view
 // Feeling: Connected, informed, aware
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface NotificationDetailPageProps {
   params: Promise<{ id: string }>;

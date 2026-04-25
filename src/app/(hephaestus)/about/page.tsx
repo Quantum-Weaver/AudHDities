@@ -1,11 +1,11 @@
 // src/app/(content)/about/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
-import { AboutHero } from '@/components/iris/about/AboutHero';
-import { OriginStory } from '@/components/iris/about/OriginStory';
-import { CouncilCard } from '@/components/iris/about/CouncilCard';
-import { ValueCard } from '@/components/iris/about/ValueCard';
-import { InvitationCard } from '@/components/iris/about/InvitationCard';
+import { Page } from '@/components/bifrost/Page';
+import { AboutHero } from '@/components/archive/iris/about/AboutHero';
+import { OriginStory } from '@/components/archive/iris/about/OriginStory';
+import { CouncilCard } from '@/components/archive/iris/about/CouncilCard';
+import { ValueCard } from '@/components/archive/iris/about/ValueCard';
+import { InvitationCard } from '@/components/archive/iris/about/InvitationCard';
 import { Heart, Shield, Sparkles, Infinity } from 'lucide-react';
 
 export const metadata: Metadata = {

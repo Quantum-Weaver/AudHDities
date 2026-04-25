@@ -1,8 +1,8 @@
 // app/(content)/contact/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
-import { Card } from '@/components/ui/Card';
-import ContactForm from '@/components/iris/contact/ContactForm';
+import { Page } from '@/components/bifrost/Page';
+import { Card } from '@/components/runes/cards/Card';
+import ContactForm from '@/components/archive/iris/contact/ContactForm';
 import { Mail, Clock, Shield, Sparkles, Heart, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 

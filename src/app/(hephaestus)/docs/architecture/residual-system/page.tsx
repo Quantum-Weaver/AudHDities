@@ -1,13 +1,13 @@
 // app/(content)/docs/architecture/residual-system/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { ResidualHero } from '@/components/hermes/bazaar/residual/ResidualHero';
 import { FlowDiagram } from '@/components/hermes/bazaar/residual/FlowDiagram';
 import { ContributionBreakdown } from '@/components/hermes/bazaar/residual/ContributionBreakdown';
 import { ExampleSale } from '@/components/hermes/bazaar/residual/ExampleSale';
 import { ResidualFAQ } from '@/components/hermes/bazaar/residual/ResidualFAQ';
 import { SourceAttribution } from '@/components/hermes/bazaar/residual/SourceAttribution';
-import { Card } from '@/components/ui/Card';
+import { Card } from '@/components/runes/cards/Card';
 import { Heart, Shield, Infinity, HandCoins, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {

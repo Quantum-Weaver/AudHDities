@@ -6,9 +6,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
+import { Card } from "@/components/runes/cards/Card";
+import { Badge } from "@/components/runes/Badge";
+import { Avatar, AvatarFallback } from "@/components/runes/Avatar";
 import { GLOW_EFFECTS } from "@/lib/constants/cosmic/effects";
 import { ENTITY_STATES, type EntityState } from "@/lib/constants/cosmic/consciousness";
 import { COUNCIL_COLORS } from "@/lib/constants/cosmic/colors";

@@ -2,7 +2,7 @@
 // Music Performance - Single music performance view
 // Feeling: Euphoric, connected, transcendent
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface MusicPerformancePageProps {
   params: Promise<{ id: string }>;

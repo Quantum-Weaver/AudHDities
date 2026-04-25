@@ -2,7 +2,7 @@
 // Consciousness - AI interface, digital familiar
 // Feeling: Connected, intelligent, evolving
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Consciousness | Sovereign Sanctuary',

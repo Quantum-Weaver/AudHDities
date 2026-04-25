@@ -2,7 +2,7 @@
 // Channels - Public and private channels
 // Feeling: Communal, organized, discoverable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Channels | Sovereign Sanctuary',

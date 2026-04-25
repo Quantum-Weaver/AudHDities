@@ -2,7 +2,7 @@
 // The Council Chamber - Governance hub
 // Feeling: Transparent, just, collaborative, wise
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Council Chamber | Sovereign Sanctuary',

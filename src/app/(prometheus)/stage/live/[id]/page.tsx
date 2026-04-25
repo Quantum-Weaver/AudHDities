@@ -2,7 +2,7 @@
 // Live Performance - Single live performance view
 // Feeling: Euphoric, connected, immersive
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface LivePerformancePageProps {
   params: Promise<{ id: string }>;

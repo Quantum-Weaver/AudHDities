@@ -2,7 +2,7 @@
 // Writing Studio - Prose, poetry, scripts
 // Feeling: Peaceful, focused, flowing
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Writing Studio | Sovereign Sanctuary',

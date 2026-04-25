@@ -2,7 +2,7 @@
 // Video Studio - Edit, composite, render
 // Feeling: Powerful, creative, transformative
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Video Studio | Sovereign Sanctuary',

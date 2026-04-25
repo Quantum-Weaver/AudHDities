@@ -2,7 +2,7 @@
 // Vendors - Directory of sovereign vendors
 // Feeling: Professional, trustworthy, diverse
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Vendors | Sovereign Sanctuary',

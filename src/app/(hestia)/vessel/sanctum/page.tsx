@@ -2,7 +2,7 @@
 // Sanctum - Settings, privacy, preferences
 // Feeling: Safe, protected, personal
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Sanctum | Sovereign Sanctuary',

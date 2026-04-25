@@ -2,7 +2,7 @@
 // The Honors - All earned and available badges
 // Feeling: Celebratory, motivating, honorable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Honors | Sovereign Sanctuary',

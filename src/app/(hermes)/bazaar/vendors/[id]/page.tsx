@@ -2,7 +2,7 @@
 // Vendor Sanctuary - Single vendor profile
 // Feeling: Professional, trustworthy, connected
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface VendorSanctuaryPageProps {
   params: Promise<{ id: string }>;

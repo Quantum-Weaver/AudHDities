@@ -2,7 +2,7 @@
 // Course View - Single course with lessons
 // Feeling: Structured, progressive, empowering
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface CourseViewPageProps {
   params: Promise<{ id: string }>;

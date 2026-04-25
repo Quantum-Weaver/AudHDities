@@ -2,7 +2,7 @@
 // Proposal Detail - Single proposal view
 // Feeling: Contemplative, engaged, empowered
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ProposalDetailPageProps {
   params: Promise<{ id: string }>;

@@ -2,7 +2,7 @@
 // The Loom - Creative tools hub
 // Feeling: Generative, fluid, sovereign, unbounded
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Loom | Sovereign Sanctuary',

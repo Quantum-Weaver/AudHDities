@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { DollarSign, TrendingUp, Users, CheckCircle, AlertCircle, Eye, Shield, Heart, HandCoins } from 'lucide-react';
 import Link from 'next/link';
-import { Page } from '@/components/shared/Page';
-import { Card } from '@/components/ui/Card';
+import { Page } from '@/components/bifrost/Page';
+import { Card } from '@/components/runes/cards/Card';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {

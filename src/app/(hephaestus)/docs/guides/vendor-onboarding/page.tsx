@@ -1,6 +1,6 @@
 // app/(content)/docs/guides/vendor-onboarding/page.tsx
 import { Metadata } from 'next';
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { OnboardingHero } from '@/components/hephaestus/supporting/onboarding/OnboardingHero';
 import { StepCard } from '@/components/hephaestus/supporting/onboarding/StepCard';
 import { InfoTable } from '@/components/hephaestus/supporting/onboarding/InfoTable';

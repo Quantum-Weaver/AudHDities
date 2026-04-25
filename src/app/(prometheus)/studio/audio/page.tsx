@@ -2,7 +2,7 @@
 // Audio Studio - Podcast, voiceover, sound design
 // Feeling: Focused, precise, powerful
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Audio Studio | Sovereign Sanctuary',

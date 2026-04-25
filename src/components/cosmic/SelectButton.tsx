@@ -6,7 +6,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/yggdrasil/Button";
 import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
 import { CheckIcon, SparklesIcon } from "lucide-react";
 

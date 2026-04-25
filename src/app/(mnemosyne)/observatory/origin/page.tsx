@@ -2,7 +2,7 @@
 // The Origin - Beginning of all journeys
 // Feeling: Sacred, awakening, primordial
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Origin | Sovereign Sanctuary',

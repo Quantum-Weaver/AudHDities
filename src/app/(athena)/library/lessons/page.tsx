@@ -2,7 +2,7 @@
 // The Lesson Path - All lessons across all courses
 // Feeling: Structured, progressive, empowering
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Lesson Path | Sovereign Sanctuary',

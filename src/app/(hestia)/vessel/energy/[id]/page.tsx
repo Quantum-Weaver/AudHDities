@@ -2,7 +2,7 @@
 // Energy Entry Detail - Single energy log entry
 // Feeling: Reflective, gentle, aware
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface EnergyEntryPageProps {
   params: Promise<{ id: string }>;

@@ -2,7 +2,7 @@
 // The Scroll - Press kit, media resources
 // Feeling: Professional, informative, accessible
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { PressKit } from '@/components/hephaestus/supporting/PressKit';
 import { MediaAssets } from '@/components/hephaestus/supporting/MediaAssets';
 import { LogoDownloads } from '@/components/hephaestus/supporting/LogoDownloads';

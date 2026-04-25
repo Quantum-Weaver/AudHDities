@@ -2,7 +2,7 @@
 // The Healing Flame - Support requests, crisis resources
 // Feeling: Safe, gentle, healing, restorative
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'The Healing Flame | Sovereign Sanctuary',

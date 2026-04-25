@@ -1,11 +1,11 @@
 // app/(content)/docs/business/plan/page.tsx
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 import { BusinessHero } from '@/components/hephaestus/supporting/business/BusinessHero';
 import { ValueFlowDiagram } from '@/components/hephaestus/supporting/business/ValueFlowDiagram';
 import { StatCard } from '@/components/hephaestus/supporting/business/StatCard';
 import { ProjectionTable } from '@/components/hephaestus/supporting/business/ProjectionTable';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/runes/cards/Card';
+import { Button } from '@/components/yggdrasil/Button';
 import { Target, Shield, Heart, Eye, Sparkles, TrendingUp, HandCoins } from 'lucide-react';
 import Link from 'next/link';
 

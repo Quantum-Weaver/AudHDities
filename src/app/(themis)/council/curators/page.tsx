@@ -2,7 +2,7 @@
 // Curators - Trusted wisdom-holders
 // Feeling: Respectful, trustworthy, wise
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Curators | Sovereign Sanctuary',

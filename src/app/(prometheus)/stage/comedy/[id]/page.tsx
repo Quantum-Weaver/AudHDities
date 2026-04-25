@@ -2,7 +2,7 @@
 // Comedy Special - Single comedy performance view
 // Feeling: Joyful, intimate, hilarious
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface ComedySpecialPageProps {
   params: Promise<{ id: string }>;

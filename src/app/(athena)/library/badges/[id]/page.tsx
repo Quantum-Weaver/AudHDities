@@ -2,7 +2,7 @@
 // Badge Detail - Single badge view
 // Feeling: Celebratory, meaningful, aspirational
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface BadgeDetailPageProps {
   params: Promise<{ id: string }>;

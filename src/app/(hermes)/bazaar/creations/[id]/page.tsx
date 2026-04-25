@@ -2,7 +2,7 @@
 // Creation Detail - Single product/service view
 // Feeling: Immersive, transparent, valuable
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 interface CreationDetailPageProps {
   params: Promise<{ id: string }>;

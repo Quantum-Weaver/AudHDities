@@ -2,7 +2,7 @@
 // Energy Log - Mood tracking, energy levels
 // Feeling: Reflective, gentle, aware
 
-import { Page } from '@/components/shared/Page';
+import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
   title: 'Energy Log | Sovereign Sanctuary',
