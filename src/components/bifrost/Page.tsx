@@ -7,7 +7,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import PanoramaViewer from "@/components/immersive/PanoramaViewer";
+import PanoramaViewer from "@/components/seidr/immersive/PanoramaViewer";
 import type { EnvironmentKey } from "@/lib/constants/systems";
 
 export interface PageProps {

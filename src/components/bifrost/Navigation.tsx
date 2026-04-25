@@ -20,7 +20,7 @@ import {
 } from '@/lib/constants/systems/environments/navigation';
 import { getPageEnvironment } from '@/lib/constants/systems/environments/page_mapping';
 
-import AuthButton from '@/components/auth/AuthButton';
+import AuthButton from '@/components/asgard/auth/AuthButton';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { NavigationProps } from '@/types/components/bifrost/navigation.types';

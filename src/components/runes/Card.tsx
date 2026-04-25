@@ -18,21 +18,21 @@ import type {
 import { getRecommendedVariant, truncateText } from '@/lib/utils/components/runes/card.utils';
 
 // Sub-components
-import { CardMedia } from './CardMedia';
-import { CardHeader } from './CardHeader';
-import { CardContent } from './CardContent';
-import { CardFooter } from './CardFooter';
+import { CardMedia } from './cards/CardMedia';
+import { CardHeader } from './cards/CardHeader';
+import { CardContent } from './cards/CardContent';
+import { CardFooter } from './cards/CardFooter';
 
 // Renderers
-import { ValueCardRenderer } from './ValueCardRenderer';
-import { PillarCardRenderer } from './PillarCardRenderer';
-import { StepCardRenderer } from './StepCardRenderer';
-import { PrincipleCardRenderer } from './PrincipleCardRenderer';
-import { InvitationCardRenderer } from './InvitationCardRenderer';
-import { PathwayCardRenderer } from './PathwayCardRenderer';
-import { ProductCardRenderer } from './ProductCardRenderer';
-import { QuestCardRenderer } from './QuestCardRenderer';
-import { ProposalCardRenderer } from './ProposalCardRenderer';
+import { ValueCardRenderer } from './cards/ValueCardRenderer';
+import { PillarCardRenderer } from './cards/PillarCardRenderer';
+import { StepCardRenderer } from './cards/StepCardRenderer';
+import { PrincipleCardRenderer } from './cards/PrincipleCardRenderer';
+import { InvitationCardRenderer } from './cards/InvitationCardRenderer';
+import { PathwayCardRenderer } from './cards/PathwayCardRenderer';
+import { ProductCardRenderer } from './cards/ProductCardRenderer';
+import { QuestCardRenderer } from './cards/QuestCardRenderer';
+import { ProposalCardRenderer } from './cards/ProposalCardRenderer';
 import { EventCardRenderer } from '../../archive/prometheus/EventCard';
 import { CreatorCardRenderer } from '../../archive/hermes/bazaar/CreatorCard';
 import { VendorCardRenderer } from '../../archive/hermes/bazaar/VendorCard';
@@ -40,11 +40,11 @@ import { EntityCardRenderer } from '../../archive/aethelred/EntityCardRenderer';
 import { StatCardRenderer } from '../../archive/shared/StatCard';
 import { UserCardRenderer } from '../../archive/hestia/UserCard';
 
-import { FileCardRenderer } from './FileCardRenderer';
-import { CouncilCardRenderer } from './CouncilCardRenderer';
-import { SchemaTableCardRenderer } from './SchemaTableCardRenderer';
-import { SchemaEnumCardRenderer } from './SchemaEnumCardRenderer';
-import { SchemaFunctionCardRenderer } from './SchemaFunctionCardRenderer';
+import { FileCardRenderer } from './cards/FileCardRenderer';
+import { CouncilCardRenderer } from './cards/CouncilCardRenderer';
+import { SchemaTableCardRenderer } from './cards/SchemaTableCardRenderer';
+import { SchemaEnumCardRenderer } from './cards/SchemaEnumCardRenderer';
+import { SchemaFunctionCardRenderer } from './cards/SchemaFunctionCardRenderer';
 // ============================================================================
 // MAIN CARD COMPONENT
 // ============================================================================

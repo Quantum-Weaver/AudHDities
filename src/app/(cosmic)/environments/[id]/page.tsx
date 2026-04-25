@@ -4,11 +4,11 @@
 
 import { notFound } from 'next/navigation';
 import { Page } from '@/components/bifrost/Page';
-import PanoramaViewer  from '@/components/immersive/PanoramaViewer';
-import { MoodIndicators } from '@/components/cosmic/MoodIndicators';
-import { ColorPalette } from '@/components/cosmic/ColorPalette';
-import { ThemeInfo } from '@/components/cosmic/ThemeInfo';
-import { ApplyButton } from '@/components/cosmic/ApplyButton';
+import PanoramaViewer  from '@/components/seidr/immersive/PanoramaViewer';
+import { MoodIndicators } from '@/components/asgard/cosmic/MoodIndicators';
+import { ColorPalette } from '@/components/asgard/cosmic/ColorPalette';
+import { ThemeInfo } from '@/components/asgard/cosmic/ThemeInfo';
+import { ApplyButton } from '@/components/asgard/cosmic/ApplyButton';
 import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
 
 interface RealmDetailPageProps {

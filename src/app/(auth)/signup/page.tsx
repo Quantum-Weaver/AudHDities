@@ -1,8 +1,8 @@
 /* @/app/(auth)/signup/page.tsx */
 import { Metadata } from 'next'
 import Link from 'next/link'
-import SignupForm from '@/components/auth/SignupForm'
-import AuthGuard from '@/components/auth/AuthGuard'
+import SignupForm from '@/components/asgard/auth/SignupForm'
+import AuthGuard from '@/components/asgard/auth/AuthGuard'
 
 export const metadata: Metadata = {
   title: 'Sign Up | AUDHDITIES',
