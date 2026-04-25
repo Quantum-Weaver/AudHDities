@@ -12,7 +12,7 @@ import { Label } from './Label';
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type {
   FormFieldProps,
-} from '@/types/components/ui/form_field.types';
+} from '@/types/components/forging/form_field.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -40,7 +40,7 @@ import {
   generateFieldId,
   getHelperId,
   getErrorId,
-} from '@/lib/utils/components/ui/form_field.utils';
+} from '@/lib/utils/components/forging/form_field.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FORM FIELD
@@ -192,4 +192,4 @@ export type {
   FormFieldProps,
   FormFieldSize,
   FormFieldLayout,
-} from '@/types/components/ui/form_field.types';
+} from '@/types/components/forging/form_field.types';

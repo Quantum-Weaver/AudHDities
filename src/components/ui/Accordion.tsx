@@ -29,7 +29,7 @@ import type {
   AccordionType,
   AccordionVariant,
   AccordionSize,
-} from '@/types/components/ui/accordion.types';
+} from '@/types/components/yggdrasil/accordion.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -57,7 +57,7 @@ import {
   getAccordionTriggerPadding,
   getNestedIndent,
   computeExpandedValues,
-} from '@/lib/utils/components/ui/accordion.utils';
+} from '@/lib/utils/components/yggdrasil/accordion.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -341,4 +341,4 @@ export type {
   AccordionType,
   AccordionVariant,
   AccordionSize,
-} from '@/types/components/ui/accordion.types';
+} from '@/types/components/yggdrasil/accordion.types';

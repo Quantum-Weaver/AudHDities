@@ -18,7 +18,7 @@ import type {
   AspectRatioValue,
   ObjectFit,
   AspectRatioRoundedSize,
-} from '@/types/components/ui/aspect_ratio.types';
+} from '@/types/components/hof/aspect_ratio.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -38,7 +38,7 @@ import {
   getAspectRatioPadding,
   getObjectFitClass,
   isMediaElement,
-} from '@/lib/utils/components/ui/aspect_ratio.utils';
+} from '@/lib/utils/components/hof/aspect_ratio.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // ASPECT RATIO — ROOT
@@ -214,4 +214,4 @@ export type {
   AspectRatioValue,
   ObjectFit,
   AspectRatioRoundedSize,
-} from '@/types/components/ui/aspect_ratio.types';
+} from '@/types/components/hof/aspect_ratio.types';

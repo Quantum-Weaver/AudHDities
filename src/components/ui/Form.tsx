@@ -18,7 +18,7 @@ import type {
   FormProps,
   FormActionsProps,
   FormContextValue,
-} from '@/types/components/ui/form.types';
+} from '@/types/components/forging/form.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -40,7 +40,7 @@ import {
   getFieldNameFromChild,
   collectFormData,
   scrollToFirstError,
-} from '@/lib/utils/components/ui/form.utils';
+} from '@/lib/utils/components/forging/form.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -233,7 +233,7 @@ export type {
   FormLayout,
   FormSpacing,
   FormActionsAlign,
-} from '@/types/components/ui/form.types';
+} from '@/types/components/forging/form.types';
 
 // Re-export FormField types for convenience
-export type { FormFieldProps } from '@/types/components/ui/form_field.types';
+export type { FormFieldProps } from '@/types/components/forging/form_field.types';

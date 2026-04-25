@@ -7,7 +7,7 @@ import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
 import { Badge } from '@/components/ui/Badge';
 import { CheckCircle, Package } from 'lucide-react';
-import type { CardData, CreatorCardData } from '@/types/components/ui/card.types';
+import type { CardData, CreatorCardData } from '@/types/components/runes/card.types';
 
 interface CreatorCardRendererProps {
   data: CardData;

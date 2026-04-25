@@ -17,7 +17,7 @@ import type {
   WideContainerProps,
   HeroContainerProps,
   FooterContainerProps,
-} from '@/types/components/ui/container.types';
+} from '@/types/components/hof/container.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -42,7 +42,7 @@ import {
   getContainerPaddingTopClass,
   getContainerPaddingBottomClass,
   resolveContainerVisualVariant,
-} from '@/lib/utils/components/ui/container.utils';
+} from '@/lib/utils/components/hof/container.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTAINER
@@ -275,4 +275,4 @@ export type {
   ContainerSize,
   ContainerPadding,
   ContainerVisualVariant,
-} from '@/types/components/ui/container.types';
+} from '@/types/components/hof/container.types';

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import { Card } from '@/components/ui/Card';
 import { quickAnimations } from '@/lib/constants/cosmic/motion';
-import type { CardData } from '@/types/components/ui/card.types';
+import type { CardData } from '@/types/components/runes/card.types';
 
 // ============================================================================
 // TYPES

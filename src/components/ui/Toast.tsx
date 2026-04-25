@@ -26,7 +26,7 @@ import type {
   ToastProviderProps,
   ToasterProps,
   ToastContextValue,
-} from '@/types/components/ui/toast.types';
+} from '@/types/components/seidr/toast.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -46,7 +46,7 @@ import {
   TOAST_ICONS,
   resolveToastDuration,
   generateToastId,
-} from '@/lib/utils/components/ui/toast.utils';
+} from '@/lib/utils/components/seidr/toast.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TOAST ITEM
@@ -290,4 +290,4 @@ export type {
   ToastProviderProps,
   ToasterProps,
   ToastContextValue,
-} from '@/types/components/ui/toast.types';
+} from '@/types/components/seidr/toast.types';

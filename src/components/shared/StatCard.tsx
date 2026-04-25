@@ -4,7 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { CardHeader, CardContent } from '@/components/ui/cards';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import type { CardData, StatCardData } from '@/types/components/ui/card.types';
+import type { CardData, StatCardData } from '@/types/components/runes/card.types';
 
 interface StatCardRendererProps {
   data: CardData;

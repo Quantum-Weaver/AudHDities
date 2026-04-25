@@ -3,7 +3,7 @@
 
 import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import type { CardFooterProps } from '@/types/components/ui/card.types';
+import type { CardFooterProps } from '@/types/components/runes/card.types';
 
 export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
   ({ actions, className, ...props }, ref) => {

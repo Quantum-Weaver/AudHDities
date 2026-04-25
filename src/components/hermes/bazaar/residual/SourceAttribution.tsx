@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Database, Code, FileText } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { CardHeader } from '@/components/ui/cards';
-import type { CardData } from '@/types/components/ui/card.types';
+import type { CardData } from '@/types/components/runes/card.types';
 import type { FlowStepColor } from './FlowStep';
 
 // ============================================================================

@@ -18,7 +18,7 @@ import type {
   TableCellProps,
   TableVariant,
   TableSize,
-} from '@/types/components/ui/table.types';
+} from '@/types/components/runes/table.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -201,4 +201,4 @@ TableCaption.displayName = 'TableCaption';
 export type {
   TableVariant,
   TableSize,
-} from '@/types/components/ui/table.types';
+} from '@/types/components/runes/table.types';

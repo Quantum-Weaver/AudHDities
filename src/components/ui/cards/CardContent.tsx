@@ -3,7 +3,7 @@
 
 import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import type { CardContentProps } from '@/types/components/ui/card.types';
+import type { CardContentProps } from '@/types/components/runes/card.types';
 
 export const CardContent = forwardRef<HTMLDivElement, CardContentProps & { children?: React.ReactNode }>(
   ({ description, metadata, children, className, ...props }, ref) => {

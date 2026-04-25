@@ -14,7 +14,7 @@ import type {
   RadioGroupProps,
   RadioProps,
   RadioGroupContextValue,
-} from '@/types/components/ui/radio.types';
+} from '@/types/components/forging/radio.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -28,7 +28,7 @@ import {
 import {
   generateRadioId,
   getRadioDescriptionId,
-} from '@/lib/utils/components/ui/radio.utils';
+} from '@/lib/utils/components/forging/radio.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -195,4 +195,4 @@ export type {
   RadioVariant,
   RadioSize,
   RadioGroupDirection,
-} from '@/types/components/ui/radio.types';
+} from '@/types/components/forging/radio.types';

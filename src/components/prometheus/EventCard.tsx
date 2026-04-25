@@ -6,7 +6,7 @@ import { Card, CardRibbon } from '@/components/ui/Card';
 import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Badge } from '@/components/ui/Badge';
 import { Calendar, Clock, MapPin, Radio } from 'lucide-react';
-import type { CardData, EventCardData } from '@/types/components/ui/card.types';
+import type { CardData, EventCardData } from '@/types/components/runes/card.types';
 
 interface EventCardRendererProps {
   data: CardData;

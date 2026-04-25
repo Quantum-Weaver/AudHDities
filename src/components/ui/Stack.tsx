@@ -17,7 +17,7 @@ import type {
   StackAlign,
   StackJustify,
   StackDirection,
-} from '@/types/components/ui/stack.types';
+} from '@/types/components/hof/stack.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -26,7 +26,7 @@ import {
 } from '@/lib/constants/components/hof/stack.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { composeStackClasses } from '@/lib/utils/components/ui/stack.utils';
+import { composeStackClasses } from '@/lib/utils/components/hof/stack.utils';
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 import { Divider } from '@/components/ui/Divider';
@@ -170,4 +170,4 @@ export type {
   StackAlign,
   StackJustify,
   StackDirection,
-} from '@/types/components/ui/stack.types';
+} from '@/types/components/hof/stack.types';

@@ -25,7 +25,7 @@ import type {
   DialogFooterProps,
   DialogTitleProps,
   DialogDescriptionProps,
-} from '@/types/components/ui/dialog.types';
+} from '@/types/components/seidr/dialog.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -57,7 +57,7 @@ import type { DialogOverlayVariant } from '@/lib/constants/components/ui/dialog.
 import {
   getDialogOverlayAnimationClasses,
   getDialogContentAnimationClasses,
-} from '@/lib/utils/components/ui/dialog.utils';
+} from '@/lib/utils/components/seidr/dialog.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // VARIANT MAPPING
@@ -299,4 +299,4 @@ export type {
   DialogFooterProps,
   DialogTitleProps,
   DialogDescriptionProps,
-} from '@/types/components/ui/dialog.types';
+} from '@/types/components/seidr/dialog.types';

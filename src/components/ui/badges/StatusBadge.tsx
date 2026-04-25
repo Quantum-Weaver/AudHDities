@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { getProposalStatusColor } from '@/lib/utils/components/ui/card.utils';
+import { getProposalStatusColor } from '@/lib/utils/components/runes/card.utils';
 
 // ============================================================================
 // TYPES

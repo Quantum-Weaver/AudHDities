@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/Button";
 import type {
   FilterBarProps,
   FilterOption,
-} from "@/types/components/shared/filter_bar.types";
+} from "@/types/components/vegvisir/filter_bar.types";
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -133,4 +133,4 @@ export type {
   FilterBarDensity,
   FilterBarAlign,
   FilterBarCountPosition,
-} from "@/types/components/shared/filter_bar.types";
+} from "@/types/components/vegvisir/filter_bar.types";

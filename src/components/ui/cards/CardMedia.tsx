@@ -3,7 +3,7 @@
 
 import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import type { CardMediaProps } from '@/types/components/ui/card.types';
+import type { CardMediaProps } from '@/types/components/runes/card.types';
 
 export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(
   ({ src, alt, fallbackIcon, className, ...props }, ref) => {

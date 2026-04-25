@@ -10,7 +10,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { SwitchProps } from '@/types/components/ui/switch.types';
+import type { SwitchProps } from '@/types/components/forging/switch.types';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {
@@ -19,7 +19,7 @@ import {
   composeSwitchLabelClasses,
   composeSwitchHelperClasses,
   generateSwitchId,
-} from '@/lib/utils/components/ui/switch.utils';
+} from '@/lib/utils/components/forging/switch.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SWITCH
@@ -116,4 +116,4 @@ export type {
   SwitchProps,
   SwitchSize,
   SwitchVariant,
-} from '@/types/components/ui/switch.types';
+} from '@/types/components/forging/switch.types';

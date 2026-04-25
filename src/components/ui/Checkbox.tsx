@@ -14,7 +14,7 @@ import { Check } from 'lucide-react';
 import type {
   CheckboxProps,
   CheckboxGroupProps,
-} from '@/types/components/ui/checkbox.types';
+} from '@/types/components/forging/checkbox.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -241,4 +241,4 @@ export type {
   CheckboxVariant,
   CheckboxSizeVariant,
   CheckboxSize,
-} from '@/types/components/ui/checkbox.types';
+} from '@/types/components/forging/checkbox.types';

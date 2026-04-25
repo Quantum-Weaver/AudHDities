@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { EmptyStateProps } from '@/types/components/shared/empty_state.types';
+import type { EmptyStateProps } from '@/types/components/runes/empty_state.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {

@@ -19,7 +19,7 @@ import type {
   ModalBodyProps,
   ModalFooterProps,
   ConfirmationModalProps,
-} from '@/types/components/ui/modal.types';
+} from '@/types/components/seidr/modal.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -52,7 +52,7 @@ import {
   useScrollLock,
   useMounted,
   useModalState,
-} from '@/lib/utils/components/ui/modal.utils';
+} from '@/lib/utils/components/seidr/modal.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MODAL
@@ -438,6 +438,6 @@ export type {
   ModalBodyProps,
   ModalFooterProps,
   ConfirmationModalProps,
-} from '@/types/components/ui/modal.types';
+} from '@/types/components/seidr/modal.types';
 
-export type { UseModalReturn } from '@/types/components/ui/modal.types';
+export type { UseModalReturn } from '@/types/components/seidr/modal.types';

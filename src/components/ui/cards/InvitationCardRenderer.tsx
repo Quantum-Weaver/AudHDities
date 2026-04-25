@@ -5,8 +5,8 @@ import { Card } from '@/components/ui/Card';
 import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
-import { formatRelativeTime } from '@/lib/utils/components/ui/card.utils';
-import type { CardData, InvitationCardData } from '@/types/components/ui/card.types';
+import { formatRelativeTime } from '@/lib/utils/components/runes/card.utils';
+import type { CardData, InvitationCardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/ui/Card';
 
 // ============================================================================

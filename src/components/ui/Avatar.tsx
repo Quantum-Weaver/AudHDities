@@ -20,7 +20,7 @@ import type {
   AvatarStatusIndicatorProps,
   AvatarGroupProps,
   AvatarSize,
-} from '@/types/components/ui/avatar.types';
+} from '@/types/components/runes/avatar.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -60,7 +60,7 @@ import {
   getAvatarBadgePositionClass,
   getAvatarBadgeSizeClass,
   getAvatarBadgeFontSizeClass,
-} from '@/lib/utils/components/ui/avatar.utils';
+} from '@/lib/utils/components/runes/avatar.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // AVATAR — ROOT
@@ -335,4 +335,4 @@ export type {
   AvatarStatus,
   AvatarVariant,
   AvatarBadgePosition,
-} from '@/types/components/ui/avatar.types';
+} from '@/types/components/runes/avatar.types';

@@ -7,7 +7,7 @@ import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
 import { DifficultyBadge } from '../badges/DifficultyBadge';
-import type { CardData, QuestCardData } from '@/types/components/ui/card.types';
+import type { CardData, QuestCardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/ui/Card';
 
 // ============================================================================

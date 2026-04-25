@@ -18,7 +18,7 @@ import type {
   PaginationSize,
   PaginationVariant,
   PageNumberItem,
-} from '@/types/components/ui/pagination.types';
+} from '@/types/components/vegvisir/pagination.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -391,4 +391,4 @@ export type {
   PaginationInfoProps,
   PaginationSize,
   PaginationVariant,
-} from '@/types/components/ui/pagination.types';
+} from '@/types/components/vegvisir/pagination.types';

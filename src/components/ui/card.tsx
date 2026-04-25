@@ -9,8 +9,8 @@ import type {
   UnifiedCardProps, 
   CardData,
   CardRadius,
-} from '@/types/components/ui/card.types';
-import { getRecommendedVariant, truncateText } from '@/lib/utils/components/ui/card.utils';
+} from '@/types/components/runes/card.types';
+import { getRecommendedVariant, truncateText } from '@/lib/utils/components/runes/card.utils';
 
 // Sub-components
 import { CardMedia } from './cards/CardMedia';

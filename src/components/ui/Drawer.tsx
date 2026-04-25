@@ -21,7 +21,7 @@ import type {
   DrawerFooterProps,
   FilterDrawerProps,
   DrawerSide,
-} from '@/types/components/ui/drawer.types';
+} from '@/types/components/seidr/drawer.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -81,7 +81,7 @@ import {
   getDrawerPositionClass,
   getDrawerBorderClass,
   lockBodyScroll,
-} from '@/lib/utils/components/ui/drawer.utils';
+} from '@/lib/utils/components/seidr/drawer.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DRAWER — ROOT
@@ -466,4 +466,4 @@ export type {
   DrawerSide,
   DrawerSize,
   DrawerFooterAlign,
-} from '@/types/components/ui/drawer.types';
+} from '@/types/components/seidr/drawer.types';

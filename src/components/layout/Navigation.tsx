@@ -23,7 +23,7 @@ import { getPageEnvironment } from '@/lib/constants/systems/environments/page_ma
 import AuthButton from '@/components/auth/AuthButton';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { NavigationProps } from '@/types/components/layout/navigation.types';
+import type { NavigationProps } from '@/types/components/bifrost/navigation.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -49,7 +49,7 @@ import {
 import {
   getNavItemState,
   filterNavItemsByContext,
-} from '@/lib/utils/components/layout/navigation.utils';
+} from '@/lib/utils/components/bifrost/navigation.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

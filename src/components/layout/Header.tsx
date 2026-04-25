@@ -16,7 +16,7 @@ import { getPageMetadata } from '@/lib/constants/systems/environments/page_mappi
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { HeaderProps } from '@/types/components/layout/header.types';
+import type { HeaderProps } from '@/types/components/bifrost/header.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {

@@ -3,7 +3,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { FORM_SPACING, FORM_SIZES } from '@/lib/constants/components/ui/form.variants';
-import type { FormSpacing } from '@/types/components/ui/form.types';
+import type { FormSpacing } from '@/types/components/forging/form.types';
 
 // ============================================================================
 // TYPES

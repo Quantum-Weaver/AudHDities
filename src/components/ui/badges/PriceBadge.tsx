@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { formatPrice, getLowestPrice, getPriceRange } from '@/lib/utils/components/ui/card.utils';
+import { formatPrice, getLowestPrice, getPriceRange } from '@/lib/utils/components/runes/card.utils';
 
 // ============================================================================
 // TYPES

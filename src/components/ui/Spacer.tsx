@@ -19,7 +19,7 @@ import type {
   SpacerGroupProps,
   SpacerAxis,
   SpacerDirection,
-} from '@/types/components/ui/spacer.types';
+} from '@/types/components/hof/spacer.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -29,7 +29,7 @@ import {
 } from '@/lib/constants/components/hof/spacer.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { composeSpacerClasses } from '@/lib/utils/components/ui/spacer.utils';
+import { composeSpacerClasses } from '@/lib/utils/components/hof/spacer.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SPACER
@@ -156,4 +156,4 @@ export type {
   SpacerAxis,
   SpacerDirection,
   SpacerResponsiveBreakpoint,
-} from '@/types/components/ui/spacer.types';
+} from '@/types/components/hof/spacer.types';

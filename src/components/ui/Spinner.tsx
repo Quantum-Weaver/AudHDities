@@ -10,7 +10,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { SpinnerProps } from '@/types/components/ui/spinner.types';
+import type { SpinnerProps } from '@/types/components/yggdrasil/spinner.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -32,7 +32,7 @@ import {
   composeSpinnerClasses,
   getSpinnerDelayStyle,
   getSpinnerIndices,
-} from '@/lib/utils/components/ui/spinner.utils';
+} from '@/lib/utils/components/yggdrasil/spinner.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SPINNER

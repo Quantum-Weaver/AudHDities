@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Badge } from '@/components/ui/Badge';
 import { CheckCircle, Store, Package } from 'lucide-react';
-import type { CardData, VendorCardData } from '@/types/components/ui/card.types';
+import type { CardData, VendorCardData } from '@/types/components/runes/card.types';
 
 interface VendorCardRendererProps {
   data: CardData;

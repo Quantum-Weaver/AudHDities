@@ -10,7 +10,7 @@ import { Progress } from '@/components/ui/Progress';
 import { useProduct } from '@/hooks/commerce/useProduct';
 import { useContributionsList } from '@/hooks/generated/plutus-economics/contributions.js';
 import { useProfile } from '@/hooks/useProfile';
-import { formatPrice, truncateTextWordBoundary } from '@/lib/utils/components/ui/card.utils';
+import { formatPrice, truncateTextWordBoundary } from '@/lib/utils/components/runes/card.utils';
 import { cn } from '@/lib/utils';
 import { Package, Users, TrendingUp } from 'lucide-react';
 import type { ProductsRow } from '@/types/generated/plutus-economics/products';

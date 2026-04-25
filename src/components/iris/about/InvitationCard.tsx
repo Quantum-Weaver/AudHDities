@@ -7,7 +7,7 @@ import { Sun } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
 import { Button } from '@/components/ui/Button';
-import type { InvitationCardData } from '@/types/components/ui/card.types';
+import type { InvitationCardData } from '@/types/components/runes/card.types';
 
 const invitationData: InvitationCardData = {
   id: 'sanctuary-invitation',

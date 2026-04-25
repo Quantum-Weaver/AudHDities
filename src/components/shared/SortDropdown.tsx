@@ -15,7 +15,7 @@ import type {
   SortOption,
   SortDropdownProps,
   SortDirection,
-} from "@/types/components/shared/sort_dropdown.types";
+} from "@/types/components/vegvisir/sort_dropdown.types";
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {

@@ -27,7 +27,7 @@ import type {
   AnimatedTabsPanelProps,
   IconTabsTriggerProps,
   BadgeTabsTriggerProps,
-} from '@/types/components/ui/tabs.types';
+} from '@/types/components/vegvisir/tabs.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -43,7 +43,7 @@ import {
   composeTabsListClasses,
   composeTabsTriggerClasses,
   composeTabsPanelClasses,
-} from '@/lib/utils/components/ui/tabs.utils';
+} from '@/lib/utils/components/vegvisir/tabs.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -331,4 +331,4 @@ export type {
   TabsSize,
   TabsOrientation,
   TabsBadgeVariant,
-} from '@/types/components/ui/tabs.types';
+} from '@/types/components/vegvisir/tabs.types';

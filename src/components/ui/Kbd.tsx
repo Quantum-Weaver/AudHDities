@@ -9,7 +9,7 @@
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { KbdProps, KbdGroupProps } from '@/types/components/ui/kbd.types';
+import type { KbdProps, KbdGroupProps } from '@/types/components/runes/kbd.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -88,4 +88,4 @@ function KbdGroup({ className, ...props }: KbdGroupProps) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 export { Kbd, KbdGroup };
-export type { KbdProps, KbdGroupProps } from '@/types/components/ui/kbd.types';
+export type { KbdProps, KbdGroupProps } from '@/types/components/runes/kbd.types';

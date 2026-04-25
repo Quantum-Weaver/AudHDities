@@ -14,7 +14,7 @@ import type {
   ScrollAreaProps,
   ScrollToTopButtonProps,
   ScrollIndicatorProps,
-} from '@/types/components/ui/scroll_area.types';
+} from '@/types/components/hof/scroll_area.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -29,7 +29,7 @@ import {
 import {
   composeScrollAreaClasses,
   getScrollAreaSizeStyle,
-} from '@/lib/utils/components/ui/scroll_area.utils';
+} from '@/lib/utils/components/hof/scroll_area.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SCROLL AREA
@@ -316,4 +316,4 @@ export type {
   ScrollbarThickness,
   SnapDirection,
   ScrollAreaRoundedSize,
-} from '@/types/components/ui/scroll_area.types';
+} from '@/types/components/hof/scroll_area.types';

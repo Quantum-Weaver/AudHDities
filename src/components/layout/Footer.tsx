@@ -10,7 +10,7 @@ import { Container } from '@/components/ui/Container';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { FooterProps } from '@/types/components/layout/footer.types';
+import type { FooterProps } from '@/types/components/bifrost/footer.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {

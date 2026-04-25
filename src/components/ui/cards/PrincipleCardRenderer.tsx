@@ -4,7 +4,7 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
-import type { CardData, PrincipleCardData } from '@/types/components/ui/card.types';
+import type { CardData, PrincipleCardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/ui/Card';
 
 // ============================================================================

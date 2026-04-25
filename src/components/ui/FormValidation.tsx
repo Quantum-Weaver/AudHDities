@@ -28,7 +28,7 @@ import type {
   ValidationResult,
   FieldValidator,
   ValidationStatus,
-} from '@/types/components/ui/form_validation.types';
+} from '@/types/components/forging/form_validation.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -55,7 +55,7 @@ import {
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {
   executeValidator,
-} from '@/lib/utils/components/ui/form_validation.utils';
+} from '@/lib/utils/components/forging/form_validation.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -463,4 +463,4 @@ export type {
   ValidationResult,
   FieldValidator,
   ValidationStatus,
-} from '@/types/components/ui/form_validation.types';
+} from '@/types/components/forging/form_validation.types';

@@ -4,8 +4,8 @@ import React from 'react';
 import { Card } from '@/components/ui/Card';
 import { CardHeader } from './CardHeader';
 import { CardContent } from './CardContent';
-import { formatDate } from '@/lib/utils/components/ui/card.utils';
-import type { CardData, CouncilCardData } from '@/types/components/ui/card.types';
+import { formatDate } from '@/lib/utils/components/runes/card.utils';
+import type { CardData, CouncilCardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/ui/Card';
 
 // ============================================================================

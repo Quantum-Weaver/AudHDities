@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import { labelVariants } from '@/lib/constants/components/ui/label.variants';
 import { LABEL_DISABLED_OPACITY } from '@/lib/constants/components/ui/label.constants';
 import type { LabelVariant, LabelSize } from '@/lib/constants/components/ui/label.variants';
-import type { LabelProps } from '@/types/components/ui/label.types';
+import type { LabelProps } from '@/types/components/yggdrasil/label.types';
 
 export type { LabelSize };
 export type { LabelProps };

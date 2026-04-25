@@ -13,7 +13,7 @@ import type {
   GridProps,
   GridItemProps,
   GridSpacing,
-} from '@/types/components/ui/grid.types';
+} from '@/types/components/hof/grid.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -29,7 +29,7 @@ import {
   buildResponsiveGapClass,
   buildResponsiveSpanClass,
   resolveStartClass,
-} from '@/lib/utils/components/ui/grid.utils';
+} from '@/lib/utils/components/hof/grid.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // GRID — ROOT
@@ -222,4 +222,4 @@ export type {
   GridAlign,
   GridJustify,
   GridFlow,
-} from '@/types/components/ui/grid.types';
+} from '@/types/components/hof/grid.types';

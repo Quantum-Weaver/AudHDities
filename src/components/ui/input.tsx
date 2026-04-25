@@ -10,7 +10,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { InputProps } from '@/types/components/ui/input.types';
+import type { InputProps } from '@/types/components/forging/input.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import { inputVariants } from '@/lib/constants/components/ui/input.variants';
@@ -174,4 +174,4 @@ export type {
   InputProps,
   InputVariant,
   InputSize,
-} from '@/types/components/ui/input.types';
+} from '@/types/components/forging/input.types';

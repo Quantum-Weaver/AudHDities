@@ -10,7 +10,7 @@ import React, { forwardRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { SliderProps } from '@/types/components/ui/slider.types';
+import type { SliderProps } from '@/types/components/forging/slider.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -176,4 +176,4 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 Slider.displayName = 'Slider';
 
 // ─── Re-export types ───────────────────────────────────────────────────────
-export type { SliderProps, SliderVariant, SliderSize } from '@/types/components/ui/slider.types';
+export type { SliderProps, SliderVariant, SliderSize } from '@/types/components/forging/slider.types';

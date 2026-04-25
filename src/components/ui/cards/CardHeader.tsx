@@ -3,7 +3,7 @@
 
 import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import type { CardHeaderProps } from '@/types/components/ui/card.types';
+import type { CardHeaderProps } from '@/types/components/runes/card.types';
 
 export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ title, subtitle, badge, actions, className, ...props }, ref) => {

@@ -14,7 +14,7 @@ import type {
   FlexItemProps,
   ResponsiveFlexProps,
   FlexDirection,
-} from '@/types/components/ui/flex.types';
+} from '@/types/components/hof/flex.types';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {
@@ -28,7 +28,7 @@ import {
   getResponsiveGapClasses,
   resolveFlexBasis,
   getAlignSelfClass,
-} from '@/lib/utils/components/ui/flex.utils';
+} from '@/lib/utils/components/hof/flex.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // FLEX — ROOT
@@ -258,4 +258,4 @@ export type {
   FlexAlign,
   FlexGap,
   FlexAlignSelf,
-} from '@/types/components/ui/flex.types';
+} from '@/types/components/hof/flex.types';

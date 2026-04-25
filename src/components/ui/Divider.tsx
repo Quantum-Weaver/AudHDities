@@ -20,7 +20,7 @@ import type {
   DividerThickness,
   DividerLength,
   DividerSpacingSize,
-} from '@/types/components/ui/divider.types';
+} from '@/types/components/hof/divider.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -36,7 +36,7 @@ import {
   composeDividerLineClasses,
   getDividerSpacingClass,
   getDividerFlexClasses,
-} from '@/lib/utils/components/ui/divider.utils';
+} from '@/lib/utils/components/hof/divider.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DIVIDER
@@ -211,4 +211,4 @@ export type {
   DividerThickness,
   DividerLength,
   DividerSpacingSize,
-} from '@/types/components/ui/divider.types';
+} from '@/types/components/hof/divider.types';

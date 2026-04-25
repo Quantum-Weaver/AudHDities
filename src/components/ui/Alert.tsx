@@ -26,7 +26,7 @@ import type {
   WarningAlertProps,
   ErrorAlertProps,
   QuantumAlertProps,
-} from '@/types/components/ui/alert.types';
+} from '@/types/components/seidr/alert.types';
 import type { AlertVariant } from '@/lib/constants/components/seidr/alert.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
@@ -45,7 +45,7 @@ import {
   composeAlertTitleClasses,
   composeAlertBodyClasses,
   getAlertFlexGap,
-} from '@/lib/utils/components/ui/alert.utils';
+} from '@/lib/utils/components/seidr/alert.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // DEFAULT ICONS
@@ -209,4 +209,4 @@ export type {
   AlertGroupProps,
   AlertVariant,
   AlertGroupSpacing,
-} from '@/types/components/ui/alert.types';
+} from '@/types/components/seidr/alert.types';

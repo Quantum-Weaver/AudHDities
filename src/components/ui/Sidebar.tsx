@@ -23,7 +23,7 @@ import type {
   SidebarContextValue,
   SidebarVariant,
   SidebarPosition,
-} from '@/types/components/ui/sidebar.types';
+} from '@/types/components/vegvisir/sidebar.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -82,7 +82,7 @@ import {
   getMobileDrawerTranslate,
   isSidebarItemActive,
   hasSidebarItemChildren,
-} from '@/lib/utils/components/ui/sidebar.utils';
+} from '@/lib/utils/components/vegvisir/sidebar.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONTEXT
@@ -631,4 +631,4 @@ export type {
   SidebarContextValue,
   SidebarVariant,
   SidebarPosition,
-} from '@/types/components/ui/sidebar.types';
+} from '@/types/components/vegvisir/sidebar.types';

@@ -18,7 +18,7 @@ import type {
   TooltipWithIconProps,
   TooltipWithShortcutProps,
   TooltipGroupProps,
-} from '@/types/components/ui/tooltip.types';
+} from '@/types/components/seidr/tooltip.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -43,7 +43,7 @@ import {
   composeTooltipContentClasses,
   composeTooltipArrowClasses,
   resolveTooltipMaxWidth,
-} from '@/lib/utils/components/ui/tooltip.utils';
+} from '@/lib/utils/components/seidr/tooltip.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PROVIDER
@@ -265,4 +265,4 @@ export type {
   TooltipVariant,
   TooltipPlacement,
   TooltipGroupSpacing,
-} from '@/types/components/ui/tooltip.types';
+} from '@/types/components/seidr/tooltip.types';

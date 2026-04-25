@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import type {
   BadgeProps,
   BadgeGroupProps,
-} from '@/types/components/ui/badge.types';
+} from '@/types/components/runes/badge.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {

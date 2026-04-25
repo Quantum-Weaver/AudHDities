@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import type {
   ProgressProps,
   CircularProgressProps,
-} from '@/types/components/ui/progress.types';
+} from '@/types/components/runes/progress.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -45,7 +45,7 @@ import {
   formatProgressLabel,
   calculateCircularProgressGeometry,
   calculateStrokeDashoffset,
-} from '@/lib/utils/components/ui/progress.utils';
+} from '@/lib/utils/components/runes/progress.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PROGRESS — LINEAR
@@ -291,4 +291,4 @@ export type {
   ProgressVariant,
   ProgressSize,
   ProgressLabelPosition,
-} from '@/types/components/ui/progress.types';
+} from '@/types/components/runes/progress.types';

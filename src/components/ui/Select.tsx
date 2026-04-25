@@ -14,7 +14,7 @@ import { ChevronDown } from 'lucide-react';
 import type {
   SelectProps,
   SelectOption,
-} from '@/types/components/ui/select.types';
+} from '@/types/components/forging/select.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -34,7 +34,7 @@ import {
 import {
   composeSelectTriggerClasses,
   composeSelectLabelClasses,
-} from '@/lib/utils/components/ui/select.utils';
+} from '@/lib/utils/components/forging/select.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SELECT
@@ -170,4 +170,4 @@ export type {
   SelectSize,
   SelectVariant,
   SelectSizeVariant,
-} from '@/types/components/ui/select.types';
+} from '@/types/components/forging/select.types';

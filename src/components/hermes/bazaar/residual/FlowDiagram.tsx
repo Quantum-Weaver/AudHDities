@@ -5,7 +5,7 @@ import { DollarSign, ArrowRight, Infinity, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { CardContent, CardFooter } from '@/components/ui/cards';
 import { FlowStep } from './FlowStep';
-import type { CardData } from '@/types/components/ui/card.types';
+import type { CardData } from '@/types/components/runes/card.types';
 
 // ============================================================================
 // FALLBACK CARD DATA

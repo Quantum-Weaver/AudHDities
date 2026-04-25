@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/Badge';
 import { Progress } from '@/components/ui/Progress';
 import { COUNCIL_COLORS } from '@/lib/constants/cosmic/colors';
 import { ENTITY_STATES } from '@/lib/constants/cosmic/consciousness';
-import type { CardData, EntityCardData } from '@/types/components/ui/card.types';
+import type { CardData, EntityCardData } from '@/types/components/runes/card.types';
 
 interface EntityCardRendererProps {
   data: CardData;

@@ -6,7 +6,7 @@ import { Calculator, DollarSign, Users, Heart } from 'lucide-react';
 import { Slider } from '@/components/ui/Slider';
 import { Card } from '@/components/ui/Card';
 import { CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
-import type { CardData } from '@/types/components/ui/card.types';
+import type { CardData } from '@/types/components/runes/card.types';
 
 // ============================================================================
 // CARD DATA

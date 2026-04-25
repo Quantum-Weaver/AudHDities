@@ -10,8 +10,8 @@ import {
   getButtonIconSizeClass, 
   getButtonAriaLabel,
   getLoadingSpinnerVariant,
-} from '@/lib/utils/components/ui/button.utils';
-import type { ButtonProps, IconButtonProps } from '@/types/components/ui/button.types';
+} from '@/lib/utils/components/yggdrasil/button.utils';
+import type { ButtonProps, IconButtonProps } from '@/types/components/yggdrasil/button.types';
 
 // ============================================================================
 // MAIN BUTTON COMPONENT

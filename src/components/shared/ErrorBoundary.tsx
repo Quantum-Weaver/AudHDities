@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/Button';
 import type {
   ErrorBoundaryProps,
   ErrorBoundaryState,
-} from '@/types/components/shared/error_boundary.types';
+} from '@/types/components/runes/error_boundary.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {

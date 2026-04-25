@@ -15,7 +15,7 @@ import type {
   ProfileSkeletonProps,
   DashboardSkeletonProps,
   ChatSkeletonProps,
-} from '@/types/components/ui/skeleton.types';
+} from '@/types/components/runes/skeleton.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -38,7 +38,7 @@ import {
   resolveSkeletonVariantClass,
   resolveSkeletonRoundedClass,
   resolveSkeletonCustomStyle,
-} from '@/lib/utils/components/ui/skeleton.utils';
+} from '@/lib/utils/components/runes/skeleton.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // MAIN SKELETON

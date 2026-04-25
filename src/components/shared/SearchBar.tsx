@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { SearchBarProps } from "@/types/components/shared/searchbar.types";
+import type { SearchBarProps } from "@/types/components/vegvisir/searchbar.types";
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -34,7 +34,7 @@ import {
 } from "@/lib/constants/components/vegvisir/searchbar.variants";
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { createDebouncedSearch } from "@/lib/utils/components/shared/searchbar.utils";
+import { createDebouncedSearch } from "@/lib/utils/components/vegvisir/searchbar.utils";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

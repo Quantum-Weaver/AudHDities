@@ -9,7 +9,7 @@
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { InlineProps } from '@/types/components/shared/inline.types';
+import type { InlineProps } from '@/types/components/yggdrasil/inline.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -76,4 +76,4 @@ export function Inline({
 }
 
 // ─── Re-export types for convenience ───────────────────────────────────────
-export type { InlineProps, InlineSpace, InlineAlign } from '@/types/components/shared/inline.types';
+export type { InlineProps, InlineSpace, InlineAlign } from '@/types/components/yggdrasil/inline.types';

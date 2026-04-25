@@ -10,7 +10,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { TextareaProps } from '@/types/components/ui/textarea.types';
+import type { TextareaProps } from '@/types/components/forging/textarea.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
