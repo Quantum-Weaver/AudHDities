@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/toast.constants.ts
+// src/lib/constants/components/seidr/toast.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TOAST CONSTANTS                                        ║
 // ║                    Single source of truth — no magic values               ║

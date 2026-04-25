@@ -1,4 +1,4 @@
-// src/lib/constants/components/shared/sort_dropdown.variants.ts
+// src/lib/constants/components/vegvisir/sort_dropdown.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SORT DROPDOWN VARIANTS                                 ║
 // ║                    CVA variant definitions                                ║

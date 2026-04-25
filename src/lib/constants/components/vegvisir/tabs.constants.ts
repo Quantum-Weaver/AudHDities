@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/tabs.constants.ts
+// src/lib/constants/components/vegvisir/tabs.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TABS CONSTANTS                                         ║
 // ║                    All sizing, color tokens, class fragments              ║

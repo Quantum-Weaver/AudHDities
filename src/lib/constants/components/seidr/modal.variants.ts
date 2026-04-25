@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/modal.variants.ts
+// src/lib/constants/components/seidr/modal.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    MODAL VARIANTS                                         ║
 // ║                    CVA variant definitions for Modal                      ║

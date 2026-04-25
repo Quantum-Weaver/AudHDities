@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/dialog.constants.ts
+// src/lib/constants/components/seidr/dialog.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    DIALOG CONSTANTS                                       ║
 // ║                    Single source of truth — sizing, colors, animation     ║

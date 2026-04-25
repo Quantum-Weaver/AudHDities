@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/alert.constants.ts
+// src/lib/constants/components/seidr/alert.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    ALERT CONSTANTS                                        ║
 // ║                    Single source of truth — sizing, spacing, icons        ║

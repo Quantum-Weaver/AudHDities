@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/breadcrumb.variants.ts
+// src/lib/constants/components/vegvisir/breadcrumb.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    BREADCRUMB VARIANTS                                    ║
 // ║                    CVA variant definitions for Breadcrumb                 ║

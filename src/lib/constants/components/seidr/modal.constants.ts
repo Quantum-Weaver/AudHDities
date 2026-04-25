@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/modal.constants.ts
+// src/lib/constants/components/seidr/modal.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    MODAL CONSTANTS                                        ║
 // ║                    Single source of truth — sizing, offsets, layout       ║

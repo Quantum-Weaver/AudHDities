@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/button.constants.ts
+// src/lib/constants/components/yggdrasil/button.constants.ts
 // ============================================================================
 // BUTTON CONSTANTS - FULLY DERIVED FROM COSMIC CONSTANTS
 // No hardcoded values - everything from colors.ts, dimensions.ts, motion.ts

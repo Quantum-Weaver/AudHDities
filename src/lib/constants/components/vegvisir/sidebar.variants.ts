@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/sidebar.variants.ts
+// src/lib/constants/components/vegvisir/sidebar.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SIDEBAR VARIANTS                                       ║
 // ║                    CVA variant definitions for Sidebar                    ║

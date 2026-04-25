@@ -1,4 +1,4 @@
-// src/lib/constants/components/shared/sort_dropdown.constants.ts
+// src/lib/constants/components/vegvisir/sort_dropdown.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SORT DROPDOWN CONSTANTS                                ║
 // ║                    Sizing, spacing, z-index, interaction tokens           ║

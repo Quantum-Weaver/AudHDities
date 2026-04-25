@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/tooltip.constants.ts
+// src/lib/constants/components/seidr/tooltip.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TOOLTIP CONSTANTS                                      ║
 // ║                    Sourced from COSMIC dimensions + motion                ║

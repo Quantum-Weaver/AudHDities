@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/spinner.constants.ts
+// src/lib/constants/components/yggdrasil/spinner.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                  SPINNER CONSTANTS                                        ║
 // ║                  Single source of truth — sizing, delays, class fragments ║

@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/label.constants.ts
+// src/lib/constants/components/yggdrasil/label.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    LABEL CONSTANTS                                        ║
 // ║                    Single source of truth — no magic values               ║

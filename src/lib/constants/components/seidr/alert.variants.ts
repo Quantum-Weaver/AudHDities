@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/alert.variants.ts
+// src/lib/constants/components/seidr/alert.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    ALERT VARIANTS                                         ║
 // ║                    CVA variant definitions — all derived from COSMIC      ║

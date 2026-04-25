@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/pagination.constants.ts
+// src/lib/constants/components/vegvisir/pagination.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    PAGINATION CONSTANTS                                    ║
 // ║                    Single source of truth — sizing, defaults, tokens       ║

@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/dialog.variants.ts
+// src/lib/constants/components/seidr/dialog.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    DIALOG VARIANTS                                        ║
 // ║                    CVA variant definitions — no raw values                ║

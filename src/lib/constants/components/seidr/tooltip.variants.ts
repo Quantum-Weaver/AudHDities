@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/tooltip.variants.ts
+// src/lib/constants/components/seidr/tooltip.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TOOLTIP VARIANTS                                       ║
 // ║                    CVA variant definitions — all tokens from COSMIC       ║

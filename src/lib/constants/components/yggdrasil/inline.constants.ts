@@ -1,4 +1,4 @@
-// src/lib/constants/components/shared/inline.constants.ts
+// src/lib/constants/components/yggdrasil/inline.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    INLINE CONSTANTS                                       ║
 // ║                    Spacing and alignment tokens for Inline component      ║

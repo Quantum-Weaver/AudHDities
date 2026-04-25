@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/breadcrumb.constants.ts
+// src/lib/constants/components/vegvisir/breadcrumb.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    BREADCRUMB CONSTANTS                                   ║
 // ║                    Single source of truth — sizing, spacing, icons        ║

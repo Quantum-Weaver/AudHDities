@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/drawer.constants.ts
+// src/lib/constants/components/seidr/drawer.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    DRAWER CONSTANTS                                       ║
 // ║                    Single source of truth — sizing, animation, z-index    ║

@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/pagination.variants.ts
+// src/lib/constants/components/vegvisir/pagination.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    PAGINATION VARIANTS                                    ║
 // ║                    CVA variant definitions — no raw values                ║

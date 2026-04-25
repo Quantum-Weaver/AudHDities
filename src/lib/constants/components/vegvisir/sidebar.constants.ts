@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/sidebar.constants.ts
+// src/lib/constants/components/vegvisir/sidebar.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SIDEBAR CONSTANTS                                      ║
 // ║                    Single source of truth — sizing, widths, breakpoints   ║

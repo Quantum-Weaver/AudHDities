@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/spinner.variants.ts
+// src/lib/constants/components/yggdrasil/spinner.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SPINNER VARIANTS                                       ║
 // ║                    CVA variant definitions — colors + sizes               ║

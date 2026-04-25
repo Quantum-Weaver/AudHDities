@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/button.variants.ts
+// src/lib/constants/components/yggdrasil/button.variants.ts
 import { cva } from "class-variance-authority";
 import {
   BUTTON_VARIANT_CLASSES,

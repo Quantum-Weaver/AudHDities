@@ -1,4 +1,4 @@
-// src/lib/constants/components/shared/filter_bar.constants.ts
+// src/lib/constants/components/vegvisir/filter_bar.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FILTER BAR CONSTANTS                                   ║
 // ║                    Layout tokens, defaults, opacity                       ║

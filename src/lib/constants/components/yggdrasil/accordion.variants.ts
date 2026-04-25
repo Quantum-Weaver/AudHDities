@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/accordion.variants.ts
+// src/lib/constants/components/yggdrasil/accordion.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    ACCORDION VARIANTS                                     ║
 // ║                    CVA variant definitions for Accordion                  ║

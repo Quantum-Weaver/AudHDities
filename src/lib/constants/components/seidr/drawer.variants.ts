@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/drawer.variants.ts
+// src/lib/constants/components/seidr/drawer.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    DRAWER VARIANTS                                        ║
 // ║                    CVA variant definitions for Drawer                     ║

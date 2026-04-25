@@ -1,4 +1,4 @@
-// src/lib/constants/components/shared/filter_bar.variants.ts
+// src/lib/constants/components/vegvisir/filter_bar.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FILTER BAR VARIANTS                                    ║
 // ║                    Layout and orientation variants                        ║

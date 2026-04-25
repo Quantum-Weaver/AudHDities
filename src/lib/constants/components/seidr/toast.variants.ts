@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/toast.constants.ts
+// src/lib/constants/components/seidr/toast.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TOAST VARIANTS                                         ║
 // ║                    CVA variant definitions for Toast                      ║

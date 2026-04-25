@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/tabs.variants.ts
+// src/lib/constants/components/vegvisir/tabs.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TABS VARIANTS                                          ║
 // ║                    CVA variant definitions                                ║

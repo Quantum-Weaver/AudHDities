@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/label.variants.ts
+// src/lib/constants/components/yggdrasil/label.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    LABEL VARIANTS                                         ║
 // ║                    CVA variant definitions for Label                      ║

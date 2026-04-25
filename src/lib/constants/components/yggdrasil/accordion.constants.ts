@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/accordion.constants.ts
+// src/lib/constants/components/yggdrasil/accordion.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    ACCORDION CONSTANTS                                    ║
 // ║                    Single source of truth — sizing, padding, animation    ║
