@@ -1,20 +1,50 @@
-// components/ui/Form.tsx
-// Form Component - The container for form fields
-// Manages form state, submission, and validation integration
+// src/components/ui/Form.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    FORM COMPONENT                                         ║
+// ║                    Container for form fields                               ║
+// ║                    All values from COSMIC constants                        ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import React, { createContext, useContext, useCallback, useId } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useCallback,
+  useId,
+} from 'react';
 import { cn } from '@/lib/utils';
 
-export type FormLayout = 'vertical' | 'horizontal';
-export type FormSpacing = 'none' | 'sm' | 'md' | 'lg';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  FormProps,
+  FormActionsProps,
+  FormContextValue,
+} from '@/types/components/ui/form.types';
 
-interface FormContextValue {
-  layout: FormLayout;
-  spacing: FormSpacing;
-  disabled: boolean;
-  readOnly: boolean;
-  formId: string;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  FORM_FULL_WIDTH,
+  FORM_FIELD_SPACING,
+  FORM_ACTIONS_BUTTON_SPACING,
+  FORM_SUBMITTING_MESSAGE,
+} from '@/lib/constants/components/ui/form.constants';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  formContainerVariants,
+  formActionsContainerVariants,
+  formActionsDividerClasses,
+} from '@/lib/constants/components/ui/form.variants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  getFieldNameFromChild,
+  collectFormData,
+  scrollToFirstError,
+} from '@/utils/components/ui/form.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTEXT
+// ═══════════════════════════════════════════════════════════════════════════
 
 const FormContext = createContext<FormContextValue | null>(null);
 
@@ -26,67 +56,23 @@ export const useFormContext = () => {
   return context;
 };
 
-export interface FormProps extends Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> {
-  /** Layout orientation of form fields */
-  layout?: FormLayout;
-  /** Spacing between form fields */
-  spacing?: FormSpacing;
-  /** Disable all form fields */
-  disabled?: boolean;
-  /** Make all form fields read-only */
-  readOnly?: boolean;
-  /** Submit handler */
-  onSubmit?: (data: Record<string, any>) => void | Promise<void>;
-  /** Validation function */
-  validate?: (data: Record<string, any>) => Record<string, string>;
-  /** Children */
-  children: React.ReactNode;
-  /** Full width */
-  fullWidth?: boolean;
-}
-
-const spacingClasses: Record<FormSpacing, string> = {
-  none: 'gap-0',
-  sm: 'gap-3',
-  md: 'gap-4',
-  lg: 'gap-6',
-};
-
-// Helper to extract name from child props safely
-const getFieldNameFromChild = (child: React.ReactNode): string | undefined => {
-  if (!React.isValidElement(child)) return undefined;
-  
-  const childElement = child as React.ReactElement<{ name?: string; children?: React.ReactNode }>;
-  
-  // Check if the child is a FormField
-  if (typeof childElement.type === 'function' || typeof childElement.type === 'object') {
-    const typeName = (childElement.type as any)?.displayName || (childElement.type as any)?.name;
-    if (typeName === 'FormField') {
-      // For FormField, look at its children (the input)
-      const grandChildren = childElement.props.children;
-      if (React.isValidElement(grandChildren)) {
-        const grandChild = grandChildren as React.ReactElement<{ name?: string }>;
-        return grandChild.props.name;
-      }
-    }
-  }
-  
-  // Direct input child
-  return childElement.props.name;
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// FORM — ROOT
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Form Component
- * 
+ * Form — Container for form fields with layout, spacing, validation, and submission.
+ *
+ * Injects errors into child FormField components automatically.
+ *
  * @example
- * <Form onSubmit={handleSubmit}>
+ * <Form onSubmit={handleSubmit} layout="vertical" spacing="md">
  *   <FormField label="Name" required>
  *     <Input name="name" />
  *   </FormField>
- *   <FormField label="Email" required>
- *     <Input name="email" type="email" />
- *   </FormField>
- *   <Button type="submit">Submit</Button>
+ *   <FormActions>
+ *     <Button type="submit">Save</Button>
+ *   </FormActions>
  * </Form>
  */
 export const Form = React.forwardRef<HTMLFormElement, FormProps>(
@@ -108,7 +94,7 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
     const formId = useId();
     const [errors, setErrors] = React.useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = React.useState(false);
-    
+
     const contextValue: FormContextValue = {
       layout,
       spacing,
@@ -116,31 +102,24 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
       readOnly,
       formId,
     };
-    
+
     const handleSubmit = useCallback(
       async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
-        // Collect form data
+
         const formData = new FormData(event.currentTarget);
-        const data: Record<string, any> = {};
-        formData.forEach((value, key) => {
-          data[key] = value;
-        });
-        
-        // Validate if validation function provided
+        const data = collectFormData(formData);
+
+        // Validate
         if (validate) {
           const validationErrors = validate(data);
           setErrors(validationErrors);
           if (Object.keys(validationErrors).length > 0) {
-            // Scroll to first error
-            const firstErrorField = Object.keys(validationErrors)[0];
-            const errorElement = document.querySelector(`[name="${firstErrorField}"]`);
-            errorElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            scrollToFirstError(validationErrors);
             return;
           }
         }
-        
+
         // Submit
         if (onSubmit) {
           setIsSubmitting(true);
@@ -153,15 +132,16 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
       },
       [onSubmit, validate]
     );
-    
-    // Inject error messages into FormField components
+
+    // Inject errors into child FormField components
     const enhancedChildren = React.Children.map(children, (child) => {
       if (!React.isValidElement(child)) return child;
-      
-      // Check if this is a FormField component
+
       const childType = child.type as any;
-      const isFormField = childType?.displayName === 'FormField' || childType?.name === 'FormField';
-      
+      const isFormField =
+        childType?.displayName === 'FormField' ||
+        childType?.name === 'FormField';
+
       if (isFormField) {
         const fieldName = getFieldNameFromChild(child);
         if (fieldName && errors[fieldName]) {
@@ -170,30 +150,31 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
           });
         }
       }
-      
+
       return child;
     });
-    
+
+    const containerClass = formContainerVariants({ layout });
+
     return (
       <FormContext.Provider value={contextValue}>
         <form
           ref={ref}
           onSubmit={handleSubmit}
           className={cn(
-            'flex',
-            layout === 'vertical' ? 'flex-col' : 'flex-row flex-wrap',
-            spacingClasses[spacing],
-            fullWidth && 'w-full',
+            containerClass,
+            FORM_FIELD_SPACING[spacing],
+            fullWidth && FORM_FULL_WIDTH,
             className
           )}
           noValidate
           {...props}
         >
           {enhancedChildren}
-          
+
           {isSubmitting && (
             <div className="sr-only" aria-live="polite">
-              Submitting form...
+              {FORM_SUBMITTING_MESSAGE}
             </div>
           )}
         </form>
@@ -201,52 +182,35 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
     );
   }
 );
-
 Form.displayName = 'Form';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // FORM ACTIONS
-// ============================================================================
-
-export interface FormActionsProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Align the action buttons */
-  align?: 'left' | 'center' | 'right';
-  /** Space between buttons */
-  spacing?: FormSpacing;
-}
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * FormActions - Container for form action buttons (Submit, Cancel, etc.)
- * 
+ * FormActions — Container for submit/cancel/reset buttons.
+ *
  * @example
- * <FormActions>
+ * <FormActions align="right" spacing="md">
  *   <Button type="submit">Save</Button>
  *   <Button type="button" variant="ghost">Cancel</Button>
  * </FormActions>
  */
 export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
-  ({ children, align = 'right', spacing = 'md', className, ...props }, ref) => {
-    const alignClasses = {
-      left: 'justify-start',
-      center: 'justify-center',
-      right: 'justify-end',
-    };
-    
-    const spacingClasses: Record<FormSpacing, string> = {
-      none: 'gap-0',
-      sm: 'gap-2',
-      md: 'gap-3',
-      lg: 'gap-4',
-    };
-    
+  (
+    { children, align = 'right', spacing = 'md', className, ...props },
+    ref
+  ) => {
+    const alignmentClass = formActionsContainerVariants({ align });
+
     return (
       <div
         ref={ref}
         className={cn(
-          'flex',
-          alignClasses[align],
-          spacingClasses[spacing],
-          'mt-4 pt-4 border-t border-white/10',
+          alignmentClass,
+          FORM_ACTIONS_BUTTON_SPACING[spacing],
+          formActionsDividerClasses,
           className
         )}
         {...props}
@@ -258,10 +222,18 @@ export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
 );
 FormActions.displayName = 'FormActions';
 
-// ============================================================================
-// FORM FIELD (Re-export for convenience)
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
 
-// Re-export FormField from its own file to avoid circular imports
-// The actual implementation is in FormField.tsx
-export type { FormFieldProps } from './FormField';
+export type {
+  FormProps,
+  FormActionsProps,
+  FormContextValue,
+  FormLayout,
+  FormSpacing,
+  FormActionsAlign,
+} from '@/types/components/ui/form.types';
+
+// Re-export FormField types for convenience
+export type { FormFieldProps } from '@/types/components/ui/form_field.types';

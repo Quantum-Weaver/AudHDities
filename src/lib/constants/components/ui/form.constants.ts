@@ -1,57 +1,50 @@
 // src/lib/constants/components/ui/form.constants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FORM CONSTANTS                                         ║
-// ║                    Single source of truth — spacing, sizing, layout       ║
+// ║                    Layout, spacing, actions divider                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import { SPACING_SCALE } from '@/lib/constants/cosmic/index';
+// ─── Layout ─────────────────────────────────────────────────────────────────
+export const FORM_LAYOUT_VERTICAL = 'flex flex-col';
+export const FORM_LAYOUT_HORIZONTAL = 'flex flex-row flex-wrap';
 
-// ─── Spacing Keys ──────────────────────────────────────────────────────────
-export const FORM_SPACING_KEYS = {
-  NONE: 'none',
-  SM: 'sm',
-  MD: 'md',
-  LG: 'lg',
+// ─── Full Width ─────────────────────────────────────────────────────────────
+export const FORM_FULL_WIDTH = 'w-full';
+
+// ─── Field Spacing (Form-level gap between fields) ──────────────────────────
+export const FORM_FIELD_SPACING = {
+  none: 'gap-0',
+  sm: 'gap-3',
+  md: 'gap-4',
+  lg: 'gap-6',
 } as const;
 
-export type FormSpacing = (typeof FORM_SPACING_KEYS)[keyof typeof FORM_SPACING_KEYS];
-
-// ─── Spacing Value Map ─────────────────────────────────────────────────────
-/** Maps spacing keys to Tailwind gap classes */
-export const FORM_SPACING_CLASSES: Record<FormSpacing, string> = {
+// ─── Actions Spacing (gap between buttons) ─────────────────────────────────
+export const FORM_ACTIONS_BUTTON_SPACING = {
   none: 'gap-0',
   sm: 'gap-2',
   md: 'gap-3',
   lg: 'gap-4',
+} as const;
+
+// ─── Actions Alignment ─────────────────────────────────────────────────────
+export const FORM_ACTIONS_ALIGNMENT = {
+  left: 'justify-start',
+  center: 'justify-center',
+  right: 'justify-end',
+} as const;
+
+// ─── Actions Divider ───────────────────────────────────────────────────────
+export const FORM_ACTIONS_MARGIN_TOP = 'mt-4';
+export const FORM_ACTIONS_PADDING_TOP = 'pt-4';
+export const FORM_ACTIONS_BORDER_TOP = 'border-t';
+export const FORM_ACTIONS_BORDER_COLOR = 'border-white/10';
+
+// ─── Submitting Message ─────────────────────────────────────────────────────
+export const FORM_SUBMITTING_MESSAGE = 'Submitting form...';
+
+// ─── Error Scroll Behavior ──────────────────────────────────────────────────
+export const FORM_ERROR_SCROLL_BEHAVIOR: ScrollIntoViewOptions = {
+  behavior: 'smooth',
+  block: 'center',
 };
-
-// ─── Layout Spacing Tokens ─────────────────────────────────────────────────
-/** Spacing tokens for form structural elements */
-export const FORM_SPACING = {
-  container: {
-    gap: SPACING_SCALE['6'],       // 24px
-    padding: SPACING_SCALE['6'],   // 24px
-  },
-  section: {
-    gap: SPACING_SCALE['4'],       // 16px
-    marginBottom: SPACING_SCALE['8'], // 32px
-  },
-  field: {
-    gap: SPACING_SCALE['2'],       // 8px
-    marginBottom: SPACING_SCALE['4'], // 16px
-  },
-  fieldGroup: {
-    gap: SPACING_SCALE['4'],       // 16px
-  },
-  actions: {
-    gap: SPACING_SCALE['4'],       // 16px
-    marginTop: SPACING_SCALE['6'], // 24px
-  },
-} as const;
-
-// ─── Default Values ────────────────────────────────────────────────────────
-export const FORM_DEFAULTS = {
-  SPACING: 'md' as FormSpacing,
-  VALIDATE_ON_SUBMIT: true,
-  SHOW_REQUIRED_INDICATOR: true,
-} as const;

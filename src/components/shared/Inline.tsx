@@ -1,48 +1,61 @@
-// @/components/shared/Inline.tsx
-// Horizontal spacing utility
+// src/components/shared/Inline.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    INLINE COMPONENT                                       ║
+// ║                    Horizontal spacing utility                             ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"use client"
+'use client';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
-export interface InlineProps {
-  /** Space between children (in rem, based on spacing scale) */
-  space?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16
-  /** Horizontal alignment */
-  align?: "start" | "center" | "end" | "between" | "around" | "evenly"
-  /** Wrap on mobile */
-  wrap?: boolean
-  /** Additional classes */
-  className?: string
-  children: React.ReactNode
-}
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type { InlineProps } from '@/types/components/shared/inline.types';
 
-const spaceMap: Record<number, string> = {
-  0: "gap-0",
-  1: "gap-1",
-  2: "gap-2",
-  3: "gap-3",
-  4: "gap-4",
-  5: "gap-5",
-  6: "gap-6",
-  8: "gap-8",
-  10: "gap-10",
-  12: "gap-12",
-  16: "gap-16",
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  INLINE_DEFAULT_SPACE,
+  INLINE_DEFAULT_ALIGN,
+  INLINE_BASE_CLASSES,
+  INLINE_WRAP_CLASS,
+  INLINE_SPACE_TO_GAP_CLASS,
+  INLINE_ALIGN_TO_JUSTIFY_CLASS,
+} from '@/lib/constants/components/shared/inline.constants';
 
-const alignMap = {
-  start: "justify-start",
-  center: "justify-center",
-  end: "justify-end",
-  between: "justify-between",
-  around: "justify-around",
-  evenly: "justify-evenly",
-}
+// ═══════════════════════════════════════════════════════════════════════════
+// INLINE
+// ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * Inline — Horizontal flex container with consistent spacing.
+ *
+ * Wraps children in a flex row with configurable gap, alignment, and wrapping.
+ * Spacing values map directly to the COSMIC 4px grid scale.
+ *
+ * @example
+ * // Default spacing (gap-4), start-aligned, wraps on mobile
+ * <Inline>
+ *   <Button>Save</Button>
+ *   <Button>Cancel</Button>
+ * </Inline>
+ *
+ * @example
+ * // Tight spacing, centered, no wrap
+ * <Inline space={2} align="center" wrap={false}>
+ *   <Badge>Quantum</Badge>
+ *   <Badge>Cosmic</Badge>
+ * </Inline>
+ *
+ * @example
+ * // Spread between, responsive wrap
+ * <Inline space={6} align="between">
+ *   <Logo />
+ *   <Nav />
+ *   <UserMenu />
+ * </Inline>
+ */
 export function Inline({
-  space = 4,
-  align = "start",
+  space = INLINE_DEFAULT_SPACE,
+  align = INLINE_DEFAULT_ALIGN,
   wrap = true,
   className,
   children,
@@ -50,14 +63,17 @@ export function Inline({
   return (
     <div
       className={cn(
-        "flex flex-row",
-        spaceMap[space],
-        alignMap[align],
-        wrap && "flex-wrap",
+        INLINE_BASE_CLASSES,
+        INLINE_SPACE_TO_GAP_CLASS[space],
+        INLINE_ALIGN_TO_JUSTIFY_CLASS[align],
+        wrap && INLINE_WRAP_CLASS,
         className
       )}
     >
       {children}
     </div>
-  )
+  );
 }
+
+// ─── Re-export types for convenience ───────────────────────────────────────
+export type { InlineProps, InlineSpace, InlineAlign } from '@/types/components/shared/inline.types';

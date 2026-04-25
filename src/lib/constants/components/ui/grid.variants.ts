@@ -1,4 +1,4 @@
-// src/lib/constants/components/ui/unified_grid.ts
+// src/lib/constants/components/ui/grid.variants.ts
 // PURE CONSTANTS - No logic, no types
 // All values derived from cosmic system
 

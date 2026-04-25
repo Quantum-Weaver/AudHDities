@@ -1,8 +1,8 @@
 // src/components/ui/Modal.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    MODAL COMPONENT                                        ║
-// ║                    The gateway of the interface                            ║
-// ║                    Interrupts workflow to capture attention                ║
+// ║                    The gateway of the interface                           ║
+// ║                    Interrupts workflow to capture attention               ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 "use client";

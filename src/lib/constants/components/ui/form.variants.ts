@@ -1,89 +1,77 @@
 // src/lib/constants/components/ui/form.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FORM VARIANTS                                          ║
-// ║                    CVA variant definitions only                           ║
+// ║                    CVA variant definitions for Form                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { cva } from 'class-variance-authority';
-import { FORM_SPACING_CLASSES } from './form.constants';
+import {
+  FORM_LAYOUT_VERTICAL,
+  FORM_LAYOUT_HORIZONTAL,
+  FORM_ACTIONS_MARGIN_TOP,
+  FORM_ACTIONS_PADDING_TOP,
+  FORM_ACTIONS_BORDER_TOP,
+  FORM_ACTIONS_BORDER_COLOR,
+} from './form.constants';
 
-// ─── Re-export for convenience ─────────────────────────────────────────────
-export { FORM_SPACING_KEYS, FORM_SPACING_CLASSES } from './form.constants';
-export type { FormSpacing } from './form.constants';
+// ─── Type Exports ───────────────────────────────────────────────────────────
+export const FORM_LAYOUTS = {
+  VERTICAL: 'vertical',
+  HORIZONTAL: 'horizontal',
+} as const;
 
-// ─── Form Container Variants ───────────────────────────────────────────────
-export const formVariants = cva(
-  'flex flex-col',
-  {
-    variants: {
-      spacing: FORM_SPACING_CLASSES,
-    },
-    defaultVariants: {
-      spacing: 'md',
-    },
-  }
-);
+export const FORM_SPACINGS = {
+  NONE: 'none',
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+} as const;
 
-// ─── Form Section Variants ─────────────────────────────────────────────────
-export const formSectionVariants = cva(
-  'flex flex-col',
-  {
-    variants: {
-      spacing: FORM_SPACING_CLASSES,
-    },
-    defaultVariants: {
-      spacing: 'md',
-    },
-  }
-);
+export const FORM_ACTIONS_ALIGNMENTS = {
+  LEFT: 'left',
+  CENTER: 'center',
+  RIGHT: 'right',
+} as const;
 
-// ─── Form Field Group Variants ─────────────────────────────────────────────
-export const formFieldGroupVariants = cva(
-  'flex flex-col sm:flex-row',
-  {
-    variants: {
-      spacing: FORM_SPACING_CLASSES,
-      align: {
-        start: 'items-start',
-        center: 'items-center',
-        end: 'items-end',
-        stretch: 'items-stretch',
-      },
-    },
-    defaultVariants: {
-      spacing: 'md',
-      align: 'start',
-    },
-  }
-);
+export type FormLayout = (typeof FORM_LAYOUTS)[keyof typeof FORM_LAYOUTS];
+export type FormSpacing = (typeof FORM_SPACINGS)[keyof typeof FORM_SPACINGS];
+export type FormActionsAlign =
+  (typeof FORM_ACTIONS_ALIGNMENTS)[keyof typeof FORM_ACTIONS_ALIGNMENTS];
 
-// ─── Form Actions Variants ─────────────────────────────────────────────────
-export const formActionsVariants = cva(
+// ─── Form Container Variants ────────────────────────────────────────────────
+export const formContainerVariants = cva('flex', {
+  variants: {
+    layout: {
+      vertical: FORM_LAYOUT_VERTICAL,
+      horizontal: FORM_LAYOUT_HORIZONTAL,
+    },
+  },
+  defaultVariants: {
+    layout: 'vertical',
+  },
+});
+
+// ─── Form Actions Container Variants ───────────────────────────────────────
+export const formActionsContainerVariants = cva(
   'flex',
   {
     variants: {
-      spacing: FORM_SPACING_CLASSES,
-      justify: {
-        start: 'justify-start',
+      align: {
+        left: 'justify-start',
         center: 'justify-center',
-        end: 'justify-end',
-        between: 'justify-between',
-      },
-      direction: {
-        row: 'flex-row',
-        column: 'flex-col',
-        'row-reverse': 'flex-row-reverse',
+        right: 'justify-end',
       },
     },
     defaultVariants: {
-      spacing: 'md',
-      justify: 'end',
-      direction: 'row',
+      align: 'right',
     },
   }
 );
 
-export type FormVariantProps = Parameters<typeof formVariants>[0];
-export type FormSectionVariantProps = Parameters<typeof formSectionVariants>[0];
-export type FormFieldGroupVariantProps = Parameters<typeof formFieldGroupVariants>[0];
-export type FormActionsVariantProps = Parameters<typeof formActionsVariants>[0];
+// ─── Form Actions Divider ──────────────────────────────────────────────────
+export const formActionsDividerClasses = [
+  FORM_ACTIONS_MARGIN_TOP,
+  FORM_ACTIONS_PADDING_TOP,
+  FORM_ACTIONS_BORDER_TOP,
+  FORM_ACTIONS_BORDER_COLOR,
+].join(' ');

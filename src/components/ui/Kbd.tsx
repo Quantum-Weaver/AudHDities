@@ -1,28 +1,91 @@
 /* @/components/ui/Kbd.tsx */
-"use client"
-import { cn } from "@/lib/utils"
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    KBD COMPONENT                                          ║
+// ║                    Keyboard shortcut indicator                            ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
+'use client';
+
+import { cn } from '@/lib/utils';
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type { KbdProps, KbdGroupProps } from '@/types/components/ui/kbd.types';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  KBD_BASE_CLASSES,
+  KBD_COLOR_CLASSES,
+  KBD_TOOLTIP_COLOR_CLASSES,
+  KBD_DARK_TOOLTIP_CLASSES,
+  KBD_SVG_CLASSES,
+  KBD_GROUP_BASE_CLASSES,
+} from '@/lib/constants/components/ui/kbd.constants';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// KBD
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Kbd — Displays a keyboard key or shortcut indicator.
+ *
+ * Automatically adapts its color scheme when nested inside a TooltipContent.
+ *
+ * @example
+ * <Kbd>⌘</Kbd>
+ *
+ * @example
+ * <Kbd className="ml-1">
+ *   <SettingsIcon className="size-3" />
+ *   S
+ * </Kbd>
+ */
+function Kbd({ className, ...props }: KbdProps) {
   return (
     <kbd
       data-slot="kbd"
       className={cn(
-        "pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-sm bg-muted px-1 font-sans text-xs font-medium text-muted-foreground select-none in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 [&_svg:not([class*='size-'])]:size-3",
+        ...KBD_BASE_CLASSES,
+        ...KBD_COLOR_CLASSES,
+        ...KBD_TOOLTIP_COLOR_CLASSES,
+        ...KBD_DARK_TOOLTIP_CLASSES,
+        ...KBD_SVG_CLASSES,
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
-function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
+// ═══════════════════════════════════════════════════════════════════════════
+// KBD GROUP
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * KbdGroup — Groups multiple Kbd elements for key combinations.
+ *
+ * Renders as a semantic <kbd> container to indicate the keys
+ * should be pressed together.
+ *
+ * @example
+ * <KbdGroup>
+ *   <Kbd>⌘</Kbd>
+ *   <span className="text-white/40">+</span>
+ *   <Kbd>K</Kbd>
+ * </KbdGroup>
+ */
+function KbdGroup({ className, ...props }: KbdGroupProps) {
   return (
     <kbd
       data-slot="kbd-group"
-      className={cn("inline-flex items-center gap-1", className)}
+      className={cn(...KBD_GROUP_BASE_CLASSES, className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Kbd, KbdGroup }
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export { Kbd, KbdGroup };
+export type { KbdProps, KbdGroupProps } from '@/types/components/ui/kbd.types';

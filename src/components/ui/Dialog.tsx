@@ -1,60 +1,164 @@
-/* @/components/ui/Dialog.tsx */
-"use client"
+/* src/components/ui/Dialog.tsx */
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    DIALOG COMPONENT                                       ║
+// ║                    Modal dialog with overlay, header, footer              ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-import * as React from "react"
-import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
+'use client';
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/Button"
-import { XIcon } from "lucide-react"
+import * as React from 'react';
+import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
+import { XIcon } from 'lucide-react';
 
-function Dialog({ ...props }: DialogPrimitive.Root.Props) {
-  return <DialogPrimitive.Root data-slot="dialog" {...props} />
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/Button';
+
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  DialogProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogCloseProps,
+  DialogOverlayProps,
+  DialogContentProps,
+  DialogHeaderProps,
+  DialogFooterProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+} from '@/types/components/ui/dialog.types';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  DIALOG_CLOSE_BUTTON_POSITION,
+  DIALOG_HEADER_GAP,
+  DIALOG_FOOTER_NEGATIVE_MARGIN,
+  DIALOG_FOOTER_PADDING,
+  DIALOG_FOOTER_RADIUS,
+  DIALOG_FOOTER_BORDER,
+  DIALOG_FOOTER_BG,
+  DIALOG_FOOTER_LAYOUT,
+  DIALOG_TITLE_FONT,
+  DIALOG_TITLE_SIZE,
+  DIALOG_TITLE_LEADING,
+  DIALOG_TITLE_WEIGHT,
+  DIALOG_DESCRIPTION_SIZE,
+  DIALOG_DESCRIPTION_TEXT,
+  DIALOG_DESCRIPTION_LINK_CLASSES,
+} from '@/lib/constants/components/ui/dialog.constants';
+
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  dialogOverlayVariants,
+  dialogContentVariants,
+} from '@/lib/constants/components/ui/dialog.variants';
+import type { DialogOverlayVariant } from '@/lib/constants/components/ui/dialog.variants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  getDialogOverlayAnimationClasses,
+  getDialogContentAnimationClasses,
+} from '@/utils/components/ui/dialog.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// VARIANT MAPPING
+// ═══════════════════════════════════════════════════════════════════════════
+
+/** Maps content panel variants to their corresponding overlay variant */
+const contentToOverlayVariant: Record<string, DialogOverlayVariant> & {
+  [key: string]: DialogOverlayVariant;
+  } = {
+    default: 'default',
+    glass: 'glass',
+    quantum: 'quantum',
+    cosmic: 'cosmic',
+    emergency: 'heavy',
+    sanctuary: 'default',
+  };
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ROOT
+// ═══════════════════════════════════════════════════════════════════════════
+
+function Dialog({ ...props }: DialogProps) {
+  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
-function DialogTrigger({ ...props }: DialogPrimitive.Trigger.Props) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
+// ═══════════════════════════════════════════════════════════════════════════
+// TRIGGER
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogTrigger({ ...props }: DialogTriggerProps) {
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
 
-function DialogPortal({ ...props }: DialogPrimitive.Portal.Props) {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />
+// ═══════════════════════════════════════════════════════════════════════════
+// PORTAL
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogPortal({ ...props }: DialogPortalProps) {
+  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
-function DialogClose({ ...props }: DialogPrimitive.Close.Props) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
+// ═══════════════════════════════════════════════════════════════════════════
+// CLOSE
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogClose({ ...props }: DialogCloseProps) {
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// OVERLAY
+// ═══════════════════════════════════════════════════════════════════════════
 
 function DialogOverlay({
   className,
+  variant = 'default',
   ...props
-}: DialogPrimitive.Backdrop.Props) {
+}: DialogOverlayProps) {
   return (
     <DialogPrimitive.Backdrop
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        dialogOverlayVariants({ variant }),
+        getDialogOverlayAnimationClasses(),
         className
       )}
       {...props}
     />
-  )
+  );
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTENT
+// ═══════════════════════════════════════════════════════════════════════════
+
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTENT
+// ═══════════════════════════════════════════════════════════════════════════
 
 function DialogContent({
   className,
   children,
   showCloseButton = true,
+  variant = 'default',
+  size = 'sm',
   ...props
-}: DialogPrimitive.Popup.Props & {
-  showCloseButton?: boolean
-}) {
+}: DialogContentProps) {
+  // Resolve overlay variant: null or undefined falls back to 'default'
+  const overlayVariant: DialogOverlayVariant =
+    (variant != null ? contentToOverlayVariant[variant] : undefined) ?? 'default';
+
   return (
     <DialogPortal>
-      <DialogOverlay />
+      <DialogOverlay variant={overlayVariant} />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          dialogContentVariants({ variant, size }),
+          getDialogContentAnimationClasses(),
           className
         )}
         {...props}
@@ -66,44 +170,54 @@ function DialogContent({
             render={
               <Button
                 variant="ghost"
-                className="absolute top-2 right-2"
+                className={DIALOG_CLOSE_BUTTON_POSITION}
                 size="icon-sm"
               />
             }
           >
-            <XIcon
-            />
+            <XIcon />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Popup>
     </DialogPortal>
-  )
+  );
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+// ═══════════════════════════════════════════════════════════════════════════
+// HEADER
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogHeader({ className, ...props }: DialogHeaderProps) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-2", className)}
+      className={cn('flex flex-col', DIALOG_HEADER_GAP, className)}
       {...props}
     />
-  )
+  );
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// FOOTER
+// ═══════════════════════════════════════════════════════════════════════════
 
 function DialogFooter({
   className,
   showCloseButton = false,
   children,
   ...props
-}: React.ComponentProps<"div"> & {
-  showCloseButton?: boolean
-}) {
+}: DialogFooterProps) {
   return (
     <div
       data-slot="dialog-footer"
       className={cn(
-        "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
+        DIALOG_FOOTER_NEGATIVE_MARGIN,
+        ...DIALOG_FOOTER_LAYOUT,
+        DIALOG_FOOTER_RADIUS,
+        DIALOG_FOOTER_BORDER,
+        DIALOG_FOOTER_BG,
+        DIALOG_FOOTER_PADDING,
         className
       )}
       {...props}
@@ -115,37 +229,51 @@ function DialogFooter({
         </DialogPrimitive.Close>
       )}
     </div>
-  )
+  );
 }
 
-function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props) {
+// ═══════════════════════════════════════════════════════════════════════════
+// TITLE
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogTitle({ className, ...props }: DialogTitleProps) {
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
       className={cn(
-        "font-heading text-base leading-none font-medium",
+        DIALOG_TITLE_FONT,
+        DIALOG_TITLE_SIZE,
+        DIALOG_TITLE_LEADING,
+        DIALOG_TITLE_WEIGHT,
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
-function DialogDescription({
-  className,
-  ...props
-}: DialogPrimitive.Description.Props) {
+// ═══════════════════════════════════════════════════════════════════════════
+// DESCRIPTION
+// ═══════════════════════════════════════════════════════════════════════════
+
+function DialogDescription({ className, ...props }: DialogDescriptionProps) {
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
+        DIALOG_DESCRIPTION_SIZE,
+        DIALOG_DESCRIPTION_TEXT,
+        ...DIALOG_DESCRIPTION_LINK_CLASSES,
         className
       )}
       {...props}
     />
-  )
+  );
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
 
 export {
   Dialog,
@@ -158,4 +286,17 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-}
+};
+
+export type {
+  DialogProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogCloseProps,
+  DialogOverlayProps,
+  DialogContentProps,
+  DialogHeaderProps,
+  DialogFooterProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+} from '@/types/components/ui/dialog.types';

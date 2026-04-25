@@ -1,127 +1,64 @@
-// components/ui/Container.tsx
-// Container Component - The vessel that holds our content
-// Provides consistent max-width and padding constraints
-// Uses COSMIC design tokens for spacing and breakpoints
+// src/components/ui/Container.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    CONTAINER COMPONENT                                    ║
+// ║                    The vessel that holds our content                       ║
+// ║                    All values from COSMIC constants                        ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-export type ContainerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'fluid';
-export type ContainerPadding = 'none' | 'sm' | 'md' | 'lg' | 'xl';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  ContainerProps,
+  PageContainerProps,
+  SectionContainerProps,
+  NarrowContainerProps,
+  WideContainerProps,
+  HeroContainerProps,
+  FooterContainerProps,
+} from '@/types/components/ui/container.types';
 
-export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Maximum width constraint */
-  size?: ContainerSize;
-  /** Horizontal padding */
-  padding?: ContainerPadding;
-  /** Vertical padding */
-  paddingY?: ContainerPadding;
-  /** Top padding */
-  paddingTop?: ContainerPadding;
-  /** Bottom padding */
-  paddingBottom?: ContainerPadding;
-  /** Center content horizontally */
-  centered?: boolean;
-  /** Remove all padding */
-  noPadding?: boolean;
-  /** Make container full width with max-width constraint */
-  fluid?: boolean;
-  /** Add a subtle border */
-  bordered?: boolean;
-  /** Add a background (uses COSMIC surface color) */
-  background?: boolean;
-  /** Add a subtle shadow */
-  elevated?: boolean;
-  /** As child element (render as child instead of div) */
-  asChild?: boolean;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  CONTAINER_CENTERED_CLASS,
+  CONTAINER_HEADER_MARGIN_BOTTOM,
+  CONTAINER_BODY_GAP,
+  CONTAINER_FOOTER_MARGIN_TOP,
+  CONTAINER_FOOTER_PADDING_TOP,
+  CONTAINER_FOOTER_DIVIDER,
+} from '@/lib/constants/components/ui/container.constants';
 
-/**
- * Max-width values by size (matching Tailwind breakpoints)
- */
-const maxWidthMap: Record<ContainerSize, string> = {
-  xs: 'max-w-xs',     // 320px
-  sm: 'max-w-sm',     // 384px
-  md: 'max-w-md',     // 448px
-  lg: 'max-w-lg',     // 512px
-  xl: 'max-w-xl',     // 576px
-  '2xl': 'max-w-2xl', // 672px
-  full: 'max-w-full',
-  fluid: 'max-w-full',
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  containerVariants,
+} from '@/lib/constants/components/ui/container.variants';
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  getContainerSizeClass,
+  getContainerPaddingXClass,
+  getContainerPaddingYClass,
+  getContainerPaddingTopClass,
+  getContainerPaddingBottomClass,
+  resolveContainerVisualVariant,
+} from '@/utils/components/ui/container.utils';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTAINER
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Padding values by size
- */
-const paddingMap: Record<ContainerPadding, string> = {
-  none: 'px-0',
-  sm: 'px-4',   // 16px on mobile, more on larger screens
-  md: 'px-6',   // 24px on mobile, more on larger screens
-  lg: 'px-8',   // 32px on mobile, more on larger screens
-  xl: 'px-12',  // 48px on mobile, more on larger screens
-};
-
-const paddingYMap: Record<ContainerPadding, string> = {
-  none: 'py-0',
-  sm: 'py-4',
-  md: 'py-6',
-  lg: 'py-8',
-  xl: 'py-12',
-};
-
-const paddingTopMap: Record<ContainerPadding, string> = {
-  none: 'pt-0',
-  sm: 'pt-4',
-  md: 'pt-6',
-  lg: 'pt-8',
-  xl: 'pt-12',
-};
-
-const paddingBottomMap: Record<ContainerPadding, string> = {
-  none: 'pb-0',
-  sm: 'pb-4',
-  md: 'pb-6',
-  lg: 'pb-8',
-  xl: 'pb-12',
-};
-
-/**
- * Responsive padding values (larger on desktop)
- */
-const responsivePaddingMap: Record<ContainerPadding, string> = {
-  none: 'px-0',
-  sm: 'px-4 md:px-6',
-  md: 'px-6 md:px-8',
-  lg: 'px-8 md:px-12',
-  xl: 'px-12 md:px-16',
-};
-
-/**
- * Container Component
- * 
- * A flexible layout component for consistent width and padding constraints.
- * 
+ * Container — Flexible layout component for consistent width and padding.
+ *
  * @example
  * <Container size="lg" padding="md">
  *   <h1>Page Title</h1>
- *   <p>Page content goes here...</p>
  * </Container>
- * 
- * @example
- * <Container size="xl" centered>
- *   <HeroSection />
- * </Container>
- * 
- * @example
- * <Container fluid noPadding>
- *   <FullWidthImage />
- * </Container>
- * 
+ *
  * @example
  * <Container size="md" paddingY="lg" background elevated>
- *   <Card>
- *     <p>Elevated content with background</p>
- *   </Card>
+ *   <Card>Elevated content with background</Card>
  * </Container>
  */
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -136,6 +73,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       centered = true,
       noPadding = false,
       fluid = false,
+      visual,
       bordered = false,
       background = false,
       elevated = false,
@@ -145,219 +83,196 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     },
     ref
   ) => {
-    // Determine max-width class
-    const maxWidthClass = fluid ? 'max-w-full' : maxWidthMap[size];
-    
-    // Determine padding classes
-    let paddingClass = '';
-    let paddingYClass = '';
-    let paddingTopClass = '';
-    let paddingBottomClass = '';
-    
-    if (noPadding) {
-      paddingClass = 'px-0';
-      paddingYClass = 'py-0';
-    } else {
-      paddingClass = responsivePaddingMap[padding];
-      if (paddingY) paddingYClass = paddingYMap[paddingY];
-      if (paddingTop) paddingTopClass = paddingTopMap[paddingTop];
-      if (paddingBottom) paddingBottomClass = paddingBottomMap[paddingBottom];
-    }
-    
-    // Base classes
-    const baseClasses = cn(
-      'w-full',
+    const maxWidthClass = getContainerSizeClass(size, fluid);
+    const resolvedVisual = resolveContainerVisualVariant({
+      visual,
+      bordered,
+      background,
+      elevated,
+    });
+
+    const classes = cn(
+      containerVariants({ visual: resolvedVisual }),
       maxWidthClass,
-      centered && 'mx-auto',
-      paddingClass,
-      paddingYClass,
-      paddingTopClass,
-      paddingBottomClass,
-      bordered && 'border border-white/10',
-      background && 'bg-white/5 backdrop-blur-sm',
-      elevated && 'shadow-lg',
+      centered && CONTAINER_CENTERED_CLASS,
+      noPadding
+        ? 'px-0 py-0'
+        : [
+            getContainerPaddingXClass(padding),
+            getContainerPaddingYClass(paddingY),
+            getContainerPaddingTopClass(paddingTop),
+            getContainerPaddingBottomClass(paddingBottom),
+          ],
       className
     );
-    
+
+    const Comp = asChild ? 'div' : 'div'; // `asChild` pattern would use Slot from Radix
     return (
-      <div ref={ref} className={baseClasses} {...props}>
+      <Comp ref={ref} className={classes} {...props}>
         {children}
-      </div>
+      </Comp>
     );
   }
 );
-
 Container.displayName = 'Container';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // VARIANT SHORTCUTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Page Container - Pre-configured for main page content
- * 
- * @example
- * <PageContainer>
- *   <PageHeader title="Dashboard" />
- *   <DashboardContent />
- * </PageContainer>
+ * PageContainer — Pre-configured for main page content.
  */
-export const PageContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size' | 'padding'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="xl" 
-      padding="lg" 
-      paddingY="lg" 
-      {...props} 
-    />
-  )
-);
+export const PageContainer = React.forwardRef<
+  HTMLDivElement,
+  PageContainerProps
+>((props, ref) => (
+  <Container ref={ref} size="xl" padding="lg" paddingY="lg" {...props} />
+));
 PageContainer.displayName = 'PageContainer';
 
 /**
- * Section Container - For consistent section spacing
- * 
- * @example
- * <SectionContainer>
- *   <h2>Features</h2>
- *   <FeatureGrid />
- * </SectionContainer>
+ * SectionContainer — For consistent section spacing.
  */
-export const SectionContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size' | 'paddingY'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="xl" 
-      padding="md" 
-      paddingY="xl" 
-      {...props} 
-    />
-  )
-);
+export const SectionContainer = React.forwardRef<
+  HTMLDivElement,
+  SectionContainerProps
+>((props, ref) => (
+  <Container ref={ref} size="xl" padding="md" paddingY="xl" {...props} />
+));
 SectionContainer.displayName = 'SectionContainer';
 
 /**
- * Narrow Container - For focused content like blog posts
- * 
- * @example
- * <NarrowContainer>
- *   <BlogPost content={post} />
- * </NarrowContainer>
+ * NarrowContainer — For focused content like blog posts.
  */
-export const NarrowContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="lg" 
-      padding="md" 
-      {...props} 
-    />
-  )
-);
+export const NarrowContainer = React.forwardRef<
+  HTMLDivElement,
+  NarrowContainerProps
+>((props, ref) => (
+  <Container ref={ref} size="lg" padding="md" {...props} />
+));
 NarrowContainer.displayName = 'NarrowContainer';
 
 /**
- * Wide Container - For immersive content like galleries
- * 
- * @example
- * <WideContainer>
- *   <ImageGallery images={images} />
- * </WideContainer>
+ * WideContainer — For immersive content like galleries.
  */
-export const WideContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="2xl" 
-      padding="md" 
-      {...props} 
-    />
-  )
-);
+export const WideContainer = React.forwardRef<
+  HTMLDivElement,
+  WideContainerProps
+>((props, ref) => (
+  <Container ref={ref} size="2xl" padding="md" {...props} />
+));
 WideContainer.displayName = 'WideContainer';
 
 /**
- * Hero Container - For hero sections with larger padding
- * 
- * @example
- * <HeroContainer>
- *   <HeroTitle>Welcome to the Sanctuary</HeroTitle>
- *   <HeroSubtitle>Where sovereignty lives</HeroSubtitle>
- * </HeroContainer>
+ * HeroContainer — For hero sections with larger padding.
  */
-export const HeroContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size' | 'paddingY'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="xl" 
-      padding="lg" 
-      paddingY="xl" 
-      background 
-      {...props} 
-    />
-  )
-);
+export const HeroContainer = React.forwardRef<
+  HTMLDivElement,
+  HeroContainerProps
+>((props, ref) => (
+  <Container
+    ref={ref}
+    size="xl"
+    padding="lg"
+    paddingY="xl"
+    background
+    {...props}
+  />
+));
 HeroContainer.displayName = 'HeroContainer';
 
 /**
- * Footer Container - For footer sections
- * 
- * @example
- * <FooterContainer>
- *   <FooterContent />
- * </FooterContainer>
+ * FooterContainer — For footer sections.
  */
-export const FooterContainer = React.forwardRef<HTMLDivElement, Omit<ContainerProps, 'size' | 'paddingY'>>(
-  (props, ref) => (
-    <Container 
-      ref={ref} 
-      size="xl" 
-      padding="md" 
-      paddingY="lg" 
-      bordered 
-      {...props} 
-    />
-  )
-);
+export const FooterContainer = React.forwardRef<
+  HTMLDivElement,
+  FooterContainerProps
+>((props, ref) => (
+  <Container
+    ref={ref}
+    size="xl"
+    padding="md"
+    paddingY="lg"
+    bordered
+    {...props}
+  />
+));
 FooterContainer.displayName = 'FooterContainer';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // COMPOSITION COMPONENTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Container Header - Consistent header spacing within a container
+ * ContainerHeader — Consistent header spacing within a container.
  */
-export const ContainerHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, children, ...props }, ref) => (
-    <div ref={ref} className={cn('mb-8', className)} {...props}>
-      {children}
-    </div>
-  )
-);
+export const ContainerHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(CONTAINER_HEADER_MARGIN_BOTTOM, className)}
+    {...props}
+  >
+    {children}
+  </div>
+));
 ContainerHeader.displayName = 'ContainerHeader';
 
 /**
- * Container Body - Consistent body spacing within a container
+ * ContainerBody — Consistent body spacing within a container.
  */
-export const ContainerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, children, ...props }, ref) => (
-    <div ref={ref} className={cn('space-y-6', className)} {...props}>
-      {children}
-    </div>
-  )
-);
+export const ContainerBody = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(CONTAINER_BODY_GAP, className)}
+    {...props}
+  >
+    {children}
+  </div>
+));
 ContainerBody.displayName = 'ContainerBody';
 
 /**
- * Container Footer - Consistent footer spacing within a container
+ * ContainerFooter — Consistent footer spacing within a container.
  */
-export const ContainerFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, children, ...props }, ref) => (
-    <div ref={ref} className={cn('mt-8 pt-6 border-t border-white/10', className)} {...props}>
-      {children}
-    </div>
-  )
-);
+export const ContainerFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      CONTAINER_FOOTER_MARGIN_TOP,
+      CONTAINER_FOOTER_PADDING_TOP,
+      CONTAINER_FOOTER_DIVIDER,
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+));
 ContainerFooter.displayName = 'ContainerFooter';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  ContainerProps,
+  PageContainerProps,
+  SectionContainerProps,
+  NarrowContainerProps,
+  WideContainerProps,
+  HeroContainerProps,
+  FooterContainerProps,
+  ContainerSize,
+  ContainerPadding,
+  ContainerVisualVariant,
+} from '@/types/components/ui/container.types';

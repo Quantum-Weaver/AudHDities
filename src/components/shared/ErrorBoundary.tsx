@@ -1,22 +1,51 @@
-// @/components/shared/ErrorBoundary.tsx
-// Graceful error handling
+// src/components/shared/ErrorBoundary.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    ERROR BOUNDARY COMPONENT                                ║
+// ║                    Graceful error handling with variant support            ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
-"use client";
+'use client';
 
-import { Component, type ReactNode } from "react";
-import { Button } from "@/components/ui/Button";
+import { Component } from 'react';
+import type { ErrorInfo } from 'react';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/Button';
 
-export interface ErrorBoundaryProps {
-  children: ReactNode;
-  fallback?: ReactNode;
-  onError?: (error: Error, errorInfo: React.ErrorInfo) => void;
-}
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  ErrorBoundaryProps,
+  ErrorBoundaryState,
+} from '@/types/components/shared/error_boundary.types';
 
-interface ErrorBoundaryState {
-  hasError: boolean;
-  error: Error | null;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  ERROR_BOUNDARY_DEFAULTS,
+  type ErrorBoundaryVariant,
+} from '@/lib/constants/components/shared/error_boundary.constants';
 
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  errorBoundaryContainerVariants,
+  errorBoundaryIconVariants,
+  errorBoundaryTitleVariants,
+  errorBoundaryMessageVariants,
+  ERROR_BOUNDARY_ACTION_VARIANT_MAP,
+} from '@/lib/constants/components/shared/error_boundary.variants';
+
+/**
+ * ErrorBoundary — Catches render errors and displays a variant-aware fallback.
+ *
+ * Four variants map to different severity levels:
+ * - graceful_degradation: Warning-styled, low severity, recovery focused
+ * - recovery_assistance: Error-styled, medium severity, action oriented
+ * - user_guidance: Info-styled, informational, gentle guidance
+ * - system_reporting: Void-styled, critical, diagnostic
+ *
+ * @example
+ * <ErrorBoundary variant="recovery_assistance" onError={logError}>
+ *   <RiskyComponent />
+ * </ErrorBoundary>
+ */
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
@@ -27,8 +56,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
     this.props.onError?.(error, errorInfo);
   }
 
@@ -42,14 +71,35 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         return this.props.fallback;
       }
 
+      const variant: ErrorBoundaryVariant =
+        this.props.variant ?? 'graceful_degradation';
+
       return (
-        <div className="text-center py-12">
-          <div className="text-6xl mb-4">⚠️</div>
-          <h3 className="text-xl font-bold text-white mb-2">Something went wrong</h3>
-          <p className="text-white/60 mb-4 max-w-md mx-auto">
-            {this.state.error?.message || "An unexpected error occurred"}
+        <div
+          className={cn(
+            errorBoundaryContainerVariants({ variant }),
+            'flex flex-col items-center justify-center'
+          )}
+        >
+          <div className={errorBoundaryIconVariants({ variant })}>
+            {ERROR_BOUNDARY_DEFAULTS.ICON}
+          </div>
+
+          <h3 className={errorBoundaryTitleVariants({ variant })}>
+            {ERROR_BOUNDARY_DEFAULTS.TITLE}
+          </h3>
+
+          <p className={errorBoundaryMessageVariants({ variant })}>
+            {this.state.error?.message || ERROR_BOUNDARY_DEFAULTS.MESSAGE}
           </p>
-          <Button onClick={this.handleReset}>Try Again</Button>
+
+          <Button
+            onClick={this.handleReset}
+            variant={ERROR_BOUNDARY_ACTION_VARIANT_MAP[variant]}
+            size="sm"
+          >
+            {ERROR_BOUNDARY_DEFAULTS.ACTION_LABEL}
+          </Button>
         </div>
       );
     }

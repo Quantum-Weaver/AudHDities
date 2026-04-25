@@ -1,94 +1,83 @@
-// components/ui/Pagination.tsx
-// Pagination Component - The bookmark of the interface
-// Divides large datasets into manageable pages
+// src/components/ui/Pagination.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    PAGINATION COMPONENT                                   ║
+// ║                    The bookmark of the interface                          ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
+'use client';
 
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { Button } from './Button';
 
-export type PaginationSize = 'sm' | 'md' | 'lg';
-export type PaginationVariant = 'default' | 'outline' | 'minimal';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  PaginationProps,
+  PaginationInfoProps,
+  PaginationSize,
+  PaginationVariant,
+  PageNumberItem,
+} from '@/types/components/ui/pagination.types';
 
-export interface PaginationProps {
-  /** Current page number (1-indexed) */
-  currentPage: number;
-  /** Total number of pages */
-  totalPages: number;
-  /** Callback when page changes */
-  onPageChange: (page: number) => void;
-  /** Number of page buttons to show on each side of current page */
-  siblingCount?: number;
-  /** Show first/last page buttons */
-  showFirstLast?: boolean;
-  /** Show page size selector */
-  showPageSize?: boolean;
-  /** Available page sizes */
-  pageSizeOptions?: number[];
-  /** Current page size */
-  pageSize?: number;
-  /** Callback when page size changes */
-  onPageSizeChange?: (pageSize: number) => void;
-  /** Size of pagination buttons */
-  size?: PaginationSize;
-  /** Visual variant */
-  variant?: PaginationVariant;
-  /** Compact mode (fewer buttons) */
-  compact?: boolean;
-  /** Disable pagination */
-  disabled?: boolean;
-  /** Custom className */
-  className?: string;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  PAGINATION_BUTTON_SIZE,
+  PAGINATION_ICON_SIZE,
+  PAGINATION_DEFAULT_SIBLING_COUNT,
+  PAGINATION_DEFAULT_PAGE_SIZES,
+  PAGINATION_DEFAULT_PAGE_SIZE,
+  PAGINATION_SELECT_PADDING,
+  PAGINATION_CONTAINER_GAP,
+  PAGINATION_BUTTON_GAP,
+  PAGINATION_SELECT_GAP,
+} from '@/lib/constants/components/ui/pagination.constants';
 
-const sizeClasses: Record<PaginationSize, string> = {
-  sm: 'h-7 w-7 text-xs',
-  md: 'h-8 w-8 text-sm',
-  lg: 'h-9 w-9 text-base',
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  paginationButtonVariants,
+  paginationActiveButtonVariants,
+  paginationSelectVariants,
+} from '@/lib/constants/components/ui/pagination.variants';
 
-const variantClasses: Record<PaginationVariant, string> = {
-  default: 'bg-white/5 hover:bg-white/10 text-white/80 hover:text-white',
-  outline: 'border border-white/20 hover:border-white/40 text-white/80 hover:text-white',
-  minimal: 'text-white/60 hover:text-white hover:bg-white/5',
-};
-
-const activeVariantClasses: Record<PaginationVariant, string> = {
-  default: 'bg-cyan-500 text-white hover:bg-cyan-600',
-  outline: 'border-cyan-500 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20',
-  minimal: 'text-cyan-400 bg-white/5',
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// PAGE NUMBER GENERATOR
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Generate array of page numbers to display
+ * Generate the array of page numbers and ellipses to display.
+ * Pure logic — no styling dependencies.
  */
-const getPageNumbers = (
+function getPageNumbers(
   currentPage: number,
   totalPages: number,
   siblingCount: number,
   compact: boolean
-): (number | 'ellipsis')[] => {
+): PageNumberItem[] {
   const totalPageNumbers = siblingCount * 2 + (compact ? 3 : 5);
-  
+
+  // All pages fit — no ellipsis needed
   if (totalPages <= totalPageNumbers) {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
-  
+
   const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
   const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages);
-  
+
   const showLeftEllipsis = leftSiblingIndex > 2;
   const showRightEllipsis = rightSiblingIndex < totalPages - 1;
-  
+
   const firstPageIndex = 1;
   const lastPageIndex = totalPages;
-  
+
+  // Only right ellipsis needed
   if (!showLeftEllipsis && showRightEllipsis) {
     const leftItemCount = (compact ? 3 : 5) + siblingCount;
     const leftRange = Array.from({ length: leftItemCount }, (_, i) => i + 1);
     return [...leftRange, 'ellipsis', lastPageIndex];
   }
-  
+
+  // Only left ellipsis needed
   if (showLeftEllipsis && !showRightEllipsis) {
     const rightItemCount = (compact ? 3 : 5) + siblingCount;
     const rightRange = Array.from(
@@ -97,7 +86,8 @@ const getPageNumbers = (
     );
     return [firstPageIndex, 'ellipsis', ...rightRange];
   }
-  
+
+  // Both ellipses needed
   if (showLeftEllipsis && showRightEllipsis) {
     const middleRange = Array.from(
       { length: rightSiblingIndex - leftSiblingIndex + 1 },
@@ -105,20 +95,24 @@ const getPageNumbers = (
     );
     return [firstPageIndex, 'ellipsis', ...middleRange, 'ellipsis', lastPageIndex];
   }
-  
+
   return [];
-};
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PAGINATION
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Pagination Component
- * 
+ * Pagination — Divides large datasets into manageable pages.
+ *
  * @example
  * <Pagination
  *   currentPage={currentPage}
  *   totalPages={totalPages}
  *   onPageChange={setCurrentPage}
  * />
- * 
+ *
  * @example
  * <Pagination
  *   currentPage={page}
@@ -128,6 +122,7 @@ const getPageNumbers = (
  *   showPageSize
  *   pageSize={20}
  *   onPageSizeChange={setPageSize}
+ *   variant="outline"
  * />
  */
 export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
@@ -136,13 +131,13 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       currentPage,
       totalPages,
       onPageChange,
-      siblingCount = 1,
+      siblingCount = PAGINATION_DEFAULT_SIBLING_COUNT,
       showFirstLast = false,
       showPageSize = false,
-      pageSizeOptions = [10, 20, 50, 100],
-      pageSize = 20,
+      pageSizeOptions = [...PAGINATION_DEFAULT_PAGE_SIZES],
+      pageSize = PAGINATION_DEFAULT_PAGE_SIZE,
       onPageSizeChange,
-      size = 'md',
+      size = 'MD',
       variant = 'default',
       compact = false,
       disabled = false,
@@ -151,63 +146,84 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
     ref
   ) => {
     const pageNumbers = getPageNumbers(currentPage, totalPages, siblingCount, compact);
-    
+    const sizeConfig = PAGINATION_BUTTON_SIZE[size];
+
     const handlePageChange = (page: number) => {
       if (page !== currentPage && page >= 1 && page <= totalPages && !disabled) {
         onPageChange(page);
       }
     };
-    
+
+    // Hide pagination if only one page and no page size selector
     if (totalPages <= 1 && !showPageSize) {
       return null;
     }
-    
-    const buttonClasses = cn(
-      'inline-flex items-center justify-center rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
-      sizeClasses[size],
-      variantClasses[variant]
+
+    const buttonClass = cn(
+      paginationButtonVariants({ variant }),
+      sizeConfig.height,
+      sizeConfig.width,
+      sizeConfig.textSize
     );
-    
-    const activeButtonClasses = cn(
-      buttonClasses,
-      activeVariantClasses[variant]
+
+    const activeButtonClass = cn(
+      paginationActiveButtonVariants({ variant }),
+      sizeConfig.height,
+      sizeConfig.width,
+      sizeConfig.textSize
     );
-    
+
+    const selectClass = cn(
+      paginationSelectVariants({ variant }),
+      PAGINATION_SELECT_PADDING.X,
+      PAGINATION_SELECT_PADDING.Y
+    );
+
     return (
       <div
         ref={ref}
-        className={cn('flex flex-col sm:flex-row items-center justify-between gap-4', className)}
+        className={cn(
+          'flex flex-col sm:flex-row items-center justify-between',
+          PAGINATION_CONTAINER_GAP,
+          className
+        )}
       >
-        <div className="flex items-center gap-1">
-          {/* First Page Button */}
+        {/* ── Page Navigation ── */}
+        <div className={cn('flex items-center', PAGINATION_BUTTON_GAP)}>
           {showFirstLast && (
             <button
               type="button"
               onClick={() => handlePageChange(1)}
               disabled={currentPage === 1 || disabled}
-              className={buttonClasses}
+              className={buttonClass}
               aria-label="First page"
             >
-              <ChevronsLeft className="h-4 w-4" />
+              <ChevronsLeft className={PAGINATION_ICON_SIZE.CHEVRON} />
             </button>
           )}
-          
-          {/* Previous Page Button */}
+
           <button
             type="button"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1 || disabled}
-            className={buttonClasses}
+            className={buttonClass}
             aria-label="Previous page"
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className={PAGINATION_ICON_SIZE.CHEVRON} />
           </button>
-          
-          {/* Page Numbers */}
+
           {pageNumbers.map((page, index) => (
             <React.Fragment key={index}>
               {page === 'ellipsis' ? (
-                <span className={cn('flex items-center justify-center text-white/40', sizeClasses[size])}>
+                <span
+                  className={cn(
+                    'flex items-center justify-center text-white/40',
+                    sizeConfig.height,
+                    sizeConfig.width,
+                    sizeConfig.textSize
+                  )}
+                  aria-hidden="true"
+                >
                   ...
                 </span>
               ) : (
@@ -216,7 +232,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
                   onClick={() => handlePageChange(page as number)}
                   disabled={disabled}
                   className={cn(
-                    currentPage === page ? activeButtonClasses : buttonClasses
+                    currentPage === page ? activeButtonClass : buttonClass
                   )}
                   aria-label={`Page ${page}`}
                   aria-current={currentPage === page ? 'page' : undefined}
@@ -226,45 +242,39 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
               )}
             </React.Fragment>
           ))}
-          
-          {/* Next Page Button */}
+
           <button
             type="button"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages || disabled}
-            className={buttonClasses}
+            className={buttonClass}
             aria-label="Next page"
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className={PAGINATION_ICON_SIZE.CHEVRON} />
           </button>
-          
-          {/* Last Page Button */}
+
           {showFirstLast && (
             <button
               type="button"
               onClick={() => handlePageChange(totalPages)}
               disabled={currentPage === totalPages || disabled}
-              className={buttonClasses}
+              className={buttonClass}
               aria-label="Last page"
             >
-              <ChevronsRight className="h-4 w-4" />
+              <ChevronsRight className={PAGINATION_ICON_SIZE.CHEVRON} />
             </button>
           )}
         </div>
-        
-        {/* Page Size Selector */}
+
+        {/* ── Page Size Selector ── */}
         {showPageSize && onPageSizeChange && (
-          <div className="flex items-center gap-2">
+          <div className={cn('flex items-center', PAGINATION_SELECT_GAP)}>
             <span className="text-sm text-white/60">Show</span>
             <select
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
               disabled={disabled}
-              className={cn(
-                'rounded-md border border-white/20 bg-white/5 px-2 py-1 text-sm text-white',
-                'focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400',
-                'disabled:opacity-50 disabled:cursor-not-allowed'
-              )}
+              className={selectClass}
             >
               {pageSizeOptions.map((size) => (
                 <option key={size} value={size}>
@@ -275,8 +285,8 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
             <span className="text-sm text-white/60">per page</span>
           </div>
         )}
-        
-        {/* Page Info (compact mode fallback) */}
+
+        {/* ── Compact Info ── */}
         {compact && !showPageSize && (
           <div className="text-sm text-white/60">
             Page {currentPage} of {totalPages}
@@ -289,80 +299,69 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
 
 Pagination.displayName = 'Pagination';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // VARIANT SHORTCUTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * CompactPagination - Smaller, fewer buttons
- * 
+ * CompactPagination — Smaller buttons, fewer visible page numbers.
+ *
  * @example
  * <CompactPagination currentPage={1} totalPages={10} onPageChange={setPage} />
  */
-export const CompactPagination = React.forwardRef<HTMLDivElement, Omit<PaginationProps, 'compact'>>(
-  (props, ref) => <Pagination ref={ref} compact {...props} />
-);
+export const CompactPagination = React.forwardRef<
+  HTMLDivElement,
+  Omit<PaginationProps, 'compact'>
+>((props, ref) => <Pagination ref={ref} compact {...props} />);
 CompactPagination.displayName = 'CompactPagination';
 
 /**
- * SimplePagination - Previous/Next only
- * 
+ * SimplePagination — Previous/Next buttons only with page indicator.
+ * Uses the Button component for its triggers.
+ *
  * @example
  * <SimplePagination currentPage={1} totalPages={10} onPageChange={setPage} />
  */
-export const SimplePagination = React.forwardRef<HTMLDivElement, Omit<PaginationProps, 'showFirstLast' | 'siblingCount'>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('flex items-center gap-2', className)}>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => props.onPageChange(props.currentPage - 1)}
-        disabled={props.currentPage === 1}
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </Button>
-      <span className="text-sm text-white/60">
-        {props.currentPage} / {props.totalPages}
-      </span>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => props.onPageChange(props.currentPage + 1)}
-        disabled={props.currentPage === props.totalPages}
-      >
-        <ChevronRight className="h-4 w-4" />
-      </Button>
-    </div>
-  )
-);
+export const SimplePagination = React.forwardRef<
+  HTMLDivElement,
+  Omit<PaginationProps, 'showFirstLast' | 'siblingCount'>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn('flex items-center', PAGINATION_SELECT_GAP, className)}>
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={() => props.onPageChange(props.currentPage - 1)}
+      disabled={props.currentPage === 1}
+    >
+      <ChevronLeft className={PAGINATION_ICON_SIZE.CHEVRON} />
+    </Button>
+    <span className="text-sm text-white/60">
+      {props.currentPage} / {props.totalPages}
+    </span>
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={() => props.onPageChange(props.currentPage + 1)}
+      disabled={props.currentPage === props.totalPages}
+    >
+      <ChevronRight className={PAGINATION_ICON_SIZE.CHEVRON} />
+    </Button>
+  </div>
+));
 SimplePagination.displayName = 'SimplePagination';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // PAGINATION INFO
-// ============================================================================
-
-export interface PaginationInfoProps {
-  /** Current page number */
-  currentPage: number;
-  /** Page size */
-  pageSize: number;
-  /** Total number of items */
-  totalItems: number;
-  /** Custom className */
-  className?: string;
-}
+// ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * PaginationInfo - Displays "Showing X-Y of Z items"
- * 
+ * PaginationInfo — Displays "Showing X-Y of Z items".
+ *
  * @example
  * <PaginationInfo currentPage={1} pageSize={20} totalItems={145} />
  */
 export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoProps>(
   ({ currentPage, pageSize, totalItems, className }, ref) => {
-    const start = (currentPage - 1) * pageSize + 1;
-    const end = Math.min(currentPage * pageSize, totalItems);
-    
     if (totalItems === 0) {
       return (
         <div ref={ref} className={cn('text-sm text-white/60', className)}>
@@ -370,7 +369,10 @@ export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoPro
         </div>
       );
     }
-    
+
+    const start = (currentPage - 1) * pageSize + 1;
+    const end = Math.min(currentPage * pageSize, totalItems);
+
     return (
       <div ref={ref} className={cn('text-sm text-white/60', className)}>
         Showing {start} to {end} of {totalItems} items
@@ -379,3 +381,14 @@ export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoPro
   }
 );
 PaginationInfo.displayName = 'PaginationInfo';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RE-EXPORT TYPES
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  PaginationProps,
+  PaginationInfoProps,
+  PaginationSize,
+  PaginationVariant,
+} from '@/types/components/ui/pagination.types';
