@@ -57,7 +57,7 @@ const COMPONENTS = [
   'progress',
   'radio',
   'scroll_area',
-  'search_bar',
+  'searchbar',
   'select',
   'sidebar',
   'skeleton',
