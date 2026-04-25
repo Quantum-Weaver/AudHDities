@@ -33,12 +33,12 @@ import { PathwayCardRenderer } from './cards/PathwayCardRenderer';
 import { ProductCardRenderer } from './cards/ProductCardRenderer';
 import { QuestCardRenderer } from './cards/QuestCardRenderer';
 import { ProposalCardRenderer } from './cards/ProposalCardRenderer';
-import { EventCardRenderer } from '../../archive/prometheus/EventCard';
-import { CreatorCardRenderer } from '../../archive/hermes/bazaar/CreatorCard';
-import { VendorCardRenderer } from '../../archive/hermes/bazaar/VendorCard';
-import { EntityCardRenderer } from '../../archive/aethelred/EntityCardRenderer';
-import { StatCardRenderer } from '../../archive/shared/StatCard';
-import { UserCardRenderer } from '../../archive/hestia/UserCard';
+import { EventCardRenderer } from '../asgard/domains/prometheus/EventCard';
+import { CreatorCardRenderer } from '../asgard/domains/hermes/bazaar/CreatorCard';
+import { VendorCardRenderer } from '../asgard//domains/hermes/bazaar/VendorCard';
+import { EntityCardRenderer } from '../asgard/domains/aethelred/nexus/EntityCardRenderer';
+import { StatCardRenderer } from '../asgard/domains/hephaestus/supporting/StatCard';
+import { UserCardRenderer } from '../asgard/domains/hestia/vessel/UserCard';
 
 import { FileCardRenderer } from './cards/FileCardRenderer';
 import { CouncilCardRenderer } from './cards/CouncilCardRenderer';

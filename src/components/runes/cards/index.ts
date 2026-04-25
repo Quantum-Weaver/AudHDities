@@ -1,4 +1,5 @@
-// src/components/runes/cards/index.ts
+// src/components/runes/cards/index.ts.md
+
 
 // Base sub-components
 export { CardMedia } from './CardMedia';

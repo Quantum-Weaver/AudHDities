@@ -1,104 +1,58 @@
 // components/bifrost/Section.tsx
-// Provides consistent spacing and boundaries between content areas
-// Uses COSMIC design tokens for spacing and styling
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║        SECTION COMPONENT                                                  ║
-// ║        The chapter in the story of a page                                 ║
+// ║                    SECTION COMPONENT                                      ║
+// ║                    The chapter in the story of a page                     ║
+// ║                    Zero hardcoded values                                  ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Container, type ContainerSize } from '../hof/Container';
+import { Container } from '@/components/hof/Container';
 
-export type SectionSpacing = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-export type SectionVariant = 'default' | 'muted' | 'glow' | 'gradient' | 'glass';
+// ─── Types ─────────────────────────────────────────────────────────────────
+import type {
+  SectionProps,
+  SectionSpacing,
+  SectionVariant,
+  SectionTitleAlign,
+  SectionHeaderProps,
+  SectionDividerProps,
+  SectionGroupProps,
+} from '@/types/components/bifrost/section.types';
 
-export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-  /** Vertical padding for the section */
-  spacing?: SectionSpacing;
-  /** Visual variant of the section */
-  variant?: SectionVariant;
-  /** Container size (max-width constraint) */
-  containerSize?: ContainerSize;
-  /** Whether to use a container (width constraint) */
-  withContainer?: boolean;
-  /** Remove top spacing */
-  noTopSpacing?: boolean;
-  /** Remove bottom spacing */
-  noBottomSpacing?: boolean;
-  /** Add a subtle top border */
-  bordered?: boolean;
-  /** Add a subtle separator above the section */
-  separator?: boolean;
-  /** Section title */
-  title?: string;
-  /** Section description/subtitle */
-  description?: string;
-  /** Align title and description */
-  titleAlign?: 'left' | 'center' | 'right';
-  /** As child element */
-  asChild?: boolean;
-}
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  SECTION_SPACING,
+  SECTION_VARIANTS,
+  SECTION_TITLE_ALIGN,
+  SECTION_SPACING_MAP,
+} from '@/lib/constants/components/bifrost/section.constants';
 
-/**
- * Spacing classes
- */
-const spacingMap: Record<SectionSpacing, string> = {
-  none: 'py-0',
-  sm: 'py-8',
-  md: 'py-12',
-  lg: 'py-16',
-  xl: 'py-20',
-  '2xl': 'py-24',
-};
+// ─── Variants ──────────────────────────────────────────────────────────────
+import {
+  sectionVariants,
+  sectionTitleVariants,
+  sectionDescriptionVariants,
+  sectionHeaderVariants,
+  sectionDividerVariants,
+} from '@/lib/constants/components/bifrost/section.variants';
 
-/**
- * Variant classes
- */
-const variantMap: Record<SectionVariant, string> = {
-  default: '',
-  muted: 'bg-white/5',
-  glow: 'bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent',
-  gradient: 'bg-gradient-to-b from-quantum-purple/10 via-transparent to-transparent',
-  glass: 'bg-white/5 backdrop-blur-sm border-y border-white/10',
-};
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  resolveSectionSpacing,
+  composeSectionClasses,
+} from '@/lib/utils/components/bifrost/section.utils';
 
-/**
- * Title alignment classes
- */
-const titleAlignMap = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right',
-};
+// ═══════════════════════════════════════════════════════════════════════════
+// SECTION
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * Section Component
- * 
- * A structural component for dividing pages into major content areas.
- * 
- * @example
- * <Section title="Featured Products" description="Hand-picked just for you">
- *   <ProductGrid products={products} />
- * </Section>
- * 
- * @example
- * <Section variant="glow" spacing="lg" withContainer>
- *   <HeroContent />
- * </Section>
- * 
- * @example
- * <Section variant="glass" separator bordered>
- *   <TestimonialCarousel />
- * </Section>
- */
 export const Section = React.forwardRef<HTMLElement, SectionProps>(
   (
     {
       children,
-      spacing = 'lg',
-      variant = 'default',
+      spacing = SECTION_SPACING.LG,
+      variant = SECTION_VARIANTS.DEFAULT,
       containerSize = 'xl',
       withContainer = true,
       noTopSpacing = false,
@@ -107,79 +61,51 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
       separator = false,
       title,
       description,
-      titleAlign = 'center',
-      asChild = false,
+      titleAlign = SECTION_TITLE_ALIGN.CENTER,
       className,
       ...props
     },
     ref
   ) => {
-    // Determine spacing class
-    let spacingClass = spacingMap[spacing];
-    if (noTopSpacing) spacingClass = spacingClass.replace('py-', 'pb-').replace('pt-', '');
-    if (noBottomSpacing) spacingClass = spacingClass.replace('py-', 'pt-').replace('pb-', '');
-    
-    // Determine variant class
-    const variantClass = variantMap[variant];
-    
-    // Determine border class
-    const borderClass = bordered ? 'border-t border-white/10' : '';
-    
-    // Determine separator class
-    const separatorClass = separator ? 'relative before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-24 before:h-px before:bg-gradient-to-r before:from-transparent before:via-cyan-400 before:to-transparent' : '';
-    
-    // Base classes
-    const baseClasses = cn(
-      'w-full',
-      spacingClass,
+    const variantClass = sectionVariants({ variant, bordered, separator });
+    const spacingClass = resolveSectionSpacing(spacing, noTopSpacing, noBottomSpacing);
+    const separatorClass = sectionVariants({ variant, bordered, separator });
+
+    const baseClasses = composeSectionClasses({
       variantClass,
-      borderClass,
-      separatorClass,
-      className
+      spacingClass,
+      bordered,
+      separatorClass: separator ? separatorClass : '',
+      className,
+    });
+
+    const titleContent = title && (
+      <div className={sectionHeaderVariants({ align: titleAlign, hasContainer: withContainer })}>
+        <h2 className={sectionTitleVariants({ align: titleAlign })}>
+          {title}
+        </h2>
+        {description && (
+          <p className={sectionDescriptionVariants({ align: titleAlign })}>
+            {description}
+          </p>
+        )}
+      </div>
     );
-    
-    // Content (with or without container)
-    const content = withContainer ? (
-      <Container size={containerSize}>
-        {title && (
-          <div className={cn('mb-8', titleAlignMap[titleAlign])}>
-            <h2 className={cn(
-              'text-2xl md:text-3xl font-bold text-white mb-3',
-              titleAlign === 'center' && 'mx-auto',
-              titleAlign === 'left' && 'text-left',
-              titleAlign === 'right' && 'text-right'
-            )}>
-              {title}
-            </h2>
-            {description && (
-              <p className={cn(
-                'text-white/60 max-w-2xl',
-                titleAlign === 'center' && 'mx-auto text-center',
-                titleAlign === 'left' && 'text-left',
-                titleAlign === 'right' && 'text-right ml-auto'
-              )}>
-                {description}
-              </p>
-            )}
-          </div>
-        )}
-        {children}
-      </Container>
-    ) : (
+
+    const bodyContent = (
       <>
-        {title && (
-          <div className={cn('mb-8 px-4', titleAlignMap[titleAlign])}>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{title}</h2>
-            {description && <p className="text-white/60">{description}</p>}
-          </div>
-        )}
+        {titleContent}
         {children}
       </>
     );
-    
+
     return (
       <section ref={ref} className={baseClasses} {...props}>
-        {content}
+        {withContainer ? (
+          <Container size={containerSize}>{bodyContent}</Container>
+        ) : (
+          bodyContent
+        )}
       </section>
     );
   }
@@ -187,132 +113,84 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
 
 Section.displayName = 'Section';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // VARIANT SHORTCUTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * Muted Section - Subtle background for emphasis
- */
-export const MutedSection = React.forwardRef<HTMLElement, Omit<SectionProps, 'variant'>>(
-  (props, ref) => <Section ref={ref} variant="muted" {...props} />
-);
+export const MutedSection = React.forwardRef<
+  HTMLElement,
+  Omit<SectionProps, 'variant'>
+>((props, ref) => (
+  <Section ref={ref} variant={SECTION_VARIANTS.MUTED} {...props} />
+));
 MutedSection.displayName = 'MutedSection';
 
-/**
- * Glow Section - Ambient glow effect
- */
-export const GlowSection = React.forwardRef<HTMLElement, Omit<SectionProps, 'variant'>>(
-  (props, ref) => <Section ref={ref} variant="glow" {...props} />
-);
+export const GlowSection = React.forwardRef<
+  HTMLElement,
+  Omit<SectionProps, 'variant'>
+>((props, ref) => (
+  <Section ref={ref} variant={SECTION_VARIANTS.GLOW} {...props} />
+));
 GlowSection.displayName = 'GlowSection';
 
-/**
- * Gradient Section - Subtle gradient transition
- */
-export const GradientSection = React.forwardRef<HTMLElement, Omit<SectionProps, 'variant'>>(
-  (props, ref) => <Section ref={ref} variant="gradient" {...props} />
-);
+export const GradientSection = React.forwardRef<
+  HTMLElement,
+  Omit<SectionProps, 'variant'>
+>((props, ref) => (
+  <Section ref={ref} variant={SECTION_VARIANTS.GRADIENT} {...props} />
+));
 GradientSection.displayName = 'GradientSection';
 
-/**
- * Glass Section - Frosted glass effect
- */
-export const GlassSection = React.forwardRef<HTMLElement, Omit<SectionProps, 'variant'>>(
-  (props, ref) => <Section ref={ref} variant="glass" {...props} />
-);
+export const GlassSection = React.forwardRef<
+  HTMLElement,
+  Omit<SectionProps, 'variant'>
+>((props, ref) => (
+  <Section ref={ref} variant={SECTION_VARIANTS.GLASS} {...props} />
+));
 GlassSection.displayName = 'GlassSection';
 
-/**
- * Hero Section - Large spacing, no container by default
- */
-export const HeroSection = React.forwardRef<HTMLElement, Omit<SectionProps, 'spacing' | 'withContainer'>>(
-  (props, ref) => <Section ref={ref} spacing="2xl" withContainer={false} {...props} />
-);
+export const HeroSection = React.forwardRef<
+  HTMLElement,
+  Omit<SectionProps, 'spacing' | 'withContainer'>
+>((props, ref) => (
+  <Section
+    ref={ref}
+    spacing={SECTION_SPACING['2XL']}
+    withContainer={false}
+    {...props}
+  />
+));
 HeroSection.displayName = 'HeroSection';
 
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 // COMPOSITION COMPONENTS
-// ============================================================================
+// ═══════════════════════════════════════════════════════════════════════════
 
-export interface SectionHeaderProps {
-  title: string;
-  description?: string;
-  align?: 'left' | 'center' | 'right';
-  className?: string;
-}
-
-/**
- * SectionHeader - Pre-built header for sections
- * 
- * @example
- * <SectionHeader title="Products" description="Browse our collection" align="center" />
- */
 export const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
-  ({ title, description, align = 'center', className }, ref) => (
-    <div ref={ref} className={cn('mb-8', className)}>
-      <h2 className={cn(
-        'text-2xl md:text-3xl font-bold text-white mb-3',
-        align === 'center' && 'text-center',
-        align === 'left' && 'text-left',
-        align === 'right' && 'text-right'
-      )}>
-        {title}
-      </h2>
+  ({ title, description, align = SECTION_TITLE_ALIGN.CENTER, className }, ref) => (
+    <div ref={ref} className={cn(sectionHeaderVariants({ align, hasContainer: false }), className)}>
+      <h2 className={sectionTitleVariants({ align })}>{title}</h2>
       {description && (
-        <p className={cn(
-          'text-white/60 max-w-2xl',
-          align === 'center' && 'mx-auto text-center',
-          align === 'left' && 'text-left',
-          align === 'right' && 'text-right ml-auto'
-        )}>
-          {description}
-        </p>
+        <p className={sectionDescriptionVariants({ align })}>{description}</p>
       )}
     </div>
   )
 );
 SectionHeader.displayName = 'SectionHeader';
 
-export interface SectionDividerProps {
-  className?: string;
-}
-
-/**
- * SectionDivider - Visual separator between sections
- * 
- * @example
- * <SectionDivider />
- */
 export const SectionDivider = React.forwardRef<HTMLDivElement, SectionDividerProps>(
   ({ className }, ref) => (
-    <div ref={ref} className={cn('py-8', className)}>
-      <div className="w-16 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto" />
+    <div ref={ref} className={cn(sectionDividerVariants(), 'py-8', className)}>
+      <div className={sectionDividerVariants({ className: 'mx-auto' })} />
     </div>
   )
 );
 SectionDivider.displayName = 'SectionDivider';
 
-export interface SectionGroupProps {
-  children: React.ReactNode;
-  spacing?: SectionSpacing;
-  className?: string;
-}
-
-/**
- * SectionGroup - Groups multiple sections with consistent spacing between them
- * 
- * @example
- * <SectionGroup spacing="lg">
- *   <Section title="Section 1">...</Section>
- *   <Section title="Section 2">...</Section>
- *   <Section title="Section 3">...</Section>
- * </SectionGroup>
- */
 export const SectionGroup = React.forwardRef<HTMLDivElement, SectionGroupProps>(
-  ({ children, spacing = 'lg', className }, ref) => {
-    const spacingClass = spacingMap[spacing];
-    
+  ({ children, spacing = SECTION_SPACING.LG, className }, ref) => {
+    const spacingClass = SECTION_SPACING_MAP[spacing];
+
     return (
       <div ref={ref} className={cn('space-y-0', className)}>
         {React.Children.map(children, (child, index) => (
@@ -326,3 +204,13 @@ export const SectionGroup = React.forwardRef<HTMLDivElement, SectionGroupProps>(
   }
 );
 SectionGroup.displayName = 'SectionGroup';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RE-EXPORT TYPES
+// ═══════════════════════════════════════════════════════════════════════════
+
+export type {
+  SectionSpacing,
+  SectionVariant,
+  SectionTitleAlign,
+} from '@/types/components/bifrost/section.types';

@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Card } from '@/components/runes/Card';
-import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
+import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/runes/cards';
 import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { COUNCIL_COLORS } from '@/lib/constants/cosmic/colors';

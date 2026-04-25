@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { Card } from '@/components/runes/Card';
-import ContactForm from '@/components/archive/iris/contact/ContactForm';
+import ContactForm from '@/components/asgard/domains/iris/contact/ContactForm';
 import { Mail, Clock, Shield, Sparkles, Heart, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
