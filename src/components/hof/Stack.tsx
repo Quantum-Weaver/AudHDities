@@ -1,4 +1,4 @@
-// src/components/ui/Stack.tsx
+// src/components/hof/Stack.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    STACK COMPONENT                                         ║
 // ║                    The vertebral column of the UI                           ║

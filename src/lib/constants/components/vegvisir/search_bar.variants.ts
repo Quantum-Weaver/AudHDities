@@ -1,4 +1,4 @@
-// src/lib/constants/components/vegvisir/searchbar.variants.ts
+// src/lib/constants/components/vegvisir/search_bar.variants.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SEARCHBAR VARIANTS                                     ║
 // ║                    CVA variant definitions                                ║

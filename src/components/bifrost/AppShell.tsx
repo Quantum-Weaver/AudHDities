@@ -1,7 +1,9 @@
-// @/components/layout/AppShell.tsx
-// App Shell - The sovereign container for all pages
+// @/components/bifrost/AppShell.tsx
 // Stacks Header, ContinuityBeam, StatusBar, Navigation, and Content correctly
-
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    APP SHELL                                              ║
+// ║                    The sovereign container for all pages                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 "use client";
 
 import { ReactNode } from 'react';

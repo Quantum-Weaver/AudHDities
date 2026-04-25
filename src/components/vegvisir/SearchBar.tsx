@@ -12,7 +12,7 @@ import { Input } from "@/components/forging/Input";
 import { Button } from "@/components/yggdrasil/Button";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-import type { SearchBarProps } from "@/types/components/vegvisir/searchbar.types";
+import type { SearchBarProps } from "@/types/components/vegvisir/search_bar.types";
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -24,17 +24,17 @@ import {
   SEARCHBAR_SPINNER_CLASSES,
   SEARCHBAR_CLEAR_LABEL,
   SEARCHBAR_CLEAR_ARIA_LABEL,
-} from "@/lib/constants/components/vegvisir/searchbar.constants";
+} from "@/lib/constants/components/vegvisir/search_bar.constants";
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   searchbarContainerVariants,
   searchbarInputVariants,
   searchbarSpinnerVariants,
-} from "@/lib/constants/components/vegvisir/searchbar.variants";
+} from "@/lib/constants/components/vegvisir/search_bar.variants";
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import { createDebouncedSearch } from "@/lib/utils/components/vegvisir/searchbar.utils";
+import { createDebouncedSearch } from "@/lib/utils/components/vegvisir/search_bar.utils";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

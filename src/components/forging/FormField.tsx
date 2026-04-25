@@ -1,8 +1,8 @@
-// src/components/ui/FormField.tsx
+// src/components/forging/FormField.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FORM FIELD COMPONENT                                   ║
-// ║                    The consistent form field unit                           ║
-// ║                    All values from COSMIC constants                        ║
+// ║                    The consistent form field unit                         ║
+// ║                    All values from COSMIC constants                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import React from 'react';
@@ -27,13 +27,13 @@ import {
   FORM_FIELD_HELPER_COLOR,
   FORM_FIELD_ERROR_MARGIN_TOP,
   FORM_FIELD_ERROR_COLOR,
-} from '@/lib/constants/components/ui/form_field.constants';
+} from '@/lib/constants/components/forging/form_field.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   formFieldHelperVariants,
   formFieldErrorVariants,
-} from '@/lib/constants/components/ui/form_field.variants';
+} from '@/lib/constants/components/forging/form_field.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

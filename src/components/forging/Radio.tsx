@@ -1,4 +1,4 @@
-// src/components/ui/Radio.tsx
+// src/components/forging/Radio.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    RADIO COMPONENT                                        ║
 // ║                    Sovereign selection control                            ║
@@ -22,7 +22,7 @@ import {
   radioIndicatorVariants,
   radioLabelVariants,
   radioGroupVariants,
-} from '@/lib/constants/components/ui/radio.variants';
+} from '@/lib/constants/components/forging/radio.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

@@ -1,4 +1,4 @@
-// src/utils/components/vegvisir/searchbar.utils.ts
+// src/utils/components/vegvisir/search_bar.utils.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SEARCHBAR UTILITIES                                    ║
 // ║                    Debounce, class composition                            ║

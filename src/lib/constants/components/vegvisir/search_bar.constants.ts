@@ -1,4 +1,4 @@
-// src/lib/constants/components/vegvisir/searchbar.constant.ts
+// src/lib/constants/components/vegvisir/search_bar.constant.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SEARCHBAR CONSTANTS                                    ║
 // ║                    Single source of truth — no magic values               ║

@@ -1,4 +1,4 @@
-// @/components/layout/Navigation.tsx
+// @/components/bifrost/Navigation.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    NAVIGATION COMPONENT                                   ║
 // ║                    Zero hardcoded values                                  ║

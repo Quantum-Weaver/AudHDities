@@ -1,4 +1,4 @@
-// src/components/ui/FormValidation.tsx
+// src/components/forging/FormValidation.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FORM VALIDATION COMPONENT                              ║
 // ║                    Integration with validator system                      ║
@@ -42,7 +42,7 @@ import {
   FORM_VALIDATION_LIST_SPACING,
   FORM_VALIDATION_LIST_ITEM_SIZE,
   FORM_VALIDATION_DEFAULT_SUMMARY_TITLE,
-} from '@/lib/constants/components/ui/form_validation.constants';
+} from '@/lib/constants/components/forging/form_validation.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -50,7 +50,7 @@ import {
   formValidationTextVariants,
   formValidationSuccessVariants,
   formValidationSuccessTextVariants,
-} from '@/lib/constants/components/ui/form_validation.variants';
+} from '@/lib/constants/components/forging/form_validation.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

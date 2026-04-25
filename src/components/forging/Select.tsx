@@ -1,7 +1,7 @@
-// src/components/ui/Select.tsx
+// src/components/forging/Select.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║                    SELECT COMPONENT                                        ║
-// ║                    The choice gateway                                       ║
+// ║                    SELECT COMPONENT                                       ║
+// ║                    The choice gateway                                     ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';
@@ -28,7 +28,7 @@ import {
   SELECT_PLACEHOLDER_COLOR,
   SELECT_REQUIRED_STAR_COLOR,
   SELECT_OPTIONAL_TEXT_COLOR,
-} from '@/lib/constants/components/ui/select.constants';
+} from '@/lib/constants/components/forging/select.constants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

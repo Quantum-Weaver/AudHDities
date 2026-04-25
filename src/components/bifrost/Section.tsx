@@ -1,7 +1,11 @@
-// components/ui/Section.tsx
-// Section Component - The chapter in the story of a page
+// components/bifrost/Section.tsx
 // Provides consistent spacing and boundaries between content areas
 // Uses COSMIC design tokens for spacing and styling
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║        SECTION COMPONENT                                                  ║
+// ║        The chapter in the story of a page                                 ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
 
 import React from 'react';
 import { cn } from '@/lib/utils';

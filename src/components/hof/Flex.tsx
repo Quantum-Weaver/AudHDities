@@ -1,4 +1,4 @@
-// src/components/ui/Flex.tsx
+// src/components/hof/Flex.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FLEX COMPONENT                                         ║
 // ║                    The unopinionated layout foundation                    ║

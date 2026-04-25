@@ -1,4 +1,4 @@
-// src/components/ui/Input.tsx
+// src/components/forging/Input.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    INPUT COMPONENT                                        ║
 // ║                    The gateway for text entry                             ║
@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { InputProps } from '@/types/components/forging/input.types';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
-import { inputVariants } from '@/lib/constants/components/ui/input.variants';
+import { inputVariants } from '@/lib/constants/components/forging/input.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -27,7 +27,7 @@ import {
   INPUT_OPTIONAL_INDICATOR,
   INPUT_CONTAINER_CLASSES,
   INPUT_ICON_CONTAINER_CLASSES,
-} from '@/lib/constants/components/ui/input.constants';
+} from '@/lib/constants/components/forging/input.constants';
 
 /**
  * Input — Single-line text entry with label, icons, and validation states.

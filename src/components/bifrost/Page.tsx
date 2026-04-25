@@ -1,6 +1,8 @@
-// @/components/shared/Page.tsx
-// Page wrapper - provides immersive background for content
-// Does NOT include header/beam/statusbar (those are in AppShell)
+// @/components/bifrost/Page.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║        Page wrapper - provides immersive background for content           ║
+// ║        Does NOT include header/beam/statusbar (those are in AppShell)     ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 
 "use client";
 

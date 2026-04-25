@@ -1,4 +1,4 @@
-// src/components/ui/Container.tsx
+// src/components/hof/Container.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    CONTAINER COMPONENT                                    ║
 // ║                    The vessel that holds our content                       ║

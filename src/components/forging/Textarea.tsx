@@ -1,4 +1,4 @@
-// src/components/ui/Textarea.tsx
+// src/components/forging/Textarea.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    TEXTAREA COMPONENT                                     ║
 // ║                    The canvas for multi-line text                         ║
@@ -25,10 +25,10 @@ import {
   TEXTAREA_HELPER_CLASS,
   TEXTAREA_ERROR_CLASS,
   TEXTAREA_WRAPPER_BASE_CLASSES,
-} from '@/lib/constants/components/ui/textarea.constants';
+} from '@/lib/constants/components/forging/textarea.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
-import { textareaVariants } from '@/lib/constants/components/ui/textarea.variants';
+import { textareaVariants } from '@/lib/constants/components/forging/textarea.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT

@@ -1,7 +1,7 @@
-// components/ui/Checkbox.tsx
+// components/forging/Checkbox.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    CHECKBOX COMPONENT                                     ║
-// ║                    The binary choice gateway                               ║
+// ║                    The binary choice gateway                              ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';
@@ -24,10 +24,10 @@ import {
   CHECKBOX_SPACING,
   CHECKBOX_TEXT_OPACITY,
   CHECKBOX_ERROR,
-} from '@/lib/constants/components/ui/checkbox.constants';
+} from '@/lib/constants/components/forging/checkbox.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
-import { checkboxVariants } from '@/lib/constants/components/ui/checkbox.variants';
+import { checkboxVariants } from '@/lib/constants/components/forging/checkbox.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CHECKBOX

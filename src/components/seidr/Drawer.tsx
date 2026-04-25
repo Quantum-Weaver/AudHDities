@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
-import { ScrollArea } from './ScrollArea';
+import { ScrollArea } from '../hof/ScrollArea';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type {

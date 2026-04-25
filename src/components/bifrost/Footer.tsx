@@ -1,4 +1,4 @@
-// @/components/layout/Footer.tsx
+// @/components/bifrost/Footer.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FOOTER COMPONENT                                       ║
 // ║                    The foundation sigil                                   ║

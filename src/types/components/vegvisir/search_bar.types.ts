@@ -1,4 +1,4 @@
-// src/types/components/vegvisir/searchbar.types.ts
+// src/types/components/vegvisir/search_bar.types.ts
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SEARCHBAR TYPES                                        ║
 // ║                    All type definitions                                   ║
@@ -10,7 +10,7 @@ import type {
   SearchbarTheme,
   SearchbarSize,
   SearchbarSpinnerTheme,
-} from '@/lib/constants/components/vegvisir/searchbar.variants';
+} from '@/lib/constants/components/vegvisir/search_bar.variants';
 
 // ─── Re-exports from variants ──────────────────────────────────────────────
 export type {

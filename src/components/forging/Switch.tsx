@@ -1,7 +1,7 @@
-// src/components/ui/Switch.tsx
+// src/components/forging/Switch.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SWITCH COMPONENT                                       ║
-// ║                    The toggle gateway                                      ║
+// ║                    The toggle gateway                                     ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';

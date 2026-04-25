@@ -1,4 +1,4 @@
-// src/components/ui/AspectRatio.tsx
+// src/components/hof/AspectRatio.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    ASPECT RATIO COMPONENT                                  ║
 // ║                    The frame that holds our media                           ║

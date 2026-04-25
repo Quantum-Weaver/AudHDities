@@ -1,4 +1,4 @@
-// src/components/ui/ScrollArea.tsx
+// src/components/hof/ScrollArea.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SCROLL AREA COMPONENT                                   ║
 // ║                    The window to overflowing content                        ║

@@ -1,4 +1,4 @@
-// src/components/ui/Grid.tsx
+// src/components/hof/Grid.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    GRID COMPONENT                                         ║
 // ║                    The skeletal framework of the UI                       ║

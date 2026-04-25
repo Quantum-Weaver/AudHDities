@@ -1,4 +1,8 @@
-// components/profiles/MarkdownBio.tsx
+// components/bifrost/MarkdownBio.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    MARKDOWN BIO                                           ║
+// ║                                                                           ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
 'use client';
 
 import ReactMarkdown from 'react-markdown';

@@ -1,8 +1,8 @@
-// src/components/ui/Form.tsx
+// src/components/forging/Form.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    FORM COMPONENT                                         ║
-// ║                    Container for form fields                               ║
-// ║                    All values from COSMIC constants                        ║
+// ║                    Container for form fields                              ║
+// ║                    All values from COSMIC constants                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import React, {
@@ -26,14 +26,14 @@ import {
   FORM_FIELD_SPACING,
   FORM_ACTIONS_BUTTON_SPACING,
   FORM_SUBMITTING_MESSAGE,
-} from '@/lib/constants/components/ui/form.constants';
+} from '@/lib/constants/components/forging/form.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   formContainerVariants,
   formActionsContainerVariants,
   formActionsDividerClasses,
-} from '@/lib/constants/components/ui/form.variants';
+} from '@/lib/constants/components/forging/form.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import {

@@ -1,4 +1,4 @@
-// src/components/ui/Slider.tsx
+// src/components/forging/Slider.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SLIDER COMPONENT                                       ║
 // ║                    Range input with COSMIC styling                        ║
@@ -17,7 +17,7 @@ import {
   sliderTrackVariants,
   sliderRangeVariants,
   sliderThumbVariants,
-} from '@/lib/constants/components/ui/slider.variants';
+} from '@/lib/constants/components/forging/slider.variants';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -35,7 +35,7 @@ import {
   DEFAULT_SLIDER_MIN,
   DEFAULT_SLIDER_MAX,
   DEFAULT_SLIDER_STEP,
-} from '@/lib/constants/components/ui/slider.constants';
+} from '@/lib/constants/components/forging/slider.constants';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDER

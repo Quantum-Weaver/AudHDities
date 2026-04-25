@@ -1,4 +1,4 @@
-// src/components/ui/Divider.tsx
+// src/components/hof/Divider.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    DIVIDER COMPONENT                                       ║
 // ║                    The pause between thoughts                               ║

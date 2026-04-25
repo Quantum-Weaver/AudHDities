@@ -1,4 +1,4 @@
-// src/components/ui/Spacer.tsx
+// src/components/hof/Spacer.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SPACER COMPONENT                                       ║
 // ║                    The breath between components                          ║

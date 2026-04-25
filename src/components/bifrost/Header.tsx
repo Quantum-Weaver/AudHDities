@@ -1,4 +1,4 @@
-// @/components/layout/Header.tsx
+// @/components/bifrost/Header.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    HEADER COMPONENT                                       ║
 // ║                    Zero hardcoded values                                  ║
