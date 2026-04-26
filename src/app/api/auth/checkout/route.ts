@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 import type { ProfilesFormData } from '@/types/generated/hestia-core/profiles';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-02-25.clover',
+  apiVersion: '2026-04-22.dahlia',
 });
 
 interface CheckoutRequest {

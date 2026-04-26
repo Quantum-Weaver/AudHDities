@@ -22,9 +22,9 @@ export async function GET() {
       .from('profiles')
       .select(`
         *,
-        community_profiles!community_profiles_id_fkey (*),
-        creator_profiles!creator_profiles_id_fkey (*),
-        vendor_profiles!vendor_profiles_id_fkey (*),
+        community_profiles (*),
+        creator_profiles (*),
+        vendor_profiles (*),
         user_badges!user_badges_user_id_fkey (
           *,
           badge

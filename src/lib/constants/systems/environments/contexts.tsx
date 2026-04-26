@@ -107,7 +107,7 @@ export function EnvironmentProvider({ children, debug = false }: EnvironmentProv
     
     // Build context for rule evaluation
     const ctx: EnvironmentContextType = {
-      userTier: profile?.user_tier,
+      userTier: profile?.user_tier || 'ally',
       sovereigntyScore: profile?.sovereignty_score || 0,
       path: pathname,
       isAuthenticated: !!user,

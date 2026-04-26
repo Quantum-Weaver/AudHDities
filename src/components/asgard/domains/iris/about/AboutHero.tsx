@@ -32,7 +32,7 @@ export function AboutHero() {
         >
           <Badge
             variant="outline"
-            size="md"
+            size="MD"
             className="inline-flex items-center gap-2 bg-[var(--color-surface)]/10 backdrop-blur-sm mb-[var(--spacing-6)]"
           >
             <Star size={14} className="text-[var(--color-neurospark)]" />

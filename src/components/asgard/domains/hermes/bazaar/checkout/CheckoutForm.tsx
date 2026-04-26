@@ -7,7 +7,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/yggdrasil/Button";
-import { Card } from "@/components/runes/cards/Card";
+import { Card } from "@/components/runes/Card";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle } from "lucide-react";
 

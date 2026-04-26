@@ -1,7 +1,7 @@
 // src/lib/schema/parseDatabaseTypes.ts
 
 import type { Database } from '@/types/supabase/database.types';
-import { ENUM_VALUES } from '@/types/supabase/enums.helper';
+import { ENUM_VALUES } from '@/types/supabase/enums';
 
 export interface SchemaColumn {
   name: string;

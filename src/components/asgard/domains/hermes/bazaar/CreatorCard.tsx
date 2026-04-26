@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Card } from '@/components/runes/Card';
-import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
+import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/runes/cards';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
 import { CheckCircle, Package } from 'lucide-react';
@@ -73,7 +73,7 @@ export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
           ...(creatorData.tier ? [{
             label: 'Tier',
             value: (
-              <Badge variant="outline" size="sm" className={tierBadgeColors[creatorData.tier] || ''}>
+              <Badge variant="outline" size="SM" className={tierBadgeColors[creatorData.tier] || ''}>
                 {creatorData.tier}
               </Badge>
             )

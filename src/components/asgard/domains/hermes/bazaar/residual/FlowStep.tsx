@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import type { ValueCardAccent } from '@/components/iris/about/ValueCard';
 
 // ============================================================================
 // TYPES

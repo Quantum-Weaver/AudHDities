@@ -11,7 +11,7 @@ export interface ServerUserReturn {
   isCreator: boolean;
   isVendor: boolean;
   isQuantumWeaver: boolean;
-  userTier: Profile['user_tier'] | null;
+  userTier: Profile['user_tier'] | 'ally';
   sovereigntyScore: number;
 }
 
@@ -32,7 +32,7 @@ export async function useServerUser(): Promise<ServerUserReturn> {
     isCreator: profile?.is_creator === true,
     isVendor: profile?.is_vendor === true,
     isQuantumWeaver: profile?.is_quantum_weaver === true,
-    userTier: profile?.user_tier || null,
+    userTier: profile?.user_tier || 'ally',
     sovereigntyScore: profile?.sovereignty_score || 0,
   };
 }

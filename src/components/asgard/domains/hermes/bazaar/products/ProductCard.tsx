@@ -3,7 +3,7 @@
 
 import React, { useMemo } from 'react';
 import { Card } from '@/components/runes/Card';
-import { CardMedia, CardRibbon, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
+import { CardMedia, CardRibbon, CardHeader, CardContent, CardFooter } from '@/components/runes/cards';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Progress } from '@/components/runes/Progress';
@@ -81,7 +81,7 @@ function ProductCardGrid({
         title={product.title}
         subtitle={truncateTextWordBoundary(product.description || '', 80)}
         badge={
-          <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
+          <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="SM">
             {product.product_type}
           </Badge>
         }
@@ -150,10 +150,10 @@ function ProductCardList({
           subtitle={truncateTextWordBoundary(product.description || '', 100)}
           badge={
             <div className="flex gap-1">
-              <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
+              <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="SM">
                 {product.product_type}
               </Badge>
-              {isSubsidized && <Badge variant="sanctuary" size="sm">Subsidized</Badge>}
+              {isSubsidized && <Badge variant="sanctuary" size="SM">Subsidized</Badge>}
             </div>
           }
         />
@@ -219,10 +219,10 @@ function ProductCardFeatured({
         subtitle={product.description}
         badge={
           <div className="flex gap-1">
-            <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="md">
+            <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="MD">
               {product.product_type}
             </Badge>
-            {product.is_published === false && <Badge variant="warning" size="md">Draft</Badge>}
+            {product.is_published === false && <Badge variant="warning" size="MD">Draft</Badge>}
           </div>
         }
       />
@@ -255,7 +255,7 @@ function ProductCardFeatured({
               {formatPrice(product.price_ally)}
             </span>
           )}
-          <Badge variant="ghost" size="sm" className="capitalize">{userTier} price</Badge>
+          <Badge variant="ghost" size="SM" className="capitalize">{userTier} price</Badge>
         </div>
 
         {/* Contributors */}

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { DollarSign, ArrowRight, Infinity, Heart } from 'lucide-react';
 import { Card } from '@/components/runes/Card';
-import { CardContent, CardFooter } from '@/components/ui/cards';
+import { CardContent, CardFooter } from '@/components/runes/cards';
 import { FlowStep } from './FlowStep';
 import type { CardData } from '@/types/components/runes/card.types';
 

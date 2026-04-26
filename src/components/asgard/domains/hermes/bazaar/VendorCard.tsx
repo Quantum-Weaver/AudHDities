@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Card } from '@/components/runes/Card';
-import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/ui/cards';
+import { CardMedia, CardHeader, CardContent, CardFooter } from '@/components/runes/cards';
 import { Badge } from '@/components/runes/Badge';
 import { CheckCircle, Store, Package } from 'lucide-react';
 import type { CardData, VendorCardData } from '@/types/components/runes/card.types';
@@ -83,7 +83,7 @@ export const VendorCardRenderer: React.FC<VendorCardRendererProps> = ({
       {vendorData.businessType && (
         <CardFooter
           actions={[
-            <Badge key="type" variant="outline" size="sm">
+            <Badge key="type" variant="outline" size="SM">
               {businessTypeLabels[vendorData.businessType] || vendorData.businessType}
             </Badge>
           ]}

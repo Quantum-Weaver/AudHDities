@@ -2,7 +2,7 @@
 
 import { TrendingUp, HandCoins } from 'lucide-react';
 import { Card } from '@/components/runes/Card';
-import { CardHeader, CardContent } from '@/components/ui/cards';
+import { CardHeader, CardContent } from '@/components/runes/cards';
 import type { CardData } from '@/types/components/runes/card.types';
 
 // ============================================================================

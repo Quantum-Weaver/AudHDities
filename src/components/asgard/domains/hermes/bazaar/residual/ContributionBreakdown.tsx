@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Code, Palette, Lightbulb, Users, Package, Settings } from 'lucide-react';
 import { Card } from '@/components/runes/Card';
-import { CardHeader, CardContent } from '@/components/ui/cards';
+import { CardHeader, CardContent } from '@/components/runes/cards';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { FlowStepColor } from './FlowStep';
 
