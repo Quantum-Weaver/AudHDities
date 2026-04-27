@@ -1,66 +1,57 @@
-// @/components/bifrost/AppShell.tsx
-// Stacks Header, ContinuityBeam, StatusBar, Navigation, and Content correctly
+// @/components/bifrost/LayoutChrome.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║                    APP SHELL                                              ║
-// ║                    The sovereign container for all pages                  ║
+// ║                    LAYOUT CHROME                                          ║
+// ║                    Providers + sticky top bar + scrollable content        ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-"use client";
+
+'use client';
 
 import { ReactNode } from 'react';
-import { VStack, HStack } from '@/components/hof/Stack';
+import { VStack } from '@/components/hof/Stack';
 import Header from '@/components/bifrost/Header';
 import { Navigation } from '@/components/bifrost/Navigation';
 import ContinuityBeam from '@/components/seidr/immersive/ContinuityBeam';
 import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/seidr/immersive/StatusBar';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
-import { ScrollArea } from '../hof/ScrollArea';
 import { cn } from '@/lib/utils';
 
-export interface AppShellProps {
+export interface LayoutChromeProps {
   children: ReactNode;
-  /** Whether to show the header */
   showHeader?: boolean;
-  /** Whether to show navigation */
   showNavigation?: boolean;
-  /** Whether to show continuity beam */
   showContinuityBeam?: boolean;
-  /** Whether to show status bar */
   showStatusBar?: boolean;
-  /** Additional classes for the main content area */
   className?: string;
 }
 
-export function AppShell({
+export function LayoutChrome({
   children,
   showHeader = true,
   showNavigation = true,
   showContinuityBeam = true,
   showStatusBar = true,
   className,
-}: AppShellProps) {
+}: LayoutChromeProps) {
   return (
     <EnvironmentProvider debug={process.env.NODE_ENV === 'development'}>
       <ContinuityBeamProvider>
-        <VStack space="none" className="min-h-screen w-full">
-          {/* Fixed top section - no gaps, no scroll, each takes full width */}
-          {/* Header - topmost */}
-          {showHeader && <Header />}
-          
-          {/* Continuity Beam - directly below header */}
-          {showContinuityBeam && <ContinuityBeam />}
+        <VStack space="none" className="min-h-screen w-full overflow-x-hidden">
+          {/* Sticky top chrome */}
+          <div className="sticky top-0 z-40 w-full overflow-x-hidden">
+            <VStack space="none">
+              {showHeader && <Header />}
+              {showStatusBar && <StatusBar />}
+              {showContinuityBeam && <ContinuityBeam />}
+              {showNavigation && <Navigation />}
+            </VStack>
+          </div>
 
-          {/* Status Bar - below continuity beam */}
-          {showStatusBar && <StatusBar />}
-      
-          {/* Navigation - below status bar */}
-          {showNavigation && <Navigation />}
-          
-          {/* Scrollable content - fills remaining space */}
-          <ScrollArea className={cn("flex-1 relative w-full", className)}>
+          {/* Content */}
+          <main className={cn('flex-1 w-full', className)}>
             {children}
-          </ScrollArea>
-        </VStack>        
+          </main>
+        </VStack>
       </ContinuityBeamProvider>
     </EnvironmentProvider>
   );

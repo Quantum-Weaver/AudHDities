@@ -24,8 +24,8 @@ export const headerVariants = cva(
     'z-40',
     'border-b',
     'flex',
+    'flex-cols',
     'items-center',
-    'justify-center',
   ].join(' '),
   {
     variants: {
@@ -47,9 +47,9 @@ export const headerVariants = cva(
         ].join(' '),
       },
       density: {
-        [HEADER_DENSITIES.DEFAULT]: `h-[${HEADER_HEIGHT}]`,
-        [HEADER_DENSITIES.COMPACT]: 'h-14',
-        [HEADER_DENSITIES.SPACIOUS]: 'h-20',
+        [HEADER_DENSITIES.DEFAULT]: ``,
+        [HEADER_DENSITIES.COMPACT]: '',
+        [HEADER_DENSITIES.SPACIOUS]: '',
       },
     },
     defaultVariants: {
@@ -65,6 +65,7 @@ export const headerContentVariants = cva(
     'container',
     'mx-auto',
     'flex',
+    'flex-cols',
     'items-center',
     'justify-center',
   ].join(' '),
@@ -73,7 +74,7 @@ export const headerContentVariants = cva(
       variant: {
         [HEADER_VARIANTS.SOVEREIGN]: `px-[${HEADER_PADDING.X}]`,
         [HEADER_VARIANTS.TRANSPARENT]: `px-[${HEADER_PADDING.X}]`,
-        [HEADER_VARIANTS.GLASS]: 'px-4',
+        [HEADER_VARIANTS.GLASS]: 'px-7',
       },
     },
     defaultVariants: {

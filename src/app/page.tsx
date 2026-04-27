@@ -36,8 +36,6 @@ export default function Home() {
       environment="home"
       showForeground={false}
       animated={true}
-      showContinuityBeam={true}
-      showStatusBar={true}
     >
       <main className={homeHeroSectionVariants()}>
         <div className={homeHeroWrapperVariants()}>

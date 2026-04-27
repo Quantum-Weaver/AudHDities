@@ -1,22 +1,26 @@
 // @/components/bifrost/Header.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    HEADER COMPONENT                                       ║
-// ║                    Zero hardcoded values                                  ║
+// ║                    With hover animation on title                          ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';
 
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { getPageMetadata } from '@/lib/constants/systems/environments/page_mapping';
-
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { HeaderProps } from '@/types/components/bifrost/header.types';
+
+// ─── Constants ─────────────────────────────────────────────────────────────
+import {
+  HEADER_VARIANTS,
+} from '@/lib/constants/components/bifrost/header.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
@@ -26,44 +30,59 @@ import {
   headerSubtitleVariants,
 } from '@/lib/constants/components/bifrost/header.variants';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  buildHeaderHoverHandlers,
+} from '@/lib/utils/components/bifrost/header.utils';
+
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 
 export default function Header({
-  variant = 'sovereign',
+  variant = HEADER_VARIANTS.SOVEREIGN,
   className,
 }: HeaderProps) {
   const { setEnvironment } = useContinuityBeam();
   const pathname = usePathname();
 
   const metadata = getPageMetadata(pathname);
-  const currentEnvironment = metadata.environment;
 
   useEffect(() => {
-    setEnvironment(currentEnvironment);
-  }, [currentEnvironment, setEnvironment]);
+    setEnvironment(metadata.environment);
+  }, [metadata.environment, setEnvironment]);
 
-  const title = metadata.title;
-  const subtitle = metadata.subtitle;
+  // ─── Hover State ─────────────────────────────────────────────────────
+  const [isHovered, setIsHovered] = useState(false);
+  const { hoverHandlers } = buildHeaderHoverHandlers(setIsHovered);
 
   return (
     <header className={cn(headerVariants({ variant }), className)}>
       <div className={headerContentVariants({ variant })}>
-        <div className="h-16 flex items-center justify-center">
-          <Link href="/sanctum" className="group">
-            <div className="flex flex-col items-center space-y-0.5">
-              <span className={cn(headerTitleVariants({ variant }), 'cosmic-icon')}>
-                {title}
-              </span>
-              {subtitle && (
-                <span className={headerSubtitleVariants({ variant })}>
-                  {subtitle}
-                </span>
+        <Link
+          href="/sanctum"
+          className="group"
+          onMouseEnter={hoverHandlers.handleMouseEnter}
+          onMouseLeave={hoverHandlers.handleMouseLeave}
+          onFocus={hoverHandlers.handleFocus}
+          onBlur={hoverHandlers.handleBlur}
+        >
+          <div className="flex flex-col items-center space-y-0.5 py-3">
+            <span
+              className={cn(
+                headerTitleVariants({ variant, isHovered }),
+                'cosmic-icon'
               )}
-            </div>
-          </Link>
-        </div>
+            >
+              {metadata.title}
+            </span>
+            {metadata.subtitle && (
+              <span className={headerSubtitleVariants({ variant })}>
+                {metadata.subtitle}
+              </span>
+            )}
+          </div>
+        </Link>
       </div>
     </header>
   );

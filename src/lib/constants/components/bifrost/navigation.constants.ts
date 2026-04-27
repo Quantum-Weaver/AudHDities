@@ -49,6 +49,19 @@ export const NAV_ICON_SIZE = {
 
 export const NAV_ITEM_RADIUS = BORDER_RADII.lg;
 
+// ─── Auth Separator ────────────────────────────────────────────────────────
+export const NAV_AUTH_SEPARATOR_CLASS = 'h-6 w-px bg-white/10 mx-3 flex-shrink-0';
+
+// ─── Mobile Floating Button ────────────────────────────────────────────────
+/** Position of the floating menu button */
+export const NAV_FLOATING_BUTTON_POSITION = 'fixed bottom-4 left-4 z-50';
+
+/** Size of the floating button */
+export const NAV_FLOATING_BUTTON_SIZE = 'h-12 w-12';
+
+/** Icon size inside the floating button */
+export const NAV_FLOATING_ICON_SIZE = 'h-6 w-6';
+
 // ─── Transition ─────────────────────────────────────────────────────────────
 export const NAV_TRANSITION_DURATION = durations.fast; // 150ms
 export const NAV_TRANSITION_EASING = easing.quantum;

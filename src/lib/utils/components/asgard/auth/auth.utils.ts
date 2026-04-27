@@ -60,3 +60,32 @@ export function validatePasswordMatch(
 export function validateTermsAccepted(value: unknown): boolean {
   return value === 'on' || value === true;
 }
+
+// ─── Hover Handlers — NEW ──────────────────────────────────────────────────
+
+export interface AuthButtonHoverHandlers {
+  handleMouseEnter: () => void;
+  handleMouseLeave: () => void;
+  handleFocus: () => void;
+  handleBlur: () => void;
+}
+
+/**
+ * Builds hover event handlers for the auth button.
+ * Same pattern as header and navigation hover handlers.
+ *
+ * Usage:
+ *   const [isHovered, setIsHovered] = useState(false);
+ *   const handlers = buildAuthButtonHoverHandlers(setIsHovered);
+ *   <button {...handlers} className={authButtonVariants({ variant, isHovered })}>
+ */
+export function buildAuthButtonHoverHandlers(
+  setHovered: (value: boolean) => void
+): AuthButtonHoverHandlers {
+  return {
+    handleMouseEnter: () => setHovered(true),
+    handleMouseLeave: () => setHovered(false),
+    handleFocus: () => setHovered(true),
+    handleBlur: () => setHovered(false),
+  };
+}

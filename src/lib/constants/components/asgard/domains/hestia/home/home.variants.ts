@@ -7,7 +7,7 @@ import { cva } from 'class-variance-authority';
 import { HOME_DIMENSIONS, HOME_TRANSITION } from './home.constants';
 
 export const homeHeroSectionVariants = cva(
-  'min-h-screen flex items-center justify-center'
+  'min-h-screen flex-wrap inline-flex items-center justify-center'
 );
 
 export const homeHeroWrapperVariants = cva(
@@ -36,7 +36,7 @@ export const homeOrbVariants = cva(
 );
 
 export const homeContentVariants = cva(
-  'relative z-10 container max-w-4xl mx-auto text-center'
+  'relative z-10 container flex-cols mx-auto text-center'
 );
 
 export const homeBadgeVariants = cva(
@@ -57,7 +57,7 @@ export const homeHeadingVariants = cva(
 );
 
 export const homeHeadingHighlightVariants = cva(
-  'bg-gradient-to-r from-neurospark via-quantum-purple to-fire-base bg-clip-text text-transparent'
+  'bg-gradient-to-r from-neurospark via-quantum-purple to-fire-base bg-clip-text text-neurospark/70'
 );
 
 export const homeSubtitleVariants = cva(

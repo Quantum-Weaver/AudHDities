@@ -8,20 +8,6 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities" layer(utilities);
 
-/* ─── Generated COSMIC Styles ──────────────────────────────────────────── */
-/* Path: src/styles/generated/ → referenced from src/app/globals.css */
-@import "@/styles/generated/variables.css";
-@import "@/styles/generated/domains.css";
-@import "@/styles/generated/text_effects.css";
-@import "@/styles/generated/animations.css";
-@import "@/styles/generated/typography.css";
-@import "@/styles/generated/zoom.css";
-@import "@/styles/generated/parallax.css";
-
-/* ─── Manual Overrides (keep minimal — only what generators can't produce) ── */
-@import "@/styles/custom_overrides.css";
-
-/* ─── Minimal App-Shell Resets ─────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -42,7 +28,6 @@ body {
   min-height: 100vh;
 }
 
-/* ─── Accessibility ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

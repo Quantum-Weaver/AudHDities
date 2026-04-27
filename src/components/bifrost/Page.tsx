@@ -19,10 +19,6 @@ export interface PageProps {
   showForeground?: boolean;
   /** Enable animations */
   animated?: boolean;
-  /** Show continuity beam (deprecated - use AppShell prop instead) */
-  showContinuityBeam?: boolean;
-  /** Show status bar (deprecated - use AppShell prop instead) */
-  showStatusBar?: boolean;
   /** Additional classes */
   className?: string;
   /** Page content */
@@ -49,7 +45,7 @@ export function Page({
       />
       
       {/* Page Content - scrolls over background */}
-      <div className="relative z-10">
+      <div className="flex-1 text-center justify-center">
         {children}
       </div>
     </div>

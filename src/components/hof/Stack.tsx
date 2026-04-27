@@ -1,7 +1,7 @@
 // src/components/hof/Stack.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║                    STACK COMPONENT                                         ║
-// ║                    The vertebral column of the UI                           ║
+// ║                    STACK COMPONENT                                        ║
+// ║                    The vertebral column of the UI                         ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';

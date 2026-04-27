@@ -1,11 +1,12 @@
 // components/asgard/auth/AuthButton.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
-// ║                    AUTH BUTTON                                            ║
-// ║                    Zero hardcoded values                                  ║
+// ║                    AUTH BUTTON (UPDATED)                                  ║
+// ║                    With hover animation — zero hardcoded values           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 'use client';
 
+import { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -24,6 +25,11 @@ import {
   authButtonVariants,
 } from '@/lib/constants/components/asgard/auth/auth.variants';
 
+// ─── Utilities ─────────────────────────────────────────────────────────────
+import {
+  buildAuthButtonHoverHandlers,
+} from '@/lib/utils/components/asgard/auth/auth.utils';
+
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
@@ -31,6 +37,10 @@ import {
 export default function AuthButton() {
   const router = useRouter();
   const { user, signOut } = useAuth();
+
+  // ─── Hover State ─────────────────────────────────────────────────────
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverHandlers = buildAuthButtonHoverHandlers(setIsHovered);
 
   const handleLogout = async () => {
     try {
@@ -46,7 +56,14 @@ export default function AuthButton() {
     return (
       <button
         onClick={handleLogout}
-        className={authButtonVariants({ variant: AUTH_BUTTON_VARIANTS.AUTHENTICATED })}
+        onMouseEnter={hoverHandlers.handleMouseEnter}
+        onMouseLeave={hoverHandlers.handleMouseLeave}
+        onFocus={hoverHandlers.handleFocus}
+        onBlur={hoverHandlers.handleBlur}
+        className={authButtonVariants({
+          variant: AUTH_BUTTON_VARIANTS.AUTHENTICATED,
+          isHovered,
+        })}
         aria-label={AUTH_LABELS.EXIT}
       >
         <LogOut size={AUTH_ICON_SIZE} />
@@ -58,7 +75,14 @@ export default function AuthButton() {
   return (
     <Link
       href={AUTH_ROUTES.LOGIN}
-      className={authButtonVariants({ variant: AUTH_BUTTON_VARIANTS.UNAUTHENTICATED })}
+      onMouseEnter={hoverHandlers.handleMouseEnter}
+      onMouseLeave={hoverHandlers.handleMouseLeave}
+      onFocus={hoverHandlers.handleFocus}
+      onBlur={hoverHandlers.handleBlur}
+      className={authButtonVariants({
+        variant: AUTH_BUTTON_VARIANTS.UNAUTHENTICATED,
+        isHovered,
+      })}
     >
       <User size={AUTH_ICON_SIZE} />
       <span className="hidden sm:inline">{AUTH_LABELS.ENTER}</span>

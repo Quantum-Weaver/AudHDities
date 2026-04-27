@@ -42,6 +42,10 @@ export interface HeaderProps {
   title?: string;
   /** Page subtitle */
   subtitle?: string;
+  /** Whether to show continuity beam */
+  showContinuityBeam?: boolean;
+  /** Whether to show status bar */
+  showStatusBar?: boolean;    
   /** Navigation items */
   navigation?: NavigationItem[];
   /** Current consciousness level */

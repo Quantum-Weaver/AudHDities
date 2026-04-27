@@ -15,6 +15,7 @@ export default {
     ...(generatedConfig.content || []),
     // Add any manual content paths here
     './src/**/*.{js,ts,jsx,tsx,mdx}',
+     './src/styles/**/*.css',  
   ],
   
   // Add project-specific plugins

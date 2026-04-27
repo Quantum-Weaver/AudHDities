@@ -1432,21 +1432,87 @@
 /* ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .domain-*-card,
-  .domain-*-btn,
-  .domain-*-glow {
+  .domain-quantum-card,
+  .domain-cosmic-card,
+  .domain-pantheon-card,
+  .domain-bifrost-card,
+  .domain-library-card,
+  .domain-void-card,
+  .domain-council-card,
+  .domain-sandbox-card,
+  .domain-music-card,
+  .domain-community-card,
+  .domain-support-card,
+  .domain-architecture-card,
+  .domain-quantum-btn,
+  .domain-cosmic-btn,
+  .domain-pantheon-btn,
+  .domain-bifrost-btn,
+  .domain-library-btn,
+  .domain-void-btn,
+  .domain-council-btn,
+  .domain-sandbox-btn,
+  .domain-music-btn,
+  .domain-community-btn,
+  .domain-support-btn,
+  .domain-architecture-btn,
+  .domain-quantum-glow,
+  .domain-cosmic-glow,
+  .domain-pantheon-glow,
+  .domain-bifrost-glow,
+  .domain-library-glow,
+  .domain-void-glow,
+  .domain-council-glow,
+  .domain-sandbox-glow,
+  .domain-music-glow,
+  .domain-community-glow,
+  .domain-support-glow,
+  .domain-architecture-glow {
     transition: none;
   }
   
-  .domain-*-card:hover {
+  .domain-quantum-card:hover,
+  .domain-cosmic-card:hover,
+  .domain-pantheon-card:hover,
+  .domain-bifrost-card:hover,
+  .domain-library-card:hover,
+  .domain-void-card:hover,
+  .domain-council-card:hover,
+  .domain-sandbox-card:hover,
+  .domain-music-card:hover,
+  .domain-community-card:hover,
+  .domain-support-card:hover,
+  .domain-architecture-card:hover {
     transform: none;
   }
   
-  .domain-*-gradient {
+  .domain-quantum-gradient,
+  .domain-cosmic-gradient,
+  .domain-pantheon-gradient,
+  .domain-bifrost-gradient,
+  .domain-library-gradient,
+  .domain-void-gradient,
+  .domain-council-gradient,
+  .domain-sandbox-gradient,
+  .domain-music-gradient,
+  .domain-community-gradient,
+  .domain-support-gradient,
+  .domain-architecture-gradient {
     background-size: 100% 100%;
   }
   
-  .domain-*-gradient:hover {
+  .domain-quantum-gradient:hover,
+  .domain-cosmic-gradient:hover,
+  .domain-pantheon-gradient:hover,
+  .domain-bifrost-gradient:hover,
+  .domain-library-gradient:hover,
+  .domain-void-gradient:hover,
+  .domain-council-gradient:hover,
+  .domain-sandbox-gradient:hover,
+  .domain-music-gradient:hover,
+  .domain-community-gradient:hover,
+  .domain-support-gradient:hover,
+  .domain-architecture-gradient:hover {
     background-position: 0% 0%;
   }
 }

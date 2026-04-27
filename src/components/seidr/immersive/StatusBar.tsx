@@ -86,85 +86,85 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
       className={cn(
         "w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5 transition-opacity duration-300",
         isTransitioning ? "opacity-50" : "opacity-100",
-        className
+        className,
+        heightClass
       )}
     >
-      <Container size="xl" centered>
-        <div className={cn("py-1", heightClass)}>
-          <HStack align="center" className="h-full">
-            {/* Left Section - Notifications */}
-            <div className="w-24">
-              {config.notificationsEnabled && userStatus.notifications > 0 && (
-                <NotificationIndicator count={userStatus.notifications} />
-              )}
-            </div>
+        <HStack align="center" className="h-full">
+          {/* Left Section - Notifications */}
+          <div className="w-24">
+            {config.notificationsEnabled && userStatus.notifications > 0 && (
+              <NotificationIndicator count={userStatus.notifications} />
+            )}
+          </div>
 
-            {/* Spacer pushes center to actual center */}
-            <Spacer />
+          {/* Spacer pushes center to actual center */}
+          <Spacer />
 
-            {/* Center Section - Location */}
-            {config.showLocation && (
-              <div className="text-center">
+          {/* Center Section - Location */}
+          {config.showLocation && (
+            <div className="text-center cursor-pointer group relative">
+              <div className="text-xl cosmic-icon opacity-42 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                 <div className="text-sm font-bold text-white cosmic-glow">{pageTitle}</div>
                 <div className="text-xs text-white/60">{pageContext}</div>
               </div>
+            </div>
+          )}
+
+          {/* Spacer pushes right to edge */}
+          <Spacer />
+
+          {/* Right Section - Stats */}
+          <HStack align="center" space="md" className="justify-end">
+            {/* Currency */}
+            {config.showCurrency && (
+              <HStack align="center" space="xs">
+                <Coins className="h-3 w-3 text-arcane-gold" />
+                <span className="text-sm text-white font-bold">{userStatus.currency}</span>
+              </HStack>
             )}
-
-            {/* Spacer pushes right to edge */}
-            <Spacer />
-
-            {/* Right Section - Stats */}
-            <HStack align="center" space="md" className="justify-end">
-              {/* Currency */}
-              {config.showCurrency && (
-                <HStack align="center" space="xs">
-                  <Coins className="h-3 w-3 text-arcane-gold" />
-                  <span className="text-sm text-white font-bold">{userStatus.currency}</span>
-                </HStack>
-              )}
+            
+            {/* Level */}
+            {config.showLevel && (
+              <HStack align="center" space="xs">
+                <TrendingUp className="h-3 w-3 text-green-400" />
+                <span className="text-sm text-white/80">Lvl {level}</span>
+              </HStack>
+            )}
+            
+            {/* Dynamic Metrics from Config */}
+            {config.metrics.map((metric) => {
+              const value = getMetricValue(metric.type);
+              const maxValue = getMetricMax(metric.type);
+              const Icon = metricIcons[metric.type];
               
-              {/* Level */}
-              {config.showLevel && (
-                <HStack align="center" space="xs">
-                  <TrendingUp className="h-3 w-3 text-green-400" />
-                  <span className="text-sm text-white/80">Lvl {level}</span>
-                </HStack>
-              )}
-              
-              {/* Dynamic Metrics from Config */}
-              {config.metrics.map((metric) => {
-                const value = getMetricValue(metric.type);
-                const maxValue = getMetricMax(metric.type);
-                const Icon = metricIcons[metric.type];
-                
-                // Points format (sovereignty)
-                if (metric.format === 'points') {
-                  return (
-                    <HStack key={metric.type} align="center" space="xs">
-                      {Icon}
-                      <span className={cn("text-sm font-bold", metric.color)}>
-                        {value.toLocaleString()}
-                      </span>
-                    </HStack>
-                  );
-                }
-                
-                // Percentage format (energy, focus, health)
+              // Points format (sovereignty)
+              if (metric.format === 'points') {
                 return (
-                  <StatusBarIndicator 
-                    key={metric.type}
-                    value={value} 
-                    maxValue={maxValue} 
-                    color={metric.color}
-                    icon={Icon}
-                  />
+                  <HStack key={metric.type} align="center" space="xs">
+                    {Icon}
+                    <span className={cn("text-sm font-bold", metric.color)}>
+                      {value.toLocaleString()}
+                    </span>
+                  </HStack>
                 );
-              })}
-            </HStack>
+              }
+              
+              // Percentage format (energy, focus, health)
+              return (
+                <StatusBarIndicator 
+                  key={metric.type}
+                  value={value} 
+                  maxValue={maxValue} 
+                  color={metric.color}
+                  icon={Icon}
+                />
+              );
+            })}
           </HStack>
-        </div>
-      </Container>
-    </div>
+        </HStack>
+      </div>
+
   );
 }
 

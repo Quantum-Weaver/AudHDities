@@ -477,8 +477,18 @@
     transform: none !important;
   }
   
-  .scroll-parallax-*,
-  .mouse-parallax-* {
+  .scroll-parallax-cosmic,
+  .scroll-parallax-far,
+  .scroll-parallax-mid,
+  .scroll-parallax-near,
+  .scroll-parallax-interactive,
+  .scroll-parallax-ui,
+  .mouse-parallax-cosmic,
+  .mouse-parallax-far,
+  .mouse-parallax-mid,
+  .mouse-parallax-near,
+  .mouse-parallax-interactive,
+  .mouse-parallax-ui {
     transform: none !important;
     transition: none !important;
   }

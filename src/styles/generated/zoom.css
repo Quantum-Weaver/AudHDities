@@ -11,162 +11,161 @@
 /*   Position: (50%, 45%) */
 /*   Scale: 1.5x */
 /*   Duration: 800ms */
-*/
+
 
 /* admin: Council oversight position */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
 /*   Duration: 600ms */
-*/
+
 
 /* creator: Creator's vantage point */
 /*   Position: (45%, 55%) */
 /*   Scale: 1.4x */
-*/
+
 
 /* library: The Sovereign Archive */
 /*   Position: (50%, 40%) */
 /*   Scale: 1.6x */
 /*   Duration: 1000ms */
-*/
+
 
 /* docs: Documentation center */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* ecosystem: System overview */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
+
 
 /* community: The Hearth - gathering place */
 /*   Position: (50%, 60%) */
 /*   Scale: 1.4x */
 /*   Duration: 700ms */
-*/
+
 
 /* business: Strategic planning view */
 /*   Position: (40%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* marketplace: Market square */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
+
 
 /* music: The Stage - where sound becomes substance */
 /*   Position: (50%, 55%) */
 /*   Scale: 1.5x */
 /*   Duration: 800ms */
-*/
+
 
 /* lounge: Performance area */
 /*   Position: (50%, 60%) */
 /*   Scale: 1.4x */
-*/
+
 
 /* origin: The Origin Journal - first page of every story */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.8x */
 /*   Duration: 1200ms */
-*/
+
 
 /* questionaire: Assessment chamber */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* progress: Journey tracker */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
+
 
 /* support: The Healing Flame */
 /*   Position: (50%, 55%) */
 /*   Scale: 1.4x */
 /*   Duration: 900ms */
-*/
+
 
 /* contact: Contact point */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* anon: Anonymous viewing */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
+
 
 /* observatory: The Seer's Altar */
 /*   Position: (50%, 45%) */
 /*   Scale: 1.5x */
 /*   Duration: 800ms */
-*/
+
 
 /* about: Story origin point */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* vision: Future gazing */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.4x */
-*/
+
 
 /* architecture: System nexus */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
 /*   Duration: 600ms */
-*/
+
 
 /* dashboard: Control center */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
+
 
 /* edit: Edit focus */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.1x */
-*/
+
 
 /* cure: The Comedy Stage */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.4x */
-*/
+
 
 /* invitation: The Collaboration Table */
 /*   Position: (50%, 45%) */
 /*   Scale: 1.4x */
 /*   Duration: 700ms */
-*/
+
 
 /* transparency: Ledger view */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* home: The Sacred Flame */
 /*   Position: (50%, 55%) */
 /*   Scale: 1.5x */
 /*   Duration: 800ms */
-*/
+
 
 /* gateway: Entry point */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* learn: Knowledge focus */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.2x */
-*/
 
 /* seasonal: Seasonal celebration */
 /*   Position: (50%, 50%) */
 /*   Scale: 1.3x */
-*/
+
 
 /* ========================================================================== */
 /* ZOOM TARGET CSS VARIABLES */
@@ -785,7 +784,6 @@
   z-index: 10;
 }
 
-
 /* ========================================================================== */
 /* REDUCED MOTION OVERRIDES */
 /* ========================================================================== */
@@ -797,7 +795,36 @@
   .zoom-transition-quantum,
   .zoom-content,
   .zoom-active,
-  .zoom-target-* {
+  .zoom-target-council,
+  .zoom-target-admin,
+  .zoom-target-creator,
+  .zoom-target-library,
+  .zoom-target-docs,
+  .zoom-target-ecosystem,
+  .zoom-target-community,
+  .zoom-target-business,
+  .zoom-target-marketplace,
+  .zoom-target-music,
+  .zoom-target-lounge,
+  .zoom-target-origin,
+  .zoom-target-questionaire,
+  .zoom-target-progress,
+  .zoom-target-support,
+  .zoom-target-contact,
+  .zoom-target-anon,
+  .zoom-target-observatory,
+  .zoom-target-about,
+  .zoom-target-vision,
+  .zoom-target-architecture,
+  .zoom-target-dashboard,
+  .zoom-target-edit,
+  .zoom-target-cure,
+  .zoom-target-invitation,
+  .zoom-target-transparency,
+  .zoom-target-home,
+  .zoom-target-gateway,
+  .zoom-target-learn,
+  .zoom-target-seasonal {
     transition-duration: 0.01ms;
   }
 }

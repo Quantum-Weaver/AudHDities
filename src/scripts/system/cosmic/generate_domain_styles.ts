@@ -297,23 +297,32 @@ function generateResponsiveVariants(domain: DomainStyle): string {
 /**
  * Generate reduced motion safe variants
  */
-function generateReducedMotionVariants(): string {
+function generateReducedMotionVariants(domains: DomainStyle[]): string {
+  const domainNames = domains.map(d => d.name);
+  
+  const cards = domainNames.map(d => `.domain-${d}-card`).join(',\n  ');
+  const btns = domainNames.map(d => `.domain-${d}-btn`).join(',\n  ');
+  const glows = domainNames.map(d => `.domain-${d}-glow`).join(',\n  ');
+  const cardsHover = domainNames.map(d => `.domain-${d}-card:hover`).join(',\n  ');
+  const gradients = domainNames.map(d => `.domain-${d}-gradient`).join(',\n  ');
+  const gradientsHover = domainNames.map(d => `.domain-${d}-gradient:hover`).join(',\n  ');
+  
   return `@media (prefers-reduced-motion: reduce) {
-  .domain-*-card,
-  .domain-*-btn,
-  .domain-*-glow {
+  ${cards},
+  ${btns},
+  ${glows} {
     transition: none;
   }
   
-  .domain-*-card:hover {
+  ${cardsHover} {
     transform: none;
   }
   
-  .domain-*-gradient {
+  ${gradients} {
     background-size: 100% 100%;
   }
   
-  .domain-*-gradient:hover {
+  ${gradientsHover} {
     background-position: 0% 0%;
   }
 }
@@ -406,7 +415,7 @@ function combineDomainStyles(domains: DomainStyle[], gradients: DomainGradient[]
   css += `/* REDUCED MOTION VARIANTS */\n`;
   css += `/* ========================================================================== */\n\n`;
   
-  css += generateReducedMotionVariants();
+  css += generateReducedMotionVariants(domains);
   
   return css;
 }

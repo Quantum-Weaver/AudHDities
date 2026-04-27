@@ -1,6 +1,6 @@
 // ============================================================================
 // GENERATED TAILWIND CONFIG - DO NOT EDIT DIRECTLY
-// Generated: 2026-04-12T18:59:53.047Z
+// Generated: 2026-04-26T20:39:28.521Z
 // Source: colors.ts, motion.ts, dimensions.ts, typography.ts, effects.ts
 // ============================================================================
 
@@ -436,6 +436,14 @@ export default {
           "100%": {
             "transform": "scale(1)",
             "opacity": 1
+          }
+        },
+        "shimmer": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(100%)"
           }
         }
       },

@@ -23,33 +23,35 @@ export const authButtonVariants = cva(
     'gap-2',
     `px-[${AUTH_BUTTON_PADDING.X}]`,
     `py-[${AUTH_BUTTON_PADDING.Y}]`,
-    'transition-colors',
+    'transition-all',
     `duration-[${AUTH_TRANSITION_DURATION}ms]`,
     `ease-[${AUTH_TRANSITION_EASING}]`,
   ].join(' '),
   {
     variants: {
       variant: {
-        [AUTH_BUTTON_VARIANTS.AUTHENTICATED]: [
-          'text-star-dust/80',
-          'hover:text-star-dust',
-        ].join(' '),
+        // "hover:" prefixes removed — isHovered variant handles the interaction layer
+        [AUTH_BUTTON_VARIANTS.AUTHENTICATED]: 'text-star-dust/80',
         [AUTH_BUTTON_VARIANTS.UNAUTHENTICATED]: [
           'bg-neurospark/20',
-          'hover:bg-neurospark/40',
           'border',
           'border-neurospark/30',
           `rounded-[${AUTH_BUTTON_RADIUS}]`,
           'text-neurospark',
         ].join(' '),
       },
+      // ─── NEW ──────────────────────────────────────────────────────────
+      isHovered: {
+        true: 'opacity-100 scale-110',
+        false: 'opacity-80',
+      },
     },
     defaultVariants: {
       variant: AUTH_BUTTON_VARIANTS.UNAUTHENTICATED,
+      isHovered: false,
     },
   }
 );
-
 // ─── Auth Page Container ───────────────────────────────────────────────────
 export const authPageVariants = cva(
   [
