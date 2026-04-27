@@ -35,9 +35,9 @@ import { QuestCardRenderer } from './cards/QuestCardRenderer';
 import { ProposalCardRenderer } from './cards/ProposalCardRenderer';
 import { EventCardRenderer } from '../asgard/domains/prometheus/EventCard';
 import { CreatorCardRenderer } from '../asgard/domains/hermes/bazaar/CreatorCard';
-import { VendorCardRenderer } from '../asgard//domains/hermes/bazaar/VendorCard';
+import { VendorCardRenderer } from '../asgard/domains/hermes/bazaar/VendorCard';
 import { EntityCardRenderer } from '../asgard/domains/aethelred/nexus/EntityCardRenderer';
-import { StatCardRenderer } from '../asgard/domains/hephaestus/supporting/StatCard';
+import { StatCardRenderer } from '../asgard/domains/hephaestus/StatCard';
 import { UserCardRenderer } from '../asgard/domains/hestia/vessel/UserCard';
 
 import { FileCardRenderer } from './cards/FileCardRenderer';

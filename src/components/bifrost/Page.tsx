@@ -17,6 +17,10 @@ export interface PageProps {
   variant?: number;
   /** Show foreground elements */
   showForeground?: boolean;
+  /** Show cotinuity beam*/
+  showContinuityBeam?: boolean;
+  /** Show status bar*/
+  showStatusBar?: boolean;  
   /** Enable animations */
   animated?: boolean;
   /** Additional classes */

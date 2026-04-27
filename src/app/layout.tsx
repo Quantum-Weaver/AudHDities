@@ -22,9 +22,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-x-hidden">
-        <LayoutChrome>
+
           {children}
-        </LayoutChrome>
+
       </body>
     </html>
   );
