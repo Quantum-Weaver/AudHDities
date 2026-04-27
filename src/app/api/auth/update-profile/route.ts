@@ -89,7 +89,7 @@ export async function PATCH(request: NextRequest) {
 
     const { data: updatedProfile, error: fetchError } = await supabase
       .from('profiles')
-      .select(`*, community_profiles (*), creator_profiles (*), vendor_profiles (*)`)
+      .select(`*, community_profiles!fk_community_profiles_profile_id (*), creator_profiles!fk_creator_profile_id (*), vendor_profiles!fk_vendor_profiles_profile_id (*)`)
       .eq('id', user.id)
       .single();
 

@@ -83,6 +83,7 @@ export const SKELETON_VARIANT_BASE: Record<string, string> = {
   card: 'rounded-xl',
   button: `rounded-lg h-10`,
   badge: 'rounded-full h-6 w-16',
+  circle: 'rounded-full',
 } as const;
 
 // ─── Spacing Tokens for Composition Components ─────────────────────────────

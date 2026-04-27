@@ -9,7 +9,6 @@
 import { ReactNode } from 'react';
 import { VStack } from '@/components/hof/Stack';
 import Header from '@/components/bifrost/Header';
-import { Navigation } from '@/components/bifrost/Navigation';
 import ContinuityBeam from '@/components/seidr/immersive/ContinuityBeam';
 import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/seidr/immersive/StatusBar';
@@ -19,7 +18,6 @@ import { cn } from '@/lib/utils';
 export interface LayoutChromeProps {
   children: ReactNode;
   showHeader?: boolean;
-  showNavigation?: boolean;
   showContinuityBeam?: boolean;
   showStatusBar?: boolean;
   className?: string;
@@ -28,7 +26,6 @@ export interface LayoutChromeProps {
 export function LayoutChrome({
   children,
   showHeader = true,
-  showNavigation = true,
   showContinuityBeam = true,
   showStatusBar = true,
   className,
@@ -43,7 +40,6 @@ export function LayoutChrome({
               {showHeader && <Header />}
               {showStatusBar && <StatusBar />}
               {showContinuityBeam && <ContinuityBeam />}
-              {showNavigation && <Navigation />}
             </VStack>
           </div>
 

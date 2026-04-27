@@ -7,20 +7,13 @@ export async function GET() {
     const supabase = await createServerSupabase();
     
     const {
-      data: { session },
-      error,
-    } = await supabase.auth.getSession();
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
 
-    if (error) {
+    if (authError || !user) {
       return NextResponse.json(
-        { error: error.message },
-        { status: 401 }
-      );
-    }
-
-    if (!session) {
-      return NextResponse.json(
-        { session: null, user: null },
+        { user: null },
         { status: 200 }
       );
     }
@@ -30,11 +23,11 @@ export async function GET() {
       .from('profiles')
       .select(`
         *,
-        community_profiles (*),
-        creator_profiles (*),
-        vendor_profiles (*)
+        community_profiles!fk_community_profiles_profile_id (*),
+        creator_profiles!fk_creator_profile_id (*),
+        vendor_profiles!fk_vendor_profiles_profile_id (*)
       `)
-      .eq('id', session.user.id)
+      .eq('id', user.id)
       .single();
 
     if (profileError) {
@@ -42,8 +35,7 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      session,
-      user: session.user,
+      user,
       profile: profile || null,
     });
   } catch (error) {

@@ -1,4 +1,4 @@
-// src/components/hestia/UserCardRenderer.tsx
+// src/components/hestia/UserCard.tsx
 'use client';
 
 import React from 'react';

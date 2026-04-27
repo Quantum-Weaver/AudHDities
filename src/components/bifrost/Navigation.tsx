@@ -18,7 +18,6 @@ import {
 } from '@/lib/constants/systems/environments/navigation';
 import { getPageEnvironment } from '@/lib/constants/systems/environments/page_mapping';
 
-import AuthButton from '@/components/asgard/auth/AuthButton';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 import type { NavigationProps } from '@/types/components/bifrost/navigation.types';
@@ -219,11 +218,6 @@ export function Navigation({ className }: NavigationProps) {
                 />
               );
             })}
-
-            {/* Auth — pushed right by auto margin */}
-            <div className="ml-auto">
-              <AuthButton />
-            </div>
           </div>
         </div>
       </nav>
@@ -236,11 +230,6 @@ export function Navigation({ className }: NavigationProps) {
         {mobileMenuOpen && (
           <div className="absolute bottom-16 left-0 bg-deep-space/95 backdrop-blur-xl rounded-2xl border border-white/10 p-4 shadow-2xl w-64 mb-2">
             <div className="flex flex-col gap-1">
-              {/* Auth */}
-              <div className="px-1 pb-2 mb-2 border-b border-white/10">
-                <AuthButton />
-              </div>
-
               {/* Primary */}
               {primaryItems.map((item, index) => {
                 const Icon = item.icon;

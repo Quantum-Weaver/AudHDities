@@ -84,7 +84,7 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
   return (
     <div 
       className={cn(
-        "w-full bg-deep-space/60 backdrop-blur-sm border-b border-white/5 transition-opacity duration-300",
+        "w-full bg-deep-space/60 backdrop-blur-sm border-b flex justify-center border-white/5 transition-opacity duration-300",
         isTransitioning ? "opacity-50" : "opacity-100",
         className,
         heightClass

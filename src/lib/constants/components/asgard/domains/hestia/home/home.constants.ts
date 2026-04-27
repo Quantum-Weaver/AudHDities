@@ -21,6 +21,8 @@ export const HOME_LABELS = {
   TRUST_1: 'No hidden fees',
   TRUST_2: '100% transparent',
   TRUST_3: 'Community-owned',
+  GREETING_PREFIX: 'Welcome back,',
+  GREETING_FALLBACK: 'Sovereign',  
 } as const;
 
 export const HOME_ROUTES = {

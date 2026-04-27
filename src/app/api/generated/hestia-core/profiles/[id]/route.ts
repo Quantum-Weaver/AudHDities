@@ -16,7 +16,7 @@ export async function GET(
     
     const { data, error } = await supabase
       .from('profiles')
-      .select('*')
+      .select('*, community_profiles!fk_community_profiles_profile_id(*)')
       .eq('id', id)
       .single();
     

@@ -111,9 +111,8 @@ export function useAuth(): AuthState & AuthActions {
     );
 
     // Initial session check
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      const initialUser = session?.user || null;
-      setUser(initialUser);
+    supabase.auth.getUser().then(({ data: { user: initialUser } }) => {
+      setUser(initialUser || null);
       
       if (initialUser) {
         fetchProfile(initialUser.id);

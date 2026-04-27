@@ -26,6 +26,7 @@ export const headerVariants = cva(
     'flex',
     'flex-cols',
     'items-center',
+    'justify-center'
   ].join(' '),
   {
     variants: {

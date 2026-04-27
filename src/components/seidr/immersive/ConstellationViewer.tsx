@@ -1,4 +1,4 @@
-// @/components/immersive/ConstellationViewer.tsx
+// @/components/seidr/immersive/ConstellationViewer.tsx
 // NEW - 3D constellation visualization
 
 "use client";

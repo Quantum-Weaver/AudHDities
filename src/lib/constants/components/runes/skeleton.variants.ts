@@ -18,6 +18,7 @@ export const SKELETON_VARIANTS = {
   CARD: 'card',
   BUTTON: 'button',
   BADGE: 'badge',
+  CIRCLE: 'circle',
 } as const;
 
 export const SKELETON_ANIMATIONS = {

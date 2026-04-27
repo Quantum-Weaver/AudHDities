@@ -28,6 +28,7 @@ import {
   homeCtaIconVariants,
   homeTrustMarkersVariants,
 } from '@/lib/constants/components/asgard/domains/hestia/home/home.variants';
+import AuthenticatedGreeting from '@/components/asgard/domains/hestia/home/AuthenticatedGreeting';
 
 export default function Home() {
   return (
@@ -37,6 +38,14 @@ export default function Home() {
       showForeground={false}
       animated={true}
     >
+      {/* ════════════════════════════════════════════════════════════════ */}
+      {/* AUTHENTICATED GREETING                                           */}
+      {/* ════════════════════════════════════════════════════════════════ */}
+      <AuthenticatedGreeting />
+
+      {/* ════════════════════════════════════════════════════════════════ */}
+      {/* HERO SECTION                                                     */}
+      {/* ════════════════════════════════════════════════════════════════ */}
       <main className={homeHeroSectionVariants()}>
         <div className={homeHeroWrapperVariants()}>
           <div className={homeHeroBgVariants()} />

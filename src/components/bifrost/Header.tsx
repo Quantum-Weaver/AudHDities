@@ -67,7 +67,7 @@ export default function Header({
           onFocus={hoverHandlers.handleFocus}
           onBlur={hoverHandlers.handleBlur}
         >
-          <div className="flex flex-col items-center space-y-0.5 py-3">
+          <div className="flex flex-col space-y-0.5 py-3">
             <span
               className={cn(
                 headerTitleVariants({ variant, isHovered }),
