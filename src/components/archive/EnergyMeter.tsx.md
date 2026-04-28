@@ -66,8 +66,8 @@ export function EnergyMeter({ userId, className }: EnergyMeterProps) {
   return (
     <Card className={cn("p-4", className)}>
       <div className="flex justify-between items-center mb-2">
-        <span className="text-sm text-white/60">Energy Level</span>
-        <span className="text-sm font-medium text-white">{energy}%</span>
+        <span className="text-sm text-star-dust/60">Energy Level</span>
+        <span className="text-sm font-medium text-star-dust">{energy}%</span>
       </div>
       <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-2">
         <div
@@ -76,7 +76,7 @@ export function EnergyMeter({ userId, className }: EnergyMeterProps) {
         />
       </div>
       <div className="flex justify-between items-center">
-        <span className="text-xs text-white/40">{getLabel()}</span>
+        <span className="text-xs text-star-dust/40">{getLabel()}</span>
         <Link href="/vessel/energy" className="text-xs text-cyan-400 hover:underline">
           Log Energy
         </Link>

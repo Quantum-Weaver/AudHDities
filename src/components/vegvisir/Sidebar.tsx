@@ -220,7 +220,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                   type="button"
                   onClick={toggleCollapsed}
                   className={cn(
-                    'ml-auto text-white/60 transition-colors hover:text-white hover:bg-white/10',
+                    'ml-auto text-star-dust/60 transition-colors hover:text-star-dust hover:bg-white/10',
                     SIDEBAR_TOGGLE_PADDING,
                     SIDEBAR_TOGGLE_RADIUS,
                     collapsed && 'mx-auto'
@@ -299,7 +299,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             type="button"
             onClick={() => setIsMobileOpen(true)}
             className={cn(
-              'fixed left-4 top-4 bg-white/10 text-white md:hidden',
+              'fixed left-4 top-4 bg-white/10 text-star-dust md:hidden',
               SIDEBAR_MOBILE_TOGGLE_Z,
               SIDEBAR_MOBILE_TOGGLE_PADDING,
               SIDEBAR_MOBILE_TOGGLE_RADIUS
@@ -543,7 +543,7 @@ export const SidebarHeader = React.forwardRef<HTMLDivElement, SidebarHeaderProps
             className={cn(
               SIDEBAR_BRAND_FONT_SIZE,
               SIDEBAR_BRAND_FONT_WEIGHT,
-              'text-white'
+              'text-star-dust'
             )}
           >
             {brand}
@@ -590,7 +590,7 @@ export const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooterProps
             {name && (
               <div
                 className={cn(
-                  'truncate text-white',
+                  'truncate text-star-dust',
                   SIDEBAR_USER_NAME_SIZE,
                   SIDEBAR_USER_NAME_WEIGHT
                 )}
@@ -601,7 +601,7 @@ export const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooterProps
             {email && (
               <div
                 className={cn(
-                  'truncate text-white/60',
+                  'truncate text-star-dust/60',
                   SIDEBAR_USER_EMAIL_SIZE
                 )}
               >

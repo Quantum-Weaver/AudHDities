@@ -21,32 +21,32 @@ import type { ParsedPrivacySection, ParsedPrivacy } from '@/lib/markdown/parsePr
 import ReactMarkdown from 'react-markdown';
 
 const iconMap: Record<string, React.ReactNode> = {
-  'Our Commitment to Privacy': <Shield className="text-cyan-400" size={20} />,
+  'Our Commitment to Privacy': <Shield className="text-neurospark" size={20} />,
   'Information We Collect': <Database className="text-purple-400" size={20} />,
   'How We Use Your Information': <Eye className="text-blue-400" size={20} />,
   'Neurodivergent Data — Special Protection': <Heart className="text-pink-400" size={20} />,
   'Data Sharing and Disclosure': <Share2 className="text-yellow-400" size={20} />,
   'Your Rights': <Eye className="text-green-400" size={20} />,
   'Data Retention': <Trash2 className="text-orange-400" size={20} />,
-  'Security': <Lock className="text-cyan-400" size={20} />,
+  'Security': <Lock className="text-neurospark" size={20} />,
   'International Data Transfers': <Globe className="text-purple-400" size={20} />,
   "Children's Privacy": <BabyIcon className="text-pink-400" size={20} />,
   'Changes to This Policy': <AlertCircle className="text-yellow-400" size={20} />,
   'Contact Us': <Mail className="text-green-400" size={20} />,
   'California Privacy Rights': <Scale className="text-blue-400" size={20} />,
-  'GDPR Compliance': <Shield className="text-cyan-400" size={20} />,
+  'GDPR Compliance': <Shield className="text-neurospark" size={20} />,
 };
 
 function renderMarkdown(content: string) {
   return (
     <ReactMarkdown
       components={{
-        p: ({ children }) => <p className="text-white/70 mb-4">{children}</p>,
-        ul: ({ children }) => <ul className="space-y-2 text-white/70 mb-4 list-disc list-inside">{children}</ul>,
-        li: ({ children }) => <li className="text-white/70">{children}</li>,
-        strong: ({ children }) => <strong className="text-white">{children}</strong>,
+        p: ({ children }) => <p className="text-star-dust/70 mb-4">{children}</p>,
+        ul: ({ children }) => <ul className="space-y-2 text-star-dust/70 mb-4 list-disc list-inside">{children}</ul>,
+        li: ({ children }) => <li className="text-star-dust/70">{children}</li>,
+        strong: ({ children }) => <strong className="text-star-dust">{children}</strong>,
         a: ({ href, children }) => (
-          <a href={href} className="text-cyan-400 hover:underline">
+          <a href={href} className="text-neurospark hover:underline">
             {children}
           </a>
         ),
@@ -68,7 +68,7 @@ export function ParsedPrivacyContent({ privacy }: ParsedPrivacyContentProps) {
         <TermsSection
           key={section.title}
           title={section.title}
-          icon={iconMap[section.title] || <Shield className="text-white/40" size={20} />}
+          icon={iconMap[section.title] || <Shield className="text-star-dust/40" size={20} />}
         >
           {section.table && (
             <PrivacyTable headers={section.table.headers} rows={section.table.rows} />
@@ -80,7 +80,7 @@ export function ParsedPrivacyContent({ privacy }: ParsedPrivacyContentProps) {
             <div className="mt-4 space-y-4">
               {section.subsections.map((subsection) => (
                 <div key={subsection.title}>
-                  <h3 className="text-white font-bold mb-2">{subsection.title}</h3>
+                  <h3 className="text-star-dust font-bold mb-2">{subsection.title}</h3>
                   {subsection.table && (
                     <PrivacyTable headers={subsection.table.headers} rows={subsection.table.rows} />
                   )}

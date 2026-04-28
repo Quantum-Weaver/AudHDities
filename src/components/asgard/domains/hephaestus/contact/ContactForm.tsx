@@ -1,4 +1,4 @@
-// components/contact/ContactForm.tsx
+// components/hephaestus/contact/ContactForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -194,8 +194,8 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
         <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle className="text-green-400" size={32} />
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-        <p className="text-white/60">
+        <h3 className="text-xl font-bold text-star-dust mb-2">Message Sent!</h3>
+        <p className="text-star-dust/60">
           Thank you for reaching out. We'll respond within 24-48 hours.
         </p>
         {!redirectTo && (
@@ -222,7 +222,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       
       {/* Name Field */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-white mb-1">
+        <label htmlFor="name" className="block text-sm font-medium text-star-dust mb-1">
           Name <span className="text-red-400">*</span>
         </label>
         <Input
@@ -242,7 +242,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       
       {/* Email Field */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
+        <label htmlFor="email" className="block text-sm font-medium text-star-dust mb-1">
           Email <span className="text-red-400">*</span>
         </label>
         <Input
@@ -262,7 +262,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       
       {/* Subject Field */}
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-white mb-1">
+        <label htmlFor="subject" className="block text-sm font-medium text-star-dust mb-1">
           Subject <span className="text-red-400">*</span>
         </label>
         <Input
@@ -282,7 +282,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       
       {/* Message Field */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
+        <label htmlFor="message" className="block text-sm font-medium text-star-dust mb-1">
           Message <span className="text-red-400">*</span>
         </label>
         <Textarea

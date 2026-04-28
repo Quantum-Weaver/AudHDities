@@ -16,7 +16,7 @@ export function InfoTable({ headers, rows, variant = 'comparison' }: InfoTablePr
         <thead>
           <tr className={`border-b ${isPricing ? 'border-cyan-500/30' : 'border-white/10'}`}>
             {headers.map((header, idx) => (
-              <th key={idx} className={`text-left py-3 px-4 text-white font-medium ${isPricing && idx === 0 ? 'text-cyan-400' : ''}`}>
+              <th key={idx} className={`text-left py-3 px-4 text-star-dust font-medium ${isPricing && idx === 0 ? 'text-neurospark' : ''}`}>
                 {header}
               </th>
             ))}
@@ -26,7 +26,7 @@ export function InfoTable({ headers, rows, variant = 'comparison' }: InfoTablePr
           {rows.map((row, rowIdx) => (
             <tr key={rowIdx} className="border-b border-white/5 hover:bg-white/5 transition-colors">
               {row.map((cell, cellIdx) => (
-                <td key={cellIdx} className={`py-3 px-4 text-white/70 ${isPricing && cellIdx === 1 ? 'font-mono text-cyan-400' : ''}`}>
+                <td key={cellIdx} className={`py-3 px-4 text-star-dust/70 ${isPricing && cellIdx === 1 ? 'font-mono text-neurospark' : ''}`}>
                   {cell}
                 </td>
               ))}

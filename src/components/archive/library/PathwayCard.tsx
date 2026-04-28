@@ -22,8 +22,8 @@ const colorClasses = {
   cyan: {
     bg: 'from-cyan-500/20 to-cyan-600/10',
     border: 'border-cyan-500/30',
-    text: 'text-cyan-400',
-    hover: 'group-hover:text-cyan-400',
+    text: 'text-neurospark',
+    hover: 'group-hover:text-neurospark',
   },
   purple: {
     bg: 'from-purple-500/20 to-purple-600/10',
@@ -46,7 +46,7 @@ const colorClasses = {
 };
 
 const levelColors = {
-  Beginner: 'bg-cyan-500/10 text-cyan-400',
+  Beginner: 'bg-cyan-500/10 text-neurospark',
   Intermediate: 'bg-purple-500/10 text-purple-400',
   Advanced: 'bg-pink-500/10 text-pink-400',
 };
@@ -94,7 +94,7 @@ export function PathwayCard({
             )}>
               {level}
             </span>
-            <span className="text-xs px-2 py-1 bg-white/5 rounded-full text-white/40">
+            <span className="text-xs px-2 py-1 bg-white/5 rounded-full text-star-dust/40">
               {duration}
             </span>
           </div>
@@ -102,20 +102,20 @@ export function PathwayCard({
 
         {/* Title */}
         <h3 className={cn(
-          'text-xl font-bold text-white mb-2 transition-colors',
+          'text-xl font-bold text-star-dust mb-2 transition-colors',
           styles.hover
         )}>
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-white/60 text-sm mb-4 line-clamp-2">
+        <p className="text-star-dust/60 text-sm mb-4 line-clamp-2">
           {description}
         </p>
 
         {/* Meta */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs text-white/40">
+          <div className="flex items-center gap-2 text-xs text-star-dust/40">
             <BookOpen size={12} />
             <span>{lessons} lessons</span>
           </div>

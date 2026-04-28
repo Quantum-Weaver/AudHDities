@@ -56,7 +56,7 @@ export function TimelineView({ events = mockEvents, className }: TimelineViewPro
   return (
     <Card className={cn("p-4", className)}>
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-white/60">Event Timeline</h3>
+        <h3 className="text-sm font-medium text-star-dust/60">Event Timeline</h3>
         <div className="flex gap-1">
           <Button 
             variant={view === 'all' ? 'primary' : 'ghost'} 
@@ -108,15 +108,15 @@ export function TimelineView({ events = mockEvents, className }: TimelineViewPro
               
               <div className="flex-1 pb-3">
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-star-dust">
                     {event.title}
                   </span>
-                  <span className="text-xs text-white/30">
+                  <span className="text-xs text-star-dust/30">
                     {new Date(event.timestamp).toLocaleTimeString()}
                   </span>
                 </div>
                 
-                <p className="text-xs text-white/40">
+                <p className="text-xs text-star-dust/40">
                   {event.description}
                 </p>
                 

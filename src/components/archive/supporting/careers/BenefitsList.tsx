@@ -58,8 +58,8 @@ export function BenefitsList() {
   return (
     <Card className="p-6">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-white mb-2">What We Offer</h2>
-        <p className="text-white/60">The rewards of answering the calling</p>
+        <h2 className="text-2xl font-bold text-star-dust mb-2">What We Offer</h2>
+        <p className="text-star-dust/60">The rewards of answering the calling</p>
       </div>
       <div className="space-y-4">
         {benefits.map((benefit) => (
@@ -69,8 +69,8 @@ export function BenefitsList() {
           >
             <span className="text-2xl">{benefit.icon}</span>
             <div>
-              <h3 className="font-semibold text-white">{benefit.title}</h3>
-              <p className="text-sm text-white/60">{benefit.description}</p>
+              <h3 className="font-semibold text-star-dust">{benefit.title}</h3>
+              <p className="text-sm text-star-dust/60">{benefit.description}</p>
             </div>
           </div>
         ))}

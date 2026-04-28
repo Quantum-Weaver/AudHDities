@@ -27,7 +27,7 @@ export function StepCard({ step, title, children, completed = false, isLast = fa
           <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
             completed 
               ? 'bg-green-500/20 border-green-400 text-green-400'
-              : 'bg-white/10 border-white/30 text-white/60'
+              : 'bg-white/10 border-white/30 text-star-dust/60'
           }`}>
             {completed ? (
               <CheckCircle size={20} />
@@ -42,8 +42,8 @@ export function StepCard({ step, title, children, completed = false, isLast = fa
         
         {/* Content */}
         <div className="flex-1 pb-12">
-          <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
-          <div className="prose prose-invert max-w-none text-white/70">
+          <h3 className="text-xl font-bold text-star-dust mb-4">{title}</h3>
+          <div className="prose prose-invert max-w-none text-star-dust/70">
             {children}
           </div>
         </div>

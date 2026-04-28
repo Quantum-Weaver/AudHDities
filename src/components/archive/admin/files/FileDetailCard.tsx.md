@@ -84,14 +84,14 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
                   </span>
                 )}
               </div>
-              <code className="text-sm text-white/80 font-mono break-all">{file.file_path}</code>
-              <p className="text-xs text-white/40 mt-1 flex items-center gap-2">
+              <code className="text-sm text-star-dust/80 font-mono break-all">{file.file_path}</code>
+              <p className="text-xs text-star-dust/40 mt-1 flex items-center gap-2">
                 Created: {formatDate(file.created_at)}
                 <button
                   onClick={copyPath}
                   className="p-0.5 hover:bg-white/10 rounded transition-colors"
                 >
-                  {copySuccess ? <Check size={10} className="text-green-400" /> : <Copy size={10} className="text-white/40" />}
+                  {copySuccess ? <Check size={10} className="text-green-400" /> : <Copy size={10} className="text-star-dust/40" />}
                 </button>
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
                 onClick={() => setIsEditing(true)}
                 className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <Edit size={16} className="text-white/60" />
+                <Edit size={16} className="text-star-dust/60" />
               </button>
             ) : (
               <>
@@ -110,14 +110,14 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
                   onClick={() => setIsEditing(false)}
                   className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <X size={16} className="text-white/60" />
+                  <X size={16} className="text-star-dust/60" />
                 </button>
                 <button
                   onClick={handleSave}
                   disabled={saving}
                   className="p-2 bg-cyan-600/50 hover:bg-cyan-600 rounded-lg transition-colors"
                 >
-                  <Save size={16} className="text-white" />
+                  <Save size={16} className="text-star-dust" />
                 </button>
               </>
             )}
@@ -126,7 +126,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
                 onClick={onClose}
                 className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <X size={16} className="text-white/60" />
+                <X size={16} className="text-star-dust/60" />
               </button>
             )}
           </div>
@@ -137,18 +137,18 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
       <div className="p-5 space-y-4">
         {/* Purpose */}
         <div>
-          <label className="block text-xs font-medium text-white/40 mb-1 uppercase tracking-wider">Purpose</label>
+          <label className="block text-xs font-medium text-star-dust/40 mb-1 uppercase tracking-wider">Purpose</label>
           {isEditing ? (
             <Textarea
               value={formData.purpose}
               onChange={(e) => setFormData({ ...formData, purpose: e.target.value })}
               rows={2}
-              className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:border-cyan-500 focus:outline-none"
+              className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-star-dust text-sm focus:border-cyan-500 focus:outline-none"
               placeholder="What does this file do? Why does it exist?"
             />
           ) : (
-            <p className="text-white/80 text-sm">
-              {file.purpose || <span className="italic text-white/40">No description yet</span>}
+            <p className="text-star-dust/80 text-sm">
+              {file.purpose || <span className="italic text-star-dust/40">No description yet</span>}
             </p>
           )}
         </div>
@@ -158,7 +158,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
           <div>
             <button
               onClick={() => setExpanded(!expanded)}
-              className="flex items-center gap-1 text-xs text-white/40 hover:text-white/60 transition-colors"
+              className="flex items-center gap-1 text-xs text-star-dust/40 hover:text-star-dust/60 transition-colors"
             >
               {expanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
               Developer Notes
@@ -171,7 +171,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-white/60 text-xs mt-2 p-3 bg-white/5 rounded-lg">
+                  <p className="text-star-dust/60 text-xs mt-2 p-3 bg-white/5 rounded-lg">
                     {file.notes}
                   </p>
                 </motion.div>
@@ -190,7 +190,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
               disabled={!isEditing}
               className="w-3.5 h-3.5 rounded border-white/20 bg-white/5"
             />
-            <span className="text-xs text-white/60">Needs Review</span>
+            <span className="text-xs text-star-dust/60">Needs Review</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -200,7 +200,7 @@ export default function FileDetailCard({ file, onUpdate, onClose }: FileDetailCa
               disabled={!isEditing}
               className="w-3.5 h-3.5 rounded border-white/20 bg-white/5"
             />
-            <span className="text-xs text-white/60">Active</span>
+            <span className="text-xs text-star-dust/60">Active</span>
           </label>
         </div>
       </div>

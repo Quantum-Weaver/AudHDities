@@ -32,19 +32,19 @@ export default async function ResidualSystemPage() {
           {/* Philosophy Section */}
           <section className="text-center max-w-3xl mx-auto">
             <Heart className="text-pink-400 mx-auto mb-4" size={40} />
-            <h2 className="text-3xl font-bold text-white mb-4">The Philosophy</h2>
-            <p className="text-xl text-white/70">
+            <h2 className="text-3xl font-bold text-star-dust mb-4">The Philosophy</h2>
+            <p className="text-xl text-star-dust/70">
               Value should flow to everyone who helped create it. If you contributed code, design, 
               ideas, or testing to a product, you deserve ongoing payment—not just a one-time fee.
             </p>
-            <p className="text-lg text-white/60 mt-4">
+            <p className="text-lg text-star-dust/60 mt-4">
               And creators who choose to share their success with the community through the <span className="text-green-400">Covenant Pool</span> ensure dignity for all.
             </p>
           </section>
           
           {/* Flow Diagram */}
           <section>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">How the Value Flows</h2>
+            <h2 className="text-2xl font-bold text-star-dust text-center mb-8">How the Value Flows</h2>
             <Card className="p-8">
               <FlowDiagram />
             </Card>
@@ -52,22 +52,22 @@ export default async function ResidualSystemPage() {
           
           {/* The Two Pools */}
           <section>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">Two Pools, One Sanctuary</h2>
+            <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Two Pools, One Sanctuary</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <Card className="p-6 border-l-4 border-l-pink-400">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center">
                     <TrendingUp size={16} className="text-pink-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Residual Pool</h3>
+                  <h3 className="text-xl font-bold text-star-dust">Residual Pool</h3>
                 </div>
-                <p className="text-white/70 text-sm mb-3">
+                <p className="text-star-dust/70 text-sm mb-3">
                   <span className="text-pink-400 font-medium">Source:</span> 0-50% of the platform fee (creator chooses per product)
                 </p>
-                <p className="text-white/70 text-sm mb-3">
+                <p className="text-star-dust/70 text-sm mb-3">
                   <span className="text-pink-400 font-medium">Purpose:</span> Reward contributors who helped create the product
                 </p>
-                <p className="text-white/70 text-sm">
+                <p className="text-star-dust/70 text-sm">
                   <span className="text-pink-400 font-medium">Distribution:</span> Split according to contribution percentages set by creator
                 </p>
               </Card>
@@ -76,15 +76,15 @@ export default async function ResidualSystemPage() {
                   <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
                     <HandCoins size={16} className="text-green-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Covenant Pool</h3>
+                  <h3 className="text-xl font-bold text-star-dust">Covenant Pool</h3>
                 </div>
-                <p className="text-white/70 text-sm mb-3">
+                <p className="text-star-dust/70 text-sm mb-3">
                   <span className="text-green-400 font-medium">Source:</span> 0-50% of creator earnings (voluntary, set in profile)
                 </p>
-                <p className="text-white/70 text-sm mb-3">
+                <p className="text-star-dust/70 text-sm mb-3">
                   <span className="text-green-400 font-medium">Purpose:</span> Support community dignity fund for all active members
                 </p>
-                <p className="text-white/70 text-sm">
+                <p className="text-star-dust/70 text-sm">
                   <span className="text-green-400 font-medium">Distribution:</span> Equal share to all active community members
                 </p>
               </Card>
@@ -100,7 +100,7 @@ export default async function ResidualSystemPage() {
           
           {/* Interactive Example */}
           <section>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">See It In Action</h2>
+            <h2 className="text-2xl font-bold text-star-dust text-center mb-8">See It In Action</h2>
             <Card className="p-8">
               <ExampleSale />
             </Card>
@@ -108,7 +108,7 @@ export default async function ResidualSystemPage() {
           
           {/* FAQ */}
           <section>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">Common Questions</h2>
+            <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Common Questions</h2>
             <Card className="p-8">
               <ResidualFAQ />
             </Card>
@@ -116,11 +116,11 @@ export default async function ResidualSystemPage() {
           
           {/* Technical Details */}
           <section>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">Under the Hood</h2>
+            <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Under the Hood</h2>
             <Card className="p-8">
               <div className="mb-6 text-center">
-                <Shield className="text-cyan-400 mx-auto mb-2" size={32} />
-                <p className="text-white/60 max-w-2xl mx-auto">
+                <Shield className="text-neurospark mx-auto mb-2" size={32} />
+                <p className="text-star-dust/60 max-w-2xl mx-auto">
                   All transactions are automated by database triggers. When a sale happens, 
                   the system instantly calculates and records payments for everyone involved.
                 </p>
@@ -131,26 +131,26 @@ export default async function ResidualSystemPage() {
           
           {/* Economics Summary */}
           <section className="bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-green-500/10 rounded-2xl p-8 border border-white/20">
-            <h3 className="text-2xl font-bold text-white text-center mb-6">The Economics at a Glance</h3>
+            <h3 className="text-2xl font-bold text-star-dust text-center mb-6">The Economics at a Glance</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400 mb-2">10%</div>
-                <div className="text-white font-medium">Platform Fee</div>
-                <div className="text-white/40 text-sm">Fixed, industry-low</div>
+                <div className="text-3xl font-bold text-neurospark mb-2">10%</div>
+                <div className="text-star-dust font-medium">Platform Fee</div>
+                <div className="text-star-dust/40 text-sm">Fixed, industry-low</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-400 mb-2">90%</div>
-                <div className="text-white font-medium">Creator Share</div>
-                <div className="text-white/40 text-sm">Your work, your value</div>
+                <div className="text-star-dust font-medium">Creator Share</div>
+                <div className="text-star-dust/40 text-sm">Your work, your value</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-400 mb-2">0-50%</div>
-                <div className="text-white font-medium">Covenant Pledge</div>
-                <div className="text-white/40 text-sm">Voluntary community support</div>
+                <div className="text-star-dust font-medium">Covenant Pledge</div>
+                <div className="text-star-dust/40 text-sm">Voluntary community support</div>
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 text-center">
-              <p className="text-white/50 text-sm">
+              <p className="text-star-dust/50 text-sm">
                 Residual pool: 0-50% of platform fee (creator chooses per product)<br />
                 Covenant pool: 0-50% of creator earnings (creator chooses in profile)
               </p>
@@ -160,14 +160,14 @@ export default async function ResidualSystemPage() {
           {/* Security Footer */}
           <section className="text-center">
             <div className="inline-flex flex-wrap items-center justify-center gap-2 px-6 py-3 bg-white/5 rounded-full">
-              <Infinity size={14} className="text-cyan-400" />
-              <span className="text-sm text-white/60">Only product creators can add contributors</span>
-              <span className="text-white/30">•</span>
-              <span className="text-sm text-white/60">Percentages must sum to ≤100</span>
-              <span className="text-white/30">•</span>
-              <span className="text-sm text-white/60">Covenant pledge is voluntary and changeable</span>
-              <span className="text-white/30">•</span>
-              <span className="text-sm text-white/60">All transactions visible in public ledger</span>
+              <Infinity size={14} className="text-neurospark" />
+              <span className="text-sm text-star-dust/60">Only product creators can add contributors</span>
+              <span className="text-star-dust/30">•</span>
+              <span className="text-sm text-star-dust/60">Percentages must sum to ≤100</span>
+              <span className="text-star-dust/30">•</span>
+              <span className="text-sm text-star-dust/60">Covenant pledge is voluntary and changeable</span>
+              <span className="text-star-dust/30">•</span>
+              <span className="text-sm text-star-dust/60">All transactions visible in public ledger</span>
             </div>
           </section>
         </div>

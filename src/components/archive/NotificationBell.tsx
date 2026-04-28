@@ -90,7 +90,7 @@ export function NotificationBell({ className }: NotificationBellProps) {
       >
         <span className="text-xl">🔔</span>
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs text-star-dust flex items-center justify-center">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
@@ -104,11 +104,11 @@ export function NotificationBell({ className }: NotificationBellProps) {
           />
           <div className="absolute right-0 top-full mt-2 z-20 w-80 bg-surface border border-white/10 rounded-xl overflow-hidden shadow-xl">
             <div className="p-3 border-b border-white/10 flex justify-between items-center">
-              <h3 className="font-semibold text-white">Notifications</h3>
+              <h3 className="font-semibold text-star-dust">Notifications</h3>
               {unreadCount > 0 && (
                 <button
                   onClick={markAsRead}
-                  className="text-xs text-cyan-400 hover:underline"
+                  className="text-xs text-neurospark hover:underline"
                 >
                   Mark all read
                 </button>
@@ -116,7 +116,7 @@ export function NotificationBell({ className }: NotificationBellProps) {
             </div>
             <div className="max-h-96 overflow-y-auto">
               {notifications.length === 0 ? (
-                <div className="p-6 text-center text-white/40">
+                <div className="p-6 text-center text-star-dust/40">
                   No notifications yet
                 </div>
               ) : (
@@ -139,8 +139,8 @@ export function NotificationBell({ className }: NotificationBellProps) {
                         {!notification.type && "📢"}
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm text-white">{notification.title}</p>
-                        <p className="text-xs text-white/40 mt-1">
+                        <p className="text-sm text-star-dust">{notification.title}</p>
+                        <p className="text-xs text-star-dust/40 mt-1">
                           {new Date(notification.created_at).toLocaleDateString()}
                         </p>
                       </div>
@@ -152,7 +152,7 @@ export function NotificationBell({ className }: NotificationBellProps) {
             <div className="p-2 border-t border-white/10 text-center">
               <Link
                 href="/notifications"
-                className="text-xs text-cyan-400 hover:underline"
+                className="text-xs text-neurospark hover:underline"
                 onClick={() => setIsOpen(false)}
               >
                 View all

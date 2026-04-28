@@ -31,7 +31,7 @@ export default function FileDependencies({ file, allFiles }: FileDependenciesPro
       transition={{ delay: 0.3 }}
       className="bg-white/5 border border-white/10 rounded-xl p-6"
     >
-      <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-bold text-star-dust mb-4 flex items-center gap-2">
         <Link size={18} className="text-pink-400" />
         Dependencies
       </h3>
@@ -40,14 +40,14 @@ export default function FileDependencies({ file, allFiles }: FileDependenciesPro
         {/* Imports (what this file depends on) */}
         {dependencies && dependencies.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-white/60 mb-3">Imports</h4>
+            <h4 className="text-sm font-medium text-star-dust/60 mb-3">Imports</h4>
             <div className="space-y-2">
               {dependencies.map((dep, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-sm">
                   <span className="text-cyan-400">{dep.emoji}</span>
-                  <code className="text-white/60 font-mono text-xs">{dep.file_name}</code>
-                  <ArrowRight size={12} className="text-white/30" />
-                  <span className="text-white/40 text-xs truncate">{dep.file_path}</span>
+                  <code className="text-star-dust/60 font-mono text-xs">{dep.file_name}</code>
+                  <ArrowRight size={12} className="text-star-dust/30" />
+                  <span className="text-star-dust/40 text-xs truncate">{dep.file_path}</span>
                 </div>
               ))}
             </div>
@@ -57,14 +57,14 @@ export default function FileDependencies({ file, allFiles }: FileDependenciesPro
         {/* Used By (what depends on this file) */}
         {usedBy && usedBy.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-white/60 mb-3">Used By</h4>
+            <h4 className="text-sm font-medium text-star-dust/60 mb-3">Used By</h4>
             <div className="space-y-2">
               {usedBy.map((user, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-sm">
                   <span className="text-purple-400">{user.emoji}</span>
-                  <code className="text-white/60 font-mono text-xs">{user.file_name}</code>
-                  <ArrowRight size={12} className="text-white/30 rotate-180" />
-                  <span className="text-white/40 text-xs truncate">{user.file_path}</span>
+                  <code className="text-star-dust/60 font-mono text-xs">{user.file_name}</code>
+                  <ArrowRight size={12} className="text-star-dust/30 rotate-180" />
+                  <span className="text-star-dust/40 text-xs truncate">{user.file_path}</span>
                 </div>
               ))}
             </div>

@@ -64,7 +64,7 @@ export const sectionTitleVariants = cva(
   [
     SECTION_TITLE_SIZE,
     SECTION_TITLE_WEIGHT,
-    'text-white',
+    'text-star-dust',
     SECTION_TITLE_DESCRIPTION_GAP,
   ].join(' '),
   {
@@ -83,7 +83,7 @@ export const sectionTitleVariants = cva(
 
 // ─── Section Description Variants ──────────────────────────────────────────
 export const sectionDescriptionVariants = cva(
-  'text-white/60 max-w-2xl',
+  'text-star-dust/60 max-w-2xl',
   {
     variants: {
       align: {

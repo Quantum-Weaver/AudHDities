@@ -28,13 +28,13 @@ export function FlowDiagram() {
               <step.icon className={`text-${step.color}-400`} size={32} />
             </div>
             <div className="text-center">
-              <div className="text-white font-bold">{step.label}</div>
-              <div className="text-white/40 text-sm">{step.description}</div>
+              <div className="text-star-dust font-bold">{step.label}</div>
+              <div className="text-star-dust/40 text-sm">{step.description}</div>
             </div>
             
             {idx < steps.length - 1 && (
               <div className="hidden md:block absolute top-12 -right-6">
-                <ArrowRight className="text-white/20" size={24} />
+                <ArrowRight className="text-star-dust/20" size={24} />
               </div>
             )}
           </motion.div>

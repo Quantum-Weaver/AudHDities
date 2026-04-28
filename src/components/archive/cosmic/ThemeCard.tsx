@@ -67,10 +67,10 @@ export function ThemeCards({ className }: ThemeCardProps) {
               >
                 {theme.icon}
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-lg font-bold text-star-dust mb-2 group-hover:text-neurospark transition-colors">
                 {theme.name}
               </h3>
-              <p className="text-sm text-white/60 line-clamp-3">
+              <p className="text-sm text-star-dust/60 line-clamp-3">
                 {theme.description}
               </p>
               <Button 

@@ -31,7 +31,7 @@ export default function FileMetadata({ file }: FileMetadataProps) {
       transition={{ delay: 0.1 }}
       className="bg-white/5 border border-white/10 rounded-xl p-6"
     >
-      <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-bold text-star-dust mb-4 flex items-center gap-2">
         <Activity size={18} className="text-cyan-400" />
         File Metadata
       </h3>
@@ -43,8 +43,8 @@ export default function FileMetadata({ file }: FileMetadataProps) {
               <item.icon size={14} className="text-cyan-400" />
             </div>
             <div>
-              <p className="text-xs text-white/40">{item.label}</p>
-              <p className="text-sm text-white/80 font-mono break-all">{item.value}</p>
+              <p className="text-xs text-star-dust/40">{item.label}</p>
+              <p className="text-sm text-star-dust/80 font-mono break-all">{item.value}</p>
             </div>
           </div>
         ))}

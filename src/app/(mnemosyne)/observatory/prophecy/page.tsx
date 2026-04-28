@@ -55,15 +55,15 @@ export default async function ProphecyPage() {
           
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 text-white/50 text-sm mb-2">
-              <a href="/observatory" className="hover:text-white">Observatory</a>
+            <div className="flex items-center justify-center gap-2 text-star-dust/50 text-sm mb-2">
+              <a href="/observatory" className="hover:text-star-dust">Observatory</a>
               <span>→</span>
-              <span className="text-white">The Vision</span>
+              <span className="text-star-dust">The Vision</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-star-dust mb-4">
               The Vision
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
               Possible futures. Potential paths. What could be.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default async function ProphecyPage() {
 
           {/* Future Projections */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Future Projections
             </h2>
             <FutureProjections scenarios={futureScenarios} />
@@ -86,10 +86,10 @@ export default async function ProphecyPage() {
             
             {/* Left Column: Possibility Tree */}
             <div>
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-star-dust mb-4 flex items-center gap-2">
                 <span className="text-2xl">🌳</span> Possibility Tree
               </h2>
-              <p className="text-white/50 text-sm mb-4">
+              <p className="text-star-dust/50 text-sm mb-4">
                 Every decision branches into new possibilities
               </p>
               <PossibilityTree />
@@ -97,10 +97,10 @@ export default async function ProphecyPage() {
 
             {/* Right Column: Probability Meter */}
             <div>
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-star-dust mb-4 flex items-center gap-2">
                 <span className="text-2xl">📊</span> Probability Meter
               </h2>
-              <p className="text-white/50 text-sm mb-4">
+              <p className="text-star-dust/50 text-sm mb-4">
                 Community consensus on likely outcomes
               </p>
               <ProbabilityMeter predictions={futureScenarios} />
@@ -109,10 +109,10 @@ export default async function ProphecyPage() {
 
           {/* Community Voting */}
           <div className="mb-8">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-star-dust mb-4 flex items-center gap-2">
               <span className="text-2xl">🗳️</span> Community Vision
             </h2>
-            <p className="text-white/50 text-sm mb-4">
+            <p className="text-star-dust/50 text-sm mb-4">
               Shape the future by voting on predictions
             </p>
             <CommunityVotes 

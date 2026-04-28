@@ -53,16 +53,16 @@ export default async function AncestorsPage() {
           
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 text-white/50 text-sm mb-2">
-              <a href="/observatory" className="hover:text-white">Observatory</a>
+            <div className="flex items-center justify-center gap-2 text-star-dust/50 text-sm mb-2">
+              <a href="/observatory" className="hover:text-star-dust">Observatory</a>
               <span>→</span>
-              <span className="text-white">Ancestors</span>
+              <span className="text-star-dust">Ancestors</span>
             </div>
             <div className="text-6xl mb-4">🕯️</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-star-dust mb-4">
               Ancestors
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
               Honoring those who came before. Their legacy continues.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default async function AncestorsPage() {
 
           {/* Founding Contributors */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Founding Contributors
             </h2>
             <ContributorProfiles contributors={foundingContributors || []} />
@@ -82,7 +82,7 @@ export default async function AncestorsPage() {
 
           {/* Legacy Stories */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Legacy Stories
             </h2>
             <StoryCards stories={legacyStories || []} />
@@ -90,7 +90,7 @@ export default async function AncestorsPage() {
 
           {/* Honor Badges */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Eternal Honors
             </h2>
             <HonorBadges />
@@ -98,7 +98,7 @@ export default async function AncestorsPage() {
 
           {/* Legacy Grid */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               All Who Built the Sanctuary
             </h2>
             <LegacyGrid />
@@ -108,7 +108,7 @@ export default async function AncestorsPage() {
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full">
               <span className="text-yellow-400 animate-pulse">🕯️</span>
-              <span className="text-sm text-white/40">Their light guides us still</span>
+              <span className="text-sm text-star-dust/40">Their light guides us still</span>
               <span className="text-yellow-400 animate-pulse">🕯️</span>
             </div>
           </div>

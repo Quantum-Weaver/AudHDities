@@ -51,23 +51,23 @@ export const INPUT_BASE_CLASSES = [
 ] as const;
 
 // ─── Label Classes ─────────────────────────────────────────────────────────
-export const INPUT_LABEL_CLASSES = 'text-sm font-medium text-white/80' as const;
+export const INPUT_LABEL_CLASSES = 'text-sm font-medium text-star-dust/80' as const;
 export const INPUT_LABEL_ERROR_CLASSES = 'text-red-400' as const;
 
 // ─── Helper/Error Text ─────────────────────────────────────────────────────
-export const INPUT_HELPER_CLASSES = 'text-xs text-white/40' as const;
+export const INPUT_HELPER_CLASSES = 'text-xs text-star-dust/40' as const;
 export const INPUT_ERROR_CLASSES = 'text-xs text-red-400' as const;
 
 // ─── Required/Optional Indicators ──────────────────────────────────────────
-export const INPUT_REQUIRED_INDICATOR = 'ml-1 text-cyan-400' as const;
-export const INPUT_OPTIONAL_INDICATOR = 'ml-1 text-white/40 text-xs' as const;
+export const INPUT_REQUIRED_INDICATOR = 'ml-1 text-neurospark' as const;
+export const INPUT_OPTIONAL_INDICATOR = 'ml-1 text-star-dust/40 text-xs' as const;
 
 // ─── Wrapper ───────────────────────────────────────────────────────────────
 export const INPUT_WRAPPER_CLASSES = 'flex flex-col gap-1.5' as const;
 export const INPUT_FULL_WIDTH_CLASS = 'w-full' as const;
 
 // ─── Icon Container ────────────────────────────────────────────────────────
-export const INPUT_ICON_CONTAINER_CLASSES = 'absolute top-1/2 -translate-y-1/2 text-white/40' as const;
+export const INPUT_ICON_CONTAINER_CLASSES = 'absolute top-1/2 -translate-y-1/2 text-star-dust/40' as const;
 
 // ─── Container ─────────────────────────────────────────────────────────────
 export const INPUT_CONTAINER_CLASSES = 'relative' as const;

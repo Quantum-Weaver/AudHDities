@@ -38,7 +38,7 @@ export function FavoriteButton({ effectId, className }: FavoriteButtonProps) {
 
   return (
     <div className={cn("p-6 bg-black/40 backdrop-blur-md rounded-xl border border-white/10", className)}>
-      <h3 className="text-lg font-semibold text-white mb-4">Save to Grimoire</h3>
+      <h3 className="text-lg font-semibold text-star-dust mb-4">Save to Grimoire</h3>
       <Button
         variant={isFavorited ? "primary" : "outline"}
         onClick={toggleFavorite}
@@ -52,7 +52,7 @@ export function FavoriteButton({ effectId, className }: FavoriteButtonProps) {
         </motion.div>
         {isFavorited ? "Saved to Grimoire" : "Add to Grimoire"}
       </Button>
-      <p className="text-xs text-white/40 mt-3 text-center">
+      <p className="text-xs text-star-dust/40 mt-3 text-center">
         Saved effects appear in your personal grimoire
       </p>
     </div>

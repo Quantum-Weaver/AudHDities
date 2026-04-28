@@ -30,14 +30,14 @@ export function PrincipleCard({ title, description, examples, defaultOpen = fals
         className="w-full flex items-center justify-between p-6 text-left"
       >
         <div>
-          <h3 className="text-xl font-bold text-white">{title}</h3>
-          <p className="text-white/60 text-sm mt-1">{description}</p>
+          <h3 className="text-xl font-bold text-star-dust">{title}</h3>
+          <p className="text-star-dust/60 text-sm mt-1">{description}</p>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/40" size={20} />
+          <ChevronDown className="text-star-dust/40" size={20} />
         </motion.div>
       </button>
       
@@ -59,7 +59,7 @@ export function PrincipleCard({ title, description, examples, defaultOpen = fals
                   </div>
                   {examples.avoid.map((item, idx) => (
                     <div key={idx} className="bg-red-500/10 border border-red-500/30 rounded-lg p-3">
-                      <p className="text-white/70 text-sm">{item}</p>
+                      <p className="text-star-dust/70 text-sm">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -70,7 +70,7 @@ export function PrincipleCard({ title, description, examples, defaultOpen = fals
                   </div>
                   {examples.use.map((item, idx) => (
                     <div key={idx} className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-                      <p className="text-white/70 text-sm">{item}</p>
+                      <p className="text-star-dust/70 text-sm">{item}</p>
                     </div>
                   ))}
                 </div>

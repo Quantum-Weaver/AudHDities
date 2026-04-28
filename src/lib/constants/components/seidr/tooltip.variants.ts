@@ -26,7 +26,7 @@ export type TooltipPlacement =
 // Colors sourced from Tailwind generated config:
 //   bg-foreground, bg-deep-space, bg-white, bg-quantum-purple,
 //   bg-cosmic-blue, bg-fire-base, bg-sanctuary-green, bg-hearth-gold
-//   text-background, text-star-dust, text-deep-space, text-white
+//   text-background, text-star-dust, text-deep-space, text-star-dust
 export const tooltipContentVariants = cva(
   [
     ...TOOLTIP_CONTENT_BASE_CLASSES,
@@ -38,10 +38,10 @@ export const tooltipContentVariants = cva(
         default: 'bg-foreground text-background',
         dark: 'bg-deep-space text-star-dust border border-white/10',
         light: 'bg-white text-deep-space border border-white/20',
-        quantum: 'bg-quantum-purple text-white shadow-lg shadow-quantum-purple/20',
-        cosmic: 'bg-cosmic-blue text-white shadow-lg shadow-cosmic-blue/20',
-        fire: 'bg-fire-base text-white shadow-lg shadow-fire-base/20',
-        sanctuary: 'bg-sanctuary-green text-white shadow-lg shadow-sanctuary-green/20',
+        quantum: 'bg-quantum-purple text-star-dust shadow-lg shadow-quantum-purple/20',
+        cosmic: 'bg-cosmic-blue text-star-dust shadow-lg shadow-cosmic-blue/20',
+        fire: 'bg-fire-base text-star-dust shadow-lg shadow-fire-base/20',
+        sanctuary: 'bg-sanctuary-green text-star-dust shadow-lg shadow-sanctuary-green/20',
         council: 'bg-hearth-gold text-deep-space shadow-lg shadow-hearth-gold/20',
       },
     },

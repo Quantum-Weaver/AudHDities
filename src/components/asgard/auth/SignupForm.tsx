@@ -65,8 +65,8 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-white mb-2">Initialize Consciousness</h1>
-        <p className="text-white/60">Join the Sovereign Sanctuary</p>
+        <h1 className="text-2xl font-bold text-star-dust mb-2">Initialize Consciousness</h1>
+        <p className="text-star-dust/60">Join the Sovereign Sanctuary</p>
       </div>
 
       {error && (
@@ -116,11 +116,11 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
               name="accept_terms"
               disabled={isLoading}
             />
-            <label className="text-sm text-white/80">
+            <label className="text-sm text-star-dust/80">
               I agree to the{" "}
-              <a href="/terms" className="text-cyan-400 hover:underline">Terms of Service</a>
+              <a href="/terms" className="text-neurospark hover:underline">Terms of Service</a>
               {" "}and{" "}
-              <a href="/privacy" className="text-cyan-400 hover:underline">Privacy Policy</a>
+              <a href="/privacy" className="text-neurospark hover:underline">Privacy Policy</a>
             </label>
           </div>
         </FormField>
@@ -133,9 +133,9 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
       </Form>
 
       <div className="mt-6 text-center">
-        <p className="text-white/40 text-sm">
+        <p className="text-star-dust/40 text-sm">
           Already have an account?{" "}
-          <a href="/login" className="text-cyan-400 hover:underline">
+          <a href="/login" className="text-neurospark hover:underline">
             Return to the Sanctuary
           </a>
         </p>

@@ -26,12 +26,12 @@ export const PROGRESS_FILL_TRANSITION = 'transition-all duration-300 ease-out';
 // ─── Label ──────────────────────────────────────────────────────────────────
 export const PROGRESS_LABEL_SIZE = 'text-xs';
 export const PROGRESS_LABEL_WEIGHT = 'font-medium';
-export const PROGRESS_LABEL_COLOR = 'text-white/60';
+export const PROGRESS_LABEL_COLOR = 'text-star-dust/60';
 
 // ─── Circular Label ─────────────────────────────────────────────────────────
 export const PROGRESS_CIRCULAR_LABEL_SIZE = 'text-sm';
 export const PROGRESS_CIRCULAR_LABEL_WEIGHT = 'font-medium';
-export const PROGRESS_CIRCULAR_LABEL_COLOR = 'text-white';
+export const PROGRESS_CIRCULAR_LABEL_COLOR = 'text-star-dust';
 
 // ─── Label Position Layouts ─────────────────────────────────────────────────
 export const PROGRESS_LABEL_POSITION_LAYOUTS = {

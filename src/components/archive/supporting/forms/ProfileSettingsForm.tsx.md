@@ -149,7 +149,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
   if (profileLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <div className="animate-pulse text-white/60">Loading settings...</div>
+        <div className="animate-pulse text-star-dust/60">Loading settings...</div>
       </div>
     );
   }
@@ -166,7 +166,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
             className={`px-4 py-2 rounded-lg transition-all ${
               activeTab === tab.id
                 ? 'bg-cyan-600/40 text-cyan-400 border border-cyan-500/30'
-                : 'text-white/60 hover:text-white hover:bg-white/5'
+                : 'text-star-dust/60 hover:text-star-dust hover:bg-white/5'
             }`}
           >
             {tab.label}
@@ -193,13 +193,13 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <div>
-                    <label className="block text-sm text-white/60 mb-1">
+                    <label className="block text-sm text-star-dust/60 mb-1">
                       Display Name
                     </label>
                     <input
                       {...field}
                       type="text"
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-star-dust focus:border-cyan-500 focus:outline-none"
                       placeholder="How others see you"
                     />
                     {errors.display_name && (
@@ -215,13 +215,13 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <div>
-                    <label className="block text-sm text-white/60 mb-1">
+                    <label className="block text-sm text-star-dust/60 mb-1">
                       Bio
                     </label>
                     <Textarea
                       {...field}
                       rows={4}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-star-dust focus:border-cyan-500 focus:outline-none"
                       placeholder="Tell the community about yourself..."
                     />
                     {errors.bio && (
@@ -237,12 +237,12 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <div>
-                    <label className="block text-sm text-white/60 mb-1">
+                    <label className="block text-sm text-star-dust/60 mb-1">
                       Communication Style
                     </label>
                     <select
                       {...field}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-star-dust focus:border-cyan-500 focus:outline-none"
                     >
                       <option value="direct">Direct - Prefer straightforward communication</option>
                       <option value="gentle">Gentle - Prefer softer, considerate language</option>
@@ -261,7 +261,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
           {/* ND Preferences Tab */}
           {activeTab === 'preferences' && (
             <div className="space-y-4">
-              <p className="text-white/60 text-sm">
+              <p className="text-star-dust/60 text-sm">
                 Customize how the platform adapts to your neurotype.
               </p>
 
@@ -271,7 +271,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 render={({ field }) => (
                   <div className="space-y-3">
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">Reduced Motion</span>
+                      <span className="text-star-dust">Reduced Motion</span>
                       <input
                         type="checkbox"
                         checked={field.value?.reduced_motion || false}
@@ -281,7 +281,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">High Contrast Mode</span>
+                      <span className="text-star-dust">High Contrast Mode</span>
                       <input
                         type="checkbox"
                         checked={field.value?.high_contrast || false}
@@ -291,7 +291,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">Focus Mode (Hide Distractions)</span>
+                      <span className="text-star-dust">Focus Mode (Hide Distractions)</span>
                       <input
                         type="checkbox"
                         checked={field.value?.focus_mode || false}
@@ -301,7 +301,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">TL;DR Mode (Summarize Long Content)</span>
+                      <span className="text-star-dust">TL;DR Mode (Summarize Long Content)</span>
                       <input
                         type="checkbox"
                         checked={field.value?.tl_dr_enabled || false}
@@ -311,7 +311,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">Dyslexia-Friendly Font</span>
+                      <span className="text-star-dust">Dyslexia-Friendly Font</span>
                       <input
                         type="checkbox"
                         checked={field.value?.dyslexia_friendly || false}
@@ -321,7 +321,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">Sound Notifications</span>
+                      <span className="text-star-dust">Sound Notifications</span>
                       <input
                         type="checkbox"
                         checked={field.value?.sound_notifications !== false}
@@ -331,7 +331,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                     </label>
 
                     <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                      <span className="text-white">Visual Timers</span>
+                      <span className="text-star-dust">Visual Timers</span>
                       <input
                         type="checkbox"
                         checked={field.value?.visual_timers !== false}
@@ -348,7 +348,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
           {/* Sensory Preferences Tab */}
           {activeTab === 'sensory' && (
             <div className="space-y-4">
-              <p className="text-white/60 text-sm">
+              <p className="text-star-dust/60 text-sm">
                 Tell us about your sensory sensitivities so we can adapt the experience.
               </p>
 
@@ -366,7 +366,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                       { key: 'olfactory_sensitivity', label: 'Smell Sensitivity' },
                     ].map(({ key, label }) => (
                       <div key={key}>
-                        <label className="block text-sm text-white/60 mb-2">
+                        <label className="block text-sm text-star-dust/60 mb-2">
                           {label}
                         </label>
                         <div className="flex gap-2">
@@ -377,8 +377,8 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                               onClick={() => field.onChange({ ...field.value, [key]: level })}
                               className={`flex-1 py-2 rounded-lg capitalize transition-all ${
                                 field.value?.[key as keyof typeof field.value] === level
-                                  ? 'bg-cyan-600 text-white'
-                                  : 'bg-white/10 text-white/60 hover:bg-white/20'
+                                  ? 'bg-cyan-600 text-star-dust'
+                                  : 'bg-white/10 text-star-dust/60 hover:bg-white/20'
                               }`}
                             >
                               {level}
@@ -401,7 +401,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                    <span className="text-white">Email Notifications</span>
+                    <span className="text-star-dust">Email Notifications</span>
                     <input
                       type="checkbox"
                       checked={field.value || false}
@@ -417,7 +417,7 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <label className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer">
-                    <span className="text-white">Push Notifications</span>
+                    <span className="text-star-dust">Push Notifications</span>
                     <input
                       type="checkbox"
                       checked={field.value || false}
@@ -433,12 +433,12 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
                 control={control}
                 render={({ field }) => (
                   <div>
-                    <label className="block text-sm text-white/60 mb-1">
+                    <label className="block text-sm text-star-dust/60 mb-1">
                       Notification Frequency
                     </label>
                     <select
                       {...field}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-cyan-500 focus:outline-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-star-dust focus:border-cyan-500 focus:outline-none"
                     >
                       <option value="instant">Instant - Get notifications immediately</option>
                       <option value="daily">Daily Digest - One summary per day</option>
@@ -474,14 +474,14 @@ export default function ProfileSettingsForm({ onSuccess, onCancel }: ProfileSett
         <button
           type="button"
           onClick={handleCancel}
-          className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all"
+          className="px-6 py-3 bg-white/10 hover:bg-white/20 text-star-dust rounded-lg transition-all"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={!isDirty || saveStatus === 'saving' || isSubmitting}
-          className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 disabled:bg-white/10 disabled:text-white/40 text-white rounded-lg transition-all flex items-center gap-2"
+          className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 disabled:bg-white/10 disabled:text-star-dust/40 text-star-dust rounded-lg transition-all flex items-center gap-2"
         >
           {saveStatus === 'saving' ? (
             <>

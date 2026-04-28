@@ -25,7 +25,7 @@ const colorClasses = {
 };
 
 const levelColors = {
-  Beginner: 'bg-cyan-500/10 text-cyan-400',
+  Beginner: 'bg-cyan-500/10 text-neurospark',
   Intermediate: 'bg-purple-500/10 text-purple-400',
   Advanced: 'bg-pink-500/10 text-pink-400',
 };
@@ -48,7 +48,7 @@ export function PathwayHeader({
       {/* Back Button */}
       <Link
         href="/learn"
-        className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-8 transition-colors"
+        className="inline-flex items-center gap-2 text-star-dust/60 hover:text-star-dust mb-8 transition-colors"
       >
         <ArrowLeft size={18} />
         Back to Learning Hub
@@ -69,10 +69,10 @@ export function PathwayHeader({
             {icon}
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-star-dust mb-2">
               {title}
             </h1>
-            <p className="text-white/60">
+            <p className="text-star-dust/60">
               {description}
             </p>
           </div>
@@ -81,12 +81,12 @@ export function PathwayHeader({
         {/* Metadata */}
         <div className="flex flex-wrap gap-3 mt-6">
           <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full">
-            <Clock size={14} className="text-white/40" />
-            <span className="text-sm text-white/60">{duration}</span>
+            <Clock size={14} className="text-star-dust/40" />
+            <span className="text-sm text-star-dust/60">{duration}</span>
           </div>
           <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full">
-            <BookOpen size={14} className="text-white/40" />
-            <span className="text-sm text-white/60">{totalLessons} lessons</span>
+            <BookOpen size={14} className="text-star-dust/40" />
+            <span className="text-sm text-star-dust/60">{totalLessons} lessons</span>
           </div>
           <div className={cn(
             'flex items-center gap-2 px-3 py-1.5 rounded-full',
@@ -100,8 +100,8 @@ export function PathwayHeader({
         {/* Progress Bar */}
         <div className="mt-8">
           <div className="flex items-center justify-between text-sm mb-2">
-            <span className="text-white/60">Your Progress</span>
-            <span className="text-white">
+            <span className="text-star-dust/60">Your Progress</span>
+            <span className="text-star-dust">
               {completedLessons}/{totalLessons} lessons completed
             </span>
           </div>
@@ -124,8 +124,8 @@ export function PathwayHeader({
         className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12"
       >
         <div className="flex items-start gap-3">
-          <Sparkles size={20} className="text-cyan-400 flex-shrink-0 mt-0.5" />
-          <p className="text-white/80 leading-relaxed">
+          <Sparkles size={20} className="text-neurospark flex-shrink-0 mt-0.5" />
+          <p className="text-star-dust/80 leading-relaxed">
             {description}
           </p>
         </div>

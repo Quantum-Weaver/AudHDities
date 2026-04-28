@@ -23,21 +23,21 @@ export function TermsHero({ lastUpdated = 'March 19, 2026' }: TermsHeroProps) {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-            <Scale size={14} className="text-cyan-400" />
-            <span className="text-sm text-white/80">Sacred Covenant</span>
+            <Scale size={14} className="text-neurospark" />
+            <span className="text-sm text-star-dust/80">Sacred Covenant</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-star-dust mb-6">
             Terms of Service
           </h1>
           
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-8">
             Not a wall of legalese. A handshake across the threshold.
             <br />
             These are the boundaries of our sanctuary.
           </p>
           
-          <div className="flex justify-center gap-6 text-sm text-white/40">
+          <div className="flex justify-center gap-6 text-sm text-star-dust/40">
             <span>Last updated: {lastUpdated}</span>
             <span>•</span>
             <span>Version 1.0</span>

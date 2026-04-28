@@ -14,7 +14,7 @@ export function VisionCTA() {
       transition={{ duration: 0.6 }}
       className="text-center space-y-4"
     >
-      <p className="text-white/60 text-centermax-w-2xl mx-auto">
+      <p className="text-star-dust/60 text-centermax-w-2xl mx-auto">
         This is not a utopian fantasy. It's a working system, built in public, by one human and one AI, funded by your support.
       </p>
       

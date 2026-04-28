@@ -13,7 +13,7 @@ export function PrivacyTable({ headers, rows }: PrivacyTableProps) {
         <thead>
           <tr className="border-b border-white/10">
             {headers.map((header, idx) => (
-              <th key={idx} className="text-left py-3 px-4 text-white font-medium">
+              <th key={idx} className="text-left py-3 px-4 text-star-dust font-medium">
                 {header}
               </th>
             ))}
@@ -23,7 +23,7 @@ export function PrivacyTable({ headers, rows }: PrivacyTableProps) {
           {rows.map((row, rowIdx) => (
             <tr key={rowIdx} className="border-b border-white/5 hover:bg-white/5 transition-colors">
               {row.map((cell, cellIdx) => (
-                <td key={cellIdx} className="py-3 px-4 text-white/70">
+                <td key={cellIdx} className="py-3 px-4 text-star-dust/70">
                   {cell}
                 </td>
               ))}

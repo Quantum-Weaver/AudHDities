@@ -114,9 +114,9 @@ const TITLE_GAP: Record<ErrorBoundaryVariant, string> = {
 
 // ─── Message ───────────────────────────────────────────────────────────────
 const MESSAGE_COLOR: Record<ErrorBoundaryVariant, string> = {
-  graceful_degradation: 'text-white/60',
-  recovery_assistance: 'text-white/70',
-  user_guidance: 'text-white/50',
+  graceful_degradation: 'text-star-dust/60',
+  recovery_assistance: 'text-star-dust/70',
+  user_guidance: 'text-star-dust/50',
   system_reporting: `text-[${QUANTUM_COLORS['void.light']}]`,
 };
 

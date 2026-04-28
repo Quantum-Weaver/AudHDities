@@ -58,7 +58,7 @@ export function DignityFloor() {
           <Sparkles size={14} className="text-pink-400" />
           <span className="text-pink-400 text-sm">The Dignity Floor</span>
         </div>
-        <p className="text-white/70 max-w-2xl mx-auto">
+        <p className="text-star-dust/70 max-w-2xl mx-auto">
           We measure what matters: how many people have dignity, not how many dollars we extract.
         </p>
       </div>
@@ -66,9 +66,9 @@ export function DignityFloor() {
       {/* Comparison Table */}
       <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
         <div className="grid grid-cols-3 gap-4 p-4 border-b border-white/10 bg-white/5">
-          <div className="text-white font-bold">What We Measure</div>
-          <div className="text-white/40 text-sm">Traditional Platforms</div>
-          <div className="text-cyan-400 text-sm">AUDHDITIES</div>
+          <div className="text-star-dust font-bold">What We Measure</div>
+          <div className="text-star-dust/40 text-sm">Traditional Platforms</div>
+          <div className="text-neurospark text-sm">AUDHDITIES</div>
         </div>
         
         {comparisons.map((comp, idx) => (
@@ -80,12 +80,12 @@ export function DignityFloor() {
             viewport={{ once: true }}
             className="grid grid-cols-3 gap-4 p-4 border-b border-white/5 hover:bg-white/5 transition-colors"
           >
-            <div className="text-white text-sm">{comp.metric}</div>
-            <div className="text-white/40 text-sm">{comp.traditional}</div>
+            <div className="text-star-dust text-sm">{comp.metric}</div>
+            <div className="text-star-dust/40 text-sm">{comp.traditional}</div>
             <div className="flex items-center gap-2">
-              <comp.audhditiesIcon size={14} className="text-cyan-400" />
-              <span className="text-cyan-400 text-sm">{comp.audhdities}</span>
-              <span className="text-white/30 text-xs ml-1">({comp.note})</span>
+              <comp.audhditiesIcon size={14} className="text-neurospark" />
+              <span className="text-neurospark text-sm">{comp.audhdities}</span>
+              <span className="text-star-dust/30 text-xs ml-1">({comp.note})</span>
             </div>
           </motion.div>
         ))}
@@ -94,10 +94,10 @@ export function DignityFloor() {
       {/* Closing Statement */}
       <div className="bg-gradient-to-r from-cyan-500/10 to-pink-500/10 rounded-xl p-6 text-center border border-white/10">
         <Heart className="text-pink-400 mx-auto mb-3" size={28} />
-        <p className="text-white/80 max-w-2xl mx-auto">
+        <p className="text-star-dust/80 max-w-2xl mx-auto">
           In the sanctuary economy, your value is not determined by your productivity.
           <br />
-          <span className="text-cyan-400">You have dignity because you exist.</span>
+          <span className="text-neurospark">You have dignity because you exist.</span>
         </p>
       </div>
     </div>

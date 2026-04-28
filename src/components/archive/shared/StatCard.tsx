@@ -23,13 +23,13 @@ export const StatCardRenderer: React.FC<StatCardRendererProps> = ({
     ? <TrendingUp className="h-4 w-4 text-green-400" />
     : statData.trend === 'down'
     ? <TrendingDown className="h-4 w-4 text-red-400" />
-    : <Minus className="h-4 w-4 text-white/40" />;
+    : <Minus className="h-4 w-4 text-star-dust/40" />;
 
   const changeColor = statData.trend === 'up'
     ? 'text-green-400'
     : statData.trend === 'down'
     ? 'text-red-400'
-    : 'text-white/40';
+    : 'text-star-dust/40';
 
   return (
     <Card
@@ -46,7 +46,7 @@ export const StatCardRenderer: React.FC<StatCardRendererProps> = ({
       />
 
       <CardContent>
-        <div className="text-4xl font-bold text-white mb-2">
+        <div className="text-4xl font-bold text-star-dust mb-2">
           {statData.value}
         </div>
 
@@ -58,7 +58,7 @@ export const StatCardRenderer: React.FC<StatCardRendererProps> = ({
         )}
 
         {statData.target && (
-          <div className="mt-2 text-xs text-white/40">
+          <div className="mt-2 text-xs text-star-dust/40">
             Target: {statData.target}
           </div>
         )}

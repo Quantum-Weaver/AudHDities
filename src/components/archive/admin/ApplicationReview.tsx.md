@@ -37,7 +37,7 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
       case 'vendor':
         return <Store size={16} className="text-purple-400" />;
       default:
-        return <Briefcase size={16} className="text-white/40" />;
+        return <Briefcase size={16} className="text-star-dust/40" />;
     }
   };
   
@@ -255,20 +255,20 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-            <span className="text-white/40 text-sm font-medium">
+            <span className="text-star-dust/40 text-sm font-medium">
               {userName[0]?.toUpperCase() ?? '?'}
             </span>
           </div>
           
           <div>
-            <p className="text-white font-medium">{userName}</p>
-            <p className="text-xs text-white/40">{userEmail}</p>
+            <p className="text-star-dust font-medium">{userName}</p>
+            <p className="text-xs text-star-dust/40">{userEmail}</p>
             <div className="flex items-center gap-2 mt-1">
               <Badge variant="outline" className="capitalize text-xs flex items-center gap-1">
                 {getTypeIcon()}
                 <span>{getTypeLabel()}</span>
               </Badge>
-              <span className="text-xs text-white/30">
+              <span className="text-xs text-star-dust/30">
                 {createdAt}
               </span>
             </div>
@@ -277,7 +277,7 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
         
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-white/40 hover:text-white transition-colors"
+          className="text-star-dust/40 hover:text-star-dust transition-colors"
         >
           {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
         </button>
@@ -287,8 +287,8 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
         <div className="mt-4 pt-4 border-t border-white/10 space-y-4">
           {/* Application Data */}
           <div className="space-y-2">
-            <h4 className="text-sm font-medium text-white/60">Application Details</h4>
-            <pre className="text-xs text-white/40 bg-white/5 p-3 rounded-lg overflow-auto max-h-48 font-mono">
+            <h4 className="text-sm font-medium text-star-dust/60">Application Details</h4>
+            <pre className="text-xs text-star-dust/40 bg-white/5 p-3 rounded-lg overflow-auto max-h-48 font-mono">
               {JSON.stringify(formData, null, 2)}
             </pre>
           </div>
@@ -342,12 +342,12 @@ export function ApplicationReview({ application }: ApplicationReviewProps) {
               {application.status === 'verified' ? (
                 <>
                   <CheckCircle size={16} className="text-green-400" />
-                  <span className="text-sm text-white/60">Approved on {application.reviewed_at ? new Date(application.reviewed_at).toLocaleDateString() : 'Unknown date'}</span>
+                  <span className="text-sm text-star-dust/60">Approved on {application.reviewed_at ? new Date(application.reviewed_at).toLocaleDateString() : 'Unknown date'}</span>
                 </>
               ) : (
                 <>
                   <XCircle size={16} className="text-red-400" />
-                  <span className="text-sm text-white/60">Rejected on {application.reviewed_at ? new Date(application.reviewed_at).toLocaleDateString() : 'Unknown date'}</span>
+                  <span className="text-sm text-star-dust/60">Rejected on {application.reviewed_at ? new Date(application.reviewed_at).toLocaleDateString() : 'Unknown date'}</span>
                 </>
               )}
             </div>

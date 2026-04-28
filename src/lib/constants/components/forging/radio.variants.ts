@@ -55,7 +55,7 @@ export const radioControlVariants = cva(
           'border-white/10',
           'bg-transparent',
           'checked:bg-quantum-purple',
-          'checked:text-white',
+          'checked:text-star-dust',
         ].join(' '),
       },
       size: {

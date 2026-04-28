@@ -18,9 +18,9 @@ interface UserCardRendererProps {
 const roleBadgeColors: Record<string, string> = {
   admin: 'bg-red-500/20 text-red-400 border-red-500/30',
   creator: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  vendor: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  vendor: 'bg-cyan-500/20 text-neurospark border-cyan-500/30',
   moderator: 'bg-green-500/20 text-green-400 border-green-500/30',
-  member: 'bg-white/10 text-white/60 border-white/20',
+  member: 'bg-white/10 text-star-dust/60 border-white/20',
   quantum_weaver: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
 };
 
@@ -48,12 +48,12 @@ export const UserCardRenderer: React.FC<UserCardRendererProps> = ({
           <div className="flex items-center gap-3">
             <Avatar className="h-10 w-10">
               <AvatarImage src={userData.avatar} />
-              <AvatarFallback className="bg-cyan-600 text-white">
+              <AvatarFallback className="bg-cyan-600 text-star-dust">
                 {userData.title.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             <div>
-              <span className="text-white">{userData.title}</span>
+              <span className="text-star-dust">{userData.title}</span>
               {userData.isOnline && (
                 <div className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />

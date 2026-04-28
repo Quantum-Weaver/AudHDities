@@ -34,16 +34,16 @@ export default function UserCard({ user }: UserCardProps) {
             {user.avatar_url ? (
               <img src={user.avatar_url} alt="" className="w-full h-full rounded-full object-cover" />
             ) : (
-              <span className="text-cyan-400 font-bold">
+              <span className="text-neurospark font-bold">
                 {user.display_name?.[0] || user.username?.[0] || '?'}
               </span>
             )}
           </div>
           <div>
-            <p className="font-medium text-white">
+            <p className="font-medium text-star-dust">
               {user.display_name || user.username}
             </p>
-            <p className="text-sm text-white/40">@{user.username}</p>
+            <p className="text-sm text-star-dust/40">@{user.username}</p>
           </div>
         </div>
         
@@ -51,9 +51,9 @@ export default function UserCard({ user }: UserCardProps) {
           <div className="flex gap-1">
             {user.is_creator && <span className="px-2 py-0.5 bg-purple-500/20 text-purple-400 text-xs rounded">Creator</span>}
             {user.is_vendor && <span className="px-2 py-0.5 bg-pink-500/20 text-pink-400 text-xs rounded">Vendor</span>}
-            {user.is_admin && <span className="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-xs rounded">Admin</span>}
+            {user.is_admin && <span className="px-2 py-0.5 bg-cyan-500/20 text-neurospark text-xs rounded">Admin</span>}
           </div>
-          {expanded ? <ChevronUp size={18} className="text-white/40" /> : <ChevronDown size={18} className="text-white/40" />}
+          {expanded ? <ChevronUp size={18} className="text-star-dust/40" /> : <ChevronDown size={18} className="text-star-dust/40" />}
         </div>
       </div>
 
@@ -62,21 +62,21 @@ export default function UserCard({ user }: UserCardProps) {
         <div className="px-4 pb-4 pt-0 border-t border-white/10">
           <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
             <div>
-              <p className="text-white/40">Email</p>
-              <p className="text-white">{user.email}</p>
+              <p className="text-star-dust/40">Email</p>
+              <p className="text-star-dust">{user.email}</p>
             </div>
             <div>
-              <p className="text-white/40">Joined</p>
-              <p className="text-white">{new Date(user.created_at).toLocaleDateString()}</p>
+              <p className="text-star-dust/40">Joined</p>
+              <p className="text-star-dust">{new Date(user.created_at).toLocaleDateString()}</p>
             </div>
             <div>
-              <p className="text-white/40">User ID</p>
-              <p className="text-white text-xs font-mono">{user.id.slice(0, 8)}...</p>
+              <p className="text-star-dust/40">User ID</p>
+              <p className="text-star-dust text-xs font-mono">{user.id.slice(0, 8)}...</p>
             </div>
             <div className="flex items-end justify-end">
               <Link
                 href={`/profile?id=${user.username || user.id}`}
-                className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300 text-sm"
+                className="flex items-center gap-1 text-neurospark hover:text-cyan-300 text-sm"
                 onClick={(e) => e.stopPropagation()}
               >
                 View Full Profile <ExternalLink size={12} />

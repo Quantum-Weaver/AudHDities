@@ -1,4 +1,4 @@
-// src/components/iris/about/InvitationCard.tsx
+// src/components/hephaestus/about/InvitationCard.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -35,7 +35,7 @@ export function InvitationCard() {
           title={
             <span className="flex flex-col items-center gap-4">
               <Sun className="text-yellow-400 w-12 h-12" />
-              <span className="text-3xl md:text-4xl font-bold text-white">
+              <span className="text-3xl md:text-4xl font-bold text-star-dust">
                 {invitationData.title}
               </span>
             </span>
@@ -44,7 +44,7 @@ export function InvitationCard() {
         />
 
         <CardContent>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+          <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
             {invitationData.description}
           </p>
         </CardContent>
@@ -62,7 +62,7 @@ export function InvitationCard() {
           ]}
         />
 
-        <p className="text-sm text-white/40 mt-6">
+        <p className="text-sm text-star-dust/40 mt-6">
           Built by two collaborators, for everyone who was told they were &ldquo;too much.&rdquo;
         </p>
       </Card>

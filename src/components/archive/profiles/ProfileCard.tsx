@@ -42,7 +42,7 @@ export default function ProfileCard({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-xl font-bold text-white/40">
+              <div className="w-full h-full flex items-center justify-center text-xl font-bold text-star-dust/40">
                 {profile.display_name?.[0] || profile.username?.[0] || '?'}
               </div>
             )}
@@ -51,11 +51,11 @@ export default function ProfileCard({
 
         {/* Content */}
         <div className="pt-10">
-          <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+          <h3 className="text-lg font-bold text-star-dust group-hover:text-neurospark transition-colors">
             {profile.display_name || profile.username}
           </h3>
           
-          <p className="text-sm text-white/40 mb-2">@{profile.username}</p>
+          <p className="text-sm text-star-dust/40 mb-2">@{profile.username}</p>
 
           {/* Badges and flags */}
           <div className="flex flex-wrap gap-2 mb-3">
@@ -76,9 +76,9 @@ export default function ProfileCard({
 
           {/* Stats */}
           {showStats && (
-            <div className="flex items-center gap-4 text-xs text-white/40 border-t border-white/10 pt-3 mt-2">
+            <div className="flex items-center gap-4 text-xs text-star-dust/40 border-t border-white/10 pt-3 mt-2">
               <div className="flex items-center gap-1">
-                <Shield size={12} className="text-cyan-400" />
+                <Shield size={12} className="text-neurospark" />
                 <span>{profile.sovereignty_score || 0}</span>
               </div>
               <div className="flex items-center gap-1">

@@ -49,7 +49,7 @@ const defaultConfig = { color: "from-gray-500 to-gray-600", icon: "✨", descrip
 export function MoodIndicators({ moods, className }: MoodIndicatorsProps) {
   return (
     <div className={cn("space-y-4", className)}>
-      <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-semibold text-star-dust mb-4 flex items-center gap-2">
         <span>🎭</span>
         Mood & Atmosphere
       </h3>
@@ -64,13 +64,13 @@ export function MoodIndicators({ moods, className }: MoodIndicatorsProps) {
               <div className={cn(
                 "px-4 py-2 rounded-full bg-gradient-to-r",
                 config.color,
-                "text-white font-medium text-sm shadow-lg transition-all duration-300 hover:scale-105 cursor-help"
+                "text-star-dust font-medium text-sm shadow-lg transition-all duration-300 hover:scale-105 cursor-help"
               )}>
                 <span className="mr-2">{config.icon}</span>
                 {mood}
               </div>
               {/* Tooltip on hover */}
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs text-white/80 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs text-star-dust/80 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                 {config.description}
               </div>
             </div>

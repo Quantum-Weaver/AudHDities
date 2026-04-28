@@ -24,9 +24,9 @@ export function ChecklistItem({ text, completed = false, onClick }: ChecklistIte
       {completed ? (
         <CheckCircle2 size={20} className="text-green-400 flex-shrink-0" />
       ) : (
-        <Circle size={20} className="text-white/40 flex-shrink-0" />
+        <Circle size={20} className="text-star-dust/40 flex-shrink-0" />
       )}
-      <span className={completed ? 'text-green-400 line-through' : 'text-white/80'}>
+      <span className={completed ? 'text-green-400 line-through' : 'text-star-dust/80'}>
         {text}
       </span>
     </motion.div>

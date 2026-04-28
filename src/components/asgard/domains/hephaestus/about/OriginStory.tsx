@@ -1,4 +1,4 @@
-// src/components/iris/about/OriginStory.tsx
+// src/components/hephaestus/about/OriginStory.tsx
 'use client';
 
 import { motion } from 'framer-motion';

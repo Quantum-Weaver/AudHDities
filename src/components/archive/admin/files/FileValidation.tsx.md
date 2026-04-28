@@ -45,7 +45,7 @@ export default function FileValidation({ fileType, standards }: FileValidationPr
       className="bg-white/5 border border-white/10 rounded-xl p-6"
     >
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold text-white flex items-center gap-2">
+        <h3 className="text-lg font-bold text-star-dust flex items-center gap-2">
           <Shield size={18} className="text-purple-400" />
           Standards Validation
         </h3>
@@ -67,7 +67,7 @@ export default function FileValidation({ fileType, standards }: FileValidationPr
               getSeverityIcon(check.severity || 'error')
             )}
             <div className="flex-1">
-              <span className={check.passes ? 'text-white/60 text-sm' : 'text-white/80 text-sm'}>
+              <span className={check.passes ? 'text-star-dust/60 text-sm' : 'text-star-dust/80 text-sm'}>
                 {check.name}
               </span>
               {check.message && !check.passes && (
@@ -80,8 +80,8 @@ export default function FileValidation({ fileType, standards }: FileValidationPr
 
       {standards && (
         <div className="mt-4 pt-4 border-t border-white/10">
-          <p className="text-xs text-white/40 mb-2">📋 Standards Reference:</p>
-          <pre className="text-xs text-white/30 font-mono whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
+          <p className="text-xs text-star-dust/40 mb-2">📋 Standards Reference:</p>
+          <pre className="text-xs text-star-dust/30 font-mono whitespace-pre-wrap bg-white/5 p-3 rounded-lg">
             {standards}
           </pre>
         </div>

@@ -20,10 +20,10 @@ export function ProfileBadges({ badges }: ProfileBadgesProps) {
     return (
       <Card className="p-12 text-center">
         <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Award size={32} className="text-white/20" />
+          <Award size={32} className="text-star-dust/20" />
         </div>
-        <h3 className="text-white font-bold mb-2">No badges yet</h3>
-        <p className="text-white/40 text-sm">
+        <h3 className="text-star-dust font-bold mb-2">No badges yet</h3>
+        <p className="text-star-dust/40 text-sm">
           Complete quests and contribute to earn badges
         </p>
       </Card>
@@ -35,10 +35,10 @@ export function ProfileBadges({ badges }: ProfileBadgesProps) {
       {badges.map((badge) => (
         <div key={badge.badge} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center group hover:border-cyan-500/30 transition-all">
           <div className="text-3xl mb-2">🏆</div>
-          <div className="text-sm font-medium text-white">
+          <div className="text-sm font-medium text-star-dust">
             {getBadgeDisplayName(badge.badge)}
           </div>
-          <div className="text-xs text-white/40 mt-1">
+          <div className="text-xs text-star-dust/40 mt-1">
             {getBadgeDescription(badge.badge)}
           </div>
           {badge.earned_reason && (
@@ -46,7 +46,7 @@ export function ProfileBadges({ badges }: ProfileBadgesProps) {
               {badge.earned_reason}
             </div>
           )}
-          <div className="text-xs text-white/30 mt-2">
+          <div className="text-xs text-star-dust/30 mt-2">
             {new Date(badge.earned_at).toLocaleDateString()}
           </div>
         </div>

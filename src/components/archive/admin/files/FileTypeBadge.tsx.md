@@ -28,7 +28,7 @@ const colorMap: Record<string, string> = {
   hook: 'from-rose-500/20 to-rose-600/10 border-rose-500/30 text-rose-400',
   doc: 'from-emerald-500/20 to-emerald-600/10 border-emerald-500/30 text-emerald-400',
   database: 'from-slate-500/20 to-slate-600/10 border-slate-500/30 text-slate-400',
-  unknown: 'from-white/10 to-white/5 border-white/20 text-white/60',
+  unknown: 'from-white/10 to-white/5 border-white/20 text-star-dust/60',
 };
 
 export default function FileTypeBadge({ type, emoji, size = 'md' }: FileTypeBadgeProps) {

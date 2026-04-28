@@ -94,15 +94,15 @@ export function SustainabilityMetrics() {
           <div className={`w-12 h-12 rounded-xl bg-${metric.color}-500/20 flex items-center justify-center mb-4`}>
             <metric.icon className={`text-${metric.color}-400`} size={24} />
           </div>
-          <h3 className="text-white font-bold text-lg mb-2">{metric.label}</h3>
-          <p className="text-white/60 text-sm mb-3">{metric.description}</p>
+          <h3 className="text-star-dust font-bold text-lg mb-2">{metric.label}</h3>
+          <p className="text-star-dust/60 text-sm mb-3">{metric.description}</p>
           <div className="flex justify-between items-center">
             <span className={`text-xs px-2 py-1 rounded-full bg-${metric.color}-500/20 text-${metric.color}-400`}>
               {metric.status}
             </span>
-            <span className="text-white/40 text-xs">{metric.year}</span>
+            <span className="text-star-dust/40 text-xs">{metric.year}</span>
           </div>
-          <p className="text-white/30 text-xs mt-2 pt-2 border-t border-white/10">
+          <p className="text-star-dust/30 text-xs mt-2 pt-2 border-t border-white/10">
             {metric.detail}
           </p>
         </motion.div>

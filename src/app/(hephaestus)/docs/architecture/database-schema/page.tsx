@@ -88,7 +88,7 @@ export default async function DatabaseSchemaPage() {
           
           {/* Interactive Schema Explorer */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-cyan-400 rounded-full" />
               Schema Explorer
             </h2>
@@ -97,7 +97,7 @@ export default async function DatabaseSchemaPage() {
           
           {/* Core Tables Section - Detailed View */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-cyan-400 rounded-full" />
               Tables
             </h2>
@@ -115,7 +115,7 @@ export default async function DatabaseSchemaPage() {
           
           {/* Enums Section */}
           <section>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-purple-400 rounded-full" />
               Enumerated Types
             </h2>
@@ -132,7 +132,7 @@ export default async function DatabaseSchemaPage() {
           {/* Functions Section */}
           {schemaData?.functions && schemaData.functions.length > 0 && (
             <section>
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-star-dust mb-6 flex items-center gap-2">
                 <span className="w-1 h-6 bg-green-400 rounded-full" />
                 Database Functions
               </h2>
@@ -150,10 +150,10 @@ export default async function DatabaseSchemaPage() {
           {/* Security Note */}
           <section className="mt-12 p-6 bg-cyan-500/10 border border-cyan-500/20 rounded-xl text-center">
             <div className="flex justify-center mb-3">
-              <Shield className="text-cyan-400" size={32} />
+              <Shield className="text-neurospark" size={32} />
             </div>
-            <h3 className="text-white font-bold mb-2">Row Level Security (RLS)</h3>
-            <p className="text-white/60 text-sm max-w-2xl mx-auto">
+            <h3 className="text-star-dust font-bold mb-2">Row Level Security (RLS)</h3>
+            <p className="text-star-dust/60 text-sm max-w-2xl mx-auto">
               Every table has Row Level Security enabled. Users can only access their own data.
               Admins have elevated access. All policies are public and auditable.
             </p>

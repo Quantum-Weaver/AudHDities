@@ -29,17 +29,17 @@ export interface CardRibbonProps {
 const ribbonColorMap: Record<RibbonColor, { bg: string; text: string; shadow: string }> = {
   fire: {
     bg: 'bg-[var(--color-fire-base)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-fire-base)]/30',
   },
   quantum: {
     bg: 'bg-[var(--color-quantum-purple)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-quantum-purple)]/30',
   },
   cosmic: {
     bg: 'bg-[var(--color-cosmic-blue)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-cosmic-blue)]/30',
   },
   hearth: {
@@ -49,7 +49,7 @@ const ribbonColorMap: Record<RibbonColor, { bg: string; text: string; shadow: st
   },
   success: {
     bg: 'bg-[var(--color-success)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-success)]/30',
   },
   warning: {
@@ -59,7 +59,7 @@ const ribbonColorMap: Record<RibbonColor, { bg: string; text: string; shadow: st
   },
   error: {
     bg: 'bg-[var(--color-error)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-error)]/30',
   },
   neurospark: {
@@ -69,7 +69,7 @@ const ribbonColorMap: Record<RibbonColor, { bg: string; text: string; shadow: st
   },
   sanctuary: {
     bg: 'bg-[var(--color-sanctuary-green)]',
-    text: 'text-white',
+    text: 'text-star-dust',
     shadow: 'shadow-[var(--color-sanctuary-green)]/30',
   },
 };

@@ -56,7 +56,7 @@ export const BUTTON_SIZES_KEYS = {
 
 export const BUTTON_VARIANT_CLASSES = {
   [BUTTON_VARIANTS_KEYS.PRIMARY]: {
-    base: `bg-[${QUANTUM_COLORS['quantum.purple']}] text-white border-none`,
+    base: `bg-[${QUANTUM_COLORS['quantum.purple']}] text-star-dust border-none`,
     hover: `hover:bg-[${QUANTUM_COLORS['quantum.dark']}] hover:shadow-[${SHADOWS.md}]`,
     focus: `focus-visible:ring-2 focus-visible:ring-[${QUANTUM_COLORS['quantum.purple']}]/50 focus-visible:ring-offset-2`,
     active: `active:bg-[${QUANTUM_COLORS['quantum.dark']}] active:scale-[0.98]`,
@@ -64,7 +64,7 @@ export const BUTTON_VARIANT_CLASSES = {
     gradient: GRADIENTS.quantum,
   },
   [BUTTON_VARIANTS_KEYS.SECONDARY]: {
-    base: `bg-[${QUANTUM_COLORS['cosmic.blue']}] text-white border-none`,
+    base: `bg-[${QUANTUM_COLORS['cosmic.blue']}] text-star-dust border-none`,
     hover: `hover:bg-[${QUANTUM_COLORS['cosmic.dark']}] hover:shadow-[${SHADOWS.md}]`,
     focus: `focus-visible:ring-2 focus-visible:ring-[${QUANTUM_COLORS['cosmic.blue']}]/50 focus-visible:ring-offset-2`,
     active: `active:bg-[${QUANTUM_COLORS['cosmic.dark']}] active:scale-[0.98]`,
@@ -86,7 +86,7 @@ export const BUTTON_VARIANT_CLASSES = {
     disabled: `disabled:text-[${QUANTUM_COLORS['starDust']}]/40 disabled:cursor-not-allowed`,
   },
   [BUTTON_VARIANTS_KEYS.DESTRUCTIVE]: {
-    base: `bg-[${QUANTUM_COLORS['fire.base']}] text-white border-none`,
+    base: `bg-[${QUANTUM_COLORS['fire.base']}] text-star-dust border-none`,
     hover: `hover:bg-[${QUANTUM_COLORS['fire.dark']}] hover:shadow-[${GLOW_EFFECTS.emergency}]`,
     focus: `focus-visible:ring-2 focus-visible:ring-[${QUANTUM_COLORS['fire.base']}]/50 focus-visible:ring-offset-2`,
     active: `active:bg-[${QUANTUM_COLORS['fire.dark']}] active:scale-[0.98]`,
@@ -94,7 +94,7 @@ export const BUTTON_VARIANT_CLASSES = {
     gradient: GRADIENTS.emergency,
   },
   [BUTTON_VARIANTS_KEYS.SUCCESS]: {
-    base: `bg-[${QUANTUM_COLORS['sanctuary.green']}] text-white border-none`,
+    base: `bg-[${QUANTUM_COLORS['sanctuary.green']}] text-star-dust border-none`,
     hover: `hover:bg-[${QUANTUM_COLORS['sanctuary.emerald']}] hover:shadow-[${GLOW_EFFECTS.success}]`,
     focus: `focus-visible:ring-2 focus-visible:ring-[${QUANTUM_COLORS['sanctuary.green']}]/50 focus-visible:ring-offset-2`,
     active: `active:bg-[${QUANTUM_COLORS['library.dark']}] active:scale-[0.98]`,
@@ -122,7 +122,7 @@ export const BUTTON_VARIANT_CLASSES = {
     disabled: `disabled:opacity-50 disabled:cursor-not-allowed`,
   },
   [BUTTON_VARIANTS_KEYS.GLOW]: {
-    base: `bg-[${QUANTUM_COLORS['quantum.purple']}] text-white border-none shadow-[${GLOW_EFFECTS.quantum}]`,
+    base: `bg-[${QUANTUM_COLORS['quantum.purple']}] text-star-dust border-none shadow-[${GLOW_EFFECTS.quantum}]`,
     hover: `hover:shadow-[${GLOW_EFFECTS.quantum}] hover:bg-[${QUANTUM_COLORS['quantum.light']}]`,
     focus: `focus-visible:ring-2 focus-visible:ring-[${QUANTUM_COLORS['neurospark']}]/50 focus-visible:ring-offset-2`,
     active: `active:scale-[0.98]`,
@@ -323,16 +323,16 @@ export const BUTTON_ICON_SIZE_MAP: Record<ButtonSizeKey, number> = {
 // ============================================================================
 
 export const BUTTON_LOADING_SPINNER_COLORS: Record<ButtonVariantKey, string> = {
-  [BUTTON_VARIANTS_KEYS.PRIMARY]: 'text-white',
-  [BUTTON_VARIANTS_KEYS.SECONDARY]: 'text-white',
+  [BUTTON_VARIANTS_KEYS.PRIMARY]: 'text-star-dust',
+  [BUTTON_VARIANTS_KEYS.SECONDARY]: 'text-star-dust',
   [BUTTON_VARIANTS_KEYS.OUTLINE]: `text-[${QUANTUM_COLORS['quantum.purple']}]`,
   [BUTTON_VARIANTS_KEYS.GHOST]: `text-[${QUANTUM_COLORS['starDust']}]`,
-  [BUTTON_VARIANTS_KEYS.DESTRUCTIVE]: 'text-white',
-  [BUTTON_VARIANTS_KEYS.SUCCESS]: 'text-white',
+  [BUTTON_VARIANTS_KEYS.DESTRUCTIVE]: 'text-star-dust',
+  [BUTTON_VARIANTS_KEYS.SUCCESS]: 'text-star-dust',
   [BUTTON_VARIANTS_KEYS.WARNING]: `text-[${QUANTUM_COLORS['deepSpace']}]`,
   [BUTTON_VARIANTS_KEYS.LINK]: `text-[${QUANTUM_COLORS['neurospark']}]`,
   [BUTTON_VARIANTS_KEYS.GLASS]: `text-[${QUANTUM_COLORS['starDust']}]`,
-  [BUTTON_VARIANTS_KEYS.GLOW]: 'text-white',
+  [BUTTON_VARIANTS_KEYS.GLOW]: 'text-star-dust',
 } as const;
 
 // ============================================================================

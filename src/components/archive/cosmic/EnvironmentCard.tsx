@@ -29,7 +29,7 @@ const moodColors: Record<string, string> = {
   Peaceful: "bg-green-500/20 text-green-400",
   Energetic: "bg-yellow-500/20 text-yellow-400",
   Healing: "bg-teal-500/20 text-teal-400",
-  Cosmic: "bg-cyan-500/20 text-cyan-400",
+  Cosmic: "bg-cyan-500/20 text-neurospark",
   Intimate: "bg-pink-500/20 text-pink-400",
   Professional: "bg-blue-500/20 text-blue-400",
   Mystical: "bg-indigo-500/20 text-indigo-400",
@@ -43,7 +43,7 @@ const moodColors: Record<string, string> = {
   Visionary: "bg-indigo-500/20 text-indigo-400",
   Intelligent: "bg-slate-500/20 text-slate-400",
   Powerful: "bg-red-500/20 text-red-400",
-  Collaborative: "bg-cyan-500/20 text-cyan-400",
+  Collaborative: "bg-cyan-500/20 text-neurospark",
   Creative: "bg-pink-500/20 text-pink-400",
 };
 
@@ -95,7 +95,7 @@ export function EnvironmentCard({
           {/* Header */}
           <div className="flex items-start justify-between">
             <Link href={`/environments/${id.toLowerCase()}`}>
-              <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-lg font-bold text-star-dust group-hover:text-neurospark transition-colors">
                 {name}
               </h3>
             </Link>
@@ -108,20 +108,20 @@ export function EnvironmentCard({
                 key={m}
                 variant="outline"
                 size="sm"
-                className={cn("text-xs", moodColors[m] || "bg-white/10 text-white/60")}
+                className={cn("text-xs", moodColors[m] || "bg-white/10 text-star-dust/60")}
               >
                 {m}
               </Badge>
             ))}
             {mood.length > 3 && (
-              <Badge variant="outline" size="sm" className="text-xs bg-white/10 text-white/60">
+              <Badge variant="outline" size="sm" className="text-xs bg-white/10 text-star-dust/60">
                 +{mood.length - 3}
               </Badge>
             )}
           </div>
 
           {/* Description */}
-          <p className="text-white/40 text-sm line-clamp-2">
+          <p className="text-star-dust/40 text-sm line-clamp-2">
             {description}
           </p>
 
@@ -143,7 +143,7 @@ export function EnvironmentCard({
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full group-hover:border-cyan-500/50 group-hover:text-cyan-400 transition-colors"
+                className="w-full group-hover:border-cyan-500/50 group-hover:text-neurospark transition-colors"
               >
                 Explore {name}
               </Button>

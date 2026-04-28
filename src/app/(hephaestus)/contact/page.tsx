@@ -9,7 +9,7 @@ import { Mail, Clock, Shield, Sparkles, Heart, MessageSquare } from 'lucide-reac
 
 import { Page } from '@/components/bifrost/Page';
 import { Card } from '@/components/runes/Card';
-import ContactForm from '@/components/asgard/domains/iris/contact/ContactForm';
+import ContactForm from '@/components/asgard/domains/hephaestus/contact/ContactForm';
 
 import {
   CONTACT_METADATA,
@@ -112,13 +112,7 @@ function InfoCard({ accent, icon, heading, children, caption }: InfoCardProps) {
 
 export default function ContactPage() {
   return (
-    <Page
-      variant={1}
-      environment="contact"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
         {/* Hero Section */}
         <section className={contactHeroSectionVariants()}>

@@ -93,7 +93,7 @@ export const formValidationSuccessTextVariants = cva('', {
 export const formValidationStatusIconVariants = cva('', {
   variants: {
     status: {
-      idle: 'text-white/20',
+      idle: 'text-star-dust/20',
       validating: 'text-warning animate-pulse',
       valid: 'text-success',
       invalid: 'text-error',

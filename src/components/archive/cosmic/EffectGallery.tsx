@@ -51,7 +51,7 @@ export function EffectGallery({ effects, selected, onSelect, className }: Effect
     <div className={cn("space-y-6", className)}>
       {Object.entries(grouped).map(([category, categoryEffects]) => (
         <div key={category}>
-          <h3 className="text-sm font-medium text-white/60 mb-3">
+          <h3 className="text-sm font-medium text-star-dust/60 mb-3">
             {categoryLabels[category as Effect['category']]}
           </h3>
           <div className="space-y-2">
@@ -67,7 +67,7 @@ export function EffectGallery({ effects, selected, onSelect, className }: Effect
                 )}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-star-dust">
                     {effect.name}
                   </span>
                   <Badge 

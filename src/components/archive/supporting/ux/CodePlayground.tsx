@@ -33,8 +33,8 @@ export function CodePlayground({ title, description, code, language, preview }: 
       <div className="p-4 border-b border-white/10 bg-white/5">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-white font-bold">{title}</h3>
-            <p className="text-white/40 text-sm">{description}</p>
+            <h3 className="text-star-dust font-bold">{title}</h3>
+            <p className="text-star-dust/40 text-sm">{description}</p>
           </div>
           <div className="flex gap-2">
             {preview && (
@@ -43,7 +43,7 @@ export function CodePlayground({ title, description, code, language, preview }: 
                 className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 title="Toggle preview"
               >
-                <Play size={16} className="text-cyan-400" />
+                <Play size={16} className="text-neurospark" />
               </button>
             )}
             <button
@@ -54,7 +54,7 @@ export function CodePlayground({ title, description, code, language, preview }: 
               {copied ? (
                 <Check size={16} className="text-green-400" />
               ) : (
-                <Copy size={16} className="text-white/60" />
+                <Copy size={16} className="text-star-dust/60" />
               )}
             </button>
           </div>
@@ -63,13 +63,13 @@ export function CodePlayground({ title, description, code, language, preview }: 
       
       {showPreview && preview && (
         <div className="p-4 border-b border-white/10 bg-white/5">
-          <div className="text-sm text-white/60 mb-2">Preview:</div>
+          <div className="text-sm text-star-dust/60 mb-2">Preview:</div>
           {preview}
         </div>
       )}
       
       <div className="p-4 overflow-x-auto">
-        <pre className="text-sm text-white/80 font-mono whitespace-pre-wrap">
+        <pre className="text-sm text-star-dust/80 font-mono whitespace-pre-wrap">
           <code>{code}</code>
         </pre>
       </div>

@@ -30,7 +30,7 @@ const getMoodStyle = (mood: string, isSelected: boolean): string => {
   if (isSelected) {
     return `bg-[${color}]/20 text-[${color}] border-[${color}]/50`;
   }
-  return "bg-white/5 text-white/60 hover:bg-white/10 border-transparent";
+  return "bg-white/5 text-star-dust/60 hover:bg-white/10 border-transparent";
 };
 
 export function MoodFilters({ moods, className }: MoodFiltersProps) {
@@ -61,8 +61,8 @@ export function MoodFilters({ moods, className }: MoodFiltersProps) {
         className={cn(
           "px-3 py-1.5 rounded-full text-sm transition-all duration-200",
           !selectedMood
-            ? "bg-quantum-purple text-white"
-            : "bg-white/5 text-white/60 hover:bg-white/10"
+            ? "bg-quantum-purple text-star-dust"
+            : "bg-white/5 text-star-dust/60 hover:bg-white/10"
         )}
       >
         All
@@ -75,7 +75,7 @@ export function MoodFilters({ moods, className }: MoodFiltersProps) {
             "px-3 py-1.5 rounded-full text-sm transition-all duration-200 border",
             selectedMood === mood
               ? getMoodStyle(mood, true)
-              : "bg-white/5 text-white/60 hover:bg-white/10 border-transparent"
+              : "bg-white/5 text-star-dust/60 hover:bg-white/10 border-transparent"
           )}
         >
           {mood}

@@ -61,7 +61,7 @@ export const AVATAR_FALLBACK_BASE_CLASSES = [
 ] as const;
 
 export const AVATAR_FALLBACK_GRADIENT = 'bg-gradient-to-br from-white/10 to-white/5';
-export const AVATAR_FALLBACK_TEXT_COLOR = 'text-white/60';
+export const AVATAR_FALLBACK_TEXT_COLOR = 'text-star-dust/60';
 export const AVATAR_FALLBACK_TEXT_SIZE = 'text-sm';
 export const AVATAR_FALLBACK_TEXT_WEIGHT = 'font-medium';
 export const AVATAR_FALLBACK_DEFAULT_DELAY_MS = 600;
@@ -89,7 +89,7 @@ export const AVATAR_BADGE_BASE_CLASSES = [
 ] as const;
 
 export const AVATAR_BADGE_GRADIENT = 'bg-gradient-to-br from-cyan-500 to-purple-500';
-export const AVATAR_BADGE_TEXT_COLOR = 'text-white';
+export const AVATAR_BADGE_TEXT_COLOR = 'text-star-dust';
 
 /** Badge position classes */
 export const AVATAR_BADGE_POSITION_CLASSES = {
@@ -127,7 +127,7 @@ export const AVATAR_BADGE_FONT_SIZE_MAP: Record<string, string> = {
 export const AVATAR_GROUP_SPACING = '-space-x-2';
 export const AVATAR_GROUP_HOVER_TRANSLATE = 'translate-y-[-2px]';
 export const AVATAR_GROUP_REMAINING_BG = 'bg-gradient-to-br from-white/20 to-white/10';
-export const AVATAR_GROUP_REMAINING_TEXT = 'text-white/80';
+export const AVATAR_GROUP_REMAINING_TEXT = 'text-star-dust/80';
 
 // ─── Interactive ────────────────────────────────────────────────────────────
 export const AVATAR_INTERACTIVE_TRANSITION = 'transition-all duration-200';

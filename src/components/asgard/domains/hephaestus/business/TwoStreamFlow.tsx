@@ -1,4 +1,4 @@
-// src/components/business/TwoStreamFlow.tsx
+// src/components/business/hephaestus/TwoStreamFlow.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -17,9 +17,9 @@ export function TwoStreamFlow() {
       >
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-            <Shield className="text-cyan-400" size={20} />
+            <Shield className="text-neurospark" size={20} />
           </div>
-          <h3 className="text-xl font-bold text-white">Advertising Stream</h3>
+          <h3 className="text-xl font-bold text-star-dust">Advertising Stream</h3>
         </div>
         
         <div className="space-y-4">
@@ -47,7 +47,7 @@ export function TwoStreamFlow() {
         </div>
         
         <div className="mt-6 pt-4 border-t border-cyan-500/20">
-          <p className="text-cyan-400 text-sm flex items-center gap-2">
+          <p className="text-neurospark text-sm flex items-center gap-2">
             <Heart size={12} />
             No competition — all opt-in users receive the same share
           </p>
@@ -66,7 +66,7 @@ export function TwoStreamFlow() {
           <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
             <DollarSign className="text-purple-400" size={20} />
           </div>
-          <h3 className="text-xl font-bold text-white">Sales Stream</h3>
+          <h3 className="text-xl font-bold text-star-dust">Sales Stream</h3>
         </div>
         
         <div className="space-y-4">
@@ -143,7 +143,7 @@ interface FlowItemProps {
 
 function FlowItem({ from, to, amount, color, description }: FlowItemProps) {
   const colors = {
-    cyan: 'border-cyan-500/20 bg-cyan-500/5 text-cyan-400',
+    cyan: 'border-cyan-500/20 bg-cyan-500/5 text-neurospark',
     purple: 'border-purple-500/20 bg-purple-500/5 text-purple-400',
     pink: 'border-pink-500/20 bg-pink-500/5 text-pink-400',
     green: 'border-green-500/20 bg-green-500/5 text-green-400',
@@ -152,12 +152,12 @@ function FlowItem({ from, to, amount, color, description }: FlowItemProps) {
   return (
     <div className={`border ${colors[color]} rounded-xl p-3`}>
       <div className="flex justify-between items-center flex-wrap gap-2">
-        <span className="text-white/80 text-sm">{from}</span>
-        <ArrowRight size={14} className="text-white/30" />
-        <span className="text-white font-medium">{to}</span>
+        <span className="text-star-dust/80 text-sm">{from}</span>
+        <ArrowRight size={14} className="text-star-dust/30" />
+        <span className="text-star-dust font-medium">{to}</span>
         <span className={`text-xs px-2 py-0.5 rounded-full ${colors[color]} border`}>{amount}</span>
       </div>
-      {description && <p className="text-white/40 text-xs mt-2">{description}</p>}
+      {description && <p className="text-star-dust/40 text-xs mt-2">{description}</p>}
     </div>
   );
 }
@@ -171,7 +171,7 @@ interface FlowItemMiniProps {
 
 function FlowItemMini({ label, percent, color }: FlowItemMiniProps) {
   const colors = {
-    cyan: 'border-cyan-500/20 bg-cyan-500/5 text-cyan-400',
+    cyan: 'border-cyan-500/20 bg-cyan-500/5 text-neurospark',
     purple: 'border-purple-500/20 bg-purple-500/5 text-purple-400',
     pink: 'border-pink-500/20 bg-pink-500/5 text-pink-400',
     green: 'border-green-500/20 bg-green-500/5 text-green-400',
@@ -179,7 +179,7 @@ function FlowItemMini({ label, percent, color }: FlowItemMiniProps) {
   
   return (
     <div className={`border ${colors[color]} rounded-lg p-2 text-center`}>
-      <div className="text-white/60 text-xs">{label}</div>
+      <div className="text-star-dust/60 text-xs">{label}</div>
       <div className={`text-sm font-bold ${colors[color]}`}>{percent}</div>
     </div>
   );

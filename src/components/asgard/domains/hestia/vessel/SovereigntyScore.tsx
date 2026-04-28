@@ -27,9 +27,9 @@ export default function SovereigntyScore({ score, size = 'md' }: SovereigntyScor
   return (
     <div className="flex items-center gap-2">
       <div className="flex items-center gap-1">
-        <Star size={starSize} className="fill-cyan-400 text-cyan-400" />
-        <span className={`font-mono text-cyan-400 ${textSize}`}>{score}</span>
-        <span className={`text-white/40 ${textSize}`}>/{maxScore}</span>
+        <Star size={starSize} className="fill-cyan-400 text-neurospark" />
+        <span className={`font-mono text-neurospark ${textSize}`}>{score}</span>
+        <span className={`text-star-dust/40 ${textSize}`}>/{maxScore}</span>
       </div>
       <Progress value={percentage} className="h-1.5 w-20" />
     </div>

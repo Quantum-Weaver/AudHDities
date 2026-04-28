@@ -31,7 +31,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   // ============================================================================
   home: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 77, color: 'bg-yellow-500' },
     ],
     showLocation: true,
@@ -71,7 +71,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   transparency: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -86,7 +86,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   // ============================================================================
   library: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 92, color: 'bg-blue-500' },
     ],
     showLocation: true,
@@ -99,7 +99,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   learn: {
     metrics: [
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 88, color: 'bg-blue-500' },
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -121,7 +121,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   ecosystem: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -137,7 +137,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   community: {
     metrics: [
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 65, color: 'bg-yellow-500' },
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: true,
@@ -149,7 +149,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   marketplace: {
     metrics: [
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 70, color: 'bg-yellow-500' },
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: true,
@@ -160,7 +160,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   business: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 80, color: 'bg-cyan-500' },
     ],
     showLocation: true,
@@ -172,7 +172,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   creator: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 75, color: 'bg-yellow-500' },
     ],
     showLocation: true,
@@ -206,7 +206,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   progress: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 60, color: 'bg-yellow-500' },
     ],
     showLocation: true,
@@ -271,7 +271,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   // ============================================================================
   observatory: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 95, color: 'bg-purple-500' },
     ],
     showLocation: true,
@@ -283,7 +283,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   vision: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -298,7 +298,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   // ============================================================================
   origin: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -325,7 +325,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   architecture: {
     metrics: [
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 82, color: 'bg-cyan-500' },
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -336,7 +336,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   dashboard: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
       { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 72, color: 'bg-yellow-500' },
     ],
     showLocation: true,
@@ -375,7 +375,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   },
   invitation: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -405,7 +405,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
   // ============================================================================
   about: {
     metrics: [
-      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+      { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     ],
     showLocation: true,
     showCurrency: false,
@@ -439,7 +439,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
 // Default config for any unmapped environment
 export const DEFAULT_STATUS_BAR_CONFIG: StatusBarConfig = {
   metrics: [
-    { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-cyan-400' },
+    { type: 'sovereignty', label: 'Sovereignty', format: 'points', defaultMax: 10000, defaultValue: 0, color: 'text-neurospark' },
     { type: 'energy', label: 'Energy', format: 'percentage', defaultMax: 100, defaultValue: 70, color: 'bg-yellow-500' },
   ],
   showLocation: true,

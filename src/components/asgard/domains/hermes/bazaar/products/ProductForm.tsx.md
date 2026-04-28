@@ -182,8 +182,8 @@ export function ProductForm({
       {/* ===================================================== */}
       <Card variant="default" size="lg" className="space-y-6">
         <div>
-          <h3 className="text-lg font-semibold text-white mb-1">Basic Information</h3>
-          <p className="text-sm text-white/40">Tell the world about your creation</p>
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Basic Information</h3>
+          <p className="text-sm text-star-dust/40">Tell the world about your creation</p>
         </div>
 
         {/* Title */}
@@ -200,7 +200,7 @@ export function ProductForm({
           {errors.title && (
             <p className="text-sm text-red-400">{errors.title.message}</p>
           )}
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-star-dust/40">
             A clear, descriptive title helps people discover your work
           </p>
         </div>
@@ -219,7 +219,7 @@ export function ProductForm({
           {errors.slug && (
             <p className="text-sm text-red-400">{errors.slug.message}</p>
           )}
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-star-dust/40">
             Used in the product URL. Use lowercase letters, numbers, and hyphens.
           </p>
         </div>
@@ -258,7 +258,7 @@ export function ProductForm({
           {errors.description && (
             <p className="text-sm text-red-400">{errors.description.message}</p>
           )}
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-star-dust/40">
             Markdown supported. You can use **bold**, *italic*, and [links]().
           </p>
         </div>
@@ -269,8 +269,8 @@ export function ProductForm({
       {/* ===================================================== */}
       <Card variant="default" size="lg" className="space-y-6">
         <div>
-          <h3 className="text-lg font-semibold text-white mb-1">Pricing</h3>
-          <p className="text-sm text-white/40">Set your tiered pricing structure</p>
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Pricing</h3>
+          <p className="text-sm text-star-dust/40">Set your tiered pricing structure</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -280,7 +280,7 @@ export function ProductForm({
               Community Tier <span className="text-xs text-cyan-400">(ND)</span>
             </Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40">$</span>
               <Input
                 id="price_community"
                 type="number"
@@ -295,7 +295,7 @@ export function ProductForm({
             {errors.price_community && (
               <p className="text-sm text-red-400">{errors.price_community.message}</p>
             )}
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               For neurodivergent community members (can be $0)
             </p>
           </div>
@@ -306,7 +306,7 @@ export function ProductForm({
               Ally Tier
             </Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40">$</span>
               <Input
                 id="price_ally"
                 type="number"
@@ -321,14 +321,14 @@ export function ProductForm({
             {errors.price_ally && (
               <p className="text-sm text-red-400">{errors.price_ally.message}</p>
             )}
-            <p className="text-xs text-white/40">Standard price for supporters</p>
+            <p className="text-xs text-star-dust/40">Standard price for supporters</p>
           </div>
 
           {/* Corporate Tier */}
           <div className="space-y-2">
             <Label htmlFor="price_corporate">Corporate Tier</Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40">$</span>
               <Input
                 id="price_corporate"
                 type="number"
@@ -343,7 +343,7 @@ export function ProductForm({
             {errors.price_corporate && (
               <p className="text-sm text-red-400">{errors.price_corporate.message}</p>
             )}
-            <p className="text-xs text-white/40">For organizations and businesses (optional)</p>
+            <p className="text-xs text-star-dust/40">For organizations and businesses (optional)</p>
           </div>
         </div>
       </Card>
@@ -353,8 +353,8 @@ export function ProductForm({
       {/* ===================================================== */}
       <Card variant="default" size="lg" className="space-y-6">
         <div>
-          <h3 className="text-lg font-semibold text-white mb-1">Residual Sharing</h3>
-          <p className="text-sm text-white/40">Share earnings with contributors</p>
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Residual Sharing</h3>
+          <p className="text-sm text-star-dust/40">Share earnings with contributors</p>
         </div>
 
         <div className="space-y-4">
@@ -375,7 +375,7 @@ export function ProductForm({
               step={5}
               variant="quantum"
             />
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               This percentage of your earnings will be shared with contributors
             </p>
           </div>
@@ -384,7 +384,7 @@ export function ProductForm({
             <p className="text-purple-400 text-sm">
               {watchResidualPercent}% of your earnings will go to a pool shared with contributors
             </p>
-            <p className="text-white/40 text-xs mt-1">
+            <p className="text-star-dust/40 text-xs mt-1">
               You can add contributors after creating the product
             </p>
           </div>
@@ -396,15 +396,15 @@ export function ProductForm({
       {/* ===================================================== */}
       <Card variant="default" size="lg" className="space-y-6">
         <div>
-          <h3 className="text-lg font-semibold text-white mb-1">Publishing</h3>
-          <p className="text-sm text-white/40">Control your product's visibility</p>
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Publishing</h3>
+          <p className="text-sm text-star-dust/40">Control your product's visibility</p>
         </div>
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <Label htmlFor="is_published">Publish immediately</Label>
-              <p className="text-xs text-white/40">If unchecked, product will be saved as a draft</p>
+              <p className="text-xs text-star-dust/40">If unchecked, product will be saved as a draft</p>
             </div>
             <Switch
               id="is_published"
@@ -418,7 +418,7 @@ export function ProductForm({
             <div className="flex items-center justify-between">
               <div>
                 <Label htmlFor="is_recurring">Recurring billing</Label>
-                <p className="text-xs text-white/40">Charge customers on a recurring basis</p>
+                <p className="text-xs text-star-dust/40">Charge customers on a recurring basis</p>
               </div>
               <Switch
                 id="is_recurring"

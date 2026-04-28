@@ -208,7 +208,7 @@ export function QuestSubmissionForm({
     return (
       <Card className="p-8 text-center">
         <Spinner className="mx-auto mb-4" />
-        <p className="text-white/60">Loading quest...</p>
+        <p className="text-star-dust/60">Loading quest...</p>
       </Card>
     );
   }
@@ -218,8 +218,8 @@ export function QuestSubmissionForm({
     return (
       <Card className="p-8 text-center">
         <div className="text-4xl mb-4">⚠️</div>
-        <h3 className="text-xl font-bold text-white mb-2">Quest Not Found</h3>
-        <p className="text-white/60">The quest you're looking for doesn't exist or has been removed.</p>
+        <h3 className="text-xl font-bold text-star-dust mb-2">Quest Not Found</h3>
+        <p className="text-star-dust/60">The quest you're looking for doesn't exist or has been removed.</p>
         <Button onClick={onCancel} className="mt-4">Go Back</Button>
       </Card>
     );
@@ -230,10 +230,10 @@ export function QuestSubmissionForm({
     return (
       <Card className="p-8 text-center">
         <div className="text-4xl mb-4">🏆</div>
-        <h3 className="text-xl font-bold text-white mb-2">Quest Completed!</h3>
-        <p className="text-white/60">You have already completed this quest.</p>
+        <h3 className="text-xl font-bold text-star-dust mb-2">Quest Completed!</h3>
+        <p className="text-star-dust/60">You have already completed this quest.</p>
         {existingUserQuest?.completed_at && (
-          <p className="text-sm text-white/40 mt-2">
+          <p className="text-sm text-star-dust/40 mt-2">
             Completed on {new Date(existingUserQuest.completed_at).toLocaleDateString()}
           </p>
         )}
@@ -249,7 +249,7 @@ export function QuestSubmissionForm({
       <Card className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h2 className="text-xl font-bold text-white">{quest?.title}</h2>
+            <h2 className="text-xl font-bold text-star-dust">{quest?.title}</h2>
             {quest?.house && (
               <p className="text-sm text-cyan-400 mt-1">
                 House of {quest.house.replace("_", " ")}
@@ -258,7 +258,7 @@ export function QuestSubmissionForm({
           </div>
           {quest?.sovereignty_reward && (
             <div className="text-right">
-              <p className="text-xs text-white/40">Reward</p>
+              <p className="text-xs text-star-dust/40">Reward</p>
               <p className="text-lg font-bold text-yellow-400">
                 +{quest.sovereignty_reward} XP
               </p>
@@ -266,18 +266,18 @@ export function QuestSubmissionForm({
           )}
         </div>
         
-        <p className="text-white/70 mb-4">{quest?.description}</p>
+        <p className="text-star-dust/70 mb-4">{quest?.description}</p>
         
         {quest?.instructions && (
           <div className="p-4 bg-white/5 rounded-lg">
-            <p className="text-sm text-white/60 italic">"{quest.instructions}"</p>
+            <p className="text-sm text-star-dust/60 italic">"{quest.instructions}"</p>
           </div>
         )}
       </Card>
       
       {/* Submission Form */}
       <Card className="p-6">
-        <h3 className="text-lg font-semibold text-white mb-4">Your Submission</h3>
+        <h3 className="text-lg font-semibold text-star-dust mb-4">Your Submission</h3>
         
         {/* Text Submission */}
         {quest?.submission_type === SUBMISSION_TYPE.TEXT && (
@@ -297,7 +297,7 @@ export function QuestSubmissionForm({
             {errors.submitted_content && (
               <p className="text-sm text-red-400">{errors.submitted_content}</p>
             )}
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Minimum 10 characters, maximum 5000 characters.
               {isEditMode && " Your previous submission will be overwritten."}
             </p>
@@ -314,13 +314,13 @@ export function QuestSubmissionForm({
               onChange={handleFileChange}
               accept="image/*,application/pdf,.txt,.md"
             />
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Accepted formats: Images, PDF, TXT, MD. Max size: 10MB.
             </p>
             {formData.submission_metadata.files && (
               <div className="p-3 bg-white/5 rounded-lg">
-                <p className="text-sm text-white/60">Selected files:</p>
-                <ul className="text-xs text-white/40 mt-1">
+                <p className="text-sm text-star-dust/60">Selected files:</p>
+                <ul className="text-xs text-star-dust/40 mt-1">
                   {(formData.submission_metadata.files as Array<{name: string, size: number}>).map((file, idx) => (
                     <li key={idx}>📎 {file.name} ({(file.size / 1024).toFixed(0)} KB)</li>
                   ))}
@@ -347,7 +347,7 @@ export function QuestSubmissionForm({
             {errors.submitted_content && (
               <p className="text-sm text-red-400">{errors.submitted_content}</p>
             )}
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Provide a link to your work (GitHub, Google Docs, portfolio, etc.)
             </p>
           </div>
@@ -363,7 +363,7 @@ export function QuestSubmissionForm({
               onChange={handleFileChange}
               accept="image/*"
             />
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Accepted formats: JPG, PNG, WEBP, GIF. Max size: 5MB.
             </p>
           </div>
@@ -379,7 +379,7 @@ export function QuestSubmissionForm({
               onChange={handleFileChange}
               accept="audio/*"
             />
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Accepted formats: MP3, WAV, OGG, M4A. Max size: 20MB.
             </p>
           </div>
@@ -395,7 +395,7 @@ export function QuestSubmissionForm({
               onChange={handleFileChange}
               accept="video/*"
             />
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-star-dust/40">
               Accepted formats: MP4, WEBM, MOV. Max size: 50MB.
             </p>
           </div>

@@ -19,18 +19,18 @@ export function VisionHero() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-white/20">
-            <Eye size={14} className="text-cyan-400" />
-            <span className="text-cyan-400 text-sm">The Sovereign Economy</span>
+            <Eye size={14} className="text-neurospark" />
+            <span className="text-neurospark text-sm">The Sovereign Economy</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-star-dust mb-6 leading-tight">
             We are building the last thing capitalism faces:
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block mt-4">
               a sovereign economy
             </span>
           </h1>
           
-          <p className="text-xl text-white/70 mx-auto">
+          <p className="text-xl text-star-dust/70 mx-auto">
             Where value flows to humans, not extractors.
           </p>
         </motion.div>

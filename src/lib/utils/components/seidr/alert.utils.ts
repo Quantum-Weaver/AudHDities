@@ -53,7 +53,7 @@ export function composeAlertTitleClasses(params: {
 }): string {
   return cn(
     ALERT_TYPOGRAPHY.WEIGHT,
-    'text-white',
+    'text-star-dust',
     params.compact
       ? ALERT_TYPOGRAPHY.TITLE.COMPACT
       : ALERT_TYPOGRAPHY.TITLE.DEFAULT
@@ -68,7 +68,7 @@ export function composeAlertBodyClasses(params: {
   compact?: boolean;
 }): string {
   return cn(
-    'text-white/70',
+    'text-star-dust/70',
     params.hasTitle && ALERT_CONTENT_GAP,
     params.compact
       ? ALERT_TYPOGRAPHY.BODY.COMPACT

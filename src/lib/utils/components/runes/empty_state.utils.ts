@@ -19,7 +19,7 @@ import { EMPTY_STATE_VARIANTS } from '@/lib/constants/components/runes/empty_sta
  * rather than a React component that inherits color.
  */
 const VARIANT_ICON_COLOR_MAP: Record<EmptyStateVariant, string> = {
-  [EMPTY_STATE_VARIANTS.DEFAULT]: 'text-white/40',
+  [EMPTY_STATE_VARIANTS.DEFAULT]: 'text-star-dust/40',
   [EMPTY_STATE_VARIANTS.QUANTUM]: 'text-quantum-purple/50',
   [EMPTY_STATE_VARIANTS.COSMIC]: 'text-cosmic-blue/50',
   [EMPTY_STATE_VARIANTS.SANCTUARY]: 'text-sanctuary-green/50',

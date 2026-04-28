@@ -40,21 +40,21 @@ export function RecurringOptions({ className, onRecurringChange }: RecurringOpti
     <Card className={cn("p-6", className)}>
       <div className="text-center mb-6">
         <div className="text-4xl mb-2">🔄</div>
-        <h2 className="text-xl font-semibold text-white mb-1">Make It Recurring</h2>
-        <p className="text-white/60 text-sm">Sustained support, sustained impact</p>
+        <h2 className="text-xl font-semibold text-star-dust mb-1">Make It Recurring</h2>
+        <p className="text-star-dust/60 text-sm">Sustained support, sustained impact</p>
       </div>
 
       <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg mb-6">
         <div>
-          <p className="text-white font-medium">Monthly Giving</p>
-          <p className="text-xs text-white/40">Support the Sanctuary every month</p>
+          <p className="text-star-dust font-medium">Monthly Giving</p>
+          <p className="text-xs text-star-dust/40">Support the Sanctuary every month</p>
         </div>
         <Switch checked={isRecurring} onChange={handleRecurringToggle} />
       </div>
 
       {isRecurring && (
         <div className="space-y-4">
-          <p className="text-sm text-white/60">Choose frequency:</p>
+          <p className="text-sm text-star-dust/60">Choose frequency:</p>
           <div className="grid grid-cols-3 gap-3">
             {FREQUENCIES.map((freq) => (
               <button
@@ -68,7 +68,7 @@ export function RecurringOptions({ className, onRecurringChange }: RecurringOpti
                 )}
               >
                 <div className="text-2xl mb-1">{freq.icon}</div>
-                <div className="text-sm text-white">{freq.label}</div>
+                <div className="text-sm text-star-dust">{freq.label}</div>
                 {freq.discount > 0 && (
                   <div className="text-xs text-green-400 mt-1">{freq.discount}% off</div>
                 )}
@@ -95,7 +95,7 @@ export function RecurringOptions({ className, onRecurringChange }: RecurringOpti
 
       {!isRecurring && (
         <div className="text-center py-4">
-          <p className="text-sm text-white/40">
+          <p className="text-sm text-star-dust/40">
             One-time donations are also deeply appreciated
           </p>
         </div>

@@ -75,19 +75,19 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
       {/* Search and Filter Bar */}
       <div className="flex flex-wrap gap-4 items-center justify-between">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" />
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search files..."
-            className="w-full pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:border-cyan-500 focus:outline-none"
+            className="w-full pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-star-dust text-sm focus:border-cyan-500 focus:outline-none"
           />
         </div>
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
-          className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:border-cyan-500 focus:outline-none"
+          className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-star-dust text-sm focus:border-cyan-500 focus:outline-none"
         >
           {getFileTypes().map(type => (
             <option key={type} value={type}>{type === 'all' ? 'All Types' : type}</option>
@@ -99,7 +99,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
       <div className="overflow-x-auto rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
         <table className="w-full">
           <thead className="border-b border-white/10 bg-white/5">
-            <tr className="text-left text-white/60 text-sm">
+            <tr className="text-left text-star-dust/60 text-sm">
               <th className="p-4 w-8">
                 <input
                   type="checkbox"
@@ -108,16 +108,16 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
                   className="w-4 h-4 rounded border-white/20 bg-white/5"
                 />
               </th>
-              <th className="p-4 cursor-pointer hover:text-white" onClick={() => handleSort('emoji')}>
+              <th className="p-4 cursor-pointer hover:text-star-dust" onClick={() => handleSort('emoji')}>
                 <div className="flex items-center gap-1">Type <SortIcon field="emoji" /></div>
               </th>
-              <th className="p-4 cursor-pointer hover:text-white" onClick={() => handleSort('file_path')}>
+              <th className="p-4 cursor-pointer hover:text-star-dust" onClick={() => handleSort('file_path')}>
                 <div className="flex items-center gap-1">File Path <SortIcon field="file_path" /></div>
               </th>
-              <th className="p-4 cursor-pointer hover:text-white" onClick={() => handleSort('purpose')}>
+              <th className="p-4 cursor-pointer hover:text-star-dust" onClick={() => handleSort('purpose')}>
                 <div className="flex items-center gap-1">Purpose <SortIcon field="purpose" /></div>
               </th>
-              <th className="p-4 cursor-pointer hover:text-white" onClick={() => handleSort('needs_review')}>
+              <th className="p-4 cursor-pointer hover:text-star-dust" onClick={() => handleSort('needs_review')}>
                 <div className="flex items-center gap-1">Status <SortIcon field="needs_review" /></div>
               </th>
               <th className="p-4 w-20">Actions</th>
@@ -145,13 +145,13 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
                     <FileTypeBadge type={file.file_type} emoji={file.emoji} size="sm" />
                   </td>
                   <td className="p-4">
-                    <code className="text-sm text-white/80 font-mono group-hover:text-cyan-400 transition-colors">
+                    <code className="text-sm text-star-dust/80 font-mono group-hover:text-cyan-400 transition-colors">
                       {file.file_path}
                     </code>
                   </td>
                   <td className="p-4">
                     {file.purpose ? (
-                      <span className="text-sm text-white/60 line-clamp-1">{file.purpose}</span>
+                      <span className="text-sm text-star-dust/60 line-clamp-1">{file.purpose}</span>
                     ) : (
                       <span className="text-sm text-yellow-400/60 italic">Needs description</span>
                     )}
@@ -169,7 +169,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
                           Active
                         </span>
                       ) : (
-                        <span className="flex items-center gap-1 text-white/40 text-sm">
+                        <span className="flex items-center gap-1 text-star-dust/40 text-sm">
                           <Archive size={14} />
                           Archived
                         </span>
@@ -181,7 +181,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
                       href={`/admin/files/${file.id}`}
                       className="p-2 hover:bg-white/10 rounded-lg transition-colors inline-block group-hover:text-cyan-400"
                     >
-                      <Eye size={16} className="text-white/60 group-hover:text-cyan-400" />
+                      <Eye size={16} className="text-star-dust/60 group-hover:text-cyan-400" />
                     </Link>
                   </td>
                 </motion.tr>
@@ -192,7 +192,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
 
         {sortedFiles.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-white/40">No files found</p>
+            <p className="text-star-dust/40">No files found</p>
           </div>
         )}
       </div>
@@ -206,7 +206,7 @@ export default function FileRegistryTable({ files, onBulkUpdate }: FileRegistryT
             exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-white/20 rounded-full px-6 py-3 flex items-center gap-6 shadow-2xl"
           >
-            <span className="text-sm text-white">{selectedIds.size} file{selectedIds.size !== 1 ? 's' : ''} selected</span>
+            <span className="text-sm text-star-dust">{selectedIds.size} file{selectedIds.size !== 1 ? 's' : ''} selected</span>
             <button
               onClick={() => onBulkUpdate?.(Array.from(selectedIds), { needs_review: false, last_validated: new Date().toISOString() })}
               className="px-4 py-1.5 bg-green-600/20 hover:bg-green-600/30 text-green-400 rounded-full text-sm transition-colors"

@@ -54,13 +54,13 @@ export default function FileSearchFilter({ onSearch, onFilterType, onFilterStatu
         {/* Search */}
         <div className="flex-1 min-w-[200px]">
           <div className="relative">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
               placeholder="Search by file path, purpose, or notes..."
-              className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-star-dust text-sm focus:border-cyan-500 focus:outline-none transition-all"
             />
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function FileSearchFilter({ onSearch, onFilterType, onFilterStatu
           className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm transition-all ${
             showFilters || hasFilters
               ? 'bg-cyan-600/20 border border-cyan-500/30 text-cyan-400'
-              : 'bg-white/5 border border-white/10 text-white/60 hover:bg-white/10'
+              : 'bg-white/5 border border-white/10 text-star-dust/60 hover:bg-white/10'
           }`}
         >
           <SlidersHorizontal size={14} />
@@ -87,7 +87,7 @@ export default function FileSearchFilter({ onSearch, onFilterType, onFilterStatu
         {hasFilters && (
           <button
             onClick={clearFilters}
-            className="flex items-center gap-1 px-3 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-white/60 text-sm transition-colors"
+            className="flex items-center gap-1 px-3 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-star-dust/60 text-sm transition-colors"
           >
             <X size={14} />
             Clear
@@ -106,11 +106,11 @@ export default function FileSearchFilter({ onSearch, onFilterType, onFilterStatu
           <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-white/10">
             {/* Type Filter */}
             <div className="flex-1 min-w-[150px]">
-              <label className="block text-xs text-white/40 mb-1 uppercase tracking-wider">File Type</label>
+              <label className="block text-xs text-star-dust/40 mb-1 uppercase tracking-wider">File Type</label>
               <select
                 value={selectedType || ''}
                 onChange={(e) => handleTypeSelect(e.target.value || null)}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-star-dust text-sm focus:border-cyan-500 focus:outline-none"
               >
                 <option value="">All Types</option>
                 {FILE_CATEGORIES.map(cat => (
@@ -123,11 +123,11 @@ export default function FileSearchFilter({ onSearch, onFilterType, onFilterStatu
 
             {/* Status Filter */}
             <div className="flex-1 min-w-[150px]">
-              <label className="block text-xs text-white/40 mb-1 uppercase tracking-wider">Status</label>
+              <label className="block text-xs text-star-dust/40 mb-1 uppercase tracking-wider">Status</label>
               <select
                 value={selectedStatus || ''}
                 onChange={(e) => handleStatusSelect(e.target.value || null)}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-star-dust text-sm focus:border-cyan-500 focus:outline-none"
               >
                 <option value="">All Status</option>
                 <option value="needs_review">⚠️ Needs Review</option>

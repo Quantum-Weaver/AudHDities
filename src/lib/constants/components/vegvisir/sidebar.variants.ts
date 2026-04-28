@@ -49,7 +49,7 @@ export const sidebarNavItemVariants = cva(
     variants: {
       state: {
         default: 'hover:bg-white/10',
-        active: 'bg-cyan-500/20 text-cyan-400',
+        active: 'bg-cyan-500/20 text-neurospark',
         disabled: 'opacity-50 cursor-not-allowed',
       },
     },
@@ -75,7 +75,7 @@ export const sidebarBadgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-cyan-500/20 text-cyan-400',
+        default: 'bg-cyan-500/20 text-neurospark',
         quantum: 'bg-quantum-purple/20 text-quantum-purple',
         cosmic: 'bg-cosmic-blue/20 text-cosmic-blue',
         fire: 'bg-fire-base/20 text-fire-base',
@@ -106,9 +106,9 @@ export const sidebarGroupLabelVariants = cva(
   {
     variants: {
       variant: {
-        default: 'text-white/40',
-        light: 'text-white/60',
-        accent: 'text-cyan-400',
+        default: 'text-star-dust/40',
+        light: 'text-star-dust/60',
+        accent: 'text-neurospark',
       },
     },
     defaultVariants: {

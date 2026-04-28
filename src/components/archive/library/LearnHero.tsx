@@ -18,15 +18,15 @@ export function LearnHero() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-            <Sparkles size={14} className="text-cyan-400" />
-            <span className="text-sm text-white/80">Pathways to Sovereignty</span>
+            <Sparkles size={14} className="text-neurospark" />
+            <span className="text-sm text-star-dust/80">Pathways to Sovereignty</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-star-dust mb-6">
             The Learning Sanctuary
           </h1>
           
-          <p className="inline-flex text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="inline-flex text-xl text-star-dust/70 max-w-2xl mx-auto">
             Where knowledge becomes transformation.
             <br />
             Every pathway is a door to deeper understanding.

@@ -39,7 +39,7 @@ export const FORM_FIELD_CONTENT_FLEX = 'flex-1';
 
 // ─── Helper Text ────────────────────────────────────────────────────────────
 export const FORM_FIELD_HELPER_MARGIN_TOP = 'mt-1';
-export const FORM_FIELD_HELPER_COLOR = 'text-white/40';
+export const FORM_FIELD_HELPER_COLOR = 'text-star-dust/40';
 
 // ─── Error Text ─────────────────────────────────────────────────────────────
 export const FORM_FIELD_ERROR_MARGIN_TOP = 'mt-1';

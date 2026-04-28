@@ -83,7 +83,7 @@ export default function FileBulkActions({ selectedIds, onComplete, onCancel }: F
               onClick={onCancel}
               className="absolute top-4 right-4 p-1 hover:bg-white/10 rounded-lg transition-colors"
             >
-              <X size={18} className="text-white/40" />
+              <X size={18} className="text-star-dust/40" />
             </button>
 
             {result ? (
@@ -93,8 +93,8 @@ export default function FileBulkActions({ selectedIds, onComplete, onCancel }: F
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center">
                       <CheckCircle size={32} className="text-green-400" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Complete</h3>
-                    <p className="text-white/60 text-sm">
+                    <h3 className="text-xl font-bold text-star-dust mb-2">Complete</h3>
+                    <p className="text-star-dust/60 text-sm">
                       {result.success} file{result.success !== 1 ? 's' : ''} updated successfully
                     </p>
                   </>
@@ -103,8 +103,8 @@ export default function FileBulkActions({ selectedIds, onComplete, onCancel }: F
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-500/20 flex items-center justify-center">
                       <AlertTriangle size={32} className="text-yellow-400" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Partial Success</h3>
-                    <p className="text-white/60 text-sm">
+                    <h3 className="text-xl font-bold text-star-dust mb-2">Partial Success</h3>
+                    <p className="text-star-dust/60 text-sm">
                       {result.success} updated, {result.error} failed
                     </p>
                   </>
@@ -116,8 +116,8 @@ export default function FileBulkActions({ selectedIds, onComplete, onCancel }: F
                   {getIcon()}
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2">Council Action Required</h3>
-                <p className="text-white/60 text-sm mb-6">
+                <h3 className="text-xl font-bold text-star-dust mb-2">Council Action Required</h3>
+                <p className="text-star-dust/60 text-sm mb-6">
                   {selectedIds.length} file{selectedIds.length !== 1 ? 's' : ''} selected for processing
                 </p>
 
@@ -149,7 +149,7 @@ export default function FileBulkActions({ selectedIds, onComplete, onCancel }: F
                   <button
                     onClick={onCancel}
                     disabled={processing}
-                    className="px-5 py-2 bg-white/5 hover:bg-white/10 text-white/60 rounded-xl text-sm font-medium transition-colors"
+                    className="px-5 py-2 bg-white/5 hover:bg-white/10 text-star-dust/60 rounded-xl text-sm font-medium transition-colors"
                   >
                     Cancel
                   </button>

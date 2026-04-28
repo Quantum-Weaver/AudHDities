@@ -33,7 +33,7 @@ export function MarkdownViewer({ filename, onClose }: MarkdownViewerProps) {
       <Card className="max-w-3xl max-h-[80vh] overflow-y-auto relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white/60 hover:text-white"
+          className="absolute top-4 right-4 text-star-dust/60 hover:text-star-dust"
         >
           <X size={24} />
         </button>

@@ -61,7 +61,7 @@ const features = [
 export function FeatureList() {
   return (
     <Card className="p-6">
-      <h2 className="text-xl font-bold text-white mb-4">Accessibility Features</h2>
+      <h2 className="text-xl font-bold text-star-dust mb-4">Accessibility Features</h2>
       <div className="grid gap-4">
         {features.map((feature) => (
           <div
@@ -71,7 +71,7 @@ export function FeatureList() {
             <div className="text-2xl">{feature.icon}</div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-semibold text-white">{feature.title}</h3>
+                <h3 className="font-semibold text-star-dust">{feature.title}</h3>
                 <Badge
                   variant={feature.status === "complete" ? "success" : "outline"}
                   size="sm"
@@ -79,7 +79,7 @@ export function FeatureList() {
                   {feature.status === "complete" ? "✓ Available" : "Coming Soon"}
                 </Badge>
               </div>
-              <p className="text-sm text-white/60">{feature.description}</p>
+              <p className="text-sm text-star-dust/60">{feature.description}</p>
             </div>
           </div>
         ))}

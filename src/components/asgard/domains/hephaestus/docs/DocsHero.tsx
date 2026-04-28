@@ -18,31 +18,31 @@ export function DocsHero() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-            <Star size={14} className="text-cyan-400" />
-            <span className="text-sm text-white/80">The Sanctuary Library</span>
+            <Star size={14} className="text-neurospark" />
+            <span className="text-sm text-star-dust/80">The Sanctuary Library</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-star-dust mb-6">
             Welcome to the{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Living Library
             </span>
           </h1>
           
-          <p className="inline-flex text-xl text-white/70 mx-auto mb-8">
+          <p className="inline-flex text-xl text-star-dust/70 mx-auto mb-8">
             Explore our architecture, guides, and philosophy.
             <br />
             Every page is a doorway to deeper understanding.
           </p>
             
           <div className="flex flex-wrap justify-center gap-3">
-            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-white/60">
+            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
             📚 8 documents
             </span>
-            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-white/60">
+            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
             🔄 Living wisdom
             </span>
-            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-white/60">
+            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
             🕊️ Open to all
             </span>
           </div>

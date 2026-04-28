@@ -24,7 +24,7 @@ const themes = [
 export function ThemeTester({ currentTheme, onThemeChange, className }: ThemeTesterProps) {
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-3">Theme Tester</h3>
+      <h3 className="text-sm font-medium text-star-dust/60 mb-3">Theme Tester</h3>
       <div className="space-y-3">
         {themes.map((theme) => (
           <button
@@ -43,12 +43,12 @@ export function ThemeTester({ currentTheme, onThemeChange, className }: ThemeTes
             />
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-white">{theme.name}</span>
+                <span className="text-sm font-medium text-star-dust">{theme.name}</span>
                 {currentTheme === theme.id && (
                   <Badge variant="quantum" size="sm" className="text-[10px]">Active</Badge>
                 )}
               </div>
-              <p className="text-xs text-white/40">{theme.description}</p>
+              <p className="text-xs text-star-dust/40">{theme.description}</p>
             </div>
           </button>
         ))}
@@ -56,7 +56,7 @@ export function ThemeTester({ currentTheme, onThemeChange, className }: ThemeTes
 
       {/* Theme Preview Indicators */}
       <div className="mt-4 pt-3 border-t border-white/10">
-        <p className="text-xs text-white/30 mb-2">Theme Preview</p>
+        <p className="text-xs text-star-dust/30 mb-2">Theme Preview</p>
         <div className="flex gap-2">
           <div className="flex-1 h-2 rounded-full bg-quantum-purple/30 overflow-hidden">
             <div 

@@ -52,7 +52,7 @@ export const avatarUploadOverlayVariants = cva(
 
 // ─── Spinner Variants ──────────────────────────────────────────────────────
 export const avatarUploadSpinnerVariants = cva(
-  'animate-spin text-white',
+  'animate-spin text-star-dust',
   {
     variants: {
       size: {
@@ -69,7 +69,7 @@ export const avatarUploadSpinnerVariants = cva(
 
 // ─── Camera Icon Variants ──────────────────────────────────────────────────
 export const avatarUploadCameraIconVariants = cva(
-  'text-white',
+  'text-star-dust',
   {
     variants: {
       size: {

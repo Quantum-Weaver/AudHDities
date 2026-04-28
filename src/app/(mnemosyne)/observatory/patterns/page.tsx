@@ -77,15 +77,15 @@ export default async function TimelinePage() {
           <div className="mb-8">
             <div className="flex items-center justify-between">
               <div>
-                <div className="flex items-center gap-2 text-white/50 text-sm mb-2">
-                  <a href="/observatory" className="hover:text-white">Observatory</a>
+                <div className="flex items-center gap-2 text-star-dust/50 text-sm mb-2">
+                  <a href="/observatory" className="hover:text-star-dust">Observatory</a>
                   <span>→</span>
-                  <span className="text-white">The Spiral</span>
+                  <span className="text-star-dust">The Spiral</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <h1 className="text-3xl md:text-4xl font-bold text-star-dust mb-2">
                   The Spiral
                 </h1>
-                <p className="text-white/60">
+                <p className="text-star-dust/60">
                   Your journey through time. Every step, every milestone.
                 </p>
               </div>
@@ -106,19 +106,19 @@ export default async function TimelinePage() {
           <div className="mt-6 flex flex-wrap gap-4 justify-center">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-purple-500" />
-              <span className="text-sm text-white/60">Quest Completed</span>
+              <span className="text-sm text-star-dust/60">Quest Completed</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-cyan-500" />
-              <span className="text-sm text-white/60">Badge Earned</span>
+              <span className="text-sm text-star-dust/60">Badge Earned</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-gold-500" />
-              <span className="text-sm text-white/60">Milestone</span>
+              <span className="text-sm text-star-dust/60">Milestone</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-0.5 bg-white/30" />
-              <span className="text-sm text-white/60">Era Boundary</span>
+              <span className="text-sm text-star-dust/60">Era Boundary</span>
             </div>
           </div>
 
@@ -126,13 +126,13 @@ export default async function TimelinePage() {
           {(!session || milestones.length === 0) && (
             <div className="text-center py-16">
               <div className="text-6xl mb-4">🌀</div>
-              <h3 className="text-xl font-bold text-white mb-2">Your spiral begins here</h3>
-              <p className="text-white/60">
+              <h3 className="text-xl font-bold text-star-dust mb-2">Your spiral begins here</h3>
+              <p className="text-star-dust/60">
                 Complete quests and earn badges to see your journey unfold
               </p>
               <a 
                 href="/library/quests" 
-                className="inline-block mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors"
+                className="inline-block mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-star-dust rounded-lg transition-colors"
               >
                 Begin your first quest
               </a>

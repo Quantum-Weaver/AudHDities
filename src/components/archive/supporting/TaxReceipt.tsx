@@ -69,18 +69,18 @@ Thank you for your generous support!
       <div className="flex items-start gap-4">
         <div className="text-3xl">📄</div>
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white mb-1">Tax Receipt</h3>
-          <p className="text-sm text-white/40 mb-4">
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Tax Receipt</h3>
+          <p className="text-sm text-star-dust/40 mb-4">
             Download your official donation receipt for tax purposes
           </p>
           
-          <div className="flex items-center gap-4 text-sm text-white/60 mb-4">
+          <div className="flex items-center gap-4 text-sm text-star-dust/60 mb-4">
             <div>
-              <span className="text-white/40">Donation Amount:</span>
-              <span className="text-cyan-400 ml-2">${amount}</span>
+              <span className="text-star-dust/40">Donation Amount:</span>
+              <span className="text-neurospark ml-2">${amount}</span>
             </div>
             <div>
-              <span className="text-white/40">Date:</span>
+              <span className="text-star-dust/40">Date:</span>
               <span className="ml-2">{new Date().toLocaleDateString()}</span>
             </div>
           </div>
@@ -98,7 +98,7 @@ Thank you for your generous support!
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/10">
-        <p className="text-xs text-white/30">
+        <p className="text-xs text-star-dust/30">
           A copy of this receipt has also been sent to your email address.
           If you need to update your email, please visit your vessel settings.
         </p>

@@ -58,9 +58,9 @@ export type DividerSpacingSize = keyof typeof DIVIDER_SPACING_HORIZONTAL;
 
 // ─── Label Styling ──────────────────────────────────────────────────────────
 export const DIVIDER_LABEL_GAP = 'gap-4';
-export const DIVIDER_LABEL_TEXT = 'text-white/40 text-sm whitespace-nowrap';
+export const DIVIDER_LABEL_TEXT = 'text-star-dust/40 text-sm whitespace-nowrap';
 export const DIVIDER_LABEL_ICON_SIZE = 'w-4 h-4';
-export const DIVIDER_SECTION_SUBTITLE = 'text-center text-white/40 text-sm mt-3';
+export const DIVIDER_SECTION_SUBTITLE = 'text-center text-star-dust/40 text-sm mt-3';
 export const DIVIDER_SECTION_PADDING = 'py-8';
 
 // ─── Line Style Base ────────────────────────────────────────────────────────

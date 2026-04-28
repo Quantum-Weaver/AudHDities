@@ -62,14 +62,14 @@ export const ALERT_FOCUS_RING = 'focus:outline-none focus:ring-2 focus:ring-whit
 
 // ─── Dismiss Button Colors (opacity-based, component applies) ──────────────
 export const ALERT_DISMISS_COLORS = {
-  DEFAULT: 'text-white/40',
-  HOVER: 'text-white/80 hover:bg-white/10',
+  DEFAULT: 'text-star-dust/40',
+  HOVER: 'text-star-dust/80 hover:bg-white/10',
 } as const;
 
 // ─── Content Text Colors ───────────────────────────────────────────────────
 export const ALERT_TEXT_COLORS = {
-  TITLE: 'text-white',
-  BODY: 'text-white/70',
+  TITLE: 'text-star-dust',
+  BODY: 'text-star-dust/70',
 } as const;
 
 // ─── Default Icons Map Key ─────────────────────────────────────────────────

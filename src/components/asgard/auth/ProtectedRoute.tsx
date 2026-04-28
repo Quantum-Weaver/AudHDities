@@ -21,7 +21,7 @@ export function ProtectedRoute({
   if (authLoading || roleLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-white/60">Loading sanctuary...</div>
+        <div className="text-star-dust/60">Loading sanctuary...</div>
       </div>
     );
   }

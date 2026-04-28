@@ -23,7 +23,7 @@ import {
 const BADGE_VARIANT_STYLES = {
   default: {
     bg: 'bg-white/10',
-    text: 'text-white/80',
+    text: 'text-star-dust/80',
     border: '',
   },
   primary: {
@@ -103,7 +103,7 @@ const BADGE_VARIANT_STYLES = {
   },
   ghost: {
     bg: 'bg-transparent',
-    text: 'text-white/60',
+    text: 'text-star-dust/60',
     border: '',
   },
 } as const;
@@ -146,7 +146,7 @@ export const badgeVariants = cva(
 // ─── Hover overrides for interactive variants ──────────────────────────────
 /** Hover styles applied when badge is interactive (ghost variant) */
 export const BADGE_HOVER_OVERRIDES: Partial<Record<BadgeVariantKey, string>> = {
-  ghost: 'hover:bg-white/5 hover:text-white',
+  ghost: 'hover:bg-white/5 hover:text-star-dust',
   outline: 'hover:bg-white/5',
   indigo: 'hover:bg-indigo-500/30',
 };

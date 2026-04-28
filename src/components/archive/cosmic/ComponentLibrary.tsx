@@ -111,14 +111,14 @@ export function ComponentLibrary({ selected, onSelect, className }: ComponentLib
                 )}
               >
                 <span className={cn(
-                  "text-white/60",
+                  "text-star-dust/60",
                   selected === component.id && "text-quantum-purple"
                 )}>
                   {component.icon}
                 </span>
                 <span className={cn(
                   "text-sm",
-                  selected === component.id ? "text-white" : "text-white/80"
+                  selected === component.id ? "text-star-dust" : "text-star-dust/80"
                 )}>
                   {component.name}
                 </span>

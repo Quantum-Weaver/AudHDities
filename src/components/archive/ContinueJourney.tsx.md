@@ -60,7 +60,7 @@ export function ContinueJourney({ userId, className }: ContinueJourneyProps) {
   if (inProgress.length === 0) {
     return (
       <Card className={cn("p-6 text-center", className)}>
-        <p className="text-white/60">No active journey</p>
+        <p className="text-star-dust/60">No active journey</p>
         <Link href="/library/quests">
           <Button variant="outline" size="sm" className="mt-3">
             Begin a Quest
@@ -77,11 +77,11 @@ export function ContinueJourney({ userId, className }: ContinueJourneyProps) {
 
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-3">Continue Your Journey</h3>
+      <h3 className="text-sm font-medium text-star-dust/60 mb-3">Continue Your Journey</h3>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-white font-medium">{title}</p>
-          <p className="text-xs text-white/40 mt-1">
+          <p className="text-star-dust font-medium">{title}</p>
+          <p className="text-xs text-star-dust/40 mt-1">
             {isQuest ? "Quest in progress" : "Course in progress"}
           </p>
         </div>
@@ -90,7 +90,7 @@ export function ContinueJourney({ userId, className }: ContinueJourneyProps) {
         </Link>
       </div>
       {inProgress.length > 1 && (
-        <p className="text-xs text-white/30 mt-3">
+        <p className="text-xs text-star-dust/30 mt-3">
           +{inProgress.length - 1} more in progress
         </p>
       )}

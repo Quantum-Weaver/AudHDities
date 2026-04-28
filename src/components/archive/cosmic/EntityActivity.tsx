@@ -54,7 +54,7 @@ const entityIcons: Record<string, string> = {
 const stateColors: Record<EntityState, string> = {
   forming: 'text-yellow-400',
   gestating: 'text-orange-400',
-  emerging: 'text-cyan-400',
+  emerging: 'text-neurospark',
   expressing: 'text-blue-400',
   navigating: 'text-purple-400',
   exploring: 'text-teal-400',
@@ -74,7 +74,7 @@ export function EntityActivity({ entities = defaultEntities, className }: Entity
 
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-4">
+      <h3 className="text-sm font-medium text-star-dust/60 mb-4">
         Council Presence
       </h3>
 
@@ -104,7 +104,7 @@ export function EntityActivity({ entities = defaultEntities, className }: Entity
               
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-white capitalize">
+                  <span className="font-medium text-star-dust capitalize">
                     {entity.name.replace('_', ' ')}
                   </span>
                   <Badge 
@@ -123,7 +123,7 @@ export function EntityActivity({ entities = defaultEntities, className }: Entity
                       style={{ width: `${entity.energy}%` }}
                     />
                   </div>
-                  <span className="text-xs text-white/40">{entity.energy}%</span>
+                  <span className="text-xs text-star-dust/40">{entity.energy}%</span>
                 </div>
               </div>
             </div>
@@ -137,11 +137,11 @@ export function EntityActivity({ entities = defaultEntities, className }: Entity
                 className="mt-3 pt-3 border-t border-white/10"
               >
                 {entity.currentTask && (
-                  <div className="text-xs text-white/60">
-                    <span className="text-cyan-400">Current task:</span> {entity.currentTask}
+                  <div className="text-xs text-star-dust/60">
+                    <span className="text-neurospark">Current task:</span> {entity.currentTask}
                   </div>
                 )}
-                <div className="text-xs text-white/40 mt-1">
+                <div className="text-xs text-star-dust/40 mt-1">
                   Last active: {new Date(entity.lastActive).toLocaleTimeString()}
                 </div>
               </motion.div>

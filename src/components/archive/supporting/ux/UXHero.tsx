@@ -20,20 +20,20 @@ export function UXHero() {
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
             <Brain size={14} className="text-purple-400" />
-            <span className="text-sm text-white/80">Design Philosophy</span>
+            <span className="text-sm text-star-dust/80">Design Philosophy</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-star-dust mb-6">
             Neurodivergent UX
           </h1>
           
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-8">
             Built by neurodivergent minds, for neurodivergent minds.
             <br />
             We design for the beautiful spectrum of human cognition.
           </p>
           
-          <div className="flex justify-center gap-6 text-sm text-white/40">
+          <div className="flex justify-center gap-6 text-sm text-star-dust/40">
             <span>Last updated: March 15, 2026</span>
             <span>•</span>
             <span>Interactive Guide</span>

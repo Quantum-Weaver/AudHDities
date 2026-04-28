@@ -109,9 +109,9 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
         {/* Content */}
         <div className="flex-1">
           {title && (
-            <h5 className="font-medium text-white text-sm">{title}</h5>
+            <h5 className="font-medium text-star-dust text-sm">{title}</h5>
           )}
-          <p className={cn('text-white/80 text-sm', title && TOAST_TITLE_MARGIN)}>
+          <p className={cn('text-star-dust/80 text-sm', title && TOAST_TITLE_MARGIN)}>
             {description}
           </p>
           {action && (
@@ -123,7 +123,7 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
               }}
               className={cn(
                 TOAST_ACTION_MARGIN,
-                'text-sm font-medium text-white/80 hover:text-white transition-colors'
+                'text-sm font-medium text-star-dust/80 hover:text-star-dust transition-colors'
               )}
             >
               {action.label}
@@ -139,7 +139,7 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
             'flex-shrink-0',
             TOAST_CLOSE_BUTTON.RADIUS,
             TOAST_CLOSE_BUTTON.PADDING,
-            'text-white/40 hover:text-white/80 hover:bg-white/10 transition-colors'
+            'text-star-dust/40 hover:text-star-dust/80 hover:bg-white/10 transition-colors'
           )}
           aria-label="Close"
         >

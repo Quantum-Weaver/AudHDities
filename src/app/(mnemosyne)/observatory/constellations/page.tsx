@@ -73,16 +73,16 @@ export default async function ConstellationsPage() {
           
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2 text-white/50 text-sm mb-2">
-              <a href="/observatory" className="hover:text-white">Observatory</a>
+            <div className="flex items-center justify-center gap-2 text-star-dust/50 text-sm mb-2">
+              <a href="/observatory" className="hover:text-star-dust">Observatory</a>
               <span>→</span>
-              <span className="text-white">Constellations</span>
+              <span className="text-star-dust">Constellations</span>
             </div>
             <div className="text-6xl mb-4">✨🌌✨</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-star-dust mb-4">
               Constellations
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
               Every connection is a star. Together, you form constellations.
             </p>
           </div>
@@ -108,7 +108,7 @@ export default async function ConstellationsPage() {
 
           {/* Node Clusters */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-bold text-star-dust mb-4 flex items-center gap-2">
               <span className="text-2xl">🌟</span> Your Clusters
             </h2>
             <NodeClusters clusters={clusters} />
@@ -119,20 +119,20 @@ export default async function ConstellationsPage() {
             <div className="mt-8 p-4 bg-white/5 rounded-xl">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">{userNodes.length}</div>
-                  <div className="text-xs text-white/40">Stars in Your Constellation</div>
+                  <div className="text-2xl font-bold text-neurospark">{userNodes.length}</div>
+                  <div className="text-xs text-star-dust/40">Stars in Your Constellation</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-400">{connections.length}</div>
-                  <div className="text-xs text-white/40">Direct Connections</div>
+                  <div className="text-xs text-star-dust/40">Direct Connections</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-gold-400">{clusters.length}</div>
-                  <div className="text-xs text-white/40">Clusters</div>
+                  <div className="text-xs text-star-dust/40">Clusters</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">∞</div>
-                  <div className="text-xs text-white/40">Potential Connections</div>
+                  <div className="text-2xl font-bold text-star-dust">∞</div>
+                  <div className="text-xs text-star-dust/40">Potential Connections</div>
                 </div>
               </div>
             </div>
@@ -142,13 +142,13 @@ export default async function ConstellationsPage() {
           {(!session || userNodes.length === 0) && (
             <div className="text-center py-16">
               <div className="text-6xl mb-4">⭐</div>
-              <h3 className="text-xl font-bold text-white mb-2">Your constellation awaits</h3>
-              <p className="text-white/60">
+              <h3 className="text-xl font-bold text-star-dust mb-2">Your constellation awaits</h3>
+              <p className="text-star-dust/60">
                 Connect with others to form constellations
               </p>
               <a 
                 href="/connect" 
-                className="inline-block mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors"
+                className="inline-block mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-star-dust rounded-lg transition-colors"
               >
                 Start connecting
               </a>

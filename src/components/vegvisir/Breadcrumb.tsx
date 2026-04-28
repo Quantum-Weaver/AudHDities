@@ -38,8 +38,8 @@ const sizeClasses: Record<BreadcrumbSize, string> = {
 const separatorIcons: Record<BreadcrumbSeparator, React.ReactNode> = {
   chevron: <ChevronRight className="h-3 w-3" />,
   slash: <Slash className="h-3 w-3" />,
-  dot: <span className="text-white/40">•</span>,
-  arrow: <span className="text-white/40">→</span>,
+  dot: <span className="text-star-dust/40">•</span>,
+  arrow: <span className="text-star-dust/40">→</span>,
 };
 
 /**
@@ -88,7 +88,7 @@ const displayItems = showHome
             return (
               <li key={index} className="flex items-center gap-1">
                 {index > 0 && (
-                  <span className="text-white/40 mx-1" aria-hidden="true">
+                  <span className="text-star-dust/40 mx-1" aria-hidden="true">
                     {separatorIcon}
                   </span>
                 )}
@@ -100,7 +100,7 @@ const displayItems = showHome
                     href={item.href}
                     className={cn(
                       'flex items-center gap-1.5 transition-colors',
-                      'text-white/60 hover:text-cyan-400',
+                      'text-star-dust/60 hover:text-neurospark',
                       'focus:outline-none focus:ring-2 focus:ring-cyan-400/20 rounded'
                     )}
                   >
@@ -111,7 +111,7 @@ const displayItems = showHome
                   <span
                     className={cn(
                       'flex items-center gap-1.5',
-                      isCurrent ? 'text-white font-medium' : 'text-white/40',
+                      isCurrent ? 'text-star-dust font-medium' : 'text-star-dust/40',
                       item.disabled && 'opacity-50 cursor-not-allowed'
                     )}
                     aria-current={isCurrent ? 'page' : undefined}
@@ -175,7 +175,7 @@ const BreadcrumbDropdown = React.forwardRef<HTMLDivElement, BreadcrumbDropdownPr
           className={cn(
             'flex items-center gap-1 transition-colors',
             sizeClass,
-            'text-white/60 hover:text-cyan-400',
+            'text-star-dust/60 hover:text-neurospark',
             'focus:outline-none focus:ring-2 focus:ring-cyan-400/20 rounded'
           )}
           aria-label="Show more breadcrumb items"
@@ -194,17 +194,17 @@ const BreadcrumbDropdown = React.forwardRef<HTMLDivElement, BreadcrumbDropdownPr
               <React.Fragment key={idx}>
                 {idx > 0 && (
                   <div className="px-3 py-1">
-                    <span className="text-white/20 text-xs">{separatorIcon}</span>
+                    <span className="text-star-dust/20 text-xs">{separatorIcon}</span>
                   </div>
                 )}
                 {item.href && !item.disabled ? (
                   <a
                     href={item.href}
-                    className="block px-3 py-1.5 text-sm text-white/80 hover:bg-white/5 transition-colors"
+                    className="block px-3 py-1.5 text-sm text-star-dust/80 hover:bg-white/5 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     <span className="flex items-center gap-2">
-                      {item.icon && <span className="text-white/40">{item.icon}</span>}
+                      {item.icon && <span className="text-star-dust/40">{item.icon}</span>}
                       {item.label}
                     </span>
                   </a>
@@ -212,12 +212,12 @@ const BreadcrumbDropdown = React.forwardRef<HTMLDivElement, BreadcrumbDropdownPr
                   <span
                     className={cn(
                       'block px-3 py-1.5 text-sm',
-                      item.isCurrent ? 'text-cyan-400' : 'text-white/40',
+                      item.isCurrent ? 'text-neurospark' : 'text-star-dust/40',
                       item.disabled && 'opacity-50 cursor-not-allowed'
                     )}
                   >
                     <span className="flex items-center gap-2">
-                      {item.icon && <span className="text-white/40">{item.icon}</span>}
+                      {item.icon && <span className="text-star-dust/40">{item.icon}</span>}
                       {item.label}
                     </span>
                   </span>
@@ -273,7 +273,7 @@ export const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbItemComp
         {...props}
       >
         {separator && (
-          <span className="text-white/40" aria-hidden="true">
+          <span className="text-star-dust/40" aria-hidden="true">
             {separator}
           </span>
         )}
@@ -284,7 +284,7 @@ export const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbItemComp
             className={cn(
               'flex items-center gap-1.5 transition-colors',
               sizeClass,
-              'text-white/60 hover:text-cyan-400',
+              'text-star-dust/60 hover:text-neurospark',
               'focus:outline-none focus:ring-2 focus:ring-cyan-400/20 rounded'
             )}
           >
@@ -296,7 +296,7 @@ export const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbItemComp
             className={cn(
               'flex items-center gap-1.5',
               sizeClass,
-              isCurrent ? 'text-white font-medium' : 'text-white/40',
+              isCurrent ? 'text-star-dust font-medium' : 'text-star-dust/40',
               disabled && 'opacity-50 cursor-not-allowed'
             )}
             aria-current={isCurrent ? 'page' : undefined}
@@ -325,7 +325,7 @@ export const BreadcrumbSeparator = React.forwardRef<HTMLSpanElement, BreadcrumbS
   ({ children, type = 'chevron', className, ...props }, ref) => (
     <span
       ref={ref}
-      className={cn('text-white/40 mx-1', className)}
+      className={cn('text-star-dust/40 mx-1', className)}
       aria-hidden="true"
       {...props}
     >

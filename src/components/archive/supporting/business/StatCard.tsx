@@ -24,7 +24,7 @@ const colorClasses = {
 };
 
 const textColors = {
-  cyan: 'text-cyan-400',
+  cyan: 'text-neurospark',
   purple: 'text-purple-400',
   pink: 'text-pink-400',
   green: 'text-green-400',
@@ -46,8 +46,8 @@ export function StatCard({ value, label, description, prefix = '', suffix = '', 
         <CountUp end={value} duration={2.5} separator="," />
         {suffix}
       </div>
-      <div className="text-white font-medium mb-2">{label}</div>
-      <div className="text-white/40 text-sm">{description}</div>
+      <div className="text-star-dust font-medium mb-2">{label}</div>
+      <div className="text-star-dust/40 text-sm">{description}</div>
     </motion.div>
   );
 }

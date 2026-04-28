@@ -11,7 +11,7 @@ interface RoleBadgeProps {
 export default function RoleBadge({ isCreator, isVendor, isAdmin, isQuantumWeaver }: RoleBadgeProps) {
   if (isQuantumWeaver) {
     return (
-      <Badge variant="default" className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none">
+      <Badge variant="default" className="bg-gradient-to-r from-purple-500 to-pink-500 text-star-dust border-none">
         ⚛️ Quantum Weaver
       </Badge>
     )
@@ -19,7 +19,7 @@ export default function RoleBadge({ isCreator, isVendor, isAdmin, isQuantumWeave
 
   if (isAdmin) {
     return (
-      <Badge variant="quantum" className="bg-cyan-600/20 text-cyan-400 border-cyan-500/30">
+      <Badge variant="quantum" className="bg-cyan-600/20 text-neurospark border-cyan-500/30">
         🏛️ Admin
       </Badge>
     )

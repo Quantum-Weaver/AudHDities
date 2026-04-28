@@ -20,14 +20,14 @@ const iconBgColors = {
 };
 
 const iconColors = {
-  cyan: 'text-cyan-400',
+  cyan: 'text-neurospark',
   purple: 'text-purple-400',
   pink: 'text-pink-400',
   orange: 'text-orange-400',
 };
 
 const titleColors = {
-  cyan: 'text-cyan-400',
+  cyan: 'text-neurospark',
   purple: 'text-purple-400',
   pink: 'text-pink-400',
   orange: 'text-orange-400',
@@ -49,8 +49,8 @@ export function PillarCard({ icon, title, description, color, delay = 0 }: Pilla
           </div>
         </div>
         <div>
-          <h3 className={`text-xl font-bold text-white mb-2 ${titleColors[color]}`}>{title}</h3>
-          <p className="text-white/60">{description}</p>
+          <h3 className={`text-xl font-bold text-star-dust mb-2 ${titleColors[color]}`}>{title}</h3>
+          <p className="text-star-dust/60">{description}</p>
         </div>
       </div>
     </motion.div>

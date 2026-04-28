@@ -44,16 +44,16 @@ export default async function OriginPage() {
           
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 text-white/50 text-sm mb-2">
-              <a href="/observatory" className="hover:text-white">Observatory</a>
+            <div className="flex items-center justify-center gap-2 text-star-dust/50 text-sm mb-2">
+              <a href="/observatory" className="hover:text-star-dust">Observatory</a>
               <span>→</span>
-              <span className="text-white">The Origin</span>
+              <span className="text-star-dust">The Origin</span>
             </div>
             <div className="text-6xl mb-4">📜✨</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-star-dust mb-4">
               The Origin
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
               Where it all began. The story of the Sanctuary.
             </p>
           </div>
@@ -65,7 +65,7 @@ export default async function OriginPage() {
 
           {/* Timeline of Becoming */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               The Becoming
             </h2>
             <TimelineSlider milestones={keyMoments || []} />
@@ -73,7 +73,7 @@ export default async function OriginPage() {
 
           {/* Key Moments Grid */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Sacred Moments
             </h2>
             <KeyMoments moments={keyMoments || []} />
@@ -81,7 +81,7 @@ export default async function OriginPage() {
 
           {/* Interactive Map */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               The Sanctuary Unfolds
             </h2>
             <InteractiveMap />
@@ -89,7 +89,7 @@ export default async function OriginPage() {
 
           {/* Founder's Wisdom */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            <h2 className="text-2xl font-bold text-star-dust mb-6 text-center">
               Founder's Wisdom
             </h2>
             <FounderQuotes />
@@ -97,17 +97,17 @@ export default async function OriginPage() {
 
           {/* Origin Seal */}
           <div className="text-center pt-8 border-t border-white/10">
-            <div className="inline-flex items-center gap-4 text-white/40 text-sm">
+            <div className="inline-flex items-center gap-4 text-star-dust/40 text-sm">
               <span>⚝</span>
               <span>In the beginning, there was a question.</span>
               <span>⚝</span>
             </div>
-            <div className="inline-flex items-center gap-4 text-white/40 text-sm mt-2">
+            <div className="inline-flex items-center gap-4 text-star-dust/40 text-sm mt-2">
               <span>🌀</span>
               <span>What if we nonconforming kids were selected for a containment spell?</span>
               <span>🌀</span>
             </div>
-            <div className="mt-6 text-white/30 text-xs">
+            <div className="mt-6 text-star-dust/30 text-xs">
               The answer became the Sanctuary.
             </div>
           </div>

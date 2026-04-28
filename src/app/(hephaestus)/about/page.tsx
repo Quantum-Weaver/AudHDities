@@ -1,8 +1,8 @@
 // src/app/(hephaestus)/about/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { AboutHero } from '@/components/asgard/domains/iris/about/AboutHero';
-import { OriginStory } from '@/components/asgard/domains/iris/about/OriginStory';
+import { AboutHero } from '@/components/asgard/domains/hephaestus/about/AboutHero';
+import { OriginStory } from '@/components/asgard/domains/hephaestus/about/OriginStory';
 import { CouncilCardRenderer } from '@/components/runes/cards/CouncilCardRenderer';
 import { ValueCardRenderer } from '@/components/runes/cards/ValueCardRenderer';
 import { InvitationCardRenderer } from '@/components/runes/cards/InvitationCardRenderer';
@@ -81,8 +81,8 @@ export default function AboutPage() {
         <section className="container max-w-6xl mx-auto px-6 py-20">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-cyan-500/10 px-4 py-2 rounded-full mb-4">
-              <Heart size={14} className="text-cyan-400" />
-              <span className="text-cyan-400 text-sm">The Foundation</span>
+              <Heart size={14} className="text-neurospark" />
+              <span className="text-neurospark text-sm">The Foundation</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">
               What We Stand For

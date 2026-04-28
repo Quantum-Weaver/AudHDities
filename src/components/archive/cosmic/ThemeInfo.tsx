@@ -62,7 +62,7 @@ export function ThemeInfo({ themes, className }: ThemeInfoProps) {
 
   return (
     <div className={cn("space-y-4", className)}>
-      <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+      <h3 className="text-lg font-semibold text-star-dust flex items-center gap-2">
         <span>📖</span>
         Themes & Resonance
       </h3>
@@ -90,8 +90,8 @@ export function ThemeInfo({ themes, className }: ThemeInfoProps) {
                   {icon}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">{theme}</h4>
-                  <p className="text-sm text-white/60">{description}</p>
+                  <h4 className="font-semibold text-star-dust mb-1">{theme}</h4>
+                  <p className="text-sm text-star-dust/60">{description}</p>
                   <Badge 
                     variant="outline" 
                     size="sm" 
@@ -107,7 +107,7 @@ export function ThemeInfo({ themes, className }: ThemeInfoProps) {
         })}
       </div>
       
-      <p className="text-xs text-white/40 mt-2 italic">
+      <p className="text-xs text-star-dust/40 mt-2 italic">
         These themes shape how this realm feels and responds to your presence
       </p>
     </div>

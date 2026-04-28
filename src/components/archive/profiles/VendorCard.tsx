@@ -66,13 +66,13 @@ export function VendorCard({ vendor }: VendorCardProps) {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <Store size={32} className="text-white/40" />
+                  <Store size={32} className="text-star-dust/40" />
                 </div>
               )}
             </div>
             
             {/* Business Name */}
-            <h3 className="text-lg font-bold text-white mb-1 line-clamp-1">
+            <h3 className="text-lg font-bold text-star-dust mb-1 line-clamp-1">
               {businessName}
             </h3>
             
@@ -86,7 +86,7 @@ export function VendorCard({ vendor }: VendorCardProps) {
             
             {/* Business Type */}
             {profile?.business_type && (
-              <div className="flex items-center justify-center gap-1 text-xs text-white/40 mb-2">
+              <div className="flex items-center justify-center gap-1 text-xs text-star-dust/40 mb-2">
                 <Building2 size={10} />
                 <span>{getBusinessTypeDisplay(profile.business_type)}</span>
               </div>
@@ -111,18 +111,18 @@ export function VendorCard({ vendor }: VendorCardProps) {
             {/* Stats */}
             <div className="flex justify-center gap-4 text-sm mb-4">
               <div className="text-center">
-                <div className="text-white font-bold">{productCount}</div>
-                <div className="text-white/40 text-xs">Products</div>
+                <div className="text-star-dust font-bold">{productCount}</div>
+                <div className="text-star-dust/40 text-xs">Products</div>
               </div>
               <div className="text-center">
-                <div className="text-white font-bold">{salesCount}</div>
-                <div className="text-white/40 text-xs">Sales</div>
+                <div className="text-star-dust font-bold">{salesCount}</div>
+                <div className="text-star-dust/40 text-xs">Sales</div>
               </div>
             </div>
             
             {/* Bio Preview */}
             {vendor.bio && (
-              <p className="text-white/40 text-sm line-clamp-2 mb-4">
+              <p className="text-star-dust/40 text-sm line-clamp-2 mb-4">
                 {vendor.bio}
               </p>
             )}

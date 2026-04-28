@@ -99,14 +99,14 @@ export const DRAWER_HEADER_BORDER = 'border-b';
 export const DRAWER_TITLE_SIZE = 'text-lg';
 export const DRAWER_TITLE_WEIGHT = 'font-semibold';
 export const DRAWER_DESCRIPTION_SIZE = 'text-sm';
-export const DRAWER_DESCRIPTION_COLOR = 'text-white/60';
+export const DRAWER_DESCRIPTION_COLOR = 'text-star-dust/60';
 export const DRAWER_DESCRIPTION_MARGIN_TOP = 'mt-1';
 
 // ─── Close Button ───────────────────────────────────────────────────────────
 export const DRAWER_CLOSE_BUTTON_PADDING = 'p-1';
 export const DRAWER_CLOSE_BUTTON_RADIUS = 'rounded-full';
-export const DRAWER_CLOSE_BUTTON_COLOR = 'text-white/40';
-export const DRAWER_CLOSE_BUTTON_HOVER_COLOR = 'text-white/80';
+export const DRAWER_CLOSE_BUTTON_COLOR = 'text-star-dust/40';
+export const DRAWER_CLOSE_BUTTON_HOVER_COLOR = 'text-star-dust/80';
 export const DRAWER_CLOSE_BUTTON_HOVER_BG = 'hover:bg-white/10';
 export const DRAWER_CLOSE_ICON_SIZE = 'h-5 w-5';
 
@@ -123,8 +123,8 @@ export const DRAWER_FOOTER_GAP = 'gap-3';
 export const DRAWER_EXIT_ANIMATION_DELAY = 300;
 
 // ─── Filter Drawer ──────────────────────────────────────────────────────────
-export const DRAWER_FILTER_BUTTON_RESET_COLOR = 'text-white/60';
-export const DRAWER_FILTER_BUTTON_RESET_HOVER = 'hover:text-white/80';
+export const DRAWER_FILTER_BUTTON_RESET_COLOR = 'text-star-dust/60';
+export const DRAWER_FILTER_BUTTON_RESET_HOVER = 'hover:text-star-dust/80';
 export const DRAWER_FILTER_BUTTON_RESET_PADDING_X = 'px-4';
 export const DRAWER_FILTER_BUTTON_RESET_PADDING_Y = 'py-2';
 export const DRAWER_FILTER_BUTTON_RESET_RADIUS = 'rounded-lg';
@@ -133,7 +133,7 @@ export const DRAWER_FILTER_BUTTON_RESET_WEIGHT = 'font-medium';
 
 export const DRAWER_FILTER_BUTTON_APPLY_BG = 'bg-cyan-500/20';
 export const DRAWER_FILTER_BUTTON_APPLY_HOVER_BG = 'hover:bg-cyan-500/30';
-export const DRAWER_FILTER_BUTTON_APPLY_COLOR = 'text-cyan-400';
+export const DRAWER_FILTER_BUTTON_APPLY_COLOR = 'text-neurospark';
 export const DRAWER_FILTER_BUTTON_APPLY_PADDING_X = 'px-4';
 export const DRAWER_FILTER_BUTTON_APPLY_PADDING_Y = 'py-2';
 export const DRAWER_FILTER_BUTTON_APPLY_RADIUS = 'rounded-lg';

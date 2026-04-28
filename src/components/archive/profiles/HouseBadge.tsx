@@ -23,7 +23,7 @@ export default function HouseBadge({ house }: HouseBadgeProps) {
   const config = houseConfig[house]
 
   return (
-    <Badge className={`bg-gradient-to-r ${config.color} text-white border-none`}>
+    <Badge className={`bg-gradient-to-r ${config.color} text-star-dust border-none`}>
       {config.icon} {config.label}
     </Badge>
   )

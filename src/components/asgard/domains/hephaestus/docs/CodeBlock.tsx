@@ -25,10 +25,10 @@ export function CodeBlock({ code, language, filename }: CodeBlockProps) {
     <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-black/50">
       {filename && (
         <div className="flex justify-between items-center px-4 py-2 bg-white/5 border-b border-white/10">
-          <span className="text-xs text-white/60 font-mono">{filename}</span>
+          <span className="text-xs text-star-dust/60 font-mono">{filename}</span>
           <button
             onClick={handleCopy}
-            className="text-white/40 hover:text-white transition-colors"
+            className="text-star-dust/40 hover:text-star-dust transition-colors"
           >
             {copied ? <Check size={14} /> : <Copy size={14} />}
           </button>

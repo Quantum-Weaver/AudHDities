@@ -28,7 +28,7 @@ export function QuickActions({ className }: QuickActionsProps) {
 
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-3">Quick Actions</h3>
+      <h3 className="text-sm font-medium text-star-dust/60 mb-3">Quick Actions</h3>
       <div className="grid grid-cols-3 gap-3">
         {actions.map((action) => (
           <Link
@@ -37,7 +37,7 @@ export function QuickActions({ className }: QuickActionsProps) {
             className="group flex flex-col items-center gap-2 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
           >
             <span className="text-2xl">{action.icon}</span>
-            <span className="text-xs text-white/60 group-hover:text-white transition-colors">
+            <span className="text-xs text-star-dust/60 group-hover:text-star-dust transition-colors">
               {action.label}
             </span>
           </Link>

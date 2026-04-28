@@ -56,8 +56,8 @@ export function MyComponent() {
 export function MyComponent() {
   return (
     <Card className="p-4 max-w-sm">
-      <h3 className="text-lg font-semibold text-white mb-2">Card Title</h3>
-      <p className="text-white/60 text-sm mb-4">
+      <h3 className="text-lg font-semibold text-star-dust mb-2">Card Title</h3>
+      <p className="text-star-dust/60 text-sm mb-4">
         Card content goes here.
       </p>
       <Button variant="primary" size="sm">Action</Button>
@@ -86,7 +86,7 @@ export function CodeExport({ component, theme, className }: CodeExportProps) {
   return (
     <Card className={cn("p-4", className)}>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm font-medium text-white/60">Export Code</h3>
+        <h3 className="text-sm font-medium text-star-dust/60">Export Code</h3>
         <Button
           variant="ghost"
           size="sm"
@@ -108,19 +108,19 @@ export function CodeExport({ component, theme, className }: CodeExportProps) {
           <TabsTrigger value="css">CSS</TabsTrigger>
         </TabsList>
         <TabsContent value="tsx">
-          <pre className="text-xs text-white/60 bg-black/30 rounded-lg p-3 overflow-x-auto font-mono max-h-64 overflow-y-auto">
+          <pre className="text-xs text-star-dust/60 bg-black/30 rounded-lg p-3 overflow-x-auto font-mono max-h-64 overflow-y-auto">
             <code>{code}</code>
           </pre>
         </TabsContent>
         <TabsContent value="css">
-          <pre className="text-xs text-white/60 bg-black/30 rounded-lg p-3 overflow-x-auto font-mono max-h-64 overflow-y-auto">
+          <pre className="text-xs text-star-dust/60 bg-black/30 rounded-lg p-3 overflow-x-auto font-mono max-h-64 overflow-y-auto">
             <code>{`/* Tailwind CSS classes used in this component */
 .btn-primary {
-  @apply bg-quantum-purple text-white hover:bg-quantum-dark;
+  @apply bg-quantum-purple text-star-dust hover:bg-quantum-dark;
 }
 
 .btn-secondary {
-  @apply bg-cosmic-blue text-white hover:bg-cosmic-dark;
+  @apply bg-cosmic-blue text-star-dust hover:bg-cosmic-dark;
 }
 
 /* Import these classes from your Tailwind config */`}
@@ -129,7 +129,7 @@ export function CodeExport({ component, theme, className }: CodeExportProps) {
         </TabsContent>
       </Tabs>
 
-      <p className="text-xs text-white/30 mt-3">
+      <p className="text-xs text-star-dust/30 mt-3">
         Copy and paste this code into your project. Make sure you have the required components installed.
       </p>
     </Card>

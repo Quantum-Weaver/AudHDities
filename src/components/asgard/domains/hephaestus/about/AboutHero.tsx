@@ -1,4 +1,4 @@
-// src/components/iris/about/AboutHero.tsx
+// src/components/hephaestus/about/AboutHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

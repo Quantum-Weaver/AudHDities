@@ -24,8 +24,8 @@ export function VesselCard({ user, className }: VesselCardProps) {
             <span className="text-3xl">✨</span>
           </div>
         </div>
-        <h3 className="text-lg font-semibold text-white mb-1">Welcome, Traveler</h3>
-        <p className="text-white/60 text-sm mb-4">Sign in to continue your journey</p>
+        <h3 className="text-lg font-semibold text-star-dust mb-1">Welcome, Traveler</h3>
+        <p className="text-star-dust/60 text-sm mb-4">Sign in to continue your journey</p>
         <Link href="/enter">
           <Button size="sm">Enter Sanctuary</Button>
         </Link>
@@ -52,11 +52,11 @@ export function VesselCard({ user, className }: VesselCardProps) {
           </div>
         )}
       </div>
-      <h3 className="text-lg font-semibold text-white mb-1">
+      <h3 className="text-lg font-semibold text-star-dust mb-1">
         {user.display_name || user.username || "Quantum Weaver"}
       </h3>
       <div className="flex items-center justify-center gap-2 mb-3">
-        <span className="px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-xs rounded-full capitalize">
+        <span className="px-2 py-0.5 bg-cyan-500/20 text-neurospark text-xs rounded-full capitalize">
           {user.user_tier || "community"}
         </span>
         {user.primary_house && (
@@ -66,7 +66,7 @@ export function VesselCard({ user, className }: VesselCardProps) {
         )}
       </div>
       {user.bio && (
-        <p className="text-white/60 text-sm line-clamp-2 mb-4">{user.bio}</p>
+        <p className="text-star-dust/60 text-sm line-clamp-2 mb-4">{user.bio}</p>
       )}
       <Link href="/vessel">
         <Button variant="outline" size="sm" className="w-full">

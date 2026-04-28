@@ -63,7 +63,7 @@ export default function FileActions({ file, onUpdate }: FileActionsProps) {
       transition={{ delay: 0.5 }}
       className="bg-white/5 border border-white/10 rounded-xl p-6"
     >
-      <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-bold text-star-dust mb-4 flex items-center gap-2">
         <AlertTriangle size={18} className="text-yellow-400" />
         Actions
       </h3>

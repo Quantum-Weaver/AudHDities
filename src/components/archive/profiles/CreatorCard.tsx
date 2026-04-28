@@ -55,13 +55,13 @@ export function CreatorCard({ creator }: CreatorCardProps) {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <Palette size={32} className="text-white/40" />
+                  <Palette size={32} className="text-star-dust/40" />
                 </div>
               )}
             </div>
             
             {/* Name */}
-            <h3 className="text-lg font-bold text-white mb-1">
+            <h3 className="text-lg font-bold text-star-dust mb-1">
               {creator.display_name || creator.username}
             </h3>
             
@@ -92,18 +92,18 @@ export function CreatorCard({ creator }: CreatorCardProps) {
             {/* Stats */}
             <div className="flex justify-center gap-4 text-sm mb-4">
               <div className="text-center">
-                <div className="text-white font-bold">{productCount}</div>
-                <div className="text-white/40 text-xs">Products</div>
+                <div className="text-star-dust font-bold">{productCount}</div>
+                <div className="text-star-dust/40 text-xs">Products</div>
               </div>
               <div className="text-center">
-                <div className="text-white font-bold">{salesCount}</div>
-                <div className="text-white/40 text-xs">Sales</div>
+                <div className="text-star-dust font-bold">{salesCount}</div>
+                <div className="text-star-dust/40 text-xs">Sales</div>
               </div>
             </div>
             
             {/* Bio Preview */}
             {creator.bio && (
-              <p className="text-white/40 text-sm line-clamp-2 mb-4">
+              <p className="text-star-dust/40 text-sm line-clamp-2 mb-4">
                 {creator.bio}
               </p>
             )}

@@ -66,7 +66,7 @@ export function AgentVisualization({ activities, className }: AgentVisualization
 
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-4 flex items-center gap-2">
+      <h3 className="text-sm font-medium text-star-dust/60 mb-4 flex items-center gap-2">
         <span className="w-2 h-2 bg-neurospark rounded-full animate-pulse" />
         Agent Constellation
       </h3>
@@ -97,7 +97,7 @@ export function AgentVisualization({ activities, className }: AgentVisualization
                 }}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-medium text-white capitalize">
+                  <span className="font-medium text-star-dust capitalize">
                     {agent.replace('_', ' ')}
                   </span>
                   <div className={cn(
@@ -114,7 +114,7 @@ export function AgentVisualization({ activities, className }: AgentVisualization
                   >
                     {latestActivity?.status || 'idle'}
                   </Badge>
-                  <span className="text-xs text-white/40">
+                  <span className="text-xs text-star-dust/40">
                     {agentActivities.length} activities
                   </span>
                 </div>
@@ -129,8 +129,8 @@ export function AgentVisualization({ activities, className }: AgentVisualization
                       className="mt-3 pt-3 border-t border-white/10 space-y-1"
                     >
                       {agentActivities.slice(0, 3).map((activity) => (
-                        <div key={activity.id} className="text-xs text-white/40">
-                          <span className="text-cyan-400">{activity.title}</span>
+                        <div key={activity.id} className="text-xs text-star-dust/40">
+                          <span className="text-neurospark">{activity.title}</span>
                           <span className="mx-1">•</span>
                           {new Date(activity.created_at).toLocaleTimeString()}
                         </div>
@@ -148,19 +148,19 @@ export function AgentVisualization({ activities, className }: AgentVisualization
       <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-3 text-xs">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 bg-neurospark rounded-full animate-pulse" />
-          <span className="text-white/40">Active</span>
+          <span className="text-star-dust/40">Active</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 bg-white/20 rounded-full" />
-          <span className="text-white/40">Idle</span>
+          <span className="text-star-dust/40">Idle</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full" style={{ backgroundColor: MOOD_COLORS.creative }} />
-          <span className="text-white/40">Processing</span>
+          <span className="text-star-dust/40">Processing</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ENERGY_COLORS.transformative }} />
-          <span className="text-white/40">Completed</span>
+          <span className="text-star-dust/40">Completed</span>
         </div>
       </div>
     </Card>

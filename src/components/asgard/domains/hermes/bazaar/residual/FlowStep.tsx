@@ -62,7 +62,7 @@ export function FlowStep({ label, amount, description, color, delay = 0 }: FlowS
       <div className={cn('text-2xl font-bold mb-2', textColors[color])}>
         {amount}
       </div>
-      <div className="text-white font-medium mb-1">{label}</div>
+      <div className="text-star-dust font-medium mb-1">{label}</div>
       <div className="text-xs text-[var(--color-star-dust)]/40">{description}</div>
     </motion.div>
   );

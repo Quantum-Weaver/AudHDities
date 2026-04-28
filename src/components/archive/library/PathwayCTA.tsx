@@ -32,7 +32,7 @@ export function PathwayCTA({ hasStarted, nextLessonId, onStart, color }: Pathway
       <button
         onClick={onStart}
         className={cn(
-          'px-8 py-4 bg-gradient-to-r text-white rounded-xl font-bold transition-all duration-300',
+          'px-8 py-4 bg-gradient-to-r text-star-dust rounded-xl font-bold transition-all duration-300',
           'hover:scale-105 hover:shadow-lg',
           gradient
         )}
@@ -45,7 +45,7 @@ export function PathwayCTA({ hasStarted, nextLessonId, onStart, color }: Pathway
           )}
         </span>
       </button>
-      <p className="text-sm text-white/40 mt-4">
+      <p className="text-sm text-star-dust/40 mt-4">
         All pathways are self-paced. No deadlines. No pressure.
       </p>
     </motion.div>

@@ -69,7 +69,7 @@ function Kbd({ className, ...props }: KbdProps) {
  * @example
  * <KbdGroup>
  *   <Kbd>⌘</Kbd>
- *   <span className="text-white/40">+</span>
+ *   <span className="text-star-dust/40">+</span>
  *   <Kbd>K</Kbd>
  * </KbdGroup>
  */

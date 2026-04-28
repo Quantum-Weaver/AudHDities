@@ -54,7 +54,7 @@ export function FlowDiagram() {
             className="bg-gradient-to-r from-[var(--color-cosmic-blue)]/20 to-[var(--color-quantum-purple)]/20 border border-[var(--color-star-dust)]/20 rounded-2xl p-6 text-center"
           >
             <DollarSign className="text-[var(--color-cosmic-blue)] mx-auto mb-2" size={32} />
-            <div className="text-3xl font-bold text-white">Sale Amount</div>
+            <div className="text-3xl font-bold text-star-dust">Sale Amount</div>
             <div className="text-2xl text-[var(--color-cosmic-blue)] font-mono mt-2">$100</div>
           </motion.div>
 

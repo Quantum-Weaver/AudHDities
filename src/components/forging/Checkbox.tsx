@@ -109,7 +109,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             />
             <Check
               className={cn(
-                'absolute pointer-events-none text-white transition-opacity',
+                'absolute pointer-events-none text-star-dust transition-opacity',
                 CHECK_ICON_SIZE[size],
                 isChecked ? 'opacity-100' : 'opacity-0'
               )}

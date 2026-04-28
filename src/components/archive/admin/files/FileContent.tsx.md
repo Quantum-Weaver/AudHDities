@@ -89,15 +89,15 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
               <FileCode size={18} className="text-gray-400" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white">File Content</h3>
-              <p className="text-xs text-white/40">Preview not available for this file type</p>
+              <h3 className="text-lg font-bold text-star-dust">File Content</h3>
+              <p className="text-xs text-star-dust/40">Preview not available for this file type</p>
             </div>
           </div>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ChevronDown className="text-white/40" size={18} />
+            <ChevronDown className="text-star-dust/40" size={18} />
           </motion.div>
         </button>
 
@@ -154,12 +154,12 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
             }`} />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white">File Content</h3>
-            <p className="text-xs text-white/40 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-star-dust">File Content</h3>
+            <p className="text-xs text-star-dust/40 flex items-center gap-2">
               <span className={`px-1.5 py-0.5 rounded ${
                 language === 'typescript' ? 'bg-blue-500/30 text-blue-300' :
                 language === 'javascript' ? 'bg-yellow-500/30 text-yellow-300' :
-                'bg-white/20 text-white/60'
+                'bg-white/20 text-star-dust/60'
               } text-[10px]`}>
                 {language}
               </span>
@@ -180,7 +180,7 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                   setShowRaw(!showRaw);
                 }}
                 className={`p-1.5 rounded transition-colors ${
-                  showRaw ? 'bg-cyan-600/30 text-cyan-400' : 'hover:bg-white/10 text-white/60'
+                  showRaw ? 'bg-cyan-600/30 text-cyan-400' : 'hover:bg-white/10 text-star-dust/60'
                 }`}
                 title={showRaw ? 'Show syntax highlighted' : 'Show raw text'}
               >
@@ -191,14 +191,14 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                   e.stopPropagation();
                   copyContent();
                 }}
-                className="p-1.5 hover:bg-white/10 rounded transition-colors text-white/60"
+                className="p-1.5 hover:bg-white/10 rounded transition-colors text-star-dust/60"
                 title="Copy content"
               >
                 {copySuccess ? <Check size={14} className="text-green-400" /> : <Copy size={14} />}
               </button>
             </div>
           )}
-          <ChevronDown className="text-white/40" size={18} />
+          <ChevronDown className="text-star-dust/40" size={18} />
         </motion.div>
       </button>
 
@@ -227,7 +227,7 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                   {/* Line numbers + code */}
                   <div className="overflow-x-auto rounded-lg bg-black/50">
                     {showRaw ? (
-                      <pre className="p-4 text-xs font-mono text-white/80 whitespace-pre-wrap break-all">
+                      <pre className="p-4 text-xs font-mono text-star-dust/80 whitespace-pre-wrap break-all">
                         {content}
                       </pre>
                     ) : (
@@ -235,13 +235,13 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                         {/* Line numbers */}
                         <div className="flex-shrink-0 py-4 pr-4 text-right border-r border-white/10">
                           {content.split('\n').map((_, i) => (
-                            <div key={i + 1} className="text-xs text-white/30 font-mono leading-5">
+                            <div key={i + 1} className="text-xs text-star-dust/30 font-mono leading-5">
                               {i + 1}
                             </div>
                           ))}
                         </div>
                         {/* Code */}
-                        <pre className="flex-1 p-4 overflow-x-auto text-xs font-mono text-white/80 leading-5">
+                        <pre className="flex-1 p-4 overflow-x-auto text-xs font-mono text-star-dust/80 leading-5">
                           <code className={`language-${language}`}>
                             {content}
                           </code>
@@ -251,7 +251,7 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                   </div>
                   
                   {/* Footer stats */}
-                  <div className="mt-3 flex items-center gap-4 text-xs text-white/30">
+                  <div className="mt-3 flex items-center gap-4 text-xs text-star-dust/30">
                     <span>📄 {content.split('\n').length} lines</span>
                     <span>📏 {content.length} characters</span>
                     <span>🔤 {language}</span>
@@ -259,8 +259,8 @@ export default function FileContent({ file, defaultOpen = false }: FileContentPr
                 </div>
               ) : (
                 <div className="flex items-center gap-3 p-4 bg-white/5 rounded-lg">
-                  <AlertCircle size={18} className="text-white/40" />
-                  <p className="text-sm text-white/40">No content available</p>
+                  <AlertCircle size={18} className="text-star-dust/40" />
+                  <p className="text-sm text-star-dust/40">No content available</p>
                 </div>
               )}
             </div>

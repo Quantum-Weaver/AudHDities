@@ -576,7 +576,7 @@ export const HEADER_DATA = {
     default: {
       title: 'text-base font-semibold text-neurospark',
       subtitle: 'text-xs text-star-dust/70',
-      quote: 'text-xs text-white/40 italic',
+      quote: 'text-xs text-star-dust/40 italic',
     },
     mobile: {
       title: 'text-sm font-semibold text-neurospark',
@@ -586,7 +586,7 @@ export const HEADER_DATA = {
     desktop: {
       title: 'text-xl font-bold text-neurospark',
       subtitle: 'text-sm text-star-dust/70',
-      quote: 'text-xs text-white/40 italic',
+      quote: 'text-xs text-star-dust/40 italic',
     },
   },
 } as const;

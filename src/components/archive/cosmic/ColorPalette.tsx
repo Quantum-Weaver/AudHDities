@@ -108,7 +108,7 @@ export function ColorPalette({ colors, className }: ColorPaletteProps) {
 
   return (
     <div className={cn("space-y-4", className)}>
-      <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-semibold text-star-dust mb-4 flex items-center gap-2">
         <span>🎨</span>
         Color Palette
       </h3>
@@ -160,7 +160,7 @@ export function ColorPalette({ colors, className }: ColorPaletteProps) {
           );
         })}
       </div>
-      <p className="text-xs text-white/40 mt-2 text-center">
+      <p className="text-xs text-star-dust/40 mt-2 text-center">
         Click any color to copy its hex value
       </p>
     </div>

@@ -47,8 +47,8 @@ export function ObserverMode({ className, onModeChange }: ObserverModeProps) {
     <Card className={cn("p-4", className)}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Eye className="h-4 w-4 text-cyan-400" />
-          <h3 className="text-sm font-medium text-white/60">Observer Mode</h3>
+          <Eye className="h-4 w-4 text-neurospark" />
+          <h3 className="text-sm font-medium text-star-dust/60">Observer Mode</h3>
         </div>
         <Switch
           checked={isObserverMode}
@@ -78,19 +78,19 @@ export function ObserverMode({ className, onModeChange }: ObserverModeProps) {
                 <div className="flex items-center gap-2 mb-1">
                   <div className={cn(
                     "w-5 h-5 rounded flex items-center justify-center",
-                    perspective === p.id ? "text-cyan-400" : "text-white/40"
+                    perspective === p.id ? "text-neurospark" : "text-star-dust/40"
                   )}>
                     {p.icon}
                   </div>
-                  <span className="text-xs font-medium text-white">{p.label}</span>
+                  <span className="text-xs font-medium text-star-dust">{p.label}</span>
                 </div>
-                <p className="text-xs text-white/40 pl-7">{p.description}</p>
+                <p className="text-xs text-star-dust/40 pl-7">{p.description}</p>
               </button>
             ))}
           </div>
 
           <div className="mt-3 pt-3 border-t border-white/10">
-            <div className="text-xs text-white/40 flex items-center gap-2">
+            <div className="text-xs text-star-dust/40 flex items-center gap-2">
               <span className={cn(
                 "w-2 h-2 rounded-full animate-pulse",
                 isObserverMode ? "bg-cyan-400" : "bg-white/20"

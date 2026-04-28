@@ -45,7 +45,7 @@ export function ZoomTarget({
       </motion.div>
       <button
         onClick={handleZoom}
-        className="absolute bottom-4 right-4 z-10 p-2 bg-black/50 rounded-full text-white/80 hover:text-white transition-colors"
+        className="absolute bottom-4 right-4 z-10 p-2 bg-black/50 rounded-full text-star-dust/80 hover:text-star-dust transition-colors"
         aria-label={isZoomed ? "Zoom out" : "Zoom in"}
       >
         {isZoomed ? "−" : "+"}

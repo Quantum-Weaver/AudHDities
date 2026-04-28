@@ -98,9 +98,9 @@ export const navLinkVariants = cva(
   {
     variants: {
       state: {
-        [NAV_ITEM_STATES.DEFAULT]: 'text-white/60',
+        [NAV_ITEM_STATES.DEFAULT]: 'text-star-dust/60',
         [NAV_ITEM_STATES.ACTIVE]: 'bg-neurospark/20 text-neurospark',
-        [NAV_ITEM_STATES.HOVER]: 'text-white bg-white/5',
+        [NAV_ITEM_STATES.HOVER]: 'text-star-dust bg-white/5',
       },
       variant: {
         [NAVIGATION_VARIANTS.DESKTOP]: `px-[${NAV_ITEM_PADDING.X}] py-[${NAV_ITEM_PADDING.Y}]`,
@@ -152,8 +152,8 @@ export const navMobileToggleVariants = cva(
   [
     'p-2',
     `rounded-[${NAV_ITEM_RADIUS}]`,
-    'text-white/60',
-    'hover:text-white',
+    'text-star-dust/60',
+    'hover:text-star-dust',
     'hover:bg-white/5',
     'transition-all',
     `duration-[${NAV_TRANSITION_DURATION}ms]`,
@@ -190,7 +190,7 @@ export const navFloatingToggleVariants = cva(
     'backdrop-blur-lg',
     'border',
     'border-white/10',
-    'text-white/80',
+    'text-star-dust/80',
     'shadow-lg',
     'transition-all',
     `duration-[${NAV_TRANSITION_DURATION}ms]`,
@@ -291,8 +291,8 @@ export const navDrawerCloseVariants = cva(
   [
     'p-2',
     `rounded-[${NAV_ITEM_RADIUS}]`,
-    'text-white/60',
-    'hover:text-white',
+    'text-star-dust/60',
+    'hover:text-star-dust',
     'hover:bg-white/5',
     'transition-all',
     `duration-[${NAV_TRANSITION_DURATION}ms]`,

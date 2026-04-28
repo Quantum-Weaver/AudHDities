@@ -167,7 +167,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
               {page === 'ellipsis' ? (
                 <span
                   className={cn(
-                    'flex items-center justify-center text-white/40',
+                    'flex items-center justify-center text-star-dust/40',
                     sizeConfig.height,
                     sizeConfig.width,
                     sizeConfig.textSize
@@ -219,7 +219,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
         {/* ── Page Size Selector ── */}
         {showPageSize && onPageSizeChange && (
           <div className={cn('flex items-center', PAGINATION_SELECT_GAP)}>
-            <span className="text-sm text-white/60">Show</span>
+            <span className="text-sm text-star-dust/60">Show</span>
             <select
               value={pageSize}
               onChange={(e) => onPageSizeChange(Number(e.target.value))}
@@ -232,13 +232,13 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
                 </option>
               ))}
             </select>
-            <span className="text-sm text-white/60">per page</span>
+            <span className="text-sm text-star-dust/60">per page</span>
           </div>
         )}
 
         {/* ── Compact Info ── */}
         {compact && !showPageSize && (
-          <div className="text-sm text-white/60">
+          <div className="text-sm text-star-dust/60">
             Page {currentPage} of {totalPages}
           </div>
         )}
@@ -285,7 +285,7 @@ export const SimplePagination = React.forwardRef<
     >
       <ChevronLeft className={PAGINATION_ICON_SIZE.CHEVRON} />
     </Button>
-    <span className="text-sm text-white/60">
+    <span className="text-sm text-star-dust/60">
       {props.currentPage} / {props.totalPages}
     </span>
     <Button
@@ -314,7 +314,7 @@ export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoPro
   ({ currentPage, pageSize, totalItems, className }, ref) => {
     if (totalItems === 0) {
       return (
-        <div ref={ref} className={cn('text-sm text-white/60', className)}>
+        <div ref={ref} className={cn('text-sm text-star-dust/60', className)}>
           Showing 0 items
         </div>
       );
@@ -323,7 +323,7 @@ export const PaginationInfo = React.forwardRef<HTMLDivElement, PaginationInfoPro
     const { start, end } = getPageRange(currentPage, pageSize, totalItems);
 
     return (
-      <div ref={ref} className={cn('text-sm text-white/60', className)}>
+      <div ref={ref} className={cn('text-sm text-star-dust/60', className)}>
         Showing {start} to {end} of {totalItems} items
       </div>
     );

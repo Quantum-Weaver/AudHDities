@@ -44,7 +44,7 @@ export function InteractiveChecklist({ title, items, onComplete }: InteractiveCh
       className="border border-white/10 rounded-xl overflow-hidden bg-white/5"
     >
       <div className="p-6 border-b border-white/10">
-        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        <h3 className="text-xl font-bold text-star-dust mb-2">{title}</h3>
         
         {/* Progress Bar */}
         <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-4">
@@ -53,7 +53,7 @@ export function InteractiveChecklist({ title, items, onComplete }: InteractiveCh
             style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="text-white/60 text-sm">{completed.length} of {items.length} completed</p>
+        <p className="text-star-dust/60 text-sm">{completed.length} of {items.length} completed</p>
       </div>
       
       {/* Category Filters */}
@@ -62,8 +62,8 @@ export function InteractiveChecklist({ title, items, onComplete }: InteractiveCh
           onClick={() => setActiveCategory(null)}
           className={`px-3 py-1 rounded-full text-sm transition-all ${
             activeCategory === null
-              ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-              : 'bg-white/5 text-white/60 hover:bg-white/10'
+              ? 'bg-cyan-500/20 text-neurospark border border-cyan-500/30'
+              : 'bg-white/5 text-star-dust/60 hover:bg-white/10'
           }`}
         >
           All
@@ -75,7 +75,7 @@ export function InteractiveChecklist({ title, items, onComplete }: InteractiveCh
             className={`px-3 py-1 rounded-full text-sm transition-all ${
               activeCategory === cat
                 ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                : 'bg-white/5 text-white/60 hover:bg-white/10'
+                : 'bg-white/5 text-star-dust/60 hover:bg-white/10'
             }`}
           >
             {cat}
@@ -101,13 +101,13 @@ export function InteractiveChecklist({ title, items, onComplete }: InteractiveCh
             {completed.includes(item.id) ? (
               <CheckCircle size={20} className="text-green-400 flex-shrink-0 mt-0.5" />
             ) : (
-              <Circle size={20} className="text-white/40 flex-shrink-0 mt-0.5" />
+              <Circle size={20} className="text-star-dust/40 flex-shrink-0 mt-0.5" />
             )}
             <div>
-              <p className={completed.includes(item.id) ? 'text-green-400' : 'text-white/80'}>
+              <p className={completed.includes(item.id) ? 'text-green-400' : 'text-star-dust/80'}>
                 {item.text}
               </p>
-              <p className="text-xs text-white/40 mt-1">{item.category}</p>
+              <p className="text-xs text-star-dust/40 mt-1">{item.category}</p>
             </div>
           </motion.div>
         ))}

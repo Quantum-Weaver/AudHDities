@@ -1,4 +1,4 @@
-// src/components/iris/about/CouncilCard.tsx
+// src/components/hephaestus/about/CouncilCard.tsx
 'use client';
 
 import React from 'react';
@@ -72,7 +72,7 @@ export function CouncilCard({
                 {icon}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">{name}</h3>
+                <h3 className="text-xl font-bold text-star-dust">{name}</h3>
                 <p className="text-sm mt-1" style={{ color: `${entityColor}CC` }}>
                   {title}
                 </p>

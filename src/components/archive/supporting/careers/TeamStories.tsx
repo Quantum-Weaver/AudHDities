@@ -72,7 +72,7 @@ export function TeamStories() {
   return (
     <>
       <div>
-        <h2 className="text-xl font-bold text-white mb-4">Voices from the Sanctuary</h2>
+        <h2 className="text-xl font-bold text-star-dust mb-4">Voices from the Sanctuary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {teamMembers.map((member) => (
             <Card
@@ -89,10 +89,10 @@ export function TeamStories() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-bold text-white">{member.name}</h3>
-                    <span className="text-xs text-cyan-400">{member.role}</span>
+                    <h3 className="font-bold text-star-dust">{member.name}</h3>
+                    <span className="text-xs text-neurospark">{member.role}</span>
                   </div>
-                  <p className="text-white/60 text-sm italic mt-1">"{member.quote}"</p>
+                  <p className="text-star-dust/60 text-sm italic mt-1">"{member.quote}"</p>
                   <Button variant="ghost" size="sm" className="mt-2 text-xs">
                     Read their story →
                   </Button>
@@ -114,20 +114,20 @@ export function TeamStories() {
                     <span className="text-2xl">{selectedMember.name[0]}</span>
                   </div>
                   <div>
-                    <DialogTitle className="text-xl font-bold text-white">
+                    <DialogTitle className="text-xl font-bold text-star-dust">
                       {selectedMember.name}
                     </DialogTitle>
-                    <p className="text-cyan-400">{selectedMember.role}</p>
+                    <p className="text-neurospark">{selectedMember.role}</p>
                   </div>
                 </div>
               </DialogHeader>
               <div className="space-y-4">
                 <div className="p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/30">
-                  <p className="text-cyan-400 italic">"{selectedMember.quote}"</p>
+                  <p className="text-neurospark italic">"{selectedMember.quote}"</p>
                 </div>
-                <p className="text-white/70 leading-relaxed">{selectedMember.story}</p>
+                <p className="text-star-dust/70 leading-relaxed">{selectedMember.story}</p>
                 <div className="pt-4 border-t border-white/10">
-                  <p className="text-sm text-white/40">
+                  <p className="text-sm text-star-dust/40">
                     House of {selectedMember.house?.replace("_", " ") || "the Sanctuary"}
                   </p>
                 </div>

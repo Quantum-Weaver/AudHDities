@@ -22,7 +22,7 @@ export type EmptyStateVariant =
 // ─── Derived Color Maps (from QUANTUM_COLORS source) ───────────────────────
 /** Icon opacity modifier per variant */
 const ICON_OPACITY: Record<EmptyStateVariant, string> = {
-  default: 'text-white/40',
+  default: 'text-star-dust/40',
   quantum: 'text-[#6C5CE7]/50',
   cosmic: 'text-[#0984E3]/50',
   sanctuary: 'text-[#00B894]/50',
@@ -30,7 +30,7 @@ const ICON_OPACITY: Record<EmptyStateVariant, string> = {
 
 /** Title color per variant */
 const TITLE_COLOR: Record<EmptyStateVariant, string> = {
-  default: 'text-white',
+  default: 'text-star-dust',
   quantum: 'text-[#6C5CE7]',
   cosmic: 'text-[#0984E3]',
   sanctuary: 'text-[#00B894]',
@@ -38,7 +38,7 @@ const TITLE_COLOR: Record<EmptyStateVariant, string> = {
 
 /** Description opacity per variant */
 const DESCRIPTION_COLOR: Record<EmptyStateVariant, string> = {
-  default: 'text-white/60',
+  default: 'text-star-dust/60',
   quantum: 'text-[#6C5CE7]/60',
   cosmic: 'text-[#0984E3]/60',
   sanctuary: 'text-[#00B894]/60',

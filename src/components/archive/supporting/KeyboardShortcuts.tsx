@@ -28,7 +28,7 @@ const shortcuts = [
 export function KeyboardShortcuts() {
   return (
     <Card className="p-6">
-      <h2 className="text-xl font-bold text-white mb-4">Keyboard Shortcuts</h2>
+      <h2 className="text-xl font-bold text-star-dust mb-4">Keyboard Shortcuts</h2>
       <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
         {shortcuts.map((shortcut, index) => (
           <div
@@ -39,15 +39,15 @@ export function KeyboardShortcuts() {
               {shortcut.keys.map((key, i) => (
                 <span key={i}>
                   <Kbd>{key}</Kbd>
-                  {i < shortcut.keys.length - 1 && <span className="mx-1 text-white/40">+</span>}
+                  {i < shortcut.keys.length - 1 && <span className="mx-1 text-star-dust/40">+</span>}
                 </span>
               ))}
             </KbdGroup>
-            <span className="text-sm text-white/60">{shortcut.description}</span>
+            <span className="text-sm text-star-dust/60">{shortcut.description}</span>
           </div>
         ))}
       </div>
-      <p className="text-xs text-white/40 mt-4">
+      <p className="text-xs text-star-dust/40 mt-4">
         Press <Kbd>?</Kbd> at any time to see this menu.
       </p>
     </Card>

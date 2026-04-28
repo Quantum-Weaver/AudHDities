@@ -82,7 +82,7 @@ const covenantMetadata = [
 export function TwoPoolsSection() {
   return (
     <section>
-      <h2 className="text-2xl font-bold text-white text-center mb-8">
+      <h2 className="text-2xl font-bold text-star-dust text-center mb-8">
         Two Pools, One Sanctuary
       </h2>
 

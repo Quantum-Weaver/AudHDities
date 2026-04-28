@@ -130,7 +130,7 @@ function SourceCard({ source, delay }: SourceCardProps) {
       >
         <CardHeader
           title={
-            <span className="font-mono text-sm text-white">{source.name}</span>
+            <span className="font-mono text-sm text-star-dust">{source.name}</span>
           }
           subtitle={source.description}
           badge={

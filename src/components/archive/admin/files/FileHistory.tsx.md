@@ -30,7 +30,7 @@ export default function FileHistory({ fileId }: FileHistoryProps) {
       transition={{ delay: 0.4 }}
       className="bg-white/5 border border-white/10 rounded-xl p-6"
     >
-      <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <h3 className="text-lg font-bold text-star-dust mb-4 flex items-center gap-2">
         <History size={18} className="text-orange-400" />
         History
       </h3>
@@ -47,18 +47,18 @@ export default function FileHistory({ fileId }: FileHistoryProps) {
             
             <div className="flex flex-wrap items-center gap-2 mb-1">
               <GitCommit size={12} className="text-cyan-400" />
-              <span className="text-sm font-medium text-white">{entry.action}</span>
-              <span className="text-xs text-white/40 flex items-center gap-1">
+              <span className="text-sm font-medium text-star-dust">{entry.action}</span>
+              <span className="text-xs text-star-dust/40 flex items-center gap-1">
                 <User size={10} />
                 {entry.user}
               </span>
-              <span className="text-xs text-white/40 flex items-center gap-1">
+              <span className="text-xs text-star-dust/40 flex items-center gap-1">
                 <Clock size={10} />
                 {entry.date}
               </span>
             </div>
             {entry.details && (
-              <p className="text-xs text-white/50">{entry.details}</p>
+              <p className="text-xs text-star-dust/50">{entry.details}</p>
             )}
           </div>
         ))}

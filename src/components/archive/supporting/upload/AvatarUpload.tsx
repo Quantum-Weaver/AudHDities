@@ -88,7 +88,7 @@ export default function AvatarUpload({
     <div className="relative group">
       <Avatar className={`${sizeClasses[size]} border-2 border-white/20`}>
         <AvatarImage src={displayImage || undefined} />
-        <AvatarFallback className="bg-cyan-600 text-white">
+        <AvatarFallback className="bg-cyan-600 text-star-dust">
           {initials}
         </AvatarFallback>
       </Avatar>
@@ -100,9 +100,9 @@ export default function AvatarUpload({
         className="absolute inset-0 flex items-center justify-center rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100 disabled:opacity-0"
       >
         {uploading ? (
-          <Loader2 className="h-5 w-5 animate-spin text-white" />
+          <Loader2 className="h-5 w-5 animate-spin text-star-dust" />
         ) : (
-          <Camera className="h-5 w-5 text-white" />
+          <Camera className="h-5 w-5 text-star-dust" />
         )}
       </button>
 

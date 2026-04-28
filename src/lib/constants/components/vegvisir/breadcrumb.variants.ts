@@ -79,9 +79,9 @@ export const breadcrumbDropdownItemVariants = cva(
   {
     variants: {
       state: {
-        default: 'text-white/80 hover:bg-white/5',
-        current: 'text-cyan-400',
-        inactive: 'text-white/40',
+        default: 'text-star-dust/80 hover:bg-white/5',
+        current: 'text-neurospark',
+        inactive: 'text-star-dust/40',
         disabled: 'opacity-50 cursor-not-allowed',
       },
     },
@@ -93,7 +93,7 @@ export const breadcrumbDropdownItemVariants = cva(
 
 // ─── Separator Variants ─────────────────────────────────────────────────────
 export const breadcrumbSeparatorVariants = cva(
-  ['flex items-center', 'text-white/40', 'mx-1'].join(' '),
+  ['flex items-center', 'text-star-dust/40', 'mx-1'].join(' '),
   {
     variants: {
       size: {

@@ -36,9 +36,9 @@ export function FavoriteEffectsGallery({ onSelect, selected, className }: Favori
   if (favoriteEffects.length === 0) {
     return (
       <div className={cn("p-6 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 text-center", className)}>
-        <Heart className="w-8 h-8 text-white/20 mx-auto mb-3" />
-        <p className="text-white/40 text-sm">No saved effects yet</p>
-        <p className="text-white/30 text-xs mt-1">Click the heart on any effect to save it</p>
+        <Heart className="w-8 h-8 text-star-dust/20 mx-auto mb-3" />
+        <p className="text-star-dust/40 text-sm">No saved effects yet</p>
+        <p className="text-star-dust/30 text-xs mt-1">Click the heart on any effect to save it</p>
       </div>
     );
   }

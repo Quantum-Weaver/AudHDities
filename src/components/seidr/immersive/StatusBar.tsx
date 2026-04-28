@@ -105,8 +105,8 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
           {config.showLocation && (
             <div className="text-center cursor-pointer group relative">
               <div className="text-xl cosmic-icon opacity-42 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                <div className="text-sm font-bold text-white cosmic-glow">{pageTitle}</div>
-                <div className="text-xs text-white/60">{pageContext}</div>
+                <div className="text-sm font-bold text-star-dust cosmic-glow">{pageTitle}</div>
+                <div className="text-xs text-star-dust/60">{pageContext}</div>
               </div>
             </div>
           )}
@@ -120,7 +120,7 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
             {config.showCurrency && (
               <HStack align="center" space="xs">
                 <Coins className="h-3 w-3 text-arcane-gold" />
-                <span className="text-sm text-white font-bold">{userStatus.currency}</span>
+                <span className="text-sm text-star-dust font-bold">{userStatus.currency}</span>
               </HStack>
             )}
             
@@ -128,7 +128,7 @@ export function StatusBar({ className, userData = {} }: StatusBarProps) {
             {config.showLevel && (
               <HStack align="center" space="xs">
                 <TrendingUp className="h-3 w-3 text-green-400" />
-                <span className="text-sm text-white/80">Lvl {level}</span>
+                <span className="text-sm text-star-dust/80">Lvl {level}</span>
               </HStack>
             )}
             
@@ -184,7 +184,7 @@ function StatusBarIndicator({
   
   return (
     <HStack align="center" space="xs">
-      {icon && <span className="text-white/40">{icon}</span>}
+      {icon && <span className="text-star-dust/40">{icon}</span>}
       <div className="w-16 h-2 bg-white/10 rounded-full overflow-hidden">
         <motion.div
           className={cn("h-full rounded-full", color)}
@@ -193,7 +193,7 @@ function StatusBarIndicator({
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
       </div>
-      <span className="text-xs text-white/60">{Math.round(percentage)}%</span>
+      <span className="text-xs text-star-dust/60">{Math.round(percentage)}%</span>
     </HStack>
   );
 }
@@ -204,7 +204,7 @@ function NotificationIndicator({ count }: { count: number }) {
   return (
     <div className="relative">
       <div className="w-6 h-6 rounded-full bg-quantum-purple/30 border border-quantum-purple flex items-center justify-center">
-        <span className="text-xs text-white">🔔</span>
+        <span className="text-xs text-star-dust">🔔</span>
       </div>
       <motion.div
         className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center"
@@ -212,7 +212,7 @@ function NotificationIndicator({ count }: { count: number }) {
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 200 }}
       >
-        <span className="text-[10px] text-white font-bold">{count}</span>
+        <span className="text-[10px] text-star-dust font-bold">{count}</span>
       </motion.div>
     </div>
   );

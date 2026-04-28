@@ -53,7 +53,7 @@ export default function VendorProfile({
   }, [userId, supabase]);
 
   const getVerificationStatus = (status: string | null) => {
-    if (!status) return { color: 'text-white/40', label: 'Not verified' };
+    if (!status) return { color: 'text-star-dust/40', label: 'Not verified' };
     
     const statusMap: Record<string, { color: string; label: string }> = {
       pending: { color: 'text-yellow-400', label: 'Pending' },
@@ -62,7 +62,7 @@ export default function VendorProfile({
       suspended: { color: 'text-red-400', label: 'Suspended' }
     };
     
-    return statusMap[status] || { color: 'text-white/40', label: status };
+    return statusMap[status] || { color: 'text-star-dust/40', label: status };
   };
 
   const getBusinessTypeDisplay = (type: string | null) => {
@@ -72,7 +72,7 @@ export default function VendorProfile({
     ).join(' ');
   };
 
-  if (loading) return <div className="text-white/60 text-center py-8">Loading vendor profile...</div>;
+  if (loading) return <div className="text-star-dust/60 text-center py-8">Loading vendor profile...</div>;
   if (!vendor) return null;
 
   const verification = getVerificationStatus(vendor.verification_status);
@@ -90,16 +90,16 @@ export default function VendorProfile({
               className="w-full h-full object-cover rounded-xl"
             />
           ) : (
-            <Store size={24} className="text-white/40" />
+            <Store size={24} className="text-star-dust/40" />
           )}
         </div>
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-4">
             <div className="truncate">
-              <h3 className="text-xl font-bold text-white truncate">{vendor.business_name}</h3>
+              <h3 className="text-xl font-bold text-star-dust truncate">{vendor.business_name}</h3>
               {vendor.business_type && (
-                <p className="text-sm text-white/40">
+                <p className="text-sm text-star-dust/40">
                   {getBusinessTypeDisplay(vendor.business_type)}
                 </p>
               )}
@@ -120,18 +120,18 @@ export default function VendorProfile({
 
       {/* Business Description */}
       {vendor.business_description && (
-        <p className="text-white/70">{vendor.business_description}</p>
+        <p className="text-star-dust/70">{vendor.business_description}</p>
       )}
 
       {/* Product Categories */}
       {vendor.product_categories && vendor.product_categories.length > 0 && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2">Categories</h4>
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2">Categories</h4>
           <div className="flex flex-wrap gap-2">
             {vendor.product_categories.map((category, index) => (
               <span 
                 key={index}
-                className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-white/70"
+                className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-star-dust/70"
               >
                 {category}
               </span>
@@ -143,11 +143,11 @@ export default function VendorProfile({
       {/* Stats Grid */}
       <div className="grid grid-cols-3 gap-4 py-4 border-y border-white/10">
         <div>
-          <div className="flex items-center gap-1 text-cyan-400 mb-1">
+          <div className="flex items-center gap-1 text-neurospark mb-1">
             <Package size={14} />
             <span className="text-xs">Products</span>
           </div>
-          <p className="text-xl font-bold text-white">{productCount}</p>
+          <p className="text-xl font-bold text-star-dust">{productCount}</p>
         </div>
 
         <div>
@@ -155,7 +155,7 @@ export default function VendorProfile({
             <TrendingUp size={14} />
             <span className="text-xs">Sales</span>
           </div>
-          <p className="text-xl font-bold text-white">{vendor.total_sales || 0}</p>
+          <p className="text-xl font-bold text-star-dust">{vendor.total_sales || 0}</p>
         </div>
 
         <div>
@@ -163,7 +163,7 @@ export default function VendorProfile({
             <DollarSign size={14} />
             <span className="text-xs">Earnings</span>
           </div>
-          <p className="text-xl font-bold text-white">
+          <p className="text-xl font-bold text-star-dust">
             ${(vendor.total_earnings || 0).toFixed(2)}
           </p>
         </div>

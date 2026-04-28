@@ -29,7 +29,7 @@ const houseColors: Record<string, string> = {
 
 const tierBadgeColors: Record<string, string> = {
   community: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  ally: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  ally: 'bg-cyan-500/20 text-neurospark border-cyan-500/30',
   corporate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
   council: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
 };
@@ -95,14 +95,14 @@ export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
           <div key="avatar" className="flex items-center gap-2">
             <Avatar className="h-8 w-8">
               <AvatarImage src={creatorData.avatar} />
-              <AvatarFallback className="bg-cyan-600 text-white text-xs">
+              <AvatarFallback className="bg-cyan-600 text-star-dust text-xs">
                 {creatorData.title.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm text-white">{creatorData.title}</p>
+              <p className="text-sm text-star-dust">{creatorData.title}</p>
               {creatorData.house && (
-                <p className="text-xs text-white/40 capitalize">
+                <p className="text-xs text-star-dust/40 capitalize">
                   House of {creatorData.house.replace('_', ' ')}
                 </p>
               )}

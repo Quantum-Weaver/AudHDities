@@ -49,18 +49,18 @@ export function SchemaEnumCard({ enumType, defaultOpen = false }: SchemaEnumCard
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-white font-medium font-mono">{enumType.enum_name}</h3>
-              <span className="text-xs text-white/30">→</span>
-              <code className="text-xs text-cyan-400">{typeName}</code>
+              <h3 className="text-star-dust font-medium font-mono">{enumType.enum_name}</h3>
+              <span className="text-xs text-star-dust/30">→</span>
+              <code className="text-xs text-neurospark">{typeName}</code>
             </div>
-            <p className="text-xs text-white/40">{enumType.values.length} values</p>
+            <p className="text-xs text-star-dust/40">{enumType.values.length} values</p>
           </div>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/40" size={16} />
+          <ChevronDown className="text-star-dust/40" size={16} />
         </motion.div>
       </button>
 
@@ -79,7 +79,7 @@ export function SchemaEnumCard({ enumType, defaultOpen = false }: SchemaEnumCard
                   <button
                     key={value}
                     onClick={() => copyToClipboard(value)}
-                    className="group px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-white/60 font-mono hover:bg-cyan-500/20 hover:border-cyan-500/30 hover:text-cyan-400 transition-all"
+                    className="group px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-star-dust/60 font-mono hover:bg-cyan-500/20 hover:border-cyan-500/30 hover:text-neurospark transition-all"
                   >
                     {copiedValue === value ? (
                       <Check size={12} className="inline mr-1 text-green-400" />

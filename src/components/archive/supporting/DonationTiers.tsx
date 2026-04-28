@@ -45,8 +45,8 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
   return (
     <div className={cn("space-y-6", className)}>
       <div>
-        <h2 className="text-xl font-semibold text-white mb-2">Choose Your Offering</h2>
-        <p className="text-white/60 text-sm">Every contribution, no matter the size, makes a difference</p>
+        <h2 className="text-xl font-semibold text-star-dust mb-2">Choose Your Offering</h2>
+        <p className="text-star-dust/60 text-sm">Every contribution, no matter the size, makes a difference</p>
       </div>
 
       <div className="grid gap-4">
@@ -64,14 +64,14 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
             <div className="text-3xl">{tier.icon}</div>
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-white">{tier.label}</span>
-                <span className="text-cyan-400 font-bold">${tier.amount}</span>
+                <span className="font-bold text-star-dust">{tier.label}</span>
+                <span className="text-neurospark font-bold">${tier.amount}</span>
               </div>
-              <p className="text-sm text-white/40 mt-1">{tier.description}</p>
+              <p className="text-sm text-star-dust/40 mt-1">{tier.description}</p>
             </div>
             {selectedTier === tier.amount && !isCustom && (
               <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
+                <span className="text-star-dust text-xs">✓</span>
               </div>
             )}
           </button>
@@ -90,9 +90,9 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
             <div className="text-3xl">✨</div>
             <div className="flex-1">
               <div className="flex items-center gap-3">
-                <span className="font-bold text-white">Custom Amount</span>
+                <span className="font-bold text-star-dust">Custom Amount</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-400">$</span>
+                  <span className="text-neurospark">$</span>
                   <Input
                     type="number"
                     placeholder="Enter amount"
@@ -111,11 +111,11 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
                   </Button>
                 </div>
               </div>
-              <p className="text-sm text-white/40 mt-1">Any amount you choose</p>
+              <p className="text-sm text-star-dust/40 mt-1">Any amount you choose</p>
             </div>
             {isCustom && (
               <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
+                <span className="text-star-dust text-xs">✓</span>
               </div>
             )}
           </div>
@@ -124,8 +124,8 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
 
       {selectedTier && (
         <div className="pt-4 text-center">
-          <p className="text-sm text-white/40">
-            You have selected <span className="text-cyan-400 font-medium">${selectedTier}</span>
+          <p className="text-sm text-star-dust/40">
+            You have selected <span className="text-neurospark font-medium">${selectedTier}</span>
           </p>
         </div>
       )}

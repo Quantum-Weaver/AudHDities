@@ -36,7 +36,7 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
     if (type.includes('bool')) return 'text-pink-400';
     if (type.includes('timestamp') || type.includes('date')) return 'text-blue-400';
     if (type.includes('json')) return 'text-orange-400';
-    return 'text-white/40';
+    return 'text-star-dust/40';
   };
 
   return (
@@ -52,12 +52,12 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
       >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-            <Database className="text-cyan-400" size={18} />
+            <Database className="text-neurospark" size={18} />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-white font-mono">{tableName}</h3>
+            <h3 className="text-lg font-bold text-star-dust font-mono">{tableName}</h3>
             <div className="flex items-center gap-3 mt-1">
-              <span className="text-xs text-white/40">{columns.length} columns</span>
+              <span className="text-xs text-star-dust/40">{columns.length} columns</span>
               {primaryKeys.length > 0 && (
                 <span className="text-xs flex items-center gap-1 text-yellow-400/60">
                   <Key size={10} />
@@ -77,7 +77,7 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/40" size={18} />
+          <ChevronDown className="text-star-dust/40" size={18} />
         </motion.div>
       </button>
 
@@ -94,8 +94,8 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
               
               {/* RLS Badge */}
               <div className="mb-4 p-2 bg-cyan-500/5 rounded-lg border border-cyan-500/20 flex items-center gap-2">
-                <Shield size={12} className="text-cyan-400" />
-                <span className="text-xs text-cyan-400">Row Level Security Enabled</span>
+                <Shield size={12} className="text-neurospark" />
+                <span className="text-xs text-neurospark">Row Level Security Enabled</span>
               </div>
 
               {/* Columns Table */}
@@ -103,17 +103,17 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-white/10">
-                      <th className="text-left py-2 text-white/40 font-medium">Column</th>
-                      <th className="text-left py-2 text-white/40 font-medium">Type</th>
-                      <th className="text-left py-2 text-white/40 font-medium">Nullable</th>
-                      <th className="text-left py-2 text-white/40 font-medium">Default</th>
-                      <th className="text-left py-2 text-white/40 font-medium">Constraints</th>
+                      <th className="text-left py-2 text-star-dust/40 font-medium">Column</th>
+                      <th className="text-left py-2 text-star-dust/40 font-medium">Type</th>
+                      <th className="text-left py-2 text-star-dust/40 font-medium">Nullable</th>
+                      <th className="text-left py-2 text-star-dust/40 font-medium">Default</th>
+                      <th className="text-left py-2 text-star-dust/40 font-medium">Constraints</th>
                     </tr>
                   </thead>
                   <tbody>
                     {columns.map((col) => (
                       <tr key={col.column_name} className="border-b border-white/5">
-                        <td className="py-2 font-mono text-cyan-400 text-xs">
+                        <td className="py-2 font-mono text-neurospark text-xs">
                           {col.column_name}
                         </td>
                         <td className={`py-2 font-mono text-xs ${getTypeColor(col.column_type)}`}>
@@ -126,7 +126,7 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
                             <span className="text-red-400">NOT NULL</span>
                           )}
                         </td>
-                        <td className="py-2 font-mono text-xs text-white/40">
+                        <td className="py-2 font-mono text-xs text-star-dust/40">
                           {col.column_default || '—'}
                         </td>
                         <td className="py-2">
@@ -150,13 +150,13 @@ export function SchemaTableCard({ tableName, columns, defaultOpen = false }: Sch
                 <div className="mt-4 pt-3 border-t border-white/5">
                   <div className="flex items-center gap-2 mb-2">
                     <Link size={12} className="text-blue-400" />
-                    <h4 className="text-xs font-medium text-white/60">Foreign Key References</h4>
+                    <h4 className="text-xs font-medium text-star-dust/60">Foreign Key References</h4>
                   </div>
                   <div className="space-y-1">
                     {foreignKeys.map((fk) => (
-                      <div key={fk.column_name} className="text-xs text-white/50 flex items-center gap-2">
-                        <span className="font-mono text-cyan-400">{fk.column_name}</span>
-                        <span className="text-white/30">→</span>
+                      <div key={fk.column_name} className="text-xs text-star-dust/50 flex items-center gap-2">
+                        <span className="font-mono text-neurospark">{fk.column_name}</span>
+                        <span className="text-star-dust/30">→</span>
                         <span className="font-mono text-blue-400">{fk.foreign_key_table}.{fk.foreign_key_column}</span>
                       </div>
                     ))}

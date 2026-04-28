@@ -222,7 +222,7 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
                   <h2
                     id="drawer-title"
                     className={cn(
-                      'text-white',
+                      'text-star-dust',
                       DRAWER_TITLE_SIZE,
                       DRAWER_TITLE_WEIGHT
                     )}

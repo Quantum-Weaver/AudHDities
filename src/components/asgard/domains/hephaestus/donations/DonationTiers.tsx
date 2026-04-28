@@ -70,7 +70,7 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
             </div>
             {selectedTier === tier.amount && !isCustom && (
               <div className="w-5 h-5 rounded-full bg-neurospark flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
+                <span className="text-star-dust text-xs">✓</span>
               </div>
             )}
           </button>
@@ -113,7 +113,7 @@ export function DonationTiers({ onSelectAmount, className }: DonationTiersProps)
             </div>
             {isCustom && (
               <div className="w-5 h-5 rounded-full bg-neurospark flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
+                <span className="text-star-dust text-xs">✓</span>
               </div>
             )}
           </div>

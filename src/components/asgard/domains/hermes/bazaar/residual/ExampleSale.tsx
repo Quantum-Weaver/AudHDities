@@ -139,7 +139,7 @@ export function ExampleSale() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left Column — Platform Fee Flow */}
               <div className="space-y-4">
-                <h4 className="text-white font-bold text-sm uppercase tracking-wider">
+                <h4 className="text-star-dust font-bold text-sm uppercase tracking-wider">
                   Platform Fee Flow
                 </h4>
                 <div className="flex justify-between items-center border-b border-[var(--color-star-dust)]/10 pb-2">
@@ -166,7 +166,7 @@ export function ExampleSale() {
 
               {/* Right Column — Creator Earnings Flow */}
               <div className="space-y-4">
-                <h4 className="text-white font-bold text-sm uppercase tracking-wider">
+                <h4 className="text-star-dust font-bold text-sm uppercase tracking-wider">
                   Creator Earnings Flow
                 </h4>
                 <div className="flex justify-between items-center border-b border-[var(--color-star-dust)]/10 pb-2">
@@ -197,7 +197,7 @@ export function ExampleSale() {
             {/* Contributor Distribution */}
             {residualPool > 0 && (
               <div className="mt-6 pt-4 border-t border-[var(--color-star-dust)]/10">
-                <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">
+                <h4 className="text-star-dust font-bold mb-3 text-sm uppercase tracking-wider">
                   Residual Pool Distribution
                 </h4>
                 <div className="grid md:grid-cols-3 gap-3">

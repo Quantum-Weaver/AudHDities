@@ -112,12 +112,12 @@ export const accordionTriggerVariants = cva(
       {
         variant: 'default',
         isExpanded: false,
-        className: 'hover:text-cyan-400',
+        className: 'hover:text-neurospark',
       },
       {
         variant: 'default',
         isExpanded: true,
-        className: 'text-cyan-400',
+        className: 'text-neurospark',
       },
       // bordered trigger
       {
@@ -128,7 +128,7 @@ export const accordionTriggerVariants = cva(
       {
         variant: 'bordered',
         isExpanded: true,
-        className: 'bg-white/5 text-cyan-400',
+        className: 'bg-white/5 text-neurospark',
       },
       // separated trigger
       {
@@ -139,18 +139,18 @@ export const accordionTriggerVariants = cva(
       {
         variant: 'separated',
         isExpanded: true,
-        className: 'bg-white/10 text-cyan-400',
+        className: 'bg-white/10 text-neurospark',
       },
       // minimal trigger
       {
         variant: 'minimal',
         isExpanded: false,
-        className: 'hover:text-cyan-400',
+        className: 'hover:text-neurospark',
       },
       {
         variant: 'minimal',
         isExpanded: true,
-        className: 'text-cyan-400',
+        className: 'text-neurospark',
       },
     ],
     defaultVariants: {

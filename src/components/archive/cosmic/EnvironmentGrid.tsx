@@ -107,10 +107,10 @@ export function EnvironmentGrid({ environments, className }: EnvironmentGridProp
 
               {/* Content */}
               <div className="p-4">
-                <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-lg font-bold text-star-dust mb-1 group-hover:text-neurospark transition-colors">
                   {env.name}
                 </h3>
-                <p className="text-sm text-white/60 line-clamp-2 mb-3">
+                <p className="text-sm text-star-dust/60 line-clamp-2 mb-3">
                   {env.description}
                 </p>
                 
@@ -119,7 +119,7 @@ export function EnvironmentGrid({ environments, className }: EnvironmentGridProp
                   {env.themes.slice(0, 3).map((theme) => (
                     <span
                       key={theme}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-white/40"
+                      className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-star-dust/40"
                     >
                       {theme}
                     </span>

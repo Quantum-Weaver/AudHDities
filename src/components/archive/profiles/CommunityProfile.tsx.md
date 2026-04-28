@@ -49,9 +49,9 @@ export default function CommunityProfile({
   if (!hasAnyContent) {
     return (
       <div className="bg-white/5 border border-white/10 rounded-xl p-12 text-center">
-        <Shield size={32} className="text-white/20 mx-auto mb-4" />
-        <h3 className="text-white font-bold mb-2">Community Profile</h3>
-        <p className="text-white/40 text-sm">
+        <Shield size={32} className="text-star-dust/20 mx-auto mb-4" />
+        <h3 className="text-star-dust font-bold mb-2">Community Profile</h3>
+        <p className="text-star-dust/40 text-sm">
           {isOwnProfile 
             ? "Tell the community about your neurodivergent identity, communication preferences, and support needs."
             : "This user hasn't set up their community profile yet."}
@@ -64,8 +64,8 @@ export default function CommunityProfile({
     <div className="bg-white/5 border border-white/10 rounded-xl p-6 space-y-6">
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="text-xl font-bold text-white mb-1">Community Profile</h3>
-          <p className="text-sm text-white/40">Neurodivergent identity & support needs</p>
+          <h3 className="text-xl font-bold text-star-dust mb-1">Community Profile</h3>
+          <p className="text-sm text-star-dust/40">Neurodivergent identity & support needs</p>
         </div>
         {community.is_mentor && (
           <span className="flex items-center gap-1 px-3 py-1 bg-pink-500/20 border border-pink-500/30 rounded-full text-sm text-pink-400">
@@ -77,7 +77,7 @@ export default function CommunityProfile({
 
       {community.nd_identity && community.nd_identity.length > 0 && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2 flex items-center gap-2">
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2 flex items-center gap-2">
             <Heart size={14} className="text-pink-400" />
             Neurodivergent Identity
           </h4>
@@ -96,11 +96,11 @@ export default function CommunityProfile({
 
       {community.communication_notes && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2 flex items-center gap-2">
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2 flex items-center gap-2">
             <MessageCircle size={14} className="text-cyan-400" />
             Communication Notes
           </h4>
-          <p className="text-white/70 bg-white/5 rounded-lg p-3 border border-white/10">
+          <p className="text-star-dust/70 bg-white/5 rounded-lg p-3 border border-white/10">
             {community.communication_notes}
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function CommunityProfile({
 
       {community.sensory_accommodations && community.sensory_accommodations.length > 0 && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2">Sensory Accommodations</h4>
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2">Sensory Accommodations</h4>
           <div className="flex flex-wrap gap-2">
             {community.sensory_accommodations.map((accommodation, index) => (
               <span 
@@ -124,7 +124,7 @@ export default function CommunityProfile({
 
       {community.support_needs && community.support_needs.length > 0 && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2">Support Needs</h4>
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2">Support Needs</h4>
           <div className="flex flex-wrap gap-2">
             {community.support_needs.map((need, index) => (
               <span 
@@ -140,12 +140,12 @@ export default function CommunityProfile({
 
       {community.joined_house && (
         <div>
-          <h4 className="text-sm font-medium text-white/60 mb-2 flex items-center gap-2">
+          <h4 className="text-sm font-medium text-star-dust/60 mb-2 flex items-center gap-2">
             <Home size={14} className="text-purple-400" />
             House of {getHouseDisplay(community.joined_house)}
           </h4>
           {community.house_joined_at && (
-            <p className="text-xs text-white/40 mb-3">
+            <p className="text-xs text-star-dust/40 mb-3">
               Joined {new Date(community.house_joined_at).toLocaleDateString()}
             </p>
           )}
@@ -158,7 +158,7 @@ export default function CommunityProfile({
               />
             ))}
           </div>
-          <div className="flex justify-between text-xs text-white/40 mt-1">
+          <div className="flex justify-between text-xs text-star-dust/40 mt-1">
             <span>Initiate</span>
             <span>Adept</span>
             <span>Master</span>
@@ -173,20 +173,20 @@ export default function CommunityProfile({
               <Users size={14} />
               <span className="text-xs">Mentees</span>
             </div>
-            <p className="text-xl font-bold text-white">{community.mentee_count || 0}</p>
+            <p className="text-xl font-bold text-star-dust">{community.mentee_count || 0}</p>
           </div>
           <div>
             <div className="flex items-center gap-1 text-amber-400 mb-1">
               <Award size={14} />
               <span className="text-xs">Endorsements</span>
             </div>
-            <p className="text-xl font-bold text-white">{community.peer_endorsements || 0}</p>
+            <p className="text-xl font-bold text-star-dust">{community.peer_endorsements || 0}</p>
           </div>
         </div>
       )}
 
       {community.is_mentor && community.mentor_since && (
-        <p className="text-xs text-white/40">
+        <p className="text-xs text-star-dust/40">
           Mentor since {new Date(community.mentor_since).toLocaleDateString()}
         </p>
       )}
@@ -206,14 +206,14 @@ export default function CommunityProfile({
               <div className="space-y-3 bg-red-500/5 border border-red-500/30 rounded-lg p-4">
                 {community.crisis_contact_name && (
                   <div>
-                    <p className="text-xs text-white/40">Contact Name</p>
-                    <p className="text-white">{community.crisis_contact_name}</p>
+                    <p className="text-xs text-star-dust/40">Contact Name</p>
+                    <p className="text-star-dust">{community.crisis_contact_name}</p>
                   </div>
                 )}
                 
                 {community.crisis_contact_phone && (
                   <div>
-                    <p className="text-xs text-white/40">Phone</p>
+                    <p className="text-xs text-star-dust/40">Phone</p>
                     <a 
                       href={`tel:${community.crisis_contact_phone}`}
                       className="text-cyan-400 hover:underline"
@@ -225,7 +225,7 @@ export default function CommunityProfile({
                 
                 {community.crisis_contact_email && (
                   <div>
-                    <p className="text-xs text-white/40">Email</p>
+                    <p className="text-xs text-star-dust/40">Email</p>
                     <a 
                       href={`mailto:${community.crisis_contact_email}`}
                       className="text-cyan-400 hover:underline"
@@ -237,8 +237,8 @@ export default function CommunityProfile({
                 
                 {community.crisis_instructions && (
                   <div>
-                    <p className="text-xs text-white/40">Instructions</p>
-                    <p className="text-white/70 text-sm">{community.crisis_instructions}</p>
+                    <p className="text-xs text-star-dust/40">Instructions</p>
+                    <p className="text-star-dust/70 text-sm">{community.crisis_instructions}</p>
                   </div>
                 )}
               </div>

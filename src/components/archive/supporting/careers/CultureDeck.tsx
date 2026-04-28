@@ -49,8 +49,8 @@ export function CultureDeck() {
   return (
     <Card className="p-6">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-white mb-2">Our Culture</h2>
-        <p className="text-white/60">The principles that guide everything we do</p>
+        <h2 className="text-2xl font-bold text-star-dust mb-2">Our Culture</h2>
+        <p className="text-star-dust/60">The principles that guide everything we do</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cultureValues.map((value) => (
@@ -60,8 +60,8 @@ export function CultureDeck() {
           >
             <span className="text-2xl">{value.icon}</span>
             <div>
-              <h3 className="font-semibold text-white">{value.title}</h3>
-              <p className="text-sm text-white/60">{value.description}</p>
+              <h3 className="font-semibold text-star-dust">{value.title}</h3>
+              <p className="text-sm text-star-dust/60">{value.description}</p>
             </div>
           </div>
         ))}

@@ -50,7 +50,7 @@ const recipients = [
 export function ResidualDistribution() {
   return (
     <div className="space-y-6">
-      <h4 className="text-white font-bold text-lg mb-4">The Value Circulation System</h4>
+      <h4 className="text-star-dust font-bold text-lg mb-4">The Value Circulation System</h4>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {recipients.map((recipient, idx) => (
           <motion.div
@@ -64,17 +64,17 @@ export function ResidualDistribution() {
             <div className={`w-10 h-10 rounded-lg bg-${recipient.color}-500/20 flex items-center justify-center mb-3`}>
               <recipient.icon className={`text-${recipient.color}-400`} size={18} />
             </div>
-            <h5 className="text-white font-bold text-sm mb-1">{recipient.label}</h5>
-            <p className="text-white/40 text-xs mb-2">{recipient.description}</p>
+            <h5 className="text-star-dust font-bold text-sm mb-1">{recipient.label}</h5>
+            <p className="text-star-dust/40 text-xs mb-2">{recipient.description}</p>
             <p className={`text-${recipient.color}-400 text-xs font-mono`}>{recipient.source}</p>
-            <p className="text-white/30 text-xs mt-1">{recipient.distribution}</p>
+            <p className="text-star-dust/30 text-xs mt-1">{recipient.distribution}</p>
           </motion.div>
         ))}
       </div>
       
       <div className="bg-white/5 rounded-xl p-4 mt-4">
-        <p className="text-white/60 text-sm text-center">
-          ✦ The platform fee is fixed at <span className="text-cyan-400">10%</span> (industry standard is 30-50%)<br />
+        <p className="text-star-dust/60 text-sm text-center">
+          ✦ The platform fee is fixed at <span className="text-neurospark">10%</span> (industry standard is 30-50%)<br />
           ✦ Creators set <span className="text-purple-400">residual percentage</span> (0-50% of fee) per product<br />
           ✦ Creators set <span className="text-green-400">covenant pledge</span> (0-50% of earnings) in their profile
         </p>

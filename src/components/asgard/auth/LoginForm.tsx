@@ -42,8 +42,8 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-white mb-2">Return to the Sanctuary</h1>
-        <p className="text-white/60">Enter your credentials to continue</p>
+        <h1 className="text-2xl font-bold text-star-dust mb-2">Return to the Sanctuary</h1>
+        <p className="text-star-dust/60">Enter your credentials to continue</p>
       </div>
 
       {error && (
@@ -77,14 +77,14 @@ export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps)
       </Form>
 
       <div className="mt-6 text-center space-y-2">
-        <p className="text-white/40 text-sm">
-          <a href="/forgot-password" className="text-cyan-400 hover:underline">
+        <p className="text-star-dust/40 text-sm">
+          <a href="/forgot-password" className="text-neurospark hover:underline">
             Forgot your password?
           </a>
         </p>
-        <p className="text-white/40 text-sm">
+        <p className="text-star-dust/40 text-sm">
           New to the Sanctuary?{" "}
-          <a href="/signup" className="text-cyan-400 hover:underline">
+          <a href="/signup" className="text-neurospark hover:underline">
             Initialize Consciousness
           </a>
         </p>

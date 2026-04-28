@@ -25,10 +25,10 @@ export const TABLE_ROW_BORDER = 'border-b border-white/10';
 export const TABLE_LAST_ROW_NO_BORDER = '[&_tr:last-child]:border-0';
 
 // ─── Text Opacity Tokens — using Tailwind's text-opacity modifier pattern ──
-export const TABLE_TEXT_MUTED = 'text-white/60';
-export const TABLE_TEXT_HOVER = 'text-white/80';
-export const TABLE_TEXT_DIM = 'text-white/30';
-export const TABLE_TEXT_CAPTION = 'text-white/40';
+export const TABLE_TEXT_MUTED = 'text-star-dust/60';
+export const TABLE_TEXT_HOVER = 'text-star-dust/80';
+export const TABLE_TEXT_DIM = 'text-star-dust/30';
+export const TABLE_TEXT_CAPTION = 'text-star-dust/40';
 
 // ─── Background Tokens ─────────────────────────────────────────────────────
 export const TABLE_FOOTER_BG = 'bg-white/5';

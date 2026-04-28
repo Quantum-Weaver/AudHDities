@@ -19,8 +19,8 @@ const statusTextColors: Record<StatusType, string> = {
   mana: 'text-purple-400',
   energy: 'text-yellow-400',
   stamina: 'text-orange-400',
-  focus: 'text-cyan-400',
-  sovereignty: 'text-cyan-400',
+  focus: 'text-neurospark',
+  sovereignty: 'text-neurospark',
 };
 
 export const statusBarUtils: StatusBarUtils = {
@@ -138,5 +138,5 @@ export const statusBarUtils: StatusBarUtils = {
 
 // Export helper for text colors
 export const getStatusTextColor = (type: StatusType): string => {
-  return statusTextColors[type] || 'text-white';
+  return statusTextColors[type] || 'text-star-dust';
 };

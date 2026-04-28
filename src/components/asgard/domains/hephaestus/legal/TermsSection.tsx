@@ -30,13 +30,13 @@ export function TermsSection({ title, icon, children, defaultOpen = false }: Ter
           <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
             {icon}
           </div>
-          <h2 className="text-xl font-bold text-white">{title}</h2>
+          <h2 className="text-xl font-bold text-star-dust">{title}</h2>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/40" size={20} />
+          <ChevronDown className="text-star-dust/40" size={20} />
         </motion.div>
       </button>
       

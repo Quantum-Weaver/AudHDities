@@ -44,11 +44,11 @@ export function FontSizer() {
   return (
     <Card className="p-6">
       <div className="flex items-center gap-2 mb-4">
-        <Type className="text-cyan-400" size={20} />
-        <h2 className="text-xl font-bold text-white">Font Size</h2>
+        <Type className="text-neurospark" size={20} />
+        <h2 className="text-xl font-bold text-star-dust">Font Size</h2>
       </div>
       
-      <p className="text-sm text-white/60 mb-4">
+      <p className="text-sm text-star-dust/60 mb-4">
         Adjust text size for comfortable reading.
       </p>
 
@@ -101,8 +101,8 @@ export function FontSizer() {
 
         {/* Preview */}
         <div className="p-3 rounded-lg bg-white/5 text-center">
-          <p className="text-white/40 text-xs mb-1">Preview</p>
-          <p style={{ fontSize: `${fontSize}px` }} className="text-white">
+          <p className="text-star-dust/40 text-xs mb-1">Preview</p>
+          <p style={{ fontSize: `${fontSize}px` }} className="text-star-dust">
             The quick brown fox jumps over the lazy dog.
           </p>
         </div>

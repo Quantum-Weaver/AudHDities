@@ -21,16 +21,16 @@ export function NextSteps({ steps, actionText = "Get Started", actionLink = "/da
     >
       <div className="flex items-center gap-3 mb-6">
         <PartyPopper className="text-pink-400" size={28} />
-        <h3 className="text-2xl font-bold text-white">Ready to Start?</h3>
+        <h3 className="text-2xl font-bold text-star-dust">Ready to Start?</h3>
       </div>
       
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <h4 className="text-white font-bold mb-3">Your Next Steps:</h4>
+          <h4 className="text-star-dust font-bold mb-3">Your Next Steps:</h4>
           <ul className="space-y-2">
             {steps.map((step, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-white/70">
-                <span className="text-cyan-400 mt-1">✦</span>
+              <li key={idx} className="flex items-start gap-2 text-star-dust/70">
+                <span className="text-neurospark mt-1">✦</span>
                 <span>{step}</span>
               </li>
             ))}
@@ -40,7 +40,7 @@ export function NextSteps({ steps, actionText = "Get Started", actionLink = "/da
         <div className="flex items-center justify-center">
           <Link
             href={actionLink}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all shadow-lg shadow-cyan-500/20"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-star-dust rounded-xl font-bold transition-all shadow-lg shadow-cyan-500/20"
           >
             {actionText}
             <ArrowRight size={18} />

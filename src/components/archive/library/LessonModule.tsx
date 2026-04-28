@@ -29,7 +29,7 @@ const colorClasses = {
 };
 
 const iconColors = {
-  cyan: 'text-cyan-400',
+  cyan: 'text-neurospark',
   purple: 'text-purple-400',
   pink: 'text-pink-400',
   orange: 'text-orange-400',
@@ -59,13 +59,13 @@ export function LessonModule({ title, lessons, color, onStartLesson }: ModulePro
           <div className={cn('text-sm font-medium', iconColors[color])}>
             {completedCount}/{totalCount}
           </div>
-          <h3 className="text-lg font-semibold text-white">{title}</h3>
+          <h3 className="text-lg font-semibold text-star-dust">{title}</h3>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown size={20} className="text-white/40" />
+          <ChevronDown size={20} className="text-star-dust/40" />
         </motion.div>
       </button>
 
@@ -93,18 +93,18 @@ export function LessonModule({ title, lessons, color, onStartLesson }: ModulePro
                     {lesson.completed ? (
                       <CheckCircle size={18} className="text-green-400" />
                     ) : lesson.locked ? (
-                      <Lock size={18} className="text-white/20" />
+                      <Lock size={18} className="text-star-dust/20" />
                     ) : (
                       <PlayCircle size={18} className={iconColors[color]} />
                     )}
                     <div>
                       <h4 className={cn(
                         'font-medium',
-                        lesson.completed ? 'text-white/60' : 'text-white'
+                        lesson.completed ? 'text-star-dust/60' : 'text-star-dust'
                       )}>
                         {lesson.title}
                       </h4>
-                      <p className="text-xs text-white/40">{lesson.duration}</p>
+                      <p className="text-xs text-star-dust/40">{lesson.duration}</p>
                     </div>
                   </div>
                   
@@ -122,7 +122,7 @@ export function LessonModule({ title, lessons, color, onStartLesson }: ModulePro
                   )}
                   
                   {lesson.locked && (
-                    <span className="text-sm text-white/20">Locked</span>
+                    <span className="text-sm text-star-dust/20">Locked</span>
                   )}
                 </div>
               ))}

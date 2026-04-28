@@ -29,12 +29,12 @@ export function FinancialEcosystemHero() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-white/20">
-            <CircleDollarSign size={14} className="text-cyan-400" />
-            <span className="text-cyan-400 text-sm">✦ The Circulation Engine</span>
+            <CircleDollarSign size={14} className="text-neurospark" />
+            <span className="text-neurospark text-sm">✦ The Circulation Engine</span>
             <Heart size={12} className="text-pink-400" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-star-dust mb-6 leading-tight">
             Value That{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Circulates
@@ -43,14 +43,14 @@ export function FinancialEcosystemHero() {
             Never Extracts
           </h1>
           
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-12">
+          <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-12">
             Every dollar that enters the sanctuary is accounted for, transparent, and distributed.
             No hidden fees. No dark patterns. No extraction.
           </p>
           
           <button
             onClick={scrollToContent}
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 rounded-full text-white transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 rounded-full text-star-dust transition-all duration-300"
           >
             <span>Follow the Flow</span>
             <ArrowDown size={18} className="group-hover:translate-y-1 transition-transform" />

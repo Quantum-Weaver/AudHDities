@@ -180,7 +180,7 @@ export function ProfileForm({ userId, onSuccess, onCancel }: ProfileFormProps) {
               onChange={handleAvatarChange}
               className="cursor-pointer"
             />
-            <p className="text-xs text-white/40 mt-2">
+            <p className="text-xs text-star-dust/40 mt-2">
               Recommended: Square image, at least 256x256px
             </p>
           </div>
@@ -200,7 +200,7 @@ export function ProfileForm({ userId, onSuccess, onCancel }: ProfileFormProps) {
                 className="object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-white/40">
+              <div className="w-full h-full flex items-center justify-center text-star-dust/40">
                 No banner image
               </div>
             )}
@@ -211,7 +211,7 @@ export function ProfileForm({ userId, onSuccess, onCancel }: ProfileFormProps) {
             onChange={handleBannerChange}
             className="cursor-pointer"
           />
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-star-dust/40">
             Recommended: 1200x300px
           </p>
         </div>
@@ -275,7 +275,7 @@ export function ProfileForm({ userId, onSuccess, onCancel }: ProfileFormProps) {
             {errors.bio && (
               <p className="text-sm text-red-400">{errors.bio.message}</p>
             )}
-            <p className="text-xs text-white/40 ml-auto">
+            <p className="text-xs text-star-dust/40 ml-auto">
               {watchedValues.bio?.length || 0}/500
             </p>
           </div>

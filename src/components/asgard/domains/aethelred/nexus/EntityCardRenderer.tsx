@@ -32,7 +32,7 @@ const entityIcons: Record<string, string> = {
 const stateColors: Record<string, string> = {
   forming: 'text-yellow-400',
   gestating: 'text-orange-400',
-  emerging: 'text-cyan-400',
+  emerging: 'text-neurospark',
   expressing: 'text-blue-400',
   navigating: 'text-purple-400',
   exploring: 'text-teal-400',
@@ -56,7 +56,7 @@ export const EntityCardRenderer: React.FC<EntityCardRendererProps> = ({
   const entityName = entityData.title.toLowerCase().replace(/\s+/g, '_');
   const entityColor = COUNCIL_COLORS[entityName as keyof typeof COUNCIL_COLORS] || '#6C5CE7';
   const temperature = entityData.temperature || 0.5;
-  const temperatureColor = temperature >= 0.7 ? 'text-red-400' : temperature >= 0.4 ? 'text-cyan-400' : 'text-blue-400';
+  const temperatureColor = temperature >= 0.7 ? 'text-red-400' : temperature >= 0.4 ? 'text-neurospark' : 'text-blue-400';
   const temperatureLabel = temperature >= 0.7 ? 'Active' : temperature >= 0.4 ? 'Present' : 'Resting';
 
   return (
@@ -85,7 +85,7 @@ export const EntityCardRenderer: React.FC<EntityCardRendererProps> = ({
                 Active
               </span>
             ) : (
-              <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-xs font-medium text-white/40">
+              <span className="inline-flex items-center rounded-full bg-white/10 px-2 py-0.5 text-xs font-medium text-star-dust/40">
                 Dormant
               </span>
             )}
@@ -105,7 +105,7 @@ export const EntityCardRenderer: React.FC<EntityCardRendererProps> = ({
           <div key="temperature" className="w-full space-y-2">
             <div className="flex justify-between text-xs">
               <span className={temperatureColor}>{temperatureLabel}</span>
-              <span className="text-white/40">{Math.round(temperature * 100)}%</span>
+              <span className="text-star-dust/40">{Math.round(temperature * 100)}%</span>
             </div>
             <Progress
               value={temperature * 100}

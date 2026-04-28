@@ -80,7 +80,7 @@ export default function BannerUpload({
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
-          <span className="text-white/40">No banner</span>
+          <span className="text-star-dust/40">No banner</span>
         </div>
       )}
 
@@ -91,9 +91,9 @@ export default function BannerUpload({
         className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity group-hover:opacity-100 disabled:opacity-0"
       >
         {uploading ? (
-          <Loader2 className="h-6 w-6 animate-spin text-white" />
+          <Loader2 className="h-6 w-6 animate-spin text-star-dust" />
         ) : (
-          <Camera className="h-6 w-6 text-white" />
+          <Camera className="h-6 w-6 text-star-dust" />
         )}
       </button>
 

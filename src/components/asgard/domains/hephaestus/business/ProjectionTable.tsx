@@ -1,4 +1,4 @@
-// src/components/business/ProjectionTable.tsx
+// src/components/hephaestus/business/ProjectionTable.tsx
 'use client';
 
 import { useState } from 'react';
@@ -56,15 +56,15 @@ export function ProjectionTable() {
             className="w-full flex justify-between items-center p-6 bg-white/5 hover:bg-white/10 transition-colors"
           >
             <div className="text-left">
-              <h3 className="text-xl font-bold text-white">{projection.year}</h3>
-              <p className="text-sm text-cyan-400">{projection.phase}</p>
-              <p className="text-xs text-white/40 mt-1">Platform fee fixed at 10% across all phases</p>
+              <h3 className="text-xl font-bold text-star-dust">{projection.year}</h3>
+              <p className="text-sm text-neurospark">{projection.phase}</p>
+              <p className="text-xs text-star-dust/40 mt-1">Platform fee fixed at 10% across all phases</p>
             </div>
             <motion.div
               animate={{ rotate: expandedYear === projection.year ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <ChevronDown className="text-white/40" size={20} />
+              <ChevronDown className="text-star-dust/40" size={20} />
             </motion.div>
           </button>
           
@@ -82,14 +82,14 @@ export function ProjectionTable() {
                     <div key={metric.label} className={`bg-${metric.color}-500/5 border border-${metric.color}-500/20 rounded-lg p-4 text-center`}>
                       <metric.icon className={`text-${metric.color}-400 mx-auto mb-2`} size={20} />
                       <div className={`text-2xl font-bold text-${metric.color}-400`}>{metric.value}</div>
-                      <div className="text-white/60 text-sm">{metric.label}</div>
-                      <div className="text-white/30 text-xs mt-1">{metric.description}</div>
+                      <div className="text-star-dust/60 text-sm">{metric.label}</div>
+                      <div className="text-star-dust/30 text-xs mt-1">{metric.description}</div>
                     </div>
                   ))}
                 </div>
                 <div className="px-6 pb-6">
                   <div className="bg-white/5 rounded-lg p-3 text-center">
-                    <p className="text-xs text-white/40">
+                    <p className="text-xs text-star-dust/40">
                       ✦ All numbers represent value distributed, not extracted<br />
                       ✦ Platform fee: 10% (vs industry 30-50%)<br />
                       ✦ 90% of sale goes to creator and community

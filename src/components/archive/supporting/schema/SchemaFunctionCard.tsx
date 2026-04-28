@@ -67,12 +67,12 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="text-lg font-bold text-white font-mono">{func.function_name}</h3>
+              <h3 className="text-lg font-bold text-star-dust font-mono">{func.function_name}</h3>
               <span className={`text-xs px-2 py-0.5 rounded-full ${badge.color}`}>
                 {badge.text}
               </span>
             </div>
-            <p className="text-xs text-white/40 mt-1">
+            <p className="text-xs text-star-dust/40 mt-1">
               {func.function_args || 'No parameters'}
             </p>
           </div>
@@ -81,7 +81,7 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/40" size={18} />
+          <ChevronDown className="text-star-dust/40" size={18} />
         </motion.div>
       </button>
 
@@ -101,14 +101,14 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Terminal size={14} className="text-yellow-400" />
-                    <h4 className="text-sm font-medium text-white/60">Parameters</h4>
+                    <h4 className="text-sm font-medium text-star-dust/60">Parameters</h4>
                   </div>
                   <div className="space-y-1">
                     {parsedArgs.map((arg, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-sm">
                         <span className="font-mono text-yellow-400">{arg.name}</span>
-                        <span className="text-white/30">:</span>
-                        <span className="font-mono text-white/60">{arg.type}</span>
+                        <span className="text-star-dust/30">:</span>
+                        <span className="font-mono text-star-dust/60">{arg.type}</span>
                       </div>
                     ))}
                   </div>
@@ -118,11 +118,11 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
               {/* Return Type Section */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <ArrowRight size={14} className="text-cyan-400" />
-                  <h4 className="text-sm font-medium text-white/60">Returns</h4>
+                  <ArrowRight size={14} className="text-neurospark" />
+                  <h4 className="text-sm font-medium text-star-dust/60">Returns</h4>
                 </div>
                 <div className="bg-black/30 rounded-lg p-3">
-                  <code className="text-sm text-cyan-400 font-mono break-all">
+                  <code className="text-sm text-neurospark font-mono break-all">
                     {func.return_type}
                   </code>
                 </div>
@@ -132,10 +132,10 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Code size={14} className="text-purple-400" />
-                  <h4 className="text-sm font-medium text-white/60">Usage</h4>
+                  <h4 className="text-sm font-medium text-star-dust/60">Usage</h4>
                 </div>
                 <div className="bg-black/50 rounded-lg p-3 overflow-x-auto">
-                  <pre className="text-xs text-white/70 font-mono">
+                  <pre className="text-xs text-star-dust/70 font-mono">
                     {`SELECT * FROM ${func.function_name}(${hasArgs ? parsedArgs.map(a => a.name).join(', ') : ''});`}
                   </pre>
                 </div>

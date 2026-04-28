@@ -70,7 +70,7 @@ export function ConversationFlow({ conversations, className }: ConversationFlowP
 
   return (
     <Card className={cn("p-4", className)}>
-      <h3 className="text-sm font-medium text-white/60 mb-4 flex items-center gap-2">
+      <h3 className="text-sm font-medium text-star-dust/60 mb-4 flex items-center gap-2">
         <span className="w-2 h-2 bg-neurospark rounded-full animate-pulse" />
         Active Threads ({activeConversations.length})
       </h3>
@@ -90,7 +90,7 @@ export function ConversationFlow({ conversations, className }: ConversationFlowP
               )}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-white truncate">
+                <span className="text-sm font-medium text-star-dust truncate">
                   {conv.participants.map(p => p.replace('_', ' ')).join(' ↔ ')}
                 </span>
                 {conv.status === 'active' && (
@@ -98,7 +98,7 @@ export function ConversationFlow({ conversations, className }: ConversationFlowP
                 )}
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-white/40">{conv.message_count} messages</span>
+                <span className="text-star-dust/40">{conv.message_count} messages</span>
                 <Badge variant="outline" size="sm" className={cn("text-[10px]", statusColors[conv.status])}>
                   {conv.status}
                 </Badge>
@@ -120,11 +120,11 @@ export function ConversationFlow({ conversations, className }: ConversationFlowP
                           {agentAvatars[participant] || '🤖'}
                         </AvatarFallback>
                       </Avatar>
-                      <span className="text-xs text-white capitalize">
+                      <span className="text-xs text-star-dust capitalize">
                         {participant.replace('_', ' ')}
                       </span>
                       {idx < selectedConversation.participants.length - 1 && (
-                        <span className="text-white/40 mx-1">↔</span>
+                        <span className="text-star-dust/40 mx-1">↔</span>
                       )}
                     </div>
                   ))}
@@ -153,20 +153,20 @@ export function ConversationFlow({ conversations, className }: ConversationFlowP
                     )}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-medium text-cyan-400 capitalize">
+                      <span className="text-xs font-medium text-neurospark capitalize">
                         {message.from_agent.replace('_', ' ')}
                       </span>
-                      <span className="text-xs text-white/30">
+                      <span className="text-xs text-star-dust/30">
                         {new Date(message.created_at).toLocaleTimeString()}
                       </span>
                     </div>
-                    <p className="text-sm text-white/80">{message.message}</p>
+                    <p className="text-sm text-star-dust/80">{message.message}</p>
                   </motion.div>
                 ))}
               </div>
             </div>
           ) : (
-            <div className="text-center py-8 text-white/40">
+            <div className="text-center py-8 text-star-dust/40">
               Select a conversation to view
             </div>
           )}

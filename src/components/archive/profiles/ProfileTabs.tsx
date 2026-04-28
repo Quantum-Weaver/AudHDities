@@ -24,18 +24,18 @@ export default function ProfileTabs({
       <TabsList className="w-full justify-start border-b border-white/10 bg-transparent p-0">
         <TabsTrigger
           value="products"
-          className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-cyan-400"
+          className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-neurospark"
         >
           <Package className="mr-2 h-4 w-4" />
           Products
           {productCount > 0 && (
-            <span className="ml-1 text-xs text-white/40">({productCount})</span>
+            <span className="ml-1 text-xs text-star-dust/40">({productCount})</span>
           )}
         </TabsTrigger>
 
         <TabsTrigger
           value="about"
-          className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-cyan-400"
+          className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-neurospark"
         >
           <Info className="mr-2 h-4 w-4" />
           About
@@ -45,20 +45,20 @@ export default function ProfileTabs({
           <>
             <TabsTrigger
               value="followers"
-              className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-cyan-400"
+              className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-neurospark"
             >
               <Users className="mr-2 h-4 w-4" />
               Followers
-              <span className="ml-1 text-xs text-white/40">({followerCount})</span>
+              <span className="ml-1 text-xs text-star-dust/40">({followerCount})</span>
             </TabsTrigger>
 
             <TabsTrigger
               value="following"
-              className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-cyan-400"
+              className="data-[state=active]:border-b-2 data-[state=active]:border-cyan-400 data-[state=active]:text-neurospark"
             >
               <Heart className="mr-2 h-4 w-4" />
               Following
-              <span className="ml-1 text-xs text-white/40">({followingCount})</span>
+              <span className="ml-1 text-xs text-star-dust/40">({followingCount})</span>
             </TabsTrigger>
           </>
         )}
@@ -66,7 +66,7 @@ export default function ProfileTabs({
 
       <TabsContent value="products" className="mt-6">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <p className="col-span-full text-center text-white/40">
+          <p className="col-span-full text-center text-star-dust/40">
             {productCount === 0
               ? 'No products yet.'
               : `Viewing ${productCount} products`}
@@ -76,8 +76,8 @@ export default function ProfileTabs({
 
       <TabsContent value="about" className="mt-6">
         <div className="space-y-4 rounded-xl border border-white/10 bg-white/5 p-6">
-          <h3 className="text-lg font-semibold text-white">About</h3>
-          <p className="text-white/60">
+          <h3 className="text-lg font-semibold text-star-dust">About</h3>
+          <p className="text-star-dust/60">
             This is where the user's bio and extended profile information will appear.
             Coming soon.
           </p>
@@ -87,13 +87,13 @@ export default function ProfileTabs({
       {isOwnProfile && (
         <>
           <TabsContent value="followers" className="mt-6">
-            <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-white/40">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-star-dust/40">
               Follower list coming soon.
             </div>
           </TabsContent>
 
           <TabsContent value="following" className="mt-6">
-            <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-white/40">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center text-star-dust/40">
               Following list coming soon.
             </div>
           </TabsContent>

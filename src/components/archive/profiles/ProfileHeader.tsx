@@ -78,7 +78,7 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
         <div className="relative inline-block">
           <Avatar className="h-32 w-32 border-4 border-black">
             <AvatarImage src={profile.avatar_url || undefined} />
-            <AvatarFallback className="bg-cyan-600 text-2xl text-white">
+            <AvatarFallback className="bg-cyan-600 text-2xl text-star-dust">
               {initials}
             </AvatarFallback>
           </Avatar>
@@ -90,9 +90,9 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
                 className="absolute bottom-0 right-0 cursor-pointer rounded-full bg-black/50 p-2 hover:bg-black/70"
               >
                 {uploading ? (
-                  <Loader2 className="h-4 w-4 animate-spin text-white" />
+                  <Loader2 className="h-4 w-4 animate-spin text-star-dust" />
                 ) : (
-                  <Camera className="h-4 w-4 text-white" />
+                  <Camera className="h-4 w-4 text-star-dust" />
                 )}
               </label>
               <input
@@ -112,8 +112,8 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
       <div className="mt-4 px-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">{displayName}</h1>
-            <p className="text-white/40">@{profile.username}</p>
+            <h1 className="text-2xl font-bold text-star-dust">{displayName}</h1>
+            <p className="text-star-dust/40">@{profile.username}</p>
             <div className="mt-2 flex flex-wrap gap-2">
               <RoleBadge
                 isCreator={profile.is_creator}
@@ -132,7 +132,7 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
                 variant="outline"
                 size="sm"
                 onClick={() => router.push('/profile/edit')}
-                className="border-white/20 bg-white/5 text-white hover:bg-white/10"
+                className="border-white/20 bg-white/5 text-star-dust hover:bg-white/10"
               >
                 <Edit2 className="mr-2 h-4 w-4" />
                 Edit Profile
@@ -142,11 +142,11 @@ export default function ProfileHeader({ profile, isOwnProfile, onAvatarUpdate }:
         </div>
 
         {profile.bio && (
-          <p className="mt-4 text-white/80">{profile.bio}</p>
+          <p className="mt-4 text-star-dust/80">{profile.bio}</p>
         )}
 
         {profile.location && (
-          <p className="mt-2 text-sm text-white/40">📍 {profile.location}</p>
+          <p className="mt-2 text-sm text-star-dust/40">📍 {profile.location}</p>
         )}
       </div>
     </div>

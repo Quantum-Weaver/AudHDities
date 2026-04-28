@@ -39,7 +39,7 @@ export const paginationButtonVariants = cva(BUTTON_BASE.join(' '), {
 export const paginationActiveButtonVariants = cva(BUTTON_BASE.join(' '), {
   variants: {
     variant: {
-      default: `bg-[${neurospark}] text-white hover:bg-[${neurospark}]/90`,
+      default: `bg-[${neurospark}] text-star-dust hover:bg-[${neurospark}]/90`,
       outline: `border border-[${neurospark}] bg-[${neurospark}]/10 text-[${neurospark}] hover:bg-[${neurospark}]/20`,
       minimal: `text-[${neurospark}] bg-[${starDust}]/5`,
     },

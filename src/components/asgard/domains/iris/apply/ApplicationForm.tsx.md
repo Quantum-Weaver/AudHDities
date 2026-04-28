@@ -126,14 +126,14 @@ function FormSection({ title, description, children, isActive = true, isComplete
         {stepNumber !== undefined && (
           <div className={cn(
             "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium shrink-0",
-            isCompleted ? "bg-green-500 text-white" : "bg-quantum-purple/20 text-quantum-purple"
+            isCompleted ? "bg-green-500 text-star-dust" : "bg-quantum-purple/20 text-quantum-purple"
           )}>
             {isCompleted ? "✓" : stepNumber}
           </div>
         )}
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white">{title}</h3>
-          {description && <p className="text-sm text-white/40 mt-1">{description}</p>}
+          <h3 className="text-lg font-semibold text-star-dust">{title}</h3>
+          {description && <p className="text-sm text-star-dust/40 mt-1">{description}</p>}
         </div>
       </div>
       <div className="space-y-4">
@@ -352,8 +352,8 @@ export function ApplicationForm({
     return (
       <Card className="p-8 text-center">
         <div className="text-6xl mb-4">⏳</div>
-        <h2 className="text-xl font-bold text-white mb-2">Application Already Submitted</h2>
-        <p className="text-white/60 mb-6">
+        <h2 className="text-xl font-bold text-star-dust mb-2">Application Already Submitted</h2>
+        <p className="text-star-dust/60 mb-6">
           You already have a pending application. Our council will review it shortly.
         </p>
         <Button onClick={onCancel}>Return to Dashboard</Button>
@@ -381,10 +381,10 @@ export function ApplicationForm({
     <div className={cn("max-w-3xl mx-auto", className)}>
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">
+        <h1 className="text-3xl font-bold text-star-dust mb-2">
           {applicationType === "creator" ? "Creator Application" : "Vendor Application"}
         </h1>
-        <p className="text-white/60">
+        <p className="text-star-dust/60">
           Join the Sanctuary as a sovereign {applicationType}
         </p>
       </div>
@@ -395,15 +395,15 @@ export function ApplicationForm({
           <div key={step} className="flex-1 text-center">
             <div className={cn(
               "w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-medium transition-all",
-              currentSection === step && "bg-quantum-purple text-white",
-              currentSection > step && "bg-green-500 text-white",
-              currentSection < step && "bg-white/10 text-white/40"
+              currentSection === step && "bg-quantum-purple text-star-dust",
+              currentSection > step && "bg-green-500 text-star-dust",
+              currentSection < step && "bg-white/10 text-star-dust/40"
             )}>
               {currentSection > step ? "✓" : step}
             </div>
             <span className={cn(
               "text-xs",
-              currentSection >= step ? "text-white/80" : "text-white/40"
+              currentSection >= step ? "text-star-dust/80" : "text-star-dust/40"
             )}>
               {step === 1 && "Basic Info"}
               {step === 2 && "Your Story"}
@@ -515,7 +515,7 @@ export function ApplicationForm({
             placeholder="Tell us about what you do..."
             rows={4}
           />
-          <p className="text-xs text-white/40 mt-1">
+          <p className="text-xs text-star-dust/40 mt-1">
             {formData.description.length}/5000 characters
           </p>
           {errors.description && touched.description && (
@@ -540,7 +540,7 @@ export function ApplicationForm({
             placeholder="Describe your relevant experience..."
             rows={3}
           />
-          <p className="text-xs text-white/40 mt-1">
+          <p className="text-xs text-star-dust/40 mt-1">
             {formData.experience.length}/2000 characters
           </p>
           {errors.experience && touched.experience && (
@@ -565,7 +565,7 @@ export function ApplicationForm({
             placeholder="Why do you want to join the Sanctuary?"
             rows={3}
           />
-          <p className="text-xs text-white/40 mt-1">
+          <p className="text-xs text-star-dust/40 mt-1">
             {formData.motivation.length}/2000 characters
           </p>
           {errors.motivation && touched.motivation && (
@@ -597,7 +597,7 @@ export function ApplicationForm({
               onChange={(e) => updateField("portfolio_url", e.target.value)}
               placeholder="https://..."
             />
-            <p className="text-xs text-white/40 mt-1">
+            <p className="text-xs text-star-dust/40 mt-1">
               Link to your portfolio, GitHub, or examples of your work
             </p>
           </div>
@@ -629,28 +629,28 @@ export function ApplicationForm({
         stepNumber={4}
       >
         <div className="space-y-4 bg-white/5 rounded-lg p-4">
-          <h4 className="font-medium text-white">Application Summary</h4>
+          <h4 className="font-medium text-star-dust">Application Summary</h4>
           
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-white/60">Business Name:</span>
-              <span className="text-white">{formData.business_name || "—"}</span>
+              <span className="text-star-dust/60">Business Name:</span>
+              <span className="text-star-dust">{formData.business_name || "—"}</span>
             </div>
             {applicationType === "vendor" && formData.business_type && (
               <div className="flex justify-between">
-                <span className="text-white/60">Business Type:</span>
-                <span className="text-white capitalize">{formData.business_type.replace("_", " ")}</span>
+                <span className="text-star-dust/60">Business Type:</span>
+                <span className="text-star-dust capitalize">{formData.business_type.replace("_", " ")}</span>
               </div>
             )}
             {formData.website_url && (
               <div className="flex justify-between">
-                <span className="text-white/60">Website:</span>
-                <span className="text-white truncate max-w-[200px]">{formData.website_url}</span>
+                <span className="text-star-dust/60">Website:</span>
+                <span className="text-star-dust truncate max-w-[200px]">{formData.website_url}</span>
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-white/60">Description:</span>
-              <span className="text-white max-w-[200px] truncate">{formData.description}</span>
+              <span className="text-star-dust/60">Description:</span>
+              <span className="text-star-dust max-w-[200px] truncate">{formData.description}</span>
             </div>
           </div>
         </div>

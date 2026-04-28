@@ -24,7 +24,7 @@ const tierMap: Record<string, TierInfo> = {
     description: 'Subsidized access for neurodivergent members'
   },
   ally: {
-    color: 'text-cyan-400',
+    color: 'text-neurospark',
     bg: 'bg-cyan-500/10',
     border: 'border-cyan-500/20',
     icon: Shield,
@@ -80,20 +80,20 @@ export function ProfileIdentityCard({
           </div>
           <div>
             <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="text-xl font-bold text-white">{tier.label}</h3>
+              <h3 className="text-xl font-bold text-star-dust">{tier.label}</h3>
               <span className={`px-2 py-0.5 rounded-full text-xs ${tier.bg} ${tier.color}`}>
                 {userTier}
               </span>
             </div>
-            <p className="text-white/60 text-sm">{tier.description}</p>
-            <div className="flex items-center gap-3 mt-2 text-xs text-white/40">
+            <p className="text-star-dust/60 text-sm">{tier.description}</p>
+            <div className="flex items-center gap-3 mt-2 text-xs text-star-dust/40">
               <span className="flex items-center gap-1">
                 <Calendar size={12} />
                 Member since {memberSince}
               </span>
               {primaryHouse && (
                 <span className="flex items-center gap-1">
-                  <Star size={12} className="text-cyan-400" />
+                  <Star size={12} className="text-neurospark" />
                   House of {primaryHouse.replace(/_/g, ' ')}
                 </span>
               )}
@@ -104,22 +104,22 @@ export function ProfileIdentityCard({
         <div className="flex items-center gap-6">
           {acidTestScore !== null && (
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">{acidTestScore}</div>
-              <div className="text-xs text-white/40">Acid Score</div>
+              <div className="text-2xl font-bold text-star-dust">{acidTestScore}</div>
+              <div className="text-xs text-star-dust/40">Acid Score</div>
             </div>
           )}
           
           {acidTestPersona && (
             <div className="text-center">
-              <div className="text-sm text-cyan-400 capitalize">{acidTestPersona.replace(/_/g, ' ')}</div>
-              <div className="text-xs text-white/40">Persona</div>
+              <div className="text-sm text-neurospark capitalize">{acidTestPersona.replace(/_/g, ' ')}</div>
+              <div className="text-xs text-star-dust/40">Persona</div>
             </div>
           )}
           
           {isOwnProfile && userTier !== 'council' && (
             <Link
               href="/questionaire"
-              className="px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-400 rounded-lg text-sm transition-all duration-300 hover:scale-105"
+              className="px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-neurospark rounded-lg text-sm transition-all duration-300 hover:scale-105"
             >
               Retake Acid Test
             </Link>

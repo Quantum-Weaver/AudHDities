@@ -43,7 +43,7 @@ export default function FileStandardsChecklist({ standards, fileType }: FileStan
           <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
             <Shield size={14} className="text-purple-400" />
           </div>
-          <h3 className="text-lg font-bold text-white">Codex Standards</h3>
+          <h3 className="text-lg font-bold text-star-dust">Codex Standards</h3>
         </div>
         <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
           passCount === totalCount 
@@ -68,7 +68,7 @@ export default function FileStandardsChecklist({ standards, fileType }: FileStan
           >
             {getIcon(standard.passes, standard.severity)}
             <div className="flex-1">
-              <span className={standard.passes ? 'text-white/60 text-sm' : 'text-white/80 text-sm'}>
+              <span className={standard.passes ? 'text-star-dust/60 text-sm' : 'text-star-dust/80 text-sm'}>
                 {standard.name}
               </span>
               {standard.message && !standard.passes && (

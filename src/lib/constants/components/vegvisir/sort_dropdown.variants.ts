@@ -46,7 +46,7 @@ export const sortDropdownOptionVariants = cva(
   {
     variants: {
       active: {
-        true: 'text-cyan-400',
+        true: 'text-neurospark',
         false: '',
       },
     },

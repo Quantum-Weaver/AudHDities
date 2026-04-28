@@ -7,13 +7,13 @@ import type { ParsedSection, ParsedTerms } from '@/lib/markdown/parseTerms';
 import ReactMarkdown from 'react-markdown';
 
 const iconMap: Record<string, React.ReactNode> = {
-  'Our Commitment': <Shield className="text-cyan-400" size={20} />,
+  'Our Commitment': <Shield className="text-neurospark" size={20} />,
   'User Accounts': <Users className="text-purple-400" size={20} />,
   'Neurodivergent Accessibility': <Heart className="text-pink-400" size={20} />,
   'Economic Terms': <DollarSign className="text-green-400" size={20} />,
   'Creator and Vendor Terms': <Palette className="text-purple-400" size={20} />,
   'Community Guidelines': <Heart className="text-pink-400" size={20} />,
-  'Privacy': <Lock className="text-cyan-400" size={20} />,
+  'Privacy': <Lock className="text-neurospark" size={20} />,
   'Intellectual Property': <Scale className="text-purple-400" size={20} />,
   'Termination, Disclaimers, and Liability': <AlertCircle className="text-yellow-400" size={20} />,
   'Contact': <Mail className="text-green-400" size={20} />,
@@ -23,12 +23,12 @@ function renderMarkdown(content: string) {
   return (
     <ReactMarkdown
       components={{
-        p: ({ children }) => <p className="text-white/70 mb-4">{children}</p>,
-        ul: ({ children }) => <ul className="space-y-2 text-white/70 mb-4 list-disc list-inside">{children}</ul>,
-        li: ({ children }) => <li className="text-white/70">{children}</li>,
-        strong: ({ children }) => <strong className="text-white">{children}</strong>,
+        p: ({ children }) => <p className="text-star-dust/70 mb-4">{children}</p>,
+        ul: ({ children }) => <ul className="space-y-2 text-star-dust/70 mb-4 list-disc list-inside">{children}</ul>,
+        li: ({ children }) => <li className="text-star-dust/70">{children}</li>,
+        strong: ({ children }) => <strong className="text-star-dust">{children}</strong>,
         a: ({ href, children }) => (
-          <a href={href} className="text-cyan-400 hover:underline">
+          <a href={href} className="text-neurospark hover:underline">
             {children}
           </a>
         ),
@@ -50,7 +50,7 @@ export function ParsedTermsContent({ terms }: ParsedTermsContentProps) {
         <TermsSection
           key={section.title}
           title={section.title}
-          icon={iconMap[section.title] || <Scale className="text-white/40" size={20} />}
+          icon={iconMap[section.title] || <Scale className="text-star-dust/40" size={20} />}
         >
           {section.content && renderMarkdown(section.content)}
           
@@ -58,7 +58,7 @@ export function ParsedTermsContent({ terms }: ParsedTermsContentProps) {
             <div className="mt-4 space-y-4">
               {section.subsections.map((subsection) => (
                 <div key={subsection.title}>
-                  <h3 className="text-white font-bold mb-2">{subsection.title}</h3>
+                  <h3 className="text-star-dust font-bold mb-2">{subsection.title}</h3>
                   {subsection.content && renderMarkdown(subsection.content)}
                 </div>
               ))}

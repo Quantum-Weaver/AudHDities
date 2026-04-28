@@ -239,9 +239,9 @@ const colorConfig = {
   cyan: {
     bg: 'bg-cyan-500/10',
     border: 'border-cyan-500/20',
-    text: 'text-cyan-400',
-    icon: 'text-cyan-400',
-    badge: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+    text: 'text-neurospark',
+    icon: 'text-neurospark',
+    badge: 'bg-cyan-500/20 text-neurospark border-cyan-500/30',
   },
   purple: {
     bg: 'bg-purple-500/10',
@@ -289,7 +289,7 @@ export default function DocsHomePage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <Sparkles className="text-cyan-400" size={36} />
+                <Sparkles className="text-neurospark" size={36} />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-star-dust mb-3">
