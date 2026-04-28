@@ -11,6 +11,9 @@ export const footerVariants = cva(
     'w-full',
     'mt-auto',
     'border-t',
+    'justify-center',
+    'items-cnter',
+    'flex-1',
   ].join(' '),
   {
     variants: {

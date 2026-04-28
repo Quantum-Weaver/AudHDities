@@ -50,7 +50,7 @@ export const Footer = ({
 }: FooterProps) => {
   return (
     <footer className={cn(footerVariants({ variant, size }), className)}>
-      <Container size="xl" centered>
+      <div className="justify-center">
         <div className="text-center">
           {/* Copyright */}
           <div
@@ -81,7 +81,7 @@ export const Footer = ({
             ))}
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 };

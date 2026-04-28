@@ -201,7 +201,7 @@ export function Navigation({ className }: NavigationProps) {
           </Link>
 
           {/* Primary Links + Auth — same row, auth auto-spaced right */}
-          <div className="flex-1 flex items-center justify-center gap-2">
+          <div className="flex flex-cols items-center justify-center gap-2">
             {primaryItems.map((item, index) => {
               const state = getNavItemState(item.href, pathname);
               const handlers = getHandlers(index);
@@ -225,7 +225,7 @@ export function Navigation({ className }: NavigationProps) {
       {/* ════════════════════════════════════════════════════════════════ */}
       {/* MOBILE — FLOATING BUTTON + POPUP (legacy pattern)                */}
       {/* ════════════════════════════════════════════════════════════════ */}
-      <div className="fixed bottom-4 left-4 z-50 md:hidden">
+      <div className="fixed bottom-7 left-7 z-150 md:hidden">
         {/* Popup Menu — absolutely positioned relative to fixed container */}
         {mobileMenuOpen && (
           <div className="absolute bottom-16 left-0 bg-deep-space/95 backdrop-blur-xl rounded-2xl border border-white/10 p-4 shadow-2xl w-64 mb-2">

@@ -21,7 +21,7 @@ export default function AuthenticatedGreeting() {
   // ─── Loading State ───────────────────────────────────────────────────
   if (loading) {
     return (
-      <div className="w-full max-w-2xl mx-auto px-6 pt-12">
+      <div className="w-full max-w-3xl mx-auto px-6 pt-12">
         <div className="flex justify-center items-center gap-4">
           <Skeleton variant="circle" className="h-14 w-14" />
           <div className="space-y-2 flex-1">
@@ -47,7 +47,7 @@ export default function AuthenticatedGreeting() {
   
   // ─── Authenticated ───────────────────────────────────────────────────
   return (
-    <div className="w-full items-center max-w-2xl flex-cols mx-auto px-6 pt-12 pb-4">
+    <div className="w-full items-center max-w-3xl flex-1 mx-auto px-6 pt-12 pb-4">
       <Card
         variant="sanctuary"
         data={greetingCardData}

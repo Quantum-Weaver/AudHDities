@@ -14,6 +14,7 @@ import { ContinuityBeamProvider } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/seidr/immersive/StatusBar';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
 import { cn } from '@/lib/utils';
+import Footer from './Footer';
 
 export interface LayoutChromeProps {
   children: ReactNode;
@@ -33,21 +34,21 @@ export function LayoutChrome({
   return (
     <EnvironmentProvider debug={process.env.NODE_ENV === 'development'}>
       <ContinuityBeamProvider>
-        <VStack space="none" className="min-h-screen w-full overflow-x-hidden">
+
           {/* Sticky top chrome */}
-          <div className="sticky top-0 z-40 w-full overflow-x-hidden">
-            <VStack space="none">
-              {showHeader && <Header />}
-              {showStatusBar && <StatusBar />}
+          <div className="sticky top-0 z-40 w-full flex-cols justify-center gap-12 overflow-x-hidden">
+              {showHeader && <Header />}              
               {showContinuityBeam && <ContinuityBeam />}
-            </VStack>
+              {showStatusBar && <StatusBar />}
           </div>
 
           {/* Content */}
-          <main className={cn('flex-1 w-full', className)}>
+          <main className={cn('w-full mx-auto flex flex-col items-center', className)}>
             {children}
           </main>
-        </VStack>
+          
+          <Footer/>
+
       </ContinuityBeamProvider>
     </EnvironmentProvider>
   );

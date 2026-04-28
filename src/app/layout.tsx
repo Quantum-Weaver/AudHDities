@@ -13,6 +13,7 @@ import '@/styles/custom_overrides.css';
 import { Navigation } from '@/components/bifrost/Navigation';
 import { LayoutChrome } from '@/components/bifrost/LayoutChrome';
 import AuthButton from '@/components/asgard/auth/AuthButton';
+import Footer from '@/components/bifrost/Footer';
 
 export const metadata = {
   title: 'AudHDities — Sovereign Sanctuary',
@@ -23,12 +24,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="overflow-x-hidden">
+        
         <LayoutChrome>
-          <div className='justify-center flex'>
-            <AuthButton/> <Navigation/>
+          <div className='items-center justify-center flex-cols flex'>
+            <AuthButton/>
+            <Navigation/>
           </div>
-          {children}
+          {children}                  
         </LayoutChrome>
+        
       </body>
     </html>
   );

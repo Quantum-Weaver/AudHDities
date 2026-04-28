@@ -60,14 +60,14 @@ export default function Header({
     <header className={cn(headerVariants({ variant }), className)}>
       <div className={headerContentVariants({ variant })}>
         <Link
-          href="/sanctum"
+          href="/vessel"
           className="group"
           onMouseEnter={hoverHandlers.handleMouseEnter}
           onMouseLeave={hoverHandlers.handleMouseLeave}
           onFocus={hoverHandlers.handleFocus}
           onBlur={hoverHandlers.handleBlur}
         >
-          <div className="flex flex-col space-y-0.5 py-3">
+          <div className="flex justify-center items-center flex-col space-y-0.5 py-3">
             <span
               className={cn(
                 headerTitleVariants({ variant, isHovered }),

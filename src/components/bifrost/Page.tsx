@@ -8,6 +8,7 @@
 
 import { cn } from "@/lib/utils";
 import PanoramaViewer from "@/components/seidr/immersive/PanoramaViewer";
+import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
 import type { EnvironmentKey } from "@/lib/constants/systems";
 
 export interface PageProps {
@@ -30,16 +31,20 @@ export interface PageProps {
 }
 
 export function Page({
-  environment = "home",
-  variant = 1,
+  environment: defaultEnvironment = "home",
+  variant: defaultVariant = 1,
   showForeground = true,
   animated = true,
   className,
   children,
 }: PageProps) {
+  const { sessionState, environmentVariant } = useContinuityBeam();
+  
+  const environment = (sessionState.environment as EnvironmentKey) || defaultEnvironment;
+  const variant = environmentVariant || defaultVariant;
+
   return (
     <div className={cn("relative", className)}>
-      {/* Immersive Background - fixed, behind content */}
       <PanoramaViewer
         environment={environment}
         variant={variant}
@@ -47,11 +52,13 @@ export function Page({
         animated={animated}
         className="fixed inset-0 -z-10"
       />
-      
-      {/* Page Content - scrolls over background */}
-      <div className="flex-1 text-center justify-center">
+      <div className="relative z-10">
         {children}
       </div>
     </div>
   );
 }
+
+
+
+

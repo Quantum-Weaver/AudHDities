@@ -244,6 +244,7 @@ export type BeamColorKey = keyof typeof BEAM_COLORS;
 // ============================================================================
 
 export interface BeamConfig {
+  environment?: string;
   /** The environment variant this config is for */
   variant: string;  
   /** Gradient to use for the beam */

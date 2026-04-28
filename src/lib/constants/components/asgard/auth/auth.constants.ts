@@ -71,7 +71,7 @@ export const AUTH_ROUTES = {
   LOGIN: '/login',
   SIGNUP: '/signup',
   FORGOT_PASSWORD: '/forgot-password',
-  DASHBOARD: '/dashboard',
+  DASHBOARD: '/vessel',
   QUESTIONNAIRE: '/questionaire',
   TERMS: '/terms',
   PRIVACY: '/privacy',

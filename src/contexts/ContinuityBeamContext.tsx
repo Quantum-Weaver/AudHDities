@@ -15,13 +15,14 @@ interface ContinuityBeamContextValue {
   /** Current activation state (active, intensity level, speed multiplier) */
   activationState: BeamActivationState;
   /** Update the current environment (deprecated - use useEnvironment instead) */
-  setEnvironment: (environment: EnvironmentKey) => void;
+  setEnvironment: (environment: EnvironmentKey, variant?: number) => void;
   /** Update session state (user tier, sovereignty score, etc.) */
   updateSessionState: (state: Partial<SessionState>) => void;
   /** Manually set beam active/inactive */
   setIsActive: (active: boolean) => void;
   /** Current session state */
   sessionState: SessionState;
+  environmentVariant: number; 
 }
 
 const ContinuityBeamContext = createContext<ContinuityBeamContextValue | undefined>(undefined);
@@ -79,9 +80,9 @@ export function ContinuityBeamProvider({
     setActivationState(newActivation);
     
     // Use current environment from environment system
-    const newConfig = getBeamConfig(currentEnvironment, sessionState);
+    const newConfig = getBeamConfig(sessionState.environment, sessionState);
     setBeamConfig(newConfig);
-  }, [sessionState, currentEnvironment]);
+  }, [sessionState]);
 
   // Update session duration over time (only when active)
   useEffect(() => {
@@ -96,12 +97,13 @@ export function ContinuityBeamProvider({
 
     return () => clearInterval(interval);
   }, [activationState.active]);
-
+  const [environmentVariant, setEnvironmentVariant] = useState(1);
   // Set environment (updates both systems)
-  const setEnvironment = useCallback((environment: EnvironmentKey) => {
+  const setEnvironment = useCallback((environment: EnvironmentKey, variant?: number) => {
     setSessionState(prev => ({ ...prev, environment }));
-    // The environment system will also be updated via useEnvironment
-    // Note: This is a convenience method; prefer using the environment system directly
+    if (variant !== undefined) {
+      setEnvironmentVariant(Math.max(1, Math.min(4, variant)));
+    }
   }, []);
 
   const updateSessionState = useCallback((state: Partial<SessionState>) => {
@@ -129,7 +131,8 @@ export function ContinuityBeamProvider({
       setEnvironment,
       updateSessionState,
       setIsActive,
-      sessionState
+      sessionState,
+      environmentVariant,
     }}>
       {children}
     </ContinuityBeamContext.Provider>

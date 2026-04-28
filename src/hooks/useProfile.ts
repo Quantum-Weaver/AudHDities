@@ -2,14 +2,14 @@
 'use client';
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
-import { useAuth } from './useAuth.js';
-import { useProfiles, useProfilesList, useUpdateProfiles } from '@/hooks/generated/hestia-core/profiles.js';
-import { useCreatorProfiles, useCreateCreatorProfiles, useUpdateCreatorProfiles } from '@/hooks/generated/hestia-core/creator_profiles.js';
-import { useVendorProfiles, useCreateVendorProfiles, useUpdateVendorProfiles } from '@/hooks/generated/hestia-core/vendor_profiles.js';
-import { useCommunityProfiles, useCreateCommunityProfiles, useUpdateCommunityProfiles } from '@/hooks/generated/hestia-core/community_profiles.js';
-import { useApplicationsList, useCreateApplications } from '@/hooks/generated/themis-governance/applications.js';
-import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers.js';
-import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '@/types/preferences.js';
+import { useAuth } from './useAuth';
+import { useProfiles, useProfilesList, useUpdateProfiles } from './generated/hestia-core/profiles';
+import { useCreatorProfiles, useCreateCreatorProfiles, useUpdateCreatorProfiles } from './generated/hestia-core/creator_profiles';
+import { useVendorProfiles, useCreateVendorProfiles, useUpdateVendorProfiles } from './generated/hestia-core/vendor_profiles';
+import { useCommunityProfiles, useCreateCommunityProfiles, useUpdateCommunityProfiles } from './generated/hestia-core/community_profiles';
+import { useApplicationsList, useCreateApplications } from './generated/themis-governance/applications';
+import type { Tables, TablesInsert, TablesUpdate } from '../types/supabase/database.helpers';
+import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '../types/preferences';
 
 // ============================================================================
 // TYPES - Derived from database schema
