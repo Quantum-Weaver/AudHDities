@@ -45,4 +45,18 @@ export const PAGINATION_BUTTON_GAP = 'gap-1';
 export const PAGINATION_SELECT_GAP = 'gap-2';
 
 // ─── Type Exports ──────────────────────────────────────────────────────────
-export type PaginationSize = keyof typeof PAGINATION_BUTTON_SIZE;
+// In pagination.constants.ts, add:
+export const PAGINATION_SIZE_VALUES = {
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+} as const;
+
+export type PaginationSize = (typeof PAGINATION_SIZE_VALUES)[keyof typeof PAGINATION_SIZE_VALUES];
+
+// Create a reverse lookup for the config access:
+export const SIZE_KEY_MAP: Record<PaginationSize, keyof typeof PAGINATION_BUTTON_SIZE> = {
+  sm: 'SM',
+  md: 'MD',
+  lg: 'LG',
+};

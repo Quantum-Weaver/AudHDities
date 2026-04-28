@@ -34,6 +34,7 @@ import {
   PAGINATION_CONTAINER_GAP,
   PAGINATION_BUTTON_GAP,
   PAGINATION_SELECT_GAP,
+  SIZE_KEY_MAP,
 } from '@/lib/constants/components/vegvisir/pagination.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
@@ -81,7 +82,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       pageSizeOptions = [...PAGINATION_DEFAULT_PAGE_SIZES],
       pageSize = PAGINATION_DEFAULT_PAGE_SIZE,
       onPageSizeChange,
-      size = 'MD',
+      size = 'md',
       variant = 'default',
       compact = false,
       disabled = false,
@@ -95,7 +96,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       siblingCount,
       compact,
     });
-    const sizeConfig = PAGINATION_BUTTON_SIZE[size];
+    const sizeConfig = PAGINATION_BUTTON_SIZE[SIZE_KEY_MAP[size]];
 
     const handlePageChange = (page: number) => {
       if (page !== currentPage && page >= 1 && page <= totalPages && !disabled) {

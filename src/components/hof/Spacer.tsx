@@ -38,7 +38,7 @@ import { composeSpacerClasses } from '@/lib/utils/components/hof/spacer.utils';
 export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
   (
     {
-      size = 'MD',
+      size = 'md',
       axis = 'both',
       direction = 'all',
       grow = false,
@@ -82,7 +82,7 @@ export const HSpacer = React.forwardRef<HTMLDivElement, HSpacerProps>(
 HSpacer.displayName = 'HSpacer';
 
 export const FlexSpacer = React.forwardRef<HTMLDivElement, FlexSpacerProps>(
-  (props, ref) => <Spacer ref={ref} grow size="XS" {...props} />
+  (props, ref) => <Spacer ref={ref} grow size="xs" {...props} />
 );
 FlexSpacer.displayName = 'FlexSpacer';
 
@@ -111,7 +111,7 @@ RightSpacer.displayName = 'RightSpacer';
 // ═══════════════════════════════════════════════════════════════════════════
 
 export const SpacerGroup = React.forwardRef<HTMLDivElement, SpacerGroupProps>(
-  ({ children, spacing = 'MD', direction = 'horizontal', className }, ref) => {
+  ({ children, spacing = 'md', direction = 'horizontal', className }, ref) => {
     const childArray = React.Children.toArray(children);
     const isHorizontal = direction === 'horizontal';
 

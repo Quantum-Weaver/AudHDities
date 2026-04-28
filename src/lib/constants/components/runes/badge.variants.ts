@@ -9,6 +9,8 @@ import {
   BADGE_BASE_CLASSES,
   BADGE_FONT_WEIGHT,
   BADGE_SIZES,
+  BADGE_SIZE_VALUES,
+  BadgeSize,
 } from '../runes/badge.constants';
 import {
   QUANTUM_COLORS,
@@ -127,16 +129,16 @@ export const badgeVariants = cva(
           return [key, classes];
         })
       ) as Record<BadgeVariantKey, string>,
-      size: Object.fromEntries(
-        (Object.keys(BADGE_SIZE_STYLES) as BadgeSizeKey[]).map((key) => [
-          key,
-          BADGE_SIZE_STYLES[key].join(' '),
-        ])
-      ) as Record<BadgeSizeKey, string>,
+    size: Object.fromEntries(
+      (Object.keys(BADGE_SIZE_STYLES) as Array<keyof typeof BADGE_SIZE_STYLES>).map((key) => [
+        BADGE_SIZE_VALUES[key],  // 'sm', 'md', 'lg' — the lowercase value
+        BADGE_SIZE_STYLES[key].join(' '),  // the actual Tailwind classes
+      ])
+    ) as Record<BadgeSize, string>,
     },
     defaultVariants: {
       variant: 'default',
-      size: 'MD',
+      size: 'md',
     },
   }
 );
@@ -151,7 +153,6 @@ export const BADGE_HOVER_OVERRIDES: Partial<Record<BadgeVariantKey, string>> = {
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 type BadgeVariantKey = keyof typeof BADGE_VARIANT_STYLES;
-type BadgeSizeKey = keyof typeof BADGE_SIZE_STYLES;
-
+type BadgeSizeKey = typeof BADGE_SIZE_VALUES;
+export type { BadgeSize } from '../runes/badge.constants'
 export type BadgeVariant = BadgeVariantKey;
-export type { BadgeSizeKey };

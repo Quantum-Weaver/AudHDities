@@ -1,27 +1,27 @@
-🦊 HERMES — The Bazaar
+🔥 HESTIA — The Hearth
 
-Feeling: Abundant, curious, playful, connected
+Feeling: Warm, welcoming, safe, reflective
+text
 
-src/app/(hermes)/
-├── bazaar/
-│   ├── page.tsx                      # The Bazaar (/bazaar)
-│   ├── creations/
-│   │   ├── page.tsx                  # Creations (/bazaar/creations)
-│   │   └── [id]/
-│   │       └── page.tsx              # Creation Detail (/bazaar/creations/[id])
-│   ├── creators/
-│   │   ├── page.tsx                  # Creators (/bazaar/creators)
-│   │   └── [id]/
-│   │       └── page.tsx              # Creator Sanctuary (/bazaar/creators/[id])
-│   ├── vendors/
-│   │   ├── page.tsx                  # Vendors (/bazaar/vendors)
-│   │   └── [id]/
-│   │       └── page.tsx              # Vendor Sanctuary (/bazaar/vendors/[id])
-│   ├── studio/
-│   │   ├── page.tsx                  # The Loom (/bazaar/studio)
-│   │   └── [id]/
-│   │       └── page.tsx              # Edit Creation (/bazaar/studio/[id])
-│   ├── contributions/
-│   │   └── page.tsx                  # Contributions Ledger (/bazaar/contributions)
-│   └── checkout/
-│       └── page.tsx                  # The Exchange (/bazaar/checkout)
+src/app/(hestia)/
+├── page.tsx                              # The Hearth (/)
+├── vessel/
+│   └── page.tsx                          # The Vessel (/vessel)
+├── sanctum/
+│   └── page.tsx                          # Sanctum (/vessel/sanctum)
+├── energy/
+│   ├── page.tsx                          # Energy Log (/vessel/energy)
+│   └── [id]/
+│       └── page.tsx                      # Energy Entry Detail (/vessel/energy/[id]) ✨ NEW
+├── constellation/
+│   ├── page.tsx                          # Constellation (/vessel/constellation)
+│   └── [id]/
+│       └── page.tsx                      # Connection Detail (/vessel/constellation/[id]) ✨ NEW
+├── journal/
+│   ├── page.tsx                          # The Scroll (/vessel/journal)
+│   └── [id]/
+│       └── page.tsx                      # Journal Entry Detail (/vessel/journal/[id]) ✅
+└── notifications/
+    ├── page.tsx                          # The Pulse (/notifications)
+    └── [id]/
+        └── page.tsx                      # Notification Detail (/notifications/[id]) ✨ NEW

@@ -1,4 +1,4 @@
-// app/(supporting)/careers/page.tsx
+// app/(hephaestus)/careers/page.tsx
 // The Calling - Job listings, opportunities
 // Feeling: Hopeful, purposeful, inviting
 

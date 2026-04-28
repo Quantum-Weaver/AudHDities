@@ -81,7 +81,7 @@ function ProductCardGrid({
         title={product.title}
         subtitle={truncateTextWordBoundary(product.description || '', 80)}
         badge={
-          <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="SM">
+          <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
             {product.product_type}
           </Badge>
         }
@@ -150,10 +150,10 @@ function ProductCardList({
           subtitle={truncateTextWordBoundary(product.description || '', 100)}
           badge={
             <div className="flex gap-1">
-              <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="SM">
+              <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
                 {product.product_type}
               </Badge>
-              {isSubsidized && <Badge variant="sanctuary" size="SM">Subsidized</Badge>}
+              {isSubsidized && <Badge variant="sanctuary" size="sm">Subsidized</Badge>}
             </div>
           }
         />
@@ -219,10 +219,10 @@ function ProductCardFeatured({
         subtitle={product.description}
         badge={
           <div className="flex gap-1">
-            <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="MD">
+            <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="md">
               {product.product_type}
             </Badge>
-            {product.is_published === false && <Badge variant="warning" size="MD">Draft</Badge>}
+            {product.is_published === false && <Badge variant="warning" size="md">Draft</Badge>}
           </div>
         }
       />
@@ -255,7 +255,7 @@ function ProductCardFeatured({
               {formatPrice(product.price_ally)}
             </span>
           )}
-          <Badge variant="ghost" size="SM" className="capitalize">{userTier} price</Badge>
+          <Badge variant="ghost" size="sm" className="capitalize">{userTier} price</Badge>
         </div>
 
         {/* Contributors */}

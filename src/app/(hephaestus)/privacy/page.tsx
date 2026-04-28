@@ -1,4 +1,4 @@
-// app/(content)/privacy/page.tsx
+// app/(hephaestus)/privacy/page.tsx
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';

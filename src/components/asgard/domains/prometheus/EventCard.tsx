@@ -51,7 +51,7 @@ export const EventCardRenderer: React.FC<EventCardRendererProps> = ({
         badge={
           <div className="flex gap-1 flex-wrap">
             {eventData.genre && (
-              <Badge variant="outline" size="SM" className={genreColors[eventData.genre] || ''}>
+              <Badge variant="outline" size="sm" className={genreColors[eventData.genre] || ''}>
                 {eventData.genre}
               </Badge>
             )}

@@ -12,6 +12,7 @@ import {
   RADIO_DISABLED,
   RADIO_TRANSITION,
   RADIO_FOCUS_RING,
+  RADIO_INDICATOR_SIZE,
 } from './radio.constants';
 
 // ─── Control Variants (the radio circle itself) ────────────────────────────
@@ -57,11 +58,15 @@ export const radioControlVariants = cva(
           'checked:text-white',
         ].join(' '),
       },
-      size: RADIO_SIZE,
+      size: {
+        sm: RADIO_SIZE.SM,
+        md: RADIO_SIZE.MD,
+        lg: RADIO_SIZE.LG,
+      },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'MD',
+      size: 'md',
     },
   }
 );
@@ -82,9 +87,9 @@ export const radioIndicatorVariants = cva(
   {
     variants: {
       size: {
-        SM: 'size-1.5',
-        MD: 'size-2',
-        LG: 'size-2.5',
+        sm: 'size-1.5',
+        md: 'size-2',
+        lg: 'size-2.5',
       },
       checked: {
         true: 'opacity-100 scale-100',
@@ -92,7 +97,7 @@ export const radioIndicatorVariants = cva(
       },
     },
     defaultVariants: {
-      size: 'MD',
+      size: 'md',
       checked: false,
     },
   }
@@ -104,9 +109,9 @@ export const radioLabelVariants = cva(
   {
     variants: {
       size: {
-        SM: 'text-sm',
-        MD: 'text-base',
-        LG: 'text-lg',
+        sm: 'text-sm',
+        md: 'text-base',
+        lg: 'text-lg',
       },
       disabled: {
         true: 'opacity-50 cursor-not-allowed',
@@ -114,7 +119,7 @@ export const radioLabelVariants = cva(
       },
     },
     defaultVariants: {
-      size: 'MD',
+      size: 'md',
       disabled: false,
     },
   }

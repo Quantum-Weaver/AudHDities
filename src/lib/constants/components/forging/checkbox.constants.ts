@@ -18,17 +18,17 @@ export const CHECKBOX_SIZE = {
 // ─── Check Icon Dimensions ─────────────────────────────────────────────────
 /** Map size key to Tailwind icon size classes */
 export const CHECK_ICON_SIZE = {
-  SM: 'h-2 w-2',
-  MD: 'h-2.5 w-2.5',
-  LG: 'h-3 w-3',
+  sm: 'h-2 w-2',
+  md: 'h-2.5 w-2.5',
+  lg: 'h-3 w-3',
 } as const;
 
 // ─── Label Text Sizes ──────────────────────────────────────────────────────
 /** Map size key to label font size */
 export const CHECKBOX_LABEL_SIZE = {
-  SM: 'text-xs',
-  MD: 'text-sm',
-  LG: 'text-base',
+  sm: 'text-xs',
+  md: 'text-sm',
+  lg: 'text-base',
 } as const;
 
 // ─── Layout Spacing ────────────────────────────────────────────────────────
@@ -52,4 +52,10 @@ export const CHECKBOX_ERROR = {
   TEXT: 'text-fire-base',
 } as const;
 
-export type CheckboxSize = keyof typeof CHECKBOX_SIZE;
+export const CHECKBOX_SIZE_VALUES = {
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+} as const;
+
+export type CheckboxSize = (typeof CHECKBOX_SIZE_VALUES)[keyof typeof CHECKBOX_SIZE_VALUES];

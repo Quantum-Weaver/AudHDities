@@ -73,7 +73,7 @@ export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
           ...(creatorData.tier ? [{
             label: 'Tier',
             value: (
-              <Badge variant="outline" size="SM" className={tierBadgeColors[creatorData.tier] || ''}>
+              <Badge variant="outline" size="sm" className={tierBadgeColors[creatorData.tier] || ''}>
                 {creatorData.tier}
               </Badge>
             )

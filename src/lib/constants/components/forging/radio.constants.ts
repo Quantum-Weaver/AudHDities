@@ -59,4 +59,11 @@ export const RADIO_TRANSITION = 'transition-all duration-150';
 export const RADIO_DISABLED = 'disabled:cursor-not-allowed disabled:opacity-50';
 
 // ─── Type Exports ──────────────────────────────────────────────────────────
-export type RadioSize = keyof typeof RADIO_SIZE;
+export const RADIO_SIZE_VALUES = {
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+} as const;
+
+export type RadioSize = (typeof RADIO_SIZE_VALUES)[keyof typeof RADIO_SIZE_VALUES];
+// Resolves to: 'sm' | 'md' | 'lg'

@@ -19,18 +19,43 @@ export const SPACER_SIZES = {
   '4XL': '24', // 96px
 } as const;
 
-export type SpacerSize = keyof typeof SPACER_SIZES;
+// Add below SPACER_SIZES:
+export const SPACER_SIZE_VALUES = {
+  XS: 'xs',
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+  XL: 'xl',
+  '2XL': '2xl',
+  '3XL': '3xl',
+  '4XL': '4xl',
+} as const;
+
+// Change the type:
+export type SpacerSize = (typeof SPACER_SIZE_VALUES)[keyof typeof SPACER_SIZE_VALUES];
+// Now resolves to: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
+
+const SIZE_KEY_MAP: Record<SpacerSize, keyof typeof SPACER_SIZES> = {
+  xs: 'XS',
+  sm: 'SM',
+  md: 'MD',
+  lg: 'LG',
+  xl: 'XL',
+  '2xl': '2XL',
+  '3xl': '3XL',
+  '4xl': '4XL',
+};
 
 /** Pixel values for each spacer size (derived from SPACING_SCALE) */
 export const SPACER_PX_MAP: Record<SpacerSize, number> = {
-  XS: parseInt(SPACING_SCALE[SPACER_SIZES.XS]),
-  SM: parseInt(SPACING_SCALE[SPACER_SIZES.SM]),
-  MD: parseInt(SPACING_SCALE[SPACER_SIZES.MD]),
-  LG: parseInt(SPACING_SCALE[SPACER_SIZES.LG]),
-  XL: parseInt(SPACING_SCALE[SPACER_SIZES.XL]),
-  '2XL': parseInt(SPACING_SCALE[SPACER_SIZES['2XL']]),
-  '3XL': parseInt(SPACING_SCALE[SPACER_SIZES['3XL']]),
-  '4XL': parseInt(SPACING_SCALE[SPACER_SIZES['4XL']]),
+  xs: parseInt(SPACING_SCALE[SPACER_SIZES.XS]),
+  sm: parseInt(SPACING_SCALE[SPACER_SIZES.SM]),
+  md: parseInt(SPACING_SCALE[SPACER_SIZES.MD]),
+  lg: parseInt(SPACING_SCALE[SPACER_SIZES.LG]),
+  xl: parseInt(SPACING_SCALE[SPACER_SIZES.XL]),
+  '2xl': parseInt(SPACING_SCALE[SPACER_SIZES['2XL']]),
+  '3xl': parseInt(SPACING_SCALE[SPACER_SIZES['3XL']]),
+  '4xl': parseInt(SPACING_SCALE[SPACER_SIZES['4XL']]),
 };
 
 // ─── Axis Tokens ───────────────────────────────────────────────────────────

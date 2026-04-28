@@ -6,20 +6,20 @@
 
 import type {
   BadgeVariant,
-  BadgeSizeKey ,
+  BadgeSize
 } from '@/lib/constants/components/runes/badge.variants';
 import type {
-  BadgeGroupSpacing,
+  BadgeGroupSpacing, 
 } from '@/lib/constants/components/runes/badge.constants';
 // ─── Re-exports from constants/variants ────────────────────────────────────
-export type { BadgeVariant, BadgeSizeKey, BadgeGroupSpacing };
+export type { BadgeVariant, BadgeSize, BadgeGroupSpacing };
 
 // ─── Badge Props ───────────────────────────────────────────────────────────
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Visual variant — determines color and border */
   variant?: BadgeVariant;
   /** Size of the badge */
-  size?: BadgeSizeKey;
+  size?: BadgeSize;
   /** Make badge fully rounded (pill shape) */
   pill?: boolean;
   /** Show a colored dot indicator before the content */

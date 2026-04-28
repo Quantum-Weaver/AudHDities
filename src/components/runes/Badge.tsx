@@ -52,7 +52,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     {
       children,
       variant = 'default',
-      size = 'MD',
+      size = 'md',
       pill = false,
       dot = false,
       removable = false,

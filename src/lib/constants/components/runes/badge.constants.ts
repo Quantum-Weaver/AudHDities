@@ -48,29 +48,35 @@ export const BADGE_SIZES = {
   },
 } as const;
 
-export type BadgeSize = keyof typeof BADGE_SIZES;
+export const BADGE_SIZE_VALUES = {
+  SM: 'sm',
+  MD: 'md', 
+  LG: 'lg',
+} as const;
+
+export type BadgeSize = (typeof BADGE_SIZE_VALUES)[keyof typeof BADGE_SIZE_VALUES];
 
 // ─── Dot Indicator ─────────────────────────────────────────────────────────
 /** Size of the dot indicator by badge size */
 export const BADGE_DOT_SIZES: Record<BadgeSize, string> = {
-  SM: 'w-1.5 h-1.5',
-  MD: 'w-2 h-2',
-  LG: 'w-2.5 h-2.5',
+  sm: 'w-1.5 h-1.5',
+  md: 'w-2 h-2',
+  lg: 'w-2.5 h-2.5',
 } as const;
 
 // ─── Remove Button ─────────────────────────────────────────────────────────
 /** Padding around the remove button by badge size */
 export const BADGE_REMOVE_PADDING: Record<BadgeSize, string> = {
-  SM: 'p-0.5',
-  MD: 'p-1',
-  LG: 'p-1',
+  sm: 'p-0.5',
+  md: 'p-1',
+  lg: 'p-1',
 } as const;
 
 /** Icon size for the remove button by badge size */
 export const BADGE_REMOVE_ICON_SIZE: Record<BadgeSize, string> = {
-  SM: 'h-2.5 w-2.5',
-  MD: 'h-3 w-3',
-  LG: 'h-3.5 w-3.5',
+  sm: 'h-2.5 w-2.5',
+  md: 'h-3 w-3',
+  lg: 'h-3.5 w-3.5',
 } as const;
 
 // ─── Group Spacing ─────────────────────────────────────────────────────────

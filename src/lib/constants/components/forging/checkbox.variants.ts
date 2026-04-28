@@ -42,17 +42,14 @@ export const checkboxVariants = cva(
         ].join(' '),
       },
       size: {
-        SM: CHECKBOX_SIZE.SM,
         sm: CHECKBOX_SIZE.SM,
-        MD: CHECKBOX_SIZE.MD,
         md: CHECKBOX_SIZE.MD,
-        LG: CHECKBOX_SIZE.LG,
         lg: CHECKBOX_SIZE.LG,
       },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'MD',
+      size: 'md',
     },
   }
 );

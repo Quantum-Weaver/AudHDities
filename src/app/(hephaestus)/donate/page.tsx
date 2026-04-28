@@ -1,4 +1,4 @@
-// app/(supporting)/donate/page.tsx
+// app/(hephaestus)/donate/page.tsx
 // The Offering - Donation tiers, impact calculator
 // Feeling: Generous, impactful, grateful
 
@@ -6,29 +6,19 @@
 
 import { useState } from 'react';
 import { Page } from '@/components/bifrost/Page';
-import { DonationTiers } from '@/components/asgard/domains/hephaestus/supporting/DonationTiers';
-import { ImpactCalculator } from '@/components/asgard/domains/hephaestus/supporting/ImpactCalculator';
-import { RecurringOptions } from '@/components/asgard/domains/hephaestus/supporting/RecurringOptions';
-import { ThankYouNote } from '@/components/asgard/domains/hephaestus/supporting/ThankYouNote';
-import { TaxReceipt } from '@/components/asgard/domains/hephaestus/supporting/TaxReceipt';
+import { DonationTiers } from '@/components/asgard/domains/hephaestus/donations/DonationTiers';
+import { ImpactCalculator } from '@/components/asgard/domains/hephaestus/donations/ImpactCalculator';
+import { RecurringOptions } from '@/components/asgard/domains/hephaestus/donations/RecurringOptions';
+import { ThankYouNote } from '@/components/asgard/domains/hephaestus/donations/ThankYouNote';
+import { TaxReceipt } from '@/components/asgard/domains/hephaestus/donations/TaxReceipt';
 
-export const metadata = {
-  title: 'The Offering | Sovereign Sanctuary',
-  description: 'Support the Sanctuary'
-};
 export default function DonatePage() {
   const [donationComplete, setDonationComplete] = useState(false);
   const [amount, setAmount] = useState(0);
 
   if (donationComplete) {
     return (
-      <Page 
-        variant={1}
-        environment="home"
-        showForeground={false}
-        animated={true}
-        showContinuityBeam={true}
-      >
+      <Page showForeground={false} showContinuityBeam={true}>
         <main className="min-h-screen py-12">
           <div className="container max-w-4xl mx-auto px-6">
             <ThankYouNote amount={amount} />
@@ -40,21 +30,14 @@ export default function DonatePage() {
   }
 
   return (
-    <Page 
-      variant={2}
-      environment="home"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
+            <h1 className="text-3xl font-bold text-star-dust mb-2">
               The Offering
             </h1>
-            <p className="text-white/60">
+            <p className="text-star-dust/60">
               Your contribution keeps the Sanctuary alive
             </p>
           </div>

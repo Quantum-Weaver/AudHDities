@@ -54,7 +54,7 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
       name,
       value,
       onChange,
-      size = 'MD',
+      size = 'md',
       variant = 'default',
       direction = 'vertical',
       children,

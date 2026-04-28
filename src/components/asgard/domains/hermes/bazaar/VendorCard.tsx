@@ -83,7 +83,7 @@ export const VendorCardRenderer: React.FC<VendorCardRendererProps> = ({
       {vendorData.businessType && (
         <CardFooter
           actions={[
-            <Badge key="type" variant="outline" size="SM">
+            <Badge key="type" variant="outline" size="sm">
               {businessTypeLabels[vendorData.businessType] || vendorData.businessType}
             </Badge>
           ]}
