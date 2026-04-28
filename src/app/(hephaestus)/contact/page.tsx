@@ -66,7 +66,8 @@ export const metadata: Metadata = {
 const PLACEHOLDER_DATA: CardData = {
   id: 'placeholder',
   title: '',
-  type: 'product',
+  type: 'value', 
+  value: '',  
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -85,9 +86,7 @@ interface InfoCardProps {
 function InfoCard({ accent, icon, heading, children, caption }: InfoCardProps) {
   return (
     <Card
-      variant="default"
-      size="md"
-      padding="md"
+      variant="glass"
       radius="lg"
       shadow="md"
       interactive

@@ -1,4 +1,4 @@
-// components/hephaestus/contact/ContactForm.tsx
+// src/components/asgard/domains/hephaestus/contact/ContactForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -42,7 +42,6 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
     message: false,
   });
 
-  // Validation functions
   const validateName = (name: string): string => {
     if (!name.trim()) return "Name is required";
     if (name.length < 2) return "Name must be at least 2 characters";
@@ -51,8 +50,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
 
   const validateEmail = (email: string): string => {
     if (!email.trim()) return "Email is required";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return "Please enter a valid email address";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Please enter a valid email address";
     return "";
   };
 
@@ -75,15 +73,12 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       subject: validateSubject(formData.subject),
       message: validateMessage(formData.message),
     };
-    
     setErrors(newErrors);
     return !Object.values(newErrors).some(error => error !== "");
   };
 
   const handleChange = (field: keyof typeof formData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
     }
@@ -91,42 +86,20 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
 
   const handleBlur = (field: keyof typeof formData) => {
     setTouched(prev => ({ ...prev, [field]: true }));
-    
     let error = "";
     switch (field) {
-      case "name":
-        error = validateName(formData.name);
-        break;
-      case "email":
-        error = validateEmail(formData.email);
-        break;
-      case "subject":
-        error = validateSubject(formData.subject);
-        break;
-      case "message":
-        error = validateMessage(formData.message);
-        break;
+      case "name": error = validateName(formData.name); break;
+      case "email": error = validateEmail(formData.email); break;
+      case "subject": error = validateSubject(formData.subject); break;
+      case "message": error = validateMessage(formData.message); break;
     }
-    
-    if (error) {
-      setErrors(prev => ({ ...prev, [field]: error }));
-    }
+    if (error) setErrors(prev => ({ ...prev, [field]: error }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Mark all fields as touched
-    setTouched({
-      name: true,
-      email: true,
-      subject: true,
-      message: true,
-    });
-    
-    if (!validateForm()) {
-      return;
-    }
+    setTouched({ name: true, email: true, subject: true, message: true });
+    if (!validateForm()) return;
     
     setIsSubmitting(true);
     setSubmitStatus("idle");
@@ -144,39 +117,21 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
       
       const response = await fetch("/api/generated/iris-communications/contact_submissions", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       
       const result = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send message");
-      }
+      if (!response.ok) throw new Error(result.error || "Failed to send message");
       
       setSubmitStatus("success");
-      
-      // Reset form on success
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-      
+      setFormData({ name: "", email: "", subject: "", message: "" });
       onSuccess?.();
       
-      // Redirect after 2 seconds if redirectTo provided
       if (redirectTo) {
-        setTimeout(() => {
-          router.push(redirectTo);
-        }, 2000);
+        setTimeout(() => router.push(redirectTo), 2000);
       }
-      
     } catch (error) {
-      console.error("Error submitting contact form:", error);
       setSubmitStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
     } finally {
@@ -191,19 +146,15 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
   if (submitStatus === "success") {
     return (
       <div className="text-center py-8">
-        <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="text-green-400" size={32} />
+        <div className="w-16 h-16 bg-sanctuary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="text-sanctuary-green" size={32} />
         </div>
         <h3 className="text-xl font-bold text-star-dust mb-2">Message Sent!</h3>
         <p className="text-star-dust/60">
-          Thank you for reaching out. We'll respond within 24-48 hours.
+          Thank you for reaching out. We will respond within 24-48 hours.
         </p>
         {!redirectTo && (
-          <Button
-            variant="outline"
-            className="mt-6"
-            onClick={() => setSubmitStatus("idle")}
-          >
+          <Button variant="outline" className="mt-6" onClick={() => setSubmitStatus("idle")}>
             Send Another Message
           </Button>
         )}
@@ -214,107 +165,64 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {submitStatus === "error" && (
-        <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-lg flex items-start gap-2">
-          <AlertCircle className="text-red-400 flex-shrink-0 mt-0.5" size={16} />
-          <p className="text-red-400 text-sm">{errorMessage}</p>
+        <div className="p-3 bg-fire-base/10 border border-fire-base/30 rounded-lg flex items-start gap-2">
+          <AlertCircle className="text-fire-base flex-shrink-0 mt-0.5" size={16} />
+          <p className="text-fire-base text-sm">{errorMessage}</p>
         </div>
       )}
       
-      {/* Name Field */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-star-dust mb-1">
-          Name <span className="text-red-400">*</span>
-        </label>
-        <Input
-          id="name"
-          type="text"
-          value={formData.name}
-          onChange={(e) => handleChange("name", e.target.value)}
-          onBlur={() => handleBlur("name")}
-          placeholder="Your name"
-          className={getFieldError("name") ? "border-red-500/50" : ""}
-          disabled={isSubmitting}
-        />
-        {getFieldError("name") && (
-          <p className="text-xs text-red-400 mt-1">{getFieldError("name")}</p>
-        )}
-      </div>
-      
-      {/* Email Field */}
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-star-dust mb-1">
-          Email <span className="text-red-400">*</span>
-        </label>
-        <Input
-          id="email"
-          type="email"
-          value={formData.email}
-          onChange={(e) => handleChange("email", e.target.value)}
-          onBlur={() => handleBlur("email")}
-          placeholder="your@email.com"
-          className={getFieldError("email") ? "border-red-500/50" : ""}
-          disabled={isSubmitting}
-        />
-        {getFieldError("email") && (
-          <p className="text-xs text-red-400 mt-1">{getFieldError("email")}</p>
-        )}
-      </div>
-      
-      {/* Subject Field */}
-      <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-star-dust mb-1">
-          Subject <span className="text-red-400">*</span>
-        </label>
-        <Input
-          id="subject"
-          type="text"
-          value={formData.subject}
-          onChange={(e) => handleChange("subject", e.target.value)}
-          onBlur={() => handleBlur("subject")}
-          placeholder="What is this regarding?"
-          className={getFieldError("subject") ? "border-red-500/50" : ""}
-          disabled={isSubmitting}
-        />
-        {getFieldError("subject") && (
-          <p className="text-xs text-red-400 mt-1">{getFieldError("subject")}</p>
-        )}
-      </div>
-      
-      {/* Message Field */}
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-star-dust mb-1">
-          Message <span className="text-red-400">*</span>
-        </label>
-        <Textarea
-          id="message"
-          value={formData.message}
-          onChange={(e) => handleChange("message", e.target.value)}
-          onBlur={() => handleBlur("message")}
-          placeholder="Your message..."
-          rows={5}
-          className={getFieldError("message") ? "border-red-500/50" : ""}
-          disabled={isSubmitting}
-        />
-        {getFieldError("message") && (
-          <p className="text-xs text-red-400 mt-1">{getFieldError("message")}</p>
-        )}
-      </div>
-      
-      {/* Submit Button */}
-      <Button
-        type="submit"
-        variant="primary"
+      <Input
+        name="name"
+        label="Name"
+        required
+        value={formData.name}
+        onChange={(e) => handleChange("name", e.target.value)}
+        onBlur={() => handleBlur("name")}
+        error={getFieldError("name")}
+        placeholder="Your name"
         disabled={isSubmitting}
-        className="w-full"
-      >
-        {isSubmitting ? (
-          <>
-            <Spinner className="mr-2 h-4 w-4" />
-            Sending...
-          </>
-        ) : (
-          "Send Message"
-        )}
+      />
+      
+      <Input
+        name="email"
+        label="Email"
+        type="email"
+        required
+        value={formData.email}
+        onChange={(e) => handleChange("email", e.target.value)}
+        onBlur={() => handleBlur("email")}
+        error={getFieldError("email")}
+        placeholder="your@email.com"
+        disabled={isSubmitting}
+      />
+      
+      <Input
+        name="subject"
+        label="Subject"
+        required
+        value={formData.subject}
+        onChange={(e) => handleChange("subject", e.target.value)}
+        onBlur={() => handleBlur("subject")}
+        error={getFieldError("subject")}
+        placeholder="What is this regarding?"
+        disabled={isSubmitting}
+      />
+      
+      <Textarea
+        name="message"
+        label="Message"
+        required
+        value={formData.message}
+        onChange={(e) => handleChange("message", e.target.value)}
+        onBlur={() => handleBlur("message")}
+        error={getFieldError("message")}
+        placeholder="Your message..."
+        rows={5}
+        disabled={isSubmitting}
+      />
+      
+      <Button type="submit" variant="primary" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
     </form>
   );
