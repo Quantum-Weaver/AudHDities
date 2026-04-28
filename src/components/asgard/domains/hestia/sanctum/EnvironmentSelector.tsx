@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Select } from '@/components/forging/Select';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
-import type { EnvironmentKey } from '@/lib/constants/systems';
+import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -20,7 +20,7 @@ export interface EnvironmentSelectorProps {
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 
-const VARIANT_NAMES: Record<number, string> = {
+const VARIANT_LABELS: Record<number, string> = {
   1: 'Warm',
   2: 'Mystical',
   3: 'Sacred',
@@ -41,13 +41,15 @@ const ENVIRONMENT_DISPLAY_NAMES: Record<CoreEnvironment, string> = {
   lounge: 'The Lounge',
 };
 
-const ENVIRONMENTS: CoreEnvironment[] = [
+const CORE_ENVIRONMENTS: CoreEnvironment[] = [
   'home', 'council', 'library', 'community', 'music',
   'origin', 'support', 'observatory', 'architecture',
   'invitation', 'lounge',
 ];
 
-// ─── Parsers ───────────────────────────────────────────────────────────────
+const ALL_VARIANTS = [1, 2, 3, 4] as const;
+
+// ─── Utilities ─────────────────────────────────────────────────────────────
 
 export function parseEnvironmentPreference(value: string | null | undefined): {
   environment: CoreEnvironment;
@@ -83,53 +85,67 @@ export function EnvironmentSelector({
   className,
 }: EnvironmentSelectorProps) {
   const { setEnvironment } = useContinuityBeam();
-  const parsed = parseEnvironmentPreference(value);
 
+  const parsed = parseEnvironmentPreference(value);
   const [selectedEnvironment, setSelectedEnvironment] = useState<CoreEnvironment>(parsed.environment);
   const [selectedVariant, setSelectedVariant] = useState<number>(parsed.variant);
 
   const handleEnvironmentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const env = e.target.value as CoreEnvironment;
     setSelectedEnvironment(env);
+
+    const newValue = buildEnvironmentPreference(env, selectedVariant);
     setEnvironment(env, selectedVariant);
-    onChange(buildEnvironmentPreference(env, selectedVariant), env, selectedVariant);
+    onChange(newValue, env, selectedVariant);
   };
 
-  const handleVariantChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const variant = parseInt(e.target.value, 10);
+  const handleVariantChange = (variant: number) => {
     setSelectedVariant(variant);
+
+    const newValue = buildEnvironmentPreference(selectedEnvironment, variant);
     setEnvironment(selectedEnvironment, variant);
-    onChange(buildEnvironmentPreference(selectedEnvironment, variant), selectedEnvironment, variant);
+    onChange(newValue, selectedEnvironment, variant);
   };
-
-  const environmentOptions = ENVIRONMENTS.map((env) => ({
-    value: env,
-    label: ENVIRONMENT_DISPLAY_NAMES[env],
-  }));
-
-  const variantOptions = [1, 2, 3, 4].map((v) => ({
-    value: String(v),
-    label: `${v} — ${VARIANT_NAMES[v]}`,
-  }));
 
   return (
-    <div className={className}>
+    <div className={cn('flex flex-col', className)}>
+      {/* Environment Dropdown */}
       <Select
-        label="Preferred Realm"
-        defaultValue={selectedEnvironment}
-        options={environmentOptions}
+        label="Default Realm"
+        value={selectedEnvironment}
+        options={CORE_ENVIRONMENTS.map((env) => ({
+          value: env,
+          label: ENVIRONMENT_DISPLAY_NAMES[env],
+        }))}
         onChange={handleEnvironmentChange}
         disabled={disabled}
       />
-      <div className="mt-4">
-        <Select
-          label="Realm Variant"
-          defaultValue={String(selectedVariant)}
-          options={variantOptions}
-          onChange={handleVariantChange}
-          disabled={disabled}
-        />
+
+      {/* Variant Radio Buttons — same width as dropdown */}
+      <div className="flex w-full mt-1">
+        {ALL_VARIANTS.map((variant) => (
+          <button
+            key={variant}
+            type="button"
+            onClick={() => handleVariantChange(variant)}
+            disabled={disabled}
+            className={cn(
+              'flex-1 py-2 text-xs font-medium border border-white/10 transition-all',
+              'first:rounded-l-md last:rounded-r-md',
+              variant === selectedVariant
+                ? 'bg-neurospark/20 border-neurospark/40 text-neurospark'
+                : 'bg-deep-space/40 text-star-dust/50 hover:text-star-dust/80 hover:bg-white/5'
+            )}
+          >
+            {variant}
+          </button>
+        ))}
       </div>
+
+      {/* Variant Label */}
+      <p className="text-xs text-star-dust/40 mt-1 text-center">
+        {VARIANT_LABELS[selectedVariant]}
+      </p>
     </div>
   );
 }

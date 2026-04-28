@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins: ['192.168.40.111'],
   transpilePackages: ['react-syntax-highlighter'],
   async headers() {
     return [

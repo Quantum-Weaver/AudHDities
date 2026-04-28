@@ -13,7 +13,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
 import { Settings, Zap, BookOpen, Users } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
-import { parseEnvironmentPreference } from '@/lib/utils/environment.utils';
+import { parseEnvironmentPreference } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
 
 export function VesselContent() {
   const { user, profile, loading, refreshProfile } = useAuth();
@@ -77,7 +77,7 @@ export function VesselContent() {
   return (
     <div className="container max-w-4xl mx-auto px-6">
 
-      <div className="flex flex-col items-center mb-12">
+      <div className="flex flex-col quantum-entanglement-text items-center mb-12">
         <Avatar
           size="xl"
           className="mb-4"
@@ -118,7 +118,7 @@ export function VesselContent() {
           <p className="text-star-dust/60 text-center max-w-lg">{profile.bio}</p>
         )}
 
-        <div className="mt-6">
+        <div className="domain-cosmic-card h-auto flex-cols mt-2">
           <Link href="/vessel/sanctum">
             <Button variant="primary" size="sm">
               <Settings className="h-4 w-4 mr-2" />
@@ -134,7 +134,7 @@ export function VesselContent() {
           data={sovereigntyCardData}
           radius="lg"
           shadow="md"
-          className="p-6"
+          className="domain-quantum-card p-6"
         >
           <div className="flex items-center gap-3 mb-3">
             <Zap className="h-5 w-5 text-neurospark" />
@@ -149,7 +149,7 @@ export function VesselContent() {
             variant="default"
             size="sm"
           />
-          <p className="text-xs text-star-dust/40 mt-2">
+          <p className="text-xs text-center text-star-dust/40 mt-2">
             {profile.sovereignty_score && profile.sovereignty_score >= 800
               ? 'You radiate sovereign light.'
               : profile.sovereignty_score && profile.sovereignty_score >= 400
@@ -163,7 +163,7 @@ export function VesselContent() {
           data={profileCardData}
           radius="lg"
           shadow="md"
-          className="p-6"
+          className="domain-quantum-card p-6"
         >
           <div className="flex items-center gap-3 mb-3">
             <Users className="h-5 w-5 text-star-dust/60" />
@@ -198,7 +198,7 @@ export function VesselContent() {
             data={{ id: `${user.id}-energy`, title: 'Energy Log', type: 'value', value: '' }}
             radius="md"
             shadow="sm"
-            className="p-4 text-center hover:border-neurospark/30 transition-colors"
+            className="domain-quantum-card text-center hover:border-neurospark/30 transition-colors"
           >
             <Zap className="h-5 w-5 text-neurospark mx-auto mb-2" />
             <span className="text-sm text-star-dust/80">Energy Log</span>
@@ -211,7 +211,7 @@ export function VesselContent() {
             data={{ id: `${user.id}-constellation`, title: 'Constellation', type: 'value', value: '' }}
             radius="md"
             shadow="sm"
-            className="p-4 text-center hover:border-neurospark/30 transition-colors"
+            className="domain-quantum-card p-4 text-center hover:border-neurospark/30 transition-colors"
           >
             <Users className="h-5 w-5 text-neurospark mx-auto mb-2" />
             <span className="text-sm text-star-dust/80">Constellation</span>
@@ -224,7 +224,7 @@ export function VesselContent() {
             data={{ id: `${user.id}-journal`, title: 'Journal', type: 'value', value: '' }}
             radius="md"
             shadow="sm"
-            className="p-4 text-center hover:border-neurospark/30 transition-colors"
+            className="domain-quantum-card p-4 text-center hover:border-neurospark/30 transition-colors"
           >
             <BookOpen className="h-5 w-5 text-neurospark mx-auto mb-2" />
             <span className="text-sm text-star-dust/80">The Scroll</span>

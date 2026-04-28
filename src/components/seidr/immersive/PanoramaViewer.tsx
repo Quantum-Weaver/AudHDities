@@ -31,8 +31,8 @@ export default function PanoramaViewer({
   const { setEnvironment } = useContinuityBeam();
 
   useEffect(() => {
-    setEnvironment(environment);
-  }, [environment, setEnvironment]);
+    setEnvironment(environment, variant);
+  }, [environment, variant, setEnvironment]);
 
   return (
     <div className={cn("relative w-full min-h-screen", className)}>

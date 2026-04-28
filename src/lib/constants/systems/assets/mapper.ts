@@ -880,10 +880,21 @@ export const AssetMapper = {
   // UTILITIES - Smart asset access functions
   // ============================================================================
   utils: {
-    getEnvironment: (key: EnvironmentKey, variant: number = 1) => ({
-      background: AssetMapper.environments[key].background.replace('1', variant.toString()),
-      foreground: AssetMapper.environments[key].foreground?.replace('1', variant.toString())
-    }),
+    getEnvironment: (key: EnvironmentKey, variant: number = 1) => {
+      const env = AssetMapper.environments[key];
+      if (!env) {
+        // Fallback to home for unknown keys
+        const fallback = AssetMapper.environments['home'];
+        return {
+          background: fallback.background.replace('1', variant.toString()),
+          foreground: fallback.foreground?.replace('1', variant.toString()),
+        };
+      }
+      return {
+        background: env.background.replace('1', variant.toString()),
+        foreground: env.foreground?.replace('1', variant.toString()),
+      };
+    },
 
 	  getRandomBook: () => {
       const books = AssetMapper.components.books.spines;

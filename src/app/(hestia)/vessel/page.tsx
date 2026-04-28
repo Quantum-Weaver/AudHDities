@@ -19,9 +19,18 @@ export default function VesselPage() {
       animated={true}
       showContinuityBeam={true}
     >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          <VesselContent />
+      <main className="min-h-screen py-12 ">
+        <div className="min-h-auto relative">
+          <div 
+            className="absolute inset-0" 
+            style={{ 
+              background: 'var(--gradient-weaver)',
+              opacity: 0.75
+            }} 
+          />
+            <div className="relative z-10 container max-w-4xl mx-auto px-6">
+            <VesselContent />
+          </div>
         </div>
       </main>
     </Page>
