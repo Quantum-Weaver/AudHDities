@@ -1,4 +1,4 @@
-// src/components/hermes/bazaar/residual/ResidualHero.tsx
+// src/components/asgard/domains/plutus/residual/ResidualHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

@@ -1,3 +1,4 @@
+// src/components/asgard/domains/plutus/residual/ContributionBreakdown.tsx
 'use client';
 
 import { motion } from 'framer-motion';

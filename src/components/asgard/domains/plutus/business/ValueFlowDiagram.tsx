@@ -1,4 +1,4 @@
-// src/components/business/hephaestus/ValueFlowDiagram.tsx
+// src/components/asgard/domains/plutus/business/ValueFlowDiagram.tsx
 'use client';
 
 import { motion } from 'framer-motion';

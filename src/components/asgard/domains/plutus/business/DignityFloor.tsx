@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/DignityFloor.tsx
+// src/components/asgard/domains/plutus/business/DignityFloor.tsx
 'use client';
 
 import { motion } from 'framer-motion';

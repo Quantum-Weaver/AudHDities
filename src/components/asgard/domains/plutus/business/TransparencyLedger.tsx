@@ -1,4 +1,4 @@
-// src/components/business/hephaestus/TransparencyLedger.tsx
+// src/components/asgard/domains/plutus/husiness/TransparencyLedger.tsx
 'use client';
 
 import { useState } from 'react';

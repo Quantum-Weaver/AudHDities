@@ -1,3 +1,4 @@
+// src/components/asgard/domains/plutus/residual/ExampleSale.tsx
 'use client';
 
 import { useState } from 'react';

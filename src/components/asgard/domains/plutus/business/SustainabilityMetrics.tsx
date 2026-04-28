@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/SustainabilityMetrics.tsx
+// src/components/asgard/domains/plutus/business/SustainabilityMetrics.tsx
 'use client';
 
 import { motion } from 'framer-motion';

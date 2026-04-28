@@ -1,3 +1,4 @@
+// src/components/asgard/domains/plutus/residual/TwoPoolsSection.tsx
 'use client';
 
 import { TrendingUp, HandCoins } from 'lucide-react';

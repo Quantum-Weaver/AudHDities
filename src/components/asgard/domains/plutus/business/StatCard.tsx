@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/StatCard.tsx
+// src/components/asgard/domains/plutus/business/StatCard.tsx
 'use client';
 
 import { motion } from 'framer-motion';

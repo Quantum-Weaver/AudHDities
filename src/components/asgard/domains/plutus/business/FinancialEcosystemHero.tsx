@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/FinancialEcosystemHero.tsx
+// src/components/asgard/domains/plutus/business/FinancialEcosystemHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/ResidualDistribution.tsx
+// src/components/asgard/domains/plutus/business/ResidualDistribution.tsx
 'use client';
 
 import { motion } from 'framer-motion';

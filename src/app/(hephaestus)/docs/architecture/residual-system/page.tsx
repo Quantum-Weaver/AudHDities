@@ -1,12 +1,12 @@
-// app/(content)/docs/architecture/residual-system/page.tsx
+// src/app/(content)/docs/architecture/residual-system/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { ResidualHero } from '@/components/hermes/bazaar/residual/ResidualHero';
-import { FlowDiagram } from '@/components/hermes/bazaar/residual/FlowDiagram';
-import { ContributionBreakdown } from '@/components/hermes/bazaar/residual/ContributionBreakdown';
-import { ExampleSale } from '@/components/hermes/bazaar/residual/ExampleSale';
-import { ResidualFAQ } from '@/components/hermes/bazaar/residual/ResidualFAQ';
-import { SourceAttribution } from '@/components/hermes/bazaar/residual/SourceAttribution';
+import { ResidualHero } from '@/components/asgard/domains/plutus/residual/ResidualHero';
+import { FlowDiagram } from '@/components/asgard/domains/plutus/residual/FlowDiagram';
+import { ContributionBreakdown } from '@/components/asgard/domains/plutus/residual/ContributionBreakdown';
+import { ExampleSale } from '@/components/asgard/domains/plutus/residual/ExampleSale';
+import { ResidualFAQ } from '@/components/asgard/domains/plutus/residual/ResidualFAQ';
+import { SourceAttribution } from '@/components/asgard/domains/plutus/residual/SourceAttribution';
 import { Card } from '@/components/runes/Card';
 import { Heart, Shield, Infinity, HandCoins, TrendingUp } from 'lucide-react';
 
@@ -15,15 +15,9 @@ export const metadata: Metadata = {
   description: 'A new economy where value circulates and dignity is guaranteed',
 };
 
-export default async function ResidualSystemPage() {
+export default function ResidualSystemPage() {
   return (
-    <Page 
-      variant={1}
-      environment="architecture"
-      showForeground={false}
-      animated={true}   
-      showContinuityBeam={true}
-    >  
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
         <ResidualHero />
         
@@ -45,16 +39,20 @@ export default async function ResidualSystemPage() {
           {/* Flow Diagram */}
           <section>
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">How the Value Flows</h2>
-            <Card className="p-8">
-              <FlowDiagram />
-            </Card>
+            <FlowDiagram />
           </section>
           
           {/* The Two Pools */}
           <section>
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Two Pools, One Sanctuary</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="p-6 border-l-4 border-l-pink-400">
+              <Card 
+                data={{ id: 'residual-pool-card', type: 'value', title: 'Residual Pool', value: '0-50%' }}
+                variant="ghost"
+                radius="lg"
+                shadow="md"
+                className="p-6 border-l-4 border-l-pink-400"
+              >
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center">
                     <TrendingUp size={16} className="text-pink-400" />
@@ -71,7 +69,13 @@ export default async function ResidualSystemPage() {
                   <span className="text-pink-400 font-medium">Distribution:</span> Split according to contribution percentages set by creator
                 </p>
               </Card>
-              <Card className="p-6 border-l-4 border-l-green-400">
+              <Card 
+                data={{ id: 'covenant-pool-card', type: 'value', title: 'Covenant Pool', value: '0-50%' }}
+                variant="ghost"
+                radius="lg"
+                shadow="md"
+                className="p-6 border-l-4 border-l-green-400"
+              >
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
                     <HandCoins size={16} className="text-green-400" />
@@ -93,40 +97,25 @@ export default async function ResidualSystemPage() {
           
           {/* Contribution Types */}
           <section>
-            <Card className="p-8">
-              <ContributionBreakdown />
-            </Card>
+            <ContributionBreakdown />
           </section>
           
           {/* Interactive Example */}
           <section>
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">See It In Action</h2>
-            <Card className="p-8">
-              <ExampleSale />
-            </Card>
+            <ExampleSale />
           </section>
           
           {/* FAQ */}
           <section>
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Common Questions</h2>
-            <Card className="p-8">
-              <ResidualFAQ />
-            </Card>
+            <ResidualFAQ />
           </section>
           
           {/* Technical Details */}
           <section>
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Under the Hood</h2>
-            <Card className="p-8">
-              <div className="mb-6 text-center">
-                <Shield className="text-neurospark mx-auto mb-2" size={32} />
-                <p className="text-star-dust/60 max-w-2xl mx-auto">
-                  All transactions are automated by database triggers. When a sale happens, 
-                  the system instantly calculates and records payments for everyone involved.
-                </p>
-              </div>
-              <SourceAttribution />
-            </Card>
+            <SourceAttribution />
           </section>
           
           {/* Economics Summary */}

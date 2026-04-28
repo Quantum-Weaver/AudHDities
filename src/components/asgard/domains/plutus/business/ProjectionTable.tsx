@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/ProjectionTable.tsx
+// src/components/asgard/domains/plutus/business/ProjectionTable.tsx
 'use client';
 
 import { useState } from 'react';

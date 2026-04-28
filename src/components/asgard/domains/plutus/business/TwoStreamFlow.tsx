@@ -1,4 +1,4 @@
-// src/components/business/hephaestus/TwoStreamFlow.tsx
+// src/components/asgard/domains/plutus/business/TwoStreamFlow.tsx
 'use client';
 
 import { motion } from 'framer-motion';

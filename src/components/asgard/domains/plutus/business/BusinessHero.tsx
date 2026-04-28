@@ -1,4 +1,4 @@
-// src/components/hephaestus/business/BusinessHero.tsx
+// src/components/asgard/domains/plutus/business/BusinessHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -14,10 +14,7 @@ export function BusinessHero() {
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
-      
-      {/* Floating orbs */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
       
@@ -43,9 +40,7 @@ export function BusinessHero() {
           </h1>
           
           <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-12">
-            The first economic ecosystem designed for dignity, not growth. 
-            Where every contributor earns forever, every community member 
-            shares in success, and no one is left behind.
+            The first economic ecosystem designed for dignity, not growth.
           </p>
           
           <button
@@ -58,7 +53,6 @@ export function BusinessHero() {
         </motion.div>
       </div>
       
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="w-6 h-10 border border-white/20 rounded-full flex justify-center">
           <div className="w-1 h-2 bg-white/40 rounded-full mt-2 animate-bounce" />

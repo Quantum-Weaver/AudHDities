@@ -1,9 +1,9 @@
-// src/components/asgard/domains/hephaestus/careers/CultureDeck.tsx
+// components/supporting/CultureDeck.tsx
 // Culture Deck - Company values and philosophy
 
 "use client";
 
-import { Card } from "@/components/runes/Card";
+import { Card } from "@/components/runes/cards/Card";
 import { cn } from "@/lib/utils";
 
 interface CultureValue {

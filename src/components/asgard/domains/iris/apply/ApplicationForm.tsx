@@ -1,4 +1,4 @@
-// src/components/iris/apply/ApplicationForm.tsx
+// src/components/asgard/domains/iris/apply/ApplicationForm.tsx
 // Application Form - Creator/Vendor applications
 // High effort form with multi-section layout, file uploads, and validation
 
@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 // UI Primitives
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/Textarea";
-import { Select } from "@/components/ui/Select";
-import { Label } from "@/components/ui/Label";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/yggdrasil/Button";
+import { Input } from "@/components/forging/Input";
+import { Textarea } from "@/components/forging/Textarea";
+import { Select } from "@/components/forging/Select";
+import { Label } from "@/components/yggdrasil/Label";
+import { Card } from "@/components/runes/Card";
+import { Badge } from "@/components/runes/Badge";
 
 // Generated Types
 import type { ApplicationsInsert } from "@/types/generated/themis-governance/applications";

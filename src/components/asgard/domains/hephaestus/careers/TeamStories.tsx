@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/careers/TeamStories.tsx
+// components/supporting/TeamStories.tsx
 // Team member testimonials
 
 "use client";

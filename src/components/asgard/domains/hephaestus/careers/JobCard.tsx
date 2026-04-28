@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/careers/JobListings.tsx
+// components/supporting/JobListings.tsx
 // Job Listings - Available positions
 
 "use client";

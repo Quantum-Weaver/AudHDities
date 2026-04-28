@@ -1,3 +1,4 @@
+// src/components/asgard/domains/plutus/residual/ResidualFAQ.tsx
 'use client';
 
 import {

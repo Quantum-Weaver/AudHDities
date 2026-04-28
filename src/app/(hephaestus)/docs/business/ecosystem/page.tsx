@@ -1,12 +1,12 @@
-// app/(content)/docs/business/ecosystem/page.tsx
+// app/(hepaestus)/docs/business/ecosystem/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { FinancialEcosystemHero } from '@/components/hephaestus/supporting/business/FinancialEcosystemHero';
-import { TwoStreamFlow } from '@/components/hephaestus/supporting/business/TwoStreamFlow';
-import { ResidualDistribution } from '@/components/hephaestus/supporting/business/ResidualDistribution';
-import { TransparencyLedger } from '@/components/hephaestus/supporting/business/TransparencyLedger';
-import { SustainabilityMetrics } from '@/components/hephaestus/supporting/business/SustainabilityMetrics';
-import { DignityFloor } from '@/components/hephaestus/supporting/business/DignityFloor';
+import { FinancialEcosystemHero } from '@/components/asgard/domains/plutus/business/FinancialEcosystemHero';
+import { TwoStreamFlow } from '@/components/asgard/domains/plutus/business/TwoStreamFlow';
+import { ResidualDistribution } from '@/components/asgard/domains/plutus/business/ResidualDistribution';
+import { TransparencyLedger } from '@/components/asgard/domains/plutus/business/TransparencyLedger';
+import { SustainabilityMetrics } from '@/components/asgard/domains/plutus/business/SustainabilityMetrics';
+import { DignityFloor } from '@/components/asgard/domains/plutus/business/DignityFloor';
 import { Card } from '@/components/runes/Card';
 import { Button } from '@/components/yggdrasil/Button';
 import { ArrowRight, Shield, Users, DollarSign, Heart, TrendingUp, HandCoins } from 'lucide-react';
@@ -19,13 +19,7 @@ export const metadata: Metadata = {
 
 export default function FinancialEcosystemPage() {
   return (
-    <Page 
-      variant={1}
-      environment="business"
-      showForeground={false}
-      animated={false}   
-      showContinuityBeam={true}
-    > 
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
         <FinancialEcosystemHero />
         
@@ -327,7 +321,13 @@ export default function FinancialEcosystemPage() {
           
           {/* Call to Action */}
           <section className="text-center">
-            <Card className="p-12 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border-white/20">
+            <Card 
+              data={{ id: 'ecosystem-cta', type: 'value', title: 'See It in Action', value: 'Ledger' }}
+              variant="glass"
+              radius="2xl"
+              shadow="lg"
+              className="p-12"
+            >
               <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">
                 See It in Action
               </h2>

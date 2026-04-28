@@ -1,9 +1,9 @@
-// src/components/hephaestus/careers/BenefitsList.tsx
+// components/supporting/BenefitsList.tsx
 // Employee benefits showcase
 
 "use client";
 
-import { Card } from "@/components/runes/Card";
+import { Card } from "@/components/runes/cards/Card";
 
 interface Benefit {
   title: string;

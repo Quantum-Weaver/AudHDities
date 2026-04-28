@@ -1,3 +1,4 @@
+// src/components/asgard/domains/plutus/residual/FlowStep.tsx
 'use client';
 
 import { motion } from 'framer-motion';
