@@ -13,8 +13,6 @@ export const metadata = {
 export default function SanctumPage() {
   return (
     <Page 
-      variant={1}
-      environment="home"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}

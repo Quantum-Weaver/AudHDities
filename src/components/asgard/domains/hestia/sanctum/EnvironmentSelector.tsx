@@ -1,7 +1,7 @@
 // src/components/asgard/domains/hestia/sanctum/EnvironmentSelector.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef  } from 'react';
 import { Select } from '@/components/forging/Select';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
@@ -85,27 +85,45 @@ export function EnvironmentSelector({
   className,
 }: EnvironmentSelectorProps) {
   const { setEnvironment } = useContinuityBeam();
-
+  const isUserEditing = useRef(false);
   const parsed = parseEnvironmentPreference(value);
   const [selectedEnvironment, setSelectedEnvironment] = useState<CoreEnvironment>(parsed.environment);
   const [selectedVariant, setSelectedVariant] = useState<number>(parsed.variant);
+  
+  useEffect(() => {
+    const parsed = parseEnvironmentPreference(value);
+    setSelectedEnvironment(parsed.environment);
+    setSelectedVariant(parsed.variant);
+  }, [value]);
 
   const handleEnvironmentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    isUserEditing.current = true;
     const env = e.target.value as CoreEnvironment;
     setSelectedEnvironment(env);
-
     const newValue = buildEnvironmentPreference(env, selectedVariant);
     setEnvironment(env, selectedVariant);
     onChange(newValue, env, selectedVariant);
   };
 
   const handleVariantChange = (variant: number) => {
+    isUserEditing.current = true;
     setSelectedVariant(variant);
-
     const newValue = buildEnvironmentPreference(selectedEnvironment, variant);
     setEnvironment(selectedEnvironment, variant);
     onChange(newValue, selectedEnvironment, variant);
   };
+
+  // Update the useEffect to respect user editing state:
+  useEffect(() => {
+    // Don't override if the user is actively making changes
+    if (isUserEditing.current) {
+      isUserEditing.current = false;
+      return;
+    }
+    const parsed = parseEnvironmentPreference(value);
+    setSelectedEnvironment(parsed.environment);
+    setSelectedVariant(parsed.variant);
+  }, [value]);
 
   return (
     <div className={cn('flex flex-col', className)}>

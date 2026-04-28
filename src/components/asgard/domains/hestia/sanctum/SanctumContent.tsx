@@ -30,12 +30,6 @@ export function SanctumContent() {
     refreshProfile();
   }, []);
 
-  useEffect(() => {
-    if (profile?.preferred_environment) {
-      setEnvironment(profile.preferred_environment as any);
-    }
-  }, [profile?.preferred_environment]);
-
   if (loading) {
     return (
       <main className="min-h-screen py-12">

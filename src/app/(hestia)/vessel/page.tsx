@@ -13,8 +13,6 @@ export const metadata = {
 export default function VesselPage() {
   return (
     <Page 
-      variant={2}
-      environment="home"
       showForeground={false}
       animated={true}
       showContinuityBeam={true}
