@@ -4,7 +4,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card } from "@/components/runes/cards/Card";
+import { Card } from "@/components/runes/Card";
 import { Button } from "@/components/yggdrasil/Button";
 import { Badge } from "@/components/runes/Badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/seidr/Dialog";

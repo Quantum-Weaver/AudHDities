@@ -4,7 +4,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card } from "@/components/runes/cards/Card";
+import { Card } from "@/components/runes/Card";
 import { Button } from "@/components/yggdrasil/Button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/seidr/Dialog";
 import { cn } from "@/lib/utils";
@@ -75,14 +75,15 @@ export function TeamStories() {
         <h2 className="text-xl font-bold text-star-dust mb-4">Voices from the Sanctuary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {teamMembers.map((member) => (
-            <Card
-              key={member.id}
-              className={cn(
-                "p-4 cursor-pointer transition-all hover:scale-[1.02]",
-                houseColors[member.house || "default"]
-              )}
-              onClick={() => setSelectedMember(member)}
-            >
+          <Card
+            key={member.id}
+            data={{ id: member.id, type: 'user', title: member.name, role: member.role }}
+            variant="ghost"
+            radius="lg"
+            shadow="sm"
+            className={cn("p-4 cursor-pointer", houseColors[member.house || ""])}
+            onClick={() => setSelectedMember(member)}
+          >
               <div className="flex items-start gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
                   <span className="text-xl">{member.name[0]}</span>
@@ -93,7 +94,7 @@ export function TeamStories() {
                     <span className="text-xs text-neurospark">{member.role}</span>
                   </div>
                   <p className="text-star-dust/60 text-sm italic mt-1">"{member.quote}"</p>
-                  <Button variant="ghost" size="sm" className="mt-2 text-xs">
+                  <Button variant="outline" size="sm" className="mt-2 text-xs">
                     Read their story →
                   </Button>
                 </div>

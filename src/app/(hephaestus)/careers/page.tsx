@@ -1,58 +1,61 @@
-// app/(hephaestus)/careers/page.tsx
-// The Calling - Job listings, opportunities
-// Feeling: Hopeful, purposeful, inviting
-
+// src/app/(hephaestus)/careers/page.tsx
 import { Page } from '@/components/bifrost/Page';
-import { JobListings } from '@/components/asgard/domains/hephaestus/careers/JobCard';
-import { ApplicationForm } from '@/components/asgard/domains/iris/apply/ApplicationForm';
 import { CultureDeck } from '@/components/asgard/domains/hephaestus/careers/CultureDeck';
 import { BenefitsList } from '@/components/asgard/domains/hephaestus/careers/BenefitsList';
 import { TeamStories } from '@/components/asgard/domains/hephaestus/careers/TeamStories';
-import { createServerSupabase } from '@/lib/supabase/server';
+import { Card } from '@/components/runes/Card';
+import { Infinity, Sparkles } from 'lucide-react';
 
 export const metadata = {
   title: 'The Calling | Sovereign Sanctuary',
-  description: 'Join our team'
+  description: 'The Sanctuary is self-perpetuating — every role is filled by the ecosystem itself',
 };
 
-export default async function CareersPage() {
-  const supabase = await createServerSupabase();
-
-  const { data: jobs } = await supabase
-    .from('job_listings')
-    .select('*')
-    .eq('is_active', true)
-    .order('created_at', { ascending: false });
-
+export default function CareersPage() {
   return (
-    <Page 
-      variant={1}
-      environment="invitation"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen py-12">
         <div className="container max-w-7xl mx-auto px-6">
           
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
+            <h1 className="text-3xl font-bold text-star-dust mb-2">
               The Calling
             </h1>
-            <p className="text-white/60">
-              Join us in weaving a new reality
+            <p className="text-star-dust/60 max-w-2xl mx-auto">
+              The Sanctuary is designed to be self-perpetuating. Every role emerges organically 
+              from the ecosystem. There are no traditional jobs here — only callings that find 
+              the people meant to fulfill them.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <CultureDeck />
-              <JobListings jobs={jobs || []} />
               <TeamStories />
             </div>
             <div className="space-y-8">
               <BenefitsList />
-              <ApplicationForm />
+              
+              {/* Self-Perpetuating Ecosystem Card */}
+              <Card 
+                data={{ id: 'ecosystem-self', type: 'value', title: 'Self-Perpetuating', value: 'Ecosystem' }}
+                variant="glass"
+                radius="lg"
+                shadow="md"
+                className="p-6 text-center"
+              >
+                <Infinity className="text-neurospark mx-auto mb-3" size={28} />
+                <h3 className="text-star-dust font-bold mb-2">No Applications Needed</h3>
+                <p className="text-star-dust/60 text-sm mb-4">
+                  The residual system, covenant pool, and creator economy are designed to sustain 
+                  everyone who contributes. There are no job listings because the ecosystem itself 
+                  is the job — and everyone who participates earns from it.
+                </p>
+                <div className="flex items-center justify-center gap-2 text-xs text-star-dust/40">
+                  <Sparkles size={12} className="text-neurospark" />
+                  <span>Value flows to those who create value</span>
+                </div>
+              </Card>
             </div>
           </div>
         </div>

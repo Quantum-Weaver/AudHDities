@@ -3,7 +3,7 @@
 
 "use client";
 
-import { Card } from "@/components/runes/cards/Card";
+import { Card } from "@/components/runes/Card";
 
 interface Benefit {
   title: string;
@@ -56,7 +56,13 @@ const benefits: Benefit[] = [
 
 export function BenefitsList() {
   return (
-    <Card className="p-6">
+    <Card 
+      data={{ id: 'benefits-list', type: 'value', title: 'What We Offer', value: '' }}
+      variant="ghost"
+      radius="lg"
+      shadow="sm"
+      className="p-6"
+    >
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-star-dust mb-2">What We Offer</h2>
         <p className="text-star-dust/60">The rewards of answering the calling</p>
