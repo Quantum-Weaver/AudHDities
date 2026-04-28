@@ -1,12 +1,12 @@
-// app/(content)/docs/architecture/database-schema/page.tsx
+// app/(mnemosyne)/obsevatory/schema/page.tsx
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { SchemaHero } from '@/components/hephaestus/supporting/schema/SchemaHero';
-import { SchemaTableCard } from '@/components/hephaestus/supporting/schema/SchemaTableCard';
-import { SchemaEnumCard } from '@/components/hephaestus/supporting//schema/SchemaEnumCard';
-import { SchemaFunctionCard } from '@/components/hephaestus/supporting//schema/SchemaFunctionCard';
-import { SchemaExplorer } from '@/components/hephaestus/supporting//schema/SchemaExplorer';
+import { SchemaHero } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaHero';
+import { SchemaTableCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaTableCard';
+import { SchemaEnumCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaEnumCard';
+import { SchemaFunctionCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaFunctionCard';
+import { SchemaExplorer } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaExplorer';
 import { Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
