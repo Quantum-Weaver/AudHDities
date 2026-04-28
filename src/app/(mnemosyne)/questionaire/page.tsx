@@ -1,0 +1,24 @@
+// src/app/(mnemosyne)/questionaire/page.tsx
+import { Metadata } from 'next';
+import { Page } from '@/components/bifrost/Page';
+import { AcidTestForm } from '@/components/asgard/domains/mnemosyne/assessment/AcidTestForm';
+
+export const metadata: Metadata = {
+  title: 'Acid Test | AUDHDITIES',
+  description: 'A playful, gentle survey that determines your access tier. No judgment. No labels. Just recognition.',
+};
+
+export default function QuestionairePage() {
+  return (
+    <Page showForeground={false} showContinuityBeam={true}>
+      <main className="min-h-screen py-20 px-6">
+        <div className="container max-w-4xl mx-auto">
+          <AcidTestForm
+            questions={[]}
+            userId={undefined}
+          />
+        </div>
+      </main>
+    </Page>
+  );
+}

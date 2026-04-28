@@ -304,7 +304,7 @@ export default async function VendorOnboardingPage() {
               "Optional: Set residual percentages per product"
             ]}
             actionText="Apply to Become a Vendor"
-            actionLink="/vendor/apply"
+            actionLink="/council/applications/vendor"
           />
         </div>
       </main>

@@ -92,13 +92,6 @@ function determineTier(score: number): UserTier {
   return "ally";
 }
 
-function determinePersona(score: number, _answers: AnswerValue[]): AcidPersona {
-  if (score >= 30) return "seam_warrior";
-  if (score >= 20) return "tab_hoarder";
-  if (score >= 10) return "void_dweller";
-  if (score < 5) return "masked_traveler";
-  return "pattern_seeker";
-}
 
 function getPersonaDescription(persona: AcidPersona): string {
   return PERSONA_DESCRIPTIONS[persona] || "The Loom recognizes your unique consciousness.";
@@ -390,43 +383,45 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     setError(null);
   }, []);
 
+  // In AcidTestForm.tsx — update the submit URL and persona logic
+
   const handleSubmit = async () => {
     setIsSubmitting(true);
     setError(null);
 
-    const totalScore = calculateScore(answers);
-    const suggestedTier = determineTier(totalScore);
-    const personaLabel = determinePersona(totalScore, answers);
-    const personaDescription = getPersonaDescription(personaLabel);
-
-    const resultData: AcidTestResult = {
-      totalScore,
-      suggestedTier,
-      personaLabel,
-      personaDescription,
-    };
+    const answersPayload = answers.map(a => ({
+      question_id: a.questionId,
+      answer_text: a.value?.toString() || '',
+      score: a.score,
+    }));
 
     try {
-      const response = await fetch("/api/generated/mnemosyne-assessment/acid_test_results", {
+      // Use the RPC endpoint instead of direct table insert
+      const response = await fetch("/api/generated/mnemosyne-assessment/acid_test_answers_submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          user_id: userId,
-          total_score: totalScore,
-          suggested_tier: suggestedTier,
-          persona_label: personaLabel,
-          persona_description: personaDescription,
-          answers: answers.map(a => ({
-            question_id: a.questionId,
-            answer_id: a.answerId,
-            score_value: a.score,
-          })),
+          p_user_id: userId,
+          p_answers: answersPayload,
         }),
       });
 
       if (!response.ok) {
         throw new Error("Failed to submit assessment");
       }
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || "Submission failed");
+      }
+
+      const resultData: AcidTestResult = {
+        totalScore: result.total_score,
+        suggestedTier: result.suggested_tier as UserTier,
+        personaLabel: result.persona as AcidPersona,
+        personaDescription: result.persona_description,
+      };
 
       setResult(resultData);
       onComplete?.(resultData);
@@ -436,7 +431,6 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
       }, 2000);
       
     } catch (err) {
-      console.error("Error submitting acid test:", err);
       setError(err instanceof Error ? err.message : "Failed to submit. Please try again.");
     } finally {
       setIsSubmitting(false);

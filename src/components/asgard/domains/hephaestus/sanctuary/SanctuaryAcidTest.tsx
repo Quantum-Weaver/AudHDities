@@ -10,7 +10,7 @@ export function SanctuaryAcidTest() {
   return (
     <section className="py-24 px-6">
       <div className="container max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-8">
+        <div className="inline-flex items-center gap-2 bg-star-dust/5 px-4 py-2 rounded-full mb-8">
           <Sparkles size={14} className="text-neurospark" />
           <span className="text-sm text-star-dust/70">Find Your Place</span>
         </div>

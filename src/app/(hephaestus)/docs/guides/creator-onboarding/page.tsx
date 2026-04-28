@@ -240,7 +240,7 @@ export default function CreatorOnboardingPage() {
               "Make first sale!"
             ]}
             actionText="Apply to Become a Creator"
-            actionLink="/creator/apply"
+            actionLink="/council/applications/creator"
           />
           
           <div className="mt-12 text-center">
