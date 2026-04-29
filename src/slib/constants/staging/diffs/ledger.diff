@@ -1,0 +1,132 @@
+--- a/lib\validators\generated\plutus-economics\ledger.ts
++++ b/lib\validators\generated\plutus-economics\ledger.ts (staged)
+@@ -1,65 +1,65 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/ledger.ts
++// FILE: validators/ledger.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Ledger SCHEMAS
++// Ledger SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const LedgerRowSchema = z.object({
++export const LedgerRowSchema = z.object({
+-  amount_cents: z.number(),
++  amount_cents: z.number(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  description: z.string(),
++  description: z.string(),
+-  entry_type: z.enum(ENUM_VALUES.ledgerEntryType),
++  entry_type: z.enum(ENUM_VALUES.ledgerEntryType),
+-  from_entity: z.enum(ENUM_VALUES.ledgerEntity),
++  from_entity: z.enum(ENUM_VALUES.ledgerEntity),
+-  from_profile_id: z.string().nullable(),
++  from_profile_id: z.string().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  public_note: z.string().nullable(),
++  public_note: z.string().nullable(),
+-  reference_id: z.string(),
++  reference_id: z.string(),
+-  to_entity: z.enum(ENUM_VALUES.ledgerEntity),
++  to_entity: z.enum(ENUM_VALUES.ledgerEntity),
+-  to_profile_id: z.string().nullable(),
++  to_profile_id: z.string().nullable(),
+-});
++});
+-
++
+-export const LedgerInsertSchema = z.object({
++export const LedgerInsertSchema = z.object({
+-  amount_cents: z.number(),
++  amount_cents: z.number(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  description: z.string(),
++  description: z.string(),
+-  entry_type: z.enum(ENUM_VALUES.ledgerEntryType),
++  entry_type: z.enum(ENUM_VALUES.ledgerEntryType),
+-  from_entity: z.enum(ENUM_VALUES.ledgerEntity),
++  from_entity: z.enum(ENUM_VALUES.ledgerEntity),
+-  from_profile_id: z.string().nullable().optional(),
++  from_profile_id: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  public_note: z.string().nullable().optional(),
++  public_note: z.string().nullable().optional(),
+-  reference_id: z.string(),
++  reference_id: z.string(),
+-  to_entity: z.enum(ENUM_VALUES.ledgerEntity),
++  to_entity: z.enum(ENUM_VALUES.ledgerEntity),
+-  to_profile_id: z.string().nullable().optional(),
++  to_profile_id: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const LedgerUpdateSchema = z.object({
++export const LedgerUpdateSchema = z.object({
+-  amount_cents: z.number().optional(),
++  amount_cents: z.number().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  description: z.string().optional(),
++  description: z.string().optional(),
+-  entry_type: z.enum(ENUM_VALUES.ledgerEntryType).optional(),
++  entry_type: z.enum(ENUM_VALUES.ledgerEntryType).optional(),
+-  from_entity: z.enum(ENUM_VALUES.ledgerEntity).optional(),
++  from_entity: z.enum(ENUM_VALUES.ledgerEntity).optional(),
+-  from_profile_id: z.string().nullable().optional(),
++  from_profile_id: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  public_note: z.string().nullable().optional(),
++  public_note: z.string().nullable().optional(),
+-  reference_id: z.string().optional(),
++  reference_id: z.string().optional(),
+-  to_entity: z.enum(ENUM_VALUES.ledgerEntity).optional(),
++  to_entity: z.enum(ENUM_VALUES.ledgerEntity).optional(),
+-  to_profile_id: z.string().nullable().optional(),
++  to_profile_id: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type LedgerRowInput = z.infer<typeof LedgerRowSchema>;
++export type LedgerRowInput = z.infer<typeof LedgerRowSchema>;
+-export type LedgerInsertInput = z.infer<typeof LedgerInsertSchema>;
++export type LedgerInsertInput = z.infer<typeof LedgerInsertSchema>;
+-export type LedgerUpdateInput = z.infer<typeof LedgerUpdateSchema>;
++export type LedgerUpdateInput = z.infer<typeof LedgerUpdateSchema>;
+ 

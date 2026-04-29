@@ -96,6 +96,7 @@ export interface VendorCardData extends BaseCardData {
   businessType?: string;
   productCount?: number;
   isVerified?: boolean;
+  website?: string;
 }
 
 export interface CouncilCardData extends BaseCardData {

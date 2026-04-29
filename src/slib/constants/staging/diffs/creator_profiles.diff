@@ -1,0 +1,168 @@
+--- a/lib\validators\generated\hestia-core\creator_profiles.ts
++++ b/lib\validators\generated\hestia-core\creator_profiles.ts (staged)
+@@ -1,83 +1,83 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/creator_profiles.ts
++// FILE: validators/creator_profiles.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// CreatorProfiles SCHEMAS
++// CreatorProfiles SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const CreatorProfilesRowSchema = z.object({
++export const CreatorProfilesRowSchema = z.object({
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  creative_categories: z.any().nullable(),
++  creative_categories: z.any().nullable(),
+-  creative_description: z.string().nullable(),
++  creative_description: z.string().nullable(),
+-  creator_logo_url: z.string().nullable(),
++  creator_logo_url: z.string().nullable(),
+-  creator_moniker: z.string(),
++  creator_moniker: z.string(),
+-  default_residual_pool: z.number().nullable(),
++  default_residual_pool: z.number().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  portfolio_url: z.string().nullable(),
++  portfolio_url: z.string().nullable(),
+-  profile_id: z.string(),
++  profile_id: z.string(),
+-  stripe_account_id: z.string().nullable(),
++  stripe_account_id: z.string().nullable(),
+-  total_earnings: z.number().nullable(),
++  total_earnings: z.number().nullable(),
+-  total_products: z.number().nullable(),
++  total_products: z.number().nullable(),
+-  total_sales: z.number().nullable(),
++  total_sales: z.number().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  verified_at: z.string().nullable(),
++  verified_at: z.string().nullable(),
+-  verified_badge: z.boolean().nullable(),
++  verified_badge: z.boolean().nullable(),
+-  verified_by: z.string().nullable(),
++  verified_by: z.string().nullable(),
+-});
++});
+-
++
+-export const CreatorProfilesInsertSchema = z.object({
++export const CreatorProfilesInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  creative_categories: z.any().nullable().optional(),
++  creative_categories: z.any().nullable().optional(),
+-  creative_description: z.string().nullable().optional(),
++  creative_description: z.string().nullable().optional(),
+-  creator_logo_url: z.string().nullable().optional(),
++  creator_logo_url: z.string().nullable().optional(),
+-  creator_moniker: z.string(),
++  creator_moniker: z.string(),
+-  default_residual_pool: z.number().nullable().optional(),
++  default_residual_pool: z.number().nullable().optional(),
+-  id: z.string(),
++  id: z.string(),
+-  portfolio_url: z.string().nullable().optional(),
++  portfolio_url: z.string().nullable().optional(),
+-  profile_id: z.string(),
++  profile_id: z.string(),
+-  stripe_account_id: z.string().nullable().optional(),
++  stripe_account_id: z.string().nullable().optional(),
+-  total_earnings: z.number().nullable().optional(),
++  total_earnings: z.number().nullable().optional(),
+-  total_products: z.number().nullable().optional(),
++  total_products: z.number().nullable().optional(),
+-  total_sales: z.number().nullable().optional(),
++  total_sales: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  verified_at: z.string().nullable().optional(),
++  verified_at: z.string().nullable().optional(),
+-  verified_badge: z.boolean().nullable().optional(),
++  verified_badge: z.boolean().nullable().optional(),
+-  verified_by: z.string().nullable().optional(),
++  verified_by: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const CreatorProfilesUpdateSchema = z.object({
++export const CreatorProfilesUpdateSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  creative_categories: z.any().nullable().optional(),
++  creative_categories: z.any().nullable().optional(),
+-  creative_description: z.string().nullable().optional(),
++  creative_description: z.string().nullable().optional(),
+-  creator_logo_url: z.string().nullable().optional(),
++  creator_logo_url: z.string().nullable().optional(),
+-  creator_moniker: z.string().optional(),
++  creator_moniker: z.string().optional(),
+-  default_residual_pool: z.number().nullable().optional(),
++  default_residual_pool: z.number().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  portfolio_url: z.string().nullable().optional(),
++  portfolio_url: z.string().nullable().optional(),
+-  profile_id: z.string().optional(),
++  profile_id: z.string().optional(),
+-  stripe_account_id: z.string().nullable().optional(),
++  stripe_account_id: z.string().nullable().optional(),
+-  total_earnings: z.number().nullable().optional(),
++  total_earnings: z.number().nullable().optional(),
+-  total_products: z.number().nullable().optional(),
++  total_products: z.number().nullable().optional(),
+-  total_sales: z.number().nullable().optional(),
++  total_sales: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  verified_at: z.string().nullable().optional(),
++  verified_at: z.string().nullable().optional(),
+-  verified_badge: z.boolean().nullable().optional(),
++  verified_badge: z.boolean().nullable().optional(),
+-  verified_by: z.string().nullable().optional(),
++  verified_by: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type CreatorProfilesRowInput = z.infer<typeof CreatorProfilesRowSchema>;
++export type CreatorProfilesRowInput = z.infer<typeof CreatorProfilesRowSchema>;
+-export type CreatorProfilesInsertInput = z.infer<typeof CreatorProfilesInsertSchema>;
++export type CreatorProfilesInsertInput = z.infer<typeof CreatorProfilesInsertSchema>;
+-export type CreatorProfilesUpdateInput = z.infer<typeof CreatorProfilesUpdateSchema>;
++export type CreatorProfilesUpdateInput = z.infer<typeof CreatorProfilesUpdateSchema>;
+ 

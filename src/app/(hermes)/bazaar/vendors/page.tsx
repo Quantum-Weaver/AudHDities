@@ -1,28 +1,16 @@
-// app/(hermes)/bazaar/vendors/page.tsx
-// Vendors - Directory of sovereign vendors
-// Feeling: Professional, trustworthy, diverse
-
+// src/app/(hermes)/bazaar/vendors/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { VendorsGallery } from '@/components/asgard/domains/hermes/vendors/VendorsGallery';
 
 export const metadata = {
-  title: 'Vendors | Sovereign Sanctuary',
-  description: 'Sovereign commerce'
+  title: 'The Guild | Sovereign Sanctuary',
+  description: 'Meet the vendors of the Sanctuary',
 };
 
-export default async function VendorsPage() {
+export default function VendorsPage() {
   return (
-    <Page 
-      variant={2}
-      environment="community"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <VendorsGallery />
     </Page>
   );
 }

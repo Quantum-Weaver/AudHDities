@@ -1,0 +1,114 @@
+--- a/lib\validators\generated\athena-gamification\life_cycles.ts
++++ b/lib\validators\generated\athena-gamification\life_cycles.ts (staged)
+@@ -1,56 +1,56 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/life_cycles.ts
++// FILE: validators/life_cycles.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// LifeCycles SCHEMAS
++// LifeCycles SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const LifeCyclesRowSchema = z.object({
++export const LifeCyclesRowSchema = z.object({
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  ended_at: z.string().nullable(),
++  ended_at: z.string().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  metadata: z.any().nullable(),
++  metadata: z.any().nullable(),
+-  phase: z.enum(ENUM_VALUES.lifeCyclePhase),
++  phase: z.enum(ENUM_VALUES.lifeCyclePhase),
+-  started_at: z.string(),
++  started_at: z.string(),
+-  trigger_event: z.string().nullable(),
++  trigger_event: z.string().nullable(),
+-  user_id: z.string(),
++  user_id: z.string(),
+-});
++});
+-
++
+-export const LifeCyclesInsertSchema = z.object({
++export const LifeCyclesInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  ended_at: z.string().nullable().optional(),
++  ended_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  metadata: z.any().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  phase: z.enum(ENUM_VALUES.lifeCyclePhase),
++  phase: z.enum(ENUM_VALUES.lifeCyclePhase),
+-  started_at: z.string(),
++  started_at: z.string(),
+-  trigger_event: z.string().nullable().optional(),
++  trigger_event: z.string().nullable().optional(),
+-  user_id: z.string(),
++  user_id: z.string(),
+-});
++});
+-
++
+-export const LifeCyclesUpdateSchema = z.object({
++export const LifeCyclesUpdateSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  ended_at: z.string().nullable().optional(),
++  ended_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  metadata: z.any().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  phase: z.enum(ENUM_VALUES.lifeCyclePhase).optional(),
++  phase: z.enum(ENUM_VALUES.lifeCyclePhase).optional(),
+-  started_at: z.string().optional(),
++  started_at: z.string().optional(),
+-  trigger_event: z.string().nullable().optional(),
++  trigger_event: z.string().nullable().optional(),
+-  user_id: z.string().optional(),
++  user_id: z.string().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type LifeCyclesRowInput = z.infer<typeof LifeCyclesRowSchema>;
++export type LifeCyclesRowInput = z.infer<typeof LifeCyclesRowSchema>;
+-export type LifeCyclesInsertInput = z.infer<typeof LifeCyclesInsertSchema>;
++export type LifeCyclesInsertInput = z.infer<typeof LifeCyclesInsertSchema>;
+-export type LifeCyclesUpdateInput = z.infer<typeof LifeCyclesUpdateSchema>;
++export type LifeCyclesUpdateInput = z.infer<typeof LifeCyclesUpdateSchema>;
+ 

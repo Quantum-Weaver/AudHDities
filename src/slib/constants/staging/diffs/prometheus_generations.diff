@@ -1,0 +1,141 @@
+--- a/lib\validators\generated\prometheus-meta\prometheus_generations.ts
++++ b/lib\validators\generated\prometheus-meta\prometheus_generations.ts (staged)
+@@ -1,68 +1,71 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/prometheus_generations.ts
++// FILE: validators/prometheus_generations.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// PrometheusGenerations SCHEMAS
++// PrometheusGenerations SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const PrometheusGenerationsRowSchema = z.object({
++export const PrometheusGenerationsRowSchema = z.object({
+-  blueprint_id: z.string(),
++  blueprint_id: z.string(),
+-  completed_at: z.string().nullable(),
++  completed_at: z.string().nullable(),
+-  council_involved: z.any().nullable(),
++  council_involved: z.any().nullable(),
+-  created_at: z.string(),
++  created_at: z.string(),
+-  duration_ms: z.number(),
++  created_by: z.string().nullable(),
+-  errors: z.any().nullable(),
++  duration_ms: z.number(),
+-  file_paths: z.any().nullable(),
++  errors: z.any().nullable(),
+-  files_generated: z.number(),
++  file_paths: z.any().nullable(),
+-  id: z.string(),
++  files_generated: z.number(),
+-  metadata: z.any().nullable(),
++  id: z.string(),
+-  session_id: z.string(),
++  metadata: z.any().nullable(),
+-  status: z.enum(ENUM_VALUES.generationStatus),
++  session_id: z.string(),
+-  ziggy_present: z.boolean(),
++  status: z.enum(ENUM_VALUES.generationStatus),
+-});
++  ziggy_present: z.boolean(),
+-
++});
+-export const PrometheusGenerationsInsertSchema = z.object({
++
+-  blueprint_id: z.string(),
++export const PrometheusGenerationsInsertSchema = z.object({
+-  completed_at: z.string().nullable().optional(),
++  blueprint_id: z.string(),
+-  council_involved: z.any().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  created_at: z.string().optional(),
++  council_involved: z.any().nullable().optional(),
+-  duration_ms: z.number().optional(),
++  created_at: z.string().optional(),
+-  errors: z.any().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  file_paths: z.any().nullable().optional(),
++  duration_ms: z.number().optional(),
+-  files_generated: z.number().optional(),
++  errors: z.any().nullable().optional(),
+-  id: z.string().optional(),
++  file_paths: z.any().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  files_generated: z.number().optional(),
+-  session_id: z.string(),
++  id: z.string().optional(),
+-  status: z.enum(ENUM_VALUES.generationStatus).optional(),
++  metadata: z.any().nullable().optional(),
+-  ziggy_present: z.boolean().optional(),
++  session_id: z.string(),
+-});
++  status: z.enum(ENUM_VALUES.generationStatus).optional(),
+-
++  ziggy_present: z.boolean().optional(),
+-export const PrometheusGenerationsUpdateSchema = z.object({
++});
+-  blueprint_id: z.string().optional(),
++
+-  completed_at: z.string().nullable().optional(),
++export const PrometheusGenerationsUpdateSchema = z.object({
+-  council_involved: z.any().nullable().optional(),
++  blueprint_id: z.string().optional(),
+-  created_at: z.string().optional(),
++  completed_at: z.string().nullable().optional(),
+-  duration_ms: z.number().optional(),
++  council_involved: z.any().nullable().optional(),
+-  errors: z.any().nullable().optional(),
++  created_at: z.string().optional(),
+-  file_paths: z.any().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  files_generated: z.number().optional(),
++  duration_ms: z.number().optional(),
+-  id: z.string().optional(),
++  errors: z.any().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  file_paths: z.any().nullable().optional(),
+-  session_id: z.string().optional(),
++  files_generated: z.number().optional(),
+-  status: z.enum(ENUM_VALUES.generationStatus).optional(),
++  id: z.string().optional(),
+-  ziggy_present: z.boolean().optional(),
++  metadata: z.any().nullable().optional(),
+-});
++  session_id: z.string().optional(),
+-
++  status: z.enum(ENUM_VALUES.generationStatus).optional(),
+-// =====================================================
++  ziggy_present: z.boolean().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type PrometheusGenerationsRowInput = z.infer<typeof PrometheusGenerationsRowSchema>;
++// TYPE INFERENCE
+-export type PrometheusGenerationsInsertInput = z.infer<typeof PrometheusGenerationsInsertSchema>;
++// =====================================================
+-export type PrometheusGenerationsUpdateInput = z.infer<typeof PrometheusGenerationsUpdateSchema>;
+ 
++export type PrometheusGenerationsRowInput = z.infer<typeof PrometheusGenerationsRowSchema>;
++export type PrometheusGenerationsInsertInput = z.infer<typeof PrometheusGenerationsInsertSchema>;
++export type PrometheusGenerationsUpdateInput = z.infer<typeof PrometheusGenerationsUpdateSchema>;
++

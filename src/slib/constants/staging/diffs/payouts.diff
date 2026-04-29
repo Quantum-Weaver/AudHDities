@@ -1,0 +1,126 @@
+--- a/lib\validators\generated\plutus-economics\payouts.ts
++++ b/lib\validators\generated\plutus-economics\payouts.ts (staged)
+@@ -1,62 +1,62 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/payouts.ts
++// FILE: validators/payouts.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Payouts SCHEMAS
++// Payouts SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const PayoutsRowSchema = z.object({
++export const PayoutsRowSchema = z.object({
+-  amount_cents: z.number(),
++  amount_cents: z.number(),
+-  completed_at: z.string().nullable(),
++  completed_at: z.string().nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  destination: z.string().nullable(),
++  destination: z.string().nullable(),
+-  disbursement_id: z.string(),
++  disbursement_id: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  payout_method: z.enum(ENUM_VALUES.payoutMethod),
++  payout_method: z.enum(ENUM_VALUES.payoutMethod),
+-  recipient_id: z.string(),
++  recipient_id: z.string(),
+-  status: z.enum(ENUM_VALUES.payoutStatus).nullable(),
++  status: z.enum(ENUM_VALUES.payoutStatus).nullable(),
+-  stripe_transfer_id: z.string().nullable(),
++  stripe_transfer_id: z.string().nullable(),
+-});
++});
+-
++
+-export const PayoutsInsertSchema = z.object({
++export const PayoutsInsertSchema = z.object({
+-  amount_cents: z.number(),
++  amount_cents: z.number(),
+-  completed_at: z.string().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  destination: z.string().nullable().optional(),
++  destination: z.string().nullable().optional(),
+-  disbursement_id: z.string(),
++  disbursement_id: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  payout_method: z.enum(ENUM_VALUES.payoutMethod),
++  payout_method: z.enum(ENUM_VALUES.payoutMethod),
+-  recipient_id: z.string(),
++  recipient_id: z.string(),
+-  status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
++  status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
+-  stripe_transfer_id: z.string().nullable().optional(),
++  stripe_transfer_id: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const PayoutsUpdateSchema = z.object({
++export const PayoutsUpdateSchema = z.object({
+-  amount_cents: z.number().optional(),
++  amount_cents: z.number().optional(),
+-  completed_at: z.string().nullable().optional(),
++  completed_at: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  destination: z.string().nullable().optional(),
++  destination: z.string().nullable().optional(),
+-  disbursement_id: z.string().optional(),
++  disbursement_id: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  payout_method: z.enum(ENUM_VALUES.payoutMethod).optional(),
++  payout_method: z.enum(ENUM_VALUES.payoutMethod).optional(),
+-  recipient_id: z.string().optional(),
++  recipient_id: z.string().optional(),
+-  status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
++  status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
+-  stripe_transfer_id: z.string().nullable().optional(),
++  stripe_transfer_id: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type PayoutsRowInput = z.infer<typeof PayoutsRowSchema>;
++export type PayoutsRowInput = z.infer<typeof PayoutsRowSchema>;
+-export type PayoutsInsertInput = z.infer<typeof PayoutsInsertSchema>;
++export type PayoutsInsertInput = z.infer<typeof PayoutsInsertSchema>;
+-export type PayoutsUpdateInput = z.infer<typeof PayoutsUpdateSchema>;
++export type PayoutsUpdateInput = z.infer<typeof PayoutsUpdateSchema>;
+ 

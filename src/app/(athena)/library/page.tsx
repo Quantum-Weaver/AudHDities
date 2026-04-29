@@ -1,28 +1,16 @@
-// app/(athena)/library/page.tsx
-// The Library - Learning hub
-// Feeling: Curious, expansive, wise, empowering
-
+// src/app/(athena)/library/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { LibraryHub } from '@/components/asgard/domains/athena/library/LibraryHub';
 
 export const metadata = {
   title: 'The Library | Sovereign Sanctuary',
-  description: 'Knowledge awaits'
+  description: 'Knowledge awaits',
 };
 
-export default async function LibraryPage() {
+export default function LibraryPage() {
   return (
-    <Page 
-      variant={1}
-      environment="library"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <LibraryHub />
     </Page>
   );
 }

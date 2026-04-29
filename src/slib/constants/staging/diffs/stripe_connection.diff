@@ -1,0 +1,138 @@
+--- a/lib\validators\generated\aethelred-connections\stripe_connection.ts
++++ b/lib\validators\generated\aethelred-connections\stripe_connection.ts (staged)
+@@ -1,68 +1,68 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/stripe_connection.ts
++// FILE: validators/stripe_connection.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// StripeConnection SCHEMAS
++// StripeConnection SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const StripeConnectionRowSchema = z.object({
++export const StripeConnectionRowSchema = z.object({
+-  account_id: z.string(),
++  account_id: z.string(),
+-  connected_accounts: z.any().nullable(),
++  connected_accounts: z.any().nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  last_sync_at: z.string().nullable(),
++  last_sync_at: z.string().nullable(),
+-  mode: z.enum(ENUM_VALUES.stripeMode).nullable(),
++  mode: z.enum(ENUM_VALUES.stripeMode).nullable(),
+-  operated_by: z.string().nullable(),
++  operated_by: z.string().nullable(),
+-  payout_settings: z.any().nullable(),
++  payout_settings: z.any().nullable(),
+-  products_synced: z.number().nullable(),
++  products_synced: z.number().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  webhook_secret: z.string().nullable(),
++  webhook_secret: z.string().nullable(),
+-  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable(),
++  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable(),
+-});
++});
+-
++
+-export const StripeConnectionInsertSchema = z.object({
++export const StripeConnectionInsertSchema = z.object({
+-  account_id: z.string(),
++  account_id: z.string(),
+-  connected_accounts: z.any().nullable().optional(),
++  connected_accounts: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  last_sync_at: z.string().nullable().optional(),
++  last_sync_at: z.string().nullable().optional(),
+-  mode: z.enum(ENUM_VALUES.stripeMode).nullable().optional(),
++  mode: z.enum(ENUM_VALUES.stripeMode).nullable().optional(),
+-  operated_by: z.string().nullable().optional(),
++  operated_by: z.string().nullable().optional(),
+-  payout_settings: z.any().nullable().optional(),
++  payout_settings: z.any().nullable().optional(),
+-  products_synced: z.number().nullable().optional(),
++  products_synced: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  webhook_secret: z.string().nullable().optional(),
++  webhook_secret: z.string().nullable().optional(),
+-  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable().optional(),
++  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable().optional(),
+-});
++});
+-
++
+-export const StripeConnectionUpdateSchema = z.object({
++export const StripeConnectionUpdateSchema = z.object({
+-  account_id: z.string().optional(),
++  account_id: z.string().optional(),
+-  connected_accounts: z.any().nullable().optional(),
++  connected_accounts: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  last_sync_at: z.string().nullable().optional(),
++  last_sync_at: z.string().nullable().optional(),
+-  mode: z.enum(ENUM_VALUES.stripeMode).nullable().optional(),
++  mode: z.enum(ENUM_VALUES.stripeMode).nullable().optional(),
+-  operated_by: z.string().nullable().optional(),
++  operated_by: z.string().nullable().optional(),
+-  payout_settings: z.any().nullable().optional(),
++  payout_settings: z.any().nullable().optional(),
+-  products_synced: z.number().nullable().optional(),
++  products_synced: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  webhook_secret: z.string().nullable().optional(),
++  webhook_secret: z.string().nullable().optional(),
+-  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable().optional(),
++  webhook_status: z.enum(ENUM_VALUES.webhookStatus).nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type StripeConnectionRowInput = z.infer<typeof StripeConnectionRowSchema>;
++export type StripeConnectionRowInput = z.infer<typeof StripeConnectionRowSchema>;
+-export type StripeConnectionInsertInput = z.infer<typeof StripeConnectionInsertSchema>;
++export type StripeConnectionInsertInput = z.infer<typeof StripeConnectionInsertSchema>;
+-export type StripeConnectionUpdateInput = z.infer<typeof StripeConnectionUpdateSchema>;
++export type StripeConnectionUpdateInput = z.infer<typeof StripeConnectionUpdateSchema>;
+ 

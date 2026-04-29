@@ -1,0 +1,109 @@
+--- a/lib\validators\generated\hestia-core\system_timeline_events.ts
++++ b/lib\validators\generated\hestia-core\system_timeline_events.ts (staged)
+@@ -1,52 +1,55 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/system_timeline_events.ts
++// FILE: validators/system_timeline_events.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// SystemTimelineEvents SCHEMAS
++// SystemTimelineEvents SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const SystemTimelineEventsRowSchema = z.object({
++export const SystemTimelineEventsRowSchema = z.object({
+-  created_at: z.string(),
++  created_at: z.string(),
+-  description: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  event_type: z.string(),
++  description: z.string().nullable(),
+-  id: z.string(),
++  event_type: z.string(),
+-  metadata: z.any().nullable(),
++  id: z.string(),
+-  severity: z.string().nullable(),
++  metadata: z.any().nullable(),
+-  source: z.string().nullable(),
++  severity: z.string().nullable(),
+-  title: z.string(),
++  source: z.string().nullable(),
+-});
++  title: z.string(),
+-
++});
+-export const SystemTimelineEventsInsertSchema = z.object({
++
+-  created_at: z.string().optional(),
++export const SystemTimelineEventsInsertSchema = z.object({
+-  description: z.string().nullable().optional(),
++  created_at: z.string().optional(),
+-  event_type: z.string(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  description: z.string().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  event_type: z.string(),
+-  severity: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  source: z.string().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  title: z.string(),
++  severity: z.string().nullable().optional(),
+-});
++  source: z.string().nullable().optional(),
+-
++  title: z.string(),
+-export const SystemTimelineEventsUpdateSchema = z.object({
++});
+-  created_at: z.string().optional(),
++
+-  description: z.string().nullable().optional(),
++export const SystemTimelineEventsUpdateSchema = z.object({
+-  event_type: z.string().optional(),
++  created_at: z.string().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  description: z.string().nullable().optional(),
+-  severity: z.string().nullable().optional(),
++  event_type: z.string().optional(),
+-  source: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  title: z.string().optional(),
++  metadata: z.any().nullable().optional(),
+-});
++  severity: z.string().nullable().optional(),
+-
++  source: z.string().nullable().optional(),
+-// =====================================================
++  title: z.string().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type SystemTimelineEventsRowInput = z.infer<typeof SystemTimelineEventsRowSchema>;
++// TYPE INFERENCE
+-export type SystemTimelineEventsInsertInput = z.infer<typeof SystemTimelineEventsInsertSchema>;
++// =====================================================
+-export type SystemTimelineEventsUpdateInput = z.infer<typeof SystemTimelineEventsUpdateSchema>;
+ 
++export type SystemTimelineEventsRowInput = z.infer<typeof SystemTimelineEventsRowSchema>;
++export type SystemTimelineEventsInsertInput = z.infer<typeof SystemTimelineEventsInsertSchema>;
++export type SystemTimelineEventsUpdateInput = z.infer<typeof SystemTimelineEventsUpdateSchema>;
++

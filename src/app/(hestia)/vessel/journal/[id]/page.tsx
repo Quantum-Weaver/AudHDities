@@ -1,38 +1,19 @@
-// app/(hestia)/vessel/journal/[id]/page.tsx
-// Journal Entry - Single journal entry view
-// Feeling: Peaceful, reflective, sacred
+// src/app/(hestia)/vessel/journal/[id]/page.tsx
+// The Scroll — Journal entry detail
+// Feeling: Reflective, intimate, sacred
 
 import { Page } from '@/components/bifrost/Page';
+import { JournalDetail } from '@/components/asgard/domains/hestia/journal/JournalDetail';
 
-interface JournalEntryPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'The Scroll | Sovereign Sanctuary',
+  description: 'Your words, your story, your truth',
+};
 
-export async function generateMetadata({ params }: JournalEntryPageProps) {
-  const { id } = await params;
-  return {
-    title: `Journal Entry ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A page from your story'
-  };
-}
-
-export default async function JournalEntryPage({ params }: JournalEntryPageProps) {
-  const { id } = await params;
-  
+export default function JournalDetailPage() {
   return (
-    <Page 
-      variant={1}
-      environment="library"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Journal entry ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <JournalDetail />
     </Page>
   );
 }

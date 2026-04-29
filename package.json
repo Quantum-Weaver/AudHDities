@@ -24,6 +24,7 @@
     "gaia:enums:force": "tsx src/scripts/system/gaia/maintenance/generate_enums_file.ts --force",
     "gaia:enums:verbose": "tsx src/scripts/system/gaia/maintenance/generate_enums_file.ts --verbose",
     "gaia:mapping": "tsx src/scripts/system/gaia/maintenance/generate_enum_mapping.ts",
+    "gaia:schema": "tsx src/scripts/system/gaia/maintenance/generate_schema_json.ts",
     "cosmic": "tsx src/scripts/system/cosmic/index.ts",
     "cosmic:dry": "tsx src/scripts/system/cosmic/index.ts --dry-run",
     "cosmic:verbose": "tsx src/scripts/system/cosmic/index.ts --verbose",

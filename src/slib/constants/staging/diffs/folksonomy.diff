@@ -1,0 +1,120 @@
+--- a/lib\validators\generated\mnemosyne-assessment\folksonomy.ts
++++ b/lib\validators\generated\mnemosyne-assessment\folksonomy.ts (staged)
+@@ -1,59 +1,59 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/folksonomy.ts
++// FILE: validators/folksonomy.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Folksonomy SCHEMAS
++// Folksonomy SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const FolksonomyRowSchema = z.object({
++export const FolksonomyRowSchema = z.object({
+-  approved_by: z.string().nullable(),
++  approved_by: z.string().nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  creator_id: z.string(),
++  creator_id: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  is_approved: z.boolean().nullable(),
++  is_approved: z.boolean().nullable(),
+-  tag: z.string(),
++  tag: z.string(),
+-  target_id: z.string(),
++  target_id: z.string(),
+-  target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
++  target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
+-  weight: z.number().nullable(),
++  weight: z.number().nullable(),
+-});
++});
+-
++
+-export const FolksonomyInsertSchema = z.object({
++export const FolksonomyInsertSchema = z.object({
+-  approved_by: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  creator_id: z.string(),
++  creator_id: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  tag: z.string(),
++  tag: z.string(),
+-  target_id: z.string(),
++  target_id: z.string(),
+-  target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
++  target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
+-  weight: z.number().nullable().optional(),
++  weight: z.number().nullable().optional(),
+-});
++});
+-
++
+-export const FolksonomyUpdateSchema = z.object({
++export const FolksonomyUpdateSchema = z.object({
+-  approved_by: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  creator_id: z.string().optional(),
++  creator_id: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  tag: z.string().optional(),
++  tag: z.string().optional(),
+-  target_id: z.string().optional(),
++  target_id: z.string().optional(),
+-  target_type: z.enum(ENUM_VALUES.folksonomyTargetType).optional(),
++  target_type: z.enum(ENUM_VALUES.folksonomyTargetType).optional(),
+-  weight: z.number().nullable().optional(),
++  weight: z.number().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type FolksonomyRowInput = z.infer<typeof FolksonomyRowSchema>;
++export type FolksonomyRowInput = z.infer<typeof FolksonomyRowSchema>;
+-export type FolksonomyInsertInput = z.infer<typeof FolksonomyInsertSchema>;
++export type FolksonomyInsertInput = z.infer<typeof FolksonomyInsertSchema>;
+-export type FolksonomyUpdateInput = z.infer<typeof FolksonomyUpdateSchema>;
++export type FolksonomyUpdateInput = z.infer<typeof FolksonomyUpdateSchema>;
+ 

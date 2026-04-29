@@ -1,28 +1,9 @@
-// app/(athena)/library/courses/page.tsx
-// The Curriculum - Structured learning paths
-// Feeling: Organized, progressive, empowering
-
+// src/app/(athena)/library/courses/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { CoursesGallery } from '@/components/asgard/domains/athena/courses/CoursesGallery';
 
-export const metadata = {
-  title: 'The Curriculum | Sovereign Sanctuary',
-  description: 'Structured wisdom'
-};
+export const metadata = { title: 'The Curriculum | Sovereign Sanctuary', description: 'Structured courses for deep learning' };
 
-export default async function CoursesPage() {
-  return (
-    <Page 
-      variant={2}
-      environment="library"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function CoursesPage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><CoursesGallery /></Page>);
 }

@@ -7,6 +7,10 @@ src/app/(athena)/
 │   │   ├── page.tsx                  # The Path (/library/quests)
 │   │   └── [id]/
 │   │       └── page.tsx              # Quest Detail (/library/quests/[id])
+│   ├── bubbles/
+│   │   ├── page.tsx                  # The Path (/library/bubbles)
+│   │   └── [id]/
+│   │       └── page.tsx              # Bubble Detail (/library/bubbles/[id])
 │   ├── courses/
 │   │   ├── page.tsx                  # The Curriculum (/library/courses)
 │   │   └── [id]/

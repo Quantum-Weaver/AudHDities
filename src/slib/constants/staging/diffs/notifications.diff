@@ -1,0 +1,144 @@
+--- a/lib\validators\generated\hermes-social\notifications.ts
++++ b/lib\validators\generated\hermes-social\notifications.ts (staged)
+@@ -1,71 +1,71 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/notifications.ts
++// FILE: validators/notifications.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Notifications SCHEMAS
++// Notifications SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const NotificationsRowSchema = z.object({
++export const NotificationsRowSchema = z.object({
+-  action_label: z.string().nullable(),
++  action_label: z.string().nullable(),
+-  action_url: z.string().nullable(),
++  action_url: z.string().nullable(),
+-  body: z.string(),
++  body: z.string(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  is_read: z.boolean().nullable(),
++  is_read: z.boolean().nullable(),
+-  metadata: z.any().nullable(),
++  metadata: z.any().nullable(),
+-  read_at: z.string().nullable(),
++  read_at: z.string().nullable(),
+-  related_entity_id: z.string().nullable(),
++  related_entity_id: z.string().nullable(),
+-  related_entity_type: z.string().nullable(),
++  related_entity_type: z.string().nullable(),
+-  title: z.string(),
++  title: z.string(),
+-  type: z.enum(ENUM_VALUES.notificationType),
++  type: z.enum(ENUM_VALUES.notificationType),
+-  user_id: z.string(),
++  user_id: z.string(),
+-});
++});
+-
++
+-export const NotificationsInsertSchema = z.object({
++export const NotificationsInsertSchema = z.object({
+-  action_label: z.string().nullable().optional(),
++  action_label: z.string().nullable().optional(),
+-  action_url: z.string().nullable().optional(),
++  action_url: z.string().nullable().optional(),
+-  body: z.string(),
++  body: z.string(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_read: z.boolean().nullable().optional(),
++  is_read: z.boolean().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  read_at: z.string().nullable().optional(),
++  read_at: z.string().nullable().optional(),
+-  related_entity_id: z.string().nullable().optional(),
++  related_entity_id: z.string().nullable().optional(),
+-  related_entity_type: z.string().nullable().optional(),
++  related_entity_type: z.string().nullable().optional(),
+-  title: z.string(),
++  title: z.string(),
+-  type: z.enum(ENUM_VALUES.notificationType),
++  type: z.enum(ENUM_VALUES.notificationType),
+-  user_id: z.string(),
++  user_id: z.string(),
+-});
++});
+-
++
+-export const NotificationsUpdateSchema = z.object({
++export const NotificationsUpdateSchema = z.object({
+-  action_label: z.string().nullable().optional(),
++  action_label: z.string().nullable().optional(),
+-  action_url: z.string().nullable().optional(),
++  action_url: z.string().nullable().optional(),
+-  body: z.string().optional(),
++  body: z.string().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_read: z.boolean().nullable().optional(),
++  is_read: z.boolean().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  read_at: z.string().nullable().optional(),
++  read_at: z.string().nullable().optional(),
+-  related_entity_id: z.string().nullable().optional(),
++  related_entity_id: z.string().nullable().optional(),
+-  related_entity_type: z.string().nullable().optional(),
++  related_entity_type: z.string().nullable().optional(),
+-  title: z.string().optional(),
++  title: z.string().optional(),
+-  type: z.enum(ENUM_VALUES.notificationType).optional(),
++  type: z.enum(ENUM_VALUES.notificationType).optional(),
+-  user_id: z.string().optional(),
++  user_id: z.string().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type NotificationsRowInput = z.infer<typeof NotificationsRowSchema>;
++export type NotificationsRowInput = z.infer<typeof NotificationsRowSchema>;
+-export type NotificationsInsertInput = z.infer<typeof NotificationsInsertSchema>;
++export type NotificationsInsertInput = z.infer<typeof NotificationsInsertSchema>;
+-export type NotificationsUpdateInput = z.infer<typeof NotificationsUpdateSchema>;
++export type NotificationsUpdateInput = z.infer<typeof NotificationsUpdateSchema>;
+ 

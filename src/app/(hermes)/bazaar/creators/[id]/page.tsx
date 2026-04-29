@@ -1,38 +1,16 @@
-// app/(hermes)/bazaar/creators/[id]/page.tsx
-// Creator Sanctuary - Single creator profile
-// Feeling: Honoring, inspiring, connected
-
+// src/app/(hermes)/bazaar/creators/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { CreatorDetail } from '@/components/asgard/domains/hermes/creators/CreatorDetail';
 
-interface CreatorSanctuaryPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'Creator | The Weavers | Sovereign Sanctuary',
+  description: 'A sovereign journey',
+};
 
-export async function generateMetadata({ params }: CreatorSanctuaryPageProps) {
-  const { id } = await params;
-  return {
-    title: `Creator ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'Their sovereign journey'
-  };
-}
-
-export default async function CreatorSanctuaryPage({ params }: CreatorSanctuaryPageProps) {
-  const { id } = await params;
-  
+export default function CreatorDetailPage() {
   return (
-    <Page 
-      variant={1}
-      environment="community"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Creator ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <CreatorDetail />
     </Page>
   );
 }

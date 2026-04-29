@@ -1,0 +1,129 @@
+--- a/lib\validators\generated\prometheus-meta\prometheus_templates.ts
++++ b/lib\validators\generated\prometheus-meta\prometheus_templates.ts (staged)
+@@ -1,62 +1,65 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/prometheus_templates.ts
++// FILE: validators/prometheus_templates.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// PrometheusTemplates SCHEMAS
++// PrometheusTemplates SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const PrometheusTemplatesRowSchema = z.object({
++export const PrometheusTemplatesRowSchema = z.object({
+-  content: z.string(),
++  content: z.string(),
+-  contexts: z.any().nullable(),
++  contexts: z.any().nullable(),
+-  created_at: z.string(),
++  created_at: z.string(),
+-  dependencies: z.any().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  dependencies: z.any().nullable(),
+-  is_active: z.boolean(),
++  id: z.string(),
+-  name: z.string(),
++  is_active: z.boolean(),
+-  pattern: z.string(),
++  name: z.string(),
+-  updated_at: z.string(),
++  pattern: z.string(),
+-  variables: z.any().nullable(),
++  updated_at: z.string(),
+-  version: z.string(),
++  variables: z.any().nullable(),
+-});
++  version: z.string(),
+-
++});
+-export const PrometheusTemplatesInsertSchema = z.object({
++
+-  content: z.string(),
++export const PrometheusTemplatesInsertSchema = z.object({
+-  contexts: z.any().nullable().optional(),
++  content: z.string(),
+-  created_at: z.string().optional(),
++  contexts: z.any().nullable().optional(),
+-  dependencies: z.any().nullable().optional(),
++  created_at: z.string().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_active: z.boolean().optional(),
++  dependencies: z.any().nullable().optional(),
+-  name: z.string(),
++  id: z.string().optional(),
+-  pattern: z.string(),
++  is_active: z.boolean().optional(),
+-  updated_at: z.string().optional(),
++  name: z.string(),
+-  variables: z.any().nullable().optional(),
++  pattern: z.string(),
+-  version: z.string().optional(),
++  updated_at: z.string().optional(),
+-});
++  variables: z.any().nullable().optional(),
+-
++  version: z.string().optional(),
+-export const PrometheusTemplatesUpdateSchema = z.object({
++});
+-  content: z.string().optional(),
++
+-  contexts: z.any().nullable().optional(),
++export const PrometheusTemplatesUpdateSchema = z.object({
+-  created_at: z.string().optional(),
++  content: z.string().optional(),
+-  dependencies: z.any().nullable().optional(),
++  contexts: z.any().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().optional(),
+-  is_active: z.boolean().optional(),
++  created_by: z.string().nullable().optional(),
+-  name: z.string().optional(),
++  dependencies: z.any().nullable().optional(),
+-  pattern: z.string().optional(),
++  id: z.string().optional(),
+-  updated_at: z.string().optional(),
++  is_active: z.boolean().optional(),
+-  variables: z.any().nullable().optional(),
++  name: z.string().optional(),
+-  version: z.string().optional(),
++  pattern: z.string().optional(),
+-});
++  updated_at: z.string().optional(),
+-
++  variables: z.any().nullable().optional(),
+-// =====================================================
++  version: z.string().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type PrometheusTemplatesRowInput = z.infer<typeof PrometheusTemplatesRowSchema>;
++// TYPE INFERENCE
+-export type PrometheusTemplatesInsertInput = z.infer<typeof PrometheusTemplatesInsertSchema>;
++// =====================================================
+-export type PrometheusTemplatesUpdateInput = z.infer<typeof PrometheusTemplatesUpdateSchema>;
+ 
++export type PrometheusTemplatesRowInput = z.infer<typeof PrometheusTemplatesRowSchema>;
++export type PrometheusTemplatesInsertInput = z.infer<typeof PrometheusTemplatesInsertSchema>;
++export type PrometheusTemplatesUpdateInput = z.infer<typeof PrometheusTemplatesUpdateSchema>;
++

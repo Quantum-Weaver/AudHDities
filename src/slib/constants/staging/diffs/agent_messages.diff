@@ -1,0 +1,129 @@
+--- a/lib\validators\generated\hestia-core\agent_messages.ts
++++ b/lib\validators\generated\hestia-core\agent_messages.ts (staged)
+@@ -1,62 +1,65 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/agent_messages.ts
++// FILE: validators/agent_messages.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// AgentMessages SCHEMAS
++// AgentMessages SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const AgentMessagesRowSchema = z.object({
++export const AgentMessagesRowSchema = z.object({
+-  conversation_id: z.string(),
++  conversation_id: z.string(),
+-  created_at: z.string(),
++  created_at: z.string(),
+-  direction: z.enum(ENUM_VALUES.messageDirection),
++  created_by: z.string().nullable(),
+-  from_agent: z.enum(ENUM_VALUES.agentName),
++  direction: z.enum(ENUM_VALUES.messageDirection),
+-  id: z.string(),
++  from_agent: z.enum(ENUM_VALUES.agentName),
+-  is_processed: z.boolean().nullable(),
++  id: z.string(),
+-  message: z.string(),
++  is_processed: z.boolean().nullable(),
+-  message_type: z.string().nullable(),
++  message: z.string(),
+-  metadata: z.any().nullable(),
++  message_type: z.string().nullable(),
+-  processed_at: z.string().nullable(),
++  metadata: z.any().nullable(),
+-  to_agent: z.enum(ENUM_VALUES.agentName).nullable(),
++  processed_at: z.string().nullable(),
+-});
++  to_agent: z.enum(ENUM_VALUES.agentName).nullable(),
+-
++});
+-export const AgentMessagesInsertSchema = z.object({
++
+-  conversation_id: z.string(),
++export const AgentMessagesInsertSchema = z.object({
+-  created_at: z.string().optional(),
++  conversation_id: z.string(),
+-  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
++  created_at: z.string().optional(),
+-  from_agent: z.enum(ENUM_VALUES.agentName),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
+-  is_processed: z.boolean().nullable().optional(),
++  from_agent: z.enum(ENUM_VALUES.agentName),
+-  message: z.string(),
++  id: z.string().optional(),
+-  message_type: z.string().nullable().optional(),
++  is_processed: z.boolean().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  message: z.string(),
+-  processed_at: z.string().nullable().optional(),
++  message_type: z.string().nullable().optional(),
+-  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-});
++  processed_at: z.string().nullable().optional(),
+-
++  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
+-export const AgentMessagesUpdateSchema = z.object({
++});
+-  conversation_id: z.string().optional(),
++
+-  created_at: z.string().optional(),
++export const AgentMessagesUpdateSchema = z.object({
+-  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
++  conversation_id: z.string().optional(),
+-  from_agent: z.enum(ENUM_VALUES.agentName).optional(),
++  created_at: z.string().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  is_processed: z.boolean().nullable().optional(),
++  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
+-  message: z.string().optional(),
++  from_agent: z.enum(ENUM_VALUES.agentName).optional(),
+-  message_type: z.string().nullable().optional(),
++  id: z.string().optional(),
+-  metadata: z.any().nullable().optional(),
++  is_processed: z.boolean().nullable().optional(),
+-  processed_at: z.string().nullable().optional(),
++  message: z.string().optional(),
+-  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
++  message_type: z.string().nullable().optional(),
+-});
++  metadata: z.any().nullable().optional(),
+-
++  processed_at: z.string().nullable().optional(),
+-// =====================================================
++  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type AgentMessagesRowInput = z.infer<typeof AgentMessagesRowSchema>;
++// TYPE INFERENCE
+-export type AgentMessagesInsertInput = z.infer<typeof AgentMessagesInsertSchema>;
++// =====================================================
+-export type AgentMessagesUpdateInput = z.infer<typeof AgentMessagesUpdateSchema>;
+ 
++export type AgentMessagesRowInput = z.infer<typeof AgentMessagesRowSchema>;
++export type AgentMessagesInsertInput = z.infer<typeof AgentMessagesInsertSchema>;
++export type AgentMessagesUpdateInput = z.infer<typeof AgentMessagesUpdateSchema>;
++

@@ -1,7 +1,7 @@
 // app/(auth)/checkout/success/page.tsx
 import { Suspense } from "react";
 import { Page } from "@/components/bifrost/Page";
-import { CheckoutForm } from "@/components/asgard/domains/hermes/bazaar/checkout/CheckoutForm";
+import { CheckoutForm } from "@/components/asgard/domains/hermes/checkout/CheckoutForm";
 
 export const metadata = {
   title: "Checkout Success | Sovereign Sanctuary",

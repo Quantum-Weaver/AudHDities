@@ -1,28 +1,16 @@
-// app/(hermes)/bazaar/creators/page.tsx
-// Creators - Directory of sovereign creators
-// Feeling: Inspiring, connected, diverse
-
+// src/app/(hermes)/bazaar/creators/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { CreatorsGallery } from '@/components/asgard/domains/hermes/creators/CreatorsGallery';
 
 export const metadata = {
-  title: 'Creators | Sovereign Sanctuary',
-  description: 'Meet the weavers'
+  title: 'The Weavers | Sovereign Sanctuary',
+  description: 'Meet the creators of the Sanctuary',
 };
 
-export default async function CreatorsPage() {
+export default function CreatorsPage() {
   return (
-    <Page 
-      variant={2}
-      environment="community"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <CreatorsGallery />
     </Page>
   );
 }

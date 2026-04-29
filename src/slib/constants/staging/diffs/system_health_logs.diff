@@ -1,0 +1,105 @@
+--- a/lib\validators\generated\hephaestus-infrastructure\system_health_logs.ts
++++ b/lib\validators\generated\hephaestus-infrastructure\system_health_logs.ts (staged)
+@@ -1,50 +1,53 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/system_health_logs.ts
++// FILE: validators/system_health_logs.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// SystemHealthLogs SCHEMAS
++// SystemHealthLogs SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const SystemHealthLogsRowSchema = z.object({
++export const SystemHealthLogsRowSchema = z.object({
+-  checked_at: z.string().nullable(),
++  checked_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_at: z.string(),
+-  error_message: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  error_message: z.string().nullable(),
+-  response_time_ms: z.number().nullable(),
++  id: z.string(),
+-  status: z.enum(ENUM_VALUES.systemStatus),
++  response_time_ms: z.number().nullable(),
+-  system_id: z.string(),
++  status: z.enum(ENUM_VALUES.systemStatus),
+-});
++  system_id: z.string(),
+-
++});
+-export const SystemHealthLogsInsertSchema = z.object({
++
+-  checked_at: z.string().nullable().optional(),
++export const SystemHealthLogsInsertSchema = z.object({
+-  created_by: z.string().nullable().optional(),
++  checked_at: z.string().nullable().optional(),
+-  error_message: z.string().nullable().optional(),
++  created_at: z.string().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  response_time_ms: z.number().nullable().optional(),
++  error_message: z.string().nullable().optional(),
+-  status: z.enum(ENUM_VALUES.systemStatus),
++  id: z.string().optional(),
+-  system_id: z.string(),
++  response_time_ms: z.number().nullable().optional(),
+-});
++  status: z.enum(ENUM_VALUES.systemStatus),
+-
++  system_id: z.string(),
+-export const SystemHealthLogsUpdateSchema = z.object({
++});
+-  checked_at: z.string().nullable().optional(),
++
+-  created_by: z.string().nullable().optional(),
++export const SystemHealthLogsUpdateSchema = z.object({
+-  error_message: z.string().nullable().optional(),
++  checked_at: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().optional(),
+-  response_time_ms: z.number().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  status: z.enum(ENUM_VALUES.systemStatus).optional(),
++  error_message: z.string().nullable().optional(),
+-  system_id: z.string().optional(),
++  id: z.string().optional(),
+-});
++  response_time_ms: z.number().nullable().optional(),
+-
++  status: z.enum(ENUM_VALUES.systemStatus).optional(),
+-// =====================================================
++  system_id: z.string().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type SystemHealthLogsRowInput = z.infer<typeof SystemHealthLogsRowSchema>;
++// TYPE INFERENCE
+-export type SystemHealthLogsInsertInput = z.infer<typeof SystemHealthLogsInsertSchema>;
++// =====================================================
+-export type SystemHealthLogsUpdateInput = z.infer<typeof SystemHealthLogsUpdateSchema>;
+ 
++export type SystemHealthLogsRowInput = z.infer<typeof SystemHealthLogsRowSchema>;
++export type SystemHealthLogsInsertInput = z.infer<typeof SystemHealthLogsInsertSchema>;
++export type SystemHealthLogsUpdateInput = z.infer<typeof SystemHealthLogsUpdateSchema>;
++

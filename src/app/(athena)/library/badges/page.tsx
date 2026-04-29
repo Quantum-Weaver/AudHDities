@@ -1,28 +1,16 @@
-// app/(athena)/library/badges/page.tsx
-// The Honors - All earned and available badges
-// Feeling: Celebratory, motivating, honorable
-
+// src/app/(athena)/library/badges/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { BadgesGallery } from '@/components/asgard/domains/athena/badges/BadgesGallery';
 
 export const metadata = {
   title: 'The Honors | Sovereign Sanctuary',
-  description: 'Your achievements recognized'
+  description: 'Badges earned through sovereignty',
 };
 
-export default async function BadgesPage() {
+export default function BadgesPage() {
   return (
-    <Page 
-      variant={2}
-      environment="observatory"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <BadgesGallery />
     </Page>
   );
 }

@@ -1,0 +1,88 @@
+--- a/lib\validators\generated\athena-gamification\path_lessons.ts
++++ b/lib\validators\generated\athena-gamification\path_lessons.ts (staged)
+@@ -1,43 +1,43 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/path_lessons.ts
++// FILE: validators/path_lessons.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// PathLessons SCHEMAS
++// PathLessons SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const PathLessonsRowSchema = z.object({
++export const PathLessonsRowSchema = z.object({
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  lesson_id: z.string(),
++  lesson_id: z.string(),
+-  order_index: z.number(),
++  order_index: z.number(),
+-  path_id: z.string(),
++  path_id: z.string(),
+-});
++});
+-
++
+-export const PathLessonsInsertSchema = z.object({
++export const PathLessonsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  lesson_id: z.string(),
++  lesson_id: z.string(),
+-  order_index: z.number(),
++  order_index: z.number(),
+-  path_id: z.string(),
++  path_id: z.string(),
+-});
++});
+-
++
+-export const PathLessonsUpdateSchema = z.object({
++export const PathLessonsUpdateSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  lesson_id: z.string().optional(),
++  lesson_id: z.string().optional(),
+-  order_index: z.number().optional(),
++  order_index: z.number().optional(),
+-  path_id: z.string().optional(),
++  path_id: z.string().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type PathLessonsRowInput = z.infer<typeof PathLessonsRowSchema>;
++export type PathLessonsRowInput = z.infer<typeof PathLessonsRowSchema>;
+-export type PathLessonsInsertInput = z.infer<typeof PathLessonsInsertSchema>;
++export type PathLessonsInsertInput = z.infer<typeof PathLessonsInsertSchema>;
+-export type PathLessonsUpdateInput = z.infer<typeof PathLessonsUpdateSchema>;
++export type PathLessonsUpdateInput = z.infer<typeof PathLessonsUpdateSchema>;
+ 

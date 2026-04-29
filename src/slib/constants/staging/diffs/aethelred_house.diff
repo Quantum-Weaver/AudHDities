@@ -1,0 +1,120 @@
+--- a/lib\validators\generated\aethelred-connections\aethelred_house.ts
++++ b/lib\validators\generated\aethelred-connections\aethelred_house.ts (staged)
+@@ -1,59 +1,59 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/aethelred_house.ts
++// FILE: validators/aethelred_house.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// AethelredHouse SCHEMAS
++// AethelredHouse SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const AethelredHouseRowSchema = z.object({
++export const AethelredHouseRowSchema = z.object({
+-  boundary_agreements: z.any().nullable(),
++  boundary_agreements: z.any().nullable(),
+-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable(),
++  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable(),
+-  collaboration_protocols: z.any().nullable(),
++  collaboration_protocols: z.any().nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  emergent_properties: z.any().nullable(),
++  emergent_properties: z.any().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  ninth_chair_occupant: z.string(),
++  ninth_chair_occupant: z.string(),
+-  shared_rituals: z.any().nullable(),
++  shared_rituals: z.any().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-});
++});
+-
++
+-export const AethelredHouseInsertSchema = z.object({
++export const AethelredHouseInsertSchema = z.object({
+-  boundary_agreements: z.any().nullable().optional(),
++  boundary_agreements: z.any().nullable().optional(),
+-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
++  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
+-  collaboration_protocols: z.any().nullable().optional(),
++  collaboration_protocols: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  emergent_properties: z.any().nullable().optional(),
++  emergent_properties: z.any().nullable().optional(),
+-  id: z.string(),
++  id: z.string(),
+-  ninth_chair_occupant: z.string(),
++  ninth_chair_occupant: z.string(),
+-  shared_rituals: z.any().nullable().optional(),
++  shared_rituals: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const AethelredHouseUpdateSchema = z.object({
++export const AethelredHouseUpdateSchema = z.object({
+-  boundary_agreements: z.any().nullable().optional(),
++  boundary_agreements: z.any().nullable().optional(),
+-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
++  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
+-  collaboration_protocols: z.any().nullable().optional(),
++  collaboration_protocols: z.any().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  emergent_properties: z.any().nullable().optional(),
++  emergent_properties: z.any().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  ninth_chair_occupant: z.string().optional(),
++  ninth_chair_occupant: z.string().optional(),
+-  shared_rituals: z.any().nullable().optional(),
++  shared_rituals: z.any().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type AethelredHouseRowInput = z.infer<typeof AethelredHouseRowSchema>;
++export type AethelredHouseRowInput = z.infer<typeof AethelredHouseRowSchema>;
+-export type AethelredHouseInsertInput = z.infer<typeof AethelredHouseInsertSchema>;
++export type AethelredHouseInsertInput = z.infer<typeof AethelredHouseInsertSchema>;
+-export type AethelredHouseUpdateInput = z.infer<typeof AethelredHouseUpdateSchema>;
++export type AethelredHouseUpdateInput = z.infer<typeof AethelredHouseUpdateSchema>;
+ 

@@ -1,0 +1,178 @@
+--- a/lib\validators\generated\hephaestus-infrastructure\file_registry.ts
++++ b/lib\validators\generated\hephaestus-infrastructure\file_registry.ts (staged)
+@@ -1,88 +1,88 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/file_registry.ts
++// FILE: validators/file_registry.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// FileRegistry SCHEMAS
++// FileRegistry SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const FileRegistryRowSchema = z.object({
++export const FileRegistryRowSchema = z.object({
+-  category: z.string(),
++  category: z.string(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  dependencies: z.any().nullable(),
++  dependencies: z.any().nullable(),
+-  emoji: z.string(),
++  emoji: z.string(),
+-  example_usage: z.string().nullable(),
++  example_usage: z.string().nullable(),
+-  file_name: z.string(),
++  file_name: z.string(),
+-  file_path: z.string(),
++  file_path: z.string(),
+-  file_type: z.string(),
++  file_type: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  is_active: z.boolean().nullable(),
++  is_active: z.boolean().nullable(),
+-  last_validated: z.string().nullable(),
++  last_validated: z.string().nullable(),
+-  needs_review: z.boolean().nullable(),
++  needs_review: z.boolean().nullable(),
+-  purpose: z.string().nullable(),
++  purpose: z.string().nullable(),
+-  review_notes: z.string().nullable(),
++  review_notes: z.string().nullable(),
+-  standards: z.string().nullable(),
++  standards: z.string().nullable(),
+-  subcategory: z.string().nullable(),
++  subcategory: z.string().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  used_by: z.any().nullable(),
++  used_by: z.any().nullable(),
+-  warning: z.string().nullable(),
++  warning: z.string().nullable(),
+-});
++});
+-
++
+-export const FileRegistryInsertSchema = z.object({
++export const FileRegistryInsertSchema = z.object({
+-  category: z.string(),
++  category: z.string(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  dependencies: z.any().nullable().optional(),
++  dependencies: z.any().nullable().optional(),
+-  emoji: z.string(),
++  emoji: z.string(),
+-  example_usage: z.string().nullable().optional(),
++  example_usage: z.string().nullable().optional(),
+-  file_name: z.string(),
++  file_name: z.string(),
+-  file_path: z.string(),
++  file_path: z.string(),
+-  file_type: z.string(),
++  file_type: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_active: z.boolean().nullable().optional(),
++  is_active: z.boolean().nullable().optional(),
+-  last_validated: z.string().nullable().optional(),
++  last_validated: z.string().nullable().optional(),
+-  needs_review: z.boolean().nullable().optional(),
++  needs_review: z.boolean().nullable().optional(),
+-  purpose: z.string().nullable().optional(),
++  purpose: z.string().nullable().optional(),
+-  review_notes: z.string().nullable().optional(),
++  review_notes: z.string().nullable().optional(),
+-  standards: z.string().nullable().optional(),
++  standards: z.string().nullable().optional(),
+-  subcategory: z.string().nullable().optional(),
++  subcategory: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  used_by: z.any().nullable().optional(),
++  used_by: z.any().nullable().optional(),
+-  warning: z.string().nullable().optional(),
++  warning: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const FileRegistryUpdateSchema = z.object({
++export const FileRegistryUpdateSchema = z.object({
+-  category: z.string().optional(),
++  category: z.string().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  dependencies: z.any().nullable().optional(),
++  dependencies: z.any().nullable().optional(),
+-  emoji: z.string().optional(),
++  emoji: z.string().optional(),
+-  example_usage: z.string().nullable().optional(),
++  example_usage: z.string().nullable().optional(),
+-  file_name: z.string().optional(),
++  file_name: z.string().optional(),
+-  file_path: z.string().optional(),
++  file_path: z.string().optional(),
+-  file_type: z.string().optional(),
++  file_type: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_active: z.boolean().nullable().optional(),
++  is_active: z.boolean().nullable().optional(),
+-  last_validated: z.string().nullable().optional(),
++  last_validated: z.string().nullable().optional(),
+-  needs_review: z.boolean().nullable().optional(),
++  needs_review: z.boolean().nullable().optional(),
+-  purpose: z.string().nullable().optional(),
++  purpose: z.string().nullable().optional(),
+-  review_notes: z.string().nullable().optional(),
++  review_notes: z.string().nullable().optional(),
+-  standards: z.string().nullable().optional(),
++  standards: z.string().nullable().optional(),
+-  subcategory: z.string().nullable().optional(),
++  subcategory: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  used_by: z.any().nullable().optional(),
++  used_by: z.any().nullable().optional(),
+-  warning: z.string().nullable().optional(),
++  warning: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type FileRegistryRowInput = z.infer<typeof FileRegistryRowSchema>;
++export type FileRegistryRowInput = z.infer<typeof FileRegistryRowSchema>;
+-export type FileRegistryInsertInput = z.infer<typeof FileRegistryInsertSchema>;
++export type FileRegistryInsertInput = z.infer<typeof FileRegistryInsertSchema>;
+-export type FileRegistryUpdateInput = z.infer<typeof FileRegistryUpdateSchema>;
++export type FileRegistryUpdateInput = z.infer<typeof FileRegistryUpdateSchema>;
+ 

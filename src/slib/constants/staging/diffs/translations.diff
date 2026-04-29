@@ -1,0 +1,132 @@
+--- a/lib\validators\generated\iris-communications\translations.ts
++++ b/lib\validators\generated\iris-communications\translations.ts (staged)
+@@ -1,65 +1,65 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/translations.ts
++// FILE: validators/translations.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Translations SCHEMAS
++// Translations SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const TranslationsRowSchema = z.object({
++export const TranslationsRowSchema = z.object({
+-  approved_by: z.string().nullable(),
++  approved_by: z.string().nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  field_name: z.string(),
++  field_name: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  is_approved: z.boolean().nullable(),
++  is_approved: z.boolean().nullable(),
+-  language_id: z.string(),
++  language_id: z.string(),
+-  translatable_id: z.string(),
++  translatable_id: z.string(),
+-  translatable_type: z.enum(ENUM_VALUES.translatableType),
++  translatable_type: z.enum(ENUM_VALUES.translatableType),
+-  translation: z.string(),
++  translation: z.string(),
+-  translator_id: z.string().nullable(),
++  translator_id: z.string().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-});
++});
+-
++
+-export const TranslationsInsertSchema = z.object({
++export const TranslationsInsertSchema = z.object({
+-  approved_by: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  field_name: z.string(),
++  field_name: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  language_id: z.string(),
++  language_id: z.string(),
+-  translatable_id: z.string(),
++  translatable_id: z.string(),
+-  translatable_type: z.enum(ENUM_VALUES.translatableType),
++  translatable_type: z.enum(ENUM_VALUES.translatableType),
+-  translation: z.string(),
++  translation: z.string(),
+-  translator_id: z.string().nullable().optional(),
++  translator_id: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const TranslationsUpdateSchema = z.object({
++export const TranslationsUpdateSchema = z.object({
+-  approved_by: z.string().nullable().optional(),
++  approved_by: z.string().nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  field_name: z.string().optional(),
++  field_name: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_approved: z.boolean().nullable().optional(),
++  is_approved: z.boolean().nullable().optional(),
+-  language_id: z.string().optional(),
++  language_id: z.string().optional(),
+-  translatable_id: z.string().optional(),
++  translatable_id: z.string().optional(),
+-  translatable_type: z.enum(ENUM_VALUES.translatableType).optional(),
++  translatable_type: z.enum(ENUM_VALUES.translatableType).optional(),
+-  translation: z.string().optional(),
++  translation: z.string().optional(),
+-  translator_id: z.string().nullable().optional(),
++  translator_id: z.string().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type TranslationsRowInput = z.infer<typeof TranslationsRowSchema>;
++export type TranslationsRowInput = z.infer<typeof TranslationsRowSchema>;
+-export type TranslationsInsertInput = z.infer<typeof TranslationsInsertSchema>;
++export type TranslationsInsertInput = z.infer<typeof TranslationsInsertSchema>;
+-export type TranslationsUpdateInput = z.infer<typeof TranslationsUpdateSchema>;
++export type TranslationsUpdateInput = z.infer<typeof TranslationsUpdateSchema>;
+ 

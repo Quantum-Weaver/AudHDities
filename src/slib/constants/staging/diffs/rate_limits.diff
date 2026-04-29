@@ -1,0 +1,100 @@
+--- a/lib\validators\generated\themis-governance\rate_limits.ts
++++ b/lib\validators\generated\themis-governance\rate_limits.ts (staged)
+@@ -1,49 +1,49 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/rate_limits.ts
++// FILE: validators/rate_limits.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// RateLimits SCHEMAS
++// RateLimits SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const RateLimitsRowSchema = z.object({
++export const RateLimitsRowSchema = z.object({
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  endpoint: z.string(),
++  endpoint: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  identifier: z.string(),
++  identifier: z.string(),
+-  request_count: z.number().nullable(),
++  request_count: z.number().nullable(),
+-  window_start: z.string().nullable(),
++  window_start: z.string().nullable(),
+-});
++});
+-
++
+-export const RateLimitsInsertSchema = z.object({
++export const RateLimitsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  endpoint: z.string(),
++  endpoint: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  identifier: z.string(),
++  identifier: z.string(),
+-  request_count: z.number().nullable().optional(),
++  request_count: z.number().nullable().optional(),
+-  window_start: z.string().nullable().optional(),
++  window_start: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const RateLimitsUpdateSchema = z.object({
++export const RateLimitsUpdateSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  endpoint: z.string().optional(),
++  endpoint: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  identifier: z.string().optional(),
++  identifier: z.string().optional(),
+-  request_count: z.number().nullable().optional(),
++  request_count: z.number().nullable().optional(),
+-  window_start: z.string().nullable().optional(),
++  window_start: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type RateLimitsRowInput = z.infer<typeof RateLimitsRowSchema>;
++export type RateLimitsRowInput = z.infer<typeof RateLimitsRowSchema>;
+-export type RateLimitsInsertInput = z.infer<typeof RateLimitsInsertSchema>;
++export type RateLimitsInsertInput = z.infer<typeof RateLimitsInsertSchema>;
+-export type RateLimitsUpdateInput = z.infer<typeof RateLimitsUpdateSchema>;
++export type RateLimitsUpdateInput = z.infer<typeof RateLimitsUpdateSchema>;
+ 

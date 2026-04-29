@@ -1,0 +1,135 @@
+--- a/lib\validators\generated\prometheus-meta\prometheus_blueprints.ts
++++ b/lib\validators\generated\prometheus-meta\prometheus_blueprints.ts (staged)
+@@ -1,65 +1,68 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/prometheus_blueprints.ts
++// FILE: validators/prometheus_blueprints.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// PrometheusBlueprints SCHEMAS
++// PrometheusBlueprints SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const PrometheusBlueprintsRowSchema = z.object({
++export const PrometheusBlueprintsRowSchema = z.object({
+-  author: z.string(),
++  author: z.string(),
+-  blueprint_id: z.string(),
++  blueprint_id: z.string(),
+-  content: z.any(),
++  content: z.any(),
+-  created_at: z.string(),
++  created_at: z.string(),
+-  generation_count: z.number(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  generation_count: z.number(),
+-  purpose: z.string(),
++  id: z.string(),
+-  status: z.enum(ENUM_VALUES.blueprintStatus),
++  purpose: z.string(),
+-  success_rate: z.number().nullable(),
++  status: z.enum(ENUM_VALUES.blueprintStatus),
+-  system: z.enum(ENUM_VALUES.blueprintSystem),
++  success_rate: z.number().nullable(),
+-  updated_at: z.string(),
++  system: z.enum(ENUM_VALUES.blueprintSystem),
+-  version: z.string(),
++  updated_at: z.string(),
+-});
++  version: z.string(),
+-
++});
+-export const PrometheusBlueprintsInsertSchema = z.object({
++
+-  author: z.string(),
++export const PrometheusBlueprintsInsertSchema = z.object({
+-  blueprint_id: z.string(),
++  author: z.string(),
+-  content: z.any(),
++  blueprint_id: z.string(),
+-  created_at: z.string().optional(),
++  content: z.any(),
+-  generation_count: z.number().optional(),
++  created_at: z.string().optional(),
+-  id: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  purpose: z.string(),
++  generation_count: z.number().optional(),
+-  status: z.enum(ENUM_VALUES.blueprintStatus).optional(),
++  id: z.string().optional(),
+-  success_rate: z.number().nullable().optional(),
++  purpose: z.string(),
+-  system: z.enum(ENUM_VALUES.blueprintSystem),
++  status: z.enum(ENUM_VALUES.blueprintStatus).optional(),
+-  updated_at: z.string().optional(),
++  success_rate: z.number().nullable().optional(),
+-  version: z.string().optional(),
++  system: z.enum(ENUM_VALUES.blueprintSystem),
+-});
++  updated_at: z.string().optional(),
+-
++  version: z.string().optional(),
+-export const PrometheusBlueprintsUpdateSchema = z.object({
++});
+-  author: z.string().optional(),
++
+-  blueprint_id: z.string().optional(),
++export const PrometheusBlueprintsUpdateSchema = z.object({
+-  content: z.any().optional(),
++  author: z.string().optional(),
+-  created_at: z.string().optional(),
++  blueprint_id: z.string().optional(),
+-  generation_count: z.number().optional(),
++  content: z.any().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().optional(),
+-  purpose: z.string().optional(),
++  created_by: z.string().nullable().optional(),
+-  status: z.enum(ENUM_VALUES.blueprintStatus).optional(),
++  generation_count: z.number().optional(),
+-  success_rate: z.number().nullable().optional(),
++  id: z.string().optional(),
+-  system: z.enum(ENUM_VALUES.blueprintSystem).optional(),
++  purpose: z.string().optional(),
+-  updated_at: z.string().optional(),
++  status: z.enum(ENUM_VALUES.blueprintStatus).optional(),
+-  version: z.string().optional(),
++  success_rate: z.number().nullable().optional(),
+-});
++  system: z.enum(ENUM_VALUES.blueprintSystem).optional(),
+-
++  updated_at: z.string().optional(),
+-// =====================================================
++  version: z.string().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type PrometheusBlueprintsRowInput = z.infer<typeof PrometheusBlueprintsRowSchema>;
++// TYPE INFERENCE
+-export type PrometheusBlueprintsInsertInput = z.infer<typeof PrometheusBlueprintsInsertSchema>;
++// =====================================================
+-export type PrometheusBlueprintsUpdateInput = z.infer<typeof PrometheusBlueprintsUpdateSchema>;
+ 
++export type PrometheusBlueprintsRowInput = z.infer<typeof PrometheusBlueprintsRowSchema>;
++export type PrometheusBlueprintsInsertInput = z.infer<typeof PrometheusBlueprintsInsertSchema>;
++export type PrometheusBlueprintsUpdateInput = z.infer<typeof PrometheusBlueprintsUpdateSchema>;
++

@@ -3,52 +3,33 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Database, Code, Terminal, ArrowRight } from 'lucide-react';
-
-interface FunctionInfo {
-  function_name: string;
-  function_args: string;
-  return_type: string;
-  is_aggregate?: boolean;
-  is_window?: boolean;
-  is_procedure?: boolean;
-}
+import { ChevronDown, Database, Terminal, ArrowRight, Code } from 'lucide-react';
+import type { SchemaFunction } from '@/lib/schema/parseDatabaseTypes';
 
 interface SchemaFunctionCardProps {
-  func: FunctionInfo;
+  func: SchemaFunction;
   defaultOpen?: boolean;
 }
 
 export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunctionCardProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
-  // Parse args for display
   const parseArgs = (args: string): { name: string; type: string }[] => {
     if (!args || args === '') return [];
     const parts = args.split(',');
-    return parts.map(part => {
+    return parts.map((part) => {
       const trimmed = part.trim();
       const lastSpace = trimmed.lastIndexOf(' ');
       if (lastSpace === -1) return { name: '', type: trimmed };
       return {
         name: trimmed.substring(0, lastSpace),
-        type: trimmed.substring(lastSpace + 1)
+        type: trimmed.substring(lastSpace + 1),
       };
     });
   };
 
-  const parsedArgs = parseArgs(func.function_args);
+  const parsedArgs = parseArgs(func.args);
   const hasArgs = parsedArgs.length > 0 && parsedArgs[0].name !== '';
-
-  // Determine function type badge
-  const getBadge = () => {
-    if (func.is_aggregate) return { text: 'Aggregate', color: 'bg-orange-500/20 text-orange-400' };
-    if (func.is_window) return { text: 'Window', color: 'bg-blue-500/20 text-blue-400' };
-    if (func.is_procedure) return { text: 'Procedure', color: 'bg-pink-500/20 text-pink-400' };
-    return { text: 'Function', color: 'bg-green-500/20 text-green-400' };
-  };
-
-  const badge = getBadge();
 
   return (
     <motion.div
@@ -66,14 +47,9 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
             <Database className="text-green-400" size={18} />
           </div>
           <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="text-lg font-bold text-star-dust font-mono">{func.function_name}</h3>
-              <span className={`text-xs px-2 py-0.5 rounded-full ${badge.color}`}>
-                {badge.text}
-              </span>
-            </div>
+            <h3 className="text-lg font-bold text-star-dust font-mono">{func.name}</h3>
             <p className="text-xs text-star-dust/40 mt-1">
-              {func.function_args || 'No parameters'}
+              {func.args || 'No parameters'}
             </p>
           </div>
         </div>
@@ -95,8 +71,6 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
             className="overflow-hidden"
           >
             <div className="p-5 pt-0 border-t border-white/10 space-y-4">
-              
-              {/* Parameters Section */}
               {hasArgs && (
                 <div>
                   <div className="flex items-center gap-2 mb-3">
@@ -115,7 +89,6 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
                 </div>
               )}
 
-              {/* Return Type Section */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <ArrowRight size={14} className="text-neurospark" />
@@ -123,12 +96,11 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
                 </div>
                 <div className="bg-black/30 rounded-lg p-3">
                   <code className="text-sm text-neurospark font-mono break-all">
-                    {func.return_type}
+                    {func.returnType}
                   </code>
                 </div>
               </div>
 
-              {/* Usage Example */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Code size={14} className="text-purple-400" />
@@ -136,7 +108,7 @@ export function SchemaFunctionCard({ func, defaultOpen = false }: SchemaFunction
                 </div>
                 <div className="bg-black/50 rounded-lg p-3 overflow-x-auto">
                   <pre className="text-xs text-star-dust/70 font-mono">
-                    {`SELECT * FROM ${func.function_name}(${hasArgs ? parsedArgs.map(a => a.name).join(', ') : ''});`}
+                    {`SELECT * FROM ${func.name}(${hasArgs ? parsedArgs.map((a) => a.name).join(', ') : ''});`}
                   </pre>
                 </div>
               </div>

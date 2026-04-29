@@ -1,0 +1,168 @@
+--- a/lib\validators\generated\hestia-core\vendor_profiles.ts
++++ b/lib\validators\generated\hestia-core\vendor_profiles.ts (staged)
+@@ -1,83 +1,83 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/vendor_profiles.ts
++// FILE: validators/vendor_profiles.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// VendorProfiles SCHEMAS
++// VendorProfiles SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const VendorProfilesRowSchema = z.object({
++export const VendorProfilesRowSchema = z.object({
+-  business_description: z.string().nullable(),
++  business_description: z.string().nullable(),
+-  business_logo_url: z.string().nullable(),
++  business_logo_url: z.string().nullable(),
+-  business_name: z.string(),
++  business_name: z.string(),
+-  business_type: z.enum(ENUM_VALUES.businessType).nullable(),
++  business_type: z.enum(ENUM_VALUES.businessType).nullable(),
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  id: z.string(),
++  id: z.string(),
+-  product_categories: z.any().nullable(),
++  product_categories: z.any().nullable(),
+-  profile_id: z.string(),
++  profile_id: z.string(),
+-  stripe_account_id: z.string().nullable(),
++  stripe_account_id: z.string().nullable(),
+-  total_earnings: z.number().nullable(),
++  total_earnings: z.number().nullable(),
+-  total_products: z.number().nullable(),
++  total_products: z.number().nullable(),
+-  total_sales: z.number().nullable(),
++  total_sales: z.number().nullable(),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  verified_at: z.string().nullable(),
++  verified_at: z.string().nullable(),
+-  verified_badge: z.boolean().nullable(),
++  verified_badge: z.boolean().nullable(),
+-  verified_by: z.string().nullable(),
++  verified_by: z.string().nullable(),
+-  website_url: z.string().nullable(),
++  website_url: z.string().nullable(),
+-});
++});
+-
++
+-export const VendorProfilesInsertSchema = z.object({
++export const VendorProfilesInsertSchema = z.object({
+-  business_description: z.string().nullable().optional(),
++  business_description: z.string().nullable().optional(),
+-  business_logo_url: z.string().nullable().optional(),
++  business_logo_url: z.string().nullable().optional(),
+-  business_name: z.string(),
++  business_name: z.string(),
+-  business_type: z.enum(ENUM_VALUES.businessType).nullable().optional(),
++  business_type: z.enum(ENUM_VALUES.businessType).nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string(),
++  id: z.string(),
+-  product_categories: z.any().nullable().optional(),
++  product_categories: z.any().nullable().optional(),
+-  profile_id: z.string(),
++  profile_id: z.string(),
+-  stripe_account_id: z.string().nullable().optional(),
++  stripe_account_id: z.string().nullable().optional(),
+-  total_earnings: z.number().nullable().optional(),
++  total_earnings: z.number().nullable().optional(),
+-  total_products: z.number().nullable().optional(),
++  total_products: z.number().nullable().optional(),
+-  total_sales: z.number().nullable().optional(),
++  total_sales: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  verified_at: z.string().nullable().optional(),
++  verified_at: z.string().nullable().optional(),
+-  verified_badge: z.boolean().nullable().optional(),
++  verified_badge: z.boolean().nullable().optional(),
+-  verified_by: z.string().nullable().optional(),
++  verified_by: z.string().nullable().optional(),
+-  website_url: z.string().nullable().optional(),
++  website_url: z.string().nullable().optional(),
+-});
++});
+-
++
+-export const VendorProfilesUpdateSchema = z.object({
++export const VendorProfilesUpdateSchema = z.object({
+-  business_description: z.string().nullable().optional(),
++  business_description: z.string().nullable().optional(),
+-  business_logo_url: z.string().nullable().optional(),
++  business_logo_url: z.string().nullable().optional(),
+-  business_name: z.string().optional(),
++  business_name: z.string().optional(),
+-  business_type: z.enum(ENUM_VALUES.businessType).nullable().optional(),
++  business_type: z.enum(ENUM_VALUES.businessType).nullable().optional(),
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  product_categories: z.any().nullable().optional(),
++  product_categories: z.any().nullable().optional(),
+-  profile_id: z.string().optional(),
++  profile_id: z.string().optional(),
+-  stripe_account_id: z.string().nullable().optional(),
++  stripe_account_id: z.string().nullable().optional(),
+-  total_earnings: z.number().nullable().optional(),
++  total_earnings: z.number().nullable().optional(),
+-  total_products: z.number().nullable().optional(),
++  total_products: z.number().nullable().optional(),
+-  total_sales: z.number().nullable().optional(),
++  total_sales: z.number().nullable().optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  verified_at: z.string().nullable().optional(),
++  verified_at: z.string().nullable().optional(),
+-  verified_badge: z.boolean().nullable().optional(),
++  verified_badge: z.boolean().nullable().optional(),
+-  verified_by: z.string().nullable().optional(),
++  verified_by: z.string().nullable().optional(),
+-  website_url: z.string().nullable().optional(),
++  website_url: z.string().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type VendorProfilesRowInput = z.infer<typeof VendorProfilesRowSchema>;
++export type VendorProfilesRowInput = z.infer<typeof VendorProfilesRowSchema>;
+-export type VendorProfilesInsertInput = z.infer<typeof VendorProfilesInsertSchema>;
++export type VendorProfilesInsertInput = z.infer<typeof VendorProfilesInsertSchema>;
+-export type VendorProfilesUpdateInput = z.infer<typeof VendorProfilesUpdateSchema>;
++export type VendorProfilesUpdateInput = z.infer<typeof VendorProfilesUpdateSchema>;
+ 

@@ -1,18 +1,12 @@
 // @/components/asgard/domains/mnemosyne/observatory/schema/SchemaExplorer.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { 
-  Table, 
-  Database, 
-  Key, 
-  Link, 
-  List,
-  ChevronDown,
-  ChevronRight,
-  Search,
-  RefreshCw
+  Table, Database, Key, Link, List,
+  ChevronDown, ChevronRight, Search,
 } from 'lucide-react';
+import { parseDatabaseTypes } from '@/lib/schema/parseDatabaseTypes';
 
 interface Column {
   column_name: string;
@@ -25,89 +19,54 @@ interface Column {
   foreign_key_column: string | null;
 }
 
-interface TableInfo {
-  table_name: string;
-  columns: Column[];
-}
-
-interface EnumInfo {
-  enum_name: string;
-  values: string[];
-}
-
-interface FunctionInfo {
-  function_name: string;
-  function_args: string;
-  return_type: string;
-}
-
 export function SchemaExplorer() {
-  const [tables, setTables] = useState<Map<string, Column[]>>(new Map());
-  const [enums, setEnums] = useState<EnumInfo[]>([]);
-  const [functions, setFunctions] = useState<FunctionInfo[]>([]);
-  const [loading, setLoading] = useState(true);
   const [expandedTables, setExpandedTables] = useState<Set<string>>(new Set());
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState<'tables' | 'enums' | 'functions'>('tables');
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchSchema = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch('/api/schema');
-      const result = await response.json();
-      
-      if (!result.success) {
-        throw new Error(result.error);
-      }
-      
-      // Group columns by table
-      const tableMap = new Map<string, Column[]>();
-      for (const col of result.data.tables) {
-        if (!tableMap.has(col.table_name)) {
-          tableMap.set(col.table_name, []);
-        }
-        tableMap.get(col.table_name)!.push({
-          column_name: col.column_name,
-          column_type: col.column_type,
-          is_nullable: col.is_nullable,
-          column_default: col.column_default,
-          is_primary_key: col.is_primary_key,
-          is_foreign_key: col.is_foreign_key,
-          foreign_key_table: col.foreign_key_table,
-          foreign_key_column: col.foreign_key_column,
-        });
-      }
-      
-      // Group enum values
-      const enumMap = new Map<string, string[]>();
-      for (const enumItem of result.data.enums) {
-        if (!enumMap.has(enumItem.enum_name)) {
-          enumMap.set(enumItem.enum_name, []);
-        }
-        enumMap.get(enumItem.enum_name)!.push(enumItem.enum_value);
-      }
-      
-      const enumList: EnumInfo[] = Array.from(enumMap.entries()).map(([name, values]) => ({
-        enum_name: name,
-        values,
-      }));
-      
-      setTables(tableMap);
-      setEnums(enumList);
-      setFunctions(result.data.functions || []);
-      
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load schema');
-    } finally {
-      setLoading(false);
+  const { tables: tablesData, enums: enumsData, functions: functionsData } = useMemo(
+    () => parseDatabaseTypes(),
+    []
+  );
+
+  const tables = useMemo(() => {
+    const map = new Map<string, Column[]>();
+    for (const table of tablesData) {
+      map.set(
+        table.name,
+        table.columns.map((col) => ({
+          column_name: col.name,
+          column_type: col.type,
+          is_nullable: col.nullable ? 'YES' : 'NO',
+          column_default: null,
+          is_primary_key: col.name === 'id',
+          is_foreign_key: col.name.endsWith('_id') && col.name !== 'id',
+          foreign_key_table: col.name.endsWith('_id') ? col.name.replace('_id', '') : null,
+          foreign_key_column: 'id',
+        }))
+      );
     }
-  };
+    return map;
+  }, [tablesData]);
 
-  useEffect(() => {
-    fetchSchema();
-  }, []);
+  const enumList = useMemo(
+    () =>
+      enumsData.map((e) => ({
+        enum_name: e.name,
+        values: e.values,
+      })),
+    [enumsData]
+  );
+
+  const functionList = useMemo(
+    () =>
+      functionsData.map((f) => ({
+        function_name: f.name,
+        function_args: f.args,
+        return_type: f.returnType,
+      })),
+    [functionsData]
+  );
 
   const toggleTable = (tableName: string) => {
     const newSet = new Set(expandedTables);
@@ -119,59 +78,27 @@ export function SchemaExplorer() {
     setExpandedTables(newSet);
   };
 
-  const filteredTables = Array.from(tables.keys()).filter(name =>
+  const filteredTables = Array.from(tables.keys()).filter((name) =>
     name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const filteredEnums = enums.filter(e =>
+  const filteredEnums = enumList.filter((e) =>
     e.enum_name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const filteredFunctions = functions.filter(f =>
+  const filteredFunctions = functionList.filter((f) =>
     f.function_name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center py-20">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500"></div>
-        <span className="ml-3 text-star-dust/60">Loading schema...</span>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center py-20">
-        <div className="text-red-400 mb-4">⚠️ {error}</div>
-        <button
-          onClick={fetchSchema}
-          className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-star-dust rounded-lg"
-        >
-          Retry
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-black/40 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden">
       {/* Header */}
       <div className="p-6 border-b border-white/10">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <Database className="text-neurospark" size={24} />
-            <h2 className="text-xl font-bold text-star-dust">Schema Explorer</h2>
-          </div>
-          <button
-            onClick={fetchSchema}
-            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-            aria-label="Refresh"
-          >
-            <RefreshCw size={18} className="text-star-dust/60" />
-          </button>
+        <div className="flex items-center gap-3 mb-4">
+          <Database className="text-neurospark" size={24} />
+          <h2 className="text-xl font-bold text-star-dust">Schema Explorer</h2>
         </div>
-        
+
         {/* Stats */}
         <div className="flex gap-6 text-sm">
           <div className="flex items-center gap-2">
@@ -180,14 +107,14 @@ export function SchemaExplorer() {
           </div>
           <div className="flex items-center gap-2">
             <List size={14} className="text-purple-400" />
-            <span className="text-star-dust/60">{enums.length} Enums</span>
+            <span className="text-star-dust/60">{enumList.length} Enums</span>
           </div>
           <div className="flex items-center gap-2">
             <Database size={14} className="text-green-400" />
-            <span className="text-star-dust/60">{functions.length} Functions</span>
+            <span className="text-star-dust/60">{functionList.length} Functions</span>
           </div>
         </div>
-        
+
         {/* Search */}
         <div className="mt-4 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
@@ -199,7 +126,7 @@ export function SchemaExplorer() {
             className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust placeholder-white/40 focus:border-cyan-500 focus:outline-none"
           />
         </div>
-        
+
         {/* Tabs */}
         <div className="flex gap-1 mt-4 border-b border-white/10">
           {(['tables', 'enums', 'functions'] as const).map((tab) => (
@@ -214,13 +141,13 @@ export function SchemaExplorer() {
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
               <span className="ml-2 px-1.5 py-0.5 text-xs rounded-full bg-white/10">
-                {tab === 'tables' ? tables.size : tab === 'enums' ? enums.length : functions.length}
+                {tab === 'tables' ? tables.size : tab === 'enums' ? enumList.length : functionList.length}
               </span>
             </button>
           ))}
         </div>
       </div>
-      
+
       {/* Content */}
       <div className="p-6 max-h-[600px] overflow-y-auto">
         {activeTab === 'tables' && (
@@ -233,9 +160,9 @@ export function SchemaExplorer() {
             {filteredTables.map((tableName) => {
               const columns = tables.get(tableName) || [];
               const isExpanded = expandedTables.has(tableName);
-              const primaryKeys = columns.filter(c => c.is_primary_key);
-              const foreignKeys = columns.filter(c => c.is_foreign_key);
-              
+              const primaryKeys = columns.filter((c) => c.is_primary_key);
+              const foreignKeys = columns.filter((c) => c.is_foreign_key);
+
               return (
                 <div key={tableName} className="border border-white/10 rounded-lg overflow-hidden">
                   <button
@@ -251,7 +178,7 @@ export function SchemaExplorer() {
                     <div className="flex gap-2">
                       {primaryKeys.length > 0 && (
                         <span className="text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-400 rounded">
-                          PK: {primaryKeys.map(c => c.column_name).join(', ')}
+                          PK: {primaryKeys.map((c) => c.column_name).join(', ')}
                         </span>
                       )}
                       {foreignKeys.length > 0 && (
@@ -261,7 +188,7 @@ export function SchemaExplorer() {
                       )}
                     </div>
                   </button>
-                  
+
                   {isExpanded && (
                     <div className="p-4 border-t border-white/10 bg-black/20">
                       <table className="w-full text-sm">
@@ -314,7 +241,7 @@ export function SchemaExplorer() {
             })}
           </div>
         )}
-        
+
         {activeTab === 'enums' && (
           <div className="space-y-2">
             {filteredEnums.length === 0 && (
@@ -343,7 +270,7 @@ export function SchemaExplorer() {
             ))}
           </div>
         )}
-        
+
         {activeTab === 'functions' && (
           <div className="space-y-2">
             {filteredFunctions.length === 0 && (
@@ -370,10 +297,10 @@ export function SchemaExplorer() {
           </div>
         )}
       </div>
-      
+
       {/* Footer */}
       <div className="p-4 border-t border-white/10 text-center text-xs text-star-dust/40">
-        Schema loaded dynamically from PostgreSQL system catalogs
+        Schema generated from database.types.ts via GAIA pipeline
       </div>
     </div>
   );

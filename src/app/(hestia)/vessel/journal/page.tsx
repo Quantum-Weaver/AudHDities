@@ -1,28 +1,19 @@
-// app/(hestia)/vessel/journal/page.tsx
-// The Scroll - Personal journal, reflections
-// Feeling: Peaceful, reflective, sacred
+// src/app/(hestia)/vessel/journal/page.tsx
+// The Scroll — Journal entries list
+// Feeling: Reflective, sacred, personal
 
 import { Page } from '@/components/bifrost/Page';
+import  { JournalList } from '@/components/asgard/domains/hestia/journal/JournalList';
 
 export const metadata = {
   title: 'The Scroll | Sovereign Sanctuary',
-  description: 'Your words, your story, your truth'
+  description: 'Your words, your story, your truth',
 };
 
-export default async function JournalPage() {
+export default function JournalPage() {
   return (
-    <Page 
-      variant={2}
-      environment="library"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <JournalList />
     </Page>
   );
 }

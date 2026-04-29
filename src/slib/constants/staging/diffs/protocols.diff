@@ -1,0 +1,156 @@
+--- a/lib\validators\generated\hephaestus-infrastructure\protocols.ts
++++ b/lib\validators\generated\hephaestus-infrastructure\protocols.ts (staged)
+@@ -1,77 +1,77 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/protocols.ts
++// FILE: validators/protocols.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// Protocols SCHEMAS
++// Protocols SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const ProtocolsRowSchema = z.object({
++export const ProtocolsRowSchema = z.object({
+-  created_at: z.string().nullable(),
++  created_at: z.string().nullable(),
+-  created_by: z.string().nullable(),
++  created_by: z.string().nullable(),
+-  description: z.string(),
++  description: z.string(),
+-  id: z.string(),
++  id: z.string(),
+-  is_active: z.boolean().nullable(),
++  is_active: z.boolean().nullable(),
+-  last_reviewed: z.string().nullable(),
++  last_reviewed: z.string().nullable(),
+-  name: z.string(),
++  name: z.string(),
+-  next_review: z.string().nullable(),
++  next_review: z.string().nullable(),
+-  owners: z.any().nullable(),
++  owners: z.any().nullable(),
+-  review_frequency_days: z.number().nullable(),
++  review_frequency_days: z.number().nullable(),
+-  reviewed_by: z.string().nullable(),
++  reviewed_by: z.string().nullable(),
+-  slug: z.string(),
++  slug: z.string(),
+-  steps: z.any(),
++  steps: z.any(),
+-  type: z.enum(ENUM_VALUES.protocolType),
++  type: z.enum(ENUM_VALUES.protocolType),
+-  updated_at: z.string().nullable(),
++  updated_at: z.string().nullable(),
+-  version: z.number().nullable(),
++  version: z.number().nullable(),
+-});
++});
+-
++
+-export const ProtocolsInsertSchema = z.object({
++export const ProtocolsInsertSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  description: z.string(),
++  description: z.string(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_active: z.boolean().nullable().optional(),
++  is_active: z.boolean().nullable().optional(),
+-  last_reviewed: z.string().nullable().optional(),
++  last_reviewed: z.string().nullable().optional(),
+-  name: z.string(),
++  name: z.string(),
+-  next_review: z.string().nullable().optional(),
++  next_review: z.string().nullable().optional(),
+-  owners: z.any().nullable().optional(),
++  owners: z.any().nullable().optional(),
+-  review_frequency_days: z.number().nullable().optional(),
++  review_frequency_days: z.number().nullable().optional(),
+-  reviewed_by: z.string().nullable().optional(),
++  reviewed_by: z.string().nullable().optional(),
+-  slug: z.string(),
++  slug: z.string(),
+-  steps: z.any(),
++  steps: z.any(),
+-  type: z.enum(ENUM_VALUES.protocolType),
++  type: z.enum(ENUM_VALUES.protocolType),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  version: z.number().nullable().optional(),
++  version: z.number().nullable().optional(),
+-});
++});
+-
++
+-export const ProtocolsUpdateSchema = z.object({
++export const ProtocolsUpdateSchema = z.object({
+-  created_at: z.string().nullable().optional(),
++  created_at: z.string().nullable().optional(),
+-  created_by: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  description: z.string().optional(),
++  description: z.string().optional(),
+-  id: z.string().optional(),
++  id: z.string().optional(),
+-  is_active: z.boolean().nullable().optional(),
++  is_active: z.boolean().nullable().optional(),
+-  last_reviewed: z.string().nullable().optional(),
++  last_reviewed: z.string().nullable().optional(),
+-  name: z.string().optional(),
++  name: z.string().optional(),
+-  next_review: z.string().nullable().optional(),
++  next_review: z.string().nullable().optional(),
+-  owners: z.any().nullable().optional(),
++  owners: z.any().nullable().optional(),
+-  review_frequency_days: z.number().nullable().optional(),
++  review_frequency_days: z.number().nullable().optional(),
+-  reviewed_by: z.string().nullable().optional(),
++  reviewed_by: z.string().nullable().optional(),
+-  slug: z.string().optional(),
++  slug: z.string().optional(),
+-  steps: z.any().optional(),
++  steps: z.any().optional(),
+-  type: z.enum(ENUM_VALUES.protocolType).optional(),
++  type: z.enum(ENUM_VALUES.protocolType).optional(),
+-  updated_at: z.string().nullable().optional(),
++  updated_at: z.string().nullable().optional(),
+-  version: z.number().nullable().optional(),
++  version: z.number().nullable().optional(),
+-});
++});
+-
++
+-// =====================================================
++// =====================================================
+-// TYPE INFERENCE
++// TYPE INFERENCE
+-// =====================================================
++// =====================================================
+-
++
+-export type ProtocolsRowInput = z.infer<typeof ProtocolsRowSchema>;
++export type ProtocolsRowInput = z.infer<typeof ProtocolsRowSchema>;
+-export type ProtocolsInsertInput = z.infer<typeof ProtocolsInsertSchema>;
++export type ProtocolsInsertInput = z.infer<typeof ProtocolsInsertSchema>;
+-export type ProtocolsUpdateInput = z.infer<typeof ProtocolsUpdateSchema>;
++export type ProtocolsUpdateInput = z.infer<typeof ProtocolsUpdateSchema>;
+ 

@@ -1,0 +1,153 @@
+--- a/lib\validators\generated\hestia-core\agent_conversations.ts
++++ b/lib\validators\generated\hestia-core\agent_conversations.ts (staged)
+@@ -1,74 +1,77 @@
+-// =====================================================
++// =====================================================
+-// FILE: validators/agent_conversations.ts
++// FILE: validators/agent_conversations.ts
+-// GENERATED FROM: database.types.ts
++// GENERATED FROM: database.types.ts
+-// =====================================================
++// =====================================================
+-
++
+-import { ENUM_VALUES } from '@/types/supabase/enums';
++import { ENUM_VALUES } from '@/types/supabase/enums';
+-import z from 'zod';
++import z from 'zod';
+-
++
+-// =====================================================
++// =====================================================
+-// AgentConversations SCHEMAS
++// AgentConversations SCHEMAS
+-// =====================================================
++// =====================================================
+-
++
+-export const AgentConversationsRowSchema = z.object({
++export const AgentConversationsRowSchema = z.object({
+-  context_id: z.string().nullable(),
++  context_id: z.string().nullable(),
+-  context_type: z.string().nullable(),
++  context_type: z.string().nullable(),
+-  created_at: z.string(),
++  created_at: z.string(),
+-  id: z.string(),
++  created_by: z.string().nullable(),
+-  last_message_at: z.string().nullable(),
++  id: z.string(),
+-  message_count: z.number().nullable(),
++  last_message_at: z.string().nullable(),
+-  metadata: z.any().nullable(),
++  message_count: z.number().nullable(),
+-  participants: z.any(),
++  metadata: z.any().nullable(),
+-  resolved_at: z.string().nullable(),
++  participants: z.any(),
+-  started_at: z.string(),
++  resolved_at: z.string().nullable(),
+-  status: z.enum(ENUM_VALUES.conversationStatus),
++  started_at: z.string(),
+-  summary: z.string().nullable(),
++  status: z.enum(ENUM_VALUES.conversationStatus),
+-  title: z.string().nullable(),
++  summary: z.string().nullable(),
+-  updated_at: z.string(),
++  title: z.string().nullable(),
+-  user_id: z.string().nullable(),
++  updated_at: z.string(),
+-});
++  user_id: z.string().nullable(),
+-
++});
+-export const AgentConversationsInsertSchema = z.object({
++
+-  context_id: z.string().nullable().optional(),
++export const AgentConversationsInsertSchema = z.object({
+-  context_type: z.string().nullable().optional(),
++  context_id: z.string().nullable().optional(),
+-  created_at: z.string().optional(),
++  context_type: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  created_at: z.string().optional(),
+-  last_message_at: z.string().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  message_count: z.number().nullable().optional(),
++  id: z.string().optional(),
+-  metadata: z.any().nullable().optional(),
++  last_message_at: z.string().nullable().optional(),
+-  participants: z.any(),
++  message_count: z.number().nullable().optional(),
+-  resolved_at: z.string().nullable().optional(),
++  metadata: z.any().nullable().optional(),
+-  started_at: z.string().optional(),
++  participants: z.any(),
+-  status: z.enum(ENUM_VALUES.conversationStatus).optional(),
++  resolved_at: z.string().nullable().optional(),
+-  summary: z.string().nullable().optional(),
++  started_at: z.string().optional(),
+-  title: z.string().nullable().optional(),
++  status: z.enum(ENUM_VALUES.conversationStatus).optional(),
+-  updated_at: z.string().optional(),
++  summary: z.string().nullable().optional(),
+-  user_id: z.string().nullable().optional(),
++  title: z.string().nullable().optional(),
+-});
++  updated_at: z.string().optional(),
+-
++  user_id: z.string().nullable().optional(),
+-export const AgentConversationsUpdateSchema = z.object({
++});
+-  context_id: z.string().nullable().optional(),
++
+-  context_type: z.string().nullable().optional(),
++export const AgentConversationsUpdateSchema = z.object({
+-  created_at: z.string().optional(),
++  context_id: z.string().nullable().optional(),
+-  id: z.string().optional(),
++  context_type: z.string().nullable().optional(),
+-  last_message_at: z.string().nullable().optional(),
++  created_at: z.string().optional(),
+-  message_count: z.number().nullable().optional(),
++  created_by: z.string().nullable().optional(),
+-  metadata: z.any().nullable().optional(),
++  id: z.string().optional(),
+-  participants: z.any().optional(),
++  last_message_at: z.string().nullable().optional(),
+-  resolved_at: z.string().nullable().optional(),
++  message_count: z.number().nullable().optional(),
+-  started_at: z.string().optional(),
++  metadata: z.any().nullable().optional(),
+-  status: z.enum(ENUM_VALUES.conversationStatus).optional(),
++  participants: z.any().optional(),
+-  summary: z.string().nullable().optional(),
++  resolved_at: z.string().nullable().optional(),
+-  title: z.string().nullable().optional(),
++  started_at: z.string().optional(),
+-  updated_at: z.string().optional(),
++  status: z.enum(ENUM_VALUES.conversationStatus).optional(),
+-  user_id: z.string().nullable().optional(),
++  summary: z.string().nullable().optional(),
+-});
++  title: z.string().nullable().optional(),
+-
++  updated_at: z.string().optional(),
+-// =====================================================
++  user_id: z.string().nullable().optional(),
+-// TYPE INFERENCE
++});
+-// =====================================================
++
+-
++// =====================================================
+-export type AgentConversationsRowInput = z.infer<typeof AgentConversationsRowSchema>;
++// TYPE INFERENCE
+-export type AgentConversationsInsertInput = z.infer<typeof AgentConversationsInsertSchema>;
++// =====================================================
+-export type AgentConversationsUpdateInput = z.infer<typeof AgentConversationsUpdateSchema>;
+ 
++export type AgentConversationsRowInput = z.infer<typeof AgentConversationsRowSchema>;
++export type AgentConversationsInsertInput = z.infer<typeof AgentConversationsInsertSchema>;
++export type AgentConversationsUpdateInput = z.infer<typeof AgentConversationsUpdateSchema>;
++
