@@ -1,4 +1,4 @@
-// src/app/(athena)/library/quests/[id]/page.tsx
+// src/app/(athena)/library/quests/[slug]/page.tsx
 import { Page } from '@/components/bifrost/Page';
 import { QuestDetail } from '@/components/asgard/domains/athena/quests/QuestDetail';
 
