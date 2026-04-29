@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 export default function DocsHomePage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
-      <DocsContent />
+      <main>
+        <DocsContent />
+      </main>
     </Page>
   );
 }
