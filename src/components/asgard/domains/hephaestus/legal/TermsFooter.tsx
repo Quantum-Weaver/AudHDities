@@ -28,7 +28,7 @@ export function TermsFooter() {
           <span>Questions? Contact Us</span>
         </Link>
         <Link
-          href="/docs/privacy"
+          href="/privacy"
           className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-lg text-star-dust/80 transition-all"
         >
           <BookOpen size={18} />

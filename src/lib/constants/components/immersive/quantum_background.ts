@@ -71,7 +71,7 @@ export const foregroundScales: number[] = foregroundScaleArray;
 
 // Default configuration matching your component defaults
 export const DEFAULT_BACKGROUND_CONFIG = {
-  variant: 1,
+  variant: 2,
   showForeground: false,
   animated: true,
   parallaxIntensity: 0.5

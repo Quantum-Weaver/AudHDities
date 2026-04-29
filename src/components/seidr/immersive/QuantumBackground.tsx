@@ -29,7 +29,7 @@ export interface QuantumBackgroundProps {
 
 export function QuantumBackground({
   environment,
-  variant = 1,
+  variant = 2,
   showForeground = false,
   animated = true,
   parallaxIntensity = 0.112358,

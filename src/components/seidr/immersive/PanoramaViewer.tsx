@@ -3,9 +3,7 @@
 
 "use client";
 
-import { useEffect } from "react";
 import { QuantumBackground } from "./QuantumBackground";
-import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
 import type { EnvironmentKey } from "@/lib/constants/systems/assets/mapper";
 import { cn } from "@/lib/utils";
 
@@ -28,11 +26,6 @@ export default function PanoramaViewer({
   className = "",
   parallaxIntensity = 0.5,
 }: PanoramaViewerProps) {
-  const { setEnvironment } = useContinuityBeam();
-
-  useEffect(() => {
-    setEnvironment(environment, variant);
-  }, [environment, variant, setEnvironment]);
 
   return (
     <div className={cn("relative w-full min-h-screen", className)}>

@@ -1,23 +1,24 @@
-// components/legal/TermsFooter.tsx
+// components/legal/PrivacyFooter.tsx
 'use client';
 
 import { motion } from 'framer-motion';
-import { Heart, Mail, BookOpen } from 'lucide-react';
+import { Shield, Mail, FileText } from 'lucide-react';
 import Link from 'next/link';
 
-export function TermsFooter() {
+export function PrivacyFooter() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="mt-16 p-8 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 border border-white/20 rounded-2xl text-center"
+      className="mt-16 p-8 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-purple-500/10 border border-white/20 rounded-2xl text-center"
     >
-      <Heart className="text-pink-400 mx-auto mb-4" size={32} />
-      <h3 className="text-2xl font-bold text-star-dust mb-4">Built With You in Mind</h3>
+      <Shield className="text-emerald-400 mx-auto mb-4" size={32} />
+      <h3 className="text-2xl font-bold text-star-dust mb-4">Your Data Is Yours</h3>
       <p className="text-star-dust/70 max-w-2xl mx-auto mb-6">
-        These Terms were written to protect everyone who calls this sanctuary home.
-        They're designed to be fair, transparent, and aligned with our values.
+        We don't sell your data. We don't track you across the web. We don't
+        profit from your attention. This Privacy Policy exists to protect your
+        sovereignty, not to create loopholes for exploitation.
       </p>
       <div className="flex flex-wrap gap-4 justify-center">
         <Link
@@ -28,15 +29,16 @@ export function TermsFooter() {
           <span>Questions? Contact Us</span>
         </Link>
         <Link
-          href="/privacy"
+          href="/terms"
           className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-lg text-star-dust/80 transition-all"
         >
-          <BookOpen size={18} />
-          <span>Read Privacy Policy</span>
+          <FileText size={18} />
+          <span>Read Terms of Service</span>
         </Link>
       </div>
       <p className="text-xs text-star-dust/30 mt-6">
-        These Terms are a living document. If you have suggestions for improvement, we're listening.
+        This Privacy Policy is a covenant, not a disclaimer. We will never hide
+        behind legal language to take what is yours.
       </p>
     </motion.div>
   );

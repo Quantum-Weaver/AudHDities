@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { PrivacyHero } from '@/components/asgard/domains/hephaestus/legal/PrivacyHero';
 import { ParsedPrivacyContent } from '@/components/asgard/domains/hephaestus/legal/ParsedPrivacyContent';
-import { TermsFooter } from '@/components/asgard/domains/hephaestus/legal/TermsFooter';
+import { PrivacyFooter } from '@/components/asgard/domains/hephaestus/legal/PrivacyFooter';
 import fs from 'fs/promises';
 import path from 'path';
 import { parsePrivacyMarkdown } from '@/lib/markdown/parsePrivacy';
@@ -39,7 +39,7 @@ export default async function PrivacyPage() {
           <ParsedPrivacyContent privacy={parsedPrivacy} />
         </div>
         
-        <TermsFooter />
+        <PrivacyFooter />
       </main>
     </Page>
   );

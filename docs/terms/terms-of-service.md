@@ -79,7 +79,7 @@ We encourage community members to support each other within their capacity.
 
 ## 7. Privacy
 
-Your privacy is important to us. Please see our [Privacy Policy](/docs/privacy) for details.
+Your privacy is important to us. Please see our [Privacy Policy](/privacy) for details.
 
 ## 8. Intellectual Property
 

@@ -86,7 +86,7 @@ export function composeTabsBadgeClasses(params: {
   variant: 'default' | 'primary' | 'success' | 'warning';
   className?: string;
 }): string {
-  const { TABS_BADGE_VARIANT, TABS_BADGE_CLASSES } = require('@/lib/constants/components/ui/tabs.constants');
+  const { TABS_BADGE_VARIANT, TABS_BADGE_CLASSES } = require('@/lib/constants/components/vegvisir/tabs.constants');
   const variantColors = TABS_BADGE_VARIANT[params.variant];
   return cn(TABS_BADGE_CLASSES, variantColors.bg, variantColors.text, params.className);
 }

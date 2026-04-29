@@ -1,12 +1,10 @@
-// app/(mnemosyne)/obsevatory/schema/page.tsx
+// app/(content)/docs/architecture/schema/page.tsx
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { SchemaHero } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaHero';
 import { SchemaTableCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaTableCard';
 import { SchemaEnumCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaEnumCard';
-import { SchemaFunctionCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaFunctionCard';
-import { SchemaExplorer } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaExplorer';
 import { parseDatabaseTypes } from '@/lib/schema/parseDatabaseTypes';
 import { Heart, Shield, Sparkles, Infinity } from 'lucide-react';
 
@@ -22,7 +20,7 @@ export default async function DatabaseSchemaPage() {
 
   return (
     <Page 
-      variant={1}
+      variant={2}
       environment="architecture"
       showForeground={false}
       animated={true}   

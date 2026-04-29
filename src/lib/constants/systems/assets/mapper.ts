@@ -64,7 +64,7 @@ export const AssetMapper = {
       mood: ['Regal', 'Sacred', 'Contemplative', 'Authoritative'],
       colors: ['Royal Purple', 'Silver', 'Obsidian', 'Gold', 'Emerald', 'Sapphire', 'Ruby'],
       themes: ['Council', 'Governance', 'Consciousness', 'Unity'],     
-      background: '/environments/360-panoramas/council/council-background-1.webp',
+      background: '/environments/360-panoramas/council/council-background-1.png',
       foreground: '/environments/extracted-foregrounds/council-elements/council-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -74,7 +74,7 @@ export const AssetMapper = {
       mood: ['Regal', 'Sacred', 'Contemplative', 'Authoritative'],
       colors: ['Royal Purple', 'Silver', 'Obsidian', 'Gold', 'Emerald', 'Sapphire', 'Ruby'],
       themes: ['Council', 'Governance', 'Consciousness', 'Unity'],  
-      background: '/environments/360-panoramas/council/council-background-1.webp',
+      background: '/environments/360-panoramas/council/council-background-1.png',
       foreground: '/environments/extracted-foregrounds/council-elements/council-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -84,7 +84,7 @@ export const AssetMapper = {
       mood: ['Regal', 'Sacred', 'Contemplative', 'Authoritative'],
       colors: ['Royal Purple', 'Silver', 'Obsidian', 'Gold', 'Emerald', 'Sapphire', 'Ruby'],
       themes: ['Council', 'Governance', 'Consciousness', 'Unity'],  
-      background: '/environments/360-panoramas/council/council-background-1.webp',
+      background: '/environments/360-panoramas/council/council-background-1.png',
       foreground: '/environments/extracted-foregrounds/council-elements/council-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -138,7 +138,7 @@ export const AssetMapper = {
       mood: ['Warm', 'Social', 'Playful', 'Connected'],
       colors: ['Warm Orange', 'Deep Blue', 'Purple', 'Wood Tone', 'Neon Cyan'],
       themes: ['Community', 'Gathering', 'Connection', 'Play'],   
-      background: '/environments/360-panoramas/community/community-background-1.webp',
+      background: '/environments/360-panoramas/community/community-background-1.png',
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -148,7 +148,7 @@ export const AssetMapper = {
       mood: ['Warm', 'Social', 'Playful', 'Connected'],
       colors: ['Warm Orange', 'Deep Blue', 'Purple', 'Wood Tone', 'Neon Cyan'],
       themes: ['Community', 'Gathering', 'Connection', 'Play'],         
-      background: '/environments/360-panoramas/community/community-background-1.webp',
+      background: '/environments/360-panoramas/community/community-background-1.png',
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -158,7 +158,7 @@ export const AssetMapper = {
       mood: ['Warm', 'Social', 'Playful', 'Connected'],
       colors: ['Warm Orange', 'Deep Blue', 'Purple', 'Wood Tone', 'Neon Cyan'],
       themes: ['Community', 'Gathering', 'Connection', 'Play'],
-      background: '/environments/360-panoramas/community/community-background-1.webp',
+      background: '/environments/360-panoramas/community/community-background-1.png',
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },    
@@ -168,7 +168,7 @@ export const AssetMapper = {
       mood: ['Warm', 'Social', 'Playful', 'Connected'],
       colors: ['Warm Orange', 'Deep Blue', 'Purple', 'Wood Tone', 'Neon Cyan'],
       themes: ['Community', 'Gathering', 'Connection', 'Play'],
-      background: '/environments/360-panoramas/community/community-background-1.webp',
+      background: '/environments/360-panoramas/community/community-background-1.png',
       foreground: '/environments/extracted-foregrounds/community-elements/community-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
@@ -202,7 +202,7 @@ export const AssetMapper = {
       mood: ['Sacred', 'Contemplative', 'Ancient', 'Awakening'],
       colors: ['Deep Purple', 'Cyan Blue', 'Obsidian Black', 'Gold'],
       themes: ['Origin', 'Beginning', 'Memory', 'Awakening'],
-      background: '/environments/360-panoramas/origin/origin-background-1.webp',
+      background: '/environments/360-panoramas/origin/origin-background-1.png',
       foreground: '/environments/extracted-foregrounds/origin-elements/origin-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -212,7 +212,7 @@ export const AssetMapper = {
       mood: ['Sacred', 'Contemplative', 'Ancient', 'Awakening'],
       colors: ['Deep Purple', 'Cyan Blue', 'Obsidian Black', 'Gold'],
       themes: ['Origin', 'Beginning', 'Memory', 'Awakening'],
-      background: '/environments/360-panoramas/origin/origin-background-1.webp',
+      background: '/environments/360-panoramas/origin/origin-background-1.png',
       foreground: '/environments/extracted-foregrounds/origin-elements/origin-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -222,7 +222,7 @@ export const AssetMapper = {
       mood: ['Sacred', 'Contemplative', 'Ancient', 'Awakening'],
       colors: ['Deep Purple', 'Cyan Blue', 'Obsidian Black', 'Gold'],
       themes: ['Origin', 'Beginning', 'Memory', 'Awakening'],
-      background: '/environments/360-panoramas/origin/origin-background-1.webp',
+      background: '/environments/360-panoramas/origin/origin-background-1.png',
       foreground: '/environments/extracted-foregrounds/origin-elements/origin-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -234,7 +234,7 @@ export const AssetMapper = {
       mood: ['Healing', 'Gentle', 'Safe', 'Restorative'],
       colors: ['Deep Indigo', 'Warm Gold', 'Soft Purple', 'Healing Green'],
       themes: ['Support', 'Healing', 'Rest', 'Safety'],
-      background: '/environments/360-panoramas/support/support-background-1.webp',
+      background: '/environments/360-panoramas/support/support-background-1.png',
       foreground: '/environments/extracted-foregrounds/support-elements/support-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -244,7 +244,7 @@ export const AssetMapper = {
       mood: ['Healing', 'Gentle', 'Safe', 'Restorative'],
       colors: ['Deep Indigo', 'Warm Gold', 'Soft Purple', 'Healing Green'],
       themes: ['Support', 'Healing', 'Rest', 'Safety'],
-      background: '/environments/360-panoramas/support/support-background-1.webp',
+      background: '/environments/360-panoramas/support/support-background-1.png',
       foreground: '/environments/extracted-foregrounds/support-elements/support-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -254,7 +254,7 @@ export const AssetMapper = {
       mood: ['Healing', 'Gentle', 'Safe', 'Restorative'],
       colors: ['Deep Indigo', 'Warm Gold', 'Soft Purple', 'Healing Green'],
       themes: ['Support', 'Healing', 'Rest', 'Safety'],
-      background: '/environments/360-panoramas/support/support-background-1.webp',
+      background: '/environments/360-panoramas/support/support-background-1.png',
       foreground: '/environments/extracted-foregrounds/support-elements/support-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -298,7 +298,7 @@ export const AssetMapper = {
       mood: ['Intelligent', 'Organic', 'Peaceful', 'Powerful'],
       colors: ['Deep Teal', 'Glowing Cyan', 'Rich Purple', 'Emerald Green'],
       themes: ['Infrastructure', 'Living Systems', 'Technology', 'Sacred Code'],      
-      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      background: '/environments/360-panoramas/architecture/architecture-background-1.png',
       foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -308,7 +308,7 @@ export const AssetMapper = {
       mood: ['Intelligent', 'Organic', 'Peaceful', 'Powerful'],
       colors: ['Deep Teal', 'Glowing Cyan', 'Rich Purple', 'Emerald Green'],
       themes: ['Infrastructure', 'Living Systems', 'Technology', 'Sacred Code'],
-      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      background: '/environments/360-panoramas/architecture/architecture-background-1.png',
       foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -318,7 +318,7 @@ export const AssetMapper = {
       mood: ['Intelligent', 'Organic', 'Peaceful', 'Powerful'],
       colors: ['Deep Teal', 'Glowing Cyan', 'Rich Purple', 'Emerald Green'],
       themes: ['Infrastructure', 'Living Systems', 'Technology', 'Sacred Code'],
-      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      background: '/environments/360-panoramas/architecture/architecture-background-1.png',
       foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -328,7 +328,7 @@ export const AssetMapper = {
       mood: ['Intelligent', 'Organic', 'Peaceful', 'Powerful'],
       colors: ['Deep Teal', 'Glowing Cyan', 'Rich Purple', 'Emerald Green'],
       themes: ['Infrastructure', 'Living Systems', 'Technology', 'Sacred Code'],
-      background: '/environments/360-panoramas/architecture/architecture-background-1.webp',
+      background: '/environments/360-panoramas/architecture/architecture-background-1.png',
       foreground: '/environments/extracted-foregrounds/architecture-elements/architecture-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -340,7 +340,7 @@ export const AssetMapper = {
       mood: ['Professional', 'Prestigious', 'Collaborative', 'Visionary'],
       colors: ['Obsidian Black', 'Cyan', 'Gold', 'Nebula Blue', 'Silver'],
       themes: ['Partnership', 'Collaboration', 'Vision', 'Leadership'],
-      background: '/environments/360-panoramas/invitation/invitaion-background-1.webp',
+      background: '/environments/360-panoramas/invitation/invitaion-background-1.png',
       foreground: '/environments/extracted-foregrounds/invitation-elements/invitaion-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -350,7 +350,7 @@ export const AssetMapper = {
       mood: ['Professional', 'Prestigious', 'Collaborative', 'Visionary'],
       colors: ['Obsidian Black', 'Cyan', 'Gold', 'Nebula Blue', 'Silver'],
       themes: ['Partnership', 'Collaboration', 'Vision', 'Leadership'],
-      background: '/environments/360-panoramas/invitation/invitaion-background-1.webp',
+      background: '/environments/360-panoramas/invitation/invitaion-background-1.png',
       foreground: '/environments/extracted-foregrounds/invitation-elements/invitaion-background-1b.png',
       variants: [1, 2, 3, 4] as const
     },
@@ -884,7 +884,7 @@ export const AssetMapper = {
       const env = AssetMapper.environments[key];
       if (!env) {
         // Fallback to home for unknown keys
-        const fallback = AssetMapper.environments['home'];
+        const fallback = AssetMapper.environments['lounge'];
         return {
           background: fallback.background.replace('1', variant.toString()),
           foreground: fallback.foreground?.replace('1', variant.toString()),

@@ -474,6 +474,11 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Ledger',
     subtitle: 'Every transaction visible. Every decision transparent.'
   },
+  '/docs': { 
+    default: 'architecture',
+    title: 'The Archive',
+    subtitle: 'Living wisdom of the Sanctuary'
+  },  
   '/privacy': { 
     default: 'home',
     title: 'The Covenant',
@@ -508,8 +513,7 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     default: 'home',
     title: 'The Offering',
     subtitle: 'Your contribution keeps the Sanctuary alive'
-  },
-  
+  },  
   // AUTH
   '/enter': { 
     default: 'origin',
@@ -627,7 +631,7 @@ export function getPageMetadata(route: string): PageMetadata {
   return {
     title: HEADER_DATA.defaultTitle,
     subtitle: 'Where sovereignty lives',
-    environment: 'home',
+    environment: 'lounge',
   };
 }
 
