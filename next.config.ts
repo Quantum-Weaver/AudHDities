@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  allowedDevOrigins: ['192.168.40.111', '192.168.56.1:3000'],
+  allowedDevOrigins: ['192.168.40.111', '192.168.56.1'],
   transpilePackages: ['react-syntax-highlighter'],
   async headers() {
     return [
