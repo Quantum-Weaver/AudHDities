@@ -12,10 +12,7 @@ export const metadata = {
 export default async function TimelinePage() {
   return (
     <Page 
-      variant={2}
-      environment="observatory"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

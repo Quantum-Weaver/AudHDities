@@ -12,10 +12,7 @@ export const metadata = {
 export default async function EffectsPage() {
   return (
     <Page 
-      variant={2}
-      environment="music"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

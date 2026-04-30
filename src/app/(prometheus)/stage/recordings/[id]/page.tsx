@@ -21,10 +21,7 @@ export default async function RecordingPage({ params }: RecordingPageProps) {
   
   return (
     <Page 
-      variant={1}
-      environment="lounge"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

@@ -21,10 +21,7 @@ export default async function ProposalDetailPage({ params }: ProposalDetailPageP
   
   return (
     <Page 
-      variant={1}
-      environment="council"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

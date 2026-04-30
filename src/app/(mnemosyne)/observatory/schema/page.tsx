@@ -22,10 +22,7 @@ export default async function DatabaseSchemaPage() {
 
   return (
     <Page 
-      variant={1}
-      environment="architecture"
       showForeground={false}
-      animated={true}   
       showContinuityBeam={true}
     >  
       <main className="min-h-screen">

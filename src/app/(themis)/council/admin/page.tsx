@@ -13,10 +13,7 @@ export const metadata = {
 export default async function AdminPage() {
   return (
     <Page 
-      variant={1}
-      environment="council"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

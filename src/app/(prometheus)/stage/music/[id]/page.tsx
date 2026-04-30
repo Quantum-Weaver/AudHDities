@@ -21,10 +21,7 @@ export default async function MusicPerformancePage({ params }: MusicPerformanceP
   
   return (
     <Page 
-      variant={2}
-      environment="music"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

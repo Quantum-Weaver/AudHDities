@@ -21,10 +21,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
   
   return (
     <Page 
-      variant={2}
-      environment="community"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

@@ -21,10 +21,7 @@ export default async function ApplicationDetailPage({ params }: ApplicationDetai
   
   return (
     <Page 
-      variant={1}
-      environment="council"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

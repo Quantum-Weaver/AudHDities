@@ -12,10 +12,7 @@ export const metadata = {
 export default async function SchedulePage() {
   return (
     <Page 
-      variant={1}
-      environment="community"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

@@ -12,10 +12,7 @@ export const metadata = {
 export default async function WritingStudioPage() {
   return (
     <Page 
-      variant={2}
-      environment="library"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">
