@@ -32,7 +32,7 @@ export function CreatorDetail() {
       .then((result) => { if (result.success) setCreator(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.id]);
+  }, [params.creators_id]);
 
   if (loading) {
     return (

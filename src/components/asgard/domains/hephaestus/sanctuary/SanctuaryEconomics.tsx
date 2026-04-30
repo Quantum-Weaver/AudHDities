@@ -56,7 +56,7 @@ export function SanctuaryEconomics() {
         </div>
         
         <div className="text-center">
-          <Link href="/docs/architecture/residual-system">
+          <Link href="/forge/architecture/residual-system">
             <Button variant="outline">
               Learn How Residuals Work
             </Button>

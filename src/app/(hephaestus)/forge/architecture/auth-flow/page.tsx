@@ -1,12 +1,12 @@
-// src/app/(hepaestus)/docs/architecture/auth-flow/page.tsx
+// src/app/(hepaestus)/forge/architecture/auth-flow/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { Card } from '@/components/runes/Card';
-import { AuthFlowHero } from '@/components/asgard/domains/hephaestus/docs/AuthFlowHero';
-import { FlowDiagram } from '@/components/asgard/domains/hephaestus/docs/FlowDiagram';
-import { StepCard } from '@/components/asgard/domains/hephaestus/docs/StepCard';
-import { CodeBlock } from '@/components/asgard/domains/hephaestus/docs/CodeBlock';
-import { ProtectedRoutesTable } from '@/components/asgard/domains/hephaestus/docs/ProtectedRoutesTable';
+import { AuthFlowHero } from '@/components/asgard/domains/hephaestus/forge/AuthFlowHero';
+import { FlowDiagram } from '@/components/asgard/domains/hephaestus/forge/FlowDiagram';
+import { StepCard } from '@/components/asgard/domains/hephaestus/forge/StepCard';
+import { CodeBlock } from '@/components/asgard/domains/hephaestus/forge/CodeBlock';
+import { ProtectedRoutesTable } from '@/components/asgard/domains/hephaestus/forge/ProtectedRoutesTable';
 
 export const metadata: Metadata = {
   title: 'Auth Flow | AUDHDITIES Architecture',

@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface JournalEntry {
-  id: string;
+  journal_entries_id: string;
   title: string;
   content: string;
   mood?: string | null;
@@ -65,7 +65,7 @@ export function JournalDetail() {
     if (!entry) return;
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.id}`, {
+      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.journal_entries_id}`, {
         method: 'DELETE',
       });
       const result = await response.json();
@@ -118,7 +118,7 @@ export function JournalDetail() {
   }
 
   const cardData: CardData = {
-    id: entry.id,
+    id: entry.journal_entries_id,
     type: 'value',
     title: entry.title,
     value: entry.mood || 'entry',
@@ -169,7 +169,7 @@ export function JournalDetail() {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
-              <Link href={`/vessel/journal/${entry.id}/edit`}>
+              <Link href={`/vessel/journal/${entry.journal_entries_id}/edit`}>
                 <Button variant="ghost" size="sm">
                   <Edit3 className="h-4 w-4" />
                 </Button>

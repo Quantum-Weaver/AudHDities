@@ -273,13 +273,13 @@ PHASE H: SPECIALIZED DOMAIN CARDS
 |------|----------|--------|
 | `VisionHero` | `src/components/vision/VisionHero.tsx` | ✅ |
 | `BusinessHero` | `src/components/business/BusinessHero.tsx` | ✅ |
-| `DocsHero` | `src/components/docs/DocsHero.tsx` | ✅ |
+| `DocsHero` | `src/components/forge/DocsHero.tsx` | ✅ |
 | `SchemaHero` | `src/components/schema/SchemaHero.tsx` | ✅ |
 | `UXHero` | `src/components/ux/UXHero.tsx` | ✅ |
 | `AboutHero` | `src/components/about/AboutHero.tsx` | ✅ |
 | `PrivacyHero` | `src/components/legal/PrivacyHero.tsx` | ✅ |
 | `TermsHero` | `src/components/legal/TermsHero.tsx` | ✅ |
-| `AuthFlowHero` | `src/components/docs/AuthFlowHero.tsx` | ✅ |
+| `AuthFlowHero` | `src/components/forge/AuthFlowHero.tsx` | ✅ |
 | `OnboardingHero` | `src/components/legal/OnboardingHero.tsx` | ✅ |
 | `FinancialEcosystemHero` | `src/components/business/FinancialEcosystemHero.tsx` | ✅ |
 
@@ -291,7 +291,7 @@ PHASE H: SPECIALIZED DOMAIN CARDS
 |----------|----------|--------|
 | `TimelineView` | `src/components/cosmic/TimelineView.tsx` | ✅ EXISTS |
 | `ProjectionTable` | `src/components/business/ProjectionTable.tsx` | ✅ EXISTS |
-| `FlowDiagram` | `src/components/docs/AuthFlowHero.tsx` | ✅ EXISTS |
+| `FlowDiagram` | `src/components/forge/AuthFlowHero.tsx` | ✅ EXISTS |
 | `ValueFlowDiagram` | `src/components/business/ValueFlowDiagram.tsx` | ✅ EXISTS |
 | `TwoStreamFlow` | `src/components/business/TwoStreamFlow.tsx` | ✅ EXISTS |
 | `StepCard` | `src/components/legal/StepCard.tsx` | ✅ EXISTS |

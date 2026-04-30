@@ -1,4 +1,4 @@
-// app/(hephaestus)/docs/guides/neurodivergent-ux/page.tsx
+// app/(hephaestus)/forge/guides/neurodivergent-ux/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { UXHero } from '@/components/asgard/domains/hephaestus/ux/UXHero';

@@ -1,4 +1,4 @@
-// src/components/docs/StepCard/tsx
+// src/components/forge/StepCard/tsx
 'use client';
 
 import { motion } from 'framer-motion';

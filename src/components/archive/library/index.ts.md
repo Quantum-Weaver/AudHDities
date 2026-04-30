@@ -12,13 +12,13 @@ export * from './QuestSubmissionForm.js';
 // =====================================================
 // DOCS
 // =====================================================
-export * from './docs/AuthFlowHero.js';
-export * from './docs/CodeBlock.js';
-export * from './docs/DocsHero.js';
-export * from './docs/FlowDiagram.js';
-export * from './docs/MarkdownViewer.js';
-export * from './docs/ProtectedRoutesTable.js';
-export * from './docs/StepCard.js';
+export * from './forge/AuthFlowHero.js';
+export * from './forge/CodeBlock.js';
+export * from './forge/DocsHero.js';
+export * from './forge/FlowDiagram.js';
+export * from './forge/MarkdownViewer.js';
+export * from './forge/ProtectedRoutesTable.js';
+export * from './forge/StepCard.js';
 
 // =====================================================
 // UX

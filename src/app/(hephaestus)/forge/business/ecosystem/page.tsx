@@ -1,4 +1,4 @@
-// app/(hepaestus)/docs/business/ecosystem/page.tsx
+// app/(hepaestus)/forge/business/ecosystem/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { FinancialEcosystemHero } from '@/components/asgard/domains/plutus/business/FinancialEcosystemHero';

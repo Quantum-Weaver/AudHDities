@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/docs/DocsHero.tsx
+// src/components/asgard/domains/hephaestus/forge/DocsHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

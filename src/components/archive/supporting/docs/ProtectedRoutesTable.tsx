@@ -1,4 +1,4 @@
-// src/components/docs/ProtectedRoutesTable.tsx
+// src/components/forge/ProtectedRoutesTable.tsx
 'use client';
 
 import { Shield, Lock } from 'lucide-react';

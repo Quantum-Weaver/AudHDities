@@ -1,4 +1,4 @@
-// src/components/docs/AuthFlowHero.tsx
+// src/components/forge/AuthFlowHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

@@ -84,7 +84,7 @@ export function QuestsGallery() {
       }
     };
     fetchQuests();
-  });
+  },[]);
 
   const houses = useMemo(() => {
     const set = new Set<string>();

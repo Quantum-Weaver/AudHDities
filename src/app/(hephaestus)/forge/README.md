@@ -97,20 +97,20 @@ src/app/(hephaestus)/
 |------|----|--------|
 | `/forge/architecture/database-schema` | `/observatory/schema` | Schema explorer moved to Mnemosyne |
 | `/vision` | `/observatory/prophecy` | Vision merged into Observatory |
-| `/docs/*` | `/forge/*` | Renamed from docs to forge |
+| `/forge/*` | `/forge/*` | Renamed from docs to forge |
 
 ---
 
 ## 🏛️ Migration: `docs` → `forge`
 
-The folder `src/app/(hephaestus)/docs/` has been renamed to `src/app/(hephaestus)/forge/`. All imports within those pages that reference `docs` paths must be updated.
+The folder `src/app/(hephaestus)/forge/` has been renamed to `src/app/(hephaestus)/forge/`. All imports within those pages that reference `docs` paths must be updated.
 
 **Next.js redirect in `next.config.js`:**
 ```javascript
 async redirects() {
   return [
     {
-      source: '/docs/:path*',
+      source: '/forge/:path*',
       destination: '/forge/:path*',
       permanent: true,
     },
@@ -133,10 +133,10 @@ async redirects() {
 ## 🎨 Components Used
 
 **Documentation Components:**
-- `DocsHero` — `src/components/asgard/domains/hephaestus/docs/DocsHero.tsx`
-- `DocsContent` — `src/components/asgard/domains/hephaestus/docs/DocsContent.tsx`
+- `DocsHero` — `src/components/asgard/domains/hephaestus/forge/DocsHero.tsx`
+- `DocsContent` — `src/components/asgard/domains/hephaestus/forge/DocsContent.tsx`
 - `StepCard` — `src/components/asgard/domains/hephaestus/onboarding/StepCard.tsx`
-- `CodeBlock` — `src/components/asgard/domains/hephaestus/docs/CodeBlock.tsx`
+- `CodeBlock` — `src/components/asgard/domains/hephaestus/forge/CodeBlock.tsx`
 - `FlowDiagram` — per-section flow diagrams
 
 **Shared (from other layers):**

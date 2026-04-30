@@ -1,4 +1,4 @@
-// app/(content)/docs/architecture/schema/page.tsx
+// app/(content)/forge/architecture/schema/page.tsx
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';

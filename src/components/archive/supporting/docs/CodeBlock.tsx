@@ -1,4 +1,4 @@
-// src/components/docs/CodeBlock.tsx
+// src/components/forge/CodeBlock.tsx
 'use client';
 
 import { useState } from 'react';

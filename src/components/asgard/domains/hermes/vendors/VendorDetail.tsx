@@ -36,7 +36,7 @@ export function VendorDetail() {
       .then((result) => { if (result.success) setVendor(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.id]);
+  }, [params.vendors_id]);
 
   if (loading) {
     return (

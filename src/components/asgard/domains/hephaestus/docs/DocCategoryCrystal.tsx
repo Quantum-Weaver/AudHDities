@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/docs/interactive/DocCategoryCrystal.tsx
+// src/components/asgard/domains/hephaestus/forge/interactive/DocCategoryCrystal.tsx
 'use client';
 
 import { motion } from 'framer-motion';

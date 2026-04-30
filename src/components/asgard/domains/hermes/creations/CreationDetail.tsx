@@ -34,7 +34,7 @@ export function CreationDetail() {
       .then((result) => { if (result.success) setProduct(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.id]);
+  }, [params.products_id]);
 
   if (loading) {
     return (

@@ -16,7 +16,7 @@ import { ArrowLeft, Save } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface JournalEntry {
-  id: string;
+  journal_entries_id: string;
   title: string;
   content: string;
   mood?: string | null;
@@ -86,7 +86,7 @@ export function JournalEdit() {
         return;
       }
 
-      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.id}`, {
+      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.journal_entries_id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updates),
@@ -96,7 +96,7 @@ export function JournalEdit() {
       if (result.success) {
         setSaveMessage('Thread rewoven.');
         setTimeout(() => {
-          router.push(`/vessel/journal/${entry.id}`);
+          router.push(`/vessel/journal/${entry.journal_entries_id}`);
         }, 800);
       } else {
         setSaveMessage('Failed to save. Please try again.');
@@ -139,7 +139,7 @@ export function JournalEdit() {
   }
 
   const cardData: CardData = {
-    id: entry.id,
+    id: entry.journal_entries_id,
     type: 'value',
     title: entry.title,
     value: entry.mood || 'entry',
@@ -150,7 +150,7 @@ export function JournalEdit() {
       <div className="container max-w-3xl mx-auto px-6">
 
         <Link
-          href={`/vessel/journal/${entry.id}`}
+          href={`/vessel/journal/${entry.journal_entries_id}`}
           className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6"
         >
           <ArrowLeft className="h-4 w-4" />

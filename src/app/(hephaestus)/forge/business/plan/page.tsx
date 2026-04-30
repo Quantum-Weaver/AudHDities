@@ -1,4 +1,4 @@
-// src/app/(content)/docs/business/plan/page.tsx
+// src/app/(content)/forge/business/plan/page.tsx
 import { Page } from '@/components/bifrost/Page';
 import { BusinessHero } from '@/components/asgard/domains/plutus/business/BusinessHero';
 import { ValueFlowDiagram } from '@/components/asgard/domains/plutus/business/ValueFlowDiagram';

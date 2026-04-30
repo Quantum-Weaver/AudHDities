@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/docs/interactive/DocsConstellation.tsx
+// src/components/asgard/domains/hephaestus/forge/interactive/DocsConstellation.tsx
 'use client';
 
 import { useState } from 'react';
@@ -43,7 +43,7 @@ const docCategories: DocCategory[] = [
     pages: [
       {
         title: 'Authentication Flow',
-        path: '/docs/architecture/auth-flow',
+        path: '/forge/architecture/auth-flow',
         description: 'How we verify and protect your identity with magic links',
         icon: Shield,
         badge: 'Security',
@@ -51,7 +51,7 @@ const docCategories: DocCategory[] = [
       },
       {
         title: 'Database Schema',
-        path: '/docs/architecture/database-schema',
+        path: '/forge/architecture/database-schema',
         description: 'The living blueprint — always accurate, always transparent',
         icon: Database,
         badge: 'Living Doc',
@@ -59,7 +59,7 @@ const docCategories: DocCategory[] = [
       },
       {
         title: 'Residual System',
-        path: '/docs/architecture/residual-system',
+        path: '/forge/architecture/residual-system',
         description: 'How value flows to every contributor, forever',
         icon: Infinity,
         badge: 'Economics',
@@ -76,7 +76,7 @@ const docCategories: DocCategory[] = [
     pages: [
       {
         title: 'Business Plan',
-        path: '/docs/business/plan',
+        path: '/forge/business/plan',
         description: 'A new economy where value circulates and dignity is guaranteed',
         icon: Map,
         badge: 'Vision',
@@ -84,7 +84,7 @@ const docCategories: DocCategory[] = [
       },
       {
         title: 'Financial Ecosystem',
-        path: '/docs/business/ecosystem',
+        path: '/forge/business/ecosystem',
         description: 'Granular, transparent, designed for dignity — see how value flows',
         icon: DollarSign,
         badge: 'Transparency',
@@ -101,7 +101,7 @@ const docCategories: DocCategory[] = [
     pages: [
       {
         title: 'Creator Onboarding',
-        path: '/docs/guides/creator-onboarding',
+        path: '/forge/guides/creator-onboarding',
         description: 'Share your gifts with the sanctuary and earn residuals forever',
         icon: Feather,
         badge: 'Create',
@@ -109,7 +109,7 @@ const docCategories: DocCategory[] = [
       },
       {
         title: 'Vendor Onboarding',
-        path: '/docs/guides/vendor-onboarding',
+        path: '/forge/guides/vendor-onboarding',
         description: 'Help creators reach their audience through ethical services',
         icon: Truck,
         badge: 'Support',
@@ -117,7 +117,7 @@ const docCategories: DocCategory[] = [
       },
       {
         title: 'Neurodivergent UX',
-        path: '/docs/guides/neurodivergent-ux',
+        path: '/forge/guides/neurodivergent-ux',
         description: 'Our design philosophy — built by and for all minds',
         icon: Brain,
         badge: 'Accessibility',

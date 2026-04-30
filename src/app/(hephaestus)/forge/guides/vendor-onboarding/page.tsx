@@ -1,4 +1,4 @@
-// app/(hephaestus)/docs/guides/vendor-onboarding/page.tsx
+// app/(hephaestus)/forge/guides/vendor-onboarding/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { OnboardingHero } from '@/components/asgard/domains/hephaestus/onboarding/OnboardingHero';

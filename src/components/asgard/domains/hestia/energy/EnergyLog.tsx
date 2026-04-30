@@ -21,7 +21,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 // ═══════════════════════════════════════════════════════════════════════════
 
 interface EnergyEntry {
-  id: string;
+  energy_log_id: string;
   energy_level: number;
   notes?: string | null;
   activity?: string | null;
@@ -358,7 +358,7 @@ export function EnergyLog() {
             <h3 className="text-sm font-medium text-star-dust/40 mb-4">Recent Entries</h3>
             {entries.map((entry, index) => {
               const cardData: CardData = {
-                id: entry.id,
+                id: entry.energy_log_id,
                 type: 'stat',
                 title: ENERGY_LABELS[entry.energy_level] || 'Unknown',
                 value: entry.energy_level,
@@ -366,7 +366,7 @@ export function EnergyLog() {
 
               return (
                 <Card
-                  key={entry.id}
+                  key={entry.energy_log_id}
                   data={cardData}
                   variant="glass"
                   radius="md"

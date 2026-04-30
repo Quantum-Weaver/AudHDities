@@ -1,4 +1,4 @@
-// src/components/docs/DocsHero.tsx
+// src/components/forge/DocsHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

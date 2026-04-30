@@ -1,4 +1,4 @@
-// src/app/(content)/docs/architecture/residual-system/page.tsx
+// src/app/(content)/forge/architecture/residual-system/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { ResidualHero } from '@/components/asgard/domains/plutus/residual/ResidualHero';

@@ -1,10 +1,10 @@
-// src/components/asgard/domains/hephaestus/docs/DocsContent.tsx
+// src/components/asgard/domains/hephaestus/forge/DocsContent.tsx
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { DocsHero } from '@/components/asgard/domains/hephaestus/docs/DocsHero';
+import { DocsHero } from '@/components/asgard/domains/hephaestus/forge/DocsHero';
 import { Tabs, TabsList, TabsTrigger } from '@/components/vegvisir/Tabs';
 import { 
   Shield, Database, Infinity, Feather, Truck, Brain,
@@ -41,9 +41,9 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Shield,
     description: 'The technical foundation that makes sovereignty possible',
     pages: [
-      { title: 'Authentication Flow', path: '/docs/architecture/auth-flow', description: 'How we verify and protect your identity with magic links', icon: Shield, badge: 'Security', badgeColor: 'cyan' },
-      { title: 'Database Schema', path: '/docs/architecture/database-schema', description: 'The living blueprint — always accurate, always transparent', icon: Database, badge: 'Living Doc', badgeColor: 'purple' },
-      { title: 'Residual System', path: '/docs/architecture/residual-system', description: 'How value flows to every contributor, forever', icon: Infinity, badge: 'Economics', badgeColor: 'pink' },
+      { title: 'Authentication Flow', path: '/forge/architecture/auth-flow', description: 'How we verify and protect your identity with magic links', icon: Shield, badge: 'Security', badgeColor: 'cyan' },
+      { title: 'Database Schema', path: '/forge/architecture/database-schema', description: 'The living blueprint — always accurate, always transparent', icon: Database, badge: 'Living Doc', badgeColor: 'purple' },
+      { title: 'Residual System', path: '/forge/architecture/residual-system', description: 'How value flows to every contributor, forever', icon: Infinity, badge: 'Economics', badgeColor: 'pink' },
     ],
   },
   {
@@ -52,8 +52,8 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Briefcase,
     description: 'The sanctuary economy — how value circulates and dignity is guaranteed',
     pages: [
-      { title: 'Business Plan', path: '/docs/business/plan', description: 'A new economy where value circulates and dignity is guaranteed', icon: Map, badge: 'Vision', badgeColor: 'emerald' },
-      { title: 'Financial Ecosystem', path: '/docs/business/ecosystem', description: 'Granular, transparent, designed for dignity — see how value flows', icon: DollarSign, badge: 'Transparency', badgeColor: 'cyan' },
+      { title: 'Business Plan', path: '/forge/business/plan', description: 'A new economy where value circulates and dignity is guaranteed', icon: Map, badge: 'Vision', badgeColor: 'emerald' },
+      { title: 'Financial Ecosystem', path: '/forge/business/ecosystem', description: 'Granular, transparent, designed for dignity — see how value flows', icon: DollarSign, badge: 'Transparency', badgeColor: 'cyan' },
     ],
   },
   {
@@ -62,9 +62,9 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Compass,
     description: 'Paths to participation and sovereignty within the sanctuary',
     pages: [
-      { title: 'Creator Onboarding', path: '/docs/guides/creator-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
-      { title: 'Vendor Onboarding', path: '/docs/guides/vendor-onboarding', description: 'Help creators reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
-      { title: 'Neurodivergent UX', path: '/docs/guides/neurodivergent-ux', description: 'Our design philosophy — built by and for all minds', icon: Brain, badge: 'Accessibility', badgeColor: 'pink' },
+      { title: 'Creator Onboarding', path: '/forge/guides/creator-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
+      { title: 'Vendor Onboarding', path: '/forge/guides/vendor-onboarding', description: 'Help creators reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
+      { title: 'Neurodivergent UX', path: '/forge/guides/neurodivergent-ux', description: 'Our design philosophy — built by and for all minds', icon: Brain, badge: 'Accessibility', badgeColor: 'pink' },
     ],
   },
   {

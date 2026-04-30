@@ -1,4 +1,4 @@
-// components/docs/MarkdownViewer.tsx
+// components/forge/MarkdownViewer.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ export function MarkdownViewer({ filename, onClose }: MarkdownViewerProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/docs/${filename}`)
+    fetch(`/api/forge/${filename}`)
       .then(res => res.text())
       .then(text => {
         setContent(text);

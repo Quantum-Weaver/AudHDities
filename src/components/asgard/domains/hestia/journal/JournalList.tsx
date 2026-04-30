@@ -22,7 +22,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 // ═══════════════════════════════════════════════════════════════════════════
 
 interface JournalEntry {
-  id: string;
+  journal_entries_id: string;
   title: string;
   content: string;
   mood?: string | null;
@@ -243,14 +243,14 @@ export function JournalList() {
           <div className="space-y-4">
             {entries.map((entry) => {
               const cardData: CardData = {
-                id: entry.id,
+                id: entry.journal_entries_id,
                 type: 'value',
                 title: entry.title,
                 value: entry.mood || 'entry',
               };
 
               return (
-                <Link key={entry.id} href={`/vessel/journal/${entry.id}`}>
+                <Link key={entry.journal_entries_id} href={`/vessel/journal/${entry.journal_entries_id}`}>
                   <Card
                     data={cardData}
                     variant="glass"

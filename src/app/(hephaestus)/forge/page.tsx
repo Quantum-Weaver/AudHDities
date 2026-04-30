@@ -1,7 +1,7 @@
-// src/app/(content)/docs/page.tsx
+// src/app/(content)/forge/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { DocsContent } from '@/components/asgard/domains/hephaestus/docs/DocsContent';
+import { DocsContent } from '@/components/asgard/domains/hephaestus/forge/DocsContent';
 
 export const metadata: Metadata = {
   title: 'Documentation | AUDHDITIES',
