@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import type { ProductsFormData } from '@/types/generated/plutus-economics/products';
 import type { PublicProfiles } from '@/types/generated/hestia-core/profiles';
+
 export async function GET() {
   try {
     const supabase = await createServerSupabase();
     
-    // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
@@ -17,7 +17,6 @@ export async function GET() {
       );
     }
 
-    // Fetch full profile with all relations
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select(`
@@ -27,7 +26,7 @@ export async function GET() {
         vendor_profiles!fk_vendor_profiles_profile_id (*),
         user_badges!user_badges_user_id_fkey (
           *,
-          badge
+          badges!user_badges_badge_id_fkey (*)
         )
       `)
       .eq('profiles_id', user.id)
@@ -35,7 +34,6 @@ export async function GET() {
 
     if (profileError) {
       console.error('Profile fetch error:', profileError);
-      // Still return basic user info even if profile fetch fails
       return NextResponse.json({
         user,
         profile: null,
@@ -45,7 +43,6 @@ export async function GET() {
       });
     }
 
-    // Get user's products (if creator) - properly typed
     let products: ProductsFormData[] = [];
     if (profile.is_creator) {
       const { data: userProducts } = await supabase
@@ -57,7 +54,6 @@ export async function GET() {
       products = (userProducts as ProductsFormData[]) || [];
     }
 
-    // Get recent activity (sales, etc.)
     let recentSales: any[] = [];
     const { data: sales } = await supabase
       .from('sales')
@@ -73,7 +69,6 @@ export async function GET() {
       .limit(5);
     recentSales = sales || [];
 
-    // Get user's badges count
     const badgeCount = profile.user_badges?.length || 0;
 
     return NextResponse.json({

@@ -1,12 +1,8 @@
 // app/api/checkout/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import Stripe from 'stripe';
+import { stripe as getStripe } from '@/lib/stripe/server';
 import type { ProfilesFormData } from '@/types/generated/hestia-core/profiles';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-04-22.dahlia',
-});
 
 interface CheckoutRequest {
   productId: string;
@@ -14,12 +10,8 @@ interface CheckoutRequest {
   quantity?: number;
 }
 
-// Helper to determine if bigot tax should apply
 function shouldApplyBigotTax(profile: ProfilesFormData, tier: string): boolean {
-  // Apply for corporate tier
   if (tier === 'corporate') return true;
-  
-  // Apply for certain email domains
   const corporateDomains = ['.gov', '.mil', '.edu', 'corp', 'inc', 'llc'];
   const emailDomain = profile.email?.split('@')[1]?.toLowerCase() || '';
   return corporateDomains.some(domain => emailDomain.includes(domain));
@@ -29,16 +21,11 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
     
-    // 1. Authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
     }
 
-    // 2. Get user profile
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('*')
@@ -46,34 +33,21 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (profileError || !profile) {
-      return NextResponse.json(
-        { error: 'User profile not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'User profile not found' }, { status: 404 });
     }
 
-    // 3. Parse request body
     const body = await request.json();
     const { productId, tier = 'ally', quantity = 1 }: CheckoutRequest = body;
 
     if (!productId) {
-      return NextResponse.json(
-        { error: 'Product ID required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Product ID required' }, { status: 400 });
     }
 
-    // 4. Validate tier against user's actual tier
     const userTier = profile.user_tier as 'community' | 'ally' | 'corporate' | 'council' | null;
-    
     if (tier === 'community' && userTier !== 'community' && userTier !== 'council') {
-      return NextResponse.json(
-        { error: 'Community tier is only available for neurodivergent community members' },
-        { status: 403 }
-      );
+      return NextResponse.json({ error: 'Community tier is only available for neurodivergent community members' }, { status: 403 });
     }
 
-    // 5. Fetch product
     const { data: product, error: productError } = await supabase
       .from('products')
       .select('*')
@@ -83,40 +57,24 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (productError || !product) {
-      return NextResponse.json(
-        { error: 'Product not found or unavailable' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Product not found or unavailable' }, { status: 404 });
     }
 
-    // 6. Determine base price based on tier
     let baseAmount: number | null = null;
-
     switch (tier) {
-      case 'community':
-        baseAmount = product.price_community;
-        break;
-      case 'ally':
-        baseAmount = product.price_ally;
-        break;
-      case 'corporate':
-        baseAmount = product.price_corporate;
-        break;
+      case 'community': baseAmount = product.price_community; break;
+      case 'ally': baseAmount = product.price_ally; break;
+      case 'corporate': baseAmount = product.price_corporate; break;
     }
 
-    // Fallback to ally tier if selected tier has no price
     if (baseAmount === null || baseAmount <= 0) {
       baseAmount = product.price_ally;
     }
 
     if (!baseAmount || baseAmount <= 0) {
-      return NextResponse.json(
-        { error: 'Product has no valid price' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Product has no valid price' }, { status: 400 });
     }
 
-    // 7. Apply bigot tax for corporate tier or certain domains
     const applyBigotTax = shouldApplyBigotTax(profile, tier);
     let finalAmount = baseAmount;
     let bigotTaxApplied = false;
@@ -126,11 +84,7 @@ export async function POST(request: NextRequest) {
       bigotTaxApplied = true;
     }
 
-    // Convert to cents for Stripe
     const amountInCents = Math.round(finalAmount * 100);
-
-    // 8. Create sales record first
-    // Platform fee is now 10% (industry standard is 30-50%)
     const PLATFORM_FEE_PERCENT = 10;
     const platformFeeCents = Math.round(amountInCents * (PLATFORM_FEE_PERCENT / 100));
     const creatorEarningsCents = amountInCents - platformFeeCents;
@@ -154,29 +108,24 @@ export async function POST(request: NextRequest) {
 
     if (saleError) {
       console.error('Error creating sales record:', saleError);
-      return NextResponse.json(
-        { error: 'Failed to create sales record' },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: 'Failed to create sales record' }, { status: 500 });
     }
 
-    // 9. Create Stripe checkout session
+    const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: product.title,
-              description: product.description || undefined,
-              images: product.media_urls ? [ ] : [],
-            },
-            unit_amount: amountInCents,
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: product.title,
+            description: product.description || undefined,
+            images: product.media_urls ? [] : [],
           },
-          quantity,
+          unit_amount: amountInCents,
         },
-      ],
+        quantity,
+      }],
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&sale_id=${sale.sales_id}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/cancel`,
@@ -194,7 +143,6 @@ export async function POST(request: NextRequest) {
       customer_email: user.email,
     });
 
-    // 10. Update sales record with Stripe session ID
     await supabase
       .from('sales')
       .update({ stripe_session_id: session.id })
@@ -208,9 +156,6 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Checkout error:', error);
-    return NextResponse.json(
-      { error: 'Failed to create checkout session' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 });
   }
 }
