@@ -100,7 +100,7 @@ export const AssetMapper = {
       foreground: '/environments/extracted-foregrounds/library-elements/library-background-1b.webp',
       variants: [1, 2, 3, 4] as const
     },
-    docs: {
+    forge: {
       prompt: 'photorealistic 360-degree seamless panorama, 8k, a vast, circular ancient library with a domed ceiling, shelves are carved from living wood and dark obsidian, glowing crystalline formations provide ambient light, multiple arched doorways and portals are visible around the perimeter, each leading to different themed rooms (a cozy hearth-room, a star-gazing tower, a council chamber), the central area is an open, well-lit space with empty stone pedestals, empty display cases, and vacant shelves waiting to be filled with artifacts, ethereal mist hugs the floor, ancient pagan symbols and quantum equations are subtly engraved in the stonework, seamless texture, 4096x2048',
       description: 'The Sovereign Library is the memory of the Sanctuary—a living archive that grows with every artifact discovered, every story told, every truth revealed. Shelves of living wood and obsidian hold books that write themselves as knowledge emerges. Portals lead to themed rooms: the Hearth for comfort, the Observatory for vision, the Council for decisions. The empty pedestals and cases await the discoveries of future seekers.',
       mood: ['Peaceful', 'Awe-inspiring', 'Ancient', 'Sacred'],
