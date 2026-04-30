@@ -14,7 +14,8 @@ export const PathLessonsRowSchema = z.object({
   created_by: z.string().nullable(),
   lesson_id: z.string(),
   order_index: z.number(),
-  path_id: z.string(),
+  path_lessons_id: z.string(),
+  updated_at: z.string().nullable(),
 });
 
 export const PathLessonsInsertSchema = z.object({
@@ -22,7 +23,8 @@ export const PathLessonsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   lesson_id: z.string(),
   order_index: z.number(),
-  path_id: z.string(),
+  path_lessons_id: z.string(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const PathLessonsUpdateSchema = z.object({
@@ -30,7 +32,8 @@ export const PathLessonsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   lesson_id: z.string().optional(),
   order_index: z.number().optional(),
-  path_id: z.string().optional(),
+  path_lessons_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

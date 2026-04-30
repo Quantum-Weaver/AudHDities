@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_activities.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.539Z
+// GENERATED: 2026-04-30T04:17:46.931Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,6 +34,7 @@ export type AgentActivitiesUpdate = TablesUpdate<'agent_activities'>;
  */
 export interface PublicAgentActivities {
   action: AgentActionType;
+  agent_activities_id: string;
   agent_name: AgentName;
   completed_at: string | null;
   conversation_id: string | null;
@@ -42,7 +43,6 @@ export interface PublicAgentActivities {
   description: string | null;
   duration_ms: number | null;
   error_message: string | null;
-  id: string;
   metadata: Json | null;
   parent_activity_id: string | null;
   retry_count: number | null;
@@ -59,6 +59,7 @@ export interface PublicAgentActivities {
  */
 export interface AgentActivitiesFormData {
   action?: AgentActionType;
+  agent_activities_id?: string;
   agent_name?: AgentName;
   completed_at?: string | null;
   conversation_id?: string | null;
@@ -67,7 +68,6 @@ export interface AgentActivitiesFormData {
   description?: string | null;
   duration_ms?: number | null;
   error_message?: string | null;
-  id?: string;
   metadata?: Json | null;
   parent_activity_id?: string | null;
   retry_count?: number | null;
@@ -85,6 +85,7 @@ export interface AgentActivitiesValidationResult {
   valid: boolean;
   errors: {
     action?: string;
+    agent_activities_id?: string;
     agent_name?: string;
     completed_at?: string;
     conversation_id?: string;
@@ -93,7 +94,6 @@ export interface AgentActivitiesValidationResult {
     description?: string;
     duration_ms?: string;
     error_message?: string;
-    id?: string;
     metadata?: string;
     parent_activity_id?: string;
     retry_count?: string;

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/bubbles.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.670Z
+// GENERATED: 2026-04-30T04:17:47.047Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,6 +25,7 @@ export type BubblesUpdate = TablesUpdate<'bubbles'>;
  */
 export interface PublicBubbles {
   appearance_weight: number | null;
+  bubbles_id: string;
   collection_name: string | null;
   collection_order: number | null;
   color: string;
@@ -32,13 +33,13 @@ export interface PublicBubbles {
   created_by: string | null;
   description: string | null;
   glow_color: string | null;
-  id: string;
   is_active: boolean | null;
   name: string;
   points_value: number;
   rarity: string;
   slug: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -47,6 +48,7 @@ export interface PublicBubbles {
  */
 export interface BubblesFormData {
   appearance_weight?: number | null;
+  bubbles_id?: string;
   collection_name?: string | null;
   collection_order?: number | null;
   color?: string;
@@ -54,13 +56,13 @@ export interface BubblesFormData {
   created_by?: string | null;
   description?: string | null;
   glow_color?: string | null;
-  id?: string;
   is_active?: boolean | null;
   name?: string;
   points_value?: number;
   rarity?: string;
   slug?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -70,6 +72,7 @@ export interface BubblesValidationResult {
   valid: boolean;
   errors: {
     appearance_weight?: string;
+    bubbles_id?: string;
     collection_name?: string;
     collection_order?: string;
     color?: string;
@@ -77,13 +80,13 @@ export interface BubblesValidationResult {
     created_by?: string;
     description?: string;
     glow_color?: string;
-    id?: string;
     is_active?: string;
     name?: string;
     points_value?: string;
     rarity?: string;
     slug?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

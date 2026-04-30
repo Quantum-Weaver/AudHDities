@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CalendarInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.685Z
+// Generated: 2026-04-30T04:17:47.061Z
 // Table: calendar
 
 export async function GET(request: NextRequest) {

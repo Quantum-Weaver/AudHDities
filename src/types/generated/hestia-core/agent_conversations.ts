@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_conversations.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.553Z
+// GENERATED: 2026-04-30T04:17:46.946Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,11 +32,11 @@ export type AgentConversationsUpdate = TablesUpdate<'agent_conversations'>;
  * Public view of agent_conversations
  */
 export interface PublicAgentConversations {
+  agent_conversations_id: string;
   context_id: string | null;
   context_type: string | null;
   created_at: string;
   created_by: string | null;
-  id: string;
   last_message_at: string | null;
   message_count: number | null;
   metadata: Json | null;
@@ -55,11 +55,11 @@ export interface PublicAgentConversations {
  * All fields are optional for partial updates
  */
 export interface AgentConversationsFormData {
+  agent_conversations_id?: string;
   context_id?: string | null;
   context_type?: string | null;
   created_at?: string;
   created_by?: string | null;
-  id?: string;
   last_message_at?: string | null;
   message_count?: number | null;
   metadata?: Json | null;
@@ -79,11 +79,11 @@ export interface AgentConversationsFormData {
 export interface AgentConversationsValidationResult {
   valid: boolean;
   errors: {
+    agent_conversations_id?: string;
     context_id?: string;
     context_type?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     last_message_at?: string;
     message_count?: string;
     metadata?: string;

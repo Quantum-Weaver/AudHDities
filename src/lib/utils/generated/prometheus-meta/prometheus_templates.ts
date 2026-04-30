@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusTemplates
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.072Z
+// GENERATED: 2026-04-30T04:17:47.984Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusTemplates(id: string): Promise<PrometheusTemp
   const { data, error } = await supabase
     .from('prometheus_templates')
     .select('*')
-    .eq('id', id)
+    .eq('prometheus_templates_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusTemplates(id: string, data: PrometheusTemp
   const { data: result, error } = await supabase
     .from('prometheus_templates')
     .update(validated)
-    .eq('id', id)
+    .eq('prometheus_templates_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusTemplates(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('prometheus_templates')
     .delete()
-    .eq('id', id);
+    .eq('prometheus_templates_id', id);
   
   if (error) throw error;
   return true;

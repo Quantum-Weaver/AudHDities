@@ -10,10 +10,10 @@ import z from 'zod';
 // =====================================================
 
 export const BadgeAwardTriggersRowSchema = z.object({
+  badge_award_triggers_id: z.string(),
   badge_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   trigger_config: z.any(),
   trigger_type: z.string(),
@@ -21,10 +21,10 @@ export const BadgeAwardTriggersRowSchema = z.object({
 });
 
 export const BadgeAwardTriggersInsertSchema = z.object({
+  badge_award_triggers_id: z.string().optional(),
   badge_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   trigger_config: z.any(),
   trigger_type: z.string(),
@@ -32,10 +32,10 @@ export const BadgeAwardTriggersInsertSchema = z.object({
 });
 
 export const BadgeAwardTriggersUpdateSchema = z.object({
+  badge_award_triggers_id: z.string().optional(),
   badge_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   trigger_config: z.any().optional(),
   trigger_type: z.string().optional(),

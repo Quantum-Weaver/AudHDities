@@ -15,12 +15,13 @@ export const SubscriptionsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   expires_at: z.string().nullable(),
-  id: z.string(),
   monthly_amount: z.number(),
   status: z.enum(ENUM_VALUES.subscriptionStatus).nullable(),
   subscriber_id: z.string(),
+  subscriptions_id: z.string(),
   tier_applied: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const SubscriptionsInsertSchema = z.object({
@@ -28,12 +29,13 @@ export const SubscriptionsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   expires_at: z.string().nullable().optional(),
-  id: z.string().optional(),
   monthly_amount: z.number(),
   status: z.enum(ENUM_VALUES.subscriptionStatus).nullable().optional(),
   subscriber_id: z.string(),
+  subscriptions_id: z.string().optional(),
   tier_applied: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const SubscriptionsUpdateSchema = z.object({
@@ -41,12 +43,13 @@ export const SubscriptionsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   expires_at: z.string().nullable().optional(),
-  id: z.string().optional(),
   monthly_amount: z.number().optional(),
   status: z.enum(ENUM_VALUES.subscriptionStatus).nullable().optional(),
   subscriber_id: z.string().optional(),
+  subscriptions_id: z.string().optional(),
   tier_applied: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

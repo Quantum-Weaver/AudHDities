@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusBlueprints
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.011Z
+// GENERATED: 2026-04-30T04:17:47.878Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusBlueprints(id: string): Promise<PrometheusBlu
   const { data, error } = await supabase
     .from('prometheus_blueprints')
     .select('*')
-    .eq('id', id)
+    .eq('blueprint_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusBlueprints(id: string, data: PrometheusBlu
   const { data: result, error } = await supabase
     .from('prometheus_blueprints')
     .update(validated)
-    .eq('id', id)
+    .eq('blueprint_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusBlueprints(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('prometheus_blueprints')
     .delete()
-    .eq('id', id);
+    .eq('blueprint_id', id);
   
   if (error) throw error;
   return true;

@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scheduling.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.589Z
+// GENERATED: 2026-04-30T04:17:48.184Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,7 +36,6 @@ export interface PublicScheduling {
   created_by: string | null;
   error_message: string | null;
   function_name: string;
-  id: string;
   job_type: JobType;
   last_result: string | null;
   last_run: string | null;
@@ -47,8 +46,11 @@ export interface PublicScheduling {
   retry_count: number | null;
   run_at: string | null;
   schedule: string | null;
+  scheduling_id: string;
+  slug: string | null;
   status: JobStatus | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -60,7 +62,6 @@ export interface SchedulingFormData {
   created_by?: string | null;
   error_message?: string | null;
   function_name?: string;
-  id?: string;
   job_type?: JobType;
   last_result?: string | null;
   last_run?: string | null;
@@ -71,8 +72,11 @@ export interface SchedulingFormData {
   retry_count?: number | null;
   run_at?: string | null;
   schedule?: string | null;
+  scheduling_id?: string;
+  slug?: string | null;
   status?: JobStatus | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -85,7 +89,6 @@ export interface SchedulingValidationResult {
     created_by?: string;
     error_message?: string;
     function_name?: string;
-    id?: string;
     job_type?: string;
     last_result?: string;
     last_run?: string;
@@ -96,8 +99,11 @@ export interface SchedulingValidationResult {
     retry_count?: string;
     run_at?: string;
     schedule?: string;
+    scheduling_id?: string;
+    slug?: string;
     status?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

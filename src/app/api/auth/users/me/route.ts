@@ -30,7 +30,7 @@ export async function GET() {
           badge
         )
       `)
-      .eq('id', user.id)
+      .eq('profiles_id', user.id)
       .single();
 
     if (profileError) {

@@ -45,7 +45,7 @@ export async function auth(): Promise<Session> {
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
-    .eq('id', user.id)
+    .eq('profiles_id', user.id)
     .single();
   
   return {

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.486Z
+// Generated: 2026-04-30T04:17:46.876Z
 // Table: activity
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('activity')
       .select('*')
-      .eq('id', id)
+      .eq('activity_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('activity')
       .update(validated)
-      .eq('id', id)
+      .eq('activity_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('activity').delete().eq('id', id);
+    const { error } = await supabase.from('activity').delete().eq('activity_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('activity');

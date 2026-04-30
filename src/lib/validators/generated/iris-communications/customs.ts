@@ -14,9 +14,9 @@ export const CustomsRowSchema = z.object({
   category: z.enum(ENUM_VALUES.customCategoryType),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
+  customs_id: z.string(),
   description: z.string(),
   guidance: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   is_sensitive: z.boolean().nullable(),
   name: z.string(),
@@ -24,15 +24,16 @@ export const CustomsRowSchema = z.object({
   region_id: z.string().nullable(),
   slug: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const CustomsInsertSchema = z.object({
   category: z.enum(ENUM_VALUES.customCategoryType),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
+  customs_id: z.string().optional(),
   description: z.string(),
   guidance: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_sensitive: z.boolean().nullable().optional(),
   name: z.string(),
@@ -40,15 +41,16 @@ export const CustomsInsertSchema = z.object({
   region_id: z.string().nullable().optional(),
   slug: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const CustomsUpdateSchema = z.object({
   category: z.enum(ENUM_VALUES.customCategoryType).optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
+  customs_id: z.string().optional(),
   description: z.string().optional(),
   guidance: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_sensitive: z.boolean().nullable().optional(),
   name: z.string().optional(),
@@ -56,6 +58,7 @@ export const CustomsUpdateSchema = z.object({
   region_id: z.string().nullable().optional(),
   slug: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

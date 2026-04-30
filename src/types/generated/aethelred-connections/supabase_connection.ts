@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/supabase_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.687Z
+// GENERATED: 2026-04-30T04:17:48.286Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,11 +32,10 @@ export type SupabaseConnectionUpdate = TablesUpdate<'supabase_connection'>;
  */
 export interface PublicSupabaseConnection {
   api_keys: Json | null;
-  connection_status: SupabaseStatus;
+  connection_status: SupabaseStatus | null;
   created_at: string | null;
   created_by: string | null;
   edge_functions: string[] | null;
-  id: string;
   last_health_check: string | null;
   last_migration_at: string | null;
   migrations_applied: string[] | null;
@@ -45,6 +44,7 @@ export interface PublicSupabaseConnection {
   project_url: string;
   schema_version: string;
   storage_buckets: string[] | null;
+  supabase_connection_id: string;
   updated_at: string | null;
 }
 
@@ -57,7 +57,6 @@ export interface SupabaseConnectionFormData {
   created_at?: string | null;
   created_by?: string | null;
   edge_functions?: string[] | null;
-  id?: string;
   last_health_check?: string | null;
   last_migration_at?: string | null;
   migrations_applied?: string[] | null;
@@ -66,6 +65,7 @@ export interface SupabaseConnectionFormData {
   project_url?: string;
   schema_version?: string;
   storage_buckets?: string[] | null;
+  supabase_connection_id?: string;
   updated_at?: string | null;
 }
 
@@ -80,7 +80,6 @@ export interface SupabaseConnectionValidationResult {
     created_at?: string;
     created_by?: string;
     edge_functions?: string;
-    id?: string;
     last_health_check?: string;
     last_migration_at?: string;
     migrations_applied?: string;
@@ -89,6 +88,7 @@ export interface SupabaseConnectionValidationResult {
     project_url?: string;
     schema_version?: string;
     storage_buckets?: string;
+    supabase_connection_id?: string;
     updated_at?: string;
   };
 }

@@ -15,10 +15,11 @@ export const RepliesRowSchema = z.object({
   content: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   is_edited: z.boolean().nullable(),
   is_hidden: z.boolean().nullable(),
+  replies_id: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const RepliesInsertSchema = z.object({
@@ -27,10 +28,11 @@ export const RepliesInsertSchema = z.object({
   content: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_edited: z.boolean().nullable().optional(),
   is_hidden: z.boolean().nullable().optional(),
+  replies_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const RepliesUpdateSchema = z.object({
@@ -39,10 +41,11 @@ export const RepliesUpdateSchema = z.object({
   content: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_edited: z.boolean().nullable().optional(),
   is_hidden: z.boolean().nullable().optional(),
+  replies_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

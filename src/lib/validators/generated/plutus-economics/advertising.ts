@@ -12,6 +12,7 @@ import z from 'zod';
 
 export const AdvertisingRowSchema = z.object({
   advertiser_id: z.string(),
+  advertising_id: z.string(),
   bid_amount_cents: z.number(),
   bid_type: z.enum(ENUM_VALUES.bidType),
   budget_cents: z.number(),
@@ -19,17 +20,18 @@ export const AdvertisingRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   end_date: z.string().nullable(),
-  id: z.string(),
   spent_cents: z.number().nullable(),
   start_date: z.string().nullable(),
   status: z.enum(ENUM_VALUES.campaignStatus).nullable(),
   targeting_criteria: z.any().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   user_share_percent: z.number().nullable(),
 });
 
 export const AdvertisingInsertSchema = z.object({
   advertiser_id: z.string(),
+  advertising_id: z.string().optional(),
   bid_amount_cents: z.number(),
   bid_type: z.enum(ENUM_VALUES.bidType),
   budget_cents: z.number(),
@@ -37,17 +39,18 @@ export const AdvertisingInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   end_date: z.string().nullable().optional(),
-  id: z.string().optional(),
   spent_cents: z.number().nullable().optional(),
   start_date: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.campaignStatus).nullable().optional(),
   targeting_criteria: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   user_share_percent: z.number().nullable().optional(),
 });
 
 export const AdvertisingUpdateSchema = z.object({
   advertiser_id: z.string().optional(),
+  advertising_id: z.string().optional(),
   bid_amount_cents: z.number().optional(),
   bid_type: z.enum(ENUM_VALUES.bidType).optional(),
   budget_cents: z.number().optional(),
@@ -55,12 +58,12 @@ export const AdvertisingUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   end_date: z.string().nullable().optional(),
-  id: z.string().optional(),
   spent_cents: z.number().nullable().optional(),
   start_date: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.campaignStatus).nullable().optional(),
   targeting_criteria: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   user_share_percent: z.number().nullable().optional(),
 });
 

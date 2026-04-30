@@ -52,7 +52,7 @@ function ProductCardGrid({
   product: ProductsRow;
   onSelect?: (product: ProductsRow) => void;
 }) {
-  const { pricing, currentTierPrice } = useProduct(product.id);
+  const { pricing, currentTierPrice } = useProduct(product.products_id);
   const { profile } = useProfile();
   const userTier = profile?.user_tier || 'ally';
   const price = currentTierPrice(userTier) ?? 0;
@@ -61,7 +61,7 @@ function ProductCardGrid({
 
   return (
     <Card
-      data={{ id: product.id, title: product.title, type: 'product' }}
+      data={{ id: product.products_id, title: product.title, type: 'product' }}
       variant="interactive"
       radius="lg"
       shadow="md"
@@ -122,7 +122,7 @@ function ProductCardList({
   product: ProductsRow;
   onSelect?: (product: ProductsRow) => void;
 }) {
-  const { pricing, currentTierPrice } = useProduct(product.id);
+  const { pricing, currentTierPrice } = useProduct(product.products_id);
   const { profile } = useProfile();
   const userTier = profile?.user_tier || 'ally';
   const price = currentTierPrice(userTier) ?? 0;
@@ -131,7 +131,7 @@ function ProductCardList({
 
   return (
     <Card
-      data={{ id: product.id, title: product.title, type: 'product' }}
+      data={{ id: product.products_id, title: product.title, type: 'product' }}
       variant="default"
       radius="lg"
       shadow="sm"
@@ -187,7 +187,7 @@ function ProductCardFeatured({
   product: ProductsRow;
   onSelect?: (product: ProductsRow) => void;
 }) {
-  const { pricing, currentTierPrice } = useProduct(product.id);
+  const { pricing, currentTierPrice } = useProduct(product.products_id);
   const { profile } = useProfile();
   const userTier = profile?.user_tier || 'ally';
   const price = currentTierPrice(userTier) ?? 0;
@@ -196,7 +196,7 @@ function ProductCardFeatured({
 
   // Fetch contributors via generated hook
   const { data: contributions } = useContributionsList({ 
-    filters: { product_id: product.id },
+    filters: { product_id: product.products_id },
     sort: 'percent_share',
     order: 'desc',
     limit: 10
@@ -204,7 +204,7 @@ function ProductCardFeatured({
 
   return (
     <Card
-      data={{ id: product.id, title: product.title, type: 'product' }}
+      data={{ id: product.products_id, title: product.title, type: 'product' }}
       variant="glow"
       radius="xl"
       shadow="lg"
@@ -269,7 +269,7 @@ function ProductCardFeatured({
             </div>
             <div className="flex flex-wrap gap-1.5">
               {contributions.slice(0, 5).map((c) => (
-                <span key={c.id} className="text-xs px-2 py-0.5 rounded-full bg-[var(--color-cosmic-blue)]/10 text-[var(--color-cosmic-blue)]">
+                <span key={c.contributions_id} className="text-xs px-2 py-0.5 rounded-full bg-[var(--color-cosmic-blue)]/10 text-[var(--color-cosmic-blue)]">
                   Contributor ({c.percent_share}%)
                 </span>
               ))}

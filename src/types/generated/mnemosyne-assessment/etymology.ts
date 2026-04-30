@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/etymology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:45.949Z
+// GENERATED: 2026-04-30T04:17:47.339Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,7 +31,7 @@ export interface PublicEtymology {
   created_by: string | null;
   cultural_context: string | null;
   current_meaning: string;
-  id: string;
+  etymology_id: string;
   is_approved: boolean | null;
   language: string;
   original_meaning: string;
@@ -39,6 +39,7 @@ export interface PublicEtymology {
   root: string | null;
   semantic_shift: string | null;
   updated_at: string | null;
+  updated_by: string | null;
   word: string;
 }
 
@@ -54,7 +55,7 @@ export interface EtymologyFormData {
   created_by?: string | null;
   cultural_context?: string | null;
   current_meaning?: string;
-  id?: string;
+  etymology_id?: string;
   is_approved?: boolean | null;
   language?: string;
   original_meaning?: string;
@@ -62,6 +63,7 @@ export interface EtymologyFormData {
   root?: string | null;
   semantic_shift?: string | null;
   updated_at?: string | null;
+  updated_by?: string | null;
   word?: string;
 }
 
@@ -78,7 +80,7 @@ export interface EtymologyValidationResult {
     created_by?: string;
     cultural_context?: string;
     current_meaning?: string;
-    id?: string;
+    etymology_id?: string;
     is_approved?: string;
     language?: string;
     original_meaning?: string;
@@ -86,6 +88,7 @@ export interface EtymologyValidationResult {
     root?: string;
     semantic_shift?: string;
     updated_at?: string;
+    updated_by?: string;
     word?: string;
   };
 }

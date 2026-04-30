@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AdminLogsUpdateSchema } from '@/lib/validators/generated/themis-governance/admin_logs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.502Z
+// Generated: 2026-04-30T04:17:46.890Z
 // Table: admin_logs
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('admin_logs')
       .select('*')
-      .eq('id', id)
+      .eq('admin_logs_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('admin_logs')
       .update(validated)
-      .eq('id', id)
+      .eq('admin_logs_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('admin_logs').delete().eq('id', id);
+    const { error } = await supabase.from('admin_logs').delete().eq('admin_logs_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('admin_logs');

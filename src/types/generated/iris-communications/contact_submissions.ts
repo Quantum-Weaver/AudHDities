@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/contact_submissions.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:45.767Z
+// GENERATED: 2026-04-30T04:17:47.140Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,10 +33,10 @@ export type ContactSubmissionsUpdate = TablesUpdate<'contact_submissions'>;
  */
 export interface PublicContactSubmissions {
   assigned_to: string | null;
+  contact_submissions_id: string;
   created_at: string | null;
   created_by: string | null;
   direction: ContactDirection | null;
-  id: string;
   message: string;
   message_id: string | null;
   name: string;
@@ -56,11 +56,11 @@ export interface PublicContactSubmissions {
  */
 export interface ContactSubmissionsFormData {
   assigned_to?: string | null;
+  contact_submissions_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   direction?: ContactDirection | null;
   email?: string;
-  id?: string;
   message?: string;
   message_id?: string | null;
   name?: string;
@@ -81,11 +81,11 @@ export interface ContactSubmissionsValidationResult {
   valid: boolean;
   errors: {
     assigned_to?: string;
+    contact_submissions_id?: string;
     created_at?: string;
     created_by?: string;
     direction?: string;
     email?: string;
-    id?: string;
     message?: string;
     message_id?: string;
     name?: string;

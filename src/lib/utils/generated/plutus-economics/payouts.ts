@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Payouts
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:25.938Z
+// GENERATED: 2026-04-30T04:17:47.777Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPayouts(id: string): Promise<PayoutsRow> {
   const { data, error } = await supabase
     .from('payouts')
     .select('*')
-    .eq('id', id)
+    .eq('payouts_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePayouts(id: string, data: PayoutsUpdate): Promise<Pa
   const { data: result, error } = await supabase
     .from('payouts')
     .update(validated)
-    .eq('id', id)
+    .eq('payouts_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePayouts(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('payouts')
     .delete()
-    .eq('id', id);
+    .eq('payouts_id', id);
   
   if (error) throw error;
   return true;

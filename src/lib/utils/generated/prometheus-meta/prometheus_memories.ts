@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusMemories
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.052Z
+// GENERATED: 2026-04-30T04:17:47.944Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusMemories(id: string): Promise<PrometheusMemor
   const { data, error } = await supabase
     .from('prometheus_memories')
     .select('*')
-    .eq('id', id)
+    .eq('prometheus_memories_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusMemories(id: string, data: PrometheusMemor
   const { data: result, error } = await supabase
     .from('prometheus_memories')
     .update(validated)
-    .eq('id', id)
+    .eq('prometheus_memories_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusMemories(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('prometheus_memories')
     .delete()
-    .eq('id', id);
+    .eq('prometheus_memories_id', id);
   
   if (error) throw error;
   return true;

@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('*')
-      .eq('id', user.id)
+      .eq('profiles_id', user.id)
       .single();
 
     if (profileError || !profile) {
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     const { data: product, error: productError } = await supabase
       .from('products')
       .select('*')
-      .eq('id', productId)
+      .eq('products_id', productId)
       .eq('is_published', true)
       .eq('active', true)
       .single();
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
     const { data: sale, error: saleError } = await supabase
       .from('sales')
       .insert({
-        product_id: product.id,
+        product_id: product.products_id,
         buyer_id: user.id,
         amount_cents: amountInCents,
         gross_amount: finalAmount,
@@ -178,12 +178,12 @@ export async function POST(request: NextRequest) {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&sale_id=${sale.id}`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&sale_id=${sale.sales_id}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/cancel`,
       metadata: {
-        productId: product.id,
+        productId: product.products_id,
         userId: user.id,
-        saleId: sale.id,
+        saleId: sale.sales_id,
         tier,
         productTitle: product.title,
         creatorId: product.creator_id,
@@ -198,12 +198,12 @@ export async function POST(request: NextRequest) {
     await supabase
       .from('sales')
       .update({ stripe_session_id: session.id })
-      .eq('id', sale.id);
+      .eq('sales_id', sale.sales_id);
 
     return NextResponse.json({ 
       sessionId: session.id, 
       url: session.url,
-      saleId: sale.id 
+      saleId: sale.sales_id 
     });
 
   } catch (error) {

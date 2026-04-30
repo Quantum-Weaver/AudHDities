@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CustomsUpdateSchema } from '@/lib/validators/generated/iris-communications/customs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.884Z
+// Generated: 2026-04-30T04:17:47.259Z
 // Table: customs
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('customs')
       .select('*')
-      .eq('id', id)
+      .eq('customs_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('customs')
       .update(validated)
-      .eq('id', id)
+      .eq('customs_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('customs').delete().eq('id', id);
+    const { error } = await supabase.from('customs').delete().eq('customs_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('customs');

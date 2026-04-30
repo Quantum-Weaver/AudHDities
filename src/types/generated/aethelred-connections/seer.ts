@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.630Z
+// GENERATED: 2026-04-30T04:17:48.224Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,13 +28,14 @@ export interface PublicSeer {
   anomaly_detection: Json | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   insight_queue: Json | null;
   last_prediction_accuracy: number | null;
   pattern_library: Json | null;
   prophecies: Json | null;
+  seer_id: string;
   trend_analysis: Json | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -45,13 +46,14 @@ export interface SeerFormData {
   anomaly_detection?: Json | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   insight_queue?: Json | null;
   last_prediction_accuracy?: number | null;
   pattern_library?: Json | null;
   prophecies?: Json | null;
+  seer_id?: string;
   trend_analysis?: Json | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -63,13 +65,14 @@ export interface SeerValidationResult {
     anomaly_detection?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     insight_queue?: string;
     last_prediction_accuracy?: string;
     pattern_library?: string;
     prophecies?: string;
+    seer_id?: string;
     trend_analysis?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

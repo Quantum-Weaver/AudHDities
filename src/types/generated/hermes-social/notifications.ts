@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/notifications.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:46.178Z
+// GENERATED: 2026-04-30T04:17:47.687Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,14 +36,16 @@ export interface PublicNotifications {
   body: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   is_read: boolean | null;
   metadata: Json | null;
+  notifications_id: string;
   read_at: string | null;
   related_entity_id: string | null;
   related_entity_type: string | null;
   title: string;
   type: NotificationType;
+  updated_at: string | null;
+  updated_by: string | null;
   user_id: string;
 }
 
@@ -57,14 +59,16 @@ export interface NotificationsFormData {
   body?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   is_read?: boolean | null;
   metadata?: Json | null;
+  notifications_id?: string;
   read_at?: string | null;
   related_entity_id?: string | null;
   related_entity_type?: string | null;
   title?: string;
   type?: NotificationType;
+  updated_at?: string | null;
+  updated_by?: string | null;
   user_id?: string;
 }
 
@@ -79,14 +83,16 @@ export interface NotificationsValidationResult {
     body?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     is_read?: string;
     metadata?: string;
+    notifications_id?: string;
     read_at?: string;
     related_entity_id?: string;
     related_entity_type?: string;
     title?: string;
     type?: string;
+    updated_at?: string;
+    updated_by?: string;
     user_id?: string;
   };
 }

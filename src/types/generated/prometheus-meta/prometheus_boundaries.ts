@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T00:26:46.307Z
+// GENERATED: 2026-04-30T04:17:47.882Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,10 +34,10 @@ export interface PublicPrometheusBoundaries {
   created_at: string;
   created_by: string | null;
   encryption_level: EncryptionLevel;
-  id: string;
   is_active: boolean;
   path_pattern: string | null;
   pattern: string | null;
+  prometheus_boundaries_id: string;
   reason: string;
   requires_approval: boolean;
   rule_type: BoundaryType;
@@ -52,10 +52,10 @@ export interface PrometheusBoundariesFormData {
   created_at?: string;
   created_by?: string | null;
   encryption_level?: EncryptionLevel;
-  id?: string;
   is_active?: boolean;
   path_pattern?: string | null;
   pattern?: string | null;
+  prometheus_boundaries_id?: string;
   reason?: string;
   requires_approval?: boolean;
   rule_type?: BoundaryType;
@@ -71,10 +71,10 @@ export interface PrometheusBoundariesValidationResult {
     created_at?: string;
     created_by?: string;
     encryption_level?: string;
-    id?: string;
     is_active?: string;
     path_pattern?: string;
     pattern?: string;
+    prometheus_boundaries_id?: string;
     reason?: string;
     requires_approval?: string;
     rule_type?: string;

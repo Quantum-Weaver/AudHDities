@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SupabaseConnection
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:26.381Z
+// GENERATED: 2026-04-30T04:17:48.296Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSupabaseConnection(id: string): Promise<SupabaseConnect
   const { data, error } = await supabase
     .from('supabase_connection')
     .select('*')
-    .eq('id', id)
+    .eq('supabase_connection_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSupabaseConnection(id: string, data: SupabaseConnect
   const { data: result, error } = await supabase
     .from('supabase_connection')
     .update(validated)
-    .eq('id', id)
+    .eq('supabase_connection_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSupabaseConnection(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('supabase_connection')
     .delete()
-    .eq('id', id);
+    .eq('supabase_connection_id', id);
   
   if (error) throw error;
   return true;

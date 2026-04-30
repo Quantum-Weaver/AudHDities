@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/system_health_logs.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.740Z
+// GENERATED: 2026-04-30T04:17:48.338Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,10 +34,11 @@ export interface PublicSystemHealthLogs {
   created_at: string;
   created_by: string | null;
   error_message: string | null;
-  id: string;
   response_time_ms: number | null;
   status: SystemStatus;
+  system_health_logs_id: string;
   system_id: string;
+  updated_at: string | null;
 }
 
 /**
@@ -49,10 +50,11 @@ export interface SystemHealthLogsFormData {
   created_at?: string;
   created_by?: string | null;
   error_message?: string | null;
-  id?: string;
   response_time_ms?: number | null;
   status?: SystemStatus;
+  system_health_logs_id?: string;
   system_id?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -65,10 +67,11 @@ export interface SystemHealthLogsValidationResult {
     created_at?: string;
     created_by?: string;
     error_message?: string;
-    id?: string;
     response_time_ms?: string;
     status?: string;
+    system_health_logs_id?: string;
     system_id?: string;
+    updated_at?: string;
   };
 }
 

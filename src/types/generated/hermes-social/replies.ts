@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/replies.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:46.473Z
+// GENERATED: 2026-04-30T04:17:48.073Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -29,10 +29,11 @@ export interface PublicReplies {
   content: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   is_edited: boolean | null;
   is_hidden: boolean | null;
+  replies_id: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -45,10 +46,11 @@ export interface RepliesFormData {
   content?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   is_edited?: boolean | null;
   is_hidden?: boolean | null;
+  replies_id?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -62,10 +64,11 @@ export interface RepliesValidationResult {
     content?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     is_edited?: string;
     is_hidden?: string;
+    replies_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

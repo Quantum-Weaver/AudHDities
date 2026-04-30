@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/activity.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:45.482Z
+// GENERATED: 2026-04-30T04:17:46.873Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,13 +34,15 @@ export type ActivityUpdate = TablesUpdate<'activity'>;
  */
 export interface PublicActivity {
   action_type: ActionType;
+  activity_id: string;
   actor_id: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   metadata: Json | null;
   target_id: string | null;
   target_type: TargetType | null;
+  updated_at: string | null;
+  updated_by: string | null;
   user_id: string;
   visibility: ActivityVisibility | null;
 }
@@ -51,13 +53,15 @@ export interface PublicActivity {
  */
 export interface ActivityFormData {
   action_type?: ActionType;
+  activity_id?: string;
   actor_id?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   metadata?: Json | null;
   target_id?: string | null;
   target_type?: TargetType | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
   user_id?: string;
   visibility?: ActivityVisibility | null;
 }
@@ -69,13 +73,15 @@ export interface ActivityValidationResult {
   valid: boolean;
   errors: {
     action_type?: string;
+    activity_id?: string;
     actor_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     metadata?: string;
     target_id?: string;
     target_type?: string;
+    updated_at?: string;
+    updated_by?: string;
     user_id?: string;
     visibility?: string;
   };

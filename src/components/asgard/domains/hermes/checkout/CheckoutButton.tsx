@@ -58,7 +58,7 @@ export function CheckoutButton({
 
     if (!user) {
       sessionStorage.setItem('pendingPurchase', JSON.stringify({
-        id: product.id,
+        id: product.products_id,
         tier,
         quantity: 1,
       }));
@@ -67,8 +67,8 @@ export function CheckoutButton({
     }
 
     await initiateCheckout({
-      id: product.id,
-      product: product.id,
+      id: product.products_id,
+      product: product.products_id,
       tier,
       quantity: 1,
     });

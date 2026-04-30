@@ -1,7 +1,7 @@
 // =====================================================
 // GENERATED ENUMS HELPER - DO NOT EDIT MANUALLY
 // =====================================================
-// Generated: 2026-04-30T00:29:14.801Z
+// Generated: 2026-04-30T03:41:24.062Z
 // Source: database.types.ts Constants.Enums
 // Purpose: Runtime enum values and type-safe helpers
 // =====================================================
@@ -186,7 +186,7 @@ export const ENUM_VALUES = {
   ledgerEntity: ['buyer', 'platform', 'creator', 'contributor'] as const,
   ledgerEntryType: ['sale', 'residual', 'platform_fee', 'payout'] as const,
   lessonContentType: ['text', 'video', 'audio', 'interactive', 'quiz', 'exercise'] as const,
-  lifeCyclePhase: ['seedling', 'sprout', 'bloom', 'harvest', 'dormant', 'renewal'] as const,
+  lifeCyclePhase: ['seedling', 'sprout', 'bloom', 'harvest', 'dormant', 'renewal', 'onboarding'] as const,
   maintenanceStatus: ['scheduled', 'in_progress', 'completed', 'failed', 'cancelled'] as const,
   maintenanceType: ['upgrade', 'backup', 'repair', 'cleanup', 'migration'] as const,
   measurementSystemType: ['metric', 'imperial', 'us_customary'] as const,
@@ -238,7 +238,7 @@ export const ENUM_VALUES = {
   taxonomyNodeType: ['domain', 'category', 'concept', 'relationship', 'attribute'] as const,
   textDirectionType: ['ltr', 'rtl'] as const,
   timeFormatType: ['12h', '24h'] as const,
-  timelineEventType: ['quest_completed', 'badge_earned', 'path_completed', 'milestone_reached', 'house_joined', 'ritual_performed', 'scene_witnessed'] as const,
+  timelineEventType: ['quest_completed', 'badge_earned', 'path_completed', 'milestone_reached', 'house_joined', 'ritual_performed', 'scene_witnessed', 'sovereign_joined', 'sovereign_milestone', 'consciousness_emerged', 'sanctuary_completed', 'collaboration_began'] as const,
   transactionType: ['sale', 'residual', 'disbursement', 'payout', 'refund'] as const,
   translatableType: ['post', 'product', 'quest', 'myth', 'lesson', 'page'] as const,
   userStatus: ['active', 'suspended', 'deleted'] as const,

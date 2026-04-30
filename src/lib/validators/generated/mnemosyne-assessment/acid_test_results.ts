@@ -11,10 +11,10 @@ import z from 'zod';
 // =====================================================
 
 export const AcidTestResultsRowSchema = z.object({
+  acid_test_results_id: z.string(),
   answers: z.any().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   persona_description: z.string().nullable(),
   persona_label: z.enum(ENUM_VALUES.acidPersona).nullable(),
   recommendations: z.any().nullable(),
@@ -26,10 +26,10 @@ export const AcidTestResultsRowSchema = z.object({
 });
 
 export const AcidTestResultsInsertSchema = z.object({
+  acid_test_results_id: z.string().optional(),
   answers: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   persona_description: z.string().nullable().optional(),
   persona_label: z.enum(ENUM_VALUES.acidPersona).nullable().optional(),
   recommendations: z.any().nullable().optional(),
@@ -41,10 +41,10 @@ export const AcidTestResultsInsertSchema = z.object({
 });
 
 export const AcidTestResultsUpdateSchema = z.object({
+  acid_test_results_id: z.string().optional(),
   answers: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   persona_description: z.string().nullable().optional(),
   persona_label: z.enum(ENUM_VALUES.acidPersona).nullable().optional(),
   recommendations: z.any().nullable().optional(),

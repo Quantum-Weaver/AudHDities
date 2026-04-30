@@ -18,15 +18,17 @@ export const MaintenanceRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string().nullable(),
   error_log: z.string().nullable(),
-  id: z.string(),
+  maintenance_id: z.string(),
   notes: z.string().nullable(),
   performed_by: z.string().nullable(),
   scheduled_end: z.string().nullable(),
   scheduled_start: z.string().nullable(),
+  slug: z.string().nullable(),
   status: z.enum(ENUM_VALUES.maintenanceStatus).nullable(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.maintenanceType),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const MaintenanceInsertSchema = z.object({
@@ -37,15 +39,17 @@ export const MaintenanceInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   error_log: z.string().nullable().optional(),
-  id: z.string().optional(),
+  maintenance_id: z.string().optional(),
   notes: z.string().nullable().optional(),
   performed_by: z.string().nullable().optional(),
   scheduled_end: z.string().nullable().optional(),
   scheduled_start: z.string().nullable().optional(),
+  slug: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.maintenanceStatus).nullable().optional(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.maintenanceType),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const MaintenanceUpdateSchema = z.object({
@@ -56,15 +60,17 @@ export const MaintenanceUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   error_log: z.string().nullable().optional(),
-  id: z.string().optional(),
+  maintenance_id: z.string().optional(),
   notes: z.string().nullable().optional(),
   performed_by: z.string().nullable().optional(),
   scheduled_end: z.string().nullable().optional(),
   scheduled_start: z.string().nullable().optional(),
+  slug: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.maintenanceStatus).nullable().optional(),
   title: z.string().optional(),
   type: z.enum(ENUM_VALUES.maintenanceType).optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

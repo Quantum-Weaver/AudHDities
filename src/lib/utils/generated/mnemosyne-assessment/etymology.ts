@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Etymology
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-23T03:15:25.689Z
+// GENERATED: 2026-04-30T04:17:47.352Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getEtymology(id: string): Promise<EtymologyRow> {
   const { data, error } = await supabase
     .from('etymology')
     .select('*')
-    .eq('id', id)
+    .eq('etymology_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateEtymology(id: string, data: EtymologyUpdate): Promis
   const { data: result, error } = await supabase
     .from('etymology')
     .update(validated)
-    .eq('id', id)
+    .eq('etymology_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteEtymology(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('etymology')
     .delete()
-    .eq('id', id);
+    .eq('etymology_id', id);
   
   if (error) throw error;
   return true;

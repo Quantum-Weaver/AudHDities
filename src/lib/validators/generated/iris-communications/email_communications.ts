@@ -15,7 +15,7 @@ export const EmailCommunicationsRowSchema = z.object({
   clicked_at: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
+  email_communications_id: z.string(),
   metadata: z.any().nullable(),
   opened_at: z.string().nullable(),
   provider_message_id: z.string().nullable(),
@@ -25,6 +25,7 @@ export const EmailCommunicationsRowSchema = z.object({
   status: z.enum(ENUM_VALUES.emailStatus).nullable(),
   subject: z.string(),
   template_id: z.string().nullable(),
+  updated_at: z.string().nullable(),
 });
 
 export const EmailCommunicationsInsertSchema = z.object({
@@ -32,7 +33,7 @@ export const EmailCommunicationsInsertSchema = z.object({
   clicked_at: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  email_communications_id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   opened_at: z.string().nullable().optional(),
   provider_message_id: z.string().nullable().optional(),
@@ -42,6 +43,7 @@ export const EmailCommunicationsInsertSchema = z.object({
   status: z.enum(ENUM_VALUES.emailStatus).nullable().optional(),
   subject: z.string(),
   template_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const EmailCommunicationsUpdateSchema = z.object({
@@ -49,7 +51,7 @@ export const EmailCommunicationsUpdateSchema = z.object({
   clicked_at: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  email_communications_id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   opened_at: z.string().nullable().optional(),
   provider_message_id: z.string().nullable().optional(),
@@ -59,6 +61,7 @@ export const EmailCommunicationsUpdateSchema = z.object({
   status: z.enum(ENUM_VALUES.emailStatus).nullable().optional(),
   subject: z.string().optional(),
   template_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProtocolsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/protocols';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.389Z
+// Generated: 2026-04-30T04:17:47.990Z
 // Table: protocols
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('protocols')
       .select('*')
-      .eq('id', id)
+      .eq('protocols_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('protocols')
       .update(validated)
-      .eq('id', id)
+      .eq('protocols_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('protocols').delete().eq('id', id);
+    const { error } = await supabase.from('protocols').delete().eq('protocols_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('protocols');

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PathLessons
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:25.928Z
+// GENERATED: 2026-04-30T04:17:47.759Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPathLessons(id: string): Promise<PathLessonsRow> {
   const { data, error } = await supabase
     .from('path_lessons')
     .select('*')
-    .eq('lesson_id', id)
+    .eq('path_lessons_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePathLessons(id: string, data: PathLessonsUpdate): Pr
   const { data: result, error } = await supabase
     .from('path_lessons')
     .update(validated)
-    .eq('lesson_id', id)
+    .eq('path_lessons_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePathLessons(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('path_lessons')
     .delete()
-    .eq('lesson_id', id);
+    .eq('path_lessons_id', id);
   
   if (error) throw error;
   return true;

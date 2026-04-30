@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/user_quests.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.981Z
+// GENERATED: 2026-04-30T04:17:48.512Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,7 +35,6 @@ export interface UserQuestsFormData {
   completed_at?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   quest_id?: string;
   started_at?: string | null;
   status?: QuestStatus | null;
@@ -43,5 +42,6 @@ export interface UserQuestsFormData {
   submitted_content?: string | null;
   updated_at?: string | null;
   user_id?: string;
+  user_quests_id?: string;
 }
 

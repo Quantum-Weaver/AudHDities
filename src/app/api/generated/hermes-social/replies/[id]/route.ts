@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { RepliesUpdateSchema } from '@/lib/validators/generated/hermes-social/replies';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.478Z
+// Generated: 2026-04-30T04:17:48.076Z
 // Table: replies
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('replies')
       .select('*')
-      .eq('id', id)
+      .eq('replies_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('replies')
       .update(validated)
-      .eq('id', id)
+      .eq('replies_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('replies').delete().eq('id', id);
+    const { error } = await supabase.from('replies').delete().eq('replies_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('replies');

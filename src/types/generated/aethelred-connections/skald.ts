@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/skald.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.654Z
+// GENERATED: 2026-04-30T04:17:48.253Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -29,12 +29,13 @@ export interface PublicSkald {
   bard_roster: string[] | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   inspiring_content: Json | null;
   music_library: Json | null;
   mythology: Json | null;
+  skald_id: string;
   story_archive: Json | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -46,12 +47,13 @@ export interface SkaldFormData {
   bard_roster?: string[] | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   inspiring_content?: Json | null;
   music_library?: Json | null;
   mythology?: Json | null;
+  skald_id?: string;
   story_archive?: Json | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -64,12 +66,13 @@ export interface SkaldValidationResult {
     bard_roster?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     inspiring_content?: string;
     music_library?: string;
     mythology?: string;
+    skald_id?: string;
     story_archive?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

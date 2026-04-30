@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/resend_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.504Z
+// GENERATED: 2026-04-30T04:17:48.101Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -39,9 +39,9 @@ export interface PublicResendConnection {
   emails_sent: number | null;
   from_email: string;
   from_name: string;
-  id: string;
   last_sent_at: string | null;
   operated_by: string | null;
+  resend_connection_id: string;
   template_versions: Json | null;
   templates: Json | null;
   updated_at: string | null;
@@ -60,9 +60,9 @@ export interface ResendConnectionFormData {
   emails_sent?: number | null;
   from_email?: string;
   from_name?: string;
-  id?: string;
   last_sent_at?: string | null;
   operated_by?: string | null;
+  resend_connection_id?: string;
   template_versions?: Json | null;
   templates?: Json | null;
   updated_at?: string | null;
@@ -82,9 +82,9 @@ export interface ResendConnectionValidationResult {
     emails_sent?: string;
     from_email?: string;
     from_name?: string;
-    id?: string;
     last_sent_at?: string;
     operated_by?: string;
+    resend_connection_id?: string;
     template_versions?: string;
     templates?: string;
     updated_at?: string;

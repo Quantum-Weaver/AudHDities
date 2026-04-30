@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ResidualPayouts
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:26.174Z
+// GENERATED: 2026-04-30T04:17:48.125Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getResidualPayouts(id: string): Promise<ResidualPayoutsRow
   const { data, error } = await supabase
     .from('residual_payouts')
     .select('*')
-    .eq('id', id)
+    .eq('residual_payouts_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateResidualPayouts(id: string, data: ResidualPayoutsUpd
   const { data: result, error } = await supabase
     .from('residual_payouts')
     .update(validated)
-    .eq('id', id)
+    .eq('residual_payouts_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteResidualPayouts(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('residual_payouts')
     .delete()
-    .eq('id', id);
+    .eq('residual_payouts_id', id);
   
   if (error) throw error;
   return true;

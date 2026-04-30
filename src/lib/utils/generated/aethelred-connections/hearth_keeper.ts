@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: HearthKeeper
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.749Z
+// GENERATED: 2026-04-30T04:17:47.448Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getHearthKeeper(id: string): Promise<HearthKeeperRow> {
   const { data, error } = await supabase
     .from('hearth_keeper')
     .select('*')
-    .eq('id', id)
+    .eq('hearth_keeper_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateHearthKeeper(id: string, data: HearthKeeperUpdate): 
   const { data: result, error } = await supabase
     .from('hearth_keeper')
     .update(validated)
-    .eq('id', id)
+    .eq('hearth_keeper_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteHearthKeeper(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('hearth_keeper')
     .delete()
-    .eq('id', id);
+    .eq('hearth_keeper_id', id);
   
   if (error) throw error;
   return true;

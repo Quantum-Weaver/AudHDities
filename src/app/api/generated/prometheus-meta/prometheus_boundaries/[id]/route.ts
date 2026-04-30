@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_boundaries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.310Z
+// Generated: 2026-04-30T04:17:47.886Z
 // Table: prometheus_boundaries
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('prometheus_boundaries')
       .select('*')
-      .eq('id', id)
+      .eq('prometheus_boundaries_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('prometheus_boundaries')
       .update(validated)
-      .eq('id', id)
+      .eq('prometheus_boundaries_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('prometheus_boundaries').delete().eq('id', id);
+    const { error } = await supabase.from('prometheus_boundaries').delete().eq('prometheus_boundaries_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('prometheus_boundaries');

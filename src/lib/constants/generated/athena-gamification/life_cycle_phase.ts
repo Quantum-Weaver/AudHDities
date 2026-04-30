@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: constants/generated/athena-gamification/life_cycle_phase.ts
-// GENERATED: 2026-04-30T00:26:47.276Z
+// GENERATED: 2026-04-30T04:17:48.923Z
 // SOURCE: Constants.public.Enums.life_cycle_phase
-// VALUES: 6 entries
+// VALUES: 7 entries
 // =====================================================
 
 export const LIFE_CYCLE_PHASE = {
@@ -12,6 +12,7 @@ export const LIFE_CYCLE_PHASE = {
   HARVEST: 'harvest',
   DORMANT: 'dormant',
   RENEWAL: 'renewal',
+  ONBOARDING: 'onboarding',
 } as const;
 
 export type LifeCyclePhase = typeof LIFE_CYCLE_PHASE[keyof typeof LIFE_CYCLE_PHASE];

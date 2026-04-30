@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/iris-communications/custom_category_type.ts
-// GENERATED: 2026-04-30T00:26:47.230Z
+// GENERATED: 2026-04-30T04:17:48.867Z
 // SOURCE: Constants.public.Enums.custom_category_type
 // VALUES: 7 entries
 // =====================================================

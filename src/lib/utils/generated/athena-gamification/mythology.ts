@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Mythology
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:25.891Z
+// GENERATED: 2026-04-30T04:17:47.684Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getMythology(id: string): Promise<MythologyRow> {
   const { data, error } = await supabase
     .from('mythology')
     .select('*')
-    .eq('id', id)
+    .eq('mythology_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateMythology(id: string, data: MythologyUpdate): Promis
   const { data: result, error } = await supabase
     .from('mythology')
     .update(validated)
-    .eq('id', id)
+    .eq('mythology_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteMythology(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('mythology')
     .delete()
-    .eq('id', id);
+    .eq('mythology_id', id);
   
   if (error) throw error;
   return true;

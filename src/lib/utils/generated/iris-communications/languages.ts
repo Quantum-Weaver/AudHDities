@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Languages
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:25.759Z
+// GENERATED: 2026-04-30T04:17:47.479Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLanguages(id: string): Promise<LanguagesRow> {
   const { data, error } = await supabase
     .from('languages')
     .select('*')
-    .eq('id', id)
+    .eq('languages_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLanguages(id: string, data: LanguagesUpdate): Promis
   const { data: result, error } = await supabase
     .from('languages')
     .update(validated)
-    .eq('id', id)
+    .eq('languages_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLanguages(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('languages')
     .delete()
-    .eq('id', id);
+    .eq('languages_id', id);
   
   if (error) throw error;
   return true;

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { BadgeAwardTriggersInsertSchema } from '@/lib/validators/generated/hestia-core/badge_award_triggers';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.644Z
+// Generated: 2026-04-30T04:17:47.025Z
 // Table: badge_award_triggers
 
 export async function GET(request: NextRequest) {

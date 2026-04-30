@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Curator
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.630Z
+// GENERATED: 2026-04-30T04:17:47.254Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCurator(id: string): Promise<CuratorRow> {
   const { data, error } = await supabase
     .from('curator')
     .select('*')
-    .eq('id', id)
+    .eq('curator_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCurator(id: string, data: CuratorUpdate): Promise<Cu
   const { data: result, error } = await supabase
     .from('curator')
     .update(validated)
-    .eq('id', id)
+    .eq('curator_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCurator(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('curator')
     .delete()
-    .eq('id', id);
+    .eq('curator_id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Lessons
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:25.791Z
+// GENERATED: 2026-04-30T04:17:47.532Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLessons(id: string): Promise<LessonsRow> {
   const { data, error } = await supabase
     .from('lessons')
     .select('*')
-    .eq('id', id)
+    .eq('lessons_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLessons(id: string, data: LessonsUpdate): Promise<Le
   const { data: result, error } = await supabase
     .from('lessons')
     .update(validated)
-    .eq('id', id)
+    .eq('lessons_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLessons(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('lessons')
     .delete()
-    .eq('id', id);
+    .eq('lessons_id', id);
   
   if (error) throw error;
   return true;

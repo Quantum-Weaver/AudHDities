@@ -16,16 +16,17 @@ export const ScenesRowSchema = z.object({
   creator_id: z.string(),
   description: z.string(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable(),
-  id: z.string(),
   instructions: z.string().nullable(),
   is_active: z.boolean().nullable(),
   mythology_id: z.string().nullable(),
   participant_count: z.number().nullable(),
+  scenes_id: z.string(),
   scheduled_for: z.string().nullable(),
   slug: z.string(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.sceneType),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const ScenesInsertSchema = z.object({
@@ -34,16 +35,17 @@ export const ScenesInsertSchema = z.object({
   creator_id: z.string(),
   description: z.string(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
-  id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
   mythology_id: z.string().nullable().optional(),
   participant_count: z.number().nullable().optional(),
+  scenes_id: z.string().optional(),
   scheduled_for: z.string().nullable().optional(),
   slug: z.string(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.sceneType),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const ScenesUpdateSchema = z.object({
@@ -52,16 +54,17 @@ export const ScenesUpdateSchema = z.object({
   creator_id: z.string().optional(),
   description: z.string().optional(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
-  id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
   mythology_id: z.string().nullable().optional(),
   participant_count: z.number().nullable().optional(),
+  scenes_id: z.string().optional(),
   scheduled_for: z.string().nullable().optional(),
   slug: z.string().optional(),
   title: z.string().optional(),
   type: z.enum(ENUM_VALUES.sceneType).optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -19,10 +19,10 @@ export const PrometheusPatternsRowSchema = z.object({
   description: z.string(),
   examples: z.any().nullable(),
   generation_order: z.number(),
-  id: z.string(),
   is_active: z.boolean(),
   name: z.string(),
   naming_rule: z.string(),
+  prometheus_patterns_id: z.string(),
   updated_at: z.string(),
 });
 
@@ -35,10 +35,10 @@ export const PrometheusPatternsInsertSchema = z.object({
   description: z.string(),
   examples: z.any().nullable().optional(),
   generation_order: z.number().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().optional(),
   name: z.string(),
   naming_rule: z.string(),
+  prometheus_patterns_id: z.string().optional(),
   updated_at: z.string().optional(),
 });
 
@@ -51,10 +51,10 @@ export const PrometheusPatternsUpdateSchema = z.object({
   description: z.string().optional(),
   examples: z.any().nullable().optional(),
   generation_order: z.number().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().optional(),
   name: z.string().optional(),
   naming_rule: z.string().optional(),
+  prometheus_patterns_id: z.string().optional(),
   updated_at: z.string().optional(),
 });
 

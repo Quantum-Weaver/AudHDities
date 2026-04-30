@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/residual_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.533Z
+// GENERATED: 2026-04-30T04:17:48.128Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,9 +28,9 @@ export interface PublicResidualPool {
   created_by: string | null;
   distributed_amount_cents: number | null;
   distributed_at: string | null;
-  id: string;
   product_id: string;
   remaining_amount_cents: number | null;
+  residual_pool_id: string;
   sale_id: string;
   total_amount_cents: number;
   updated_at: string | null;
@@ -45,9 +45,9 @@ export interface ResidualPoolFormData {
   created_by?: string | null;
   distributed_amount_cents?: number | null;
   distributed_at?: string | null;
-  id?: string;
   product_id?: string;
   remaining_amount_cents?: number | null;
+  residual_pool_id?: string;
   sale_id?: string;
   total_amount_cents?: number;
   updated_at?: string | null;
@@ -63,9 +63,9 @@ export interface ResidualPoolValidationResult {
     created_by?: string;
     distributed_amount_cents?: string;
     distributed_at?: string;
-    id?: string;
     product_id?: string;
     remaining_amount_cents?: string;
+    residual_pool_id?: string;
     sale_id?: string;
     total_amount_cents?: string;
     updated_at?: string;

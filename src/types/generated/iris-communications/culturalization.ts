@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:45.856Z
+// GENERATED: 2026-04-30T04:17:47.230Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,19 +35,20 @@ export type CulturalizationUpdate = TablesUpdate<'culturalization'>;
 export interface PublicCulturalization {
   created_at: string | null;
   created_by: string | null;
+  culturalization_id: string;
   currency_code: string | null;
-  currency_position: CurrencyPositionType;
+  currency_position: CurrencyPositionType | null;
   currency_symbol: string | null;
   date_format: DateFormatType | null;
   decimal_separator: string | null;
   first_day_of_week: number | null;
-  id: string;
-  measurement_system: MeasurementSystemType;
+  measurement_system: MeasurementSystemType | null;
   region_id: string;
   thousands_separator: string | null;
   time_format: TimeFormatType | null;
   timezone: string | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -57,17 +58,18 @@ export interface PublicCulturalization {
 export interface CulturalizationFormData {
   created_at?: string | null;
   created_by?: string | null;
+  culturalization_id?: string;
   currency_code?: string | null;
   currency_symbol?: string | null;
   date_format?: DateFormatType | null;
   decimal_separator?: string | null;
   first_day_of_week?: number | null;
-  id?: string;
   region_id?: string;
   thousands_separator?: string | null;
   time_format?: TimeFormatType | null;
   timezone?: string | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -78,19 +80,20 @@ export interface CulturalizationValidationResult {
   errors: {
     created_at?: string;
     created_by?: string;
+    culturalization_id?: string;
     currency_code?: string;
     currency_position?: string;
     currency_symbol?: string;
     date_format?: string;
     decimal_separator?: string;
     first_day_of_week?: string;
-    id?: string;
     measurement_system?: string;
     region_id?: string;
     thousands_separator?: string;
     time_format?: string;
     timezone?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

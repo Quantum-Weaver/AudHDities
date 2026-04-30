@@ -10,42 +10,45 @@ import z from 'zod';
 // =====================================================
 
 export const AcidTestAnswersRowSchema = z.object({
+  acid_test_answers_id: z.string(),
   ally_tier_price: z.number().nullable(),
   answer_text: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   indicates_nd: z.boolean().nullable(),
   order_index: z.number().nullable(),
   persona_contribution: z.any().nullable(),
   question_id: z.string(),
   score_value: z.number().nullable(),
+  updated_at: z.string().nullable(),
 });
 
 export const AcidTestAnswersInsertSchema = z.object({
+  acid_test_answers_id: z.string().optional(),
   ally_tier_price: z.number().nullable().optional(),
   answer_text: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   indicates_nd: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   persona_contribution: z.any().nullable().optional(),
   question_id: z.string(),
   score_value: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const AcidTestAnswersUpdateSchema = z.object({
+  acid_test_answers_id: z.string().optional(),
   ally_tier_price: z.number().nullable().optional(),
   answer_text: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   indicates_nd: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   persona_contribution: z.any().nullable().optional(),
   question_id: z.string().optional(),
   score_value: z.number().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

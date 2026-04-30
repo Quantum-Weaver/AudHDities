@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/residual_payouts.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.519Z
+// GENERATED: 2026-04-30T04:17:48.114Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,11 +35,12 @@ export interface PublicResidualPayouts {
   contributor_id: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   paid_at: string | null;
   product_id: string;
+  residual_payouts_id: string;
   sale_id: string;
   status: PayoutStatus | null;
+  updated_at: string | null;
 }
 
 /**
@@ -52,11 +53,12 @@ export interface ResidualPayoutsFormData {
   contributor_id?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   paid_at?: string | null;
   product_id?: string;
+  residual_payouts_id?: string;
   sale_id?: string;
   status?: PayoutStatus | null;
+  updated_at?: string | null;
 }
 
 /**
@@ -70,11 +72,12 @@ export interface ResidualPayoutsValidationResult {
     contributor_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     paid_at?: string;
     product_id?: string;
+    residual_payouts_id?: string;
     sale_id?: string;
     status?: string;
+    updated_at?: string;
   };
 }
 

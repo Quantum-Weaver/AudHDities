@@ -38,7 +38,7 @@ export const VALIDATORS_BASE_PATH = path.join(PROJECT_ROOT, 'src/lib/validators/
 export const TYPES_BASE_PATH = path.join(PROJECT_ROOT, 'src/types/generated');
 
 /** Base directory for generated utilities */
-export const UTILS_BASE_PATH = path.join(PROJECT_ROOT, 'src/utils/generated');
+export const UTILS_BASE_PATH = path.join(PROJECT_ROOT, 'src/lib/utils/generated');
 
 /** Base directory for generated hooks */
 export const HOOKS_BASE_PATH = path.join(PROJECT_ROOT, 'src/hooks/generated');

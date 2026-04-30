@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/entity_state_log.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.935Z
+// GENERATED: 2026-04-30T04:17:47.325Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -37,9 +37,10 @@ export interface PublicEntityStateLog {
   current_task: string | null;
   energy_level: number | null;
   entity_name: AgentName;
-  id: string;
+  entity_state_log_id: string;
   metadata: Json | null;
   state: EntityState;
+  updated_at: string | null;
 }
 
 /**
@@ -52,9 +53,10 @@ export interface EntityStateLogFormData {
   current_task?: string | null;
   energy_level?: number | null;
   entity_name?: AgentName;
-  id?: string;
+  entity_state_log_id?: string;
   metadata?: Json | null;
   state?: EntityState;
+  updated_at?: string | null;
 }
 
 /**
@@ -68,9 +70,10 @@ export interface EntityStateLogValidationResult {
     current_task?: string;
     energy_level?: string;
     entity_name?: string;
-    id?: string;
+    entity_state_log_id?: string;
     metadata?: string;
     state?: string;
+    updated_at?: string;
   };
 }
 

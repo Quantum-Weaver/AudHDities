@@ -15,7 +15,6 @@ export const TaxonomyRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string().nullable(),
   domain: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   level: z.number().nullable(),
   name: z.string(),
@@ -23,7 +22,9 @@ export const TaxonomyRowSchema = z.object({
   parent_id: z.string().nullable(),
   path: z.string(),
   slug: z.string(),
+  taxonomy_id: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const TaxonomyInsertSchema = z.object({
@@ -31,7 +32,6 @@ export const TaxonomyInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   domain: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   level: z.number().nullable().optional(),
   name: z.string(),
@@ -39,7 +39,9 @@ export const TaxonomyInsertSchema = z.object({
   parent_id: z.string().nullable().optional(),
   path: z.string(),
   slug: z.string(),
+  taxonomy_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const TaxonomyUpdateSchema = z.object({
@@ -47,7 +49,6 @@ export const TaxonomyUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   domain: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   level: z.number().nullable().optional(),
   name: z.string().optional(),
@@ -55,7 +56,9 @@ export const TaxonomyUpdateSchema = z.object({
   parent_id: z.string().nullable().optional(),
   path: z.string().optional(),
   slug: z.string().optional(),
+  taxonomy_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.840Z
+// Generated: 2026-04-30T04:17:47.211Z
 // Table: creator_category_links
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('creator_category_links')
       .select('*')
-      .eq('id', id)
+      .eq('creator_category_links_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('creator_category_links')
       .update(validated)
-      .eq('id', id)
+      .eq('creator_category_links_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('creator_category_links').delete().eq('id', id);
+    const { error } = await supabase.from('creator_category_links').delete().eq('creator_category_links_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('creator_category_links');

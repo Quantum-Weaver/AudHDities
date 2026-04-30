@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: GithubConnection
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.738Z
+// GENERATED: 2026-04-30T04:17:47.433Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getGithubConnection(id: string): Promise<GithubConnectionR
   const { data, error } = await supabase
     .from('github_connection')
     .select('*')
-    .eq('id', id)
+    .eq('github_connection_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateGithubConnection(id: string, data: GithubConnectionU
   const { data: result, error } = await supabase
     .from('github_connection')
     .update(validated)
-    .eq('id', id)
+    .eq('github_connection_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteGithubConnection(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('github_connection')
     .delete()
-    .eq('id', id);
+    .eq('github_connection_id', id);
   
   if (error) throw error;
   return true;

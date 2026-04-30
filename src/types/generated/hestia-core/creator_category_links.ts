@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/creator_category_links.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.838Z
+// GENERATED: 2026-04-30T04:17:47.209Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -27,8 +27,9 @@ export interface PublicCreatorCategoryLinks {
   category_id: string;
   created_at: string | null;
   created_by: string | null;
+  creator_category_links_id: string;
   creator_id: string;
-  id: string;
+  updated_at: string | null;
 }
 
 /**
@@ -39,8 +40,9 @@ export interface CreatorCategoryLinksFormData {
   category_id?: string;
   created_at?: string | null;
   created_by?: string | null;
+  creator_category_links_id?: string;
   creator_id?: string;
-  id?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -52,8 +54,9 @@ export interface CreatorCategoryLinksValidationResult {
     category_id?: string;
     created_at?: string;
     created_by?: string;
+    creator_category_links_id?: string;
     creator_id?: string;
-    id?: string;
+    updated_at?: string;
   };
 }
 

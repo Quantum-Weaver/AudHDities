@@ -15,14 +15,15 @@ export const TranslationsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   field_name: z.string(),
-  id: z.string(),
   is_approved: z.boolean().nullable(),
   language_id: z.string(),
   translatable_id: z.string(),
   translatable_type: z.enum(ENUM_VALUES.translatableType),
   translation: z.string(),
+  translations_id: z.string(),
   translator_id: z.string().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const TranslationsInsertSchema = z.object({
@@ -30,14 +31,15 @@ export const TranslationsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   field_name: z.string(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language_id: z.string(),
   translatable_id: z.string(),
   translatable_type: z.enum(ENUM_VALUES.translatableType),
   translation: z.string(),
+  translations_id: z.string().optional(),
   translator_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const TranslationsUpdateSchema = z.object({
@@ -45,14 +47,15 @@ export const TranslationsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   field_name: z.string().optional(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language_id: z.string().optional(),
   translatable_id: z.string().optional(),
   translatable_type: z.enum(ENUM_VALUES.translatableType).optional(),
   translation: z.string().optional(),
+  translations_id: z.string().optional(),
   translator_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/continents.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:45.782Z
+// GENERATED: 2026-04-30T04:17:47.152Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -26,12 +26,14 @@ export type ContinentsUpdate = TablesUpdate<'continents'>;
  */
 export interface PublicContinents {
   code: string;
+  continents_id: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   name: string;
   name_localized: Json | null;
   population_estimate: number | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -40,12 +42,14 @@ export interface PublicContinents {
  */
 export interface ContinentsFormData {
   code?: string;
+  continents_id?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   name?: string;
   name_localized?: Json | null;
   population_estimate?: number | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -55,12 +59,14 @@ export interface ContinentsValidationResult {
   valid: boolean;
   errors: {
     code?: string;
+    continents_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     name?: string;
     name_localized?: string;
     population_estimate?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

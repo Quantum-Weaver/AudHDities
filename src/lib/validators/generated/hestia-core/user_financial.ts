@@ -17,12 +17,12 @@ export const UserFinancialRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   crypto_addresses: z.any().nullable(),
-  id: z.string(),
   minimum_payout: z.number().nullable(),
   paypal_email: z.string().nullable(),
   residual_pledge_percent: z.number().nullable(),
   stripe_account_id: z.string().nullable(),
   updated_at: z.string().nullable(),
+  user_financial_id: z.string(),
 });
 
 export const UserFinancialInsertSchema = z.object({
@@ -32,12 +32,12 @@ export const UserFinancialInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   crypto_addresses: z.any().nullable().optional(),
-  id: z.string(),
   minimum_payout: z.number().nullable().optional(),
   paypal_email: z.string().nullable().optional(),
   residual_pledge_percent: z.number().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  user_financial_id: z.string(),
 });
 
 export const UserFinancialUpdateSchema = z.object({
@@ -47,12 +47,12 @@ export const UserFinancialUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   crypto_addresses: z.any().nullable().optional(),
-  id: z.string().optional(),
   minimum_payout: z.number().nullable().optional(),
   paypal_email: z.string().nullable().optional(),
   residual_pledge_percent: z.number().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  user_financial_id: z.string().optional(),
 });
 
 // =====================================================

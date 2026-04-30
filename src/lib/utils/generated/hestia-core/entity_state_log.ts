@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: EntityStateLog
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:25.680Z
+// GENERATED: 2026-04-30T04:17:47.337Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getEntityStateLog(id: string): Promise<EntityStateLogRow> 
   const { data, error } = await supabase
     .from('entity_state_log')
     .select('*')
-    .eq('id', id)
+    .eq('entity_state_log_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateEntityStateLog(id: string, data: EntityStateLogUpdat
   const { data: result, error } = await supabase
     .from('entity_state_log')
     .update(validated)
-    .eq('id', id)
+    .eq('entity_state_log_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteEntityStateLog(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('entity_state_log')
     .delete()
-    .eq('id', id);
+    .eq('entity_state_log_id', id);
   
   if (error) throw error;
   return true;

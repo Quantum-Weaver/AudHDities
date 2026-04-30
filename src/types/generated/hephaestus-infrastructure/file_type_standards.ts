@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/file_type_standards.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:45.990Z
+// GENERATED: 2026-04-30T04:17:47.391Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,7 +32,7 @@ export interface PublicFileTypeStandards {
   example_code: string | null;
   example_path: string | null;
   file_type: string;
-  id: string;
+  file_type_standards_id: string;
   must_handle_errors: boolean | null;
   must_have_interfaces: boolean | null;
   must_have_loading_state: boolean | null;
@@ -58,7 +58,7 @@ export interface FileTypeStandardsFormData {
   example_code?: string | null;
   example_path?: string | null;
   file_type?: string;
-  id?: string;
+  file_type_standards_id?: string;
   must_handle_errors?: boolean | null;
   must_have_interfaces?: boolean | null;
   must_have_loading_state?: boolean | null;
@@ -85,7 +85,7 @@ export interface FileTypeStandardsValidationResult {
     example_code?: string;
     example_path?: string;
     file_type?: string;
-    id?: string;
+    file_type_standards_id?: string;
     must_handle_errors?: string;
     must_have_interfaces?: string;
     must_have_loading_state?: string;

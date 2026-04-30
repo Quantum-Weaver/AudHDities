@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AgentActivities
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:25.387Z
+// GENERATED: 2026-04-30T04:17:46.943Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAgentActivities(id: string): Promise<AgentActivitiesRow
   const { data, error } = await supabase
     .from('agent_activities')
     .select('*')
-    .eq('id', id)
+    .eq('agent_activities_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAgentActivities(id: string, data: AgentActivitiesUpd
   const { data: result, error } = await supabase
     .from('agent_activities')
     .update(validated)
-    .eq('id', id)
+    .eq('agent_activities_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAgentActivities(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('agent_activities')
     .delete()
-    .eq('id', id);
+    .eq('agent_activities_id', id);
   
   if (error) throw error;
   return true;

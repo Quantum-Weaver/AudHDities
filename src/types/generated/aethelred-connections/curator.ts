@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/curator.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:45.869Z
+// GENERATED: 2026-04-30T04:17:47.243Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -30,11 +30,12 @@ export interface PublicCurator {
   created_at: string | null;
   created_by: string | null;
   curation_queue: Json | null;
+  curator_id: string;
   featured_content: Json | null;
-  id: string;
   preservation_policy: Json | null;
   quality_standards: Json | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -47,11 +48,12 @@ export interface CuratorFormData {
   created_at?: string | null;
   created_by?: string | null;
   curation_queue?: Json | null;
+  curator_id?: string;
   featured_content?: Json | null;
-  id?: string;
   preservation_policy?: Json | null;
   quality_standards?: Json | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -65,11 +67,12 @@ export interface CuratorValidationResult {
     created_at?: string;
     created_by?: string;
     curation_queue?: string;
+    curator_id?: string;
     featured_content?: string;
-    id?: string;
     preservation_policy?: string;
     quality_standards?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

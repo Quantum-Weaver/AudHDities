@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Transactions
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:26.486Z
+// GENERATED: 2026-04-30T04:17:48.424Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getTransactions(id: string): Promise<TransactionsRow> {
   const { data, error } = await supabase
     .from('transactions')
     .select('*')
-    .eq('id', id)
+    .eq('transactions_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateTransactions(id: string, data: TransactionsUpdate): 
   const { data: result, error } = await supabase
     .from('transactions')
     .update(validated)
-    .eq('id', id)
+    .eq('transactions_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteTransactions(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('transactions')
     .delete()
-    .eq('id', id);
+    .eq('transactions_id', id);
   
   if (error) throw error;
   return true;

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/regions.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:46.455Z
+// GENERATED: 2026-04-30T04:17:48.059Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,12 +31,13 @@ export interface PublicRegions {
   created_at: string | null;
   created_by: string | null;
   flag_emoji: string | null;
-  id: string;
   is_active: boolean | null;
   name: string;
   name_localized: Json | null;
   phone_code: string | null;
+  regions_id: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -50,12 +51,13 @@ export interface RegionsFormData {
   created_at?: string | null;
   created_by?: string | null;
   flag_emoji?: string | null;
-  id?: string;
   is_active?: boolean | null;
   name?: string;
   name_localized?: Json | null;
   phone_code?: string | null;
+  regions_id?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -70,12 +72,13 @@ export interface RegionsValidationResult {
     created_at?: string;
     created_by?: string;
     flag_emoji?: string;
-    id?: string;
     is_active?: string;
     name?: string;
     name_localized?: string;
     phone_code?: string;
+    regions_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

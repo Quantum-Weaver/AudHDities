@@ -71,7 +71,7 @@ export async function isAdmin(userId: string): Promise<boolean> {
   const { data: profile } = await supabase
     .from('profiles')
     .select('is_admin')
-    .eq('id', userId)
+    .eq('profiles_id', userId)
     .single();
   
   return profile?.is_admin === true;
@@ -87,15 +87,17 @@ export async function checkOwnership(
   ownerField: string = 'created_by'
 ): Promise<boolean> {
   const supabase = await createServerSupabase();
-  // Cast tableName to any to bypass TypeScript's strict table union check
-  // This is safe because the table name comes from our database schema
+  
+  // Build the PK column name from the table name
+  const pkColumn = `${tableName}_id`;
+  
   const { data: record } = await supabase
     .from(tableName as any)
     .select(ownerField)
-    .eq('id', recordId)
+    .eq(pkColumn, recordId)  // ← FIXED
     .single();
   
-    return (record as any)?.[ownerField] === userId;
+  return (record as any)?.[ownerField] === userId;
 }
 
 /**

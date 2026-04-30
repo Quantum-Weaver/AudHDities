@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_memories.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T00:26:46.347Z
+// GENERATED: 2026-04-30T04:17:47.932Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -30,10 +30,10 @@ export interface PublicPrometheusMemories {
   created_by: string | null;
   dependencies: string[] | null;
   failure_count: number;
-  id: string;
   last_used: string | null;
   pattern_hash: string;
   pattern_type: string;
+  prometheus_memories_id: string;
   success_count: number;
   template_recommendation: string | null;
   updated_at: string;
@@ -50,10 +50,10 @@ export interface PrometheusMemoriesFormData {
   created_by?: string | null;
   dependencies?: string[] | null;
   failure_count?: number;
-  id?: string;
   last_used?: string | null;
   pattern_hash?: string;
   pattern_type?: string;
+  prometheus_memories_id?: string;
   success_count?: number;
   template_recommendation?: string | null;
   updated_at?: string;
@@ -71,10 +71,10 @@ export interface PrometheusMemoriesValidationResult {
     created_by?: string;
     dependencies?: string;
     failure_count?: string;
-    id?: string;
     last_used?: string;
     pattern_hash?: string;
     pattern_type?: string;
+    prometheus_memories_id?: string;
     success_count?: string;
     template_recommendation?: string;
     updated_at?: string;

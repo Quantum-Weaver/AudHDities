@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FileRegistryUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.979Z
+// Generated: 2026-04-30T04:17:47.376Z
 // Table: file_registry
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('file_registry')
       .select('*')
-      .eq('id', id)
+      .eq('file_registry_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('file_registry')
       .update(validated)
-      .eq('id', id)
+      .eq('file_registry_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('file_registry').delete().eq('id', id);
+    const { error } = await supabase.from('file_registry').delete().eq('file_registry_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('file_registry');

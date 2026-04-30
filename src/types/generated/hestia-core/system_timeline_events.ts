@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/system_timeline_events.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.753Z
+// GENERATED: 2026-04-30T04:17:48.353Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -29,11 +29,12 @@ export interface PublicSystemTimelineEvents {
   created_by: string | null;
   description: string | null;
   event_type: string;
-  id: string;
   metadata: Json | null;
   severity: string | null;
   source: string | null;
+  system_timeline_events_id: string;
   title: string;
+  updated_at: string | null;
 }
 
 /**
@@ -45,11 +46,12 @@ export interface SystemTimelineEventsFormData {
   created_by?: string | null;
   description?: string | null;
   event_type?: string;
-  id?: string;
   metadata?: Json | null;
   severity?: string | null;
   source?: string | null;
+  system_timeline_events_id?: string;
   title?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -62,11 +64,12 @@ export interface SystemTimelineEventsValidationResult {
     created_by?: string;
     description?: string;
     event_type?: string;
-    id?: string;
     metadata?: string;
     severity?: string;
     source?: string;
+    system_timeline_events_id?: string;
     title?: string;
+    updated_at?: string;
   };
 }
 

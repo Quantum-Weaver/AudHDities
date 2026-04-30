@@ -10,10 +10,10 @@ import z from 'zod';
 // =====================================================
 
 export const CovenantPoolRowSchema = z.object({
+  covenant_pool_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   current_balance_cents: z.number().nullable(),
-  id: z.string(),
   last_distribution_at: z.string().nullable(),
   pledge_percent: z.number(),
   total_pledged_cents: z.number().nullable(),
@@ -22,10 +22,10 @@ export const CovenantPoolRowSchema = z.object({
 });
 
 export const CovenantPoolInsertSchema = z.object({
+  covenant_pool_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   current_balance_cents: z.number().nullable().optional(),
-  id: z.string().optional(),
   last_distribution_at: z.string().nullable().optional(),
   pledge_percent: z.number(),
   total_pledged_cents: z.number().nullable().optional(),
@@ -34,10 +34,10 @@ export const CovenantPoolInsertSchema = z.object({
 });
 
 export const CovenantPoolUpdateSchema = z.object({
+  covenant_pool_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   current_balance_cents: z.number().nullable().optional(),
-  id: z.string().optional(),
   last_distribution_at: z.string().nullable().optional(),
   pledge_percent: z.number().optional(),
   total_pledged_cents: z.number().nullable().optional(),

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Comments
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.519Z
+// GENERATED: 2026-04-30T04:17:47.118Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getComments(id: string): Promise<CommentsRow> {
   const { data, error } = await supabase
     .from('comments')
     .select('*')
-    .eq('id', id)
+    .eq('comments_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateComments(id: string, data: CommentsUpdate): Promise<
   const { data: result, error } = await supabase
     .from('comments')
     .update(validated)
-    .eq('id', id)
+    .eq('comments_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteComments(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('comments')
     .delete()
-    .eq('id', id);
+    .eq('comments_id', id);
   
   if (error) throw error;
   return true;

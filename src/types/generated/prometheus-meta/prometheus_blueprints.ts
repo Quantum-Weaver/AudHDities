@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_blueprints.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T00:26:46.296Z
+// GENERATED: 2026-04-30T04:17:47.864Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

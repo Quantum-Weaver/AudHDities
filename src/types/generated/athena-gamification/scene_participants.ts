@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.562Z
+// GENERATED: 2026-04-30T04:17:48.157Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,7 +28,8 @@ export interface PublicSceneParticipants {
   created_by: string | null;
   joined_at: string | null;
   role: string | null;
-  scene_id: string;
+  scene_participants_id: string;
+  updated_at: string | null;
   user_id: string;
 }
 
@@ -41,7 +42,8 @@ export interface SceneParticipantsFormData {
   created_by?: string | null;
   joined_at?: string | null;
   role?: string | null;
-  scene_id?: string;
+  scene_participants_id?: string;
+  updated_at?: string | null;
   user_id?: string;
 }
 
@@ -55,7 +57,8 @@ export interface SceneParticipantsValidationResult {
     created_by?: string;
     joined_at?: string;
     role?: string;
-    scene_id?: string;
+    scene_participants_id?: string;
+    updated_at?: string;
     user_id?: string;
   };
 }

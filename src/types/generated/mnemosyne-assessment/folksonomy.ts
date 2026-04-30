@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:46.004Z
+// GENERATED: 2026-04-30T04:17:47.406Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,11 +34,13 @@ export interface PublicFolksonomy {
   created_at: string | null;
   created_by: string | null;
   creator_id: string;
-  id: string;
+  folksonomy_id: string;
   is_approved: boolean | null;
   tag: string;
   target_id: string;
   target_type: FolksonomyTargetType;
+  updated_at: string | null;
+  updated_by: string | null;
   weight: number | null;
 }
 
@@ -51,11 +53,13 @@ export interface FolksonomyFormData {
   created_at?: string | null;
   created_by?: string | null;
   creator_id?: string;
-  id?: string;
+  folksonomy_id?: string;
   is_approved?: boolean | null;
   tag?: string;
   target_id?: string;
   target_type?: FolksonomyTargetType;
+  updated_at?: string | null;
+  updated_by?: string | null;
   weight?: number | null;
 }
 
@@ -69,11 +73,13 @@ export interface FolksonomyValidationResult {
     created_at?: string;
     created_by?: string;
     creator_id?: string;
-    id?: string;
+    folksonomy_id?: string;
     is_approved?: string;
     tag?: string;
     target_id?: string;
     target_type?: string;
+    updated_at?: string;
+    updated_by?: string;
     weight?: string;
   };
 }

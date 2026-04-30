@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Customs
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:25.641Z
+// GENERATED: 2026-04-30T04:17:47.269Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCustoms(id: string): Promise<CustomsRow> {
   const { data, error } = await supabase
     .from('customs')
     .select('*')
-    .eq('id', id)
+    .eq('customs_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCustoms(id: string, data: CustomsUpdate): Promise<Cu
   const { data: result, error } = await supabase
     .from('customs')
     .update(validated)
-    .eq('id', id)
+    .eq('customs_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCustoms(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('customs')
     .delete()
-    .eq('id', id);
+    .eq('customs_id', id);
   
   if (error) throw error;
   return true;

@@ -12,39 +12,45 @@ import z from 'zod';
 
 export const ActivityRowSchema = z.object({
   action_type: z.enum(ENUM_VALUES.actionType),
+  activity_id: z.string(),
   actor_id: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   metadata: z.any().nullable(),
   target_id: z.string().nullable(),
   target_type: z.enum(ENUM_VALUES.targetType).nullable(),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   user_id: z.string(),
   visibility: z.enum(ENUM_VALUES.activityVisibility).nullable(),
 });
 
 export const ActivityInsertSchema = z.object({
   action_type: z.enum(ENUM_VALUES.actionType),
+  activity_id: z.string().optional(),
   actor_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   target_id: z.string().nullable().optional(),
   target_type: z.enum(ENUM_VALUES.targetType).nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   user_id: z.string(),
   visibility: z.enum(ENUM_VALUES.activityVisibility).nullable().optional(),
 });
 
 export const ActivityUpdateSchema = z.object({
   action_type: z.enum(ENUM_VALUES.actionType).optional(),
+  activity_id: z.string().optional(),
   actor_id: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   target_id: z.string().nullable().optional(),
   target_type: z.enum(ENUM_VALUES.targetType).nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   user_id: z.string().optional(),
   visibility: z.enum(ENUM_VALUES.activityVisibility).nullable().optional(),
 });

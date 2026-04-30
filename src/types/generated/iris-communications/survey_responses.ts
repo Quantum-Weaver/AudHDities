@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/survey_responses.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:46.714Z
+// GENERATED: 2026-04-30T04:17:48.311Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -30,8 +30,9 @@ export interface PublicSurveyResponses {
   created_at: string | null;
   created_by: string | null;
   duration_seconds: number | null;
-  id: string;
   survey_id: string;
+  survey_responses_id: string;
+  updated_at: string | null;
   user_id: string;
 }
 
@@ -44,9 +45,10 @@ export interface SurveyResponsesFormData {
   created_at?: string | null;
   created_by?: string | null;
   duration_seconds?: number | null;
-  id?: string;
   ip_address?: unknown;
   survey_id?: string;
+  survey_responses_id?: string;
+  updated_at?: string | null;
   user_agent?: string | null;
   user_id?: string;
 }
@@ -61,9 +63,10 @@ export interface SurveyResponsesValidationResult {
     created_at?: string;
     created_by?: string;
     duration_seconds?: string;
-    id?: string;
     ip_address?: string;
     survey_id?: string;
+    survey_responses_id?: string;
+    updated_at?: string;
     user_agent?: string;
     user_id?: string;
   };

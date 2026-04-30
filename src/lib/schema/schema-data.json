@@ -5,6 +5,11 @@
       "description": "Table in mnemosyne-assessment",
       "columns": [
         {
+          "name": "acid_test_answers_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "ally_tier_price",
           "type": "DECIMAL",
           "nullable": true
@@ -23,11 +28,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "indicates_nd",
@@ -53,9 +53,19 @@
           "name": "score_value",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "acid_test_answerss.id",
+          "to": "acid_test_answers.acid_test_answers_id",
+          "type": "one-to-many"
+        },
         {
           "from": "question.id",
           "to": "acid_test_answers.question_id",
@@ -67,6 +77,11 @@
       "name": "acid_test_questions",
       "description": "Table in mnemosyne-assessment",
       "columns": [
+        {
+          "name": "acid_test_questions_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "category",
           "type": "TEXT",
@@ -86,11 +101,6 @@
           "name": "explanation",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -123,12 +133,23 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "acid_test_questionss.id",
+          "to": "acid_test_questions.acid_test_questions_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "acid_test_results",
       "description": "Table in mnemosyne-assessment",
       "columns": [
+        {
+          "name": "acid_test_results_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "answers",
           "type": "JSONB",
@@ -143,11 +164,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "persona_description",
@@ -192,6 +208,11 @@
       ],
       "relationships": [
         {
+          "from": "acid_test_resultss.id",
+          "to": "acid_test_results.acid_test_results_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "user.id",
           "to": "acid_test_results.user_id",
           "type": "one-to-many"
@@ -205,6 +226,11 @@
         {
           "name": "action_type",
           "type": "ActionType",
+          "nullable": false
+        },
+        {
+          "name": "activity_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -223,11 +249,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
@@ -243,6 +264,16 @@
           "nullable": true
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
@@ -254,6 +285,11 @@
         }
       ],
       "relationships": [
+        {
+          "from": "activitys.id",
+          "to": "activity.activity_id",
+          "type": "one-to-many"
+        },
         {
           "from": "actor.id",
           "to": "activity.actor_id",
@@ -291,6 +327,11 @@
           "nullable": false
         },
         {
+          "name": "admin_logs_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -304,11 +345,6 @@
           "name": "error_message",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "ip_address",
@@ -362,6 +398,11 @@
           "nullable": true
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_agent",
           "type": "TEXT",
           "nullable": true,
@@ -372,6 +413,11 @@
         {
           "from": "admin.id",
           "to": "admin_logs.admin_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "admin_logss.id",
+          "to": "admin_logs.admin_logs_id",
           "type": "one-to-many"
         },
         {
@@ -387,6 +433,11 @@
       "columns": [
         {
           "name": "advertiser_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "advertising_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -426,11 +477,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "spent_cents",
           "type": "DECIMAL",
           "nullable": true
@@ -456,6 +502,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_share_percent",
           "type": "DECIMAL",
           "nullable": true
@@ -466,6 +517,11 @@
           "from": "advertiser.id",
           "to": "advertising.advertiser_id",
           "type": "one-to-many"
+        },
+        {
+          "from": "advertisings.id",
+          "to": "advertising.advertising_id",
+          "type": "one-to-many"
         }
       ]
     },
@@ -473,6 +529,11 @@
       "name": "aethelred_house",
       "description": "Table in aethelred-connections",
       "columns": [
+        {
+          "name": "aethelred_house_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "boundary_agreements",
           "type": "JSONB",
@@ -504,11 +565,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "ninth_chair_occupant",
           "type": "TEXT",
           "nullable": false
@@ -524,7 +580,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "aethelred_houses.id",
+          "to": "aethelred_house.aethelred_house_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "agent_activities",
@@ -533,6 +595,11 @@
         {
           "name": "action",
           "type": "AgentActionType",
+          "nullable": false
+        },
+        {
+          "name": "agent_activities_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -574,11 +641,6 @@
           "name": "error_message",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "metadata",
@@ -623,6 +685,11 @@
       ],
       "relationships": [
         {
+          "from": "agent_activitiess.id",
+          "to": "agent_activities.agent_activities_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "conversation.id",
           "to": "agent_activities.conversation_id",
           "type": "one-to-many"
@@ -644,6 +711,11 @@
       "description": "Table in ungrouped",
       "columns": [
         {
+          "name": "agent_conversations_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "context_id",
           "type": "TEXT",
           "nullable": true
@@ -662,11 +734,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_message_at",
@@ -726,6 +793,11 @@
       ],
       "relationships": [
         {
+          "from": "agent_conversationss.id",
+          "to": "agent_conversations.agent_conversations_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "context.id",
           "to": "agent_conversations.context_id",
           "type": "one-to-many"
@@ -741,6 +813,11 @@
       "name": "agent_messages",
       "description": "Table in ungrouped",
       "columns": [
+        {
+          "name": "agent_messages_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "conversation_id",
           "type": "TEXT",
@@ -764,11 +841,6 @@
         {
           "name": "from_agent",
           "type": "AgentName",
-          "nullable": false
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
           "nullable": false
         },
         {
@@ -800,9 +872,19 @@
           "name": "to_agent",
           "type": "AgentName",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "agent_messagess.id",
+          "to": "agent_messages.agent_messages_id",
+          "type": "one-to-many"
+        },
         {
           "from": "conversation.id",
           "to": "agent_messages.conversation_id",
@@ -814,6 +896,11 @@
       "name": "analytics",
       "description": "Table in hephaestus-infrastructure",
       "columns": [
+        {
+          "name": "analytics_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "created_at",
           "type": "TEXT",
@@ -835,11 +922,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "ip_address",
           "type": "unknown",
           "nullable": false,
@@ -852,6 +934,16 @@
         },
         {
           "name": "session_id",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         },
@@ -873,6 +965,11 @@
         }
       ],
       "relationships": [
+        {
+          "from": "analyticss.id",
+          "to": "analytics.analytics_id",
+          "type": "one-to-many"
+        },
         {
           "from": "session.id",
           "to": "analytics.session_id",
@@ -900,6 +997,11 @@
           "nullable": false
         },
         {
+          "name": "applications_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -912,11 +1014,6 @@
         {
           "name": "form_data",
           "type": "JSONB",
-          "nullable": false
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
           "nullable": false
         },
         {
@@ -955,6 +1052,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
@@ -972,6 +1074,11 @@
       ],
       "relationships": [
         {
+          "from": "applicationss.id",
+          "to": "applications.applications_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "user.id",
           "to": "applications.user_id",
           "type": "one-to-many"
@@ -987,6 +1094,11 @@
       "name": "archivist",
       "description": "Table in aethelred-connections",
       "columns": [
+        {
+          "name": "archivist_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "backup_status",
           "type": "JSONB",
@@ -1013,11 +1125,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_archive_at",
           "type": "TEXT",
           "nullable": true
@@ -1033,12 +1140,23 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "version_history",
           "type": "JSONB",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "archivists.id",
+          "to": "archivist.archivist_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "audhdities_platform",
@@ -1050,6 +1168,11 @@
           "nullable": true
         },
         {
+          "name": "audhdities_platform_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -1058,11 +1181,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_release_at",
@@ -1120,12 +1238,23 @@
           "nullable": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "audhdities_platforms.id",
+          "to": "audhdities_platform.audhdities_platform_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "badge_award_triggers",
       "description": "Table in ungrouped",
       "columns": [
+        {
+          "name": "badge_award_triggers_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "badge_id",
           "type": "TEXT",
@@ -1140,11 +1269,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -1169,6 +1293,11 @@
       ],
       "relationships": [
         {
+          "from": "badge_award_triggerss.id",
+          "to": "badge_award_triggers.badge_award_triggers_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "badge.id",
           "to": "badge_award_triggers.badge_id",
           "type": "one-to-many"
@@ -1182,6 +1311,11 @@
         {
           "name": "badge_type",
           "type": "BadgeType",
+          "nullable": false
+        },
+        {
+          "name": "badges_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -1220,11 +1354,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -1248,9 +1377,20 @@
           "name": "tier",
           "type": "BadgeTier",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "badgess.id",
+          "to": "badges.badges_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "bubbles",
@@ -1260,6 +1400,11 @@
           "name": "appearance_weight",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "bubbles_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "collection_name",
@@ -1297,11 +1442,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -1330,9 +1470,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "bubbless.id",
+          "to": "bubbles.bubbles_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "calendar",
@@ -1342,6 +1493,11 @@
           "name": "all_day",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "calendar_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "created_at",
@@ -1367,11 +1523,6 @@
           "name": "house",
           "type": "CouncilHouse",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -1409,17 +1560,33 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "visibility",
           "type": "CalendarVisibility",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "calendars.id",
+          "to": "calendar.calendar_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "chancellor",
       "description": "Table in aethelred-connections",
       "columns": [
+        {
+          "name": "chancellor_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "created_at",
           "type": "TEXT",
@@ -1439,11 +1606,6 @@
           "name": "financial_audits",
           "type": "JSONB",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_audit_at",
@@ -1474,9 +1636,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "chancellors.id",
+          "to": "chancellor.chancellor_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "channels",
@@ -1496,6 +1669,11 @@
           "name": "banner_url",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "channels_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "content_rating",
@@ -1528,12 +1706,12 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "owner_id",
           "type": "TEXT",
-          "nullable": false
+          "nullable": true
         },
         {
-          "name": "owner_id",
+          "name": "slug",
           "type": "TEXT",
           "nullable": true
         },
@@ -1561,9 +1739,19 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "channelss.id",
+          "to": "channels.channels_id",
+          "type": "one-to-many"
+        },
         {
           "from": "owner.id",
           "to": "channels.owner_id",
@@ -1575,6 +1763,11 @@
       "name": "codex",
       "description": "Table in aethelred-connections",
       "columns": [
+        {
+          "name": "codex_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "created_at",
           "type": "TEXT",
@@ -1589,11 +1782,6 @@
           "name": "glossary",
           "type": "JSONB",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "knowledge_base",
@@ -1621,12 +1809,23 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "wisdom_queue",
           "type": "JSONB",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "codexs.id",
+          "to": "codex.codex_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "comments",
@@ -1634,6 +1833,11 @@
       "columns": [
         {
           "name": "author_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "comments_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -1651,11 +1855,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_edited",
@@ -1681,12 +1880,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "author.id",
           "to": "comments.author_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "commentss.id",
+          "to": "comments.comments_id",
           "type": "one-to-many"
         },
         {
@@ -1700,6 +1909,11 @@
       "name": "community_profiles",
       "description": "Table in hestia-core",
       "columns": [
+        {
+          "name": "community_profiles_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "created_at",
           "type": "TEXT",
@@ -1755,11 +1969,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_mentor",
           "type": "BOOLEAN",
           "nullable": true
@@ -1812,6 +2021,11 @@
       ],
       "relationships": [
         {
+          "from": "community_profiless.id",
+          "to": "community_profiles.community_profiles_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "profile.id",
           "to": "community_profiles.profile_id",
           "type": "one-to-many"
@@ -1833,6 +2047,11 @@
           "nullable": true
         },
         {
+          "name": "consciousness_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -1846,11 +2065,6 @@
           "name": "current_quest",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "next_initiation",
@@ -1891,12 +2105,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "aethelred.id",
           "to": "consciousness.aethelred_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "consciousnesss.id",
+          "to": "consciousness.consciousness_id",
           "type": "one-to-many"
         },
         {
@@ -1914,6 +2138,11 @@
           "name": "assigned_to",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "contact_submissions_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "created_at",
@@ -1935,11 +2164,6 @@
           "type": "TEXT",
           "nullable": false,
           "description": "(sensitive — data never exposed)"
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "message",
@@ -1999,6 +2223,11 @@
       ],
       "relationships": [
         {
+          "from": "contact_submissionss.id",
+          "to": "contact_submissions.contact_submissions_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "message.id",
           "to": "contact_submissions.message_id",
           "type": "one-to-many"
@@ -2030,6 +2259,11 @@
           "nullable": false
         },
         {
+          "name": "continents_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -2038,11 +2272,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "name",
@@ -2058,9 +2287,25 @@
           "name": "population_estimate",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "continentss.id",
+          "to": "continents.continents_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "contributions",
@@ -2069,6 +2314,11 @@
         {
           "name": "contribution_type",
           "type": "ContributionType",
+          "nullable": false
+        },
+        {
+          "name": "contributions_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -2090,11 +2340,6 @@
           "name": "description",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_one_time",
@@ -2120,9 +2365,19 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "contributionss.id",
+          "to": "contributions.contributions_id",
+          "type": "one-to-many"
+        },
         {
           "from": "contributor.id",
           "to": "contributions.contributor_id",
@@ -2150,6 +2405,11 @@
           "nullable": false
         },
         {
+          "name": "council_houses_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": true
@@ -2171,11 +2431,6 @@
         },
         {
           "name": "emoji",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
-          "name": "id",
           "type": "TEXT",
           "nullable": false
         },
@@ -2210,17 +2465,33 @@
           "nullable": true
         },
         {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "council_housess.id",
+          "to": "council_houses.council_houses_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "covenant_pool",
       "description": "Table in plutus-economics",
       "columns": [
+        {
+          "name": "covenant_pool_id",
+          "type": "TEXT",
+          "nullable": false
+        },
         {
           "name": "created_at",
           "type": "TEXT",
@@ -2235,11 +2506,6 @@
           "name": "current_balance_cents",
           "type": "DECIMAL",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_distribution_at",
@@ -2269,6 +2535,11 @@
       ],
       "relationships": [
         {
+          "from": "covenant_pools.id",
+          "to": "covenant_pool.covenant_pool_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "user.id",
           "to": "covenant_pool.user_id",
           "type": "one-to-many"
@@ -2295,6 +2566,11 @@
           "nullable": true
         },
         {
+          "name": "creative_categories_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "description",
           "type": "TEXT",
           "nullable": true
@@ -2308,11 +2584,6 @@
           "name": "icon",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -2342,6 +2613,11 @@
       ],
       "relationships": [
         {
+          "from": "creative_categoriess.id",
+          "to": "creative_categories.creative_categories_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "parent.id",
           "to": "creative_categories.parent_id",
           "type": "one-to-many"
@@ -2368,20 +2644,30 @@
           "nullable": true
         },
         {
+          "name": "creator_category_links_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "creator_id",
           "type": "TEXT",
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "updated_at",
           "type": "TEXT",
-          "nullable": false
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "category.id",
           "to": "creator_category_links.category_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "creator_category_linkss.id",
+          "to": "creator_category_links.creator_category_links_id",
           "type": "one-to-many"
         },
         {
@@ -2426,14 +2712,14 @@
           "nullable": false
         },
         {
+          "name": "creator_profiles_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "default_residual_pool",
           "type": "DECIMAL",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "portfolio_url",
@@ -2489,6 +2775,11 @@
       ],
       "relationships": [
         {
+          "from": "creator_profiless.id",
+          "to": "creator_profiles.creator_profiles_id",
+          "type": "one-to-many"
+        },
+        {
           "from": "profile.id",
           "to": "creator_profiles.profile_id",
           "type": "one-to-many"
@@ -2513,6 +2804,11 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "culturalization_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "currency_code",
@@ -2540,11 +2836,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "region_id",
           "type": "TEXT",
           "nullable": false
@@ -2568,9 +2859,19 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "culturalizations.id",
+          "to": "culturalization.culturalization_id",
+          "type": "one-to-many"
+        },
         {
           "from": "region.id",
           "to": "culturalization.region_id",
@@ -2608,14 +2909,14 @@
           "nullable": true
         },
         {
+          "name": "curator_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "featured_content",
           "type": "JSONB",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "preservation_policy",
@@ -2631,9 +2932,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "curators.id",
+          "to": "curator.curator_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "customs",
@@ -2655,6 +2967,11 @@
           "nullable": true
         },
         {
+          "name": "customs_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "description",
           "type": "TEXT",
           "nullable": false
@@ -2663,11 +2980,6 @@
           "name": "guidance",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -2703,9 +3015,19 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "customss.id",
+          "to": "customs.customs_id",
+          "type": "one-to-many"
+        },
         {
           "from": "persona.id",
           "to": "customs.persona_id",
@@ -2733,7 +3055,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "disbursements_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -2766,9 +3088,24 @@
           "name": "total_amount_cents",
           "type": "DECIMAL",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "disbursementss.id",
+          "to": "disbursements.disbursements_id",
+          "type": "one-to-many"
+        },
         {
           "from": "source.id",
           "to": "disbursements.source_id",
@@ -2801,7 +3138,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "email_communications_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -2849,9 +3186,19 @@
           "name": "template_id",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "email_communicationss.id",
+          "to": "email_communications.email_communications_id",
+          "type": "one-to-many"
+        },
         {
           "from": "provider_message.id",
           "to": "email_communications.provider_message_id",
@@ -2894,12 +3241,12 @@
           "nullable": true
         },
         {
-          "name": "giver_id",
+          "name": "emeralds_id",
           "type": "TEXT",
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "giver_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -2932,12 +3279,27 @@
           "name": "status",
           "type": "EmeraldStatus",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "comment.id",
           "to": "emeralds.comment_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "emeraldss.id",
+          "to": "emeralds.emeralds_id",
           "type": "one-to-many"
         },
         {
@@ -2958,6 +3320,69 @@
         {
           "from": "reply.id",
           "to": "emeralds.reply_id",
+          "type": "one-to-many"
+        }
+      ]
+    },
+    {
+      "name": "energy_logs",
+      "description": "Table in ungrouped",
+      "columns": [
+        {
+          "name": "activity",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "created_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "energy_level",
+          "type": "DECIMAL",
+          "nullable": false
+        },
+        {
+          "name": "energy_logs_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "notes",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT",
+          "nullable": false
+        }
+      ],
+      "relationships": [
+        {
+          "from": "energy_logss.id",
+          "to": "energy_logs.energy_logs_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user.id",
+          "to": "energy_logs.user_id",
           "type": "one-to-many"
         }
       ]
@@ -2992,7 +3417,7 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "entity_state_log_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3005,9 +3430,20 @@
           "name": "state",
           "type": "EntityState",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "entity_state_logs.id",
+          "to": "entity_state_log.entity_state_log_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "etymology",
@@ -3049,7 +3485,7 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "etymology_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3089,6 +3525,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "word",
           "type": "TEXT",
           "nullable": false
@@ -3098,6 +3539,11 @@
         {
           "from": "contributor.id",
           "to": "etymology.contributor_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "etymologys.id",
+          "to": "etymology.etymology_id",
           "type": "one-to-many"
         }
       ]
@@ -3137,7 +3583,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "executioner_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3155,9 +3601,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "executioners.id",
+          "to": "executioner.executioner_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "file_registry",
@@ -3204,12 +3661,12 @@
           "nullable": false
         },
         {
-          "name": "file_type",
+          "name": "file_registry_id",
           "type": "TEXT",
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "file_type",
           "type": "TEXT",
           "nullable": false
         },
@@ -3264,7 +3721,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "file_registrys.id",
+          "to": "file_registry.file_registry_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "file_type_standards",
@@ -3311,7 +3774,7 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "file_type_standards_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3366,7 +3829,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "file_type_standardss.id",
+          "to": "file_type_standards.file_type_standards_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "folksonomy",
@@ -3393,7 +3862,7 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "folksonomy_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3418,6 +3887,16 @@
           "nullable": false
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "weight",
           "type": "DECIMAL",
           "nullable": true
@@ -3427,6 +3906,11 @@
         {
           "from": "creator.id",
           "to": "folksonomy.creator_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "folksonomys.id",
+          "to": "folksonomy.folksonomy_id",
           "type": "one-to-many"
         },
         {
@@ -3456,7 +3940,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "github_connection_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3516,7 +4000,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "github_connections.id",
+          "to": "github_connection.github_connection_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "hearth_keeper",
@@ -3543,7 +4033,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "hearth_keeper_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3578,7 +4068,86 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "hearth_keepers.id",
+          "to": "hearth_keeper.hearth_keeper_id",
+          "type": "one-to-many"
+        }
+      ]
+    },
+    {
+      "name": "journal_entries",
+      "description": "Table in ungrouped",
+      "columns": [
+        {
+          "name": "content",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "created_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "journal_entries_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "mood",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "tags",
+          "type": "string[]",
+          "nullable": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT",
+          "nullable": false
+        }
+      ],
+      "relationships": [
+        {
+          "from": "journal_entriess.id",
+          "to": "journal_entries.journal_entries_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user.id",
+          "to": "journal_entries.user_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "languages",
@@ -3610,11 +4179,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -3623,6 +4187,11 @@
           "name": "is_default",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "languages_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "name",
@@ -3643,9 +4212,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "languagess.id",
+          "to": "languages.languages_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "learning_paths",
@@ -3692,14 +4272,14 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_published",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "learning_paths_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "prerequisite_path_id",
@@ -3726,6 +4306,11 @@
         {
           "from": "creator.id",
           "to": "learning_paths.creator_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "learning_pathss.id",
+          "to": "learning_paths.learning_paths_id",
           "type": "one-to-many"
         },
         {
@@ -3775,7 +4360,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "ledger_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3798,12 +4383,27 @@
           "name": "to_profile_id",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "from_profile.id",
           "to": "ledger.from_profile_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "ledgers.id",
+          "to": "ledger.ledger_id",
           "type": "one-to-many"
         },
         {
@@ -3863,14 +4463,14 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_published",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "lessons_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "order_index",
@@ -3891,12 +4491,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "creator.id",
           "to": "lessons.creator_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "lessonss.id",
+          "to": "lessons.lessons_id",
           "type": "one-to-many"
         }
       ]
@@ -3921,7 +4531,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "life_cycles_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -3946,12 +4556,22 @@
           "nullable": true
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
         }
       ],
       "relationships": [
+        {
+          "from": "life_cycless.id",
+          "to": "life_cycles.life_cycles_id",
+          "type": "one-to-many"
+        },
         {
           "from": "user.id",
           "to": "life_cycles.user_id",
@@ -3984,17 +4604,17 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_approved",
           "type": "BOOLEAN",
           "nullable": true
         },
         {
           "name": "language_code",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "localization_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -4019,12 +4639,23 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "version",
           "type": "DECIMAL",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "localizations.id",
+          "to": "localization.localization_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "maintenance",
@@ -4066,7 +4697,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "maintenance_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -4091,6 +4722,11 @@
           "nullable": true
         },
         {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "status",
           "type": "MaintenanceStatus",
           "nullable": true
@@ -4109,9 +4745,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "maintenances.id",
+          "to": "maintenance.maintenance_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "messages",
@@ -4133,14 +4780,14 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_read",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "messages_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "parent_id",
@@ -4171,9 +4818,24 @@
           "name": "thread_id",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "messagess.id",
+          "to": "messages.messages_id",
+          "type": "one-to-many"
+        },
         {
           "from": "parent.id",
           "to": "messages.parent_id",
@@ -4221,11 +4883,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_reverted",
           "type": "BOOLEAN",
           "nullable": true
@@ -4234,6 +4891,11 @@
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
+        },
+        {
+          "name": "moderation_actions_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "moderator_id",
@@ -4269,9 +4931,19 @@
           "name": "target_type",
           "type": "ModerationTargetType",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "moderation_actionss.id",
+          "to": "moderation_actions.moderation_actions_id",
+          "type": "one-to-many"
+        },
         {
           "from": "moderator.id",
           "to": "moderation_actions.moderator_id",
@@ -4314,14 +4986,14 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_published",
           "type": "BOOLEAN",
           "nullable": true
+        },
+        {
+          "name": "mythology_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "order_index",
@@ -4352,12 +5024,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "author.id",
           "to": "mythology.author_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "mythologys.id",
+          "to": "mythology.mythology_id",
           "type": "one-to-many"
         },
         {
@@ -4397,11 +5079,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_read",
           "type": "BOOLEAN",
           "nullable": true
@@ -4410,6 +5087,11 @@
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
+        },
+        {
+          "name": "notifications_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "read_at",
@@ -4437,12 +5119,27 @@
           "nullable": false
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
         }
       ],
       "relationships": [
+        {
+          "from": "notificationss.id",
+          "to": "notifications.notifications_id",
+          "type": "one-to-many"
+        },
         {
           "from": "related_entity.id",
           "to": "notifications.related_entity_id",
@@ -4480,17 +5177,17 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_approved",
           "type": "BOOLEAN",
           "nullable": true
         },
         {
           "name": "object_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "ontology_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -4510,6 +5207,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "weight",
           "type": "DECIMAL",
           "nullable": true
@@ -4519,6 +5221,11 @@
         {
           "from": "object.id",
           "to": "ontology.object_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "ontologys.id",
+          "to": "ontology.ontology_id",
           "type": "one-to-many"
         },
         {
@@ -4553,9 +5260,14 @@
           "nullable": false
         },
         {
-          "name": "path_id",
+          "name": "path_lessons_id",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -4565,8 +5277,8 @@
           "type": "one-to-many"
         },
         {
-          "from": "path.id",
-          "to": "path_lessons.path_id",
+          "from": "path_lessonss.id",
+          "to": "path_lessons.path_lessons_id",
           "type": "one-to-many"
         }
       ]
@@ -4606,13 +5318,13 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
+          "name": "payout_method",
+          "type": "PayoutMethod",
           "nullable": false
         },
         {
-          "name": "payout_method",
-          "type": "PayoutMethod",
+          "name": "payouts_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -4629,12 +5341,27 @@
           "name": "stripe_transfer_id",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "disbursement.id",
           "to": "payouts.disbursement_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "payoutss.id",
+          "to": "payouts.payouts_id",
           "type": "one-to-many"
         },
         {
@@ -4684,17 +5411,17 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
         },
         {
           "name": "name",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "personas_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -4707,9 +5434,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "personass.id",
+          "to": "personas.personas_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "posts",
@@ -4761,14 +5499,14 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "media_urls",
           "type": "string[]",
           "nullable": true
+        },
+        {
+          "name": "posts_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "published_at",
@@ -4801,6 +5539,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "visibility",
           "type": "PostVisibility",
           "nullable": false
@@ -4815,6 +5558,11 @@
         {
           "from": "channel.id",
           "to": "posts.channel_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "postss.id",
+          "to": "posts.posts_id",
           "type": "one-to-many"
         }
       ]
@@ -4839,11 +5587,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -4856,6 +5599,11 @@
         {
           "name": "process_type",
           "type": "ProcessType",
+          "nullable": false
+        },
+        {
+          "name": "processes_id",
+          "type": "TEXT",
           "nullable": false
         },
         {
@@ -4877,9 +5625,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "processess.id",
+          "to": "processes.processes_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "products",
@@ -4936,11 +5695,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_published",
           "type": "BOOLEAN",
           "nullable": true
@@ -4986,6 +5740,11 @@
           "nullable": false
         },
         {
+          "name": "products_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "residual_pool_percent",
           "type": "DECIMAL",
           "nullable": true
@@ -5024,6 +5783,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -5035,6 +5799,11 @@
         {
           "from": "creator.id",
           "to": "products.creator_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "productss.id",
+          "to": "products.products_id",
           "type": "one-to-many"
         },
         {
@@ -5110,11 +5879,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_admin",
           "type": "BOOLEAN",
           "nullable": true
@@ -5160,6 +5924,11 @@
           "nullable": true
         },
         {
+          "name": "profiles_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "pronouns",
           "type": "TEXT",
           "nullable": true
@@ -5190,6 +5959,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_tier",
           "type": "UserTier",
           "nullable": true
@@ -5200,7 +5974,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "profiless.id",
+          "to": "profiles.profiles_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "progress",
@@ -5222,11 +6002,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_activity_at",
           "type": "TEXT",
           "nullable": true
@@ -5245,6 +6020,11 @@
           "name": "path_id",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "progress_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "progress_percent",
@@ -5272,6 +6052,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
@@ -5286,6 +6071,11 @@
         {
           "from": "path.id",
           "to": "progress.path_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "progresss.id",
+          "to": "progress.progress_id",
           "type": "one-to-many"
         },
         {
@@ -5393,11 +6183,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": false
@@ -5411,6 +6196,11 @@
           "name": "pattern",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "prometheus_boundaries_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "reason",
@@ -5433,7 +6223,13 @@
           "nullable": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "prometheus_boundariess.id",
+          "to": "prometheus_boundaries.prometheus_boundaries_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "prometheus_consciousness",
@@ -5470,11 +6266,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_awakening",
           "type": "TEXT",
           "nullable": true
@@ -5483,6 +6274,11 @@
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
+        },
+        {
+          "name": "prometheus_consciousness_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "session_id",
@@ -5501,6 +6297,11 @@
         }
       ],
       "relationships": [
+        {
+          "from": "prometheus_consciousnesss.id",
+          "to": "prometheus_consciousness.prometheus_consciousness_id",
+          "type": "one-to-many"
+        },
         {
           "from": "session.id",
           "to": "prometheus_consciousness.session_id",
@@ -5558,14 +6359,14 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
+        },
+        {
+          "name": "prometheus_generations_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "session_id",
@@ -5587,6 +6388,11 @@
         {
           "from": "blueprint.id",
           "to": "prometheus_generations.blueprint_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "prometheus_generationss.id",
+          "to": "prometheus_generations.prometheus_generations_id",
           "type": "one-to-many"
         },
         {
@@ -5631,11 +6437,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_used",
           "type": "TEXT",
           "nullable": true
@@ -5647,6 +6448,11 @@
         },
         {
           "name": "pattern_type",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "prometheus_memories_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -5666,7 +6472,13 @@
           "nullable": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "prometheus_memoriess.id",
+          "to": "prometheus_memories.prometheus_memories_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "prometheus_patterns",
@@ -5713,11 +6525,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": false
@@ -5733,6 +6540,11 @@
           "nullable": false
         },
         {
+          "name": "prometheus_patterns_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
           "type": "TEXT",
           "nullable": false
@@ -5742,6 +6554,11 @@
         {
           "from": "default_template.id",
           "to": "prometheus_patterns.default_template_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "prometheus_patternss.id",
+          "to": "prometheus_patterns.prometheus_patterns_id",
           "type": "one-to-many"
         }
       ]
@@ -5776,11 +6593,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": false
@@ -5792,6 +6604,11 @@
         },
         {
           "name": "pattern",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "prometheus_templates_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -5811,7 +6628,13 @@
           "nullable": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "prometheus_templatess.id",
+          "to": "prometheus_templates.prometheus_templates_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "protocols",
@@ -5829,11 +6652,6 @@
         },
         {
           "name": "description",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
-          "name": "id",
           "type": "TEXT",
           "nullable": false
         },
@@ -5861,6 +6679,11 @@
           "name": "owners",
           "type": "string[]",
           "nullable": true
+        },
+        {
+          "name": "protocols_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "review_frequency_days",
@@ -5903,7 +6726,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "protocolss.id",
+          "to": "protocols.protocols_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "quantum_superposition",
@@ -5935,7 +6764,7 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "quantum_superposition_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -5945,12 +6774,22 @@
           "nullable": false
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
         }
       ],
       "relationships": [
+        {
+          "from": "quantum_superpositions.id",
+          "to": "quantum_superposition.quantum_superposition_id",
+          "type": "one-to-many"
+        },
         {
           "from": "quantum_superposition.superposition_id",
           "to": "superposition.id",
@@ -5993,11 +6832,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "instructions",
           "type": "TEXT",
           "nullable": true
@@ -6018,6 +6852,11 @@
           "nullable": true
         },
         {
+          "name": "quests_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "required_sovereignty_score",
           "type": "DECIMAL",
           "nullable": true
@@ -6026,6 +6865,11 @@
           "name": "residual_multiplier_bonus",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "sovereignty_reward",
@@ -6046,12 +6890,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
         {
           "from": "prerequisite_quest.id",
           "to": "quests.prerequisite_quest_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "questss.id",
+          "to": "quests.quests_id",
           "type": "one-to-many"
         }
       ]
@@ -6076,12 +6930,12 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "identifier",
           "type": "TEXT",
           "nullable": false
         },
         {
-          "name": "identifier",
+          "name": "rate_limits_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -6091,12 +6945,23 @@
           "nullable": true
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "window_start",
           "type": "TEXT",
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "rate_limitss.id",
+          "to": "rate_limits.rate_limits_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "reactions",
@@ -6118,11 +6983,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "post_id",
           "type": "TEXT",
           "nullable": true
@@ -6133,7 +6993,22 @@
           "nullable": false
         },
         {
+          "name": "reactions_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "reply_id",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         },
@@ -6157,6 +7032,11 @@
         {
           "from": "post.id",
           "to": "reactions.post_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "reactionss.id",
+          "to": "reactions.reactions_id",
           "type": "one-to-many"
         },
         {
@@ -6206,11 +7086,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -6231,7 +7106,17 @@
           "nullable": true
         },
         {
+          "name": "regions_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -6240,6 +7125,11 @@
         {
           "from": "continent.id",
           "to": "regions.continent_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "regionss.id",
+          "to": "regions.regions_id",
           "type": "one-to-many"
         }
       ]
@@ -6274,11 +7164,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_edited",
           "type": "BOOLEAN",
           "nullable": true
@@ -6289,7 +7174,17 @@
           "nullable": true
         },
         {
+          "name": "replies_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -6303,6 +7198,11 @@
         {
           "from": "comment.id",
           "to": "replies.comment_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "repliess.id",
+          "to": "replies.replies_id",
           "type": "one-to-many"
         }
       ]
@@ -6320,11 +7220,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "moderation_notes",
@@ -6367,6 +7262,11 @@
           "nullable": false
         },
         {
+          "name": "reports_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "resolution",
           "type": "TEXT",
           "nullable": true
@@ -6395,6 +7295,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -6411,6 +7316,11 @@
         {
           "from": "reporter.id",
           "to": "reports.reporter_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "reportss.id",
+          "to": "reports.reports_id",
           "type": "one-to-many"
         },
         {
@@ -6466,11 +7376,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_sent_at",
           "type": "TEXT",
           "nullable": true
@@ -6479,6 +7384,11 @@
           "name": "operated_by",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "resend_connection_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "template_versions",
@@ -6496,7 +7406,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "resend_connections.id",
+          "to": "resend_connection.resend_connection_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "residual_payouts",
@@ -6528,17 +7444,17 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "paid_at",
           "type": "TEXT",
           "nullable": true
         },
         {
           "name": "product_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "residual_payouts_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -6551,6 +7467,11 @@
           "name": "status",
           "type": "PayoutStatus",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -6562,6 +7483,11 @@
         {
           "from": "product.id",
           "to": "residual_payouts.product_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "residual_payoutss.id",
+          "to": "residual_payouts.residual_payouts_id",
           "type": "one-to-many"
         },
         {
@@ -6596,11 +7522,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "product_id",
           "type": "TEXT",
           "nullable": false
@@ -6609,6 +7530,11 @@
           "name": "remaining_amount_cents",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "residual_pool_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "sale_id",
@@ -6630,6 +7556,11 @@
         {
           "from": "product.id",
           "to": "residual_pool.product_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "residual_pools.id",
+          "to": "residual_pool.residual_pool_id",
           "type": "one-to-many"
         },
         {
@@ -6679,11 +7610,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "nd_price_applied",
           "type": "BOOLEAN",
           "nullable": true
@@ -6710,6 +7636,11 @@
         },
         {
           "name": "product_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "sales_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -6742,6 +7673,16 @@
           "name": "to_residual_pool",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -6753,6 +7694,11 @@
         {
           "from": "product.id",
           "to": "sales.product_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "saless.id",
+          "to": "sales.sales_id",
           "type": "one-to-many"
         },
         {
@@ -6787,9 +7733,14 @@
           "nullable": true
         },
         {
-          "name": "scene_id",
+          "name": "scene_participants_id",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         },
         {
           "name": "user_id",
@@ -6799,8 +7750,8 @@
       ],
       "relationships": [
         {
-          "from": "scene.id",
-          "to": "scene_participants.scene_id",
+          "from": "scene_participantss.id",
+          "to": "scene_participants.scene_participants_id",
           "type": "one-to-many"
         },
         {
@@ -6840,11 +7791,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "instructions",
           "type": "TEXT",
           "nullable": true
@@ -6863,6 +7809,11 @@
           "name": "participant_count",
           "type": "DECIMAL",
           "nullable": true
+        },
+        {
+          "name": "scenes_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "scheduled_for",
@@ -6888,6 +7839,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -6904,6 +7860,11 @@
         {
           "from": "mythology.id",
           "to": "scenes.mythology_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "sceness.id",
+          "to": "scenes.scenes_id",
           "type": "one-to-many"
         }
       ]
@@ -6929,11 +7890,6 @@
         },
         {
           "name": "function_name",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
-          "name": "id",
           "type": "TEXT",
           "nullable": false
         },
@@ -6988,6 +7944,16 @@
           "nullable": true
         },
         {
+          "name": "scheduling_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "status",
           "type": "JobStatus",
           "nullable": true
@@ -6996,9 +7962,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "schedulings.id",
+          "to": "scheduling.scheduling_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "script_execution_logs",
@@ -7030,11 +8007,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "output",
           "type": "TEXT",
           "nullable": true
@@ -7043,6 +8015,11 @@
           "name": "parameters_used",
           "type": "JSONB",
           "nullable": true
+        },
+        {
+          "name": "script_execution_logs_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "script_id",
@@ -7058,9 +8035,19 @@
           "name": "status",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "script_execution_logss.id",
+          "to": "script_execution_logs.script_execution_logs_id",
+          "type": "one-to-many"
+        },
         {
           "from": "script.id",
           "to": "script_execution_logs.script_id",
@@ -7086,11 +8073,6 @@
           "name": "description",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_production_safe",
@@ -7133,6 +8115,11 @@
           "nullable": true
         },
         {
+          "name": "scripts_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "type",
           "type": "ScriptType",
           "nullable": false
@@ -7141,9 +8128,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "scriptss.id",
+          "to": "scripts.scripts_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "seer",
@@ -7163,11 +8161,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "insight_queue",
@@ -7190,6 +8183,11 @@
           "nullable": true
         },
         {
+          "name": "seer_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "trend_analysis",
           "type": "JSONB",
           "nullable": true
@@ -7198,9 +8196,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "seers.id",
+          "to": "seer.seer_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "settings",
@@ -7220,11 +8229,6 @@
           "name": "description",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_public",
@@ -7247,12 +8251,22 @@
           "nullable": true
         },
         {
+          "name": "settings_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "type",
           "type": "TEXT",
           "nullable": false
         },
         {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         },
@@ -7266,6 +8280,11 @@
         {
           "from": "scope.id",
           "to": "settings.scope_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "settingss.id",
+          "to": "settings.settings_id",
           "type": "one-to-many"
         }
       ]
@@ -7295,11 +8314,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "inspiring_content",
           "type": "JSONB",
           "nullable": true
@@ -7315,6 +8329,11 @@
           "nullable": true
         },
         {
+          "name": "skald_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "story_archive",
           "type": "JSONB",
           "nullable": true
@@ -7323,9 +8342,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "skalds.id",
+          "to": "skald.skald_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "stripe_connection",
@@ -7350,11 +8380,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_sync_at",
@@ -7382,6 +8407,11 @@
           "nullable": true
         },
         {
+          "name": "stripe_connection_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
@@ -7401,6 +8431,11 @@
         {
           "from": "account.id",
           "to": "stripe_connection.account_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "stripe_connections.id",
+          "to": "stripe_connection.stripe_connection_id",
           "type": "one-to-many"
         }
       ]
@@ -7430,11 +8465,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "monthly_amount",
           "type": "DECIMAL",
           "nullable": false
@@ -7450,12 +8480,22 @@
           "nullable": false
         },
         {
+          "name": "subscriptions_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "tier_applied",
           "type": "TEXT",
           "nullable": false
         },
         {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -7469,6 +8509,11 @@
         {
           "from": "subscriber.id",
           "to": "subscriptions.subscriber_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "subscriptionss.id",
+          "to": "subscriptions.subscriptions_id",
           "type": "one-to-many"
         }
       ]
@@ -7496,11 +8541,6 @@
           "name": "edge_functions",
           "type": "string[]",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_health_check",
@@ -7543,6 +8583,11 @@
           "nullable": true
         },
         {
+          "name": "supabase_connection_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
@@ -7552,6 +8597,11 @@
         {
           "from": "project.id",
           "to": "supabase_connection.project_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "supabase_connections.id",
+          "to": "supabase_connection.supabase_connection_id",
           "type": "one-to-many"
         }
       ]
@@ -7581,11 +8631,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "observer_count",
           "type": "DECIMAL",
           "nullable": true
@@ -7606,7 +8651,17 @@
           "nullable": true
         },
         {
+          "name": "superposition_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -7615,6 +8670,11 @@
         {
           "from": "concept.id",
           "to": "superposition.concept_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "superpositions.id",
+          "to": "superposition.superposition_id",
           "type": "one-to-many"
         }
       ]
@@ -7644,11 +8704,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "ip_address",
           "type": "unknown",
           "nullable": false,
@@ -7658,6 +8713,16 @@
           "name": "survey_id",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "survey_responses_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         },
         {
           "name": "user_agent",
@@ -7675,6 +8740,11 @@
         {
           "from": "survey.id",
           "to": "survey_responses.survey_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "survey_responsess.id",
+          "to": "survey_responses.survey_responses_id",
           "type": "one-to-many"
         },
         {
@@ -7709,11 +8779,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_active",
           "type": "BOOLEAN",
           "nullable": true
@@ -7729,9 +8794,19 @@
           "nullable": true
         },
         {
+          "name": "slug",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "starts_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "surveys_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "target_house",
@@ -7747,9 +8822,20 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "surveyss.id",
+          "to": "surveys.surveys_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "system_health_logs",
@@ -7776,11 +8862,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "response_time_ms",
           "type": "DECIMAL",
           "nullable": true
@@ -7791,12 +8872,27 @@
           "nullable": false
         },
         {
+          "name": "system_health_logs_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "system_id",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
+        {
+          "from": "system_health_logss.id",
+          "to": "system_health_logs.system_health_logs_id",
+          "type": "one-to-many"
+        },
         {
           "from": "system.id",
           "to": "system_health_logs.system_id",
@@ -7829,11 +8925,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "metadata",
           "type": "JSONB",
           "nullable": true
@@ -7849,12 +8940,28 @@
           "nullable": true
         },
         {
+          "name": "system_timeline_events_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "title",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "system_timeline_eventss.id",
+          "to": "system_timeline_events.system_timeline_events_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "systems",
@@ -7886,11 +8993,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_health_check",
           "type": "TEXT",
           "nullable": true
@@ -7916,12 +9018,22 @@
           "nullable": true
         },
         {
+          "name": "systems_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "type",
           "type": "SystemType",
           "nullable": false
         },
         {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         },
@@ -7936,7 +9048,13 @@
           "nullable": true
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "from": "systemss.id",
+          "to": "systems.systems_id",
+          "type": "one-to-many"
+        }
+      ]
     },
     {
       "name": "taxonomy",
@@ -7961,11 +9079,6 @@
           "name": "domain",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "is_active",
@@ -8003,7 +9116,17 @@
           "nullable": false
         },
         {
+          "name": "taxonomy_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -8012,6 +9135,11 @@
         {
           "from": "parent.id",
           "to": "taxonomy.parent_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "taxonomys.id",
+          "to": "taxonomy.taxonomy_id",
           "type": "one-to-many"
         }
       ]
@@ -8046,11 +9174,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "occurred_at",
           "type": "TEXT",
           "nullable": false
@@ -8061,9 +9184,19 @@
           "nullable": true
         },
         {
+          "name": "timelines_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "title",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         },
         {
           "name": "user_id",
@@ -8075,6 +9208,11 @@
         {
           "from": "event.id",
           "to": "timelines.event_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "timeliness.id",
+          "to": "timelines.timelines_id",
           "type": "one-to-many"
         },
         {
@@ -8119,11 +9257,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "source_id",
           "type": "TEXT",
           "nullable": false
@@ -8147,6 +9280,21 @@
           "name": "transaction_type",
           "type": "TransactionType",
           "nullable": false
+        },
+        {
+          "name": "transactions_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -8168,6 +9316,11 @@
         {
           "from": "to.id",
           "to": "transactions.to_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "transactionss.id",
+          "to": "transactions.transactions_id",
           "type": "one-to-many"
         }
       ]
@@ -8197,11 +9350,6 @@
           "nullable": false
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "is_approved",
           "type": "BOOLEAN",
           "nullable": true
@@ -8227,12 +9375,22 @@
           "nullable": false
         },
         {
+          "name": "translations_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "translator_id",
           "type": "TEXT",
           "nullable": true
         },
         {
           "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "updated_by",
           "type": "TEXT",
           "nullable": true
         }
@@ -8246,6 +9404,11 @@
         {
           "from": "translatable.id",
           "to": "translations.translatable_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "translationss.id",
+          "to": "translations.translations_id",
           "type": "one-to-many"
         },
         {
@@ -8290,7 +9453,12 @@
           "nullable": true
         },
         {
-          "name": "id",
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "user_badges_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -8304,6 +9472,11 @@
         {
           "from": "badge.id",
           "to": "user_badges.badge_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_badgess.id",
+          "to": "user_badges.user_badges_id",
           "type": "one-to-many"
         },
         {
@@ -8348,6 +9521,11 @@
           "nullable": true
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
@@ -8386,11 +9564,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "points_awarded",
           "type": "DECIMAL",
           "nullable": false
@@ -8399,6 +9572,16 @@
           "name": "popped_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
+          "name": "user_bubble_pops_id",
+          "type": "TEXT",
+          "nullable": false
         },
         {
           "name": "user_id",
@@ -8410,6 +9593,11 @@
         {
           "from": "bubble.id",
           "to": "user_bubble_pops.bubble_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_bubble_popss.id",
+          "to": "user_bubble_pops.user_bubble_pops_id",
           "type": "one-to-many"
         },
         {
@@ -8454,11 +9642,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "minimum_payout",
           "type": "DECIMAL",
           "nullable": true
@@ -8483,12 +9666,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "user_financial_id",
+          "type": "TEXT",
+          "nullable": false
         }
       ],
       "relationships": [
         {
           "from": "stripe_account.id",
           "to": "user_financial.stripe_account_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_financials.id",
+          "to": "user_financial.user_financial_id",
           "type": "one-to-many"
         }
       ]
@@ -8513,11 +9706,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "last_viewed_at",
           "type": "TEXT",
           "nullable": true
@@ -8528,7 +9716,17 @@
           "nullable": false
         },
         {
+          "name": "updated_at",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "user_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
+          "name": "user_page_views_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -8542,6 +9740,11 @@
         {
           "from": "user.id",
           "to": "user_page_views.user_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_page_viewss.id",
+          "to": "user_page_views.user_page_views_id",
           "type": "one-to-many"
         }
       ]
@@ -8586,11 +9789,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "legal_name",
           "type": "TEXT",
           "nullable": true
@@ -8609,12 +9807,22 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "user_private_id",
+          "type": "TEXT",
+          "nullable": false
         }
       ],
       "relationships": [
         {
           "from": "government.id",
           "to": "user_private.government_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_privates.id",
+          "to": "user_private.user_private_id",
           "type": "one-to-many"
         }
       ]
@@ -8637,11 +9845,6 @@
           "name": "created_by",
           "type": "TEXT",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "quest_id",
@@ -8677,6 +9880,11 @@
           "name": "user_id",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "user_quests_id",
+          "type": "TEXT",
+          "nullable": false
         }
       ],
       "relationships": [
@@ -8688,6 +9896,11 @@
         {
           "from": "user.id",
           "to": "user_quests.user_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "user_questss.id",
+          "to": "user_quests.user_quests_id",
           "type": "one-to-many"
         }
       ]
@@ -8727,11 +9940,6 @@
           "nullable": true
         },
         {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "product_categories",
           "type": "string[]",
           "nullable": true
@@ -8768,6 +9976,11 @@
           "nullable": true
         },
         {
+          "name": "vendor_profiles_id",
+          "type": "TEXT",
+          "nullable": false
+        },
+        {
           "name": "verified_at",
           "type": "TEXT",
           "nullable": true
@@ -8797,6 +10010,11 @@
         {
           "from": "stripe_account.id",
           "to": "vendor_profiles.stripe_account_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "vendor_profiless.id",
+          "to": "vendor_profiles.vendor_profiles_id",
           "type": "one-to-many"
         }
       ]
@@ -8829,11 +10047,6 @@
           "name": "environment_variables",
           "type": "JSONB",
           "nullable": true
-        },
-        {
-          "name": "id",
-          "type": "TEXT",
-          "nullable": false
         },
         {
           "name": "last_deployment_at",
@@ -8869,6 +10082,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": true
+        },
+        {
+          "name": "vercel_connection_id",
+          "type": "TEXT",
+          "nullable": false
         }
       ],
       "relationships": [
@@ -8880,6 +10098,11 @@
         {
           "from": "project.id",
           "to": "vercel_connection.project_id",
+          "type": "one-to-many"
+        },
+        {
+          "from": "vercel_connections.id",
+          "to": "vercel_connection.vercel_connection_id",
           "type": "one-to-many"
         }
       ]
@@ -9490,7 +10713,8 @@
         "bloom",
         "harvest",
         "dormant",
-        "renewal"
+        "renewal",
+        "onboarding"
       ]
     },
     {
@@ -10043,7 +11267,12 @@
         "milestone_reached",
         "house_joined",
         "ritual_performed",
-        "scene_witnessed"
+        "scene_witnessed",
+        "sovereign_joined",
+        "sovereign_milestone",
+        "consciousness_emerged",
+        "sanctuary_completed",
+        "collaboration_began"
       ]
     },
     {
@@ -10433,5 +11662,5 @@
       "returnType": "unknown"
     }
   ],
-  "generatedAt": "2026-04-30T00:31:40.974Z"
+  "generatedAt": "2026-04-30T03:47:07.743Z"
 }

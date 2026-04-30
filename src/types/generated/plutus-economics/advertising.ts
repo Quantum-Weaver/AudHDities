@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/advertising.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:45.514Z
+// GENERATED: 2026-04-30T04:17:46.904Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,6 +33,7 @@ export type AdvertisingUpdate = TablesUpdate<'advertising'>;
  */
 export interface PublicAdvertising {
   advertiser_id: string;
+  advertising_id: string;
   bid_amount_cents: number;
   bid_type: BidType;
   budget_cents: number;
@@ -40,12 +41,12 @@ export interface PublicAdvertising {
   created_at: string | null;
   created_by: string | null;
   end_date: string | null;
-  id: string;
   spent_cents: number | null;
   start_date: string | null;
   status: CampaignStatus | null;
   targeting_criteria: Json | null;
   updated_at: string | null;
+  updated_by: string | null;
   user_share_percent: number | null;
 }
 
@@ -55,6 +56,7 @@ export interface PublicAdvertising {
  */
 export interface AdvertisingFormData {
   advertiser_id?: string;
+  advertising_id?: string;
   bid_amount_cents?: number;
   bid_type?: BidType;
   budget_cents?: number;
@@ -62,12 +64,12 @@ export interface AdvertisingFormData {
   created_at?: string | null;
   created_by?: string | null;
   end_date?: string | null;
-  id?: string;
   spent_cents?: number | null;
   start_date?: string | null;
   status?: CampaignStatus | null;
   targeting_criteria?: Json | null;
   updated_at?: string | null;
+  updated_by?: string | null;
   user_share_percent?: number | null;
 }
 
@@ -78,6 +80,7 @@ export interface AdvertisingValidationResult {
   valid: boolean;
   errors: {
     advertiser_id?: string;
+    advertising_id?: string;
     bid_amount_cents?: string;
     bid_type?: string;
     budget_cents?: string;
@@ -85,12 +88,12 @@ export interface AdvertisingValidationResult {
     created_at?: string;
     created_by?: string;
     end_date?: string;
-    id?: string;
     spent_cents?: string;
     start_date?: string;
     status?: string;
     targeting_criteria?: string;
     updated_at?: string;
+    updated_by?: string;
     user_share_percent?: string;
   };
 }

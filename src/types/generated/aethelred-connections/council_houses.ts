@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/council_houses.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:45.802Z
+// GENERATED: 2026-04-30T04:17:47.171Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -26,18 +26,19 @@ export type CouncilHousesUpdate = TablesUpdate<'council_houses'>;
 export interface PublicCouncilHouses {
   adept_quest: string | null;
   color: string;
+  council_houses_id: string;
   created_at: string | null;
   created_by: string | null;
   description: string;
   display_name: string;
   emoji: string;
-  id: string;
   initiate_quest: string | null;
   is_active: boolean | null;
   master_quest: string | null;
   name: string;
   order_index: number;
   primary_domain: string | null;
+  slug: string | null;
   updated_at: string | null;
 }
 
@@ -48,18 +49,19 @@ export interface PublicCouncilHouses {
 export interface CouncilHousesFormData {
   adept_quest?: string | null;
   color?: string;
+  council_houses_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   description?: string;
   display_name?: string;
   emoji?: string;
-  id?: string;
   initiate_quest?: string | null;
   is_active?: boolean | null;
   master_quest?: string | null;
   name?: string;
   order_index?: number;
   primary_domain?: string | null;
+  slug?: string | null;
   updated_at?: string | null;
 }
 
@@ -71,18 +73,19 @@ export interface CouncilHousesValidationResult {
   errors: {
     adept_quest?: string;
     color?: string;
+    council_houses_id?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
     display_name?: string;
     emoji?: string;
-    id?: string;
     initiate_quest?: string;
     is_active?: string;
     master_quest?: string;
     name?: string;
     order_index?: string;
     primary_domain?: string;
+    slug?: string;
     updated_at?: string;
   };
 }

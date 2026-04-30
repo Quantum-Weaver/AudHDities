@@ -15,8 +15,9 @@ export const QuantumSuperpositionRowSchema = z.object({
   confidence: z.number(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
+  quantum_superposition_id: z.string(),
   superposition_id: z.string(),
+  updated_at: z.string().nullable(),
   user_id: z.string(),
 });
 
@@ -26,8 +27,9 @@ export const QuantumSuperpositionInsertSchema = z.object({
   confidence: z.number(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  quantum_superposition_id: z.string().optional(),
   superposition_id: z.string(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string(),
 });
 
@@ -37,8 +39,9 @@ export const QuantumSuperpositionUpdateSchema = z.object({
   confidence: z.number().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  quantum_superposition_id: z.string().optional(),
   superposition_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });
 

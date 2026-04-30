@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/emeralds.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:45.921Z
+// GENERATED: 2026-04-30T04:17:47.299Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,14 +34,16 @@ export interface PublicEmeralds {
   comment_id: string | null;
   created_at: string | null;
   created_by: string | null;
+  emeralds_id: string;
   giver_id: string;
-  id: string;
   is_residual_eligible: boolean | null;
   message: string | null;
   post_id: string | null;
   receiver_id: string;
   reply_id: string | null;
   status: EmeraldStatus | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -53,14 +55,16 @@ export interface EmeraldsFormData {
   comment_id?: string | null;
   created_at?: string | null;
   created_by?: string | null;
+  emeralds_id?: string;
   giver_id?: string;
-  id?: string;
   is_residual_eligible?: boolean | null;
   message?: string | null;
   post_id?: string | null;
   receiver_id?: string;
   reply_id?: string | null;
   status?: EmeraldStatus | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -73,14 +77,16 @@ export interface EmeraldsValidationResult {
     comment_id?: string;
     created_at?: string;
     created_by?: string;
+    emeralds_id?: string;
     giver_id?: string;
-    id?: string;
     is_residual_eligible?: string;
     message?: string;
     post_id?: string;
     receiver_id?: string;
     reply_id?: string;
     status?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

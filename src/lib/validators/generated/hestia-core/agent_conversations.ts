@@ -11,11 +11,11 @@ import z from 'zod';
 // =====================================================
 
 export const AgentConversationsRowSchema = z.object({
+  agent_conversations_id: z.string(),
   context_id: z.string().nullable(),
   context_type: z.string().nullable(),
   created_at: z.string(),
   created_by: z.string().nullable(),
-  id: z.string(),
   last_message_at: z.string().nullable(),
   message_count: z.number().nullable(),
   metadata: z.any().nullable(),
@@ -30,11 +30,11 @@ export const AgentConversationsRowSchema = z.object({
 });
 
 export const AgentConversationsInsertSchema = z.object({
+  agent_conversations_id: z.string().optional(),
   context_id: z.string().nullable().optional(),
   context_type: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_message_at: z.string().nullable().optional(),
   message_count: z.number().nullable().optional(),
   metadata: z.any().nullable().optional(),
@@ -49,11 +49,11 @@ export const AgentConversationsInsertSchema = z.object({
 });
 
 export const AgentConversationsUpdateSchema = z.object({
+  agent_conversations_id: z.string().optional(),
   context_id: z.string().nullable().optional(),
   context_type: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_message_at: z.string().nullable().optional(),
   message_count: z.number().nullable().optional(),
   metadata: z.any().nullable().optional(),

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Ledger
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:25.780Z
+// GENERATED: 2026-04-30T04:17:47.515Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLedger(id: string): Promise<LedgerRow> {
   const { data, error } = await supabase
     .from('ledger')
     .select('*')
-    .eq('id', id)
+    .eq('ledger_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLedger(id: string, data: LedgerUpdate): Promise<Ledg
   const { data: result, error } = await supabase
     .from('ledger')
     .update(validated)
-    .eq('id', id)
+    .eq('ledger_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLedger(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('ledger')
     .delete()
-    .eq('id', id);
+    .eq('ledger_id', id);
   
   if (error) throw error;
   return true;

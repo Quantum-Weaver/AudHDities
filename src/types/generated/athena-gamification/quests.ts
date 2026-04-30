@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/quests.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.412Z
+// GENERATED: 2026-04-30T04:17:48.018Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,17 +35,19 @@ export interface PublicQuests {
   created_by: string | null;
   description: string;
   house: CouncilHouse;
-  id: string;
   instructions: string | null;
   is_active: boolean | null;
   order_index: number | null;
   prerequisite_quest_id: string | null;
+  quests_id: string;
   required_sovereignty_score: number | null;
   residual_multiplier_bonus: number | null;
+  slug: string;
   sovereignty_reward: number | null;
   submission_type: SubmissionType;
   title: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -57,17 +59,19 @@ export interface QuestsFormData {
   created_by?: string | null;
   description?: string;
   house?: CouncilHouse;
-  id?: string;
   instructions?: string | null;
   is_active?: boolean | null;
   order_index?: number | null;
   prerequisite_quest_id?: string | null;
+  quests_id?: string;
   required_sovereignty_score?: number | null;
   residual_multiplier_bonus?: number | null;
+  slug?: string;
   sovereignty_reward?: number | null;
   submission_type?: SubmissionType;
   title?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -80,17 +84,19 @@ export interface QuestsValidationResult {
     created_by?: string;
     description?: string;
     house?: string;
-    id?: string;
     instructions?: string;
     is_active?: string;
     order_index?: string;
     prerequisite_quest_id?: string;
+    quests_id?: string;
     required_sovereignty_score?: string;
     residual_multiplier_bonus?: string;
+    slug?: string;
     sovereignty_reward?: string;
     submission_type?: string;
     title?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

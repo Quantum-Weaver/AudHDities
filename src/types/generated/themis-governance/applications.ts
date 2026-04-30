@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/applications.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-04-30T00:26:45.595Z
+// GENERATED: 2026-04-30T04:17:46.985Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,10 +34,10 @@ export type ApplicationsUpdate = TablesUpdate<'applications'>;
 export interface PublicApplications {
   admin_notes: string | null;
   application_type: ApplicationType;
+  applications_id: string;
   created_at: string | null;
   created_by: string | null;
   form_data: Json;
-  id: string;
   onboarding_doc_path: string | null;
   onboarding_version: string | null;
   review_notes: string | null;
@@ -45,6 +45,7 @@ export interface PublicApplications {
   reviewed_by: string | null;
   status: ApplicationStatus | null;
   updated_at: string | null;
+  updated_by: string | null;
   user_id: string;
   verification_notes: string | null;
   verified_by_profile_id: string | null;
@@ -57,10 +58,10 @@ export interface PublicApplications {
 export interface ApplicationsFormData {
   admin_notes?: string | null;
   application_type?: ApplicationType;
+  applications_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   form_data?: Json;
-  id?: string;
   onboarding_doc_path?: string | null;
   onboarding_version?: string | null;
   review_notes?: string | null;
@@ -68,6 +69,7 @@ export interface ApplicationsFormData {
   reviewed_by?: string | null;
   status?: ApplicationStatus | null;
   updated_at?: string | null;
+  updated_by?: string | null;
   user_id?: string;
   verification_notes?: string | null;
   verified_by_profile_id?: string | null;
@@ -81,10 +83,10 @@ export interface ApplicationsValidationResult {
   errors: {
     admin_notes?: string;
     application_type?: string;
+    applications_id?: string;
     created_at?: string;
     created_by?: string;
     form_data?: string;
-    id?: string;
     onboarding_doc_path?: string;
     onboarding_version?: string;
     review_notes?: string;
@@ -92,6 +94,7 @@ export interface ApplicationsValidationResult {
     reviewed_by?: string;
     status?: string;
     updated_at?: string;
+    updated_by?: string;
     user_id?: string;
     verification_notes?: string;
     verified_by_profile_id?: string;

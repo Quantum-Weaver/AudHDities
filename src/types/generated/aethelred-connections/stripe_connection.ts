@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.668Z
+// GENERATED: 2026-04-30T04:17:48.266Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,12 +36,12 @@ export interface PublicStripeConnection {
   connected_accounts: Json | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   last_sync_at: string | null;
   mode: StripeMode | null;
   operated_by: string | null;
   payout_settings: Json | null;
   products_synced: number | null;
+  stripe_connection_id: string;
   updated_at: string | null;
   webhook_secret: string | null;
   webhook_status: WebhookStatus | null;
@@ -56,12 +56,12 @@ export interface StripeConnectionFormData {
   connected_accounts?: Json | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   last_sync_at?: string | null;
   mode?: StripeMode | null;
   operated_by?: string | null;
   payout_settings?: Json | null;
   products_synced?: number | null;
+  stripe_connection_id?: string;
   updated_at?: string | null;
   webhook_secret?: string | null;
   webhook_status?: WebhookStatus | null;
@@ -77,12 +77,12 @@ export interface StripeConnectionValidationResult {
     connected_accounts?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     last_sync_at?: string;
     mode?: string;
     operated_by?: string;
     payout_settings?: string;
     products_synced?: string;
+    stripe_connection_id?: string;
     updated_at?: string;
     webhook_secret?: string;
     webhook_status?: string;

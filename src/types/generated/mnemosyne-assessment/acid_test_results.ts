@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/acid_test_results.ts
 // HANDLING: assessment
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:45.471Z
+// GENERATED: 2026-04-30T04:17:46.866Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,10 +33,10 @@ export type AcidTestResultsUpdate = TablesUpdate<'acid_test_results'>;
  * All fields are optional for partial updates
  */
 export interface AcidTestResultsFormData {
+  acid_test_results_id?: string;
   answers?: Json | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   persona_description?: string | null;
   persona_label?: AcidPersona | null;
   recommendations?: Json | null;

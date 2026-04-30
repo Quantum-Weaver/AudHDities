@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/learning_paths.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.062Z
+// GENERATED: 2026-04-30T04:17:47.483Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -39,8 +39,8 @@ export interface PublicLearningPaths {
   difficulty: DifficultyLevel;
   estimated_duration_hours: number | null;
   house: CouncilHouse | null;
-  id: string;
   is_published: boolean | null;
+  learning_paths_id: string;
   prerequisite_path_id: string | null;
   slug: string;
   title: string;
@@ -60,8 +60,8 @@ export interface LearningPathsFormData {
   difficulty?: DifficultyLevel;
   estimated_duration_hours?: number | null;
   house?: CouncilHouse | null;
-  id?: string;
   is_published?: boolean | null;
+  learning_paths_id?: string;
   prerequisite_path_id?: string | null;
   slug?: string;
   title?: string;
@@ -82,8 +82,8 @@ export interface LearningPathsValidationResult {
     difficulty?: string;
     estimated_duration_hours?: string;
     house?: string;
-    id?: string;
     is_published?: string;
+    learning_paths_id?: string;
     prerequisite_path_id?: string;
     slug?: string;
     title?: string;

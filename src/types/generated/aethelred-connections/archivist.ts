@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/archivist.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:45.612Z
+// GENERATED: 2026-04-30T04:17:46.997Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,15 +25,16 @@ export type ArchivistUpdate = TablesUpdate<'archivist'>;
  * Public view of archivist
  */
 export interface PublicArchivist {
+  archivist_id: string;
   backup_status: Json | null;
   created_at: string | null;
   created_by: string | null;
   documentation_standards: Json | null;
   historical_records: Json | null;
-  id: string;
   last_archive_at: string | null;
   milestones: Json | null;
   updated_at: string | null;
+  updated_by: string | null;
   version_history: Json | null;
 }
 
@@ -42,15 +43,16 @@ export interface PublicArchivist {
  * All fields are optional for partial updates
  */
 export interface ArchivistFormData {
+  archivist_id?: string;
   backup_status?: Json | null;
   created_at?: string | null;
   created_by?: string | null;
   documentation_standards?: Json | null;
   historical_records?: Json | null;
-  id?: string;
   last_archive_at?: string | null;
   milestones?: Json | null;
   updated_at?: string | null;
+  updated_by?: string | null;
   version_history?: Json | null;
 }
 
@@ -60,15 +62,16 @@ export interface ArchivistFormData {
 export interface ArchivistValidationResult {
   valid: boolean;
   errors: {
+    archivist_id?: string;
     backup_status?: string;
     created_at?: string;
     created_by?: string;
     documentation_standards?: string;
     historical_records?: string;
-    id?: string;
     last_archive_at?: string;
     milestones?: string;
     updated_at?: string;
+    updated_by?: string;
     version_history?: string;
   };
 }

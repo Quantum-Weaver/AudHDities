@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/file_registry.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:45.975Z
+// GENERATED: 2026-04-30T04:17:47.373Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,8 +32,8 @@ export interface PublicFileRegistry {
   example_usage: string | null;
   file_name: string;
   file_path: string;
+  file_registry_id: string;
   file_type: string;
-  id: string;
   is_active: boolean | null;
   last_validated: string | null;
   needs_review: boolean | null;
@@ -59,8 +59,8 @@ export interface FileRegistryFormData {
   example_usage?: string | null;
   file_name?: string;
   file_path?: string;
+  file_registry_id?: string;
   file_type?: string;
-  id?: string;
   is_active?: boolean | null;
   last_validated?: string | null;
   needs_review?: boolean | null;
@@ -87,8 +87,8 @@ export interface FileRegistryValidationResult {
     example_usage?: string;
     file_name?: string;
     file_path?: string;
+    file_registry_id?: string;
     file_type?: string;
-    id?: string;
     is_active?: string;
     last_validated?: string;
     needs_review?: string;

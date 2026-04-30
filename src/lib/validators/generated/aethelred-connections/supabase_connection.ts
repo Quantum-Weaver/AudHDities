@@ -15,7 +15,6 @@ export const SupabaseConnectionRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   edge_functions: z.any().nullable(),
-  id: z.string(),
   last_health_check: z.string().nullable(),
   last_migration_at: z.string().nullable(),
   migrations_applied: z.any().nullable(),
@@ -24,6 +23,7 @@ export const SupabaseConnectionRowSchema = z.object({
   project_url: z.string(),
   schema_version: z.string(),
   storage_buckets: z.any().nullable(),
+  supabase_connection_id: z.string(),
   updated_at: z.string().nullable(),
 });
 
@@ -32,7 +32,6 @@ export const SupabaseConnectionInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   edge_functions: z.any().nullable().optional(),
-  id: z.string().optional(),
   last_health_check: z.string().nullable().optional(),
   last_migration_at: z.string().nullable().optional(),
   migrations_applied: z.any().nullable().optional(),
@@ -41,6 +40,7 @@ export const SupabaseConnectionInsertSchema = z.object({
   project_url: z.string(),
   schema_version: z.string(),
   storage_buckets: z.any().nullable().optional(),
+  supabase_connection_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });
 
@@ -49,7 +49,6 @@ export const SupabaseConnectionUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   edge_functions: z.any().nullable().optional(),
-  id: z.string().optional(),
   last_health_check: z.string().nullable().optional(),
   last_migration_at: z.string().nullable().optional(),
   migrations_applied: z.any().nullable().optional(),
@@ -58,6 +57,7 @@ export const SupabaseConnectionUpdateSchema = z.object({
   project_url: z.string().optional(),
   schema_version: z.string().optional(),
   storage_buckets: z.any().nullable().optional(),
+  supabase_connection_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
 });
 

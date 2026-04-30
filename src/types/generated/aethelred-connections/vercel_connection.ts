@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/vercel_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.996Z
+// GENERATED: 2026-04-30T04:17:48.527Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,11 +33,10 @@ export type VercelConnectionUpdate = TablesUpdate<'vercel_connection'>;
 export interface PublicVercelConnection {
   created_at: string | null;
   created_by: string | null;
-  deployment_status: DeploymentStatus;
+  deployment_status: DeploymentStatus | null;
   deployment_url: string;
   domain_config: Json | null;
   environment_variables: Json | null;
-  id: string;
   last_deployment_at: string | null;
   last_deployment_id: string | null;
   operated_by: string | null;
@@ -45,6 +44,7 @@ export interface PublicVercelConnection {
   project_id: string;
   project_name: string;
   updated_at: string | null;
+  vercel_connection_id: string;
 }
 
 /**
@@ -57,7 +57,6 @@ export interface VercelConnectionFormData {
   deployment_url?: string;
   domain_config?: Json | null;
   environment_variables?: Json | null;
-  id?: string;
   last_deployment_at?: string | null;
   last_deployment_id?: string | null;
   operated_by?: string | null;
@@ -65,6 +64,7 @@ export interface VercelConnectionFormData {
   project_id?: string;
   project_name?: string;
   updated_at?: string | null;
+  vercel_connection_id?: string;
 }
 
 /**
@@ -79,7 +79,6 @@ export interface VercelConnectionValidationResult {
     deployment_url?: string;
     domain_config?: string;
     environment_variables?: string;
-    id?: string;
     last_deployment_at?: string;
     last_deployment_id?: string;
     operated_by?: string;
@@ -87,6 +86,7 @@ export interface VercelConnectionValidationResult {
     project_id?: string;
     project_name?: string;
     updated_at?: string;
+    vercel_connection_id?: string;
   };
 }
 

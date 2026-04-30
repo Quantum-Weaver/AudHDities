@@ -12,11 +12,11 @@ import z from 'zod';
 
 export const ContactSubmissionsRowSchema = z.object({
   assigned_to: z.string().nullable(),
+  contact_submissions_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   direction: z.enum(ENUM_VALUES.contactDirection).nullable(),
   email: z.string(),
-  id: z.string(),
   message: z.string(),
   message_id: z.string().nullable(),
   name: z.string(),
@@ -32,11 +32,11 @@ export const ContactSubmissionsRowSchema = z.object({
 
 export const ContactSubmissionsInsertSchema = z.object({
   assigned_to: z.string().nullable().optional(),
+  contact_submissions_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   direction: z.enum(ENUM_VALUES.contactDirection).nullable().optional(),
   email: z.string(),
-  id: z.string().optional(),
   message: z.string(),
   message_id: z.string().nullable().optional(),
   name: z.string(),
@@ -52,11 +52,11 @@ export const ContactSubmissionsInsertSchema = z.object({
 
 export const ContactSubmissionsUpdateSchema = z.object({
   assigned_to: z.string().nullable().optional(),
+  contact_submissions_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   direction: z.enum(ENUM_VALUES.contactDirection).nullable().optional(),
   email: z.string().optional(),
-  id: z.string().optional(),
   message: z.string().optional(),
   message_id: z.string().nullable().optional(),
   name: z.string().optional(),

@@ -14,10 +14,10 @@ export const AdminLogsRowSchema = z.object({
   action: z.string(),
   action_category: z.enum(ENUM_VALUES.adminLogCategory),
   admin_id: z.string(),
+  admin_logs_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
-  id: z.string(),
   ip_address: z.any(),
   is_public: z.boolean().nullable(),
   metadata: z.any().nullable(),
@@ -28,6 +28,7 @@ export const AdminLogsRowSchema = z.object({
   success: z.boolean().nullable(),
   target_id: z.string().nullable(),
   target_identifier: z.string().nullable(),
+  updated_at: z.string().nullable(),
   user_agent: z.string().nullable(),
 });
 
@@ -35,10 +36,10 @@ export const AdminLogsInsertSchema = z.object({
   action: z.string(),
   action_category: z.enum(ENUM_VALUES.adminLogCategory),
   admin_id: z.string(),
+  admin_logs_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   ip_address: z.any().optional(),
   is_public: z.boolean().nullable().optional(),
   metadata: z.any().nullable().optional(),
@@ -49,6 +50,7 @@ export const AdminLogsInsertSchema = z.object({
   success: z.boolean().nullable().optional(),
   target_id: z.string().nullable().optional(),
   target_identifier: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
   user_agent: z.string().nullable().optional(),
 });
 
@@ -56,10 +58,10 @@ export const AdminLogsUpdateSchema = z.object({
   action: z.string().optional(),
   action_category: z.enum(ENUM_VALUES.adminLogCategory).optional(),
   admin_id: z.string().optional(),
+  admin_logs_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   ip_address: z.any().optional(),
   is_public: z.boolean().nullable().optional(),
   metadata: z.any().nullable().optional(),
@@ -70,6 +72,7 @@ export const AdminLogsUpdateSchema = z.object({
   success: z.boolean().nullable().optional(),
   target_id: z.string().nullable().optional(),
   target_identifier: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
   user_agent: z.string().nullable().optional(),
 });
 

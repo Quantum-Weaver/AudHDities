@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: LifeCycles
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:25.802Z
+// GENERATED: 2026-04-30T04:17:47.544Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLifeCycles(id: string): Promise<LifeCyclesRow> {
   const { data, error } = await supabase
     .from('life_cycles')
     .select('*')
-    .eq('id', id)
+    .eq('life_cycles_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLifeCycles(id: string, data: LifeCyclesUpdate): Prom
   const { data: result, error } = await supabase
     .from('life_cycles')
     .update(validated)
-    .eq('id', id)
+    .eq('life_cycles_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLifeCycles(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('life_cycles')
     .delete()
-    .eq('id', id);
+    .eq('life_cycles_id', id);
   
   if (error) throw error;
   return true;

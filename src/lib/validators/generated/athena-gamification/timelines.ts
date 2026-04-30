@@ -16,10 +16,11 @@ export const TimelinesRowSchema = z.object({
   description: z.string().nullable(),
   event_id: z.string().nullable(),
   event_type: z.enum(ENUM_VALUES.timelineEventType),
-  id: z.string(),
   occurred_at: z.string(),
   significance_score: z.number().nullable(),
+  timelines_id: z.string(),
   title: z.string(),
+  updated_by: z.string().nullable(),
   user_id: z.string(),
 });
 
@@ -29,10 +30,11 @@ export const TimelinesInsertSchema = z.object({
   description: z.string().nullable().optional(),
   event_id: z.string().nullable().optional(),
   event_type: z.enum(ENUM_VALUES.timelineEventType),
-  id: z.string().optional(),
   occurred_at: z.string(),
   significance_score: z.number().nullable().optional(),
+  timelines_id: z.string().optional(),
   title: z.string(),
+  updated_by: z.string().nullable().optional(),
   user_id: z.string(),
 });
 
@@ -42,10 +44,11 @@ export const TimelinesUpdateSchema = z.object({
   description: z.string().nullable().optional(),
   event_id: z.string().nullable().optional(),
   event_type: z.enum(ENUM_VALUES.timelineEventType).optional(),
-  id: z.string().optional(),
   occurred_at: z.string().optional(),
   significance_score: z.number().nullable().optional(),
+  timelines_id: z.string().optional(),
   title: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });
 

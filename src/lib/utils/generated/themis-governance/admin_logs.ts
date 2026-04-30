@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AdminLogs
 // DEITY: themis-governance
-// GENERATED: 2026-04-23T03:15:25.357Z
+// GENERATED: 2026-04-30T04:17:46.901Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAdminLogs(id: string): Promise<AdminLogsRow> {
   const { data, error } = await supabase
     .from('admin_logs')
     .select('*')
-    .eq('id', id)
+    .eq('admin_logs_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAdminLogs(id: string, data: AdminLogsUpdate): Promis
   const { data: result, error } = await supabase
     .from('admin_logs')
     .update(validated)
-    .eq('id', id)
+    .eq('admin_logs_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAdminLogs(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('admin_logs')
     .delete()
-    .eq('id', id);
+    .eq('admin_logs_id', id);
   
   if (error) throw error;
   return true;

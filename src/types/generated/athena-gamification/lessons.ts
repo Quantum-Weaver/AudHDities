@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/lessons.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.087Z
+// GENERATED: 2026-04-30T04:17:47.518Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,12 +38,13 @@ export interface PublicLessons {
   creator_id: string;
   description: string;
   duration_minutes: number | null;
-  id: string;
   is_published: boolean | null;
+  lessons_id: string;
   order_index: number | null;
   slug: string;
   title: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -59,12 +60,13 @@ export interface LessonsFormData {
   creator_id?: string;
   description?: string;
   duration_minutes?: number | null;
-  id?: string;
   is_published?: boolean | null;
+  lessons_id?: string;
   order_index?: number | null;
   slug?: string;
   title?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -81,12 +83,13 @@ export interface LessonsValidationResult {
     creator_id?: string;
     description?: string;
     duration_minutes?: string;
-    id?: string;
     is_published?: string;
+    lessons_id?: string;
     order_index?: string;
     slug?: string;
     title?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

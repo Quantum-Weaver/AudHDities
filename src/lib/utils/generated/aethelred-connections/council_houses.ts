@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CouncilHouses
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.572Z
+// GENERATED: 2026-04-30T04:17:47.182Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCouncilHouses(id: string): Promise<CouncilHousesRow> {
   const { data, error } = await supabase
     .from('council_houses')
     .select('*')
-    .eq('id', id)
+    .eq('council_houses_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCouncilHouses(id: string, data: CouncilHousesUpdate)
   const { data: result, error } = await supabase
     .from('council_houses')
     .update(validated)
-    .eq('id', id)
+    .eq('council_houses_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCouncilHouses(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('council_houses')
     .delete()
-    .eq('id', id);
+    .eq('council_houses_id', id);
   
   if (error) throw error;
   return true;

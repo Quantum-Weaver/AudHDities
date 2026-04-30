@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SystemHealthLogs
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:26.420Z
+// GENERATED: 2026-04-30T04:17:48.351Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSystemHealthLogs(id: string): Promise<SystemHealthLogsR
   const { data, error } = await supabase
     .from('system_health_logs')
     .select('*')
-    .eq('id', id)
+    .eq('system_health_logs_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSystemHealthLogs(id: string, data: SystemHealthLogsU
   const { data: result, error } = await supabase
     .from('system_health_logs')
     .update(validated)
-    .eq('id', id)
+    .eq('system_health_logs_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSystemHealthLogs(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('system_health_logs')
     .delete()
-    .eq('id', id);
+    .eq('system_health_logs_id', id);
   
   if (error) throw error;
   return true;

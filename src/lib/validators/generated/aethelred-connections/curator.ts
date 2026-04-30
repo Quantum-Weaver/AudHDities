@@ -15,11 +15,12 @@ export const CuratorRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   curation_queue: z.any().nullable(),
+  curator_id: z.string(),
   featured_content: z.any().nullable(),
-  id: z.string(),
   preservation_policy: z.any().nullable(),
   quality_standards: z.any().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const CuratorInsertSchema = z.object({
@@ -28,11 +29,12 @@ export const CuratorInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   curation_queue: z.any().nullable().optional(),
+  curator_id: z.string(),
   featured_content: z.any().nullable().optional(),
-  id: z.string(),
   preservation_policy: z.any().nullable().optional(),
   quality_standards: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const CuratorUpdateSchema = z.object({
@@ -41,11 +43,12 @@ export const CuratorUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   curation_queue: z.any().nullable().optional(),
+  curator_id: z.string().optional(),
   featured_content: z.any().nullable().optional(),
-  id: z.string().optional(),
   preservation_policy: z.any().nullable().optional(),
   quality_standards: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

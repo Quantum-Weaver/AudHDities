@@ -27,7 +27,7 @@ export async function GET() {
         creator_profiles!fk_creator_profile_id (*),
         vendor_profiles!fk_vendor_profiles_profile_id (*)
       `)
-      .eq('id', user.id)
+      .eq('profiles_id', user.id)
       .single();
 
     if (profileError) {

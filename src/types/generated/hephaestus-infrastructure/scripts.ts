@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scripts.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.617Z
+// GENERATED: 2026-04-30T04:17:48.210Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,7 +34,6 @@ export interface PublicScripts {
   created_at: string | null;
   created_by: string | null;
   description: string | null;
-  id: string;
   is_production_safe: boolean | null;
   last_result: string | null;
   last_run: string | null;
@@ -43,8 +42,10 @@ export interface PublicScripts {
   path: string;
   requires_approval: boolean | null;
   run_count: number | null;
+  scripts_id: string;
   type: ScriptType;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -55,7 +56,6 @@ export interface ScriptsFormData {
   created_at?: string | null;
   created_by?: string | null;
   description?: string | null;
-  id?: string;
   is_production_safe?: boolean | null;
   last_result?: string | null;
   last_run?: string | null;
@@ -64,8 +64,10 @@ export interface ScriptsFormData {
   path?: string;
   requires_approval?: boolean | null;
   run_count?: number | null;
+  scripts_id?: string;
   type?: ScriptType;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -77,7 +79,6 @@ export interface ScriptsValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    id?: string;
     is_production_safe?: string;
     last_result?: string;
     last_run?: string;
@@ -86,8 +87,10 @@ export interface ScriptsValidationResult {
     path?: string;
     requires_approval?: string;
     run_count?: string;
+    scripts_id?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

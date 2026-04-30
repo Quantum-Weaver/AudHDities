@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/admin_logs.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-04-30T00:26:45.499Z
+// GENERATED: 2026-04-30T04:17:46.887Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,10 +36,10 @@ export interface PublicAdminLogs {
   action: string;
   action_category: AdminLogCategory;
   admin_id: string;
+  admin_logs_id: string;
   created_at: string | null;
   created_by: string | null;
   error_message: string | null;
-  id: string;
   is_public: boolean | null;
   metadata: Json | null;
   new_state: Json | null;
@@ -49,7 +49,8 @@ export interface PublicAdminLogs {
   success: boolean | null;
   target_id: string | null;
   target_identifier: string | null;
-  target_type: AdminLogTargetType;
+  target_type: AdminLogTargetType | null;
+  updated_at: string | null;
 }
 
 /**
@@ -60,10 +61,10 @@ export interface AdminLogsFormData {
   action?: string;
   action_category?: AdminLogCategory;
   admin_id?: string;
+  admin_logs_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   error_message?: string | null;
-  id?: string;
   ip_address?: unknown;
   is_public?: boolean | null;
   metadata?: Json | null;
@@ -74,6 +75,7 @@ export interface AdminLogsFormData {
   success?: boolean | null;
   target_id?: string | null;
   target_identifier?: string | null;
+  updated_at?: string | null;
   user_agent?: string | null;
 }
 
@@ -86,10 +88,10 @@ export interface AdminLogsValidationResult {
     action?: string;
     action_category?: string;
     admin_id?: string;
+    admin_logs_id?: string;
     created_at?: string;
     created_by?: string;
     error_message?: string;
-    id?: string;
     ip_address?: string;
     is_public?: string;
     metadata?: string;
@@ -101,6 +103,7 @@ export interface AdminLogsValidationResult {
     target_id?: string;
     target_identifier?: string;
     target_type?: string;
+    updated_at?: string;
     user_agent?: string;
   };
 }

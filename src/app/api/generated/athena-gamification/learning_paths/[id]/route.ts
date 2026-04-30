@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LearningPathsUpdateSchema } from '@/lib/validators/generated/athena-gamification/learning_paths';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.064Z
+// Generated: 2026-04-30T04:17:47.487Z
 // Table: learning_paths
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('learning_paths')
       .select('*')
-      .eq('id', id)
+      .eq('learning_paths_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('learning_paths')
       .update(validated)
-      .eq('id', id)
+      .eq('learning_paths_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('learning_paths').delete().eq('id', id);
+    const { error } = await supabase.from('learning_paths').delete().eq('learning_paths_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('learning_paths');

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FileTypeStandardsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_type_standards';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.994Z
+// Generated: 2026-04-30T04:17:47.393Z
 // Table: file_type_standards
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('file_type_standards')
       .select('*')
-      .eq('id', id)
+      .eq('file_type_standards_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('file_type_standards')
       .update(validated)
-      .eq('id', id)
+      .eq('file_type_standards_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('file_type_standards').delete().eq('id', id);
+    const { error } = await supabase.from('file_type_standards').delete().eq('file_type_standards_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('file_type_standards');

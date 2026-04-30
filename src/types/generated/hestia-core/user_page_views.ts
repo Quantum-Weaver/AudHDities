@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_page_views.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.945Z
+// GENERATED: 2026-04-30T04:17:48.487Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -27,10 +27,11 @@ export interface PublicUserPageViews {
   created_at: string;
   created_by: string | null;
   first_viewed_at: string | null;
-  id: string;
   last_viewed_at: string | null;
   page_path: string;
+  updated_at: string | null;
   user_id: string;
+  user_page_views_id: string;
   view_count: number | null;
 }
 
@@ -42,10 +43,11 @@ export interface UserPageViewsFormData {
   created_at?: string;
   created_by?: string | null;
   first_viewed_at?: string | null;
-  id?: string;
   last_viewed_at?: string | null;
   page_path?: string;
+  updated_at?: string | null;
   user_id?: string;
+  user_page_views_id?: string;
   view_count?: number | null;
 }
 
@@ -58,10 +60,11 @@ export interface UserPageViewsValidationResult {
     created_at?: string;
     created_by?: string;
     first_viewed_at?: string;
-    id?: string;
     last_viewed_at?: string;
     page_path?: string;
+    updated_at?: string;
     user_id?: string;
+    user_page_views_id?: string;
     view_count?: string;
   };
 }

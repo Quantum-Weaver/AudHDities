@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_bubble_limits.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.839Z
+// GENERATED: 2026-04-30T04:17:48.446Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -30,6 +30,7 @@ export interface PublicUserBubbleLimits {
   hourly_pops: number | null;
   last_pop_at: string | null;
   reset_date: string | null;
+  updated_at: string | null;
   user_id: string;
 }
 
@@ -44,6 +45,7 @@ export interface UserBubbleLimitsFormData {
   hourly_pops?: number | null;
   last_pop_at?: string | null;
   reset_date?: string | null;
+  updated_at?: string | null;
   user_id?: string;
 }
 
@@ -59,6 +61,7 @@ export interface UserBubbleLimitsValidationResult {
     hourly_pops?: string;
     last_pop_at?: string;
     reset_date?: string;
+    updated_at?: string;
     user_id?: string;
   };
 }

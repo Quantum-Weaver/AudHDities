@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/payouts.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.214Z
+// GENERATED: 2026-04-30T04:17:47.762Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -37,11 +37,13 @@ export interface PublicPayouts {
   created_by: string | null;
   destination: string | null;
   disbursement_id: string;
-  id: string;
   payout_method: PayoutMethod;
+  payouts_id: string;
   recipient_id: string;
   status: PayoutStatus | null;
   stripe_transfer_id: string | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -55,11 +57,13 @@ export interface PayoutsFormData {
   created_by?: string | null;
   destination?: string | null;
   disbursement_id?: string;
-  id?: string;
   payout_method?: PayoutMethod;
+  payouts_id?: string;
   recipient_id?: string;
   status?: PayoutStatus | null;
   stripe_transfer_id?: string | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -74,11 +78,13 @@ export interface PayoutsValidationResult {
     created_by?: string;
     destination?: string;
     disbursement_id?: string;
-    id?: string;
     payout_method?: string;
+    payouts_id?: string;
     recipient_id?: string;
     status?: string;
     stripe_transfer_id?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

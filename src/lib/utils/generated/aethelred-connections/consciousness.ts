@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Consciousness
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.537Z
+// GENERATED: 2026-04-30T04:17:47.138Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getConsciousness(id: string): Promise<ConsciousnessRow> {
   const { data, error } = await supabase
     .from('consciousness')
     .select('*')
-    .eq('id', id)
+    .eq('consciousness_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateConsciousness(id: string, data: ConsciousnessUpdate)
   const { data: result, error } = await supabase
     .from('consciousness')
     .update(validated)
-    .eq('id', id)
+    .eq('consciousness_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteConsciousness(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('consciousness')
     .delete()
-    .eq('id', id);
+    .eq('consciousness_id', id);
   
   if (error) throw error;
   return true;

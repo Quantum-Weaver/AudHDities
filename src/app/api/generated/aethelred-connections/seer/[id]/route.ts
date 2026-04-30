@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SeerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.633Z
+// Generated: 2026-04-30T04:17:48.226Z
 // Table: seer
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('seer')
       .select('*')
-      .eq('id', id)
+      .eq('seer_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('seer')
       .update(validated)
-      .eq('id', id)
+      .eq('seer_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('seer').delete().eq('id', id);
+    const { error } = await supabase.from('seer').delete().eq('seer_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('seer');

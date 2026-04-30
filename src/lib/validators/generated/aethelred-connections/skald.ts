@@ -14,12 +14,13 @@ export const SkaldRowSchema = z.object({
   bard_roster: z.any().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   inspiring_content: z.any().nullable(),
   music_library: z.any().nullable(),
   mythology: z.any().nullable(),
+  skald_id: z.string(),
   story_archive: z.any().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const SkaldInsertSchema = z.object({
@@ -27,12 +28,13 @@ export const SkaldInsertSchema = z.object({
   bard_roster: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string(),
   inspiring_content: z.any().nullable().optional(),
   music_library: z.any().nullable().optional(),
   mythology: z.any().nullable().optional(),
+  skald_id: z.string(),
   story_archive: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const SkaldUpdateSchema = z.object({
@@ -40,12 +42,13 @@ export const SkaldUpdateSchema = z.object({
   bard_roster: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   inspiring_content: z.any().nullable().optional(),
   music_library: z.any().nullable().optional(),
   mythology: z.any().nullable().optional(),
+  skald_id: z.string().optional(),
   story_archive: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

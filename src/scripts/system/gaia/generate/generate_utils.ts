@@ -129,7 +129,7 @@ export async function get${pascalName}(id: string): Promise<${pascalName}Row> {
   const { data, error } = await supabase
     .from('${tableName}')
     .select('*')
-    .eq('id', id)
+    .eq('${tableName}_id', id)
     .single();
   
   if (error) throw error;
@@ -177,7 +177,7 @@ export async function update${pascalName}(id: string, data: ${pascalName}Update)
   const { data: result, error } = await supabase
     .from('${tableName}')
     .update(validated)
-    .eq('id', id)
+    .eq('${tableName}_id', id)
     .select()
     .single();
   
@@ -193,7 +193,7 @@ export async function delete${pascalName}(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('${tableName}')
     .delete()
-    .eq('id', id);
+    .eq('${tableName}_id', id);
   
   if (error) throw error;
   return true;

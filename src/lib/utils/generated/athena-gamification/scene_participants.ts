@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SceneParticipants
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:26.205Z
+// GENERATED: 2026-04-30T04:17:48.168Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSceneParticipants(id: string): Promise<SceneParticipant
   const { data, error } = await supabase
     .from('scene_participants')
     .select('*')
-    .eq('user_id', id)
+    .eq('scene_participants_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSceneParticipants(id: string, data: SceneParticipant
   const { data: result, error } = await supabase
     .from('scene_participants')
     .update(validated)
-    .eq('user_id', id)
+    .eq('scene_participants_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSceneParticipants(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('scene_participants')
     .delete()
-    .eq('user_id', id);
+    .eq('scene_participants_id', id);
   
   if (error) throw error;
   return true;

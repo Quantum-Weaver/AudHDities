@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/reactions.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:46.440Z
+// GENERATED: 2026-04-30T04:17:48.047Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,10 +33,12 @@ export interface PublicReactions {
   comment_id: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   post_id: string | null;
   reaction_type: ReactionType;
+  reactions_id: string;
   reply_id: string | null;
+  updated_at: string | null;
+  updated_by: string | null;
   user_id: string;
   weight: number | null;
 }
@@ -49,10 +51,12 @@ export interface ReactionsFormData {
   comment_id?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   post_id?: string | null;
   reaction_type?: ReactionType;
+  reactions_id?: string;
   reply_id?: string | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
   user_id?: string;
   weight?: number | null;
 }
@@ -66,10 +70,12 @@ export interface ReactionsValidationResult {
     comment_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     post_id?: string;
     reaction_type?: string;
+    reactions_id?: string;
     reply_id?: string;
+    updated_at?: string;
+    updated_by?: string;
     user_id?: string;
     weight?: string;
   };

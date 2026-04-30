@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProductsUpdateSchema } from '@/lib/validators/generated/plutus-economics/products';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.263Z
+// Generated: 2026-04-30T04:17:47.823Z
 // Table: products
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('products')
       .select('*')
-      .eq('id', id)
+      .eq('products_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('products')
       .update(validated)
-      .eq('id', id)
+      .eq('products_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('products').delete().eq('id', id);
+    const { error } = await supabase.from('products').delete().eq('products_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('products');

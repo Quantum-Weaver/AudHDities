@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CuratorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/curator';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.871Z
+// Generated: 2026-04-30T04:17:47.246Z
 // Table: curator
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('curator')
       .select('*')
-      .eq('id', id)
+      .eq('curator_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('curator')
       .update(validated)
-      .eq('id', id)
+      .eq('curator_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('curator').delete().eq('id', id);
+    const { error } = await supabase.from('curator').delete().eq('curator_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('curator');

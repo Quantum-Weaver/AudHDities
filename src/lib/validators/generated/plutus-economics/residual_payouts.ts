@@ -16,11 +16,12 @@ export const ResidualPayoutsRowSchema = z.object({
   contributor_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   paid_at: z.string().nullable(),
   product_id: z.string(),
+  residual_payouts_id: z.string(),
   sale_id: z.string(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable(),
+  updated_at: z.string().nullable(),
 });
 
 export const ResidualPayoutsInsertSchema = z.object({
@@ -29,11 +30,12 @@ export const ResidualPayoutsInsertSchema = z.object({
   contributor_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   paid_at: z.string().nullable().optional(),
   product_id: z.string(),
+  residual_payouts_id: z.string().optional(),
   sale_id: z.string(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const ResidualPayoutsUpdateSchema = z.object({
@@ -42,11 +44,12 @@ export const ResidualPayoutsUpdateSchema = z.object({
   contributor_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   paid_at: z.string().nullable().optional(),
   product_id: z.string().optional(),
+  residual_payouts_id: z.string().optional(),
   sale_id: z.string().optional(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

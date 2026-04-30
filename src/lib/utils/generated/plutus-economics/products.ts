@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Products
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:25.984Z
+// GENERATED: 2026-04-30T04:17:47.831Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getProducts(id: string): Promise<ProductsRow> {
   const { data, error } = await supabase
     .from('products')
     .select('*')
-    .eq('id', id)
+    .eq('products_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateProducts(id: string, data: ProductsUpdate): Promise<
   const { data: result, error } = await supabase
     .from('products')
     .update(validated)
-    .eq('id', id)
+    .eq('products_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteProducts(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('products')
     .delete()
-    .eq('id', id);
+    .eq('products_id', id);
   
   if (error) throw error;
   return true;

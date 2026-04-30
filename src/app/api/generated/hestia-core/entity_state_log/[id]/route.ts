@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EntityStateLogUpdateSchema } from '@/lib/validators/generated/hestia-core/entity_state_log';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.938Z
+// Generated: 2026-04-30T04:17:47.327Z
 // Table: entity_state_log
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('entity_state_log')
       .select('*')
-      .eq('id', id)
+      .eq('entity_state_log_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('entity_state_log')
       .update(validated)
-      .eq('id', id)
+      .eq('entity_state_log_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('entity_state_log').delete().eq('id', id);
+    const { error } = await supabase.from('entity_state_log').delete().eq('entity_state_log_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('entity_state_log');

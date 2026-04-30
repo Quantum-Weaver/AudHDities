@@ -14,7 +14,6 @@ export const ScriptsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   description: z.string().nullable(),
-  id: z.string(),
   is_production_safe: z.boolean().nullable(),
   last_result: z.string().nullable(),
   last_run: z.string().nullable(),
@@ -23,15 +22,16 @@ export const ScriptsRowSchema = z.object({
   path: z.string(),
   requires_approval: z.boolean().nullable(),
   run_count: z.number().nullable(),
+  scripts_id: z.string(),
   type: z.enum(ENUM_VALUES.scriptType),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const ScriptsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_production_safe: z.boolean().nullable().optional(),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
@@ -40,15 +40,16 @@ export const ScriptsInsertSchema = z.object({
   path: z.string(),
   requires_approval: z.boolean().nullable().optional(),
   run_count: z.number().nullable().optional(),
+  scripts_id: z.string().optional(),
   type: z.enum(ENUM_VALUES.scriptType),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const ScriptsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_production_safe: z.boolean().nullable().optional(),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
@@ -57,8 +58,10 @@ export const ScriptsUpdateSchema = z.object({
   path: z.string().optional(),
   requires_approval: z.boolean().nullable().optional(),
   run_count: z.number().nullable().optional(),
+  scripts_id: z.string().optional(),
   type: z.enum(ENUM_VALUES.scriptType).optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

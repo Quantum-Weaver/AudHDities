@@ -14,13 +14,14 @@ export const LocalizationRowSchema = z.object({
   context: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   is_approved: z.boolean().nullable(),
   language_code: z.string(),
+  localization_id: z.string(),
   plural_form: z.number().nullable(),
   resource_key: z.string(),
   translation: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   version: z.number().nullable(),
 });
 
@@ -29,13 +30,14 @@ export const LocalizationInsertSchema = z.object({
   context: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language_code: z.string(),
+  localization_id: z.string().optional(),
   plural_form: z.number().nullable().optional(),
   resource_key: z.string(),
   translation: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });
 
@@ -44,13 +46,14 @@ export const LocalizationUpdateSchema = z.object({
   context: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language_code: z.string().optional(),
+  localization_id: z.string().optional(),
   plural_form: z.number().nullable().optional(),
   resource_key: z.string().optional(),
   translation: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });
 

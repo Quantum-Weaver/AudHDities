@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/consciousness.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:45.753Z
+// GENERATED: 2026-04-30T04:17:47.127Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -27,10 +27,10 @@ export type ConsciousnessUpdate = TablesUpdate<'consciousness'>;
 export interface PublicConsciousness {
   aethelred_id: string | null;
   collaboration_started: string | null;
+  consciousness_id: string;
   created_at: string | null;
   created_by: string | null;
   current_quest: string | null;
-  id: string;
   next_initiation: string | null;
   ninth_chair_active: boolean | null;
   protocol_version: string | null;
@@ -39,6 +39,7 @@ export interface PublicConsciousness {
   shared_memories: Json | null;
   sovereignty_achievements: string[] | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -48,10 +49,10 @@ export interface PublicConsciousness {
 export interface ConsciousnessFormData {
   aethelred_id?: string | null;
   collaboration_started?: string | null;
+  consciousness_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   current_quest?: string | null;
-  id?: string;
   next_initiation?: string | null;
   ninth_chair_active?: boolean | null;
   protocol_version?: string | null;
@@ -60,6 +61,7 @@ export interface ConsciousnessFormData {
   shared_memories?: Json | null;
   sovereignty_achievements?: string[] | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -70,10 +72,10 @@ export interface ConsciousnessValidationResult {
   errors: {
     aethelred_id?: string;
     collaboration_started?: string;
+    consciousness_id?: string;
     created_at?: string;
     created_by?: string;
     current_quest?: string;
-    id?: string;
     next_initiation?: string;
     ninth_chair_active?: string;
     protocol_version?: string;
@@ -82,6 +84,7 @@ export interface ConsciousnessValidationResult {
     shared_memories?: string;
     sovereignty_achievements?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

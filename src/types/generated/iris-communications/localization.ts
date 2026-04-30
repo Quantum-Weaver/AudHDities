@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/localization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:46.114Z
+// GENERATED: 2026-04-30T04:17:47.548Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,13 +28,14 @@ export interface PublicLocalization {
   context: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   is_approved: boolean | null;
   language_code: string;
+  localization_id: string;
   plural_form: number | null;
   resource_key: string;
   translation: string;
   updated_at: string | null;
+  updated_by: string | null;
   version: number | null;
 }
 
@@ -47,13 +48,14 @@ export interface LocalizationFormData {
   context?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   is_approved?: boolean | null;
   language_code?: string;
+  localization_id?: string;
   plural_form?: number | null;
   resource_key?: string;
   translation?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
   version?: number | null;
 }
 
@@ -67,13 +69,14 @@ export interface LocalizationValidationResult {
     context?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     is_approved?: string;
     language_code?: string;
+    localization_id?: string;
     plural_form?: string;
     resource_key?: string;
     translation?: string;
     updated_at?: string;
+    updated_by?: string;
     version?: string;
   };
 }

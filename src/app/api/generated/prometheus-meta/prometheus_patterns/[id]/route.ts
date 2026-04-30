@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusPatternsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_patterns';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.364Z
+// Generated: 2026-04-30T04:17:47.952Z
 // Table: prometheus_patterns
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('prometheus_patterns')
       .select('*')
-      .eq('id', id)
+      .eq('prometheus_patterns_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('prometheus_patterns')
       .update(validated)
-      .eq('id', id)
+      .eq('prometheus_patterns_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('prometheus_patterns').delete().eq('id', id);
+    const { error } = await supabase.from('prometheus_patterns').delete().eq('prometheus_patterns_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('prometheus_patterns');

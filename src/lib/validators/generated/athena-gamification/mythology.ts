@@ -16,14 +16,15 @@ export const MythologyRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable(),
-  id: z.string(),
   is_published: z.boolean().nullable(),
+  mythology_id: z.string(),
   order_index: z.number().nullable(),
   series_id: z.string().nullable(),
   slug: z.string(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.mythType),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const MythologyInsertSchema = z.object({
@@ -32,14 +33,15 @@ export const MythologyInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
+  mythology_id: z.string().optional(),
   order_index: z.number().nullable().optional(),
   series_id: z.string().nullable().optional(),
   slug: z.string(),
   title: z.string(),
   type: z.enum(ENUM_VALUES.mythType),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const MythologyUpdateSchema = z.object({
@@ -48,14 +50,15 @@ export const MythologyUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
+  mythology_id: z.string().optional(),
   order_index: z.number().nullable().optional(),
   series_id: z.string().nullable().optional(),
   slug: z.string().optional(),
   title: z.string().optional(),
   type: z.enum(ENUM_VALUES.mythType).optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

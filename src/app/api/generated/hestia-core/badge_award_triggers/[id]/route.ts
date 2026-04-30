@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { BadgeAwardTriggersUpdateSchema } from '@/lib/validators/generated/hestia-core/badge_award_triggers';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.644Z
+// Generated: 2026-04-30T04:17:47.025Z
 // Table: badge_award_triggers
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('badge_award_triggers')
       .select('*')
-      .eq('id', id)
+      .eq('badge_award_triggers_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('badge_award_triggers')
       .update(validated)
-      .eq('id', id)
+      .eq('badge_award_triggers_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('badge_award_triggers').delete().eq('id', id);
+    const { error } = await supabase.from('badge_award_triggers').delete().eq('badge_award_triggers_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('badge_award_triggers');

@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_generations.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T00:26:46.334Z
+// GENERATED: 2026-04-30T04:17:47.916Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -40,8 +40,8 @@ export interface PublicPrometheusGenerations {
   errors: Json | null;
   file_paths: string[] | null;
   files_generated: number;
-  id: string;
   metadata: Json | null;
+  prometheus_generations_id: string;
   session_id: string;
   status: GenerationStatus;
   ziggy_present: boolean;
@@ -61,8 +61,8 @@ export interface PrometheusGenerationsFormData {
   errors?: Json | null;
   file_paths?: string[] | null;
   files_generated?: number;
-  id?: string;
   metadata?: Json | null;
+  prometheus_generations_id?: string;
   session_id?: string;
   status?: GenerationStatus;
   ziggy_present?: boolean;
@@ -83,8 +83,8 @@ export interface PrometheusGenerationsValidationResult {
     errors?: string;
     file_paths?: string;
     files_generated?: string;
-    id?: string;
     metadata?: string;
+    prometheus_generations_id?: string;
     session_id?: string;
     status?: string;
     ziggy_present?: string;

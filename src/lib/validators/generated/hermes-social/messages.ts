@@ -14,42 +14,48 @@ export const MessagesRowSchema = z.object({
   content: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   is_read: z.boolean().nullable(),
+  messages_id: z.string(),
   parent_id: z.string().nullable(),
   read_at: z.string().nullable(),
   recipient_id: z.string(),
   sender_id: z.string(),
   status: z.enum(ENUM_VALUES.messageStatus).nullable(),
   thread_id: z.string().nullable(),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const MessagesInsertSchema = z.object({
   content: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_read: z.boolean().nullable().optional(),
+  messages_id: z.string().optional(),
   parent_id: z.string().nullable().optional(),
   read_at: z.string().nullable().optional(),
   recipient_id: z.string(),
   sender_id: z.string(),
   status: z.enum(ENUM_VALUES.messageStatus).nullable().optional(),
   thread_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const MessagesUpdateSchema = z.object({
   content: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_read: z.boolean().nullable().optional(),
+  messages_id: z.string().optional(),
   parent_id: z.string().nullable().optional(),
   read_at: z.string().nullable().optional(),
   recipient_id: z.string().optional(),
   sender_id: z.string().optional(),
   status: z.enum(ENUM_VALUES.messageStatus).nullable().optional(),
   thread_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

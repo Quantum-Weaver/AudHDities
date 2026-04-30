@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/executioner.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:45.962Z
+// GENERATED: 2026-04-30T04:17:47.355Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,10 +31,11 @@ export interface PublicExecutioner {
   created_at: string | null;
   created_by: string | null;
   execution_count: number | null;
-  id: string;
+  executioner_id: string;
   justice_log: Json | null;
   suspended_users: string[] | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -48,10 +49,11 @@ export interface ExecutionerFormData {
   created_at?: string | null;
   created_by?: string | null;
   execution_count?: number | null;
-  id?: string;
+  executioner_id?: string;
   justice_log?: Json | null;
   suspended_users?: string[] | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -66,10 +68,11 @@ export interface ExecutionerValidationResult {
     created_at?: string;
     created_by?: string;
     execution_count?: string;
-    id?: string;
+    executioner_id?: string;
     justice_log?: string;
     suspended_users?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

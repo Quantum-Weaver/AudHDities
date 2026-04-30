@@ -16,7 +16,8 @@ export const UserBadgesRowSchema = z.object({
   display_on_profile: z.boolean().nullable(),
   earned_at: z.string().nullable(),
   earned_reason: z.string().nullable(),
-  id: z.string(),
+  updated_at: z.string().nullable(),
+  user_badges_id: z.string(),
   user_id: z.string(),
 });
 
@@ -27,7 +28,8 @@ export const UserBadgesInsertSchema = z.object({
   display_on_profile: z.boolean().nullable().optional(),
   earned_at: z.string().nullable().optional(),
   earned_reason: z.string().nullable().optional(),
-  id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_badges_id: z.string().optional(),
   user_id: z.string(),
 });
 
@@ -38,7 +40,8 @@ export const UserBadgesUpdateSchema = z.object({
   display_on_profile: z.boolean().nullable().optional(),
   earned_at: z.string().nullable().optional(),
   earned_reason: z.string().nullable().optional(),
-  id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_badges_id: z.string().optional(),
   user_id: z.string().optional(),
 });
 

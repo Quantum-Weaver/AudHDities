@@ -11,6 +11,7 @@ import z from 'zod';
 // =====================================================
 
 export const CommunityProfilesRowSchema = z.object({
+  community_profiles_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   crisis_contact_email: z.string().nullable(),
@@ -21,7 +22,6 @@ export const CommunityProfilesRowSchema = z.object({
   house_initiate: z.boolean().nullable(),
   house_joined_at: z.string().nullable(),
   house_master: z.boolean().nullable(),
-  id: z.string(),
   is_mentor: z.boolean().nullable(),
   joined_house: z.enum(ENUM_VALUES.councilHouse).nullable(),
   mentee_count: z.number().nullable(),
@@ -35,6 +35,7 @@ export const CommunityProfilesRowSchema = z.object({
 });
 
 export const CommunityProfilesInsertSchema = z.object({
+  community_profiles_id: z.string(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   crisis_contact_email: z.string().nullable().optional(),
@@ -45,7 +46,6 @@ export const CommunityProfilesInsertSchema = z.object({
   house_initiate: z.boolean().nullable().optional(),
   house_joined_at: z.string().nullable().optional(),
   house_master: z.boolean().nullable().optional(),
-  id: z.string(),
   is_mentor: z.boolean().nullable().optional(),
   joined_house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
   mentee_count: z.number().nullable().optional(),
@@ -59,6 +59,7 @@ export const CommunityProfilesInsertSchema = z.object({
 });
 
 export const CommunityProfilesUpdateSchema = z.object({
+  community_profiles_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   crisis_contact_email: z.string().nullable().optional(),
@@ -69,7 +70,6 @@ export const CommunityProfilesUpdateSchema = z.object({
   house_initiate: z.boolean().nullable().optional(),
   house_joined_at: z.string().nullable().optional(),
   house_master: z.boolean().nullable().optional(),
-  id: z.string().optional(),
   is_mentor: z.boolean().nullable().optional(),
   joined_house: z.enum(ENUM_VALUES.councilHouse).nullable().optional(),
   mentee_count: z.number().nullable().optional(),

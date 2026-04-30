@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/settings.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.641Z
+// GENERATED: 2026-04-30T04:17:48.238Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,13 +34,14 @@ export interface PublicSettings {
   created_at: string | null;
   created_by: string | null;
   description: string | null;
-  id: string;
   is_public: boolean | null;
   key: string;
   scope: SettingScope;
   scope_id: string | null;
+  settings_id: string;
   type: string;
   updated_at: string | null;
+  updated_by: string | null;
   value: Json;
 }
 
@@ -52,13 +53,14 @@ export interface SettingsFormData {
   created_at?: string | null;
   created_by?: string | null;
   description?: string | null;
-  id?: string;
   is_public?: boolean | null;
   key?: string;
   scope?: SettingScope;
   scope_id?: string | null;
+  settings_id?: string;
   type?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
   value?: Json;
 }
 
@@ -71,13 +73,14 @@ export interface SettingsValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    id?: string;
     is_public?: string;
     key?: string;
     scope?: string;
     scope_id?: string;
+    settings_id?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
     value?: string;
   };
 }

@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/quantum_superposition.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:46.400Z
+// GENERATED: 2026-04-30T04:17:48.002Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -29,8 +29,9 @@ export interface PublicQuantumSuperposition {
   confidence: number;
   created_at: string | null;
   created_by: string | null;
-  id: string;
+  quantum_superposition_id: string;
   superposition_id: string;
+  updated_at: string | null;
   user_id: string;
 }
 
@@ -44,8 +45,9 @@ export interface QuantumSuperpositionFormData {
   confidence?: number;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
+  quantum_superposition_id?: string;
   superposition_id?: string;
+  updated_at?: string | null;
   user_id?: string;
 }
 
@@ -60,8 +62,9 @@ export interface QuantumSuperpositionValidationResult {
     confidence?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
+    quantum_superposition_id?: string;
     superposition_id?: string;
+    updated_at?: string;
     user_id?: string;
   };
 }

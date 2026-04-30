@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EmailCommunicationsUpdateSchema } from '@/lib/validators/generated/iris-communications/email_communications';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.911Z
+// Generated: 2026-04-30T04:17:47.287Z
 // Table: email_communications
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('email_communications')
       .select('*')
-      .eq('id', id)
+      .eq('email_communications_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('email_communications')
       .update(validated)
-      .eq('id', id)
+      .eq('email_communications_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('email_communications').delete().eq('id', id);
+    const { error } = await supabase.from('email_communications').delete().eq('email_communications_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('email_communications');

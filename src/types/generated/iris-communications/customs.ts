@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/customs.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:45.882Z
+// GENERATED: 2026-04-30T04:17:47.257Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,9 +33,9 @@ export interface PublicCustoms {
   category: CustomCategoryType;
   created_at: string | null;
   created_by: string | null;
+  customs_id: string;
   description: string;
   guidance: string | null;
-  id: string;
   is_active: boolean | null;
   is_sensitive: boolean | null;
   name: string;
@@ -43,6 +43,7 @@ export interface PublicCustoms {
   region_id: string | null;
   slug: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -53,9 +54,9 @@ export interface CustomsFormData {
   category?: CustomCategoryType;
   created_at?: string | null;
   created_by?: string | null;
+  customs_id?: string;
   description?: string;
   guidance?: string | null;
-  id?: string;
   is_active?: boolean | null;
   is_sensitive?: boolean | null;
   name?: string;
@@ -63,6 +64,7 @@ export interface CustomsFormData {
   region_id?: string | null;
   slug?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -74,9 +76,9 @@ export interface CustomsValidationResult {
     category?: string;
     created_at?: string;
     created_by?: string;
+    customs_id?: string;
     description?: string;
     guidance?: string;
-    id?: string;
     is_active?: string;
     is_sensitive?: string;
     name?: string;
@@ -84,6 +86,7 @@ export interface CustomsValidationResult {
     region_id?: string;
     slug?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

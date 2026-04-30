@@ -14,11 +14,12 @@ export const SystemTimelineEventsRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string().nullable(),
   event_type: z.string(),
-  id: z.string(),
   metadata: z.any().nullable(),
   severity: z.string().nullable(),
   source: z.string().nullable(),
+  system_timeline_events_id: z.string(),
   title: z.string(),
+  updated_at: z.string().nullable(),
 });
 
 export const SystemTimelineEventsInsertSchema = z.object({
@@ -26,11 +27,12 @@ export const SystemTimelineEventsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_type: z.string(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   severity: z.string().nullable().optional(),
   source: z.string().nullable().optional(),
+  system_timeline_events_id: z.string().optional(),
   title: z.string(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const SystemTimelineEventsUpdateSchema = z.object({
@@ -38,11 +40,12 @@ export const SystemTimelineEventsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_type: z.string().optional(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   severity: z.string().nullable().optional(),
   source: z.string().nullable().optional(),
+  system_timeline_events_id: z.string().optional(),
   title: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

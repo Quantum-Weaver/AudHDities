@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/ontology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:46.189Z
+// GENERATED: 2026-04-30T04:17:47.718Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,12 +34,13 @@ export interface PublicOntology {
   created_at: string | null;
   created_by: string | null;
   description: string | null;
-  id: string;
   is_approved: boolean | null;
   object_id: string;
+  ontology_id: string;
   predicate: OntologyPredicate;
   subject_id: string;
   updated_at: string | null;
+  updated_by: string | null;
   weight: number | null;
 }
 
@@ -52,12 +53,13 @@ export interface OntologyFormData {
   created_at?: string | null;
   created_by?: string | null;
   description?: string | null;
-  id?: string;
   is_approved?: boolean | null;
   object_id?: string;
+  ontology_id?: string;
   predicate?: OntologyPredicate;
   subject_id?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
   weight?: number | null;
 }
 
@@ -71,12 +73,13 @@ export interface OntologyValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    id?: string;
     is_approved?: string;
     object_id?: string;
+    ontology_id?: string;
     predicate?: string;
     subject_id?: string;
     updated_at?: string;
+    updated_by?: string;
     weight?: string;
   };
 }

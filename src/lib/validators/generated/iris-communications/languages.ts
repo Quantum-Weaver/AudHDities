@@ -16,13 +16,14 @@ export const LanguagesRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   direction: z.enum(ENUM_VALUES.textDirectionType).nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   is_default: z.boolean().nullable(),
+  languages_id: z.string(),
   name: z.string(),
   native_name: z.string().nullable(),
   script: z.string().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const LanguagesInsertSchema = z.object({
@@ -31,13 +32,14 @@ export const LanguagesInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   direction: z.enum(ENUM_VALUES.textDirectionType).nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_default: z.boolean().nullable().optional(),
+  languages_id: z.string().optional(),
   name: z.string(),
   native_name: z.string().nullable().optional(),
   script: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const LanguagesUpdateSchema = z.object({
@@ -46,13 +48,14 @@ export const LanguagesUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   direction: z.enum(ENUM_VALUES.textDirectionType).nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   is_default: z.boolean().nullable().optional(),
+  languages_id: z.string().optional(),
   name: z.string().optional(),
   native_name: z.string().nullable().optional(),
   script: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

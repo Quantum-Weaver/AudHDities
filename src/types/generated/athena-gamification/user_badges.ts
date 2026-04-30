@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/user_badges.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.832Z
+// GENERATED: 2026-04-30T04:17:48.439Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,7 +31,8 @@ export interface UserBadgesFormData {
   display_on_profile?: boolean | null;
   earned_at?: string | null;
   earned_reason?: string | null;
-  id?: string;
+  updated_at?: string | null;
+  user_badges_id?: string;
   user_id?: string;
 }
 

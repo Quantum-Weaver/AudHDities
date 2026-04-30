@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ScriptExecutionLogs
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:26.235Z
+// GENERATED: 2026-04-30T04:17:48.208Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getScriptExecutionLogs(id: string): Promise<ScriptExecutio
   const { data, error } = await supabase
     .from('script_execution_logs')
     .select('*')
-    .eq('id', id)
+    .eq('script_execution_logs_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateScriptExecutionLogs(id: string, data: ScriptExecutio
   const { data: result, error } = await supabase
     .from('script_execution_logs')
     .update(validated)
-    .eq('id', id)
+    .eq('script_execution_logs_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteScriptExecutionLogs(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('script_execution_logs')
     .delete()
-    .eq('id', id);
+    .eq('script_execution_logs_id', id);
   
   if (error) throw error;
   return true;

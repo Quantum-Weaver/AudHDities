@@ -17,12 +17,14 @@ export const TransactionsRowSchema = z.object({
   created_by: z.string().nullable(),
   currency: z.string().nullable(),
   from_id: z.string().nullable(),
-  id: z.string(),
   source_id: z.string(),
   status: z.enum(ENUM_VALUES.paymentStatus).nullable(),
   stripe_transfer_id: z.string().nullable(),
   to_id: z.string().nullable(),
   transaction_type: z.enum(ENUM_VALUES.transactionType),
+  transactions_id: z.string(),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const TransactionsInsertSchema = z.object({
@@ -32,12 +34,14 @@ export const TransactionsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   currency: z.string().nullable().optional(),
   from_id: z.string().nullable().optional(),
-  id: z.string().optional(),
   source_id: z.string(),
   status: z.enum(ENUM_VALUES.paymentStatus).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
   to_id: z.string().nullable().optional(),
   transaction_type: z.enum(ENUM_VALUES.transactionType),
+  transactions_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const TransactionsUpdateSchema = z.object({
@@ -47,12 +51,14 @@ export const TransactionsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   currency: z.string().nullable().optional(),
   from_id: z.string().nullable().optional(),
-  id: z.string().optional(),
   source_id: z.string().optional(),
   status: z.enum(ENUM_VALUES.paymentStatus).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
   to_id: z.string().nullable().optional(),
   transaction_type: z.enum(ENUM_VALUES.transactionType).optional(),
+  transactions_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

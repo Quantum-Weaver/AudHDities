@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CouncilHousesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/council_houses';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.805Z
+// Generated: 2026-04-30T04:17:47.173Z
 // Table: council_houses
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('council_houses')
       .select('*')
-      .eq('id', id)
+      .eq('council_houses_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('council_houses')
       .update(validated)
-      .eq('id', id)
+      .eq('council_houses_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('council_houses').delete().eq('id', id);
+    const { error } = await supabase.from('council_houses').delete().eq('council_houses_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('council_houses');

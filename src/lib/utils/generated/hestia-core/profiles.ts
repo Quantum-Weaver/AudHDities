@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Profiles
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:58:02.913Z
+// GENERATED: 2026-04-30T04:17:47.843Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getProfiles(id: string): Promise<ProfilesRow> {
   const { data, error } = await supabase
     .from('profiles')
     .select('*')
-    .eq('id', id)
+    .eq('profiles_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateProfiles(id: string, data: ProfilesUpdate): Promise<
   const { data: result, error } = await supabase
     .from('profiles')
     .update(validated)
-    .eq('id', id)
+    .eq('profiles_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteProfiles(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('profiles')
     .delete()
-    .eq('id', id);
+    .eq('profiles_id', id);
   
   if (error) throw error;
   return true;

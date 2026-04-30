@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Personas
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:25.951Z
+// GENERATED: 2026-04-30T04:17:47.793Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPersonas(id: string): Promise<PersonasRow> {
   const { data, error } = await supabase
     .from('personas')
     .select('*')
-    .eq('id', id)
+    .eq('personas_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePersonas(id: string, data: PersonasUpdate): Promise<
   const { data: result, error } = await supabase
     .from('personas')
     .update(validated)
-    .eq('id', id)
+    .eq('personas_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePersonas(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('personas')
     .delete()
-    .eq('id', id);
+    .eq('personas_id', id);
   
   if (error) throw error;
   return true;

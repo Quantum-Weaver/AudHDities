@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_bubble_pops.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.853Z
+// GENERATED: 2026-04-30T04:17:48.460Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,9 +28,10 @@ export interface PublicUserBubblePops {
   created_at: string;
   created_by: string | null;
   environment: string | null;
-  id: string;
   points_awarded: number;
   popped_at: string | null;
+  updated_at: string | null;
+  user_bubble_pops_id: string;
   user_id: string;
 }
 
@@ -43,9 +44,10 @@ export interface UserBubblePopsFormData {
   created_at?: string;
   created_by?: string | null;
   environment?: string | null;
-  id?: string;
   points_awarded?: number;
   popped_at?: string | null;
+  updated_at?: string | null;
+  user_bubble_pops_id?: string;
   user_id?: string;
 }
 
@@ -59,9 +61,10 @@ export interface UserBubblePopsValidationResult {
     created_at?: string;
     created_by?: string;
     environment?: string;
-    id?: string;
     points_awarded?: string;
     popped_at?: string;
+    updated_at?: string;
+    user_bubble_pops_id?: string;
     user_id?: string;
   };
 }

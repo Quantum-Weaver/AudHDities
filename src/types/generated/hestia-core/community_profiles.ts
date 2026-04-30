@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/community_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.746Z
+// GENERATED: 2026-04-30T04:17:47.120Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,6 +32,7 @@ export type CommunityProfilesUpdate = TablesUpdate<'community_profiles'>;
  * All fields are optional for partial updates
  */
 export interface CommunityProfilesFormData {
+  community_profiles_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   crisis_contact_email?: string | null;
@@ -42,7 +43,6 @@ export interface CommunityProfilesFormData {
   house_initiate?: boolean | null;
   house_joined_at?: string | null;
   house_master?: boolean | null;
-  id?: string;
   is_mentor?: boolean | null;
   joined_house?: CouncilHouse | null;
   mentee_count?: number | null;

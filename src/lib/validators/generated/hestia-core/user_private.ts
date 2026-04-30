@@ -17,11 +17,11 @@ export const UserPrivateRowSchema = z.object({
   date_of_birth: z.string().nullable(),
   emergency_contact: z.any().nullable(),
   government_id: z.string().nullable(),
-  id: z.string(),
   legal_name: z.string().nullable(),
   notes: z.string().nullable(),
   phone_number: z.string().nullable(),
   updated_at: z.string().nullable(),
+  user_private_id: z.string(),
 });
 
 export const UserPrivateInsertSchema = z.object({
@@ -32,11 +32,11 @@ export const UserPrivateInsertSchema = z.object({
   date_of_birth: z.string().nullable().optional(),
   emergency_contact: z.any().nullable().optional(),
   government_id: z.string().nullable().optional(),
-  id: z.string(),
   legal_name: z.string().nullable().optional(),
   notes: z.string().nullable().optional(),
   phone_number: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  user_private_id: z.string(),
 });
 
 export const UserPrivateUpdateSchema = z.object({
@@ -47,11 +47,11 @@ export const UserPrivateUpdateSchema = z.object({
   date_of_birth: z.string().nullable().optional(),
   emergency_contact: z.any().nullable().optional(),
   government_id: z.string().nullable().optional(),
-  id: z.string().optional(),
   legal_name: z.string().nullable().optional(),
   notes: z.string().nullable().optional(),
   phone_number: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  user_private_id: z.string().optional(),
 });
 
 // =====================================================

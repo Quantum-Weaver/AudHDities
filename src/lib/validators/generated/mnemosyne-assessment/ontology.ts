@@ -15,12 +15,13 @@ export const OntologyRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   description: z.string().nullable(),
-  id: z.string(),
   is_approved: z.boolean().nullable(),
   object_id: z.string(),
+  ontology_id: z.string(),
   predicate: z.enum(ENUM_VALUES.ontologyPredicate),
   subject_id: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   weight: z.number().nullable(),
 });
 
@@ -29,12 +30,13 @@ export const OntologyInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   object_id: z.string(),
+  ontology_id: z.string().optional(),
   predicate: z.enum(ENUM_VALUES.ontologyPredicate),
   subject_id: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });
 
@@ -43,12 +45,13 @@ export const OntologyUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   object_id: z.string().optional(),
+  ontology_id: z.string().optional(),
   predicate: z.enum(ENUM_VALUES.ontologyPredicate).optional(),
   subject_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });
 

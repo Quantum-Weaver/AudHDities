@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Systems
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:26.447Z
+// GENERATED: 2026-04-30T04:17:48.380Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSystems(id: string): Promise<SystemsRow> {
   const { data, error } = await supabase
     .from('systems')
     .select('*')
-    .eq('id', id)
+    .eq('systems_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSystems(id: string, data: SystemsUpdate): Promise<Sy
   const { data: result, error } = await supabase
     .from('systems')
     .update(validated)
-    .eq('id', id)
+    .eq('systems_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSystems(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('systems')
     .delete()
-    .eq('id', id);
+    .eq('systems_id', id);
   
   if (error) throw error;
   return true;

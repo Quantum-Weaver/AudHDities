@@ -15,10 +15,11 @@ export const SystemHealthLogsRowSchema = z.object({
   created_at: z.string(),
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
-  id: z.string(),
   response_time_ms: z.number().nullable(),
   status: z.enum(ENUM_VALUES.systemStatus),
+  system_health_logs_id: z.string(),
   system_id: z.string(),
+  updated_at: z.string().nullable(),
 });
 
 export const SystemHealthLogsInsertSchema = z.object({
@@ -26,10 +27,11 @@ export const SystemHealthLogsInsertSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   response_time_ms: z.number().nullable().optional(),
   status: z.enum(ENUM_VALUES.systemStatus),
+  system_health_logs_id: z.string().optional(),
   system_id: z.string(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const SystemHealthLogsUpdateSchema = z.object({
@@ -37,10 +39,11 @@ export const SystemHealthLogsUpdateSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   response_time_ms: z.number().nullable().optional(),
   status: z.enum(ENUM_VALUES.systemStatus).optional(),
+  system_health_logs_id: z.string().optional(),
   system_id: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

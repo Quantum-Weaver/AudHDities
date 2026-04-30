@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/products.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.259Z
+// GENERATED: 2026-04-30T04:17:47.821Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -42,7 +42,6 @@ export interface PublicProducts {
   creator_id: string;
   description: string | null;
   download_url: string | null;
-  id: string;
   is_published: boolean | null;
   is_recurring: boolean | null;
   media_urls: string[] | null;
@@ -52,7 +51,8 @@ export interface PublicProducts {
   price_community: number | null;
   price_corporate: number | null;
   product_type: ProductType;
-  recurring_interval: RecurringInterval;
+  products_id: string;
+  recurring_interval: RecurringInterval  | null;
   residual_pool_percent: number | null;
   sanctuary_infrastructure_percent: number | null;
   slug: string;
@@ -61,6 +61,7 @@ export interface PublicProducts {
   tags: string[] | null;
   title: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -78,7 +79,6 @@ export interface ProductsFormData {
   creator_id?: string;
   description?: string | null;
   download_url?: string | null;
-  id?: string;
   is_published?: boolean | null;
   is_recurring?: boolean | null;
   media_urls?: string[] | null;
@@ -88,6 +88,7 @@ export interface ProductsFormData {
   price_community?: number | null;
   price_corporate?: number | null;
   product_type?: ProductType;
+  products_id?: string;
   residual_pool_percent?: number | null;
   sanctuary_infrastructure_percent?: number | null;
   slug?: string;
@@ -96,6 +97,7 @@ export interface ProductsFormData {
   tags?: string[] | null;
   title?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -114,7 +116,6 @@ export interface ProductsValidationResult {
     creator_id?: string;
     description?: string;
     download_url?: string;
-    id?: string;
     is_published?: string;
     is_recurring?: string;
     media_urls?: string;
@@ -124,6 +125,7 @@ export interface ProductsValidationResult {
     price_community?: string;
     price_corporate?: string;
     product_type?: string;
+    products_id?: string;
     recurring_interval?: string;
     residual_pool_percent?: string;
     sanctuary_infrastructure_percent?: string;
@@ -133,6 +135,7 @@ export interface ProductsValidationResult {
     tags?: string;
     title?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

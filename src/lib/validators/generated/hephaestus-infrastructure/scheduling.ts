@@ -15,7 +15,6 @@ export const SchedulingRowSchema = z.object({
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
   function_name: z.string(),
-  id: z.string(),
   job_type: z.enum(ENUM_VALUES.jobType),
   last_result: z.string().nullable(),
   last_run: z.string().nullable(),
@@ -26,8 +25,11 @@ export const SchedulingRowSchema = z.object({
   retry_count: z.number().nullable(),
   run_at: z.string().nullable(),
   schedule: z.string().nullable(),
+  scheduling_id: z.string(),
+  slug: z.string().nullable(),
   status: z.enum(ENUM_VALUES.jobStatus).nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const SchedulingInsertSchema = z.object({
@@ -35,7 +37,6 @@ export const SchedulingInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   function_name: z.string(),
-  id: z.string().optional(),
   job_type: z.enum(ENUM_VALUES.jobType),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
@@ -46,8 +47,11 @@ export const SchedulingInsertSchema = z.object({
   retry_count: z.number().nullable().optional(),
   run_at: z.string().nullable().optional(),
   schedule: z.string().nullable().optional(),
+  scheduling_id: z.string().optional(),
+  slug: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.jobStatus).nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const SchedulingUpdateSchema = z.object({
@@ -55,7 +59,6 @@ export const SchedulingUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   function_name: z.string().optional(),
-  id: z.string().optional(),
   job_type: z.enum(ENUM_VALUES.jobType).optional(),
   last_result: z.string().nullable().optional(),
   last_run: z.string().nullable().optional(),
@@ -66,8 +69,11 @@ export const SchedulingUpdateSchema = z.object({
   retry_count: z.number().nullable().optional(),
   run_at: z.string().nullable().optional(),
   schedule: z.string().nullable().optional(),
+  scheduling_id: z.string().optional(),
+  slug: z.string().nullable().optional(),
   status: z.enum(ENUM_VALUES.jobStatus).nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

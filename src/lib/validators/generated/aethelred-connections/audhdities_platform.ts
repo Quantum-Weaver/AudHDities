@@ -12,9 +12,9 @@ import z from 'zod';
 
 export const AudhditiesPlatformRowSchema = z.object({
   active_users: z.number().nullable(),
+  audhdities_platform_id: z.string(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
   last_release_at: z.string().nullable(),
   operated_by: z.string().nullable(),
   release_name: z.string().nullable(),
@@ -30,9 +30,9 @@ export const AudhditiesPlatformRowSchema = z.object({
 
 export const AudhditiesPlatformInsertSchema = z.object({
   active_users: z.number().nullable().optional(),
+  audhdities_platform_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_release_at: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),
   release_name: z.string().nullable().optional(),
@@ -48,9 +48,9 @@ export const AudhditiesPlatformInsertSchema = z.object({
 
 export const AudhditiesPlatformUpdateSchema = z.object({
   active_users: z.number().nullable().optional(),
+  audhdities_platform_id: z.string().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_release_at: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),
   release_name: z.string().nullable().optional(),

@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/ledger.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.074Z
+// GENERATED: 2026-04-30T04:17:47.501Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,11 +38,13 @@ export interface PublicLedger {
   entry_type: LedgerEntryType;
   from_entity: LedgerEntity;
   from_profile_id: string | null;
-  id: string;
+  ledger_id: string;
   public_note: string | null;
   reference_id: string;
   to_entity: LedgerEntity;
   to_profile_id: string | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -57,11 +59,13 @@ export interface LedgerFormData {
   entry_type?: LedgerEntryType;
   from_entity?: LedgerEntity;
   from_profile_id?: string | null;
-  id?: string;
+  ledger_id?: string;
   public_note?: string | null;
   reference_id?: string;
   to_entity?: LedgerEntity;
   to_profile_id?: string | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -77,11 +81,13 @@ export interface LedgerValidationResult {
     entry_type?: string;
     from_entity?: string;
     from_profile_id?: string;
-    id?: string;
+    ledger_id?: string;
     public_note?: string;
     reference_id?: string;
     to_entity?: string;
     to_profile_id?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

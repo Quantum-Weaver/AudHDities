@@ -2,7 +2,7 @@ import { errorResponse, notFound, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.474Z
+// Generated: 2026-04-30T04:17:46.869Z
 // Table: acid_test_results
 
 export async function GET(
@@ -16,7 +16,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('acid_test_results')
       .select('*')
-      .eq('id', id)
+      .eq('acid_test_results_id', id)
       .single();
     
     if (error) {

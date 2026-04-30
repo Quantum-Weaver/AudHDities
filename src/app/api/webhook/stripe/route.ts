@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
       const { data: product, error: productError } = await supabase
         .from('products')
         .select('*')
-        .eq('id', productId)
+        .eq('products_id', productId)
         .single();
 
       if (productError || !product) {
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
         console.error('Failed to insert sale:', saleError);
       } else {
         console.log('Sale recorded successfully:', { 
-          saleId: sale.id, 
+          saleId: sale.sales_id, 
           productId, 
           userId, 
           amount,

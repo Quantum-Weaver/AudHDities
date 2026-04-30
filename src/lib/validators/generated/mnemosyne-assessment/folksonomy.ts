@@ -15,11 +15,13 @@ export const FolksonomyRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   creator_id: z.string(),
-  id: z.string(),
+  folksonomy_id: z.string(),
   is_approved: z.boolean().nullable(),
   tag: z.string(),
   target_id: z.string(),
   target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   weight: z.number().nullable(),
 });
 
@@ -28,11 +30,13 @@ export const FolksonomyInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   creator_id: z.string(),
-  id: z.string().optional(),
+  folksonomy_id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   tag: z.string(),
   target_id: z.string(),
   target_type: z.enum(ENUM_VALUES.folksonomyTargetType),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });
 
@@ -41,11 +45,13 @@ export const FolksonomyUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   creator_id: z.string().optional(),
-  id: z.string().optional(),
+  folksonomy_id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   tag: z.string().optional(),
   target_id: z.string().optional(),
   target_type: z.enum(ENUM_VALUES.folksonomyTargetType).optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   weight: z.number().nullable().optional(),
 });
 

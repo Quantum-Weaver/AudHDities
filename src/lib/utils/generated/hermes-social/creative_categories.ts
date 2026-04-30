@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CreativeCategories
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.593Z
+// GENERATED: 2026-04-30T04:17:47.207Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCreativeCategories(id: string): Promise<CreativeCategor
   const { data, error } = await supabase
     .from('creative_categories')
     .select('*')
-    .eq('id', id)
+    .eq('creative_categories_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCreativeCategories(id: string, data: CreativeCategor
   const { data: result, error } = await supabase
     .from('creative_categories')
     .update(validated)
-    .eq('id', id)
+    .eq('creative_categories_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCreativeCategories(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('creative_categories')
     .delete()
-    .eq('id', id);
+    .eq('creative_categories_id', id);
   
   if (error) throw error;
   return true;

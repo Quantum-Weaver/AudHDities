@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: RateLimits
 // DEITY: themis-governance
-// GENERATED: 2026-04-23T03:15:26.114Z
+// GENERATED: 2026-04-30T04:17:48.044Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getRateLimits(id: string): Promise<RateLimitsRow> {
   const { data, error } = await supabase
     .from('rate_limits')
     .select('*')
-    .eq('id', id)
+    .eq('rate_limits_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateRateLimits(id: string, data: RateLimitsUpdate): Prom
   const { data: result, error } = await supabase
     .from('rate_limits')
     .update(validated)
-    .eq('id', id)
+    .eq('rate_limits_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteRateLimits(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('rate_limits')
     .delete()
-    .eq('id', id);
+    .eq('rate_limits_id', id);
   
   if (error) throw error;
   return true;

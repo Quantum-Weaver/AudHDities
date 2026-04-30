@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Disbursements
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:25.651Z
+// GENERATED: 2026-04-30T04:17:47.281Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getDisbursements(id: string): Promise<DisbursementsRow> {
   const { data, error } = await supabase
     .from('disbursements')
     .select('*')
-    .eq('id', id)
+    .eq('disbursements_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateDisbursements(id: string, data: DisbursementsUpdate)
   const { data: result, error } = await supabase
     .from('disbursements')
     .update(validated)
-    .eq('id', id)
+    .eq('disbursements_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteDisbursements(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('disbursements')
     .delete()
-    .eq('id', id);
+    .eq('disbursements_id', id);
   
   if (error) throw error;
   return true;

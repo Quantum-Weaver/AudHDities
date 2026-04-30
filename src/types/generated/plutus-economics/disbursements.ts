@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/disbursements.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:45.893Z
+// GENERATED: 2026-04-30T04:17:47.271Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,13 +33,15 @@ export type DisbursementsUpdate = TablesUpdate<'disbursements'>;
 export interface PublicDisbursements {
   created_at: string | null;
   created_by: string | null;
-  id: string;
+  disbursements_id: string;
   processed_at: string | null;
   recipient_count: number;
   source_id: string;
   source_pool: SourcePoolType;
   status: PayoutStatus | null;
   total_amount_cents: number;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -49,13 +51,15 @@ export interface PublicDisbursements {
 export interface DisbursementsFormData {
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
+  disbursements_id?: string;
   processed_at?: string | null;
   recipient_count?: number;
   source_id?: string;
   source_pool?: SourcePoolType;
   status?: PayoutStatus | null;
   total_amount_cents?: number;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -66,13 +70,15 @@ export interface DisbursementsValidationResult {
   errors: {
     created_at?: string;
     created_by?: string;
-    id?: string;
+    disbursements_id?: string;
     processed_at?: string;
     recipient_count?: string;
     source_id?: string;
     source_pool?: string;
     status?: string;
     total_amount_cents?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

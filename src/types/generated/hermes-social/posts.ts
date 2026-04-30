@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/posts.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:46.236Z
+// GENERATED: 2026-04-30T04:17:47.795Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -40,14 +40,15 @@ export interface PublicPosts {
   created_at: string | null;
   created_by: string | null;
   emerald_count: number | null;
-  id: string;
   media_urls: string[] | null;
+  posts_id: string;
   published_at: string | null;
   resonance_count: number | null;
   sovereignty_tags: string[] | null;
   tips_received: number | null;
   title: string | null;
   updated_at: string | null;
+  updated_by: string | null;
   visibility: PostVisibility;
 }
 
@@ -65,14 +66,15 @@ export interface PostsFormData {
   created_at?: string | null;
   created_by?: string | null;
   emerald_count?: number | null;
-  id?: string;
   media_urls?: string[] | null;
+  posts_id?: string;
   published_at?: string | null;
   resonance_count?: number | null;
   sovereignty_tags?: string[] | null;
   tips_received?: number | null;
   title?: string | null;
   updated_at?: string | null;
+  updated_by?: string | null;
   visibility?: PostVisibility;
 }
 
@@ -91,14 +93,15 @@ export interface PostsValidationResult {
     created_at?: string;
     created_by?: string;
     emerald_count?: string;
-    id?: string;
     media_urls?: string;
+    posts_id?: string;
     published_at?: string;
     resonance_count?: string;
     sovereignty_tags?: string;
     tips_received?: string;
     title?: string;
     updated_at?: string;
+    updated_by?: string;
     visibility?: string;
   };
 }

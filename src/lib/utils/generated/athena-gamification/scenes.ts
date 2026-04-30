@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Scenes
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:26.215Z
+// GENERATED: 2026-04-30T04:17:48.182Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getScenes(id: string): Promise<ScenesRow> {
   const { data, error } = await supabase
     .from('scenes')
     .select('*')
-    .eq('id', id)
+    .eq('scenes_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateScenes(id: string, data: ScenesUpdate): Promise<Scen
   const { data: result, error } = await supabase
     .from('scenes')
     .update(validated)
-    .eq('id', id)
+    .eq('scenes_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteScenes(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('scenes')
     .delete()
-    .eq('id', id);
+    .eq('scenes_id', id);
   
   if (error) throw error;
   return true;

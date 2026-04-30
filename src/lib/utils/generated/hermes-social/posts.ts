@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Posts
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.963Z
+// GENERATED: 2026-04-30T04:17:47.806Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPosts(id: string): Promise<PostsRow> {
   const { data, error } = await supabase
     .from('posts')
     .select('*')
-    .eq('id', id)
+    .eq('posts_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePosts(id: string, data: PostsUpdate): Promise<PostsR
   const { data: result, error } = await supabase
     .from('posts')
     .update(validated)
-    .eq('id', id)
+    .eq('posts_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePosts(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('posts')
     .delete()
-    .eq('id', id);
+    .eq('posts_id', id);
   
   if (error) throw error;
   return true;

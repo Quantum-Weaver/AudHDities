@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusBoundaries
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.021Z
+// GENERATED: 2026-04-30T04:17:47.895Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusBoundaries(id: string): Promise<PrometheusBou
   const { data, error } = await supabase
     .from('prometheus_boundaries')
     .select('*')
-    .eq('id', id)
+    .eq('prometheus_boundaries_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusBoundaries(id: string, data: PrometheusBou
   const { data: result, error } = await supabase
     .from('prometheus_boundaries')
     .update(validated)
-    .eq('id', id)
+    .eq('prometheus_boundaries_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusBoundaries(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('prometheus_boundaries')
     .delete()
-    .eq('id', id);
+    .eq('prometheus_boundaries_id', id);
   
   if (error) throw error;
   return true;

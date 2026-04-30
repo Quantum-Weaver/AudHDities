@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_private.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.969Z
+// GENERATED: 2026-04-30T04:17:48.500Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,11 +32,11 @@ export interface PublicUserPrivate {
   date_of_birth: string | null;
   emergency_contact: Json | null;
   government_id: string | null;
-  id: string;
   legal_name: string | null;
   notes: string | null;
   phone_number: string | null;
   updated_at: string | null;
+  user_private_id: string;
 }
 
 /**
@@ -51,11 +51,11 @@ export interface UserPrivateFormData {
   date_of_birth?: string | null;
   emergency_contact?: Json | null;
   government_id?: string | null;
-  id?: string;
   legal_name?: string | null;
   notes?: string | null;
   phone_number?: string | null;
   updated_at?: string | null;
+  user_private_id?: string;
 }
 
 /**
@@ -71,11 +71,11 @@ export interface UserPrivateValidationResult {
     date_of_birth?: string;
     emergency_contact?: string;
     government_id?: string;
-    id?: string;
     legal_name?: string;
     notes?: string;
     phone_number?: string;
     updated_at?: string;
+    user_private_id?: string;
   };
 }
 

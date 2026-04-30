@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.273Z
+// Generated: 2026-04-30T04:17:47.836Z
 // Table: profiles
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
-      .eq('id', id)
+      .eq('profiles_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('profiles')
       .update(validated)
-      .eq('id', id)
+      .eq('profiles_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('profiles').delete().eq('id', id);
+    const { error } = await supabase.from('profiles').delete().eq('profiles_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('profiles');

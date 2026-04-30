@@ -16,11 +16,12 @@ export const PersonasRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string(),
   description: z.string(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   name: z.string(),
+  personas_id: z.string(),
   slug: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const PersonasInsertSchema = z.object({
@@ -30,11 +31,12 @@ export const PersonasInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string(),
   description: z.string(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string(),
+  personas_id: z.string().optional(),
   slug: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const PersonasUpdateSchema = z.object({
@@ -44,11 +46,12 @@ export const PersonasUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().optional(),
   description: z.string().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string().optional(),
+  personas_id: z.string().optional(),
   slug: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

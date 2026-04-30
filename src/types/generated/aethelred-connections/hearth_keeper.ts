@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/hearth_keeper.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.034Z
+// GENERATED: 2026-04-30T04:17:47.435Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -29,7 +29,7 @@ export interface PublicHearthKeeper {
   created_at: string | null;
   created_by: string | null;
   crisis_resources: Json | null;
-  id: string;
+  hearth_keeper_id: string;
   moderators: string[] | null;
   reported_content_queue: Json | null;
   safety_protocols: Json | null;
@@ -47,7 +47,7 @@ export interface HearthKeeperFormData {
   created_at?: string | null;
   created_by?: string | null;
   crisis_resources?: Json | null;
-  id?: string;
+  hearth_keeper_id?: string;
   moderators?: string[] | null;
   reported_content_queue?: Json | null;
   safety_protocols?: Json | null;
@@ -66,7 +66,7 @@ export interface HearthKeeperValidationResult {
     created_at?: string;
     created_by?: string;
     crisis_resources?: string;
-    id?: string;
+    hearth_keeper_id?: string;
     moderators?: string;
     reported_content_queue?: string;
     safety_protocols?: string;

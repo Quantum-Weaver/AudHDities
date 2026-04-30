@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/rate_limits.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-04-30T00:26:46.427Z
+// GENERATED: 2026-04-30T04:17:48.033Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -27,9 +27,10 @@ export interface PublicRateLimits {
   created_at: string | null;
   created_by: string | null;
   endpoint: string;
-  id: string;
   identifier: string;
+  rate_limits_id: string;
   request_count: number | null;
+  updated_at: string | null;
   window_start: string | null;
 }
 
@@ -41,9 +42,10 @@ export interface RateLimitsFormData {
   created_at?: string | null;
   created_by?: string | null;
   endpoint?: string;
-  id?: string;
   identifier?: string;
+  rate_limits_id?: string;
   request_count?: number | null;
+  updated_at?: string | null;
   window_start?: string | null;
 }
 
@@ -56,9 +58,10 @@ export interface RateLimitsValidationResult {
     created_at?: string;
     created_by?: string;
     endpoint?: string;
-    id?: string;
     identifier?: string;
+    rate_limits_id?: string;
     request_count?: string;
+    updated_at?: string;
     window_start?: string;
   };
 }

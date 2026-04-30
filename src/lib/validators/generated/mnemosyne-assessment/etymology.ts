@@ -17,7 +17,7 @@ export const EtymologyRowSchema = z.object({
   created_by: z.string().nullable(),
   cultural_context: z.string().nullable(),
   current_meaning: z.string(),
-  id: z.string(),
+  etymology_id: z.string(),
   is_approved: z.boolean().nullable(),
   language: z.string(),
   original_meaning: z.string(),
@@ -25,6 +25,7 @@ export const EtymologyRowSchema = z.object({
   root: z.string().nullable(),
   semantic_shift: z.string().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   word: z.string(),
 });
 
@@ -36,7 +37,7 @@ export const EtymologyInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   cultural_context: z.string().nullable().optional(),
   current_meaning: z.string(),
-  id: z.string().optional(),
+  etymology_id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language: z.string(),
   original_meaning: z.string(),
@@ -44,6 +45,7 @@ export const EtymologyInsertSchema = z.object({
   root: z.string().nullable().optional(),
   semantic_shift: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   word: z.string(),
 });
 
@@ -55,7 +57,7 @@ export const EtymologyUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   cultural_context: z.string().nullable().optional(),
   current_meaning: z.string().optional(),
-  id: z.string().optional(),
+  etymology_id: z.string().optional(),
   is_approved: z.boolean().nullable().optional(),
   language: z.string().optional(),
   original_meaning: z.string().optional(),
@@ -63,6 +65,7 @@ export const EtymologyUpdateSchema = z.object({
   root: z.string().nullable().optional(),
   semantic_shift: z.string().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   word: z.string().optional(),
 });
 

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Settings
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:26.267Z
+// GENERATED: 2026-04-30T04:17:48.250Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSettings(id: string): Promise<SettingsRow> {
   const { data, error } = await supabase
     .from('settings')
     .select('*')
-    .eq('id', id)
+    .eq('settings_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSettings(id: string, data: SettingsUpdate): Promise<
   const { data: result, error } = await supabase
     .from('settings')
     .update(validated)
-    .eq('id', id)
+    .eq('settings_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSettings(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('settings')
     .delete()
-    .eq('id', id);
+    .eq('settings_id', id);
   
   if (error) throw error;
   return true;

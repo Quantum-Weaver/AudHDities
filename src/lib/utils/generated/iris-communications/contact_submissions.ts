@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ContactSubmissions
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:25.547Z
+// GENERATED: 2026-04-30T04:17:47.150Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getContactSubmissions(id: string): Promise<ContactSubmissi
   const { data, error } = await supabase
     .from('contact_submissions')
     .select('*')
-    .eq('id', id)
+    .eq('contact_submissions_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateContactSubmissions(id: string, data: ContactSubmissi
   const { data: result, error } = await supabase
     .from('contact_submissions')
     .update(validated)
-    .eq('id', id)
+    .eq('contact_submissions_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteContactSubmissions(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('contact_submissions')
     .delete()
-    .eq('id', id);
+    .eq('contact_submissions_id', id);
   
   if (error) throw error;
   return true;

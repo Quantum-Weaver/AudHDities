@@ -16,7 +16,6 @@ export const VercelConnectionRowSchema = z.object({
   deployment_url: z.string(),
   domain_config: z.any().nullable(),
   environment_variables: z.any().nullable(),
-  id: z.string(),
   last_deployment_at: z.string().nullable(),
   last_deployment_id: z.string().nullable(),
   operated_by: z.string().nullable(),
@@ -24,6 +23,7 @@ export const VercelConnectionRowSchema = z.object({
   project_id: z.string(),
   project_name: z.string(),
   updated_at: z.string().nullable(),
+  vercel_connection_id: z.string(),
 });
 
 export const VercelConnectionInsertSchema = z.object({
@@ -32,7 +32,6 @@ export const VercelConnectionInsertSchema = z.object({
   deployment_url: z.string(),
   domain_config: z.any().nullable().optional(),
   environment_variables: z.any().nullable().optional(),
-  id: z.string().optional(),
   last_deployment_at: z.string().nullable().optional(),
   last_deployment_id: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),
@@ -40,6 +39,7 @@ export const VercelConnectionInsertSchema = z.object({
   project_id: z.string(),
   project_name: z.string(),
   updated_at: z.string().nullable().optional(),
+  vercel_connection_id: z.string().optional(),
 });
 
 export const VercelConnectionUpdateSchema = z.object({
@@ -48,7 +48,6 @@ export const VercelConnectionUpdateSchema = z.object({
   deployment_url: z.string().optional(),
   domain_config: z.any().nullable().optional(),
   environment_variables: z.any().nullable().optional(),
-  id: z.string().optional(),
   last_deployment_at: z.string().nullable().optional(),
   last_deployment_id: z.string().nullable().optional(),
   operated_by: z.string().nullable().optional(),
@@ -56,6 +55,7 @@ export const VercelConnectionUpdateSchema = z.object({
   project_id: z.string().optional(),
   project_name: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  vercel_connection_id: z.string().optional(),
 });
 
 // =====================================================

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Timelines
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:26.474Z
+// GENERATED: 2026-04-30T04:17:48.409Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getTimelines(id: string): Promise<TimelinesRow> {
   const { data, error } = await supabase
     .from('timelines')
     .select('*')
-    .eq('id', id)
+    .eq('timelines_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateTimelines(id: string, data: TimelinesUpdate): Promis
   const { data: result, error } = await supabase
     .from('timelines')
     .update(validated)
-    .eq('id', id)
+    .eq('timelines_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteTimelines(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('timelines')
     .delete()
-    .eq('id', id);
+    .eq('timelines_id', id);
   
   if (error) throw error;
   return true;

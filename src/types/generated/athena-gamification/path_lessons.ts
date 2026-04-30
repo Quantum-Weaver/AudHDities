@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/path_lessons.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.201Z
+// GENERATED: 2026-04-30T04:17:47.746Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -28,7 +28,8 @@ export interface PublicPathLessons {
   created_by: string | null;
   lesson_id: string;
   order_index: number;
-  path_id: string;
+  path_lessons_id: string;
+  updated_at: string | null;
 }
 
 /**
@@ -40,7 +41,8 @@ export interface PathLessonsFormData {
   created_by?: string | null;
   lesson_id?: string;
   order_index?: number;
-  path_id?: string;
+  path_lessons_id?: string;
+  updated_at?: string | null;
 }
 
 /**
@@ -53,7 +55,8 @@ export interface PathLessonsValidationResult {
     created_by?: string;
     lesson_id?: string;
     order_index?: string;
-    path_id?: string;
+    path_lessons_id?: string;
+    updated_at?: string;
   };
 }
 

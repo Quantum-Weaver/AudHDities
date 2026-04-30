@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Translations
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:26.497Z
+// GENERATED: 2026-04-30T04:17:48.437Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getTranslations(id: string): Promise<TranslationsRow> {
   const { data, error } = await supabase
     .from('translations')
     .select('*')
-    .eq('id', id)
+    .eq('translations_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateTranslations(id: string, data: TranslationsUpdate): 
   const { data: result, error } = await supabase
     .from('translations')
     .update(validated)
-    .eq('id', id)
+    .eq('translations_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteTranslations(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('translations')
     .delete()
-    .eq('id', id);
+    .eq('translations_id', id);
   
   if (error) throw error;
   return true;

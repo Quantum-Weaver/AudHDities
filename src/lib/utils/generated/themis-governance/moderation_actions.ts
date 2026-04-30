@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ModerationActions
 // DEITY: themis-governance
-// GENERATED: 2026-04-23T03:15:25.881Z
+// GENERATED: 2026-04-30T04:17:47.662Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getModerationActions(id: string): Promise<ModerationAction
   const { data, error } = await supabase
     .from('moderation_actions')
     .select('*')
-    .eq('id', id)
+    .eq('moderation_actions_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateModerationActions(id: string, data: ModerationAction
   const { data: result, error } = await supabase
     .from('moderation_actions')
     .update(validated)
-    .eq('id', id)
+    .eq('moderation_actions_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteModerationActions(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('moderation_actions')
     .delete()
-    .eq('id', id);
+    .eq('moderation_actions_id', id);
   
   if (error) throw error;
   return true;

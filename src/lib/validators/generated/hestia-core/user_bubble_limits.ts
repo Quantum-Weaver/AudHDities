@@ -16,6 +16,7 @@ export const UserBubbleLimitsRowSchema = z.object({
   hourly_pops: z.number().nullable(),
   last_pop_at: z.string().nullable(),
   reset_date: z.string().nullable(),
+  updated_at: z.string().nullable(),
   user_id: z.string(),
 });
 
@@ -26,6 +27,7 @@ export const UserBubbleLimitsInsertSchema = z.object({
   hourly_pops: z.number().nullable().optional(),
   last_pop_at: z.string().nullable().optional(),
   reset_date: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string(),
 });
 
@@ -36,6 +38,7 @@ export const UserBubbleLimitsUpdateSchema = z.object({
   hourly_pops: z.number().nullable().optional(),
   last_pop_at: z.string().nullable().optional(),
   reset_date: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
 });
 

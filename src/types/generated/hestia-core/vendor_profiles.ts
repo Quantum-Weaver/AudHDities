@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vendor_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.987Z
+// GENERATED: 2026-04-30T04:17:48.520Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,7 +38,6 @@ export interface VendorProfilesFormData {
   business_type?: BusinessType | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   product_categories?: string[] | null;
   profile_id?: string;
   stripe_account_id?: string | null;
@@ -46,6 +45,7 @@ export interface VendorProfilesFormData {
   total_products?: number | null;
   total_sales?: number | null;
   updated_at?: string | null;
+  vendor_profiles_id?: string;
   verified_at?: string | null;
   verified_badge?: boolean | null;
   verified_by?: string | null;

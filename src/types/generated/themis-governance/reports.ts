@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/reports.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-04-30T00:26:46.488Z
+// GENERATED: 2026-04-30T04:17:48.088Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,7 +34,6 @@ export type ReportsUpdate = TablesUpdate<'reports'>;
 export interface PublicReports {
   created_at: string | null;
   created_by: string | null;
-  id: string;
   moderation_notes: string | null;
   moderator_id: string | null;
   reason: string;
@@ -43,12 +42,14 @@ export interface PublicReports {
   reported_url: string | null;
   reported_user_id: string | null;
   reporter_id: string;
+  reports_id: string;
   resolution: string | null;
   resolved_at: string | null;
   status: ReportStatus | null;
   target_id: string;
   target_type: ReportTargetType;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -58,7 +59,6 @@ export interface PublicReports {
 export interface ReportsFormData {
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   moderation_notes?: string | null;
   moderator_id?: string | null;
   reason?: string;
@@ -67,12 +67,14 @@ export interface ReportsFormData {
   reported_url?: string | null;
   reported_user_id?: string | null;
   reporter_id?: string;
+  reports_id?: string;
   resolution?: string | null;
   resolved_at?: string | null;
   status?: ReportStatus | null;
   target_id?: string;
   target_type?: ReportTargetType;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -83,7 +85,6 @@ export interface ReportsValidationResult {
   errors: {
     created_at?: string;
     created_by?: string;
-    id?: string;
     moderation_notes?: string;
     moderator_id?: string;
     reason?: string;
@@ -92,12 +93,14 @@ export interface ReportsValidationResult {
     reported_url?: string;
     reported_user_id?: string;
     reporter_id?: string;
+    reports_id?: string;
     resolution?: string;
     resolved_at?: string;
     status?: string;
     target_id?: string;
     target_type?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

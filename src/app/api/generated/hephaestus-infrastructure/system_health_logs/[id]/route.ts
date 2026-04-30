@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SystemHealthLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/system_health_logs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.743Z
+// Generated: 2026-04-30T04:17:48.340Z
 // Table: system_health_logs
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('system_health_logs')
       .select('*')
-      .eq('id', id)
+      .eq('system_health_logs_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('system_health_logs')
       .update(validated)
-      .eq('id', id)
+      .eq('system_health_logs_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('system_health_logs').delete().eq('id', id);
+    const { error } = await supabase.from('system_health_logs').delete().eq('system_health_logs_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('system_health_logs');

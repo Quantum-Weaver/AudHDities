@@ -19,12 +19,13 @@ export const LessonsRowSchema = z.object({
   creator_id: z.string(),
   description: z.string(),
   duration_minutes: z.number().nullable(),
-  id: z.string(),
   is_published: z.boolean().nullable(),
+  lessons_id: z.string(),
   order_index: z.number().nullable(),
   slug: z.string(),
   title: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const LessonsInsertSchema = z.object({
@@ -36,12 +37,13 @@ export const LessonsInsertSchema = z.object({
   creator_id: z.string(),
   description: z.string(),
   duration_minutes: z.number().nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
+  lessons_id: z.string().optional(),
   order_index: z.number().nullable().optional(),
   slug: z.string(),
   title: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const LessonsUpdateSchema = z.object({
@@ -53,12 +55,13 @@ export const LessonsUpdateSchema = z.object({
   creator_id: z.string().optional(),
   description: z.string().optional(),
   duration_minutes: z.number().nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
+  lessons_id: z.string().optional(),
   order_index: z.number().nullable().optional(),
   slug: z.string().optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

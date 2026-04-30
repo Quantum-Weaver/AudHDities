@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Processes
 // DEITY: themis-governance
-// GENERATED: 2026-04-23T03:15:25.974Z
+// GENERATED: 2026-04-30T04:17:47.819Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getProcesses(id: string): Promise<ProcessesRow> {
   const { data, error } = await supabase
     .from('processes')
     .select('*')
-    .eq('id', id)
+    .eq('processes_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateProcesses(id: string, data: ProcessesUpdate): Promis
   const { data: result, error } = await supabase
     .from('processes')
     .update(validated)
-    .eq('id', id)
+    .eq('processes_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteProcesses(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('processes')
     .delete()
-    .eq('id', id);
+    .eq('processes_id', id);
   
   if (error) throw error;
   return true;

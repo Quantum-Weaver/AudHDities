@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Activity
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.348Z
+// GENERATED: 2026-04-30T04:17:46.885Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getActivity(id: string): Promise<ActivityRow> {
   const { data, error } = await supabase
     .from('activity')
     .select('*')
-    .eq('id', id)
+    .eq('activity_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateActivity(id: string, data: ActivityUpdate): Promise<
   const { data: result, error } = await supabase
     .from('activity')
     .update(validated)
-    .eq('id', id)
+    .eq('activity_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteActivity(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('activity')
     .delete()
-    .eq('id', id);
+    .eq('activity_id', id);
   
   if (error) throw error;
   return true;

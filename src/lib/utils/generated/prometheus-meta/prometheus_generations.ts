@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusGenerations
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.041Z
+// GENERATED: 2026-04-30T04:17:47.929Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusGenerations(id: string): Promise<PrometheusGe
   const { data, error } = await supabase
     .from('prometheus_generations')
     .select('*')
-    .eq('id', id)
+    .eq('prometheus_generations_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusGenerations(id: string, data: PrometheusGe
   const { data: result, error } = await supabase
     .from('prometheus_generations')
     .update(validated)
-    .eq('id', id)
+    .eq('prometheus_generations_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusGenerations(id: string): Promise<boolean> 
   const { error } = await supabase
     .from('prometheus_generations')
     .delete()
-    .eq('id', id);
+    .eq('prometheus_generations_id', id);
   
   if (error) throw error;
   return true;

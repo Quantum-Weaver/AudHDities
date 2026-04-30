@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ModerationActionsUpdateSchema } from '@/lib/validators/generated/themis-governance/moderation_actions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.155Z
+// Generated: 2026-04-30T04:17:47.605Z
 // Table: moderation_actions
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('moderation_actions')
       .select('*')
-      .eq('id', id)
+      .eq('moderation_actions_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('moderation_actions')
       .update(validated)
-      .eq('id', id)
+      .eq('moderation_actions_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('moderation_actions').delete().eq('id', id);
+    const { error } = await supabase.from('moderation_actions').delete().eq('moderation_actions_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('moderation_actions');

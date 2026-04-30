@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AgentConversationsUpdateSchema } from '@/lib/validators/generated/hestia-core/agent_conversations';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.555Z
+// Generated: 2026-04-30T04:17:46.949Z
 // Table: agent_conversations
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('agent_conversations')
       .select('*')
-      .eq('id', id)
+      .eq('agent_conversations_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('agent_conversations')
       .update(validated)
-      .eq('id', id)
+      .eq('agent_conversations_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('agent_conversations').delete().eq('id', id);
+    const { error } = await supabase.from('agent_conversations').delete().eq('agent_conversations_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('agent_conversations');

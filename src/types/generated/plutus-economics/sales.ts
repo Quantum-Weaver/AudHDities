@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/sales.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.548Z
+// GENERATED: 2026-04-30T04:17:48.143Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,19 +38,21 @@ export interface PublicSales {
   created_by: string | null;
   creator_earnings_cents: number;
   gross_amount: number;
-  id: string;
   nd_price_applied: boolean | null;
   net_amount: number | null;
   payment_processor_fee: number | null;
   payment_status: PaymentStatus | null;
   platform_fee_cents: number;
   product_id: string;
+  sales_id: string;
   stripe_payment_intent: string | null;
   stripe_session_id: string | null;
   tier_applied: UserTier;
   to_creator_immediate: number | null;
   to_infrastructure: number | null;
   to_residual_pool: number | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -65,19 +67,21 @@ export interface SalesFormData {
   created_by?: string | null;
   creator_earnings_cents?: number;
   gross_amount?: number;
-  id?: string;
   nd_price_applied?: boolean | null;
   net_amount?: number | null;
   payment_processor_fee?: number | null;
   payment_status?: PaymentStatus | null;
   platform_fee_cents?: number;
   product_id?: string;
+  sales_id?: string;
   stripe_payment_intent?: string | null;
   stripe_session_id?: string | null;
   tier_applied?: UserTier;
   to_creator_immediate?: number | null;
   to_infrastructure?: number | null;
   to_residual_pool?: number | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -93,19 +97,21 @@ export interface SalesValidationResult {
     created_by?: string;
     creator_earnings_cents?: string;
     gross_amount?: string;
-    id?: string;
     nd_price_applied?: string;
     net_amount?: string;
     payment_processor_fee?: string;
     payment_status?: string;
     platform_fee_cents?: string;
     product_id?: string;
+    sales_id?: string;
     stripe_payment_intent?: string;
     stripe_session_id?: string;
     tier_applied?: string;
     to_creator_immediate?: string;
     to_infrastructure?: string;
     to_residual_pool?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/channels.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.708Z
+// GENERATED: 2026-04-30T04:17:47.084Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,19 +33,21 @@ export interface PublicChannels {
   allow_subscriptions: boolean | null;
   avatar_url: string | null;
   banner_url: string | null;
+  channels_id: string;
   content_rating: ContentRating | null;
   created_at: string | null;
   created_by: string | null;
   description: string | null;
   display_name: string;
   handle: string;
-  id: string;
   owner_id: string | null;
+  slug: string | null;
   subscriber_count: number | null;
   subscription_price_ally: number | null;
   subscription_price_community: number | null;
   total_emeralds: number | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -56,19 +58,21 @@ export interface ChannelsFormData {
   allow_subscriptions?: boolean | null;
   avatar_url?: string | null;
   banner_url?: string | null;
+  channels_id?: string;
   content_rating?: ContentRating | null;
   created_at?: string | null;
   created_by?: string | null;
   description?: string | null;
   display_name?: string;
   handle?: string;
-  id?: string;
   owner_id?: string | null;
+  slug?: string | null;
   subscriber_count?: number | null;
   subscription_price_ally?: number | null;
   subscription_price_community?: number | null;
   total_emeralds?: number | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -80,19 +84,21 @@ export interface ChannelsValidationResult {
     allow_subscriptions?: string;
     avatar_url?: string;
     banner_url?: string;
+    channels_id?: string;
     content_rating?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
     display_name?: string;
     handle?: string;
-    id?: string;
     owner_id?: string;
+    slug?: string;
     subscriber_count?: string;
     subscription_price_ally?: string;
     subscription_price_community?: string;
     total_emeralds?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

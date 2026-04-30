@@ -120,16 +120,16 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
     case ACID_QUESTION_TYPE.MULTIPLE_CHOICE:
       return (
         <RadioGroup
-        name={question.id}
+        name={question.acid_test_questions_id}
           value={typeof currentValue === "string" ? currentValue : ""}
           onChange={(val) => {
-            const selectedAnswer = question.answers.find(a => a.id === val);
+            const selectedAnswer = question.answers.find(a => a.acid_test_answers_id === val);
             if (selectedAnswer) {
               onChange({
-                questionId: question.id,
-                answerId: selectedAnswer.id,
+                questionId: question.acid_test_questions_id,
+                answerId: selectedAnswer.acid_test_answers_id,
                 score: selectedAnswer.score_value || 0,
-                value: selectedAnswer.id,
+                value: selectedAnswer.acid_test_answers_id,
               });
             }
           }}
@@ -137,8 +137,8 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
         >
           {question.answers.map((answer) => (
             <Radio
-              key={answer.id}
-              value={answer.id}
+              key={answer.acid_test_answers_id}
+              value={answer.acid_test_answers_id}
               label={answer.answer_text}
               disabled={disabled}
               className="w-full p-4 border border-star-dust/10 rounded-lg data-[state=checked]:border-neurospark data-[state=checked]:bg-neurospark/10"
@@ -152,7 +152,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
         const normalizedVals = Array.isArray(vals) ? vals : [vals];
         const score = normalizedVals[0];
         onChange({
-          questionId: question.id,
+          questionId: question.acid_test_questions_id,
           answerId: "",
           score: Math.floor(score / 10),
           value: score,
@@ -165,7 +165,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
             value={typeof currentValue === "number" ? currentValue : 50}
             onChange={(val) => {
               onChange({
-                questionId: question.id,
+                questionId: question.acid_test_questions_id,
                 answerId: "",
                 score: Math.floor(val / 10),
                 value: val,
@@ -194,7 +194,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
               type="button"
               onClick={() => {
                 onChange({
-                  questionId: question.id,
+                  questionId: question.acid_test_questions_id,
                   answerId: "",
                   score: val,
                   value: val,
@@ -220,7 +220,7 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
           value={typeof currentValue === "string" ? currentValue : ""}
           onChange={(e) => {
             onChange({
-              questionId: question.id,
+              questionId: question.acid_test_questions_id,
               answerId: "",
               score: 0,
               value: e.target.value,
@@ -366,7 +366,7 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   const [error, setError] = useState<string | null>(null);
 
   const currentQuestion = questions[currentIndex];
-  const currentAnswer = answers.find(a => a.questionId === currentQuestion?.id);
+  const currentAnswer = answers.find(a => a.questionId === currentQuestion?.acid_test_questions_id);
   const isLastQuestion = currentIndex === questions.length - 1;
   const isFirstQuestion = currentIndex === 0;
 

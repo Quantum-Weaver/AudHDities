@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FileRegistryInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/file_registry';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.979Z
+// Generated: 2026-04-30T04:17:47.376Z
 // Table: file_registry
 
 export async function GET(request: NextRequest) {

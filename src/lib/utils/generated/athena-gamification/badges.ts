@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Badges
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:25.463Z
+// GENERATED: 2026-04-30T04:17:47.045Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getBadges(id: string): Promise<BadgesRow> {
   const { data, error } = await supabase
     .from('badges')
     .select('*')
-    .eq('id', id)
+    .eq('badges_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateBadges(id: string, data: BadgesUpdate): Promise<Badg
   const { data: result, error } = await supabase
     .from('badges')
     .update(validated)
-    .eq('id', id)
+    .eq('badges_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteBadges(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('badges')
     .delete()
-    .eq('id', id);
+    .eq('badges_id', id);
   
   if (error) throw error;
   return true;

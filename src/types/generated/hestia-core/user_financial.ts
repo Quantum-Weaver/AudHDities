@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:46.867Z
+// GENERATED: 2026-04-30T04:17:48.473Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -39,13 +39,13 @@ export interface PublicUserFinancial {
   created_at: string | null;
   created_by: string | null;
   crypto_addresses: Json | null;
-  default_payout_method: PayoutMethod;
-  id: string;
+  default_payout_method: PayoutMethod  | null;
   minimum_payout: number | null;
-  payout_frequency: PayoutFrequency;
+  payout_frequency: PayoutFrequency  | null;
   paypal_email: string | null;
   residual_pledge_percent: number | null;
   updated_at: string | null;
+  user_financial_id: string;
 }
 
 /**
@@ -59,12 +59,12 @@ export interface UserFinancialFormData {
   created_at?: string | null;
   created_by?: string | null;
   crypto_addresses?: Json | null;
-  id?: string;
   minimum_payout?: number | null;
   paypal_email?: string | null;
   residual_pledge_percent?: number | null;
   stripe_account_id?: string | null;
   updated_at?: string | null;
+  user_financial_id?: string;
 }
 
 /**
@@ -80,13 +80,13 @@ export interface UserFinancialValidationResult {
     created_by?: string;
     crypto_addresses?: string;
     default_payout_method?: string;
-    id?: string;
     minimum_payout?: string;
     payout_frequency?: string;
     paypal_email?: string;
     residual_pledge_percent?: string;
     stripe_account_id?: string;
     updated_at?: string;
+    user_financial_id?: string;
   };
 }
 

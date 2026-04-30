@@ -16,9 +16,10 @@ export const EntityStateLogRowSchema = z.object({
   current_task: z.string().nullable(),
   energy_level: z.number().nullable(),
   entity_name: z.enum(ENUM_VALUES.agentName),
-  id: z.string(),
+  entity_state_log_id: z.string(),
   metadata: z.any().nullable(),
   state: z.enum(ENUM_VALUES.entityState),
+  updated_at: z.string().nullable(),
 });
 
 export const EntityStateLogInsertSchema = z.object({
@@ -27,9 +28,10 @@ export const EntityStateLogInsertSchema = z.object({
   current_task: z.string().nullable().optional(),
   energy_level: z.number().nullable().optional(),
   entity_name: z.enum(ENUM_VALUES.agentName),
-  id: z.string().optional(),
+  entity_state_log_id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   state: z.enum(ENUM_VALUES.entityState),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const EntityStateLogUpdateSchema = z.object({
@@ -38,9 +40,10 @@ export const EntityStateLogUpdateSchema = z.object({
   current_task: z.string().nullable().optional(),
   energy_level: z.number().nullable().optional(),
   entity_name: z.enum(ENUM_VALUES.agentName).optional(),
-  id: z.string().optional(),
+  entity_state_log_id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   state: z.enum(ENUM_VALUES.entityState).optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/badge_award_triggers.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T00:26:45.640Z
+// GENERATED: 2026-04-30T04:17:47.023Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,10 +25,10 @@ export type BadgeAwardTriggersUpdate = TablesUpdate<'badge_award_triggers'>;
  * Public view of badge_award_triggers
  */
 export interface PublicBadgeAwardTriggers {
+  badge_award_triggers_id: string;
   badge_id: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   is_active: boolean | null;
   trigger_config: Json;
   trigger_type: string;
@@ -40,10 +40,10 @@ export interface PublicBadgeAwardTriggers {
  * All fields are optional for partial updates
  */
 export interface BadgeAwardTriggersFormData {
+  badge_award_triggers_id?: string;
   badge_id?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   is_active?: boolean | null;
   trigger_config?: Json;
   trigger_type?: string;
@@ -56,10 +56,10 @@ export interface BadgeAwardTriggersFormData {
 export interface BadgeAwardTriggersValidationResult {
   valid: boolean;
   errors: {
+    badge_award_triggers_id?: string;
     badge_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     is_active?: string;
     trigger_config?: string;
     trigger_type?: string;

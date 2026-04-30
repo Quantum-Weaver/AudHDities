@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/moderation_actions.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-04-30T00:26:46.152Z
+// GENERATED: 2026-04-30T04:17:47.602Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,9 +36,9 @@ export interface PublicModerationActions {
   created_at: string | null;
   created_by: string | null;
   duration: string | null;
-  id: string;
   is_reverted: boolean | null;
   metadata: Json | null;
+  moderation_actions_id: string;
   moderator_id: string;
   reason: string | null;
   revert_reason: string | null;
@@ -46,6 +46,7 @@ export interface PublicModerationActions {
   reverted_by: string | null;
   target_id: string;
   target_type: ModerationTargetType;
+  updated_at: string | null;
 }
 
 /**
@@ -57,9 +58,9 @@ export interface ModerationActionsFormData {
   created_at?: string | null;
   created_by?: string | null;
   duration?: string | null;
-  id?: string;
   is_reverted?: boolean | null;
   metadata?: Json | null;
+  moderation_actions_id?: string;
   moderator_id?: string;
   reason?: string | null;
   revert_reason?: string | null;
@@ -67,6 +68,7 @@ export interface ModerationActionsFormData {
   reverted_by?: string | null;
   target_id?: string;
   target_type?: ModerationTargetType;
+  updated_at?: string | null;
 }
 
 /**
@@ -79,9 +81,9 @@ export interface ModerationActionsValidationResult {
     created_at?: string;
     created_by?: string;
     duration?: string;
-    id?: string;
     is_reverted?: string;
     metadata?: string;
+    moderation_actions_id?: string;
     moderator_id?: string;
     reason?: string;
     revert_reason?: string;
@@ -89,6 +91,7 @@ export interface ModerationActionsValidationResult {
     reverted_by?: string;
     target_id?: string;
     target_type?: string;
+    updated_at?: string;
   };
 }
 

@@ -2,7 +2,7 @@ import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin
 import { createApiSupabase } from '@/lib/api/supabase';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.990Z
+// Generated: 2026-04-30T04:17:48.522Z
 // Table: vendor_profiles
 
 export async function GET(
@@ -16,7 +16,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('vendor_profiles')
       .select('*')
-      .eq('id', id)
+      .eq('vendor_profiles_id', id)
       .single();
     
     if (error) {
@@ -45,7 +45,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('vendor_profiles').delete().eq('id', id);
+    const { error } = await supabase.from('vendor_profiles').delete().eq('vendor_profiles_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('vendor_profiles');

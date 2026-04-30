@@ -14,9 +14,10 @@ export const UserBubblePopsRowSchema = z.object({
   created_at: z.string(),
   created_by: z.string().nullable(),
   environment: z.string().nullable(),
-  id: z.string(),
   points_awarded: z.number(),
   popped_at: z.string().nullable(),
+  updated_at: z.string().nullable(),
+  user_bubble_pops_id: z.string(),
   user_id: z.string(),
 });
 
@@ -25,9 +26,10 @@ export const UserBubblePopsInsertSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   environment: z.string().nullable().optional(),
-  id: z.string().optional(),
   points_awarded: z.number(),
   popped_at: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_bubble_pops_id: z.string().optional(),
   user_id: z.string(),
 });
 
@@ -36,9 +38,10 @@ export const UserBubblePopsUpdateSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   environment: z.string().nullable().optional(),
-  id: z.string().optional(),
   points_awarded: z.number().optional(),
   popped_at: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  user_bubble_pops_id: z.string().optional(),
   user_id: z.string().optional(),
 });
 

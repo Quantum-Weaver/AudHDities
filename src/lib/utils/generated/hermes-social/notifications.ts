@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Notifications
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.904Z
+// GENERATED: 2026-04-30T04:17:47.715Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getNotifications(id: string): Promise<NotificationsRow> {
   const { data, error } = await supabase
     .from('notifications')
     .select('*')
-    .eq('id', id)
+    .eq('notifications_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateNotifications(id: string, data: NotificationsUpdate)
   const { data: result, error } = await supabase
     .from('notifications')
     .update(validated)
-    .eq('id', id)
+    .eq('notifications_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteNotifications(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('notifications')
     .delete()
-    .eq('id', id);
+    .eq('notifications_id', id);
   
   if (error) throw error;
   return true;

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/progress.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.283Z
+// GENERATED: 2026-04-30T04:17:47.848Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,16 +33,17 @@ export interface PublicProgress {
   completed_at: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   last_activity_at: string | null;
   lesson_id: string | null;
   notes: string | null;
   path_id: string | null;
+  progress_id: string;
   progress_percent: number | null;
   score: number | null;
   started_at: string | null;
   status: ProgressStatus;
   updated_at: string | null;
+  updated_by: string | null;
   user_id: string;
 }
 
@@ -54,16 +55,17 @@ export interface ProgressFormData {
   completed_at?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   last_activity_at?: string | null;
   lesson_id?: string | null;
   notes?: string | null;
   path_id?: string | null;
+  progress_id?: string;
   progress_percent?: number | null;
   score?: number | null;
   started_at?: string | null;
   status?: ProgressStatus;
   updated_at?: string | null;
+  updated_by?: string | null;
   user_id?: string;
 }
 
@@ -76,16 +78,17 @@ export interface ProgressValidationResult {
     completed_at?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     last_activity_at?: string;
     lesson_id?: string;
     notes?: string;
     path_id?: string;
+    progress_id?: string;
     progress_percent?: string;
     score?: string;
     started_at?: string;
     status?: string;
     updated_at?: string;
+    updated_by?: string;
     user_id?: string;
   };
 }

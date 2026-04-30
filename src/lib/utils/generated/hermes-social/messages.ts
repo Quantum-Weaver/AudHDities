@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Messages
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.869Z
+// GENERATED: 2026-04-30T04:17:47.598Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getMessages(id: string): Promise<MessagesRow> {
   const { data, error } = await supabase
     .from('messages')
     .select('*')
-    .eq('id', id)
+    .eq('messages_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateMessages(id: string, data: MessagesUpdate): Promise<
   const { data: result, error } = await supabase
     .from('messages')
     .update(validated)
-    .eq('id', id)
+    .eq('messages_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteMessages(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('messages')
     .delete()
-    .eq('id', id);
+    .eq('messages_id', id);
   
   if (error) throw error;
   return true;

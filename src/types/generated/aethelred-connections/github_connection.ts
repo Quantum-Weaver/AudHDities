@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/github_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T00:26:46.020Z
+// GENERATED: 2026-04-30T04:17:47.421Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,7 +33,7 @@ export interface PublicGithubConnection {
   branch: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
+  github_connection_id: string;
   issues_open: number | null;
   last_commit_at: string | null;
   last_commit_message: string | null;
@@ -55,7 +55,7 @@ export interface GithubConnectionFormData {
   branch?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
+  github_connection_id?: string;
   issues_open?: number | null;
   last_commit_at?: string | null;
   last_commit_message?: string | null;
@@ -78,7 +78,7 @@ export interface GithubConnectionValidationResult {
     branch?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
+    github_connection_id?: string;
     issues_open?: string;
     last_commit_at?: string;
     last_commit_message?: string;

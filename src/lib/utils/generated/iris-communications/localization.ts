@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Localization
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T03:15:25.814Z
+// GENERATED: 2026-04-30T04:17:47.563Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLocalization(id: string): Promise<LocalizationRow> {
   const { data, error } = await supabase
     .from('localization')
     .select('*')
-    .eq('id', id)
+    .eq('localization_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLocalization(id: string, data: LocalizationUpdate): 
   const { data: result, error } = await supabase
     .from('localization')
     .update(validated)
-    .eq('id', id)
+    .eq('localization_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLocalization(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('localization')
     .delete()
-    .eq('id', id);
+    .eq('localization_id', id);
   
   if (error) throw error;
   return true;

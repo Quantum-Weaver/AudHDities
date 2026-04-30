@@ -14,42 +14,45 @@ export const ProcessesRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string(),
   description: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   name: z.string(),
   process_type: z.enum(ENUM_VALUES.processType),
+  processes_id: z.string(),
   slug: z.string(),
   steps: z.any(),
   timeout_days: z.number().nullable(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const ProcessesInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string(),
   process_type: z.enum(ENUM_VALUES.processType),
+  processes_id: z.string().optional(),
   slug: z.string(),
   steps: z.any(),
   timeout_days: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const ProcessesUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().optional(),
   description: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string().optional(),
   process_type: z.enum(ENUM_VALUES.processType).optional(),
+  processes_id: z.string().optional(),
   slug: z.string().optional(),
   steps: z.any().optional(),
   timeout_days: z.number().nullable().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBubblePopsUpdateSchema } from '@/lib/validators/generated/hestia-core/user_bubble_pops';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.855Z
+// Generated: 2026-04-30T04:17:48.462Z
 // Table: user_bubble_pops
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('user_bubble_pops')
       .select('*')
-      .eq('id', id)
+      .eq('user_bubble_pops_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('user_bubble_pops')
       .update(validated)
-      .eq('id', id)
+      .eq('user_bubble_pops_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('user_bubble_pops').delete().eq('id', id);
+    const { error } = await supabase.from('user_bubble_pops').delete().eq('user_bubble_pops_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('user_bubble_pops');

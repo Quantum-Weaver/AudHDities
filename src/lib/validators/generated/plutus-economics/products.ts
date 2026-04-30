@@ -21,7 +21,6 @@ export const ProductsRowSchema = z.object({
   creator_id: z.string(),
   description: z.string().nullable(),
   download_url: z.string().nullable(),
-  id: z.string(),
   is_published: z.boolean().nullable(),
   is_recurring: z.boolean().nullable(),
   media_urls: z.any().nullable(),
@@ -31,6 +30,7 @@ export const ProductsRowSchema = z.object({
   price_community: z.number().nullable(),
   price_corporate: z.number().nullable(),
   product_type: z.enum(ENUM_VALUES.productType),
+  products_id: z.string(),
   residual_pool_percent: z.number().nullable(),
   sanctuary_infrastructure_percent: z.number().nullable(),
   slug: z.string(),
@@ -39,6 +39,7 @@ export const ProductsRowSchema = z.object({
   tags: z.any().nullable(),
   title: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const ProductsInsertSchema = z.object({
@@ -52,7 +53,6 @@ export const ProductsInsertSchema = z.object({
   creator_id: z.string(),
   description: z.string().nullable().optional(),
   download_url: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   is_recurring: z.boolean().nullable().optional(),
   media_urls: z.any().nullable().optional(),
@@ -62,6 +62,7 @@ export const ProductsInsertSchema = z.object({
   price_community: z.number().nullable().optional(),
   price_corporate: z.number().nullable().optional(),
   product_type: z.enum(ENUM_VALUES.productType),
+  products_id: z.string().optional(),
   residual_pool_percent: z.number().nullable().optional(),
   sanctuary_infrastructure_percent: z.number().nullable().optional(),
   slug: z.string(),
@@ -70,6 +71,7 @@ export const ProductsInsertSchema = z.object({
   tags: z.any().nullable().optional(),
   title: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const ProductsUpdateSchema = z.object({
@@ -83,7 +85,6 @@ export const ProductsUpdateSchema = z.object({
   creator_id: z.string().optional(),
   description: z.string().nullable().optional(),
   download_url: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_published: z.boolean().nullable().optional(),
   is_recurring: z.boolean().nullable().optional(),
   media_urls: z.any().nullable().optional(),
@@ -93,6 +94,7 @@ export const ProductsUpdateSchema = z.object({
   price_community: z.number().nullable().optional(),
   price_corporate: z.number().nullable().optional(),
   product_type: z.enum(ENUM_VALUES.productType).optional(),
+  products_id: z.string().optional(),
   residual_pool_percent: z.number().nullable().optional(),
   sanctuary_infrastructure_percent: z.number().nullable().optional(),
   slug: z.string().optional(),
@@ -101,6 +103,7 @@ export const ProductsUpdateSchema = z.object({
   tags: z.any().nullable().optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

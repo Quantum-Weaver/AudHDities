@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AgentMessages
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:25.409Z
+// GENERATED: 2026-04-30T04:17:46.970Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAgentMessages(id: string): Promise<AgentMessagesRow> {
   const { data, error } = await supabase
     .from('agent_messages')
     .select('*')
-    .eq('id', id)
+    .eq('agent_messages_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAgentMessages(id: string, data: AgentMessagesUpdate)
   const { data: result, error } = await supabase
     .from('agent_messages')
     .update(validated)
-    .eq('id', id)
+    .eq('agent_messages_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAgentMessages(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('agent_messages')
     .delete()
-    .eq('id', id);
+    .eq('agent_messages_id', id);
   
   if (error) throw error;
   return true;

@@ -11,11 +11,11 @@ import z from 'zod';
 // =====================================================
 
 export const AcidTestQuestionsRowSchema = z.object({
+  acid_test_questions_id: z.string(),
   category: z.string().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   explanation: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   order_index: z.number().nullable(),
   question_text: z.string(),
@@ -25,11 +25,11 @@ export const AcidTestQuestionsRowSchema = z.object({
 });
 
 export const AcidTestQuestionsInsertSchema = z.object({
+  acid_test_questions_id: z.string().optional(),
   category: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   explanation: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   question_text: z.string(),
@@ -39,11 +39,11 @@ export const AcidTestQuestionsInsertSchema = z.object({
 });
 
 export const AcidTestQuestionsUpdateSchema = z.object({
+  acid_test_questions_id: z.string().optional(),
   category: z.string().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   explanation: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   question_text: z.string().optional(),

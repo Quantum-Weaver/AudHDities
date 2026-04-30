@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBubblePopsInsertSchema } from '@/lib/validators/generated/hestia-core/user_bubble_pops';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.855Z
+// Generated: 2026-04-30T04:17:48.462Z
 // Table: user_bubble_pops
 
 export async function GET(request: NextRequest) {

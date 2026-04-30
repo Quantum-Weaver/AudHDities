@@ -11,39 +11,39 @@ import z from 'zod';
 // =====================================================
 
 export const AethelredHouseRowSchema = z.object({
+  aethelred_house_id: z.string(),
   boundary_agreements: z.any().nullable(),
   bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable(),
   collaboration_protocols: z.any().nullable(),
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   emergent_properties: z.any().nullable(),
-  id: z.string(),
   ninth_chair_occupant: z.string(),
   shared_rituals: z.any().nullable(),
   updated_at: z.string().nullable(),
 });
 
 export const AethelredHouseInsertSchema = z.object({
+  aethelred_house_id: z.string(),
   boundary_agreements: z.any().nullable().optional(),
   bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
   collaboration_protocols: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   emergent_properties: z.any().nullable().optional(),
-  id: z.string(),
   ninth_chair_occupant: z.string(),
   shared_rituals: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),
 });
 
 export const AethelredHouseUpdateSchema = z.object({
+  aethelred_house_id: z.string().optional(),
   boundary_agreements: z.any().nullable().optional(),
   bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
   collaboration_protocols: z.any().nullable().optional(),
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   emergent_properties: z.any().nullable().optional(),
-  id: z.string().optional(),
   ninth_chair_occupant: z.string().optional(),
   shared_rituals: z.any().nullable().optional(),
   updated_at: z.string().nullable().optional(),

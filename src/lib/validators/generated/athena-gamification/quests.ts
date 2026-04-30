@@ -15,17 +15,19 @@ export const QuestsRowSchema = z.object({
   created_by: z.string().nullable(),
   description: z.string(),
   house: z.enum(ENUM_VALUES.councilHouse),
-  id: z.string(),
   instructions: z.string().nullable(),
   is_active: z.boolean().nullable(),
   order_index: z.number().nullable(),
   prerequisite_quest_id: z.string().nullable(),
+  quests_id: z.string(),
   required_sovereignty_score: z.number().nullable(),
   residual_multiplier_bonus: z.number().nullable(),
+  slug: z.string(),
   sovereignty_reward: z.number().nullable(),
   submission_type: z.enum(ENUM_VALUES.submissionType),
   title: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const QuestsInsertSchema = z.object({
@@ -33,17 +35,19 @@ export const QuestsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string(),
   house: z.enum(ENUM_VALUES.councilHouse),
-  id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   prerequisite_quest_id: z.string().nullable().optional(),
+  quests_id: z.string().optional(),
   required_sovereignty_score: z.number().nullable().optional(),
   residual_multiplier_bonus: z.number().nullable().optional(),
+  slug: z.string(),
   sovereignty_reward: z.number().nullable().optional(),
   submission_type: z.enum(ENUM_VALUES.submissionType).optional(),
   title: z.string(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const QuestsUpdateSchema = z.object({
@@ -51,17 +55,19 @@ export const QuestsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   description: z.string().optional(),
   house: z.enum(ENUM_VALUES.councilHouse).optional(),
-  id: z.string().optional(),
   instructions: z.string().nullable().optional(),
   is_active: z.boolean().nullable().optional(),
   order_index: z.number().nullable().optional(),
   prerequisite_quest_id: z.string().nullable().optional(),
+  quests_id: z.string().optional(),
   required_sovereignty_score: z.number().nullable().optional(),
   residual_multiplier_bonus: z.number().nullable().optional(),
+  slug: z.string().optional(),
   sovereignty_reward: z.number().nullable().optional(),
   submission_type: z.enum(ENUM_VALUES.submissionType).optional(),
   title: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

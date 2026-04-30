@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/transactions.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T00:26:46.805Z
+// GENERATED: 2026-04-30T04:17:48.411Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -37,12 +37,14 @@ export interface PublicTransactions {
   created_by: string | null;
   currency: string | null;
   from_id: string | null;
-  id: string;
   source_id: string;
   status: PaymentStatus | null;
   stripe_transfer_id: string | null;
   to_id: string | null;
   transaction_type: TransactionType;
+  transactions_id: string;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -56,12 +58,14 @@ export interface TransactionsFormData {
   created_by?: string | null;
   currency?: string | null;
   from_id?: string | null;
-  id?: string;
   source_id?: string;
   status?: PaymentStatus | null;
   stripe_transfer_id?: string | null;
   to_id?: string | null;
   transaction_type?: TransactionType;
+  transactions_id?: string;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -76,12 +80,14 @@ export interface TransactionsValidationResult {
     created_by?: string;
     currency?: string;
     from_id?: string;
-    id?: string;
     source_id?: string;
     status?: string;
     stripe_transfer_id?: string;
     to_id?: string;
     transaction_type?: string;
+    transactions_id?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

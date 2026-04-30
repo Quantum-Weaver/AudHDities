@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Emeralds
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T03:15:25.670Z
+// GENERATED: 2026-04-30T04:17:47.309Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getEmeralds(id: string): Promise<EmeraldsRow> {
   const { data, error } = await supabase
     .from('emeralds')
     .select('*')
-    .eq('id', id)
+    .eq('emeralds_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateEmeralds(id: string, data: EmeraldsUpdate): Promise<
   const { data: result, error } = await supabase
     .from('emeralds')
     .update(validated)
-    .eq('id', id)
+    .eq('emeralds_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteEmeralds(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('emeralds')
     .delete()
-    .eq('id', id);
+    .eq('emeralds_id', id);
   
   if (error) throw error;
   return true;

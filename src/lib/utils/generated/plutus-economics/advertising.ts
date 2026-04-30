@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Advertising
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:25.368Z
+// GENERATED: 2026-04-30T04:17:46.916Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAdvertising(id: string): Promise<AdvertisingRow> {
   const { data, error } = await supabase
     .from('advertising')
     .select('*')
-    .eq('id', id)
+    .eq('advertising_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAdvertising(id: string, data: AdvertisingUpdate): Pr
   const { data: result, error } = await supabase
     .from('advertising')
     .update(validated)
-    .eq('id', id)
+    .eq('advertising_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAdvertising(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('advertising')
     .delete()
-    .eq('id', id);
+    .eq('advertising_id', id);
   
   if (error) throw error;
   return true;

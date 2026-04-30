@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PathLessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.203Z
+// Generated: 2026-04-30T04:17:47.749Z
 // Table: path_lessons
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('path_lessons')
       .select('*')
-      .eq('id', id)
+      .eq('path_lessons_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('path_lessons')
       .update(validated)
-      .eq('id', id)
+      .eq('path_lessons_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('path_lessons').delete().eq('id', id);
+    const { error } = await supabase.from('path_lessons').delete().eq('path_lessons_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('path_lessons');

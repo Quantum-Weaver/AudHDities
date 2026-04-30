@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Progress
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T03:15:26.000Z
+// GENERATED: 2026-04-30T04:17:47.860Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getProgress(id: string): Promise<ProgressRow> {
   const { data, error } = await supabase
     .from('progress')
     .select('*')
-    .eq('id', id)
+    .eq('progress_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateProgress(id: string, data: ProgressUpdate): Promise<
   const { data: result, error } = await supabase
     .from('progress')
     .update(validated)
-    .eq('id', id)
+    .eq('progress_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteProgress(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('progress')
     .delete()
-    .eq('id', id);
+    .eq('progress_id', id);
   
   if (error) throw error;
   return true;

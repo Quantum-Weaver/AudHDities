@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ScriptExecutionLogsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/script_execution_logs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.605Z
+// Generated: 2026-04-30T04:17:48.200Z
 // Table: script_execution_logs
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('script_execution_logs')
       .select('*')
-      .eq('id', id)
+      .eq('script_execution_logs_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('script_execution_logs')
       .update(validated)
-      .eq('id', id)
+      .eq('script_execution_logs_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('script_execution_logs').delete().eq('id', id);
+    const { error } = await supabase.from('script_execution_logs').delete().eq('script_execution_logs_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('script_execution_logs');

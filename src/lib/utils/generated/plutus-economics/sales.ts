@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Sales
 // DEITY: plutus-economics
-// GENERATED: 2026-04-23T03:15:26.195Z
+// GENERATED: 2026-04-30T04:17:48.155Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSales(id: string): Promise<SalesRow> {
   const { data, error } = await supabase
     .from('sales')
     .select('*')
-    .eq('id', id)
+    .eq('sales_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSales(id: string, data: SalesUpdate): Promise<SalesR
   const { data: result, error } = await supabase
     .from('sales')
     .update(validated)
-    .eq('id', id)
+    .eq('sales_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSales(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('sales')
     .delete()
-    .eq('id', id);
+    .eq('sales_id', id);
   
   if (error) throw error;
   return true;

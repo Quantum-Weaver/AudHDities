@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Channels
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:25.497Z
+// GENERATED: 2026-04-30T04:17:47.093Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getChannels(id: string): Promise<ChannelsRow> {
   const { data, error } = await supabase
     .from('channels')
     .select('*')
-    .eq('id', id)
+    .eq('channels_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateChannels(id: string, data: ChannelsUpdate): Promise<
   const { data: result, error } = await supabase
     .from('channels')
     .update(validated)
-    .eq('id', id)
+    .eq('channels_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteChannels(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('channels')
     .delete()
-    .eq('id', id);
+    .eq('channels_id', id);
   
   if (error) throw error;
   return true;

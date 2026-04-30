@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/script_execution_logs.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.603Z
+// GENERATED: 2026-04-30T04:17:48.197Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -30,12 +30,13 @@ export interface PublicScriptExecutionLogs {
   created_by: string | null;
   error_message: string | null;
   executed_by: string | null;
-  id: string;
   output: string | null;
   parameters_used: Json | null;
+  script_execution_logs_id: string;
   script_id: string;
   started_at: string | null;
   status: string | null;
+  updated_at: string | null;
 }
 
 /**
@@ -48,12 +49,13 @@ export interface ScriptExecutionLogsFormData {
   created_by?: string | null;
   error_message?: string | null;
   executed_by?: string | null;
-  id?: string;
   output?: string | null;
   parameters_used?: Json | null;
+  script_execution_logs_id?: string;
   script_id?: string;
   started_at?: string | null;
   status?: string | null;
+  updated_at?: string | null;
 }
 
 /**
@@ -67,12 +69,13 @@ export interface ScriptExecutionLogsValidationResult {
     created_by?: string;
     error_message?: string;
     executed_by?: string;
-    id?: string;
     output?: string;
     parameters_used?: string;
+    script_execution_logs_id?: string;
     script_id?: string;
     started_at?: string;
     status?: string;
+    updated_at?: string;
   };
 }
 

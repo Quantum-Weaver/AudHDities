@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VendorProfilesInsertSchema } from '@/lib/validators/generated/hestia-core/vendor_profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.990Z
+// Generated: 2026-04-30T04:17:48.522Z
 // Table: vendor_profiles
 
 export async function GET(request: NextRequest) {

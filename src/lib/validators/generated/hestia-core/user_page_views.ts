@@ -13,10 +13,11 @@ export const UserPageViewsRowSchema = z.object({
   created_at: z.string(),
   created_by: z.string().nullable(),
   first_viewed_at: z.string().nullable(),
-  id: z.string(),
   last_viewed_at: z.string().nullable(),
   page_path: z.string(),
+  updated_at: z.string().nullable(),
   user_id: z.string(),
+  user_page_views_id: z.string(),
   view_count: z.number().nullable(),
 });
 
@@ -24,10 +25,11 @@ export const UserPageViewsInsertSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   first_viewed_at: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_viewed_at: z.string().nullable().optional(),
   page_path: z.string(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string(),
+  user_page_views_id: z.string().optional(),
   view_count: z.number().nullable().optional(),
 });
 
@@ -35,10 +37,11 @@ export const UserPageViewsUpdateSchema = z.object({
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   first_viewed_at: z.string().nullable().optional(),
-  id: z.string().optional(),
   last_viewed_at: z.string().nullable().optional(),
   page_path: z.string().optional(),
+  updated_at: z.string().nullable().optional(),
   user_id: z.string().optional(),
+  user_page_views_id: z.string().optional(),
   view_count: z.number().nullable().optional(),
 });
 

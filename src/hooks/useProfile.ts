@@ -216,7 +216,7 @@ export function useCurrentProfile() {
 
 export function useProfileByUsername(username: string) {
   const { data: profiles, loading } = useProfilesList({ filters: { username }, limit: 1 });
-  const profileId = profiles?.[0]?.id;
+  const profileId = profiles?.[0]?.profiles_id;
   const profile = useProfile(profileId);
   return { ...profile, loading: loading || profile.loading };
 }
@@ -230,8 +230,8 @@ export interface UseCreatorProfileReturn {
   loading: boolean;
   error: Error | null;
   canEdit: boolean;
-  createCreatorProfile: (data: Partial<Omit<CreatorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CreatorProfile | null>;
-  updateCreatorProfile: (updates: Partial<Omit<CreatorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CreatorProfile | null>;
+  createCreatorProfile: (data: Partial<Omit<CreatorProfile, 'creator_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CreatorProfile | null>;
+  updateCreatorProfile: (updates: Partial<Omit<CreatorProfile, 'creator_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CreatorProfile | null>;
   refreshCreatorProfile: () => Promise<void>;
   hasActiveApplication: boolean;
   applicationStatus: string | null;
@@ -263,7 +263,7 @@ export function useCreatorProfile(): UseCreatorProfileReturn {
 
   const updateCreatorProfile = useCallback(async (updates: any) => {
     if (!creatorProfile || !canEdit) throw new Error('Not authorized');
-    const result = await updateProfile(creatorProfile.id, updates);
+    const result = await updateProfile(creatorProfile.creator_profiles_id, updates);
     if (result.error) throw new Error(result.error);
     await refetch();
     return result.data;
@@ -291,8 +291,8 @@ export interface UseVendorProfileReturn {
   loading: boolean;
   error: Error | null;
   canEdit: boolean;
-  createVendorProfile: (data: Partial<Omit<VendorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<VendorProfile | null>;
-  updateVendorProfile: (updates: Partial<Omit<VendorProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<VendorProfile | null>;
+  createVendorProfile: (data: Partial<Omit<VendorProfile, 'vendor_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<VendorProfile | null>;
+  updateVendorProfile: (updates: Partial<Omit<VendorProfile, 'vendor_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<VendorProfile | null>;
   refreshVendorProfile: () => Promise<void>;
   hasActiveApplication: boolean;
   applicationStatus: string | null;
@@ -324,7 +324,7 @@ export function useVendorProfile(): UseVendorProfileReturn {
 
   const updateVendorProfile = useCallback(async (updates: any) => {
     if (!vendorProfile || !canEdit) throw new Error('Not authorized');
-    const result = await updateProfile(vendorProfile.id, updates);
+    const result = await updateProfile(vendorProfile.vendor_profiles_id, updates);
     if (result.error) throw new Error(result.error);
     await refetch();
     return result.data;
@@ -352,8 +352,8 @@ export interface UseCommunityProfileReturn {
   loading: boolean;
   error: Error | null;
   canEdit: boolean;
-  createCommunityProfile: (data: Partial<Omit<CommunityProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CommunityProfile | null>;
-  updateCommunityProfile: (updates: Partial<Omit<CommunityProfile, 'id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CommunityProfile | null>;
+  createCommunityProfile: (data: Partial<Omit<CommunityProfile, 'community_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CommunityProfile | null>;
+  updateCommunityProfile: (updates: Partial<Omit<CommunityProfile, 'community_profiles_id' | 'created_at' | 'updated_at' | 'profile_id'>>) => Promise<CommunityProfile | null>;
   refreshCommunityProfile: () => Promise<void>;
   hasJoinedHouse: boolean;
 }
@@ -375,7 +375,7 @@ export function useCommunityProfile(): UseCommunityProfileReturn {
 
   const updateCommunityProfile = useCallback(async (updates: any) => {
     if (!communityProfile) throw new Error('No community profile found');
-    const result = await updateProfile(communityProfile.id, updates);
+    const result = await updateProfile(communityProfile.community_profiles_id, updates);
     if (result.error) throw new Error(result.error);
     await refetch();
     return result.data;

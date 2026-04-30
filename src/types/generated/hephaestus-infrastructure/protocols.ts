@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/protocols.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.387Z
+// GENERATED: 2026-04-30T04:17:47.987Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,12 +34,12 @@ export interface PublicProtocols {
   created_at: string | null;
   created_by: string | null;
   description: string;
-  id: string;
   is_active: boolean | null;
   last_reviewed: string | null;
   name: string;
   next_review: string | null;
   owners: string[] | null;
+  protocols_id: string;
   review_frequency_days: number | null;
   reviewed_by: string | null;
   slug: string;
@@ -58,12 +58,12 @@ export interface ProtocolsFormData {
   created_at?: string | null;
   created_by?: string | null;
   description?: string;
-  id?: string;
   is_active?: boolean | null;
   last_reviewed?: string | null;
   name?: string;
   next_review?: string | null;
   owners?: string[] | null;
+  protocols_id?: string;
   review_frequency_days?: number | null;
   reviewed_by?: string | null;
   slug?: string;
@@ -83,12 +83,12 @@ export interface ProtocolsValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    id?: string;
     is_active?: string;
     last_reviewed?: string;
     name?: string;
     next_review?: string;
     owners?: string;
+    protocols_id?: string;
     review_frequency_days?: string;
     reviewed_by?: string;
     slug?: string;

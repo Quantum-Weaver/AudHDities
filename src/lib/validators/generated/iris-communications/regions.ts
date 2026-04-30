@@ -16,12 +16,13 @@ export const RegionsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
   flag_emoji: z.string().nullable(),
-  id: z.string(),
   is_active: z.boolean().nullable(),
   name: z.string(),
   name_localized: z.any().nullable(),
   phone_code: z.string().nullable(),
+  regions_id: z.string(),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const RegionsInsertSchema = z.object({
@@ -31,12 +32,13 @@ export const RegionsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   flag_emoji: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string(),
   name_localized: z.any().nullable().optional(),
   phone_code: z.string().nullable().optional(),
+  regions_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const RegionsUpdateSchema = z.object({
@@ -46,12 +48,13 @@ export const RegionsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
   flag_emoji: z.string().nullable().optional(),
-  id: z.string().optional(),
   is_active: z.boolean().nullable().optional(),
   name: z.string().optional(),
   name_localized: z.any().nullable().optional(),
   phone_code: z.string().nullable().optional(),
+  regions_id: z.string().optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

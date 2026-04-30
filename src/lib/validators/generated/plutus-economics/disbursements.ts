@@ -13,37 +13,43 @@ import z from 'zod';
 export const DisbursementsRowSchema = z.object({
   created_at: z.string().nullable(),
   created_by: z.string().nullable(),
-  id: z.string(),
+  disbursements_id: z.string(),
   processed_at: z.string().nullable(),
   recipient_count: z.number(),
   source_id: z.string(),
   source_pool: z.enum(ENUM_VALUES.sourcePoolType),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable(),
   total_amount_cents: z.number(),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const DisbursementsInsertSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  disbursements_id: z.string().optional(),
   processed_at: z.string().nullable().optional(),
   recipient_count: z.number(),
   source_id: z.string(),
   source_pool: z.enum(ENUM_VALUES.sourcePoolType),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
   total_amount_cents: z.number(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const DisbursementsUpdateSchema = z.object({
   created_at: z.string().nullable().optional(),
   created_by: z.string().nullable().optional(),
-  id: z.string().optional(),
+  disbursements_id: z.string().optional(),
   processed_at: z.string().nullable().optional(),
   recipient_count: z.number().optional(),
   source_id: z.string().optional(),
   source_pool: z.enum(ENUM_VALUES.sourcePoolType).optional(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
   total_amount_cents: z.number().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/badges.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:45.656Z
+// GENERATED: 2026-04-30T04:17:47.035Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,6 +35,7 @@ export type BadgesUpdate = TablesUpdate<'badges'>;
  */
 export interface PublicBadges {
   badge_type: BadgeType;
+  badges_id: string;
   color: string | null;
   created_at: string | null;
   created_by: string | null;
@@ -42,12 +43,12 @@ export interface PublicBadges {
   earn_condition: Json | null;
   house: CouncilHouse | null;
   icon: string | null;
-  id: string;
   is_active: boolean | null;
   name: string;
   rarity: BadgeRarity;
   slug: string;
   tier: BadgeTier | null;
+  updated_by: string | null;
 }
 
 /**
@@ -56,6 +57,7 @@ export interface PublicBadges {
  */
 export interface BadgesFormData {
   badge_type?: BadgeType;
+  badges_id?: string;
   color?: string | null;
   created_at?: string | null;
   created_by?: string | null;
@@ -63,12 +65,12 @@ export interface BadgesFormData {
   earn_condition?: Json | null;
   house?: CouncilHouse | null;
   icon?: string | null;
-  id?: string;
   is_active?: boolean | null;
   name?: string;
   rarity?: BadgeRarity;
   slug?: string;
   tier?: BadgeTier | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -78,6 +80,7 @@ export interface BadgesValidationResult {
   valid: boolean;
   errors: {
     badge_type?: string;
+    badges_id?: string;
     color?: string;
     created_at?: string;
     created_by?: string;
@@ -85,12 +88,12 @@ export interface BadgesValidationResult {
     earn_condition?: string;
     house?: string;
     icon?: string;
-    id?: string;
     is_active?: string;
     name?: string;
     rarity?: string;
     slug?: string;
     tier?: string;
+    updated_by?: string;
   };
 }
 

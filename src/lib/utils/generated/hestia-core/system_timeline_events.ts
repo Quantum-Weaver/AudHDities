@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SystemTimelineEvents
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:26.432Z
+// GENERATED: 2026-04-30T04:17:48.365Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSystemTimelineEvents(id: string): Promise<SystemTimelin
   const { data, error } = await supabase
     .from('system_timeline_events')
     .select('*')
-    .eq('id', id)
+    .eq('system_timeline_events_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSystemTimelineEvents(id: string, data: SystemTimelin
   const { data: result, error } = await supabase
     .from('system_timeline_events')
     .update(validated)
-    .eq('id', id)
+    .eq('system_timeline_events_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSystemTimelineEvents(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('system_timeline_events')
     .delete()
-    .eq('id', id);
+    .eq('system_timeline_events_id', id);
   
   if (error) throw error;
   return true;

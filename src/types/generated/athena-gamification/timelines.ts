@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/timelines.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.791Z
+// GENERATED: 2026-04-30T04:17:48.397Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,10 +35,11 @@ export interface PublicTimelines {
   description: string | null;
   event_id: string | null;
   event_type: TimelineEventType;
-  id: string;
   occurred_at: string;
   significance_score: number | null;
+  timelines_id: string;
   title: string;
+  updated_by: string | null;
   user_id: string;
 }
 
@@ -52,10 +53,11 @@ export interface TimelinesFormData {
   description?: string | null;
   event_id?: string | null;
   event_type?: TimelineEventType;
-  id?: string;
   occurred_at?: string;
   significance_score?: number | null;
+  timelines_id?: string;
   title?: string;
+  updated_by?: string | null;
   user_id?: string;
 }
 
@@ -70,10 +72,11 @@ export interface TimelinesValidationResult {
     description?: string;
     event_id?: string;
     event_type?: string;
-    id?: string;
     occurred_at?: string;
     significance_score?: string;
+    timelines_id?: string;
     title?: string;
+    updated_by?: string;
     user_id?: string;
   };
 }

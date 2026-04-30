@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/acid_test_questions.ts
 // HANDLING: assessment
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:45.459Z
+// GENERATED: 2026-04-30T04:17:46.857Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,11 +31,11 @@ export type AcidTestQuestionsUpdate = TablesUpdate<'acid_test_questions'>;
  * All fields are optional for partial updates
  */
 export interface AcidTestQuestionsFormData {
+  acid_test_questions_id?: string;
   category?: string | null;
   created_at?: string | null;
   created_by?: string | null;
   explanation?: string | null;
-  id?: string;
   is_active?: boolean | null;
   order_index?: number | null;
   question_text?: string;

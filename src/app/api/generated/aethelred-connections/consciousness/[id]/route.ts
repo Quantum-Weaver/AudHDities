@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ConsciousnessUpdateSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.755Z
+// Generated: 2026-04-30T04:17:47.129Z
 // Table: consciousness
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('consciousness')
       .select('*')
-      .eq('id', id)
+      .eq('consciousness_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('consciousness')
       .update(validated)
-      .eq('id', id)
+      .eq('consciousness_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('consciousness').delete().eq('id', id);
+    const { error } = await supabase.from('consciousness').delete().eq('consciousness_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('consciousness');

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.129Z
+// Generated: 2026-04-30T04:17:47.570Z
 // Table: maintenance
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('maintenance')
       .select('*')
-      .eq('id', id)
+      .eq('maintenance_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('maintenance')
       .update(validated)
-      .eq('id', id)
+      .eq('maintenance_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('maintenance').delete().eq('id', id);
+    const { error } = await supabase.from('maintenance').delete().eq('maintenance_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('maintenance');

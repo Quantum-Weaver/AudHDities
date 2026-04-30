@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/superposition.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:46.701Z
+// GENERATED: 2026-04-30T04:17:48.299Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,12 +35,13 @@ export interface PublicSuperposition {
   concept_id: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   observer_count: number | null;
   possible_meanings: Json;
   probability_distribution: Json;
   status: SuperpositionStatus | null;
+  superposition_id: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -52,12 +53,13 @@ export interface SuperpositionFormData {
   concept_id?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   observer_count?: number | null;
   possible_meanings?: Json;
   probability_distribution?: Json;
   status?: SuperpositionStatus | null;
+  superposition_id?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -70,12 +72,13 @@ export interface SuperpositionValidationResult {
     concept_id?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     observer_count?: string;
     possible_meanings?: string;
     probability_distribution?: string;
     status?: string;
+    superposition_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:46.716Z
+// Generated: 2026-04-30T04:17:48.314Z
 // Table: survey_responses
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('survey_responses')
       .select('*')
-      .eq('id', id)
+      .eq('survey_responses_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('survey_responses')
       .update(validated)
-      .eq('id', id)
+      .eq('survey_responses_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('survey_responses').delete().eq('id', id);
+    const { error } = await supabase.from('survey_responses').delete().eq('survey_responses_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('survey_responses');

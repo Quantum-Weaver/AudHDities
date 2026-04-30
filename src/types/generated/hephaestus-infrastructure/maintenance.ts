@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/maintenance.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.127Z
+// GENERATED: 2026-04-30T04:17:47.567Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,15 +38,17 @@ export interface PublicMaintenance {
   created_by: string | null;
   description: string | null;
   error_log: string | null;
-  id: string;
+  maintenance_id: string;
   notes: string | null;
   performed_by: string | null;
   scheduled_end: string | null;
   scheduled_start: string | null;
+  slug: string | null;
   status: MaintenanceStatus | null;
   title: string;
   type: MaintenanceType;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -61,15 +63,17 @@ export interface MaintenanceFormData {
   created_by?: string | null;
   description?: string | null;
   error_log?: string | null;
-  id?: string;
+  maintenance_id?: string;
   notes?: string | null;
   performed_by?: string | null;
   scheduled_end?: string | null;
   scheduled_start?: string | null;
+  slug?: string | null;
   status?: MaintenanceStatus | null;
   title?: string;
   type?: MaintenanceType;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -85,15 +89,17 @@ export interface MaintenanceValidationResult {
     created_by?: string;
     description?: string;
     error_log?: string;
-    id?: string;
+    maintenance_id?: string;
     notes?: string;
     performed_by?: string;
     scheduled_end?: string;
     scheduled_start?: string;
+    slug?: string;
     status?: string;
     title?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/systems.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:46.766Z
+// GENERATED: 2026-04-30T04:17:48.368Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,14 +36,15 @@ export interface PublicSystems {
   dependencies: string[] | null;
   description: string | null;
   health_check_url: string | null;
-  id: string;
   last_health_check: string | null;
   last_incident: string | null;
   name: string;
   slug: string;
   status: SystemStatus | null;
+  systems_id: string;
   type: SystemType;
   updated_at: string | null;
+  updated_by: string | null;
   uptime_percent: number | null;
   version: string | null;
 }
@@ -58,14 +59,15 @@ export interface SystemsFormData {
   dependencies?: string[] | null;
   description?: string | null;
   health_check_url?: string | null;
-  id?: string;
   last_health_check?: string | null;
   last_incident?: string | null;
   name?: string;
   slug?: string;
   status?: SystemStatus | null;
+  systems_id?: string;
   type?: SystemType;
   updated_at?: string | null;
+  updated_by?: string | null;
   uptime_percent?: number | null;
   version?: string | null;
 }
@@ -81,14 +83,15 @@ export interface SystemsValidationResult {
     dependencies?: string;
     description?: string;
     health_check_url?: string;
-    id?: string;
     last_health_check?: string;
     last_incident?: string;
     name?: string;
     slug?: string;
     status?: string;
+    systems_id?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
     uptime_percent?: string;
     version?: string;
   };

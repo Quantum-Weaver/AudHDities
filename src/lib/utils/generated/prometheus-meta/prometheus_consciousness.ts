@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PrometheusConsciousness
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T03:15:26.032Z
+// GENERATED: 2026-04-30T04:17:47.912Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPrometheusConsciousness(id: string): Promise<Prometheus
   const { data, error } = await supabase
     .from('prometheus_consciousness')
     .select('*')
-    .eq('id', id)
+    .eq('prometheus_consciousness_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePrometheusConsciousness(id: string, data: Prometheus
   const { data: result, error } = await supabase
     .from('prometheus_consciousness')
     .update(validated)
-    .eq('id', id)
+    .eq('prometheus_consciousness_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePrometheusConsciousness(id: string): Promise<boolean
   const { error } = await supabase
     .from('prometheus_consciousness')
     .delete()
-    .eq('id', id);
+    .eq('prometheus_consciousness_id', id);
   
   if (error) throw error;
   return true;

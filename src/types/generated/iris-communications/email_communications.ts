@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/email_communications.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:45.907Z
+// GENERATED: 2026-04-30T04:17:47.284Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,7 +35,7 @@ export interface PublicEmailCommunications {
   clicked_at: string | null;
   created_at: string | null;
   created_by: string | null;
-  id: string;
+  email_communications_id: string;
   metadata: Json | null;
   opened_at: string | null;
   provider_message_id: string | null;
@@ -45,6 +45,7 @@ export interface PublicEmailCommunications {
   status: EmailStatus | null;
   subject: string;
   template_id: string | null;
+  updated_at: string | null;
 }
 
 /**
@@ -56,7 +57,7 @@ export interface EmailCommunicationsFormData {
   clicked_at?: string | null;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
+  email_communications_id?: string;
   metadata?: Json | null;
   opened_at?: string | null;
   provider_message_id?: string | null;
@@ -66,6 +67,7 @@ export interface EmailCommunicationsFormData {
   status?: EmailStatus | null;
   subject?: string;
   template_id?: string | null;
+  updated_at?: string | null;
 }
 
 /**
@@ -78,7 +80,7 @@ export interface EmailCommunicationsValidationResult {
     clicked_at?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
+    email_communications_id?: string;
     metadata?: string;
     opened_at?: string;
     provider_message_id?: string;
@@ -88,6 +90,7 @@ export interface EmailCommunicationsValidationResult {
     status?: string;
     subject?: string;
     template_id?: string;
+    updated_at?: string;
   };
 }
 

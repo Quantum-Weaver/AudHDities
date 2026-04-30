@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/taxonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T00:26:46.779Z
+// GENERATED: 2026-04-30T04:17:48.384Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,7 +34,6 @@ export interface PublicTaxonomy {
   created_by: string | null;
   description: string | null;
   domain: string | null;
-  id: string;
   is_active: boolean | null;
   level: number | null;
   name: string;
@@ -42,7 +41,9 @@ export interface PublicTaxonomy {
   parent_id: string | null;
   path: string;
   slug: string;
+  taxonomy_id: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -54,7 +55,6 @@ export interface TaxonomyFormData {
   created_by?: string | null;
   description?: string | null;
   domain?: string | null;
-  id?: string;
   is_active?: boolean | null;
   level?: number | null;
   name?: string;
@@ -62,7 +62,9 @@ export interface TaxonomyFormData {
   parent_id?: string | null;
   path?: string;
   slug?: string;
+  taxonomy_id?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -75,7 +77,6 @@ export interface TaxonomyValidationResult {
     created_by?: string;
     description?: string;
     domain?: string;
-    id?: string;
     is_active?: string;
     level?: string;
     name?: string;
@@ -83,7 +84,9 @@ export interface TaxonomyValidationResult {
     parent_id?: string;
     path?: string;
     slug?: string;
+    taxonomy_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

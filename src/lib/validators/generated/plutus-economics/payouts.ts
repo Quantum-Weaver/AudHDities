@@ -17,11 +17,13 @@ export const PayoutsRowSchema = z.object({
   created_by: z.string().nullable(),
   destination: z.string().nullable(),
   disbursement_id: z.string(),
-  id: z.string(),
   payout_method: z.enum(ENUM_VALUES.payoutMethod),
+  payouts_id: z.string(),
   recipient_id: z.string(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable(),
   stripe_transfer_id: z.string().nullable(),
+  updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const PayoutsInsertSchema = z.object({
@@ -31,11 +33,13 @@ export const PayoutsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   destination: z.string().nullable().optional(),
   disbursement_id: z.string(),
-  id: z.string().optional(),
   payout_method: z.enum(ENUM_VALUES.payoutMethod),
+  payouts_id: z.string().optional(),
   recipient_id: z.string(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const PayoutsUpdateSchema = z.object({
@@ -45,11 +49,13 @@ export const PayoutsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   destination: z.string().nullable().optional(),
   disbursement_id: z.string().optional(),
-  id: z.string().optional(),
   payout_method: z.enum(ENUM_VALUES.payoutMethod).optional(),
+  payouts_id: z.string().optional(),
   recipient_id: z.string().optional(),
   status: z.enum(ENUM_VALUES.payoutStatus).nullable().optional(),
   stripe_transfer_id: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

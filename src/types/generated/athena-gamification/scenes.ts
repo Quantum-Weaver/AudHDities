@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scenes.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T00:26:46.576Z
+// GENERATED: 2026-04-30T04:17:48.171Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,16 +36,17 @@ export interface PublicScenes {
   creator_id: string;
   description: string;
   house: CouncilHouse | null;
-  id: string;
   instructions: string | null;
   is_active: boolean | null;
   mythology_id: string | null;
   participant_count: number | null;
+  scenes_id: string;
   scheduled_for: string | null;
   slug: string;
   title: string;
   type: SceneType;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -58,16 +59,17 @@ export interface ScenesFormData {
   creator_id?: string;
   description?: string;
   house?: CouncilHouse | null;
-  id?: string;
   instructions?: string | null;
   is_active?: boolean | null;
   mythology_id?: string | null;
   participant_count?: number | null;
+  scenes_id?: string;
   scheduled_for?: string | null;
   slug?: string;
   title?: string;
   type?: SceneType;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -81,16 +83,17 @@ export interface ScenesValidationResult {
     creator_id?: string;
     description?: string;
     house?: string;
-    id?: string;
     instructions?: string;
     is_active?: string;
     mythology_id?: string;
     participant_count?: string;
+    scenes_id?: string;
     scheduled_for?: string;
     slug?: string;
     title?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

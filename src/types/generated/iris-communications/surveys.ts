@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/surveys.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:46.728Z
+// GENERATED: 2026-04-30T04:17:48.325Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,15 +36,17 @@ export interface PublicSurveys {
   created_by: string;
   description: string | null;
   expires_at: string | null;
-  id: string;
   is_active: boolean | null;
   questions: Json;
   response_count: number | null;
+  slug: string | null;
   starts_at: string | null;
-  target_audience: SurveyAudienceType;
+  surveys_id: string;
+  target_audience: SurveyAudienceType  | null;
   target_house: CouncilHouse | null;
   title: string;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -56,14 +58,16 @@ export interface SurveysFormData {
   created_by?: string;
   description?: string | null;
   expires_at?: string | null;
-  id?: string;
   is_active?: boolean | null;
   questions?: Json;
   response_count?: number | null;
+  slug?: string | null;
   starts_at?: string | null;
+  surveys_id?: string;
   target_house?: CouncilHouse | null;
   title?: string;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -76,15 +80,17 @@ export interface SurveysValidationResult {
     created_by?: string;
     description?: string;
     expires_at?: string;
-    id?: string;
     is_active?: string;
     questions?: string;
     response_count?: string;
+    slug?: string;
     starts_at?: string;
+    surveys_id?: string;
     target_audience?: string;
     target_house?: string;
     title?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

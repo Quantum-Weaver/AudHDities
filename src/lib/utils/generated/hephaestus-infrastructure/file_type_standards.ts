@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: FileTypeStandards
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:25.720Z
+// GENERATED: 2026-04-30T04:17:47.403Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getFileTypeStandards(id: string): Promise<FileTypeStandard
   const { data, error } = await supabase
     .from('file_type_standards')
     .select('*')
-    .eq('id', id)
+    .eq('file_type_standards_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateFileTypeStandards(id: string, data: FileTypeStandard
   const { data: result, error } = await supabase
     .from('file_type_standards')
     .update(validated)
-    .eq('id', id)
+    .eq('file_type_standards_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteFileTypeStandards(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('file_type_standards')
     .delete()
-    .eq('id', id);
+    .eq('file_type_standards_id', id);
   
   if (error) throw error;
   return true;

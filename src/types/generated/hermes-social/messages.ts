@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/messages.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T00:26:46.139Z
+// GENERATED: 2026-04-30T04:17:47.584Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,14 +33,16 @@ export interface PublicMessages {
   content: string;
   created_at: string | null;
   created_by: string | null;
-  id: string;
   is_read: boolean | null;
+  messages_id: string;
   parent_id: string | null;
   read_at: string | null;
   recipient_id: string;
   sender_id: string;
   status: MessageStatus | null;
   thread_id: string | null;
+  updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -51,14 +53,16 @@ export interface MessagesFormData {
   content?: string;
   created_at?: string | null;
   created_by?: string | null;
-  id?: string;
   is_read?: boolean | null;
+  messages_id?: string;
   parent_id?: string | null;
   read_at?: string | null;
   recipient_id?: string;
   sender_id?: string;
   status?: MessageStatus | null;
   thread_id?: string | null;
+  updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -70,14 +74,16 @@ export interface MessagesValidationResult {
     content?: string;
     created_at?: string;
     created_by?: string;
-    id?: string;
     is_read?: string;
+    messages_id?: string;
     parent_id?: string;
     read_at?: string;
     recipient_id?: string;
     sender_id?: string;
     status?: string;
     thread_id?: string;
+    updated_at?: string;
+    updated_by?: string;
   };
 }
 

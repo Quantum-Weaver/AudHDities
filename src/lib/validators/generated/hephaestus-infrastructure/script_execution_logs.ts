@@ -15,12 +15,13 @@ export const ScriptExecutionLogsRowSchema = z.object({
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
   executed_by: z.string().nullable(),
-  id: z.string(),
   output: z.string().nullable(),
   parameters_used: z.any().nullable(),
+  script_execution_logs_id: z.string(),
   script_id: z.string(),
   started_at: z.string().nullable(),
   status: z.string().nullable(),
+  updated_at: z.string().nullable(),
 });
 
 export const ScriptExecutionLogsInsertSchema = z.object({
@@ -29,12 +30,13 @@ export const ScriptExecutionLogsInsertSchema = z.object({
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   executed_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   output: z.string().nullable().optional(),
   parameters_used: z.any().nullable().optional(),
+  script_execution_logs_id: z.string().optional(),
   script_id: z.string(),
   started_at: z.string().nullable().optional(),
   status: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 export const ScriptExecutionLogsUpdateSchema = z.object({
@@ -43,12 +45,13 @@ export const ScriptExecutionLogsUpdateSchema = z.object({
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   executed_by: z.string().nullable().optional(),
-  id: z.string().optional(),
   output: z.string().nullable().optional(),
   parameters_used: z.any().nullable().optional(),
+  script_execution_logs_id: z.string().optional(),
   script_id: z.string().optional(),
   started_at: z.string().nullable().optional(),
   status: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
 });
 
 // =====================================================

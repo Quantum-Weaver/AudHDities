@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.615Z
+// Generated: 2026-04-30T04:17:47.000Z
 // Table: archivist
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('archivist')
       .select('*')
-      .eq('id', id)
+      .eq('archivist_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('archivist')
       .update(validated)
-      .eq('id', id)
+      .eq('archivist_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('archivist').delete().eq('id', id);
+    const { error } = await supabase.from('archivist').delete().eq('archivist_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('archivist');

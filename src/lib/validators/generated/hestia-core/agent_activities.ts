@@ -12,6 +12,7 @@ import z from 'zod';
 
 export const AgentActivitiesRowSchema = z.object({
   action: z.enum(ENUM_VALUES.agentActionType),
+  agent_activities_id: z.string(),
   agent_name: z.enum(ENUM_VALUES.agentName),
   completed_at: z.string().nullable(),
   conversation_id: z.string().nullable(),
@@ -20,7 +21,6 @@ export const AgentActivitiesRowSchema = z.object({
   description: z.string().nullable(),
   duration_ms: z.number().nullable(),
   error_message: z.string().nullable(),
-  id: z.string(),
   metadata: z.any().nullable(),
   parent_activity_id: z.string().nullable(),
   retry_count: z.number().nullable(),
@@ -33,6 +33,7 @@ export const AgentActivitiesRowSchema = z.object({
 
 export const AgentActivitiesInsertSchema = z.object({
   action: z.enum(ENUM_VALUES.agentActionType),
+  agent_activities_id: z.string().optional(),
   agent_name: z.enum(ENUM_VALUES.agentName),
   completed_at: z.string().nullable().optional(),
   conversation_id: z.string().nullable().optional(),
@@ -41,7 +42,6 @@ export const AgentActivitiesInsertSchema = z.object({
   description: z.string().nullable().optional(),
   duration_ms: z.number().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   parent_activity_id: z.string().nullable().optional(),
   retry_count: z.number().nullable().optional(),
@@ -54,6 +54,7 @@ export const AgentActivitiesInsertSchema = z.object({
 
 export const AgentActivitiesUpdateSchema = z.object({
   action: z.enum(ENUM_VALUES.agentActionType).optional(),
+  agent_activities_id: z.string().optional(),
   agent_name: z.enum(ENUM_VALUES.agentName).optional(),
   completed_at: z.string().nullable().optional(),
   conversation_id: z.string().nullable().optional(),
@@ -62,7 +63,6 @@ export const AgentActivitiesUpdateSchema = z.object({
   description: z.string().nullable().optional(),
   duration_ms: z.number().nullable().optional(),
   error_message: z.string().nullable().optional(),
-  id: z.string().optional(),
   metadata: z.any().nullable().optional(),
   parent_activity_id: z.string().nullable().optional(),
   retry_count: z.number().nullable().optional(),

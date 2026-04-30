@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/calendar.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-30T00:26:45.683Z
+// GENERATED: 2026-04-30T04:17:47.059Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,12 +34,12 @@ export type CalendarUpdate = TablesUpdate<'calendar'>;
  */
 export interface PublicCalendar {
   all_day: boolean | null;
+  calendar_id: string;
   created_at: string | null;
   created_by: string | null;
   description: string | null;
   end_date: string | null;
   house: CouncilHouse | null;
-  id: string;
   is_active: boolean | null;
   primary_house: CouncilHouse | null;
   recurrence: Json | null;
@@ -47,6 +47,7 @@ export interface PublicCalendar {
   title: string;
   type: CalendarEventType;
   updated_at: string | null;
+  updated_by: string | null;
   visibility: CalendarVisibility | null;
 }
 
@@ -56,12 +57,12 @@ export interface PublicCalendar {
  */
 export interface CalendarFormData {
   all_day?: boolean | null;
+  calendar_id?: string;
   created_at?: string | null;
   created_by?: string | null;
   description?: string | null;
   end_date?: string | null;
   house?: CouncilHouse | null;
-  id?: string;
   is_active?: boolean | null;
   primary_house?: CouncilHouse | null;
   recurrence?: Json | null;
@@ -69,6 +70,7 @@ export interface CalendarFormData {
   title?: string;
   type?: CalendarEventType;
   updated_at?: string | null;
+  updated_by?: string | null;
   visibility?: CalendarVisibility | null;
 }
 
@@ -79,12 +81,12 @@ export interface CalendarValidationResult {
   valid: boolean;
   errors: {
     all_day?: string;
+    calendar_id?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
     end_date?: string;
     house?: string;
-    id?: string;
     is_active?: string;
     primary_house?: string;
     recurrence?: string;
@@ -92,6 +94,7 @@ export interface CalendarValidationResult {
     title?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
     visibility?: string;
   };
 }

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Maintenance
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T03:15:25.824Z
+// GENERATED: 2026-04-30T04:17:47.580Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getMaintenance(id: string): Promise<MaintenanceRow> {
   const { data, error } = await supabase
     .from('maintenance')
     .select('*')
-    .eq('id', id)
+    .eq('maintenance_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateMaintenance(id: string, data: MaintenanceUpdate): Pr
   const { data: result, error } = await supabase
     .from('maintenance')
     .update(validated)
-    .eq('id', id)
+    .eq('maintenance_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteMaintenance(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('maintenance')
     .delete()
-    .eq('id', id);
+    .eq('maintenance_id', id);
   
   if (error) throw error;
   return true;

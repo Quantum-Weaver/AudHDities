@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AudhditiesPlatform
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-23T03:15:25.450Z
+// GENERATED: 2026-04-30T04:17:47.021Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAudhditiesPlatform(id: string): Promise<AudhditiesPlatf
   const { data, error } = await supabase
     .from('audhdities_platform')
     .select('*')
-    .eq('id', id)
+    .eq('audhdities_platform_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAudhditiesPlatform(id: string, data: AudhditiesPlatf
   const { data: result, error } = await supabase
     .from('audhdities_platform')
     .update(validated)
-    .eq('id', id)
+    .eq('audhdities_platform_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAudhditiesPlatform(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('audhdities_platform')
     .delete()
-    .eq('id', id);
+    .eq('audhdities_platform_id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CreatorCategoryLinks
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T03:15:25.602Z
+// GENERATED: 2026-04-30T04:17:47.220Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCreatorCategoryLinks(id: string): Promise<CreatorCatego
   const { data, error } = await supabase
     .from('creator_category_links')
     .select('*')
-    .eq('id', id)
+    .eq('creator_category_links_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCreatorCategoryLinks(id: string, data: CreatorCatego
   const { data: result, error } = await supabase
     .from('creator_category_links')
     .update(validated)
-    .eq('id', id)
+    .eq('creator_category_links_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCreatorCategoryLinks(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('creator_category_links')
     .delete()
-    .eq('id', id);
+    .eq('creator_category_links_id', id);
   
   if (error) throw error;
   return true;

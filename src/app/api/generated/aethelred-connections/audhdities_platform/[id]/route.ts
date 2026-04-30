@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AudhditiesPlatformUpdateSchema } from '@/lib/validators/generated/aethelred-connections/audhdities_platform';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T00:26:45.629Z
+// Generated: 2026-04-30T04:17:47.012Z
 // Table: audhdities_platform
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('audhdities_platform')
       .select('*')
-      .eq('id', id)
+      .eq('audhdities_platform_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('audhdities_platform')
       .update(validated)
-      .eq('id', id)
+      .eq('audhdities_platform_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('audhdities_platform').delete().eq('id', id);
+    const { error } = await supabase.from('audhdities_platform').delete().eq('audhdities_platform_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('audhdities_platform');

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/translations.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T00:26:46.819Z
+// GENERATED: 2026-04-30T04:17:48.426Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,14 +34,15 @@ export interface PublicTranslations {
   created_at: string | null;
   created_by: string | null;
   field_name: string;
-  id: string;
   is_approved: boolean | null;
   language_id: string;
   translatable_id: string;
   translatable_type: TranslatableType;
   translation: string;
+  translations_id: string;
   translator_id: string | null;
   updated_at: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -53,14 +54,15 @@ export interface TranslationsFormData {
   created_at?: string | null;
   created_by?: string | null;
   field_name?: string;
-  id?: string;
   is_approved?: boolean | null;
   language_id?: string;
   translatable_id?: string;
   translatable_type?: TranslatableType;
   translation?: string;
+  translations_id?: string;
   translator_id?: string | null;
   updated_at?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -73,14 +75,15 @@ export interface TranslationsValidationResult {
     created_at?: string;
     created_by?: string;
     field_name?: string;
-    id?: string;
     is_approved?: string;
     language_id?: string;
     translatable_id?: string;
     translatable_type?: string;
     translation?: string;
+    translations_id?: string;
     translator_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 
