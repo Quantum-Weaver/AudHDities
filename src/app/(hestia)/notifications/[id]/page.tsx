@@ -21,10 +21,7 @@ export default async function NotificationDetailPage({ params }: NotificationDet
   
   return (
     <Page 
-      variant={2}
-      environment="home"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

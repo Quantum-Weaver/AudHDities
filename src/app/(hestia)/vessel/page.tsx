@@ -14,7 +14,6 @@ export default function VesselPage() {
   return (
     <Page 
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12 ">

@@ -21,10 +21,7 @@ export default async function ConversationPage({ params }: ConversationPageProps
   
   return (
     <Page 
-      variant={1}
-      environment="community"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

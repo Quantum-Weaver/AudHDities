@@ -21,10 +21,7 @@ export default async function SupportThreadPage({ params }: SupportThreadPagePro
   
   return (
     <Page 
-      variant={2}
-      environment="support"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

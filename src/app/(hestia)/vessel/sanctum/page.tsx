@@ -14,7 +14,6 @@ export default function SanctumPage() {
   return (
     <Page 
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <SanctumContent />
