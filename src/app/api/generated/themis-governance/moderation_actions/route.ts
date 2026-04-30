@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ModerationActionsInsertSchema } from '@/lib/validators/generated/themis-governance/moderation_actions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:25.873Z
+// Generated: 2026-04-30T00:26:46.154Z
 // Table: moderation_actions
 
 export async function GET(request: NextRequest) {

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusBlueprintsUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_blueprints';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:26.003Z
+// Generated: 2026-04-30T00:26:46.298Z
 // Table: prometheus_blueprints
 
 export async function GET(

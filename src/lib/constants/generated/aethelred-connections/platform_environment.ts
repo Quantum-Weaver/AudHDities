@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/aethelred-connections/platform_environment.ts
-// GENERATED: 2026-04-23T02:40:26.798Z
+// GENERATED: 2026-04-30T00:26:47.325Z
 // SOURCE: Constants.public.Enums.platform_environment
 // VALUES: 3 entries
 // =====================================================

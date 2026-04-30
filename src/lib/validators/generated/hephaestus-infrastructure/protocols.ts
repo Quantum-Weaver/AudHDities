@@ -26,6 +26,7 @@ export const ProtocolsRowSchema = z.object({
   steps: z.any(),
   type: z.enum(ENUM_VALUES.protocolType),
   updated_at: z.string().nullable(),
+  updated_by: z.string().nullable(),
   version: z.number().nullable(),
 });
 
@@ -45,6 +46,7 @@ export const ProtocolsInsertSchema = z.object({
   steps: z.any(),
   type: z.enum(ENUM_VALUES.protocolType),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });
 
@@ -64,6 +66,7 @@ export const ProtocolsUpdateSchema = z.object({
   steps: z.any().optional(),
   type: z.enum(ENUM_VALUES.protocolType).optional(),
   updated_at: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
   version: z.number().nullable().optional(),
 });
 

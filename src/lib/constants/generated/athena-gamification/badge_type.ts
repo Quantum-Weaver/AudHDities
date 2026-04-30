@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: constants/generated/athena-gamification/badge_type.ts
-// GENERATED: 2026-04-23T02:40:26.656Z
+// GENERATED: 2026-04-30T00:26:47.175Z
 // SOURCE: Constants.public.Enums.badge_type
-// VALUES: 49 entries
+// VALUES: 56 entries
 // =====================================================
 
 export const BADGE_TYPE = {
@@ -55,6 +55,13 @@ export const BADGE_TYPE = {
   BIGOT_TAX_EXEMPT: 'bigot_tax_exempt',
   DATA_SOVEREIGN: 'data_sovereign',
   PRIVACY_PIONEER: 'privacy_pioneer',
+  BUBBLE_COLLECTOR: 'bubble_collector',
+  DISCOVERY: 'discovery',
+  FIRST_CONTRIBUTION: 'first_contribution',
+  FIRST_MENTEE: 'first_mentee',
+  PROFILE_COMPLETED: 'profile_completed',
+  ACID_TEST_COMPLETED: 'acid_test_completed',
+  FOUNDING_LIGHT: 'founding_light',
 } as const;
 
 export type BadgeType = typeof BADGE_TYPE[keyof typeof BADGE_TYPE];

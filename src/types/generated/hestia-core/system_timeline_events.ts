@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/system_timeline_events.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:53.669Z
+// GENERATED: 2026-04-30T00:26:46.753Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -26,6 +26,7 @@ export type SystemTimelineEventsUpdate = TablesUpdate<'system_timeline_events'>;
  */
 export interface PublicSystemTimelineEvents {
   created_at: string;
+  created_by: string | null;
   description: string | null;
   event_type: string;
   id: string;
@@ -41,6 +42,7 @@ export interface PublicSystemTimelineEvents {
  */
 export interface SystemTimelineEventsFormData {
   created_at?: string;
+  created_by?: string | null;
   description?: string | null;
   event_type?: string;
   id?: string;
@@ -57,6 +59,7 @@ export interface SystemTimelineEventsValidationResult {
   valid: boolean;
   errors: {
     created_at?: string;
+    created_by?: string;
     description?: string;
     event_type?: string;
     id?: string;

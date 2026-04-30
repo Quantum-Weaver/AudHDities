@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/etymology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-23T02:14:52.879Z
+// GENERATED: 2026-04-30T00:26:45.949Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

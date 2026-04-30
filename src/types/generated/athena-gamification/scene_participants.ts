@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-23T02:14:53.457Z
+// GENERATED: 2026-04-30T00:26:46.562Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -24,6 +24,7 @@ export type SceneParticipantsUpdate = TablesUpdate<'scene_participants'>;
  * Public view of scene_participants
  */
 export interface PublicSceneParticipants {
+  created_at: string;
   created_by: string | null;
   joined_at: string | null;
   role: string | null;
@@ -36,6 +37,7 @@ export interface PublicSceneParticipants {
  * All fields are optional for partial updates
  */
 export interface SceneParticipantsFormData {
+  created_at?: string;
   created_by?: string | null;
   joined_at?: string | null;
   role?: string | null;
@@ -49,6 +51,7 @@ export interface SceneParticipantsFormData {
 export interface SceneParticipantsValidationResult {
   valid: boolean;
   errors: {
+    created_at?: string;
     created_by?: string;
     joined_at?: string;
     role?: string;

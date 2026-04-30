@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_activities.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:52.532Z
+// GENERATED: 2026-04-30T00:26:45.539Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,6 +38,7 @@ export interface PublicAgentActivities {
   completed_at: string | null;
   conversation_id: string | null;
   created_at: string;
+  created_by: string | null;
   description: string | null;
   duration_ms: number | null;
   error_message: string | null;
@@ -62,6 +63,7 @@ export interface AgentActivitiesFormData {
   completed_at?: string | null;
   conversation_id?: string | null;
   created_at?: string;
+  created_by?: string | null;
   description?: string | null;
   duration_ms?: number | null;
   error_message?: string | null;
@@ -87,6 +89,7 @@ export interface AgentActivitiesValidationResult {
     completed_at?: string;
     conversation_id?: string;
     created_at?: string;
+    created_by?: string;
     description?: string;
     duration_ms?: string;
     error_message?: string;

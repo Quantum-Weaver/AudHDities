@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/athena-gamification/myth_type.ts
-// GENERATED: 2026-04-23T02:40:26.775Z
+// GENERATED: 2026-04-30T00:26:47.298Z
 // SOURCE: Constants.public.Enums.myth_type
 // VALUES: 5 entries
 // =====================================================

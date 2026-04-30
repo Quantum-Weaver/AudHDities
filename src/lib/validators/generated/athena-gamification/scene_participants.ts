@@ -10,6 +10,7 @@ import z from 'zod';
 // =====================================================
 
 export const SceneParticipantsRowSchema = z.object({
+  created_at: z.string(),
   created_by: z.string().nullable(),
   joined_at: z.string().nullable(),
   role: z.string().nullable(),
@@ -18,6 +19,7 @@ export const SceneParticipantsRowSchema = z.object({
 });
 
 export const SceneParticipantsInsertSchema = z.object({
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   joined_at: z.string().nullable().optional(),
   role: z.string().nullable().optional(),
@@ -26,6 +28,7 @@ export const SceneParticipantsInsertSchema = z.object({
 });
 
 export const SceneParticipantsUpdateSchema = z.object({
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   joined_at: z.string().nullable().optional(),
   role: z.string().nullable().optional(),

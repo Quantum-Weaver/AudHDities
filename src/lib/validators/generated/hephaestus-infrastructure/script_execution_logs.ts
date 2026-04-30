@@ -11,6 +11,7 @@ import z from 'zod';
 
 export const ScriptExecutionLogsRowSchema = z.object({
   completed_at: z.string().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
   executed_by: z.string().nullable(),
@@ -24,6 +25,7 @@ export const ScriptExecutionLogsRowSchema = z.object({
 
 export const ScriptExecutionLogsInsertSchema = z.object({
   completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   executed_by: z.string().nullable().optional(),
@@ -37,6 +39,7 @@ export const ScriptExecutionLogsInsertSchema = z.object({
 
 export const ScriptExecutionLogsUpdateSchema = z.object({
   completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   executed_by: z.string().nullable().optional(),

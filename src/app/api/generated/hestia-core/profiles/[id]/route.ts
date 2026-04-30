@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:02:27.822Z
+// Generated: 2026-04-30T00:26:46.273Z
 // Table: profiles
 
 export async function GET(
@@ -16,7 +16,7 @@ export async function GET(
     
     const { data, error } = await supabase
       .from('profiles')
-      .select('*, community_profiles!fk_community_profiles_profile_id(*)')
+      .select('*')
       .eq('id', id)
       .single();
     

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:53.767Z
+// GENERATED: 2026-04-30T00:26:46.867Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

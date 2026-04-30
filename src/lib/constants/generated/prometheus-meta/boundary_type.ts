@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/prometheus-meta/boundary_type.ts
-// GENERATED: 2026-04-23T02:40:26.663Z
+// GENERATED: 2026-04-30T00:26:47.186Z
 // SOURCE: Constants.public.Enums.boundary_type
 // VALUES: 3 entries
 // =====================================================

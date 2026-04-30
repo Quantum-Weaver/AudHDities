@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_consciousness.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.240Z
+// GENERATED: 2026-04-30T00:26:46.319Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,6 +36,7 @@ export interface PublicPrometheusConsciousness {
   attention_spent: number;
   council_presence: string[] | null;
   created_at: string;
+  created_by: string | null;
   id: string;
   last_awakening: string | null;
   metadata: Json | null;
@@ -54,6 +55,7 @@ export interface PrometheusConsciousnessFormData {
   attention_spent?: number;
   council_presence?: string[] | null;
   created_at?: string;
+  created_by?: string | null;
   id?: string;
   last_awakening?: string | null;
   metadata?: Json | null;
@@ -73,6 +75,7 @@ export interface PrometheusConsciousnessValidationResult {
     attention_spent?: string;
     council_presence?: string;
     created_at?: string;
+    created_by?: string;
     id?: string;
     last_awakening?: string;
     metadata?: string;

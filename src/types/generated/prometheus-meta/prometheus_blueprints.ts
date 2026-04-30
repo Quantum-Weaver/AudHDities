@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_blueprints.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.217Z
+// GENERATED: 2026-04-30T00:26:46.296Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -36,6 +36,7 @@ export interface PublicPrometheusBlueprints {
   blueprint_id: string;
   content: Json;
   created_at: string;
+  created_by: string | null;
   generation_count: number;
   id: string;
   purpose: string;
@@ -55,6 +56,7 @@ export interface PrometheusBlueprintsFormData {
   blueprint_id?: string;
   content?: Json;
   created_at?: string;
+  created_by?: string | null;
   generation_count?: number;
   id?: string;
   purpose?: string;
@@ -75,6 +77,7 @@ export interface PrometheusBlueprintsValidationResult {
     blueprint_id?: string;
     content?: string;
     created_at?: string;
+    created_by?: string;
     generation_count?: string;
     id?: string;
     purpose?: string;

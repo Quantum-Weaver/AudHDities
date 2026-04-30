@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_templates.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.289Z
+// GENERATED: 2026-04-30T00:26:46.373Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,6 +33,7 @@ export interface PublicPrometheusTemplates {
   content: string;
   contexts: PatternContext[] | null;
   created_at: string;
+  created_by: string | null;
   dependencies: string[] | null;
   id: string;
   is_active: boolean;
@@ -51,6 +52,7 @@ export interface PrometheusTemplatesFormData {
   content?: string;
   contexts?: PatternContext[] | null;
   created_at?: string;
+  created_by?: string | null;
   dependencies?: string[] | null;
   id?: string;
   is_active?: boolean;
@@ -70,6 +72,7 @@ export interface PrometheusTemplatesValidationResult {
     content?: string;
     contexts?: string;
     created_at?: string;
+    created_by?: string;
     dependencies?: string;
     id?: string;
     is_active?: string;

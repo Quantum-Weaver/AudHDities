@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SceneParticipantsUpdateSchema } from '@/lib/validators/generated/athena-gamification/scene_participants';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:26.199Z
+// Generated: 2026-04-30T00:26:46.565Z
 // Table: scene_participants
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('scene_participants')
       .select('*')
-      .eq('user_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('scene_participants')
       .update(validated)
-      .eq('user_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('scene_participants').delete().eq('user_id', id);
+    const { error } = await supabase.from('scene_participants').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('scene_participants');

@@ -13,7 +13,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('prometheus_generation_stats')
       .select('*')
-      .eq('pattern_type', id)
+      .eq('id', id)
       .single();
     
     if (error) {

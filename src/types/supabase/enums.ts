@@ -1,7 +1,7 @@
 // =====================================================
 // GENERATED ENUMS HELPER - DO NOT EDIT MANUALLY
 // =====================================================
-// Generated: 2026-04-29T20:55:26.983Z
+// Generated: 2026-04-30T00:29:14.801Z
 // Source: database.types.ts Constants.Enums
 // Purpose: Runtime enum values and type-safe helpers
 // =====================================================
@@ -147,7 +147,7 @@ export const ENUM_VALUES = {
   applicationType: ['creator', 'vendor', 'mentor', 'moderator'] as const,
   badgeRarity: ['common', 'rare', 'epic', 'legendary', 'mythic'] as const,
   badgeTier: ['initiate', 'adept', 'master'] as const,
-  badgeType: ['quantum_weaver', 'founding_council', 'genesis_block', 'sanctuary_guardian', 'verified_creator', 'verified_vendor', 'community_leader', 'first_sale', 'first_purchase', 'first_quest', 'quest_master', 'sovereign_seeker', 'sovereign_adept', 'sovereign_master', 'contributor_concept', 'contributor_code', 'contributor_design', 'contributor_content', 'contributor_testing', 'hearth_keeper_initiate', 'hearth_keeper_adept', 'hearth_keeper_master', 'chancellor_initiate', 'chancellor_adept', 'chancellor_master', 'seer_initiate', 'seer_adept', 'seer_master', 'aethelred_initiate', 'aethelred_adept', 'aethelred_master', 'curator_initiate', 'curator_adept', 'curator_master', 'archivist_initiate', 'archivist_adept', 'archivist_master', 'skald_initiate', 'skald_adept', 'skald_master', 'codex_initiate', 'codex_adept', 'codex_master', 'executioner_initiate', 'executioner_adept', 'executioner_master', 'bigot_tax_exempt', 'data_sovereign', 'privacy_pioneer', 'bubble_collector', 'discovery'] as const,
+  badgeType: ['quantum_weaver', 'founding_council', 'genesis_block', 'sanctuary_guardian', 'verified_creator', 'verified_vendor', 'community_leader', 'first_sale', 'first_purchase', 'first_quest', 'quest_master', 'sovereign_seeker', 'sovereign_adept', 'sovereign_master', 'contributor_concept', 'contributor_code', 'contributor_design', 'contributor_content', 'contributor_testing', 'hearth_keeper_initiate', 'hearth_keeper_adept', 'hearth_keeper_master', 'chancellor_initiate', 'chancellor_adept', 'chancellor_master', 'seer_initiate', 'seer_adept', 'seer_master', 'aethelred_initiate', 'aethelred_adept', 'aethelred_master', 'curator_initiate', 'curator_adept', 'curator_master', 'archivist_initiate', 'archivist_adept', 'archivist_master', 'skald_initiate', 'skald_adept', 'skald_master', 'codex_initiate', 'codex_adept', 'codex_master', 'executioner_initiate', 'executioner_adept', 'executioner_master', 'bigot_tax_exempt', 'data_sovereign', 'privacy_pioneer', 'bubble_collector', 'discovery', 'first_contribution', 'first_mentee', 'profile_completed', 'acid_test_completed', 'founding_light'] as const,
   bidType: ['cpm', 'cpc', 'cpa'] as const,
   blueprintStatus: ['draft', 'active', 'archived', 'deprecated'] as const,
   blueprintSystem: ['COSMIC', 'GAIA', 'PROMETHEUS'] as const,
@@ -211,7 +211,7 @@ export const ENUM_VALUES = {
   productStatus: ['draft', 'pending_review', 'published', 'sold_out', 'discontinued', 'archived', 'deleted'] as const,
   productType: ['digital_course', 'digital_download', 'digital_membership', 'digital_subscription', 'digital_bundle', 'physical_product', 'physical_handmade', 'physical_manufactured', 'physical_custom', 'audio', 'video', 'podcast', 'music', 'livestream', 'event_live', 'event_virtual', 'workshop', 'class', 'consultation', 'service', 'commission', 'contract', 'sponsorship', 'mutual_aid', 'crowdfunding', 'tip', 'donation', 'clothing', 'accessory', 'fabric', 'pattern', 'bundle', 'kit', 'subscription_box'] as const,
   progressStatus: ['not_started', 'in_progress', 'completed', 'mastered'] as const,
-  protocolType: ['security', 'incident', 'escalation', 'onboarding', 'offboarding', 'emergency'] as const,
+  protocolType: ['security', 'incident', 'escalation', 'onboarding', 'offboarding', 'emergency', 'standard'] as const,
   questStatus: ['locked', 'available', 'in_progress', 'completed', 'mastered'] as const,
   reactionType: ['resonate', 'support', 'appreciate', 'empathy', 'celebrate'] as const,
   recurringInterval: ['weekly', 'monthly', 'quarterly', 'yearly', 'lifetime', 'one_tme'] as const,

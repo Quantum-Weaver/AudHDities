@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_conversations.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:52.545Z
+// GENERATED: 2026-04-30T00:26:45.553Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,6 +35,7 @@ export interface PublicAgentConversations {
   context_id: string | null;
   context_type: string | null;
   created_at: string;
+  created_by: string | null;
   id: string;
   last_message_at: string | null;
   message_count: number | null;
@@ -57,6 +58,7 @@ export interface AgentConversationsFormData {
   context_id?: string | null;
   context_type?: string | null;
   created_at?: string;
+  created_by?: string | null;
   id?: string;
   last_message_at?: string | null;
   message_count?: number | null;
@@ -80,6 +82,7 @@ export interface AgentConversationsValidationResult {
     context_id?: string;
     context_type?: string;
     created_at?: string;
+    created_by?: string;
     id?: string;
     last_message_at?: string;
     message_count?: string;

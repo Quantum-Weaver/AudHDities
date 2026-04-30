@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/protocols.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T02:14:53.301Z
+// GENERATED: 2026-04-30T00:26:46.387Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -46,6 +46,7 @@ export interface PublicProtocols {
   steps: Json;
   type: ProtocolType;
   updated_at: string | null;
+  updated_by: string | null;
   version: number | null;
 }
 
@@ -69,6 +70,7 @@ export interface ProtocolsFormData {
   steps?: Json;
   type?: ProtocolType;
   updated_at?: string | null;
+  updated_by?: string | null;
   version?: number | null;
 }
 
@@ -93,6 +95,7 @@ export interface ProtocolsValidationResult {
     steps?: string;
     type?: string;
     updated_at?: string;
+    updated_by?: string;
     version?: string;
   };
 }

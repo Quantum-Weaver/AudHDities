@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CreatorCategoryLinksUpdateSchema } from '@/lib/validators/generated/hestia-core/creator_category_links';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:25.596Z
+// Generated: 2026-04-30T00:26:45.840Z
 // Table: creator_category_links
 
 export async function GET(

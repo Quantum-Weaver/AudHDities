@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vendor_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:53.802Z
+// GENERATED: 2026-04-30T00:26:46.987Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

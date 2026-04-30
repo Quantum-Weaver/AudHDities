@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_memories.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.266Z
+// GENERATED: 2026-04-30T00:26:46.347Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -27,6 +27,7 @@ export interface PublicPrometheusMemories {
   average_duration_ms: number;
   confidence_score: number;
   created_at: string;
+  created_by: string | null;
   dependencies: string[] | null;
   failure_count: number;
   id: string;
@@ -46,6 +47,7 @@ export interface PrometheusMemoriesFormData {
   average_duration_ms?: number;
   confidence_score?: number;
   created_at?: string;
+  created_by?: string | null;
   dependencies?: string[] | null;
   failure_count?: number;
   id?: string;
@@ -66,6 +68,7 @@ export interface PrometheusMemoriesValidationResult {
     average_duration_ms?: string;
     confidence_score?: string;
     created_at?: string;
+    created_by?: string;
     dependencies?: string;
     failure_count?: string;
     id?: string;

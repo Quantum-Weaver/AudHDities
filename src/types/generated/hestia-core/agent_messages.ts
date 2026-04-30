@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_messages.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:52.556Z
+// GENERATED: 2026-04-30T00:26:45.567Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,6 +34,7 @@ export type AgentMessagesUpdate = TablesUpdate<'agent_messages'>;
 export interface PublicAgentMessages {
   conversation_id: string;
   created_at: string;
+  created_by: string | null;
   direction: MessageDirection;
   from_agent: AgentName;
   id: string;
@@ -52,6 +53,7 @@ export interface PublicAgentMessages {
 export interface AgentMessagesFormData {
   conversation_id?: string;
   created_at?: string;
+  created_by?: string | null;
   direction?: MessageDirection;
   from_agent?: AgentName;
   id?: string;
@@ -71,6 +73,7 @@ export interface AgentMessagesValidationResult {
   errors: {
     conversation_id?: string;
     created_at?: string;
+    created_by?: string;
     direction?: string;
     from_agent?: string;
     id?: string;

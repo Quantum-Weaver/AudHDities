@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/languages.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T02:14:52.973Z
+// GENERATED: 2026-04-30T00:26:46.048Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ActivityUpdateSchema } from '@/lib/validators/generated/hermes-social/activity';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:25.339Z
+// Generated: 2026-04-30T00:26:45.486Z
 // Table: activity
 
 export async function GET(

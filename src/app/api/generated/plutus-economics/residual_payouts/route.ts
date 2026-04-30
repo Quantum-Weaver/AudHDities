@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ResidualPayoutsInsertSchema } from '@/lib/validators/generated/plutus-economics/residual_payouts';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:26.167Z
+// Generated: 2026-04-30T00:26:46.522Z
 // Table: residual_payouts
 
 export async function GET(request: NextRequest) {

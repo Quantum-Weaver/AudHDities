@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/themis-governance/report_target_type.ts
-// GENERATED: 2026-04-23T02:40:26.829Z
+// GENERATED: 2026-04-30T00:26:47.357Z
 // SOURCE: Constants.public.Enums.report_target_type
 // VALUES: 7 entries
 // =====================================================

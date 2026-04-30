@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/localization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-23T02:14:53.032Z
+// GENERATED: 2026-04-30T00:26:46.114Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/channels.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-23T02:14:52.653Z
+// GENERATED: 2026-04-30T00:26:45.708Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

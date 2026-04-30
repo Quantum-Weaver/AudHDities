@@ -13,6 +13,7 @@ import z from 'zod';
 export const PrometheusPatternsRowSchema = z.object({
   contexts: z.any(),
   created_at: z.string(),
+  created_by: z.string().nullable(),
   default_template_id: z.string().nullable(),
   dependencies: z.any().nullable(),
   description: z.string(),
@@ -28,6 +29,7 @@ export const PrometheusPatternsRowSchema = z.object({
 export const PrometheusPatternsInsertSchema = z.object({
   contexts: z.any(),
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   default_template_id: z.string().nullable().optional(),
   dependencies: z.any().nullable().optional(),
   description: z.string(),
@@ -43,6 +45,7 @@ export const PrometheusPatternsInsertSchema = z.object({
 export const PrometheusPatternsUpdateSchema = z.object({
   contexts: z.any().optional(),
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   default_template_id: z.string().nullable().optional(),
   dependencies: z.any().nullable().optional(),
   description: z.string().optional(),

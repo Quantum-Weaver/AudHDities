@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_generations.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.253Z
+// GENERATED: 2026-04-30T00:26:46.334Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,6 +35,7 @@ export interface PublicPrometheusGenerations {
   completed_at: string | null;
   council_involved: string[] | null;
   created_at: string;
+  created_by: string | null;
   duration_ms: number;
   errors: Json | null;
   file_paths: string[] | null;
@@ -55,6 +56,7 @@ export interface PrometheusGenerationsFormData {
   completed_at?: string | null;
   council_involved?: string[] | null;
   created_at?: string;
+  created_by?: string | null;
   duration_ms?: number;
   errors?: Json | null;
   file_paths?: string[] | null;
@@ -76,6 +78,7 @@ export interface PrometheusGenerationsValidationResult {
     completed_at?: string;
     council_involved?: string;
     created_at?: string;
+    created_by?: string;
     duration_ms?: string;
     errors?: string;
     file_paths?: string;

@@ -12,6 +12,7 @@ import z from 'zod';
 
 export const SystemHealthLogsRowSchema = z.object({
   checked_at: z.string().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
   error_message: z.string().nullable(),
   id: z.string(),
@@ -22,6 +23,7 @@ export const SystemHealthLogsRowSchema = z.object({
 
 export const SystemHealthLogsInsertSchema = z.object({
   checked_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   id: z.string().optional(),
@@ -32,6 +34,7 @@ export const SystemHealthLogsInsertSchema = z.object({
 
 export const SystemHealthLogsUpdateSchema = z.object({
   checked_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   error_message: z.string().nullable().optional(),
   id: z.string().optional(),

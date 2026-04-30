@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_patterns.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-23T02:14:53.278Z
+// GENERATED: 2026-04-30T00:26:46.361Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,6 +32,7 @@ export type PrometheusPatternsUpdate = TablesUpdate<'prometheus_patterns'>;
 export interface PublicPrometheusPatterns {
   contexts: PatternContext[];
   created_at: string;
+  created_by: string | null;
   default_template_id: string | null;
   dependencies: string[] | null;
   description: string;
@@ -51,6 +52,7 @@ export interface PublicPrometheusPatterns {
 export interface PrometheusPatternsFormData {
   contexts?: PatternContext[];
   created_at?: string;
+  created_by?: string | null;
   default_template_id?: string | null;
   dependencies?: string[] | null;
   description?: string;
@@ -71,6 +73,7 @@ export interface PrometheusPatternsValidationResult {
   errors: {
     contexts?: string;
     created_at?: string;
+    created_by?: string;
     default_template_id?: string;
     dependencies?: string;
     description?: string;

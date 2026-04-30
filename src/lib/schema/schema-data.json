@@ -5893,6 +5893,11 @@
           "nullable": true
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "version",
           "type": "DECIMAL",
           "nullable": true
@@ -9091,7 +9096,12 @@
         "data_sovereign",
         "privacy_pioneer",
         "bubble_collector",
-        "discovery"
+        "discovery",
+        "first_contribution",
+        "first_mentee",
+        "profile_completed",
+        "acid_test_completed",
+        "founding_light"
       ]
     },
     {
@@ -9766,7 +9776,8 @@
         "escalation",
         "onboarding",
         "offboarding",
-        "emergency"
+        "emergency",
+        "standard"
       ]
     },
     {
@@ -10157,6 +10168,11 @@
       "returnType": "undefined"
     },
     {
+      "name": "check_rate_limit",
+      "args": "p_action_type: string\r\n          p_max_per_day?: number\r\n          p_max_per_hour?: number\r\n          p_user_id: string",
+      "returnType": "boolean"
+    },
+    {
       "name": "clean_old_agent_activities",
       "args": "",
       "returnType": "number"
@@ -10218,6 +10234,16 @@
     },
     {
       "name": "creator_profiles_unlink",
+      "args": "",
+      "returnType": "unknown"
+    },
+    {
+      "name": "ensure_unique_slug",
+      "args": "",
+      "returnType": "string"
+    },
+    {
+      "name": "generate_slug",
       "args": "",
       "returnType": "unknown"
     },
@@ -10327,6 +10353,11 @@
       "returnType": "boolean"
     },
     {
+      "name": "sanitize_text_input",
+      "args": "",
+      "returnType": "unknown"
+    },
+    {
       "name": "seed_council_houses",
       "args": "",
       "returnType": "unknown"
@@ -10402,5 +10433,5 @@
       "returnType": "unknown"
     }
   ],
-  "generatedAt": "2026-04-29T20:55:53.468Z"
+  "generatedAt": "2026-04-30T00:31:40.974Z"
 }

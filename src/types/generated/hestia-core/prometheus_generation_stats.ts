@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/prometheus_generation_stats.ts
 // TYPE: view
 // HANDLING: read_only_view
-// GENERATED: 2026-04-23T02:14:53.832Z
+// GENERATED: 2026-04-30T00:26:47.019Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

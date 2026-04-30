@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/system_health_logs.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-04-23T02:14:53.658Z
+// GENERATED: 2026-04-30T00:26:46.740Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -31,6 +31,7 @@ export type SystemHealthLogsUpdate = TablesUpdate<'system_health_logs'>;
  */
 export interface PublicSystemHealthLogs {
   checked_at: string | null;
+  created_at: string;
   created_by: string | null;
   error_message: string | null;
   id: string;
@@ -45,6 +46,7 @@ export interface PublicSystemHealthLogs {
  */
 export interface SystemHealthLogsFormData {
   checked_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
   error_message?: string | null;
   id?: string;
@@ -60,6 +62,7 @@ export interface SystemHealthLogsValidationResult {
   valid: boolean;
   errors: {
     checked_at?: string;
+    created_at?: string;
     created_by?: string;
     error_message?: string;
     id?: string;

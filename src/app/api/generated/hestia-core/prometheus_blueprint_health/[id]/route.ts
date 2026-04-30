@@ -13,7 +13,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('prometheus_blueprint_health')
       .select('*')
-      .eq('blueprint_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {

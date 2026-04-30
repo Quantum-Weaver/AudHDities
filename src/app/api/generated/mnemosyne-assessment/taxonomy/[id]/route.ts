@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TaxonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/taxonomy';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-23T03:15:26.454Z
+// Generated: 2026-04-30T00:26:46.782Z
 // Table: taxonomy
 
 export async function GET(

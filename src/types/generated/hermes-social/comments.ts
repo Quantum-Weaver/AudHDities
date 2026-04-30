@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/comments.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-23T02:14:52.677Z
+// GENERATED: 2026-04-30T00:26:45.734Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

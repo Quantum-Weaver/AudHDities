@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hephaestus-infrastructure/protocol_type.ts
-// GENERATED: 2026-04-23T02:40:26.816Z
+// GENERATED: 2026-04-30T00:26:47.344Z
 // SOURCE: Constants.public.Enums.protocol_type
-// VALUES: 6 entries
+// VALUES: 7 entries
 // =====================================================
 
 export const PROTOCOL_TYPE = {
@@ -12,6 +12,7 @@ export const PROTOCOL_TYPE = {
   ONBOARDING: 'onboarding',
   OFFBOARDING: 'offboarding',
   EMERGENCY: 'emergency',
+  STANDARD: 'standard',
 } as const;
 
 export type ProtocolType = typeof PROTOCOL_TYPE[keyof typeof PROTOCOL_TYPE];

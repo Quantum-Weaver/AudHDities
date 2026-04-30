@@ -11,6 +11,7 @@ import z from 'zod';
 
 export const SystemTimelineEventsRowSchema = z.object({
   created_at: z.string(),
+  created_by: z.string().nullable(),
   description: z.string().nullable(),
   event_type: z.string(),
   id: z.string(),
@@ -22,6 +23,7 @@ export const SystemTimelineEventsRowSchema = z.object({
 
 export const SystemTimelineEventsInsertSchema = z.object({
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_type: z.string(),
   id: z.string().optional(),
@@ -33,6 +35,7 @@ export const SystemTimelineEventsInsertSchema = z.object({
 
 export const SystemTimelineEventsUpdateSchema = z.object({
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
   event_type: z.string().optional(),
   id: z.string().optional(),

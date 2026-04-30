@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/sensory_preferences.ts
-// GENERATED: 2026-04-23T02:40:26.844Z
+// GENERATED: 2026-04-30T00:26:47.373Z
 // SOURCE: Constants.public.Enums.sensory_preferences
 // VALUES: 6 entries
 // =====================================================

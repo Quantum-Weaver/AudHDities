@@ -13,7 +13,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('public_transparency')
       .select('*')
-      .eq('target_identifier', id)
+      .eq('id', id)
       .single();
     
     if (error) {

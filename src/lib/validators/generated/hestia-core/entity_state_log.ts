@@ -12,6 +12,7 @@ import z from 'zod';
 
 export const EntityStateLogRowSchema = z.object({
   created_at: z.string(),
+  created_by: z.string().nullable(),
   current_task: z.string().nullable(),
   energy_level: z.number().nullable(),
   entity_name: z.enum(ENUM_VALUES.agentName),
@@ -22,6 +23,7 @@ export const EntityStateLogRowSchema = z.object({
 
 export const EntityStateLogInsertSchema = z.object({
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   current_task: z.string().nullable().optional(),
   energy_level: z.number().nullable().optional(),
   entity_name: z.enum(ENUM_VALUES.agentName),
@@ -32,6 +34,7 @@ export const EntityStateLogInsertSchema = z.object({
 
 export const EntityStateLogUpdateSchema = z.object({
   created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
   current_task: z.string().nullable().optional(),
   energy_level: z.number().nullable().optional(),
   entity_name: z.enum(ENUM_VALUES.agentName).optional(),

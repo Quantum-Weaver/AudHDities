@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/subscription_status.ts
-// GENERATED: 2026-04-23T02:40:26.859Z
+// GENERATED: 2026-04-30T00:26:47.389Z
 // SOURCE: Constants.public.Enums.subscription_status
 // VALUES: 4 entries
 // =====================================================
