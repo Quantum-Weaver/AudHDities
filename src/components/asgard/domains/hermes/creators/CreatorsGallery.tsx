@@ -7,12 +7,15 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { CreatorCardRenderer } from '@/components/asgard/domains/hermes/creators/CreatorCardRenderer';
 import { ArrowLeft, Users, Search } from 'lucide-react';
 import { CardData } from '@/types/components/runes/card.types';
+import { useSearchParams } from 'next/navigation';
 
 interface CreatorItem {
-  creators_id: string; creator_moniker: string; creative_description: string | null;
+  creator_profiles_id: string; creator_moniker: string; creative_description: string | null;
   creative_categories: string[] | null; verification_status: string | null;
   verified_badge: boolean | null; total_products: number | null;
 }
+
+
 
 export function CreatorsGallery() {
   const [creators, setCreators] = useState<CreatorItem[]>([]);
@@ -76,13 +79,13 @@ export function CreatorsGallery() {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((c) => (
-            <Link key={c.creators_id} href={`/bazaar/creators/${c.creators_id}`}>
+            <Link key={c.creator_profiles_id} href={`/bazaar/creators/${c.creator_profiles_id}`}>
               <CreatorCardRenderer
                 variant="interactive"
                 radius="lg"
                 shadow="sm"
                 data={{
-                  id: c.creators_id, type: 'creator', title: c.creator_moniker,
+                  id: c.creator_profiles_id, type: 'creator', title: c.creator_moniker,
                   description: c.creative_description || undefined,
                   productCount: c.total_products || 0,
                   isVerified: c.verified_badge || false,

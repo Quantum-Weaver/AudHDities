@@ -12,7 +12,7 @@ import { ArrowLeft, Shield, Package, Globe, Building2 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface VendorItem {
-  vendors_id: string; business_name: string; business_description: string | null;
+  vendor_profiles_id: string; business_name: string; business_description: string | null;
   business_type: string | null; product_categories: string[] | null;
   verification_status: string | null; verified_badge: boolean | null;
   total_products: number | null; total_sales: number | null;
@@ -36,7 +36,7 @@ export function VendorDetail() {
       .then((result) => { if (result.success) setVendor(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.vendors_id]);
+  }, [params.vendor_profiles_id]);
 
   if (loading) {
     return (
@@ -61,7 +61,7 @@ export function VendorDetail() {
     );
   }
 
-  const cardData: CardData = { id: vendor.vendors_id, type: 'vendor', title: vendor.business_name, description: vendor.business_description || '' };
+  const cardData: CardData = { id: vendor.vendor_profiles_id, type: 'vendor', title: vendor.business_name, description: vendor.business_description || '' };
 
   return (
     <main className="min-h-screen py-12">
@@ -122,6 +122,16 @@ export function VendorDetail() {
             </a>
           )}
 
+          {vendor.total_products !== null && vendor.total_products > 0 && (
+            <Link
+              href={`/bazaar/creations?vendor_id=${vendor.vendor_profiles_id}`}
+              className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
+            >
+              <Package size={14} />
+              View all {vendor.total_products} products
+            </Link>
+          )}
+          
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
         </Card>
       </div>

@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Package, Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import { useSearchParams } from 'next/navigation';
 
 interface ProductItem {
   products_id: string;
@@ -34,11 +35,22 @@ export function CreationsGallery() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/generated/plutus-economics/products?is_published=true&active=true&order=created_at.desc');
+        const params = new URLSearchParams();
+        params.set('is_published', 'true');
+        params.set('active', 'true');
+        params.set('order', 'created_at.desc');
+        
+        const creatorId = searchParams.get('creator_id');
+        const vendorId = searchParams.get('vendor_id');
+        if (creatorId) params.set('creator_id', creatorId);
+        if (vendorId) params.set('owner_id', vendorId);
+        
+        const response = await fetch(`/api/generated/plutus-economics/products?${params.toString()}`);
         const result = await response.json();
         if (result.success) {
           setProducts(result.data?.data || result.data || []);
@@ -50,8 +62,8 @@ export function CreationsGallery() {
       }
     };
     fetchProducts();
-  }, []);
-
+  }, [searchParams]);
+ 
   const types = useMemo(() => {
     const set = new Set<string>();
     products.forEach((p) => set.add(p.product_type));

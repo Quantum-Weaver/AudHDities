@@ -17,7 +17,7 @@ export default async function VendorOnboardingPage() {
   return (
     <Page 
       variant={1}
-      environment="docs"
+      environment="forge"
       showForeground={false}
       animated={false}   
       showContinuityBeam={true}

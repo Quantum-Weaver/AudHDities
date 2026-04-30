@@ -12,7 +12,7 @@ AUDHDITIES/
 📁   │   └── workflows/                         # GitHub Actions (future)
 ⚪	│       └── (to be added later)
 ⚪	│
-📁   ├── docs/                                  # Documentation
+📁   ├── forge/                                  # Documentation
 📁   │   ├── architecture/                      # System design docs
 ✅	│   │   ├── database-schema.md             # Explanation of tables
 ✅	│   │   ├── auth-flow.md                   # How authentication works
@@ -63,7 +63,7 @@ AUDHDITIES/
 ✅	│   │   │   │   └── page.tsx               # About page
 📁   │   │   │   ├── contact/
 ✅	│   │   │   │   └── page.tsx               # Contact page
-📁   │   │   │   ├── docs/
+📁   │   │   │   ├── forge/
 📁   │   │   │   │   ├── architecture/
 📁   │   │   │   │   │   ├── auth-flow/           
 ✅	│   │   │   │   │   │   └── page.tsx       # Auth flow page
@@ -240,7 +240,7 @@ AUDHDITIES/
 📁	 │   │   │   │   ├── apply/
 ✅	│   │   │   │   │   └── route.ts
 ✅	│   │   │   │   └── route.ts
-📁	 │   │   │   ├── docs/
+📁	 │   │   │   ├── forge/
 📁	 │   │   │   │   └── [slug]/
 ✅	│   │   │   │       └── route.ts           # Document formatting for display
 📁	 │   │   │   ├── emeralds/           
@@ -363,7 +363,7 @@ AUDHDITIES/
 📁	 │   │   ├── contact/                       # Contact components
 ✅	│   │   │   └── ContactForm.tsx
 ⚪	│   │   │
-📁	 │   │   ├── docs/                          # Document components
+📁	 │   │   ├── forge/                          # Document components
 ✅	│   │   │   ├── AuthFLowHero.tsx	
 ✅	│   │   │   ├── CodeBlock.tsx
 ✅	│   │   │   ├── DocsHero.tsx

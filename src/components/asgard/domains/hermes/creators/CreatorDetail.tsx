@@ -13,7 +13,7 @@ import { ArrowLeft, Shield, Package, Globe } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface CreatorItem {
-  creators_id: string; creator_moniker: string; creative_description: string | null;
+  creator_profiles_id: string; creator_moniker: string; creative_description: string | null;
   creative_categories: string[] | null; portfolio_url: string | null;
   verification_status: string | null; verified_badge: boolean | null;
   total_products: number | null; total_sales: number | null;
@@ -32,7 +32,7 @@ export function CreatorDetail() {
       .then((result) => { if (result.success) setCreator(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.creators_id]);
+  }, [params.creator_profiles_id]);
 
   if (loading) {
     return (
@@ -56,7 +56,7 @@ export function CreatorDetail() {
     );
   }
 
-  const cardData: CardData = { id: creator.creators_id, type: 'creator', title: creator.creator_moniker, description: creator.creative_description || '' };
+  const cardData: CardData = { id: creator.creator_profiles_id, type: 'creator', title: creator.creator_moniker, description: creator.creative_description || '' };
 
   return (
     <main className="min-h-screen py-12">
@@ -119,6 +119,16 @@ export function CreatorDetail() {
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mb-6">
               <Globe size={14} />{creator.portfolio_url}
             </a>
+          )}
+          
+          {creator.total_products !== null && creator.total_products > 0 && (
+            <Link
+              href={`/bazaar/creations?creator_id=${creator.creator_profiles_id}`}
+              className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
+            >
+              <Package size={14} />
+              View all {creator.total_products} creations by {creator.creator_moniker}
+            </Link>
           )}
 
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>

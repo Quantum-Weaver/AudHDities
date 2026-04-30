@@ -3,7 +3,7 @@
 export type EnvironmentKey = 
   | 'about' | 'admin' | 'anon' | 'architecture'
   | 'business' | 'community' | 'contact' | 'council' 
-  | 'creator' | 'cure' | 'dashboard' | 'docs' 
+  | 'creator' | 'cure' | 'dashboard' | 'forge' 
   | 'ecosystem' | 'edit' | 'gateway' | 'home'
   | 'invitation' | 'learn' | 'library' | 'lounge' 
   | 'marketplace' | 'music' | 'observatory' | 'origin'

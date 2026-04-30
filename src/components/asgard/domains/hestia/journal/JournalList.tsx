@@ -102,6 +102,7 @@ export function JournalList() {
           content: data.content,
           mood: data.mood || null,
           tags: data.tags ? data.tags.split(',').map((t: string) => t.trim()) : null,
+          slug: data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Date.now(),
         }),
       });
       const result = await response.json();
