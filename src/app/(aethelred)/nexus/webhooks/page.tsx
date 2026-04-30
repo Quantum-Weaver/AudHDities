@@ -12,10 +12,7 @@ export const metadata = {
 export default async function WebhooksPage() {
   return (
     <Page 
-      variant={2}
-      environment="architecture"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

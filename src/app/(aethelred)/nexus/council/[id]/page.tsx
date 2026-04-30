@@ -21,10 +21,7 @@ export default async function EntityDetailPage({ params }: EntityDetailPageProps
   
   return (
     <Page 
-      variant={2}
-      environment="council"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">
