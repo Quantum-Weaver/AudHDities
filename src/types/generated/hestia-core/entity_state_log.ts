@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/entity_state_log.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T04:17:47.325Z
+// GENERATED: 2026-04-30T15:32:13.444Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

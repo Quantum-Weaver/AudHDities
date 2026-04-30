@@ -22,6 +22,7 @@ export const PrometheusBoundariesRowSchema = z.object({
   requires_approval: z.boolean(),
   rule_type: z.enum(ENUM_VALUES.boundaryType),
   updated_at: z.string(),
+  updated_by: z.string().nullable(),
 });
 
 export const PrometheusBoundariesInsertSchema = z.object({
@@ -36,6 +37,7 @@ export const PrometheusBoundariesInsertSchema = z.object({
   requires_approval: z.boolean().optional(),
   rule_type: z.enum(ENUM_VALUES.boundaryType),
   updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const PrometheusBoundariesUpdateSchema = z.object({
@@ -50,6 +52,7 @@ export const PrometheusBoundariesUpdateSchema = z.object({
   requires_approval: z.boolean().optional(),
   rule_type: z.enum(ENUM_VALUES.boundaryType).optional(),
   updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

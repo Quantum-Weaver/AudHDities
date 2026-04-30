@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBubbleLimitsInsertSchema } from '@/lib/validators/generated/hestia-core/user_bubble_limits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T04:17:48.450Z
+// Generated: 2026-04-30T15:32:13.816Z
 // Table: user_bubble_limits
 
 export async function GET(request: NextRequest) {

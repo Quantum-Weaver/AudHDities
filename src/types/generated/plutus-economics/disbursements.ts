@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/disbursements.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T04:17:47.271Z
+// GENERATED: 2026-04-30T15:32:13.423Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

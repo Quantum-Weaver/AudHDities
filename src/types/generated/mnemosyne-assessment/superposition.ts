@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/superposition.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T04:17:48.299Z
+// GENERATED: 2026-04-30T15:32:13.753Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

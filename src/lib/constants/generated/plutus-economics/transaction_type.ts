@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/transaction_type.ts
-// GENERATED: 2026-04-30T04:17:49.072Z
+// GENERATED: 2026-04-30T15:32:14.056Z
 // SOURCE: Constants.public.Enums.transaction_type
 // VALUES: 5 entries
 // =====================================================

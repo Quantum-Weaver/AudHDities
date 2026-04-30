@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_patterns.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T04:17:47.948Z
+// GENERATED: 2026-04-30T16:12:38.168Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

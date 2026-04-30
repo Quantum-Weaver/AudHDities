@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/contributions.ts
 // HANDLING: join_table
 // DEITY: plutus-economics
-// GENERATED: 2026-04-30T04:17:47.163Z
+// GENERATED: 2026-04-30T15:32:13.379Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

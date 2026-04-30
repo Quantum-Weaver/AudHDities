@@ -21,6 +21,7 @@ export const PrometheusTemplatesRowSchema = z.object({
   pattern: z.string(),
   prometheus_templates_id: z.string(),
   updated_at: z.string(),
+  updated_by: z.string().nullable(),
   variables: z.any().nullable(),
   version: z.string(),
 });
@@ -36,6 +37,7 @@ export const PrometheusTemplatesInsertSchema = z.object({
   pattern: z.string(),
   prometheus_templates_id: z.string().optional(),
   updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
   variables: z.any().nullable().optional(),
   version: z.string().optional(),
 });
@@ -51,6 +53,7 @@ export const PrometheusTemplatesUpdateSchema = z.object({
   pattern: z.string().optional(),
   prometheus_templates_id: z.string().optional(),
   updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
   variables: z.any().nullable().optional(),
   version: z.string().optional(),
 });

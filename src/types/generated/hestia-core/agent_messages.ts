@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_messages.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T04:17:46.958Z
+// GENERATED: 2026-04-30T15:32:13.293Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

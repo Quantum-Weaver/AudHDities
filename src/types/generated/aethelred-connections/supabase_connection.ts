@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/supabase_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T04:17:48.286Z
+// GENERATED: 2026-04-30T15:32:13.747Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

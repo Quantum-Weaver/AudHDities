@@ -202,7 +202,7 @@ export async function delete${pascalName}(id: string): Promise<boolean> {
   
   return {
     content,
-    filePath: `src/utils/generated/${deityFolder}/${tableName}.ts`,
+    filePath: `src/lib/utils/generated/${deityFolder}/${tableName}.ts`,
     tableName,
     deityFolder,
   };

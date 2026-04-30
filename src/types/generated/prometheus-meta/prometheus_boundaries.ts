@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_boundaries.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T04:17:47.882Z
+// GENERATED: 2026-04-30T16:12:38.172Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -42,6 +42,7 @@ export interface PublicPrometheusBoundaries {
   requires_approval: boolean;
   rule_type: BoundaryType;
   updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -60,6 +61,7 @@ export interface PrometheusBoundariesFormData {
   requires_approval?: boolean;
   rule_type?: BoundaryType;
   updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -79,6 +81,7 @@ export interface PrometheusBoundariesValidationResult {
     requires_approval?: string;
     rule_type?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

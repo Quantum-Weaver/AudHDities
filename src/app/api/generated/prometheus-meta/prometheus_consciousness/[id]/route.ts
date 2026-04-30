@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusConsciousnessUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_consciousness';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T04:17:47.903Z
+// Generated: 2026-04-30T16:12:38.178Z
 // Table: prometheus_consciousness
 
 export async function GET(

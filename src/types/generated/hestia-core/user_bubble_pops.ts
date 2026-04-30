@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_bubble_pops.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T04:17:48.460Z
+// GENERATED: 2026-04-30T15:32:13.822Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

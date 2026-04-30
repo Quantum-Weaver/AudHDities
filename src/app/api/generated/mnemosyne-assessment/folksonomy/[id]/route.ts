@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FolksonomyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/folksonomy';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T04:17:47.409Z
+// Generated: 2026-04-30T15:32:13.470Z
 // Table: folksonomy
 
 export async function GET(

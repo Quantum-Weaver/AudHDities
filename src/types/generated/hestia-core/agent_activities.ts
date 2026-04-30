@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/agent_activities.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T04:17:46.931Z
+// GENERATED: 2026-04-30T15:32:13.283Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

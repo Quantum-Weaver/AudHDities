@@ -13,7 +13,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('personalized_feed')
       .select('*')
-      .eq('id', id)
+      .eq('personalized_feed_id', id)
       .single();
     
     if (error) {

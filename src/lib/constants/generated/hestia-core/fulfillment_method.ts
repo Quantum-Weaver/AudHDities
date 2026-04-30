@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/fulfillment_method.ts
-// GENERATED: 2026-04-30T04:17:48.902Z
+// GENERATED: 2026-04-30T15:32:13.992Z
 // SOURCE: Constants.public.Enums.fulfillment_method
 // VALUES: 12 entries
 // =====================================================

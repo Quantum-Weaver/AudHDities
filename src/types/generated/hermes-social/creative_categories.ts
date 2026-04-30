@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/creative_categories.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-04-30T04:17:47.198Z
+// GENERATED: 2026-04-30T15:32:13.393Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

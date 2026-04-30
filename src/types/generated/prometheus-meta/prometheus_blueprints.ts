@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-meta/prometheus_blueprints.ts
 // HANDLING: full_crud
 // DEITY: prometheus-meta
-// GENERATED: 2026-04-30T04:17:47.864Z
+// GENERATED: 2026-04-30T16:12:38.138Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,17 +33,17 @@ export type PrometheusBlueprintsUpdate = TablesUpdate<'prometheus_blueprints'>;
  */
 export interface PublicPrometheusBlueprints {
   author: string;
-  blueprint_id: string;
   content: Json;
   created_at: string;
   created_by: string | null;
   generation_count: number;
-  id: string;
+  prometheus_blueprints_id: string;
   purpose: string;
   status: BlueprintStatus;
   success_rate: number | null;
   system: BlueprintSystem;
   updated_at: string;
+  updated_by: string | null;
   version: string;
 }
 
@@ -53,17 +53,17 @@ export interface PublicPrometheusBlueprints {
  */
 export interface PrometheusBlueprintsFormData {
   author?: string;
-  blueprint_id?: string;
   content?: Json;
   created_at?: string;
   created_by?: string | null;
   generation_count?: number;
-  id?: string;
+  prometheus_blueprints_id?: string;
   purpose?: string;
   status?: BlueprintStatus;
   success_rate?: number | null;
   system?: BlueprintSystem;
   updated_at?: string;
+  updated_by?: string | null;
   version?: string;
 }
 
@@ -74,17 +74,17 @@ export interface PrometheusBlueprintsValidationResult {
   valid: boolean;
   errors: {
     author?: string;
-    blueprint_id?: string;
     content?: string;
     created_at?: string;
     created_by?: string;
     generation_count?: string;
-    id?: string;
+    prometheus_blueprints_id?: string;
     purpose?: string;
     status?: string;
     success_rate?: string;
     system?: string;
     updated_at?: string;
+    updated_by?: string;
     version?: string;
   };
 }

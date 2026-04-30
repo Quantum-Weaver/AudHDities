@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EntityStateLogInsertSchema } from '@/lib/validators/generated/hestia-core/entity_state_log';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T04:17:47.327Z
+// Generated: 2026-04-30T15:32:13.445Z
 // Table: entity_state_log
 
 export async function GET(request: NextRequest) {
