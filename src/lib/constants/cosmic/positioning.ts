@@ -129,7 +129,7 @@ export const ZOOM_TARGETS: Partial<Record<EnvironmentKey, ZoomTarget>> = {
     duration: 1000,
     description: 'The Sovereign Archive',
   },
-  docs: {
+  forge: {
     x: 50,
     y: 50,
     scale: 1.3,

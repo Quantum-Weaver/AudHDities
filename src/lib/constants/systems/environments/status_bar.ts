@@ -108,7 +108,7 @@ export const STATUS_BAR_CONFIG: Record<BaseEnvironmentKey, StatusBarConfig> = {
     notificationsEnabled: false,
     height: 'sm',
   },
-  docs: {
+  forge: {
     metrics: [
       { type: 'focus', label: 'Focus', format: 'percentage', defaultMax: 100, defaultValue: 90, color: 'bg-blue-500' },
     ],

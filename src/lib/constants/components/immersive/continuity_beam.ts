@@ -39,7 +39,7 @@ const ENVIRONMENT_TO_CATEGORY: Record<EnvironmentKey, BeamCategory> = {
   
   // Knowledge category
   library: 'knowledge',
-  docs: 'knowledge',
+  forge: 'knowledge',
   ecosystem: 'knowledge',
   learn: 'knowledge',
   
@@ -189,7 +189,7 @@ export const BEAM_COLORS = {
   
   // Library - Knowledge preservation
   library: GRADIENTS.libraryDomain,
-  docs: GRADIENTS.codex,
+  forge: GRADIENTS.codex,
   ecosystem: GRADIENTS.libraryDomain,
   
   // Community - Collective consciousness
