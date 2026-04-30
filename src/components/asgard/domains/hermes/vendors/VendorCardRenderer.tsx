@@ -11,7 +11,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/runes/Card';
 
 interface VendorCardData {
-  id: string;
+  vendors_id: string;
   type: 'vendor';
   title: string;
   description?: string;

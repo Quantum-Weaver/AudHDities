@@ -10,7 +10,7 @@ import { ArrowLeft, FileText, Search, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface LessonItem {
-  id: string; title: string; description: string; slug: string;
+  lessons_id: string; title: string; description: string; slug: string;
   content_type: string; duration_minutes: number | null; is_published: boolean | null;
 }
 
@@ -42,9 +42,9 @@ export function LessonsGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No lessons match' : 'The lessons are being prepared'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(l => {
-          const cd: CardData = { id: l.id, type: 'value', title: l.title, value: l.content_type };
+          const cd: CardData = { id: l.lessons_id, type: 'value', title: l.title, value: l.content_type };
           return (
-            <Link key={l.id} href={`/library/lessons/${l.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+            <Link key={l.lessons_id} href={`/library/lessons/${l.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
               <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${CONTENT_COLORS[l.content_type] || ''}`}>{l.content_type}</Badge>{l.duration_minutes && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{l.duration_minutes}m</span>}</div>
               <h3 className="text-lg font-semibold text-star-dust mb-2">{l.title}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{l.description}</p>
             </Card></Link>

@@ -9,7 +9,7 @@ import { ArrowLeft, Building2, Search } from 'lucide-react';
 import { CardData } from '@/types/components/runes/card.types';
 
 interface VendorItem {
-  id: string; business_name: string; 
+  vendors_id: string; business_name: string; 
   business_description: string | null;
   business_type: string | null; 
   product_categories: string[] | null;
@@ -81,13 +81,13 @@ export function VendorsGallery() {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((v) => (
-            <Link key={v.id} href={`/bazaar/vendors/${v.id}`}>
+            <Link key={v.vendors_id} href={`/bazaar/vendors/${v.vendors_id}`}>
               <VendorCardRenderer
                 variant="interactive"
                 radius="lg"
                 shadow="sm"
                 data={{
-                  id: v.id, type: 'vendor', title: v.business_name,
+                  id: v.vendors_id, type: 'vendor', title: v.business_name,
                   description: v.business_description || undefined,
                   businessType: v.business_type || undefined,
                   productCount: v.total_products || 0,

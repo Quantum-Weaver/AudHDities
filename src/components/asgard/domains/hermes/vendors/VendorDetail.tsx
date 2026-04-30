@@ -12,7 +12,7 @@ import { ArrowLeft, Shield, Package, Globe, Building2 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface VendorItem {
-  id: string; business_name: string; business_description: string | null;
+  vendors_id: string; business_name: string; business_description: string | null;
   business_type: string | null; product_categories: string[] | null;
   verification_status: string | null; verified_badge: boolean | null;
   total_products: number | null; total_sales: number | null;
@@ -61,7 +61,7 @@ export function VendorDetail() {
     );
   }
 
-  const cardData: CardData = { id: vendor.id, type: 'vendor', title: vendor.business_name, description: vendor.business_description || '' };
+  const cardData: CardData = { id: vendor.vendors_id, type: 'vendor', title: vendor.business_name, description: vendor.business_description || '' };
 
   return (
     <main className="min-h-screen py-12">

@@ -11,7 +11,7 @@ import { useAuth } from '@/hooks/useAuth';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface ContributionItem {
-  id: string; product_id: string; contributor_id: string;
+  contributions_id: string; product_id: string; contributor_id: string;
   contribution_type: string; percent_share: number;
   is_residual_eligible: boolean | null; is_one_time: boolean | null;
 }
@@ -49,9 +49,9 @@ export function ContributionsGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><HandCoins className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No contributions match' : 'Your contributions will appear here'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(i => {
-          const cd: CardData = { id: i.id, type: 'value', title: i.contribution_type, value: `${i.percent_share}%` };
+          const cd: CardData = { id: i.contributions_id, type: 'value', title: i.contribution_type, value: `${i.percent_share}%` };
           return (
-            <Card key={i.id} data={cd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
+            <Card key={i.contributions_id} data={cd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
               <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[i.contribution_type] || ''}`}>{i.contribution_type}</Badge><span className="flex items-center gap-1 text-neurospark font-bold"><Percent size={14} />{i.percent_share}%</span></div>
               <p className="text-sm text-star-dust/50">Product: {i.product_id}</p>
               <div className="flex gap-2 mt-3">{i.is_residual_eligible && <Badge variant="outline" size="sm" className="text-[10px] bg-emerald-500/20 text-emerald-400">Residual</Badge>}{i.is_one_time && <Badge variant="outline" size="sm" className="text-[10px] bg-amber-500/20 text-amber-400">One-Time</Badge>}</div>

@@ -12,7 +12,7 @@ import { ArrowLeft, Package, Shield, Users } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface ProductItem {
-  id: string; title: string; description: string | null; product_type: string;
+  products_id: string; title: string; description: string | null; product_type: string;
   price_community: number | null; price_ally: number | null; price_corporate: number | null;
   creator_id: string; residual_pool_percent: number | null;
 }
@@ -59,7 +59,7 @@ export function CreationDetail() {
     );
   }
 
-  const cardData: CardData = { id: product.id, type: 'product', title: product.title, description: product.description || '' };
+  const cardData: CardData = { id: product.products_id, type: 'product', title: product.title, description: product.description || '' };
 
   return (
     <main className="min-h-screen py-12">

@@ -43,6 +43,7 @@ export interface ProductCardData extends BaseCardData {
     name: string;
     avatar?: string;
   };
+  products_id?: string;
 }
 
 export interface QuestCardData extends BaseCardData {
@@ -52,6 +53,7 @@ export interface QuestCardData extends BaseCardData {
   duration?: string;
   prerequisites?: string[];
   isCompleted?: boolean;
+  quests_id?: string;
 }
 
 export interface EventCardData extends BaseCardData {
@@ -62,6 +64,7 @@ export interface EventCardData extends BaseCardData {
   isLive?: boolean;
   price?: number;
   genre?: 'music' | 'comedy' | 'workshop' | 'council';
+  events_id?: string;
 }
 
 export interface ProposalCardData extends BaseCardData {
@@ -71,6 +74,7 @@ export interface ProposalCardData extends BaseCardData {
   votesAgainst?: number;
   deadline?: string;
   proposer?: string;
+  proposals_id?: string;
 }
 
 export interface EntityCardData extends BaseCardData {
@@ -79,6 +83,7 @@ export interface EntityCardData extends BaseCardData {
   role?: string;
   domain?: string;
   isActive?: boolean;
+  entity_id?: string;
 }
 
 export interface CreatorCardData extends BaseCardData {
@@ -88,6 +93,7 @@ export interface CreatorCardData extends BaseCardData {
   tier?: string;
   productCount?: number;
   isVerified?: boolean;
+  creators_id?: string;
 }
 
 export interface VendorCardData extends BaseCardData {
@@ -97,6 +103,7 @@ export interface VendorCardData extends BaseCardData {
   productCount?: number;
   isVerified?: boolean;
   website?: string;
+  vendors_id?: string;
 }
 
 export interface CouncilCardData extends BaseCardData {
@@ -104,6 +111,7 @@ export interface CouncilCardData extends BaseCardData {
   members?: number;
   meetingSchedule?: string;
   nextMeeting?: string;
+  council_id?: string;
 }
 
 export interface ValueCardData extends BaseCardData {
@@ -111,6 +119,7 @@ export interface ValueCardData extends BaseCardData {
   value: number | string;
   change?: number;
   trend?: 'up' | 'down' | 'stable' |  'rising' | 'steady' | 'falling';
+  value_id?: string;
 }
 
 export interface PillarCardData extends BaseCardData {

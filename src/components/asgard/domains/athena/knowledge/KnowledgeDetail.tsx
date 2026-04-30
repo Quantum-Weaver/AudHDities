@@ -12,7 +12,7 @@ import { ArrowLeft, BookOpen } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface KnowledgeItem {
-  id: string; title: string; content: string; slug: string;
+  knowledge_id: string; title: string; content: string; slug: string;
   type: string; house: string | null; author_id: string;
 }
 
@@ -30,7 +30,7 @@ export function KnowledgeDetail() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
   if (!item) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><BookOpen className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This scroll has not been written yet.</p><Link href="/library/knowledge" className="text-neurospark hover:underline mt-4 inline-block">Return to the Archive</Link></div></main>);
 
-  const cd: CardData = { id: item.id, type: 'value', title: item.title, value: item.type };
+  const cd: CardData = { id: item.knowledge_id, type: 'value', title: item.title, value: item.type };
 
   return (
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6">

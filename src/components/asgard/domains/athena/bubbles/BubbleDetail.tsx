@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface BubbleItem {
-  id: string; name: string; slug: string; description: string | null;
+  bubbles_id: string; name: string; slug: string; description: string | null;
   rarity: string; color: string; glow_color: string | null;
   points_value: number; collection_name: string | null; collection_order: number | null;
 }
@@ -66,7 +66,7 @@ export function BubbleDetail() {
     );
   }
 
-  const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: bubble.rarity };
+  const cardData: CardData = { id: bubble.bubbles_id, type: 'value', title: bubble.name, value: bubble.rarity };
 
   return (
     <main className="min-h-screen py-12">

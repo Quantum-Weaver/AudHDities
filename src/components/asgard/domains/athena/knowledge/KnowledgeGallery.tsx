@@ -10,7 +10,7 @@ import { ArrowLeft, BookOpen, Search } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface KnowledgeItem {
-  id: string; title: string; content: string; slug: string;
+  knowledge_id: string; title: string; content: string; slug: string;
   type: string; house: string | null; is_published: boolean | null;
 }
 
@@ -36,10 +36,10 @@ export function KnowledgeGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><BookOpen className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No entries match' : 'The archive awaits its first scrolls'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(i => {
-          const cd: CardData = { id: i.id, type: 'value', title: i.title, value: i.type };
+          const cd: CardData = { id: i.knowledge_id, type: 'value', title: i.title, value: i.type };
           const preview = (i.content || '').length > 100 ? i.content.slice(0, 100) + '...' : i.content;
           return (
-            <Link key={i.id} href={`/library/knowledge/${i.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+            <Link key={i.knowledge_id} href={`/library/knowledge/${i.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
               <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className="text-[10px] capitalize">{i.type}</Badge>{i.house && <Badge variant="outline" size="sm" className="text-[10px]">{i.house.replace(/_/g, ' ')}</Badge>}</div>
               <h3 className="text-lg font-semibold text-star-dust mb-2">{i.title}</h3><p className="text-sm text-star-dust/50 line-clamp-3">{preview}</p>
             </Card></Link>

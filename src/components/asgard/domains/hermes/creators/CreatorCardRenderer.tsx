@@ -12,7 +12,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/runes/Card';
 
 interface CreatorCardData {
-  id: string;
+  creators_id: string;
   type: 'creator';
   title: string;
   description?: string;

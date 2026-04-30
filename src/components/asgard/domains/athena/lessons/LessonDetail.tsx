@@ -12,7 +12,7 @@ import { ArrowLeft, Clock, FileText } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface LessonItem {
-  id: string; title: string; description: string; slug: string;
+  lessons_id: string; title: string; description: string; slug: string;
   content_type: string; content_body: string | null; content_url: string | null;
   duration_minutes: number | null; creator_id: string;
 }
@@ -37,7 +37,7 @@ export function LessonDetail() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
   if (!lesson) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This lesson has not been written yet.</p><Link href="/library/lessons" className="text-neurospark hover:underline mt-4 inline-block">Return to the Lessons</Link></div></main>);
 
-  const cd: CardData = { id: lesson.id, type: 'value', title: lesson.title, value: lesson.content_type };
+  const cd: CardData = { id: lesson.lessons_id, type: 'value', title: lesson.title, value: lesson.content_type };
 
   return (
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6">

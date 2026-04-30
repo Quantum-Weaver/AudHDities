@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface BadgeItem {
-  id: string;
+  badges_id: string;
   name: string;
   slug: string;
   description: string;
@@ -147,9 +147,9 @@ export function BadgesGallery() {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredBadges.map((badge) => {
-            const cardData: CardData = { id: badge.id, type: 'value', title: badge.name, value: badge.rarity };
+            const cardData: CardData = { id: badge.badges_id, type: 'value', title: badge.name, value: badge.rarity };
             return (
-              <Link key={badge.id} href={`/library/badges/${badge.slug}`}>
+              <Link key={badge.badges_id} href={`/library/badges/${badge.slug}`}>
                 <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full"
                   style={{ boxShadow: RARITY_GLOW[badge.rarity] || 'none' }}
                 >

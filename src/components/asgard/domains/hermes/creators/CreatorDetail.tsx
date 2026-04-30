@@ -13,7 +13,7 @@ import { ArrowLeft, Shield, Package, Globe } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface CreatorItem {
-  id: string; creator_moniker: string; creative_description: string | null;
+  creators_id: string; creator_moniker: string; creative_description: string | null;
   creative_categories: string[] | null; portfolio_url: string | null;
   verification_status: string | null; verified_badge: boolean | null;
   total_products: number | null; total_sales: number | null;
@@ -56,7 +56,7 @@ export function CreatorDetail() {
     );
   }
 
-  const cardData: CardData = { id: creator.id, type: 'creator', title: creator.creator_moniker, description: creator.creative_description || '' };
+  const cardData: CardData = { id: creator.creators_id, type: 'creator', title: creator.creator_moniker, description: creator.creative_description || '' };
 
   return (
     <main className="min-h-screen py-12">

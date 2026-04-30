@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface ProductItem {
-  id: string;
+  products_id: string;
   title: string;
   description: string | null;
   product_type: string;
@@ -126,11 +126,11 @@ export function CreationsGallery() {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => {
-            const cardData: CardData = { id: product.id, type: 'product', title: product.title, description: product.description || '' };
+            const cardData: CardData = { id: product.products_id, type: 'product', title: product.title, description: product.description || '' };
             const allyPrice = product.price_ally;
             const communityPrice = product.price_community;
             return (
-              <Link key={product.id} href={`/bazaar/creations/${product.id}`}>
+              <Link key={product.products_id} href={`/bazaar/creations/${product.products_id}`}>
                 <Card data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
                   <div className="flex items-center justify-between mb-3">
                     <Badge variant="outline" size="sm" className="text-[10px] capitalize">{TYPE_LABELS[product.product_type] || product.product_type}</Badge>

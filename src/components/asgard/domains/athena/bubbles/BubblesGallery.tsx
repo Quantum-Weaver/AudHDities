@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface BubbleItem {
-  id: string;
+  bubbles_id: string;
   name: string;
   slug: string;
   description: string | null;
@@ -154,9 +154,9 @@ export function BubblesGallery() {
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredBubbles.map((bubble) => {
-            const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: bubble.rarity };
+            const cardData: CardData = { id: bubble.bubbles_id, type: 'value', title: bubble.name, value: bubble.rarity };
             return (
-              <Card key={bubble.id} data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
+              <Card key={bubble.bubbles_id} data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
                 style={{ boxShadow: bubble.glow_color ? `0 0 20px ${bubble.glow_color}` : 'none' }}
               >
                 <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center"

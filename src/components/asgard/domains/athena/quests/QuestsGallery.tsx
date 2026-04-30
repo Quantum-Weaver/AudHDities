@@ -18,7 +18,7 @@ import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 // ═══════════════════════════════════════════════════════════════════════════
 
 interface Quest {
-  id: string;
+  quests_id: string;
   title: string;
   description: string;
   house: string;
@@ -212,14 +212,14 @@ export function QuestsGallery() {
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredQuests.map((quest) => {
             const cardData: CardData = {
-              id: quest.id,
+              id: quest.quests_id,
               type: 'quest',
               title: quest.title,
               description: quest.description,
             };
 
             return (
-              <Link key={quest.id} href={`/library/quests/${quest.id}`}>
+              <Link key={quest.quests_id} href={`/library/quests/${quest.quests_id}`}>
                 <Card
                   data={cardData}
                   variant="interactive"

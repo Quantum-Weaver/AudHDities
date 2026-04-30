@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface BadgeItem {
-  id: string; name: string; slug: string; description: string;
+  badges_id: string; name: string; slug: string; description: string;
   badge_type: string; rarity: string; tier: string | null;
   house: string | null; color: string | null; icon: string | null;
 }
@@ -71,7 +71,7 @@ export function BadgeDetail() {
     );
   }
 
-  const cardData: CardData = { id: badge.id, type: 'value', title: badge.name, value: badge.rarity };
+  const cardData: CardData = { id: badge.badges_id, type: 'value', title: badge.name, value: badge.rarity };
 
   return (
     <main className="min-h-screen py-12">

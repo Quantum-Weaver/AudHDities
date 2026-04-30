@@ -10,7 +10,7 @@ import { ArrowLeft, GraduationCap, Search, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface CourseItem {
-  id: string; title: string; description: string; slug: string;
+  courses_id: string; title: string; description: string; slug: string;
   difficulty: string; house: string | null;
   estimated_duration_hours: number | null; is_published: boolean | null;
 }
@@ -42,9 +42,9 @@ export function CoursesGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><GraduationCap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No courses match' : 'The curriculum is being prepared'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(c => {
-          const cd: CardData = { id: c.id, type: 'value', title: c.title, value: c.difficulty };
+          const cd: CardData = { id: c.courses_id, type: 'value', title: c.title, value: c.difficulty };
           return (
-            <Link key={c.id} href={`/library/courses/${c.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+            <Link key={c.courses_id} href={`/library/courses/${c.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
               <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${DIFFICULTY_COLORS[c.difficulty] || ''}`}>{c.difficulty}</Badge>{c.estimated_duration_hours && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{c.estimated_duration_hours}h</span>}</div>
               <h3 className="text-lg font-semibold text-star-dust mb-2">{c.title}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{c.description}</p>
             </Card></Link>
