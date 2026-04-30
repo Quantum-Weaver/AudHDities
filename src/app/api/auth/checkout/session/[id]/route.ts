@@ -1,7 +1,7 @@
 // src/app/api/checkout/session/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import { stripe } from '@/lib/stripe/server';
+import { stripe as getStripe } from '@/lib/stripe/server';
 import { isUserAdmin } from '@/lib/auth/admin';
 
 // =====================================================
@@ -49,7 +49,7 @@ export async function GET(
     }
     
     // Fetch session from Stripe
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await getStripe().checkout.sessions.retrieve(sessionId)
     
     // Format response
     const response = {
