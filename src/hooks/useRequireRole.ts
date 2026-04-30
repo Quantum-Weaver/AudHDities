@@ -9,7 +9,7 @@ type RequiredRole = 'admin' | 'creator' | 'vendor';
 
 export function useRequireRole(
   requiredRole: RequiredRole,
-  redirectTo: string = '/gateway'
+  redirectTo: string = '/sanctuary'
 ) {
   const { isAdmin, isCreator, isVendor, loading } = usePermissions();
   const router = useRouter();

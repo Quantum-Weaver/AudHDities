@@ -110,7 +110,7 @@ export interface ValueCardData extends BaseCardData {
   type: 'value';
   value: number | string;
   change?: number;
-  trend?: 'up' | 'down' | 'stable';
+  trend?: 'up' | 'down' | 'stable' |  'rising' | 'steady' | 'falling';
 }
 
 export interface PillarCardData extends BaseCardData {
@@ -122,7 +122,7 @@ export interface PillarCardData extends BaseCardData {
 export interface StatCardData extends BaseCardData {
   type: 'stat';
   value: string | number;
-  trend?: 'up' | 'down' | 'stable';
+  trend?: 'up' | 'down' | 'stable' |  'rising' | 'steady' | 'falling';
   change?: number;
   target?: string | number;
 }

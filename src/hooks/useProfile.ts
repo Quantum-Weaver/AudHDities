@@ -1,33 +1,27 @@
-// app/hooks/useProfile.ts
+// src/hooks/useProfile.ts
+// =====================================================
+// HOOK: useProfile — Updated for {tablename}_id PK convention
+// =====================================================
+
 'use client';
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useAuth } from './useAuth';
 import { useProfiles, useProfilesList, useUpdateProfiles } from './generated/hestia-core/profiles';
 import { useCreatorProfiles, useCreateCreatorProfiles, useUpdateCreatorProfiles } from './generated/hestia-core/creator_profiles';
 import { useVendorProfiles, useCreateVendorProfiles, useUpdateVendorProfiles } from './generated/hestia-core/vendor_profiles';
 import { useCommunityProfiles, useCreateCommunityProfiles, useUpdateCommunityProfiles } from './generated/hestia-core/community_profiles';
 import { useApplicationsList, useCreateApplications } from './generated/themis-governance/applications';
-import type { Tables, TablesInsert, TablesUpdate } from '../types/supabase/database.helpers';
-import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '../types/preferences';
-
-// ============================================================================
-// TYPES - Derived from database schema
-// ============================================================================
+import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';
+import type { NDPreferences, SensoryPreferences, AlgorithmPreferences } from '@/types/preferences';
 
 export type Profile = Tables<'profiles'>;
 export type ProfileInsert = TablesInsert<'profiles'>;
 export type ProfileUpdate = TablesUpdate<'profiles'>;
-
 export type CreatorProfile = Tables<'creator_profiles'>;
 export type VendorProfile = Tables<'vendor_profiles'>;
 export type CommunityProfile = Tables<'community_profiles'>;
-
 export type Application = Tables<'applications'>;
-
-// ============================================================================
-// DEFAULT PREFERENCES (unchanged — business logic)
-// ============================================================================
 
 export const DEFAULT_ND_PREFERENCES: NDPreferences = {
   reduced_motion: false, high_contrast: false, focus_mode: false,
@@ -45,10 +39,6 @@ export const DEFAULT_ALGORITHM_PREFERENCES: AlgorithmPreferences = {
   recommend_related: true, recommend_trending: true, hide_trauma_content: true,
   show_boosted_content: true, show_subscribed_only: false, chronological_preferred: false,
 };
-
-// ============================================================================
-// PREFERENCE PARSERS (unchanged — business logic)
-// ============================================================================
 
 export function parseNDPreferences(json: unknown): NDPreferences {
   if (!json || typeof json !== 'object') return DEFAULT_ND_PREFERENCES;
@@ -95,21 +85,9 @@ export function parseAlgorithmPreferences(json: unknown): AlgorithmPreferences {
   };
 }
 
-// ============================================================================
-// PROFILE PERMISSIONS
-// ============================================================================
-
 export interface ProfilePermissions {
-  canEdit: boolean;
-  isOwner: boolean;
-  isAdmin: boolean;
-  isModerator: boolean;
-  canViewPrivate: boolean;
+  canEdit: boolean; isOwner: boolean; isAdmin: boolean; isModerator: boolean; canViewPrivate: boolean;
 }
-
-// ============================================================================
-// MAIN USE PROFILE HOOK — Now uses generated hooks
-// ============================================================================
 
 export interface UseProfileReturn {
   profile: Profile | null;
@@ -118,9 +96,9 @@ export interface UseProfileReturn {
   permissions: ProfilePermissions;
   updateProfile: (updates: Partial<ProfileUpdate>) => Promise<Profile | null>;
   refreshProfile: () => Promise<void>;
-  updateNDPreferences: (preferences: Partial<NDPreferences>) => Promise<void>;
-  updateSensoryPreferences: (preferences: Partial<SensoryPreferences>) => Promise<void>;
-  updateAlgorithmPreferences: (preferences: Partial<AlgorithmPreferences>) => Promise<void>;
+  updateNDPreferences: (prefs: Partial<NDPreferences>) => Promise<void>;
+  updateSensoryPreferences: (prefs: Partial<SensoryPreferences>) => Promise<void>;
+  updateAlgorithmPreferences: (prefs: Partial<AlgorithmPreferences>) => Promise<void>;
   awardBadge: (badgeName: string) => Promise<boolean>;
   hasBadge: (badgeName: string) => boolean;
 }
@@ -128,8 +106,6 @@ export interface UseProfileReturn {
 export function useProfile(targetUserId?: string): UseProfileReturn {
   const { user } = useAuth();
   const profileId = targetUserId || user?.id;
-
-  // Use generated hooks
   const { data: profile, loading, error, refetch } = useProfiles(profileId);
   const { update } = useUpdateProfiles();
 
@@ -137,13 +113,7 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
     const isOwner = user?.id === profileId;
     const isAdmin = profile?.is_admin === true;
     const isModerator = profile?.is_moderator === true;
-    return {
-      canEdit: isOwner || isAdmin,
-      isOwner,
-      isAdmin,
-      isModerator,
-      canViewPrivate: isOwner || isAdmin || isModerator,
-    };
+    return { canEdit: isOwner || isAdmin, isOwner, isAdmin, isModerator, canViewPrivate: isOwner || isAdmin || isModerator };
   }, [user, profileId, profile]);
 
   const updateProfile = useCallback(async (updates: Partial<ProfileUpdate>): Promise<Profile | null> => {
@@ -175,8 +145,7 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
   const awardBadge = useCallback(async (badgeName: string): Promise<boolean> => {
     try {
       const response = await fetch('/api/rpc/award_badge', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ p_user_id: profileId, p_badge_slug: badgeName }),
       });
       const result = await response.json();
@@ -191,28 +160,10 @@ export function useProfile(targetUserId?: string): UseProfileReturn {
     return false;
   }, [profile]);
 
-  return {
-    profile,
-    loading,
-    error: error ? new Error(error) : null,
-    permissions,
-    updateProfile,
-    refreshProfile: refetch,
-    updateNDPreferences,
-    updateSensoryPreferences,
-    updateAlgorithmPreferences,
-    awardBadge,
-    hasBadge,
-  };
+  return { profile, loading, error: error ? new Error(error) : null, permissions, updateProfile, refreshProfile: refetch, updateNDPreferences, updateSensoryPreferences, updateAlgorithmPreferences, awardBadge, hasBadge };
 }
 
-// ============================================================================
-// SPECIALIZED PROFILE HOOKS
-// ============================================================================
-
-export function useCurrentProfile() {
-  return useProfile();
-}
+export function useCurrentProfile() { return useProfile(); }
 
 export function useProfileByUsername(username: string) {
   const { data: profiles, loading } = useProfilesList({ filters: { username }, limit: 1 });
@@ -221,9 +172,7 @@ export function useProfileByUsername(username: string) {
   return { ...profile, loading: loading || profile.loading };
 }
 
-// ============================================================================
-// CREATOR PROFILE HOOK — Uses generated hooks
-// ============================================================================
+// ─── Creator Profile ───────────────────────────────────────────────────────
 
 export interface UseCreatorProfileReturn {
   creatorProfile: CreatorProfile | null;
@@ -240,20 +189,14 @@ export interface UseCreatorProfileReturn {
 export function useCreatorProfile(): UseCreatorProfileReturn {
   const { user } = useAuth();
   const { profile } = useProfile();
-
   const { data: creatorProfile, loading, error, refetch } = useCreatorProfiles(user?.id ? undefined : undefined);
   const { create: createProfile } = useCreateCreatorProfiles();
   const { update: updateProfile } = useUpdateCreatorProfiles();
-
-  const { data: applications } = useApplicationsList({ 
-    filters: { application_type: 'creator' },
-    limit: 100 
-  });
+  const { data: applications } = useApplicationsList({ filters: { application_type: 'creator' }, limit: 100 });
   const appStatus = applications?.find(a => a.application_type === 'creator')?.status || null;
-
   const canEdit = profile?.is_creator === true || profile?.is_admin === true;
 
-  const createCreatorProfile = useCallback(async (data: any) => {
+  const createCreatorProfileFn = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
     const result = await createProfile({ ...data, profile_id: user.id } as any);
     if (result.error) throw new Error(result.error);
@@ -261,7 +204,7 @@ export function useCreatorProfile(): UseCreatorProfileReturn {
     return result.data;
   }, [user, createProfile, refetch]);
 
-  const updateCreatorProfile = useCallback(async (updates: any) => {
+  const updateCreatorProfileFn = useCallback(async (updates: any) => {
     if (!creatorProfile || !canEdit) throw new Error('Not authorized');
     const result = await updateProfile(creatorProfile.creator_profiles_id, updates);
     if (result.error) throw new Error(result.error);
@@ -269,22 +212,10 @@ export function useCreatorProfile(): UseCreatorProfileReturn {
     return result.data;
   }, [creatorProfile, canEdit, updateProfile, refetch]);
 
-  return {
-    creatorProfile,
-    loading,
-    error: error ? new Error(error) : null,
-    canEdit,
-    createCreatorProfile,
-    updateCreatorProfile,
-    refreshCreatorProfile: refetch,
-    hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing',
-    applicationStatus: appStatus,
-  };
+  return { creatorProfile, loading, error: error ? new Error(error) : null, canEdit, createCreatorProfile: createCreatorProfileFn, updateCreatorProfile: updateCreatorProfileFn, refreshCreatorProfile: refetch, hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing', applicationStatus: appStatus };
 }
 
-// ============================================================================
-// VENDOR PROFILE HOOK — Uses generated hooks
-// ============================================================================
+// ─── Vendor Profile ────────────────────────────────────────────────────────
 
 export interface UseVendorProfileReturn {
   vendorProfile: VendorProfile | null;
@@ -301,20 +232,14 @@ export interface UseVendorProfileReturn {
 export function useVendorProfile(): UseVendorProfileReturn {
   const { user } = useAuth();
   const { profile } = useProfile();
-
   const { data: vendorProfile, loading, error, refetch } = useVendorProfiles(user?.id ? undefined : undefined);
   const { create: createProfile } = useCreateVendorProfiles();
   const { update: updateProfile } = useUpdateVendorProfiles();
-
-  const { data: applications } = useApplicationsList({ 
-    filters: { application_type: 'vendor' },
-    limit: 100 
-  });
+  const { data: applications } = useApplicationsList({ filters: { application_type: 'vendor' }, limit: 100 });
   const appStatus = applications?.find(a => a.application_type === 'vendor')?.status || null;
-
   const canEdit = profile?.is_vendor === true || profile?.is_admin === true;
 
-  const createVendorProfile = useCallback(async (data: any) => {
+  const createVendorProfileFn = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
     const result = await createProfile({ ...data, profile_id: user.id } as any);
     if (result.error) throw new Error(result.error);
@@ -322,7 +247,7 @@ export function useVendorProfile(): UseVendorProfileReturn {
     return result.data;
   }, [user, createProfile, refetch]);
 
-  const updateVendorProfile = useCallback(async (updates: any) => {
+  const updateVendorProfileFn = useCallback(async (updates: any) => {
     if (!vendorProfile || !canEdit) throw new Error('Not authorized');
     const result = await updateProfile(vendorProfile.vendor_profiles_id, updates);
     if (result.error) throw new Error(result.error);
@@ -330,22 +255,10 @@ export function useVendorProfile(): UseVendorProfileReturn {
     return result.data;
   }, [vendorProfile, canEdit, updateProfile, refetch]);
 
-  return {
-    vendorProfile,
-    loading,
-    error: error ? new Error(error) : null,
-    canEdit,
-    createVendorProfile,
-    updateVendorProfile,
-    refreshVendorProfile: refetch,
-    hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing',
-    applicationStatus: appStatus,
-  };
+  return { vendorProfile, loading, error: error ? new Error(error) : null, canEdit, createVendorProfile: createVendorProfileFn, updateVendorProfile: updateVendorProfileFn, refreshVendorProfile: refetch, hasActiveApplication: appStatus === 'pending' || appStatus === 'reviewing', applicationStatus: appStatus };
 }
 
-// ============================================================================
-// COMMUNITY PROFILE HOOK — Uses generated hooks
-// ============================================================================
+// ─── Community Profile ─────────────────────────────────────────────────────
 
 export interface UseCommunityProfileReturn {
   communityProfile: CommunityProfile | null;
@@ -360,12 +273,11 @@ export interface UseCommunityProfileReturn {
 
 export function useCommunityProfile(): UseCommunityProfileReturn {
   const { user } = useAuth();
-
   const { data: communityProfile, loading, error, refetch } = useCommunityProfiles(user?.id ? undefined : undefined);
   const { create: createProfile } = useCreateCommunityProfiles();
   const { update: updateProfile } = useUpdateCommunityProfiles();
 
-  const createCommunityProfile = useCallback(async (data: any) => {
+  const createCommunityProfileFn = useCallback(async (data: any) => {
     if (!user) throw new Error('Not authenticated');
     const result = await createProfile({ ...data, profile_id: user.id } as any);
     if (result.error) throw new Error(result.error);
@@ -373,7 +285,7 @@ export function useCommunityProfile(): UseCommunityProfileReturn {
     return result.data;
   }, [user, createProfile, refetch]);
 
-  const updateCommunityProfile = useCallback(async (updates: any) => {
+  const updateCommunityProfileFn = useCallback(async (updates: any) => {
     if (!communityProfile) throw new Error('No community profile found');
     const result = await updateProfile(communityProfile.community_profiles_id, updates);
     if (result.error) throw new Error(result.error);
@@ -381,21 +293,10 @@ export function useCommunityProfile(): UseCommunityProfileReturn {
     return result.data;
   }, [communityProfile, updateProfile, refetch]);
 
-  return {
-    communityProfile,
-    loading,
-    error: error ? new Error(error) : null,
-    canEdit: true,
-    createCommunityProfile,
-    updateCommunityProfile,
-    refreshCommunityProfile: refetch,
-    hasJoinedHouse: !!communityProfile?.joined_house,
-  };
+  return { communityProfile, loading, error: error ? new Error(error) : null, canEdit: true, createCommunityProfile: createCommunityProfileFn, updateCommunityProfile: updateCommunityProfileFn, refreshCommunityProfile: refetch, hasJoinedHouse: !!communityProfile?.joined_house };
 }
 
-// ============================================================================
-// APPLICATION HOOK — Uses generated hooks
-// ============================================================================
+// ─── Application ───────────────────────────────────────────────────────────
 
 export interface UseApplicationReturn {
   application: Application | null;
@@ -407,34 +308,17 @@ export interface UseApplicationReturn {
 
 export function useApplication(applicationType: 'creator' | 'vendor'): UseApplicationReturn {
   const { user } = useAuth();
-  // Use the list hook instead of single hook
-  const { data: applications, loading, error, refetch } = useApplicationsList({ 
-    filters: { application_type: applicationType },
-    limit: 100 
-  });
+  const { data: applications, loading, error, refetch } = useApplicationsList({ filters: { application_type: applicationType }, limit: 100 });
   const { create } = useCreateApplications();
-
-  // applications is now an array — find works
   const application = applications?.find(a => a.user_id === user?.id) || null;
 
   const submitApplication = useCallback(async (appType: 'creator' | 'vendor', formData: Record<string, unknown>) => {
     if (!user) throw new Error('Not authenticated');
-    const result = await create({
-      user_id: user.id,
-      application_type: appType,
-      form_data: formData,
-      status: 'pending',
-    } as any);
+    const result = await create({ user_id: user.id, application_type: appType, form_data: formData, status: 'pending' } as any);
     if (result.error) throw new Error(result.error);
     await refetch();
     return result.data;
   }, [user, create, refetch]);
 
-  return {
-    application,
-    loading,
-    error: error ? new Error(error) : null,
-    submitApplication,
-    refreshApplication: refetch,
-  };
+  return { application, loading, error: error ? new Error(error) : null, submitApplication, refreshApplication: refetch };
 }

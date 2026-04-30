@@ -1,8 +1,6 @@
 // src/hooks/useAuth.ts
 // =====================================================
 // HOOK: useAuth
-// GENERATED: Manual (or by GAIA)
-// SOURCE: Supabase Auth
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
@@ -31,7 +29,6 @@ export function useAuth(): AuthState & AuthActions {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch profile data for a user
   const fetchProfile = useCallback(async (userId: string) => {
     try {
       const response = await fetch(`/api/generated/hestia-core/profiles/${userId}`);
@@ -49,90 +46,50 @@ export function useAuth(): AuthState & AuthActions {
     }
   }, []);
 
-  // Refresh profile (useful after updates)
   const refreshProfile = useCallback(async () => {
     if (user) {
       await fetchProfile(user.id);
     }
   }, [user, fetchProfile]);
 
-  // Sign in
   const signIn = useCallback(async (email: string, password: string) => {
     setError(null);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    
-    if (error) {
-      setError(error.message);
-      return { error };
-    }
-    
+    if (error) { setError(error.message); return { error }; }
     return { error: null };
   }, [supabase]);
 
-  // Sign up
   const signUp = useCallback(async (email: string, password: string, metadata?: Record<string, unknown>) => {
     setError(null);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: { data: metadata }
-    });
-    
-    if (error) {
-      setError(error.message);
-      return { error };
-    }
-    
+    const { error } = await supabase.auth.signUp({ email, password, options: { data: metadata } });
+    if (error) { setError(error.message); return { error }; }
     return { error: null };
   }, [supabase]);
 
-  // Sign out
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setUser(null);
     setProfile(null);
   }, [supabase]);
 
-  // Listen to auth state changes
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (_event, session) => {
         const newUser = session?.user || null;
         setUser(newUser);
-        
-        if (newUser) {
-          await fetchProfile(newUser.id);
-        } else {
-          setProfile(null);
-        }
-        
+        if (newUser) { await fetchProfile(newUser.id); } else { setProfile(null); }
         setLoading(false);
       }
     );
 
-    // Initial session check
     supabase.auth.getUser().then(({ data: { user: initialUser } }) => {
       setUser(initialUser || null);
-      
-      if (initialUser) {
-        fetchProfile(initialUser.id);
-      }
+      if (initialUser) { fetchProfile(initialUser.id); }
       setLoading(false);
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => { subscription.unsubscribe(); };
   }, [supabase, fetchProfile]);
 
-  return {
-    user,
-    profile,
-    loading,
-    error,
-    signIn,
-    signUp,
-    signOut,
-    refreshProfile
-  };
+  return { user, profile, loading, error, signIn, signUp, signOut, refreshProfile };
 }

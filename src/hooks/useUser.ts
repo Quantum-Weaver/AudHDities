@@ -1,5 +1,7 @@
-// hooks/useUser.ts
-// Client-side user hook for React components
+// src/hooks/useUser.ts
+// =====================================================
+// HOOK: useUser
+// =====================================================
 
 "use client";
 
@@ -23,18 +25,6 @@ export interface UseUserReturn {
   refetch: () => Promise<void>;
 }
 
-/**
- * Client-side hook to get current user and profile
- * Automatically reacts to auth state changes
- * Uses generated API route for profile data
- *
- * @example
- * const { user, profile, isLoading, isAuthenticated } = useUser();
- *
- * if (isLoading) return <div>Loading...</div>;
- * if (!isAuthenticated) return <LoginButton />;
- * return <div>Welcome, {profile?.display_name}</div>;
- */
 export function useUser(): UseUserReturn {
   const supabase = createClient();
   const [user, setUser] = useState<User | null>(null);
@@ -46,13 +36,9 @@ export function useUser(): UseUserReturn {
     try {
       const response = await fetch(`/api/generated/hestia-core/profiles/${userId}`);
       const result = await response.json();
-
-      if (result.success) {
-        return result.data as ProfilesRow;
-      } else {
-        console.error('Error fetching profile:', result.error);
-        return null;
-      }
+      if (result.success) { return result.data as ProfilesRow; }
+      console.error('Error fetching profile:', result.error);
+      return null;
     } catch (err) {
       console.error('Error fetching profile:', err);
       return null;
@@ -62,20 +48,11 @@ export function useUser(): UseUserReturn {
   const loadUser = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-
     try {
       const { data: { user: currentUser }, error: userError } = await supabase.auth.getUser();
-
       if (userError) throw userError;
-
       setUser(currentUser);
-
-      if (currentUser) {
-        const userProfile = await fetchProfile(currentUser.id);
-        setProfile(userProfile);
-      } else {
-        setProfile(null);
-      }
+      if (currentUser) { setProfile(await fetchProfile(currentUser.id)); } else { setProfile(null); }
     } catch (err) {
       console.error('Error loading user:', err);
       setError(err instanceof Error ? err : new Error('Unknown error'));
@@ -86,31 +63,17 @@ export function useUser(): UseUserReturn {
     }
   }, [supabase, fetchProfile]);
 
-  // Listen to auth state changes
   useEffect(() => {
     loadUser();
-
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user || null);
-
-      if (session?.user) {
-        const userProfile = await fetchProfile(session.user.id);
-        setProfile(userProfile);
-      } else {
-        setProfile(null);
-      }
+      if (session?.user) { setProfile(await fetchProfile(session.user.id)); } else { setProfile(null); }
     });
-
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => { subscription.unsubscribe(); };
   }, [supabase, fetchProfile, loadUser]);
 
   return {
-    user,
-    profile,
-    isLoading,
-    error,
+    user, profile, isLoading, error,
     isAuthenticated: !!user,
     isAdmin: profile?.is_admin === true,
     isCreator: profile?.is_creator === true,
