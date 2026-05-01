@@ -2727,6 +2727,11 @@
           "nullable": true
         },
         {
+          "name": "products_linked",
+          "type": "string[]",
+          "nullable": true
+        },
+        {
           "name": "profile_id",
           "type": "TEXT",
           "nullable": false
@@ -6095,11 +6100,6 @@
           "nullable": false
         },
         {
-          "name": "blueprint_id",
-          "type": "TEXT",
-          "nullable": false
-        },
-        {
           "name": "content",
           "type": "JSONB",
           "nullable": false
@@ -6120,7 +6120,7 @@
           "nullable": false
         },
         {
-          "name": "id",
+          "name": "prometheus_blueprints_id",
           "type": "TEXT",
           "nullable": false
         },
@@ -6150,6 +6150,11 @@
           "nullable": false
         },
         {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
+        },
+        {
           "name": "version",
           "type": "TEXT",
           "nullable": false
@@ -6157,8 +6162,8 @@
       ],
       "relationships": [
         {
-          "from": "blueprint.id",
-          "to": "prometheus_blueprints.blueprint_id",
+          "from": "prometheus_blueprintss.id",
+          "to": "prometheus_blueprints.prometheus_blueprints_id",
           "type": "one-to-many"
         }
       ]
@@ -6221,6 +6226,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         }
       ],
       "relationships": [
@@ -6616,6 +6626,11 @@
           "name": "updated_at",
           "type": "TEXT",
           "nullable": false
+        },
+        {
+          "name": "updated_by",
+          "type": "TEXT",
+          "nullable": true
         },
         {
           "name": "variables",
@@ -9945,6 +9960,11 @@
           "nullable": true
         },
         {
+          "name": "products_linked",
+          "type": "string[]",
+          "nullable": true
+        },
+        {
           "name": "profile_id",
           "type": "TEXT",
           "nullable": false
@@ -10142,7 +10162,9 @@
         "purchase",
         "join_house",
         "complete_quest",
-        "earn_badge"
+        "earn_badge",
+        "profile_created",
+        "sovereign_joined"
       ]
     },
     {
@@ -10473,7 +10495,8 @@
         "image",
         "audio",
         "video",
-        "mixed"
+        "mixed",
+        "article"
       ]
     },
     {
@@ -10817,7 +10840,9 @@
         "quest_completed",
         "badge_earned",
         "house_promotion",
-        "mentor_assigned"
+        "mentor_assigned",
+        "welcome",
+        "special_welcome"
       ]
     },
     {
@@ -11662,5 +11687,5 @@
       "returnType": "unknown"
     }
   ],
-  "generatedAt": "2026-04-30T15:34:12.169Z"
+  "generatedAt": "2026-05-01T03:00:11.481Z"
 }

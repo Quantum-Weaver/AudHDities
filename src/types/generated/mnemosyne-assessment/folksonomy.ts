@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-04-30T15:32:13.469Z
+// GENERATED: 2026-05-01T03:24:41.470Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

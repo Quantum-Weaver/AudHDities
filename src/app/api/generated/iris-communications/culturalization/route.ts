@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CulturalizationInsertSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.408Z
+// Generated: 2026-05-01T03:24:41.321Z
 // Table: culturalization
 
 export async function GET(request: NextRequest) {

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusMemoriesInsertSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_memories';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T16:12:38.159Z
+// Generated: 2026-05-01T03:24:41.831Z
 // Table: prometheus_memories
 
 export async function GET(request: NextRequest) {

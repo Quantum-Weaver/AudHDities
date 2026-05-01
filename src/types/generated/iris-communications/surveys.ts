@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/surveys.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-04-30T15:32:13.764Z
+// GENERATED: 2026-05-01T03:24:42.208Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -42,7 +42,7 @@ export interface PublicSurveys {
   slug: string | null;
   starts_at: string | null;
   surveys_id: string;
-  target_audience: SurveyAudienceType | null;
+  target_audience:;
   target_house: CouncilHouse | null;
   title: string;
   updated_at: string | null;

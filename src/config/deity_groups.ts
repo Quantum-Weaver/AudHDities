@@ -1,5 +1,6 @@
 // @/config/deity_groups.ts
 // Deity-based table grouping for the Sovereign Sanctuary
+// Complete catalog — every table and view assigned to its deity domain
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -9,17 +10,20 @@ export interface DeityGroup {
   sequence: number;
   folderName: string;
   description: string;
-  tables: PublicTableNames[];      // ✅ Tables only
-  views?: PublicViewNames[];       // ✅ Views separately (optional)
+  tables: PublicTableNames[];
+  views?: PublicViewNames[];
 }
 
 export const DEITY_GROUPS: DeityGroup[] = [
+  // ════════════════════════════════════════════════════════════════════════
+  // HESTIA — Core Identity (Sequence 1)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'hestia',
     domain: 'core',
     sequence: 1,
     folderName: 'hestia-core',
-    description: 'Core identity architecture - users, profiles, channels',
+    description: 'Core identity architecture — users, profiles, channels, journal, energy',
     tables: [
       'profiles',
       'user_private',
@@ -27,41 +31,53 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'creator_profiles',
       'vendor_profiles',
       'community_profiles',
-      'channels'
+      'channels',
+      'user_page_views',
+      'journal_entries',
+      'energy_logs',
     ],
     views: [
-      'personalized_feed'  // Example view
-    ]
+      'personalized_feed',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // PLUTUS — Economics (Sequence 2)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'plutus',
     domain: 'economics',
     sequence: 2,
     folderName: 'plutus-economics',
-    description: 'Economic engine - products, sales, residuals, subscriptions',
+    description: 'Economic engine — products, sales, residuals, subscriptions, advertising',
     tables: [
       'products',
       'sales',
       'contributions',
       'residual_payouts',
+      'residual_pool',
       'subscriptions',
       'transactions',
       'covenant_pool',
-      'residual_pool',
       'ledger',
       'disbursements',
       'payouts',
-      'advertising'
-    ]
+      'advertising',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // HERMES — Social (Sequence 3)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'hermes',
     domain: 'social',
     sequence: 3,
     folderName: 'hermes-social',
-    description: 'Social engagement - posts, comments, reactions, messages',
+    description: 'Social engagement — posts, comments, reactions, messages, creative categories',
     tables: [
       'creative_categories',
+      'creator_category_links',
       'posts',
       'comments',
       'replies',
@@ -69,97 +85,118 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'messages',
       'activity',
       'emeralds',
-      'notifications'
+      'notifications',
     ],
-    views: [
-      'personalized_feed'  // This is a view, not a table
-    ]
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // ATHENA — Gamification (Sequence 4)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'athena',
     domain: 'gamification',
     sequence: 4,
     folderName: 'athena-gamification',
-    description: 'Gamification - quests, badges, learning paths',
+    description: 'Gamification — quests, badges, bubbles, learning paths, mythology, scenes',
     tables: [
       'quests',
       'user_quests',
       'badges',
+      'badge_award_triggers',
       'user_badges',
+      'bubbles',
+      'user_bubble_pops',
+      'user_bubble_limits',
       'lessons',
       'learning_paths',
       'path_lessons',
       'progress',
-      'life_cycles',
       'mythology',
-      'timelines',
       'scenes',
-      'scene_participants'
-    ]
+      'scene_participants',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // MNEMOSYNE — Assessment (Sequence 5)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'mnemosyne',
     domain: 'assessment',
     sequence: 5,
     folderName: 'mnemosyne-assessment',
-    description: 'Assessment and discovery - acid test, taxonomy, ontology',
+    description: 'Assessment and discovery — acid test, taxonomy, ontology, etymology',
     tables: [
       'acid_test_questions',
       'acid_test_answers',
       'acid_test_results',
-      'etymology',
       'taxonomy',
       'ontology',
       'folksonomy',
+      'etymology',
       'superposition',
-      'quantum_superposition'
-    ]
+      'quantum_superposition',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // THEMIS — Governance (Sequence 6)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'themis',
     domain: 'governance',
     sequence: 6,
     folderName: 'themis-governance',
-    description: 'Governance and moderation - reports, logs, applications',
+    description: 'Governance and moderation — reports, logs, applications, protocols, rate limits',
     tables: [
+      'applications',
       'reports',
       'moderation_actions',
       'admin_logs',
-      'applications',
+      'council_houses',
       'processes',
-      'rate_limits'
+      'protocols',
+      'rate_limits',
     ],
     views: [
-      'public_transparency'  // This is a view
-    ]
+      'public_transparency',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // IRIS — Communications (Sequence 7)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'iris',
     domain: 'communications',
     sequence: 7,
     folderName: 'iris-communications',
-    description: 'Communications - localization, contact, surveys',
+    description: 'Communications — localization, contact, surveys, email, personas, customs',
     tables: [
       'continents',
       'regions',
       'languages',
       'localization',
-      'culturalization',
       'translations',
-      'personas',
+      'culturalization',
       'customs',
+      'personas',
       'contact_submissions',
       'email_communications',
       'surveys',
-      'survey_responses'
-    ]
+      'survey_responses',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // HEPHAESTUS — Infrastructure (Sequence 8)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'hephaestus',
     domain: 'infrastructure',
     sequence: 8,
     folderName: 'hephaestus-infrastructure',
-    description: 'Infrastructure and tools - file registry, settings, logs',
+    description: 'Infrastructure and tools — file registry, settings, scheduling, systems, scripts, logs',
     tables: [
       'file_type_standards',
       'file_registry',
@@ -170,17 +207,21 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'maintenance',
       'systems',
       'scripts',
-      'protocols',
+      'script_execution_logs',
       'system_health_logs',
-      'script_execution_logs'
-    ]
+      'system_timeline_events',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // AETHELRED — Connections (Sequence 9)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'aethelred',
     domain: 'connections',
     sequence: 9,
     folderName: 'aethelred-connections',
-    description: 'All-connecting architecture - integrations, council, consciousness',
+    description: 'All-connecting architecture — integrations, council houses, consciousness, agent activities',
     tables: [
       'supabase_connection',
       'stripe_connection',
@@ -189,7 +230,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'github_connection',
       'audhdities_platform',
       'consciousness',
-      'council_houses',
       'hearth_keeper',
       'chancellor',
       'seer',
@@ -198,15 +238,25 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'archivist',
       'skald',
       'codex',
-      'executioner'
-    ]
+      'executioner',
+      'agent_activities',
+      'agent_conversations',
+      'agent_messages',
+      'entity_state_log',
+      'life_cycles',
+      'timelines',
+    ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // PROMETHEUS — Meta (Sequence 10)
+  // ════════════════════════════════════════════════════════════════════════
   {
     name: 'prometheus',
     domain: 'meta',
     sequence: 10,
     folderName: 'prometheus-meta',
-    description: 'Meta-system architecture - blueprints, generations, memories, templates, patterns, boundaries, consciousness',
+    description: 'Meta-system — blueprints, generations, memories, templates, patterns, boundaries, consciousness',
     tables: [
       'prometheus_blueprints',
       'prometheus_generations',
@@ -214,117 +264,70 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'prometheus_templates',
       'prometheus_patterns',
       'prometheus_boundaries',
-      'prometheus_consciousness'
-    ]
-  }
+      'prometheus_consciousness',
+    ],
+    views: [
+      'prometheus_generation_stats',
+    ],
+  },
 ];
 
 // ============================================================================
 // TYPE-SAFE HELPER FUNCTIONS
 // ============================================================================
 
-/**
- * Get the deity group for a table
- */
 export function getDeityGroupForTable(tableName: PublicTableNames): DeityGroup | undefined {
   return DEITY_GROUPS.find(group => group.tables.includes(tableName));
 }
 
-/**
- * Get the deity group for a view
- */
 export function getDeityGroupForView(viewName: PublicViewNames): DeityGroup | undefined {
   return DEITY_GROUPS.find(group => group.views?.includes(viewName));
 }
 
-/**
- * Get the folder name for a table
- */
 export function getFolderNameForTable(tableName: PublicTableNames): string | undefined {
-  const group = getDeityGroupForTable(tableName);
-  return group?.folderName;
+  return getDeityGroupForTable(tableName)?.folderName;
 }
 
-/**
- * Get the folder name for a view
- */
 export function getFolderNameForView(viewName: PublicViewNames): string | undefined {
-  const group = getDeityGroupForView(viewName);
-  return group?.folderName;
+  return getDeityGroupForView(viewName)?.folderName;
 }
 
-/**
- * Get all table names across all deity groups
- */
 export function getAllTableNames(): PublicTableNames[] {
   return DEITY_GROUPS.flatMap(group => group.tables);
 }
 
-/**
- * Get all view names across all deity groups
- */
 export function getAllViewNames(): PublicViewNames[] {
   return DEITY_GROUPS.flatMap(group => group.views || []);
 }
 
-/**
- * Get all table and view names combined
- */
 export function getAllNames(): (PublicTableNames | PublicViewNames)[] {
   return [...getAllTableNames(), ...getAllViewNames()];
 }
 
-/**
- * Get deity groups sorted by table count
- */
 export function getDeityGroupsByTableCount(): DeityGroup[] {
   return [...DEITY_GROUPS].sort((a, b) => b.tables.length - a.tables.length);
 }
 
-/**
- * Find tables that don't belong to any deity group
- */
 export function getTablesWithoutGroup(allTables: PublicTableNames[]): PublicTableNames[] {
   const groupedTables = new Set(getAllTableNames());
   return allTables.filter(table => !groupedTables.has(table));
 }
 
-/**
- * Find views that don't belong to any deity group
- */
 export function getViewsWithoutGroup(allViews: PublicViewNames[]): PublicViewNames[] {
   const groupedViews = new Set(getAllViewNames());
   return allViews.filter(view => !groupedViews.has(view));
 }
 
-/**
- * Get the folder name for any object (table or view)
- */
 export function getFolderNameForObject(name: PublicTableNames | PublicViewNames): string | undefined {
-  // Try as table first
-  const tableFolder = getFolderNameForTable(name as PublicTableNames);
-  if (tableFolder) return tableFolder;
-  
-  // Try as view
-  return getFolderNameForView(name as PublicViewNames);
+  return getFolderNameForTable(name as PublicTableNames) || getFolderNameForView(name as PublicViewNames);
 }
 
-/**
- * Check if a name is a table in any deity group
- */
 export function isTable(name: string): name is PublicTableNames {
   return getAllTableNames().includes(name as PublicTableNames);
 }
 
-/**
- * Check if a name is a view in any deity group
- */
 export function isView(name: string): name is PublicViewNames {
   return getAllViewNames().includes(name as PublicViewNames);
 }
-
-// ============================================================================
-// TYPE EXPORTS
-// ============================================================================
 
 export type { PublicTableNames, PublicViewNames };

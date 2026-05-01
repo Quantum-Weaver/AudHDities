@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PrometheusBoundariesUpdateSchema } from '@/lib/validators/generated/prometheus-meta/prometheus_boundaries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T16:12:38.173Z
+// Generated: 2026-05-01T03:24:41.793Z
 // Table: prometheus_boundaries
 
 export async function GET(

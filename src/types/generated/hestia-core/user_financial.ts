@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T15:32:13.830Z
+// GENERATED: 2026-05-01T03:24:42.335Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -39,9 +39,9 @@ export interface PublicUserFinancial {
   created_at: string | null;
   created_by: string | null;
   crypto_addresses: Json | null;
-  default_payout_method: PayoutMethod | null;
+  default_payout_method:;
   minimum_payout: number | null;
-  payout_frequency: PayoutFrequency | null;
+  payout_frequency:;
   paypal_email: string | null;
   residual_pledge_percent: number | null;
   updated_at: string | null;

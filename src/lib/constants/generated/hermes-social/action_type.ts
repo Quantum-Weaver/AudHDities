@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hermes-social/action_type.ts
-// GENERATED: 2026-04-30T15:32:13.945Z
+// GENERATED: 2026-05-01T03:24:42.771Z
 // SOURCE: Constants.public.Enums.action_type
-// VALUES: 10 entries
+// VALUES: 12 entries
 // =====================================================
 
 export const ACTION_TYPE = {
@@ -16,6 +16,8 @@ export const ACTION_TYPE = {
   JOIN_HOUSE: 'join_house',
   COMPLETE_QUEST: 'complete_quest',
   EARN_BADGE: 'earn_badge',
+  PROFILE_CREATED: 'profile_created',
+  SOVEREIGN_JOINED: 'sovereign_joined',
 } as const;
 
 export type ActionType = typeof ACTION_TYPE[keyof typeof ACTION_TYPE];

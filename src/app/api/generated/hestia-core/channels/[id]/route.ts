@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ChannelsUpdateSchema } from '@/lib/validators/generated/hestia-core/channels';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.348Z
+// Generated: 2026-05-01T03:24:41.189Z
 // Table: channels
 
 export async function GET(

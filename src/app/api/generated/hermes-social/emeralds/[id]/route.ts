@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EmeraldsUpdateSchema } from '@/lib/validators/generated/hermes-social/emeralds';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.434Z
+// Generated: 2026-05-01T03:24:41.385Z
 // Table: emeralds
 
 export async function GET(

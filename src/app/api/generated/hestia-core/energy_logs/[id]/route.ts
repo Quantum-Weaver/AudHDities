@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EnergyLogsUpdateSchema } from '@/lib/validators/generated/hestia-core/energy_logs';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.440Z
+// Generated: 2026-05-01T03:24:41.398Z
 // Table: energy_logs
 
 export async function GET(

@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/aethelred-connections/delivery_status.ts
-// GENERATED: 2026-04-30T15:32:13.982Z
+// GENERATED: 2026-05-01T03:24:42.897Z
 // SOURCE: Constants.public.Enums.delivery_status
 // VALUES: 3 entries
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/supabase_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-04-30T15:32:13.747Z
+// GENERATED: 2026-05-01T03:24:42.171Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -32,7 +32,7 @@ export type SupabaseConnectionUpdate = TablesUpdate<'supabase_connection'>;
  */
 export interface PublicSupabaseConnection {
   api_keys: Json | null;
-  connection_status: SupabaseStatus | null;
+  connection_status:;
   created_at: string | null;
   created_by: string | null;
   edge_functions: string[] | null;

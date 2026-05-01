@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { QuestsInsertSchema } from '@/lib/validators/generated/athena-gamification/quests';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.645Z
+// Generated: 2026-05-01T03:24:41.891Z
 // Table: quests
 
 export async function GET(request: NextRequest) {

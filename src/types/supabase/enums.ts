@@ -1,7 +1,7 @@
 // =====================================================
 // GENERATED ENUMS HELPER - DO NOT EDIT MANUALLY
 // =====================================================
-// Generated: 2026-04-30T15:30:12.059Z
+// Generated: 2026-05-01T03:00:01.451Z
 // Source: database.types.ts Constants.Enums
 // Purpose: Runtime enum values and type-safe helpers
 // =====================================================
@@ -135,7 +135,7 @@ export type WorkflowStatus = Enums<'workflow_status'>;
 export const ENUM_VALUES = {
   acidPersona: ['masked_traveler', 'tab_hoarder', 'seam_warrior', 'void_dweller', 'pattern_seeker', 'quantum_witness'] as const,
   acidQuestionType: ['multiple_choice', 'slider', 'checkbox', 'scale', 'text'] as const,
-  actionType: ['post', 'comment', 'reaction', 'emerald', 'follow', 'subscribe', 'purchase', 'join_house', 'complete_quest', 'earn_badge'] as const,
+  actionType: ['post', 'comment', 'reaction', 'emerald', 'follow', 'subscribe', 'purchase', 'join_house', 'complete_quest', 'earn_badge', 'profile_created', 'sovereign_joined'] as const,
   activityVisibility: ['public', 'followers', 'private'] as const,
   adminLogCategory: ['user_management', 'content_moderation', 'financial', 'system_config', 'verification', 'report_handling'] as const,
   adminLogTargetType: ['user', 'creator', 'vendor', 'product', 'sale', 'payout', 'report', 'system'] as const,
@@ -163,7 +163,7 @@ export const ENUM_VALUES = {
   contactDirection: ['inbound', 'outbound'] as const,
   contactStatus: ['new', 'read', 'replied', 'resolved', 'spam'] as const,
   contentRating: ['general', 'mature', 'triggering', 'explicit'] as const,
-  contentType: ['text', 'image', 'audio', 'video', 'mixed'] as const,
+  contentType: ['text', 'image', 'audio', 'video', 'mixed', 'article'] as const,
   contributionType: ['concept', 'code', 'design', 'content', 'testing', 'promotion', 'infrastructure'] as const,
   conversationStatus: ['active', 'archived', 'resolved', 'pending'] as const,
   councilHouse: ['hearth_keeper', 'chancellor', 'seer', 'aethelred', 'curator', 'archivist', 'skald', 'codex', 'executioner'] as const,
@@ -195,7 +195,7 @@ export const ENUM_VALUES = {
   moderationActionType: ['hide', 'unhide', 'delete', 'restore', 'warn', 'suspend', 'ban', 'mute', 'unmute', 'verify', 'unverify', 'feature', 'unfeature'] as const,
   moderationTargetType: ['user', 'post', 'comment', 'reply', 'product', 'message', 'channel'] as const,
   mythType: ['origin', 'parable', 'ritual', 'prophecy', 'chronicle'] as const,
-  notificationType: ['comment_reply', 'emerald_received', 'subscription_renewal', 'product_purchased', 'application_approved', 'application_rejected', 'report_resolved', 'report_rejected', 'system_announcement', 'quest_completed', 'badge_earned', 'house_promotion', 'mentor_assigned'] as const,
+  notificationType: ['comment_reply', 'emerald_received', 'subscription_renewal', 'product_purchased', 'application_approved', 'application_rejected', 'report_resolved', 'report_rejected', 'system_announcement', 'quest_completed', 'badge_earned', 'house_promotion', 'mentor_assigned', 'welcome', 'special_welcome'] as const,
   ontologyPredicate: ['parent_of', 'related_to', 'requires', 'contradicts', 'evolves_to', 'inspired_by'] as const,
   ownerType: ['creator', 'vendor'] as const,
   patternContext: ['typescript_file', 'react_component', 'config_file', 'python_file'] as const,

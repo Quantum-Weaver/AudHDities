@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/creator_profiles.ts
 // HANDLING: join_table
 // DEITY: hestia-core
-// GENERATED: 2026-04-30T15:32:13.404Z
+// GENERATED: 2026-05-01T03:24:41.312Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -40,6 +40,7 @@ export interface CreatorProfilesFormData {
   creator_profiles_id?: string;
   default_residual_pool?: number | null;
   portfolio_url?: string | null;
+  products_linked?: string[] | null;
   profile_id?: string;
   stripe_account_id?: string | null;
   total_earnings?: number | null;

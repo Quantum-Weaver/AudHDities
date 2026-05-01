@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserFinancialUpdateSchema } from '@/lib/validators/generated/hestia-core/user_financial';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-04-30T15:32:13.831Z
+// Generated: 2026-05-01T03:24:42.337Z
 // Table: user_financial
 
 export async function GET(

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/badges.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-04-30T15:32:13.326Z
+// GENERATED: 2026-05-01T03:24:41.146Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

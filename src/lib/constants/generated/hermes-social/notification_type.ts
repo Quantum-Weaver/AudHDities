@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: constants/generated/hermes-social/notification_type.ts
-// GENERATED: 2026-04-30T15:32:14.009Z
+// GENERATED: 2026-05-01T03:24:43.028Z
 // SOURCE: Constants.public.Enums.notification_type
-// VALUES: 13 entries
+// VALUES: 15 entries
 // =====================================================
 
 export const NOTIFICATION_TYPE = {
@@ -19,6 +19,8 @@ export const NOTIFICATION_TYPE = {
   BADGE_EARNED: 'badge_earned',
   HOUSE_PROMOTION: 'house_promotion',
   MENTOR_ASSIGNED: 'mentor_assigned',
+  WELCOME: 'welcome',
+  SPECIAL_WELCOME: 'special_welcome',
 } as const;
 
 export type NotificationType = typeof NOTIFICATION_TYPE[keyof typeof NOTIFICATION_TYPE];
