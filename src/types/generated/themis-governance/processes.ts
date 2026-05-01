@@ -35,7 +35,7 @@ export interface PublicProcesses {
   created_at: string | null;
   created_by: string;
   description: string | null;
-  escalation_target:;
+  escalation_target: EscalationTarget | null;
   is_active: boolean | null;
   name: string;
   process_type: ProcessType;

@@ -42,7 +42,7 @@ export interface PublicSurveys {
   slug: string | null;
   starts_at: string | null;
   surveys_id: string;
-  target_audience:;
+  target_audience: SurveyAudienceType | null;
   target_house: CouncilHouse | null;
   title: string;
   updated_at: string | null;
