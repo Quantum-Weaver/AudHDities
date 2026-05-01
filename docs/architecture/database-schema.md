@@ -109,7 +109,7 @@ Before insert on sales, calculates platform fees and creator earnings.
 
 ## TypeScript Integration
 
-Generated types live at `@/types/supabase/database.types.ts`. Import them in your code:
+Generated types live at `src/types/supabase/database.types.ts`. Import them in your code:
 
 ```typescript
 import type { Database } from '@/types/supabase/database.types'
@@ -225,7 +225,7 @@ Before insert on sales, calculates platform fees and creator earnings.
 
 ## TypeScript Integration
 
-Generated types live at `@/types/supabase/database.types.ts`. Import them in your code:
+Generated types live at `src/types/supabase/database.types.ts`. Import them in your code:
 
 ```typescript
 import type { Database } from '@/types/supabase/database.types'

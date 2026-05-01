@@ -1,4 +1,4 @@
-// src/app/error.tsx
+// @/app/error.tsx
 'use client';
 
 import { useEffect } from 'react';
@@ -23,11 +23,11 @@ export default function Error({ error, reset }: ErrorProps) {
           <AlertTriangle size={32} className="text-red-400" />
         </div>
         
-        <h1 className="text-3xl font-bold text-white mb-2">
+        <h1 className="text-3xl font-bold text-star-dust mb-2">
           Something Went Wrong
         </h1>
         
-        <p className="text-white/60 mb-4">
+        <p className="text-star-dust/60 mb-4">
           The sanctuary encountered an unexpected error.
         </p>
         
@@ -36,7 +36,7 @@ export default function Error({ error, reset }: ErrorProps) {
             {error.message || 'Unknown error occurred'}
           </p>
           {error.digest && (
-            <p className="text-xs text-white/40 mt-2">
+            <p className="text-xs text-star-dust/40 mt-2">
               Error ID: {error.digest}
             </p>
           )}
@@ -45,7 +45,7 @@ export default function Error({ error, reset }: ErrorProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-bold transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-star-dust rounded-lg font-bold transition-colors"
           >
             <RefreshCw size={18} />
             Try Again
@@ -53,16 +53,16 @@ export default function Error({ error, reset }: ErrorProps) {
           
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg font-bold transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-star-dust rounded-lg font-bold transition-colors"
           >
             <Home size={18} />
             Return Home
           </Link>
         </div>
 
-        <p className="mt-8 text-sm text-white/40">
+        <p className="mt-8 text-sm text-star-dust/40">
           If this persists, please{' '}
-          <Link href="/contact" className="text-cyan-400 hover:underline">
+          <Link href="/contact" className="text-neurospark hover:underline">
             contact support
           </Link>
         </p>

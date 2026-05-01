@@ -13,7 +13,7 @@ node_modules
 .temp*
 # testing
 /coverage
-
+phoenix
 # next.js
 /.next/
 /out/

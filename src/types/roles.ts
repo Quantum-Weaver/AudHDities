@@ -1,16 +1,22 @@
-// types/roles.ts
-// Based on Database['public']['Enums']['user_tier'] and profile flags
+// src/types/roles.ts
+// =====================================================
+// ROLES & PERMISSIONS - Based on user_tier and profile flags
+// =====================================================
 
 import type { Database } from './supabase/database.types';
 
 export type UserTier = Database['public']['Enums']['user_tier'];
+
+// =====================================================
+// TIER DEFINITIONS
+// =====================================================
 
 export const USER_TIERS: { 
   value: UserTier; 
   label: string; 
   description: string; 
   color: string;
-  icon?: string;
+  icon: string;
   order: number;
 }[] = [
   { 
@@ -51,7 +57,19 @@ export const USER_TIER_MAP = new Map(
   USER_TIERS.map(tier => [tier.value, tier])
 );
 
+// =====================================================
+// ROLE TYPES
+// =====================================================
+
 export type UserRole = 'creator' | 'vendor' | 'admin' | 'community' | 'quantum_weaver' | 'council_entity';
+
+export interface RoleFlags {
+  isCreator: boolean;
+  isVendor: boolean;
+  isAdmin: boolean;
+  isQuantumWeaver: boolean;              // From profiles.is_quantum_weaver
+  userTier: UserTier;
+}
 
 export interface UserPermissions {
   canCreateProducts: boolean;
@@ -65,13 +83,9 @@ export interface UserPermissions {
   canSetBigotTax: boolean;               // Admin power to apply corporate pricing
 }
 
-export interface RoleFlags {
-  isCreator: boolean;
-  isVendor: boolean;
-  isAdmin: boolean;
-  isQuantumWeaver: boolean;              // From profiles.is_quantum_weaver
-  userTier: UserTier;
-}
+// =====================================================
+// PERMISSION CALCULATIONS
+// =====================================================
 
 export function getUserPermissions(flags: RoleFlags): UserPermissions {
   const { isCreator, isVendor, isAdmin, isQuantumWeaver, userTier } = flags;
@@ -110,7 +124,10 @@ export function getUserPermissionsLegacy(
   });
 }
 
-// Helper functions
+// =====================================================
+// HELPER FUNCTIONS
+// =====================================================
+
 export function getTierLabel(tier: UserTier | string | null): string {
   if (!tier) return 'Community';
   return USER_TIER_MAP.get(tier as UserTier)?.label || tier;
@@ -136,12 +153,14 @@ export function getTierOrder(tier: UserTier | string | null): number {
   return USER_TIER_MAP.get(tier as UserTier)?.order || 99;
 }
 
-// Sort tiers by order for display
 export function getSortedTiers(): typeof USER_TIERS {
   return [...USER_TIERS].sort((a, b) => a.order - b.order);
 }
 
-// Check if a user qualifies for community tier (subsidized access)
+// =====================================================
+// TIER QUALIFICATION LOGIC
+// =====================================================
+
 export function qualifiesForCommunityTier(
   isDisabled: boolean,
   isNeurodivergent: boolean,
@@ -150,7 +169,6 @@ export function qualifiesForCommunityTier(
   return isDisabled || isNeurodivergent || isLowIncome;
 }
 
-// Get the appropriate tier based on user context
 export function getSuggestedTier(
   isDisabled: boolean,
   isNeurodivergent: boolean,
@@ -160,4 +178,28 @@ export function getSuggestedTier(
   if (isOrganization) return 'corporate';
   if (qualifiesForCommunityTier(isDisabled, isNeurodivergent, isLowIncome)) return 'community';
   return 'ally';
+}
+
+// =====================================================
+// ROLE CHECK FUNCTIONS
+// =====================================================
+
+export function isCouncilMember(userTier: UserTier | null): boolean {
+  return userTier === 'council';
+}
+
+export function isQuantumWeaver(isQuantumWeaver: boolean): boolean {
+  return isQuantumWeaver === true;
+}
+
+export function isCreator(isCreator: boolean): boolean {
+  return isCreator === true;
+}
+
+export function isVendor(isVendor: boolean): boolean {
+  return isVendor === true;
+}
+
+export function isAdmin(isAdmin: boolean): boolean {
+  return isAdmin === true;
 }

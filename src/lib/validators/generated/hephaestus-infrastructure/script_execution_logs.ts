@@ -1,0 +1,63 @@
+// =====================================================
+// FILE: validators/script_execution_logs.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// ScriptExecutionLogs SCHEMAS
+// =====================================================
+
+export const ScriptExecutionLogsRowSchema = z.object({
+  completed_at: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  error_message: z.string().nullable(),
+  executed_by: z.string().nullable(),
+  output: z.string().nullable(),
+  parameters_used: z.any().nullable(),
+  script_execution_logs_id: z.string(),
+  script_id: z.string(),
+  started_at: z.string().nullable(),
+  status: z.string().nullable(),
+  updated_at: z.string().nullable(),
+});
+
+export const ScriptExecutionLogsInsertSchema = z.object({
+  completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  error_message: z.string().nullable().optional(),
+  executed_by: z.string().nullable().optional(),
+  output: z.string().nullable().optional(),
+  parameters_used: z.any().nullable().optional(),
+  script_execution_logs_id: z.string().optional(),
+  script_id: z.string(),
+  started_at: z.string().nullable().optional(),
+  status: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+});
+
+export const ScriptExecutionLogsUpdateSchema = z.object({
+  completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  error_message: z.string().nullable().optional(),
+  executed_by: z.string().nullable().optional(),
+  output: z.string().nullable().optional(),
+  parameters_used: z.any().nullable().optional(),
+  script_execution_logs_id: z.string().optional(),
+  script_id: z.string().optional(),
+  started_at: z.string().nullable().optional(),
+  status: z.string().nullable().optional(),
+  updated_at: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type ScriptExecutionLogsRowInput = z.infer<typeof ScriptExecutionLogsRowSchema>;
+export type ScriptExecutionLogsInsertInput = z.infer<typeof ScriptExecutionLogsInsertSchema>;
+export type ScriptExecutionLogsUpdateInput = z.infer<typeof ScriptExecutionLogsUpdateSchema>;

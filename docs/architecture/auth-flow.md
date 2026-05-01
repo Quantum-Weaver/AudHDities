@@ -40,7 +40,7 @@ text
 
 ## Client-Side Auth
 
-### `@/lib/supabase/client.ts`
+### `src/lib/supabase/client.ts`
 Browser client for user-facing components:
 
 ```typescript
@@ -52,7 +52,7 @@ export const createClient = () =>
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
 
-@/lib/supabase/server.ts
+src/lib/supabase/server.ts
 
 Server client for route handlers and server components:
 typescript
@@ -69,7 +69,7 @@ export const createClient = async () => {
   )
 }
 
-@/lib/supabase/middleware.ts
+src/lib/supabase/middleware.ts
 
 For Next.js middleware protecting routes:
 typescript

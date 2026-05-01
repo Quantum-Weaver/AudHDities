@@ -1,12 +1,7 @@
 // app/api/webhook/stripe/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import Stripe from 'stripe';
-
-// Initialize Stripe with secret key
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-02-25.clover',
-});
+import { stripe as getStripe, verifyWebhookSignature } from '@/lib/stripe/server';
 
 // Platform fee is 10% (industry standard is 30-50%)
 const PLATFORM_FEE_PERCENT = 10;
@@ -32,9 +27,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  let event: Stripe.Event;
+  let event;
 
   try {
+    const stripe = getStripe();
     event = stripe.webhooks.constructEvent(payload, signature, webhookSecret);
   } catch (err) {
     console.error('Webhook signature verification failed:', err);
@@ -48,7 +44,7 @@ export async function POST(request: NextRequest) {
 
   switch (event.type) {
     case 'checkout.session.completed': {
-      const session = event.data.object as Stripe.Checkout.Session;
+      const session = event.data.object;
       
       const productId = session.metadata?.product_id;
       const userId = session.metadata?.user_id;
@@ -63,15 +59,13 @@ export async function POST(request: NextRequest) {
         break;
       }
 
-      // Validate tier is one of the allowed values
       const validTiers = ['community', 'ally', 'corporate', 'council'] as const;
       const validTier = validTiers.includes(tier as any) ? tier as 'community' | 'ally' | 'corporate' | 'council' : 'ally';
 
-      // Get product details
       const { data: product, error: productError } = await supabase
         .from('products')
         .select('*')
-        .eq('id', productId)
+        .eq('products_id', productId)
         .single();
 
       if (productError || !product) {
@@ -79,7 +73,6 @@ export async function POST(request: NextRequest) {
         break;
       }
 
-      // Calculate splits with 10% platform fee
       const amount = amountTotal;
       const platformFee = amount * (PLATFORM_FEE_PERCENT / 100);
       const creatorEarnings = amount - platformFee;
@@ -88,7 +81,6 @@ export async function POST(request: NextRequest) {
       const residualPool = platformFee * (residualPercent / 100);
       const infrastructure = platformFee - residualPool;
 
-      // Insert sale record - match your exact table structure
       const { data: sale, error: saleError } = await supabase
         .from('sales')
         .insert({
@@ -118,13 +110,13 @@ export async function POST(request: NextRequest) {
         console.error('Failed to insert sale:', saleError);
       } else {
         console.log('Sale recorded successfully:', { 
-          saleId: sale.id, 
+          saleId: sale.sales_id, 
           productId, 
           userId, 
           amount,
-          platformFee: platformFee,
-          creatorEarnings: creatorEarnings,
-          residualPool: residualPool
+          platformFee,
+          creatorEarnings,
+          residualPool
         });
       }
 
@@ -133,7 +125,7 @@ export async function POST(request: NextRequest) {
 
     case 'checkout.session.expired':
     case 'checkout.session.async_payment_failed': {
-      const session = event.data.object as Stripe.Checkout.Session;
+      const session = event.data.object;
       console.log(`Session ${session.id} ${event.type}`);
       break;
     }

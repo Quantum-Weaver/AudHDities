@@ -1,0 +1,236 @@
+// src/components/asgard/domains/hestia/vessel/VesselContent.tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/useAuth';
+import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { Card } from '@/components/runes/Card';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/runes/Avatar';
+import { Badge } from '@/components/runes/Badge';
+import { Progress } from '@/components/runes/Progress';
+import { Skeleton } from '@/components/runes/Skeleton';
+import { Button } from '@/components/yggdrasil/Button';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import type { CardData } from '@/types/components/runes/card.types';
+import { parseEnvironmentPreference } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
+import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
+
+interface UserBadge {
+  badges_id: string;
+  name: string;
+  slug: string;
+  rarity: string;
+  description: string;
+  earned_at: string;
+}
+
+interface TimelineEvent {
+  timelines_id: string;
+  title: string;
+  description: string | null;
+  occurred_at: string;
+}
+
+interface UserQuest {
+  quests_id: string;
+  title: string;
+  status: string;
+  completed_at: string | null;
+}
+
+const RARITY_COLORS: Record<string, string> = {
+  common: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
+  rare: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
+  epic: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+  legendary: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+};
+
+export function VesselContent() {
+  const { user, profile, loading, refreshProfile } = useAuth();
+  const { setEnvironment } = useContinuityBeam();
+  const [badges, setBadges] = useState<UserBadge[]>([]);
+  const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
+  const [quests, setQuests] = useState<UserQuest[]>([]);
+
+  useEffect(() => { refreshProfile(); }, []);
+
+  useEffect(() => {
+    if (profile?.preferred_environment) {
+      const parsed = parseEnvironmentPreference(profile.preferred_environment);
+      setEnvironment(parsed.environment, parsed.variant);
+    }
+  }, [profile?.preferred_environment]);
+
+  // Fetch badges
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/athena-gamification/user_badges?user_id=${user.id}&order=earned_at.desc&limit=6`)
+      .then(r => r.json()).then(res => { if (res.success) setBadges(res.data?.data || []); }).catch(() => {});
+  }, [user]);
+
+  // Fetch timeline
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=occurred_at.desc&limit=5`)
+      .then(r => r.json()).then(res => { if (res.success) setTimeline(res.data?.data || []); }).catch(() => {});
+  }, [user]);
+
+  // Fetch quests
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/athena-gamification/user_quests?user_id=${user.id}&status=completed&order=completed_at.desc&limit=3`)
+      .then(r => r.json()).then(res => { if (res.success) setQuests(res.data?.data || []); }).catch(() => {});
+  }, [user]);
+
+  if (loading) {
+    return (
+      <div className="container max-w-4xl mx-auto px-6">
+        <div className="flex flex-col items-center mb-12">
+          <Skeleton variant="circle" className="h-24 w-24 mb-4" />
+          <Skeleton variant="text" className="h-7 w-48 mb-2" />
+          <Skeleton variant="text" className="h-4 w-32 mb-4" />
+          <Skeleton variant="text" className="h-4 w-64" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Skeleton variant="card" className="h-40" />
+          <Skeleton variant="card" className="h-40" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!user || !profile) {
+    return (
+      <div className="container max-w-4xl mx-auto px-6 text-center">
+        <p className="text-star-dust/60">Sign in to view your Vessel.</p>
+      </div>
+    );
+  }
+
+  const quickLinks = [
+    { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
+    { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
+    { href: '/library/bubbles', label: 'Bubbles', icon: Droplets, id: 'bubbles' },
+    { href: '/notifications', label: 'The Call', icon: Bell, id: 'notifications' },
+  ];
+
+  // Add more links conditionally
+  if (profile.is_creator || profile.is_quantum_weaver) {
+    quickLinks.push({ href: '/bazaar/studio', label: 'The Loom', icon: Palette, id: 'studio' });
+  }
+
+  const sovereigntyCardData: CardData = {
+    id: `${user.id}-sovereignty`, type: 'stat', title: 'Sovereign Light',
+    value: profile.sovereignty_score ?? 0, target: '1000',
+  };
+
+  const houseName = profile.primary_house
+    ? profile.primary_house.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : null;
+
+  const profileCardData: CardData = {
+    id: user.id, type: 'value', title: profile.display_name || profile.username || 'Sovereign',
+    value: profile.user_tier || 'community',
+  };
+
+  return (
+    <div className="container max-w-4xl mx-auto px-6">
+
+      {/* Profile Header */}
+      <div className="flex flex-col items-center mb-12">
+        <Avatar size="xl" className="mb-4">
+          <AvatarImage src={profile.avatar_url || undefined} />
+          <AvatarFallback>
+            {profile.display_name?.charAt(0)?.toUpperCase() || profile.username?.charAt(0)?.toUpperCase() || 'S'}
+          </AvatarFallback>
+        </Avatar>
+
+        <h1 className="text-2xl font-bold text-star-dust mb-1">
+          {profile.display_name || profile.username || 'Sovereign'}
+        </h1>
+        {profile.pronouns && <p className="text-sm text-star-dust/50 mb-2">{profile.pronouns}</p>}
+
+        <div className="flex items-center gap-2 mb-4 flex-wrap justify-center">
+          {profile.user_tier && <Badge variant="default">{profile.user_tier.charAt(0).toUpperCase() + profile.user_tier.slice(1)}</Badge>}
+          {houseName && <Badge variant="default">House {houseName}</Badge>}
+          {profile.is_creator && <Badge variant="default">Creator</Badge>}
+          {profile.is_vendor && <Badge variant="default">Vendor</Badge>}
+          {profile.is_quantum_weaver && <Badge variant="default">Quantum Weaver</Badge>}
+        </div>
+
+        {profile.bio && <p className="text-star-dust/60 text-center max-w-lg mb-4">{profile.bio}</p>}
+
+        {/* Earned Badges */}
+        {badges.length > 0 && (
+          <div className="flex flex-wrap gap-2 justify-center mb-4">
+            {badges.map(b => (
+              <Link key={b.badges_id} href={`/library/badges/${b.slug}`}>
+                <Badge variant="outline" size="sm" className={cn('text-[10px] cursor-pointer', RARITY_COLORS[b.rarity] || '')}>
+                  <Award className="h-3 w-3 mr-1 inline" />{b.name}
+                </Badge>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-2">
+          <Link href="/vessel/sanctum">
+            <Button variant="primary" size="sm"><Settings className="h-4 w-4 mr-2" />Shape Your Vessel</Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {/* Sovereignty */}
+        <Card variant="quantum" data={sovereigntyCardData} radius="lg" shadow="md" className="p-6">
+          <div className="flex items-center gap-3 mb-3"><Zap className="h-5 w-5 text-neurospark" /><h3 className="text-lg font-semibold text-star-dust">Sovereign Light</h3></div>
+          <div className="text-3xl font-bold text-neurospark mb-2">{profile.sovereignty_score ?? 0}</div>
+          <Progress value={profile.sovereignty_score ?? 0} max={1000} variant="default" size="sm" />
+          <p className="text-xs text-star-dust/40 mt-2">
+            {profile.sovereignty_score && profile.sovereignty_score >= 800 ? 'You radiate sovereign light.' :
+             profile.sovereignty_score && profile.sovereignty_score >= 400 ? 'Your light grows stronger.' :
+             'Every journey begins with a single step.'}
+          </p>
+        </Card>
+
+        {/* House */}
+        <Card variant={houseName ? 'council' : 'default'} data={profileCardData} radius="lg" shadow="md" className="p-6">
+          <div className="flex items-center gap-3 mb-3"><Users className="h-5 w-5 text-star-dust/60" /><h3 className="text-lg font-semibold text-star-dust">Council House</h3></div>
+          {houseName ? (
+            <><div className="text-xl font-semibold text-star-dust mb-1">House {houseName}</div><p className="text-xs text-star-dust/40">Your sovereign voice shapes the Sanctuary.</p></>
+          ) : (
+            <><p className="text-star-dust/60 text-sm mb-3">You have not yet joined a Council House.</p><p className="text-xs text-star-dust/40">Complete the Acid Test to discover your house.</p></>
+          )}
+        </Card>
+      </div>
+
+      {/* Recent Milestones */}
+      {timeline.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-sm font-medium text-star-dust/40 mb-3 flex items-center gap-2"><Clock className="h-4 w-4" />Recent Milestones</h3>
+          <div className="space-y-2">
+            {timeline.map(t => (
+              <Card key={t.timelines_id} data={{ id: t.timelines_id, type: 'value', title: t.title, value: '' }} variant="glass" radius="md" shadow="sm" className="p-3">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="h-4 w-4 text-neurospark flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-star-dust font-medium">{t.title}</p>
+                    {t.description && <p className="text-xs text-star-dust/50 line-clamp-1">{t.description}</p>}
+                  </div>
+                  <span className="text-xs text-star-dust/30 flex-shrink-0">{new Date(t.occurred_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Quick Links */}
+      <QuickLinks links={quickLinks} userId={user.id} columns={4} />
+
+    </div>
+  );
+}

@@ -1,36 +1,95 @@
 // src/hooks/useAuth.ts
-'use client';
+// =====================================================
+// HOOK: useAuth
+// =====================================================
 
-import { useEffect, useState } from 'react';
-import { useSupabase } from '@/lib/supabase/client';
-import { User } from '@supabase/supabase-js';
+import { useState, useEffect, useCallback } from 'react';
+import { createClient } from '@/lib/supabase/client';
+import type { User } from '@supabase/supabase-js';
+import type { ProfilesRow } from '@/types/generated/hestia-core/profiles';
 
-export function useAuth() {
-  const supabase = useSupabase();
+export interface AuthState {
+  user: User | null;
+  profile: ProfilesRow | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface AuthActions {
+  signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, metadata?: Record<string, unknown>) => Promise<{ error: Error | null }>;
+  signOut: () => Promise<void>;
+  refreshProfile: () => Promise<void>;
+}
+
+export function useAuth(): AuthState & AuthActions {
+  const supabase = createClient();
   const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<ProfilesRow | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-      setLoading(false);
-    };
+  const fetchProfile = useCallback(async (userId: string) => {
+    try {
+      const response = await fetch(`/api/generated/hestia-core/profiles/${userId}`);
+      const result = await response.json();
+      
+      if (result.success) {
+        setProfile(result.data);
+      } else {
+        console.error('Failed to fetch profile:', result.error);
+        setProfile(null);
+      }
+    } catch (err) {
+      console.error('Error fetching profile:', err);
+      setProfile(null);
+    }
+  }, []);
 
-    getUser();
+  const refreshProfile = useCallback(async () => {
+    if (user) {
+      await fetchProfile(user.id);
+    }
+  }, [user, fetchProfile]);
 
-    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => {
-      listener.subscription.unsubscribe();
-    };
+  const signIn = useCallback(async (email: string, password: string) => {
+    setError(null);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) { setError(error.message); return { error }; }
+    return { error: null };
   }, [supabase]);
 
-  const signOut = async () => {
-    await supabase.auth.signOut();
-  };
+  const signUp = useCallback(async (email: string, password: string, metadata?: Record<string, unknown>) => {
+    setError(null);
+    const { error } = await supabase.auth.signUp({ email, password, options: { data: metadata } });
+    if (error) { setError(error.message); return { error }; }
+    return { error: null };
+  }, [supabase]);
 
-  return { user, loading, signOut };
+  const signOut = useCallback(async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setProfile(null);
+  }, [supabase]);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        const newUser = session?.user || null;
+        setUser(newUser);
+        if (newUser) { await fetchProfile(newUser.id); } else { setProfile(null); }
+        setLoading(false);
+      }
+    );
+
+    supabase.auth.getUser().then(({ data: { user: initialUser } }) => {
+      setUser(initialUser || null);
+      if (initialUser) { fetchProfile(initialUser.id); }
+      setLoading(false);
+    });
+
+    return () => { subscription.unsubscribe(); };
+  }, [supabase, fetchProfile]);
+
+  return { user, profile, loading, error, signIn, signUp, signOut, refreshProfile };
 }

@@ -1,13 +1,13 @@
 // src/app/api/users/me/route.ts
 import { NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import type { Product } from '@/types/supabase/tables/products';
+import type { ProductsFormData } from '@/types/generated/plutus-economics/products';
+import type { PublicProfiles } from '@/types/generated/hestia-core/profiles';
 
 export async function GET() {
   try {
     const supabase = await createServerSupabase();
     
-    // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
@@ -17,25 +17,23 @@ export async function GET() {
       );
     }
 
-    // Fetch full profile with all relations
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select(`
         *,
-        community_profiles!community_profiles_id_fkey (*),
-        creator_profiles!creator_profiles_id_fkey (*),
-        vendor_profiles!vendor_profiles_id_fkey (*),
+        community_profiles!fk_community_profiles_profile_id (*),
+        creator_profiles!fk_creator_profile_id (*),
+        vendor_profiles!fk_vendor_profiles_profile_id (*),
         user_badges!user_badges_user_id_fkey (
           *,
-          badge
+          badges!user_badges_badge_id_fkey (*)
         )
       `)
-      .eq('id', user.id)
+      .eq('profiles_id', user.id)
       .single();
 
     if (profileError) {
       console.error('Profile fetch error:', profileError);
-      // Still return basic user info even if profile fetch fails
       return NextResponse.json({
         user,
         profile: null,
@@ -45,8 +43,7 @@ export async function GET() {
       });
     }
 
-    // Get user's products (if creator) - properly typed
-    let products: Product[] = [];
+    let products: ProductsFormData[] = [];
     if (profile.is_creator) {
       const { data: userProducts } = await supabase
         .from('products')
@@ -54,10 +51,9 @@ export async function GET() {
         .eq('creator_id', user.id)
         .order('created_at', { ascending: false })
         .limit(10);
-      products = (userProducts as Product[]) || [];
+      products = (userProducts as ProductsFormData[]) || [];
     }
 
-    // Get recent activity (sales, etc.)
     let recentSales: any[] = [];
     const { data: sales } = await supabase
       .from('sales')
@@ -73,13 +69,12 @@ export async function GET() {
       .limit(5);
     recentSales = sales || [];
 
-    // Get user's badges count
-    const badgeCount = profile.badges?.length || 0;
+    const badgeCount = profile.user_badges?.length || 0;
 
     return NextResponse.json({
       user,
       profile,
-      badges: profile.badges || [],
+      badges: profile.user_badges || [],
       badgeCount,
       products,
       recentSales,

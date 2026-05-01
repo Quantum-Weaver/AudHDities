@@ -1,54 +1,44 @@
+/* @/app/(auth)/logout/route.ts */
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║                    LOGOUT ROUTE                                           ║
+// ║                    Zero hardcoded values                                  ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+
 import { createServerSupabase } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+
+import {
+  AUTH_COOKIES,
+  AUTH_ERRORS,
+} from '@/lib/constants/components/asgard/auth/auth.constants';
 
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
-    
-    // Sign out on the server
     const { error } = await supabase.auth.signOut();
-    
-    if (error) {
-      console.error('Logout error:', error);
-      return NextResponse.json(
-        { error: 'Failed to sign out' },
-        { status: 500 }
-      );
-    }
 
-    // Create response that clears the session cookie
-    const response = NextResponse.json(
-      { success: true },
-      { status: 200 }
-    );
+    if (error) throw error;
 
-    // Clear the session cookie by setting it to empty
-    response.cookies.set({
-      name: 'sb-access-token',
-      value: '',
+    const response = NextResponse.json({ success: true }, { status: 200 });
+
+    response.cookies.set(AUTH_COOKIES.ACCESS_TOKEN, '', {
       maxAge: -1,
       path: '/',
     });
-
-    response.cookies.set({
-      name: 'sb-refresh-token',
-      value: '',
+    response.cookies.set(AUTH_COOKIES.REFRESH_TOKEN, '', {
       maxAge: -1,
       path: '/',
     });
 
     return response;
-    
-  } catch (error) {
-    console.error('Unexpected logout error:', error);
+  } catch {
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: AUTH_ERRORS.LOGOUT_FAILED },
       { status: 500 }
     );
   }
 }
 
-// Also handle GET for simplicity (redirects to POST)
 export async function GET(request: NextRequest) {
   return POST(request);
 }

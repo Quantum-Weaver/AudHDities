@@ -1,146 +1,106 @@
 // src/app/api/auth/update-profile/route.ts
+// src/app/api/auth/update-profile/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { z } from 'zod';
+import { ENUM_VALUES } from '@/types/supabase/enums';
 
-// Validation schema for profile updates
+// Validation schema for profile updates — aligned with validators/profiles.ts
 const profileUpdateSchema = z.object({
-  display_name: z.string().min(1).max(100).optional(),
-  username: z.string().min(3).max(30).regex(/^[a-zA-Z0-9_]+$/).optional(),
-  bio: z.string().max(5000).optional(),
+  display_name: z.string().min(1).max(100).optional().nullable(),
+  username: z.string().min(3).max(30).regex(/^[a-zA-Z0-9_]+$/).optional().nullable(),
+  bio: z.string().max(500).optional().nullable(),
   avatar_url: z.string().url().optional().nullable(),
-  user_tier: z.enum(['community', 'ally', 'corporate', 'council']).optional(),
-  communication_style: z.enum(['direct', 'gentle', 'detailed', 'concise']).optional(),
-  notification_frequency: z.enum(['instant', 'daily', 'weekly', 'never']).optional(),
-  email_notifications: z.boolean().optional(),
-  push_notifications: z.boolean().optional(),
-  nd_preferences: z.object({
-    reduced_motion: z.boolean().optional(),
-    high_contrast: z.boolean().optional(),
-    focus_mode: z.boolean().optional(),
-    sound_notifications: z.boolean().optional(),
-    visual_timers: z.boolean().optional(),
-    tl_dr_enabled: z.boolean().optional(),
-    dyslexia_friendly: z.boolean().optional(),
-    adhd_friendly: z.boolean().optional(),
-    autism_friendly: z.boolean().optional(),
-  }).optional(),
-  sensory_preferences: z.object({
-    light_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-    sound_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-    crowd_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-    touch_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-    vestibular_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-    olfactory_sensitivity: z.enum(['low', 'medium', 'high', 'avoidant']).optional(),
-  }).optional(),
+  banner_url: z.string().url().optional().nullable(),
+  full_name: z.string().max(200).optional().nullable(),
+  user_tier: z.enum(ENUM_VALUES.userTier).optional(),
+  communication_style: z.enum(ENUM_VALUES.communicationStyle).optional().nullable(),
+  preferred_environment: z.string().optional().nullable(),
+  pronouns: z.string().optional().nullable(),
+  dyslexia_mode: z.boolean().optional().nullable(),
+  sensory_mode: z.enum(ENUM_VALUES.sensoryMode).optional().nullable(),
+  primary_house: z.enum(ENUM_VALUES.councilHouse).optional().nullable(),
+  nd_preferences: z.any().optional().nullable(),
+  sensory_preferences: z.any().optional().nullable(),
+  algorithm_preferences: z.any().optional().nullable(),
+  last_active: z.string().datetime().optional().nullable(),
 });
 
-// Community profile update schema
+// Community profile update schema — aligned with validators/community_profiles.ts
 const communityProfileUpdateSchema = z.object({
-  nd_identity: z.array(z.string()).optional(),
-  sensory_accommodations: z.array(z.string()).optional(),
-  support_needs: z.array(z.string()).optional(),
-  communication_notes: z.string().optional(),
-  is_mentor: z.boolean().optional(),
-  crisis_contact_name: z.string().optional(),
-  crisis_contact_phone: z.string().optional(),
-  crisis_contact_email: z.string().email().optional(),
-  crisis_instructions: z.string().optional(),
+  nd_identity: z.array(z.string()).optional().nullable(),
+  sensory_accommodations: z.array(z.string()).optional().nullable(),
+  support_needs: z.array(z.string()).optional().nullable(),
+  is_mentor: z.boolean().optional().nullable(),
+  mentee_count: z.number().int().min(0).optional().nullable(),
+  crisis_contact_name: z.string().optional().nullable(),
+  crisis_contact_phone: z.string().optional().nullable(),
+  crisis_contact_email: z.string().email().optional().nullable(),
+  crisis_instructions: z.string().optional().nullable(),
+  joined_house: z.enum(ENUM_VALUES.councilHouse).optional().nullable(),
 });
 
 export async function PATCH(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
     
-    // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Authentication required' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
     }
 
     const body = await request.json();
-    
-    // Separate profile and community updates
     const { community, ...profileData } = body;
     
-    // Validate profile data
     const validatedProfile = profileUpdateSchema.safeParse(profileData);
     if (!validatedProfile.success) {
       return NextResponse.json(
-        { error: 'Invalid profile data', details: validatedProfile.error },
+        { error: 'Invalid profile data', details: validatedProfile.error.issues },
         { status: 400 }
       );
     }
 
-    // Update profile
     if (Object.keys(validatedProfile.data).length > 0) {
       const { error: updateError } = await supabase
         .from('profiles')
-        .update({
-          ...validatedProfile.data,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('id', user.id);
+        .update({ ...validatedProfile.data, updated_at: new Date().toISOString() } as any)
+        .eq('profiles_id', user.id);
 
       if (updateError) {
         console.error('Profile update error:', updateError);
-        return NextResponse.json(
-          { error: 'Failed to update profile' },
-          { status: 500 }
-        );
+        return NextResponse.json({ error: 'Failed to update profile' }, { status: 500 });
       }
     }
 
-    // Update community profile if provided
     if (community) {
       const validatedCommunity = communityProfileUpdateSchema.safeParse(community);
       if (validatedCommunity.success && Object.keys(validatedCommunity.data).length > 0) {
         const { error: communityError } = await supabase
           .from('community_profiles')
-          .update({
-            ...validatedCommunity.data,
-            updated_at: new Date().toISOString(),
-          })
-          .eq('id', user.id);
+          .update({ ...validatedCommunity.data, updated_at: new Date().toISOString() })
+          .eq('profile_id', user.id);
 
         if (communityError) {
           console.error('Community profile update error:', communityError);
-          // Don't fail the whole request, just log
         }
       }
     }
 
-    // Fetch updated profile with relations
     const { data: updatedProfile, error: fetchError } = await supabase
       .from('profiles')
-      .select(`
-        *,
-        community_profiles (*),
-        creator_profiles (*),
-        vendor_profiles (*)
-      `)
-      .eq('id', user.id)
+      .select(`*, community_profiles!fk_community_profiles_profile_id (*), creator_profiles!fk_creator_profile_id (*), vendor_profiles!fk_vendor_profiles_profile_id (*)`)
+      .eq('profiles_id', user.id)
       .single();
 
     if (fetchError) {
       console.error('Fetch updated profile error:', fetchError);
     }
 
-    return NextResponse.json({
-      success: true,
-      profile: updatedProfile,
-      message: 'Profile updated successfully',
-    });
+    return NextResponse.json({ success: true, profile: updatedProfile, message: 'Profile updated successfully' });
     
   } catch (error) {
     console.error('Profile update error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

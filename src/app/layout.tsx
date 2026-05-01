@@ -1,51 +1,39 @@
-// app/layout.tsx - UPDATED FOR PANORAMA VIEWER
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// src/app/layout.tsx
+import { ReactNode } from 'react';
 import '@/app/globals.css';
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import { Navigation } from "@/components/layout/Navigation";
-import { ContinuityBeamProvider } from "@/contexts/ContinuityBeamContext";
-import MobileMenu from "@/components/layout/MobileMenu";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import '@/styles/generated/variables.css';
+import '@/styles/generated/domains.css';
+import '@/styles/generated/text_effects.css';
+import '@/styles/generated/animations.css';
+import '@/styles/generated/typography.css';
+import '@/styles/generated/zoom.css';
+import '@/styles/generated/parallax.css';
+import '@/styles/custom_overrides.css';
+import { Navigation } from '@/components/bifrost/Navigation';
+import { LayoutChrome } from '@/components/bifrost/LayoutChrome';
+import AuthButton from '@/components/asgard/auth/AuthButton';
+import Footer from '@/components/bifrost/Footer';
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono", 
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "AudHDities - Sovereign Sanctuary",
-  description: "Building digital sovereignty through human-AI collaboration. From autistic discovery to consciousness architecture.",
+export const metadata = {
+  title: 'AudHDities — Sovereign Sanctuary',
+  description: 'A place where you belong.',
 };
 
-// app/layout.tsx - CLEAN
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="h-full">
-      <head>
-        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className="overflow-x-hidden">
         
-        <ContinuityBeamProvider>
-          <Header />
-          <Navigation />
-          
-          {/* NO WRAPPERS - Each page handles its own layout */}
-          {children}
-          
-          <Footer />
-        </ContinuityBeamProvider>
+        <LayoutChrome>
+          <div className='items-center justify-center flex-cols flex'>
+            <AuthButton/>
+            <Navigation/>
+          </div>
+          {children}                  
+        </LayoutChrome>
+        
       </body>
     </html>
-  )
+  );
 }

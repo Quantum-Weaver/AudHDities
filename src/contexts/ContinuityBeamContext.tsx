@@ -1,69 +1,128 @@
-// src/contexts/ContinuityBeamContext.tsx (updated with safe defaults)
+// @/contexts/ContinuityBeamContext.tsx
 'use client';
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
-import { User } from '@supabase/supabase-js';
-import type { Database } from '@/types/supabase/database.types';
-import { DEFAULT_BEAM_CONFIG, ENVIRONMENT_BEAM_CONFIGS } from '@/lib/constants/components/immersive/continuity-beam';
 
-export type Profile = Database['public']['Tables']['profiles']['Row'];
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
+import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
+import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
+import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity_beam';
+import { useUser } from '@/hooks/useUser';
+import { useEnvironment } from '@/lib/constants/systems/environments/contexts';
 
-interface BeamConfig {
-  variant: string;
-  intensity: number;
-  showQuantumSweep: boolean;
-}
-
-interface ContinuityBeamContextType {
+interface ContinuityBeamContextValue {
+  /** Current beam configuration (colors, intensity, direction) */
   beamConfig: BeamConfig;
-  setBeamConfig: (config: BeamConfig) => void;
-  setEnvironment: (environment: EnvironmentKey) => void;
-  isActive: boolean;
+  /** Current activation state (active, intensity level, speed multiplier) */
+  activationState: BeamActivationState;
+  /** Update the current environment (deprecated - use useEnvironment instead) */
+  setEnvironment: (environment: EnvironmentKey, variant?: number) => void;
+  /** Update session state (user tier, sovereignty score, etc.) */
+  updateSessionState: (state: Partial<SessionState>) => void;
+  /** Manually set beam active/inactive */
   setIsActive: (active: boolean) => void;
-  currentUser: Profile | null;
-  setCurrentUser: (user: Profile | null) => void;
-  // Optional: Get environment-specific config
-  getEnvironmentConfig: (environment: EnvironmentKey) => { intensity: string; purpose: string };
+  /** Current session state */
+  sessionState: SessionState;
+  environmentVariant: number; 
 }
 
-const ContinuityBeamContext = createContext<ContinuityBeamContextType | undefined>(undefined);
+const ContinuityBeamContext = createContext<ContinuityBeamContextValue | undefined>(undefined);
 
 interface ContinuityBeamProviderProps {
   children: ReactNode;
-  defaultEnvironment?: EnvironmentKey;
+  initialEnvironment?: EnvironmentKey;
+  initialSessionState?: Partial<SessionState>;
 }
 
 export function ContinuityBeamProvider({ 
   children, 
-  defaultEnvironment = 'home' 
+  initialEnvironment = 'home',
+  initialSessionState = {}
 }: ContinuityBeamProviderProps) {
-  const [beamConfig, setBeamConfig] = useState<BeamConfig>({
-    variant: defaultEnvironment,
-    intensity: 0.8,
-    showQuantumSweep: DEFAULT_BEAM_CONFIG.showQuantumSweep
-  });
+  // Get environment from our environment system
+  const { environment: currentEnvironment } = useEnvironment();
+  const { profile, isAuthenticated } = useUser();
   
-  const [isActive, setIsActive] = useState(true);
-  const [currentUser, setCurrentUser] = useState<Profile | null>(null);
+  // Session state - now synced with user data
+  const [sessionState, setSessionState] = useState<SessionState>({
+    tier: profile?.user_tier || 'community',
+    sovereigntyScore: profile?.sovereignty_score || 0,
+    environment: initialEnvironment,
+    isFirstVisitToday: true,
+    sessionDurationMinutes: 0,
+    hasCompletedAcidTest: false,
+    ...initialSessionState
+  });
 
-  // Function to sync with current environment
-  const setEnvironment = (environment: EnvironmentKey) => {
-    // Get environment-specific config if exists
-    const envConfig = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
-    
-    // Map string intensity to number (safe fallback)
-    let intensityValue = 0.8;
-    if (envConfig) {
-      const intensityMap = { low: 0.33, medium: 0.47, high: 0.66, quantum: 0.85 };
-      intensityValue = intensityMap[envConfig.intensity as keyof typeof intensityMap] || DEFAULT_BEAM_CONFIG.intensity;
+  // Activation state (derived from session state)
+  const [activationState, setActivationState] = useState<BeamActivationState>(
+    calculateBeamActivation(sessionState)
+  );
+
+  // Beam configuration (from environment + activation)
+  const [beamConfig, setBeamConfig] = useState<BeamConfig>(
+    getBeamConfig(initialEnvironment, sessionState)
+  );
+
+  // Sync session state with user profile
+  useEffect(() => {
+    if (profile) {
+      setSessionState(prev => ({
+        ...prev,
+        tier: profile.user_tier || prev.tier,
+        sovereigntyScore: profile.sovereignty_score ?? prev.sovereigntyScore,
+      }));
     }
+  }, [profile]);
+
+  // Update activation state when session changes
+  useEffect(() => {
+    const newActivation = calculateBeamActivation(sessionState);
+    setActivationState(newActivation);
     
-    setBeamConfig(prev => ({
-      ...prev,
-      variant: environment,
-      intensity: intensityValue
-    }));
-  };
+    // Use current environment from environment system
+    const newConfig = getBeamConfig(sessionState.environment, sessionState);
+    setBeamConfig(newConfig);
+  }, [sessionState]);
+
+  // Update session duration over time (only when active)
+  useEffect(() => {
+    if (!activationState.active) return;
+    
+    const interval = setInterval(() => {
+      setSessionState(prev => ({
+        ...prev,
+        sessionDurationMinutes: prev.sessionDurationMinutes + 1
+      }));
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, [activationState.active]);
+  const [environmentVariant, setEnvironmentVariant] = useState(1);
+  // Set environment (updates both systems)
+  const setEnvironment = useCallback((environment: EnvironmentKey, variant?: number) => {
+    setSessionState(prev => ({ ...prev, environment }));
+    if (variant !== undefined) {
+      setEnvironmentVariant(Math.max(1, Math.min(4, variant)));
+    }
+  }, []);
+
+  const updateSessionState = useCallback((state: Partial<SessionState>) => {
+    setSessionState(prev => ({ ...prev, ...state }));
+  }, []);
+
+  const setIsActive = useCallback((active: boolean) => {
+    setActivationState(prev => ({ ...prev, active }));
+  }, []);
+
+  // Reset first visit flag after session
+  useEffect(() => {
+    if (sessionState.isFirstVisitToday) {
+      const timer = setTimeout(() => {
+        setSessionState(prev => ({ ...prev, isFirstVisitToday: false }));
+      }, 30000); // First visit flag lasts 30 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [sessionState.isFirstVisitToday]);
 
   // Helper to get environment config (for components that need it)
   const getEnvironmentConfig = (environment: EnvironmentKey) => {
@@ -77,13 +136,12 @@ export function ContinuityBeamProvider({
   return (
     <ContinuityBeamContext.Provider value={{
       beamConfig,
-      setBeamConfig,
+      activationState,
       setEnvironment,
-      isActive,
+      updateSessionState,
       setIsActive,
-      currentUser,
-      setCurrentUser,
-      getEnvironmentConfig
+      sessionState,
+      environmentVariant,
     }}>
       {children}
     </ContinuityBeamContext.Provider>
@@ -92,7 +150,6 @@ export function ContinuityBeamProvider({
 
 export function useContinuityBeam() {
   const context = useContext(ContinuityBeamContext);
-  
   if (context === undefined) {
     throw new Error('useContinuityBeam must be used within a ContinuityBeamProvider');
   }
