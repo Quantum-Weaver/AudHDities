@@ -49,7 +49,7 @@ export interface PublicAdminLogs {
   success: boolean | null;
   target_id: string | null;
   target_identifier: string | null;
-  target_type:;
+  target_type: AdminLogTargetType | null;
   updated_at: string | null;
 }
 

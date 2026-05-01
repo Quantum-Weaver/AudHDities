@@ -52,7 +52,7 @@ export interface PublicProducts {
   price_corporate: number | null;
   product_type: ProductType;
   products_id: string;
-  recurring_interval:;
+  recurring_interval: RecurringInterval | null;
   residual_pool_percent: number | null;
   sanctuary_infrastructure_percent: number | null;
   slug: string;

@@ -37,12 +37,12 @@ export interface PublicCulturalization {
   created_by: string | null;
   culturalization_id: string;
   currency_code: string | null;
-  currency_position:;
+  currency_position: CurrencyPositionType | null;
   currency_symbol: string | null;
   date_format: DateFormatType | null;
   decimal_separator: string | null;
   first_day_of_week: number | null;
-  measurement_system:;
+  measurement_system: MeasurementSystemType | null;
   region_id: string;
   thousands_separator: string | null;
   time_format: TimeFormatType | null;
