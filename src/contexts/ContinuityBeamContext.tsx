@@ -124,6 +124,15 @@ export function ContinuityBeamProvider({
     }
   }, [sessionState.isFirstVisitToday]);
 
+  // Helper to get environment config (for components that need it)
+  const getEnvironmentConfig = (environment: EnvironmentKey) => {
+    const config = ENVIRONMENT_BEAM_CONFIGS[environment as keyof typeof ENVIRONMENT_BEAM_CONFIGS];
+    return {
+      intensity: config?.intensity || 'medium',
+      purpose: config?.purpose || 'emotional_support'
+    };
+  };
+
   return (
     <ContinuityBeamContext.Provider value={{
       beamConfig,
