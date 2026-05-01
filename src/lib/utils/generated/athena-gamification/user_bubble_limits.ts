@@ -38,7 +38,7 @@ export async function getUserBubbleLimits(id: string): Promise<UserBubbleLimitsR
   const { data, error } = await supabase
     .from('user_bubble_limits')
     .select('*')
-    .eq('user_bubble_limits_id', id)
+    .eq('user_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateUserBubbleLimits(id: string, data: UserBubbleLimitsU
   const { data: result, error } = await supabase
     .from('user_bubble_limits')
     .update(validated)
-    .eq('user_bubble_limits_id', id)
+    .eq('user_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteUserBubbleLimits(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('user_bubble_limits')
     .delete()
-    .eq('user_bubble_limits_id', id);
+    .eq('user_id', id);
   
   if (error) throw error;
   return true;
