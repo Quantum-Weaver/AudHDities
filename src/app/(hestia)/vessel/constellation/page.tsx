@@ -1,25 +1,19 @@
-// app/(hestia)/vessel/constellation/page.tsx
-// Constellation - Connection map, collaboration web
-// Feeling: Connected, expansive, cosmic
+// src/app/(hestia)/vessel/constellation/page.tsx
+// The Constellation — Your web of sovereign connections
+// Feeling: Cosmic, Visionary, Connected
 
 import { Page } from '@/components/bifrost/Page';
+import { ConstellationContent } from '@/components/asgard/domains/hestia/constellation/ConstellationContent';
 
 export const metadata = {
   title: 'Constellation | Sovereign Sanctuary',
-  description: 'Your web of connections'
+  description: 'Your web of sovereign connections',
 };
 
-export default async function ConstellationPage() {
+export default function ConstellationPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ConstellationContent />
     </Page>
   );
 }

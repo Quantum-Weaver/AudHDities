@@ -1,25 +1,16 @@
-// app/(iris)/connect/channels/page.tsx
-// Channels - Public and private channels
-// Feeling: Communal, organized, discoverable
-
+// src/app/(iris)/connect/channels/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ChannelsGallery } from '@/components/asgard/domains/iris/channels/ChannelsGallery';
 
 export const metadata = {
-  title: 'Channels | Sovereign Sanctuary',
-  description: 'Find your community'
+  title: 'Channels | The Bridge | Sovereign Sanctuary',
+  description: 'Find your community',
 };
 
-export default async function ChannelsPage() {
+export default function ChannelsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ChannelsGallery />
     </Page>
   );
 }

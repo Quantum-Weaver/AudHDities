@@ -1,25 +1,19 @@
-// app/(hermes)/bazaar/studio/page.tsx
-// The Loom - Create new product/service
-// Feeling: Generative, fluid, sovereign
+// src/app/(hermes)/bazaar/studio/page.tsx
+// The Loom — Create a new product
+// Feeling: Generative, sovereign, creative
 
 import { Page } from '@/components/bifrost/Page';
+import { StudioCreate } from '@/components/asgard/domains/hermes/studio/StudioCreate';
 
 export const metadata = {
   title: 'The Loom | Sovereign Sanctuary',
-  description: 'Create your offering'
+  description: 'Every creation begins with a single thread',
 };
 
-export default async function StudioPage() {
+export default function StudioPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <StudioCreate />
     </Page>
   );
 }

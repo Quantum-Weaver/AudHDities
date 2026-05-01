@@ -1,35 +1,19 @@
-// app/(hestia)/vessel/constellation/[id]/page.tsx
-// Connection Detail - Single connection/collaboration view
-// Feeling: Connected, expansive, cosmic
+// src/app/(hestia)/vessel/constellation/[id]/page.tsx
+// Constellation Detail — A single connection explored
+// Feeling: Intimate, Cosmic, Reflective
 
 import { Page } from '@/components/bifrost/Page';
+import { ConstellationDetail } from '@/components/asgard/domains/hestia/constellation/ConstellationDetail';
 
-interface ConnectionDetailPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'Connection | Constellation | Sovereign Sanctuary',
+  description: 'A thread in your sovereign web',
+};
 
-export async function generateMetadata({ params }: ConnectionDetailPageProps) {
-  const { id } = await params;
-  return {
-    title: `Connection ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A thread between souls'
-  };
-}
-
-export default async function ConnectionDetailPage({ params }: ConnectionDetailPageProps) {
-  const { id } = await params;
-  
+export default function ConstellationDetailPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Connection ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ConstellationDetail />
     </Page>
   );
 }

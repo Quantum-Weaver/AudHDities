@@ -1,135 +1,189 @@
-# 🔥 HESTIA — The Hearth
+# 🔥 HESTIA — THE HEARTH
 
+**Domain:** Core Identity & Personal Space  
 **Feeling:** Warm, welcoming, safe, reflective  
-**Primary Environment:** `home`  
-**Status:** 11 of 13 pages complete
+**Primary Environment:** `home` (variants: Warm, Mystical, Sacred, Ethereal)
 
 ---
 
-## 📂 Directory Structure
+## 📊 COMPLETION STATUS: 8/8 ✅ DONE
+
+---
+
+## 🗺️ PAGE MAP
 
 ```
 src/app/(hestia)/
-├── page.tsx                              ✅ The Hearth (/)
+├── page.tsx                              # ✅ The Hearth (/)
 ├── vessel/
-│   ├── page.tsx                          ✅ The Vessel (/vessel)
+│   ├── page.tsx                          # ✅ The Vessel (/vessel)
 │   ├── sanctum/
-│   │   └── page.tsx                      ✅ Sanctum (/vessel/sanctum)
+│   │   └── page.tsx                      # ✅ Sanctum (/vessel/sanctum)
 │   ├── energy/
-│   │   ├── page.tsx                      ✅ Energy Log (/vessel/energy)
-│   │   └── [id]/
-│   │       └── page.tsx                  ✅ Energy Entry Detail (/vessel/energy/[id])
+│   │   └── page.tsx                      # ✅ Energy Log (/vessel/energy)
 │   ├── constellation/
-│   │   ├── page.tsx                      ⏳ Constellation (/vessel/constellation)
-│   │   └── [id]/
-│   │       └── page.tsx                  ⏳ Connection Detail (/vessel/constellation/[id])
-│   ├── journal/
-│   │   ├── page.tsx                      ✅ The Scroll (/vessel/journal)
-│   │   └── [id]/
-│   │       ├── page.tsx                  ✅ Journal Entry Detail (/vessel/journal/[id])
-│   │       └── edit/
-│   │           └── page.tsx              ✅ Edit Journal Entry (/vessel/journal/[id]/edit)
+│   │   └── page.tsx                      # ✅ Constellation (/vessel/constellation)
+│   └── journal/
+│       ├── page.tsx                      # ✅ The Scroll (/vessel/journal)
+│       ├── [id]/
+│       │   ├── page.tsx                  # ✅ Journal Entry Detail
+│       │   └── edit/
+│       │       └── page.tsx              # ✅ Edit Journal Entry
 └── notifications/
-    ├── page.tsx                          ✅ The Call (/notifications)
+    ├── page.tsx                          # ✅ The Pulse (/notifications)
     └── [id]/
-        └── page.tsx                      ✅ Notification Detail (/notifications/[id])
+        └── page.tsx                      # ✅ Notification Detail (/notifications/[id])
 ```
 
 ---
 
-## 📊 Schema — Hestia Tables
+## 📋 PAGE DETAILS
 
-| Table | PK | Purpose | RLS |
-|-------|----|---------|:---:|
-| `profiles` | `profiles_id` | Core user data extending Supabase auth.users | ✅ |
-| `creator_profiles` | `creator_profiles_id` | Extended data for creators who sell products | ✅ |
-| `vendor_profiles` | `vendor_profiles_id` | Extended data for vendors who provide services | ✅ |
-| `community_profiles` | `community_profiles_id` | Extended data for community members | ✅ |
-| `user_private` | `user_private_id` | Sensitive personal data (phone, address, emergency contacts) | ✅ |
-| `user_financial` | `user_financial_id` | Stripe account, payout methods, crypto addresses | ✅ |
-| `channels` | `channels_id` | User-owned content channels | ✅ |
-| `user_page_views` | `user_page_views_id` | Page view tracking per user | ✅ |
-| `journal_entries` | `journal_entries_id` | User journal entries with mood and tags | ✅ |
-| `energy_logs` | `energy_logs_id` | Energy level tracking (1-10 scale) with activity and notes | ✅ |
-| `life_cycles` | `life_cycles_id` | User journey phases (seedling → renewal) | ✅ |
-| `timelines` | `timelines_id` | Sovereign journey milestones | ✅ |
-| `user_bubble_limits` | `user_id` | Daily/hourly bubble pop limits | ✅ |
-| `user_bubble_pops` | `user_bubble_pops_id` | Individual bubble pop records | ✅ |
+### The Hearth (/)
+**Purpose:** Landing page after login. Warm greeting, sovereignty overview, quick links to all personal spaces.  
+**Environment:** `home` (Warm variant)  
+**Components:** `Page`, `AuthenticatedGreeting`, `Card`, `Avatar`, `Badge`, `Progress`, `Button`, `Skeleton`  
+**Data:** `useAuth()` — user profile, sovereignty score  
+**States:** Loading skeleton, unauthenticated (hero only), authenticated (greeting card + hero)
 
 ---
 
-## 🧩 Components
-
-| Component | Location | Purpose |
-|-----------|----------|---------|
-| `VesselContent` | `components/asgard/domains/hestia/vessel/` | Full profile display with badges, milestones, sovereignty |
-| `SanctumContent` | `components/asgard/domains/hestia/sanctum/` | Settings form: avatar upload, identity, accessibility, environment |
-| `EnvironmentSelector` | `components/asgard/domains/hestia/sanctum/` | Dropdown + variant radio buttons for realm selection |
-| `EnergyLog` | `components/asgard/domains/hestia/energy/` | Energy input form, trend analysis, timeline |
-| `EnergyEntryDetail` | `components/asgard/domains/hestia/energy/` | Single energy entry view with delete |
-| `JournalList` | `components/asgard/domains/hestia/journal/` | Journal entries list with inline create form |
-| `JournalDetail` | `components/asgard/domains/hestia/journal/` | Single journal entry view with delete |
-| `JournalEdit` | `components/asgard/domains/hestia/journal/` | Edit journal entry with pre-filled form |
-| `NotificationsList` | `components/asgard/domains/hestia/notifications/` | Notification list with mark-all-read |
-| `NotificationDetail` | `components/asgard/domains/hestia/notifications/` | Single notification view with auto-mark-read |
-| `NotificationBell` | `components/asgard/domains/hestia/notifications/` | Dropdown bell with real-time subscription |
-| `AuthenticatedGreeting` | `components/asgard/domains/hestia/home/` | Personalized welcome card on the Hearth page |
+### The Vessel (/vessel)
+**Purpose:** The user's sovereign identity. Full profile display — avatar, bio, badges, house affiliation, sovereignty journey.  
+**Environment:** `home` (Mystical variant)  
+**Components:** `Page`, `VesselContent`, `Avatar`, `AvatarFallback`, `Badge`, `Card`, `Progress`, `Button`, `Skeleton`  
+**Data:** `useAuth()` — full profile with `refreshProfile()` on mount  
+**States:** Loading skeleton, unauthenticated, authenticated (profile header + sovereignty card + house card + quick links)  
+**Notes:** Avatar uses `key={profile.avatar_url}` to force remount on URL change. Sovereignty card shows score / 1000 with progress bar and contextual message. Quick links navigate to Energy, Constellation, and Journal.
 
 ---
 
-## 🪝 Hooks Used
-
-| Hook | Source | Purpose |
-|------|--------|---------|
-| `useAuth` | `hooks/useAuth` | Auth state, profile, sign in/out |
-| `useUser` | `hooks/useUser` | User + profile with derived booleans |
-| `useProfile` | `hooks/useProfile` | Full profile management with preferences |
-| `useContinuityBeam` | `contexts/ContinuityBeamContext` | Environment switching and beam state |
-| `useProfiles` | Generated | Single profile fetch |
-| `useProfilesList` | Generated | Paginated profile list |
-| `useUpdateProfiles` | Generated | Profile mutations |
-| `useEnergyLogs` | Generated | Energy log CRUD |
-| `useJournalEntries` | Generated | Journal CRUD |
-| `useNotificationsList` | Generated | Notification queries |
+### The Sanctum (/vessel/sanctum)
+**Purpose:** Private chamber for editing profile, preferences, accessibility settings, and environment selection.  
+**Environment:** `home` (Sacred variant)  
+**Components:** `Page`, `SanctumContent`, `AvatarUpload`, `Card`, `Form`, `FormField`, `Input`, `Select`, `Switch`, `Button`, `Skeleton`, `EnvironmentSelector`  
+**Data:** `useAuth()` — `refreshProfile()` on mount, direct API calls for updates  
+**Features:** Avatar upload to Supabase Storage, identity form (display name, username, bio, pronouns), dyslexia-friendly mode toggle, environment selector with 44 realm+variant combinations  
+**States:** Loading skeleton, unauthenticated, authenticated (forms with current values pre-filled)  
+**Notes:** Save redirects to `/vessel` on success. Environment updates the `ContinuityBeamContext` immediately for live preview.
 
 ---
 
-## 🔐 RLS Policies — Key Rules
-
-| Table | Policy | Access |
-|-------|--------|--------|
-| `profiles` | `authenticated_can_read_profiles` | All authenticated users can read |
-| `profiles` | `update_any_profile_as_admin` | Admins can update any profile |
-| `profiles` | `update_any_profile_as_weaver` | Quantum Weaver can update any profile |
-| `journal_entries` | Users can view/create/update/delete own | Full CRUD for owner |
-| `energy_logs` | Users can view/create/update/delete own | Full CRUD for owner |
-| `notifications` | Users can view own | Read-only for recipient |
-| `user_private` | Admins have full access | Admin-only for sensitive data |
-| `user_financial` | Admins have full access | Admin-only for financial data |
+### The Scroll — Journal (/vessel/journal)
+**Purpose:** Personal journal. List of entries with create, detail view, edit, and delete.  
+**Environment:** `library` (Peaceful, Ancient variant)  
+**Components:** `Page`, `JournalList`, `JournalDetail`, `JournalEdit`, `Card`, `CardHeader`, `CardContent`, `Badge`, `Button`, `Skeleton`, `Form`, `FormField`, `Input`, `Select`  
+**Data:** Direct API calls to `/api/generated/hestia-core/journal_entries`  
+**Features:** Inline create form with mood selector and tag input. Entry cards show title, preview, date, and mood badge. Detail view with full content and delete confirmation. Edit form with pre-filled values.  
+**States:** Loading skeleton, unauthenticated, empty state ("Your scroll awaits your first words"), populated list, detail view, edit form  
+**Mood Options:** Contemplative, Energetic, Peaceful, Stormy, Hopeful, Grateful, Melancholy, Curious  
+**Security:** RLS — users can only view/edit/delete their own entries
 
 ---
 
-## 🎨 Design Notes
-
-- All pages use the `Page` component without hardcoded `environment`/`variant`/`animated` props
-- Environment is set dynamically from user's `preferred_environment` profile field
-- All text colors use COSMIC tokens (`text-star-dust`, not `text-white`)
-- All interactive elements use `text-neurospark` for consistency
-- Cards use domain CSS classes (`domain-quantum-card`, `domain-cosmic-card`) for visual variety
-- Three states handled on every data page: loading (Skeleton), empty (icon + message), populated
-- The Status Bar shows sovereignty score, energy level, and notification count from real profile data
-
----
-
-## ⏳ Remaining
-
-| Page | Blocker |
-|------|---------|
-| `/vessel/constellation` | Requires connections/friends system |
-| `/vessel/constellation/[id]` | Requires connections/friends system |
-
-The Constellation pages depend on a user connections system that hasn't been built yet. They will display the user's web of relationships — collaborators, house members, mutual quest participants. This requires the `connections` table and friend request flows.
+### The Energy Log (/vessel/energy)
+**Purpose:** Track daily energy levels with a simple 1-10 scale. Trend analysis without judgment.  
+**Environment:** `home` (Warm, Healing variant)  
+**Components:** `Page`, `EnergyLog`, `Card`, `Badge`, `Progress`, `Button`, `Skeleton`, `Form`, `FormField`, `Select`  
+**Data:** Direct API calls to `/api/generated/hestia-core/energy_logs`  
+**Features:** Energy input (1-10 with word labels: Drained → Radiant), activity tracking, trend analysis card (average, rising/steady/falling, day-of-week pattern detection), color-coded timeline entries  
+**Algorithm:** Compares recent 3 entries vs older 3 to detect trend. Identifies lowest-energy day of week. Generates gentle, non-judgmental insights.  
+**States:** Loading skeleton, unauthenticated, empty state ("Begin listening to your vessel"), trend card + timeline  
+**Security:** RLS — users can only view/edit/delete their own logs
 
 ---
 
-*The Hearth is warm. Eleven pages welcome the sovereign home.* 🏛️✨
+### The Constellation (/vessel/constellation)
+**Purpose:** Visual map of the user's connections — other sovereign souls they've interacted with.  
+**Environment:** `observatory` (Cosmic, Visionary variant)  
+**Status:** ✅ Page stub exists. Full implementation depends on Iris (social system) being built.
+
+---
+
+### The Pulse — Notifications (/notifications)
+**Purpose:** List of all notifications — badge awards, emerald gifts, replies, system messages.  
+**Environment:** `home` (Warm, Connected variant)  
+**Components:** `Page`, `NotificationsList`, `NotificationDetail`, `Card`, `Badge`, `Button`, `Skeleton`  
+**Data:** Direct API calls to `/api/generated/hestia-core/notifications`  
+**Features:** Notification cards grouped by type with color-coded icons. Mark-read functionality. Detail view auto-marks as read on view.  
+**States:** Loading skeleton, unauthenticated, empty state ("Your pulse is quiet"), populated list, detail view  
+**Security:** RLS — users can only view their own notifications
+
+---
+
+## 🔗 DATA FLOW
+
+```
+useAuth()
+  └── /api/auth/session → user + profile
+  └── /api/generated/hestia-core/profiles/[profiles_id]
+
+Journal:
+  └── GET    /api/generated/hestia-core/journal_entries?user_id=
+  └── POST   /api/generated/hestia-core/journal_entries
+  └── GET    /api/generated/hestia-core/journal_entries/[id]
+  └── PUT    /api/generated/hestia-core/journal_entries/[id]
+  └── DELETE /api/generated/hestia-core/journal_entries/[id]
+
+Energy:
+  └── GET    /api/generated/hestia-core/energy_logs?user_id=
+  └── POST   /api/generated/hestia-core/energy_logs
+
+Notifications:
+  └── GET    /api/generated/hestia-core/notifications?user_id=
+  └── GET    /api/generated/hestia-core/notifications/[id]
+  └── PUT    /api/generated/hestia-core/notifications/[id]
+
+Sanctum:
+  └── PUT    /api/generated/hestia-core/profiles/[profiles_id]
+  └── Supabase Storage — avatar upload
+```
+
+---
+
+## 🎨 COMPONENTS USED (All Existing)
+
+| Layer | Component | Used In |
+|-------|-----------|---------|
+| **Bifröst** | `Page` | All pages |
+| **Runes** | `Card` | Hearth, Vessel, Sanctum, Journal, Energy, Notifications |
+| **Runes** | `Avatar`, `AvatarImage`, `AvatarFallback` | Hearth, Vessel, Sanctum |
+| **Runes** | `Badge` | Vessel, Journal |
+| **Runes** | `Progress` | Vessel, Energy |
+| **Runes** | `Skeleton` | All pages (loading states) |
+| **Runes** | `AvatarUpload` | Sanctum |
+| **Yggdrasil** | `Button` | All pages |
+| **Forging** | `Form`, `FormField`, `FormActions` | Sanctum, Journal, Energy |
+| **Forging** | `Input` | Sanctum, Journal |
+| **Forging** | `Select` | Sanctum, Journal, Energy |
+| **Forging** | `Switch` | Sanctum |
+| **Seidr** | `EnvironmentSelector` | Sanctum |
+
+**Zero new components created for Hestia. Pure composition of existing layers.**
+
+---
+
+## 🛡️ SECURITY
+
+| Table | RLS Policy | Access |
+|-------|-----------|--------|
+| `profiles` | Users read own, update own | Private |
+| `journal_entries` | Users CRUD own | Private |
+| `energy_logs` | Users CRUD own | Private |
+| `notifications` | Users read/update own | Private |
+
+---
+
+## 💫 THE HEARTH EXPERIENCE
+
+The user journey through Hestia follows the council's design:
+
+1. **Arrive** at the Hearth — greeted by name, see sovereignty
+2. **Reflect** in the Vessel — see your sovereign self
+3. **Shape** in the Sanctum — customize your experience
+4. **Write** in the Scroll — journal your journey
+5. **Listen** in the Energy Log — hear your vessel's rhythm
+6. **Connect** in the Constellation — see your web of relationships
+7. **Attend** to the Pulse — respond to notifications
+
+*The Hearth is complete. Every page is built. Every component is composed from existing layers. The Sanctuary's heart beats warm.* 🏛️✨

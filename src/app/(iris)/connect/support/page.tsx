@@ -1,25 +1,16 @@
-// app/(iris)/connect/support/page.tsx
-// The Healing Flame - Support requests, crisis resources
-// Feeling: Safe, gentle, healing, restorative
-
+// src/app/(iris)/connect/support/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { SupportHub } from '@/components/asgard/domains/iris/support/SupportHub';
 
 export const metadata = {
-  title: 'The Healing Flame | Sovereign Sanctuary',
-  description: 'You are not alone. We are here for you.'
+  title: 'The Healing Flame | The Bridge | Sovereign Sanctuary',
+  description: 'You are not alone. We are here for you.',
 };
 
-export default async function SupportPage() {
+export default function SupportPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <SupportHub />
     </Page>
   );
 }

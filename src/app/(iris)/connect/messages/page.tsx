@@ -1,25 +1,16 @@
-// app/(iris)/connect/messages/page.tsx
-// The Stream - Direct messages inbox
-// Feeling: Connected, organized, responsive
-
+// src/app/(iris)/connect/messages/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { MessagesStream } from '@/components/asgard/domains/iris/messages/MessagesStream';
 
 export const metadata = {
-  title: 'The Stream | Sovereign Sanctuary',
-  description: 'Your conversations, all in one place'
+  title: 'Messages | The Bridge | Sovereign Sanctuary',
+  description: 'Your conversations, all in one place',
 };
 
-export default async function MessagesPage() {
+export default function MessagesPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-5xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <MessagesStream />
     </Page>
   );
 }

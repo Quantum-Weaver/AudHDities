@@ -18,7 +18,7 @@ export default function CheckoutSuccessPage() {
         <div className="container max-w-2xl mx-auto px-6">
           <Suspense fallback={
             <div className="text-center py-12">
-              <div className="animate-pulse text-white/40">Loading...</div>
+              <div className="animate-pulse text-star-dust/40">Loading...</div>
             </div>
           }>
             <CheckoutForm />

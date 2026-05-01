@@ -1,35 +1,16 @@
-// app/(iris)/connect/messages/[id]/page.tsx
-// Conversation - Single message thread
-// Feeling: Intimate, connected, flowing
-
+// src/app/(iris)/connect/messages/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ConversationView } from '@/components/asgard/domains/iris/messages/ConversationView';
 
-interface ConversationPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'Conversation | The Bridge | Sovereign Sanctuary',
+  description: 'A thread between souls',
+};
 
-export async function generateMetadata({ params }: ConversationPageProps) {
-  const { id } = await params;
-  return {
-    title: `Conversation ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A thread between souls'
-  };
-}
-
-export default async function ConversationPage({ params }: ConversationPageProps) {
-  const { id } = await params;
-  
+export default function ConversationPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Conversation ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ConversationView />
     </Page>
   );
 }

@@ -1,35 +1,16 @@
-// app/(iris)/connect/support/[id]/page.tsx
-// Support Thread - Individual support conversation
-// Feeling: Safe, responsive, caring
-
+// src/app/(iris)/connect/support/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { SupportThread } from '@/components/asgard/domains/iris/support/SupportThread';
 
-interface SupportThreadPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'Support Thread | The Bridge | Sovereign Sanctuary',
+  description: 'Your voice matters',
+};
 
-export async function generateMetadata({ params }: SupportThreadPageProps) {
-  const { id } = await params;
-  return {
-    title: `Support Thread ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'Your voice matters'
-  };
-}
-
-export default async function SupportThreadPage({ params }: SupportThreadPageProps) {
-  const { id } = await params;
-  
+export default function SupportThreadPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Support Ticket ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <SupportThread />
     </Page>
   );
 }

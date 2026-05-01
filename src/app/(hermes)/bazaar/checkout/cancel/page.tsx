@@ -25,8 +25,8 @@ export default function CheckoutCancelPage() {
             <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
               <XCircle className="w-6 h-6 text-yellow-400" />
             </div>
-            <h2 className="text-xl font-semibold text-white mb-2">Checkout Cancelled</h2>
-            <p className="text-white/60 mb-6">
+            <h2 className="text-xl font-semibold text-star-dust mb-2">Checkout Cancelled</h2>
+            <p className="text-star-dust/60 mb-6">
               Your purchase was cancelled. No charges have been made.
             </p>
             <div className="flex gap-3 justify-center">

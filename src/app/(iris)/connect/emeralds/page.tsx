@@ -1,25 +1,16 @@
-// app/(iris)/connect/emeralds/page.tsx
-// Emeralds - Given and received emeralds (likes/tips)
-// Feeling: Appreciated, valued, celebrated
-
+// src/app/(iris)/connect/emeralds/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { EmeraldsHistory } from '@/components/asgard/domains/iris/emeralds/EmeraldsHistory';
 
 export const metadata = {
-  title: 'Emeralds | Sovereign Sanctuary',
-  description: 'Every emerald is a spark of appreciation'
+  title: 'Emeralds | The Bridge | Sovereign Sanctuary',
+  description: 'Every emerald is a spark of appreciation',
 };
 
-export default async function EmeraldsPage() {
+export default function EmeraldsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-5xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <EmeraldsHistory />
     </Page>
   );
 }

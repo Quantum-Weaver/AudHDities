@@ -1,25 +1,16 @@
-// app/(iris)/connect/invitations/page.tsx
-// Invitations - Invite others, manage referrals
-// Feeling: Welcoming, expansive, generous
-
+// src/app/(iris)/connect/invitations/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { InvitationsHub } from '@/components/asgard/domains/iris/invitations/InvitationsHub';
 
 export const metadata = {
-  title: 'Invitations | Sovereign Sanctuary',
-  description: 'Welcome others to the Sanctuary'
+  title: 'Invitations | The Bridge | Sovereign Sanctuary',
+  description: 'Welcome others to the Sanctuary',
 };
 
-export default async function InvitationsPage() {
+export default function InvitationsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <InvitationsHub />
     </Page>
   );
 }

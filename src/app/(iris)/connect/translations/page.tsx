@@ -1,25 +1,16 @@
-// app/(iris)/connect/translations/page.tsx
-// The Voice - Language settings, translations
-// Feeling: Understood, welcomed, global
-
+// src/app/(iris)/connect/translations/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { TranslationsHub } from '@/components/asgard/domains/iris/translations/TranslationsHub';
 
 export const metadata = {
-  title: 'The Voice | Sovereign Sanctuary',
-  description: 'Every language, every voice, welcome here'
+  title: 'The Voice | The Bridge | Sovereign Sanctuary',
+  description: 'Every language, every voice, welcome here',
 };
 
-export default async function TranslationsPage() {
+export default function TranslationsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <TranslationsHub />
     </Page>
   );
 }

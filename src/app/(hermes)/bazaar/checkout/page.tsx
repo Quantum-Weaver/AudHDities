@@ -1,25 +1,19 @@
-// app/(hermes)/bazaar/checkout/page.tsx
-// The Exchange - Checkout, payment flow
+// src/app/(hermes)/bazaar/checkout/page.tsx
+// The Exchange — Checkout hub
 // Feeling: Secure, smooth, completing
 
 import { Page } from '@/components/bifrost/Page';
+import { CheckoutHub } from '@/components/asgard/domains/hermes/checkout/CheckoutHub';
 
 export const metadata = {
   title: 'The Exchange | Sovereign Sanctuary',
-  description: 'Complete your journey'
+  description: 'Complete your journey',
 };
 
-export default async function CheckoutPage() {
+export default function CheckoutPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <CheckoutHub />
     </Page>
   );
 }
