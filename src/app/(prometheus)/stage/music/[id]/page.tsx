@@ -1,35 +1,11 @@
-// app/(prometheus)/stage/music/[id]/page.tsx
-// Music Performance - Single music performance view
-// Feeling: Euphoric, connected, transcendent
-
+// src/app/(prometheus)/stage/music/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { MusicDetail } from '@/components/asgard/domains/prometheus/stage/MusicDetail';
 
-interface MusicPerformancePageProps {
-  params: Promise<{ id: string }>;
-}
-
-export async function generateMetadata({ params }: MusicPerformancePageProps) {
-  const { id } = await params;
-  return {
-    title: `Music Performance ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'Feel the resonance'
-  };
-}
-
-export default async function MusicPerformancePage({ params }: MusicPerformancePageProps) {
-  const { id } = await params;
-  
+export default function MusicDetailPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Performance ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <MusicDetail />
     </Page>
   );
 }

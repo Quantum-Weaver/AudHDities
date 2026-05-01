@@ -1,25 +1,16 @@
-// app/(prometheus)/stage/comedy/page.tsx
-// The Comedy Hearth - Comedy performances hub
-// Feeling: Playful, intimate, joyful
-
+// src/app/(prometheus)/stage/comedy/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ComedyGallery } from '@/components/asgard/domains/prometheus/stage/ComedyGallery';
 
 export const metadata = {
-  title: 'The Comedy Hearth | Sovereign Sanctuary',
-  description: 'Where laughter heals'
+  title: 'The Comedy Hearth | The Stage | Sovereign Sanctuary',
+  description: 'Where laughter heals',
 };
 
-export default async function ComedyPage() {
+export default function ComedyPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ComedyGallery />
     </Page>
   );
 }

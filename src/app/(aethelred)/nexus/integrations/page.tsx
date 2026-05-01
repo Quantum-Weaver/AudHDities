@@ -1,25 +1,14 @@
-// app/(aethelred)/nexus/integrations/page.tsx
-// Integrations - External connections
-// Feeling: Connected, expansive, powerful
-
+// src/app/(aethelred)/nexus/integrations/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { NexusPageTemplate } from '@/components/asgard/domains/aethelred/nexus/NexusPageTemplate';
+import { PlugZap } from 'lucide-react';
 
-export const metadata = {
-  title: 'Integrations | Sovereign Sanctuary',
-  description: 'Connect your external services'
-};
+export const metadata = { title: 'Integrations | The Nexus | Sovereign Sanctuary', description: 'Connect your external services' };
 
-export default async function IntegrationsPage() {
+export default function IntegrationsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <NexusPageTemplate title="Integrations" description="Connect your external services. Stripe for payments, GitHub for code, Supabase for data, Resend for emails, Vercel for deployment — all visible, all transparent." icon={PlugZap} color="text-emerald-400" />
     </Page>
   );
 }

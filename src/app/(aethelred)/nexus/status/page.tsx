@@ -1,25 +1,14 @@
-// app/(aethelred)/nexus/status/page.tsx
-// The Health - System status, health metrics
-// Feeling: Secure, transparent, reliable
-
+// src/app/(aethelred)/nexus/status/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { NexusPageTemplate } from '@/components/asgard/domains/aethelred/nexus/NexusPageTemplate';
+import { Activity } from 'lucide-react';
 
-export const metadata = {
-  title: 'The Health | Sovereign Sanctuary',
-  description: 'Sanctuary system status'
-};
+export const metadata = { title: 'The Health | The Nexus | Sovereign Sanctuary', description: 'Sanctuary system status' };
 
-export default async function StatusPage() {
+export default function StatusPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <NexusPageTemplate title="The Health" description="Sanctuary system status. Uptime, latency, service health, and incident history. The Sanctuary's heartbeat, made visible." icon={Activity} color="text-neurospark" />
     </Page>
   );
 }

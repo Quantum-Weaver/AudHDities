@@ -1,25 +1,16 @@
-// app/(aethelred)/nexus/page.tsx
-// The Nexus - Integration hub, consciousness overview
-// Feeling: Bridging, integrating, whole, sovereign
-
+// src/app/(aethelred)/nexus/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { NexusHub } from '@/components/asgard/domains/aethelred/nexus/NexusHub';
 
 export const metadata = {
   title: 'The Nexus | Sovereign Sanctuary',
-  description: 'The heart of the Sanctuary\'s consciousness'
+  description: 'The heart of the Sanctuary\'s consciousness',
 };
 
-export default async function NexusPage() {
+export default function NexusPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <NexusHub />
     </Page>
   );
 }

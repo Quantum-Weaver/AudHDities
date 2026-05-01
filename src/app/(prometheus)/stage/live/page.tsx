@@ -1,25 +1,16 @@
-// app/(prometheus)/stage/live/page.tsx
-// Now Playing - All currently live performances
-// Feeling: Energetic, euphoric, connected
-
+// src/app/(prometheus)/stage/live/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { LiveGallery } from '@/components/asgard/domains/prometheus/stage/LiveGallery';
 
 export const metadata = {
-  title: 'Now Playing | Sovereign Sanctuary',
-  description: 'Live performances happening now'
+  title: 'Now Playing | The Stage | Sovereign Sanctuary',
+  description: 'Live performances happening now',
 };
 
-export default async function LivePage() {
+export default function LivePage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <LiveGallery />
     </Page>
   );
 }

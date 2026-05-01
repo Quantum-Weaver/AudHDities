@@ -1,25 +1,16 @@
-// app/(prometheus)/stage/recordings/page.tsx
-// The Echo - Past performance recordings
-// Feeling: Nostalgic, reflective, celebratory
-
+// src/app/(prometheus)/stage/recordings/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { RecordingsGallery } from '@/components/asgard/domains/prometheus/stage/RecordingsGallery';
 
 export const metadata = {
-  title: 'The Echo | Sovereign Sanctuary',
-  description: 'Past performances live on'
+  title: 'The Echo | The Stage | Sovereign Sanctuary',
+  description: 'Past performances live on',
 };
 
-export default async function RecordingsPage() {
+export default function RecordingsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <RecordingsGallery />
     </Page>
   );
 }

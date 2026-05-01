@@ -1,25 +1,21 @@
-// app/(prometheus)/studio/music/page.tsx
-// Music Studio - Compose, record, produce music
-// Feeling: Flow, creative, euphoric
-
+// src/app/(prometheus)/studio/music/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { StudioPageTemplate } from '@/components/asgard/domains/prometheus/studio/StudioPageTemplate';
+import { Music } from 'lucide-react';
 
-export const metadata = {
-  title: 'Music Studio | Sovereign Sanctuary',
-  description: 'Where sound becomes substance'
-};
+export const metadata = { title: 'Music Studio | The Loom | Sovereign Sanctuary', description: 'Where sound becomes substance' };
 
-export default async function MusicStudioPage() {
+export default function MusicStudioPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <StudioPageTemplate
+        title="Music Studio"
+        description="Where sound becomes substance. Compose, record, mix, and master your sovereign sound."
+        icon={Music}
+        color="text-purple-400"
+        backHref="/studio"
+        backLabel="Return to the Loom"
+      />
     </Page>
   );
 }

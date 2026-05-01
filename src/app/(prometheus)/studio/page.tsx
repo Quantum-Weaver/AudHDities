@@ -1,25 +1,19 @@
-// app/(prometheus)/studio/page.tsx
-// The Loom - Creative tools hub
+// src/app/(prometheus)/studio/page.tsx
+// The Loom — Creative tools hub
 // Feeling: Generative, fluid, sovereign, unbounded
 
 import { Page } from '@/components/bifrost/Page';
+import { StudioHub } from '@/components/asgard/domains/prometheus/studio/StudioHub';
 
 export const metadata = {
   title: 'The Loom | Sovereign Sanctuary',
-  description: 'Every creation begins with a single thread'
+  description: 'Every creation begins with a single thread',
 };
 
-export default async function StudioHubPage() {
+export default function StudioPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <StudioHub />
     </Page>
   );
 }

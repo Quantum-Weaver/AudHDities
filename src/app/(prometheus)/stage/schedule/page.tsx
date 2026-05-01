@@ -1,25 +1,16 @@
-// app/(prometheus)/stage/schedule/page.tsx
-// The Calendar - Upcoming performance schedule
-// Feeling: Anticipatory, organized, community-driven
-
+// src/app/(prometheus)/stage/schedule/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ScheduleGallery } from '@/components/asgard/domains/prometheus/stage/ScheduleGallery';
 
 export const metadata = {
-  title: 'The Calendar | Sovereign Sanctuary',
-  description: 'Upcoming performances'
+  title: 'The Calendar | The Stage | Sovereign Sanctuary',
+  description: 'Upcoming performances',
 };
 
-export default async function SchedulePage() {
+export default function SchedulePage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ScheduleGallery />
     </Page>
   );
 }
