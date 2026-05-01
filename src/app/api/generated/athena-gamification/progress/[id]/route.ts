@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ProgressUpdateSchema } from '@/lib/validators/generated/athena-gamification/progress';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:41.768Z
+// Generated: 2026-05-01T15:31:59.718Z
 // Table: progress
 
 export async function GET(

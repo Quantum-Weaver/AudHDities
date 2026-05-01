@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/products.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-05-01T03:24:41.739Z
+// GENERATED: 2026-05-01T15:31:59.707Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -52,7 +52,7 @@ export interface PublicProducts {
   price_corporate: number | null;
   product_type: ProductType;
   products_id: string;
-  recurring_interval: RecurringInterval | null;
+  recurring_interval:;
   residual_pool_percent: number | null;
   sanctuary_infrastructure_percent: number | null;
   slug: string;

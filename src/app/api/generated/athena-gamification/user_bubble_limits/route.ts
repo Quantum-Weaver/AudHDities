@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBubbleLimitsInsertSchema } from '@/lib/validators/generated/athena-gamification/user_bubble_limits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:42.315Z
+// Generated: 2026-05-01T15:31:59.943Z
 // Table: user_bubble_limits
 
 export async function GET(request: NextRequest) {

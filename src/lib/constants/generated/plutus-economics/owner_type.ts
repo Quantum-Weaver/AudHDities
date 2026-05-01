@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/owner_type.ts
-// GENERATED: 2026-05-01T03:24:43.036Z
+// GENERATED: 2026-05-01T15:32:00.088Z
 // SOURCE: Constants.public.Enums.owner_type
 // VALUES: 2 entries
 // =====================================================

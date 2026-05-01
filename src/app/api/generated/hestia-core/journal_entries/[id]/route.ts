@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { JournalEntriesUpdateSchema } from '@/lib/validators/generated/hestia-core/journal_entries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:41.517Z
+// Generated: 2026-05-01T15:31:59.621Z
 // Table: journal_entries
 
 export async function GET(

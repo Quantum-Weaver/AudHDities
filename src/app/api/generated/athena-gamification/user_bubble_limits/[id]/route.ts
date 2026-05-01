@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserBubbleLimitsUpdateSchema } from '@/lib/validators/generated/athena-gamification/user_bubble_limits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:42.315Z
+// Generated: 2026-05-01T15:31:59.943Z
 // Table: user_bubble_limits
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('user_bubble_limits')
       .select('*')
-      .eq('user_id', id)
+      .eq('user_bubble_limits_id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('user_bubble_limits')
       .update(validated)
-      .eq('user_id', id)
+      .eq('user_bubble_limits_id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('user_bubble_limits').delete().eq('user_id', id);
+    const { error } = await supabase.from('user_bubble_limits').delete().eq('user_bubble_limits_id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('user_bubble_limits');

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/user_bubble_limits.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T03:24:42.312Z
+// GENERATED: 2026-05-01T15:31:59.942Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

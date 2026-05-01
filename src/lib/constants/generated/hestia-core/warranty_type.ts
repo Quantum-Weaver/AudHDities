@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/warranty_type.ts
-// GENERATED: 2026-05-01T03:24:43.208Z
+// GENERATED: 2026-05-01T15:32:00.131Z
 // SOURCE: Constants.public.Enums.warranty_type
 // VALUES: 6 entries
 // =====================================================

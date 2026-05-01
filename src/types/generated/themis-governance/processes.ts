@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/processes.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T03:24:41.726Z
+// GENERATED: 2026-05-01T15:31:59.702Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,7 +35,7 @@ export interface PublicProcesses {
   created_at: string | null;
   created_by: string;
   description: string | null;
-  escalation_target: EscalationTarget | null;
+  escalation_target:;
   is_active: boolean | null;
   name: string;
   process_type: ProcessType;

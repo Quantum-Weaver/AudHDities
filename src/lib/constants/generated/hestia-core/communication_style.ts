@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/communication_style.ts
-// GENERATED: 2026-05-01T03:24:42.851Z
+// GENERATED: 2026-05-01T15:32:00.050Z
 // SOURCE: Constants.public.Enums.communication_style
 // VALUES: 4 entries
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scheduling.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T03:24:42.051Z
+// GENERATED: 2026-05-01T15:31:59.839Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T03:24:41.319Z
+// GENERATED: 2026-05-01T15:31:59.543Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -37,12 +37,12 @@ export interface PublicCulturalization {
   created_by: string | null;
   culturalization_id: string;
   currency_code: string | null;
-  currency_position: CurrencyPositionType | null;
+  currency_position:;
   currency_symbol: string | null;
   date_format: DateFormatType | null;
   decimal_separator: string | null;
   first_day_of_week: number | null;
-  measurement_system: MeasurementSystemType | null;
+  measurement_system:;
   region_id: string;
   thousands_separator: string | null;
   time_format: TimeFormatType | null;

@@ -17,15 +17,16 @@ export interface SliderProps {
   /** Current value (controlled) */
   value?: number;
   /** Default value (uncontrolled) */
-  defaultValue?: number;
+  defaultValue?: number | number[];
   /** Minimum value */
   min?: number;
-  /** Maximum value */
+  /** Maximum value */  
   max?: number;
   /** Step increment */
   step?: number;
   /** Callback when value changes */
   onChange?: (value: number) => void;
+  onValueChange?: (value: number[]) => void;
   /** Optional label */
   label?: string;
   /** Optional helper text */

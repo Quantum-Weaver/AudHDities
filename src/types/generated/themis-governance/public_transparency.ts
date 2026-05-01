@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/public_transparency.ts
 // TYPE: view
 // HANDLING: read_only_view
-// GENERATED: 2026-05-01T03:24:42.435Z
+// GENERATED: 2026-05-01T15:31:59.987Z
 // SOURCE: database.types.ts (via Tables helper)
 // =====================================================
 

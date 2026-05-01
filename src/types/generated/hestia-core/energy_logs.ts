@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/energy_logs.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T03:24:41.395Z
+// GENERATED: 2026-05-01T15:31:59.575Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LedgerInsertSchema } from '@/lib/validators/generated/plutus-economics/ledger';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:41.561Z
+// Generated: 2026-05-01T15:31:59.635Z
 // Table: ledger
 
 export async function GET(request: NextRequest) {

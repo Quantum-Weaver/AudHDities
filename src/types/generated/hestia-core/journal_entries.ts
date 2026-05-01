@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/journal_entries.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T03:24:41.514Z
+// GENERATED: 2026-05-01T15:31:59.620Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

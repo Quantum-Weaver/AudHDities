@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T03:24:42.151Z
+// GENERATED: 2026-05-01T15:31:59.870Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

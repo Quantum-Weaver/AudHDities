@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/audhdities_platform.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T03:24:41.121Z
+// GENERATED: 2026-05-01T15:31:59.454Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -35,7 +35,7 @@ export interface PublicAudhditiesPlatform {
   audhdities_platform_id: string;
   created_at: string | null;
   created_by: string | null;
-  environment: PlatformEnvironment | null;
+  environment:;
   last_release_at: string | null;
   operated_by: string | null;
   release_name: string | null;

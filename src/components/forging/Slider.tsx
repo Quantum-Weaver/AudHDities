@@ -1,4 +1,3 @@
-// src/components/forging/Slider.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SLIDER COMPONENT                                       ║
 // ║                    Range input with COSMIC styling                        ║
@@ -9,17 +8,14 @@
 import React, { forwardRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-// ─── Types ─────────────────────────────────────────────────────────────────
 import type { SliderProps } from '@/types/components/forging/slider.types';
 
-// ─── Variants ──────────────────────────────────────────────────────────────
 import {
   sliderTrackVariants,
   sliderRangeVariants,
   sliderThumbVariants,
 } from '@/lib/constants/components/forging/slider.variants';
 
-// ─── Constants ─────────────────────────────────────────────────────────────
 import {
   SLIDER_VALUE_COLOR_CLASSES,
   SLIDER_VALUE_SIZE_CLASSES,
@@ -36,13 +32,21 @@ import {
   DEFAULT_SLIDER_STEP,
 } from '@/lib/constants/components/forging/slider.constants';
 
-// ─── Utilities ─────────────────────────────────────────────────────────────
 import {
   valueToPercentage,
   thumbPositionOffset,
   generateMarks,
   snapToStep,
 } from '@/lib/utils/components/forging/slider.utils';
+
+// ─── Helpers ───────────────────────────────────────────────────────────────
+
+/** Normalize defaultValue — accepts number or number[] */
+function normalizeDefaultValue(v: number | number[] | undefined, fallback: number): number {
+  if (v === undefined) return fallback;
+  if (Array.isArray(v)) return v[0] ?? fallback;
+  return v;
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SLIDER
@@ -53,11 +57,12 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
     {
       className,
       value: controlledValue,
-      defaultValue = 50,
+      defaultValue,
       min = DEFAULT_SLIDER_MIN,
       max = DEFAULT_SLIDER_MAX,
       step = DEFAULT_SLIDER_STEP,
       onChange,
+      onValueChange,
       label,
       helperText,
       showValue = false,
@@ -70,7 +75,8 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
     },
     ref
   ) => {
-    const [internalValue, setInternalValue] = useState(defaultValue);
+    const normalizedDefault = normalizeDefaultValue(defaultValue, 50);
+    const [internalValue, setInternalValue] = useState(normalizedDefault);
     const isControlled = controlledValue !== undefined;
     const currentValue = isControlled ? controlledValue : internalValue;
 
@@ -79,6 +85,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
       const snapped = snapToStep(newValue, min, max, step);
       if (!isControlled) setInternalValue(snapped);
       onChange?.(snapped);
+      onValueChange?.([snapped]);
     };
 
     const percentage = valueToPercentage(currentValue, min, max);
@@ -86,7 +93,6 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
     return (
       <div className={cn(SLIDER_CONTAINER_SPACING, className)}>
-        {/* Label + Value Row */}
         {(label || showValue) && (
           <div className="flex justify-between items-center">
             {label && (
@@ -95,47 +101,29 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
               </label>
             )}
             {showValue && (
-              <span
-                className={cn(
-                  'font-mono',
-                  SLIDER_VALUE_SIZE_CLASSES[size],
-                  SLIDER_VALUE_COLOR_CLASSES[variant]
-                )}
-              >
+              <span className={cn('font-mono', SLIDER_VALUE_SIZE_CLASSES[size], SLIDER_VALUE_COLOR_CLASSES[variant])}>
                 {formatValue(currentValue)}
               </span>
             )}
           </div>
         )}
 
-        {/* Track Container */}
         <div className={cn('relative', SLIDER_TRACK_CONTAINER_SPACING)}>
-          {/* Background Track */}
           <div className={sliderTrackVariants({ variant, size })} />
 
-          {/* Filled Track */}
           <div
-            className={cn(
-              'absolute top-2 left-0',
-              sliderRangeVariants({ variant }),
-              SLIDER_TRACK_SIZE_CLASSES[size]
-            )}
+            className={cn('absolute top-2 left-0', sliderRangeVariants({ variant }), SLIDER_TRACK_SIZE_CLASSES[size])}
             style={{ width: `${percentage}%` }}
           />
 
-          {/* Marks */}
           {marks && marksArray.length > 0 && (
             <div className="absolute top-2 left-0 w-full flex justify-between">
               {marksArray.map((mark) => (
-                <div
-                  key={mark}
-                  className={cn('w-0.5', SLIDER_MARK_COLOR_CLASS, SLIDER_TRACK_SIZE_CLASSES[size])}
-                />
+                <div key={mark} className={cn('w-0.5', SLIDER_MARK_COLOR_CLASS, SLIDER_TRACK_SIZE_CLASSES[size])} />
               ))}
             </div>
           )}
 
-          {/* Native Range Input (accessible, visually hidden) */}
           <input
             ref={ref}
             type="range"
@@ -152,7 +140,6 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
             aria-label={label || 'Slider'}
           />
 
-          {/* Custom Thumb (visual only) */}
           <div
             className={cn(
               'absolute top-1/2 -translate-y-1/2 rounded-full pointer-events-none',
@@ -163,11 +150,8 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
           />
         </div>
 
-        {/* Helper Text */}
         {helperText && (
-          <p className={cn('text-xs', SLIDER_HELPER_TEXT_COLOR_CLASS)}>
-            {helperText}
-          </p>
+          <p className={cn('text-xs', SLIDER_HELPER_TEXT_COLOR_CLASS)}>{helperText}</p>
         )}
       </div>
     );
@@ -176,5 +160,4 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
 Slider.displayName = 'Slider';
 
-// ─── Re-export types ───────────────────────────────────────────────────────
 export type { SliderProps, SliderVariant, SliderSize } from '@/types/components/forging/slider.types';

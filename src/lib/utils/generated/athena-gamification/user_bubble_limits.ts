@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: UserBubbleLimits
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T03:24:42.321Z
+// GENERATED: 2026-05-01T15:31:59.946Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getUserBubbleLimits(id: string): Promise<UserBubbleLimitsR
   const { data, error } = await supabase
     .from('user_bubble_limits')
     .select('*')
-    .eq('user_id', id)
+    .eq('user_bubble_limits_id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateUserBubbleLimits(id: string, data: UserBubbleLimitsU
   const { data: result, error } = await supabase
     .from('user_bubble_limits')
     .update(validated)
-    .eq('user_id', id)
+    .eq('user_bubble_limits_id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteUserBubbleLimits(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('user_bubble_limits')
     .delete()
-    .eq('user_id', id);
+    .eq('user_bubble_limits_id', id);
   
   if (error) throw error;
   return true;

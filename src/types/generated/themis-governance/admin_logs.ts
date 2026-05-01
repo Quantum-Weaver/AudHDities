@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/admin_logs.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T03:24:41.021Z
+// GENERATED: 2026-05-01T15:31:59.406Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -49,7 +49,7 @@ export interface PublicAdminLogs {
   success: boolean | null;
   target_id: string | null;
   target_identifier: string | null;
-  target_type: AdminLogTargetType | null;
+  target_type:;
   updated_at: string | null;
 }
 

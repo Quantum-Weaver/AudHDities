@@ -590,7 +590,7 @@
     },
     {
       "name": "agent_activities",
-      "description": "Table in ungrouped",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "action",
@@ -708,7 +708,7 @@
     },
     {
       "name": "agent_conversations",
-      "description": "Table in ungrouped",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "agent_conversations_id",
@@ -811,7 +811,7 @@
     },
     {
       "name": "agent_messages",
-      "description": "Table in ungrouped",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "agent_messages_id",
@@ -1248,7 +1248,7 @@
     },
     {
       "name": "badge_award_triggers",
-      "description": "Table in ungrouped",
+      "description": "Table in athena-gamification",
       "columns": [
         {
           "name": "badge_award_triggers_id",
@@ -1394,7 +1394,7 @@
     },
     {
       "name": "bubbles",
-      "description": "Table in ungrouped",
+      "description": "Table in athena-gamification",
       "columns": [
         {
           "name": "appearance_weight",
@@ -2392,7 +2392,7 @@
     },
     {
       "name": "council_houses",
-      "description": "Table in aethelred-connections",
+      "description": "Table in themis-governance",
       "columns": [
         {
           "name": "adept_quest",
@@ -2626,7 +2626,7 @@
     },
     {
       "name": "creator_category_links",
-      "description": "Table in ungrouped",
+      "description": "Table in hermes-social",
       "columns": [
         {
           "name": "category_id",
@@ -3331,7 +3331,7 @@
     },
     {
       "name": "energy_logs",
-      "description": "Table in ungrouped",
+      "description": "Table in hestia-core",
       "columns": [
         {
           "name": "activity",
@@ -3394,7 +3394,7 @@
     },
     {
       "name": "entity_state_log",
-      "description": "Table in ungrouped",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "created_at",
@@ -4083,7 +4083,7 @@
     },
     {
       "name": "journal_entries",
-      "description": "Table in ungrouped",
+      "description": "Table in hestia-core",
       "columns": [
         {
           "name": "content",
@@ -4518,7 +4518,7 @@
     },
     {
       "name": "life_cycles",
-      "description": "Table in athena-gamification",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "created_at",
@@ -6653,7 +6653,7 @@
     },
     {
       "name": "protocols",
-      "description": "Table in hephaestus-infrastructure",
+      "description": "Table in themis-governance",
       "columns": [
         {
           "name": "created_at",
@@ -8917,7 +8917,7 @@
     },
     {
       "name": "system_timeline_events",
-      "description": "Table in ungrouped",
+      "description": "Table in hephaestus-infrastructure",
       "columns": [
         {
           "name": "created_at",
@@ -9161,7 +9161,7 @@
     },
     {
       "name": "timelines",
-      "description": "Table in athena-gamification",
+      "description": "Table in aethelred-connections",
       "columns": [
         {
           "name": "created_at",
@@ -9503,7 +9503,7 @@
     },
     {
       "name": "user_bubble_limits",
-      "description": "Table in ungrouped",
+      "description": "Table in athena-gamification",
       "columns": [
         {
           "name": "created_at",
@@ -9556,7 +9556,7 @@
     },
     {
       "name": "user_bubble_pops",
-      "description": "Table in ungrouped",
+      "description": "Table in athena-gamification",
       "columns": [
         {
           "name": "bubble_id",
@@ -9703,7 +9703,7 @@
     },
     {
       "name": "user_page_views",
-      "description": "Table in ungrouped",
+      "description": "Table in hestia-core",
       "columns": [
         {
           "name": "created_at",
@@ -11687,5 +11687,5 @@
       "returnType": "unknown"
     }
   ],
-  "generatedAt": "2026-05-01T03:00:11.481Z"
+  "generatedAt": "2026-05-01T15:00:37.700Z"
 }

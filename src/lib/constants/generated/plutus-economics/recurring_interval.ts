@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/recurring_interval.ts
-// GENERATED: 2026-05-01T03:24:43.102Z
+// GENERATED: 2026-05-01T15:32:00.103Z
 // SOURCE: Constants.public.Enums.recurring_interval
 // VALUES: 6 entries
 // =====================================================

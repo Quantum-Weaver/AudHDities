@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/vercel_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T03:24:42.388Z
+// GENERATED: 2026-05-01T15:31:59.975Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,7 +33,7 @@ export type VercelConnectionUpdate = TablesUpdate<'vercel_connection'>;
 export interface PublicVercelConnection {
   created_at: string | null;
   created_by: string | null;
-  deployment_status: DeploymentStatus | null;
+  deployment_status:;
   deployment_url: string;
   domain_config: Json | null;
   environment_variables: Json | null;

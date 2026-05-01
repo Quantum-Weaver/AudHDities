@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SuperpositionUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/superposition';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:42.186Z
+// Generated: 2026-05-01T15:31:59.885Z
 // Table: superposition
 
 export async function GET(

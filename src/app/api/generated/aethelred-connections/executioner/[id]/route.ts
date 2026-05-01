@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ExecutionerUpdateSchema } from '@/lib/validators/generated/aethelred-connections/executioner';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T03:24:41.435Z
+// Generated: 2026-05-01T15:31:59.591Z
 // Table: executioner
 
 export async function GET(

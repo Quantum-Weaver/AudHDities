@@ -13,6 +13,7 @@ import { Slider } from '@/components/forging/Slider';
 import { ArrowLeft, Droplets, Star, Heart, Pause, Play, X, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import { BubbleLimitSlider } from './BubbleLimitSlider';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -533,6 +534,9 @@ export function BubblePopGame() {
               )}
             </Card>
           </div>
+        </div>
+        <div className="mt-8">
+          <BubbleLimitSlider />
         </div>
       </div>
     </main>

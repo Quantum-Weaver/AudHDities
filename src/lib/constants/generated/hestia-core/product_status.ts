@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/product_status.ts
-// GENERATED: 2026-05-01T03:24:43.076Z
+// GENERATED: 2026-05-01T15:32:00.098Z
 // SOURCE: Constants.public.Enums.product_status
 // VALUES: 7 entries
 // =====================================================

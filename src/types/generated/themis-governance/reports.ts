@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/reports.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T03:24:41.952Z
+// GENERATED: 2026-05-01T15:31:59.800Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

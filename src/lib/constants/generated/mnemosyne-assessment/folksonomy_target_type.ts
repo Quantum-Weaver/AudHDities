@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/mnemosyne-assessment/folksonomy_target_type.ts
-// GENERATED: 2026-05-01T03:24:42.939Z
+// GENERATED: 2026-05-01T15:32:00.070Z
 // SOURCE: Constants.public.Enums.folksonomy_target_type
 // VALUES: 8 entries
 // =====================================================
