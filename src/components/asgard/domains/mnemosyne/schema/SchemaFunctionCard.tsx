@@ -1,4 +1,4 @@
-// @/components/asgard/domains/mnemosyne/observatory/schema/SchemaFunctionCard.tsx
+// @/components/asgard/domains/mnemosyne/schema/SchemaFunctionCard.tsx
 'use client';
 
 import { useState } from 'react';

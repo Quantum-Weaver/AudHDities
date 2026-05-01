@@ -12,13 +12,7 @@ export const metadata = {
 
 export default function CheckoutCancelPage() {
   return (
-    <Page 
-      variant={1}
-      environment="home"
-      showForeground={false}
-      animated={true}
-      showContinuityBeam={true}
-    >
+    <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen py-12">
         <div className="container max-w-2xl mx-auto px-6">
           <Card 

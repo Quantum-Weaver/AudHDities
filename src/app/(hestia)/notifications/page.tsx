@@ -1,25 +1,12 @@
-// app/(hestia)/notifications/page.tsx
-// The Pulse - Notifications, updates, activity
-// Feeling: Connected, informed, alive
-
+// src/app/(hestia)/notifications/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { NotificationsList } from '@/components/asgard/domains/hestia/notifications/NotificationsList';
 
 export const metadata = {
-  title: 'The Pulse | Sovereign Sanctuary',
-  description: 'What matters now'
+  title: 'The Call | Sovereign Sanctuary',
+  description: 'What seeks your attention',
 };
 
-export default async function NotificationsPage() {
-  return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function NotificationsPage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><NotificationsList /></Page>);
 }

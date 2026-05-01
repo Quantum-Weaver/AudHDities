@@ -8,46 +8,25 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect, useMemo } from 'react';
-import { Menu, X, Compass, Home, Store, Library, Music, Shield, Network } from 'lucide-react';
-
+import { useState, useEffect } from 'react';
+import { Menu, X, Home, Store, Library, Music, Shield, Network, Compass, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
-import { getPageEnvironment } from '@/lib/constants/systems/environments/page_mapping';
-
-import type { NavigationProps } from '@/types/components/bifrost/navigation.types';
-import {
-  NAVIGATION_VARIANTS,
-  NAV_ITEM_STATES,
-} from '@/lib/constants/components/bifrost/navigation.constants';
-import {
-  navContainerVariants,
-  navBarVariants,
-  navBrandVariants,
-  navLinkVariants,
-  navFloatingToggleVariants,
-  navDrawerOverlayVariants,
-  navDrawerPanelVariants,
-  navDrawerHeaderVariants,
-  navDrawerCloseVariants,
-  navDividerVariants,
-} from '@/lib/constants/components/bifrost/navigation.variants';
-import { getNavItemState } from '@/lib/utils/components/bifrost/navigation.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
-// REALM DEFINITIONS — The six primary realms of the Sanctuary
+// REALMS
 // ═══════════════════════════════════════════════════════════════════════════
 
 const REALMS = [
-  { href: '/', label: 'The Hearth', icon: Home, domain: 'home' },
-  { href: '/bazaar', label: 'The Bazaar', icon: Store, domain: 'community' },
-  { href: '/library', label: 'The Library', icon: Library, domain: 'library' },
-  { href: '/stage', label: 'The Stage', icon: Music, domain: 'music' },
-  { href: '/council', label: 'The Council', icon: Shield, domain: 'council' },
-  { href: '/nexus', label: 'The Nexus', icon: Network, domain: 'architecture' },
+  { href: '/', label: 'Hearth', icon: Home },
+  { href: '/bazaar', label: 'Bazaar', icon: Store },
+  { href: '/library', label: 'Library', icon: Library },
+  { href: '/stage', label: 'Stage', icon: Music },
+  { href: '/council', label: 'Council', icon: Shield },
+  { href: '/nexus', label: 'Nexus', icon: Network },
 ];
 
-const SECONDARY_LINKS = [
+const SECONDARY = [
   { href: '/observatory', label: 'Observatory', icon: Compass },
   { href: '/connect', label: 'Bridge', icon: Compass },
   { href: '/studio', label: 'Studio', icon: Compass },
@@ -57,75 +36,85 @@ const SECONDARY_LINKS = [
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 
-export function Navigation({ className }: NavigationProps) {
+export function Navigation({ className }: { className?: string }) {
   const pathname = usePathname();
   const { user, profile } = useAuth();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const currentEnvironment = getPageEnvironment(pathname);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const isAuthenticated = !!user;
-  const sovereigntyScore = profile?.sovereignty_score ?? 0;
+  useEffect(() => { setDrawerOpen(false); }, [pathname]);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+  const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href + '/'));
 
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════ */}
       {/* DESKTOP — REALM BAR                                               */}
       {/* ════════════════════════════════════════════════════════════════ */}
-      <nav className={cn(navContainerVariants({ variant: NAVIGATION_VARIANTS.DESKTOP }), className)}>
-        <div className={navBarVariants({ variant: NAVIGATION_VARIANTS.DESKTOP })}>
-          {/* Brand */}
-          <Link href="/" className="flex-shrink-0 mr-4">
-            <span className={navBrandVariants({ size: 'desktop' })}>
-              Sanctuary
-            </span>
-          </Link>
+      <nav className={cn(
+        'hidden md:flex items-center justify-center w-full h-12',
+        'bg-deep-space/40 backdrop-blur-sm border-b border-white/5',
+        className
+      )}>
+        <div className="flex items-center gap-1 h-full">
+          {REALMS.map((realm) => {
+            const Icon = realm.icon;
+            const active = isActive(realm.href);
+            return (
+              <Link
+                key={realm.href}
+                href={realm.href}
+                className={cn(
+                  'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200',
+                  active
+                    ? 'bg-neurospark/15 text-neurospark'
+                    : 'text-star-dust/50 hover:text-star-dust/80 hover:bg-white/5'
+                )}
+              >
+                <Icon className="h-4 w-4" />
+                <span>{realm.label}</span>
+              </Link>
+            );
+          })}
 
-          {/* Realms */}
-          <div className="flex items-center gap-1">
-            {REALMS.map((realm) => {
-              const Icon = realm.icon;
-              const isActive = pathname === realm.href || pathname.startsWith(realm.href + '/');
+          {/* Divider */}
+          <div className="h-5 w-px bg-white/10 mx-2" />
 
-              return (
-                <Link
-                  key={realm.href}
-                  href={realm.href}
-                  className={cn(
-                    'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-150',
-                    isActive
-                      ? 'bg-neurospark/20 text-neurospark'
-                      : 'text-star-dust/50 hover:text-star-dust hover:bg-white/5'
-                  )}
-                >
-                  <Icon className="h-3.5 w-3.5" />
-                  <span className="hidden xl:inline">{realm.label}</span>
-                </Link>
-              );
-            })}
-          </div>
+          {/* Secondary */}
+          {SECONDARY.map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200',
+                  'text-star-dust/40 hover:text-star-dust/70 hover:bg-white/5'
+                )}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                <span>{link.label}</span>
+              </Link>
+            );
+          })}
 
-          {/* Right: Sovereignty + Vessel */}
-          <div className="flex items-center gap-3 ml-auto">
-            {isAuthenticated && (
+          {/* Right: Vessel */}
+          <div className="ml-auto flex items-center gap-3 pr-2">
+            {user ? (
               <Link
                 href="/vessel"
                 className="flex items-center gap-1.5 text-xs text-star-dust/50 hover:text-neurospark transition-colors"
               >
-                <Shield className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">{sovereigntyScore.toLocaleString()}</span>
+                <User className="h-3.5 w-3.5" />
+                <span>{profile?.display_name || 'Vessel'}</span>
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="text-xs text-star-dust/50 hover:text-star-dust transition-colors"
+              >
+                Enter
               </Link>
             )}
-            <Link
-              href={isAuthenticated ? '/vessel' : '/login'}
-              className="text-xs text-star-dust/50 hover:text-star-dust transition-colors"
-            >
-              {isAuthenticated ? profile?.display_name || 'Vessel' : 'Enter'}
-            </Link>
           </div>
         </div>
       </nav>
@@ -135,45 +124,41 @@ export function Navigation({ className }: NavigationProps) {
       {/* ════════════════════════════════════════════════════════════════ */}
       <div className="md:hidden">
         {/* Overlay */}
-        {mobileMenuOpen && (
+        {drawerOpen && (
           <div
-            className={navDrawerOverlayVariants({ isOpen: mobileMenuOpen })}
-            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 z-40 bg-deep-space/60 backdrop-blur-sm"
+            onClick={() => setDrawerOpen(false)}
           />
         )}
 
-        {/* Drawer Panel */}
-        <div className={navDrawerPanelVariants({ isOpen: mobileMenuOpen })}>
-          {/* Drawer Header */}
-          <div className={navDrawerHeaderVariants()}>
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-              <span className={navBrandVariants({ size: 'mobile' })}>Sanctuary</span>
+        {/* Drawer */}
+        <div className={cn(
+          'fixed top-0 left-0 bottom-0 z-50 w-64 bg-deep-space/95 backdrop-blur-xl border-r border-white/10 shadow-2xl',
+          'flex flex-col transition-transform duration-200',
+          drawerOpen ? 'translate-x-0' : '-translate-x-full'
+        )}>
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-white/10">
+            <Link href="/" className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
+              Sanctuary
             </Link>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className={navDrawerCloseVariants()}
-              aria-label="Close menu"
-            >
+            <button onClick={() => setDrawerOpen(false)} className="p-1.5 rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5">
               <X className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Realm Links */}
-          <div className="flex-1 overflow-y-auto py-4 px-4 flex flex-col gap-1">
+          {/* Links */}
+          <div className="flex-1 overflow-y-auto py-3 px-3 flex flex-col gap-1">
             {REALMS.map((realm) => {
               const Icon = realm.icon;
-              const isActive = pathname === realm.href || pathname.startsWith(realm.href + '/');
-
+              const active = isActive(realm.href);
               return (
                 <Link
                   key={realm.href}
                   href={realm.href}
-                  onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-150',
-                    isActive
-                      ? 'bg-neurospark/20 text-neurospark'
-                      : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
+                    'flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all',
+                    active ? 'bg-neurospark/20 text-neurospark' : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
                   )}
                 >
                   <Icon className="h-5 w-5" />
@@ -182,16 +167,12 @@ export function Navigation({ className }: NavigationProps) {
               );
             })}
 
-            <div className={navDividerVariants()} />
+            <div className="h-px bg-white/10 my-2" />
 
-            {/* Secondary */}
-            {SECONDARY_LINKS.map((link) => {
+            {SECONDARY.map((link) => {
               const Icon = link.icon;
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                <Link key={link.href} href={link.href}
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/50 hover:text-star-dust hover:bg-white/5 transition-all"
                 >
                   <Icon className="h-5 w-5" />
@@ -200,31 +181,30 @@ export function Navigation({ className }: NavigationProps) {
               );
             })}
 
-            <div className={navDividerVariants()} />
+            <div className="h-px bg-white/10 my-2" />
 
-            {/* Vessel / Sign In */}
-            <Link
-              href={isAuthenticated ? '/vessel' : '/login'}
-              onClick={() => setMobileMenuOpen(false)}
+            <Link href={user ? '/vessel' : '/login'}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/50 hover:text-star-dust hover:bg-white/5 transition-all"
             >
-              <Shield className="h-5 w-5" />
-              <span>{isAuthenticated ? 'Your Vessel' : 'Enter the Sanctuary'}</span>
+              <User className="h-5 w-5" />
+              <span>{user ? 'Your Vessel' : 'Enter the Sanctuary'}</span>
             </Link>
           </div>
         </div>
 
-        {/* Floating Toggle Button */}
+        {/* Floating Button */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={navFloatingToggleVariants({ isOpen: mobileMenuOpen })}
+          onClick={() => setDrawerOpen(!drawerOpen)}
+          className={cn(
+            'fixed bottom-6 left-6 z-30 h-12 w-12 rounded-xl',
+            'bg-deep-space/90 backdrop-blur-lg border border-white/10',
+            'text-star-dust/80 shadow-lg',
+            'flex items-center justify-center',
+            'active:scale-95 transition-all duration-200'
+          )}
           aria-label="Menu"
         >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
+          {drawerOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
     </>

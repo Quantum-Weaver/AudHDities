@@ -1,25 +1,16 @@
-// app/(mnemosyne)/observatory/origin/page.tsx
-// The Origin - Beginning of all journeys
-// Feeling: Sacred, awakening, primordial
-
+// src/app/(mnemosyne)/observatory/origin/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { OriginContent } from '@/components/asgard/domains/mnemosyne/origin/OriginContent';
 
 export const metadata = {
-  title: 'The Origin | Sovereign Sanctuary',
-  description: 'Where it all began'
+  title: 'The First Light | Sovereign Sanctuary',
+  description: 'How the Sanctuary began',
 };
 
-export default async function OriginPage() {
+export default function OriginPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <OriginContent />
     </Page>
   );
 }

@@ -1,25 +1,16 @@
-// app/(mnemosyne)/observatory/page.tsx
-// The Observatory - Memory and vision hub
-// Feeling: Awe-inspiring, reflective, cosmic, visionary
-
+// src/app/(mnemosyne)/observatory/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ObservatoryHub } from '@/components/asgard/domains/mnemosyne/observatory/ObservatoryHub';
 
 export const metadata = {
   title: 'The Observatory | Sovereign Sanctuary',
-  description: 'Where memory meets vision'
+  description: 'Gaze across timelines. See patterns. Witness the becoming.',
 };
 
-export default async function ObservatoryPage() {
+export default function ObservatoryPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ObservatoryHub />
     </Page>
   );
 }

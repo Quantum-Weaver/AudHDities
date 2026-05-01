@@ -1,25 +1,15 @@
 // app/(hestia)/vessel/energy/page.tsx
-// Energy Log - Mood tracking, energy levels
-// Feeling: Reflective, gentle, aware
-
 import { Page } from '@/components/bifrost/Page';
+import { EnergyLog } from '@/components/asgard/domains/hestia/energy/EnergyLog';
 
 export const metadata = {
   title: 'Energy Log | Sovereign Sanctuary',
-  description: 'Listen to your vessel'
+  description: 'Listen to your vessel',
 };
 
-export default async function EnergyPage() {
+export default function EnergyPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+  <Page showForeground={false} showContinuityBeam={true}>
+    <EnergyLog />
+  </Page>);
 }

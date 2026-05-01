@@ -1,25 +1,9 @@
-// app/(mnemosyne)/observatory/prophecy/page.tsx
-// The Vision - Future projections, possibilities
-// Feeling: Hopeful, visionary, expansive
-
+// src/app/(mnemosyne)/observatory/prophecy/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ProphecyVision } from '@/components/asgard/domains/mnemosyne/prophecy/ProphecyVision';
 
-export const metadata = {
-  title: 'The Vision | Sovereign Sanctuary',
-  description: 'A glimpse of what is becoming'
-};
+export const metadata = { title: 'The Vision | Sovereign Sanctuary', description: 'What awaits the sovereign' };
 
-export default async function ProphecyPage() {
-  return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function ProphecyPage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><ProphecyVision /></Page>);
 }

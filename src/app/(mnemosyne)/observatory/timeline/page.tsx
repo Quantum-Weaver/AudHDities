@@ -1,25 +1,9 @@
-// app/(mnemosyne)/observatory/timeline/page.tsx
-// The Spiral - Personal journey timeline
-// Feeling: Reflective, dimensional, revealing
-
+// src/app/(mnemosyne)/observatory/timeline/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { TimelineSpiral } from '@/components/asgard/domains/mnemosyne/timeline/TimelineSpiral';
 
-export const metadata = {
-  title: 'The Spiral | Sovereign Sanctuary',
-  description: 'Your journey through time'
-};
+export const metadata = { title: 'The Spiral | Sovereign Sanctuary', description: 'Your journey, visible at last' };
 
-export default async function TimelinePage() {
-  return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function TimelinePage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><TimelineSpiral /></Page>);
 }

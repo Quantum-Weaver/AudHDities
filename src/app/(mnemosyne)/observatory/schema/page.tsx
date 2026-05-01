@@ -2,11 +2,11 @@
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { SchemaHero } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaHero';
-import { SchemaTableCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaTableCard';
-import { SchemaEnumCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaEnumCard';
-import { SchemaFunctionCard } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaFunctionCard';
-import { SchemaExplorer } from '@/components/asgard/domains/mnemosyne/observatory/schema/SchemaExplorer';
+import { SchemaHero } from '@/components/asgard/domains/mnemosyne/schema/SchemaHero';
+import { SchemaTableCard } from '@/components/asgard/domains/mnemosyne/schema/SchemaTableCard';
+import { SchemaEnumCard } from '@/components/asgard/domains/mnemosyne/schema/SchemaEnumCard';
+import { SchemaFunctionCard } from '@/components/asgard/domains/mnemosyne/schema/SchemaFunctionCard';
+import { SchemaExplorer } from '@/components/asgard/domains/mnemosyne/schema/SchemaExplorer';
 import { parseDatabaseTypes } from '@/lib/schema/parseDatabaseTypes';
 import { Heart, Shield, Sparkles, Infinity } from 'lucide-react';
 

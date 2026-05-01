@@ -12,7 +12,7 @@ import type { PurchaseTier } from '@/hooks/commerce/useProduct';
 
 interface CheckoutButtonProps {
   product: ProductsRow;
-  variant?: 'outline' | 'ghost' | 'secondary' | 'primary';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   tier?: PurchaseTier;
   className?: string;
@@ -20,12 +20,7 @@ interface CheckoutButtonProps {
 }
 
 export function CheckoutButton({ 
-  product, 
-  variant = 'primary', 
-  size = 'md',
-  tier = 'ally',
-  className = '',
-  children 
+  product, variant = 'primary', size = 'md', tier = 'ally', className = '', children 
 }: CheckoutButtonProps) {
   const { user } = useAuth();
   const router = useRouter();
@@ -33,15 +28,11 @@ export function CheckoutButton({
   const [localError, setLocalError] = useState<string | null>(null);
 
   const getPrice = (): number | null => {
-    // Council gets community pricing
     const effectiveTier = tier === 'council' ? 'community' : tier;
     switch (effectiveTier) {
-      case 'community':
-        return product.price_community ?? null;
-      case 'corporate':
-        return product.price_corporate ?? null;
-      default:
-        return product.price_ally ?? null;
+      case 'community': return product.price_community ?? null;
+      case 'corporate': return product.price_corporate ?? null;
+      default: return product.price_ally ?? null;
     }
   };
 
@@ -50,63 +41,24 @@ export function CheckoutButton({
 
   const handleCheckout = async () => {
     setLocalError(null);
-
-    if (!isAvailable) {
-      setLocalError('This product is not available for purchase');
-      return;
-    }
-
+    if (!isAvailable) { setLocalError('This product is not available for purchase'); return; }
     if (!user) {
-      sessionStorage.setItem('pendingPurchase', JSON.stringify({
-        id: product.products_id,
-        tier,
-        quantity: 1,
-      }));
+      sessionStorage.setItem('pendingPurchase', JSON.stringify({ id: product.products_id, tier, quantity: 1 }));
       router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
       return;
     }
-
-    await initiateCheckout({
-      id: product.products_id,
-      product: product.products_id,
-      tier,
-      quantity: 1,
-    });
+    await initiateCheckout({ id: product.products_id, product: product.products_id, tier, quantity: 1 });
   };
 
   const displayError = error || localError;
 
   return (
     <div className="space-y-2">
-      <Button
-        onClick={handleCheckout}
-        disabled={loading || !isAvailable}
-        variant={variant}
-        size={size}
-        className={className}
-      >
-        {loading ? (
-          <>
-            <Loader2 size={18} className="mr-2 animate-spin" />
-            Processing...
-          </>
-        ) : (
-          <>
-            <CreditCard size={18} className="mr-2" />
-            {children || (price ? `Purchase $${price.toFixed(2)}` : 'Purchase')}
-          </>
-        )}
+      <Button onClick={handleCheckout} disabled={loading || !isAvailable} variant={variant} size={size} className={className}>
+        {loading ? (<><Loader2 size={18} className="mr-2 animate-spin" />Processing...</>) : (<><CreditCard size={18} className="mr-2" />{children || (price ? `Purchase $${price.toFixed(2)}` : 'Purchase')}</>)}
       </Button>
-      
-      {displayError && (
-        <p className="text-sm text-[var(--color-error)]">{displayError}</p>
-      )}
-      
-      {!isAvailable && !displayError && (
-        <p className="text-sm text-[var(--color-warning)]">
-          This product is currently not available for purchase
-        </p>
-      )}
+      {displayError && <p className="text-sm text-error">{displayError}</p>}
+      {!isAvailable && !displayError && <p className="text-sm text-warning">This product is currently not available for purchase</p>}
     </div>
   );
 }

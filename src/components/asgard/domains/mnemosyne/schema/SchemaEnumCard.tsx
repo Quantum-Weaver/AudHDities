@@ -1,4 +1,4 @@
-// @/components/asgard/domains/mnemosyne/observatory/schema/SchemaEnumCard.tsx
+// @/components/asgard/domains/mnemosyne/schema/SchemaEnumCard.tsx
 'use client';
 
 import { useState } from 'react';

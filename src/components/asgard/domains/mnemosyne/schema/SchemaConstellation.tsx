@@ -1,4 +1,4 @@
-// src/components/asgard/domains/mnemosyne/observatory/schema/SchemaConstellation.tsx
+// src/components/asgard/domains/mnemosyne/schema/SchemaConstellation.tsx
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║                    SCHEMA CONSTELLATION                                   ║
 // ║                    The living star map of the Sanctuary's data            ║

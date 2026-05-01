@@ -1,7 +1,7 @@
 // app/api/checkout/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import { stripe as getStripe } from '@/lib/stripe/server';
+import { stripe as getStripe} from '@/lib/stripe/server';
 import type { ProfilesFormData } from '@/types/generated/hestia-core/profiles';
 
 interface CheckoutRequest {
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
     }
 
     const stripe = getStripe();
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [{
         price_data: {

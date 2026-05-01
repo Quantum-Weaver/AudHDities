@@ -1,4 +1,3 @@
-```markdown
 # 🏗️ HEPHAESTUS — The Forge
 
 > *Feeling: Intelligent, transparent, powerful, sacred*

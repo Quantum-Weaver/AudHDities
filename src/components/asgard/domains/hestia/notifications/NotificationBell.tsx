@@ -1,4 +1,4 @@
-// @/components/hestia/NotificationBell.tsx
+// @/components/asgard/domains/hestia/notifications/NotificationBell.tsx
 // Notification dropdown
 
 "use client";
@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/yggdrasil/Button";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 

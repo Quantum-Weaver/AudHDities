@@ -1,4 +1,4 @@
-// @/components/asgard/domains/mnemosyne/observatory/schema/SchemaExplorer.tsx
+// @/components/asgard/domains/mnemosyne/schema/SchemaExplorer.tsx
 'use client';
 
 import { useState, useMemo } from 'react';

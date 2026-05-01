@@ -1,35 +1,9 @@
-// app/(hestia)/notifications/[id]/page.tsx
-// Notification Detail - Single notification view
-// Feeling: Connected, informed, aware
-
+// src/app/(hestia)/notifications/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { NotificationDetail } from '@/components/asgard/domains/hestia/notifications/NotificationDetail';
 
-interface NotificationDetailPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = { title: 'Notification | Sovereign Sanctuary', description: 'A call for your attention' };
 
-export async function generateMetadata({ params }: NotificationDetailPageProps) {
-  const { id } = await params;
-  return {
-    title: `Notification ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A moment of connection'
-  };
-}
-
-export default async function NotificationDetailPage({ params }: NotificationDetailPageProps) {
-  const { id } = await params;
-  
-  return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Notification ID: {id} */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function NotificationDetailPage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><NotificationDetail /></Page>);
 }

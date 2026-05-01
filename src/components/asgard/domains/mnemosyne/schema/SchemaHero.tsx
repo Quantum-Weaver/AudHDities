@@ -1,4 +1,4 @@
-// @/components/asgard/domains/mnemosyne/observatory/schema/SchemaHero.tsx
+// @/components/asgard/domains/mnemosyne/schema/SchemaHero.tsx
 'use client';
 
 import { motion } from 'framer-motion';

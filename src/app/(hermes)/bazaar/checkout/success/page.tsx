@@ -11,10 +11,7 @@ export const metadata = {
 export default function CheckoutSuccessPage() {
   return (
     <Page 
-      variant={1}
-      environment="home"
       showForeground={false}
-      animated={true}
       showContinuityBeam={true}
     >
       <main className="min-h-screen py-12">

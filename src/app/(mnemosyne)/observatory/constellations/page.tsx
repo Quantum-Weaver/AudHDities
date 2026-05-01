@@ -1,25 +1,9 @@
-// app/(mnemosyne)/observatory/constellations/page.tsx
-// Constellations - Connection web, collaboration map
-// Feeling: Cosmic, interconnected, beautiful
-
+// src/app/(mnemosyne)/observatory/constellations/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { GrandPattern } from '@/components/asgard/domains/mnemosyne/constellations/GrandPattern';
 
-export const metadata = {
-  title: 'Constellations | Sovereign Sanctuary',
-  description: 'The web of connection'
-};
+export const metadata = { title: 'The Grand Pattern | Sovereign Sanctuary', description: 'How all threads connect' };
 
-export default async function ConstellationsPage() {
-  return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
-    </Page>
-  );
+export default function ConstellationsPage() {
+  return (<Page showForeground={false} showContinuityBeam={true}><GrandPattern /></Page>);
 }
