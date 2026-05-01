@@ -1,27 +1,16 @@
-// app/(themis)/council/admin/page.tsx
-// The Hearth of Governance - Administrative functions
-// Feeling: Responsible, powerful, careful
-// ACCESS: Admin only
-
+// src/app/(themis)/council/admin/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { AdminHub } from '@/components/asgard/domains/themis/admin/AdminHub';
 
 export const metadata = {
-  title: 'The Hearth of Governance | Sovereign Sanctuary',
-  description: 'Administrative tools for Sanctuary stewards'
+  title: 'Administration | The Council | Sovereign Sanctuary',
+  description: 'Tools for Sanctuary stewards',
 };
 
-export default async function AdminPage() {
+export default function AdminPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Admin access only */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <AdminHub />
     </Page>
   );
 }

@@ -1,25 +1,16 @@
-// app/(themis)/council/applications/page.tsx
-// Applications - Creator/vendor/curator applications
-// Feeling: Hopeful, aspirational, welcoming
-
+// src/app/(themis)/council/applications/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ApplicationsHub } from '@/components/asgard/domains/themis/applications/ApplicationsHub';
 
 export const metadata = {
-  title: 'Applications | Sovereign Sanctuary',
-  description: 'Join the Sanctuary as a creator, vendor, or curator'
+  title: 'Applications | The Council | Sovereign Sanctuary',
+  description: 'Review creator, vendor, and curator applications',
 };
 
-export default async function ApplicationsPage() {
+export default function ApplicationsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ApplicationsHub />
     </Page>
   );
 }

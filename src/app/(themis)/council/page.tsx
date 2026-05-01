@@ -1,25 +1,16 @@
-// app/(themis)/council/page.tsx
-// The Council Chamber - Governance hub
-// Feeling: Transparent, just, collaborative, wise
-
+// src/app/(themis)/council/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { CouncilHub } from '@/components/asgard/domains/themis/council/CouncilHub';
 
 export const metadata = {
   title: 'The Council Chamber | Sovereign Sanctuary',
-  description: 'Where sovereign voices shape the Sanctuary'
+  description: 'Where sovereign voices shape the Sanctuary',
 };
 
-export default async function CouncilPage() {
+export default function CouncilPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <CouncilHub />
     </Page>
   );
 }

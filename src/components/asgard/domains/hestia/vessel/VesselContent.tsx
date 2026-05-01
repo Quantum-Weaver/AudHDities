@@ -11,10 +11,11 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Award, Clock, TrendingUp, Bell } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { parseEnvironmentPreference } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
+import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
 
 interface UserBadge {
   badges_id: string;
@@ -107,6 +108,18 @@ export function VesselContent() {
         <p className="text-star-dust/60">Sign in to view your Vessel.</p>
       </div>
     );
+  }
+
+  const quickLinks = [
+    { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
+    { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
+    { href: '/library/bubbles', label: 'Bubbles', icon: Droplets, id: 'bubbles' },
+    { href: '/notifications', label: 'The Call', icon: Bell, id: 'notifications' },
+  ];
+
+  // Add more links conditionally
+  if (profile.is_creator || profile.is_quantum_weaver) {
+    quickLinks.push({ href: '/bazaar/studio', label: 'The Loom', icon: Palette, id: 'studio' });
   }
 
   const sovereigntyCardData: CardData = {
@@ -216,28 +229,7 @@ export function VesselContent() {
       )}
 
       {/* Quick Links */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <Link href="/vessel/energy">
-          <Card variant="interactive" data={{ id: `${user.id}-energy`, title: 'Energy Log', type: 'value', value: '' }} radius="md" shadow="sm" className="p-4 text-center">
-            <Zap className="h-5 w-5 text-neurospark mx-auto mb-2" /><span className="text-sm text-star-dust/80">Energy Log</span>
-          </Card>
-        </Link>
-        <Link href="/vessel/journal">
-          <Card variant="interactive" data={{ id: `${user.id}-journal`, title: 'Journal', type: 'value', value: '' }} radius="md" shadow="sm" className="p-4 text-center">
-            <BookOpen className="h-5 w-5 text-neurospark mx-auto mb-2" /><span className="text-sm text-star-dust/80">The Scroll</span>
-          </Card>
-        </Link>
-        <Link href="/library/bubbles">
-          <Card variant="interactive" data={{ id: `${user.id}-bubbles`, title: 'Bubbles', type: 'value', value: '' }} radius="md" shadow="sm" className="p-4 text-center">
-            <Droplets className="h-5 w-5 text-neurospark mx-auto mb-2" /><span className="text-sm text-star-dust/80">Bubbles</span>
-          </Card>
-        </Link>
-        <Link href="/notifications">
-          <Card variant="interactive" data={{ id: `${user.id}-notifications`, title: 'Notifications', type: 'value', value: '' }} radius="md" shadow="sm" className="p-4 text-center">
-            <Bell className="h-5 w-5 text-neurospark mx-auto mb-2" /><span className="text-sm text-star-dust/80">The Call</span>
-          </Card>
-        </Link>
-      </div>
+      <QuickLinks links={quickLinks} userId={user.id} columns={4} />
 
     </div>
   );

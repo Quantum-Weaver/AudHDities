@@ -1,25 +1,16 @@
-// app/(themis)/council/voting/page.tsx
-// The Vote - Active voting opportunities
-// Feeling: Engaged, empowered, responsible
-
+// src/app/(themis)/council/voting/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { VotingHub } from '@/components/asgard/domains/themis/voting/VotingHub';
 
 export const metadata = {
-  title: 'The Vote | Sovereign Sanctuary',
-  description: 'Your voice shapes the Sanctuary'
+  title: 'Voting | The Council | Sovereign Sanctuary',
+  description: 'Your voice shapes the Sanctuary',
 };
 
-export default async function VotingPage() {
+export default function VotingPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <VotingHub />
     </Page>
   );
 }

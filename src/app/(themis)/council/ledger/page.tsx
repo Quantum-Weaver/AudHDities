@@ -1,25 +1,16 @@
-// app/(themis)/council/ledger/page.tsx
-// The Ledger - Transparent financial ledger
-// Feeling: Transparent, accountable, trustworthy
-
+// src/app/(themis)/council/ledger/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { LedgerHub } from '@/components/asgard/domains/themis/ledger/LedgerHub';
 
 export const metadata = {
-  title: 'The Ledger | Sovereign Sanctuary',
-  description: 'Complete transparency, every transaction visible'
+  title: 'The Ledger | The Council | Sovereign Sanctuary',
+  description: 'Complete transparency, every transaction visible',
 };
 
-export default async function LedgerPage() {
+export default function LedgerPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <LedgerHub />
     </Page>
   );
 }

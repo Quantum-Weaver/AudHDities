@@ -1,35 +1,16 @@
-// app/(themis)/council/proposals/[id]/page.tsx
-// Proposal Detail - Single proposal view
-// Feeling: Contemplative, engaged, empowered
-
+// src/app/(themis)/council/proposals/[id]/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ProposalDetail } from '@/components/asgard/domains/themis/proposals/ProposalDetail';
 
-interface ProposalDetailPageProps {
-  params: Promise<{ id: string }>;
-}
+export const metadata = {
+  title: 'Proposal | The Council | Sovereign Sanctuary',
+  description: 'A voice in the collective',
+};
 
-export async function generateMetadata({ params }: ProposalDetailPageProps) {
-  const { id } = await params;
-  return {
-    title: `Proposal ${id.slice(0, 8)} | Sovereign Sanctuary`,
-    description: 'A voice in the collective'
-  };
-}
-
-export default async function ProposalDetailPage({ params }: ProposalDetailPageProps) {
-  const { id } = await params;
-  
+export default function ProposalDetailPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-          {/* Proposal ID: {id} */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ProposalDetail />
     </Page>
   );
 }

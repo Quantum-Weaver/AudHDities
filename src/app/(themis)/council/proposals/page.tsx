@@ -1,25 +1,16 @@
-// app/(themis)/council/proposals/page.tsx
-// Proposals - All governance proposals
-// Feeling: Collaborative, transparent, engaging
-
+// src/app/(themis)/council/proposals/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { ProposalsGallery } from '@/components/asgard/domains/themis/proposals/ProposalsGallery';
 
 export const metadata = {
-  title: 'Proposals | Sovereign Sanctuary',
-  description: 'Shape the future of the Sanctuary'
+  title: 'Proposals | The Council | Sovereign Sanctuary',
+  description: 'Shape the future of the Sanctuary',
 };
 
-export default async function ProposalsPage() {
+export default function ProposalsPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <ProposalsGallery />
     </Page>
   );
 }
