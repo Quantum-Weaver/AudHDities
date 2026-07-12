@@ -1,0 +1,78 @@
+// =====================================================
+// FILE: validators/anchor_events.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// AnchorEvents SCHEMAS
+// =====================================================
+
+export const AnchorEventsRowSchema = z.object({
+  anchor_id: z.string().nullable(),
+  completed_at: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string(),
+  event_date: z.string(),
+  event_name: z.string(),
+  event_time: z.string().nullable(),
+  event_type: z.string().nullable(),
+  gentle_reminder: z.boolean(),
+  id: z.string(),
+  is_completed: z.boolean(),
+  notes: z.string().nullable(),
+  recurrence: z.string(),
+  recurrence_rule: z.string().nullable(),
+  reminder_days_before: z.number(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const AnchorEventsInsertSchema = z.object({
+  anchor_id: z.string().nullable().optional(),
+  completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string(),
+  event_date: z.string(),
+  event_name: z.string(),
+  event_time: z.string().nullable().optional(),
+  event_type: z.string().nullable().optional(),
+  gentle_reminder: z.boolean().optional(),
+  id: z.string().optional(),
+  is_completed: z.boolean().optional(),
+  notes: z.string().nullable().optional(),
+  recurrence: z.string().optional(),
+  recurrence_rule: z.string().nullable().optional(),
+  reminder_days_before: z.number().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const AnchorEventsUpdateSchema = z.object({
+  anchor_id: z.string().nullable().optional(),
+  completed_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().optional(),
+  event_date: z.string().optional(),
+  event_name: z.string().optional(),
+  event_time: z.string().nullable().optional(),
+  event_type: z.string().nullable().optional(),
+  gentle_reminder: z.boolean().optional(),
+  id: z.string().optional(),
+  is_completed: z.boolean().optional(),
+  notes: z.string().nullable().optional(),
+  recurrence: z.string().optional(),
+  recurrence_rule: z.string().nullable().optional(),
+  reminder_days_before: z.number().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type AnchorEventsRowInput = z.infer<typeof AnchorEventsRowSchema>;
+export type AnchorEventsInsertInput = z.infer<typeof AnchorEventsInsertSchema>;
+export type AnchorEventsUpdateInput = z.infer<typeof AnchorEventsUpdateSchema>;

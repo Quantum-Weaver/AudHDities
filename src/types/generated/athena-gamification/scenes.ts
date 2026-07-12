@@ -2,11 +2,12 @@
 // FILE: types/generated/athena-gamification/scenes.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.833Z
+// GENERATED: 2026-07-10T18:14:59.774Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -16,8 +17,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Enums<'council_house'>;
-export type SceneType = Enums<'scene_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type ScenesRow = Tables<'scenes'>;
 export type ScenesInsert = TablesInsert<'scenes'>;
@@ -31,21 +31,21 @@ export type ScenesUpdate = TablesUpdate<'scenes'>;
  * Public view of scenes
  */
 export interface PublicScenes {
-  created_at: string | null;
+  background_url: string | null;
+  created_at: string;
   created_by: string | null;
-  creator_id: string;
-  description: string;
-  house: CouncilHouse | null;
-  instructions: string | null;
-  is_active: boolean | null;
-  mythology_id: string | null;
-  participant_count: number | null;
-  scenes_id: string;
-  scheduled_for: string | null;
+  description: string | null;
+  difficulty: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
+  name: string;
+  participant_limit: number | null;
+  scene_type: string | null;
   slug: string;
-  title: string;
-  type: SceneType;
-  updated_at: string | null;
+  spawn_rules: Json | null;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -54,21 +54,21 @@ export interface PublicScenes {
  * All fields are optional for partial updates
  */
 export interface ScenesFormData {
-  created_at?: string | null;
+  background_url?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  creator_id?: string;
-  description?: string;
-  house?: CouncilHouse | null;
-  instructions?: string | null;
-  is_active?: boolean | null;
-  mythology_id?: string | null;
-  participant_count?: number | null;
-  scenes_id?: string;
-  scheduled_for?: string | null;
+  description?: string | null;
+  difficulty?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
+  name?: string;
+  participant_limit?: number | null;
+  scene_type?: string | null;
   slug?: string;
-  title?: string;
-  type?: SceneType;
-  updated_at?: string | null;
+  spawn_rules?: Json | null;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -78,20 +78,20 @@ export interface ScenesFormData {
 export interface ScenesValidationResult {
   valid: boolean;
   errors: {
+    background_url?: string;
     created_at?: string;
     created_by?: string;
-    creator_id?: string;
     description?: string;
-    house?: string;
-    instructions?: string;
-    is_active?: string;
-    mythology_id?: string;
-    participant_count?: string;
-    scenes_id?: string;
-    scheduled_for?: string;
+    difficulty?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
+    name?: string;
+    participant_limit?: string;
+    scene_type?: string;
     slug?: string;
-    title?: string;
-    type?: string;
+    spawn_rules?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

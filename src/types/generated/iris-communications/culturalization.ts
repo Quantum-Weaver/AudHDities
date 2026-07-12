@@ -2,11 +2,12 @@
 // FILE: types/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.543Z
+// GENERATED: 2026-07-10T18:14:59.345Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -16,10 +17,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CurrencyPositionType = Enums<'currency_position_type'>;
-export type DateFormatType = Enums<'date_format_type'>;
-export type MeasurementSystemType = Enums<'measurement_system_type'>;
-export type TimeFormatType = Enums<'time_format_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type CulturalizationRow = Tables<'culturalization'>;
 export type CulturalizationInsert = TablesInsert<'culturalization'>;
@@ -33,22 +31,21 @@ export type CulturalizationUpdate = TablesUpdate<'culturalization'>;
  * Public view of culturalization
  */
 export interface PublicCulturalization {
-  created_at: string | null;
+  communication_style: string | null;
+  created_at: string;
   created_by: string | null;
-  culturalization_id: string;
-  currency_code: string | null;
-  currency_position: CurrencyPositionType | null;
-  currency_symbol: string | null;
-  date_format: DateFormatType | null;
-  decimal_separator: string | null;
-  first_day_of_week: number | null;
-  measurement_system: MeasurementSystemType | null;
-  region_id: string;
-  thousands_separator: string | null;
-  time_format: TimeFormatType | null;
-  timezone: string | null;
-  updated_at: string | null;
+  customs: Json | null;
+  description: string | null;
+  id: string;
+  is_default: boolean;
+  language_id: string | null;
+  name: string;
+  region_code: string | null;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
+  visual_preferences: Json | null;
 }
 
 /**
@@ -56,20 +53,21 @@ export interface PublicCulturalization {
  * All fields are optional for partial updates
  */
 export interface CulturalizationFormData {
-  created_at?: string | null;
+  communication_style?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  culturalization_id?: string;
-  currency_code?: string | null;
-  currency_symbol?: string | null;
-  date_format?: DateFormatType | null;
-  decimal_separator?: string | null;
-  first_day_of_week?: number | null;
-  region_id?: string;
-  thousands_separator?: string | null;
-  time_format?: TimeFormatType | null;
-  timezone?: string | null;
-  updated_at?: string | null;
+  customs?: Json | null;
+  description?: string | null;
+  id?: string;
+  is_default?: boolean;
+  language_id?: string | null;
+  name?: string;
+  region_code?: string | null;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
+  visual_preferences?: Json | null;
 }
 
 /**
@@ -78,22 +76,21 @@ export interface CulturalizationFormData {
 export interface CulturalizationValidationResult {
   valid: boolean;
   errors: {
+    communication_style?: string;
     created_at?: string;
     created_by?: string;
-    culturalization_id?: string;
-    currency_code?: string;
-    currency_position?: string;
-    currency_symbol?: string;
-    date_format?: string;
-    decimal_separator?: string;
-    first_day_of_week?: string;
-    measurement_system?: string;
-    region_id?: string;
-    thousands_separator?: string;
-    time_format?: string;
-    timezone?: string;
+    customs?: string;
+    description?: string;
+    id?: string;
+    is_default?: string;
+    language_id?: string;
+    name?: string;
+    region_code?: string;
+    slug?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
+    visual_preferences?: string;
   };
 }
 

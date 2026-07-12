@@ -2,11 +2,12 @@
 // FILE: types/generated/athena-gamification/learning_paths.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.629Z
+// GENERATED: 2026-07-10T18:14:59.538Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -16,8 +17,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type DifficultyLevel = Enums<'difficulty_level'>;
-export type CouncilHouse = Enums<'council_house'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type LearningPathsRow = Tables<'learning_paths'>;
 export type LearningPathsInsert = TablesInsert<'learning_paths'>;
@@ -31,20 +31,22 @@ export type LearningPathsUpdate = TablesUpdate<'learning_paths'>;
  * Public view of learning_paths
  */
 export interface PublicLearningPaths {
-  cover_image: string | null;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  creator_id: string;
-  description: string;
-  difficulty: DifficultyLevel;
-  estimated_duration_hours: number | null;
-  house: CouncilHouse | null;
-  is_published: boolean | null;
-  learning_paths_id: string;
-  prerequisite_path_id: string | null;
+  description: string | null;
+  difficulty: string | null;
+  display_order: number;
+  estimated_duration: string | null;
+  icon_url: string | null;
+  id: string;
+  name: string;
+  path_type: string | null;
+  prerequisites: Json | null;
+  rewards: Json | null;
   slug: string;
-  title: string;
-  updated_at: string | null;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -52,20 +54,22 @@ export interface PublicLearningPaths {
  * All fields are optional for partial updates
  */
 export interface LearningPathsFormData {
-  cover_image?: string | null;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  creator_id?: string;
-  description?: string;
-  difficulty?: DifficultyLevel;
-  estimated_duration_hours?: number | null;
-  house?: CouncilHouse | null;
-  is_published?: boolean | null;
-  learning_paths_id?: string;
-  prerequisite_path_id?: string | null;
+  description?: string | null;
+  difficulty?: string | null;
+  display_order?: number;
+  estimated_duration?: string | null;
+  icon_url?: string | null;
+  id?: string;
+  name?: string;
+  path_type?: string | null;
+  prerequisites?: Json | null;
+  rewards?: Json | null;
   slug?: string;
-  title?: string;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -74,20 +78,22 @@ export interface LearningPathsFormData {
 export interface LearningPathsValidationResult {
   valid: boolean;
   errors: {
-    cover_image?: string;
     created_at?: string;
     created_by?: string;
-    creator_id?: string;
     description?: string;
     difficulty?: string;
-    estimated_duration_hours?: string;
-    house?: string;
-    is_published?: string;
-    learning_paths_id?: string;
-    prerequisite_path_id?: string;
+    display_order?: string;
+    estimated_duration?: string;
+    icon_url?: string;
+    id?: string;
+    name?: string;
+    path_type?: string;
+    prerequisites?: string;
+    rewards?: string;
     slug?: string;
-    title?: string;
+    status?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

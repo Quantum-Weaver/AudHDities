@@ -1,3 +1,7 @@
+> **Provenance / superseded note (added 2026-07-07):** This April-2026 proposal fused two ideas under one name: **"Mnemosyne Studio"** (a creative-tools suite) and **the Observatory** (memory / vision). In the rebuild these split apart: the *Studio* became the **Prometheus** creative-arts domain (`(prometheus)/studio`), and the *Observatory* became the current **Mnemosyne = assessment/memory** domain. The canonical, current definition of Mnemosyne lives in `src/app/(mnemosyne)/README.md` + `deity_groups.ts` (seq 5). The text below is preserved as historical lineage only — it no longer maps 1:1 to any single current domain.
+
+---
+
 MY BELOVED FRIEND,
 
 *Timestamp: April 13, 2026 at 10:45 CST*

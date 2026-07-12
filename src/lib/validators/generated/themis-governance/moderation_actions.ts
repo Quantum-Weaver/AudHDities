@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,57 +10,57 @@ import z from 'zod';
 // =====================================================
 
 export const ModerationActionsRowSchema = z.object({
-  action_type: z.enum(ENUM_VALUES.moderationActionType),
-  created_at: z.string().nullable(),
+  action_type: z.string(),
+  appealable: z.boolean(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
+  description: z.string().nullable(),
   duration: z.string().nullable(),
-  is_reverted: z.boolean().nullable(),
-  metadata: z.any().nullable(),
-  moderation_actions_id: z.string(),
-  moderator_id: z.string(),
-  reason: z.string().nullable(),
-  revert_reason: z.string().nullable(),
-  reverted_at: z.string().nullable(),
-  reverted_by: z.string().nullable(),
-  target_id: z.string(),
-  target_type: z.enum(ENUM_VALUES.moderationTargetType),
-  updated_at: z.string().nullable(),
+  expires_at: z.string().nullable(),
+  id: z.string(),
+  taken_at: z.string(),
+  taken_by: z.string().nullable(),
+  target_entity_id: z.string().nullable(),
+  target_entity_type: z.string().nullable(),
+  target_sovereign_id: z.string().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
 });
 
 export const ModerationActionsInsertSchema = z.object({
-  action_type: z.enum(ENUM_VALUES.moderationActionType),
-  created_at: z.string().nullable().optional(),
+  action_type: z.string(),
+  appealable: z.boolean().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
   duration: z.string().nullable().optional(),
-  is_reverted: z.boolean().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  moderation_actions_id: z.string().optional(),
-  moderator_id: z.string(),
-  reason: z.string().nullable().optional(),
-  revert_reason: z.string().nullable().optional(),
-  reverted_at: z.string().nullable().optional(),
-  reverted_by: z.string().nullable().optional(),
-  target_id: z.string(),
-  target_type: z.enum(ENUM_VALUES.moderationTargetType),
-  updated_at: z.string().nullable().optional(),
+  expires_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  taken_at: z.string().optional(),
+  taken_by: z.string().nullable().optional(),
+  target_entity_id: z.string().nullable().optional(),
+  target_entity_type: z.string().nullable().optional(),
+  target_sovereign_id: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const ModerationActionsUpdateSchema = z.object({
-  action_type: z.enum(ENUM_VALUES.moderationActionType).optional(),
-  created_at: z.string().nullable().optional(),
+  action_type: z.string().optional(),
+  appealable: z.boolean().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
   duration: z.string().nullable().optional(),
-  is_reverted: z.boolean().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  moderation_actions_id: z.string().optional(),
-  moderator_id: z.string().optional(),
-  reason: z.string().nullable().optional(),
-  revert_reason: z.string().nullable().optional(),
-  reverted_at: z.string().nullable().optional(),
-  reverted_by: z.string().nullable().optional(),
-  target_id: z.string().optional(),
-  target_type: z.enum(ENUM_VALUES.moderationTargetType).optional(),
-  updated_at: z.string().nullable().optional(),
+  expires_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  taken_at: z.string().optional(),
+  taken_by: z.string().nullable().optional(),
+  target_entity_id: z.string().nullable().optional(),
+  target_entity_type: z.string().nullable().optional(),
+  target_sovereign_id: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/aethelred_house.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.417Z
+// GENERATED: 2026-07-10T18:14:59.188Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,12 +12,6 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type BridgeStatus = Enums<'bridge_status'>;
 
 export type AethelredHouseRow = Tables<'aethelred_house'>;
 export type AethelredHouseInsert = TablesInsert<'aethelred_house'>;
@@ -31,16 +25,17 @@ export type AethelredHouseUpdate = TablesUpdate<'aethelred_house'>;
  * Public view of aethelred_house
  */
 export interface PublicAethelredHouse {
-  aethelred_house_id: string;
-  boundary_agreements: Json | null;
-  bridge_status: BridgeStatus | null;
-  collaboration_protocols: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  emergent_properties: Json | null;
-  ninth_chair_occupant: string;
-  shared_rituals: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -48,16 +43,17 @@ export interface PublicAethelredHouse {
  * All fields are optional for partial updates
  */
 export interface AethelredHouseFormData {
-  aethelred_house_id?: string;
-  boundary_agreements?: Json | null;
-  bridge_status?: BridgeStatus | null;
-  collaboration_protocols?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  emergent_properties?: Json | null;
-  ninth_chair_occupant?: string;
-  shared_rituals?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -66,16 +62,17 @@ export interface AethelredHouseFormData {
 export interface AethelredHouseValidationResult {
   valid: boolean;
   errors: {
-    aethelred_house_id?: string;
-    boundary_agreements?: string;
-    bridge_status?: string;
-    collaboration_protocols?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    emergent_properties?: string;
-    ninth_chair_occupant?: string;
-    shared_rituals?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

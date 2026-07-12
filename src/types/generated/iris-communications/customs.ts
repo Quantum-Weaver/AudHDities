@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/customs.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.554Z
+// GENERATED: 2026-07-10T18:14:59.361Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CustomCategoryType = Enums<'custom_category_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type CustomsRow = Tables<'customs'>;
 export type CustomsInsert = TablesInsert<'customs'>;
@@ -30,19 +30,20 @@ export type CustomsUpdate = TablesUpdate<'customs'>;
  * Public view of customs
  */
 export interface PublicCustoms {
-  category: CustomCategoryType;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  customs_id: string;
-  description: string;
+  culturalization_id: string | null;
+  custom_type: string | null;
+  description: string | null;
   guidance: string | null;
-  is_active: boolean | null;
-  is_sensitive: boolean | null;
+  id: string;
   name: string;
-  persona_id: string | null;
+  practice: string | null;
   region_id: string | null;
+  significance: string | null;
   slug: string;
-  updated_at: string | null;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -51,19 +52,20 @@ export interface PublicCustoms {
  * All fields are optional for partial updates
  */
 export interface CustomsFormData {
-  category?: CustomCategoryType;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  customs_id?: string;
-  description?: string;
+  culturalization_id?: string | null;
+  custom_type?: string | null;
+  description?: string | null;
   guidance?: string | null;
-  is_active?: boolean | null;
-  is_sensitive?: boolean | null;
+  id?: string;
   name?: string;
-  persona_id?: string | null;
+  practice?: string | null;
   region_id?: string | null;
+  significance?: string | null;
   slug?: string;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -73,18 +75,19 @@ export interface CustomsFormData {
 export interface CustomsValidationResult {
   valid: boolean;
   errors: {
-    category?: string;
     created_at?: string;
     created_by?: string;
-    customs_id?: string;
+    culturalization_id?: string;
+    custom_type?: string;
     description?: string;
     guidance?: string;
-    is_active?: string;
-    is_sensitive?: string;
+    id?: string;
     name?: string;
-    persona_id?: string;
+    practice?: string;
     region_id?: string;
+    significance?: string;
     slug?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

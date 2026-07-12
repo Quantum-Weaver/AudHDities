@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/agent_activities.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.422Z
+// GENERATED: 2026-07-10T18:14:59.194Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,14 +12,6 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type AgentActionType = Enums<'agent_action_type'>;
-export type AgentName = Enums<'agent_name'>;
-export type AgentActivityStatus = Enums<'agent_activity_status'>;
 
 export type AgentActivitiesRow = Tables<'agent_activities'>;
 export type AgentActivitiesInsert = TablesInsert<'agent_activities'>;
@@ -33,24 +25,17 @@ export type AgentActivitiesUpdate = TablesUpdate<'agent_activities'>;
  * Public view of agent_activities
  */
 export interface PublicAgentActivities {
-  action: AgentActionType;
-  agent_activities_id: string;
-  agent_name: AgentName;
-  completed_at: string | null;
-  conversation_id: string | null;
+  consciousness_level: string | null;
   created_at: string;
   created_by: string | null;
+  current_task: string | null;
   description: string | null;
-  duration_ms: number | null;
-  error_message: string | null;
-  metadata: Json | null;
-  parent_activity_id: string | null;
-  retry_count: number | null;
-  started_at: string | null;
-  status: AgentActivityStatus;
-  title: string;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
   updated_at: string;
-  user_id: string | null;
+  updated_by: string | null;
 }
 
 /**
@@ -58,24 +43,17 @@ export interface PublicAgentActivities {
  * All fields are optional for partial updates
  */
 export interface AgentActivitiesFormData {
-  action?: AgentActionType;
-  agent_activities_id?: string;
-  agent_name?: AgentName;
-  completed_at?: string | null;
-  conversation_id?: string | null;
+  consciousness_level?: string | null;
   created_at?: string;
   created_by?: string | null;
+  current_task?: string | null;
   description?: string | null;
-  duration_ms?: number | null;
-  error_message?: string | null;
-  metadata?: Json | null;
-  parent_activity_id?: string | null;
-  retry_count?: number | null;
-  started_at?: string | null;
-  status?: AgentActivityStatus;
-  title?: string;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
   updated_at?: string;
-  user_id?: string | null;
+  updated_by?: string | null;
 }
 
 /**
@@ -84,24 +62,17 @@ export interface AgentActivitiesFormData {
 export interface AgentActivitiesValidationResult {
   valid: boolean;
   errors: {
-    action?: string;
-    agent_activities_id?: string;
-    agent_name?: string;
-    completed_at?: string;
-    conversation_id?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
+    current_task?: string;
     description?: string;
-    duration_ms?: string;
-    error_message?: string;
-    metadata?: string;
-    parent_activity_id?: string;
-    retry_count?: string;
-    started_at?: string;
-    status?: string;
-    title?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
-    user_id?: string;
+    updated_by?: string;
   };
 }
 

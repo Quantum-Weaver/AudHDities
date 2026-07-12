@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,51 +10,48 @@ import z from 'zod';
 // =====================================================
 
 export const AnalyticsRowSchema = z.object({
-  analytics_id: z.string(),
-  created_at: z.string().nullable(),
-  created_by: z.string().nullable(),
-  event_category: z.enum(ENUM_VALUES.analyticsCategory),
-  event_name: z.string(),
-  ip_address: z.any(),
-  metadata: z.any().nullable(),
-  session_id: z.string().nullable(),
-  updated_at: z.string().nullable(),
-  updated_by: z.string().nullable(),
-  user_agent: z.string().nullable(),
-  user_id: z.string().nullable(),
-  value: z.number().nullable(),
+  created_at: z.string(),
+  dimension: z.string().nullable(),
+  dimension_value: z.string().nullable(),
+  id: z.string(),
+  metric_name: z.string(),
+  metric_unit: z.string().nullable(),
+  metric_value: z.number(),
+  notes: z.string().nullable(),
+  period: z.string(),
+  period_end: z.string().nullable(),
+  period_start: z.string().nullable(),
+  source_table: z.string().nullable(),
 });
 
 export const AnalyticsInsertSchema = z.object({
-  analytics_id: z.string().optional(),
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
-  event_category: z.enum(ENUM_VALUES.analyticsCategory),
-  event_name: z.string(),
-  ip_address: z.any().optional(),
-  metadata: z.any().nullable().optional(),
-  session_id: z.string().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
-  updated_by: z.string().nullable().optional(),
-  user_agent: z.string().nullable().optional(),
-  user_id: z.string().nullable().optional(),
-  value: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  dimension: z.string().nullable().optional(),
+  dimension_value: z.string().nullable().optional(),
+  id: z.string().optional(),
+  metric_name: z.string(),
+  metric_unit: z.string().nullable().optional(),
+  metric_value: z.number(),
+  notes: z.string().nullable().optional(),
+  period: z.string().optional(),
+  period_end: z.string().nullable().optional(),
+  period_start: z.string().nullable().optional(),
+  source_table: z.string().nullable().optional(),
 });
 
 export const AnalyticsUpdateSchema = z.object({
-  analytics_id: z.string().optional(),
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
-  event_category: z.enum(ENUM_VALUES.analyticsCategory).optional(),
-  event_name: z.string().optional(),
-  ip_address: z.any().optional(),
-  metadata: z.any().nullable().optional(),
-  session_id: z.string().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
-  updated_by: z.string().nullable().optional(),
-  user_agent: z.string().nullable().optional(),
-  user_id: z.string().nullable().optional(),
-  value: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  dimension: z.string().nullable().optional(),
+  dimension_value: z.string().nullable().optional(),
+  id: z.string().optional(),
+  metric_name: z.string().optional(),
+  metric_unit: z.string().nullable().optional(),
+  metric_value: z.number().optional(),
+  notes: z.string().nullable().optional(),
+  period: z.string().optional(),
+  period_end: z.string().nullable().optional(),
+  period_start: z.string().nullable().optional(),
+  source_table: z.string().nullable().optional(),
 });
 
 // =====================================================

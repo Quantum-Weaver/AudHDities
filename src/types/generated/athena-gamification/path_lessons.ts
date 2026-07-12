@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/path_lessons.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.683Z
+// GENERATED: 2026-07-10T18:14:59.605Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -24,12 +24,13 @@ export type PathLessonsUpdate = TablesUpdate<'path_lessons'>;
  * Public view of path_lessons
  */
 export interface PublicPathLessons {
-  created_at: string | null;
-  created_by: string | null;
+  created_at: string;
+  display_order: number;
+  id: string;
+  is_required: boolean;
   lesson_id: string;
-  order_index: number;
-  path_lessons_id: string;
-  updated_at: string | null;
+  path_id: string;
+  updated_at: string;
 }
 
 /**
@@ -37,12 +38,13 @@ export interface PublicPathLessons {
  * All fields are optional for partial updates
  */
 export interface PathLessonsFormData {
-  created_at?: string | null;
-  created_by?: string | null;
+  created_at?: string;
+  display_order?: number;
+  id?: string;
+  is_required?: boolean;
   lesson_id?: string;
-  order_index?: number;
-  path_lessons_id?: string;
-  updated_at?: string | null;
+  path_id?: string;
+  updated_at?: string;
 }
 
 /**
@@ -52,10 +54,11 @@ export interface PathLessonsValidationResult {
   valid: boolean;
   errors: {
     created_at?: string;
-    created_by?: string;
+    display_order?: string;
+    id?: string;
+    is_required?: string;
     lesson_id?: string;
-    order_index?: string;
-    path_lessons_id?: string;
+    path_id?: string;
     updated_at?: string;
   };
 }

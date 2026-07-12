@@ -1,0 +1,70 @@
+// =====================================================
+// FILE: validators/plant_stages.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import { ENUM_VALUES } from '@/types/supabase/enums';
+import z from 'zod';
+
+// =====================================================
+// PlantStages SCHEMAS
+// =====================================================
+
+export const PlantStagesRowSchema = z.object({
+  animation_url: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  duration_hours: z.number().nullable(),
+  icon_url: z.string().nullable(),
+  id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  stage_order: z.number(),
+  stage_rewards: z.any().nullable(),
+  status: z.enum(ENUM_VALUES.contentStatus),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const PlantStagesInsertSchema = z.object({
+  animation_url: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  duration_hours: z.number().nullable().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
+  name: z.string(),
+  slug: z.string(),
+  stage_order: z.number().optional(),
+  stage_rewards: z.any().nullable().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const PlantStagesUpdateSchema = z.object({
+  animation_url: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  duration_hours: z.number().nullable().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
+  name: z.string().optional(),
+  slug: z.string().optional(),
+  stage_order: z.number().optional(),
+  stage_rewards: z.any().nullable().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type PlantStagesRowInput = z.infer<typeof PlantStagesRowSchema>;
+export type PlantStagesInsertInput = z.infer<typeof PlantStagesInsertSchema>;
+export type PlantStagesUpdateInput = z.infer<typeof PlantStagesUpdateSchema>;

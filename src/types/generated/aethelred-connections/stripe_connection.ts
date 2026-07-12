@@ -2,12 +2,11 @@
 // FILE: types/generated/aethelred-connections/stripe_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.870Z
+// GENERATED: 2026-07-10T18:14:59.846Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -17,8 +16,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type StripeMode = Enums<'stripe_mode'>;
-export type WebhookStatus = Enums<'webhook_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type StripeConnectionRow = Tables<'stripe_connection'>;
 export type StripeConnectionInsert = TablesInsert<'stripe_connection'>;
@@ -32,19 +30,19 @@ export type StripeConnectionUpdate = TablesUpdate<'stripe_connection'>;
  * Public view of stripe_connection
  */
 export interface PublicStripeConnection {
-  account_id: string;
-  connected_accounts: Json | null;
-  created_at: string | null;
+  config_key: string;
+  config_value: string | null;
+  created_at: string;
   created_by: string | null;
-  last_sync_at: string | null;
-  mode: StripeMode | null;
-  operated_by: string | null;
-  payout_settings: Json | null;
-  products_synced: number | null;
-  stripe_connection_id: string;
-  updated_at: string | null;
-  webhook_secret: string | null;
-  webhook_status: WebhookStatus | null;
+  description: string | null;
+  enabled_features: string[] | null;
+  id: string;
+  is_encrypted: boolean;
+  last_verified_at: string | null;
+  status: ContentStatus;
+  stripe_mode: string;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -52,19 +50,19 @@ export interface PublicStripeConnection {
  * All fields are optional for partial updates
  */
 export interface StripeConnectionFormData {
-  account_id?: string;
-  connected_accounts?: Json | null;
-  created_at?: string | null;
+  config_key?: string;
+  config_value?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  last_sync_at?: string | null;
-  mode?: StripeMode | null;
-  operated_by?: string | null;
-  payout_settings?: Json | null;
-  products_synced?: number | null;
-  stripe_connection_id?: string;
-  updated_at?: string | null;
-  webhook_secret?: string | null;
-  webhook_status?: WebhookStatus | null;
+  description?: string | null;
+  enabled_features?: string[] | null;
+  id?: string;
+  is_encrypted?: boolean;
+  last_verified_at?: string | null;
+  status?: ContentStatus;
+  stripe_mode?: string;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -73,19 +71,19 @@ export interface StripeConnectionFormData {
 export interface StripeConnectionValidationResult {
   valid: boolean;
   errors: {
-    account_id?: string;
-    connected_accounts?: string;
+    config_key?: string;
+    config_value?: string;
     created_at?: string;
     created_by?: string;
-    last_sync_at?: string;
-    mode?: string;
-    operated_by?: string;
-    payout_settings?: string;
-    products_synced?: string;
-    stripe_connection_id?: string;
+    description?: string;
+    enabled_features?: string;
+    id?: string;
+    is_encrypted?: string;
+    last_verified_at?: string;
+    status?: string;
+    stripe_mode?: string;
     updated_at?: string;
-    webhook_secret?: string;
-    webhook_status?: string;
+    updated_by?: string;
   };
 }
 

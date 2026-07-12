@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/processes.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T15:31:59.702Z
+// GENERATED: 2026-07-10T18:14:59.652Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -17,8 +17,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type EscalationTarget = Enums<'escalation_target'>;
-export type ProcessType = Enums<'process_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type ProcessesRow = Tables<'processes'>;
 export type ProcessesInsert = TablesInsert<'processes'>;
@@ -32,18 +31,18 @@ export type ProcessesUpdate = TablesUpdate<'processes'>;
  * Public view of processes
  */
 export interface PublicProcesses {
-  created_at: string | null;
-  created_by: string;
+  created_at: string;
+  created_by: string | null;
   description: string | null;
-  escalation_target: EscalationTarget | null;
-  is_active: boolean | null;
+  id: string;
   name: string;
-  process_type: ProcessType;
-  processes_id: string;
+  priority: string;
+  process_type: string | null;
+  related_protocol_id: string | null;
   slug: string;
-  steps: Json;
-  timeout_days: number | null;
-  updated_at: string | null;
+  status: ContentStatus;
+  steps: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -52,17 +51,18 @@ export interface PublicProcesses {
  * All fields are optional for partial updates
  */
 export interface ProcessesFormData {
-  created_at?: string | null;
-  created_by?: string;
+  created_at?: string;
+  created_by?: string | null;
   description?: string | null;
-  is_active?: boolean | null;
+  id?: string;
   name?: string;
-  process_type?: ProcessType;
-  processes_id?: string;
+  priority?: string;
+  process_type?: string | null;
+  related_protocol_id?: string | null;
   slug?: string;
-  steps?: Json;
-  timeout_days?: number | null;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  steps?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -75,14 +75,14 @@ export interface ProcessesValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    escalation_target?: string;
-    is_active?: string;
+    id?: string;
     name?: string;
+    priority?: string;
     process_type?: string;
-    processes_id?: string;
+    related_protocol_id?: string;
     slug?: string;
+    status?: string;
     steps?: string;
-    timeout_days?: string;
     updated_at?: string;
     updated_by?: string;
   };

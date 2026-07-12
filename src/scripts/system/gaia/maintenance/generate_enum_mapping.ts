@@ -24,7 +24,7 @@ const DEITY_PRIORITY: Record<string, number> = {
   'iris-communications': 40,
   'hephaestus-infrastructure': 30,
   'aethelred-connections': 20,
-  'prometheus-meta': 10,
+  'daedalus-meta': 10,
 };
 
 const MANUAL_OVERRIDES: Record<string, string> = {

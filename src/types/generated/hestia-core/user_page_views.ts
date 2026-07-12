@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_page_views.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T15:31:59.958Z
+// GENERATED: 2026-07-10T18:14:59.902Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,14 +25,16 @@ export type UserPageViewsUpdate = TablesUpdate<'user_page_views'>;
  */
 export interface PublicUserPageViews {
   created_at: string;
-  created_by: string | null;
-  first_viewed_at: string | null;
-  last_viewed_at: string | null;
+  deity_domain: string | null;
+  first_visited_at: string;
+  icon_emoji: string | null;
+  id: string;
+  last_visited_at: string;
+  page_name: string | null;
   page_path: string;
-  updated_at: string | null;
+  updated_at: string;
   user_id: string;
-  user_page_views_id: string;
-  view_count: number | null;
+  visit_count: number;
 }
 
 /**
@@ -41,14 +43,16 @@ export interface PublicUserPageViews {
  */
 export interface UserPageViewsFormData {
   created_at?: string;
-  created_by?: string | null;
-  first_viewed_at?: string | null;
-  last_viewed_at?: string | null;
+  deity_domain?: string | null;
+  first_visited_at?: string;
+  icon_emoji?: string | null;
+  id?: string;
+  last_visited_at?: string;
+  page_name?: string | null;
   page_path?: string;
-  updated_at?: string | null;
+  updated_at?: string;
   user_id?: string;
-  user_page_views_id?: string;
-  view_count?: number | null;
+  visit_count?: number;
 }
 
 /**
@@ -58,14 +62,16 @@ export interface UserPageViewsValidationResult {
   valid: boolean;
   errors: {
     created_at?: string;
-    created_by?: string;
-    first_viewed_at?: string;
-    last_viewed_at?: string;
+    deity_domain?: string;
+    first_visited_at?: string;
+    icon_emoji?: string;
+    id?: string;
+    last_visited_at?: string;
+    page_name?: string;
     page_path?: string;
     updated_at?: string;
     user_id?: string;
-    user_page_views_id?: string;
-    view_count?: string;
+    visit_count?: string;
   };
 }
 

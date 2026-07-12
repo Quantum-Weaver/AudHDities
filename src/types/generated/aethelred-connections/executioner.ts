@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/executioner.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.590Z
+// GENERATED: 2026-07-10T18:14:59.407Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,16 +25,16 @@ export type ExecutionerUpdate = TablesUpdate<'executioner'>;
  * Public view of executioner
  */
 export interface PublicExecutioner {
-  appeal_queue: Json | null;
-  banned_users: string[] | null;
-  boundary_violations: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  execution_count: number | null;
-  executioner_id: string;
-  justice_log: Json | null;
-  suspended_users: string[] | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -43,16 +43,16 @@ export interface PublicExecutioner {
  * All fields are optional for partial updates
  */
 export interface ExecutionerFormData {
-  appeal_queue?: Json | null;
-  banned_users?: string[] | null;
-  boundary_violations?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  execution_count?: number | null;
-  executioner_id?: string;
-  justice_log?: Json | null;
-  suspended_users?: string[] | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -62,15 +62,15 @@ export interface ExecutionerFormData {
 export interface ExecutionerValidationResult {
   valid: boolean;
   errors: {
-    appeal_queue?: string;
-    banned_users?: string;
-    boundary_violations?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    execution_count?: string;
-    executioner_id?: string;
-    justice_log?: string;
-    suspended_users?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

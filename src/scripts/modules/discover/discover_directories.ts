@@ -33,7 +33,7 @@ export interface GenerationPaths {
 // Directories we NEVER touch (for exclusion)
 export const PROTECTED_DIRECTORIES: string[] = [
   'lib/api',
-  'lib/prometheus',
+  'lib/daedalus',
   'lib/stripe',
   'lib/supabase',
   'lib/ziggy',

@@ -1,6 +1,6 @@
 // ============================================================================
 // GENERATED TAILWIND CONFIG - DO NOT EDIT DIRECTLY
-// Generated: 2026-04-26T20:39:28.521Z
+// Generated: 2026-07-09T20:51:50.162Z
 // Source: colors.ts, motion.ts, dimensions.ts, typography.ts, effects.ts
 // ============================================================================
 

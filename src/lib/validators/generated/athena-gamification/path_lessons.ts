@@ -10,30 +10,33 @@ import z from 'zod';
 // =====================================================
 
 export const PathLessonsRowSchema = z.object({
-  created_at: z.string().nullable(),
-  created_by: z.string().nullable(),
+  created_at: z.string(),
+  display_order: z.number(),
+  id: z.string(),
+  is_required: z.boolean(),
   lesson_id: z.string(),
-  order_index: z.number(),
-  path_lessons_id: z.string(),
-  updated_at: z.string().nullable(),
+  path_id: z.string(),
+  updated_at: z.string(),
 });
 
 export const PathLessonsInsertSchema = z.object({
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  display_order: z.number().optional(),
+  id: z.string().optional(),
+  is_required: z.boolean().optional(),
   lesson_id: z.string(),
-  order_index: z.number(),
-  path_lessons_id: z.string(),
-  updated_at: z.string().nullable().optional(),
+  path_id: z.string(),
+  updated_at: z.string().optional(),
 });
 
 export const PathLessonsUpdateSchema = z.object({
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  display_order: z.number().optional(),
+  id: z.string().optional(),
+  is_required: z.boolean().optional(),
   lesson_id: z.string().optional(),
-  order_index: z.number().optional(),
-  path_lessons_id: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  path_id: z.string().optional(),
+  updated_at: z.string().optional(),
 });
 
 // =====================================================

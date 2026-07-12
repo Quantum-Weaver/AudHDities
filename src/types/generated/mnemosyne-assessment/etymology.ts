@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/etymology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-05-01T15:31:59.585Z
+// GENERATED: 2026-07-10T18:14:59.398Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -24,23 +24,25 @@ export type EtymologyUpdate = TablesUpdate<'etymology'>;
  * Public view of etymology
  */
 export interface PublicEtymology {
-  approved_at: string | null;
-  approved_by: string | null;
-  contributor_id: string | null;
-  created_at: string | null;
+  atom_id: string | null;
+  atom_word: string | null;
+  combining_form: string | null;
+  completion_progress: number | null;
+  created_at: string;
   created_by: string | null;
-  cultural_context: string | null;
-  current_meaning: string;
-  etymology_id: string;
-  is_approved: boolean | null;
-  language: string;
-  original_meaning: string;
-  related_words: string[] | null;
-  root: string | null;
-  semantic_shift: string | null;
-  updated_at: string | null;
+  etymon: string | null;
+  evolution_notes: string | null;
+  historical_meaning: string | null;
+  id: string;
+  keyword_id: string;
+  morpheme_breakdown: string | null;
+  prefix: string | null;
+  root_language: string | null;
+  root_word: string | null;
+  sanctuary_meaning: string | null;
+  suffix: string | null;
+  updated_at: string;
   updated_by: string | null;
-  word: string;
 }
 
 /**
@@ -48,23 +50,25 @@ export interface PublicEtymology {
  * All fields are optional for partial updates
  */
 export interface EtymologyFormData {
-  approved_at?: string | null;
-  approved_by?: string | null;
-  contributor_id?: string | null;
-  created_at?: string | null;
+  atom_id?: string | null;
+  atom_word?: string | null;
+  combining_form?: string | null;
+  completion_progress?: number | null;
+  created_at?: string;
   created_by?: string | null;
-  cultural_context?: string | null;
-  current_meaning?: string;
-  etymology_id?: string;
-  is_approved?: boolean | null;
-  language?: string;
-  original_meaning?: string;
-  related_words?: string[] | null;
-  root?: string | null;
-  semantic_shift?: string | null;
-  updated_at?: string | null;
+  etymon?: string | null;
+  evolution_notes?: string | null;
+  historical_meaning?: string | null;
+  id?: string;
+  keyword_id?: string;
+  morpheme_breakdown?: string | null;
+  prefix?: string | null;
+  root_language?: string | null;
+  root_word?: string | null;
+  sanctuary_meaning?: string | null;
+  suffix?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
-  word?: string;
 }
 
 /**
@@ -73,23 +77,25 @@ export interface EtymologyFormData {
 export interface EtymologyValidationResult {
   valid: boolean;
   errors: {
-    approved_at?: string;
-    approved_by?: string;
-    contributor_id?: string;
+    atom_id?: string;
+    atom_word?: string;
+    combining_form?: string;
+    completion_progress?: string;
     created_at?: string;
     created_by?: string;
-    cultural_context?: string;
-    current_meaning?: string;
-    etymology_id?: string;
-    is_approved?: string;
-    language?: string;
-    original_meaning?: string;
-    related_words?: string;
-    root?: string;
-    semantic_shift?: string;
+    etymon?: string;
+    evolution_notes?: string;
+    historical_meaning?: string;
+    id?: string;
+    keyword_id?: string;
+    morpheme_breakdown?: string;
+    prefix?: string;
+    root_language?: string;
+    root_word?: string;
+    sanctuary_meaning?: string;
+    suffix?: string;
     updated_at?: string;
     updated_by?: string;
-    word?: string;
   };
 }
 

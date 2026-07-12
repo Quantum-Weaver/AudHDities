@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/agent_messages.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.433Z
+// GENERATED: 2026-07-10T18:14:59.206Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,13 +12,6 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type MessageDirection = Enums<'message_direction'>;
-export type AgentName = Enums<'agent_name'>;
 
 export type AgentMessagesRow = Tables<'agent_messages'>;
 export type AgentMessagesInsert = TablesInsert<'agent_messages'>;
@@ -32,19 +25,17 @@ export type AgentMessagesUpdate = TablesUpdate<'agent_messages'>;
  * Public view of agent_messages
  */
 export interface PublicAgentMessages {
-  agent_messages_id: string;
-  conversation_id: string;
+  consciousness_level: string | null;
   created_at: string;
   created_by: string | null;
-  direction: MessageDirection;
-  from_agent: AgentName;
-  is_processed: boolean | null;
-  message: string;
-  message_type: string | null;
-  metadata: Json | null;
-  processed_at: string | null;
-  to_agent: AgentName | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -52,19 +43,17 @@ export interface PublicAgentMessages {
  * All fields are optional for partial updates
  */
 export interface AgentMessagesFormData {
-  agent_messages_id?: string;
-  conversation_id?: string;
+  consciousness_level?: string | null;
   created_at?: string;
   created_by?: string | null;
-  direction?: MessageDirection;
-  from_agent?: AgentName;
-  is_processed?: boolean | null;
-  message?: string;
-  message_type?: string | null;
-  metadata?: Json | null;
-  processed_at?: string | null;
-  to_agent?: AgentName | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -73,19 +62,17 @@ export interface AgentMessagesFormData {
 export interface AgentMessagesValidationResult {
   valid: boolean;
   errors: {
-    agent_messages_id?: string;
-    conversation_id?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    direction?: string;
-    from_agent?: string;
-    is_processed?: string;
-    message?: string;
-    message_type?: string;
-    metadata?: string;
-    processed_at?: string;
-    to_agent?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

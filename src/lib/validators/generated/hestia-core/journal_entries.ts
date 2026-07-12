@@ -3,6 +3,7 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
+import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -10,45 +11,48 @@ import z from 'zod';
 // =====================================================
 
 export const JournalEntriesRowSchema = z.object({
-  content: z.string(),
-  created_at: z.string().nullable(),
-  created_by: z.string().nullable(),
-  journal_entries_id: z.string(),
+  body: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string(),
+  entry_date: z.string(),
+  id: z.string(),
   mood: z.string().nullable(),
-  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus),
   tags: z.any().nullable(),
-  title: z.string(),
-  updated_at: z.string().nullable(),
+  title: z.string().nullable(),
+  updated_at: z.string(),
   updated_by: z.string().nullable(),
-  user_id: z.string(),
+  visibility: z.string(),
 });
 
 export const JournalEntriesInsertSchema = z.object({
-  content: z.string(),
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
-  journal_entries_id: z.string().optional(),
+  body: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string(),
+  entry_date: z.string().optional(),
+  id: z.string().optional(),
   mood: z.string().nullable().optional(),
-  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
   tags: z.any().nullable().optional(),
-  title: z.string(),
-  updated_at: z.string().nullable().optional(),
+  title: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
-  user_id: z.string(),
+  visibility: z.string().optional(),
 });
 
 export const JournalEntriesUpdateSchema = z.object({
-  content: z.string().optional(),
-  created_at: z.string().nullable().optional(),
-  created_by: z.string().nullable().optional(),
-  journal_entries_id: z.string().optional(),
+  body: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().optional(),
+  entry_date: z.string().optional(),
+  id: z.string().optional(),
   mood: z.string().nullable().optional(),
-  slug: z.string().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
   tags: z.any().nullable().optional(),
-  title: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  title: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
-  user_id: z.string().optional(),
+  visibility: z.string().optional(),
 });
 
 // =====================================================

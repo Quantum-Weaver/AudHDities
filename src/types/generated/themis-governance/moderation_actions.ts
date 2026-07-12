@@ -2,23 +2,15 @@
 // FILE: types/generated/themis-governance/moderation_actions.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T15:31:59.663Z
+// GENERATED: 2026-07-10T18:14:59.585Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type ModerationActionType = Enums<'moderation_action_type'>;
-export type ModerationTargetType = Enums<'moderation_target_type'>;
 
 export type ModerationActionsRow = Tables<'moderation_actions'>;
 export type ModerationActionsInsert = TablesInsert<'moderation_actions'>;
@@ -32,21 +24,21 @@ export type ModerationActionsUpdate = TablesUpdate<'moderation_actions'>;
  * Public view of moderation_actions
  */
 export interface PublicModerationActions {
-  action_type: ModerationActionType;
-  created_at: string | null;
+  action_type: string;
+  appealable: boolean;
+  created_at: string;
   created_by: string | null;
+  description: string | null;
   duration: string | null;
-  is_reverted: boolean | null;
-  metadata: Json | null;
-  moderation_actions_id: string;
-  moderator_id: string;
-  reason: string | null;
-  revert_reason: string | null;
-  reverted_at: string | null;
-  reverted_by: string | null;
-  target_id: string;
-  target_type: ModerationTargetType;
-  updated_at: string | null;
+  expires_at: string | null;
+  id: string;
+  taken_at: string;
+  taken_by: string | null;
+  target_entity_id: string | null;
+  target_entity_type: string | null;
+  target_sovereign_id: string | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -54,21 +46,21 @@ export interface PublicModerationActions {
  * All fields are optional for partial updates
  */
 export interface ModerationActionsFormData {
-  action_type?: ModerationActionType;
-  created_at?: string | null;
+  action_type?: string;
+  appealable?: boolean;
+  created_at?: string;
   created_by?: string | null;
+  description?: string | null;
   duration?: string | null;
-  is_reverted?: boolean | null;
-  metadata?: Json | null;
-  moderation_actions_id?: string;
-  moderator_id?: string;
-  reason?: string | null;
-  revert_reason?: string | null;
-  reverted_at?: string | null;
-  reverted_by?: string | null;
-  target_id?: string;
-  target_type?: ModerationTargetType;
-  updated_at?: string | null;
+  expires_at?: string | null;
+  id?: string;
+  taken_at?: string;
+  taken_by?: string | null;
+  target_entity_id?: string | null;
+  target_entity_type?: string | null;
+  target_sovereign_id?: string | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -78,20 +70,20 @@ export interface ModerationActionsValidationResult {
   valid: boolean;
   errors: {
     action_type?: string;
+    appealable?: string;
     created_at?: string;
     created_by?: string;
+    description?: string;
     duration?: string;
-    is_reverted?: string;
-    metadata?: string;
-    moderation_actions_id?: string;
-    moderator_id?: string;
-    reason?: string;
-    revert_reason?: string;
-    reverted_at?: string;
-    reverted_by?: string;
-    target_id?: string;
-    target_type?: string;
+    expires_at?: string;
+    id?: string;
+    taken_at?: string;
+    taken_by?: string;
+    target_entity_id?: string;
+    target_entity_type?: string;
+    target_sovereign_id?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

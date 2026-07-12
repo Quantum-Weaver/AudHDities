@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/residual_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-05-01T15:31:59.817Z
+// GENERATED: 2026-07-10T18:14:59.750Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -24,16 +24,22 @@ export type ResidualPoolUpdate = TablesUpdate<'residual_pool'>;
  * Public view of residual_pool
  */
 export interface PublicResidualPool {
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  distributed_amount_cents: number | null;
-  distributed_at: string | null;
-  product_id: string;
-  remaining_amount_cents: number | null;
-  residual_pool_id: string;
-  sale_id: string;
-  total_amount_cents: number;
-  updated_at: string | null;
+  current_balance: number;
+  description: string | null;
+  distribution_schedule: string;
+  icon_emoji: string | null;
+  id: string;
+  is_active: boolean;
+  last_distribution_amount: number | null;
+  last_distribution_at: string | null;
+  last_distribution_recipients: number | null;
+  name: string;
+  total_contributed_lifetime: number;
+  total_distributed_lifetime: number;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -41,16 +47,22 @@ export interface PublicResidualPool {
  * All fields are optional for partial updates
  */
 export interface ResidualPoolFormData {
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  distributed_amount_cents?: number | null;
-  distributed_at?: string | null;
-  product_id?: string;
-  remaining_amount_cents?: number | null;
-  residual_pool_id?: string;
-  sale_id?: string;
-  total_amount_cents?: number;
-  updated_at?: string | null;
+  current_balance?: number;
+  description?: string | null;
+  distribution_schedule?: string;
+  icon_emoji?: string | null;
+  id?: string;
+  is_active?: boolean;
+  last_distribution_amount?: number | null;
+  last_distribution_at?: string | null;
+  last_distribution_recipients?: number | null;
+  name?: string;
+  total_contributed_lifetime?: number;
+  total_distributed_lifetime?: number;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -61,14 +73,20 @@ export interface ResidualPoolValidationResult {
   errors: {
     created_at?: string;
     created_by?: string;
-    distributed_amount_cents?: string;
-    distributed_at?: string;
-    product_id?: string;
-    remaining_amount_cents?: string;
-    residual_pool_id?: string;
-    sale_id?: string;
-    total_amount_cents?: string;
+    current_balance?: string;
+    description?: string;
+    distribution_schedule?: string;
+    icon_emoji?: string;
+    id?: string;
+    is_active?: string;
+    last_distribution_amount?: string;
+    last_distribution_at?: string;
+    last_distribution_recipients?: string;
+    name?: string;
+    total_contributed_lifetime?: string;
+    total_distributed_lifetime?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

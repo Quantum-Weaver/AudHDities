@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/translations.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.933Z
+// GENERATED: 2026-07-10T18:14:59.892Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type TranslatableType = Enums<'translatable_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type TranslationsRow = Tables<'translations'>;
 export type TranslationsInsert = TablesInsert<'translations'>;
@@ -30,19 +30,22 @@ export type TranslationsUpdate = TablesUpdate<'translations'>;
  * Public view of translations
  */
 export interface PublicTranslations {
-  approved_by: string | null;
-  created_at: string | null;
+  context: string | null;
+  created_at: string;
   created_by: string | null;
-  field_name: string;
-  is_approved: boolean | null;
-  language_id: string;
-  translatable_id: string;
-  translatable_type: TranslatableType;
-  translation: string;
-  translations_id: string;
-  translator_id: string | null;
-  updated_at: string | null;
+  id: string;
+  is_machine_translated: boolean;
+  is_verified: boolean;
+  language_id: string | null;
+  namespace: string | null;
+  source_text: string | null;
+  status: ContentStatus;
+  translated_text: string | null;
+  translation_key: string;
+  updated_at: string;
   updated_by: string | null;
+  verified_at: string | null;
+  verified_by: string | null;
 }
 
 /**
@@ -50,19 +53,22 @@ export interface PublicTranslations {
  * All fields are optional for partial updates
  */
 export interface TranslationsFormData {
-  approved_by?: string | null;
-  created_at?: string | null;
+  context?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  field_name?: string;
-  is_approved?: boolean | null;
-  language_id?: string;
-  translatable_id?: string;
-  translatable_type?: TranslatableType;
-  translation?: string;
-  translations_id?: string;
-  translator_id?: string | null;
-  updated_at?: string | null;
+  id?: string;
+  is_machine_translated?: boolean;
+  is_verified?: boolean;
+  language_id?: string | null;
+  namespace?: string | null;
+  source_text?: string | null;
+  status?: ContentStatus;
+  translated_text?: string | null;
+  translation_key?: string;
+  updated_at?: string;
   updated_by?: string | null;
+  verified_at?: string | null;
+  verified_by?: string | null;
 }
 
 /**
@@ -71,19 +77,22 @@ export interface TranslationsFormData {
 export interface TranslationsValidationResult {
   valid: boolean;
   errors: {
-    approved_by?: string;
+    context?: string;
     created_at?: string;
     created_by?: string;
-    field_name?: string;
-    is_approved?: string;
+    id?: string;
+    is_machine_translated?: string;
+    is_verified?: string;
     language_id?: string;
-    translatable_id?: string;
-    translatable_type?: string;
-    translation?: string;
-    translations_id?: string;
-    translator_id?: string;
+    namespace?: string;
+    source_text?: string;
+    status?: string;
+    translated_text?: string;
+    translation_key?: string;
     updated_at?: string;
     updated_by?: string;
+    verified_at?: string;
+    verified_by?: string;
   };
 }
 

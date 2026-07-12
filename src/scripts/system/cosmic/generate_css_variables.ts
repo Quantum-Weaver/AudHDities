@@ -462,7 +462,7 @@ function writeGeneratedFile(
  */
 export async function generateCssVariables(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/variables.css';
+  const outputPath = 'src/styles/generated/variables.css';
   
   if (verbose) {
     logInfo('Generating CSS variables from cosmic constants...');

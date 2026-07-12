@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,48 +10,69 @@ import z from 'zod';
 // =====================================================
 
 export const UserFinancialRowSchema = z.object({
-  bank_account_last4: z.string().nullable(),
-  bank_account_type: z.string().nullable(),
-  bank_routing_last4: z.string().nullable(),
-  created_at: z.string().nullable(),
+  covenant_pool_percent: z.number().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
-  crypto_addresses: z.any().nullable(),
-  minimum_payout: z.number().nullable(),
-  paypal_email: z.string().nullable(),
-  residual_pledge_percent: z.number().nullable(),
+  current_balance: z.number().nullable(),
+  icon_emoji: z.string().nullable(),
+  id: z.string(),
+  payout_details: z.any().nullable(),
+  payout_method: z.string().nullable(),
+  payout_schedule: z.string().nullable(),
   stripe_account_id: z.string().nullable(),
-  updated_at: z.string().nullable(),
-  user_financial_id: z.string(),
+  stripe_customer_id: z.string().nullable(),
+  tax_country: z.string().nullable(),
+  tax_id: z.string().nullable(),
+  tax_info: z.any().nullable(),
+  total_contributions: z.number().nullable(),
+  total_earned: z.number().nullable(),
+  total_paid_out: z.number().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
 });
 
 export const UserFinancialInsertSchema = z.object({
-  bank_account_last4: z.string().nullable().optional(),
-  bank_account_type: z.string().nullable().optional(),
-  bank_routing_last4: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  covenant_pool_percent: z.number().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  crypto_addresses: z.any().nullable().optional(),
-  minimum_payout: z.number().nullable().optional(),
-  paypal_email: z.string().nullable().optional(),
-  residual_pledge_percent: z.number().nullable().optional(),
+  current_balance: z.number().nullable().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string(),
+  payout_details: z.any().nullable().optional(),
+  payout_method: z.string().nullable().optional(),
+  payout_schedule: z.string().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
-  user_financial_id: z.string(),
+  stripe_customer_id: z.string().nullable().optional(),
+  tax_country: z.string().nullable().optional(),
+  tax_id: z.string().nullable().optional(),
+  tax_info: z.any().nullable().optional(),
+  total_contributions: z.number().nullable().optional(),
+  total_earned: z.number().nullable().optional(),
+  total_paid_out: z.number().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const UserFinancialUpdateSchema = z.object({
-  bank_account_last4: z.string().nullable().optional(),
-  bank_account_type: z.string().nullable().optional(),
-  bank_routing_last4: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  covenant_pool_percent: z.number().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  crypto_addresses: z.any().nullable().optional(),
-  minimum_payout: z.number().nullable().optional(),
-  paypal_email: z.string().nullable().optional(),
-  residual_pledge_percent: z.number().nullable().optional(),
+  current_balance: z.number().nullable().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string().optional(),
+  payout_details: z.any().nullable().optional(),
+  payout_method: z.string().nullable().optional(),
+  payout_schedule: z.string().nullable().optional(),
   stripe_account_id: z.string().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
-  user_financial_id: z.string().optional(),
+  stripe_customer_id: z.string().nullable().optional(),
+  tax_country: z.string().nullable().optional(),
+  tax_id: z.string().nullable().optional(),
+  tax_info: z.any().nullable().optional(),
+  total_contributions: z.number().nullable().optional(),
+  total_earned: z.number().nullable().optional(),
+  total_paid_out: z.number().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

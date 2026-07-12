@@ -2,22 +2,15 @@
 // FILE: types/generated/hephaestus-infrastructure/analytics.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.438Z
+// GENERATED: 2026-07-10T18:14:59.211Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type AnalyticsCategory = Enums<'analytics_category'>;
 
 export type AnalyticsRow = Tables<'analytics'>;
 export type AnalyticsInsert = TablesInsert<'analytics'>;
@@ -29,20 +22,20 @@ export type AnalyticsUpdate = TablesUpdate<'analytics'>;
 
 /**
  * Public view of analytics
- * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicAnalytics {
-  analytics_id: string;
-  created_at: string | null;
-  created_by: string | null;
-  event_category: AnalyticsCategory;
-  event_name: string;
-  metadata: Json | null;
-  session_id: string | null;
-  updated_at: string | null;
-  updated_by: string | null;
-  user_id: string | null;
-  value: number | null;
+  created_at: string;
+  dimension: string | null;
+  dimension_value: string | null;
+  id: string;
+  metric_name: string;
+  metric_unit: string | null;
+  metric_value: number;
+  notes: string | null;
+  period: string;
+  period_end: string | null;
+  period_start: string | null;
+  source_table: string | null;
 }
 
 /**
@@ -50,19 +43,18 @@ export interface PublicAnalytics {
  * All fields are optional for partial updates
  */
 export interface AnalyticsFormData {
-  analytics_id?: string;
-  created_at?: string | null;
-  created_by?: string | null;
-  event_category?: AnalyticsCategory;
-  event_name?: string;
-  ip_address?: unknown;
-  metadata?: Json | null;
-  session_id?: string | null;
-  updated_at?: string | null;
-  updated_by?: string | null;
-  user_agent?: string | null;
-  user_id?: string | null;
-  value?: number | null;
+  created_at?: string;
+  dimension?: string | null;
+  dimension_value?: string | null;
+  id?: string;
+  metric_name?: string;
+  metric_unit?: string | null;
+  metric_value?: number;
+  notes?: string | null;
+  period?: string;
+  period_end?: string | null;
+  period_start?: string | null;
+  source_table?: string | null;
 }
 
 /**
@@ -71,19 +63,18 @@ export interface AnalyticsFormData {
 export interface AnalyticsValidationResult {
   valid: boolean;
   errors: {
-    analytics_id?: string;
     created_at?: string;
-    created_by?: string;
-    event_category?: string;
-    event_name?: string;
-    ip_address?: string;
-    metadata?: string;
-    session_id?: string;
-    updated_at?: string;
-    updated_by?: string;
-    user_agent?: string;
-    user_id?: string;
-    value?: string;
+    dimension?: string;
+    dimension_value?: string;
+    id?: string;
+    metric_name?: string;
+    metric_unit?: string;
+    metric_value?: string;
+    notes?: string;
+    period?: string;
+    period_end?: string;
+    period_start?: string;
+    source_table?: string;
   };
 }
 

@@ -2,21 +2,16 @@
 // FILE: types/generated/mnemosyne-assessment/ontology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-05-01T15:31:59.678Z
+// GENERATED: 2026-07-10T18:14:59.595Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type OntologyPredicate = Enums<'ontology_predicate'>;
 
 export type OntologyRow = Tables<'ontology'>;
 export type OntologyInsert = TablesInsert<'ontology'>;
@@ -30,18 +25,24 @@ export type OntologyUpdate = TablesUpdate<'ontology'>;
  * Public view of ontology
  */
 export interface PublicOntology {
-  approved_by: string | null;
-  created_at: string | null;
+  cardinality: string;
+  cardinality_keyword_id: string | null;
+  constraints: Json | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  is_approved: boolean | null;
-  object_id: string;
-  ontology_id: string;
-  predicate: OntologyPredicate;
-  subject_id: string;
-  updated_at: string | null;
+  id: string;
+  object_external: string | null;
+  object_family_id: string | null;
+  object_keyword_id: string | null;
+  predicate: string;
+  predicate_keyword_id: string | null;
+  relationship_source_keyword_id: string | null;
+  relationship_type: string;
+  subject_family_id: string;
+  subject_keyword_id: string | null;
+  updated_at: string;
   updated_by: string | null;
-  weight: number | null;
 }
 
 /**
@@ -49,18 +50,24 @@ export interface PublicOntology {
  * All fields are optional for partial updates
  */
 export interface OntologyFormData {
-  approved_by?: string | null;
-  created_at?: string | null;
+  cardinality?: string;
+  cardinality_keyword_id?: string | null;
+  constraints?: Json | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  is_approved?: boolean | null;
-  object_id?: string;
-  ontology_id?: string;
-  predicate?: OntologyPredicate;
-  subject_id?: string;
-  updated_at?: string | null;
+  id?: string;
+  object_external?: string | null;
+  object_family_id?: string | null;
+  object_keyword_id?: string | null;
+  predicate?: string;
+  predicate_keyword_id?: string | null;
+  relationship_source_keyword_id?: string | null;
+  relationship_type?: string;
+  subject_family_id?: string;
+  subject_keyword_id?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
-  weight?: number | null;
 }
 
 /**
@@ -69,18 +76,24 @@ export interface OntologyFormData {
 export interface OntologyValidationResult {
   valid: boolean;
   errors: {
-    approved_by?: string;
+    cardinality?: string;
+    cardinality_keyword_id?: string;
+    constraints?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    is_approved?: string;
-    object_id?: string;
-    ontology_id?: string;
+    id?: string;
+    object_external?: string;
+    object_family_id?: string;
+    object_keyword_id?: string;
     predicate?: string;
-    subject_id?: string;
+    predicate_keyword_id?: string;
+    relationship_source_keyword_id?: string;
+    relationship_type?: string;
+    subject_family_id?: string;
+    subject_keyword_id?: string;
     updated_at?: string;
     updated_by?: string;
-    weight?: string;
   };
 }
 

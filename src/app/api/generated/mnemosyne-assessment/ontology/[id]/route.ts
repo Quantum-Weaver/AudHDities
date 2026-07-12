@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { OntologyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/ontology';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T15:31:59.679Z
+// Generated: 2026-07-10T18:14:59.596Z
 // Table: ontology
 
 export async function GET(

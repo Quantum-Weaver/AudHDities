@@ -619,7 +619,7 @@ function writeGeneratedFile(
  */
 export async function generateAnimationVariants(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/animations.css';
+  const outputPath = 'src/styles/generated/animations.css';
   
   if (verbose) {
     logInfo('Generating animation variants from consciousness and motion constants...');

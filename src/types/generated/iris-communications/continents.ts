@@ -2,16 +2,21 @@
 // FILE: types/generated/iris-communications/continents.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.512Z
+// GENERATED: 2026-07-10T18:14:59.330Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type ContinentsRow = Tables<'continents'>;
 export type ContinentsInsert = TablesInsert<'continents'>;
@@ -25,14 +30,16 @@ export type ContinentsUpdate = TablesUpdate<'continents'>;
  * Public view of continents
  */
 export interface PublicContinents {
-  code: string;
-  continents_id: string;
-  created_at: string | null;
+  code: string | null;
+  created_at: string;
   created_by: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
   name: string;
-  name_localized: Json | null;
-  population_estimate: number | null;
-  updated_at: string | null;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -41,14 +48,16 @@ export interface PublicContinents {
  * All fields are optional for partial updates
  */
 export interface ContinentsFormData {
-  code?: string;
-  continents_id?: string;
-  created_at?: string | null;
+  code?: string | null;
+  created_at?: string;
   created_by?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
   name?: string;
-  name_localized?: Json | null;
-  population_estimate?: number | null;
-  updated_at?: string | null;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -59,12 +68,14 @@ export interface ContinentsValidationResult {
   valid: boolean;
   errors: {
     code?: string;
-    continents_id?: string;
     created_at?: string;
     created_by?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
     name?: string;
-    name_localized?: string;
-    population_estimate?: string;
+    slug?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

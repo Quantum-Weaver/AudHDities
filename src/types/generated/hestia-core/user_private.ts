@@ -2,12 +2,11 @@
 // FILE: types/generated/hestia-core/user_private.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T15:31:59.963Z
+// GENERATED: 2026-07-10T18:14:59.907Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -25,18 +24,20 @@ export type UserPrivateUpdate = TablesUpdate<'user_private'>;
  * Public view of user_private
  */
 export interface PublicUserPrivate {
-  address: Json | null;
-  created_at: string | null;
+  address: Database["public"]["CompositeTypes"]["address"] | null;
+  created_at: string;
   created_by: string | null;
   crisis_plan: string | null;
   date_of_birth: string | null;
-  emergency_contact: Json | null;
+  emergency_contact:;
   government_id: string | null;
+  icon_emoji: string | null;
+  id: string;
   legal_name: string | null;
   notes: string | null;
   phone_number: string | null;
-  updated_at: string | null;
-  user_private_id: string;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -44,18 +45,19 @@ export interface PublicUserPrivate {
  * All fields are optional for partial updates
  */
 export interface UserPrivateFormData {
-  address?: Json | null;
-  created_at?: string | null;
+  address?: Database["public"]["CompositeTypes"]["address"] | null;
+  created_at?: string;
   created_by?: string | null;
   crisis_plan?: string | null;
   date_of_birth?: string | null;
-  emergency_contact?: Json | null;
   government_id?: string | null;
+  icon_emoji?: string | null;
+  id?: string;
   legal_name?: string | null;
   notes?: string | null;
   phone_number?: string | null;
-  updated_at?: string | null;
-  user_private_id?: string;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -71,11 +73,13 @@ export interface UserPrivateValidationResult {
     date_of_birth?: string;
     emergency_contact?: string;
     government_id?: string;
+    icon_emoji?: string;
+    id?: string;
     legal_name?: string;
     notes?: string;
     phone_number?: string;
     updated_at?: string;
-    user_private_id?: string;
+    updated_by?: string;
   };
 }
 

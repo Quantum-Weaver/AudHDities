@@ -321,5 +321,13 @@ export interface RunRecord {
 export const SYSTEM_REGISTRY: SystemRegistryFile = ${JSON.stringify(registry, null, 2)};
 `;
 
+  // Ensure the target directory exists (a full clear of the generated tree
+  // removes config/generated/; every other GAIA writer mkdir's its parent, so
+  // this one must too — otherwise the first post-clear run crashes on ENOENT).
+  const registryDir = path.dirname(REGISTRY_PATH);
+  if (!fs.existsSync(registryDir)) {
+    fs.mkdirSync(registryDir, { recursive: true });
+  }
+
   fs.writeFileSync(REGISTRY_PATH, content, 'utf-8');
 }

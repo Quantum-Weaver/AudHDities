@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/covenant_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-05-01T15:31:59.525Z
+// GENERATED: 2026-07-10T18:14:59.340Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -24,15 +24,22 @@ export type CovenantPoolUpdate = TablesUpdate<'covenant_pool'>;
  * Public view of covenant_pool
  */
 export interface PublicCovenantPool {
-  covenant_pool_id: string;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  current_balance_cents: number | null;
+  current_balance: number;
+  description: string | null;
+  distribution_schedule: string;
+  icon_emoji: string | null;
+  id: string;
+  is_active: boolean;
+  last_distribution_amount: number | null;
   last_distribution_at: string | null;
-  pledge_percent: number;
-  total_pledged_cents: number | null;
-  updated_at: string | null;
-  user_id: string;
+  last_distribution_recipients: number | null;
+  name: string;
+  total_contributed_lifetime: number;
+  total_distributed_lifetime: number;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -40,15 +47,22 @@ export interface PublicCovenantPool {
  * All fields are optional for partial updates
  */
 export interface CovenantPoolFormData {
-  covenant_pool_id?: string;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  current_balance_cents?: number | null;
+  current_balance?: number;
+  description?: string | null;
+  distribution_schedule?: string;
+  icon_emoji?: string | null;
+  id?: string;
+  is_active?: boolean;
+  last_distribution_amount?: number | null;
   last_distribution_at?: string | null;
-  pledge_percent?: number;
-  total_pledged_cents?: number | null;
-  updated_at?: string | null;
-  user_id?: string;
+  last_distribution_recipients?: number | null;
+  name?: string;
+  total_contributed_lifetime?: number;
+  total_distributed_lifetime?: number;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -57,15 +71,22 @@ export interface CovenantPoolFormData {
 export interface CovenantPoolValidationResult {
   valid: boolean;
   errors: {
-    covenant_pool_id?: string;
     created_at?: string;
     created_by?: string;
-    current_balance_cents?: string;
+    current_balance?: string;
+    description?: string;
+    distribution_schedule?: string;
+    icon_emoji?: string;
+    id?: string;
+    is_active?: string;
+    last_distribution_amount?: string;
     last_distribution_at?: string;
-    pledge_percent?: string;
-    total_pledged_cents?: string;
+    last_distribution_recipients?: string;
+    name?: string;
+    total_contributed_lifetime?: string;
+    total_distributed_lifetime?: string;
     updated_at?: string;
-    user_id?: string;
+    updated_by?: string;
   };
 }
 

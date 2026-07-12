@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/personas.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.692Z
+// GENERATED: 2026-07-10T18:14:59.625Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,6 +12,12 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type PersonasRow = Tables<'personas'>;
 export type PersonasInsert = TablesInsert<'personas'>;
@@ -25,18 +31,21 @@ export type PersonasUpdate = TablesUpdate<'personas'>;
  * Public view of personas
  */
 export interface PublicPersonas {
-  avatar_url: string | null;
-  characteristics: Json | null;
-  color: string | null;
-  created_at: string | null;
-  created_by: string;
-  description: string;
-  is_active: boolean | null;
+  created_at: string;
+  created_by: string | null;
+  description: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
   name: string;
-  personas_id: string;
+  persona_type: string | null;
+  sample_phrases: string[] | null;
   slug: string;
-  updated_at: string | null;
+  status: ContentStatus;
+  tone: string | null;
+  updated_at: string;
   updated_by: string | null;
+  voice_characteristics: Json | null;
 }
 
 /**
@@ -44,18 +53,21 @@ export interface PublicPersonas {
  * All fields are optional for partial updates
  */
 export interface PersonasFormData {
-  avatar_url?: string | null;
-  characteristics?: Json | null;
-  color?: string | null;
-  created_at?: string | null;
-  created_by?: string;
-  description?: string;
-  is_active?: boolean | null;
+  created_at?: string;
+  created_by?: string | null;
+  description?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
   name?: string;
-  personas_id?: string;
+  persona_type?: string | null;
+  sample_phrases?: string[] | null;
   slug?: string;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  tone?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
+  voice_characteristics?: Json | null;
 }
 
 /**
@@ -64,18 +76,21 @@ export interface PersonasFormData {
 export interface PersonasValidationResult {
   valid: boolean;
   errors: {
-    avatar_url?: string;
-    characteristics?: string;
-    color?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    is_active?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
     name?: string;
-    personas_id?: string;
+    persona_type?: string;
+    sample_phrases?: string;
     slug?: string;
+    status?: string;
+    tone?: string;
     updated_at?: string;
     updated_by?: string;
+    voice_characteristics?: string;
   };
 }
 

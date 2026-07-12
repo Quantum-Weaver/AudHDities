@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { StripeConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/stripe_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T15:31:59.871Z
+// Generated: 2026-07-10T18:14:59.847Z
 // Table: stripe_connection
 
 export async function GET(

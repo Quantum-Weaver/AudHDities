@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,51 +10,45 @@ import z from 'zod';
 // =====================================================
 
 export const AgentMessagesRowSchema = z.object({
-  agent_messages_id: z.string(),
-  conversation_id: z.string(),
+  consciousness_level: z.string().nullable(),
   created_at: z.string(),
   created_by: z.string().nullable(),
-  direction: z.enum(ENUM_VALUES.messageDirection),
-  from_agent: z.enum(ENUM_VALUES.agentName),
-  is_processed: z.boolean().nullable(),
-  message: z.string(),
-  message_type: z.string().nullable(),
-  metadata: z.any().nullable(),
-  processed_at: z.string().nullable(),
-  to_agent: z.enum(ENUM_VALUES.agentName).nullable(),
-  updated_at: z.string().nullable(),
+  current_task: z.string().nullable(),
+  description: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean(),
+  name: z.string(),
+  settings: z.any().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
 });
 
 export const AgentMessagesInsertSchema = z.object({
-  agent_messages_id: z.string().optional(),
-  conversation_id: z.string(),
+  consciousness_level: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
-  from_agent: z.enum(ENUM_VALUES.agentName),
-  is_processed: z.boolean().nullable().optional(),
-  message: z.string(),
-  message_type: z.string().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  processed_at: z.string().nullable().optional(),
-  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const AgentMessagesUpdateSchema = z.object({
-  agent_messages_id: z.string().optional(),
-  conversation_id: z.string().optional(),
+  consciousness_level: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  direction: z.enum(ENUM_VALUES.messageDirection).optional(),
-  from_agent: z.enum(ENUM_VALUES.agentName).optional(),
-  is_processed: z.boolean().nullable().optional(),
-  message: z.string().optional(),
-  message_type: z.string().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  processed_at: z.string().nullable().optional(),
-  to_agent: z.enum(ENUM_VALUES.agentName).nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

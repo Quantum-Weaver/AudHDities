@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/hearth_keeper.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.615Z
+// GENERATED: 2026-07-10T18:14:59.510Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,17 +25,17 @@ export type HearthKeeperUpdate = TablesUpdate<'hearth_keeper'>;
  * Public view of hearth_keeper
  */
 export interface PublicHearthKeeper {
-  accessibility_standards: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  crisis_resources: Json | null;
-  hearth_keeper_id: string;
-  moderators: string[] | null;
-  reported_content_queue: Json | null;
-  safety_protocols: Json | null;
-  safety_score: number | null;
-  updated_at: string | null;
-  welcome_messages: Json | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -43,17 +43,17 @@ export interface PublicHearthKeeper {
  * All fields are optional for partial updates
  */
 export interface HearthKeeperFormData {
-  accessibility_standards?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  crisis_resources?: Json | null;
-  hearth_keeper_id?: string;
-  moderators?: string[] | null;
-  reported_content_queue?: Json | null;
-  safety_protocols?: Json | null;
-  safety_score?: number | null;
-  updated_at?: string | null;
-  welcome_messages?: Json | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -62,17 +62,17 @@ export interface HearthKeeperFormData {
 export interface HearthKeeperValidationResult {
   valid: boolean;
   errors: {
-    accessibility_standards?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    crisis_resources?: string;
-    hearth_keeper_id?: string;
-    moderators?: string;
-    reported_content_queue?: string;
-    safety_protocols?: string;
-    safety_score?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
-    welcome_messages?: string;
+    updated_by?: string;
   };
 }
 

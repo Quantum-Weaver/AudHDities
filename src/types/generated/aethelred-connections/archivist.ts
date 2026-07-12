@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/archivist.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.449Z
+// GENERATED: 2026-07-10T18:14:59.227Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,17 +25,17 @@ export type ArchivistUpdate = TablesUpdate<'archivist'>;
  * Public view of archivist
  */
 export interface PublicArchivist {
-  archivist_id: string;
-  backup_status: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  documentation_standards: Json | null;
-  historical_records: Json | null;
-  last_archive_at: string | null;
-  milestones: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
-  version_history: Json | null;
 }
 
 /**
@@ -43,17 +43,17 @@ export interface PublicArchivist {
  * All fields are optional for partial updates
  */
 export interface ArchivistFormData {
-  archivist_id?: string;
-  backup_status?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  documentation_standards?: Json | null;
-  historical_records?: Json | null;
-  last_archive_at?: string | null;
-  milestones?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
-  version_history?: Json | null;
 }
 
 /**
@@ -62,17 +62,17 @@ export interface ArchivistFormData {
 export interface ArchivistValidationResult {
   valid: boolean;
   errors: {
-    archivist_id?: string;
-    backup_status?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    documentation_standards?: string;
-    historical_records?: string;
-    last_archive_at?: string;
-    milestones?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
-    version_history?: string;
   };
 }
 

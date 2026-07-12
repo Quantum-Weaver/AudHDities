@@ -3,6 +3,7 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
+import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -10,50 +11,47 @@ import z from 'zod';
 // =====================================================
 
 export const RegionsRowSchema = z.object({
-  continent_id: z.string(),
-  country_code: z.string(),
-  country_code_3: z.string().nullable(),
-  created_at: z.string().nullable(),
+  code: z.string().nullable(),
+  continent_id: z.string().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
-  flag_emoji: z.string().nullable(),
-  is_active: z.boolean().nullable(),
+  display_order: z.number(),
+  icon_url: z.string().nullable(),
+  id: z.string(),
   name: z.string(),
-  name_localized: z.any().nullable(),
-  phone_code: z.string().nullable(),
-  regions_id: z.string(),
-  updated_at: z.string().nullable(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus),
+  updated_at: z.string(),
   updated_by: z.string().nullable(),
 });
 
 export const RegionsInsertSchema = z.object({
-  continent_id: z.string(),
-  country_code: z.string(),
-  country_code_3: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  code: z.string().nullable().optional(),
+  continent_id: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  flag_emoji: z.string().nullable().optional(),
-  is_active: z.boolean().nullable().optional(),
+  display_order: z.number().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
   name: z.string(),
-  name_localized: z.any().nullable().optional(),
-  phone_code: z.string().nullable().optional(),
-  regions_id: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
 });
 
 export const RegionsUpdateSchema = z.object({
-  continent_id: z.string().optional(),
-  country_code: z.string().optional(),
-  country_code_3: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  code: z.string().nullable().optional(),
+  continent_id: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  flag_emoji: z.string().nullable().optional(),
-  is_active: z.boolean().nullable().optional(),
+  display_order: z.number().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
   name: z.string().optional(),
-  name_localized: z.any().nullable().optional(),
-  phone_code: z.string().nullable().optional(),
-  regions_id: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
 });
 

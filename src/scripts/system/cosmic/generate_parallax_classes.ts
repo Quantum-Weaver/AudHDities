@@ -336,8 +336,8 @@ function generateReducedMotionOverrides(): string {
   css += `    transform: none !important;\n`;
   css += `  }\n`;
   css += `  \n`;
-  css += `  .scroll-parallax-*,\n`;
-  css += `  .mouse-parallax-* {\n`;
+  css += `  [class*="scroll-parallax-"],\n`;
+  css += `  [class*="mouse-parallax-"] {\n`;
   css += `    transform: none !important;\n`;
   css += `    transition: none !important;\n`;
   css += `  }\n`;
@@ -484,7 +484,7 @@ function writeGeneratedFile(
  */
 export async function generateParallaxClasses(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/parallax.css';
+  const outputPath = 'src/styles/generated/parallax.css';
   
   if (verbose) {
     logInfo('Generating parallax classes from positioning constants...');

@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/surveys.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.894Z
+// GENERATED: 2026-07-10T18:14:59.864Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -17,8 +17,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type SurveyAudienceType = Enums<'survey_audience_type'>;
-export type CouncilHouse = Enums<'council_house'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type SurveysRow = Tables<'surveys'>;
 export type SurveysInsert = TablesInsert<'surveys'>;
@@ -32,20 +31,21 @@ export type SurveysUpdate = TablesUpdate<'surveys'>;
  * Public view of surveys
  */
 export interface PublicSurveys {
-  created_at: string | null;
-  created_by: string;
+  category: string | null;
+  created_at: string;
+  created_by: string | null;
   description: string | null;
-  expires_at: string | null;
-  is_active: boolean | null;
-  questions: Json;
-  response_count: number | null;
-  slug: string | null;
-  starts_at: string | null;
-  surveys_id: string;
-  target_audience: SurveyAudienceType | null;
-  target_house: CouncilHouse | null;
-  title: string;
-  updated_at: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
+  is_anonymous: boolean;
+  is_public_results: boolean;
+  name: string;
+  questions: Json | null;
+  slug: string;
+  status: ContentStatus;
+  survey_type: string | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -54,19 +54,21 @@ export interface PublicSurveys {
  * All fields are optional for partial updates
  */
 export interface SurveysFormData {
-  created_at?: string | null;
-  created_by?: string;
+  category?: string | null;
+  created_at?: string;
+  created_by?: string | null;
   description?: string | null;
-  expires_at?: string | null;
-  is_active?: boolean | null;
-  questions?: Json;
-  response_count?: number | null;
-  slug?: string | null;
-  starts_at?: string | null;
-  surveys_id?: string;
-  target_house?: CouncilHouse | null;
-  title?: string;
-  updated_at?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
+  is_anonymous?: boolean;
+  is_public_results?: boolean;
+  name?: string;
+  questions?: Json | null;
+  slug?: string;
+  status?: ContentStatus;
+  survey_type?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -76,19 +78,20 @@ export interface SurveysFormData {
 export interface SurveysValidationResult {
   valid: boolean;
   errors: {
+    category?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    expires_at?: string;
-    is_active?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
+    is_anonymous?: string;
+    is_public_results?: string;
+    name?: string;
     questions?: string;
-    response_count?: string;
     slug?: string;
-    starts_at?: string;
-    surveys_id?: string;
-    target_audience?: string;
-    target_house?: string;
-    title?: string;
+    status?: string;
+    survey_type?: string;
     updated_at?: string;
     updated_by?: string;
   };

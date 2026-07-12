@@ -46,7 +46,7 @@ const GENERATED_DEITY_FOLDERS = [
   'iris-communications',
   'hephaestus-infrastructure',
   'aethelred-connections',
-  'prometheus-meta'
+  'daedalus-meta'
 ];
 
 const CATEGORIES = [
