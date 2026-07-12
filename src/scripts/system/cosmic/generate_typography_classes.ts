@@ -454,7 +454,7 @@ function generateProcessTypographyClasses(): string {
       css += `  letter-spacing: ${letterSpacing};\n`;
     }
     if (fontStyle !== 'normal') {
-      css += `  font-style:"${fontStyle};\n`;
+      css += `  font-style: ${fontStyle};\n`;
     }
     css += `}\n\n`;
   }
@@ -672,7 +672,7 @@ function writeGeneratedFile(
  */
 export async function generateTypographyClasses(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/typography.css';
+  const outputPath = 'src/styles/generated/typography.css';
   
   if (verbose) {
     logInfo('Generating typography classes from typography constants...');

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ContactSubmissionsInsertSchema } from '@/lib/validators/generated/iris-communications/contact_submissions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T15:31:59.508Z
+// Generated: 2026-07-10T18:14:59.326Z
 // Table: contact_submissions
 
 export async function GET(request: NextRequest) {

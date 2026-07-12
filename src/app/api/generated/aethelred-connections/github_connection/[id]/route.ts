@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-05-01T15:31:59.611Z
+// Generated: 2026-07-10T18:14:59.477Z
 // Table: github_connection
 
 export async function GET(

@@ -2,12 +2,11 @@
 // FILE: types/generated/aethelred-connections/supabase_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.879Z
+// GENERATED: 2026-07-10T18:14:59.852Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -17,7 +16,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type SupabaseStatus = Enums<'supabase_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type SupabaseConnectionRow = Tables<'supabase_connection'>;
 export type SupabaseConnectionInsert = TablesInsert<'supabase_connection'>;
@@ -31,21 +30,20 @@ export type SupabaseConnectionUpdate = TablesUpdate<'supabase_connection'>;
  * Public view of supabase_connection
  */
 export interface PublicSupabaseConnection {
-  api_keys: Json | null;
-  connection_status: SupabaseStatus | null;
-  created_at: string | null;
+  config_key: string;
+  config_value: string | null;
+  created_at: string;
   created_by: string | null;
-  edge_functions: string[] | null;
-  last_health_check: string | null;
-  last_migration_at: string | null;
-  migrations_applied: string[] | null;
-  operated_by: string | null;
-  project_id: string;
-  project_url: string;
-  schema_version: string;
-  storage_buckets: string[] | null;
-  supabase_connection_id: string;
-  updated_at: string | null;
+  description: string | null;
+  enabled_features: string[] | null;
+  id: string;
+  is_encrypted: boolean;
+  last_verified_at: string | null;
+  project_name: string | null;
+  project_url: string | null;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -53,20 +51,20 @@ export interface PublicSupabaseConnection {
  * All fields are optional for partial updates
  */
 export interface SupabaseConnectionFormData {
-  api_keys?: Json | null;
-  created_at?: string | null;
+  config_key?: string;
+  config_value?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  edge_functions?: string[] | null;
-  last_health_check?: string | null;
-  last_migration_at?: string | null;
-  migrations_applied?: string[] | null;
-  operated_by?: string | null;
-  project_id?: string;
-  project_url?: string;
-  schema_version?: string;
-  storage_buckets?: string[] | null;
-  supabase_connection_id?: string;
-  updated_at?: string | null;
+  description?: string | null;
+  enabled_features?: string[] | null;
+  id?: string;
+  is_encrypted?: boolean;
+  last_verified_at?: string | null;
+  project_name?: string | null;
+  project_url?: string | null;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -75,21 +73,20 @@ export interface SupabaseConnectionFormData {
 export interface SupabaseConnectionValidationResult {
   valid: boolean;
   errors: {
-    api_keys?: string;
-    connection_status?: string;
+    config_key?: string;
+    config_value?: string;
     created_at?: string;
     created_by?: string;
-    edge_functions?: string;
-    last_health_check?: string;
-    last_migration_at?: string;
-    migrations_applied?: string;
-    operated_by?: string;
-    project_id?: string;
+    description?: string;
+    enabled_features?: string;
+    id?: string;
+    is_encrypted?: string;
+    last_verified_at?: string;
+    project_name?: string;
     project_url?: string;
-    schema_version?: string;
-    storage_buckets?: string;
-    supabase_connection_id?: string;
+    status?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

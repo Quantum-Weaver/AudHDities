@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_financial.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T15:31:59.953Z
+// GENERATED: 2026-07-10T18:14:59.897Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,13 +12,6 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type PayoutMethod = Enums<'payout_method'>;
-export type PayoutFrequency = Enums<'payout_frequency'>;
 
 export type UserFinancialRow = Tables<'user_financial'>;
 export type UserFinancialInsert = TablesInsert<'user_financial'>;
@@ -33,19 +26,24 @@ export type UserFinancialUpdate = TablesUpdate<'user_financial'>;
  * Excludes sensitive fields: stripe_account_id
  */
 export interface PublicUserFinancial {
-  bank_account_last4: string | null;
-  bank_account_type: string | null;
-  bank_routing_last4: string | null;
-  created_at: string | null;
+  covenant_pool_percent: number | null;
+  created_at: string;
   created_by: string | null;
-  crypto_addresses: Json | null;
-  default_payout_method: PayoutMethod | null;
-  minimum_payout: number | null;
-  payout_frequency: PayoutFrequency | null;
-  paypal_email: string | null;
-  residual_pledge_percent: number | null;
-  updated_at: string | null;
-  user_financial_id: string;
+  current_balance: number | null;
+  icon_emoji: string | null;
+  id: string;
+  payout_details: Json | null;
+  payout_method: string | null;
+  payout_schedule: string | null;
+  stripe_customer_id: string | null;
+  tax_country: string | null;
+  tax_id: string | null;
+  tax_info: Json | null;
+  total_contributions: number | null;
+  total_earned: number | null;
+  total_paid_out: number | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -53,18 +51,25 @@ export interface PublicUserFinancial {
  * All fields are optional for partial updates
  */
 export interface UserFinancialFormData {
-  bank_account_last4?: string | null;
-  bank_account_type?: string | null;
-  bank_routing_last4?: string | null;
-  created_at?: string | null;
+  covenant_pool_percent?: number | null;
+  created_at?: string;
   created_by?: string | null;
-  crypto_addresses?: Json | null;
-  minimum_payout?: number | null;
-  paypal_email?: string | null;
-  residual_pledge_percent?: number | null;
+  current_balance?: number | null;
+  icon_emoji?: string | null;
+  id?: string;
+  payout_details?: Json | null;
+  payout_method?: string | null;
+  payout_schedule?: string | null;
   stripe_account_id?: string | null;
-  updated_at?: string | null;
-  user_financial_id?: string;
+  stripe_customer_id?: string | null;
+  tax_country?: string | null;
+  tax_id?: string | null;
+  tax_info?: Json | null;
+  total_contributions?: number | null;
+  total_earned?: number | null;
+  total_paid_out?: number | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -73,20 +78,25 @@ export interface UserFinancialFormData {
 export interface UserFinancialValidationResult {
   valid: boolean;
   errors: {
-    bank_account_last4?: string;
-    bank_account_type?: string;
-    bank_routing_last4?: string;
+    covenant_pool_percent?: string;
     created_at?: string;
     created_by?: string;
-    crypto_addresses?: string;
-    default_payout_method?: string;
-    minimum_payout?: string;
-    payout_frequency?: string;
-    paypal_email?: string;
-    residual_pledge_percent?: string;
+    current_balance?: string;
+    icon_emoji?: string;
+    id?: string;
+    payout_details?: string;
+    payout_method?: string;
+    payout_schedule?: string;
     stripe_account_id?: string;
+    stripe_customer_id?: string;
+    tax_country?: string;
+    tax_id?: string;
+    tax_info?: string;
+    total_contributions?: string;
+    total_earned?: string;
+    total_paid_out?: string;
     updated_at?: string;
-    user_financial_id?: string;
+    updated_by?: string;
   };
 }
 

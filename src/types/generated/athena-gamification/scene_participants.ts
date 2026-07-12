@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.828Z
+// GENERATED: 2026-07-10T18:14:59.768Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,11 +25,12 @@ export type SceneParticipantsUpdate = TablesUpdate<'scene_participants'>;
  */
 export interface PublicSceneParticipants {
   created_at: string;
-  created_by: string | null;
-  joined_at: string | null;
-  role: string | null;
-  scene_participants_id: string;
-  updated_at: string | null;
+  id: string;
+  is_active: boolean;
+  joined_at: string;
+  last_active_at: string;
+  scene_id: string;
+  updated_at: string;
   user_id: string;
 }
 
@@ -39,11 +40,12 @@ export interface PublicSceneParticipants {
  */
 export interface SceneParticipantsFormData {
   created_at?: string;
-  created_by?: string | null;
-  joined_at?: string | null;
-  role?: string | null;
-  scene_participants_id?: string;
-  updated_at?: string | null;
+  id?: string;
+  is_active?: boolean;
+  joined_at?: string;
+  last_active_at?: string;
+  scene_id?: string;
+  updated_at?: string;
   user_id?: string;
 }
 
@@ -54,10 +56,11 @@ export interface SceneParticipantsValidationResult {
   valid: boolean;
   errors: {
     created_at?: string;
-    created_by?: string;
+    id?: string;
+    is_active?: string;
     joined_at?: string;
-    role?: string;
-    scene_participants_id?: string;
+    last_active_at?: string;
+    scene_id?: string;
     updated_at?: string;
     user_id?: string;
   };

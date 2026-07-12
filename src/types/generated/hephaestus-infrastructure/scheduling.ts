@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scheduling.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.839Z
+// GENERATED: 2026-07-10T18:14:59.779Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -17,8 +17,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type JobType = Enums<'job_type'>;
-export type JobStatus = Enums<'job_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type SchedulingRow = Tables<'scheduling'>;
 export type SchedulingInsert = TablesInsert<'scheduling'>;
@@ -32,24 +31,25 @@ export type SchedulingUpdate = TablesUpdate<'scheduling'>;
  * Public view of scheduling
  */
 export interface PublicScheduling {
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  error_message: string | null;
-  function_name: string;
-  job_type: JobType;
-  last_result: string | null;
-  last_run: string | null;
-  max_retries: number | null;
+  cron_expression: string | null;
+  description: string | null;
+  id: string;
+  interval_minutes: number | null;
+  is_active: boolean;
+  last_run_at: string | null;
+  max_retries: number;
   name: string;
-  next_run: string | null;
-  parameters: Json | null;
-  retry_count: number | null;
-  run_at: string | null;
-  schedule: string | null;
-  scheduling_id: string;
-  slug: string | null;
-  status: JobStatus | null;
-  updated_at: string | null;
+  next_run_at: string | null;
+  retry_delay_minutes: number;
+  schedule_type: string;
+  slug: string;
+  status: ContentStatus;
+  task_handler: string | null;
+  task_payload: Json | null;
+  timezone: string;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -58,24 +58,25 @@ export interface PublicScheduling {
  * All fields are optional for partial updates
  */
 export interface SchedulingFormData {
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  error_message?: string | null;
-  function_name?: string;
-  job_type?: JobType;
-  last_result?: string | null;
-  last_run?: string | null;
-  max_retries?: number | null;
+  cron_expression?: string | null;
+  description?: string | null;
+  id?: string;
+  interval_minutes?: number | null;
+  is_active?: boolean;
+  last_run_at?: string | null;
+  max_retries?: number;
   name?: string;
-  next_run?: string | null;
-  parameters?: Json | null;
-  retry_count?: number | null;
-  run_at?: string | null;
-  schedule?: string | null;
-  scheduling_id?: string;
-  slug?: string | null;
-  status?: JobStatus | null;
-  updated_at?: string | null;
+  next_run_at?: string | null;
+  retry_delay_minutes?: number;
+  schedule_type?: string;
+  slug?: string;
+  status?: ContentStatus;
+  task_handler?: string | null;
+  task_payload?: Json | null;
+  timezone?: string;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -87,21 +88,22 @@ export interface SchedulingValidationResult {
   errors: {
     created_at?: string;
     created_by?: string;
-    error_message?: string;
-    function_name?: string;
-    job_type?: string;
-    last_result?: string;
-    last_run?: string;
+    cron_expression?: string;
+    description?: string;
+    id?: string;
+    interval_minutes?: string;
+    is_active?: string;
+    last_run_at?: string;
     max_retries?: string;
     name?: string;
-    next_run?: string;
-    parameters?: string;
-    retry_count?: string;
-    run_at?: string;
-    schedule?: string;
-    scheduling_id?: string;
+    next_run_at?: string;
+    retry_delay_minutes?: string;
+    schedule_type?: string;
     slug?: string;
     status?: string;
+    task_handler?: string;
+    task_payload?: string;
+    timezone?: string;
     updated_at?: string;
     updated_by?: string;
   };

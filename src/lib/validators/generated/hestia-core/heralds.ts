@@ -1,0 +1,67 @@
+// =====================================================
+// FILE: validators/heralds.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import { ENUM_VALUES } from '@/types/supabase/enums';
+import z from 'zod';
+
+// =====================================================
+// Heralds SCHEMAS
+// =====================================================
+
+export const HeraldsRowSchema = z.object({
+  body: z.string().nullable(),
+  channel: z.enum(ENUM_VALUES.notificationChannel),
+  created_at: z.string(),
+  created_by: z.string(),
+  herald_type: z.string(),
+  id: z.string(),
+  is_dismissed: z.boolean(),
+  is_read: z.boolean(),
+  read_at: z.string().nullable(),
+  reference_id: z.string().nullable(),
+  reference_table: z.string().nullable(),
+  title: z.string().nullable(),
+  updated_by: z.string().nullable(),
+});
+
+export const HeraldsInsertSchema = z.object({
+  body: z.string().nullable().optional(),
+  channel: z.enum(ENUM_VALUES.notificationChannel).optional(),
+  created_at: z.string().optional(),
+  created_by: z.string(),
+  herald_type: z.string(),
+  id: z.string().optional(),
+  is_dismissed: z.boolean().optional(),
+  is_read: z.boolean().optional(),
+  read_at: z.string().nullable().optional(),
+  reference_id: z.string().nullable().optional(),
+  reference_table: z.string().nullable().optional(),
+  title: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const HeraldsUpdateSchema = z.object({
+  body: z.string().nullable().optional(),
+  channel: z.enum(ENUM_VALUES.notificationChannel).optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().optional(),
+  herald_type: z.string().optional(),
+  id: z.string().optional(),
+  is_dismissed: z.boolean().optional(),
+  is_read: z.boolean().optional(),
+  read_at: z.string().nullable().optional(),
+  reference_id: z.string().nullable().optional(),
+  reference_table: z.string().nullable().optional(),
+  title: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type HeraldsRowInput = z.infer<typeof HeraldsRowSchema>;
+export type HeraldsInsertInput = z.infer<typeof HeraldsInsertSchema>;
+export type HeraldsUpdateInput = z.infer<typeof HeraldsUpdateSchema>;

@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/rate_limits.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T15:31:59.777Z
+// GENERATED: 2026-07-10T18:14:59.722Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type RateLimitsRow = Tables<'rate_limits'>;
 export type RateLimitsInsert = TablesInsert<'rate_limits'>;
@@ -24,14 +30,21 @@ export type RateLimitsUpdate = TablesUpdate<'rate_limits'>;
  * Public view of rate_limits
  */
 export interface PublicRateLimits {
-  created_at: string | null;
+  action_on_exceed: string;
+  cooldown_seconds: number;
+  created_at: string;
   created_by: string | null;
-  endpoint: string;
-  identifier: string;
-  rate_limits_id: string;
-  request_count: number | null;
-  updated_at: string | null;
-  window_start: string | null;
+  description: string | null;
+  endpoint_type: string;
+  id: string;
+  is_enabled: boolean;
+  max_requests: number;
+  name: string;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
+  window_seconds: number;
 }
 
 /**
@@ -39,14 +52,21 @@ export interface PublicRateLimits {
  * All fields are optional for partial updates
  */
 export interface RateLimitsFormData {
-  created_at?: string | null;
+  action_on_exceed?: string;
+  cooldown_seconds?: number;
+  created_at?: string;
   created_by?: string | null;
-  endpoint?: string;
-  identifier?: string;
-  rate_limits_id?: string;
-  request_count?: number | null;
-  updated_at?: string | null;
-  window_start?: string | null;
+  description?: string | null;
+  endpoint_type?: string;
+  id?: string;
+  is_enabled?: boolean;
+  max_requests?: number;
+  name?: string;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
+  window_seconds?: number;
 }
 
 /**
@@ -55,14 +75,21 @@ export interface RateLimitsFormData {
 export interface RateLimitsValidationResult {
   valid: boolean;
   errors: {
+    action_on_exceed?: string;
+    cooldown_seconds?: string;
     created_at?: string;
     created_by?: string;
-    endpoint?: string;
-    identifier?: string;
-    rate_limits_id?: string;
-    request_count?: string;
+    description?: string;
+    endpoint_type?: string;
+    id?: string;
+    is_enabled?: string;
+    max_requests?: string;
+    name?: string;
+    slug?: string;
+    status?: string;
     updated_at?: string;
-    window_start?: string;
+    updated_by?: string;
+    window_seconds?: string;
   };
 }
 

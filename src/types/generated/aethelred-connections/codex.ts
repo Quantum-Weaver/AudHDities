@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/codex.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.489Z
+// GENERATED: 2026-07-10T18:14:59.298Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,17 +25,17 @@ export type CodexUpdate = TablesUpdate<'codex'>;
  * Public view of codex
  */
 export interface PublicCodex {
-  codex_id: string;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  glossary: Json | null;
-  knowledge_base: Json | null;
-  learning_paths: Json | null;
-  ontology_graph: Json | null;
-  taxonomy_tree: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
-  wisdom_queue: Json | null;
 }
 
 /**
@@ -43,17 +43,17 @@ export interface PublicCodex {
  * All fields are optional for partial updates
  */
 export interface CodexFormData {
-  codex_id?: string;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  glossary?: Json | null;
-  knowledge_base?: Json | null;
-  learning_paths?: Json | null;
-  ontology_graph?: Json | null;
-  taxonomy_tree?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
-  wisdom_queue?: Json | null;
 }
 
 /**
@@ -62,17 +62,17 @@ export interface CodexFormData {
 export interface CodexValidationResult {
   valid: boolean;
   errors: {
-    codex_id?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    glossary?: string;
-    knowledge_base?: string;
-    learning_paths?: string;
-    ontology_graph?: string;
-    taxonomy_tree?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
-    wisdom_queue?: string;
   };
 }
 

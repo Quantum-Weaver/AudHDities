@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/languages.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.625Z
+// GENERATED: 2026-07-10T18:14:59.534Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type TextDirectionType = Enums<'text_direction_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type LanguagesRow = Tables<'languages'>;
 export type LanguagesInsert = TablesInsert<'languages'>;
@@ -30,18 +30,21 @@ export type LanguagesUpdate = TablesUpdate<'languages'>;
  * Public view of languages
  */
 export interface PublicLanguages {
-  code: string;
-  code_3: string | null;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  direction: TextDirectionType | null;
-  is_active: boolean | null;
-  is_default: boolean | null;
-  languages_id: string;
+  direction: string;
+  display_order: number;
+  fallback_language_id: string | null;
+  icon_url: string | null;
+  id: string;
+  is_active: boolean;
+  iso_code: string;
+  iso_code_3: string | null;
   name: string;
   native_name: string | null;
-  script: string | null;
-  updated_at: string | null;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -50,18 +53,21 @@ export interface PublicLanguages {
  * All fields are optional for partial updates
  */
 export interface LanguagesFormData {
-  code?: string;
-  code_3?: string | null;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  direction?: TextDirectionType | null;
-  is_active?: boolean | null;
-  is_default?: boolean | null;
-  languages_id?: string;
+  direction?: string;
+  display_order?: number;
+  fallback_language_id?: string | null;
+  icon_url?: string | null;
+  id?: string;
+  is_active?: boolean;
+  iso_code?: string;
+  iso_code_3?: string | null;
   name?: string;
   native_name?: string | null;
-  script?: string | null;
-  updated_at?: string | null;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -71,17 +77,20 @@ export interface LanguagesFormData {
 export interface LanguagesValidationResult {
   valid: boolean;
   errors: {
-    code?: string;
-    code_3?: string;
     created_at?: string;
     created_by?: string;
     direction?: string;
+    display_order?: string;
+    fallback_language_id?: string;
+    icon_url?: string;
+    id?: string;
     is_active?: string;
-    is_default?: string;
-    languages_id?: string;
+    iso_code?: string;
+    iso_code_3?: string;
     name?: string;
     native_name?: string;
-    script?: string;
+    slug?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

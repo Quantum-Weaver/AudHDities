@@ -314,7 +314,7 @@ function generateReducedMotionOverrides(): string {
   css += `  .zoom-transition-quantum,\n`;
   css += `  .zoom-content,\n`;
   css += `  .zoom-active,\n`;
-  css += `  .zoom-target-* {\n`;
+  css += `  [class*="zoom-target-"] {\n`;
   css += `    transition-duration: 0.01ms;\n`;
   css += `  }\n`;
   css += `}\n`;
@@ -332,13 +332,13 @@ function generateZoomDocumentation(targets: ZoomTargetVariable[]): string {
   
   for (const target of targets) {
     if (target.description) {
-      css += `/* ${target.environment}: ${target.description} */\n`;
-      css += `/*   Position: (${target.x}%, ${target.y}%) */\n`;
-      css += `/*   Scale: ${target.scale}x */\n`;
+      css += `/* ${target.environment}: ${target.description}\n`;
+      css += ` *   Position: (${target.x}%, ${target.y}%)\n`;
+      css += ` *   Scale: ${target.scale}x\n`;
       if (target.duration) {
-        css += `/*   Duration: ${target.duration}ms */\n`;
+        css += ` *   Duration: ${target.duration}ms\n`;
       }
-      css += `*/\n\n`;
+      css += ` */\n\n`;
     }
   }
   
@@ -423,7 +423,7 @@ function writeGeneratedFile(
  */
 export async function generateZoomTargets(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/zoom.css';
+  const outputPath = 'src/styles/generated/zoom.css';
   
   if (verbose) {
     logInfo('Generating zoom targets from positioning constants...');

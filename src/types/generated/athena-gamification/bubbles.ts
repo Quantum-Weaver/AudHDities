@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/bubbles.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.469Z
+// GENERATED: 2026-07-10T18:14:59.269Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type BubblesRow = Tables<'bubbles'>;
 export type BubblesInsert = TablesInsert<'bubbles'>;
@@ -24,21 +30,24 @@ export type BubblesUpdate = TablesUpdate<'bubbles'>;
  * Public view of bubbles
  */
 export interface PublicBubbles {
-  appearance_weight: number | null;
-  bubbles_id: string;
-  collection_name: string | null;
-  collection_order: number | null;
-  color: string;
-  created_at: string | null;
+  animation_url: string | null;
+  bubble_type: string | null;
+  collection_id: string | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  glow_color: string | null;
-  is_active: boolean | null;
+  discovery_method: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
+  is_limited: boolean;
+  is_sanctuary_product: boolean;
   name: string;
-  points_value: number;
-  rarity: string;
+  rarity: string | null;
   slug: string;
-  updated_at: string | null;
+  spawn_locations: string[] | null;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -47,21 +56,24 @@ export interface PublicBubbles {
  * All fields are optional for partial updates
  */
 export interface BubblesFormData {
-  appearance_weight?: number | null;
-  bubbles_id?: string;
-  collection_name?: string | null;
-  collection_order?: number | null;
-  color?: string;
-  created_at?: string | null;
+  animation_url?: string | null;
+  bubble_type?: string | null;
+  collection_id?: string | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  glow_color?: string | null;
-  is_active?: boolean | null;
+  discovery_method?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
+  is_limited?: boolean;
+  is_sanctuary_product?: boolean;
   name?: string;
-  points_value?: number;
-  rarity?: string;
+  rarity?: string | null;
   slug?: string;
-  updated_at?: string | null;
+  spawn_locations?: string[] | null;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -71,20 +83,23 @@ export interface BubblesFormData {
 export interface BubblesValidationResult {
   valid: boolean;
   errors: {
-    appearance_weight?: string;
-    bubbles_id?: string;
-    collection_name?: string;
-    collection_order?: string;
-    color?: string;
+    animation_url?: string;
+    bubble_type?: string;
+    collection_id?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    glow_color?: string;
-    is_active?: string;
+    discovery_method?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
+    is_limited?: string;
+    is_sanctuary_product?: string;
     name?: string;
-    points_value?: string;
     rarity?: string;
     slug?: string;
+    spawn_locations?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

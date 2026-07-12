@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/curator.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.549Z
+// GENERATED: 2026-07-10T18:14:59.351Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,16 +25,16 @@ export type CuratorUpdate = TablesUpdate<'curator'>;
  * Public view of curator
  */
 export interface PublicCurator {
-  archived_content: Json | null;
-  collection_themes: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  curation_queue: Json | null;
-  curator_id: string;
-  featured_content: Json | null;
-  preservation_policy: Json | null;
-  quality_standards: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -43,16 +43,16 @@ export interface PublicCurator {
  * All fields are optional for partial updates
  */
 export interface CuratorFormData {
-  archived_content?: Json | null;
-  collection_themes?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  curation_queue?: Json | null;
-  curator_id?: string;
-  featured_content?: Json | null;
-  preservation_policy?: Json | null;
-  quality_standards?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -62,15 +62,15 @@ export interface CuratorFormData {
 export interface CuratorValidationResult {
   valid: boolean;
   errors: {
-    archived_content?: string;
-    collection_themes?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    curation_queue?: string;
-    curator_id?: string;
-    featured_content?: string;
-    preservation_policy?: string;
-    quality_standards?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

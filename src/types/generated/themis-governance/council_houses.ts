@@ -2,15 +2,22 @@
 // FILE: types/generated/themis-governance/council_houses.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T15:31:59.520Z
+// GENERATED: 2026-07-10T18:14:59.335Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type CouncilHousesRow = Tables<'council_houses'>;
 export type CouncilHousesInsert = TablesInsert<'council_houses'>;
@@ -24,22 +31,23 @@ export type CouncilHousesUpdate = TablesUpdate<'council_houses'>;
  * Public view of council_houses
  */
 export interface PublicCouncilHouses {
-  adept_quest: string | null;
-  color: string;
-  council_houses_id: string;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  description: string;
-  display_name: string;
-  emoji: string;
-  initiate_quest: string | null;
-  is_active: boolean | null;
-  master_quest: string | null;
+  deity_alignment: string | null;
+  description: string | null;
+  display_order: number;
+  house_type: string | null;
+  icon_url: string | null;
+  id: string;
+  member_count: number;
   name: string;
-  order_index: number;
-  primary_domain: string | null;
-  slug: string | null;
-  updated_at: string | null;
+  related_protocols: string[] | null;
+  responsibilities: Json | null;
+  seat_limit: number | null;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -47,22 +55,23 @@ export interface PublicCouncilHouses {
  * All fields are optional for partial updates
  */
 export interface CouncilHousesFormData {
-  adept_quest?: string | null;
-  color?: string;
-  council_houses_id?: string;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  description?: string;
-  display_name?: string;
-  emoji?: string;
-  initiate_quest?: string | null;
-  is_active?: boolean | null;
-  master_quest?: string | null;
+  deity_alignment?: string | null;
+  description?: string | null;
+  display_order?: number;
+  house_type?: string | null;
+  icon_url?: string | null;
+  id?: string;
+  member_count?: number;
   name?: string;
-  order_index?: number;
-  primary_domain?: string | null;
-  slug?: string | null;
-  updated_at?: string | null;
+  related_protocols?: string[] | null;
+  responsibilities?: Json | null;
+  seat_limit?: number | null;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -71,22 +80,23 @@ export interface CouncilHousesFormData {
 export interface CouncilHousesValidationResult {
   valid: boolean;
   errors: {
-    adept_quest?: string;
-    color?: string;
-    council_houses_id?: string;
     created_at?: string;
     created_by?: string;
+    deity_alignment?: string;
     description?: string;
-    display_name?: string;
-    emoji?: string;
-    initiate_quest?: string;
-    is_active?: string;
-    master_quest?: string;
+    display_order?: string;
+    house_type?: string;
+    icon_url?: string;
+    id?: string;
+    member_count?: string;
     name?: string;
-    order_index?: string;
-    primary_domain?: string;
+    related_protocols?: string;
+    responsibilities?: string;
+    seat_limit?: string;
     slug?: string;
+    status?: string;
     updated_at?: string;
+    updated_by?: string;
   };
 }
 

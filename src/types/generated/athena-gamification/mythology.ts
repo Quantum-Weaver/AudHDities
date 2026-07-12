@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/mythology.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.668Z
+// GENERATED: 2026-07-10T18:14:59.590Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,8 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Enums<'council_house'>;
-export type MythType = Enums<'myth_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type MythologyRow = Tables<'mythology'>;
 export type MythologyInsert = TablesInsert<'mythology'>;
@@ -31,19 +30,21 @@ export type MythologyUpdate = TablesUpdate<'mythology'>;
  * Public view of mythology
  */
 export interface PublicMythology {
-  author_id: string;
-  content: string;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  house: CouncilHouse | null;
-  is_published: boolean | null;
-  mythology_id: string;
-  order_index: number | null;
-  series_id: string | null;
+  description: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
+  myth_type: string | null;
+  name: string;
+  related_entity: string | null;
+  related_entity_type: string | null;
   slug: string;
-  title: string;
-  type: MythType;
-  updated_at: string | null;
+  status: ContentStatus;
+  story: string | null;
+  teachings: string | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -52,19 +53,21 @@ export interface PublicMythology {
  * All fields are optional for partial updates
  */
 export interface MythologyFormData {
-  author_id?: string;
-  content?: string;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  house?: CouncilHouse | null;
-  is_published?: boolean | null;
-  mythology_id?: string;
-  order_index?: number | null;
-  series_id?: string | null;
+  description?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
+  myth_type?: string | null;
+  name?: string;
+  related_entity?: string | null;
+  related_entity_type?: string | null;
   slug?: string;
-  title?: string;
-  type?: MythType;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  story?: string | null;
+  teachings?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -74,18 +77,20 @@ export interface MythologyFormData {
 export interface MythologyValidationResult {
   valid: boolean;
   errors: {
-    author_id?: string;
-    content?: string;
     created_at?: string;
     created_by?: string;
-    house?: string;
-    is_published?: string;
-    mythology_id?: string;
-    order_index?: string;
-    series_id?: string;
+    description?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
+    myth_type?: string;
+    name?: string;
+    related_entity?: string;
+    related_entity_type?: string;
     slug?: string;
-    title?: string;
-    type?: string;
+    status?: string;
+    story?: string;
+    teachings?: string;
     updated_at?: string;
     updated_by?: string;
   };

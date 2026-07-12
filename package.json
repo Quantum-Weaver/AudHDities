@@ -15,9 +15,6 @@
     "gaia:force": "tsx src/scripts/system/gaia/index.ts --force",
     "gaia:verbose": "tsx src/scripts/system/gaia/index.ts --verbose",
     "gaia:interactive": "tsx src/scripts/system/gaia/index.ts --interactive",
-    "gaia:table": "tsx src/scripts/system/gaia/index.ts --table=",
-    "gaia:view": "tsx src/scripts/system/gaia/index.ts --view=",
-    "gaia:deity": "tsx src/scripts/system/gaia/index.ts --deity=",
     "gaia:helpers": "tsx src/scripts/system/gaia/maintenance/generate_tables_file.ts",
     "gaia:helpers:force": "tsx src/scripts/system/gaia/maintenance/generate_tables_file.ts --force",
     "gaia:enums": "tsx src/scripts/system/gaia/maintenance/generate_enums_file.ts",
@@ -32,14 +29,14 @@
     "maintenance:check": "tsx src/scripts/modules/agentic_maintenance.ts --check",
     "maintenance:run": "tsx src/scripts/modules/agentic_maintenance.ts --run",
     "analyze:deps": "tsx src/scripts/modules/analyze_dependencies.ts",
-    "inspect:schema": "tsx src/scripts/inspect_schema.ts",
+    "inspect:schema": "tsx src/scripts/shared/inspect_schema.ts",
     "generate": "npm run gaia:helpers && npm run gaia:enums && npm run gaia",
     "generate:dry": "npm run gaia:helpers && npm run gaia:enums && npm run gaia:dry",
     "generate:force": "npm run gaia:helpers:force && npm run gaia:enums:force && npm run gaia:force",
     "reality": "npm run cosmic && npm run generate",
     "reality:dry": "npm run cosmic:dry && npm run generate:dry",
-    "clean": "rm -rf .next node_modules/.cache src/styles/generated tailwind.generated.config.mjs",
-    "clean:generated": "rm -rf src/styles/generated tailwind.generated.config.mjs src/types/generated/* src/lib/validators/generated/* src/lib/constants/generated/* src/hooks/generated/* src/app/api/generated/*"
+    "clean": "node -e \"['.next','node_modules/.cache','src/styles/generated','tailwind.generated.config.mjs'].forEach(p=>require('fs').rmSync(p,{recursive:true,force:true}))\"",
+    "clean:generated": "node -e \"['src/styles/generated','tailwind.generated.config.mjs','src/types/generated','src/lib/validators/generated','src/lib/constants/generated','src/hooks/generated','src/utils/generated','src/app/api/generated'].forEach(p=>require('fs').rmSync(p,{recursive:true,force:true}))\""
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",

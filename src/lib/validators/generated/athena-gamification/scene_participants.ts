@@ -11,31 +11,34 @@ import z from 'zod';
 
 export const SceneParticipantsRowSchema = z.object({
   created_at: z.string(),
-  created_by: z.string().nullable(),
-  joined_at: z.string().nullable(),
-  role: z.string().nullable(),
-  scene_participants_id: z.string(),
-  updated_at: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean(),
+  joined_at: z.string(),
+  last_active_at: z.string(),
+  scene_id: z.string(),
+  updated_at: z.string(),
   user_id: z.string(),
 });
 
 export const SceneParticipantsInsertSchema = z.object({
   created_at: z.string().optional(),
-  created_by: z.string().nullable().optional(),
-  joined_at: z.string().nullable().optional(),
-  role: z.string().nullable().optional(),
-  scene_participants_id: z.string(),
-  updated_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  joined_at: z.string().optional(),
+  last_active_at: z.string().optional(),
+  scene_id: z.string(),
+  updated_at: z.string().optional(),
   user_id: z.string(),
 });
 
 export const SceneParticipantsUpdateSchema = z.object({
   created_at: z.string().optional(),
-  created_by: z.string().nullable().optional(),
-  joined_at: z.string().nullable().optional(),
-  role: z.string().nullable().optional(),
-  scene_participants_id: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  joined_at: z.string().optional(),
+  last_active_at: z.string().optional(),
+  scene_id: z.string().optional(),
+  updated_at: z.string().optional(),
   user_id: z.string().optional(),
 });
 

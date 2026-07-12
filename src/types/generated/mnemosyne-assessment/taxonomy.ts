@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/taxonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-05-01T15:31:59.916Z
+// GENERATED: 2026-07-10T18:14:59.870Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,12 +11,6 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type TaxonomyNodeType = Enums<'taxonomy_node_type'>;
 
 export type TaxonomyRow = Tables<'taxonomy'>;
 export type TaxonomyInsert = TablesInsert<'taxonomy'>;
@@ -30,19 +24,23 @@ export type TaxonomyUpdate = TablesUpdate<'taxonomy'>;
  * Public view of taxonomy
  */
 export interface PublicTaxonomy {
-  created_at: string | null;
+  class_id: string | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  domain: string | null;
-  is_active: boolean | null;
-  level: number | null;
-  name: string;
-  node_type: TaxonomyNodeType;
-  parent_id: string | null;
-  path: string;
-  slug: string;
-  taxonomy_id: string;
-  updated_at: string | null;
+  domain_id: string | null;
+  emoji: string | null;
+  family_id: string | null;
+  genus_id: string | null;
+  id: string;
+  is_primary: boolean | null;
+  keyword_id: string | null;
+  kingdom_id: string | null;
+  name: string | null;
+  order_id: string | null;
+  phylum_id: string | null;
+  species_id: string | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -51,19 +49,23 @@ export interface PublicTaxonomy {
  * All fields are optional for partial updates
  */
 export interface TaxonomyFormData {
-  created_at?: string | null;
+  class_id?: string | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  domain?: string | null;
-  is_active?: boolean | null;
-  level?: number | null;
-  name?: string;
-  node_type?: TaxonomyNodeType;
-  parent_id?: string | null;
-  path?: string;
-  slug?: string;
-  taxonomy_id?: string;
-  updated_at?: string | null;
+  domain_id?: string | null;
+  emoji?: string | null;
+  family_id?: string | null;
+  genus_id?: string | null;
+  id?: string;
+  is_primary?: boolean | null;
+  keyword_id?: string | null;
+  kingdom_id?: string | null;
+  name?: string | null;
+  order_id?: string | null;
+  phylum_id?: string | null;
+  species_id?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -73,18 +75,22 @@ export interface TaxonomyFormData {
 export interface TaxonomyValidationResult {
   valid: boolean;
   errors: {
+    class_id?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    domain?: string;
-    is_active?: string;
-    level?: string;
+    domain_id?: string;
+    emoji?: string;
+    family_id?: string;
+    genus_id?: string;
+    id?: string;
+    is_primary?: string;
+    keyword_id?: string;
+    kingdom_id?: string;
     name?: string;
-    node_type?: string;
-    parent_id?: string;
-    path?: string;
-    slug?: string;
-    taxonomy_id?: string;
+    order_id?: string;
+    phylum_id?: string;
+    species_id?: string;
     updated_at?: string;
     updated_by?: string;
   };

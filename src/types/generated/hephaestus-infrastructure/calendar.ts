@@ -2,12 +2,11 @@
 // FILE: types/generated/hephaestus-infrastructure/calendar.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.474Z
+// GENERATED: 2026-07-10T18:14:59.273Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -17,9 +16,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type CouncilHouse = Enums<'council_house'>;
-export type CalendarEventType = Enums<'calendar_event_type'>;
-export type CalendarVisibility = Enums<'calendar_visibility'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type CalendarRow = Tables<'calendar'>;
 export type CalendarInsert = TablesInsert<'calendar'>;
@@ -33,22 +30,26 @@ export type CalendarUpdate = TablesUpdate<'calendar'>;
  * Public view of calendar
  */
 export interface PublicCalendar {
-  all_day: boolean | null;
-  calendar_id: string;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  end_date: string | null;
-  house: CouncilHouse | null;
-  is_active: boolean | null;
-  primary_house: CouncilHouse | null;
-  recurrence: Json | null;
-  start_date: string;
-  title: string;
-  type: CalendarEventType;
-  updated_at: string | null;
+  display_order: number;
+  end_at: string | null;
+  event_type: string | null;
+  icon_url: string | null;
+  id: string;
+  is_recurring: boolean;
+  location_text: string | null;
+  location_uri: string | null;
+  name: string;
+  recurrence_rule: string | null;
+  slug: string;
+  start_at: string;
+  status: ContentStatus;
+  timezone: string;
+  updated_at: string;
   updated_by: string | null;
-  visibility: CalendarVisibility | null;
+  visibility_scope: string;
 }
 
 /**
@@ -56,22 +57,26 @@ export interface PublicCalendar {
  * All fields are optional for partial updates
  */
 export interface CalendarFormData {
-  all_day?: boolean | null;
-  calendar_id?: string;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  end_date?: string | null;
-  house?: CouncilHouse | null;
-  is_active?: boolean | null;
-  primary_house?: CouncilHouse | null;
-  recurrence?: Json | null;
-  start_date?: string;
-  title?: string;
-  type?: CalendarEventType;
-  updated_at?: string | null;
+  display_order?: number;
+  end_at?: string | null;
+  event_type?: string | null;
+  icon_url?: string | null;
+  id?: string;
+  is_recurring?: boolean;
+  location_text?: string | null;
+  location_uri?: string | null;
+  name?: string;
+  recurrence_rule?: string | null;
+  slug?: string;
+  start_at?: string;
+  status?: ContentStatus;
+  timezone?: string;
+  updated_at?: string;
   updated_by?: string | null;
-  visibility?: CalendarVisibility | null;
+  visibility_scope?: string;
 }
 
 /**
@@ -80,22 +85,26 @@ export interface CalendarFormData {
 export interface CalendarValidationResult {
   valid: boolean;
   errors: {
-    all_day?: string;
-    calendar_id?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    end_date?: string;
-    house?: string;
-    is_active?: string;
-    primary_house?: string;
-    recurrence?: string;
-    start_date?: string;
-    title?: string;
-    type?: string;
+    display_order?: string;
+    end_at?: string;
+    event_type?: string;
+    icon_url?: string;
+    id?: string;
+    is_recurring?: string;
+    location_text?: string;
+    location_uri?: string;
+    name?: string;
+    recurrence_rule?: string;
+    slug?: string;
+    start_at?: string;
+    status?: string;
+    timezone?: string;
     updated_at?: string;
     updated_by?: string;
-    visibility?: string;
+    visibility_scope?: string;
   };
 }
 

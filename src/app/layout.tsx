@@ -4,7 +4,7 @@ import '@/app/globals.css';
 
 import '@/styles/generated/variables.css';
 import '@/styles/generated/domains.css';
-import '@/styles/generated/text_effects.css';
+import '@/styles/generated/text-effects.css';
 import '@/styles/generated/animations.css';
 import '@/styles/generated/typography.css';
 import '@/styles/generated/zoom.css';

@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/skald.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.865Z
+// GENERATED: 2026-07-10T18:14:59.835Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,16 +25,16 @@ export type SkaldUpdate = TablesUpdate<'skald'>;
  * Public view of skald
  */
 export interface PublicSkald {
-  art_gallery: Json | null;
-  bard_roster: string[] | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  inspiring_content: Json | null;
-  music_library: Json | null;
-  mythology: Json | null;
-  skald_id: string;
-  story_archive: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -43,16 +43,16 @@ export interface PublicSkald {
  * All fields are optional for partial updates
  */
 export interface SkaldFormData {
-  art_gallery?: Json | null;
-  bard_roster?: string[] | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  inspiring_content?: Json | null;
-  music_library?: Json | null;
-  mythology?: Json | null;
-  skald_id?: string;
-  story_archive?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -62,15 +62,15 @@ export interface SkaldFormData {
 export interface SkaldValidationResult {
   valid: boolean;
   errors: {
-    art_gallery?: string;
-    bard_roster?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    inspiring_content?: string;
-    music_library?: string;
-    mythology?: string;
-    skald_id?: string;
-    story_archive?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

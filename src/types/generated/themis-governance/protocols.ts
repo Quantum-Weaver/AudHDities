@@ -2,12 +2,11 @@
 // FILE: types/generated/themis-governance/protocols.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-05-01T15:31:59.759Z
+// GENERATED: 2026-07-10T18:14:59.662Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -17,7 +16,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type ProtocolType = Enums<'protocol_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type ProtocolsRow = Tables<'protocols'>;
 export type ProtocolsInsert = TablesInsert<'protocols'>;
@@ -31,23 +30,20 @@ export type ProtocolsUpdate = TablesUpdate<'protocols'>;
  * Public view of protocols
  */
 export interface PublicProtocols {
-  created_at: string | null;
+  content: string | null;
+  created_at: string;
   created_by: string | null;
-  description: string;
-  is_active: boolean | null;
-  last_reviewed: string | null;
+  description: string | null;
+  id: string;
   name: string;
-  next_review: string | null;
-  owners: string[] | null;
-  protocols_id: string;
-  review_frequency_days: number | null;
-  reviewed_by: string | null;
+  priority: string;
+  protocol_type: string | null;
   slug: string;
-  steps: Json;
-  type: ProtocolType;
-  updated_at: string | null;
+  status: ContentStatus;
+  supersedes: string | null;
+  updated_at: string;
   updated_by: string | null;
-  version: number | null;
+  version: string;
 }
 
 /**
@@ -55,23 +51,20 @@ export interface PublicProtocols {
  * All fields are optional for partial updates
  */
 export interface ProtocolsFormData {
-  created_at?: string | null;
+  content?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  description?: string;
-  is_active?: boolean | null;
-  last_reviewed?: string | null;
+  description?: string | null;
+  id?: string;
   name?: string;
-  next_review?: string | null;
-  owners?: string[] | null;
-  protocols_id?: string;
-  review_frequency_days?: number | null;
-  reviewed_by?: string | null;
+  priority?: string;
+  protocol_type?: string | null;
   slug?: string;
-  steps?: Json;
-  type?: ProtocolType;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  supersedes?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
-  version?: number | null;
+  version?: string;
 }
 
 /**
@@ -80,20 +73,17 @@ export interface ProtocolsFormData {
 export interface ProtocolsValidationResult {
   valid: boolean;
   errors: {
+    content?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    is_active?: string;
-    last_reviewed?: string;
+    id?: string;
     name?: string;
-    next_review?: string;
-    owners?: string;
-    protocols_id?: string;
-    review_frequency_days?: string;
-    reviewed_by?: string;
+    priority?: string;
+    protocol_type?: string;
     slug?: string;
-    steps?: string;
-    type?: string;
+    status?: string;
+    supersedes?: string;
     updated_at?: string;
     updated_by?: string;
     version?: string;

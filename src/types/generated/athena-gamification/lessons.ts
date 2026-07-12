@@ -2,11 +2,12 @@
 // FILE: types/generated/athena-gamification/lessons.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-05-01T15:31:59.639Z
+// GENERATED: 2026-07-10T18:14:59.548Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -16,7 +17,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type LessonContentType = Enums<'lesson_content_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type LessonsRow = Tables<'lessons'>;
 export type LessonsInsert = TablesInsert<'lessons'>;
@@ -30,20 +31,21 @@ export type LessonsUpdate = TablesUpdate<'lessons'>;
  * Public view of lessons
  */
 export interface PublicLessons {
-  content_body: string | null;
-  content_type: LessonContentType;
-  content_url: string | null;
-  created_at: string | null;
+  content: Json | null;
+  created_at: string;
   created_by: string | null;
-  creator_id: string;
-  description: string;
-  duration_minutes: number | null;
-  is_published: boolean | null;
-  lessons_id: string;
-  order_index: number | null;
+  description: string | null;
+  difficulty: string | null;
+  display_order: number;
+  estimated_duration: string | null;
+  icon_url: string | null;
+  id: string;
+  lesson_type: string | null;
+  name: string;
+  resources: Json | null;
   slug: string;
-  title: string;
-  updated_at: string | null;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -52,20 +54,21 @@ export interface PublicLessons {
  * All fields are optional for partial updates
  */
 export interface LessonsFormData {
-  content_body?: string | null;
-  content_type?: LessonContentType;
-  content_url?: string | null;
-  created_at?: string | null;
+  content?: Json | null;
+  created_at?: string;
   created_by?: string | null;
-  creator_id?: string;
-  description?: string;
-  duration_minutes?: number | null;
-  is_published?: boolean | null;
-  lessons_id?: string;
-  order_index?: number | null;
+  description?: string | null;
+  difficulty?: string | null;
+  display_order?: number;
+  estimated_duration?: string | null;
+  icon_url?: string | null;
+  id?: string;
+  lesson_type?: string | null;
+  name?: string;
+  resources?: Json | null;
   slug?: string;
-  title?: string;
-  updated_at?: string | null;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -75,19 +78,20 @@ export interface LessonsFormData {
 export interface LessonsValidationResult {
   valid: boolean;
   errors: {
-    content_body?: string;
-    content_type?: string;
-    content_url?: string;
+    content?: string;
     created_at?: string;
     created_by?: string;
-    creator_id?: string;
     description?: string;
-    duration_minutes?: string;
-    is_published?: string;
-    lessons_id?: string;
-    order_index?: string;
+    difficulty?: string;
+    display_order?: string;
+    estimated_duration?: string;
+    icon_url?: string;
+    id?: string;
+    lesson_type?: string;
+    name?: string;
+    resources?: string;
     slug?: string;
-    title?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

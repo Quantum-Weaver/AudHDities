@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/email_communications.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.565Z
+// GENERATED: 2026-07-10T18:14:59.382Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -17,7 +17,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type EmailStatus = Enums<'email_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type EmailCommunicationsRow = Tables<'email_communications'>;
 export type EmailCommunicationsInsert = TablesInsert<'email_communications'>;
@@ -31,21 +31,24 @@ export type EmailCommunicationsUpdate = TablesUpdate<'email_communications'>;
  * Public view of email_communications
  */
 export interface PublicEmailCommunications {
-  body: string;
-  clicked_at: string | null;
-  created_at: string | null;
+  body_template: string | null;
+  created_at: string;
   created_by: string | null;
-  email_communications_id: string;
-  metadata: Json | null;
-  opened_at: string | null;
-  provider_message_id: string | null;
-  recipient_email: string;
-  recipient_id: string | null;
-  sent_at: string | null;
-  status: EmailStatus | null;
-  subject: string;
-  template_id: string | null;
-  updated_at: string | null;
+  description: string | null;
+  email_type: string | null;
+  from_email: string | null;
+  from_name: string;
+  id: string;
+  is_active: boolean;
+  name: string;
+  reply_to: string | null;
+  slug: string;
+  status: ContentStatus;
+  subject_template: string | null;
+  trigger_event: string | null;
+  updated_at: string;
+  updated_by: string | null;
+  variables: Json | null;
 }
 
 /**
@@ -53,21 +56,24 @@ export interface PublicEmailCommunications {
  * All fields are optional for partial updates
  */
 export interface EmailCommunicationsFormData {
-  body?: string;
-  clicked_at?: string | null;
-  created_at?: string | null;
+  body_template?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  email_communications_id?: string;
-  metadata?: Json | null;
-  opened_at?: string | null;
-  provider_message_id?: string | null;
-  recipient_email?: string;
-  recipient_id?: string | null;
-  sent_at?: string | null;
-  status?: EmailStatus | null;
-  subject?: string;
-  template_id?: string | null;
-  updated_at?: string | null;
+  description?: string | null;
+  email_type?: string | null;
+  from_email?: string | null;
+  from_name?: string;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  reply_to?: string | null;
+  slug?: string;
+  status?: ContentStatus;
+  subject_template?: string | null;
+  trigger_event?: string | null;
+  updated_at?: string;
+  updated_by?: string | null;
+  variables?: Json | null;
 }
 
 /**
@@ -76,21 +82,24 @@ export interface EmailCommunicationsFormData {
 export interface EmailCommunicationsValidationResult {
   valid: boolean;
   errors: {
-    body?: string;
-    clicked_at?: string;
+    body_template?: string;
     created_at?: string;
     created_by?: string;
-    email_communications_id?: string;
-    metadata?: string;
-    opened_at?: string;
-    provider_message_id?: string;
-    recipient_email?: string;
-    recipient_id?: string;
-    sent_at?: string;
+    description?: string;
+    email_type?: string;
+    from_email?: string;
+    from_name?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    reply_to?: string;
+    slug?: string;
     status?: string;
-    subject?: string;
-    template_id?: string;
+    subject_template?: string;
+    trigger_event?: string;
     updated_at?: string;
+    updated_by?: string;
+    variables?: string;
   };
 }
 

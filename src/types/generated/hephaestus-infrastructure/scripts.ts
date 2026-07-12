@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scripts.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.849Z
+// GENERATED: 2026-07-10T18:14:59.791Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -12,12 +12,6 @@ import type { Json } from '@/types/supabase/database.types.js';
 // =====================================================
 // CORE TYPES
 // =====================================================
-
-// =====================================================
-// ENUM EXPORTS (from database enums)
-// =====================================================
-
-export type ScriptType = Enums<'script_type'>;
 
 export type ScriptsRow = Tables<'scripts'>;
 export type ScriptsInsert = TablesInsert<'scripts'>;
@@ -31,20 +25,18 @@ export type ScriptsUpdate = TablesUpdate<'scripts'>;
  * Public view of scripts
  */
 export interface PublicScripts {
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  is_production_safe: boolean | null;
-  last_result: string | null;
-  last_run: string | null;
+  file_path: string;
+  icon_emoji: string | null;
+  id: string;
+  input_requires: Json | null;
+  is_active: boolean;
   name: string;
-  parameters: Json | null;
-  path: string;
-  requires_approval: boolean | null;
-  run_count: number | null;
-  scripts_id: string;
-  type: ScriptType;
-  updated_at: string | null;
+  output_produces: Json | null;
+  script_type: string;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -53,20 +45,18 @@ export interface PublicScripts {
  * All fields are optional for partial updates
  */
 export interface ScriptsFormData {
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  is_production_safe?: boolean | null;
-  last_result?: string | null;
-  last_run?: string | null;
+  file_path?: string;
+  icon_emoji?: string | null;
+  id?: string;
+  input_requires?: Json | null;
+  is_active?: boolean;
   name?: string;
-  parameters?: Json | null;
-  path?: string;
-  requires_approval?: boolean | null;
-  run_count?: number | null;
-  scripts_id?: string;
-  type?: ScriptType;
-  updated_at?: string | null;
+  output_produces?: Json | null;
+  script_type?: string;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -79,16 +69,14 @@ export interface ScriptsValidationResult {
     created_at?: string;
     created_by?: string;
     description?: string;
-    is_production_safe?: string;
-    last_result?: string;
-    last_run?: string;
+    file_path?: string;
+    icon_emoji?: string;
+    id?: string;
+    input_requires?: string;
+    is_active?: string;
     name?: string;
-    parameters?: string;
-    path?: string;
-    requires_approval?: string;
-    run_count?: string;
-    scripts_id?: string;
-    type?: string;
+    output_produces?: string;
+    script_type?: string;
     updated_at?: string;
     updated_by?: string;
   };

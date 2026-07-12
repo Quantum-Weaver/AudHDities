@@ -1,0 +1,54 @@
+// =====================================================
+// FILE: validators/distribution_recipients.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// DistributionRecipients SCHEMAS
+// =====================================================
+
+export const DistributionRecipientsRowSchema = z.object({
+  amount: z.number(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  distribution_id: z.string(),
+  id: z.string(),
+  status: z.string(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+  user_id: z.string(),
+});
+
+export const DistributionRecipientsInsertSchema = z.object({
+  amount: z.number(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  distribution_id: z.string(),
+  id: z.string().optional(),
+  status: z.string().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+  user_id: z.string(),
+});
+
+export const DistributionRecipientsUpdateSchema = z.object({
+  amount: z.number().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  distribution_id: z.string().optional(),
+  id: z.string().optional(),
+  status: z.string().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+  user_id: z.string().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type DistributionRecipientsRowInput = z.infer<typeof DistributionRecipientsRowSchema>;
+export type DistributionRecipientsInsertInput = z.infer<typeof DistributionRecipientsInsertSchema>;
+export type DistributionRecipientsUpdateInput = z.infer<typeof DistributionRecipientsUpdateSchema>;

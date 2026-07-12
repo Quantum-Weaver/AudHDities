@@ -249,25 +249,27 @@ export const DEITY_GROUPS: DeityGroup[] = [
   },
 
   // ════════════════════════════════════════════════════════════════════════
-  // PROMETHEUS — Meta (Sequence 10)
+  // DAEDALUS — Meta (Sequence 10)
+  // (Renamed 2026-07-07 from "prometheus" — Prometheus is now the creative-arts
+  //  domain: Stage + Studio. This is the meta-generator, the engine that builds.)
   // ════════════════════════════════════════════════════════════════════════
   {
-    name: 'prometheus',
+    name: 'daedalus',
     domain: 'meta',
     sequence: 10,
-    folderName: 'prometheus-meta',
+    folderName: 'daedalus-meta',
     description: 'Meta-system — blueprints, generations, memories, templates, patterns, boundaries, consciousness',
     tables: [
-      'prometheus_blueprints',
-      'prometheus_generations',
-      'prometheus_memories',
-      'prometheus_templates',
-      'prometheus_patterns',
-      'prometheus_boundaries',
-      'prometheus_consciousness',
+      'daedalus_blueprints',
+      'daedalus_generations',
+      'daedalus_memories',
+      'daedalus_templates',
+      'daedalus_patterns',
+      'daedalus_boundaries',
+      'daedalus_consciousness',
     ],
     views: [
-      'prometheus_generation_stats',
+      'daedalus_generation_stats',
     ],
   },
 ];

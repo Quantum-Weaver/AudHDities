@@ -470,7 +470,7 @@ function writeGeneratedFile(
  */
 export async function generateDomainStyles(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/domains.css';
+  const outputPath = 'src/styles/generated/domains.css';
   
   if (verbose) {
     logInfo('Generating domain styles from DOMAIN_COLORS...');

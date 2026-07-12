@@ -17,7 +17,7 @@ phoenix
 # next.js
 /.next/
 /out/
-
+/generarted/
 # production
 /build
 

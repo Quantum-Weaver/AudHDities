@@ -11,38 +11,44 @@ import z from 'zod';
 
 export const UserPageViewsRowSchema = z.object({
   created_at: z.string(),
-  created_by: z.string().nullable(),
-  first_viewed_at: z.string().nullable(),
-  last_viewed_at: z.string().nullable(),
+  deity_domain: z.string().nullable(),
+  first_visited_at: z.string(),
+  icon_emoji: z.string().nullable(),
+  id: z.string(),
+  last_visited_at: z.string(),
+  page_name: z.string().nullable(),
   page_path: z.string(),
-  updated_at: z.string().nullable(),
+  updated_at: z.string(),
   user_id: z.string(),
-  user_page_views_id: z.string(),
-  view_count: z.number().nullable(),
+  visit_count: z.number(),
 });
 
 export const UserPageViewsInsertSchema = z.object({
   created_at: z.string().optional(),
-  created_by: z.string().nullable().optional(),
-  first_viewed_at: z.string().nullable().optional(),
-  last_viewed_at: z.string().nullable().optional(),
+  deity_domain: z.string().nullable().optional(),
+  first_visited_at: z.string().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string().optional(),
+  last_visited_at: z.string().optional(),
+  page_name: z.string().nullable().optional(),
   page_path: z.string(),
-  updated_at: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   user_id: z.string(),
-  user_page_views_id: z.string().optional(),
-  view_count: z.number().nullable().optional(),
+  visit_count: z.number().optional(),
 });
 
 export const UserPageViewsUpdateSchema = z.object({
   created_at: z.string().optional(),
-  created_by: z.string().nullable().optional(),
-  first_viewed_at: z.string().nullable().optional(),
-  last_viewed_at: z.string().nullable().optional(),
+  deity_domain: z.string().nullable().optional(),
+  first_visited_at: z.string().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string().optional(),
+  last_visited_at: z.string().optional(),
+  page_name: z.string().nullable().optional(),
   page_path: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   user_id: z.string().optional(),
-  user_page_views_id: z.string().optional(),
-  view_count: z.number().nullable().optional(),
+  visit_count: z.number().optional(),
 });
 
 // =====================================================

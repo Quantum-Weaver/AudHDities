@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/localization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.649Z
+// GENERATED: 2026-07-10T18:14:59.557Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type LocalizationRow = Tables<'localization'>;
 export type LocalizationInsert = TablesInsert<'localization'>;
@@ -24,19 +30,21 @@ export type LocalizationUpdate = TablesUpdate<'localization'>;
  * Public view of localization
  */
 export interface PublicLocalization {
-  approved_by: string | null;
-  context: string | null;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
-  is_approved: boolean | null;
-  language_code: string;
-  localization_id: string;
-  plural_form: number | null;
-  resource_key: string;
-  translation: string;
-  updated_at: string | null;
+  currency_code: string | null;
+  currency_symbol: string | null;
+  date_format: string;
+  first_day_of_week: number;
+  id: string;
+  is_default: boolean;
+  language_id: string | null;
+  number_format: string | null;
+  region_code: string | null;
+  status: ContentStatus;
+  time_format: string;
+  updated_at: string;
   updated_by: string | null;
-  version: number | null;
 }
 
 /**
@@ -44,19 +52,21 @@ export interface PublicLocalization {
  * All fields are optional for partial updates
  */
 export interface LocalizationFormData {
-  approved_by?: string | null;
-  context?: string | null;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  is_approved?: boolean | null;
-  language_code?: string;
-  localization_id?: string;
-  plural_form?: number | null;
-  resource_key?: string;
-  translation?: string;
-  updated_at?: string | null;
+  currency_code?: string | null;
+  currency_symbol?: string | null;
+  date_format?: string;
+  first_day_of_week?: number;
+  id?: string;
+  is_default?: boolean;
+  language_id?: string | null;
+  number_format?: string | null;
+  region_code?: string | null;
+  status?: ContentStatus;
+  time_format?: string;
+  updated_at?: string;
   updated_by?: string | null;
-  version?: number | null;
 }
 
 /**
@@ -65,19 +75,21 @@ export interface LocalizationFormData {
 export interface LocalizationValidationResult {
   valid: boolean;
   errors: {
-    approved_by?: string;
-    context?: string;
     created_at?: string;
     created_by?: string;
-    is_approved?: string;
-    language_code?: string;
-    localization_id?: string;
-    plural_form?: string;
-    resource_key?: string;
-    translation?: string;
+    currency_code?: string;
+    currency_symbol?: string;
+    date_format?: string;
+    first_day_of_week?: string;
+    id?: string;
+    is_default?: string;
+    language_id?: string;
+    number_format?: string;
+    region_code?: string;
+    status?: string;
+    time_format?: string;
     updated_at?: string;
     updated_by?: string;
-    version?: string;
   };
 }
 

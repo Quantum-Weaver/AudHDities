@@ -2,11 +2,12 @@
 // FILE: types/generated/hephaestus-infrastructure/maintenance.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.654Z
+// GENERATED: 2026-07-10T18:14:59.562Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -16,8 +17,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type MaintenanceStatus = Enums<'maintenance_status'>;
-export type MaintenanceType = Enums<'maintenance_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type MaintenanceRow = Tables<'maintenance'>;
 export type MaintenanceInsert = TablesInsert<'maintenance'>;
@@ -31,23 +31,22 @@ export type MaintenanceUpdate = TablesUpdate<'maintenance'>;
  * Public view of maintenance
  */
 export interface PublicMaintenance {
-  actual_end: string | null;
-  actual_start: string | null;
-  affected_systems: string[] | null;
-  created_at: string | null;
+  created_at: string;
   created_by: string | null;
+  cron_expression: string | null;
   description: string | null;
-  error_log: string | null;
-  maintenance_id: string;
-  notes: string | null;
-  performed_by: string | null;
-  scheduled_end: string | null;
-  scheduled_start: string | null;
-  slug: string | null;
-  status: MaintenanceStatus | null;
-  title: string;
-  type: MaintenanceType;
-  updated_at: string | null;
+  id: string;
+  is_enabled: boolean;
+  last_run_at: string | null;
+  last_run_status: string | null;
+  name: string;
+  next_run_at: string | null;
+  priority: string;
+  slug: string;
+  status: ContentStatus;
+  task_config: Json | null;
+  task_type: string | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -56,23 +55,22 @@ export interface PublicMaintenance {
  * All fields are optional for partial updates
  */
 export interface MaintenanceFormData {
-  actual_end?: string | null;
-  actual_start?: string | null;
-  affected_systems?: string[] | null;
-  created_at?: string | null;
+  created_at?: string;
   created_by?: string | null;
+  cron_expression?: string | null;
   description?: string | null;
-  error_log?: string | null;
-  maintenance_id?: string;
-  notes?: string | null;
-  performed_by?: string | null;
-  scheduled_end?: string | null;
-  scheduled_start?: string | null;
-  slug?: string | null;
-  status?: MaintenanceStatus | null;
-  title?: string;
-  type?: MaintenanceType;
-  updated_at?: string | null;
+  id?: string;
+  is_enabled?: boolean;
+  last_run_at?: string | null;
+  last_run_status?: string | null;
+  name?: string;
+  next_run_at?: string | null;
+  priority?: string;
+  slug?: string;
+  status?: ContentStatus;
+  task_config?: Json | null;
+  task_type?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -82,22 +80,21 @@ export interface MaintenanceFormData {
 export interface MaintenanceValidationResult {
   valid: boolean;
   errors: {
-    actual_end?: string;
-    actual_start?: string;
-    affected_systems?: string;
     created_at?: string;
     created_by?: string;
+    cron_expression?: string;
     description?: string;
-    error_log?: string;
-    maintenance_id?: string;
-    notes?: string;
-    performed_by?: string;
-    scheduled_end?: string;
-    scheduled_start?: string;
+    id?: string;
+    is_enabled?: string;
+    last_run_at?: string;
+    last_run_status?: string;
+    name?: string;
+    next_run_at?: string;
+    priority?: string;
     slug?: string;
     status?: string;
-    title?: string;
-    type?: string;
+    task_config?: string;
+    task_type?: string;
     updated_at?: string;
     updated_by?: string;
   };

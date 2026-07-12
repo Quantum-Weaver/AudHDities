@@ -3,6 +3,7 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
+import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -10,38 +11,44 @@ import z from 'zod';
 // =====================================================
 
 export const ContinentsRowSchema = z.object({
-  code: z.string(),
-  continents_id: z.string(),
-  created_at: z.string().nullable(),
+  code: z.string().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
+  display_order: z.number(),
+  icon_url: z.string().nullable(),
+  id: z.string(),
   name: z.string(),
-  name_localized: z.any().nullable(),
-  population_estimate: z.number().nullable(),
-  updated_at: z.string().nullable(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus),
+  updated_at: z.string(),
   updated_by: z.string().nullable(),
 });
 
 export const ContinentsInsertSchema = z.object({
-  code: z.string(),
-  continents_id: z.string().optional(),
-  created_at: z.string().nullable().optional(),
+  code: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  display_order: z.number().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
   name: z.string(),
-  name_localized: z.any().nullable().optional(),
-  population_estimate: z.number().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
 });
 
 export const ContinentsUpdateSchema = z.object({
-  code: z.string().optional(),
-  continents_id: z.string().optional(),
-  created_at: z.string().nullable().optional(),
+  code: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  display_order: z.number().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
   name: z.string().optional(),
-  name_localized: z.any().nullable().optional(),
-  population_estimate: z.number().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  slug: z.string().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
 });
 

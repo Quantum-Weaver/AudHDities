@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.854Z
+// GENERATED: 2026-07-10T18:14:59.802Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,16 +25,16 @@ export type SeerUpdate = TablesUpdate<'seer'>;
  * Public view of seer
  */
 export interface PublicSeer {
-  anomaly_detection: Json | null;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  insight_queue: Json | null;
-  last_prediction_accuracy: number | null;
-  pattern_library: Json | null;
-  prophecies: Json | null;
-  seer_id: string;
-  trend_analysis: Json | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -43,16 +43,16 @@ export interface PublicSeer {
  * All fields are optional for partial updates
  */
 export interface SeerFormData {
-  anomaly_detection?: Json | null;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  insight_queue?: Json | null;
-  last_prediction_accuracy?: number | null;
-  pattern_library?: Json | null;
-  prophecies?: Json | null;
-  seer_id?: string;
-  trend_analysis?: Json | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -62,15 +62,15 @@ export interface SeerFormData {
 export interface SeerValidationResult {
   valid: boolean;
   errors: {
-    anomaly_detection?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    insight_queue?: string;
-    last_prediction_accuracy?: string;
-    pattern_library?: string;
-    prophecies?: string;
-    seer_id?: string;
-    trend_analysis?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

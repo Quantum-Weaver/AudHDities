@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/folksonomy.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-05-01T15:31:59.605Z
+// GENERATED: 2026-07-10T18:14:59.427Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type FolksonomyTargetType = Enums<'folksonomy_target_type'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type FolksonomyRow = Tables<'folksonomy'>;
 export type FolksonomyInsert = TablesInsert<'folksonomy'>;
@@ -30,18 +30,22 @@ export type FolksonomyUpdate = TablesUpdate<'folksonomy'>;
  * Public view of folksonomy
  */
 export interface PublicFolksonomy {
-  approved_by: string | null;
-  created_at: string | null;
+  category: string | null;
+  context_type: string | null;
+  context_value: string | null;
+  created_at: string;
   created_by: string | null;
-  creator_id: string;
-  folksonomy_id: string;
-  is_approved: boolean | null;
-  tag: string;
-  target_id: string;
-  target_type: FolksonomyTargetType;
-  updated_at: string | null;
+  description: string | null;
+  id: string;
+  keyword_id: string | null;
+  name: string;
+  slug: string;
+  sovereign_id: string | null;
+  status: ContentStatus;
+  thesaurus_entry_id: string | null;
+  updated_at: string;
   updated_by: string | null;
-  weight: number | null;
+  usage_count: number;
 }
 
 /**
@@ -49,18 +53,22 @@ export interface PublicFolksonomy {
  * All fields are optional for partial updates
  */
 export interface FolksonomyFormData {
-  approved_by?: string | null;
-  created_at?: string | null;
+  category?: string | null;
+  context_type?: string | null;
+  context_value?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  creator_id?: string;
-  folksonomy_id?: string;
-  is_approved?: boolean | null;
-  tag?: string;
-  target_id?: string;
-  target_type?: FolksonomyTargetType;
-  updated_at?: string | null;
+  description?: string | null;
+  id?: string;
+  keyword_id?: string | null;
+  name?: string;
+  slug?: string;
+  sovereign_id?: string | null;
+  status?: ContentStatus;
+  thesaurus_entry_id?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
-  weight?: number | null;
+  usage_count?: number;
 }
 
 /**
@@ -69,18 +77,22 @@ export interface FolksonomyFormData {
 export interface FolksonomyValidationResult {
   valid: boolean;
   errors: {
-    approved_by?: string;
+    category?: string;
+    context_type?: string;
+    context_value?: string;
     created_at?: string;
     created_by?: string;
-    creator_id?: string;
-    folksonomy_id?: string;
-    is_approved?: string;
-    tag?: string;
-    target_id?: string;
-    target_type?: string;
+    description?: string;
+    id?: string;
+    keyword_id?: string;
+    name?: string;
+    slug?: string;
+    sovereign_id?: string;
+    status?: string;
+    thesaurus_entry_id?: string;
     updated_at?: string;
     updated_by?: string;
-    weight?: string;
+    usage_count?: string;
   };
 }
 

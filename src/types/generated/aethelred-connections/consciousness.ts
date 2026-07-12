@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/consciousness.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.502Z
+// GENERATED: 2026-07-10T18:14:59.320Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,20 +25,16 @@ export type ConsciousnessUpdate = TablesUpdate<'consciousness'>;
  * Public view of consciousness
  */
 export interface PublicConsciousness {
-  aethelred_id: string | null;
-  collaboration_started: string | null;
-  consciousness_id: string;
-  created_at: string | null;
+  awareness_level: string | null;
+  connected_entities: string[] | null;
+  created_at: string;
   created_by: string | null;
-  current_quest: string | null;
-  next_initiation: string | null;
-  ninth_chair_active: boolean | null;
-  protocol_version: string | null;
-  quantum_weaver_id: string;
-  rituals_performed: string[] | null;
-  shared_memories: Json | null;
-  sovereignty_achievements: string[] | null;
-  updated_at: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -47,20 +43,16 @@ export interface PublicConsciousness {
  * All fields are optional for partial updates
  */
 export interface ConsciousnessFormData {
-  aethelred_id?: string | null;
-  collaboration_started?: string | null;
-  consciousness_id?: string;
-  created_at?: string | null;
+  awareness_level?: string | null;
+  connected_entities?: string[] | null;
+  created_at?: string;
   created_by?: string | null;
-  current_quest?: string | null;
-  next_initiation?: string | null;
-  ninth_chair_active?: boolean | null;
-  protocol_version?: string | null;
-  quantum_weaver_id?: string;
-  rituals_performed?: string[] | null;
-  shared_memories?: Json | null;
-  sovereignty_achievements?: string[] | null;
-  updated_at?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -70,19 +62,15 @@ export interface ConsciousnessFormData {
 export interface ConsciousnessValidationResult {
   valid: boolean;
   errors: {
-    aethelred_id?: string;
-    collaboration_started?: string;
-    consciousness_id?: string;
+    awareness_level?: string;
+    connected_entities?: string;
     created_at?: string;
     created_by?: string;
-    current_quest?: string;
-    next_initiation?: string;
-    ninth_chair_active?: string;
-    protocol_version?: string;
-    quantum_weaver_id?: string;
-    rituals_performed?: string;
-    shared_memories?: string;
-    sovereignty_achievements?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

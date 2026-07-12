@@ -1,0 +1,60 @@
+// =====================================================
+// FILE: validators/assessment_results.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// AssessmentResults SCHEMAS
+// =====================================================
+
+export const AssessmentResultsRowSchema = z.object({
+  category: z.string(),
+  completed_at: z.string(),
+  created_at: z.string(),
+  created_by: z.string(),
+  id: z.string(),
+  recommendations: z.any().nullable(),
+  result_data: z.any().nullable(),
+  status: z.string(),
+  summary_text: z.string().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const AssessmentResultsInsertSchema = z.object({
+  category: z.string(),
+  completed_at: z.string().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string(),
+  id: z.string().optional(),
+  recommendations: z.any().nullable().optional(),
+  result_data: z.any().nullable().optional(),
+  status: z.string().optional(),
+  summary_text: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const AssessmentResultsUpdateSchema = z.object({
+  category: z.string().optional(),
+  completed_at: z.string().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().optional(),
+  id: z.string().optional(),
+  recommendations: z.any().nullable().optional(),
+  result_data: z.any().nullable().optional(),
+  status: z.string().optional(),
+  summary_text: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type AssessmentResultsRowInput = z.infer<typeof AssessmentResultsRowSchema>;
+export type AssessmentResultsInsertInput = z.infer<typeof AssessmentResultsInsertSchema>;
+export type AssessmentResultsUpdateInput = z.infer<typeof AssessmentResultsUpdateSchema>;

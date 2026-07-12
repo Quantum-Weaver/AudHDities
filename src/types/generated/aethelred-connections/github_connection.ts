@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/github_connection.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.610Z
+// GENERATED: 2026-07-10T18:14:59.476Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type WorkflowStatus = Enums<'workflow_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type GithubConnectionRow = Tables<'github_connection'>;
 export type GithubConnectionInsert = TablesInsert<'github_connection'>;
@@ -30,21 +30,21 @@ export type GithubConnectionUpdate = TablesUpdate<'github_connection'>;
  * Public view of github_connection
  */
 export interface PublicGithubConnection {
-  branch: string | null;
-  created_at: string | null;
+  config_key: string;
+  config_value: string | null;
+  created_at: string;
   created_by: string | null;
-  github_connection_id: string;
-  issues_open: number | null;
-  last_commit_at: string | null;
-  last_commit_message: string | null;
-  last_commit_sha: string | null;
-  operated_by: string | null;
-  pull_requests_open: number | null;
-  repository_name: string;
-  repository_url: string;
-  stars: number | null;
-  updated_at: string | null;
-  workflow_status: WorkflowStatus | null;
+  default_branch: string;
+  description: string | null;
+  enabled_workflows: string[] | null;
+  id: string;
+  is_encrypted: boolean;
+  last_verified_at: string | null;
+  repository_name: string | null;
+  repository_owner: string | null;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -52,21 +52,21 @@ export interface PublicGithubConnection {
  * All fields are optional for partial updates
  */
 export interface GithubConnectionFormData {
-  branch?: string | null;
-  created_at?: string | null;
+  config_key?: string;
+  config_value?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  github_connection_id?: string;
-  issues_open?: number | null;
-  last_commit_at?: string | null;
-  last_commit_message?: string | null;
-  last_commit_sha?: string | null;
-  operated_by?: string | null;
-  pull_requests_open?: number | null;
-  repository_name?: string;
-  repository_url?: string;
-  stars?: number | null;
-  updated_at?: string | null;
-  workflow_status?: WorkflowStatus | null;
+  default_branch?: string;
+  description?: string | null;
+  enabled_workflows?: string[] | null;
+  id?: string;
+  is_encrypted?: boolean;
+  last_verified_at?: string | null;
+  repository_name?: string | null;
+  repository_owner?: string | null;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -75,21 +75,21 @@ export interface GithubConnectionFormData {
 export interface GithubConnectionValidationResult {
   valid: boolean;
   errors: {
-    branch?: string;
+    config_key?: string;
+    config_value?: string;
     created_at?: string;
     created_by?: string;
-    github_connection_id?: string;
-    issues_open?: string;
-    last_commit_at?: string;
-    last_commit_message?: string;
-    last_commit_sha?: string;
-    operated_by?: string;
-    pull_requests_open?: string;
+    default_branch?: string;
+    description?: string;
+    enabled_workflows?: string;
+    id?: string;
+    is_encrypted?: string;
+    last_verified_at?: string;
     repository_name?: string;
-    repository_url?: string;
-    stars?: string;
+    repository_owner?: string;
+    status?: string;
     updated_at?: string;
-    workflow_status?: string;
+    updated_by?: string;
   };
 }
 

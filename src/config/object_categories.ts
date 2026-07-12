@@ -306,8 +306,8 @@ export function getViewHandlingLevelByPattern(viewName: PublicViewNames): Handli
   const viewPatterns: PublicViewNames[] = [
     'personalized_feed',
     'public_transparency',
-    'prometheus_blueprint_health',
-    'prometheus_generation_stats'
+    'daedalus_blueprint_health',
+    'daedalus_generation_stats'
   ];
   
   if (viewPatterns.includes(viewName)) {

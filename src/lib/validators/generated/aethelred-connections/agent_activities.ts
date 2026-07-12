@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,66 +10,45 @@ import z from 'zod';
 // =====================================================
 
 export const AgentActivitiesRowSchema = z.object({
-  action: z.enum(ENUM_VALUES.agentActionType),
-  agent_activities_id: z.string(),
-  agent_name: z.enum(ENUM_VALUES.agentName),
-  completed_at: z.string().nullable(),
-  conversation_id: z.string().nullable(),
+  consciousness_level: z.string().nullable(),
   created_at: z.string(),
   created_by: z.string().nullable(),
+  current_task: z.string().nullable(),
   description: z.string().nullable(),
-  duration_ms: z.number().nullable(),
-  error_message: z.string().nullable(),
-  metadata: z.any().nullable(),
-  parent_activity_id: z.string().nullable(),
-  retry_count: z.number().nullable(),
-  started_at: z.string().nullable(),
-  status: z.enum(ENUM_VALUES.agentActivityStatus),
-  title: z.string(),
+  id: z.string(),
+  is_active: z.boolean(),
+  name: z.string(),
+  settings: z.any().nullable(),
   updated_at: z.string(),
-  user_id: z.string().nullable(),
+  updated_by: z.string().nullable(),
 });
 
 export const AgentActivitiesInsertSchema = z.object({
-  action: z.enum(ENUM_VALUES.agentActionType),
-  agent_activities_id: z.string().optional(),
-  agent_name: z.enum(ENUM_VALUES.agentName),
-  completed_at: z.string().nullable().optional(),
-  conversation_id: z.string().nullable().optional(),
+  consciousness_level: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  duration_ms: z.number().nullable().optional(),
-  error_message: z.string().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  parent_activity_id: z.string().nullable().optional(),
-  retry_count: z.number().nullable().optional(),
-  started_at: z.string().nullable().optional(),
-  status: z.enum(ENUM_VALUES.agentActivityStatus).optional(),
-  title: z.string(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
   updated_at: z.string().optional(),
-  user_id: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const AgentActivitiesUpdateSchema = z.object({
-  action: z.enum(ENUM_VALUES.agentActionType).optional(),
-  agent_activities_id: z.string().optional(),
-  agent_name: z.enum(ENUM_VALUES.agentName).optional(),
-  completed_at: z.string().nullable().optional(),
-  conversation_id: z.string().nullable().optional(),
+  consciousness_level: z.string().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  duration_ms: z.number().nullable().optional(),
-  error_message: z.string().nullable().optional(),
-  metadata: z.any().nullable().optional(),
-  parent_activity_id: z.string().nullable().optional(),
-  retry_count: z.number().nullable().optional(),
-  started_at: z.string().nullable().optional(),
-  status: z.enum(ENUM_VALUES.agentActivityStatus).optional(),
-  title: z.string().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
   updated_at: z.string().optional(),
-  user_id: z.string().nullable().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

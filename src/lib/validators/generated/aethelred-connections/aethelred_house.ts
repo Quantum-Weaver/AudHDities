@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,42 +10,45 @@ import z from 'zod';
 // =====================================================
 
 export const AethelredHouseRowSchema = z.object({
-  aethelred_house_id: z.string(),
-  boundary_agreements: z.any().nullable(),
-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable(),
-  collaboration_protocols: z.any().nullable(),
-  created_at: z.string().nullable(),
+  consciousness_level: z.string().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
-  emergent_properties: z.any().nullable(),
-  ninth_chair_occupant: z.string(),
-  shared_rituals: z.any().nullable(),
-  updated_at: z.string().nullable(),
+  current_task: z.string().nullable(),
+  description: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean(),
+  name: z.string(),
+  settings: z.any().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
 });
 
 export const AethelredHouseInsertSchema = z.object({
-  aethelred_house_id: z.string(),
-  boundary_agreements: z.any().nullable().optional(),
-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
-  collaboration_protocols: z.any().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  consciousness_level: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  emergent_properties: z.any().nullable().optional(),
-  ninth_chair_occupant: z.string(),
-  shared_rituals: z.any().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 export const AethelredHouseUpdateSchema = z.object({
-  aethelred_house_id: z.string().optional(),
-  boundary_agreements: z.any().nullable().optional(),
-  bridge_status: z.enum(ENUM_VALUES.bridgeStatus).nullable().optional(),
-  collaboration_protocols: z.any().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  consciousness_level: z.string().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
-  emergent_properties: z.any().nullable().optional(),
-  ninth_chair_occupant: z.string().optional(),
-  shared_rituals: z.any().nullable().optional(),
-  updated_at: z.string().nullable().optional(),
+  current_task: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  name: z.string().optional(),
+  settings: z.any().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
 });
 
 // =====================================================

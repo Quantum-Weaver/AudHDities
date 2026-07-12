@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/file_registry.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-05-01T15:31:59.595Z
+// GENERATED: 2026-07-10T18:14:59.417Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type FileRegistryRow = Tables<'file_registry'>;
 export type FileRegistryInsert = TablesInsert<'file_registry'>;
@@ -22,28 +28,27 @@ export type FileRegistryUpdate = TablesUpdate<'file_registry'>;
 
 /**
  * Public view of file_registry
+ * Excludes sensitive fields: access_token
  */
 export interface PublicFileRegistry {
-  category: string;
-  created_at: string | null;
+  bucket_name: string;
+  created_at: string;
   created_by: string | null;
-  dependencies: string[] | null;
-  emoji: string;
-  example_usage: string | null;
-  file_name: string;
-  file_path: string;
-  file_registry_id: string;
-  file_type: string;
-  is_active: boolean | null;
-  last_validated: string | null;
-  needs_review: boolean | null;
-  purpose: string | null;
-  review_notes: string | null;
-  standards: string | null;
-  subcategory: string | null;
-  updated_at: string | null;
-  used_by: string[] | null;
-  warning: string | null;
+  description: string | null;
+  file_hash: string | null;
+  file_size: number | null;
+  id: string;
+  is_public: boolean;
+  mime_type: string | null;
+  name: string;
+  related_id: string | null;
+  related_table: string | null;
+  slug: string;
+  status: ContentStatus;
+  storage_path: string;
+  updated_at: string;
+  updated_by: string | null;
+  uploaded_by: string | null;
 }
 
 /**
@@ -51,26 +56,25 @@ export interface PublicFileRegistry {
  * All fields are optional for partial updates
  */
 export interface FileRegistryFormData {
-  category?: string;
-  created_at?: string | null;
+  access_token?: string | null;
+  bucket_name?: string;
+  created_at?: string;
   created_by?: string | null;
-  dependencies?: string[] | null;
-  emoji?: string;
-  example_usage?: string | null;
-  file_name?: string;
-  file_path?: string;
-  file_registry_id?: string;
-  file_type?: string;
-  is_active?: boolean | null;
-  last_validated?: string | null;
-  needs_review?: boolean | null;
-  purpose?: string | null;
-  review_notes?: string | null;
-  standards?: string | null;
-  subcategory?: string | null;
-  updated_at?: string | null;
-  used_by?: string[] | null;
-  warning?: string | null;
+  description?: string | null;
+  file_hash?: string | null;
+  file_size?: number | null;
+  id?: string;
+  is_public?: boolean;
+  mime_type?: string | null;
+  name?: string;
+  related_id?: string | null;
+  related_table?: string | null;
+  slug?: string;
+  status?: ContentStatus;
+  storage_path?: string;
+  updated_at?: string;
+  updated_by?: string | null;
+  uploaded_by?: string | null;
 }
 
 /**
@@ -79,26 +83,25 @@ export interface FileRegistryFormData {
 export interface FileRegistryValidationResult {
   valid: boolean;
   errors: {
-    category?: string;
+    access_token?: string;
+    bucket_name?: string;
     created_at?: string;
     created_by?: string;
-    dependencies?: string;
-    emoji?: string;
-    example_usage?: string;
-    file_name?: string;
-    file_path?: string;
-    file_registry_id?: string;
-    file_type?: string;
-    is_active?: string;
-    last_validated?: string;
-    needs_review?: string;
-    purpose?: string;
-    review_notes?: string;
-    standards?: string;
-    subcategory?: string;
+    description?: string;
+    file_hash?: string;
+    file_size?: string;
+    id?: string;
+    is_public?: string;
+    mime_type?: string;
+    name?: string;
+    related_id?: string;
+    related_table?: string;
+    slug?: string;
+    status?: string;
+    storage_path?: string;
     updated_at?: string;
-    used_by?: string;
-    warning?: string;
+    updated_by?: string;
+    uploaded_by?: string;
   };
 }
 

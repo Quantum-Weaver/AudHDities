@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/journal_entries.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T15:31:59.620Z
+// GENERATED: 2026-07-10T18:14:59.519Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -11,6 +11,12 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // =====================================================
 // CORE TYPES
 // =====================================================
+
+// =====================================================
+// ENUM EXPORTS (from database enums)
+// =====================================================
+
+export type ContentStatus = Enums<'content_status'>;
 
 export type JournalEntriesRow = Tables<'journal_entries'>;
 export type JournalEntriesInsert = TablesInsert<'journal_entries'>;
@@ -24,17 +30,18 @@ export type JournalEntriesUpdate = TablesUpdate<'journal_entries'>;
  * Public view of journal_entries
  */
 export interface PublicJournalEntries {
-  content: string;
-  created_at: string | null;
-  created_by: string | null;
-  journal_entries_id: string;
+  body: string | null;
+  created_at: string;
+  created_by: string;
+  entry_date: string;
+  id: string;
   mood: string | null;
-  slug: string;
+  status: ContentStatus;
   tags: string[] | null;
-  title: string;
-  updated_at: string | null;
+  title: string | null;
+  updated_at: string;
   updated_by: string | null;
-  user_id: string;
+  visibility: string;
 }
 
 /**
@@ -42,17 +49,18 @@ export interface PublicJournalEntries {
  * All fields are optional for partial updates
  */
 export interface JournalEntriesFormData {
-  content?: string;
-  created_at?: string | null;
-  created_by?: string | null;
-  journal_entries_id?: string;
+  body?: string | null;
+  created_at?: string;
+  created_by?: string;
+  entry_date?: string;
+  id?: string;
   mood?: string | null;
-  slug?: string;
+  status?: ContentStatus;
   tags?: string[] | null;
-  title?: string;
-  updated_at?: string | null;
+  title?: string | null;
+  updated_at?: string;
   updated_by?: string | null;
-  user_id?: string;
+  visibility?: string;
 }
 
 /**
@@ -61,17 +69,18 @@ export interface JournalEntriesFormData {
 export interface JournalEntriesValidationResult {
   valid: boolean;
   errors: {
-    content?: string;
+    body?: string;
     created_at?: string;
     created_by?: string;
-    journal_entries_id?: string;
+    entry_date?: string;
+    id?: string;
     mood?: string;
-    slug?: string;
+    status?: string;
     tags?: string;
     title?: string;
     updated_at?: string;
     updated_by?: string;
-    user_id?: string;
+    visibility?: string;
   };
 }
 

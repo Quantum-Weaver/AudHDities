@@ -1,0 +1,81 @@
+// =====================================================
+// FILE: types/generated/hestia-core/gaia_generation_log.ts
+// HANDLING: full_crud
+// DEITY: hestia-core
+// GENERATED: 2026-07-10T18:14:59.437Z
+// SOURCE: database.types.ts lines 0-0
+// =====================================================
+
+import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
+
+// =====================================================
+// CORE TYPES
+// =====================================================
+
+export type GaiaGenerationLogRow = Tables<'gaia_generation_log'>;
+export type GaiaGenerationLogInsert = TablesInsert<'gaia_generation_log'>;
+export type GaiaGenerationLogUpdate = TablesUpdate<'gaia_generation_log'>;
+
+// =====================================================
+// DERIVED TYPES
+// =====================================================
+
+/**
+ * Public view of gaia_generation_log
+ */
+export interface PublicGaiaGenerationLog {
+  created_at: string;
+  errors: Json | null;
+  files_created: string[] | null;
+  gaia_config_id: string | null;
+  generated_at: string;
+  generation_type: string;
+  id: string;
+  script_id: string | null;
+  status: string;
+  table_name: string;
+  taxonomy_id: string | null;
+  types_count: number | null;
+}
+
+/**
+ * Form data for gaia_generation_log
+ * All fields are optional for partial updates
+ */
+export interface GaiaGenerationLogFormData {
+  created_at?: string;
+  errors?: Json | null;
+  files_created?: string[] | null;
+  gaia_config_id?: string | null;
+  generated_at?: string;
+  generation_type?: string;
+  id?: string;
+  script_id?: string | null;
+  status?: string;
+  table_name?: string;
+  taxonomy_id?: string | null;
+  types_count?: number | null;
+}
+
+/**
+ * Validation result for gaia_generation_log
+ */
+export interface GaiaGenerationLogValidationResult {
+  valid: boolean;
+  errors: {
+    created_at?: string;
+    errors?: string;
+    files_created?: string;
+    gaia_config_id?: string;
+    generated_at?: string;
+    generation_type?: string;
+    id?: string;
+    script_id?: string;
+    status?: string;
+    table_name?: string;
+    taxonomy_id?: string;
+    types_count?: string;
+  };
+}
+

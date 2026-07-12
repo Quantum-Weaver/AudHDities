@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/contact_submissions.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.507Z
+// GENERATED: 2026-07-10T18:14:59.325Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,8 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type ContactDirection = Enums<'contact_direction'>;
-export type ContactStatus = Enums<'contact_status'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type ContactSubmissionsRow = Tables<'contact_submissions'>;
 export type ContactSubmissionsInsert = TablesInsert<'contact_submissions'>;
@@ -33,21 +32,20 @@ export type ContactSubmissionsUpdate = TablesUpdate<'contact_submissions'>;
  */
 export interface PublicContactSubmissions {
   assigned_to: string | null;
-  contact_submissions_id: string;
-  created_at: string | null;
+  category: string | null;
+  created_at: string;
   created_by: string | null;
-  direction: ContactDirection | null;
-  message: string;
-  message_id: string | null;
+  id: string;
+  is_resolved: boolean;
+  message: string | null;
   name: string;
-  notes: string | null;
-  parent_id: string | null;
-  resolved_at: string | null;
-  status: ContactStatus | null;
-  subject: string;
-  thread_id: string | null;
-  updated_at: string | null;
-  user_id: string | null;
+  priority: string;
+  responded_at: string | null;
+  response: string | null;
+  status: ContentStatus;
+  subject: string | null;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -56,22 +54,21 @@ export interface PublicContactSubmissions {
  */
 export interface ContactSubmissionsFormData {
   assigned_to?: string | null;
-  contact_submissions_id?: string;
-  created_at?: string | null;
+  category?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  direction?: ContactDirection | null;
-  email?: string;
-  message?: string;
-  message_id?: string | null;
+  email?: string | null;
+  id?: string;
+  is_resolved?: boolean;
+  message?: string | null;
   name?: string;
-  notes?: string | null;
-  parent_id?: string | null;
-  resolved_at?: string | null;
-  status?: ContactStatus | null;
-  subject?: string;
-  thread_id?: string | null;
-  updated_at?: string | null;
-  user_id?: string | null;
+  priority?: string;
+  responded_at?: string | null;
+  response?: string | null;
+  status?: ContentStatus;
+  subject?: string | null;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -81,22 +78,21 @@ export interface ContactSubmissionsValidationResult {
   valid: boolean;
   errors: {
     assigned_to?: string;
-    contact_submissions_id?: string;
+    category?: string;
     created_at?: string;
     created_by?: string;
-    direction?: string;
     email?: string;
+    id?: string;
+    is_resolved?: string;
     message?: string;
-    message_id?: string;
     name?: string;
-    notes?: string;
-    parent_id?: string;
-    resolved_at?: string;
+    priority?: string;
+    responded_at?: string;
+    response?: string;
     status?: string;
     subject?: string;
-    thread_id?: string;
     updated_at?: string;
-    user_id?: string;
+    updated_by?: string;
   };
 }
 

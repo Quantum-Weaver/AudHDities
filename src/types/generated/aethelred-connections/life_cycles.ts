@@ -2,12 +2,11 @@
 // FILE: types/generated/aethelred-connections/life_cycles.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.644Z
+// GENERATED: 2026-07-10T18:14:59.553Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
-import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -17,7 +16,7 @@ import type { Json } from '@/types/supabase/database.types.js';
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type LifeCyclePhase = Enums<'life_cycle_phase'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type LifeCyclesRow = Tables<'life_cycles'>;
 export type LifeCyclesInsert = TablesInsert<'life_cycles'>;
@@ -31,16 +30,18 @@ export type LifeCyclesUpdate = TablesUpdate<'life_cycles'>;
  * Public view of life_cycles
  */
 export interface PublicLifeCycles {
-  created_at: string | null;
+  category: string | null;
+  created_at: string;
   created_by: string | null;
-  ended_at: string | null;
-  life_cycles_id: string;
-  metadata: Json | null;
-  phase: LifeCyclePhase;
-  started_at: string;
-  trigger_event: string | null;
-  updated_at: string | null;
-  user_id: string;
+  description: string | null;
+  icon_emoji: string | null;
+  id: string;
+  name: string;
+  slug: string;
+  stage_order: number;
+  status: ContentStatus;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -48,16 +49,18 @@ export interface PublicLifeCycles {
  * All fields are optional for partial updates
  */
 export interface LifeCyclesFormData {
-  created_at?: string | null;
+  category?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  ended_at?: string | null;
-  life_cycles_id?: string;
-  metadata?: Json | null;
-  phase?: LifeCyclePhase;
-  started_at?: string;
-  trigger_event?: string | null;
-  updated_at?: string | null;
-  user_id?: string;
+  description?: string | null;
+  icon_emoji?: string | null;
+  id?: string;
+  name?: string;
+  slug?: string;
+  stage_order?: number;
+  status?: ContentStatus;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -66,16 +69,18 @@ export interface LifeCyclesFormData {
 export interface LifeCyclesValidationResult {
   valid: boolean;
   errors: {
+    category?: string;
     created_at?: string;
     created_by?: string;
-    ended_at?: string;
-    life_cycles_id?: string;
-    metadata?: string;
-    phase?: string;
-    started_at?: string;
-    trigger_event?: string;
+    description?: string;
+    icon_emoji?: string;
+    id?: string;
+    name?: string;
+    slug?: string;
+    stage_order?: string;
+    status?: string;
     updated_at?: string;
-    user_id?: string;
+    updated_by?: string;
   };
 }
 

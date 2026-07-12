@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/survey_responses.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-05-01T15:31:59.889Z
+// GENERATED: 2026-07-10T18:14:59.857Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -23,17 +23,19 @@ export type SurveyResponsesUpdate = TablesUpdate<'survey_responses'>;
 
 /**
  * Public view of survey_responses
- * Excludes sensitive fields: ip_address, user_agent
  */
 export interface PublicSurveyResponses {
-  answers: Json;
-  created_at: string | null;
-  created_by: string | null;
-  duration_seconds: number | null;
+  answers: Json | null;
+  created_at: string;
+  created_by: string;
+  id: string;
+  is_anonymous: boolean;
+  notes: string | null;
+  status: string;
+  submitted_at: string | null;
   survey_id: string;
-  survey_responses_id: string;
-  updated_at: string | null;
-  user_id: string;
+  updated_at: string;
+  updated_by: string | null;
 }
 
 /**
@@ -41,16 +43,17 @@ export interface PublicSurveyResponses {
  * All fields are optional for partial updates
  */
 export interface SurveyResponsesFormData {
-  answers?: Json;
-  created_at?: string | null;
-  created_by?: string | null;
-  duration_seconds?: number | null;
-  ip_address?: unknown;
+  answers?: Json | null;
+  created_at?: string;
+  created_by?: string;
+  id?: string;
+  is_anonymous?: boolean;
+  notes?: string | null;
+  status?: string;
+  submitted_at?: string | null;
   survey_id?: string;
-  survey_responses_id?: string;
-  updated_at?: string | null;
-  user_agent?: string | null;
-  user_id?: string;
+  updated_at?: string;
+  updated_by?: string | null;
 }
 
 /**
@@ -62,13 +65,14 @@ export interface SurveyResponsesValidationResult {
     answers?: string;
     created_at?: string;
     created_by?: string;
-    duration_seconds?: string;
-    ip_address?: string;
+    id?: string;
+    is_anonymous?: string;
+    notes?: string;
+    status?: string;
+    submitted_at?: string;
     survey_id?: string;
-    survey_responses_id?: string;
     updated_at?: string;
-    user_agent?: string;
-    user_id?: string;
+    updated_by?: string;
   };
 }
 

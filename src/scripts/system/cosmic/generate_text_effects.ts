@@ -629,7 +629,7 @@ function writeGeneratedFile(
  */
 export async function generateTextEffects(options: CosmicGeneratorOptions): Promise<string | null> {
   const { verbose } = options;
-  const outputPath = '../styles/generated/text-effects.css';
+  const outputPath = 'src/styles/generated/text-effects.css';
   
   if (verbose) {
     logInfo('Generating text effects from motion and color constants...');

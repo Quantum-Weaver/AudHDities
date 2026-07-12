@@ -3,7 +3,6 @@
 // GENERATED FROM: database.types.ts
 // =====================================================
 
-import { ENUM_VALUES } from '@/types/supabase/enums';
 import z from 'zod';
 
 // =====================================================
@@ -11,48 +10,66 @@ import z from 'zod';
 // =====================================================
 
 export const OntologyRowSchema = z.object({
-  approved_by: z.string().nullable(),
-  created_at: z.string().nullable(),
+  cardinality: z.string(),
+  cardinality_keyword_id: z.string().nullable(),
+  constraints: z.any().nullable(),
+  created_at: z.string(),
   created_by: z.string().nullable(),
   description: z.string().nullable(),
-  is_approved: z.boolean().nullable(),
-  object_id: z.string(),
-  ontology_id: z.string(),
-  predicate: z.enum(ENUM_VALUES.ontologyPredicate),
-  subject_id: z.string(),
-  updated_at: z.string().nullable(),
+  id: z.string(),
+  object_external: z.string().nullable(),
+  object_family_id: z.string().nullable(),
+  object_keyword_id: z.string().nullable(),
+  predicate: z.string(),
+  predicate_keyword_id: z.string().nullable(),
+  relationship_source_keyword_id: z.string().nullable(),
+  relationship_type: z.string(),
+  subject_family_id: z.string(),
+  subject_keyword_id: z.string().nullable(),
+  updated_at: z.string(),
   updated_by: z.string().nullable(),
-  weight: z.number().nullable(),
 });
 
 export const OntologyInsertSchema = z.object({
-  approved_by: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  cardinality: z.string().optional(),
+  cardinality_keyword_id: z.string().nullable().optional(),
+  constraints: z.any().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  is_approved: z.boolean().nullable().optional(),
-  object_id: z.string(),
-  ontology_id: z.string().optional(),
-  predicate: z.enum(ENUM_VALUES.ontologyPredicate),
-  subject_id: z.string(),
-  updated_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  object_external: z.string().nullable().optional(),
+  object_family_id: z.string().nullable().optional(),
+  object_keyword_id: z.string().nullable().optional(),
+  predicate: z.string(),
+  predicate_keyword_id: z.string().nullable().optional(),
+  relationship_source_keyword_id: z.string().nullable().optional(),
+  relationship_type: z.string().optional(),
+  subject_family_id: z.string(),
+  subject_keyword_id: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
-  weight: z.number().nullable().optional(),
 });
 
 export const OntologyUpdateSchema = z.object({
-  approved_by: z.string().nullable().optional(),
-  created_at: z.string().nullable().optional(),
+  cardinality: z.string().optional(),
+  cardinality_keyword_id: z.string().nullable().optional(),
+  constraints: z.any().nullable().optional(),
+  created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   description: z.string().nullable().optional(),
-  is_approved: z.boolean().nullable().optional(),
-  object_id: z.string().optional(),
-  ontology_id: z.string().optional(),
-  predicate: z.enum(ENUM_VALUES.ontologyPredicate).optional(),
-  subject_id: z.string().optional(),
-  updated_at: z.string().nullable().optional(),
+  id: z.string().optional(),
+  object_external: z.string().nullable().optional(),
+  object_family_id: z.string().nullable().optional(),
+  object_keyword_id: z.string().nullable().optional(),
+  predicate: z.string().optional(),
+  predicate_keyword_id: z.string().nullable().optional(),
+  relationship_source_keyword_id: z.string().nullable().optional(),
+  relationship_type: z.string().optional(),
+  subject_family_id: z.string().optional(),
+  subject_keyword_id: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
   updated_by: z.string().nullable().optional(),
-  weight: z.number().nullable().optional(),
 });
 
 // =====================================================

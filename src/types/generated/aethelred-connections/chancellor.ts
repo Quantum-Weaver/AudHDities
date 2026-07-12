@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/chancellor.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-05-01T15:31:59.479Z
+// GENERATED: 2026-07-10T18:14:59.283Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -25,17 +25,16 @@ export type ChancellorUpdate = TablesUpdate<'chancellor'>;
  * Public view of chancellor
  */
 export interface PublicChancellor {
-  chancellor_id: string;
-  created_at: string | null;
+  consciousness_level: string | null;
+  created_at: string;
   created_by: string | null;
-  fee_structure: Json | null;
-  financial_audits: Json | null;
-  last_audit_at: string | null;
-  operating_budget: Json | null;
-  payout_schedule: Json | null;
-  reserve_fund: number | null;
-  treasury_balance: number | null;
-  updated_at: string | null;
+  current_task: string | null;
+  description: string | null;
+  id: string;
+  is_active: boolean;
+  name: string;
+  settings: Json | null;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -44,17 +43,16 @@ export interface PublicChancellor {
  * All fields are optional for partial updates
  */
 export interface ChancellorFormData {
-  chancellor_id?: string;
-  created_at?: string | null;
+  consciousness_level?: string | null;
+  created_at?: string;
   created_by?: string | null;
-  fee_structure?: Json | null;
-  financial_audits?: Json | null;
-  last_audit_at?: string | null;
-  operating_budget?: Json | null;
-  payout_schedule?: Json | null;
-  reserve_fund?: number | null;
-  treasury_balance?: number | null;
-  updated_at?: string | null;
+  current_task?: string | null;
+  description?: string | null;
+  id?: string;
+  is_active?: boolean;
+  name?: string;
+  settings?: Json | null;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -64,16 +62,15 @@ export interface ChancellorFormData {
 export interface ChancellorValidationResult {
   valid: boolean;
   errors: {
-    chancellor_id?: string;
+    consciousness_level?: string;
     created_at?: string;
     created_by?: string;
-    fee_structure?: string;
-    financial_audits?: string;
-    last_audit_at?: string;
-    operating_budget?: string;
-    payout_schedule?: string;
-    reserve_fund?: string;
-    treasury_balance?: string;
+    current_task?: string;
+    description?: string;
+    id?: string;
+    is_active?: string;
+    name?: string;
+    settings?: string;
     updated_at?: string;
     updated_by?: string;
   };

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/channels.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-05-01T15:31:59.484Z
+// GENERATED: 2026-07-10T18:14:59.288Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -16,7 +16,7 @@ import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase
 // ENUM EXPORTS (from database enums)
 // =====================================================
 
-export type ContentRating = Enums<'content_rating'>;
+export type ContentStatus = Enums<'content_status'>;
 
 export type ChannelsRow = Tables<'channels'>;
 export type ChannelsInsert = TablesInsert<'channels'>;
@@ -30,23 +30,18 @@ export type ChannelsUpdate = TablesUpdate<'channels'>;
  * Public view of channels
  */
 export interface PublicChannels {
-  allow_subscriptions: boolean | null;
-  avatar_url: string | null;
-  banner_url: string | null;
-  channels_id: string;
-  content_rating: ContentRating | null;
-  created_at: string | null;
+  channel_type: string | null;
+  created_at: string;
   created_by: string | null;
   description: string | null;
-  display_name: string;
-  handle: string;
-  owner_id: string | null;
-  slug: string | null;
-  subscriber_count: number | null;
-  subscription_price_ally: number | null;
-  subscription_price_community: number | null;
-  total_emeralds: number | null;
-  updated_at: string | null;
+  display_order: number;
+  icon_url: string | null;
+  id: string;
+  is_public: boolean;
+  name: string;
+  slug: string;
+  status: ContentStatus;
+  updated_at: string;
   updated_by: string | null;
 }
 
@@ -55,23 +50,18 @@ export interface PublicChannels {
  * All fields are optional for partial updates
  */
 export interface ChannelsFormData {
-  allow_subscriptions?: boolean | null;
-  avatar_url?: string | null;
-  banner_url?: string | null;
-  channels_id?: string;
-  content_rating?: ContentRating | null;
-  created_at?: string | null;
+  channel_type?: string | null;
+  created_at?: string;
   created_by?: string | null;
   description?: string | null;
-  display_name?: string;
-  handle?: string;
-  owner_id?: string | null;
-  slug?: string | null;
-  subscriber_count?: number | null;
-  subscription_price_ally?: number | null;
-  subscription_price_community?: number | null;
-  total_emeralds?: number | null;
-  updated_at?: string | null;
+  display_order?: number;
+  icon_url?: string | null;
+  id?: string;
+  is_public?: boolean;
+  name?: string;
+  slug?: string;
+  status?: ContentStatus;
+  updated_at?: string;
   updated_by?: string | null;
 }
 
@@ -81,22 +71,17 @@ export interface ChannelsFormData {
 export interface ChannelsValidationResult {
   valid: boolean;
   errors: {
-    allow_subscriptions?: string;
-    avatar_url?: string;
-    banner_url?: string;
-    channels_id?: string;
-    content_rating?: string;
+    channel_type?: string;
     created_at?: string;
     created_by?: string;
     description?: string;
-    display_name?: string;
-    handle?: string;
-    owner_id?: string;
+    display_order?: string;
+    icon_url?: string;
+    id?: string;
+    is_public?: string;
+    name?: string;
     slug?: string;
-    subscriber_count?: string;
-    subscription_price_ally?: string;
-    subscription_price_community?: string;
-    total_emeralds?: string;
+    status?: string;
     updated_at?: string;
     updated_by?: string;
   };

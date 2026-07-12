@@ -1,16 +1,18 @@
 // =====================================================
 // FILE: constants/generated/themis-governance/application_status.ts
-// GENERATED: 2026-05-01T15:32:00.035Z
+// GENERATED: 2026-07-10T18:15:00.025Z
 // SOURCE: Constants.public.Enums.application_status
-// VALUES: 5 entries
+// VALUES: 7 entries
 // =====================================================
 
 export const APPLICATION_STATUS = {
-  PENDING: 'pending',
-  REVIEWING: 'reviewing',
+  DRAFT: 'draft',
+  SUBMITTED: 'submitted',
+  UNDER_REVIEW: 'under_review',
   APPROVED: 'approved',
   REJECTED: 'rejected',
-  NEEDS_INFO: 'needs_info',
+  SUSPENDED: 'suspended',
+  WITHDRAWN: 'withdrawn',
 } as const;
 
 export type ApplicationStatus = typeof APPLICATION_STATUS[keyof typeof APPLICATION_STATUS];
