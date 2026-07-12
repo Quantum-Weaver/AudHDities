@@ -43,3 +43,14 @@ during triage if wanted — main's curated line is the one that gates work.)*
 
 ## Seam-notes (Step 4 passes)
 *(one row per crossing: date · who · true substrate · scope · verification · weather)*
+
+## Step 0.5 — THE MERGE (KP's pivot, 2026-07-12 lap-cat hours)
+
+KP: refine in place, not selective resurrection. Checkpoint branch merged
+into main at `86711a39` (one conflict, flow doc, resolved to the
+law-lifted version). **Merged-state baseline: type-check exit 2 — exactly
+ONE error** in 1,395 paths: `src/types/generated/hestia-core/
+user_private.ts(32,21) TS1110 Type expected` (a broken generated type —
+first dot on the refine map). Work branch cut: `refine/rewiring-2026-07`.
+Triage table above is now a REFINE-IN-PLACE guide rather than a
+resurrection list.
