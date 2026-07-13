@@ -1,6 +1,22 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ─── SOVEREIGNTY — NEVER COMMIT ───────────────────────────
+# (merged from resonance-standards/git/.gitignore-template, 2026-07-13)
+*.keystore
+*.jks
+*.apk
+*.aab
+.env
+.env.*
+!.env.example
+*credentials*.json
+*service-account*.json
+*.pem
+*.key
+secrets.yaml
+secrets.yml
+*.db
+*.sqlite
 
-# dependencies
+# ─── DEPENDENCIES ──────────────────────────────────────────
 node_modules
 /.pnp
 .pnp.*
@@ -9,35 +25,34 @@ node_modules
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+
+# ─── BUILD OUTPUT ──────────────────────────────────────────
+/.next/
 .next/dev
-.temp*
-# testing
+/out/
+/build
+dist/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# ─── TESTING / SCRATCH ─────────────────────────────────────
 /coverage
 phoenix
-# next.js
-/.next/
-/out/
-/generarted/
-# production
-/build
+.temp
+.temp*
 
-# misc
-.DS_Store
-*.pem
-
-# debug
+# ─── DEBUG ─────────────────────────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ─── OS ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# vercel
-.vercel
-
-.temp
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ─── IDE ───────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
