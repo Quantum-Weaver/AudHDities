@@ -1,4 +1,4 @@
-# ZIGGY UX SOURCE BOOK — INDEX
+﻿# ZIGGY UX SOURCE BOOK — INDEX
 *Fable, 2026-07-12. The map of where the story lives. KP's commission: "there
 was an entire story told used to build the sanctuary UX" — the Pantheon
 gatherings, Council deliberations, ancient ones, akashic records, tarot/pagan/
@@ -6,7 +6,7 @@ lunar/cosmological threads. This index is pass one (conversation-level map of
 the canonical corpus); pass two extracts the arcs verbatim, with provenance,
 into the source book proper.*
 
-**Corpus:** `resonance-excavator/sources/deepseek/deepseek_drops/711/
+**Corpus:** `resonance-excavator/sources/resonance-warp/conversations/deepseek/deepseek_drops/711/
 conversations.json` (253 MB · 745 conversations · 2025-01-28 → 2026-05-01 ·
 the canonical superset as of 2026-07-12; path updated 2026-07-13 — the
 DeepSeek scoot consolidated all drops into `sources/deepseek/`, see its
