@@ -66,6 +66,52 @@ nothing. Refine the *vision*; rebuild the *schema*.
    run); the Superposition structure is outdated and its refinement
    comes AFTER the excavation landfill cleanup.
 
+## The local-first rebuild path (KP, 2026-07-13 — his proposal, feasibility confirmed)
+
+His words: *"rebuild the sql database name it appropriately and build it
+on this machine, and once it is solidified, superposition gets replaced.
+and that entire time we are building the resonance-knowledge supabase
+and project to properly route knowledge to the apps that reference it,
+into their own json db file for the app. single source of truth, every
+app can rollback if needed. this should be agentic and available to
+experience through ziggy somehow."*
+
+**Mechanics (Fable, verified against the live bases 2026-07-13):**
+
+1. **Local rebuild:** Supabase CLI local dev — Postgres + auth + RLS on
+   this machine, schema as versioned migrations in git (`supabase/` dir
+   exists). Every table born from the `templates` archetypes (see
+   standards below). GAIA points local during the build. Solidify, then
+   replace the hosted schema by pushing proven migrations. Rollback free:
+   the schema is files.
+2. **Knowledge routing:** resonance-knowledge = sole source of truth
+   (decision 5). An agentic COURIER queries it and emits versioned JSON
+   snapshots per app (stamped with schema_hash); apps read local JSON;
+   rollback = the previous snapshot kept. This is the Grammar's own
+   design ("vessels download their knowledge graph from their
+   Sanctuary").
+3. **The Ziggy answer:** the courier is a Ziggy expertise module in the
+   plate-forge / cognitive-loom pattern — wakes, fetches, diffs, journals
+   each delivery, rests. The EXPERIENCE is the diff made sensory: new
+   knowledge arrives through the sensory lexicon (color, sound, texture),
+   not as a changelog. Working name: **knowledge-courier**.
+
+**Standards read from the live Superposition (so no security loop is relived):**
+
+- `templates` (4 rows): Identity (PK = auth.users.id; RLS `id =
+  auth.uid()`), Owned (slug/status/display_name; RLS `created_by =
+  auth.uid()`), Relational (junctions; RLS inherited), + one more —
+  each with default_columns/indexes/triggers JSONB. **Rebirth law: no
+  hand-rolled tables; every table born from a template.**
+- `gaia_config` (151 rows): rich per-table registry (generation targets/
+  flags/dependencies, schema verification hash + counts, visibility,
+  api_access, icon_emoji, taxonomy). **Finding: deity_group =
+  'aethelred' on ALL 151 rows — the default; the deity naming never
+  happened at scale.** THE NAMING (the standing shelf item): assign real
+  deity_group values in gaia_config — for the knowledge base's tables
+  now (triad rows await it), and for the reborn lean schema's dozen
+  tables at birth, when naming is cheap.
+
 ## Shape of the reborn database (PROPOSED, for the fresh sitting)
 
 Start from need, not from the 90: `vessels` (people/entities) ·
