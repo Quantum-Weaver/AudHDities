@@ -38,14 +38,21 @@ nothing. Refine the *vision*; rebuild the *schema*.
    `grant_applications` with JSONB for milestones/narratives/attachments-
    metadata — structure can crystallize back OUT into tables if real use
    demands it (JSONB → table is cheap; unused tables are debt).
-4. **The sandbox instance dies — AFTER its export is registered.** It
-   was the nursery where atoms/molecules/organisms was born; KP is right
-   that this belongs to the Sanctuary's knowledge system
-   (resonance-knowledge, the Resonance Grammar — where atoms and
-   molecules already live as the protocol's own vocabulary), not to a
-   separate database. The nursery's job is done; the seedling is
-   transplanted; the pot can be composted. **Gate law applies:** delete
-   only once its export sits in the landfill with a ledger row.
+4. **The sandbox is REPURPOSED, not deleted** (decision evolved
+   2026-07-12 late night, after the vault opened and showed its
+   contents). The full export sits in the landfill
+   (`supabase-knowledge-sandbox-2026-07-12`, 8 tables, 1,721 rows) so
+   the change carries zero risk — but what the inventory revealed
+   changed the verdict: the schema is ALREADY the Grammar's shape (514
+   atoms with 1:1 etymology + sensory_lexicon, 25 categories, molecule
+   scaffolds), lean and clean. It becomes **the knowledge foundation**:
+   rename the project `resonance-knowledge`; add provenance columns
+   (G-013) and RLS; fill molecules and add organisms to complete the
+   triad; align field names with the resonance-knowledge repo. Defined
+   once, referenced by every realm — own, yet integrated, at database
+   scale. Consequence: the AudHDities rebirth lives as a fresh lean
+   schema within the superposition project; two projects, two souls —
+   one knowledge, one app.
 
 ## Shape of the reborn database (PROPOSED, for the fresh sitting)
 
