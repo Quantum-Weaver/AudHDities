@@ -53,13 +53,27 @@ nothing. Refine the *vision*; rebuild the *schema*.
    scale. Consequence: the AudHDities rebirth lives as a fresh lean
    schema within the superposition project; two projects, two souls —
    one knowledge, one app.
+5. **No knowledge-system tables in the Superposition database** (KP,
+   2026-07-13: "no knowledge system tables will likely be needed in the
+   superposition database"). The Grammar — atoms, molecules, organisms,
+   etymology, sensory lexicon, categories — lives SOLELY in the
+   resonance-knowledge base, which is the single source of truth for
+   every knowledge system in everything the house builds (KP's
+   architecture law, same day). Superposition REFERENCES it (API/cache/
+   view), never mirrors it. Defined once, referenced everywhere — now
+   enforced at the project boundary. Sequencing: resonance-knowledge is
+   being solidified NOW (004-first-definitions.sql awaits KP's visual
+   run); the Superposition structure is outdated and its refinement
+   comes AFTER the excavation landfill cleanup.
 
 ## Shape of the reborn database (PROPOSED, for the fresh sitting)
 
 Start from need, not from the 90: `vessels` (people/entities) ·
-`resonance_integrations` (§2) · the slim grant pair (§3) · the knowledge
-tables that GAIA actually generates against · whatever the UX refinement
-proves it needs, added when it is needed. Every table born with:
+`resonance_integrations` (§2) · the slim grant pair (§3) ·
+~~the knowledge tables that GAIA actually generates against~~ *(struck
+2026-07-13 per decision 5 — knowledge lives in resonance-knowledge
+alone)* · whatever the UX refinement proves it needs, added when it is
+needed. Every table born with:
 `shared_scope` thinking where household-relevant, provenance columns
 (who/when/from-where — Kimi's G-013 closed the loop once; keep it
 closed), and RLS from day one. GAIA remains the generator (extract →
