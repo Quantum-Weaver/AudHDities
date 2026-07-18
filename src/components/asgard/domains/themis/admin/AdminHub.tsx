@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, Settings, Users, Shield, FileText, Activity, Database } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
@@ -17,8 +17,8 @@ const ADMIN_SECTIONS = [
 ];
 
 export function AdminHub() {
-  const { profile } = useAuth();
-  const isAdmin = profile?.is_admin === true;
+  const { profile, roles } = useUser();
+  const isAdmin = roles.includes('admin');
 
   if (!isAdmin) {
     return (

@@ -1,6 +1,6 @@
 // One-off smoke test: do generated validators load and enforce?
 // Run: npx tsx src/scripts/audit/validator-smoke.ts
-import { WaresRowSchema } from '../../lib/validators/generated/hestia-core/wares';
+import { WaresRowSchema } from '../../lib/validators/generated/plutus-economics/wares';
 
 const sample = {
   cover_url: null, created_at: '2026-07-09', created_by: 'u1', currency: 'USD',

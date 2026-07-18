@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
@@ -53,12 +53,12 @@ const RESIDUAL_OPTIONS = [
 
 export function StudioCreate() {
   const router = useRouter();
-  const { user, profile, loading: authLoading } = useAuth();
+  const { user, profile, isLoading: authLoading, roles } = useUser();
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [isDraft, setIsDraft] = useState(false);
 
-  const isCreator = profile?.is_creator === true;
+  const isCreator = roles.includes('creator');
 
   const handleSubmit = async (data: Record<string, any>) => {
     if (!user) return;

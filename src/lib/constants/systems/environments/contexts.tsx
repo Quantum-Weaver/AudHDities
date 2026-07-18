@@ -5,7 +5,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { useUser } from '@/hooks/useUser';
+import { useUser, tierLight } from '@/hooks/useUser';
 import type { 
   BaseEnvironmentKey, 
   EnvironmentContext as EnvironmentContextType,
@@ -87,7 +87,7 @@ export interface EnvironmentProviderProps {
 
 export function EnvironmentProvider({ children, debug = false }: EnvironmentProviderProps) {
   const pathname = usePathname();
-  const { user, profile, isLoading: isUserLoading } = useUser();
+  const { user, profile, roles, sovereignTier, isLoading: isUserLoading } = useUser();
   
   const [environment, setEnvironment] = useState<BaseEnvironmentKey>(DEFAULT_ENVIRONMENT);
   const [variant, setVariant] = useState<number>(1);
@@ -107,11 +107,11 @@ export function EnvironmentProvider({ children, debug = false }: EnvironmentProv
     
     // Build context for rule evaluation
     const ctx: EnvironmentContextType = {
-      userTier: profile?.user_tier || 'ally',
-      sovereigntyScore: profile?.sovereignty_score || 0,
+      userTier: sovereignTier || 'dweller',
+      sovereigntyScore: tierLight(sovereignTier),
       path: pathname,
       isAuthenticated: !!user,
-      isAdmin: profile?.is_admin || false,
+      isAdmin: roles.includes('admin'),
       // These would come from other sources (energy system, mood tracking, etc.)
       currentEnergy: 'medium', // TODO: Connect to energy system
       currentMood: [], // TODO: Connect to mood tracking

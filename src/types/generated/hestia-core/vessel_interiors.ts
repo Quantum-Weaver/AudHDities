@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_interiors.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T23:17:11.256Z
+// GENERATED: 2026-07-18T23:30:04.183Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -9,7 +9,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, ThumbsUp, ThumbsDown, Clock, Users, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -38,7 +38,7 @@ const STATUS_COLORS: Record<string, string> = {
 export function ProposalDetail() {
   const params = useParams();
   const router = useRouter();
-  const { profile } = useAuth();
+  const { profile, roles } = useUser();
   const [proposal, setProposal] = useState<Proposal | null>(null);
   const [loading, setLoading] = useState(true);
   const [voting, setVoting] = useState(false);
@@ -100,7 +100,7 @@ export function ProposalDetail() {
 
   const totalVotes = proposal.votes_for + proposal.votes_against;
   const forPercent = totalVotes > 0 ? Math.round((proposal.votes_for / totalVotes) * 100) : 0;
-  const isCouncilTier = profile?.user_tier === 'council' || profile?.is_admin === true;
+  const isCouncilTier = roles.includes('council') || roles.includes('admin');
   const canVote = proposal.status === 'active' && isCouncilTier;
 
   const cardData: CardData = {

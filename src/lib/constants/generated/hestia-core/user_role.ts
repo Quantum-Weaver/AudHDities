@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/user_role.ts
-// GENERATED: 2026-07-18T23:17:11.317Z
+// GENERATED: 2026-07-18T23:30:04.241Z
 // SOURCE: Constants.public.Enums.user_role
 // VALUES: 6 entries
 // =====================================================

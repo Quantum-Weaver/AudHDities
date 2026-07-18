@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AethelredHouseUpdateSchema } from '@/lib/validators/generated/aethelred-connections/aethelred_house';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:10.579Z
+// Generated: 2026-07-18T23:30:03.518Z
 // Table: aethelred_house
 
 export async function GET(

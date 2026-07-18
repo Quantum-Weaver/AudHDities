@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ContinentsInsertSchema } from '@/lib/validators/generated/iris-communications/continents';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:10.711Z
+// Generated: 2026-07-18T23:30:03.646Z
 // Table: continents
 
 export async function GET(request: NextRequest) {

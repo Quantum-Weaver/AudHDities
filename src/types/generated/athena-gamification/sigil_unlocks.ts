@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/sigil_unlocks.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-07-18T23:17:11.125Z
+// GENERATED: 2026-07-18T23:30:04.047Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

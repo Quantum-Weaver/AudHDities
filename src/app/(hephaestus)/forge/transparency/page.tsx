@@ -47,26 +47,29 @@ function statCardData(id: string, title: string): CardData {
 export default async function TransparencyPage() {
   const supabase = await createServerSupabase();
 
+  // The evolved commerce schema: exchanges carry the money story
+  // (public_transparency view and admin_logs died in the evolution — the
+  // ledger table and admin_actions are their successors).
   const { data: publicLedger } = await supabase
-    .from('public_transparency')
+    .from('ledger')
     .select('*')
     .order('created_at', { ascending: false })
     .limit(10);
 
   const { data: adminLogs } = await supabase
-    .from('admin_logs')
+    .from('admin_actions')
     .select('*')
-    .not('public_note', 'is', null)
     .order('created_at', { ascending: false })
     .limit(10);
 
   const { data: totals } = await supabase
-    .from('sales')
-    .select('gross_amount, platform_fee_cents, creator_earnings_cents');
+    .from('exchanges')
+    .select('gross_amount, net_amount, platform_fee_percent, status')
+    .eq('status', 'completed');
 
-  const totalRevenue = totals?.reduce((sum, sale) => sum + (sale.gross_amount || 0), 0) || 0;
-  const totalFees = totals?.reduce((sum, sale) => sum + ((sale.platform_fee_cents || 0) / 100), 0) || 0;
-  const totalCreatorEarnings = totals?.reduce((sum, sale) => sum + ((sale.creator_earnings_cents || 0) / 100), 0) || 0;
+  const totalRevenue = totals?.reduce((sum, ex) => sum + (ex.gross_amount || 0), 0) || 0;
+  const totalCreatorEarnings = totals?.reduce((sum, ex) => sum + (ex.net_amount || 0), 0) || 0;
+  const totalFees = totalRevenue - totalCreatorEarnings;
 
   return (
     <Page showForeground={false} showContinuityBeam={true}>

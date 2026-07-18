@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_quests.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T23:17:11.262Z
+// GENERATED: 2026-07-18T23:30:04.189Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

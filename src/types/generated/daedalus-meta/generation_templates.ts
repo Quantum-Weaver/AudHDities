@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/generation_templates.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-07-18T23:17:10.821Z
+// GENERATED: 2026-07-18T23:30:03.757Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

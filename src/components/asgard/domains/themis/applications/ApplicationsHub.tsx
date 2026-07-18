@@ -7,7 +7,7 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, UserCheck, FileText, Shield, CheckCircle, XCircle, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -30,7 +30,7 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 export function ApplicationsHub() {
-  const { profile } = useAuth();
+  const { profile, roles } = useUser();
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -44,7 +44,7 @@ export function ApplicationsHub() {
       .finally(() => setLoading(false));
   }, []);
 
-  const isReviewer = profile?.is_admin === true || profile?.is_moderator === true;
+  const isReviewer = roles.includes('admin') || roles.includes('council');
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });

@@ -4,7 +4,7 @@
 // =====================================================
 
 import type { Json } from './supabase/database.types';
-import type { SensitivityLevel } from './supabase/enums.js';
+import type { SensoryLevel as SensitivityLevel } from './supabase/enums.js';
 
 // =====================================================
 // ND PREFERENCES (stored in profiles.nd_preferences)

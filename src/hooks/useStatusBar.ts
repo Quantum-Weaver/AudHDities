@@ -5,7 +5,7 @@
 
 import { useMemo } from 'react';
 import { useEnvironment } from '@/lib/constants/systems/environments/contexts';
-import { useUser } from './useUser';
+import { useUser, tierLight } from './useUser';
 import { getStatusBarConfig, DEFAULT_USER_STATUS, type UserStatusData, type StatusBarConfig } from '@/lib/constants/systems/environments/status_bar';
 import { statusBarUtils } from '@/lib/utils/components/immersive/status_bar';
 import type { StatusType, StatusIndicator } from '@/types/components/immersive/status_bar';
@@ -44,14 +44,14 @@ export interface UseStatusBarReturn {
  */
 export function useStatusBar(): UseStatusBarReturn {
   const { environment, isTransitioning } = useEnvironment();
-  const { profile, isLoading: isUserLoading } = useUser();
+  const { profile, sovereignTier, isLoading: isUserLoading } = useUser();
   
   // Get status bar config for current environment
   const config = useMemo(() => getStatusBarConfig(environment), [environment]);
   
   // Build user status data
   const userStatus = useMemo((): UserStatusData => {
-    const sovereigntyScore = profile?.sovereignty_score ?? 0;
+    const sovereigntyScore = tierLight(sovereignTier);
     const level = Math.floor(sovereigntyScore / 100) + 1;
     
     return {

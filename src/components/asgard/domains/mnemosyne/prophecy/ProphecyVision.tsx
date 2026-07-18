@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser, tierLight } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
@@ -26,7 +26,7 @@ const RARITY_COLORS: Record<string, string> = {
 };
 
 export function ProphecyVision() {
-  const { user, profile } = useAuth();
+  const { user, profile, sovereignTier } = useUser();
   const [availableQuests, setAvailableQuests] = useState<Quest[]>([]);
   const [unearnedBadges, setUnearnedBadges] = useState<BadgeItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ export function ProphecyVision() {
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  const sovereigntyScore = profile?.sovereignty_score ?? 0;
+  const sovereigntyScore = tierLight(sovereignTier);
   const nextMilestone = sovereigntyScore < 200 ? 200 : sovereigntyScore < 500 ? 500 : sovereigntyScore < 800 ? 800 : 1000;
   const progressToNext = sovereigntyScore >= 1000 ? 100 : Math.round((sovereigntyScore / nextMilestone) * 100);
 

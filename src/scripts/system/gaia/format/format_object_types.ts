@@ -298,6 +298,11 @@ export function formatObjectTypes(
   if (hasJson) {
     imports.push(`import type { Json } from '@/types/supabase/database.types.js';`);
   }
+  // Composite-type columns reference Database[...] directly in the derived
+  // interfaces (possible since the multiline normalization landed).
+  if (rowContent.includes('Database[')) {
+    imports.push(`import type { Database } from '@/types/supabase/database.types.js';`);
+  }
   
   // Build core types section
   let coreTypes = `// =====================================================\n`;

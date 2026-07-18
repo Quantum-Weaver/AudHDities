@@ -8,7 +8,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, Vote, ThumbsUp, ThumbsDown, Clock, Shield, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -25,7 +25,7 @@ interface Proposal {
 }
 
 export function VotingHub() {
-  const { profile } = useAuth();
+  const { profile, roles } = useUser();
   const [activeProposals, setActiveProposals] = useState<Proposal[]>([]);
   const [loading, setLoading] = useState(true);
   const [votingId, setVotingId] = useState<string | null>(null);
@@ -66,7 +66,7 @@ export function VotingHub() {
     return `${days} days remaining`;
   };
 
-  const isCouncilTier = profile?.user_tier === 'council' || profile?.is_admin === true;
+  const isCouncilTier = roles.includes('council') || roles.includes('admin');
 
   if (loading) {
     return (

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LessonsUpdateSchema } from '@/lib/validators/generated/athena-gamification/lessons';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:10.916Z
+// Generated: 2026-07-18T23:30:03.851Z
 // Table: lessons
 
 export async function GET(

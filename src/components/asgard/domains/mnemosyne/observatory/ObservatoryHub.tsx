@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser, tierLight } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
@@ -30,7 +30,7 @@ interface BadgeItem {
 }
 
 export function ObservatoryHub() {
-  const { user, profile, loading: authLoading } = useAuth();
+  const { user, profile, sovereignTier, isLoading: authLoading } = useUser();
   const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
   const [badges, setBadges] = useState<BadgeItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -120,7 +120,7 @@ export function ObservatoryHub() {
               {isAuthenticated && profile ? (
                 <div className="space-y-2">
                   <div className="text-xs text-star-dust/40">
-                    <span className="text-neurospark">{profile.sovereignty_score ?? 0}</span> sovereignty points earned
+                    <span className="text-neurospark">{tierLight(sovereignTier)}</span> sovereignty points earned
                   </div>
                   <div className="text-xs text-star-dust/40">
                     Energy trend available in your <span className="text-neurospark">Energy Log</span>

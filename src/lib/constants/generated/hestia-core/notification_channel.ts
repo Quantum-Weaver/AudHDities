@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/notification_channel.ts
-// GENERATED: 2026-07-18T23:17:11.307Z
+// GENERATED: 2026-07-18T23:30:04.233Z
 // SOURCE: Constants.public.Enums.notification_channel
 // VALUES: 4 entries
 // =====================================================

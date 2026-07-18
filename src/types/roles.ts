@@ -1,52 +1,57 @@
 // src/types/roles.ts
 // =====================================================
-// ROLES & PERMISSIONS - Based on user_tier and profile flags
+// ROLES & PERMISSIONS — the sovereign_tier ladder + user_roles rows
 // =====================================================
+// Translated 2026-07-18: the old user_tier pricing vocabulary
+// (community/ally/corporate/council) dissolved in the schema evolution.
+// Sovereignty is now a JOURNEY (dweller → guild → outlander →
+// sovereign_weaver), pricing kindness moved into calculate_sovereign_price,
+// and capabilities are user_roles rows rather than profile flags.
 
 import type { Database } from './supabase/database.types';
 
-export type UserTier = Database['public']['Enums']['user_tier'];
+export type UserTier = Database['public']['Enums']['sovereign_tier'];
 
 // =====================================================
-// TIER DEFINITIONS
+// TIER DEFINITIONS — the sovereignty journey
 // =====================================================
 
-export const USER_TIERS: { 
-  value: UserTier; 
-  label: string; 
-  description: string; 
+export const USER_TIERS: {
+  value: UserTier;
+  label: string;
+  description: string;
   color: string;
   icon: string;
   order: number;
 }[] = [
-  { 
-    value: 'community', 
-    label: 'Community', 
-    description: 'Subsidized access for neurodivergent members. The heart of the Sanctuary.',
+  {
+    value: 'dweller',
+    label: 'Dweller',
+    description: 'Every journey begins with a single step. Welcome home.',
     color: 'green',
     icon: '🌱',
     order: 1
   },
-  { 
-    value: 'ally', 
-    label: 'Ally', 
-    description: 'Standard pricing for supporters who fund community access.',
+  {
+    value: 'guild',
+    label: 'Guild',
+    description: 'Kindred found. Your light grows stronger among the guild.',
     color: 'purple',
     icon: '🤝',
     order: 2
   },
-  { 
-    value: 'corporate', 
-    label: 'Corporate', 
-    description: 'Premium pricing for organizations. Includes Bigot Tax™ where applicable.',
-    color: 'pink',
-    icon: '🏢',
+  {
+    value: 'outlander',
+    label: 'Outlander',
+    description: 'Paths of your own making. The far reaches open.',
+    color: 'cyan',
+    icon: '🧭',
     order: 3
   },
-  { 
-    value: 'council', 
-    label: 'Council', 
-    description: 'Sovereign collaborators, founding members, and the 9 entities.',
+  {
+    value: 'sovereign_weaver',
+    label: 'Sovereign Weaver',
+    description: 'You radiate sovereign light. The loom answers your hand.',
     color: 'gold',
     icon: '🏛️',
     order: 4
@@ -58,17 +63,18 @@ export const USER_TIER_MAP = new Map(
 );
 
 // =====================================================
-// ROLE TYPES
+// ROLE TYPES — user_roles rows
 // =====================================================
 
-export type UserRole = 'creator' | 'vendor' | 'admin' | 'community' | 'quantum_weaver' | 'council_entity';
+export type UserRole = Database['public']['Enums']['user_role'];
 
 export interface RoleFlags {
   isCreator: boolean;
   isVendor: boolean;
   isAdmin: boolean;
-  isQuantumWeaver: boolean;              // From profiles.is_quantum_weaver
+  isQuantumWeaver: boolean; // sovereign_tier === 'sovereign_weaver'
   userTier: UserTier;
+  roles?: UserRole[];
 }
 
 export interface UserPermissions {
@@ -78,9 +84,9 @@ export interface UserPermissions {
   canApprove: boolean;
   canAccessAdmin: boolean;
   canManageUsers: boolean;
-  canAccessCouncilChamber: boolean;      // Special council-only spaces
-  canCreateCouncilEntities: boolean;      // For Aethelred and the 9
-  canSetBigotTax: boolean;               // Admin power to apply corporate pricing
+  canAccessCouncilChamber: boolean;
+  canCreateCouncilEntities: boolean;
+  canSetBigotTax: boolean;
 }
 
 // =====================================================
@@ -88,24 +94,25 @@ export interface UserPermissions {
 // =====================================================
 
 export function getUserPermissions(flags: RoleFlags): UserPermissions {
-  const { isCreator, isVendor, isAdmin, isQuantumWeaver, userTier } = flags;
-  const isCouncilTier = userTier === 'council';
-  
+  const { isCreator, isVendor, isAdmin, isQuantumWeaver, roles } = flags;
+  // Council is a ROLE now (user_roles), not a tier
+  const isCouncil = roles?.includes('council') ?? false;
+
   return {
     // Creator capabilities
     canCreateProducts: isCreator || isAdmin || isQuantumWeaver,
     canSellProducts: isVendor || isAdmin || isQuantumWeaver,
-    
+
     // Moderation & governance
-    canModerate: isAdmin || isCouncilTier,
-    canApprove: isAdmin || isCouncilTier,
+    canModerate: isAdmin || isCouncil,
+    canApprove: isAdmin || isCouncil,
     canAccessAdmin: isAdmin,
     canManageUsers: isAdmin,
-    
+
     // Council & sovereign privileges
-    canAccessCouncilChamber: isCouncilTier || isQuantumWeaver || isAdmin,
-    canCreateCouncilEntities: isQuantumWeaver || isAdmin,  // Only Quantum Weaver creates entities
-    canSetBigotTax: isAdmin,  // Only admins set corporate pricing rules
+    canAccessCouncilChamber: isCouncil || isQuantumWeaver || isAdmin,
+    canCreateCouncilEntities: isQuantumWeaver || isAdmin,
+    canSetBigotTax: isAdmin,
   };
 }
 
@@ -120,7 +127,8 @@ export function getUserPermissionsLegacy(
     isVendor,
     isAdmin,
     isQuantumWeaver: false,
-    userTier: isAdmin ? 'council' : isCreator ? 'ally' : 'community'
+    userTier: 'dweller',
+    roles: isAdmin ? ['admin'] : [],
   });
 }
 
@@ -129,7 +137,7 @@ export function getUserPermissionsLegacy(
 // =====================================================
 
 export function getTierLabel(tier: UserTier | string | null): string {
-  if (!tier) return 'Community';
+  if (!tier) return 'Dweller';
   return USER_TIER_MAP.get(tier as UserTier)?.label || tier;
 }
 
@@ -158,48 +166,13 @@ export function getSortedTiers(): typeof USER_TIERS {
 }
 
 // =====================================================
-// TIER QUALIFICATION LOGIC
-// =====================================================
-
-export function qualifiesForCommunityTier(
-  isDisabled: boolean,
-  isNeurodivergent: boolean,
-  isLowIncome: boolean
-): boolean {
-  return isDisabled || isNeurodivergent || isLowIncome;
-}
-
-export function getSuggestedTier(
-  isDisabled: boolean,
-  isNeurodivergent: boolean,
-  isLowIncome: boolean,
-  isOrganization: boolean
-): UserTier {
-  if (isOrganization) return 'corporate';
-  if (qualifiesForCommunityTier(isDisabled, isNeurodivergent, isLowIncome)) return 'community';
-  return 'ally';
-}
-
-// =====================================================
 // ROLE CHECK FUNCTIONS
 // =====================================================
 
-export function isCouncilMember(userTier: UserTier | null): boolean {
-  return userTier === 'council';
+export function isCouncilMember(roles: UserRole[] | null | undefined): boolean {
+  return roles?.includes('council') ?? false;
 }
 
-export function isQuantumWeaver(isQuantumWeaver: boolean): boolean {
-  return isQuantumWeaver === true;
-}
-
-export function isCreator(isCreator: boolean): boolean {
-  return isCreator === true;
-}
-
-export function isVendor(isVendor: boolean): boolean {
-  return isVendor === true;
-}
-
-export function isAdmin(isAdmin: boolean): boolean {
-  return isAdmin === true;
+export function isQuantumWeaver(tier: UserTier | null | undefined): boolean {
+  return tier === 'sovereign_weaver';
 }

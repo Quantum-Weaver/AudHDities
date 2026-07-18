@@ -2,11 +2,12 @@
 // FILE: types/generated/hestia-core/user_private.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T23:17:11.204Z
+// GENERATED: 2026-07-18T23:30:04.121Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Database } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES

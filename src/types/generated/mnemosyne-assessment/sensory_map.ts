@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/sensory_map.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-18T23:17:11.120Z
+// GENERATED: 2026-07-18T23:30:04.042Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/resonance.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-18T23:17:11.075Z
+// GENERATED: 2026-07-18T23:30:03.999Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -1,7 +1,7 @@
 // @/components/seidr/immersive/StatusBar.tsx
 "use client";
 
-import { useUser } from "@/hooks/useUser";
+import { useUser, tierLight } from "@/hooks/useUser";
 import { useAuth } from "@/hooks/useAuth";
 import { useStatusBar } from "@/hooks/useStatusBar";
 import { HStack } from "@/components/hof/Stack";
@@ -15,7 +15,8 @@ export interface StatusBarProps {
 
 export function StatusBar({ className }: StatusBarProps) {
   const { user } = useAuth();
-  const { profile, sovereigntyScore, isAuthenticated } = useUser();
+  const { profile, sovereignTier, isAuthenticated } = useUser();
+  const sovereigntyScore = tierLight(sovereignTier);
   const { config } = useStatusBar();
 
   if (!isAuthenticated || !user) {
@@ -43,7 +44,7 @@ export function StatusBar({ className }: StatusBarProps) {
         {/* ════════════════════════════════════════════════════════════ */}
         {/* CENTER — Realm Name                                              */}
         {/* ════════════════════════════════════════════════════════════ */}
-        <RealmDisplay environment={profile?.preferred_environment} />
+        <RealmDisplay environment={'home'} />
 
         {/* ════════════════════════════════════════════════════════════ */}
         {/* RIGHT — Energy + Notifications                                  */}
@@ -122,12 +123,12 @@ function MetricsDisplay() {
 
   // Fetch today's energy and notification count
   useEffect(() => {
-    // Energy — would fetch from energy_logs where user_id = profile.profiles_id AND created_at::date = today
-    // Notifications — would fetch COUNT from notifications where user_id = profile.profiles_id AND is_read = false
+    // Energy — would fetch from energy_logs where user_id = profile.id AND created_at::date = today
+    // Notifications — would fetch COUNT from notifications where user_id = profile.id AND is_read = false
     // For now, placeholder until hooks are connected
     setEnergyToday(null);
     setNotifications(0);
-  }, [profile?.profiles_id]);
+  }, [profile?.id]);
 
   return (
     <HStack align="center" space="md">

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ArchivistUpdateSchema } from '@/lib/validators/generated/aethelred-connections/archivist';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:10.615Z
+// Generated: 2026-07-18T23:30:03.552Z
 // Table: archivist
 
 export async function GET(

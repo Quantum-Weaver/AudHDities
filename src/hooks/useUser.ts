@@ -19,6 +19,20 @@ import type { Enums } from '@/types/supabase/database.helpers';
 export type UserRole = Enums<'user_role'>;
 export type SovereignTier = Enums<'sovereign_tier'>;
 
+// The old numeric sovereignty_score became the sovereign_tier enum; where a
+// number is still wanted (progress bars, beam intensity, star maps), each
+// tier carries its light-level. One map, imported everywhere.
+export const TIER_LIGHT: Record<SovereignTier, number> = {
+  dweller: 100,
+  guild: 400,
+  outlander: 700,
+  sovereign_weaver: 1000,
+};
+
+export function tierLight(tier: SovereignTier | null | undefined): number {
+  return (tier && TIER_LIGHT[tier]) || 0;
+}
+
 export interface UseUserReturn {
   user: User | null;
   profile: CommunityProfilesRow | null;

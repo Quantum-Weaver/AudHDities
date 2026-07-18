@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VesselSigilsUpdateSchema } from '@/lib/validators/generated/hestia-core/vessel_sigils';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:11.273Z
+// Generated: 2026-07-18T23:30:04.199Z
 // Table: vessel_sigils
 
 export async function GET(

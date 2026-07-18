@@ -22,7 +22,7 @@ export async function GET() {
     const [profileRes, rolesRes, sigilsRes] = await Promise.all([
       supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
       supabase.from('user_roles').select('role').eq('user_id', user.id),
-      supabase.from('vessel_sigils').select('*').eq('created_by', user.id),
+      supabase.from('vessel_sigils').select('*').eq('user_id', user.id),
     ]);
 
     const profile = profileRes.data ?? null;

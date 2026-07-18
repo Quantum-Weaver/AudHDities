@@ -18,25 +18,21 @@ export async function GET() {
       );
     }
 
-    // Get full profile with relations
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select(`
-        *,
-        community_profiles!fk_community_profiles_profile_id (*),
-        creator_profiles!fk_creator_profile_id (*),
-        vendor_profiles!fk_vendor_profiles_profile_id (*)
-      `)
-      .eq('profiles_id', user.id)
-      .single();
+    // The profiles join-tree died with its table; the session's identity is
+    // community_profiles plus the user's roles.
+    const [profileRes, rolesRes] = await Promise.all([
+      supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
+      supabase.from('user_roles').select('role').eq('user_id', user.id),
+    ]);
 
-    if (profileError) {
-      console.error('Profile fetch error:', profileError);
+    if (profileRes.error) {
+      console.error('Profile fetch error:', profileRes.error);
     }
 
     return NextResponse.json({
       user,
-      profile: profile || null,
+      profile: profileRes.data || null,
+      roles: (rolesRes.data ?? []).map(r => r.role),
     });
   } catch (error) {
     console.error('Session error:', error);

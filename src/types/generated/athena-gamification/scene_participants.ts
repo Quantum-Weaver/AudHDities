@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/scene_participants.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-07-18T23:17:11.084Z
+// GENERATED: 2026-07-18T23:30:04.008Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

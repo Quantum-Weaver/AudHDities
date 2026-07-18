@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TestPatternsUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/test_patterns';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:11.180Z
+// Generated: 2026-07-18T23:30:04.098Z
 // Table: test_patterns
 
 export async function GET(

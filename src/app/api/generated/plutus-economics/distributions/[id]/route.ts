@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { DistributionsUpdateSchema } from '@/lib/validators/generated/plutus-economics/distributions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:17:10.745Z
+// Generated: 2026-07-18T23:30:03.681Z
 // Table: distributions
 
 export async function GET(
