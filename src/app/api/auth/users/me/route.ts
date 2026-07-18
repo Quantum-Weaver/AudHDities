@@ -1,15 +1,17 @@
-// src/app/api/users/me/route.ts
+// src/app/api/auth/users/me/route.ts
+// Rewritten 2026-07-18 for the evolved schema: the profiles join-tree died
+// with its table. The vessel's "me" is now assembled from community_profiles
+// (by created_by), user_roles, vessel_sigils (earned sigils), the user's
+// wares (if a creator), and their recent exchanges.
 import { NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import type { ProductsFormData } from '@/types/generated/plutus-economics/products';
-import type { PublicProfiles } from '@/types/generated/hestia-core/profiles';
 
 export async function GET() {
   try {
     const supabase = await createServerSupabase();
-    
+
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json(
         { error: 'Authentication required' },
@@ -17,69 +19,48 @@ export async function GET() {
       );
     }
 
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select(`
-        *,
-        community_profiles!fk_community_profiles_profile_id (*),
-        creator_profiles!fk_creator_profile_id (*),
-        vendor_profiles!fk_vendor_profiles_profile_id (*),
-        user_badges!user_badges_user_id_fkey (
-          *,
-          badges!user_badges_badge_id_fkey (*)
-        )
-      `)
-      .eq('profiles_id', user.id)
-      .single();
+    const [profileRes, rolesRes, sigilsRes] = await Promise.all([
+      supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
+      supabase.from('user_roles').select('role').eq('user_id', user.id),
+      supabase.from('vessel_sigils').select('*').eq('created_by', user.id),
+    ]);
 
-    if (profileError) {
-      console.error('Profile fetch error:', profileError);
-      return NextResponse.json({
-        user,
-        profile: null,
-        badges: [],
-        products: [],
-        recentSales: [],
-      });
+    const profile = profileRes.data ?? null;
+    const roles = (rolesRes.data ?? []).map(r => r.role);
+    const sigils = sigilsRes.data ?? [];
+
+    if (profileRes.error) {
+      console.error('Profile fetch error:', profileRes.error);
     }
 
-    let products: ProductsFormData[] = [];
-    if (profile.is_creator) {
-      const { data: userProducts } = await supabase
-        .from('products')
+    let wares: unknown[] = [];
+    if (roles.includes('creator') || roles.includes('vendor')) {
+      const { data: userWares } = await supabase
+        .from('wares')
         .select('*')
-        .eq('creator_id', user.id)
+        .eq('created_by', user.id)
         .order('created_at', { ascending: false })
         .limit(10);
-      products = (userProducts as ProductsFormData[]) || [];
+      wares = userWares || [];
     }
 
-    let recentSales: any[] = [];
-    const { data: sales } = await supabase
-      .from('sales')
-      .select(`
-        *,
-        products!sales_product_id_fkey (
-          title, 
-          slug
-        )
-      `)
+    const { data: exchanges } = await supabase
+      .from('exchanges')
+      .select('*, wares!exchanges_ware_id_fkey (name, slug)')
       .eq('buyer_id', user.id)
       .order('created_at', { ascending: false })
       .limit(5);
-    recentSales = sales || [];
-
-    const badgeCount = profile.user_badges?.length || 0;
 
     return NextResponse.json({
       user,
       profile,
-      badges: profile.user_badges || [],
-      badgeCount,
-      products,
-      recentSales,
+      roles,
+      badges: sigils,
+      badgeCount: sigils.length,
+      products: wares,
+      recentSales: exchanges || [],
     });
-    
+
   } catch (error) {
     console.error('User fetch error:', error);
     return NextResponse.json(
