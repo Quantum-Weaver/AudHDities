@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GardenVisitsInsertSchema } from '@/lib/validators/generated/hestia-core/garden_visits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.216Z
+// Generated: 2026-07-18T23:17:10.816Z
 // Table: garden_visits
 
 export async function GET(request: NextRequest) {
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('garden_visits')
-      .insert({ ...validated, created_by: userId })
+      .insert(validated)
       .select()
       .single();
     

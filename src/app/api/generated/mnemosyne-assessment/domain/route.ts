@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { DomainInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/domain';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.149Z
+// Generated: 2026-07-18T23:17:10.750Z
 // Table: domain
 
 export async function GET(request: NextRequest) {

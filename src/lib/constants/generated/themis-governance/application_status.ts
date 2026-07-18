@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/themis-governance/application_status.ts
-// GENERATED: 2026-07-18T23:09:31.708Z
+// GENERATED: 2026-07-18T23:17:11.300Z
 // SOURCE: Constants.public.Enums.application_status
 // VALUES: 7 entries
 // =====================================================

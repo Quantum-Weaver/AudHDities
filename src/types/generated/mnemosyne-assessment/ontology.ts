@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/ontology.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-18T23:09:31.361Z
+// GENERATED: 2026-07-18T23:17:10.965Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

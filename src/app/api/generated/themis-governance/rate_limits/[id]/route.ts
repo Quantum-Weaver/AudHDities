@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { RateLimitsUpdateSchema } from '@/lib/validators/generated/themis-governance/rate_limits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.434Z
+// Generated: 2026-07-18T23:17:11.044Z
 // Table: rate_limits
 
 export async function GET(

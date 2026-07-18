@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/continents.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-07-18T23:09:31.108Z
+// GENERATED: 2026-07-18T23:17:10.710Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

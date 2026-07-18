@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TranslationsInsertSchema } from '@/lib/validators/generated/iris-communications/translations';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.585Z
+// Generated: 2026-07-18T23:17:11.190Z
 // Table: translations
 
 export async function GET(request: NextRequest) {

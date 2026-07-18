@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/council_houses.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-07-18T23:09:31.112Z
+// GENERATED: 2026-07-18T23:17:10.714Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

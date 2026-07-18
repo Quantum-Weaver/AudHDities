@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ReferenceValuesUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/reference_values';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.440Z
+// Generated: 2026-07-18T23:17:11.049Z
 // Table: reference_values
 
 export async function GET(

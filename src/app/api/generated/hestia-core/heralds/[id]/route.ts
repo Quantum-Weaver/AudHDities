@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { HeraldsUpdateSchema } from '@/lib/validators/generated/hestia-core/heralds';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.281Z
+// Generated: 2026-07-18T23:17:10.883Z
 // Table: heralds
 
 export async function GET(

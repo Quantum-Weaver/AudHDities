@@ -117,7 +117,7 @@ function generateGetSingleRoute(tableName: string, importManager: ImportManager)
 }`;
 }
 
-function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager, hasCreatedBy: boolean = true): string {
   const pascalName = toPascalCase(tableName);
   
   importManager.addImport('next/server', 'NextRequest', false);
@@ -139,7 +139,7 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('${tableName}')
-      .insert({ ...validated, created_by: userId })
+      .insert(${hasCreatedBy ? '{ ...validated, created_by: userId }' : 'validated'})
       .select()
       .single();
     
@@ -388,7 +388,10 @@ export function generateTableApiRoutes(
       content += generateGetListRoute(tableName, importManager) + '\n\n';
     }
     if (category.generateApiPost) {
-      content += generatePostRoute(tableName, deityFolder, importManager) + '\n';
+      // Some tables (current, ledger, analytics…) have no created_by column;
+      // stamping it there was a type error and would be a runtime error too.
+      const hasCreatedBy = /\bcreated_by\??:/.test(table.rowContent || '');
+      content += generatePostRoute(tableName, deityFolder, importManager, hasCreatedBy) + '\n';
     }
     
     const importBlock = importManager.getImportBlock();

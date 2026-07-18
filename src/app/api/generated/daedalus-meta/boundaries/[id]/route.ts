@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { BoundariesUpdateSchema } from '@/lib/validators/generated/daedalus-meta/boundaries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.038Z
+// Generated: 2026-07-18T23:17:10.640Z
 // Table: boundaries
 
 export async function GET(

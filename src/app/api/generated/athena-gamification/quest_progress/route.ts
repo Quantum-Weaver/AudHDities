@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { QuestProgressInsertSchema } from '@/lib/validators/generated/athena-gamification/quest_progress';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:09:31.426Z
+// Generated: 2026-07-18T23:17:11.036Z
 // Table: quest_progress
 
 export async function GET(request: NextRequest) {
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('quest_progress')
-      .insert({ ...validated, created_by: userId })
+      .insert(validated)
       .select()
       .single();
     

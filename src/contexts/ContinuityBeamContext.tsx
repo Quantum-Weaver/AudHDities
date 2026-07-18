@@ -40,12 +40,19 @@ export function ContinuityBeamProvider({
 }: ContinuityBeamProviderProps) {
   // Get environment from our environment system
   const { environment: currentEnvironment } = useEnvironment();
-  const { profile, isAuthenticated } = useUser();
-  
+  const { profile, sovereignTier, isAuthenticated } = useUser();
+
+  // The old numeric sovereignty_score became the sovereign_tier enum; the
+  // beam still breathes on a number, so each tier carries its light-level.
+  const TIER_SCORE: Record<string, number> = {
+    dweller: 100, guild: 400, outlander: 700, sovereign_weaver: 1000,
+  };
+  const tierScore = (sovereignTier && TIER_SCORE[sovereignTier]) || 0;
+
   // Session state - now synced with user data
   const [sessionState, setSessionState] = useState<SessionState>({
-    tier: profile?.user_tier || 'community',
-    sovereigntyScore: profile?.sovereignty_score || 0,
+    tier: (sovereignTier as SessionState['tier']) || 'community',
+    sovereigntyScore: tierScore,
     environment: initialEnvironment,
     isFirstVisitToday: true,
     sessionDurationMinutes: 0,
@@ -68,11 +75,11 @@ export function ContinuityBeamProvider({
     if (profile) {
       setSessionState(prev => ({
         ...prev,
-        tier: profile.user_tier || prev.tier,
-        sovereigntyScore: profile.sovereignty_score ?? prev.sovereigntyScore,
+        tier: (sovereignTier as SessionState['tier']) || prev.tier,
+        sovereigntyScore: tierScore || prev.sovereigntyScore,
       }));
     }
-  }, [profile]);
+  }, [profile, sovereignTier, tierScore]);
 
   // Update activation state when session changes
   useEffect(() => {
@@ -80,7 +87,7 @@ export function ContinuityBeamProvider({
     setActivationState(newActivation);
     
     // Use current environment from environment system
-    const newConfig = getBeamConfig(sessionState.environment, sessionState);
+    const newConfig = getBeamConfig(sessionState.environment as EnvironmentKey, sessionState);
     setBeamConfig(newConfig);
   }, [sessionState]);
 
