@@ -1,7 +1,7 @@
 // src/app/(mnemosyne)/questionaire/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
-import { AcidTestForm } from '@/components/asgard/domains/mnemosyne/assessment/AcidTestForm';
+import { AcidTestLoader } from '@/components/asgard/domains/mnemosyne/assessment/AcidTestLoader';
 
 export const metadata: Metadata = {
   title: 'Acid Test | AUDHDITIES',
@@ -13,10 +13,7 @@ export default function QuestionairePage() {
     <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen py-20 px-6">
         <div className="container max-w-4xl mx-auto">
-          <AcidTestForm
-            questions={[]}
-            userId={undefined}
-          />
+          <AcidTestLoader />
         </div>
       </main>
     </Page>

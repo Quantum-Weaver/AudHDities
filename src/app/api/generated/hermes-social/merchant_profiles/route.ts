@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MerchantProfilesInsertSchema } from '@/lib/validators/generated/hermes-social/merchant_profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.308Z
+// Generated: 2026-07-18T23:09:31.338Z
 // Table: merchant_profiles
 
 export async function GET(request: NextRequest) {

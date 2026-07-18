@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SensoryLexiconUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/sensory_lexicon';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.497Z
+// Generated: 2026-07-18T23:09:31.510Z
 // Table: sensory_lexicon
 
 export async function GET(

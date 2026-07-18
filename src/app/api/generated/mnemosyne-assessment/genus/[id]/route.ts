@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GenusUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/genus';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.190Z
+// Generated: 2026-07-18T23:09:31.230Z
 // Table: genus
 
 export async function GET(

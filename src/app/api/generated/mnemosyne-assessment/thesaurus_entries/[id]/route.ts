@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ThesaurusEntriesUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/thesaurus_entries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.568Z
+// Generated: 2026-07-18T23:09:31.580Z
 // Table: thesaurus_entries
 
 export async function GET(

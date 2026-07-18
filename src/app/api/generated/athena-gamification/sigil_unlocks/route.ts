@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SigilUnlocksInsertSchema } from '@/lib/validators/generated/athena-gamification/sigil_unlocks';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.508Z
+// Generated: 2026-07-18T23:09:31.521Z
 // Table: sigil_unlocks
 
 export async function GET(request: NextRequest) {

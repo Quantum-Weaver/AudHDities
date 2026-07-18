@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/genus.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-18T21:42:54.189Z
+// GENERATED: 2026-07-18T23:09:31.229Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

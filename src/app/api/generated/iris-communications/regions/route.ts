@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { RegionsInsertSchema } from '@/lib/validators/generated/iris-communications/regions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.432Z
+// Generated: 2026-07-18T23:09:31.445Z
 // Table: regions
 
 export async function GET(request: NextRequest) {

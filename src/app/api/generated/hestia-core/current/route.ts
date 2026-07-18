@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CurrentInsertSchema } from '@/lib/validators/generated/hestia-core/current';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.086Z
+// Generated: 2026-07-18T23:09:31.132Z
 // Table: current
 
 export async function GET(request: NextRequest) {

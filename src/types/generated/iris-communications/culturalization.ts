@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/culturalization.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-07-18T21:42:54.075Z
+// GENERATED: 2026-07-18T23:09:31.122Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

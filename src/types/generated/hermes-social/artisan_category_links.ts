@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/artisan_category_links.ts
 // HANDLING: join_table
 // DEITY: hermes-social
-// GENERATED: 2026-07-18T21:42:53.953Z
+// GENERATED: 2026-07-18T23:09:31.016Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

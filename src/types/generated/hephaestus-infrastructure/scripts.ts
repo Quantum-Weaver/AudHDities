@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scripts.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-18T21:42:54.481Z
+// GENERATED: 2026-07-18T23:09:31.492Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ResendConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/resend_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.443Z
+// Generated: 2026-07-18T23:09:31.455Z
 // Table: resend_connection
 
 export async function GET(

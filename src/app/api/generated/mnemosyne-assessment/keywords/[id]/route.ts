@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { KeywordsUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/keywords';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T21:42:54.256Z
+// Generated: 2026-07-18T23:09:31.291Z
 // Table: keywords
 
 export async function GET(

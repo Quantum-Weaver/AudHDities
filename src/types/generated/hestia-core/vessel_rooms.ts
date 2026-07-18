@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_rooms.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T21:42:54.656Z
+// GENERATED: 2026-07-18T23:09:31.664Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
