@@ -29,7 +29,7 @@ export interface PublicUserPrivate {
   created_by: string | null;
   crisis_plan: string | null;
   date_of_birth: string | null;
-  emergency_contact:;
+  emergency_contact: Database["public"]["CompositeTypes"]["emergency_contact"] | null;
   government_id: string | null;
   icon_emoji: string | null;
   id: string;
