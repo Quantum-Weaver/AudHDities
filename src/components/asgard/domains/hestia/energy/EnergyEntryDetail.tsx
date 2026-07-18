@@ -13,11 +13,11 @@ import { ArrowLeft, Zap, Clock, Trash2 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface EnergyEntry {
-  energy_logs_id: string;
+  id: string;
   energy_level: number;
   notes?: string | null;
-  activity?: string | null;
-  created_at: string;
+  mood_tags?: string[] | null;
+  logged_at: string;
 }
 
 const ENERGY_LABELS: Record<number, string> = {
@@ -43,7 +43,7 @@ export function EnergyEntryDetail() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/generated/hestia-core/energy_logs/${params.id}`)
+    fetch(`/api/generated/hestia-core/energy_entries/${params.id}`)
       .then(r => r.json())
       .then(result => { if (result.success) setEntry(result.data); })
       .catch(console.error)
@@ -54,7 +54,7 @@ export function EnergyEntryDetail() {
     if (!entry) return;
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/generated/hestia-core/energy_logs/${entry.energy_logs_id}`, { method: 'DELETE' });
+      const response = await fetch(`/api/generated/hestia-core/energy_entries/${entry.id}`, { method: 'DELETE' });
       const result = await response.json();
       if (result.success) router.push('/vessel/energy');
     } catch (err) { console.error('Failed to delete:', err); }
@@ -67,7 +67,7 @@ export function EnergyEntryDetail() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
   if (!entry) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Zap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This moment has faded.</p><Link href="/vessel/energy" className="text-neurospark hover:underline mt-4 inline-block">Return to Energy Log</Link></div></main>);
 
-  const cd: CardData = { id: entry.energy_logs_id, type: 'stat', title: ENERGY_LABELS[entry.energy_level] || 'Energy Entry', value: entry.energy_level };
+  const cd: CardData = { id: entry.id, type: 'stat', title: ENERGY_LABELS[entry.energy_level] || 'Energy Entry', value: entry.energy_level };
 
   return (
     <main className="min-h-screen py-12">
@@ -80,8 +80,8 @@ export function EnergyEntryDetail() {
           </div>
           <h1 className="text-2xl font-bold text-star-dust mb-2">{ENERGY_LABELS[entry.energy_level]}</h1>
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="flex items-center gap-1 text-sm text-star-dust/40"><Clock size={14} />{formatDate(entry.created_at)} at {formatTime(entry.created_at)}</span>
-            {entry.activity && <Badge variant="outline" size="sm" className="text-[10px]">{entry.activity}</Badge>}
+            <span className="flex items-center gap-1 text-sm text-star-dust/40"><Clock size={14} />{formatDate(entry.logged_at)} at {formatTime(entry.logged_at)}</span>
+            {entry.mood_tags?.[0] && <Badge variant="outline" size="sm" className="text-[10px]">{entry.mood_tags[0]}</Badge>}
           </div>
           {entry.notes && <p className="text-star-dust/70 max-w-md mx-auto mb-6">{entry.notes}</p>}
           <div className="flex gap-3 justify-center">

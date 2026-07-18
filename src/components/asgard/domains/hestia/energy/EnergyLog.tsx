@@ -21,11 +21,13 @@ import type { CardData } from '@/types/components/runes/card.types';
 // ═══════════════════════════════════════════════════════════════════════════
 
 interface EnergyEntry {
-  energy_logs_id: string;
+  id: string;
   energy_level: number;
   notes?: string | null;
-  activity?: string | null;
-  created_at: string;
+  // The "activity" concept rides in the schema's mood_tags array
+  // (energy_entries has no activity column; first tag = activity).
+  mood_tags?: string[] | null;
+  logged_at: string;
 }
 
 interface EnergyTrend {
@@ -110,7 +112,7 @@ function analyzeEnergyTrend(entries: EnergyEntry[]): EnergyTrend {
   // Day-of-week pattern detection (simple)
   const dayCounts: Record<string, number[]> = {};
   for (const entry of entries) {
-    const day = new Date(entry.created_at).toLocaleDateString('en-US', { weekday: 'long' });
+    const day = new Date(entry.logged_at).toLocaleDateString('en-US', { weekday: 'long' });
     if (!dayCounts[day]) dayCounts[day] = [];
     dayCounts[day].push(entry.energy_level);
   }
@@ -161,7 +163,7 @@ export function EnergyLog() {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/generated/hestia-core/energy_logs?user_id=${user.id}&order=created_at.desc&limit=30`
+        `/api/generated/hestia-core/energy_entries?created_by=${user.id}&sort=logged_at&order=desc&limit=30`
       );
       const result = await response.json();
       if (result.success) {
@@ -182,14 +184,15 @@ export function EnergyLog() {
     if (!user) return;
     setIsSaving(true);
     try {
-      const response = await fetch('/api/generated/hestia-core/energy_logs', {
+      const response = await fetch('/api/generated/hestia-core/energy_entries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          user_id: user.id,
+          // created_by is stamped server-side from the session
           energy_level: parseInt(data.energy_level),
           notes: data.notes || null,
-          activity: data.activity || null,
+          mood_tags: data.activity ? [data.activity] : null,
+          logged_at: new Date().toISOString(),
         }),
       });
       const result = await response.json();
@@ -358,7 +361,7 @@ export function EnergyLog() {
             <h3 className="text-sm font-medium text-star-dust/40 mb-4">Recent Entries</h3>
             {entries.map((entry, index) => {
               const cardData: CardData = {
-                id: entry.energy_logs_id,
+                id: entry.id,
                 type: 'stat',
                 title: ENERGY_LABELS[entry.energy_level] || 'Unknown',
                 value: entry.energy_level,
@@ -366,7 +369,7 @@ export function EnergyLog() {
 
               return (
                 <Card
-                  key={entry.energy_logs_id}
+                  key={entry.id}
                   data={cardData}
                   variant="glass"
                   radius="md"
@@ -391,9 +394,9 @@ export function EnergyLog() {
                         <span className="font-medium text-star-dust">
                           {ENERGY_LABELS[entry.energy_level]}
                         </span>
-                        {entry.activity && (
+                        {entry.mood_tags?.[0] && (
                           <Badge variant="outline" size="sm" className="text-[10px]">
-                            {entry.activity}
+                            {entry.mood_tags[0]}
                           </Badge>
                         )}
                       </div>
@@ -403,7 +406,7 @@ export function EnergyLog() {
                       <div className="flex items-center gap-3 mt-2">
                         <span className="flex items-center gap-1 text-xs text-star-dust/30">
                           <Clock size={10} />
-                          {formatDate(entry.created_at)} at {formatTime(entry.created_at)}
+                          {formatDate(entry.logged_at)} at {formatTime(entry.logged_at)}
                         </span>
                       </div>
                     </div>
