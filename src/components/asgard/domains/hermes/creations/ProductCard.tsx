@@ -1,88 +1,85 @@
-// src/components/hermes/ProductCard.tsx
+// src/components/asgard/domains/hermes/creations/ProductCard.tsx
+// Wares edition (2026-07-18): products became wares. One base price plus a
+// pricing_model; per-user solidarity pricing is computed server-side by
+// calculate_sovereign_price at checkout, so the card shows the base price
+// with the solidarity note instead of the old three-tier grid. The
+// contributions fetch died with its table (ware_participants is the
+// successor; participant chips can return when that surface is designed).
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Card } from '@/components/runes/Card';
 import { CardMedia, CardRibbon, CardHeader, CardContent, CardFooter } from '@/components/runes/cards';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
-import { Progress } from '@/components/runes/Progress';
-import { useProduct } from '@/hooks/commerce/useProduct';
-import { useContributionsList } from '@/hooks/generated/plutus-economics/contributions.js';
-import { useProfile } from '@/hooks/useProfile';
 import { formatPrice, truncateTextWordBoundary } from '@/lib/utils/components/runes/card.utils';
-import { cn } from '@/lib/utils';
-import { Package, Users, TrendingUp } from 'lucide-react';
-import type { ProductsRow } from '@/types/generated/plutus-economics/products';
+import { TrendingUp } from 'lucide-react';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 
 // ============================================================================
 // TYPES
 // ============================================================================
 
+export type WaresRow = Tables<'wares'>;
+
 export type ProductCardVariant = 'grid' | 'list' | 'featured' | 'detail';
 
 export interface ProductCardProps {
-  product: ProductsRow;
+  product: WaresRow;
   variant?: ProductCardVariant;
   className?: string;
-  onSelect?: (product: ProductsRow) => void;
+  onSelect?: (product: WaresRow) => void;
   showCreator?: boolean;
 }
 
 // ============================================================================
-// PRODUCT TYPE BADGE COLORS
+// WARE TYPE BADGE COLORS
 // ============================================================================
 
-const productTypeBadgeVariants: Record<string, 'quantum' | 'cosmic' | 'sanctuary' | 'purple' | 'cyan'> = {
-  tool: 'quantum',
-  resource: 'cosmic',
-  template: 'sanctuary',
+const wareTypeBadgeVariants: Record<string, 'quantum' | 'cosmic' | 'sanctuary' | 'purple' | 'cyan'> = {
+  physical: 'sanctuary',
+  digital: 'quantum',
   service: 'purple',
-  other: 'cyan',
 };
 
+function priceLabel(ware: WaresRow): string {
+  if (ware.pricing_model === 'free') return 'Free';
+  if (ware.pricing_model === 'patronage_only') return 'Patronage';
+  if (ware.price === null || ware.price <= 0) return '—';
+  const base = formatPrice(ware.price) ?? '—';
+  return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
+}
+
+function firstImage(ware: WaresRow): string | undefined {
+  return ware.cover_url || ware.media_urls?.[0] || undefined;
+}
+
 // ============================================================================
-// PRODUCT CARD — GRID VARIANT
+// GRID VARIANT
 // ============================================================================
 
-function ProductCardGrid({
-  product,
-  onSelect,
-}: {
-  product: ProductsRow;
-  onSelect?: (product: ProductsRow) => void;
-}) {
-  const { pricing, currentTierPrice } = useProduct(product.products_id);
-  const { profile } = useProfile();
-  const userTier = profile?.user_tier || 'ally';
-  const price = currentTierPrice(userTier) ?? 0;
-  const isSubsidized = userTier === 'community' && price < (product.price_ally ?? 0);
-  const firstImage = product.media_urls?.[0];
+function ProductCardGrid({ product, onSelect }: { product: WaresRow; onSelect?: (product: WaresRow) => void }) {
+  const image = firstImage(product);
 
   return (
     <Card
-      data={{ id: product.products_id, title: product.title, type: 'product' }}
+      data={{ id: product.id, title: product.name, type: 'product' }}
       variant="interactive"
       radius="lg"
       shadow="md"
       onClick={onSelect ? () => onSelect(product) : undefined}
       className="w-[300px]"
     >
-      {product.is_published === false && (
-        <CardRibbon text="Draft" color="warning" />
-      )}
-      {isSubsidized && (
-        <CardRibbon text="Subsidized" position="top-left" color="sanctuary" />
-      )}
+      {product.status === 'draft' && <CardRibbon text="Draft" color="warning" />}
 
-      {firstImage && <CardMedia src={firstImage} alt={product.title} />}
+      {image && <CardMedia src={image} alt={product.name} />}
 
       <CardHeader
-        title={product.title}
+        title={product.name}
         subtitle={truncateTextWordBoundary(product.description || '', 80)}
         badge={
-          <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
-            {product.product_type}
+          <Badge variant={wareTypeBadgeVariants[product.ware_type] || 'cyan'} size="sm">
+            {product.ware_type}
           </Badge>
         }
       />
@@ -90,20 +87,15 @@ function ProductCardGrid({
       <CardContent>
         <div className="flex items-baseline gap-2">
           <span className="text-2xl font-bold text-[var(--color-star-dust)]">
-            {price === 0 ? 'Free' : formatPrice(price)}
+            {priceLabel(product)}
           </span>
-          {isSubsidized && product.price_ally && (
-            <span className="text-sm text-[var(--color-star-dust)]/40 line-through">
-              {formatPrice(product.price_ally)}
-            </span>
-          )}
         </div>
       </CardContent>
 
       <CardFooter
         actions={[
           <Button key="acquire" variant="primary" size="sm" fullWidth>
-            {price === 0 ? 'Access Free' : 'Acquire Tool'}
+            {product.pricing_model === 'free' ? 'Access Free' : 'Acquire'}
           </Button>,
         ]}
       />
@@ -112,49 +104,35 @@ function ProductCardGrid({
 }
 
 // ============================================================================
-// PRODUCT CARD — LIST VARIANT
+// LIST VARIANT
 // ============================================================================
 
-function ProductCardList({
-  product,
-  onSelect,
-}: {
-  product: ProductsRow;
-  onSelect?: (product: ProductsRow) => void;
-}) {
-  const { pricing, currentTierPrice } = useProduct(product.products_id);
-  const { profile } = useProfile();
-  const userTier = profile?.user_tier || 'ally';
-  const price = currentTierPrice(userTier) ?? 0;
-  const isSubsidized = userTier === 'community' && price < (product.price_ally ?? 0);
-  const firstImage = product.media_urls?.[0];
+function ProductCardList({ product, onSelect }: { product: WaresRow; onSelect?: (product: WaresRow) => void }) {
+  const image = firstImage(product);
 
   return (
     <Card
-      data={{ id: product.products_id, title: product.title, type: 'product' }}
+      data={{ id: product.id, title: product.name, type: 'product' }}
       variant="default"
       radius="lg"
       shadow="sm"
       onClick={onSelect ? () => onSelect(product) : undefined}
       className="flex flex-row items-center gap-4 w-full"
     >
-      {firstImage && (
+      {image && (
         <div className="w-16 h-16 flex-shrink-0 rounded-md overflow-hidden">
-          <CardMedia src={firstImage} alt={product.title} />
+          <CardMedia src={image} alt={product.name} />
         </div>
       )}
 
       <div className="flex-1 min-w-0">
         <CardHeader
-          title={product.title}
+          title={product.name}
           subtitle={truncateTextWordBoundary(product.description || '', 100)}
           badge={
-            <div className="flex gap-1">
-              <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="sm">
-                {product.product_type}
-              </Badge>
-              {isSubsidized && <Badge variant="sanctuary" size="sm">Subsidized</Badge>}
-            </div>
+            <Badge variant={wareTypeBadgeVariants[product.ware_type] || 'cyan'} size="sm">
+              {product.ware_type}
+            </Badge>
           }
         />
       </div>
@@ -162,13 +140,8 @@ function ProductCardList({
       <div className="flex items-center gap-3 flex-shrink-0">
         <div className="text-right">
           <span className="text-lg font-bold text-[var(--color-star-dust)]">
-            {price === 0 ? 'Free' : formatPrice(price)}
+            {priceLabel(product)}
           </span>
-          {isSubsidized && product.price_ally && (
-            <span className="block text-xs text-[var(--color-star-dust)]/40 line-through">
-              {formatPrice(product.price_ally)}
-            </span>
-          )}
         </div>
         <Button variant="glow" size="sm">View</Button>
       </div>
@@ -177,102 +150,56 @@ function ProductCardList({
 }
 
 // ============================================================================
-// PRODUCT CARD — FEATURED VARIANT
+// FEATURED VARIANT
 // ============================================================================
 
-function ProductCardFeatured({
-  product,
-  onSelect,
-}: {
-  product: ProductsRow;
-  onSelect?: (product: ProductsRow) => void;
-}) {
-  const { pricing, currentTierPrice } = useProduct(product.products_id);
-  const { profile } = useProfile();
-  const userTier = profile?.user_tier || 'ally';
-  const price = currentTierPrice(userTier) ?? 0;
-  const isSubsidized = userTier === 'community' && price < (product.price_ally ?? 0);
-  const firstImage = product.media_urls?.[0];
-
-  // Fetch contributors via generated hook
-  const { data: contributions } = useContributionsList({ 
-    filters: { product_id: product.products_id },
-    sort: 'percent_share',
-    order: 'desc',
-    limit: 10
-  });
+function ProductCardFeatured({ product, onSelect }: { product: WaresRow; onSelect?: (product: WaresRow) => void }) {
+  const image = firstImage(product);
 
   return (
     <Card
-      data={{ id: product.products_id, title: product.title, type: 'product' }}
+      data={{ id: product.id, title: product.name, type: 'product' }}
       variant="glow"
       radius="xl"
       shadow="lg"
       onClick={onSelect ? () => onSelect(product) : undefined}
       className="w-full max-w-[640px]"
     >
-      {isSubsidized && <CardRibbon text="Community Subsidized" color="sanctuary" />}
-      {firstImage && <CardMedia src={firstImage} alt={product.title} />}
+      {image && <CardMedia src={image} alt={product.name} />}
 
       <CardHeader
-        title={product.title}
+        title={product.name}
         subtitle={product.description}
         badge={
           <div className="flex gap-1">
-            <Badge variant={productTypeBadgeVariants[product.product_type] || 'cyan'} size="md">
-              {product.product_type}
+            <Badge variant={wareTypeBadgeVariants[product.ware_type] || 'cyan'} size="md">
+              {product.ware_type}
             </Badge>
-            {product.is_published === false && <Badge variant="warning" size="md">Draft</Badge>}
+            {product.status === 'draft' && <Badge variant="warning" size="md">Draft</Badge>}
           </div>
         }
       />
 
       <CardContent>
-        {/* Pricing Tiers */}
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          {pricing.map(p => (
-            <div key={p.tier} className={cn(
-              'text-center p-3 rounded-lg',
-              userTier === p.tier
-                ? `bg-[var(--color-${p.tier === 'community' ? 'sanctuary-green' : p.tier === 'ally' ? 'cosmic-blue' : 'quantum-purple'})]/20 border border-[var(--color-${p.tier === 'community' ? 'sanctuary-green' : p.tier === 'ally' ? 'cosmic-blue' : 'quantum-purple'})]/30`
-                : 'bg-[var(--color-surface)]/20'
-            )}>
-              <div className="text-xs text-[var(--color-star-dust)]/50 mb-1">{p.label}</div>
-              <div className="text-lg font-bold text-[var(--color-star-dust)]">
-                {p.price === 0 ? 'Free' : p.available ? formatPrice(p.price!) : '—'}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Selected Price */}
         <div className="flex items-baseline gap-2 mb-4">
           <span className="text-3xl font-bold text-[var(--color-star-dust)]">
-            {price === 0 ? 'Free' : formatPrice(price)}
+            {priceLabel(product)}
           </span>
-          {isSubsidized && product.price_ally && (
-            <span className="text-sm text-[var(--color-star-dust)]/40 line-through">
-              {formatPrice(product.price_ally)}
-            </span>
+          {product.pricing_model === 'fixed' && (
+            <Badge variant="ghost" size="sm">Solidarity pricing applied at checkout</Badge>
           )}
-          <Badge variant="ghost" size="sm" className="capitalize">{userTier} price</Badge>
+          {product.pricing_model === 'pay_what_you_want' && (
+            <Badge variant="ghost" size="sm">Pay what you want</Badge>
+          )}
         </div>
 
-        {/* Contributors */}
-        {contributions && contributions.length > 0 && (
+        {product.residual_pool_percent !== null && product.residual_pool_percent > 0 && (
           <div className="p-3 rounded-lg bg-[var(--color-surface)]/10 border border-[var(--color-star-dust)]/5">
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-[var(--color-sanctuary-green)]" />
               <span className="text-sm font-medium text-[var(--color-star-dust)]">
-                {product.residual_pool_percent}% flows to contributors
+                {product.residual_pool_percent}% flows to the residual pool
               </span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {contributions.slice(0, 5).map((c) => (
-                <span key={c.contributions_id} className="text-xs px-2 py-0.5 rounded-full bg-[var(--color-cosmic-blue)]/10 text-[var(--color-cosmic-blue)]">
-                  Contributor ({c.percent_share}%)
-                </span>
-              ))}
             </div>
           </div>
         )}
@@ -281,7 +208,7 @@ function ProductCardFeatured({
       <CardFooter
         actions={[
           <Button key="acquire" variant="primary" size="lg" fullWidth>
-            {price === 0 ? 'Access Free' : 'Acquire Tool'}
+            {product.pricing_model === 'free' ? 'Access Free' : 'Acquire'}
           </Button>,
         ]}
       />
@@ -290,13 +217,12 @@ function ProductCardFeatured({
 }
 
 // ============================================================================
-// PRODUCT CARD — MAIN EXPORT
+// MAIN EXPORT
 // ============================================================================
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   variant = 'grid',
-  className,
   onSelect,
 }) => {
   switch (variant) {
