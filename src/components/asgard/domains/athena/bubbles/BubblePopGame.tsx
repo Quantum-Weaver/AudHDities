@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
@@ -19,14 +19,13 @@ import { BubbleLimitSlider } from './BubbleLimitSlider';
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
+// The evolved bubbles table derives what it dropped: points and colors now
+// come from rarity, and collections are ids resolved against collection_sets.
 interface BubbleDef {
-  bubbles_id: string;
+  id: string;
   name: string;
   rarity: string;
-  color: string;
-  glow_color: string | null;
-  points_value: number;
-  collection_name: string | null;
+  collection_id: string | null;
 }
 
 interface FloatingBubble {
@@ -58,10 +57,22 @@ interface CollectionProgress {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const TIER_LIMITS: Record<string, { daily: number; hourly: number }> = {
-  community: { daily: 500, hourly: 100 },
-  ally: { daily: 1500, hourly: 300 },
-  corporate: { daily: 5000, hourly: 500 },
-  council: { daily: 99999, hourly: 9999 },
+  dweller: { daily: 500, hourly: 100 },
+  guild: { daily: 1500, hourly: 300 },
+  outlander: { daily: 5000, hourly: 500 },
+  sovereign_weaver: { daily: 99999, hourly: 9999 },
+};
+
+const RARITY_POINTS: Record<string, number> = {
+  common: 1, rare: 3, epic: 5, legendary: 10, mythic: 25,
+};
+
+const RARITY_FILL: Record<string, { color: string; glow: string }> = {
+  common: { color: '#94a3b8', glow: '#94a3b855' },
+  rare: { color: '#22d3ee', glow: '#22d3ee55' },
+  epic: { color: '#a855f7', glow: '#a855f755' },
+  legendary: { color: '#f59e0b', glow: '#f59e0b55' },
+  mythic: { color: '#f43f5e', glow: '#f43f5e55' },
 };
 
 const RARITY_WEIGHTS: Record<string, number> = {
@@ -93,7 +104,8 @@ const RARITY_POP_EMOJI: Record<string, string> = {
 // ═══════════════════════════════════════════════════════════════════════════
 
 export function BubblePopGame() {
-  const { user, profile, loading: authLoading } = useAuth();
+  const { user, sovereignTier, isLoading: authLoading } = useUser();
+  const tierKey = sovereignTier || 'dweller';
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const lastSpawnRef = useRef<number>(0);
@@ -115,50 +127,59 @@ export function BubblePopGame() {
 
   // ─── Fetch bubble definitions ────────────────────────────────────────
   useEffect(() => {
-    fetch('/api/generated/athena-gamification/bubbles?is_active=true&order=rarity.desc')
+    fetch('/api/generated/athena-gamification/bubbles?status=published&sort=display_order&order=asc&limit=200')
       .then(r => r.json())
       .then(result => { if (result.success) setBubbles(result.data?.data || result.data || []); })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
 
-  // ─── Fetch user limits ───────────────────────────────────────────────
+  // ─── Limits: counted from today's collections (the counter table died;
+  //     vessel_bubbles IS the record) + the personal cap from localStorage ──
   useEffect(() => {
-    if (!user) return;
-    fetch(`/api/generated/hestia-core/user_bubble_limits?user_id=eq.${user.id}&limit=1`)
+    if (!user || bubbles.length === 0) return;
+    const tierMax = TIER_LIMITS[tierKey] || TIER_LIMITS.dweller;
+    const storedMax = Number(localStorage.getItem('bubble-daily-max')) || tierMax.daily;
+    const maxDaily = Math.min(tierMax.daily, storedMax);
+    fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&sort=collected_at&order=desc&limit=100`)
       .then(r => r.json())
       .then(result => {
-        const data = result.data?.data?.[0] || result.data?.[0];
-        if (data) {
-          const tier = profile?.user_tier || 'community';
-          const tierMax = TIER_LIMITS[tier] || TIER_LIMITS.community;
-          setLimits({
-            daily_points: data.daily_points || 0,
-            hourly_pops: data.hourly_pops || 0,
-            max_daily_points: Math.min(tierMax.daily, data.max_daily_points || tierMax.daily),
-            max_hourly_pops: tierMax.hourly,
-          });
-          setCustomDailyMax(Math.min(tierMax.daily, data.max_daily_points || tierMax.daily));
-          setIsDailyLimitReached((data.daily_points || 0) >= (data.max_daily_points || tierMax.daily));
+        const rows: Array<{ bubble_id: string; collected_at: string }> = result.success ? (result.data?.data || []) : [];
+        const startOfDay = new Date(); startOfDay.setHours(0, 0, 0, 0);
+        const startOfHour = Date.now() - 3600_000;
+        const pointsById = new Map(bubbles.map(b => [b.id, RARITY_POINTS[b.rarity] || 1]));
+        let daily = 0, hourly = 0;
+        for (const row of rows) {
+          const t = new Date(row.collected_at).getTime();
+          if (t >= startOfDay.getTime()) daily += pointsById.get(row.bubble_id) || 1;
+          if (t >= startOfHour) hourly += 1;
         }
+        setLimits({ daily_points: daily, hourly_pops: hourly, max_daily_points: maxDaily, max_hourly_pops: tierMax.hourly });
+        setCustomDailyMax(maxDaily);
+        setIsDailyLimitReached(daily >= maxDaily);
       })
       .catch(() => {});
-  }, [user, profile?.user_tier]);
+  }, [user, bubbles, tierKey]);
 
-  // ─── Fetch collection progress ────────────────────────────────────────
+  // ─── Fetch collection progress (vessel_bubbles ⨝ collection_sets) ────
   useEffect(() => {
-    if (!user) return;
-    fetch(`/api/generated/athena-gamification/user_bubble_pops?user_id=eq.${user.id}&select=bubble_id`)
-      .then(r => r.json())
-      .then(result => {
-        const pops = result.data?.data || result.data || [];
-        const poppedIds = new Set(pops.map((p: any) => p.bubble_id));
+    if (!user || bubbles.length === 0) return;
+    Promise.all([
+      fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&limit=100`).then(r => r.json()),
+      fetch('/api/generated/hestia-core/collection_sets?limit=100').then(r => r.json()),
+    ])
+      .then(([popsRes, setsRes]) => {
+        const pops = popsRes.success ? (popsRes.data?.data || []) : [];
+        const sets: Array<{ id: string; name?: string }> = setsRes.success ? (setsRes.data?.data || []) : [];
+        const setNames = new Map(sets.map(s => [s.id, s.name || 'Collection']));
+        const poppedIds = new Set(pops.map((p: { bubble_id: string }) => p.bubble_id));
         const collectionMap: Record<string, { total: number; collected: number }> = {};
         bubbles.forEach(b => {
-          if (b.collection_name) {
-            if (!collectionMap[b.collection_name]) collectionMap[b.collection_name] = { total: 0, collected: 0 };
-            collectionMap[b.collection_name].total++;
-            if (poppedIds.has(b.bubbles_id)) collectionMap[b.collection_name].collected++;
+          if (b.collection_id) {
+            const name = setNames.get(b.collection_id) || 'Collection';
+            if (!collectionMap[name]) collectionMap[name] = { total: 0, collected: 0 };
+            collectionMap[name].total++;
+            if (poppedIds.has(b.id)) collectionMap[name].collected++;
           }
         });
         setCollections(Object.entries(collectionMap).map(([name, data]) => ({ name, ...data })));
@@ -169,10 +190,9 @@ export function BubblePopGame() {
   // ─── Pick a random bubble by rarity weight ────────────────────────────
   const pickBubble = useCallback(() => {
     if (bubbles.length === 0) return null;
-    const tier = profile?.user_tier || 'community';
     const eligible = bubbles.filter(b => {
-      if (tier === 'community') return b.rarity === 'common' || b.rarity === 'rare';
-      if (tier === 'ally') return b.rarity !== 'legendary' && b.rarity !== 'mythic';
+      if (tierKey === 'dweller') return b.rarity === 'common' || b.rarity === 'rare';
+      if (tierKey === 'guild') return b.rarity !== 'legendary' && b.rarity !== 'mythic';
       return true;
     });
     if (eligible.length === 0) return bubbles[Math.floor(Math.random() * bubbles.length)];
@@ -184,7 +204,7 @@ export function BubblePopGame() {
       if (roll <= 0) return b;
     }
     return eligible[eligible.length - 1];
-  }, [bubbles, profile?.user_tier]);
+  }, [bubbles, tierKey]);
 
   // ─── Spawn a bubble ──────────────────────────────────────────────────
   const spawnBubble = useCallback(() => {
@@ -219,8 +239,7 @@ export function BubblePopGame() {
     const animate = () => {
       const now = Date.now();
       // Spawn new bubble every 1-3 seconds based on tier
-      const tier = profile?.user_tier || 'community';
-      const spawnInterval = tier === 'council' ? 600 : tier === 'corporate' ? 900 : tier === 'ally' ? 1200 : 1800;
+      const spawnInterval = tierKey === 'sovereign_weaver' ? 600 : tierKey === 'outlander' ? 900 : tierKey === 'guild' ? 1200 : 1800;
       if (now - lastSpawnRef.current > spawnInterval + Math.random() * 1000) {
         lastSpawnRef.current = now;
         spawnBubble();
@@ -244,13 +263,14 @@ export function BubblePopGame() {
 
     animationRef.current = requestAnimationFrame(animate);
     return () => { if (animationRef.current) cancelAnimationFrame(animationRef.current); };
-  }, [isPaused, isDailyLimitReached, spawnBubble, profile?.user_tier]);
+  }, [isPaused, isDailyLimitReached, spawnBubble, tierKey]);
 
   // ─── Handle pop ──────────────────────────────────────────────────────
   const handlePop = useCallback(async (bubble: FloatingBubble) => {
     if (!user || bubble.popped || isPaused || isDailyLimitReached) return;
 
-    const newDailyPoints = limits.daily_points + bubble.bubble.points_value;
+    const popPoints = RARITY_POINTS[bubble.bubble.rarity] || 1;
+    const newDailyPoints = limits.daily_points + popPoints;
     const newHourlyPops = limits.hourly_pops + 1;
 
     // Check limits
@@ -262,7 +282,7 @@ export function BubblePopGame() {
 
     // Mark as popped
     setFloating(prev => prev.map(b => b.id === bubble.id ? { ...b, popped: true } : b));
-    setScore(prev => prev + bubble.bubble.points_value);
+    setScore(prev => prev + popPoints);
     setSessionPops(prev => prev + 1);
     totalPopsRef.current += 1;
     setLimits(prev => ({ ...prev, daily_points: newDailyPoints, hourly_pops: newHourlyPops }));
@@ -272,18 +292,18 @@ export function BubblePopGame() {
     setPopEffects(prev => [...prev, { id: effectId, x: bubble.x, y: bubble.y, emoji: RARITY_POP_EMOJI[bubble.bubble.rarity] || '✨' }]);
     setTimeout(() => setPopEffects(prev => prev.filter(e => e.id !== effectId)), 800);
 
-    // Record pop
+    // Record the collection — vessel_bubbles IS the pop record now;
+    // limits are derived from it, so there is no counter row to update.
     try {
-      await fetch('/api/generated/athena-gamification/user_bubble_pops', {
+      await fetch('/api/generated/hestia-core/vessel_bubbles', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.id, bubble_id: bubble.bubble.bubbles_id, points_awarded: bubble.bubble.points_value }),
-      });
-      // Update limits
-      await fetch('/api/generated/hestia-core/user_bubble_limits', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ daily_points: newDailyPoints, hourly_pops: newHourlyPops, last_pop_at: new Date().toISOString() }),
+        body: JSON.stringify({
+          user_id: user.id,
+          bubble_id: bubble.bubble.id,
+          collected_at: new Date().toISOString(),
+          collection_method: 'popped',
+        }),
       });
     } catch (err) { console.error('Failed to record pop:', err); }
 
@@ -309,18 +329,12 @@ export function BubblePopGame() {
     lastSpawnRef.current = Date.now();
   };
 
-  // ─── Save custom limit ───────────────────────────────────────────────
+  // ─── Save custom limit (a personal boundary — kept on the device) ────
   const saveCustomLimit = async () => {
     if (!user) return;
     setLimits(prev => ({ ...prev, max_daily_points: customDailyMax }));
     setIsDailyLimitReached(limits.daily_points >= customDailyMax);
-    try {
-      await fetch('/api/generated/hestia-core/user_bubble_limits', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.id, max_daily_points: customDailyMax }),
-      });
-    } catch (err) { console.error('Failed to save limit:', err); }
+    localStorage.setItem('bubble-daily-max', String(customDailyMax));
   };
 
   // ─── Loading ──────────────────────────────────────────────────────────
@@ -347,8 +361,7 @@ export function BubblePopGame() {
     );
   }
 
-  const tier = profile?.user_tier || 'community';
-  const tierMax = TIER_LIMITS[tier] || TIER_LIMITS.community;
+  const tierMax = TIER_LIMITS[tierKey] || TIER_LIMITS.dweller;
 
   return (
     <main className="min-h-screen py-8">

@@ -3,7 +3,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { Slider } from '@/components/forging/Slider';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
@@ -25,56 +25,34 @@ const TIER_CEILINGS: Record<string, TierLimits> = {
 };
 
 export function BubbleLimitSlider() {
-  const { profile } = useAuth();
-  const userTier = (profile?.user_tier as string) || 'community';
-  const limits = TIER_CEILINGS[userTier] || TIER_CEILINGS.community;
+  // The limits counter table died in the schema evolution; a personal
+  // boundary is a device-local choice now (the game derives actual usage
+  // from vessel_bubbles). Tier ceilings ride the sovereign_tier ladder.
+  const { sovereignTier, isLoading } = useUser();
+  const tierKey = sovereignTier || 'dweller';
+  const limits = TIER_CEILINGS[tierKey] || TIER_CEILINGS.dweller;
 
   const [dailyPoints, setDailyPoints] = useState(limits.maxDailyPoints);
   const [hourlyPops, setHourlyPops] = useState(limits.maxHourlyPops);
   const [saved, setSaved] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const loading = isLoading;
 
-  // Load current limits
+  // Load current limits from the device
   useEffect(() => {
-    if (!profile) return;
-    fetch(`/api/generated/hestia-core/user_bubble_limits?user_id=eq.${profile.profiles_id}&limit=1`)
-      .then(r => r.json())
-      .then(result => {
-        const data = result.data?.data?.[0] || result.data?.[0];
-        if (data) {
-          if (data.daily_points && data.daily_points <= limits.maxDailyPoints) {
-            setDailyPoints(data.daily_points);
-          }
-          if (data.hourly_pops && data.hourly_pops <= limits.maxHourlyPops) {
-            setHourlyPops(data.hourly_pops);
-          }
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, [profile]);
+    const storedDaily = Number(localStorage.getItem('bubble-daily-max'));
+    const storedHourly = Number(localStorage.getItem('bubble-hourly-max'));
+    if (storedDaily && storedDaily <= limits.maxDailyPoints) setDailyPoints(storedDaily);
+    if (storedHourly && storedHourly <= limits.maxHourlyPops) setHourlyPops(storedHourly);
+  }, [limits.maxDailyPoints, limits.maxHourlyPops]);
 
   const handleSave = async () => {
-    if (!profile) return;
     setIsSaving(true);
-    try {
-      await fetch(`/api/generated/hestia-core/user_bubble_limits`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          user_id: profile.profiles_id,
-          daily_points: dailyPoints,
-          hourly_pops: hourlyPops,
-        }),
-      });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } catch (err) {
-      console.error('Failed to save limits:', err);
-    } finally {
-      setIsSaving(false);
-    }
+    localStorage.setItem('bubble-daily-max', String(dailyPoints));
+    localStorage.setItem('bubble-hourly-max', String(hourlyPops));
+    setSaved(true);
+    setTimeout(() => setSaved(false), 3000);
+    setIsSaving(false);
   };
 
   const cardData: CardData = { id: 'bubble-limits', type: 'value', title: 'Your Limits', value: limits.label };
@@ -139,9 +117,9 @@ export function BubbleLimitSlider() {
         {saved ? '✓ Saved' : 'Save Limits'}
       </Button>
 
-      {!['ally', 'corporate', 'council'].includes(userTier) && (
+      {tierKey === 'dweller' && (
         <p className="text-[10px] text-star-dust/30 text-center mt-3">
-          Upgrade your tier to unlock higher limits and rarer bubbles.
+          Your journey deepens your tier — higher tiers unlock higher ceilings and rarer bubbles.
         </p>
       )}
     </Card>
