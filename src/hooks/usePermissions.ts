@@ -1,16 +1,19 @@
 // src/hooks/usePermissions.ts
+// Repointed 2026-07-18: role flags come from user_roles rows (via useUser),
+// not the dissolved profiles table; "community access" is any member with a
+// role at all or any tier above dweller — the old user_tier enum is gone.
 'use client';
 
-import { useAuth } from './useAuth';
+import { useUser } from './useUser';
 import { useMemo } from 'react';
 
 export function usePermissions() {
-  const { user, profile, loading } = useAuth();
+  const { roles, sovereignTier, isLoading } = useUser();
 
-  const isAdmin = profile?.is_admin === true;
-  const isCreator = profile?.is_creator === true;
-  const isVendor = profile?.is_vendor === true;
-  const isCommunity = profile?.user_tier === 'community' || profile?.user_tier === 'council';
+  const isAdmin = roles.includes('admin');
+  const isCreator = roles.includes('creator');
+  const isVendor = roles.includes('vendor');
+  const isCommunity = roles.includes('community') || roles.includes('council') || sovereignTier !== null;
 
   const can = useMemo(() => ({
     viewAll: isAdmin,
@@ -21,5 +24,5 @@ export function usePermissions() {
     accessCommunityTier: isCommunity,
   }), [isAdmin, isCreator, isVendor, isCommunity]);
 
-  return { isAdmin, isCreator, isVendor, isCommunity, can, loading };
+  return { isAdmin, isCreator, isVendor, isCommunity, can, loading: isLoading };
 }
