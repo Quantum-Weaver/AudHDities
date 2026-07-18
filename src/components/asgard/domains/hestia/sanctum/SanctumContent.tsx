@@ -1,10 +1,14 @@
 // src/components/asgard/domains/hestia/sanctum/SanctumContent.tsx
 'use client';
 
+// Repointed 2026-07-18 for the evolved schema: identity edits go to
+// community_profiles and accessibility to vessel_config, both through
+// /api/auth/update-profile. Retired with their columns: username (now slug),
+// pronouns, and the preferred-environment realm picker (no schema home yet —
+// its return awaits KP's commission).
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
-import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { Card } from '@/components/runes/Card';
 import { Skeleton } from '@/components/runes/Skeleton';
 import AvatarUpload from '@/components/runes/AvatarUpload';
@@ -12,23 +16,32 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Form } from '@/components/forging/Form';
 import { FormField } from '@/components/forging/FormField';
 import { Input } from '@/components/forging/Input';
-import { Select } from '@/components/forging/Select';
 import { Switch } from '@/components/forging/Switch';
 import { ArrowLeft, Save } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
 
 export function SanctumContent() {
   const router = useRouter();
   const { user, profile, loading, refreshProfile } = useAuth();
-  const { setEnvironment } = useContinuityBeam();
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
+  const [dyslexiaFont, setDyslexiaFont] = useState(false);
 
   useEffect(() => {
     refreshProfile();
   }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
+      .then(r => r.json())
+      .then(res => {
+        const rows = res.success ? (res.data?.data ?? []) : [];
+        if (rows[0]) setDyslexiaFont(!!rows[0].dyslexia_font);
+      })
+      .catch(() => {});
+  }, [user]);
 
   if (loading) {
     return (
@@ -59,7 +72,7 @@ export function SanctumContent() {
     id: `${user.id}-sanctum-identity`,
     title: 'Sovereign Identity',
     type: 'value',
-    value: profile.display_name || profile.username || 'Sovereign',
+    value: profile.display_name || profile.slug || 'Sovereign',
   };
 
   const preferencesCardData: CardData = {
@@ -69,17 +82,10 @@ export function SanctumContent() {
     value: '',
   };
 
-  const environmentCardData: CardData = {
-    id: `${user.id}-sanctum-environment`,
-    title: 'Environment',
-    type: 'value',
-    value: profile.preferred_environment || 'home',
-  };
-
-  const updateProfileField = async (field: string, value: any) => {
+  const updateIdentityField = async (field: string, value: unknown) => {
     try {
-      const response = await fetch(`/api/generated/hestia-core/profiles/${user.id}`, {
-        method: 'PUT',
+      const response = await fetch('/api/auth/update-profile', {
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [field]: value }),
       });
@@ -92,6 +98,18 @@ export function SanctumContent() {
     }
   };
 
+  const updateConfigField = async (field: string, value: unknown) => {
+    try {
+      await fetch('/api/auth/update-profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ config: { [field]: value } }),
+      });
+    } catch (err) {
+      console.error('Failed to update vessel config:', err);
+    }
+  };
+
   const handleSave = async (data: Record<string, any>) => {
     setIsSaving(true);
     setSaveMessage(null);
@@ -100,14 +118,12 @@ export function SanctumContent() {
       const updates: Record<string, any> = {};
 
       if (data.display_name) updates.display_name = data.display_name;
-      if (data.username) updates.username = data.username;
+      if (data.slug) updates.slug = data.slug;
       if (data.bio !== undefined) updates.bio = data.bio || null;
-      if (data.pronouns !== undefined) updates.pronouns = data.pronouns || null;
-      if (data.preferred_environment) updates.preferred_environment = data.preferred_environment;
 
       if (Object.keys(updates).length > 0) {
-        const response = await fetch(`/api/generated/hestia-core/profiles/${user.id}`, {
-          method: 'PUT',
+        const response = await fetch('/api/auth/update-profile', {
+          method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updates),
         });
@@ -150,9 +166,9 @@ export function SanctumContent() {
             <AvatarUpload
               userId={user.id}
               currentUrl={profile.avatar_url}
-              fallbackInitials={profile.display_name || profile.username || 'S'}
+              fallbackInitials={profile.display_name || profile.slug || 'S'}
               size="lg"
-              onUploadComplete={(url) => updateProfileField('avatar_url', url)}
+              onUploadComplete={(url) => updateIdentityField('avatar_url', url)}
             />
             <p className="text-sm text-star-dust/40 mt-3">Tap to change your vessel image</p>
           </div>
@@ -174,11 +190,11 @@ export function SanctumContent() {
                 placeholder="How shall you be known?"
               />
             </FormField>
-            <FormField label="Username" optional>
+            <FormField label="Handle" optional helper="Your unique address in the Sanctuary">
               <Input
-                name="username"
-                defaultValue={profile.username || ''}
-                placeholder="your_unique_name"
+                name="slug"
+                defaultValue={profile.slug || ''}
+                placeholder="your-unique-name"
               />
             </FormField>
             <FormField label="Bio" optional helper="A few words about your sovereign self">
@@ -186,13 +202,6 @@ export function SanctumContent() {
                 name="bio"
                 defaultValue={profile.bio || ''}
                 placeholder="Tell your story..."
-              />
-            </FormField>
-            <FormField label="Pronouns" optional>
-              <Input
-                name="pronouns"
-                defaultValue={profile.pronouns || ''}
-                placeholder="they/them, she/her, he/him..."
               />
             </FormField>
           </Form>
@@ -213,30 +222,10 @@ export function SanctumContent() {
             <Switch
               label="Dyslexia-friendly mode"
               size="md"
-              defaultChecked={profile.dyslexia_mode || false}
-              onChange={(checked) => updateProfileField('dyslexia_mode', checked)}
+              defaultChecked={dyslexiaFont}
+              onChange={(checked) => { setDyslexiaFont(checked); updateConfigField('dyslexia_font', checked); }}
             />
           </div>
-        </Card>
-
-        <Card
-          variant="sanctuary"
-          data={environmentCardData}
-          radius="lg"
-          shadow="md"
-          className="p-6 mb-6"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Preferred Realm</h2>
-          <p className="text-sm text-star-dust/40 mb-4">
-            Choose which environment welcomes you and how it appears.
-          </p>
-
-          <EnvironmentSelector
-            value={profile.preferred_environment}
-            onChange={(value) => {
-              updateProfileField('preferred_environment', value);
-            }}
-          />
         </Card>
 
         <div className="flex items-center gap-4">
