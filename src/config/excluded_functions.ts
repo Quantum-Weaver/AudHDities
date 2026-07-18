@@ -10,9 +10,9 @@ export const EXCLUDED_FUNCTIONS = [
   // Supabase auth internals — never expose
   'handle_new_user',
   'handle_user_update',
-  'calculate_sale_splits',
-  'update_sovereignty_score',
-  
+  // (calculate_sale_splits / update_sovereignty_score removed 2026-07-18 —
+  // both functions died with the old commerce/score schema)
+
   // Pattern-based exclusions (matches any function starting with these)
   // Add prefixes here for bulk exclusion
 ] as const;

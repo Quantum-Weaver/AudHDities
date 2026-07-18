@@ -272,26 +272,30 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
  * ✅ UPDATED: Accepts PublicTableNames for type safety
  */
 export function getHandlingLevelByPattern(tableName: PublicTableNames): HandlingLevel {
-  // Assessment tables
-  if (tableName.startsWith('acid_test_')) {
+  // Assessment tables (acid_test_* became assessment_* in the schema evolution)
+  if (tableName.startsWith('assessment_')) {
     return 'assessment';
   }
-  
-  // Join/link tables
+
+  // Join/link tables. NOTE (2026-07-18): the old '_profiles' pattern is gone
+  // on purpose — community_profiles is now the PRIMARY identity table, and
+  // artisan/merchant profiles are full entities, not joins.
   const joinPatterns = [
-    '_profiles',           // creator_profiles, vendor_profiles, community_profiles
-    'user_quests',
-    'user_badges',
-    'contributions',
-    'subscriptions',
+    '_participants',       // ware_participants, work_participants, scene_participants
+    '_links',              // artisan_category_links
+    'sigil_unlocks',
+    'quest_progress',
+    'distribution_recipients',
+    'path_lessons',
+    'collection_items',
   ];
-  
+
   for (const pattern of joinPatterns) {
     if (tableName.includes(pattern) || tableName === pattern) {
       return 'join_table';
     }
   }
-  
+
   // Default: all other tables are full_crud
   return 'full_crud';
 }
@@ -301,20 +305,10 @@ export function getHandlingLevelByPattern(tableName: PublicTableNames): Handling
  * 
  * ✅ NEW: Type-safe view pattern matching
  */
-export function getViewHandlingLevelByPattern(viewName: PublicViewNames): HandlingLevel {
-  // Read-only views
-  const viewPatterns: PublicViewNames[] = [
-    'personalized_feed',
-    'public_transparency',
-    'daedalus_blueprint_health',
-    'daedalus_generation_stats'
-  ];
-  
-  if (viewPatterns.includes(viewName)) {
-    return 'read_only_view';
-  }
-  
-  // Default for views
+export function getViewHandlingLevelByPattern(_viewName: PublicViewNames): HandlingLevel {
+  // The current schema exposes no public views (the old personalized_feed /
+  // public_transparency / daedalus_* views did not survive the evolution).
+  // Every view, present or future, is read-only by policy.
   return 'read_only_view';
 }
 
