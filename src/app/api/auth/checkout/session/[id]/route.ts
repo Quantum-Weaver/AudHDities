@@ -29,17 +29,17 @@ export async function GET(
     // Check if user is admin or session owner
     const isAdmin = await isUserAdmin(supabase, user.id);
     
-    // Fetch sale record to verify ownership
+    // Fetch the exchange record (the sales successor) to verify ownership
     const { data: sale, error: saleError } = await supabase
-      .from('sales')
+      .from('exchanges')
       .select('*')
       .eq('stripe_session_id', sessionId)
       .maybeSingle();
-    
+
     if (saleError) {
-      console.error('Error fetching sale:', saleError);
+      console.error('Error fetching exchange:', saleError);
     }
-    
+
     // Verify access
     if (sale && !isAdmin && sale.buyer_id !== user.id) {
       return NextResponse.json(
