@@ -413,8 +413,8 @@ export function BubblePopGame() {
                     top: bubble.y,
                     width: bubble.size,
                     height: bubble.size,
-                    background: `radial-gradient(circle at 30% 30%, ${bubble.bubble.glow_color || bubble.bubble.color}, ${bubble.bubble.color})`,
-                    boxShadow: bubble.bubble.glow_color ? `0 0 ${bubble.size / 2}px ${bubble.bubble.glow_color}` : `0 0 ${bubble.size / 3}px ${bubble.bubble.color}40`,
+                    background: `radial-gradient(circle at 30% 30%, ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).glow}, ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).color})`,
+                    boxShadow: `0 0 ${bubble.size / 2}px ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).glow}`,
                     opacity: bubble.opacity,
                     transition: 'transform 0.15s ease-out',
                   }}
@@ -509,7 +509,7 @@ export function BubblePopGame() {
                 <Progress value={limits.daily_points} max={limits.max_daily_points} variant="default" size="sm" />
               </div>
               <div className="mt-3">
-                <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[tier] || '')}>{tier} tier</Badge>
+                <Badge variant="outline" size="sm" className="text-[10px] capitalize">{tierKey.replace(/_/g, ' ')} tier</Badge>
               </div>
             </Card>
 
@@ -532,19 +532,14 @@ export function BubblePopGame() {
             )}
 
             {/* Tier Info */}
-            <Card data={{ id: 'bubble-tier', type: 'value', title: 'Your Tier', value: tier }} variant="glass" radius="lg" shadow="sm" className="p-4">
-              <h3 className="text-sm font-semibold text-star-dust mb-2">Your Tier: <span className="capitalize">{tier}</span></h3>
+            <Card data={{ id: 'bubble-tier', type: 'value', title: 'Your Tier', value: tierKey.replace(/_/g, ' ') }} variant="glass" radius="lg" shadow="sm" className="p-4">
+              <h3 className="text-sm font-semibold text-star-dust mb-2">Your Tier: <span className="capitalize">{tierKey.replace(/_/g, ' ')}</span></h3>
               <p className="text-xs text-star-dust/40 mb-3">
-                {tier === 'community' && 'Access to Common and Rare bubbles. Upgrade to unlock Epic, Legendary, and Mythic stars.'}
-                {tier === 'ally' && 'Access to Common, Rare, and Epic bubbles. Upgrade for Legendary and Mythic.'}
-                {tier === 'corporate' && 'Access to all rarities except Mythic. Upgrade for the rarest stars.'}
-                {tier === 'council' && 'Full access to all rarities including Mythic. The complete collection.'}
+                {tierKey === 'dweller' && 'Access to Common and Rare bubbles. Your journey unlocks Epic, Legendary, and Mythic stars.'}
+                {tierKey === 'guild' && 'Access to Common, Rare, and Epic bubbles. The road ahead holds Legendary and Mythic.'}
+                {tierKey === 'outlander' && 'Access to all rarities. The rarest stars now drift within reach.'}
+                {tierKey === 'sovereign_weaver' && 'Full access to all rarities including Mythic. The complete collection.'}
               </p>
-              {tier !== 'council' && (
-                <Link href="/bazaar/creations">
-                  <Button variant="ghost" size="sm" className="w-full text-xs">Upgrade Tier</Button>
-                </Link>
-              )}
             </Card>
           </div>
         </div>
