@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselCollections
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.936Z
+// GENERATED: 2026-07-18T21:42:54.619Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselCollections(id: string): Promise<VesselCollection
   const { data, error } = await supabase
     .from('vessel_collections')
     .select('*')
-    .eq('vessel_collections_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselCollections(id: string, data: VesselCollection
   const { data: result, error } = await supabase
     .from('vessel_collections')
     .update(validated)
-    .eq('vessel_collections_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselCollections(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_collections')
     .delete()
-    .eq('vessel_collections_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

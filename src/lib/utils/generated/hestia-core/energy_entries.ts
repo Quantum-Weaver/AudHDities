@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: EnergyEntries
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.392Z
+// GENERATED: 2026-07-18T21:42:54.117Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getEnergyEntries(id: string): Promise<EnergyEntriesRow> {
   const { data, error } = await supabase
     .from('energy_entries')
     .select('*')
-    .eq('energy_entries_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateEnergyEntries(id: string, data: EnergyEntriesUpdate)
   const { data: result, error } = await supabase
     .from('energy_entries')
     .update(validated)
-    .eq('energy_entries_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteEnergyEntries(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('energy_entries')
     .delete()
-    .eq('energy_entries_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

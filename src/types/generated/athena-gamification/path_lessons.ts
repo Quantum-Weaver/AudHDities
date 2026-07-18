@@ -1,8 +1,8 @@
 // =====================================================
 // FILE: types/generated/athena-gamification/path_lessons.ts
-// HANDLING: full_crud
+// HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-07-10T18:14:59.605Z
+// GENERATED: 2026-07-18T21:42:54.349Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -21,19 +21,6 @@ export type PathLessonsUpdate = TablesUpdate<'path_lessons'>;
 // =====================================================
 
 /**
- * Public view of path_lessons
- */
-export interface PublicPathLessons {
-  created_at: string;
-  display_order: number;
-  id: string;
-  is_required: boolean;
-  lesson_id: string;
-  path_id: string;
-  updated_at: string;
-}
-
-/**
  * Form data for path_lessons
  * All fields are optional for partial updates
  */
@@ -45,21 +32,5 @@ export interface PathLessonsFormData {
   lesson_id?: string;
   path_id?: string;
   updated_at?: string;
-}
-
-/**
- * Validation result for path_lessons
- */
-export interface PathLessonsValidationResult {
-  valid: boolean;
-  errors: {
-    created_at?: string;
-    display_order?: string;
-    id?: string;
-    is_required?: string;
-    lesson_id?: string;
-    path_id?: string;
-    updated_at?: string;
-  };
 }
 

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Reports
 // DEITY: themis-governance
-// GENERATED: 2026-07-10T18:14:59.744Z
+// GENERATED: 2026-07-18T21:42:54.441Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getReports(id: string): Promise<ReportsRow> {
   const { data, error } = await supabase
     .from('reports')
     .select('*')
-    .eq('reports_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateReports(id: string, data: ReportsUpdate): Promise<Re
   const { data: result, error } = await supabase
     .from('reports')
     .update(validated)
-    .eq('reports_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteReports(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('reports')
     .delete()
-    .eq('reports_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

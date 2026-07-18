@@ -101,7 +101,7 @@ function generateGetSingleRoute(tableName: string, importManager: ImportManager)
     const { data, error } = await supabase
       .from('${tableName}')
       .select('*')
-      .eq('${tableName}_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -190,7 +190,7 @@ function generatePutRoute(tableName: string, deityFolder: string, importManager:
     const { data, error } = await supabase
       .from('${tableName}')
       .update(validated)
-      .eq('${tableName}_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -236,7 +236,7 @@ function generateDeleteRoute(tableName: string, importManager: ImportManager): s
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('${tableName}').delete().eq('${tableName}_id', id);
+    const { error } = await supabase.from('${tableName}').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('${tableName}');
@@ -306,7 +306,7 @@ function generateViewGetSingleRoute(viewName: string, importManager: ImportManag
     const { data, error } = await supabase
       .from('${viewName}')
       .select('*')
-      .eq('${viewName}_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {

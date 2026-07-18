@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SeedTypesUpdateSchema } from '@/lib/validators/generated/hestia-core/seed_types';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.798Z
+// Generated: 2026-07-18T21:42:54.487Z
 // Table: seed_types
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('seed_types')
       .select('*')
-      .eq('seed_types_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('seed_types')
       .update(validated)
-      .eq('seed_types_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('seed_types').delete().eq('seed_types_id', id);
+    const { error } = await supabase.from('seed_types').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('seed_types');

@@ -1,0 +1,60 @@
+import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
+import { createApiSupabase } from '@/lib/api/supabase';
+import { NextRequest } from 'next/server';
+
+// Generated: 2026-07-18T21:42:54.670Z
+// Table: ware_participants
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const supabase = await createApiSupabase();
+    
+    const { data, error } = await supabase
+      .from('ware_participants')
+      .select('*')
+      .eq('id', id)
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') return notFound('ware_participants');
+      throw error;
+    }
+    
+    return successResponse(data);
+  } catch (error) {
+    console.error('Error fetching ware_participants:', error);
+    return errorResponse('Failed to fetch ware_participants', 500);
+  }
+}
+
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const { userId, success } = await getAuthenticatedUser(request);
+    if (!success) return unauthorized();
+    
+    const ownsRecord = await checkOwnership(userId, 'ware_participants', id);
+    const admin = await isAdmin(userId);
+    if (!ownsRecord && !admin) return forbidden();
+    
+    const supabase = await createApiSupabase();
+    const { error } = await supabase.from('ware_participants').delete().eq('id', id);
+    
+    if (error) {
+      if (error.code === 'PGRST116') return notFound('ware_participants');
+      throw error;
+    }
+    
+    return successResponse({ deleted: true });
+  } catch (error) {
+    console.error('Error deleting ware_participants:', error);
+    return errorResponse('Failed to delete ware_participants', 500);
+  }
+}

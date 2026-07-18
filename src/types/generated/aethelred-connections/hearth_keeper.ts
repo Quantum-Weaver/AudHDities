@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/hearth_keeper.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.510Z
+// GENERATED: 2026-07-18T21:42:54.239Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

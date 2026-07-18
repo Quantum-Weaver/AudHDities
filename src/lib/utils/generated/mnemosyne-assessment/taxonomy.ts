@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Taxonomy
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-10T18:14:59.875Z
+// GENERATED: 2026-07-18T21:42:54.556Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getTaxonomy(id: string): Promise<TaxonomyRow> {
   const { data, error } = await supabase
     .from('taxonomy')
     .select('*')
-    .eq('taxonomy_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateTaxonomy(id: string, data: TaxonomyUpdate): Promise<
   const { data: result, error } = await supabase
     .from('taxonomy')
     .update(validated)
-    .eq('taxonomy_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteTaxonomy(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('taxonomy')
     .delete()
-    .eq('taxonomy_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

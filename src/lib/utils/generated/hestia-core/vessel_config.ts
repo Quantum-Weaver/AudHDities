@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselConfig
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.946Z
+// GENERATED: 2026-07-18T21:42:54.630Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselConfig(id: string): Promise<VesselConfigRow> {
   const { data, error } = await supabase
     .from('vessel_config')
     .select('*')
-    .eq('vessel_config_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselConfig(id: string, data: VesselConfigUpdate): 
   const { data: result, error } = await supabase
     .from('vessel_config')
     .update(validated)
-    .eq('vessel_config_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselConfig(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_config')
     .delete()
-    .eq('vessel_config_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

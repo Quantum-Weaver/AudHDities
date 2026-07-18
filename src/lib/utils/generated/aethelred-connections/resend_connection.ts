@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ResendConnection
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.749Z
+// GENERATED: 2026-07-18T21:42:54.446Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getResendConnection(id: string): Promise<ResendConnectionR
   const { data, error } = await supabase
     .from('resend_connection')
     .select('*')
-    .eq('resend_connection_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateResendConnection(id: string, data: ResendConnectionU
   const { data: result, error } = await supabase
     .from('resend_connection')
     .update(validated)
-    .eq('resend_connection_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteResendConnection(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('resend_connection')
     .delete()
-    .eq('resend_connection_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

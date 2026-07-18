@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CompanionCuesUpdateSchema } from '@/lib/validators/generated/hestia-core/companion_cues';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.316Z
+// Generated: 2026-07-18T21:42:54.045Z
 // Table: companion_cues
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('companion_cues')
       .select('*')
-      .eq('companion_cues_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('companion_cues')
       .update(validated)
-      .eq('companion_cues_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('companion_cues').delete().eq('companion_cues_id', id);
+    const { error } = await supabase.from('companion_cues').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('companion_cues');

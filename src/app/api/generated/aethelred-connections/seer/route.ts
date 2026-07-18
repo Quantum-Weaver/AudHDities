@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SeerInsertSchema } from '@/lib/validators/generated/aethelred-connections/seer';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.803Z
+// Generated: 2026-07-18T21:42:54.492Z
 // Table: seer
 
 export async function GET(request: NextRequest) {

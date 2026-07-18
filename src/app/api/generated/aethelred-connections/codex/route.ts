@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CodexInsertSchema } from '@/lib/validators/generated/aethelred-connections/codex';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.298Z
+// Generated: 2026-07-18T21:42:54.026Z
 // Table: codex
 
 export async function GET(request: NextRequest) {

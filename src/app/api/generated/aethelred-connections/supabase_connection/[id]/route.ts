@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SupabaseConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/supabase_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.853Z
+// Generated: 2026-07-18T21:42:54.537Z
 // Table: supabase_connection
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('supabase_connection')
       .select('*')
-      .eq('supabase_connection_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('supabase_connection')
       .update(validated)
-      .eq('supabase_connection_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('supabase_connection').delete().eq('supabase_connection_id', id);
+    const { error } = await supabase.from('supabase_connection').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('supabase_connection');

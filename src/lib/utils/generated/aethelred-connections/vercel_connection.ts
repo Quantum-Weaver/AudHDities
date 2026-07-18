@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VercelConnection
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.921Z
+// GENERATED: 2026-07-18T21:42:54.603Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVercelConnection(id: string): Promise<VercelConnectionR
   const { data, error } = await supabase
     .from('vercel_connection')
     .select('*')
-    .eq('vercel_connection_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVercelConnection(id: string, data: VercelConnectionU
   const { data: result, error } = await supabase
     .from('vercel_connection')
     .update(validated)
-    .eq('vercel_connection_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVercelConnection(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vercel_connection')
     .delete()
-    .eq('vercel_connection_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

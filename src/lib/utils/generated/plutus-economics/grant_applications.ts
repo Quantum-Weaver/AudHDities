@@ -1,0 +1,109 @@
+// =====================================================
+// UTILITIES: GrantApplications
+// DEITY: plutus-economics
+// GENERATED: 2026-07-18T21:42:54.213Z
+// =====================================================
+
+
+import { createClient } from '@/lib/supabase/client';
+import { GrantApplicationsInsertSchema, GrantApplicationsUpdateSchema } from '@/lib/validators/generated/plutus-economics/grant_applications';
+import type { GrantApplicationsInsert, GrantApplicationsRow, GrantApplicationsUpdate } from '@/types/generated/plutus-economics/grant_applications';
+
+// ============================================================================
+// CRUD OPERATIONS
+// ============================================================================
+
+/**
+ * Create a new grant_applications record
+ */
+export async function createGrantApplications(data: GrantApplicationsInsert): Promise<GrantApplicationsRow> {
+  const validated = GrantApplicationsInsertSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('grant_applications')
+    .insert(validated)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Get a single grant_applications record by ID
+ */
+export async function getGrantApplications(id: string): Promise<GrantApplicationsRow> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from('grant_applications')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Get a list of grant_applications records with pagination
+ */
+export async function listGrantApplications(params?: {
+  page?: number;
+  limit?: number;
+  filters?: Record<string, string>;
+  sort?: string;
+  order?: 'asc' | 'desc';
+}): Promise<{ data: GrantApplicationsRow[]; total: number }> {
+  const { page = 1, limit = 20, filters = {}, sort = 'created_at', order = 'desc' } = params || {};
+  const supabase = createClient();
+  
+  let query = supabase.from('grant_applications').select('*', { count: 'exact' });
+  
+  for (const [key, value] of Object.entries(filters)) {
+    query = query.eq(key, value);
+  }
+  
+  query = query.order(sort, { ascending: order === 'asc' });
+  
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.range(from, to);
+  
+  const { data, error, count } = await query;
+  if (error) throw error;
+  
+  return { data: data || [], total: count || 0 };
+}
+
+/**
+ * Update a grant_applications record
+ */
+export async function updateGrantApplications(id: string, data: GrantApplicationsUpdate): Promise<GrantApplicationsRow> {
+  const validated = GrantApplicationsUpdateSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('grant_applications')
+    .update(validated)
+    .eq('id', id)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Delete a grant_applications record
+ */
+export async function deleteGrantApplications(id: string): Promise<boolean> {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from('grant_applications')
+    .delete()
+    .eq('id', id);
+  
+  if (error) throw error;
+  return true;
+}

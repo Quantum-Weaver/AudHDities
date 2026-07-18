@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ResidualPoolUpdateSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.751Z
+// Generated: 2026-07-18T21:42:54.448Z
 // Table: residual_pool
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('residual_pool')
       .select('*')
-      .eq('residual_pool_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('residual_pool')
       .update(validated)
-      .eq('residual_pool_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('residual_pool').delete().eq('residual_pool_id', id);
+    const { error } = await supabase.from('residual_pool').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('residual_pool');

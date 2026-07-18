@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_private.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.907Z
+// GENERATED: 2026-07-18T21:42:54.588Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -22,20 +22,14 @@ export type UserPrivateUpdate = TablesUpdate<'user_private'>;
 
 /**
  * Public view of user_private
+ * Excludes sensitive fields: address, crisis_plan, date_of_birth, emergency_contact, government_id, legal_name, phone_number
  */
 export interface PublicUserPrivate {
-  address: Database["public"]["CompositeTypes"]["address"] | null;
   created_at: string;
   created_by: string | null;
-  crisis_plan: string | null;
-  date_of_birth: string | null;
-  emergency_contact: Database["public"]["CompositeTypes"]["emergency_contact"] | null;
-  government_id: string | null;
   icon_emoji: string | null;
   id: string;
-  legal_name: string | null;
   notes: string | null;
-  phone_number: string | null;
   updated_at: string;
   updated_by: string | null;
 }
@@ -50,6 +44,7 @@ export interface UserPrivateFormData {
   created_by?: string | null;
   crisis_plan?: string | null;
   date_of_birth?: string | null;
+  emergency_contact?: | Database["public"]["CompositeTypes"]["emergency_contact"] | null;
   government_id?: string | null;
   icon_emoji?: string | null;
   id?: string;

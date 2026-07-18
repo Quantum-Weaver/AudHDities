@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Culturalization
 // DEITY: iris-communications
-// GENERATED: 2026-07-10T18:14:59.350Z
+// GENERATED: 2026-07-18T21:42:54.079Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCulturalization(id: string): Promise<CulturalizationRow
   const { data, error } = await supabase
     .from('culturalization')
     .select('*')
-    .eq('culturalization_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCulturalization(id: string, data: CulturalizationUpd
   const { data: result, error } = await supabase
     .from('culturalization')
     .update(validated)
-    .eq('culturalization_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCulturalization(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('culturalization')
     .delete()
-    .eq('culturalization_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

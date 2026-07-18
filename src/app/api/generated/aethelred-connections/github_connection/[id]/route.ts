@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GithubConnectionUpdateSchema } from '@/lib/validators/generated/aethelred-connections/github_connection';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.477Z
+// Generated: 2026-07-18T21:42:54.205Z
 // Table: github_connection
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('github_connection')
       .select('*')
-      .eq('github_connection_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('github_connection')
       .update(validated)
-      .eq('github_connection_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('github_connection').delete().eq('github_connection_id', id);
+    const { error } = await supabase.from('github_connection').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('github_connection');

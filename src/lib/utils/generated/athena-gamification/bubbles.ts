@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Bubbles
 // DEITY: athena-gamification
-// GENERATED: 2026-07-10T18:14:59.272Z
+// GENERATED: 2026-07-18T21:42:53.995Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getBubbles(id: string): Promise<BubblesRow> {
   const { data, error } = await supabase
     .from('bubbles')
     .select('*')
-    .eq('bubbles_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateBubbles(id: string, data: BubblesUpdate): Promise<Bu
   const { data: result, error } = await supabase
     .from('bubbles')
     .update(validated)
-    .eq('bubbles_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteBubbles(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('bubbles')
     .delete()
-    .eq('bubbles_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

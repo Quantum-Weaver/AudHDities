@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CompanionCues
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.319Z
+// GENERATED: 2026-07-18T21:42:54.048Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCompanionCues(id: string): Promise<CompanionCuesRow> {
   const { data, error } = await supabase
     .from('companion_cues')
     .select('*')
-    .eq('companion_cues_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCompanionCues(id: string, data: CompanionCuesUpdate)
   const { data: result, error } = await supabase
     .from('companion_cues')
     .update(validated)
-    .eq('companion_cues_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCompanionCues(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('companion_cues')
     .delete()
-    .eq('companion_cues_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

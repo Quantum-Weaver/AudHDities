@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserPrivateUpdateSchema } from '@/lib/validators/generated/hestia-core/user_private';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.908Z
+// Generated: 2026-07-18T21:42:54.589Z
 // Table: user_private
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('user_private')
       .select('*')
-      .eq('user_private_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('user_private')
       .update(validated)
-      .eq('user_private_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('user_private').delete().eq('user_private_id', id);
+    const { error } = await supabase.from('user_private').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('user_private');

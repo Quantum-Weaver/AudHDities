@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { JournalEntriesUpdateSchema } from '@/lib/validators/generated/hestia-core/journal_entries';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.520Z
+// Generated: 2026-07-18T21:42:54.251Z
 // Table: journal_entries
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('journal_entries')
       .select('*')
-      .eq('journal_entries_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('journal_entries')
       .update(validated)
-      .eq('journal_entries_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('journal_entries').delete().eq('journal_entries_id', id);
+    const { error } = await supabase.from('journal_entries').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('journal_entries');

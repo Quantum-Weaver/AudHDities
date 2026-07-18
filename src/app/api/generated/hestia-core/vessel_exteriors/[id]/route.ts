@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VesselExteriorsUpdateSchema } from '@/lib/validators/generated/hestia-core/vessel_exteriors';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.953Z
+// Generated: 2026-07-18T21:42:54.638Z
 // Table: vessel_exteriors
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('vessel_exteriors')
       .select('*')
-      .eq('vessel_exteriors_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('vessel_exteriors')
       .update(validated)
-      .eq('vessel_exteriors_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('vessel_exteriors').delete().eq('vessel_exteriors_id', id);
+    const { error } = await supabase.from('vessel_exteriors').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('vessel_exteriors');

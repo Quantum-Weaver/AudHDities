@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/life_cycles.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.553Z
+// GENERATED: 2026-07-18T21:42:54.286Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

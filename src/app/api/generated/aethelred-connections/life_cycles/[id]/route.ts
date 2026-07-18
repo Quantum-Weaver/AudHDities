@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LifeCyclesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/life_cycles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.554Z
+// Generated: 2026-07-18T21:42:54.287Z
 // Table: life_cycles
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('life_cycles')
       .select('*')
-      .eq('life_cycles_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('life_cycles')
       .update(validated)
-      .eq('life_cycles_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('life_cycles').delete().eq('life_cycles_id', id);
+    const { error } = await supabase.from('life_cycles').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('life_cycles');

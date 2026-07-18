@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ChancellorUpdateSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.284Z
+// Generated: 2026-07-18T21:42:54.009Z
 // Table: chancellor
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('chancellor')
       .select('*')
-      .eq('chancellor_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('chancellor')
       .update(validated)
-      .eq('chancellor_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('chancellor').delete().eq('chancellor_id', id);
+    const { error } = await supabase.from('chancellor').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('chancellor');

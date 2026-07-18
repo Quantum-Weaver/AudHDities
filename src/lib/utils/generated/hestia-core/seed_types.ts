@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SeedTypes
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.801Z
+// GENERATED: 2026-07-18T21:42:54.490Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSeedTypes(id: string): Promise<SeedTypesRow> {
   const { data, error } = await supabase
     .from('seed_types')
     .select('*')
-    .eq('seed_types_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSeedTypes(id: string, data: SeedTypesUpdate): Promis
   const { data: result, error } = await supabase
     .from('seed_types')
     .update(validated)
-    .eq('seed_types_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSeedTypes(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('seed_types')
     .delete()
-    .eq('seed_types_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

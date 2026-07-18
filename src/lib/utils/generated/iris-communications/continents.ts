@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Continents
 // DEITY: iris-communications
-// GENERATED: 2026-07-10T18:14:59.334Z
+// GENERATED: 2026-07-18T21:42:54.062Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getContinents(id: string): Promise<ContinentsRow> {
   const { data, error } = await supabase
     .from('continents')
     .select('*')
-    .eq('continents_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateContinents(id: string, data: ContinentsUpdate): Prom
   const { data: result, error } = await supabase
     .from('continents')
     .update(validated)
-    .eq('continents_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteContinents(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('continents')
     .delete()
-    .eq('continents_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

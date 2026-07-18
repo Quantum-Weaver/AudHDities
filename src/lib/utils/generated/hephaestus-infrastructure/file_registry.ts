@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: FileRegistry
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.421Z
+// GENERATED: 2026-07-18T21:42:54.148Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getFileRegistry(id: string): Promise<FileRegistryRow> {
   const { data, error } = await supabase
     .from('file_registry')
     .select('*')
-    .eq('file_registry_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateFileRegistry(id: string, data: FileRegistryUpdate): 
   const { data: result, error } = await supabase
     .from('file_registry')
     .update(validated)
-    .eq('file_registry_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteFileRegistry(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('file_registry')
     .delete()
-    .eq('file_registry_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

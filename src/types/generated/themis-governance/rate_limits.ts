@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/rate_limits.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-07-10T18:14:59.722Z
+// GENERATED: 2026-07-18T21:42:54.420Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

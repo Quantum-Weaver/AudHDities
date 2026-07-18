@@ -1,9 +1,8 @@
 import { checkOwnership, errorResponse, forbidden, getAuthenticatedUser, isAdmin, notFound, successResponse, unauthorized } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
-import { SceneParticipantsUpdateSchema } from '@/lib/validators/generated/athena-gamification/scene_participants';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.769Z
+// Generated: 2026-07-18T21:42:54.463Z
 // Table: scene_participants
 
 export async function GET(
@@ -17,7 +16,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('scene_participants')
       .select('*')
-      .eq('scene_participants_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -29,45 +28,6 @@ export async function GET(
   } catch (error) {
     console.error('Error fetching scene_participants:', error);
     return errorResponse('Failed to fetch scene_participants', 500);
-  }
-}
-
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params;
-    const { userId, success } = await getAuthenticatedUser(request);
-    if (!success) return unauthorized();
-    
-    const ownsRecord = await checkOwnership(userId, 'scene_participants', id);
-    const admin = await isAdmin(userId);
-    if (!ownsRecord && !admin) return forbidden();
-    
-    const body = await request.json();
-    const validated = SceneParticipantsUpdateSchema.parse(body);
-    
-    const supabase = await createApiSupabase();
-    const { data, error } = await supabase
-      .from('scene_participants')
-      .update(validated)
-      .eq('scene_participants_id', id)
-      .select()
-      .single();
-    
-    if (error) {
-      if (error.code === 'PGRST116') return notFound('scene_participants');
-      throw error;
-    }
-    
-    return successResponse(data);
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
-      return errorResponse('Validation failed', 400, error.issues);
-    }
-    console.error('Error updating scene_participants:', error);
-    return errorResponse('Failed to update scene_participants', 500);
   }
 }
 
@@ -85,7 +45,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('scene_participants').delete().eq('scene_participants_id', id);
+    const { error } = await supabase.from('scene_participants').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('scene_participants');

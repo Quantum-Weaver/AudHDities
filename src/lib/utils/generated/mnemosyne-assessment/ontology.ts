@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Ontology
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-10T18:14:59.599Z
+// GENERATED: 2026-07-18T21:42:54.341Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getOntology(id: string): Promise<OntologyRow> {
   const { data, error } = await supabase
     .from('ontology')
     .select('*')
-    .eq('ontology_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateOntology(id: string, data: OntologyUpdate): Promise<
   const { data: result, error } = await supabase
     .from('ontology')
     .update(validated)
-    .eq('ontology_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteOntology(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('ontology')
     .delete()
-    .eq('ontology_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CulturalizationUpdateSchema } from '@/lib/validators/generated/iris-communications/culturalization';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.347Z
+// Generated: 2026-07-18T21:42:54.076Z
 // Table: culturalization
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('culturalization')
       .select('*')
-      .eq('culturalization_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('culturalization')
       .update(validated)
-      .eq('culturalization_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('culturalization').delete().eq('culturalization_id', id);
+    const { error } = await supabase.from('culturalization').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('culturalization');

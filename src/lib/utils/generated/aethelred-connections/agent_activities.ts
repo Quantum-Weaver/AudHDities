@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AgentActivities
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.200Z
+// GENERATED: 2026-07-18T21:42:53.911Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAgentActivities(id: string): Promise<AgentActivitiesRow
   const { data, error } = await supabase
     .from('agent_activities')
     .select('*')
-    .eq('agent_activities_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAgentActivities(id: string, data: AgentActivitiesUpd
   const { data: result, error } = await supabase
     .from('agent_activities')
     .update(validated)
-    .eq('agent_activities_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAgentActivities(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('agent_activities')
     .delete()
-    .eq('agent_activities_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

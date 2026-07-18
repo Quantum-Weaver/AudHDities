@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: ResidualPool
 // DEITY: plutus-economics
-// GENERATED: 2026-07-10T18:14:59.755Z
+// GENERATED: 2026-07-18T21:42:54.451Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getResidualPool(id: string): Promise<ResidualPoolRow> {
   const { data, error } = await supabase
     .from('residual_pool')
     .select('*')
-    .eq('residual_pool_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateResidualPool(id: string, data: ResidualPoolUpdate): 
   const { data: result, error } = await supabase
     .from('residual_pool')
     .update(validated)
-    .eq('residual_pool_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteResidualPool(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('residual_pool')
     .delete()
-    .eq('residual_pool_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

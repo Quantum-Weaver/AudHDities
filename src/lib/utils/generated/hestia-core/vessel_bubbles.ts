@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselBubbles
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.931Z
+// GENERATED: 2026-07-18T21:42:54.614Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselBubbles(id: string): Promise<VesselBubblesRow> {
   const { data, error } = await supabase
     .from('vessel_bubbles')
     .select('*')
-    .eq('vessel_bubbles_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselBubbles(id: string, data: VesselBubblesUpdate)
   const { data: result, error } = await supabase
     .from('vessel_bubbles')
     .update(validated)
-    .eq('vessel_bubbles_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselBubbles(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_bubbles')
     .delete()
-    .eq('vessel_bubbles_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: StripeConnection
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.851Z
+// GENERATED: 2026-07-18T21:42:54.535Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getStripeConnection(id: string): Promise<StripeConnectionR
   const { data, error } = await supabase
     .from('stripe_connection')
     .select('*')
-    .eq('stripe_connection_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateStripeConnection(id: string, data: StripeConnectionU
   const { data: result, error } = await supabase
     .from('stripe_connection')
     .update(validated)
-    .eq('stripe_connection_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteStripeConnection(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('stripe_connection')
     .delete()
-    .eq('stripe_connection_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

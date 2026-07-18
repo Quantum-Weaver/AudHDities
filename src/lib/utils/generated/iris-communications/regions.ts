@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Regions
 // DEITY: iris-communications
-// GENERATED: 2026-07-10T18:14:59.738Z
+// GENERATED: 2026-07-18T21:42:54.436Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getRegions(id: string): Promise<RegionsRow> {
   const { data, error } = await supabase
     .from('regions')
     .select('*')
-    .eq('regions_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateRegions(id: string, data: RegionsUpdate): Promise<Re
   const { data: result, error } = await supabase
     .from('regions')
     .update(validated)
-    .eq('regions_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteRegions(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('regions')
     .delete()
-    .eq('regions_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;
