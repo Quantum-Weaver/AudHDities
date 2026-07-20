@@ -4,7 +4,6 @@ import { Page } from '@/components/bifrost/Page';
 import { VisionHero } from '@/components/asgard/domains/hephaestus/vision/VisionHero';
 import { WorldWithoutExploitation } from '@/components/asgard/domains/hephaestus/vision/WorldWithoutExploitation';
 import { PillarCardRenderer } from '@/components/runes/cards/PillarCardRenderer';
-import { BigotTaxCard } from '@/components/asgard/domains/hephaestus/vision/BigotTaxCard';
 import { VisionCTA } from '@/components/asgard/domains/hephaestus/vision/VisionCTA';
 import { DollarSign, Heart, Shield, Globe } from 'lucide-react';
 
@@ -78,10 +77,6 @@ export default function VisionPage() {
               shadow="md"
             />
           </div>
-        </section>
-
-        <section className="container max-w-4xl mx-auto px-6 py-20">
-          <BigotTaxCard />
         </section>
 
         <section className="container max-w-4xl mx-auto px-6 pb-20">

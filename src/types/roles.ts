@@ -86,7 +86,6 @@ export interface UserPermissions {
   canManageUsers: boolean;
   canAccessCouncilChamber: boolean;
   canCreateCouncilEntities: boolean;
-  canSetBigotTax: boolean;
 }
 
 // =====================================================
@@ -112,7 +111,6 @@ export function getUserPermissions(flags: RoleFlags): UserPermissions {
     // Council & sovereign privileges
     canAccessCouncilChamber: isCouncil || isQuantumWeaver || isAdmin,
     canCreateCouncilEntities: isQuantumWeaver || isAdmin,
-    canSetBigotTax: isAdmin,
   };
 }
 
