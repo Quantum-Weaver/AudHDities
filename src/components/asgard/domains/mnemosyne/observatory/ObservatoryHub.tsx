@@ -37,14 +37,16 @@ export function ObservatoryHub() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
+    // MEND-LAW 2026-07-20: hestia-core/timelines has no living equivalent — verified
+    // against database.types.ts, no table anywhere still carries a per-vessel
+    // event_type/occurred_at shape. Rather than fake a 404-driven spiral preview,
+    // `timeline` stays empty and the existing "Your milestones will appear here"
+    // copy below already reads as the honest empty state.
     Promise.all([
-      fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=occurred_at.desc&limit=5`)
-        .then(r => r.json()),
       // badges route is gone — GAIA now emits sigils
       fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
         .then(r => r.json()),
-    ]).then(([tlRes, sigilRes]) => {
-      if (tlRes.success) setTimeline(tlRes.data?.data || []);
+    ]).then(([sigilRes]) => {
       if (sigilRes.success) setSigils(sigilRes.data?.data || []);
     }).catch(console.error).finally(() => setLoading(false));
   }, [user]);

@@ -12,13 +12,12 @@ import { ArrowLeft, Star, Award, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface Quest { quests_id: string; title: string; description: string; house: string; sovereignty_reward: number | null; }
+// MEND-LAW 2026-07-20: quests.title -> quests.name, and both `house` and
+// `sovereignty_reward` were dropped in the settle (rewards is now an opaque
+// Json blob, not a display-safe number) — degraded gracefully below rather
+// than invented.
+interface Quest { quests_id: string; title: string; description: string; }
 interface SigilItem { id: string; name: string; slug: string; rarity: string; description: string; }
-
-const HOUSE_LABELS: Record<string, string> = {
-  hearth_keeper: 'Hearth-Keeper', chancellor: 'Chancellor', seer: 'Seer', aethelred: 'Aethelred',
-  curator: 'Curator', archivist: 'Archivist', skald: 'Skald', codex: 'Codex', executioner: 'Executioner',
-};
 
 const RARITY_COLORS: Record<string, string> = {
   common: 'bg-slate-500/20 text-slate-400', rare: 'bg-cyan-500/20 text-cyan-400',
@@ -33,11 +32,19 @@ export function ProphecyVision() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/generated/athena-gamification/quests?is_active=true&order=title.asc').then(r => r.json()),
+      // is_active boolean -> status=published (content_status enum); title -> name
+      fetch('/api/generated/athena-gamification/quests?status=published&order=name.asc').then(r => r.json()),
       // badges route is gone — GAIA now emits sigils
       fetch('/api/generated/athena-gamification/sigils?status=published&order=name.asc').then(r => r.json()),
     ]).then(([qRes, sRes]) => {
-      if (qRes.success) setAvailableQuests(qRes.data?.data || []);
+      if (qRes.success) {
+        const rawQuests = qRes.data?.data || [];
+        setAvailableQuests(rawQuests.map((q: any) => ({
+          quests_id: q.id,
+          title: q.name,
+          description: q.description,
+        })));
+      }
       if (sRes.success) setUnearnedSigils(sRes.data?.data || []);
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
@@ -75,8 +82,9 @@ export function ProphecyVision() {
             {availableQuests.slice(0, 5).map(q => (
               <Link key={q.quests_id} href={`/library/quests/${q.quests_id}`}>
                 <div className="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
-                  <div><p className="text-sm text-star-dust font-medium">{q.title}</p><p className="text-xs text-star-dust/40">{HOUSE_LABELS[q.house] || q.house}</p></div>
-                  {q.sovereignty_reward && <Badge variant="outline" size="sm" className="text-[10px]">+{q.sovereignty_reward}</Badge>}
+                  {/* MEND-LAW 2026-07-20: house label and sovereignty_reward badge
+                      dropped — quests no longer carries either field (see interface note above) */}
+                  <div><p className="text-sm text-star-dust font-medium">{q.title}</p></div>
                 </div>
               </Link>
             ))}

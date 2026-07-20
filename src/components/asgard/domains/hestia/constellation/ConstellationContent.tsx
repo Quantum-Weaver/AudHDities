@@ -112,7 +112,6 @@ function buildConstellation(
   quests: QuestItem[],
   productCount: number,
   messageCount: number,
-  emeraldCount: number,
   postCount: number,
   channelCount: number
 ): { nodes: ConstellationNode[]; edges: ConstellationEdge[] } {
@@ -208,7 +207,8 @@ function buildConstellation(
   const companionData = [
     { id: 'products', label: `${productCount} Products`, icon: Package, distance: 150, angle: 2.5, color: '#00B894' },
     { id: 'messages', label: `${messageCount} Messages`, icon: MessageCircle, distance: 150, angle: 3.5, color: '#0984E3' },
-    { id: 'emeralds', label: `${emeraldCount} Emeralds`, icon: Star, distance: 150, angle: 4.5, color: '#FDCB6E' },
+    // MEND-LAW 2026-07-20: the Emeralds companion star is retired here — no living
+    // table backs it (see fetchData above).
     { id: 'posts', label: `${postCount} Posts`, icon: Compass, distance: 150, angle: 5.5, color: '#6C5CE7' },
   ];
 
@@ -246,7 +246,6 @@ export function ConstellationContent() {
   // Counts
   const [productCount, setProductCount] = useState(0);
   const [messageCount, setMessageCount] = useState(0);
-  const [emeraldCount, setEmeraldCount] = useState(0);
   const [postCount, setPostCount] = useState(0);
   const [channelCount, setChannelCount] = useState(0);
 
@@ -255,10 +254,11 @@ export function ConstellationContent() {
 
     const fetchData = async () => {
       try {
-        // Timeline
-        const tRes = await fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=significance_score.desc&limit=20`);
-        const tData = await tRes.json();
-        if (tData.success) setTimeline(tData.data?.data || tData.data || []);
+        // MEND-LAW 2026-07-20: hestia-core/timelines has no living equivalent —
+        // verified against database.types.ts, no table anywhere carries a per-vessel
+        // event_type/significance_score/occurred_at shape anymore. Rather than fake
+        // a 404-driven timeline, we leave it empty and render the honest empty state.
+        // (also dead in TimelineSpiral.tsx and ConstellationDetail.tsx — not mended here, out of license)
 
         // Sigils earned by this vessel (badges/user_badges are gone — GAIA now
         // emits vessel_sigils for the earning record and sigils for the definition)
@@ -286,8 +286,9 @@ export function ConstellationContent() {
           setSigils(sigilDetails);
         }
 
-        // Quests
-        const qRes = await fetch(`/api/generated/athena-gamification/user_quests?user_id=${user.id}&status=completed&limit=20`);
+        // Quests completed by this vessel (user_quests is gone — hestia-core now
+        // tracks per-vessel quest completion as vessel_quests)
+        const qRes = await fetch(`/api/generated/hestia-core/vessel_quests?user_id=${user.id}&status=completed&limit=20`);
         const qData = await qRes.json();
         if (qData.success) {
           const rawQuests = qData.data?.data || qData.data || [];
@@ -298,12 +299,16 @@ export function ConstellationContent() {
                 const qdData = await qdRes.json();
                 return {
                   quest_id: uq.quest_id,
-                  title: qdData.success ? qdData.data?.title : 'Quest',
-                  house: qdData.success ? qdData.data?.house || 'hearth_keeper' : 'hearth_keeper',
+                  // quests.title -> quests.name in the settle
+                  title: qdData.success ? qdData.data?.name : 'Quest',
+                  // MEND-LAW 2026-07-20: `house` dropped from the quests table in the
+                  // settle — no field carries it anymore, so we no longer invent one.
+                  // Left blank; HOUSE_COLORS/HOUSE_LABELS fall back to their neutral default.
+                  house: '',
                   status: uq.status || 'completed',
                 };
               } catch {
-                return { quest_id: uq.quest_id, title: 'Quest', house: 'hearth_keeper', status: 'completed' };
+                return { quest_id: uq.quest_id, title: 'Quest', house: '', status: 'completed' };
               }
             })
           );
@@ -311,18 +316,19 @@ export function ConstellationContent() {
         }
 
         // Counts
+        // MEND-LAW 2026-07-20: emeralds has no living equivalent anywhere in the
+        // schema (verified against database.types.ts) — the Emeralds companion star
+        // is retired rather than faked; emeraldCount is gone along with it.
         const counts = [
-          fetch(`/api/generated/plutus-economics/products?creator_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || d.data?.data?.length || d.data?.length || 0).catch(() => 0),
+          fetch(`/api/generated/plutus-economics/wares?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || d.data?.data?.length || d.data?.length || 0).catch(() => 0),
           fetch(`/api/generated/iris-communications/messages?limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/emeralds?limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/posts?author_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/channels?owner_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
+          fetch(`/api/generated/iris-communications/signals?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
+          fetch(`/api/generated/iris-communications/channels?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
         ];
 
-        const [pCount, mCount, eCount, poCount, chCount] = await Promise.all(counts);
+        const [pCount, mCount, poCount, chCount] = await Promise.all(counts);
         setProductCount(pCount || 0);
         setMessageCount(mCount || 0);
-        setEmeraldCount(eCount || 0);
         setPostCount(poCount || 0);
         setChannelCount(chCount || 0);
       } catch (err) {
@@ -339,8 +345,8 @@ export function ConstellationContent() {
     if (timeline.length === 0 && sigils.length === 0 && quests.length === 0) {
       return { nodes: [], edges: [] };
     }
-    return buildConstellation(timeline, sigils, quests, productCount, messageCount, emeraldCount, postCount, channelCount);
-  }, [timeline, sigils, quests, productCount, messageCount, emeraldCount, postCount, channelCount]);
+    return buildConstellation(timeline, sigils, quests, productCount, messageCount, postCount, channelCount);
+  }, [timeline, sigils, quests, productCount, messageCount, postCount, channelCount]);
 
   const handleNodeClick = (node: ConstellationNode) => {
     setSelectedNode(selectedNode?.id === node.id ? null : node);
