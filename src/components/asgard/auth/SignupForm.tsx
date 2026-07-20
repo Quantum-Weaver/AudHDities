@@ -113,10 +113,11 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
         <FormField error={fieldErrors.accept_terms}>
           <div className="flex items-center gap-2">
             <Checkbox
+              id="accept-terms"
               name="accept_terms"
               disabled={isLoading}
             />
-            <label className="text-sm text-star-dust/80">
+            <label htmlFor="accept-terms" className="text-sm text-star-dust/80 cursor-pointer select-none">
               I agree to the{" "}
               <a href="/terms" className="text-neurospark hover:underline">Terms of Service</a>
               {" "}and{" "}
