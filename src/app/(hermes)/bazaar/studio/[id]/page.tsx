@@ -6,8 +6,8 @@ import { Page } from '@/components/bifrost/Page';
 import { StudioEdit } from '@/components/asgard/domains/hermes/studio/StudioEdit';
 
 export const metadata = {
-  title: 'Edit Creation | The Loom | Sovereign Sanctuary',
-  description: 'Refine your offering',
+  title: 'Refine a Work | The Loom | Sovereign Sanctuary',
+  description: 'Refine your work',
 };
 
 export default function StudioEditPage() {

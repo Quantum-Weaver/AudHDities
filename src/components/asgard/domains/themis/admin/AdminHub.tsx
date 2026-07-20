@@ -8,7 +8,7 @@ import { ArrowLeft, Settings, Users, Shield, FileText, Activity, Database } from
 import type { CardData } from '@/types/components/runes/card.types';
 
 const ADMIN_SECTIONS = [
-  { title: 'User Management', description: 'Manage user accounts, roles, and permissions', href: '/council/admin/users', icon: Users, color: 'text-neurospark' },
+  { title: 'Vessel Management', description: 'Manage vessel accounts, roles, and permissions', href: '/council/admin/users', icon: Users, color: 'text-neurospark' },
   { title: 'Content Moderation', description: 'Review flagged content and take action', href: '/council/reports', icon: Shield, color: 'text-amber-400' },
   { title: 'System Settings', description: 'Platform configuration and parameters', href: '/council/admin/settings', icon: Settings, color: 'text-purple-400' },
   { title: 'Analytics', description: 'Usage metrics and platform health', href: '/council/admin/analytics', icon: Activity, color: 'text-emerald-400' },

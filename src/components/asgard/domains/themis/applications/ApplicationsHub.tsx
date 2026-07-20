@@ -22,6 +22,12 @@ interface Application {
   review_notes: string | null;
 }
 
+const APPLICATION_TYPE_LABELS: Record<string, string> = {
+  creator: 'Artisan',
+  vendor: 'Merchant',
+  curator: 'Curator',
+};
+
 const STATUS_COLORS: Record<string, string> = {
   pending: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
   verified: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
@@ -73,17 +79,17 @@ export function ApplicationsHub() {
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">Applications</h1>
           <p className="text-sm text-star-dust/40 mt-1">
-            {isReviewer ? 'Review creator, vendor, and curator applications' : 'Your applications to the Sanctuary'}
+            {isReviewer ? 'Review artisan, merchant, and curator applications' : 'Your applications to the Sanctuary'}
           </p>
         </div>
 
         {!isReviewer && (
           <div className="mb-8 flex gap-4">
             <Link href="/council/applications/apply?type=creator">
-              <Button variant="primary" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Creator</Button>
+              <Button variant="primary" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Artisan</Button>
             </Link>
             <Link href="/council/applications/apply?type=vendor">
-              <Button variant="outline" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Vendor</Button>
+              <Button variant="outline" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Merchant</Button>
             </Link>
           </div>
         )}
@@ -93,14 +99,14 @@ export function ApplicationsHub() {
             <UserCheck className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg">No applications yet</p>
             <p className="text-star-dust/30 text-sm">
-              {isReviewer ? 'Applications will appear here when submitted.' : 'Apply to become a creator or vendor.'}
+              {isReviewer ? 'Applications will appear here when submitted.' : 'Apply to become an artisan or merchant.'}
             </p>
           </div>
         ) : (
           <div className="space-y-3">
             {applications.map((app) => {
               const cardData: CardData = { id: app.applications_id, type: 'value', title: app.application_type, value: app.status };
-              const appType = app.application_type?.replace(/_/g, ' ') || 'Unknown';
+              const appType = APPLICATION_TYPE_LABELS[app.application_type] || app.application_type?.replace(/_/g, ' ') || 'Unknown';
               return (
                 <Card key={app.applications_id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-4">
                   <div className="flex items-center justify-between">
@@ -138,7 +144,7 @@ export function ApplicationsHub() {
           variant="glass" radius="lg" shadow="sm" className="mt-8 p-6 text-center">
           <Shield className="h-5 w-5 text-purple-400 mx-auto mb-2" />
           <p className="text-xs text-star-dust/40 max-w-lg mx-auto">
-            Every application is reviewed with care. The Sanctuary welcomes creators and vendors who share our values of sovereignty, transparency, and non-exploitation.
+            Every application is reviewed with care. The Sanctuary welcomes artisans and merchants who share our values of sovereignty, transparency, and non-exploitation.
           </p>
         </Card>
       </div>

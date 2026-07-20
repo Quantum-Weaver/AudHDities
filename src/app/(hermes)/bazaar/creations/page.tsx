@@ -4,7 +4,7 @@ import { CreationsGallery } from '@/components/asgard/domains/hermes/creations/C
 
 export const metadata = {
   title: 'The Tapestry | Sovereign Sanctuary',
-  description: 'Discover creations from sovereign souls',
+  description: 'Discover works from sovereign souls',
 };
 
 export default function CreationsPage() {

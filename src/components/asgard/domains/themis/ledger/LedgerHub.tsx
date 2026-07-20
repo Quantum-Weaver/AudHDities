@@ -31,6 +31,14 @@ const ENTRY_COLORS: Record<string, string> = {
   infrastructure: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
 };
 
+const ENTRY_TYPE_LABELS: Record<string, string> = {
+  sale: 'exchange',
+  platform_fee: 'platform fee',
+  residual_payout: 'residual distribution',
+  covenant_distribution: 'covenant distribution',
+  infrastructure: 'infrastructure',
+};
+
 export function LedgerHub() {
   const [entries, setEntries] = useState<LedgerEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,7 +93,7 @@ export function LedgerHub() {
             <ArrowLeft className="h-4 w-4" />Return to the Council
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Ledger</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Complete transparency, every transaction visible</p>
+          <p className="text-sm text-star-dust/40 mt-1">Complete transparency, every exchange visible</p>
         </div>
 
         {/* Stats */}
@@ -100,7 +108,7 @@ export function LedgerHub() {
             variant="glass" radius="lg" shadow="sm" className="p-4 text-center">
             <TrendingUp className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
             <p className="text-emerald-400 font-bold text-lg">{stats.salesCount}</p>
-            <p className="text-xs text-star-dust/40">Transactions</p>
+            <p className="text-xs text-star-dust/40">Exchanges</p>
           </Card>
           <Card data={{ id: 'stat-payouts', type: 'stat', title: 'Payouts', value: stats.payoutCount.toString() }}
             variant="glass" radius="lg" shadow="sm" className="p-4 text-center">
@@ -115,7 +123,7 @@ export function LedgerHub() {
           <div className="text-center py-20">
             <FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg">The ledger awaits its first entry</p>
-            <p className="text-star-dust/30 text-sm">Transactions will appear here when the economy begins to flow.</p>
+            <p className="text-star-dust/30 text-sm">Exchanges will appear here when the economy begins to flow.</p>
           </div>
         )}
 
@@ -128,7 +136,7 @@ export function LedgerHub() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', ENTRY_COLORS[entry.entry_type] || '')}>
-                      {entry.entry_type?.replace(/_/g, ' ')}
+                      {ENTRY_TYPE_LABELS[entry.entry_type] || entry.entry_type?.replace(/_/g, ' ')}
                     </Badge>
                     <div>
                       <p className="text-sm text-star-dust">{entry.description}</p>
@@ -152,7 +160,7 @@ export function LedgerHub() {
           variant="glass" radius="lg" shadow="sm" className="mt-8 p-6 text-center">
           <Eye className="h-5 w-5 text-purple-400 mx-auto mb-2" />
           <p className="text-xs text-star-dust/40 max-w-lg mx-auto">
-            Every transaction is public. Every fee is visible. Every payout is recorded. This is the covenant of transparency.
+            Every exchange is public. Every fee is visible. Every distribution is recorded. This is the covenant of transparency.
           </p>
         </Card>
       </div>

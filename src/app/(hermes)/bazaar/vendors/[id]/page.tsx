@@ -3,7 +3,7 @@ import { Page } from '@/components/bifrost/Page';
 import { VendorDetail } from '@/components/asgard/domains/hermes/vendors/VendorDetail';
 
 export const metadata = {
-  title: 'Vendor | The Guild | Sovereign Sanctuary',
+  title: 'Merchant | The Guild | Sovereign Sanctuary',
   description: 'A sovereign business',
 };
 

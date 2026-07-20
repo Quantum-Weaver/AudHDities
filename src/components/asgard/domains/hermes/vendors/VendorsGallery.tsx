@@ -61,12 +61,12 @@ export function VendorsGallery() {
             <ArrowLeft className="h-4 w-4" />Return to the Bazaar
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Guild</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Meet the vendors of the Sanctuary</p>
+          <p className="text-sm text-star-dust/40 mt-1">Meet the merchants of the Sanctuary</p>
         </div>
 
         <div className="relative mb-8">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
-          <input type="text" placeholder="Search vendors..." value={searchTerm}
+          <input type="text" placeholder="Search merchants..." value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none"
           />

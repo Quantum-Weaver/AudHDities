@@ -66,7 +66,7 @@ export function PriceBreakdown({
         
         {/* Creator Earnings */}
         <div className="flex justify-between items-center pb-2 border-b border-[var(--color-star-dust)]/10">
-          <span className="text-[var(--color-star-dust)]/60">Creator Earnings</span>
+          <span className="text-[var(--color-star-dust)]/60">Artisan Earnings</span>
           <span className="text-[var(--color-sanctuary-green)] font-medium">{formatPrice(creatorEarnings)}</span>
         </div>
         
@@ -107,7 +107,7 @@ export function PriceBreakdown({
                     <Info size={14} className="text-[var(--color-star-dust)]/30" />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p className="text-sm">Additional fee for corporate/non-aligned purchases. Funds community access.</p>
+                    <p className="text-sm">Additional fee for corporate/non-aligned exchanges. Funds community access.</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -126,7 +126,7 @@ export function PriceBreakdown({
       {/* Note about residuals */}
       {showResidualPool && residualPoolPercent > 0 && (
         <p className="text-xs text-[var(--color-star-dust)]/30 text-center mt-4">
-          * {residualPoolPercent}% of platform fees go to contributors who helped create this product — forever
+          * {residualPoolPercent}% of platform fees go to contributors who helped create this work — forever
         </p>
       )}
     </Card>

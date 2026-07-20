@@ -31,22 +31,22 @@ export function CheckoutHub() {
           shadow="sm"
           className="p-6 mb-6"
         >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">How Purchases Work</h2>
+          <h2 className="text-lg font-semibold text-star-dust mb-4">How Exchanges Work</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="text-center">
               <Package className="h-8 w-8 text-neurospark mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">1. Choose</h3>
-              <p className="text-xs text-star-dust/50">Browse the Tapestry and find a creation you love.</p>
+              <p className="text-xs text-star-dust/50">Browse the Tapestry and find a work you love.</p>
             </div>
             <div className="text-center">
               <CreditCard className="h-8 w-8 text-purple-400 mx-auto mb-2" />
-              <h3 className="text-sm font-medium text-star-dust mb-1">2. Purchase</h3>
+              <h3 className="text-sm font-medium text-star-dust mb-1">2. Bring home</h3>
               <p className="text-xs text-star-dust/50">Secure payment via Stripe. Tiered pricing based on your journey.</p>
             </div>
             <div className="text-center">
               <Shield className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">3. Circulate</h3>
-              <p className="text-xs text-star-dust/50">90% to creator. 10% platform fee — up to 50% flows to contributors forever.</p>
+              <p className="text-xs text-star-dust/50">90% to artisan. 10% platform fee — up to 50% flows to contributors forever.</p>
             </div>
           </div>
         </Card>
@@ -66,7 +66,7 @@ export function CheckoutHub() {
               <span className="text-neurospark font-medium">10%</span>
             </div>
             <div className="flex justify-between py-2 border-b border-white/5">
-              <span className="text-star-dust/60">Creator Share</span>
+              <span className="text-star-dust/60">Artisan Share</span>
               <span className="text-purple-400 font-medium">90%</span>
             </div>
             <div className="flex justify-between py-2 border-b border-white/5">
@@ -88,7 +88,7 @@ export function CheckoutHub() {
             </Button>
           </Link>
           <p className="text-xs text-star-dust/30 mt-4">
-            Checkout happens on each creation's page. Find something that calls to you.
+            The Exchange completes on each work's page. Find something that calls to you.
           </p>
         </div>
       </div>

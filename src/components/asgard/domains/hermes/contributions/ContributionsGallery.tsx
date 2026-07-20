@@ -53,7 +53,7 @@ export function ContributionsGallery() {
           return (
             <Card key={i.contributions_id} data={cd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
               <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[i.contribution_type] || ''}`}>{i.contribution_type}</Badge><span className="flex items-center gap-1 text-neurospark font-bold"><Percent size={14} />{i.percent_share}%</span></div>
-              <p className="text-sm text-star-dust/50">Product: {i.product_id}</p>
+              <p className="text-sm text-star-dust/50">Work: {i.product_id}</p>
               <div className="flex gap-2 mt-3">{i.is_residual_eligible && <Badge variant="outline" size="sm" className="text-[10px] bg-emerald-500/20 text-emerald-400">Residual</Badge>}{i.is_one_time && <Badge variant="outline" size="sm" className="text-[10px] bg-amber-500/20 text-amber-400">One-Time</Badge>}</div>
             </Card>
           );

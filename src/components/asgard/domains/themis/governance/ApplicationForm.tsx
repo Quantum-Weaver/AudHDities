@@ -374,7 +374,7 @@ export function ApplicationForm({
         <p className="text-star-dust/60 mb-6">
           You already have a pending application. Our council will review it shortly.
         </p>
-        <Button onClick={onCancel}>Return to Dashboard</Button>
+        <Button onClick={onCancel}>Return to your realms</Button>
       </Card>
     );
   }
@@ -385,10 +385,10 @@ export function ApplicationForm({
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-star-dust mb-2">
-          {applicationType === "creator" ? "Creator Application" : "Vendor Application"}
+          {applicationType === "creator" ? "Artisan Application" : "Merchant Application"}
         </h1>
         <p className="text-star-dust/60">
-          Join the Sanctuary as a sovereign {applicationType}
+          Join the Sanctuary as a sovereign {applicationType === "creator" ? "artisan" : "merchant"}
         </p>
       </div>
 
@@ -435,7 +435,7 @@ export function ApplicationForm({
         <div>
           <Input
             name="business_name"
-            label={applicationType === "creator" ? "Creator Name" : "Business Name"}
+            label={applicationType === "creator" ? "Artisan Name" : "Business Name"}
             required
             value={formData.business_name}
             onChange={(e) => updateField("business_name", e.target.value)}

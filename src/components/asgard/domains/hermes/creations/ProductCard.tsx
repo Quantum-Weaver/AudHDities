@@ -95,7 +95,7 @@ function ProductCardGrid({ product, onSelect }: { product: WaresRow; onSelect?: 
       <CardFooter
         actions={[
           <Button key="acquire" variant="primary" size="sm" fullWidth>
-            {product.pricing_model === 'free' ? 'Access Free' : 'Acquire'}
+            {product.pricing_model === 'free' ? 'Receive' : 'Bring home'}
           </Button>,
         ]}
       />
@@ -186,7 +186,7 @@ function ProductCardFeatured({ product, onSelect }: { product: WaresRow; onSelec
             {priceLabel(product)}
           </span>
           {product.pricing_model === 'fixed' && (
-            <Badge variant="ghost" size="sm">Solidarity pricing applied at checkout</Badge>
+            <Badge variant="ghost" size="sm">Solidarity pricing applied at the Exchange</Badge>
           )}
           {product.pricing_model === 'pay_what_you_want' && (
             <Badge variant="ghost" size="sm">Pay what you want</Badge>
@@ -208,7 +208,7 @@ function ProductCardFeatured({ product, onSelect }: { product: WaresRow; onSelec
       <CardFooter
         actions={[
           <Button key="acquire" variant="primary" size="lg" fullWidth>
-            {product.pricing_model === 'free' ? 'Access Free' : 'Acquire'}
+            {product.pricing_model === 'free' ? 'Receive' : 'Bring home'}
           </Button>,
         ]}
       />

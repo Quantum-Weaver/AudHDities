@@ -36,7 +36,7 @@ export function CheckoutButton({
 
   const handleCheckout = async () => {
     setLocalError(null);
-    if (!isAvailable) { setLocalError('This ware is not available for purchase'); return; }
+    if (!isAvailable) { setLocalError('This ware is not available'); return; }
     if (!user) {
       sessionStorage.setItem('pendingPurchase', JSON.stringify({ id: product.id, quantity: 1 }));
       router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
@@ -50,10 +50,10 @@ export function CheckoutButton({
   return (
     <div className="space-y-2">
       <Button onClick={handleCheckout} disabled={loading || !isAvailable} variant={variant} size={size} className={className}>
-        {loading ? (<><Loader2 size={18} className="mr-2 animate-spin" />Processing...</>) : (<><CreditCard size={18} className="mr-2" />{children || (price ? `Purchase $${price.toFixed(2)}` : 'Purchase')}</>)}
+        {loading ? (<><Loader2 size={18} className="mr-2 animate-spin" />Processing...</>) : (<><CreditCard size={18} className="mr-2" />{children || (price ? `Bring home $${price.toFixed(2)}` : 'Bring home')}</>)}
       </Button>
       {displayError && <p className="text-sm text-error">{displayError}</p>}
-      {!isAvailable && !displayError && <p className="text-sm text-warning">This ware is currently not available for purchase</p>}
+      {!isAvailable && !displayError && <p className="text-sm text-warning">This ware is currently not available</p>}
     </div>
   );
 }

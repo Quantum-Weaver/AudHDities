@@ -83,14 +83,14 @@ export default function BusinessPlanPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <Card 
-                data={{ id: 'pillar-data', type: 'pillar', title: 'Data Ownership', description: 'Users retain full ownership of their data.' }}
+              <Card
+                data={{ id: 'pillar-data', type: 'pillar', title: 'Data Ownership', description: 'Vessels retain full ownership of their data.' }}
                 variant="glass" radius="lg" shadow="md"
                 className="p-6 border-l-4 border-l-neurospark"
               >
                 <Eye className="text-neurospark mb-4" size={28} />
                 <h3 className="text-xl font-bold text-star-dust mb-2">Data Ownership</h3>
-                <p className="text-star-dust/60">Users retain full ownership of their data. Compensated for opt-in advertisements.</p>
+                <p className="text-star-dust/60">Vessels retain full ownership of their data. Compensated for opt-in exchanges.</p>
               </Card>
               <Card 
                 data={{ id: 'pillar-creator', type: 'pillar', title: 'Creator Empowerment', description: 'Set your own pricing.' }}

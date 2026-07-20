@@ -5,7 +5,7 @@
 Prometheus is the creative heart of the Sanctuary. It splits into two realms:
 
 - **The Stage** — where sovereign souls share their gifts through live performance, comedy, music, and recorded events
-- **The Studio** — where creators weave their offerings using nine specialized creative tools
+- **The Studio** — where artisans weave their offerings using nine specialized creative tools
 
 ## Architecture
 
@@ -108,24 +108,24 @@ text
 ### Studio
 | Table | Purpose |
 |-------|---------|
-| `products` | Creations listed in the Bazaar |
+| `wares` | Creations listed in the Bazaar |
 | `media_uploads` | Files uploaded during creation |
-| `creator_profiles` | Creator identity and settings |
+| `creator_profiles` | Artisan identity and settings |
 
 ## Environment Integration
 
 - **Stage pages** use `music` environment for energy and flow, `lounge` for intimate performances, `community` for social scheduling
 - **Studio pages** use `music` for creative flow, `architecture` for precision tools, `library` for focused writing, `home` for the export gateway
-- All environments respect user's `preferred_environment` setting via the Page component
+- All environments respect the vessel's `preferred_environment` setting via the Page component
 
 ## Access Control
 
 | Area | Access |
 |------|--------|
-| Stage — viewing | All authenticated users |
-| Stage — performing | Creator or Vendor tier |
-| Studio — creation | Creator or Vendor tier (`is_creator = true` or `is_vendor = true`) |
-| Studio — export | Creator or Vendor tier |
+| Stage — viewing | All authenticated vessels |
+| Stage — performing | Artisan or Merchant tier |
+| Studio — creation | Artisan or Merchant tier (`is_creator = true` or `is_vendor = true`) |
+| Studio — export | Artisan or Merchant tier |
 
 ## Session Vector
 

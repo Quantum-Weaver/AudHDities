@@ -4,7 +4,7 @@ import { Page } from '@/components/bifrost/Page';
 import { AcidTestLoader } from '@/components/asgard/domains/mnemosyne/assessment/AcidTestLoader';
 
 export const metadata: Metadata = {
-  title: 'Acid Test | AUDHDITIES',
+  title: 'The Acid Test | Sovereign Sanctuary',
   description: 'A playful, gentle survey that determines your access tier. No judgment. No labels. Just recognition.',
 };
 

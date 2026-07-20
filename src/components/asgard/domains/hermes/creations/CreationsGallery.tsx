@@ -106,13 +106,13 @@ export function CreationsGallery() {
             <ArrowLeft className="h-4 w-4" />Return to the Bazaar
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Tapestry</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Discover creations from sovereign souls</p>
+          <p className="text-sm text-star-dust/40 mt-1">Discover works from sovereign souls</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
-            <input type="text" placeholder="Search creations..." value={searchTerm}
+            <input type="text" placeholder="Search works..." value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none"
             />
@@ -132,7 +132,7 @@ export function CreationsGallery() {
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
             <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No creations match' : 'The tapestry awaits its first threads'}</p>
+            <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No works match' : 'The tapestry awaits its first threads'}</p>
           </div>
         )}
 

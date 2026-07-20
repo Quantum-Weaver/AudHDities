@@ -52,7 +52,7 @@ export function CreationDetail() {
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-          <p className="text-star-dust/40">This creation has been unwoven.</p>
+          <p className="text-star-dust/40">This work has been unwoven.</p>
           <Link href="/bazaar/creations" className="text-neurospark hover:underline mt-4 inline-block">Return to the Tapestry</Link>
         </div>
       </main>
@@ -104,7 +104,7 @@ export function CreationDetail() {
           )}
 
           <div className="flex gap-3 mt-6">
-            <Button variant="primary" size="md">Purchase</Button>
+            <Button variant="primary" size="md">Receive</Button>
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
           </div>
         </Card>

@@ -25,7 +25,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 const PRODUCT_TYPES = [
   { value: 'digital_download', label: 'Digital Download' },
   { value: 'digital_course', label: 'Digital Course' },
-  { value: 'physical_product', label: 'Physical Product' },
+  { value: 'physical_product', label: 'Physical' },
   { value: 'audio', label: 'Audio' },
   { value: 'video', label: 'Video' },
   { value: 'music', label: 'Music' },
@@ -133,7 +133,7 @@ export function StudioEdit() {
       const result = await response.json();
 
       if (result.success) {
-        setSaveMessage('Creation updated.');
+        setSaveMessage('Work updated.');
         setTimeout(() => {
           router.push(`/bazaar/creations/${product.products_id}`);
         }, 800);
@@ -185,7 +185,7 @@ export function StudioEdit() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <p className="text-star-dust/40">This creation has been unwoven.</p>
+          <p className="text-star-dust/40">This work has been unwoven.</p>
           <Link href="/bazaar" className="text-neurospark hover:underline mt-4 inline-block">Return to the Bazaar</Link>
         </div>
       </main>
@@ -211,7 +211,7 @@ export function StudioEdit() {
               className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to creation
+              Back to work
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Refine Your Thread</h1>
             <p className="text-sm text-star-dust/40 mt-1">{product.title}</p>
@@ -247,7 +247,7 @@ export function StudioEdit() {
               <Input
                 name="description"
                 defaultValue={product.description || ''}
-                placeholder="Describe your creation..."
+                placeholder="Describe your work..."
                 disabled={isSaving}
               />
             </FormField>
@@ -333,13 +333,13 @@ export function StudioEdit() {
                   className="flex items-center gap-2 text-sm text-error/60 hover:text-error transition-colors"
                 >
                   <Trash2 className="h-4 w-4" />
-                  Unweave this creation
+                  Unweave this work
                 </button>
               </div>
             ) : (
               <div className="border-t border-error/20 pt-6 mt-2 mb-4">
                 <p className="text-sm text-star-dust/60 mb-3">
-                  This creation will be permanently unwoven. This cannot be undone.
+                  This work will be permanently unwoven. This cannot be undone.
                 </p>
                 <div className="flex gap-3">
                   <Button

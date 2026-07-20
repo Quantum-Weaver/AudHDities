@@ -48,7 +48,7 @@ const SECTIONS = [
   },
   {
     title: 'The Ledger',
-    description: 'Complete transparency, every transaction visible',
+    description: 'Complete transparency, every exchange visible',
     href: '/council/ledger',
     icon: FileText,
     color: 'text-teal-400',
@@ -73,7 +73,7 @@ const SECTIONS = [
   },
   {
     title: 'Applications',
-    description: 'Review creator, vendor, and curator applications',
+    description: 'Review artisan, merchant, and curator applications',
     href: '/council/applications',
     icon: UserCheck,
     color: 'text-indigo-400',

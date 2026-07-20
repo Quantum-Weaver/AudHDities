@@ -75,7 +75,7 @@ export function CreatorDetail() {
                 <h1 className="text-2xl font-bold text-star-dust">{creator.creator_moniker}</h1>
                 {creator.verified_badge && <Shield size={18} className="text-neurospark" />}
               </div>
-              <p className="text-sm text-star-dust/40">Creator</p>
+              <p className="text-sm text-star-dust/40">Weaver</p>
             </div>
           </div>
 
@@ -96,14 +96,14 @@ export function CreatorDetail() {
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <Package className="h-5 w-5 text-neurospark mx-auto mb-1" />
                 <p className="text-neurospark font-bold text-lg">{creator.total_products}</p>
-                <p className="text-xs text-star-dust/40">Creations</p>
+                <p className="text-xs text-star-dust/40">Works</p>
               </div>
             )}
             {creator.total_sales !== null && (
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <Shield className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
                 <p className="text-emerald-400 font-bold text-lg">{creator.total_sales}</p>
-                <p className="text-xs text-star-dust/40">Sales</p>
+                <p className="text-xs text-star-dust/40">Exchanges</p>
               </div>
             )}
             {creator.default_residual_pool !== null && (
@@ -127,7 +127,7 @@ export function CreatorDetail() {
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
             >
               <Package size={14} />
-              View all {creator.total_products} creations by {creator.creator_moniker}
+              View all {creator.total_products} works by {creator.creator_moniker}
             </Link>
           )}
 

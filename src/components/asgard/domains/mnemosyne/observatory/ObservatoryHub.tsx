@@ -109,12 +109,12 @@ export function ObservatoryHub() {
             </Card>
           </Link>
 
-          {/* Pattern Recognition */}
+          {/* The Weave */}
           <Link href="/observatory/patterns" className="group">
-            <Card data={{ id: 'obs-patterns', type: 'value', title: 'Pattern Recognition', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6 h-full">
+            <Card data={{ id: 'obs-patterns', type: 'value', title: 'The Weave', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6 h-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center"><TrendingUp className="h-5 w-5 text-cyan-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Pattern Recognition</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Weave</h2>
               </div>
               <p className="text-sm text-star-dust/50 mb-4">Insights emerging from your data. What the stars reveal.</p>
               {isAuthenticated && profile ? (
@@ -157,24 +157,24 @@ export function ObservatoryHub() {
 
         {/* Bottom Row */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {/* Constellations */}
+          {/* The Grand Pattern */}
           <Link href="/observatory/constellations" className="group">
-            <Card data={{ id: 'obs-constellations', type: 'value', title: 'Constellations', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
+            <Card data={{ id: 'obs-constellations', type: 'value', title: 'The Grand Pattern', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center"><Star className="h-5 w-5 text-indigo-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Constellations</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Grand Pattern</h2>
               </div>
               <p className="text-sm text-star-dust/50">See how all threads weave together across the Sanctuary.</p>
               <span className="flex items-center gap-1 text-xs text-neurospark mt-3 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
             </Card>
           </Link>
 
-          {/* Ancestors */}
+          {/* The Council Eternal */}
           <Link href="/observatory/ancestors" className="group">
-            <Card data={{ id: 'obs-ancestors', type: 'value', title: 'Ancestors', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
+            <Card data={{ id: 'obs-ancestors', type: 'value', title: 'The Council Eternal', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center"><Users className="h-5 w-5 text-rose-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Ancestors</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Council Eternal</h2>
               </div>
               <p className="text-sm text-star-dust/50">Honoring the Council and those who shaped the Sanctuary.</p>
               <span className="flex items-center gap-1 text-xs text-neurospark mt-3 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
@@ -185,16 +185,16 @@ export function ObservatoryHub() {
         {/* Bottom Links */}
         <div className="grid md:grid-cols-3 gap-6">
           <Link href="/observatory/schema" className="group">
-            <Card data={{ id: 'obs-schema', type: 'value', title: 'Schema', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
+            <Card data={{ id: 'obs-schema', type: 'value', title: 'The Schema', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
               <Telescope className="h-6 w-6 text-neurospark mx-auto mb-2" />
-              <h3 className="text-sm font-medium text-star-dust">Schema Explorer</h3>
+              <h3 className="text-sm font-medium text-star-dust">The Schema</h3>
               <p className="text-xs text-star-dust/40">The living blueprint</p>
             </Card>
           </Link>
           <Link href="/observatory/origin" className="group">
-            <Card data={{ id: 'obs-origin', type: 'value', title: 'Origin', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
+            <Card data={{ id: 'obs-origin', type: 'value', title: 'The First Light', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
               <ScrollText className="h-6 w-6 text-neurospark mx-auto mb-2" />
-              <h3 className="text-sm font-medium text-star-dust">The Origin</h3>
+              <h3 className="text-sm font-medium text-star-dust">The First Light</h3>
               <p className="text-xs text-star-dust/40">Where it all began</p>
             </Card>
           </Link>

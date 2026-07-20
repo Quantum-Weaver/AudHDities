@@ -11,7 +11,7 @@ const SECTIONS = [
   { title: 'The Curriculum', description: 'Structured courses for deep learning', href: '/library/courses', icon: GraduationCap, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
   { title: 'The Lessons', description: 'Individual lessons across all domains', href: '/library/lessons', icon: FileText, color: 'text-purple-400', bg: 'bg-purple-500/10' },
   { title: 'The Archive', description: 'Mythology, taxonomy, and ancient wisdom', href: '/library/knowledge', icon: BookOpen, color: 'text-rose-400', bg: 'bg-rose-500/10' },
-  { title: 'The Honors', description: 'Badges earned through sovereignty', href: '/library/badges', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+  { title: 'The Honors', description: 'Sigils earned through sovereignty', href: '/library/badges', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
   { title: 'The Floating Stars', description: 'Collect bubbles and earn points', href: '/library/bubbles', icon: Droplets, color: 'text-teal-400', bg: 'bg-teal-500/10' },
 ];
 

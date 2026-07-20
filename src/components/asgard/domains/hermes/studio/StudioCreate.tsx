@@ -25,7 +25,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 const PRODUCT_TYPES = [
   { value: 'digital_download', label: 'Digital Download' },
   { value: 'digital_course', label: 'Digital Course' },
-  { value: 'physical_product', label: 'Physical Product' },
+  { value: 'physical_product', label: 'Physical' },
   { value: 'audio', label: 'Audio' },
   { value: 'video', label: 'Video' },
   { value: 'music', label: 'Music' },
@@ -97,10 +97,10 @@ export function StudioCreate() {
           router.push(`/bazaar/creations/${productId}`);
         }
       } else {
-        setSaveMessage(result.error || 'Failed to create product');
+        setSaveMessage(result.error || 'Failed to create work');
       }
     } catch (err) {
-      setSaveMessage('Failed to create product. Please try again.');
+      setSaveMessage('Failed to create work. Please try again.');
     } finally {
       setIsSaving(false);
     }
@@ -136,7 +136,7 @@ export function StudioCreate() {
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Sparkles className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
           <p className="text-star-dust/40 text-lg mb-2">The Loom awaits your application</p>
-          <p className="text-star-dust/30 text-sm mb-6">Apply to become a creator to start weaving your offerings.</p>
+          <p className="text-star-dust/30 text-sm mb-6">Apply to become an artisan to start weaving your works.</p>
           <Link href="/council/applications">
             <Button variant="primary">Apply to Create</Button>
           </Link>
@@ -148,7 +148,7 @@ export function StudioCreate() {
   const cardData: CardData = {
     id: 'new-product',
     type: 'product',
-    title: 'New Creation',
+    title: 'New Work',
   };
 
   return (
@@ -165,7 +165,7 @@ export function StudioCreate() {
             Return to the Bazaar
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Loom</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Every creation begins with a single thread</p>
+          <p className="text-sm text-star-dust/40 mt-1">Every work begins with a single thread</p>
         </div>
 
         {/* Form Card */}
@@ -187,10 +187,10 @@ export function StudioCreate() {
             </FormField>
 
             {/* Description */}
-            <FormField label="Description" optional helper="Tell buyers what this is and why it matters">
+            <FormField label="Description" optional helper="Tell vessels what this is and why it matters">
               <Input
                 name="description"
-                placeholder="Describe your creation..."
+                placeholder="Describe your work..."
                 disabled={isSaving}
               />
             </FormField>
@@ -244,7 +244,7 @@ export function StudioCreate() {
             <FormField
               label="Residual Pool"
               optional
-              helper="Percentage of platform fee shared with contributors who helped create this product"
+              helper="Percentage of platform fee shared with contributors who helped create this work"
             >
               <Select
                 name="residual_pool_percent"
@@ -289,7 +289,7 @@ export function StudioCreate() {
                   ) : (
                     <Eye className="h-4 w-4 mr-2" />
                   )}
-                  {isDraft ? 'Save Draft' : 'Publish Creation'}
+                  {isDraft ? 'Save Draft' : 'Publish Work'}
                 </Button>
                 <Button
                   type="button"

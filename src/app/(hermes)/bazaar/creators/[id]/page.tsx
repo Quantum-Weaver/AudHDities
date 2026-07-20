@@ -3,7 +3,7 @@ import { Page } from '@/components/bifrost/Page';
 import { CreatorDetail } from '@/components/asgard/domains/hermes/creators/CreatorDetail';
 
 export const metadata = {
-  title: 'Creator | The Weavers | Sovereign Sanctuary',
+  title: 'Weaver | The Weavers | Sovereign Sanctuary',
   description: 'A sovereign journey',
 };
 

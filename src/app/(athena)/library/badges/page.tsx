@@ -4,7 +4,7 @@ import { BadgesGallery } from '@/components/asgard/domains/athena/badges/BadgesG
 
 export const metadata = {
   title: 'The Honors | Sovereign Sanctuary',
-  description: 'Badges earned through sovereignty',
+  description: 'Sigils earned through sovereignty',
 };
 
 export default function BadgesPage() {

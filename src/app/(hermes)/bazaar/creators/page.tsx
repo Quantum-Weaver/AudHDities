@@ -4,7 +4,7 @@ import { CreatorsGallery } from '@/components/asgard/domains/hermes/creators/Cre
 
 export const metadata = {
   title: 'The Weavers | Sovereign Sanctuary',
-  description: 'Meet the creators of the Sanctuary',
+  description: 'Meet the artisans of the Sanctuary',
 };
 
 export default function CreatorsPage() {

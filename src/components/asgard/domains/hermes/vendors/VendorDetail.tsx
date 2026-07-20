@@ -103,14 +103,14 @@ export function VendorDetail() {
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <Package className="h-5 w-5 text-neurospark mx-auto mb-1" />
                 <p className="text-neurospark font-bold text-lg">{vendor.total_products}</p>
-                <p className="text-xs text-star-dust/40">Products</p>
+                <p className="text-xs text-star-dust/40">Wares</p>
               </div>
             )}
             {vendor.total_sales !== null && (
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <Shield className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
                 <p className="text-emerald-400 font-bold text-lg">{vendor.total_sales}</p>
-                <p className="text-xs text-star-dust/40">Sales</p>
+                <p className="text-xs text-star-dust/40">Exchanges</p>
               </div>
             )}
           </div>
@@ -128,7 +128,7 @@ export function VendorDetail() {
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
             >
               <Package size={14} />
-              View all {vendor.total_products} products
+              View all {vendor.total_products} wares
             </Link>
           )}
           

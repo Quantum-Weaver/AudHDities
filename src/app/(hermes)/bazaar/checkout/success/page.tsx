@@ -4,8 +4,8 @@ import { Page } from "@/components/bifrost/Page";
 import { CheckoutForm } from "@/components/asgard/domains/hermes/checkout/CheckoutForm";
 
 export const metadata = {
-  title: "Checkout Success | Sovereign Sanctuary",
-  description: "Your purchase was successful",
+  title: "Taken Into Your Keeping | The Exchange | Sovereign Sanctuary",
+  description: "Your exchange is complete",
 };
 
 export default function CheckoutSuccessPage() {

@@ -33,8 +33,8 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
   useEffect(() => {
     if (!effectiveSessionId) {
       setStatus("error");
-      setErrorMessage("No checkout session found");
-      onError?.("No checkout session found");
+      setErrorMessage("No exchange session found");
+      onError?.("No exchange session found");
       return;
     }
 
@@ -45,7 +45,7 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
         const response = await fetch(`/api/checkout/session/${effectiveSessionId}`);
         const data = await response.json();
 
-        if (!response.ok) throw new Error(data.error || "Failed to verify checkout");
+        if (!response.ok) throw new Error(data.error || "Could not confirm the exchange");
 
         if (data.payment_status === "paid") {
           setStatus("success");
@@ -53,8 +53,8 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
           if (interval) clearInterval(interval);
         } else if (data.status === "expired") {
           setStatus("error");
-          setErrorMessage("Checkout session expired");
-          onError?.("Checkout session expired");
+          setErrorMessage("This exchange session expired");
+          onError?.("This exchange session expired");
           if (interval) clearInterval(interval);
         } else {
           setStatus("pending");
@@ -83,7 +83,7 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       <Card data={{ id: 'checkout-verify', type: 'value', title: 'Verifying Payment', value: '' }} variant="default" radius="lg" shadow="md" className="p-8 text-center">
         <Spinner className="w-8 h-8 mx-auto mb-4" />
         <h2 className="text-xl font-semibold text-star-dust mb-2">Verifying Payment</h2>
-        <p className="text-star-dust/60">Please wait while we confirm your transaction...</p>
+        <p className="text-star-dust/60">Please wait while we confirm your exchange...</p>
       </Card>
     );
   }
@@ -119,11 +119,11 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       <div className="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4">
         <CheckCircle className="w-6 h-6 text-success" />
       </div>
-      <h2 className="text-xl font-semibold text-star-dust mb-2">Payment Successful!</h2>
-      <p className="text-star-dust/60 mb-4">Your transaction has been completed successfully.</p>
+      <h2 className="text-xl font-semibold text-star-dust mb-2">Taken into your keeping</h2>
+      <p className="text-star-dust/60 mb-4">Your exchange is complete.</p>
       <div className="flex gap-3 justify-center">
-        <Button onClick={() => router.push("/bazaar/creations")}>Continue Shopping</Button>
-        <Button variant="outline" onClick={() => router.push("/vessel")}>View My Purchases</Button>
+        <Button onClick={() => router.push("/bazaar/creations")}>Return to the Tapestry</Button>
+        <Button variant="outline" onClick={() => router.push("/vessel")}>View your keeping</Button>
       </div>
     </Card>
   );
