@@ -13,12 +13,21 @@ import {
 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
+// (earlier today) removed this fetch believing no living home existed; the
+// conductor's genealogy check found it living under its settled name,
+// `current` (sovereign_id-scoped). `current` carries no `title` field (that
+// only existed on the old table) — the preview line below falls back to a
+// humanized `event_type` when `description` is empty, honestly.
 interface TimelineEvent {
-  timelines_id: string;
-  title: string;
+  id: string;
   description: string | null;
   event_type: string;
-  occurred_at: string;
+  event_at: string;
+}
+
+function humanizeEventType(type: string): string {
+  return type.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 interface SigilItem {
@@ -37,17 +46,18 @@ export function ObservatoryHub() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    // MEND-LAW 2026-07-20: hestia-core/timelines has no living equivalent — verified
-    // against database.types.ts, no table anywhere still carries a per-vessel
-    // event_type/occurred_at shape. Rather than fake a 404-driven spiral preview,
-    // `timeline` stays empty and the existing "Your milestones will appear here"
-    // copy below already reads as the honest empty state.
     Promise.all([
       // badges route is gone — GAIA now emits sigils
       fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
         .then(r => r.json()),
-    ]).then(([sigilRes]) => {
+      // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
+      // conductor's genealogy check found `timelines` living under its settled
+      // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
+      fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=3`)
+        .then(r => r.json()),
+    ]).then(([sigilRes, currentRes]) => {
       if (sigilRes.success) setSigils(sigilRes.data?.data || []);
+      if (currentRes.success) setTimeline(currentRes.data?.data || []);
     }).catch(console.error).finally(() => setLoading(false));
   }, [user]);
 
@@ -97,9 +107,9 @@ export function ObservatoryHub() {
               {isAuthenticated && timeline.length > 0 ? (
                 <div className="space-y-2">
                   {timeline.slice(0, 3).map(t => (
-                    <div key={t.timelines_id} className="text-xs text-star-dust/40 flex items-center gap-2">
+                    <div key={t.id} className="text-xs text-star-dust/40 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-neurospark flex-shrink-0" />
-                      <span className="truncate">{t.title}</span>
+                      <span className="truncate">{t.description || humanizeEventType(t.event_type)}</span>
                     </div>
                   ))}
                 </div>

@@ -18,13 +18,18 @@ import type { CardData } from '@/types/components/runes/card.types';
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
+// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
+// (earlier today) removed this fetch believing no living home existed; the
+// conductor's genealogy check found it living under its settled name,
+// `current` (sovereign_id-scoped). `current` carries no `title` or
+// `significance_score` (those only existed on the old table) — the label
+// below is synthesized from `event_type` via EVENT_TYPE_LABELS, and the ring
+// layout uses recency instead of a significance score it no longer has.
 interface TimelineEvent {
-  timelines_id: string;
+  id: string;
   event_type: string;
-  title: string;
   description: string | null;
-  significance_score: number | null;
-  occurred_at: string;
+  event_at: string;
 }
 
 interface SigilItem {
@@ -131,29 +136,30 @@ function buildConstellation(
   });
 
   // Orbit 1: Timeline events (inner ring)
-  const significantEvents = timeline
-    .filter((e) => (e.significance_score ?? 0) >= 70)
-    .slice(0, 12);
+  // MEND-III 2026-07-20: `current` has no significance_score, so the ring
+  // shows the most recent events (already ordered event_at.desc from the
+  // fetch) at a fixed distance/radius rather than inventing a score.
+  const recentEvents = timeline.slice(0, 12);
 
-  significantEvents.forEach((event, i) => {
-    const angle = (i / Math.max(significantEvents.length, 1)) * Math.PI * 2;
-    const distance = 100 + (event.significance_score ?? 50) * 1.2;
+  recentEvents.forEach((event, i) => {
+    const angle = (i / Math.max(recentEvents.length, 1)) * Math.PI * 2;
+    const distance = 160;
     const x = centerX + Math.cos(angle) * distance;
     const y = centerY + Math.sin(angle) * distance;
 
     nodes.push({
-      id: event.timelines_id,
+      id: event.id,
       x,
       y,
-      label: event.title,
-      radius: 5 + (event.significance_score ?? 50) / 25,
+      label: EVENT_TYPE_LABELS[event.event_type] || event.event_type,
+      radius: 6,
       color: EVENT_TYPE_COLORS[event.event_type] || '#6C5CE7',
     });
 
     edges.push({
       from: 'self',
-      to: event.timelines_id,
-      strength: (event.significance_score ?? 50) / 100,
+      to: event.id,
+      strength: 0.5,
     });
   });
 
@@ -254,11 +260,14 @@ export function ConstellationContent() {
 
     const fetchData = async () => {
       try {
-        // MEND-LAW 2026-07-20: hestia-core/timelines has no living equivalent —
-        // verified against database.types.ts, no table anywhere carries a per-vessel
-        // event_type/significance_score/occurred_at shape anymore. Rather than fake
-        // a 404-driven timeline, we leave it empty and render the honest empty state.
-        // (also dead in TimelineSpiral.tsx and ConstellationDetail.tsx — not mended here, out of license)
+        // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
+        // conductor's genealogy check found `timelines` living under its settled
+        // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
+        const tRes = await fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`);
+        const tData = await tRes.json();
+        if (tData.success) {
+          setTimeline(tData.data?.data || []);
+        }
 
         // Sigils earned by this vessel (badges/user_badges are gone — GAIA now
         // emits vessel_sigils for the earning record and sigils for the definition)
