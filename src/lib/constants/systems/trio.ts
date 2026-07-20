@@ -17,17 +17,30 @@
 // is the one address book the chrome trio (ContinuityBeam + StatusBar + nav)
 // reads to know which realm it is standing in.
 //
-// Known, honest limit (observed, not fixed here — no route changes this
-// pass): Hermes (`/bazaar`) and Iris (`/connect`) both resolve to the
-// `community` EnvironmentKey in page_mapping.ts today, so their beam washes
-// share one gradient. That conflation predates this file; it is named here
-// rather than quietly inherited.
+// THE PIECING LICENSE — FIRST FRUIT (KP, 2026-07-20, verbatim: "i had build an
+// environment variable system you likely have ran across by now, feel free to
+// piece it out"; REIMAGINING-BOARD.md). The honest flag carried from Step 2 —
+// Hermes (`/bazaar`) and Iris (`/connect`) both resolve to the `community`
+// EnvironmentKey in page_mapping.ts, so their beam washes shared ONE gradient —
+// is given its first fix HERE, additively: each realm now carries a DISTINCT
+// beamGradient in the driver map, chosen from the existing GRADIENTS families
+// (no new colors), in its own Feeling register:
+//   · Hermes ("Abundant, curious, playful, connected") → GRADIENTS.hermes,
+//     the deity's own warm/gold gradient — strongest provenance, the god of
+//     the Bazaar wearing his own hue.
+//   · Iris ("Connected, understood, welcomed, celebrated") → GRADIENTS.bifrostDomain,
+//     the rainbow bridge — Iris IS the rainbow bridge of myth; connected,
+//     welcomed, celebrated.
+// This distinguishes their DRIVER-MAP intent now; the runtime page_mapping.ts
+// route→environment share is a route-layer change left for Movement IV (no
+// route changes this pass). Pure reference, no new gradients.
 
 import type { EnvironmentKey } from './assets/mapper';
 import {
   getBeamConfig,
   type BeamIntensity,
 } from '@/lib/constants/components/immersive/continuity_beam';
+import { GRADIENTS } from '@/lib/constants/cosmic/effects';
 import { getStatusBarConfig } from './environments/status_bar';
 
 // ============================================================================
@@ -78,7 +91,10 @@ function buildRealmConfig(
   environment: EnvironmentKey,
   routes: string[],
   feeling: string,
-  subEnvironment?: EnvironmentKey
+  subEnvironment?: EnvironmentKey,
+  /** Piecing-license override: a distinct GRADIENTS reference for realms whose
+   *  environment share would otherwise conflate their beam wash (Hermes, Iris). */
+  beamGradientOverride?: string
 ): RealmTrioConfig {
   const beam = getBeamConfig(environment);
   const statusConfig = getStatusBarConfig(environment);
@@ -87,7 +103,7 @@ function buildRealmConfig(
   return {
     environment,
     subEnvironment,
-    beamGradient: beam.gradient,
+    beamGradient: beamGradientOverride ?? beam.gradient,
     subBeamGradient: subBeam?.gradient,
     beamIntensity: beam.intensity,
     statusBarHeight: statusConfig.height,
@@ -116,12 +132,15 @@ export const REALM_TRIO_MAP: Record<RealmKey, RealmTrioConfig> = {
     'community',
     ['/connect'],
     'Connected, understood, welcomed, celebrated',
-    'support' // The Healing Flame (/connect/support), IRI-1's second wash
+    'support', // The Healing Flame (/connect/support), IRI-1's second wash
+    GRADIENTS.bifrostDomain // piecing-license first fruit: the rainbow bridge (Iris IS the rainbow bridge)
   ),
   hermes: buildRealmConfig(
     'community',
     ['/bazaar'],
-    'Abundant, curious, playful, connected'
+    'Abundant, curious, playful, connected',
+    undefined,
+    GRADIENTS.hermes // piecing-license first fruit: the deity's own warm/gold gradient (was shared `community`)
   ),
   prometheus: buildRealmConfig(
     'music',
