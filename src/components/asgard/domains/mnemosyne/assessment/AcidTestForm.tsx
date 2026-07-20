@@ -380,7 +380,9 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   const handleNext = useCallback(() => {
     const questionType = (currentQuestion?.question_type || '').toLowerCase();
     if (!currentAnswer && questionType !== 'text' && currentQuestion?.is_required !== false) {
-      setError("Please answer the question before continuing.");
+      // MNE-4 register: a gentle pause, not a wall — no exclamation, no
+      // demand. See desk/realm-proposals/mnemosyne.md.
+      setError("This one is waiting for an answer before we continue.");
       return;
     }
 
@@ -407,14 +409,27 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     return <LoadingView className={className} />;
   }
 
+  // MNE-4 — THE ACID TEST AS WELCOME, NOT GATEKEEPING (Shuttle Run 08,
+  // Phase 5, Movement III). Provenance: desk/realm-proposals/mnemosyne.md,
+  // Haiku's MNE-4 — "the test is how the house learns to welcome you, not
+  // a wall." Copy and framing only; the loader/scoring logic beneath is
+  // untouched. This invitational line replaces what would otherwise be an
+  // unstated assessment-tool assumption — shown once, on the first
+  // question, so the house names what the test is before asking anything.
+  const welcomeFraming =
+    "These questions are mirrors. They ask how you experience thought, sensation, time, and connection. Your answers belong only to you.";
+
   return (
     <Card
-      data={{ id: 'acid-test-form', type: 'value', title: 'Acid Test', value: currentQuestion?.question_text || '' }}
+      data={{ id: 'acid-test-form', type: 'value', title: 'The Acid Test', value: currentQuestion?.question_text || '' }}
       variant="glass"
       radius="lg"
       shadow="md"
       className={cn("p-6 md:p-8", className)}
     >
+      {isFirstQuestion && (
+        <p className="text-star-dust/60 text-sm mb-6">{welcomeFraming}</p>
+      )}
       <ProgressIndicator current={currentIndex} total={questions.length} />
 
       <div className="mt-8 space-y-6">

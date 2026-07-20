@@ -69,11 +69,16 @@ export default function AuthenticatedGreeting() {
           </Avatar>
           {/* Greeting & Details */}
           <div className="flex-1 min-w-0">
+            {/* Fáilte — the Hearth's own greeting, distinct from Velkomin
+                (the door's word, fired once at the crossing). A noun that
+                cannot infer: no "back," no tense, true every visit. See
+                home.constants.ts HOME_LABELS.HEARTH_GREETING for full
+                provenance. */}
+            <p className="text-xs font-medium uppercase tracking-widest text-neurospark/70 mb-1">
+              {HOME_LABELS.HEARTH_GREETING}
+            </p>
             <h2 className="text-xl font-semibold text-star-dust">
-              {HOME_LABELS.GREETING_PREFIX}{' '}
-              <span className="text-neurospark">
-                {profile.display_name || profile.slug || HOME_LABELS.GREETING_FALLBACK}
-              </span>
+              {profile.display_name || profile.slug || HOME_LABELS.GREETING_FALLBACK}
             </h2>
 
             {profile.bio && (

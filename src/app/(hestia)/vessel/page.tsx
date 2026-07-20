@@ -4,6 +4,7 @@
 
 import { Page } from '@/components/bifrost/Page';
 import { VesselContent } from '@/components/asgard/domains/hestia/vessel/VesselContent';
+import VelkominGreeting from '@/components/asgard/auth/VelkominGreeting';
 
 export const metadata = {
   title: 'The Vessel | Sovereign Sanctuary',
@@ -12,18 +13,26 @@ export const metadata = {
 
 export default function VesselPage() {
   return (
-    <Page 
+    <Page
       showForeground={false}
       showContinuityBeam={true}
     >
+      {/* ══════════════════════════════════════════════════════════════ */}
+      {/* VELKOMIN — the door's word, once per crossing (Movement III,   */}
+      {/* THE THRESHOLDS). /vessel is AUTH_ROUTES.DASHBOARD's honest      */}
+      {/* landing — the convergence point for both a returning login and */}
+      {/* a fresh signup's Acid Test completion. See VelkominGreeting.tsx */}
+      {/* for the full provenance and the sessionStorage crossing gate.  */}
+      {/* ══════════════════════════════════════════════════════════════ */}
+      <VelkominGreeting />
       <main className="min-h-screen py-12 ">
         <div className="min-h-auto relative">
-          <div 
-            className="absolute inset-0" 
-            style={{ 
+          <div
+            className="absolute inset-0"
+            style={{
               background: 'var(--gradient-weaver)',
               opacity: 0.75
-            }} 
+            }}
           />
             <div className="relative z-10 container max-w-4xl mx-auto px-6">
             <VesselContent />
