@@ -10,6 +10,7 @@ import { Form, FormActions } from "@/components/forging/Form";
 import { FormField } from "@/components/forging/FormField";
 import { Alert } from "@/components/seidr/Alert";
 import { Button } from "@/components/yggdrasil/Button";
+import { pwnedCount, PWNED_MESSAGE } from "@/lib/auth/pwned";
 
 interface SignupFormProps {
   redirectTo?: string;
@@ -43,6 +44,16 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
     }
     if (Object.keys(newErrors).length > 0) {
       setFieldErrors(newErrors);
+      setIsLoading(false);
+      return;
+    }
+
+    // Leaked-password protection, the house's own hand (Run 08, Movement
+    // III): k-anonymous HIBP range check — the password never leaves this
+    // device; fails open if HIBP is unreachable. See lib/auth/pwned.ts.
+    const breaches = await pwnedCount(password);
+    if (breaches !== null && breaches > 0) {
+      setFieldErrors({ password: PWNED_MESSAGE });
       setIsLoading(false);
       return;
     }
