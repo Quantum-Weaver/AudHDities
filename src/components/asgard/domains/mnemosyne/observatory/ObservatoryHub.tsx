@@ -21,8 +21,8 @@ interface TimelineEvent {
   occurred_at: string;
 }
 
-interface BadgeItem {
-  badges_id: string;
+interface SigilItem {
+  id: string;
   name: string;
   slug: string;
   rarity: string;
@@ -32,7 +32,7 @@ interface BadgeItem {
 export function ObservatoryHub() {
   const { user, profile, sovereignTier, isLoading: authLoading } = useUser();
   const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
-  const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const [sigils, setSigils] = useState<SigilItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,11 +40,12 @@ export function ObservatoryHub() {
     Promise.all([
       fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=occurred_at.desc&limit=5`)
         .then(r => r.json()),
-      fetch(`/api/generated/athena-gamification/badges?is_active=true&order=name.asc&limit=6`)
+      // badges route is gone — GAIA now emits sigils
+      fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
         .then(r => r.json()),
-    ]).then(([tlRes, badgeRes]) => {
+    ]).then(([tlRes, sigilRes]) => {
       if (tlRes.success) setTimeline(tlRes.data?.data || []);
-      if (badgeRes.success) setBadges(badgeRes.data?.data || []);
+      if (sigilRes.success) setSigils(sigilRes.data?.data || []);
     }).catch(console.error).finally(() => setLoading(false));
   }, [user]);
 
@@ -141,14 +142,14 @@ export function ObservatoryHub() {
                 <h2 className="text-lg font-semibold text-star-dust">The Vision</h2>
               </div>
               <p className="text-sm text-star-dust/50 mb-4">Possible futures. Potential paths. What could be.</p>
-              {badges.length > 0 ? (
+              {sigils.length > 0 ? (
                 <div className="flex flex-wrap gap-1">
-                  {badges.slice(0, 4).map(b => (
-                    <Badge key={b.badges_id} variant="outline" size="sm" className="text-[10px]">{b.name}</Badge>
+                  {sigils.slice(0, 4).map(s => (
+                    <Badge key={s.id} variant="outline" size="sm" className="text-[10px]">{s.name}</Badge>
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-star-dust/30 italic">Badges yet to be earned await</p>
+                <p className="text-xs text-star-dust/30 italic">Sigils yet to be earned await</p>
               )}
               <span className="flex items-center gap-1 text-xs text-neurospark mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
             </Card>

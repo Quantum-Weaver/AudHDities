@@ -18,13 +18,14 @@ export function GrandPattern() {
     Promise.all([
       fetch('/api/generated/hestia-core/profiles?limit=1').then(r => r.json()),
       fetch('/api/generated/plutus-economics/products?is_published=true&active=true&limit=1').then(r => r.json()),
-      fetch('/api/generated/athena-gamification/badges?is_active=true&limit=1').then(r => r.json()),
+      // badges route is gone — GAIA now emits sigils
+      fetch('/api/generated/athena-gamification/sigils?status=published&limit=1').then(r => r.json()),
       fetch('/api/generated/plutus-economics/contributions?limit=1').then(r => r.json()),
-    ]).then(([profilesRes, productsRes, badgesRes, contribRes]) => {
+    ]).then(([profilesRes, productsRes, sigilsRes, contribRes]) => {
       const s: StatCard[] = [];
       if (profilesRes.success) s.push({ label: 'Sovereign Souls', value: profilesRes.data?.pagination?.total || 0, icon: Users, color: 'text-neurospark' });
       if (productsRes.success) s.push({ label: 'Creations Woven', value: productsRes.data?.pagination?.total || 0, icon: Package, color: 'text-purple-400' });
-      if (badgesRes.success) s.push({ label: 'Honors Earned', value: badgesRes.data?.pagination?.total || 0, icon: Award, color: 'text-amber-400' });
+      if (sigilsRes.success) s.push({ label: 'Honors Earned', value: sigilsRes.data?.pagination?.total || 0, icon: Award, color: 'text-amber-400' });
       if (contribRes.success) s.push({ label: 'Contributions Made', value: contribRes.data?.pagination?.total || 0, icon: HandCoins, color: 'text-emerald-400' });
       setStats(s);
     }).catch(() => {}).finally(() => setLoading(false));

@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface Quest { quests_id: string; title: string; description: string; house: string; sovereignty_reward: number | null; }
-interface BadgeItem { badges_id: string; name: string; slug: string; rarity: string; description: string; }
+interface SigilItem { id: string; name: string; slug: string; rarity: string; description: string; }
 
 const HOUSE_LABELS: Record<string, string> = {
   hearth_keeper: 'Hearth-Keeper', chancellor: 'Chancellor', seer: 'Seer', aethelred: 'Aethelred',
@@ -28,16 +28,17 @@ const RARITY_COLORS: Record<string, string> = {
 export function ProphecyVision() {
   const { user, profile, sovereignTier } = useUser();
   const [availableQuests, setAvailableQuests] = useState<Quest[]>([]);
-  const [unearnedBadges, setUnearnedBadges] = useState<BadgeItem[]>([]);
+  const [unearnedSigils, setUnearnedSigils] = useState<SigilItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch('/api/generated/athena-gamification/quests?is_active=true&order=title.asc').then(r => r.json()),
-      fetch('/api/generated/athena-gamification/badges?is_active=true&order=name.asc').then(r => r.json()),
-    ]).then(([qRes, bRes]) => {
+      // badges route is gone — GAIA now emits sigils
+      fetch('/api/generated/athena-gamification/sigils?status=published&order=name.asc').then(r => r.json()),
+    ]).then(([qRes, sRes]) => {
       if (qRes.success) setAvailableQuests(qRes.data?.data || []);
-      if (bRes.success) setUnearnedBadges(bRes.data?.data || []);
+      if (sRes.success) setUnearnedSigils(sRes.data?.data || []);
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
@@ -48,7 +49,7 @@ export function ProphecyVision() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-8 w-48 mb-8" /><div className="space-y-4">{[1,2,3].map(i=><Skeleton key={i} variant="card" className="h-24" />)}</div></div></main>);
 
   const questCd: CardData = { id: 'prophecy-quests', type: 'value', title: 'Available Quests', value: String(availableQuests.length) };
-  const badgeCd: CardData = { id: 'prophecy-badges', type: 'value', title: 'Honors to Earn', value: String(unearnedBadges.slice(0, 6).length) };
+  const sigilCd: CardData = { id: 'prophecy-sigils', type: 'value', title: 'Honors to Earn', value: String(unearnedSigils.slice(0, 6).length) };
 
   return (
     <main className="min-h-screen py-12">
@@ -82,13 +83,13 @@ export function ProphecyVision() {
           </div>
         </Card>
 
-        {/* Badges */}
-        <Card data={badgeCd} variant="glass" radius="lg" shadow="sm" className="p-6">
+        {/* Sigils */}
+        <Card data={sigilCd} variant="glass" radius="lg" shadow="sm" className="p-6">
           <div className="flex items-center gap-3 mb-4"><Award className="h-5 w-5 text-purple-400" /><h3 className="text-lg font-semibold text-star-dust">Honors to Earn</h3></div>
           <div className="flex flex-wrap gap-2">
-            {unearnedBadges.slice(0, 8).map(b => (
-              <Link key={b.badges_id} href={`/library/badges/${b.slug}`}>
-                <Badge variant="outline" size="sm" className={cn('text-[10px] cursor-pointer', RARITY_COLORS[b.rarity] || '')}>{b.name}</Badge>
+            {unearnedSigils.slice(0, 8).map(s => (
+              <Link key={s.id} href={`/library/badges/${s.slug}`}>
+                <Badge variant="outline" size="sm" className={cn('text-[10px] cursor-pointer', RARITY_COLORS[s.rarity] || '')}>{s.name}</Badge>
               </Link>
             ))}
           </div>

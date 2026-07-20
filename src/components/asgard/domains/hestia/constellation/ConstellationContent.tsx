@@ -27,12 +27,15 @@ interface TimelineEvent {
   occurred_at: string;
 }
 
-interface BadgeItem {
-  badge_id: string;
+interface SigilItem {
+  sigil_id: string;
   name: string;
   rarity: string;
-  earned_reason: string | null;
   earned_at: string | null;
+  // MEND-LAW 2026-07-19: earned_reason dropped in the badges -> sigils repoint.
+  // Neither `sigils` nor `vessel_sigils` carries a display-text reason field
+  // (vessel_sigils.award_context is an opaque Json blob, not prose) — degraded
+  // gracefully rather than invented. See journal for the fuller note.
 }
 
 interface QuestItem {
@@ -75,7 +78,7 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
   collaboration_began: 'Collaboration',
   sovereign_milestone: 'Milestone',
   sanctuary_completed: 'Completion',
-  badge_earned: 'Badge',
+  badge_earned: 'Sigil',
   quest_completed: 'Quest',
 };
 
@@ -105,7 +108,7 @@ const HOUSE_COLORS: Record<string, string> = {
 
 function buildConstellation(
   timeline: TimelineEvent[],
-  badges: BadgeItem[],
+  sigils: SigilItem[],
   quests: QuestItem[],
   productCount: number,
   messageCount: number,
@@ -155,25 +158,25 @@ function buildConstellation(
     });
   });
 
-  // Orbit 2: Badges (middle ring)
-  badges.forEach((badge, i) => {
-    const angle = (i / Math.max(badges.length, 1)) * Math.PI * 2 + 0.5;
+  // Orbit 2: Sigils (middle ring)
+  sigils.forEach((sigil, i) => {
+    const angle = (i / Math.max(sigils.length, 1)) * Math.PI * 2 + 0.5;
     const distance = 180;
     const x = centerX + Math.cos(angle) * distance;
     const y = centerY + Math.sin(angle) * distance;
 
     nodes.push({
-      id: `badge-${badge.badge_id}`,
+      id: `sigil-${sigil.sigil_id}`,
       x,
       y,
-      label: badge.name,
+      label: sigil.name,
       radius: 6,
-      color: badge.rarity === 'mythic' ? '#22D3EE' : badge.rarity === 'legendary' ? '#FDCB6E' : '#6C5CE7',
+      color: sigil.rarity === 'mythic' ? '#22D3EE' : sigil.rarity === 'legendary' ? '#FDCB6E' : '#6C5CE7',
     });
 
     edges.push({
       from: 'self',
-      to: `badge-${badge.badge_id}`,
+      to: `sigil-${sigil.sigil_id}`,
       strength: 0.6,
     });
   });
@@ -235,7 +238,7 @@ function buildConstellation(
 export function ConstellationContent() {
   const { user, loading: authLoading } = useAuth();
   const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
-  const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const [sigils, setSigils] = useState<SigilItem[]>([]);
   const [quests, setQuests] = useState<QuestItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedNode, setSelectedNode] = useState<ConstellationNode | null>(null);
@@ -257,30 +260,30 @@ export function ConstellationContent() {
         const tData = await tRes.json();
         if (tData.success) setTimeline(tData.data?.data || tData.data || []);
 
-        // Badges
-        const bRes = await fetch(`/api/generated/athena-gamification/user_badges?user_id=${user.id}&limit=20`);
-        const bData = await bRes.json();
-        if (bData.success) {
-          const rawBadges = bData.data?.data || bData.data || [];
-          // Fetch badge details
-          const badgeDetails = await Promise.all(
-            rawBadges.map(async (ub: any) => {
+        // Sigils earned by this vessel (badges/user_badges are gone — GAIA now
+        // emits vessel_sigils for the earning record and sigils for the definition)
+        const vsRes = await fetch(`/api/generated/hestia-core/vessel_sigils?user_id=${user.id}&limit=20`);
+        const vsData = await vsRes.json();
+        if (vsData.success) {
+          const rawVesselSigils = vsData.data?.data || vsData.data || [];
+          // Fetch sigil details
+          const sigilDetails = await Promise.all(
+            rawVesselSigils.map(async (vs: any) => {
               try {
-                const bdRes = await fetch(`/api/generated/athena-gamification/badges/${ub.badge_id}`);
-                const bdData = await bdRes.json();
+                const sRes = await fetch(`/api/generated/athena-gamification/sigils/${vs.sigil_id}`);
+                const sData = await sRes.json();
                 return {
-                  badge_id: ub.badge_id,
-                  name: bdData.success ? bdData.data?.name : 'Badge',
-                  rarity: bdData.success ? bdData.data?.rarity : 'common',
-                  earned_reason: ub.earned_reason || null,
-                  earned_at: ub.earned_at || null,
+                  sigil_id: vs.sigil_id,
+                  name: sData.success ? sData.data?.name : 'Sigil',
+                  rarity: sData.success ? sData.data?.rarity : 'common',
+                  earned_at: vs.awarded_at || null,
                 };
               } catch {
-                return { badge_id: ub.badge_id, name: 'Badge', rarity: 'common', earned_reason: null, earned_at: null };
+                return { sigil_id: vs.sigil_id, name: 'Sigil', rarity: 'common', earned_at: null };
               }
             })
           );
-          setBadges(badgeDetails);
+          setSigils(sigilDetails);
         }
 
         // Quests
@@ -333,11 +336,11 @@ export function ConstellationContent() {
   }, [user]);
 
   const { nodes, edges } = useMemo(() => {
-    if (timeline.length === 0 && badges.length === 0 && quests.length === 0) {
+    if (timeline.length === 0 && sigils.length === 0 && quests.length === 0) {
       return { nodes: [], edges: [] };
     }
-    return buildConstellation(timeline, badges, quests, productCount, messageCount, emeraldCount, postCount, channelCount);
-  }, [timeline, badges, quests, productCount, messageCount, emeraldCount, postCount, channelCount]);
+    return buildConstellation(timeline, sigils, quests, productCount, messageCount, emeraldCount, postCount, channelCount);
+  }, [timeline, sigils, quests, productCount, messageCount, emeraldCount, postCount, channelCount]);
 
   const handleNodeClick = (node: ConstellationNode) => {
     setSelectedNode(selectedNode?.id === node.id ? null : node);
@@ -395,7 +398,7 @@ export function ConstellationContent() {
             <Star className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg mb-2">Your constellation awaits its first star</p>
             <p className="text-star-dust/30 text-sm">
-              Complete quests, earn badges, and connect with others to fill your sky
+              Complete quests, earn sigils, and connect with others to fill your sky
             </p>
           </Card>
         ) : (
@@ -466,15 +469,15 @@ export function ConstellationContent() {
             </Link>
             <Link href="/library/badges">
               <Card
-                data={{ id: 'summary-badges', type: 'value', title: 'Badges', value: `${badges.length}` }}
+                data={{ id: 'summary-sigils', type: 'value', title: 'Sigils', value: `${sigils.length}` }}
                 variant="interactive"
                 radius="lg"
                 shadow="sm"
                 className="p-4 text-center"
               >
                 <Award className="h-5 w-5 text-amber-400 mx-auto mb-1" />
-                <span className="text-lg font-bold text-star-dust">{badges.length}</span>
-                <p className="text-xs text-star-dust/40">Badges</p>
+                <span className="text-lg font-bold text-star-dust">{sigils.length}</span>
+                <p className="text-xs text-star-dust/40">Sigils</p>
               </Card>
             </Link>
             <Link href="/library/quests">
