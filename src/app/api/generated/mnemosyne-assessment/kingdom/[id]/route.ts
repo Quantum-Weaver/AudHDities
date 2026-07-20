@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { KingdomUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/kingdom';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.832Z
+// Generated: 2026-07-20T04:39:10.635Z
 // Table: kingdom
 
 export async function GET(

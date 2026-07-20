@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/regions.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-07-18T23:30:03.978Z
+// GENERATED: 2026-07-20T04:39:10.788Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

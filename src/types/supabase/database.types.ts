@@ -3483,6 +3483,7 @@ export type Database = {
           is_dismissed: boolean
           is_read: boolean
           read_at: string | null
+          recipient: string | null
           reference_id: string | null
           reference_table: string | null
           title: string | null
@@ -3498,6 +3499,7 @@ export type Database = {
           is_dismissed?: boolean
           is_read?: boolean
           read_at?: string | null
+          recipient?: string | null
           reference_id?: string | null
           reference_table?: string | null
           title?: string | null
@@ -3513,6 +3515,7 @@ export type Database = {
           is_dismissed?: boolean
           is_read?: boolean
           read_at?: string | null
+          recipient?: string | null
           reference_id?: string | null
           reference_table?: string | null
           title?: string | null

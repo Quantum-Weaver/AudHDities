@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PhylumUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/phylum';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.928Z
+// Generated: 2026-07-20T04:39:10.735Z
 // Table: phylum
 
 export async function GET(

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ArtisanCategoryLinksInsertSchema } from '@/lib/validators/generated/hermes-social/artisan_category_links';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.556Z
+// Generated: 2026-07-20T04:39:10.347Z
 // Table: artisan_category_links
 
 export async function GET(request: NextRequest) {

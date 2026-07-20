@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/pricing_model.ts
-// GENERATED: 2026-07-18T23:30:04.234Z
+// GENERATED: 2026-07-20T04:39:11.046Z
 // SOURCE: Constants.public.Enums.pricing_model
 // VALUES: 4 entries
 // =====================================================

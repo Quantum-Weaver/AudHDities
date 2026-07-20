@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/blueprints.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-07-18T23:30:03.571Z
+// GENERATED: 2026-07-20T04:39:10.363Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MythologyInsertSchema } from '@/lib/validators/generated/athena-gamification/mythology';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.893Z
+// Generated: 2026-07-20T04:39:10.698Z
 // Table: mythology
 
 export async function GET(request: NextRequest) {

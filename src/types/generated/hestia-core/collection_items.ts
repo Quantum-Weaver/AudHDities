@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/collection_items.ts
 // HANDLING: join_table
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T23:30:03.618Z
+// GENERATED: 2026-07-20T04:39:10.411Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

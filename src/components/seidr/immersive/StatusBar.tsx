@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useStatusBar } from "@/hooks/useStatusBar";
 import { useRealm } from "@/hooks/useRealm";
 import { useEnergyEntriesList } from "@/hooks/generated/hestia-core/energy_entries";
+import { useHeraldsList } from "@/hooks/generated/hestia-core/heralds";
 import { HStack } from "@/components/hof/Stack";
 import { cn } from "@/lib/utils";
 import { Shield, Zap, Bell } from "lucide-react";
@@ -286,17 +287,27 @@ function MetricsDisplay() {
     return latest.energy_level;
   }, [energyRows]);
 
-  // ── HERALDS — HONESTLY STILL STUBBED (Run 08, Phase 5, Movement I Step 3) ──
-  // The `heralds` hook exists (hestia-core) and carries `is_read`/`is_dismissed`,
-  // BUT the settled `heralds` row exposes no recipient column — only `created_by`
-  // (the herald's author). "Unread heralds for THIS vessel" is therefore not a
-  // single-table filter (created_by would count heralds the vessel AUTHORED, not
-  // received); a correct count needs recipient-scoping (RLS or a reference
-  // resolution) that isn't verifiable from the generated surface. So this stays
-  // a real 0 rather than a faked count — wire it once the recipient path is
-  // settled (a Movement IV / schema-adjacent follow-up). The original stub
-  // assumed a `notifications.user_id`; the settled schema has no such column.
-  const [notifications] = useState(0);
+  // ── HERALDS — WIRED FOR REAL (Run 08, the heralds mend, 2026-07-20) ───────
+  // KP's law, same sitting the gap was found: "we will need to fix schema
+  // issues we catch, rather than leave them unattended." The `recipient`
+  // column was added by his hand (supabase/migrations/
+  // 20260720_heralds_recipient.sql), types + GAIA regenerated, and this now
+  // counts the vessel's own unread heralds (recipient = vessel, is_read
+  // false) — a real count, empty until heralds flow. House-wide heralds
+  // (recipient NULL) will surface with The Pulse's own sitting; counting
+  // them here would need an OR filter the generated surface doesn't expose —
+  // noted, not faked. Params memoized like energy's (persistent chrome).
+  const heraldParams = useMemo(
+    () => ({
+      limit: 1,
+      ...(profile?.id
+        ? { filters: { recipient: profile.id, is_read: 'false' } }
+        : {}),
+    }),
+    [profile?.id],
+  );
+  const { total: heraldTotal } = useHeraldsList(heraldParams);
+  const notifications = profile?.id ? heraldTotal : 0;
 
   return (
     <HStack align="center" space="md" className="shrink-0">

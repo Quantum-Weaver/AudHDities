@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VesselAnchorsInsertSchema } from '@/lib/validators/generated/hestia-core/vessel_anchors';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:04.148Z
+// Generated: 2026-07-20T04:39:10.952Z
 // Table: vessel_anchors
 
 export async function GET(request: NextRequest) {

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GenerationsUpdateSchema } from '@/lib/validators/generated/daedalus-meta/generations';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.762Z
+// Generated: 2026-07-20T04:39:10.562Z
 // Table: generations
 
 export async function GET(

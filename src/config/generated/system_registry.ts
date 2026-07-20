@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-07-18T23:30:04.404Z",
+  "updatedAt": "2026-07-20T04:39:11.212Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,10 +47,10 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260718_183003",
+      "id": "20260719_233910",
       "system": "GAIA",
-      "startTime": "2026-07-18T23:30:03.418Z",
-      "endTime": "2026-07-18T23:30:04.404Z",
+      "startTime": "2026-07-20T04:39:10.207Z",
+      "endTime": "2026-07-20T04:39:11.212Z",
       "status": "success",
       "generatedFiles": [
         "src/types/generated/themis-governance/admin_actions.ts",
@@ -1713,6 +1713,1672 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       "notes": []
     },
     "runs": [
+      {
+        "id": "20260719_233910",
+        "system": "GAIA",
+        "startTime": "2026-07-20T04:39:10.207Z",
+        "endTime": "2026-07-20T04:39:11.212Z",
+        "status": "success",
+        "generatedFiles": [
+          "src/types/generated/themis-governance/admin_actions.ts",
+          "src/app/api/generated/themis-governance/admin_actions/route.ts",
+          "src/app/api/generated/themis-governance/admin_actions/[id]/route.ts",
+          "src/hooks/generated/themis-governance/admin_actions.ts",
+          "src/lib/utils/generated/themis-governance/admin_actions.ts",
+          "src/types/generated/aethelred-connections/aethelred_house.ts",
+          "src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "src/lib/utils/generated/aethelred-connections/aethelred_house.ts",
+          "src/types/generated/aethelred-connections/agent_activities.ts",
+          "src/app/api/generated/aethelred-connections/agent_activities/route.ts",
+          "src/app/api/generated/aethelred-connections/agent_activities/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/agent_activities.ts",
+          "src/lib/utils/generated/aethelred-connections/agent_activities.ts",
+          "src/types/generated/aethelred-connections/agent_conversations.ts",
+          "src/app/api/generated/aethelred-connections/agent_conversations/route.ts",
+          "src/app/api/generated/aethelred-connections/agent_conversations/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/agent_conversations.ts",
+          "src/lib/utils/generated/aethelred-connections/agent_conversations.ts",
+          "src/types/generated/aethelred-connections/agent_messages.ts",
+          "src/app/api/generated/aethelred-connections/agent_messages/route.ts",
+          "src/app/api/generated/aethelred-connections/agent_messages/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/agent_messages.ts",
+          "src/lib/utils/generated/aethelred-connections/agent_messages.ts",
+          "src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "src/types/generated/mnemosyne-assessment/anchor_events.ts",
+          "src/app/api/generated/mnemosyne-assessment/anchor_events/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/anchor_events/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/anchor_events.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/anchor_events.ts",
+          "src/types/generated/themis-governance/applications.ts",
+          "src/app/api/generated/themis-governance/applications/route.ts",
+          "src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "src/hooks/generated/themis-governance/applications.ts",
+          "src/lib/utils/generated/themis-governance/applications.ts",
+          "src/types/generated/aethelred-connections/archivist.ts",
+          "src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/archivist.ts",
+          "src/lib/utils/generated/aethelred-connections/archivist.ts",
+          "src/types/generated/hermes-social/artisan_category_links.ts",
+          "src/app/api/generated/hermes-social/artisan_category_links/route.ts",
+          "src/app/api/generated/hermes-social/artisan_category_links/[id]/route.ts",
+          "src/types/generated/hermes-social/artisan_profiles.ts",
+          "src/app/api/generated/hermes-social/artisan_profiles/route.ts",
+          "src/app/api/generated/hermes-social/artisan_profiles/[id]/route.ts",
+          "src/hooks/generated/hermes-social/artisan_profiles.ts",
+          "src/lib/utils/generated/hermes-social/artisan_profiles.ts",
+          "src/types/generated/mnemosyne-assessment/assessment_answers.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_answers/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_answers/[id]/route.ts",
+          "src/types/generated/mnemosyne-assessment/assessment_questions.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_questions/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_questions/[id]/route.ts",
+          "src/types/generated/mnemosyne-assessment/assessment_results.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_results/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/assessment_results/[id]/route.ts",
+          "src/types/generated/daedalus-meta/blueprints.ts",
+          "src/app/api/generated/daedalus-meta/blueprints/route.ts",
+          "src/app/api/generated/daedalus-meta/blueprints/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/blueprints.ts",
+          "src/lib/utils/generated/daedalus-meta/blueprints.ts",
+          "src/types/generated/daedalus-meta/boundaries.ts",
+          "src/app/api/generated/daedalus-meta/boundaries/route.ts",
+          "src/app/api/generated/daedalus-meta/boundaries/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/boundaries.ts",
+          "src/lib/utils/generated/daedalus-meta/boundaries.ts",
+          "src/types/generated/athena-gamification/bubble_superposition.ts",
+          "src/app/api/generated/athena-gamification/bubble_superposition/route.ts",
+          "src/app/api/generated/athena-gamification/bubble_superposition/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/bubble_superposition.ts",
+          "src/lib/utils/generated/athena-gamification/bubble_superposition.ts",
+          "src/types/generated/athena-gamification/bubbles.ts",
+          "src/app/api/generated/athena-gamification/bubbles/route.ts",
+          "src/app/api/generated/athena-gamification/bubbles/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/bubbles.ts",
+          "src/lib/utils/generated/athena-gamification/bubbles.ts",
+          "src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "src/types/generated/hermes-social/categories.ts",
+          "src/app/api/generated/hermes-social/categories/route.ts",
+          "src/app/api/generated/hermes-social/categories/[id]/route.ts",
+          "src/hooks/generated/hermes-social/categories.ts",
+          "src/lib/utils/generated/hermes-social/categories.ts",
+          "src/types/generated/aethelred-connections/chancellor.ts",
+          "src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/chancellor.ts",
+          "src/lib/utils/generated/aethelred-connections/chancellor.ts",
+          "src/types/generated/iris-communications/channels.ts",
+          "src/app/api/generated/iris-communications/channels/route.ts",
+          "src/app/api/generated/iris-communications/channels/[id]/route.ts",
+          "src/hooks/generated/iris-communications/channels.ts",
+          "src/lib/utils/generated/iris-communications/channels.ts",
+          "src/types/generated/mnemosyne-assessment/class.ts",
+          "src/app/api/generated/mnemosyne-assessment/class/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/class/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/class.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/class.ts",
+          "src/types/generated/aethelred-connections/codex.ts",
+          "src/app/api/generated/aethelred-connections/codex/route.ts",
+          "src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/codex.ts",
+          "src/lib/utils/generated/aethelred-connections/codex.ts",
+          "src/types/generated/hestia-core/collection_items.ts",
+          "src/app/api/generated/hestia-core/collection_items/route.ts",
+          "src/app/api/generated/hestia-core/collection_items/[id]/route.ts",
+          "src/types/generated/hestia-core/collection_sets.ts",
+          "src/app/api/generated/hestia-core/collection_sets/route.ts",
+          "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts",
+          "src/hooks/generated/hestia-core/collection_sets.ts",
+          "src/lib/utils/generated/hestia-core/collection_sets.ts",
+          "src/types/generated/hestia-core/community_profiles.ts",
+          "src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/community_profiles.ts",
+          "src/lib/utils/generated/hestia-core/community_profiles.ts",
+          "src/types/generated/hestia-core/companion_cues.ts",
+          "src/app/api/generated/hestia-core/companion_cues/route.ts",
+          "src/app/api/generated/hestia-core/companion_cues/[id]/route.ts",
+          "src/hooks/generated/hestia-core/companion_cues.ts",
+          "src/lib/utils/generated/hestia-core/companion_cues.ts",
+          "src/types/generated/aethelred-connections/consciousness.ts",
+          "src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/consciousness.ts",
+          "src/lib/utils/generated/aethelred-connections/consciousness.ts",
+          "src/types/generated/iris-communications/contact_submissions.ts",
+          "src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "src/hooks/generated/iris-communications/contact_submissions.ts",
+          "src/lib/utils/generated/iris-communications/contact_submissions.ts",
+          "src/types/generated/iris-communications/continents.ts",
+          "src/app/api/generated/iris-communications/continents/route.ts",
+          "src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "src/hooks/generated/iris-communications/continents.ts",
+          "src/lib/utils/generated/iris-communications/continents.ts",
+          "src/types/generated/themis-governance/council_houses.ts",
+          "src/app/api/generated/themis-governance/council_houses/route.ts",
+          "src/app/api/generated/themis-governance/council_houses/[id]/route.ts",
+          "src/hooks/generated/themis-governance/council_houses.ts",
+          "src/lib/utils/generated/themis-governance/council_houses.ts",
+          "src/types/generated/plutus-economics/covenant_pool.ts",
+          "src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "src/lib/utils/generated/plutus-economics/covenant_pool.ts",
+          "src/types/generated/iris-communications/culturalization.ts",
+          "src/app/api/generated/iris-communications/culturalization/route.ts",
+          "src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "src/hooks/generated/iris-communications/culturalization.ts",
+          "src/lib/utils/generated/iris-communications/culturalization.ts",
+          "src/types/generated/aethelred-connections/curator.ts",
+          "src/app/api/generated/aethelred-connections/curator/route.ts",
+          "src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/curator.ts",
+          "src/lib/utils/generated/aethelred-connections/curator.ts",
+          "src/types/generated/hestia-core/current.ts",
+          "src/app/api/generated/hestia-core/current/route.ts",
+          "src/app/api/generated/hestia-core/current/[id]/route.ts",
+          "src/hooks/generated/hestia-core/current.ts",
+          "src/lib/utils/generated/hestia-core/current.ts",
+          "src/types/generated/iris-communications/customs.ts",
+          "src/app/api/generated/iris-communications/customs/route.ts",
+          "src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "src/hooks/generated/iris-communications/customs.ts",
+          "src/lib/utils/generated/iris-communications/customs.ts",
+          "src/types/generated/plutus-economics/distribution_recipients.ts",
+          "src/app/api/generated/plutus-economics/distribution_recipients/route.ts",
+          "src/app/api/generated/plutus-economics/distribution_recipients/[id]/route.ts",
+          "src/types/generated/plutus-economics/distributions.ts",
+          "src/app/api/generated/plutus-economics/distributions/route.ts",
+          "src/app/api/generated/plutus-economics/distributions/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/distributions.ts",
+          "src/lib/utils/generated/plutus-economics/distributions.ts",
+          "src/types/generated/mnemosyne-assessment/domain.ts",
+          "src/app/api/generated/mnemosyne-assessment/domain/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/domain/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/domain.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/domain.ts",
+          "src/types/generated/iris-communications/email_communications.ts",
+          "src/app/api/generated/iris-communications/email_communications/route.ts",
+          "src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "src/hooks/generated/iris-communications/email_communications.ts",
+          "src/lib/utils/generated/iris-communications/email_communications.ts",
+          "src/types/generated/hestia-core/energy_entries.ts",
+          "src/app/api/generated/hestia-core/energy_entries/route.ts",
+          "src/app/api/generated/hestia-core/energy_entries/[id]/route.ts",
+          "src/hooks/generated/hestia-core/energy_entries.ts",
+          "src/lib/utils/generated/hestia-core/energy_entries.ts",
+          "src/types/generated/aethelred-connections/entity_states.ts",
+          "src/app/api/generated/aethelred-connections/entity_states/route.ts",
+          "src/app/api/generated/aethelred-connections/entity_states/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/entity_states.ts",
+          "src/lib/utils/generated/aethelred-connections/entity_states.ts",
+          "src/types/generated/mnemosyne-assessment/etymology.ts",
+          "src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/etymology.ts",
+          "src/types/generated/plutus-economics/exchanges.ts",
+          "src/app/api/generated/plutus-economics/exchanges/route.ts",
+          "src/app/api/generated/plutus-economics/exchanges/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/exchanges.ts",
+          "src/lib/utils/generated/plutus-economics/exchanges.ts",
+          "src/types/generated/aethelred-connections/executioner.ts",
+          "src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/executioner.ts",
+          "src/lib/utils/generated/aethelred-connections/executioner.ts",
+          "src/types/generated/mnemosyne-assessment/family.ts",
+          "src/app/api/generated/mnemosyne-assessment/family/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/family/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/family.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/family.ts",
+          "src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "src/types/generated/daedalus-meta/gaia_config.ts",
+          "src/app/api/generated/daedalus-meta/gaia_config/route.ts",
+          "src/app/api/generated/daedalus-meta/gaia_config/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/gaia_config.ts",
+          "src/lib/utils/generated/daedalus-meta/gaia_config.ts",
+          "src/types/generated/daedalus-meta/gaia_generation_log.ts",
+          "src/app/api/generated/daedalus-meta/gaia_generation_log/route.ts",
+          "src/app/api/generated/daedalus-meta/gaia_generation_log/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/gaia_generation_log.ts",
+          "src/lib/utils/generated/daedalus-meta/gaia_generation_log.ts",
+          "src/types/generated/hestia-core/garden_plots.ts",
+          "src/app/api/generated/hestia-core/garden_plots/route.ts",
+          "src/app/api/generated/hestia-core/garden_plots/[id]/route.ts",
+          "src/hooks/generated/hestia-core/garden_plots.ts",
+          "src/lib/utils/generated/hestia-core/garden_plots.ts",
+          "src/types/generated/hestia-core/garden_visits.ts",
+          "src/app/api/generated/hestia-core/garden_visits/route.ts",
+          "src/app/api/generated/hestia-core/garden_visits/[id]/route.ts",
+          "src/hooks/generated/hestia-core/garden_visits.ts",
+          "src/lib/utils/generated/hestia-core/garden_visits.ts",
+          "src/types/generated/daedalus-meta/generation_templates.ts",
+          "src/app/api/generated/daedalus-meta/generation_templates/route.ts",
+          "src/app/api/generated/daedalus-meta/generation_templates/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/generation_templates.ts",
+          "src/lib/utils/generated/daedalus-meta/generation_templates.ts",
+          "src/types/generated/daedalus-meta/generations.ts",
+          "src/app/api/generated/daedalus-meta/generations/route.ts",
+          "src/app/api/generated/daedalus-meta/generations/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/generations.ts",
+          "src/lib/utils/generated/daedalus-meta/generations.ts",
+          "src/types/generated/mnemosyne-assessment/genus.ts",
+          "src/app/api/generated/mnemosyne-assessment/genus/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/genus/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/genus.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/genus.ts",
+          "src/types/generated/plutus-economics/gift_wrappings.ts",
+          "src/app/api/generated/plutus-economics/gift_wrappings/route.ts",
+          "src/app/api/generated/plutus-economics/gift_wrappings/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/gift_wrappings.ts",
+          "src/lib/utils/generated/plutus-economics/gift_wrappings.ts",
+          "src/types/generated/plutus-economics/gifts.ts",
+          "src/app/api/generated/plutus-economics/gifts/route.ts",
+          "src/app/api/generated/plutus-economics/gifts/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/gifts.ts",
+          "src/lib/utils/generated/plutus-economics/gifts.ts",
+          "src/types/generated/aethelred-connections/github_connection.ts",
+          "src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/github_connection.ts",
+          "src/lib/utils/generated/aethelred-connections/github_connection.ts",
+          "src/types/generated/plutus-economics/grant_applications.ts",
+          "src/app/api/generated/plutus-economics/grant_applications/route.ts",
+          "src/app/api/generated/plutus-economics/grant_applications/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_applications.ts",
+          "src/lib/utils/generated/plutus-economics/grant_applications.ts",
+          "src/types/generated/plutus-economics/grant_attachments.ts",
+          "src/app/api/generated/plutus-economics/grant_attachments/route.ts",
+          "src/app/api/generated/plutus-economics/grant_attachments/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_attachments.ts",
+          "src/lib/utils/generated/plutus-economics/grant_attachments.ts",
+          "src/types/generated/plutus-economics/grant_collaborators.ts",
+          "src/app/api/generated/plutus-economics/grant_collaborators/route.ts",
+          "src/app/api/generated/plutus-economics/grant_collaborators/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_collaborators.ts",
+          "src/lib/utils/generated/plutus-economics/grant_collaborators.ts",
+          "src/types/generated/plutus-economics/grant_milestones.ts",
+          "src/app/api/generated/plutus-economics/grant_milestones/route.ts",
+          "src/app/api/generated/plutus-economics/grant_milestones/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_milestones.ts",
+          "src/lib/utils/generated/plutus-economics/grant_milestones.ts",
+          "src/types/generated/plutus-economics/grant_narratives.ts",
+          "src/app/api/generated/plutus-economics/grant_narratives/route.ts",
+          "src/app/api/generated/plutus-economics/grant_narratives/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_narratives.ts",
+          "src/lib/utils/generated/plutus-economics/grant_narratives.ts",
+          "src/types/generated/plutus-economics/grant_opportunities.ts",
+          "src/app/api/generated/plutus-economics/grant_opportunities/route.ts",
+          "src/app/api/generated/plutus-economics/grant_opportunities/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/grant_opportunities.ts",
+          "src/lib/utils/generated/plutus-economics/grant_opportunities.ts",
+          "src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "src/lib/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "src/types/generated/hestia-core/heralds.ts",
+          "src/app/api/generated/hestia-core/heralds/route.ts",
+          "src/app/api/generated/hestia-core/heralds/[id]/route.ts",
+          "src/hooks/generated/hestia-core/heralds.ts",
+          "src/lib/utils/generated/hestia-core/heralds.ts",
+          "src/types/generated/hestia-core/journal_entries.ts",
+          "src/app/api/generated/hestia-core/journal_entries/route.ts",
+          "src/app/api/generated/hestia-core/journal_entries/[id]/route.ts",
+          "src/hooks/generated/hestia-core/journal_entries.ts",
+          "src/lib/utils/generated/hestia-core/journal_entries.ts",
+          "src/types/generated/mnemosyne-assessment/keywords.ts",
+          "src/app/api/generated/mnemosyne-assessment/keywords/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/keywords/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/keywords.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/keywords.ts",
+          "src/types/generated/mnemosyne-assessment/kingdom.ts",
+          "src/app/api/generated/mnemosyne-assessment/kingdom/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/kingdom/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/kingdom.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/kingdom.ts",
+          "src/types/generated/iris-communications/languages.ts",
+          "src/app/api/generated/iris-communications/languages/route.ts",
+          "src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "src/hooks/generated/iris-communications/languages.ts",
+          "src/lib/utils/generated/iris-communications/languages.ts",
+          "src/types/generated/athena-gamification/learning_paths.ts",
+          "src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/learning_paths.ts",
+          "src/lib/utils/generated/athena-gamification/learning_paths.ts",
+          "src/types/generated/plutus-economics/ledger.ts",
+          "src/app/api/generated/plutus-economics/ledger/route.ts",
+          "src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/ledger.ts",
+          "src/lib/utils/generated/plutus-economics/ledger.ts",
+          "src/types/generated/athena-gamification/lessons.ts",
+          "src/app/api/generated/athena-gamification/lessons/route.ts",
+          "src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/lessons.ts",
+          "src/lib/utils/generated/athena-gamification/lessons.ts",
+          "src/types/generated/aethelred-connections/life_cycles.ts",
+          "src/app/api/generated/aethelred-connections/life_cycles/route.ts",
+          "src/app/api/generated/aethelred-connections/life_cycles/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/life_cycles.ts",
+          "src/lib/utils/generated/aethelred-connections/life_cycles.ts",
+          "src/types/generated/iris-communications/localization.ts",
+          "src/app/api/generated/iris-communications/localization/route.ts",
+          "src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "src/hooks/generated/iris-communications/localization.ts",
+          "src/lib/utils/generated/iris-communications/localization.ts",
+          "src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "src/types/generated/mnemosyne-assessment/memories.ts",
+          "src/app/api/generated/mnemosyne-assessment/memories/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/memories/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/memories.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/memories.ts",
+          "src/types/generated/hermes-social/merchant_profiles.ts",
+          "src/app/api/generated/hermes-social/merchant_profiles/route.ts",
+          "src/app/api/generated/hermes-social/merchant_profiles/[id]/route.ts",
+          "src/hooks/generated/hermes-social/merchant_profiles.ts",
+          "src/lib/utils/generated/hermes-social/merchant_profiles.ts",
+          "src/types/generated/iris-communications/messages.ts",
+          "src/app/api/generated/iris-communications/messages/route.ts",
+          "src/app/api/generated/iris-communications/messages/[id]/route.ts",
+          "src/hooks/generated/iris-communications/messages.ts",
+          "src/lib/utils/generated/iris-communications/messages.ts",
+          "src/types/generated/mnemosyne-assessment/mind_traits.ts",
+          "src/app/api/generated/mnemosyne-assessment/mind_traits/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/mind_traits/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/mind_traits.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/mind_traits.ts",
+          "src/types/generated/themis-governance/moderation_actions.ts",
+          "src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "src/hooks/generated/themis-governance/moderation_actions.ts",
+          "src/lib/utils/generated/themis-governance/moderation_actions.ts",
+          "src/types/generated/athena-gamification/mythology.ts",
+          "src/app/api/generated/athena-gamification/mythology/route.ts",
+          "src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/mythology.ts",
+          "src/lib/utils/generated/athena-gamification/mythology.ts",
+          "src/types/generated/mnemosyne-assessment/ontology.ts",
+          "src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/ontology.ts",
+          "src/types/generated/mnemosyne-assessment/order.ts",
+          "src/app/api/generated/mnemosyne-assessment/order/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/order/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/order.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/order.ts",
+          "src/types/generated/athena-gamification/path_lessons.ts",
+          "src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "src/types/generated/plutus-economics/patronage.ts",
+          "src/app/api/generated/plutus-economics/patronage/route.ts",
+          "src/app/api/generated/plutus-economics/patronage/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/patronage.ts",
+          "src/lib/utils/generated/plutus-economics/patronage.ts",
+          "src/types/generated/plutus-economics/patronage_tiers.ts",
+          "src/app/api/generated/plutus-economics/patronage_tiers/route.ts",
+          "src/app/api/generated/plutus-economics/patronage_tiers/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/patronage_tiers.ts",
+          "src/lib/utils/generated/plutus-economics/patronage_tiers.ts",
+          "src/types/generated/mnemosyne-assessment/patterns.ts",
+          "src/app/api/generated/mnemosyne-assessment/patterns/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/patterns/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/patterns.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/patterns.ts",
+          "src/types/generated/iris-communications/personas.ts",
+          "src/app/api/generated/iris-communications/personas/route.ts",
+          "src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "src/hooks/generated/iris-communications/personas.ts",
+          "src/lib/utils/generated/iris-communications/personas.ts",
+          "src/types/generated/mnemosyne-assessment/phylum.ts",
+          "src/app/api/generated/mnemosyne-assessment/phylum/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/phylum/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/phylum.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/phylum.ts",
+          "src/types/generated/hestia-core/plant_stages.ts",
+          "src/app/api/generated/hestia-core/plant_stages/route.ts",
+          "src/app/api/generated/hestia-core/plant_stages/[id]/route.ts",
+          "src/hooks/generated/hestia-core/plant_stages.ts",
+          "src/lib/utils/generated/hestia-core/plant_stages.ts",
+          "src/types/generated/hephaestus-infrastructure/platform_config.ts",
+          "src/app/api/generated/hephaestus-infrastructure/platform_config/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/platform_config/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/platform_config.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/platform_config.ts",
+          "src/types/generated/hephaestus-infrastructure/platform_settings.ts",
+          "src/app/api/generated/hephaestus-infrastructure/platform_settings/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/platform_settings/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/platform_settings.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/platform_settings.ts",
+          "src/types/generated/themis-governance/processes.ts",
+          "src/app/api/generated/themis-governance/processes/route.ts",
+          "src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "src/hooks/generated/themis-governance/processes.ts",
+          "src/lib/utils/generated/themis-governance/processes.ts",
+          "src/types/generated/themis-governance/proposals.ts",
+          "src/app/api/generated/themis-governance/proposals/route.ts",
+          "src/app/api/generated/themis-governance/proposals/[id]/route.ts",
+          "src/hooks/generated/themis-governance/proposals.ts",
+          "src/lib/utils/generated/themis-governance/proposals.ts",
+          "src/types/generated/themis-governance/protocols.ts",
+          "src/app/api/generated/themis-governance/protocols/route.ts",
+          "src/app/api/generated/themis-governance/protocols/[id]/route.ts",
+          "src/hooks/generated/themis-governance/protocols.ts",
+          "src/lib/utils/generated/themis-governance/protocols.ts",
+          "src/types/generated/athena-gamification/quest_progress.ts",
+          "src/app/api/generated/athena-gamification/quest_progress/route.ts",
+          "src/app/api/generated/athena-gamification/quest_progress/[id]/route.ts",
+          "src/types/generated/athena-gamification/quests.ts",
+          "src/app/api/generated/athena-gamification/quests/route.ts",
+          "src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/quests.ts",
+          "src/lib/utils/generated/athena-gamification/quests.ts",
+          "src/types/generated/themis-governance/rate_limits.ts",
+          "src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "src/hooks/generated/themis-governance/rate_limits.ts",
+          "src/lib/utils/generated/themis-governance/rate_limits.ts",
+          "src/types/generated/mnemosyne-assessment/reference_values.ts",
+          "src/app/api/generated/mnemosyne-assessment/reference_values/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/reference_values/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/reference_values.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/reference_values.ts",
+          "src/types/generated/iris-communications/regions.ts",
+          "src/app/api/generated/iris-communications/regions/route.ts",
+          "src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "src/hooks/generated/iris-communications/regions.ts",
+          "src/lib/utils/generated/iris-communications/regions.ts",
+          "src/types/generated/themis-governance/reports.ts",
+          "src/app/api/generated/themis-governance/reports/route.ts",
+          "src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "src/hooks/generated/themis-governance/reports.ts",
+          "src/lib/utils/generated/themis-governance/reports.ts",
+          "src/types/generated/aethelred-connections/resend_connection.ts",
+          "src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "src/lib/utils/generated/aethelred-connections/resend_connection.ts",
+          "src/types/generated/plutus-economics/residual_pool.ts",
+          "src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/residual_pool.ts",
+          "src/lib/utils/generated/plutus-economics/residual_pool.ts",
+          "src/types/generated/mnemosyne-assessment/resonance.ts",
+          "src/app/api/generated/mnemosyne-assessment/resonance/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/resonance/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/resonance.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/resonance.ts",
+          "src/types/generated/themis-governance/responses.ts",
+          "src/app/api/generated/themis-governance/responses/route.ts",
+          "src/app/api/generated/themis-governance/responses/[id]/route.ts",
+          "src/hooks/generated/themis-governance/responses.ts",
+          "src/lib/utils/generated/themis-governance/responses.ts",
+          "src/types/generated/athena-gamification/scene_participants.ts",
+          "src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "src/types/generated/athena-gamification/scenes.ts",
+          "src/app/api/generated/athena-gamification/scenes/route.ts",
+          "src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/scenes.ts",
+          "src/lib/utils/generated/athena-gamification/scenes.ts",
+          "src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "src/types/generated/hephaestus-infrastructure/script_executions.ts",
+          "src/app/api/generated/hephaestus-infrastructure/script_executions/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/script_executions/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/script_executions.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/script_executions.ts",
+          "src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "src/lib/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "src/types/generated/hestia-core/seed_types.ts",
+          "src/app/api/generated/hestia-core/seed_types/route.ts",
+          "src/app/api/generated/hestia-core/seed_types/[id]/route.ts",
+          "src/hooks/generated/hestia-core/seed_types.ts",
+          "src/lib/utils/generated/hestia-core/seed_types.ts",
+          "src/types/generated/aethelred-connections/seer.ts",
+          "src/app/api/generated/aethelred-connections/seer/route.ts",
+          "src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/seer.ts",
+          "src/lib/utils/generated/aethelred-connections/seer.ts",
+          "src/types/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "src/app/api/generated/mnemosyne-assessment/sensory_lexicon/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/sensory_lexicon/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "src/types/generated/mnemosyne-assessment/sensory_map.ts",
+          "src/app/api/generated/mnemosyne-assessment/sensory_map/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/sensory_map/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/sensory_map.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/sensory_map.ts",
+          "src/types/generated/athena-gamification/sigil_unlocks.ts",
+          "src/app/api/generated/athena-gamification/sigil_unlocks/route.ts",
+          "src/app/api/generated/athena-gamification/sigil_unlocks/[id]/route.ts",
+          "src/types/generated/athena-gamification/sigils.ts",
+          "src/app/api/generated/athena-gamification/sigils/route.ts",
+          "src/app/api/generated/athena-gamification/sigils/[id]/route.ts",
+          "src/hooks/generated/athena-gamification/sigils.ts",
+          "src/lib/utils/generated/athena-gamification/sigils.ts",
+          "src/types/generated/iris-communications/signals.ts",
+          "src/app/api/generated/iris-communications/signals/route.ts",
+          "src/app/api/generated/iris-communications/signals/[id]/route.ts",
+          "src/hooks/generated/iris-communications/signals.ts",
+          "src/lib/utils/generated/iris-communications/signals.ts",
+          "src/types/generated/aethelred-connections/skald.ts",
+          "src/app/api/generated/aethelred-connections/skald/route.ts",
+          "src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/skald.ts",
+          "src/lib/utils/generated/aethelred-connections/skald.ts",
+          "src/types/generated/mnemosyne-assessment/species.ts",
+          "src/app/api/generated/mnemosyne-assessment/species/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/species/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/species.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/species.ts",
+          "src/types/generated/aethelred-connections/stripe_connection.ts",
+          "src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "src/lib/utils/generated/aethelred-connections/stripe_connection.ts",
+          "src/types/generated/aethelred-connections/supabase_connection.ts",
+          "src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "src/lib/utils/generated/aethelred-connections/supabase_connection.ts",
+          "src/types/generated/iris-communications/survey_responses.ts",
+          "src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "src/hooks/generated/iris-communications/survey_responses.ts",
+          "src/lib/utils/generated/iris-communications/survey_responses.ts",
+          "src/types/generated/iris-communications/surveys.ts",
+          "src/app/api/generated/iris-communications/surveys/route.ts",
+          "src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "src/hooks/generated/iris-communications/surveys.ts",
+          "src/lib/utils/generated/iris-communications/surveys.ts",
+          "src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "src/types/generated/daedalus-meta/templates.ts",
+          "src/app/api/generated/daedalus-meta/templates/route.ts",
+          "src/app/api/generated/daedalus-meta/templates/[id]/route.ts",
+          "src/hooks/generated/daedalus-meta/templates.ts",
+          "src/lib/utils/generated/daedalus-meta/templates.ts",
+          "src/types/generated/mnemosyne-assessment/test_patterns.ts",
+          "src/app/api/generated/mnemosyne-assessment/test_patterns/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/test_patterns/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/test_patterns.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/test_patterns.ts",
+          "src/types/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "src/app/api/generated/mnemosyne-assessment/thesaurus_entries/route.ts",
+          "src/app/api/generated/mnemosyne-assessment/thesaurus_entries/[id]/route.ts",
+          "src/hooks/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "src/lib/utils/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "src/types/generated/iris-communications/translations.ts",
+          "src/app/api/generated/iris-communications/translations/route.ts",
+          "src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "src/hooks/generated/iris-communications/translations.ts",
+          "src/lib/utils/generated/iris-communications/translations.ts",
+          "src/types/generated/hestia-core/user_financial.ts",
+          "src/app/api/generated/hestia-core/user_financial/route.ts",
+          "src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_financial.ts",
+          "src/lib/utils/generated/hestia-core/user_financial.ts",
+          "src/types/generated/hestia-core/user_page_views.ts",
+          "src/app/api/generated/hestia-core/user_page_views/route.ts",
+          "src/app/api/generated/hestia-core/user_page_views/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_page_views.ts",
+          "src/lib/utils/generated/hestia-core/user_page_views.ts",
+          "src/types/generated/hestia-core/user_private.ts",
+          "src/app/api/generated/hestia-core/user_private/route.ts",
+          "src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_private.ts",
+          "src/lib/utils/generated/hestia-core/user_private.ts",
+          "src/types/generated/hestia-core/user_roles.ts",
+          "src/app/api/generated/hestia-core/user_roles/route.ts",
+          "src/app/api/generated/hestia-core/user_roles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_roles.ts",
+          "src/lib/utils/generated/hestia-core/user_roles.ts",
+          "src/types/generated/aethelred-connections/vercel_connection.ts",
+          "src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "src/lib/utils/generated/aethelred-connections/vercel_connection.ts",
+          "src/types/generated/hestia-core/vessel_anchors.ts",
+          "src/app/api/generated/hestia-core/vessel_anchors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_anchors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_anchors.ts",
+          "src/types/generated/hestia-core/vessel_bubbles.ts",
+          "src/app/api/generated/hestia-core/vessel_bubbles/route.ts",
+          "src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_bubbles.ts",
+          "src/lib/utils/generated/hestia-core/vessel_bubbles.ts",
+          "src/types/generated/hestia-core/vessel_collections.ts",
+          "src/app/api/generated/hestia-core/vessel_collections/route.ts",
+          "src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_collections.ts",
+          "src/lib/utils/generated/hestia-core/vessel_collections.ts",
+          "src/types/generated/hestia-core/vessel_companions.ts",
+          "src/app/api/generated/hestia-core/vessel_companions/route.ts",
+          "src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_companions.ts",
+          "src/lib/utils/generated/hestia-core/vessel_companions.ts",
+          "src/types/generated/hestia-core/vessel_config.ts",
+          "src/app/api/generated/hestia-core/vessel_config/route.ts",
+          "src/app/api/generated/hestia-core/vessel_config/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_config.ts",
+          "src/lib/utils/generated/hestia-core/vessel_config.ts",
+          "src/types/generated/hestia-core/vessel_decorations.ts",
+          "src/app/api/generated/hestia-core/vessel_decorations/route.ts",
+          "src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_decorations.ts",
+          "src/lib/utils/generated/hestia-core/vessel_decorations.ts",
+          "src/types/generated/hestia-core/vessel_exteriors.ts",
+          "src/app/api/generated/hestia-core/vessel_exteriors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_exteriors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_exteriors.ts",
+          "src/types/generated/hestia-core/vessel_interiors.ts",
+          "src/app/api/generated/hestia-core/vessel_interiors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_interiors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_interiors.ts",
+          "src/types/generated/hestia-core/vessel_quests.ts",
+          "src/app/api/generated/hestia-core/vessel_quests/route.ts",
+          "src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_quests.ts",
+          "src/lib/utils/generated/hestia-core/vessel_quests.ts",
+          "src/types/generated/hestia-core/vessel_rooms.ts",
+          "src/app/api/generated/hestia-core/vessel_rooms/route.ts",
+          "src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_rooms.ts",
+          "src/lib/utils/generated/hestia-core/vessel_rooms.ts",
+          "src/types/generated/hestia-core/vessel_sigils.ts",
+          "src/app/api/generated/hestia-core/vessel_sigils/route.ts",
+          "src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_sigils.ts",
+          "src/lib/utils/generated/hestia-core/vessel_sigils.ts",
+          "src/types/generated/plutus-economics/ware_participants.ts",
+          "src/app/api/generated/plutus-economics/ware_participants/route.ts",
+          "src/app/api/generated/plutus-economics/ware_participants/[id]/route.ts",
+          "src/types/generated/plutus-economics/wares.ts",
+          "src/app/api/generated/plutus-economics/wares/route.ts",
+          "src/app/api/generated/plutus-economics/wares/[id]/route.ts",
+          "src/hooks/generated/plutus-economics/wares.ts",
+          "src/lib/utils/generated/plutus-economics/wares.ts",
+          "src/types/generated/hermes-social/work_participants.ts",
+          "src/app/api/generated/hermes-social/work_participants/route.ts",
+          "src/app/api/generated/hermes-social/work_participants/[id]/route.ts",
+          "src/types/generated/hermes-social/works.ts",
+          "src/app/api/generated/hermes-social/works/route.ts",
+          "src/app/api/generated/hermes-social/works/[id]/route.ts",
+          "src/hooks/generated/hermes-social/works.ts",
+          "src/lib/utils/generated/hermes-social/works.ts",
+          "src/lib/constants/generated/hestia-core/address_type.ts",
+          "src/lib/constants/generated/themis-governance/application_status.ts",
+          "src/lib/constants/generated/themis-governance/application_type.ts",
+          "src/lib/constants/generated/hestia-core/content_status.ts",
+          "src/lib/constants/generated/hestia-core/display_theme.ts",
+          "src/lib/constants/generated/hestia-core/exchange_status.ts",
+          "src/lib/constants/generated/hestia-core/global_region.ts",
+          "src/lib/constants/generated/hestia-core/herald_digest.ts",
+          "src/lib/constants/generated/hestia-core/notification_channel.ts",
+          "src/lib/constants/generated/hestia-core/pricing_model.ts",
+          "src/lib/constants/generated/hestia-core/processing_speed.ts",
+          "src/lib/constants/generated/hestia-core/profile_status.ts",
+          "src/lib/constants/generated/hestia-core/relationship_type.ts",
+          "src/lib/constants/generated/hestia-core/sensory_level.ts",
+          "src/lib/constants/generated/hestia-core/sovereign_tier.ts",
+          "src/lib/constants/generated/hestia-core/subscription_tier.ts",
+          "src/lib/constants/generated/hestia-core/user_role.ts",
+          "src/lib/constants/generated/hestia-core/visibility.ts",
+          "src/lib/constants/generated/hestia-core/ware_type.ts",
+          "src/lib/constants/generated/hestia-core/work_type.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\admin_actions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\aethelred_house.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_activities.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_conversations.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_messages.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\analytics.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\anchor_events.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\applications.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\archivist.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\artisan_category_links.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\artisan_profiles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_answers.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_questions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_results.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\blueprints.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\boundaries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\bubble_superposition.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\bubbles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\calendar.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\categories.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\chancellor.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\channels.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\class.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\codex.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_items.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_sets.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\companion_cues.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\consciousness.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\contact_submissions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\continents.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\council_houses.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\covenant_pool.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\culturalization.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\curator.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\current.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\customs.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\distribution_recipients.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\distributions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\domain.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\email_communications.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\energy_entries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\entity_states.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\etymology.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\exchanges.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\executioner.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\family.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\file_registry.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\file_type_standards.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\folksonomy.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\gaia_config.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\gaia_generation_log.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_plots.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_visits.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\generation_templates.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\generations.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\genus.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\gift_wrappings.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\gifts.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\github_connection.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_applications.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_attachments.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_collaborators.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_milestones.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_narratives.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_opportunities.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\hearth_keeper.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\heralds.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\journal_entries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\keywords.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\kingdom.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\languages.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\learning_paths.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\ledger.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\lessons.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\life_cycles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\localization.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\maintenance.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\memories.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\merchant_profiles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\messages.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\mind_traits.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\moderation_actions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\mythology.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\ontology.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\order.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\path_lessons.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\patronage.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\patronage_tiers.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\patterns.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\personas.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\phylum.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\plant_stages.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\platform_config.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\platform_settings.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\processes.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\proposals.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\protocols.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\quest_progress.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\quests.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\rate_limits.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\reference_values.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\regions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\reports.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\resend_connection.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\residual_pool.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\resonance.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\responses.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\scene_participants.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\scenes.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\scheduling.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\script_executions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\scripts.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\seed_types.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\seer.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\sensory_lexicon.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\sensory_map.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\sigil_unlocks.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\sigils.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\signals.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\skald.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\species.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\stripe_connection.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\supabase_connection.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\survey_responses.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\surveys.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\taxonomy.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\templates.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\test_patterns.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\thesaurus_entries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\translations.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_financial.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_page_views.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_private.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_roles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\vercel_connection.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_anchors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_bubbles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_collections.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_companions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_config.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_decorations.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_exteriors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_interiors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_quests.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_rooms.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_sigils.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\ware_participants.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\wares.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\work_participants.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\works.ts"
+        ],
+        "errors": [],
+        "warnings": [
+          "Overwrote: src/types/generated/themis-governance/admin_actions.ts",
+          "Overwrote: src/app/api/generated/themis-governance/admin_actions/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/admin_actions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/admin_actions.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/admin_actions.ts",
+          "Overwrote: src/types/generated/aethelred-connections/aethelred_house.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/aethelred_house/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/aethelred_house.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/aethelred_house.ts",
+          "Overwrote: src/types/generated/aethelred-connections/agent_activities.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_activities/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_activities/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/agent_activities.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/agent_activities.ts",
+          "Overwrote: src/types/generated/aethelred-connections/agent_conversations.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_conversations/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_conversations/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/agent_conversations.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/agent_conversations.ts",
+          "Overwrote: src/types/generated/aethelred-connections/agent_messages.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_messages/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/agent_messages/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/agent_messages.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/agent_messages.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/analytics.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/analytics/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/analytics.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/analytics.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/anchor_events.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/anchor_events/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/anchor_events/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/anchor_events.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/anchor_events.ts",
+          "Overwrote: src/types/generated/themis-governance/applications.ts",
+          "Overwrote: src/app/api/generated/themis-governance/applications/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/applications/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/applications.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/applications.ts",
+          "Overwrote: src/types/generated/aethelred-connections/archivist.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/archivist/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/archivist/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/archivist.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/archivist.ts",
+          "Overwrote: src/types/generated/hermes-social/artisan_category_links.ts",
+          "Overwrote: src/app/api/generated/hermes-social/artisan_category_links/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/artisan_category_links/[id]/route.ts",
+          "Overwrote: src/types/generated/hermes-social/artisan_profiles.ts",
+          "Overwrote: src/app/api/generated/hermes-social/artisan_profiles/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/artisan_profiles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hermes-social/artisan_profiles.ts",
+          "Overwrote: src/lib/utils/generated/hermes-social/artisan_profiles.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/assessment_answers.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_answers/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_answers/[id]/route.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/assessment_questions.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_questions/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_questions/[id]/route.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/assessment_results.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_results/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/assessment_results/[id]/route.ts",
+          "Overwrote: src/types/generated/daedalus-meta/blueprints.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/blueprints/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/blueprints/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/blueprints.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/blueprints.ts",
+          "Overwrote: src/types/generated/daedalus-meta/boundaries.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/boundaries/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/boundaries/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/boundaries.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/boundaries.ts",
+          "Overwrote: src/types/generated/athena-gamification/bubble_superposition.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/bubble_superposition/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/bubble_superposition/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/bubble_superposition.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/bubble_superposition.ts",
+          "Overwrote: src/types/generated/athena-gamification/bubbles.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/bubbles/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/bubbles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/bubbles.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/bubbles.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/calendar.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/calendar/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/calendar.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/calendar.ts",
+          "Overwrote: src/types/generated/hermes-social/categories.ts",
+          "Overwrote: src/app/api/generated/hermes-social/categories/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/categories/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hermes-social/categories.ts",
+          "Overwrote: src/lib/utils/generated/hermes-social/categories.ts",
+          "Overwrote: src/types/generated/aethelred-connections/chancellor.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/chancellor/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/chancellor.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/chancellor.ts",
+          "Overwrote: src/types/generated/iris-communications/channels.ts",
+          "Overwrote: src/app/api/generated/iris-communications/channels/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/channels/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/channels.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/channels.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/class.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/class/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/class/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/class.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/class.ts",
+          "Overwrote: src/types/generated/aethelred-connections/codex.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/codex/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/codex/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/codex.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/codex.ts",
+          "Overwrote: src/types/generated/hestia-core/collection_items.ts",
+          "Overwrote: src/app/api/generated/hestia-core/collection_items/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/collection_items/[id]/route.ts",
+          "Overwrote: src/types/generated/hestia-core/collection_sets.ts",
+          "Overwrote: src/app/api/generated/hestia-core/collection_sets/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/collection_sets/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/collection_sets.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/collection_sets.ts",
+          "Overwrote: src/types/generated/hestia-core/community_profiles.ts",
+          "Overwrote: src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/community_profiles.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/community_profiles.ts",
+          "Overwrote: src/types/generated/hestia-core/companion_cues.ts",
+          "Overwrote: src/app/api/generated/hestia-core/companion_cues/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/companion_cues/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/companion_cues.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/companion_cues.ts",
+          "Overwrote: src/types/generated/aethelred-connections/consciousness.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/consciousness/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/consciousness.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/consciousness.ts",
+          "Overwrote: src/types/generated/iris-communications/contact_submissions.ts",
+          "Overwrote: src/app/api/generated/iris-communications/contact_submissions/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/contact_submissions.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/contact_submissions.ts",
+          "Overwrote: src/types/generated/iris-communications/continents.ts",
+          "Overwrote: src/app/api/generated/iris-communications/continents/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/continents/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/continents.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/continents.ts",
+          "Overwrote: src/types/generated/themis-governance/council_houses.ts",
+          "Overwrote: src/app/api/generated/themis-governance/council_houses/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/council_houses/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/council_houses.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/council_houses.ts",
+          "Overwrote: src/types/generated/plutus-economics/covenant_pool.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/covenant_pool/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/covenant_pool.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/covenant_pool.ts",
+          "Overwrote: src/types/generated/iris-communications/culturalization.ts",
+          "Overwrote: src/app/api/generated/iris-communications/culturalization/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/culturalization/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/culturalization.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/culturalization.ts",
+          "Overwrote: src/types/generated/aethelred-connections/curator.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/curator/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/curator/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/curator.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/curator.ts",
+          "Overwrote: src/types/generated/hestia-core/current.ts",
+          "Overwrote: src/app/api/generated/hestia-core/current/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/current/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/current.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/current.ts",
+          "Overwrote: src/types/generated/iris-communications/customs.ts",
+          "Overwrote: src/app/api/generated/iris-communications/customs/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/customs/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/customs.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/customs.ts",
+          "Overwrote: src/types/generated/plutus-economics/distribution_recipients.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/distribution_recipients/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/distribution_recipients/[id]/route.ts",
+          "Overwrote: src/types/generated/plutus-economics/distributions.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/distributions/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/distributions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/distributions.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/distributions.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/domain.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/domain/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/domain/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/domain.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/domain.ts",
+          "Overwrote: src/types/generated/iris-communications/email_communications.ts",
+          "Overwrote: src/app/api/generated/iris-communications/email_communications/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/email_communications/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/email_communications.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/email_communications.ts",
+          "Overwrote: src/types/generated/hestia-core/energy_entries.ts",
+          "Overwrote: src/app/api/generated/hestia-core/energy_entries/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/energy_entries/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/energy_entries.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/energy_entries.ts",
+          "Overwrote: src/types/generated/aethelred-connections/entity_states.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/entity_states/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/entity_states/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/entity_states.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/entity_states.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/etymology.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/etymology/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/etymology.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/etymology.ts",
+          "Overwrote: src/types/generated/plutus-economics/exchanges.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/exchanges/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/exchanges/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/exchanges.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/exchanges.ts",
+          "Overwrote: src/types/generated/aethelred-connections/executioner.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/executioner/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/executioner/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/executioner.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/executioner.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/family.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/family/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/family/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/family.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/family.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/file_registry.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/file_registry.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/file_registry.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/file_type_standards.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/folksonomy.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/folksonomy.ts",
+          "Overwrote: src/types/generated/daedalus-meta/gaia_config.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/gaia_config/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/gaia_config/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/gaia_config.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/gaia_config.ts",
+          "Overwrote: src/types/generated/daedalus-meta/gaia_generation_log.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/gaia_generation_log/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/gaia_generation_log/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/gaia_generation_log.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/gaia_generation_log.ts",
+          "Overwrote: src/types/generated/hestia-core/garden_plots.ts",
+          "Overwrote: src/app/api/generated/hestia-core/garden_plots/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/garden_plots/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/garden_plots.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/garden_plots.ts",
+          "Overwrote: src/types/generated/hestia-core/garden_visits.ts",
+          "Overwrote: src/app/api/generated/hestia-core/garden_visits/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/garden_visits/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/garden_visits.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/garden_visits.ts",
+          "Overwrote: src/types/generated/daedalus-meta/generation_templates.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/generation_templates/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/generation_templates/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/generation_templates.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/generation_templates.ts",
+          "Overwrote: src/types/generated/daedalus-meta/generations.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/generations/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/generations/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/generations.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/generations.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/genus.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/genus/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/genus/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/genus.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/genus.ts",
+          "Overwrote: src/types/generated/plutus-economics/gift_wrappings.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/gift_wrappings/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/gift_wrappings/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/gift_wrappings.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/gift_wrappings.ts",
+          "Overwrote: src/types/generated/plutus-economics/gifts.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/gifts/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/gifts/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/gifts.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/gifts.ts",
+          "Overwrote: src/types/generated/aethelred-connections/github_connection.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/github_connection/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/github_connection.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/github_connection.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_applications.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_applications/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_applications/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_applications.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_applications.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_attachments.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_attachments/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_attachments/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_attachments.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_attachments.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_collaborators.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_collaborators/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_collaborators/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_collaborators.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_collaborators.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_milestones.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_milestones/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_milestones/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_milestones.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_milestones.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_narratives.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_narratives/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_narratives/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_narratives.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_narratives.ts",
+          "Overwrote: src/types/generated/plutus-economics/grant_opportunities.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_opportunities/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/grant_opportunities/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/grant_opportunities.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/grant_opportunities.ts",
+          "Overwrote: src/types/generated/aethelred-connections/hearth_keeper.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/hearth_keeper/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/hearth_keeper.ts",
+          "Overwrote: src/types/generated/hestia-core/heralds.ts",
+          "Overwrote: src/app/api/generated/hestia-core/heralds/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/heralds/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/heralds.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/heralds.ts",
+          "Overwrote: src/types/generated/hestia-core/journal_entries.ts",
+          "Overwrote: src/app/api/generated/hestia-core/journal_entries/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/journal_entries/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/journal_entries.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/journal_entries.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/keywords.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/keywords/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/keywords/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/keywords.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/keywords.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/kingdom.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/kingdom/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/kingdom/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/kingdom.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/kingdom.ts",
+          "Overwrote: src/types/generated/iris-communications/languages.ts",
+          "Overwrote: src/app/api/generated/iris-communications/languages/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/languages/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/languages.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/languages.ts",
+          "Overwrote: src/types/generated/athena-gamification/learning_paths.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/learning_paths/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/learning_paths.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/learning_paths.ts",
+          "Overwrote: src/types/generated/plutus-economics/ledger.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/ledger/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/ledger/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/ledger.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/ledger.ts",
+          "Overwrote: src/types/generated/athena-gamification/lessons.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/lessons/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/lessons/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/lessons.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/lessons.ts",
+          "Overwrote: src/types/generated/aethelred-connections/life_cycles.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/life_cycles/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/life_cycles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/life_cycles.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/life_cycles.ts",
+          "Overwrote: src/types/generated/iris-communications/localization.ts",
+          "Overwrote: src/app/api/generated/iris-communications/localization/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/localization/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/localization.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/localization.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/maintenance.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/maintenance.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/maintenance.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/memories.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/memories/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/memories/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/memories.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/memories.ts",
+          "Overwrote: src/types/generated/hermes-social/merchant_profiles.ts",
+          "Overwrote: src/app/api/generated/hermes-social/merchant_profiles/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/merchant_profiles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hermes-social/merchant_profiles.ts",
+          "Overwrote: src/lib/utils/generated/hermes-social/merchant_profiles.ts",
+          "Overwrote: src/types/generated/iris-communications/messages.ts",
+          "Overwrote: src/app/api/generated/iris-communications/messages/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/messages/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/messages.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/messages.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/mind_traits.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/mind_traits/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/mind_traits/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/mind_traits.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/mind_traits.ts",
+          "Overwrote: src/types/generated/themis-governance/moderation_actions.ts",
+          "Overwrote: src/app/api/generated/themis-governance/moderation_actions/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/moderation_actions.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/moderation_actions.ts",
+          "Overwrote: src/types/generated/athena-gamification/mythology.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/mythology/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/mythology/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/mythology.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/mythology.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/ontology.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/ontology/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/ontology.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/ontology.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/order.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/order/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/order/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/order.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/order.ts",
+          "Overwrote: src/types/generated/athena-gamification/path_lessons.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/path_lessons/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts",
+          "Overwrote: src/types/generated/plutus-economics/patronage.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/patronage/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/patronage/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/patronage.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/patronage.ts",
+          "Overwrote: src/types/generated/plutus-economics/patronage_tiers.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/patronage_tiers/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/patronage_tiers/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/patronage_tiers.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/patronage_tiers.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/patterns.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/patterns/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/patterns/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/patterns.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/patterns.ts",
+          "Overwrote: src/types/generated/iris-communications/personas.ts",
+          "Overwrote: src/app/api/generated/iris-communications/personas/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/personas/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/personas.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/personas.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/phylum.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/phylum/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/phylum/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/phylum.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/phylum.ts",
+          "Overwrote: src/types/generated/hestia-core/plant_stages.ts",
+          "Overwrote: src/app/api/generated/hestia-core/plant_stages/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/plant_stages/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/plant_stages.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/plant_stages.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/platform_config.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/platform_config/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/platform_config/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/platform_config.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/platform_config.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/platform_settings.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/platform_settings/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/platform_settings/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/platform_settings.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/platform_settings.ts",
+          "Overwrote: src/types/generated/themis-governance/processes.ts",
+          "Overwrote: src/app/api/generated/themis-governance/processes/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/processes/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/processes.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/processes.ts",
+          "Overwrote: src/types/generated/themis-governance/proposals.ts",
+          "Overwrote: src/app/api/generated/themis-governance/proposals/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/proposals/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/proposals.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/proposals.ts",
+          "Overwrote: src/types/generated/themis-governance/protocols.ts",
+          "Overwrote: src/app/api/generated/themis-governance/protocols/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/protocols/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/protocols.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/protocols.ts",
+          "Overwrote: src/types/generated/athena-gamification/quest_progress.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/quest_progress/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/quest_progress/[id]/route.ts",
+          "Overwrote: src/types/generated/athena-gamification/quests.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/quests/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/quests/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/quests.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/quests.ts",
+          "Overwrote: src/types/generated/themis-governance/rate_limits.ts",
+          "Overwrote: src/app/api/generated/themis-governance/rate_limits/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/rate_limits/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/rate_limits.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/rate_limits.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/reference_values.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/reference_values/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/reference_values/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/reference_values.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/reference_values.ts",
+          "Overwrote: src/types/generated/iris-communications/regions.ts",
+          "Overwrote: src/app/api/generated/iris-communications/regions/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/regions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/regions.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/regions.ts",
+          "Overwrote: src/types/generated/themis-governance/reports.ts",
+          "Overwrote: src/app/api/generated/themis-governance/reports/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/reports/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/reports.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/reports.ts",
+          "Overwrote: src/types/generated/aethelred-connections/resend_connection.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/resend_connection/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/resend_connection.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/resend_connection.ts",
+          "Overwrote: src/types/generated/plutus-economics/residual_pool.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/residual_pool/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/residual_pool.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/residual_pool.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/resonance.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/resonance/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/resonance/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/resonance.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/resonance.ts",
+          "Overwrote: src/types/generated/themis-governance/responses.ts",
+          "Overwrote: src/app/api/generated/themis-governance/responses/route.ts",
+          "Overwrote: src/app/api/generated/themis-governance/responses/[id]/route.ts",
+          "Overwrote: src/hooks/generated/themis-governance/responses.ts",
+          "Overwrote: src/lib/utils/generated/themis-governance/responses.ts",
+          "Overwrote: src/types/generated/athena-gamification/scene_participants.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/scene_participants/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts",
+          "Overwrote: src/types/generated/athena-gamification/scenes.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/scenes/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/scenes/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/scenes.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/scenes.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/scheduling.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/scheduling.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/scheduling.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/script_executions.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/script_executions/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/script_executions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/script_executions.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/script_executions.ts",
+          "Overwrote: src/types/generated/hephaestus-infrastructure/scripts.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/scripts/route.ts",
+          "Overwrote: src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hephaestus-infrastructure/scripts.ts",
+          "Overwrote: src/lib/utils/generated/hephaestus-infrastructure/scripts.ts",
+          "Overwrote: src/types/generated/hestia-core/seed_types.ts",
+          "Overwrote: src/app/api/generated/hestia-core/seed_types/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/seed_types/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/seed_types.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/seed_types.ts",
+          "Overwrote: src/types/generated/aethelred-connections/seer.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/seer/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/seer/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/seer.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/seer.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/sensory_lexicon/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/sensory_lexicon/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/sensory_lexicon.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/sensory_map.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/sensory_map/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/sensory_map/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/sensory_map.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/sensory_map.ts",
+          "Overwrote: src/types/generated/athena-gamification/sigil_unlocks.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/sigil_unlocks/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/sigil_unlocks/[id]/route.ts",
+          "Overwrote: src/types/generated/athena-gamification/sigils.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/sigils/route.ts",
+          "Overwrote: src/app/api/generated/athena-gamification/sigils/[id]/route.ts",
+          "Overwrote: src/hooks/generated/athena-gamification/sigils.ts",
+          "Overwrote: src/lib/utils/generated/athena-gamification/sigils.ts",
+          "Overwrote: src/types/generated/iris-communications/signals.ts",
+          "Overwrote: src/app/api/generated/iris-communications/signals/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/signals/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/signals.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/signals.ts",
+          "Overwrote: src/types/generated/aethelred-connections/skald.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/skald/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/skald/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/skald.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/skald.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/species.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/species/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/species/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/species.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/species.ts",
+          "Overwrote: src/types/generated/aethelred-connections/stripe_connection.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/stripe_connection/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/stripe_connection.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/stripe_connection.ts",
+          "Overwrote: src/types/generated/aethelred-connections/supabase_connection.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/supabase_connection/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/supabase_connection.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/supabase_connection.ts",
+          "Overwrote: src/types/generated/iris-communications/survey_responses.ts",
+          "Overwrote: src/app/api/generated/iris-communications/survey_responses/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/survey_responses/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/survey_responses.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/survey_responses.ts",
+          "Overwrote: src/types/generated/iris-communications/surveys.ts",
+          "Overwrote: src/app/api/generated/iris-communications/surveys/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/surveys/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/surveys.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/surveys.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/taxonomy.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/taxonomy.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/taxonomy.ts",
+          "Overwrote: src/types/generated/daedalus-meta/templates.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/templates/route.ts",
+          "Overwrote: src/app/api/generated/daedalus-meta/templates/[id]/route.ts",
+          "Overwrote: src/hooks/generated/daedalus-meta/templates.ts",
+          "Overwrote: src/lib/utils/generated/daedalus-meta/templates.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/test_patterns.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/test_patterns/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/test_patterns/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/test_patterns.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/test_patterns.ts",
+          "Overwrote: src/types/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/thesaurus_entries/route.ts",
+          "Overwrote: src/app/api/generated/mnemosyne-assessment/thesaurus_entries/[id]/route.ts",
+          "Overwrote: src/hooks/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "Overwrote: src/lib/utils/generated/mnemosyne-assessment/thesaurus_entries.ts",
+          "Overwrote: src/types/generated/iris-communications/translations.ts",
+          "Overwrote: src/app/api/generated/iris-communications/translations/route.ts",
+          "Overwrote: src/app/api/generated/iris-communications/translations/[id]/route.ts",
+          "Overwrote: src/hooks/generated/iris-communications/translations.ts",
+          "Overwrote: src/lib/utils/generated/iris-communications/translations.ts",
+          "Overwrote: src/types/generated/hestia-core/user_financial.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_financial/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/user_financial.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/user_financial.ts",
+          "Overwrote: src/types/generated/hestia-core/user_page_views.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_page_views/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_page_views/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/user_page_views.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/user_page_views.ts",
+          "Overwrote: src/types/generated/hestia-core/user_private.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_private/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/user_private.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/user_private.ts",
+          "Overwrote: src/types/generated/hestia-core/user_roles.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_roles/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/user_roles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/user_roles.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/user_roles.ts",
+          "Overwrote: src/types/generated/aethelred-connections/vercel_connection.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/vercel_connection/route.ts",
+          "Overwrote: src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts",
+          "Overwrote: src/hooks/generated/aethelred-connections/vercel_connection.ts",
+          "Overwrote: src/lib/utils/generated/aethelred-connections/vercel_connection.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_anchors.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_anchors/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_anchors.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_anchors.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_bubbles.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_bubbles/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_bubbles.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_bubbles.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_collections.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_collections/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_collections.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_collections.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_companions.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_companions/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_companions.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_companions.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_config.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_config/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_config/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_config.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_config.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_decorations.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_decorations/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_decorations.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_decorations.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_exteriors.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_exteriors/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_exteriors.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_exteriors.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_interiors.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_interiors/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_interiors.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_interiors.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_quests.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_quests/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_quests.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_quests.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_rooms.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_rooms/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_rooms.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_rooms.ts",
+          "Overwrote: src/types/generated/hestia-core/vessel_sigils.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_sigils/route.ts",
+          "Overwrote: src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hestia-core/vessel_sigils.ts",
+          "Overwrote: src/lib/utils/generated/hestia-core/vessel_sigils.ts",
+          "Overwrote: src/types/generated/plutus-economics/ware_participants.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/ware_participants/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/ware_participants/[id]/route.ts",
+          "Overwrote: src/types/generated/plutus-economics/wares.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/wares/route.ts",
+          "Overwrote: src/app/api/generated/plutus-economics/wares/[id]/route.ts",
+          "Overwrote: src/hooks/generated/plutus-economics/wares.ts",
+          "Overwrote: src/lib/utils/generated/plutus-economics/wares.ts",
+          "Overwrote: src/types/generated/hermes-social/work_participants.ts",
+          "Overwrote: src/app/api/generated/hermes-social/work_participants/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/work_participants/[id]/route.ts",
+          "Overwrote: src/types/generated/hermes-social/works.ts",
+          "Overwrote: src/app/api/generated/hermes-social/works/route.ts",
+          "Overwrote: src/app/api/generated/hermes-social/works/[id]/route.ts",
+          "Overwrote: src/hooks/generated/hermes-social/works.ts",
+          "Overwrote: src/lib/utils/generated/hermes-social/works.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/address_type.ts",
+          "Overwrote: src/lib/constants/generated/themis-governance/application_status.ts",
+          "Overwrote: src/lib/constants/generated/themis-governance/application_type.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/content_status.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/display_theme.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/exchange_status.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/global_region.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/herald_digest.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/notification_channel.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/pricing_model.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/processing_speed.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/profile_status.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/relationship_type.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/sensory_level.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/sovereign_tier.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/subscription_tier.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/user_role.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/visibility.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/ware_type.ts",
+          "Overwrote: src/lib/constants/generated/hestia-core/work_type.ts"
+        ],
+        "notes": []
+      },
       {
         "id": "20260718_183003",
         "system": "GAIA",
@@ -13850,104 +15516,104 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.188Z"
       },
       "src/types/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "4fb9a61353b9756c",
-        "generatedAt": "2026-07-18T23:30:03.517Z"
+        "hash": "96b874d0b8a64fe1",
+        "generatedAt": "2026-07-20T04:39:10.307Z"
       },
       "src/app/api/generated/aethelred-connections/aethelred_house/route.ts": {
-        "hash": "4a20f14c34f86d2a",
-        "generatedAt": "2026-07-18T23:30:03.519Z"
+        "hash": "7bb6708c3fe4c0c0",
+        "generatedAt": "2026-07-20T04:39:10.308Z"
       },
       "src/app/api/generated/aethelred-connections/aethelred_house/[id]/route.ts": {
-        "hash": "6377ee7a1666db1c",
-        "generatedAt": "2026-07-18T23:30:03.520Z"
+        "hash": "56b8d98d6a1b5329",
+        "generatedAt": "2026-07-20T04:39:10.309Z"
       },
       "src/hooks/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "4e0b9f78e5751bb6",
-        "generatedAt": "2026-07-18T23:30:03.521Z"
+        "hash": "8983a083c45d0c0b",
+        "generatedAt": "2026-07-20T04:39:10.310Z"
       },
       "src/lib/utils/generated/aethelred-connections/aethelred_house.ts": {
-        "hash": "d7301b03538b277c",
-        "generatedAt": "2026-07-18T23:30:03.522Z"
+        "hash": "dac4039dc6b44bf8",
+        "generatedAt": "2026-07-20T04:39:10.311Z"
       },
       "src/types/generated/aethelred-connections/agent_activities.ts": {
-        "hash": "9cf4babd7209f95d",
-        "generatedAt": "2026-07-18T23:30:03.523Z"
+        "hash": "92a43e1674c34aae",
+        "generatedAt": "2026-07-20T04:39:10.312Z"
       },
       "src/app/api/generated/aethelred-connections/agent_activities/route.ts": {
-        "hash": "1aa8b6ff10192a4c",
-        "generatedAt": "2026-07-18T23:30:03.524Z"
+        "hash": "cd774ca6f1dcdb51",
+        "generatedAt": "2026-07-20T04:39:10.313Z"
       },
       "src/app/api/generated/aethelred-connections/agent_activities/[id]/route.ts": {
-        "hash": "51cf8c8631dc1f1f",
-        "generatedAt": "2026-07-18T23:30:03.525Z"
+        "hash": "af35080487ce643d",
+        "generatedAt": "2026-07-20T04:39:10.314Z"
       },
       "src/hooks/generated/aethelred-connections/agent_activities.ts": {
-        "hash": "39a230e47c307724",
-        "generatedAt": "2026-07-18T23:30:03.526Z"
+        "hash": "75da0f62bfda80a2",
+        "generatedAt": "2026-07-20T04:39:10.315Z"
       },
       "src/lib/utils/generated/aethelred-connections/agent_activities.ts": {
-        "hash": "1fd808fd71afb9c0",
-        "generatedAt": "2026-07-18T23:30:03.527Z"
+        "hash": "033c9e056423a068",
+        "generatedAt": "2026-07-20T04:39:10.316Z"
       },
       "src/types/generated/aethelred-connections/agent_conversations.ts": {
-        "hash": "e5d2da65b5e883b7",
-        "generatedAt": "2026-07-18T23:30:03.528Z"
+        "hash": "c6b91fc9eb4384f4",
+        "generatedAt": "2026-07-20T04:39:10.317Z"
       },
       "src/app/api/generated/aethelred-connections/agent_conversations/route.ts": {
-        "hash": "34398936e934589a",
-        "generatedAt": "2026-07-18T23:30:03.529Z"
+        "hash": "608780fdd11657e1",
+        "generatedAt": "2026-07-20T04:39:10.318Z"
       },
       "src/app/api/generated/aethelred-connections/agent_conversations/[id]/route.ts": {
-        "hash": "dbe7dec5b9b2fedc",
-        "generatedAt": "2026-07-18T23:30:03.530Z"
+        "hash": "feef0e574792c6b3",
+        "generatedAt": "2026-07-20T04:39:10.319Z"
       },
       "src/hooks/generated/aethelred-connections/agent_conversations.ts": {
-        "hash": "da3a148a5bdf7a09",
-        "generatedAt": "2026-07-18T23:30:03.531Z"
+        "hash": "93d7df7e1af9fc47",
+        "generatedAt": "2026-07-20T04:39:10.320Z"
       },
       "src/lib/utils/generated/aethelred-connections/agent_conversations.ts": {
-        "hash": "65426654d39788d3",
-        "generatedAt": "2026-07-18T23:30:03.532Z"
+        "hash": "8e87c178b8299aef",
+        "generatedAt": "2026-07-20T04:39:10.321Z"
       },
       "src/types/generated/aethelred-connections/agent_messages.ts": {
-        "hash": "cdae889279f26e1c",
-        "generatedAt": "2026-07-18T23:30:03.533Z"
+        "hash": "af228f5fcfbec527",
+        "generatedAt": "2026-07-20T04:39:10.322Z"
       },
       "src/app/api/generated/aethelred-connections/agent_messages/route.ts": {
-        "hash": "1e16300a09a7015d",
-        "generatedAt": "2026-07-18T23:30:03.534Z"
+        "hash": "375196cd7a06a133",
+        "generatedAt": "2026-07-20T04:39:10.323Z"
       },
       "src/app/api/generated/aethelred-connections/agent_messages/[id]/route.ts": {
-        "hash": "be79589a54d8d4e5",
-        "generatedAt": "2026-07-18T23:30:03.534Z"
+        "hash": "2320f72a168bd2f3",
+        "generatedAt": "2026-07-20T04:39:10.324Z"
       },
       "src/hooks/generated/aethelred-connections/agent_messages.ts": {
-        "hash": "ea6e3ca1d2c7d7be",
-        "generatedAt": "2026-07-18T23:30:03.535Z"
+        "hash": "601d7bd2061aff26",
+        "generatedAt": "2026-07-20T04:39:10.325Z"
       },
       "src/lib/utils/generated/aethelred-connections/agent_messages.ts": {
-        "hash": "f7310a22d8c3218a",
-        "generatedAt": "2026-07-18T23:30:03.536Z"
+        "hash": "4a2109612f1c1383",
+        "generatedAt": "2026-07-20T04:39:10.326Z"
       },
       "src/types/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "55c07ad073433cb2",
-        "generatedAt": "2026-07-18T23:30:03.537Z"
+        "hash": "1f0c7e3f30e87b5c",
+        "generatedAt": "2026-07-20T04:39:10.327Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/analytics/route.ts": {
-        "hash": "2e019da5d47acf49",
-        "generatedAt": "2026-07-18T23:30:03.538Z"
+        "hash": "4bc0fbc9614fc5a8",
+        "generatedAt": "2026-07-20T04:39:10.328Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/analytics/[id]/route.ts": {
-        "hash": "ca41efe69e4acc2e",
-        "generatedAt": "2026-07-18T23:30:03.539Z"
+        "hash": "6ca8fa6260bef309",
+        "generatedAt": "2026-07-20T04:39:10.329Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "4fe7b92767195b88",
-        "generatedAt": "2026-07-18T23:30:03.540Z"
+        "hash": "f8a65875d2a76356",
+        "generatedAt": "2026-07-20T04:39:10.330Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/analytics.ts": {
-        "hash": "9be0ccbce0371331",
-        "generatedAt": "2026-07-18T23:30:03.541Z"
+        "hash": "f00d6ac4e0376ae1",
+        "generatedAt": "2026-07-20T04:39:10.331Z"
       },
       "src/types/generated/hestia-core/anchor_events.ts": {
         "hash": "d29e858b1f8ac07b",
@@ -13970,44 +15636,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.222Z"
       },
       "src/types/generated/themis-governance/applications.ts": {
-        "hash": "f0a9c0b804b888ec",
-        "generatedAt": "2026-07-18T23:30:03.547Z"
+        "hash": "5bb102899dd88a9d",
+        "generatedAt": "2026-07-20T04:39:10.337Z"
       },
       "src/app/api/generated/themis-governance/applications/route.ts": {
-        "hash": "2982de5d088698ae",
-        "generatedAt": "2026-07-18T23:30:03.548Z"
+        "hash": "60fb27770bc9b214",
+        "generatedAt": "2026-07-20T04:39:10.338Z"
       },
       "src/app/api/generated/themis-governance/applications/[id]/route.ts": {
-        "hash": "ff15de9f65cdbb54",
-        "generatedAt": "2026-07-18T23:30:03.549Z"
+        "hash": "82fe671f7d5480dc",
+        "generatedAt": "2026-07-20T04:39:10.339Z"
       },
       "src/hooks/generated/themis-governance/applications.ts": {
-        "hash": "fd3cbc80a134daa0",
-        "generatedAt": "2026-07-18T23:30:03.550Z"
+        "hash": "50099477821902a2",
+        "generatedAt": "2026-07-20T04:39:10.340Z"
       },
       "src/lib/utils/generated/themis-governance/applications.ts": {
-        "hash": "6bd0d9c069e61982",
-        "generatedAt": "2026-07-18T23:30:03.551Z"
+        "hash": "7e7be9ef6297865c",
+        "generatedAt": "2026-07-20T04:39:10.341Z"
       },
       "src/types/generated/aethelred-connections/archivist.ts": {
-        "hash": "e3a946b8cd763176",
-        "generatedAt": "2026-07-18T23:30:03.552Z"
+        "hash": "8007c973e1a8bd98",
+        "generatedAt": "2026-07-20T04:39:10.342Z"
       },
       "src/app/api/generated/aethelred-connections/archivist/route.ts": {
-        "hash": "c8a34e171672c120",
-        "generatedAt": "2026-07-18T23:30:03.553Z"
+        "hash": "278735b01eeeaac0",
+        "generatedAt": "2026-07-20T04:39:10.343Z"
       },
       "src/app/api/generated/aethelred-connections/archivist/[id]/route.ts": {
-        "hash": "4900b75215d74f17",
-        "generatedAt": "2026-07-18T23:30:03.554Z"
+        "hash": "4d697429a0d8e500",
+        "generatedAt": "2026-07-20T04:39:10.344Z"
       },
       "src/hooks/generated/aethelred-connections/archivist.ts": {
-        "hash": "db6ffef8ab3c480f",
-        "generatedAt": "2026-07-18T23:30:03.555Z"
+        "hash": "b75430231e30b063",
+        "generatedAt": "2026-07-20T04:39:10.345Z"
       },
       "src/lib/utils/generated/aethelred-connections/archivist.ts": {
-        "hash": "411c5cc3ab6553da",
-        "generatedAt": "2026-07-18T23:30:03.555Z"
+        "hash": "f71c87889474cff5",
+        "generatedAt": "2026-07-20T04:39:10.346Z"
       },
       "src/types/generated/hestia-core/artisan_category_links.ts": {
         "hash": "33cdee7060859516",
@@ -14162,44 +15828,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.269Z"
       },
       "src/types/generated/athena-gamification/bubbles.ts": {
-        "hash": "da052da689d85f5c",
-        "generatedAt": "2026-07-18T23:30:03.586Z"
+        "hash": "1fcd666f2b3af364",
+        "generatedAt": "2026-07-20T04:39:10.378Z"
       },
       "src/app/api/generated/athena-gamification/bubbles/route.ts": {
-        "hash": "fd097fa2e4a0db67",
-        "generatedAt": "2026-07-18T23:30:03.588Z"
+        "hash": "f21ded4f699aad81",
+        "generatedAt": "2026-07-20T04:39:10.379Z"
       },
       "src/app/api/generated/athena-gamification/bubbles/[id]/route.ts": {
-        "hash": "a01cbfbb9ad8f43f",
-        "generatedAt": "2026-07-18T23:30:03.589Z"
+        "hash": "cf8c58fa5885bde4",
+        "generatedAt": "2026-07-20T04:39:10.380Z"
       },
       "src/hooks/generated/athena-gamification/bubbles.ts": {
-        "hash": "88eb17ca8a9aa96f",
-        "generatedAt": "2026-07-18T23:30:03.589Z"
+        "hash": "5521f9f4f8f1ca61",
+        "generatedAt": "2026-07-20T04:39:10.381Z"
       },
       "src/lib/utils/generated/athena-gamification/bubbles.ts": {
-        "hash": "f98d55ead3662b7a",
-        "generatedAt": "2026-07-18T23:30:03.590Z"
+        "hash": "febffe6f987370a8",
+        "generatedAt": "2026-07-20T04:39:10.382Z"
       },
       "src/types/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "21a6ca4aa3f38212",
-        "generatedAt": "2026-07-18T23:30:03.591Z"
+        "hash": "9e5a78f0e42bf263",
+        "generatedAt": "2026-07-20T04:39:10.383Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/calendar/route.ts": {
-        "hash": "af498337ebfb530f",
-        "generatedAt": "2026-07-18T23:30:03.592Z"
+        "hash": "eb1e85835cff658a",
+        "generatedAt": "2026-07-20T04:39:10.384Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/calendar/[id]/route.ts": {
-        "hash": "86fea7af6c3fdad1",
-        "generatedAt": "2026-07-18T23:30:03.593Z"
+        "hash": "6da8d7397d761d99",
+        "generatedAt": "2026-07-20T04:39:10.385Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "5b2324dfab18d8d0",
-        "generatedAt": "2026-07-18T23:30:03.594Z"
+        "hash": "a921f0b120b47560",
+        "generatedAt": "2026-07-20T04:39:10.386Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/calendar.ts": {
-        "hash": "5086a0ecce172c0c",
-        "generatedAt": "2026-07-18T23:30:03.595Z"
+        "hash": "d168d07f9e923f8b",
+        "generatedAt": "2026-07-20T04:39:10.387Z"
       },
       "src/types/generated/hestia-core/categories.ts": {
         "hash": "c1ee5087e5ef0d11",
@@ -14222,24 +15888,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.283Z"
       },
       "src/types/generated/aethelred-connections/chancellor.ts": {
-        "hash": "56c32533ae9e4abc",
-        "generatedAt": "2026-07-18T23:30:03.601Z"
+        "hash": "4f9d772fe1204ba1",
+        "generatedAt": "2026-07-20T04:39:10.393Z"
       },
       "src/app/api/generated/aethelred-connections/chancellor/route.ts": {
-        "hash": "adaab473a14b977f",
-        "generatedAt": "2026-07-18T23:30:03.602Z"
+        "hash": "819bf87296046ced",
+        "generatedAt": "2026-07-20T04:39:10.394Z"
       },
       "src/app/api/generated/aethelred-connections/chancellor/[id]/route.ts": {
-        "hash": "aa992001b8fae261",
-        "generatedAt": "2026-07-18T23:30:03.603Z"
+        "hash": "b1e036034b0aa00d",
+        "generatedAt": "2026-07-20T04:39:10.395Z"
       },
       "src/hooks/generated/aethelred-connections/chancellor.ts": {
-        "hash": "bf0a603110dfb99c",
-        "generatedAt": "2026-07-18T23:30:03.604Z"
+        "hash": "6325e018723f9368",
+        "generatedAt": "2026-07-20T04:39:10.396Z"
       },
       "src/lib/utils/generated/aethelred-connections/chancellor.ts": {
-        "hash": "9dd76c21ff75f700",
-        "generatedAt": "2026-07-18T23:30:03.604Z"
+        "hash": "e8b776dffe139eff",
+        "generatedAt": "2026-07-20T04:39:10.397Z"
       },
       "src/types/generated/hestia-core/channels.ts": {
         "hash": "9bb5aa92a84ba90b",
@@ -14282,36 +15948,36 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.297Z"
       },
       "src/types/generated/aethelred-connections/codex.ts": {
-        "hash": "9a5e1b823ef675c0",
-        "generatedAt": "2026-07-18T23:30:03.614Z"
+        "hash": "558338c24ab066a4",
+        "generatedAt": "2026-07-20T04:39:10.407Z"
       },
       "src/app/api/generated/aethelred-connections/codex/route.ts": {
-        "hash": "93e787692324a5d5",
-        "generatedAt": "2026-07-18T23:30:03.615Z"
+        "hash": "c32e8c23aa10de95",
+        "generatedAt": "2026-07-20T04:39:10.408Z"
       },
       "src/app/api/generated/aethelred-connections/codex/[id]/route.ts": {
-        "hash": "c2f5b192010c0156",
-        "generatedAt": "2026-07-18T23:30:03.616Z"
+        "hash": "2d9e6326851b6fd8",
+        "generatedAt": "2026-07-20T04:39:10.409Z"
       },
       "src/hooks/generated/aethelred-connections/codex.ts": {
-        "hash": "9aeadbc05dd08ffd",
-        "generatedAt": "2026-07-18T23:30:03.617Z"
+        "hash": "1c099849957c7a18",
+        "generatedAt": "2026-07-20T04:39:10.410Z"
       },
       "src/lib/utils/generated/aethelred-connections/codex.ts": {
-        "hash": "4fe94734710ed92c",
-        "generatedAt": "2026-07-18T23:30:03.618Z"
+        "hash": "f5ed110882a30156",
+        "generatedAt": "2026-07-20T04:39:10.411Z"
       },
       "src/types/generated/hestia-core/collection_items.ts": {
-        "hash": "4b723b6d113a8a29",
-        "generatedAt": "2026-07-18T23:30:03.619Z"
+        "hash": "644f0502e6894ca9",
+        "generatedAt": "2026-07-20T04:39:10.412Z"
       },
       "src/app/api/generated/hestia-core/collection_items/route.ts": {
-        "hash": "d4e757de031da4dc",
-        "generatedAt": "2026-07-18T23:30:03.620Z"
+        "hash": "65a69e6dbd90c8cd",
+        "generatedAt": "2026-07-20T04:39:10.413Z"
       },
       "src/app/api/generated/hestia-core/collection_items/[id]/route.ts": {
-        "hash": "71ba0c69a3aeadd3",
-        "generatedAt": "2026-07-18T23:30:03.621Z"
+        "hash": "11e7da66e2823aad",
+        "generatedAt": "2026-07-20T04:39:10.414Z"
       },
       "src/hooks/generated/hestia-core/collection_items.ts": {
         "hash": "438b38cdcf0651a6",
@@ -14322,236 +15988,236 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.307Z"
       },
       "src/types/generated/hestia-core/collection_sets.ts": {
-        "hash": "dfb847313f8f9668",
-        "generatedAt": "2026-07-18T23:30:03.622Z"
+        "hash": "a6e0d16723d819d6",
+        "generatedAt": "2026-07-20T04:39:10.416Z"
       },
       "src/app/api/generated/hestia-core/collection_sets/route.ts": {
-        "hash": "5f4b098147c98427",
-        "generatedAt": "2026-07-18T23:30:03.623Z"
+        "hash": "b8cd620cdd2fe2b6",
+        "generatedAt": "2026-07-20T04:39:10.417Z"
       },
       "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts": {
-        "hash": "9cdb84981ddcb930",
-        "generatedAt": "2026-07-18T23:30:03.624Z"
+        "hash": "ba069a1bf6ea419e",
+        "generatedAt": "2026-07-20T04:39:10.418Z"
       },
       "src/hooks/generated/hestia-core/collection_sets.ts": {
-        "hash": "f5bdf174f6226b16",
-        "generatedAt": "2026-07-18T23:30:03.624Z"
+        "hash": "9f5f1d0bce38d0b0",
+        "generatedAt": "2026-07-20T04:39:10.419Z"
       },
       "src/lib/utils/generated/hestia-core/collection_sets.ts": {
-        "hash": "34d53badfbea1129",
-        "generatedAt": "2026-07-18T23:30:03.625Z"
+        "hash": "db823b7628b5e3dc",
+        "generatedAt": "2026-07-20T04:39:10.420Z"
       },
       "src/types/generated/hestia-core/community_profiles.ts": {
-        "hash": "679e7449c2bc5669",
-        "generatedAt": "2026-07-18T23:30:03.626Z"
+        "hash": "fa092d2060d02e9e",
+        "generatedAt": "2026-07-20T04:39:10.421Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/route.ts": {
-        "hash": "1b883ffa7064695f",
-        "generatedAt": "2026-07-18T23:30:03.627Z"
+        "hash": "6f1a86a8744517b1",
+        "generatedAt": "2026-07-20T04:39:10.422Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts": {
-        "hash": "1fa3843879007054",
-        "generatedAt": "2026-07-18T23:30:03.628Z"
+        "hash": "25d4f8777e31bf39",
+        "generatedAt": "2026-07-20T04:39:10.423Z"
       },
       "src/types/generated/hestia-core/companion_cues.ts": {
-        "hash": "efd683854d0ffff7",
-        "generatedAt": "2026-07-18T23:30:03.632Z"
+        "hash": "1986c52e482becee",
+        "generatedAt": "2026-07-20T04:39:10.426Z"
       },
       "src/app/api/generated/hestia-core/companion_cues/route.ts": {
-        "hash": "df7934d58c07ad28",
-        "generatedAt": "2026-07-18T23:30:03.633Z"
+        "hash": "e904e5dc4c6270f9",
+        "generatedAt": "2026-07-20T04:39:10.427Z"
       },
       "src/app/api/generated/hestia-core/companion_cues/[id]/route.ts": {
-        "hash": "f511fae9c802b5e1",
-        "generatedAt": "2026-07-18T23:30:03.634Z"
+        "hash": "f57f376089a94a41",
+        "generatedAt": "2026-07-20T04:39:10.428Z"
       },
       "src/hooks/generated/hestia-core/companion_cues.ts": {
-        "hash": "2cbfd01c8fae6159",
-        "generatedAt": "2026-07-18T23:30:03.634Z"
+        "hash": "5c72dee847d4161d",
+        "generatedAt": "2026-07-20T04:39:10.429Z"
       },
       "src/lib/utils/generated/hestia-core/companion_cues.ts": {
-        "hash": "2cf7b35daf5acaa2",
-        "generatedAt": "2026-07-18T23:30:03.635Z"
+        "hash": "09f8ec29ab39dbd3",
+        "generatedAt": "2026-07-20T04:39:10.430Z"
       },
       "src/types/generated/aethelred-connections/consciousness.ts": {
-        "hash": "6cc4f4d1d44db3ff",
-        "generatedAt": "2026-07-18T23:30:03.636Z"
+        "hash": "b154b598f6aa960f",
+        "generatedAt": "2026-07-20T04:39:10.431Z"
       },
       "src/app/api/generated/aethelred-connections/consciousness/route.ts": {
-        "hash": "04ba9dc5b1f49738",
-        "generatedAt": "2026-07-18T23:30:03.638Z"
+        "hash": "c586b61f64c6d4c3",
+        "generatedAt": "2026-07-20T04:39:10.432Z"
       },
       "src/app/api/generated/aethelred-connections/consciousness/[id]/route.ts": {
-        "hash": "9bb788f1e133ae99",
-        "generatedAt": "2026-07-18T23:30:03.638Z"
+        "hash": "66dc1b8698a28d10",
+        "generatedAt": "2026-07-20T04:39:10.433Z"
       },
       "src/hooks/generated/aethelred-connections/consciousness.ts": {
-        "hash": "b90e60098db2c832",
-        "generatedAt": "2026-07-18T23:30:03.639Z"
+        "hash": "1cea5e64a533c0aa",
+        "generatedAt": "2026-07-20T04:39:10.434Z"
       },
       "src/lib/utils/generated/aethelred-connections/consciousness.ts": {
-        "hash": "3456be408170e916",
-        "generatedAt": "2026-07-18T23:30:03.640Z"
+        "hash": "1a3e27054b2f9195",
+        "generatedAt": "2026-07-20T04:39:10.435Z"
       },
       "src/types/generated/iris-communications/contact_submissions.ts": {
-        "hash": "54a8959e39acffc8",
-        "generatedAt": "2026-07-18T23:30:03.641Z"
+        "hash": "4c20ebf9a9f52b70",
+        "generatedAt": "2026-07-20T04:39:10.436Z"
       },
       "src/app/api/generated/iris-communications/contact_submissions/route.ts": {
-        "hash": "acdde75e54d8754d",
-        "generatedAt": "2026-07-18T23:30:03.642Z"
+        "hash": "258428311fb1aeca",
+        "generatedAt": "2026-07-20T04:39:10.437Z"
       },
       "src/app/api/generated/iris-communications/contact_submissions/[id]/route.ts": {
-        "hash": "0b013e40f75badf2",
-        "generatedAt": "2026-07-18T23:30:03.643Z"
+        "hash": "4495f2f9830c8b8c",
+        "generatedAt": "2026-07-20T04:39:10.438Z"
       },
       "src/hooks/generated/iris-communications/contact_submissions.ts": {
-        "hash": "1e7fd90c5a1dd025",
-        "generatedAt": "2026-07-18T23:30:03.644Z"
+        "hash": "d93ea1d42a925ae3",
+        "generatedAt": "2026-07-20T04:39:10.439Z"
       },
       "src/lib/utils/generated/iris-communications/contact_submissions.ts": {
-        "hash": "f00ed1e8acd2b0f3",
-        "generatedAt": "2026-07-18T23:30:03.645Z"
+        "hash": "4c8267de3c8c45ff",
+        "generatedAt": "2026-07-20T04:39:10.440Z"
       },
       "src/types/generated/iris-communications/continents.ts": {
-        "hash": "7b8a8dff234aff21",
-        "generatedAt": "2026-07-18T23:30:03.646Z"
+        "hash": "62dee824ec3368fd",
+        "generatedAt": "2026-07-20T04:39:10.441Z"
       },
       "src/app/api/generated/iris-communications/continents/route.ts": {
-        "hash": "74d4c31546041459",
-        "generatedAt": "2026-07-18T23:30:03.647Z"
+        "hash": "ec225864c0596cf6",
+        "generatedAt": "2026-07-20T04:39:10.442Z"
       },
       "src/app/api/generated/iris-communications/continents/[id]/route.ts": {
-        "hash": "0eb066b3893f7c1e",
-        "generatedAt": "2026-07-18T23:30:03.648Z"
+        "hash": "d90f2b1f82a1f831",
+        "generatedAt": "2026-07-20T04:39:10.443Z"
       },
       "src/hooks/generated/iris-communications/continents.ts": {
-        "hash": "b85814d0421e543e",
-        "generatedAt": "2026-07-18T23:30:03.649Z"
+        "hash": "60170661e8b7202f",
+        "generatedAt": "2026-07-20T04:39:10.443Z"
       },
       "src/lib/utils/generated/iris-communications/continents.ts": {
-        "hash": "197ae0c42bc63a73",
-        "generatedAt": "2026-07-18T23:30:03.650Z"
+        "hash": "098f220ea4987786",
+        "generatedAt": "2026-07-20T04:39:10.444Z"
       },
       "src/types/generated/themis-governance/council_houses.ts": {
-        "hash": "3fcfcb0404e4bf23",
-        "generatedAt": "2026-07-18T23:30:03.651Z"
+        "hash": "2f3f9045fac3e67b",
+        "generatedAt": "2026-07-20T04:39:10.446Z"
       },
       "src/app/api/generated/themis-governance/council_houses/route.ts": {
-        "hash": "0b69047924122443",
-        "generatedAt": "2026-07-18T23:30:03.652Z"
+        "hash": "1c22eb09aa289585",
+        "generatedAt": "2026-07-20T04:39:10.447Z"
       },
       "src/app/api/generated/themis-governance/council_houses/[id]/route.ts": {
-        "hash": "5a980a3c932b0add",
-        "generatedAt": "2026-07-18T23:30:03.652Z"
+        "hash": "d5764f2e35d7bc36",
+        "generatedAt": "2026-07-20T04:39:10.447Z"
       },
       "src/hooks/generated/themis-governance/council_houses.ts": {
-        "hash": "30a66eba5c86dcde",
-        "generatedAt": "2026-07-18T23:30:03.653Z"
+        "hash": "665eccae14f489dc",
+        "generatedAt": "2026-07-20T04:39:10.449Z"
       },
       "src/lib/utils/generated/themis-governance/council_houses.ts": {
-        "hash": "7c3dd6899df599e4",
-        "generatedAt": "2026-07-18T23:30:03.654Z"
+        "hash": "73858dc2d79a219d",
+        "generatedAt": "2026-07-20T04:39:10.449Z"
       },
       "src/types/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "3d60647110cf740d",
-        "generatedAt": "2026-07-18T23:30:03.655Z"
+        "hash": "8cc868ad2b954b49",
+        "generatedAt": "2026-07-20T04:39:10.450Z"
       },
       "src/app/api/generated/plutus-economics/covenant_pool/route.ts": {
-        "hash": "803b0515e8002a88",
-        "generatedAt": "2026-07-18T23:30:03.656Z"
+        "hash": "e85d2c695aad1f45",
+        "generatedAt": "2026-07-20T04:39:10.452Z"
       },
       "src/app/api/generated/plutus-economics/covenant_pool/[id]/route.ts": {
-        "hash": "6027f99cb5a5bbe4",
-        "generatedAt": "2026-07-18T23:30:03.657Z"
+        "hash": "1b4a21e4b91b2856",
+        "generatedAt": "2026-07-20T04:39:10.452Z"
       },
       "src/hooks/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "12f03bdba3d1db44",
-        "generatedAt": "2026-07-18T23:30:03.658Z"
+        "hash": "cb8d794518fceb10",
+        "generatedAt": "2026-07-20T04:39:10.453Z"
       },
       "src/lib/utils/generated/plutus-economics/covenant_pool.ts": {
-        "hash": "6e33b88f8ea69d12",
-        "generatedAt": "2026-07-18T23:30:03.659Z"
+        "hash": "cee9c80a60d7c9e7",
+        "generatedAt": "2026-07-20T04:39:10.454Z"
       },
       "src/types/generated/iris-communications/culturalization.ts": {
-        "hash": "30629788c4cb5ce3",
-        "generatedAt": "2026-07-18T23:30:03.660Z"
+        "hash": "fb085290d4f7ddbe",
+        "generatedAt": "2026-07-20T04:39:10.455Z"
       },
       "src/app/api/generated/iris-communications/culturalization/route.ts": {
-        "hash": "b112f59dc54ee534",
-        "generatedAt": "2026-07-18T23:30:03.661Z"
+        "hash": "f31cdb581fd646f5",
+        "generatedAt": "2026-07-20T04:39:10.456Z"
       },
       "src/app/api/generated/iris-communications/culturalization/[id]/route.ts": {
-        "hash": "8a05831ad3852add",
-        "generatedAt": "2026-07-18T23:30:03.662Z"
+        "hash": "cd3593f856244446",
+        "generatedAt": "2026-07-20T04:39:10.457Z"
       },
       "src/hooks/generated/iris-communications/culturalization.ts": {
-        "hash": "2ba51505529d15fd",
-        "generatedAt": "2026-07-18T23:30:03.663Z"
+        "hash": "096e3f354503f65a",
+        "generatedAt": "2026-07-20T04:39:10.458Z"
       },
       "src/lib/utils/generated/iris-communications/culturalization.ts": {
-        "hash": "aa5cb981d5064ba4",
-        "generatedAt": "2026-07-18T23:30:03.664Z"
+        "hash": "f8dd12cf060ab838",
+        "generatedAt": "2026-07-20T04:39:10.459Z"
       },
       "src/types/generated/aethelred-connections/curator.ts": {
-        "hash": "72d6e0b23eea6d41",
-        "generatedAt": "2026-07-18T23:30:03.665Z"
+        "hash": "e93084ff36313c78",
+        "generatedAt": "2026-07-20T04:39:10.460Z"
       },
       "src/app/api/generated/aethelred-connections/curator/route.ts": {
-        "hash": "c2561c8aeaa38521",
-        "generatedAt": "2026-07-18T23:30:03.665Z"
+        "hash": "5238ecc82660b87f",
+        "generatedAt": "2026-07-20T04:39:10.461Z"
       },
       "src/app/api/generated/aethelred-connections/curator/[id]/route.ts": {
-        "hash": "670a552fd0c8f730",
-        "generatedAt": "2026-07-18T23:30:03.666Z"
+        "hash": "b3e28f0e745212c7",
+        "generatedAt": "2026-07-20T04:39:10.462Z"
       },
       "src/hooks/generated/aethelred-connections/curator.ts": {
-        "hash": "636e96d5e9ff3f31",
-        "generatedAt": "2026-07-18T23:30:03.667Z"
+        "hash": "3ffdba43f92e6af0",
+        "generatedAt": "2026-07-20T04:39:10.463Z"
       },
       "src/lib/utils/generated/aethelred-connections/curator.ts": {
-        "hash": "3d66c01369898d66",
-        "generatedAt": "2026-07-18T23:30:03.668Z"
+        "hash": "a0ef5ab96a410d72",
+        "generatedAt": "2026-07-20T04:39:10.464Z"
       },
       "src/types/generated/hestia-core/current.ts": {
-        "hash": "ffe98c809cf0382a",
-        "generatedAt": "2026-07-18T23:30:03.669Z"
+        "hash": "30f5d8d7b91f774d",
+        "generatedAt": "2026-07-20T04:39:10.465Z"
       },
       "src/app/api/generated/hestia-core/current/route.ts": {
-        "hash": "abf3d2e209f342a7",
-        "generatedAt": "2026-07-18T23:30:03.670Z"
+        "hash": "43f8cad110e8c686",
+        "generatedAt": "2026-07-20T04:39:10.465Z"
       },
       "src/app/api/generated/hestia-core/current/[id]/route.ts": {
-        "hash": "2d7e3084455310a8",
-        "generatedAt": "2026-07-18T23:30:03.671Z"
+        "hash": "feb6fa14fe04a58a",
+        "generatedAt": "2026-07-20T04:39:10.466Z"
       },
       "src/hooks/generated/hestia-core/current.ts": {
-        "hash": "3b6bbed63436cb70",
-        "generatedAt": "2026-07-18T23:30:03.672Z"
+        "hash": "64cafb6e2806ab80",
+        "generatedAt": "2026-07-20T04:39:10.467Z"
       },
       "src/lib/utils/generated/hestia-core/current.ts": {
-        "hash": "4dc007180d18f981",
-        "generatedAt": "2026-07-18T23:30:03.673Z"
+        "hash": "0fc1d814c2c36efd",
+        "generatedAt": "2026-07-20T04:39:10.468Z"
       },
       "src/types/generated/iris-communications/customs.ts": {
-        "hash": "16885fc7e7050f9c",
-        "generatedAt": "2026-07-18T23:30:03.674Z"
+        "hash": "858f768db1f261ff",
+        "generatedAt": "2026-07-20T04:39:10.469Z"
       },
       "src/app/api/generated/iris-communications/customs/route.ts": {
-        "hash": "00e14e389d6945a4",
-        "generatedAt": "2026-07-18T23:30:03.675Z"
+        "hash": "b9075ce147c5940d",
+        "generatedAt": "2026-07-20T04:39:10.470Z"
       },
       "src/app/api/generated/iris-communications/customs/[id]/route.ts": {
-        "hash": "d28cd93c2f2eae2d",
-        "generatedAt": "2026-07-18T23:30:03.676Z"
+        "hash": "0d87c6af264b9135",
+        "generatedAt": "2026-07-20T04:39:10.471Z"
       },
       "src/hooks/generated/iris-communications/customs.ts": {
-        "hash": "eb8108ed63bce6d9",
-        "generatedAt": "2026-07-18T23:30:03.677Z"
+        "hash": "0a26c8910a188cd0",
+        "generatedAt": "2026-07-20T04:39:10.472Z"
       },
       "src/lib/utils/generated/iris-communications/customs.ts": {
-        "hash": "edf2a2d4789aaa25",
-        "generatedAt": "2026-07-18T23:30:03.678Z"
+        "hash": "be048bd97f99e5a3",
+        "generatedAt": "2026-07-20T04:39:10.473Z"
       },
       "src/types/generated/hestia-core/distribution_recipients.ts": {
         "hash": "675c79731f73f1c5",
@@ -14614,44 +16280,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.382Z"
       },
       "src/types/generated/iris-communications/email_communications.ts": {
-        "hash": "f749d94dbc506757",
-        "generatedAt": "2026-07-18T23:30:03.691Z"
+        "hash": "8370b23be06ba3cc",
+        "generatedAt": "2026-07-20T04:39:10.486Z"
       },
       "src/app/api/generated/iris-communications/email_communications/route.ts": {
-        "hash": "24f0c11b780002b4",
-        "generatedAt": "2026-07-18T23:30:03.691Z"
+        "hash": "0224aab56ec44a5f",
+        "generatedAt": "2026-07-20T04:39:10.487Z"
       },
       "src/app/api/generated/iris-communications/email_communications/[id]/route.ts": {
-        "hash": "01ff545ba68a2ac0",
-        "generatedAt": "2026-07-18T23:30:03.692Z"
+        "hash": "1a6f36a9be2052b0",
+        "generatedAt": "2026-07-20T04:39:10.488Z"
       },
       "src/hooks/generated/iris-communications/email_communications.ts": {
-        "hash": "f35c71296fc13fe7",
-        "generatedAt": "2026-07-18T23:30:03.693Z"
+        "hash": "a91b5136db217251",
+        "generatedAt": "2026-07-20T04:39:10.489Z"
       },
       "src/lib/utils/generated/iris-communications/email_communications.ts": {
-        "hash": "55389596e783e126",
-        "generatedAt": "2026-07-18T23:30:03.694Z"
+        "hash": "f4ec6846af2b3ccd",
+        "generatedAt": "2026-07-20T04:39:10.490Z"
       },
       "src/types/generated/hestia-core/energy_entries.ts": {
-        "hash": "fa7f0db5a0b0085a",
-        "generatedAt": "2026-07-18T23:30:03.695Z"
+        "hash": "f4bac5e1f45e6208",
+        "generatedAt": "2026-07-20T04:39:10.491Z"
       },
       "src/app/api/generated/hestia-core/energy_entries/route.ts": {
-        "hash": "e0f000f113a24553",
-        "generatedAt": "2026-07-18T23:30:03.696Z"
+        "hash": "6f4951aebcfac586",
+        "generatedAt": "2026-07-20T04:39:10.492Z"
       },
       "src/app/api/generated/hestia-core/energy_entries/[id]/route.ts": {
-        "hash": "54cff849e48e4208",
-        "generatedAt": "2026-07-18T23:30:03.697Z"
+        "hash": "9067178936e4f08c",
+        "generatedAt": "2026-07-20T04:39:10.493Z"
       },
       "src/hooks/generated/hestia-core/energy_entries.ts": {
-        "hash": "8e9326dc09c80617",
-        "generatedAt": "2026-07-18T23:30:03.698Z"
+        "hash": "14564db52578b06a",
+        "generatedAt": "2026-07-20T04:39:10.494Z"
       },
       "src/lib/utils/generated/hestia-core/energy_entries.ts": {
-        "hash": "d24824f8123de3d9",
-        "generatedAt": "2026-07-18T23:30:03.699Z"
+        "hash": "47733442758ecc9c",
+        "generatedAt": "2026-07-20T04:39:10.495Z"
       },
       "src/types/generated/hestia-core/entity_states.ts": {
         "hash": "d1e43a91aac8bbd0",
@@ -14674,24 +16340,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.398Z"
       },
       "src/types/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "0cc7fa2502524075",
-        "generatedAt": "2026-07-18T23:30:03.705Z"
+        "hash": "de23345fdd6169d4",
+        "generatedAt": "2026-07-20T04:39:10.501Z"
       },
       "src/app/api/generated/mnemosyne-assessment/etymology/route.ts": {
-        "hash": "73b194c9ad5760ef",
-        "generatedAt": "2026-07-18T23:30:03.706Z"
+        "hash": "1c265c7f9d2a465f",
+        "generatedAt": "2026-07-20T04:39:10.502Z"
       },
       "src/app/api/generated/mnemosyne-assessment/etymology/[id]/route.ts": {
-        "hash": "7f2acf95e0cd8045",
-        "generatedAt": "2026-07-18T23:30:03.707Z"
+        "hash": "73fcd8a3c6e748ed",
+        "generatedAt": "2026-07-20T04:39:10.503Z"
       },
       "src/hooks/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "2de38ed08821df79",
-        "generatedAt": "2026-07-18T23:30:03.708Z"
+        "hash": "6fbdb9b508df0b05",
+        "generatedAt": "2026-07-20T04:39:10.504Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/etymology.ts": {
-        "hash": "97fb02bd053665ed",
-        "generatedAt": "2026-07-18T23:30:03.709Z"
+        "hash": "e6252526a7029c65",
+        "generatedAt": "2026-07-20T04:39:10.505Z"
       },
       "src/types/generated/hestia-core/exchanges.ts": {
         "hash": "16d4f4785e1dc728",
@@ -14714,24 +16380,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.407Z"
       },
       "src/types/generated/aethelred-connections/executioner.ts": {
-        "hash": "cbb492482c073a2a",
-        "generatedAt": "2026-07-18T23:30:03.714Z"
+        "hash": "7ddffad9c8478366",
+        "generatedAt": "2026-07-20T04:39:10.512Z"
       },
       "src/app/api/generated/aethelred-connections/executioner/route.ts": {
-        "hash": "fea68503960a7674",
-        "generatedAt": "2026-07-18T23:30:03.715Z"
+        "hash": "621ac11ea403b716",
+        "generatedAt": "2026-07-20T04:39:10.512Z"
       },
       "src/app/api/generated/aethelred-connections/executioner/[id]/route.ts": {
-        "hash": "9340e58708a395f0",
-        "generatedAt": "2026-07-18T23:30:03.716Z"
+        "hash": "2f0f119c7e64801e",
+        "generatedAt": "2026-07-20T04:39:10.513Z"
       },
       "src/hooks/generated/aethelred-connections/executioner.ts": {
-        "hash": "29e94318f7349682",
-        "generatedAt": "2026-07-18T23:30:03.717Z"
+        "hash": "614bf1e83d8d43c3",
+        "generatedAt": "2026-07-20T04:39:10.514Z"
       },
       "src/lib/utils/generated/aethelred-connections/executioner.ts": {
-        "hash": "7eec99d51eb28071",
-        "generatedAt": "2026-07-18T23:30:03.718Z"
+        "hash": "b70c77b71cdb4d70",
+        "generatedAt": "2026-07-20T04:39:10.515Z"
       },
       "src/types/generated/hestia-core/family.ts": {
         "hash": "7680df98a1881cc9",
@@ -14754,64 +16420,64 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.417Z"
       },
       "src/types/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "dbd38393bcff2227",
-        "generatedAt": "2026-07-18T23:30:03.723Z"
+        "hash": "f991b543b5c1570e",
+        "generatedAt": "2026-07-20T04:39:10.522Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_registry/route.ts": {
-        "hash": "9b182b4b09741371",
-        "generatedAt": "2026-07-18T23:30:03.724Z"
+        "hash": "c8f6044094b493c4",
+        "generatedAt": "2026-07-20T04:39:10.523Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_registry/[id]/route.ts": {
-        "hash": "69a6e42b804aaa05",
-        "generatedAt": "2026-07-18T23:30:03.725Z"
+        "hash": "e90efa972a8f9f0b",
+        "generatedAt": "2026-07-20T04:39:10.524Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "5d36cd2ffe77f70a",
-        "generatedAt": "2026-07-18T23:30:03.726Z"
+        "hash": "b31732e414f67337",
+        "generatedAt": "2026-07-20T04:39:10.525Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/file_registry.ts": {
-        "hash": "bdbd0c1caf2d00cc",
-        "generatedAt": "2026-07-18T23:30:03.727Z"
+        "hash": "9720856898f9df8f",
+        "generatedAt": "2026-07-20T04:39:10.526Z"
       },
       "src/types/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "33f24de90a0da2f0",
-        "generatedAt": "2026-07-18T23:30:03.728Z"
+        "hash": "6e52ca91638eaffe",
+        "generatedAt": "2026-07-20T04:39:10.527Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_type_standards/route.ts": {
-        "hash": "e6b3ff77ea40c3ef",
-        "generatedAt": "2026-07-18T23:30:03.729Z"
+        "hash": "80caab5a9c82d038",
+        "generatedAt": "2026-07-20T04:39:10.528Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/file_type_standards/[id]/route.ts": {
-        "hash": "784e1ee4ab741f86",
-        "generatedAt": "2026-07-18T23:30:03.731Z"
+        "hash": "16030ebfd4193c38",
+        "generatedAt": "2026-07-20T04:39:10.529Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "5f94662bdce683e5",
-        "generatedAt": "2026-07-18T23:30:03.732Z"
+        "hash": "370cd6212eb2c845",
+        "generatedAt": "2026-07-20T04:39:10.530Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/file_type_standards.ts": {
-        "hash": "979edb39ec504ee0",
-        "generatedAt": "2026-07-18T23:30:03.733Z"
+        "hash": "f0c91d4cf59a076a",
+        "generatedAt": "2026-07-20T04:39:10.531Z"
       },
       "src/types/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "a4b49fea8b18fd6f",
-        "generatedAt": "2026-07-18T23:30:03.734Z"
+        "hash": "b0d2b29a6b541522",
+        "generatedAt": "2026-07-20T04:39:10.532Z"
       },
       "src/app/api/generated/mnemosyne-assessment/folksonomy/route.ts": {
-        "hash": "87ae8d99c3d1e603",
-        "generatedAt": "2026-07-18T23:30:03.735Z"
+        "hash": "2bcb4ae2ef345686",
+        "generatedAt": "2026-07-20T04:39:10.533Z"
       },
       "src/app/api/generated/mnemosyne-assessment/folksonomy/[id]/route.ts": {
-        "hash": "036ec5554f332d65",
-        "generatedAt": "2026-07-18T23:30:03.736Z"
+        "hash": "4bb4bec0cc7f3668",
+        "generatedAt": "2026-07-20T04:39:10.534Z"
       },
       "src/hooks/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "b350eaad4997240e",
-        "generatedAt": "2026-07-18T23:30:03.737Z"
+        "hash": "4c513923aeb1e701",
+        "generatedAt": "2026-07-20T04:39:10.535Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/folksonomy.ts": {
-        "hash": "7019ff9c28385cc1",
-        "generatedAt": "2026-07-18T23:30:03.738Z"
+        "hash": "3fa08b69c46dc3ba",
+        "generatedAt": "2026-07-20T04:39:10.536Z"
       },
       "src/types/generated/hestia-core/gaia_config.ts": {
         "hash": "4887c4fe07348664",
@@ -14854,44 +16520,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.442Z"
       },
       "src/types/generated/hestia-core/garden_plots.ts": {
-        "hash": "1d791478556c27b3",
-        "generatedAt": "2026-07-18T23:30:03.748Z"
+        "hash": "3ea676f7e7b60212",
+        "generatedAt": "2026-07-20T04:39:10.547Z"
       },
       "src/app/api/generated/hestia-core/garden_plots/route.ts": {
-        "hash": "866173973f0cee66",
-        "generatedAt": "2026-07-18T23:30:03.749Z"
+        "hash": "d91fb559ceefc957",
+        "generatedAt": "2026-07-20T04:39:10.548Z"
       },
       "src/app/api/generated/hestia-core/garden_plots/[id]/route.ts": {
-        "hash": "311498b483840d99",
-        "generatedAt": "2026-07-18T23:30:03.750Z"
+        "hash": "b6742e9c9847887f",
+        "generatedAt": "2026-07-20T04:39:10.549Z"
       },
       "src/hooks/generated/hestia-core/garden_plots.ts": {
-        "hash": "d59feba04e129599",
-        "generatedAt": "2026-07-18T23:30:03.751Z"
+        "hash": "8a87ec94f0072882",
+        "generatedAt": "2026-07-20T04:39:10.550Z"
       },
       "src/lib/utils/generated/hestia-core/garden_plots.ts": {
-        "hash": "25fb17d038ca7318",
-        "generatedAt": "2026-07-18T23:30:03.752Z"
+        "hash": "af20893af7fb7b20",
+        "generatedAt": "2026-07-20T04:39:10.551Z"
       },
       "src/types/generated/hestia-core/garden_visits.ts": {
-        "hash": "12e40a254a5e365f",
-        "generatedAt": "2026-07-18T23:30:03.753Z"
+        "hash": "4fb170a19ea48ea2",
+        "generatedAt": "2026-07-20T04:39:10.552Z"
       },
       "src/app/api/generated/hestia-core/garden_visits/route.ts": {
-        "hash": "deee1e48632e6b65",
-        "generatedAt": "2026-07-18T23:30:03.754Z"
+        "hash": "6e46b69dbbbb1027",
+        "generatedAt": "2026-07-20T04:39:10.553Z"
       },
       "src/app/api/generated/hestia-core/garden_visits/[id]/route.ts": {
-        "hash": "7b58d64923176291",
-        "generatedAt": "2026-07-18T23:30:03.755Z"
+        "hash": "058e181eca581223",
+        "generatedAt": "2026-07-20T04:39:10.554Z"
       },
       "src/hooks/generated/hestia-core/garden_visits.ts": {
-        "hash": "85a57ef25fe38b54",
-        "generatedAt": "2026-07-18T23:30:03.756Z"
+        "hash": "0305be4ae6ff66ad",
+        "generatedAt": "2026-07-20T04:39:10.555Z"
       },
       "src/lib/utils/generated/hestia-core/garden_visits.ts": {
-        "hash": "37bc65c2c9e805a2",
-        "generatedAt": "2026-07-18T23:30:03.757Z"
+        "hash": "84ab0fa1c249d677",
+        "generatedAt": "2026-07-20T04:39:10.556Z"
       },
       "src/types/generated/hestia-core/generation_templates.ts": {
         "hash": "17a913e19cce926a",
@@ -14994,24 +16660,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.476Z"
       },
       "src/types/generated/aethelred-connections/github_connection.ts": {
-        "hash": "0007c485c98df675",
-        "generatedAt": "2026-07-18T23:30:03.781Z"
+        "hash": "eefb909100d26abb",
+        "generatedAt": "2026-07-20T04:39:10.581Z"
       },
       "src/app/api/generated/aethelred-connections/github_connection/route.ts": {
-        "hash": "059ca860f8bccd6f",
-        "generatedAt": "2026-07-18T23:30:03.782Z"
+        "hash": "d586da2cd030b6b6",
+        "generatedAt": "2026-07-20T04:39:10.582Z"
       },
       "src/app/api/generated/aethelred-connections/github_connection/[id]/route.ts": {
-        "hash": "518564028d9df235",
-        "generatedAt": "2026-07-18T23:30:03.783Z"
+        "hash": "987c2b5eb8699b24",
+        "generatedAt": "2026-07-20T04:39:10.583Z"
       },
       "src/hooks/generated/aethelred-connections/github_connection.ts": {
-        "hash": "beab63a9abfc4113",
-        "generatedAt": "2026-07-18T23:30:03.784Z"
+        "hash": "542f1190ebd35e81",
+        "generatedAt": "2026-07-20T04:39:10.584Z"
       },
       "src/lib/utils/generated/aethelred-connections/github_connection.ts": {
-        "hash": "eae622f89f20295f",
-        "generatedAt": "2026-07-18T23:30:03.785Z"
+        "hash": "159c5341ad9f1119",
+        "generatedAt": "2026-07-20T04:39:10.585Z"
       },
       "src/types/generated/hestia-core/grant_applications.ts": {
         "hash": "ab11efbf44053ea1",
@@ -15134,64 +16800,64 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.510Z"
       },
       "src/types/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "fb778e22a2630cf0",
-        "generatedAt": "2026-07-18T23:30:03.813Z"
+        "hash": "9dba1a28841ba1b6",
+        "generatedAt": "2026-07-20T04:39:10.615Z"
       },
       "src/app/api/generated/aethelred-connections/hearth_keeper/route.ts": {
-        "hash": "52ef2e60d747b420",
-        "generatedAt": "2026-07-18T23:30:03.814Z"
+        "hash": "90c9c873a3ccd264",
+        "generatedAt": "2026-07-20T04:39:10.615Z"
       },
       "src/app/api/generated/aethelred-connections/hearth_keeper/[id]/route.ts": {
-        "hash": "14fb2a8359b3e180",
-        "generatedAt": "2026-07-18T23:30:03.815Z"
+        "hash": "5206ceb3d8a2ce61",
+        "generatedAt": "2026-07-20T04:39:10.617Z"
       },
       "src/hooks/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "52fd89dffb2cbbe0",
-        "generatedAt": "2026-07-18T23:30:03.816Z"
+        "hash": "8eac3ed1cd5aec94",
+        "generatedAt": "2026-07-20T04:39:10.618Z"
       },
       "src/lib/utils/generated/aethelred-connections/hearth_keeper.ts": {
-        "hash": "98a60d0f4690cec0",
-        "generatedAt": "2026-07-18T23:30:03.817Z"
+        "hash": "121304ff5de74a6a",
+        "generatedAt": "2026-07-20T04:39:10.619Z"
       },
       "src/types/generated/hestia-core/heralds.ts": {
-        "hash": "9f3e2388fa72cc31",
-        "generatedAt": "2026-07-18T23:30:03.818Z"
+        "hash": "770624b2c2e606d4",
+        "generatedAt": "2026-07-20T04:39:10.620Z"
       },
       "src/app/api/generated/hestia-core/heralds/route.ts": {
-        "hash": "6b1522dd79328c9f",
-        "generatedAt": "2026-07-18T23:30:03.819Z"
+        "hash": "b33c74c05257dddd",
+        "generatedAt": "2026-07-20T04:39:10.621Z"
       },
       "src/app/api/generated/hestia-core/heralds/[id]/route.ts": {
-        "hash": "d3da3dee1c18c4ce",
-        "generatedAt": "2026-07-18T23:30:03.820Z"
+        "hash": "aaf27651f18f7634",
+        "generatedAt": "2026-07-20T04:39:10.622Z"
       },
       "src/hooks/generated/hestia-core/heralds.ts": {
-        "hash": "5dbb100796218232",
-        "generatedAt": "2026-07-18T23:30:03.821Z"
+        "hash": "fc48b621f845e6bf",
+        "generatedAt": "2026-07-20T04:39:10.623Z"
       },
       "src/lib/utils/generated/hestia-core/heralds.ts": {
-        "hash": "d4851582d818501e",
-        "generatedAt": "2026-07-18T23:30:03.822Z"
+        "hash": "cf6607cf74066cbf",
+        "generatedAt": "2026-07-20T04:39:10.624Z"
       },
       "src/types/generated/hestia-core/journal_entries.ts": {
-        "hash": "83ba6d60ee592a49",
-        "generatedAt": "2026-07-18T23:30:03.823Z"
+        "hash": "007d93ae3f18eae3",
+        "generatedAt": "2026-07-20T04:39:10.625Z"
       },
       "src/app/api/generated/hestia-core/journal_entries/route.ts": {
-        "hash": "2c764f218a22781e",
-        "generatedAt": "2026-07-18T23:30:03.824Z"
+        "hash": "1e2a37c33a29cb33",
+        "generatedAt": "2026-07-20T04:39:10.626Z"
       },
       "src/app/api/generated/hestia-core/journal_entries/[id]/route.ts": {
-        "hash": "58775b6da22d4e96",
-        "generatedAt": "2026-07-18T23:30:03.825Z"
+        "hash": "fa4777b2c2841adb",
+        "generatedAt": "2026-07-20T04:39:10.627Z"
       },
       "src/hooks/generated/hestia-core/journal_entries.ts": {
-        "hash": "c27da76dcf7d30f1",
-        "generatedAt": "2026-07-18T23:30:03.826Z"
+        "hash": "ec58eab7d0eee695",
+        "generatedAt": "2026-07-20T04:39:10.628Z"
       },
       "src/lib/utils/generated/hestia-core/journal_entries.ts": {
-        "hash": "09a99b262f11e415",
-        "generatedAt": "2026-07-18T23:30:03.826Z"
+        "hash": "6a21a423d68801c0",
+        "generatedAt": "2026-07-20T04:39:10.629Z"
       },
       "src/types/generated/hestia-core/keywords.ts": {
         "hash": "bba733784b05bee5",
@@ -15234,144 +16900,144 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.534Z"
       },
       "src/types/generated/iris-communications/languages.ts": {
-        "hash": "5bbeb94f71778148",
-        "generatedAt": "2026-07-18T23:30:03.836Z"
+        "hash": "b87cca55656cecf6",
+        "generatedAt": "2026-07-20T04:39:10.640Z"
       },
       "src/app/api/generated/iris-communications/languages/route.ts": {
-        "hash": "d6be74ea2b8b83bd",
-        "generatedAt": "2026-07-18T23:30:03.837Z"
+        "hash": "2e4d9cf91046a365",
+        "generatedAt": "2026-07-20T04:39:10.641Z"
       },
       "src/app/api/generated/iris-communications/languages/[id]/route.ts": {
-        "hash": "890b410f1c1144b3",
-        "generatedAt": "2026-07-18T23:30:03.838Z"
+        "hash": "4527d7df582e70e4",
+        "generatedAt": "2026-07-20T04:39:10.641Z"
       },
       "src/hooks/generated/iris-communications/languages.ts": {
-        "hash": "2a29908b69a8f7ed",
-        "generatedAt": "2026-07-18T23:30:03.839Z"
+        "hash": "cd0f52377558962f",
+        "generatedAt": "2026-07-20T04:39:10.642Z"
       },
       "src/lib/utils/generated/iris-communications/languages.ts": {
-        "hash": "be4d42c1247be6a9",
-        "generatedAt": "2026-07-18T23:30:03.840Z"
+        "hash": "6de4b604f08c701b",
+        "generatedAt": "2026-07-20T04:39:10.643Z"
       },
       "src/types/generated/athena-gamification/learning_paths.ts": {
-        "hash": "fc650cd0c981753f",
-        "generatedAt": "2026-07-18T23:30:03.841Z"
+        "hash": "f4c76a6ac06a0459",
+        "generatedAt": "2026-07-20T04:39:10.644Z"
       },
       "src/app/api/generated/athena-gamification/learning_paths/route.ts": {
-        "hash": "e0752b3ea3d344b2",
-        "generatedAt": "2026-07-18T23:30:03.842Z"
+        "hash": "72ec168776634411",
+        "generatedAt": "2026-07-20T04:39:10.645Z"
       },
       "src/app/api/generated/athena-gamification/learning_paths/[id]/route.ts": {
-        "hash": "91acd25733724181",
-        "generatedAt": "2026-07-18T23:30:03.843Z"
+        "hash": "6ee97ef3a4daad3c",
+        "generatedAt": "2026-07-20T04:39:10.646Z"
       },
       "src/hooks/generated/athena-gamification/learning_paths.ts": {
-        "hash": "3ba87dfc90e05929",
-        "generatedAt": "2026-07-18T23:30:03.844Z"
+        "hash": "a0dbb487bb2d998d",
+        "generatedAt": "2026-07-20T04:39:10.647Z"
       },
       "src/lib/utils/generated/athena-gamification/learning_paths.ts": {
-        "hash": "258eaef3857b5755",
-        "generatedAt": "2026-07-18T23:30:03.845Z"
+        "hash": "6655190849d2dc30",
+        "generatedAt": "2026-07-20T04:39:10.648Z"
       },
       "src/types/generated/plutus-economics/ledger.ts": {
-        "hash": "c497cee830259f02",
-        "generatedAt": "2026-07-18T23:30:03.846Z"
+        "hash": "a795eadb704ec1d2",
+        "generatedAt": "2026-07-20T04:39:10.649Z"
       },
       "src/app/api/generated/plutus-economics/ledger/route.ts": {
-        "hash": "5b65ef3029b20e7c",
-        "generatedAt": "2026-07-18T23:30:03.847Z"
+        "hash": "bb5da8c34c05f782",
+        "generatedAt": "2026-07-20T04:39:10.650Z"
       },
       "src/app/api/generated/plutus-economics/ledger/[id]/route.ts": {
-        "hash": "ddd13d6bffb53bde",
-        "generatedAt": "2026-07-18T23:30:03.848Z"
+        "hash": "d0db857db727c06f",
+        "generatedAt": "2026-07-20T04:39:10.651Z"
       },
       "src/hooks/generated/plutus-economics/ledger.ts": {
-        "hash": "552b338b6a53e0bf",
-        "generatedAt": "2026-07-18T23:30:03.849Z"
+        "hash": "804c3d894433c5a9",
+        "generatedAt": "2026-07-20T04:39:10.652Z"
       },
       "src/lib/utils/generated/plutus-economics/ledger.ts": {
-        "hash": "40d5184fff410a42",
-        "generatedAt": "2026-07-18T23:30:03.850Z"
+        "hash": "2ffb6ad270504aab",
+        "generatedAt": "2026-07-20T04:39:10.653Z"
       },
       "src/types/generated/athena-gamification/lessons.ts": {
-        "hash": "695664e90d721809",
-        "generatedAt": "2026-07-18T23:30:03.851Z"
+        "hash": "d3a672d1afa1cfcd",
+        "generatedAt": "2026-07-20T04:39:10.654Z"
       },
       "src/app/api/generated/athena-gamification/lessons/route.ts": {
-        "hash": "47b2fc9f25f74171",
-        "generatedAt": "2026-07-18T23:30:03.852Z"
+        "hash": "3d7cdd648cde1633",
+        "generatedAt": "2026-07-20T04:39:10.655Z"
       },
       "src/app/api/generated/athena-gamification/lessons/[id]/route.ts": {
-        "hash": "8234fa58baf1718f",
-        "generatedAt": "2026-07-18T23:30:03.853Z"
+        "hash": "1e3abe77c6a27b5c",
+        "generatedAt": "2026-07-20T04:39:10.656Z"
       },
       "src/hooks/generated/athena-gamification/lessons.ts": {
-        "hash": "53133edbaf66e795",
-        "generatedAt": "2026-07-18T23:30:03.854Z"
+        "hash": "ad5bbd51905e2439",
+        "generatedAt": "2026-07-20T04:39:10.657Z"
       },
       "src/lib/utils/generated/athena-gamification/lessons.ts": {
-        "hash": "589d7eee0e119a13",
-        "generatedAt": "2026-07-18T23:30:03.855Z"
+        "hash": "debfb9ecacbd6a62",
+        "generatedAt": "2026-07-20T04:39:10.658Z"
       },
       "src/types/generated/aethelred-connections/life_cycles.ts": {
-        "hash": "b8ef8f2dfd5ef55c",
-        "generatedAt": "2026-07-18T23:30:03.856Z"
+        "hash": "3c1abe3e43406da9",
+        "generatedAt": "2026-07-20T04:39:10.659Z"
       },
       "src/app/api/generated/aethelred-connections/life_cycles/route.ts": {
-        "hash": "1cdaac997cae5b6b",
-        "generatedAt": "2026-07-18T23:30:03.857Z"
+        "hash": "49b37974fb03b524",
+        "generatedAt": "2026-07-20T04:39:10.660Z"
       },
       "src/app/api/generated/aethelred-connections/life_cycles/[id]/route.ts": {
-        "hash": "32baf230e500b359",
-        "generatedAt": "2026-07-18T23:30:03.858Z"
+        "hash": "8a3dc3963cb78e1c",
+        "generatedAt": "2026-07-20T04:39:10.661Z"
       },
       "src/hooks/generated/aethelred-connections/life_cycles.ts": {
-        "hash": "b3a3b33b20eb6c46",
-        "generatedAt": "2026-07-18T23:30:03.859Z"
+        "hash": "251b2156bc76cd1e",
+        "generatedAt": "2026-07-20T04:39:10.662Z"
       },
       "src/lib/utils/generated/aethelred-connections/life_cycles.ts": {
-        "hash": "9af683f8953c4d59",
-        "generatedAt": "2026-07-18T23:30:03.860Z"
+        "hash": "56dc0ac85536400d",
+        "generatedAt": "2026-07-20T04:39:10.663Z"
       },
       "src/types/generated/iris-communications/localization.ts": {
-        "hash": "1699bf1f99b938ca",
-        "generatedAt": "2026-07-18T23:30:03.861Z"
+        "hash": "de44fc3b421d7f79",
+        "generatedAt": "2026-07-20T04:39:10.664Z"
       },
       "src/app/api/generated/iris-communications/localization/route.ts": {
-        "hash": "3682508476622849",
-        "generatedAt": "2026-07-18T23:30:03.862Z"
+        "hash": "40584670bf7ee4c0",
+        "generatedAt": "2026-07-20T04:39:10.665Z"
       },
       "src/app/api/generated/iris-communications/localization/[id]/route.ts": {
-        "hash": "9ef7beac59cea3b8",
-        "generatedAt": "2026-07-18T23:30:03.863Z"
+        "hash": "b7e1a8932b5e47d7",
+        "generatedAt": "2026-07-20T04:39:10.666Z"
       },
       "src/hooks/generated/iris-communications/localization.ts": {
-        "hash": "0349cb4c99c6c44d",
-        "generatedAt": "2026-07-18T23:30:03.864Z"
+        "hash": "7379169121b56e1b",
+        "generatedAt": "2026-07-20T04:39:10.667Z"
       },
       "src/lib/utils/generated/iris-communications/localization.ts": {
-        "hash": "0b4e1d9cc106c474",
-        "generatedAt": "2026-07-18T23:30:03.865Z"
+        "hash": "768dc7d02d9d100c",
+        "generatedAt": "2026-07-20T04:39:10.668Z"
       },
       "src/types/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "954e6f002f064bd0",
-        "generatedAt": "2026-07-18T23:30:03.866Z"
+        "hash": "178cceb48e3aaca5",
+        "generatedAt": "2026-07-20T04:39:10.669Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/maintenance/route.ts": {
-        "hash": "d5027cdb2bd6c237",
-        "generatedAt": "2026-07-18T23:30:03.867Z"
+        "hash": "366317c531c55bae",
+        "generatedAt": "2026-07-20T04:39:10.670Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/maintenance/[id]/route.ts": {
-        "hash": "a6d783a00e9e209f",
-        "generatedAt": "2026-07-18T23:30:03.868Z"
+        "hash": "0698cf34312d690a",
+        "generatedAt": "2026-07-20T04:39:10.671Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "174ab88a120d6392",
-        "generatedAt": "2026-07-18T23:30:03.869Z"
+        "hash": "18d2e9dca4a31f13",
+        "generatedAt": "2026-07-20T04:39:10.672Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/maintenance.ts": {
-        "hash": "990f8956fcae6b01",
-        "generatedAt": "2026-07-18T23:30:03.870Z"
+        "hash": "9bebcc493df09679",
+        "generatedAt": "2026-07-20T04:39:10.673Z"
       },
       "src/types/generated/hestia-core/memories.ts": {
         "hash": "0939f711e3471b2b",
@@ -15446,64 +17112,64 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.585Z"
       },
       "src/types/generated/themis-governance/moderation_actions.ts": {
-        "hash": "de4202e36475e0f8",
-        "generatedAt": "2026-07-18T23:30:03.889Z"
+        "hash": "bb10f32938f14672",
+        "generatedAt": "2026-07-20T04:39:10.693Z"
       },
       "src/app/api/generated/themis-governance/moderation_actions/route.ts": {
-        "hash": "9b4cf97dc740c5d8",
-        "generatedAt": "2026-07-18T23:30:03.890Z"
+        "hash": "615f07d90c18f3e6",
+        "generatedAt": "2026-07-20T04:39:10.694Z"
       },
       "src/app/api/generated/themis-governance/moderation_actions/[id]/route.ts": {
-        "hash": "11cc76f4063af1a3",
-        "generatedAt": "2026-07-18T23:30:03.891Z"
+        "hash": "3194803374b918ef",
+        "generatedAt": "2026-07-20T04:39:10.695Z"
       },
       "src/hooks/generated/themis-governance/moderation_actions.ts": {
-        "hash": "3c8a67b2485c3c3d",
-        "generatedAt": "2026-07-18T23:30:03.892Z"
+        "hash": "8b7e13f5fa5658c5",
+        "generatedAt": "2026-07-20T04:39:10.696Z"
       },
       "src/lib/utils/generated/themis-governance/moderation_actions.ts": {
-        "hash": "48c726ba0680a4af",
-        "generatedAt": "2026-07-18T23:30:03.892Z"
+        "hash": "9c43215a3d4b0d54",
+        "generatedAt": "2026-07-20T04:39:10.697Z"
       },
       "src/types/generated/athena-gamification/mythology.ts": {
-        "hash": "e1d76ac56e7673f3",
-        "generatedAt": "2026-07-18T23:30:03.893Z"
+        "hash": "e566c61c6ea6de10",
+        "generatedAt": "2026-07-20T04:39:10.698Z"
       },
       "src/app/api/generated/athena-gamification/mythology/route.ts": {
-        "hash": "81df2d422ce48d2c",
-        "generatedAt": "2026-07-18T23:30:03.894Z"
+        "hash": "7937bf69734ab315",
+        "generatedAt": "2026-07-20T04:39:10.699Z"
       },
       "src/app/api/generated/athena-gamification/mythology/[id]/route.ts": {
-        "hash": "e99adee954c24de1",
-        "generatedAt": "2026-07-18T23:30:03.895Z"
+        "hash": "87a56e0e27444c11",
+        "generatedAt": "2026-07-20T04:39:10.700Z"
       },
       "src/hooks/generated/athena-gamification/mythology.ts": {
-        "hash": "a689e7d7c2177176",
-        "generatedAt": "2026-07-18T23:30:03.896Z"
+        "hash": "3000dfb5e94589d0",
+        "generatedAt": "2026-07-20T04:39:10.701Z"
       },
       "src/lib/utils/generated/athena-gamification/mythology.ts": {
-        "hash": "f8c746a9fefbf9f6",
-        "generatedAt": "2026-07-18T23:30:03.897Z"
+        "hash": "159500240ce62a6a",
+        "generatedAt": "2026-07-20T04:39:10.702Z"
       },
       "src/types/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "33306a2b44b32130",
-        "generatedAt": "2026-07-18T23:30:03.898Z"
+        "hash": "6cd4d790f729773b",
+        "generatedAt": "2026-07-20T04:39:10.703Z"
       },
       "src/app/api/generated/mnemosyne-assessment/ontology/route.ts": {
-        "hash": "7b5abee13ffd17c0",
-        "generatedAt": "2026-07-18T23:30:03.899Z"
+        "hash": "e912fc8e639e7dfe",
+        "generatedAt": "2026-07-20T04:39:10.704Z"
       },
       "src/app/api/generated/mnemosyne-assessment/ontology/[id]/route.ts": {
-        "hash": "9b4e53b11bad6c74",
-        "generatedAt": "2026-07-18T23:30:03.900Z"
+        "hash": "95e29c5182aea75b",
+        "generatedAt": "2026-07-20T04:39:10.705Z"
       },
       "src/hooks/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "dd7afe75037febab",
-        "generatedAt": "2026-07-18T23:30:03.901Z"
+        "hash": "9271e276e0864182",
+        "generatedAt": "2026-07-20T04:39:10.706Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/ontology.ts": {
-        "hash": "5c757bd0acb2aecf",
-        "generatedAt": "2026-07-18T23:30:03.902Z"
+        "hash": "832f48e16106af2f",
+        "generatedAt": "2026-07-20T04:39:10.706Z"
       },
       "src/types/generated/hestia-core/order.ts": {
         "hash": "738ca1fd24d07f97",
@@ -15526,16 +17192,16 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.605Z"
       },
       "src/types/generated/athena-gamification/path_lessons.ts": {
-        "hash": "c7019de0a8039f04",
-        "generatedAt": "2026-07-18T23:30:03.907Z"
+        "hash": "d813e2083eb7a4f8",
+        "generatedAt": "2026-07-20T04:39:10.712Z"
       },
       "src/app/api/generated/athena-gamification/path_lessons/route.ts": {
-        "hash": "e47f8c5d2fb63f06",
-        "generatedAt": "2026-07-18T23:30:03.908Z"
+        "hash": "7b857be8d8a48d9e",
+        "generatedAt": "2026-07-20T04:39:10.713Z"
       },
       "src/app/api/generated/athena-gamification/path_lessons/[id]/route.ts": {
-        "hash": "df6e94a2b921e2e9",
-        "generatedAt": "2026-07-18T23:30:03.909Z"
+        "hash": "c3b031a749d70ed1",
+        "generatedAt": "2026-07-20T04:39:10.714Z"
       },
       "src/hooks/generated/athena-gamification/path_lessons.ts": {
         "hash": "5eb5e19d9520029a",
@@ -15606,24 +17272,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.625Z"
       },
       "src/types/generated/iris-communications/personas.ts": {
-        "hash": "7b10f5e2509214a6",
-        "generatedAt": "2026-07-18T23:30:03.923Z"
+        "hash": "6a2634f0ffdd4b6e",
+        "generatedAt": "2026-07-20T04:39:10.730Z"
       },
       "src/app/api/generated/iris-communications/personas/route.ts": {
-        "hash": "db021a8e062187af",
-        "generatedAt": "2026-07-18T23:30:03.924Z"
+        "hash": "836f9304c3dc487b",
+        "generatedAt": "2026-07-20T04:39:10.731Z"
       },
       "src/app/api/generated/iris-communications/personas/[id]/route.ts": {
-        "hash": "bbb7955d9bcecbcd",
-        "generatedAt": "2026-07-18T23:30:03.925Z"
+        "hash": "4417f859cba4dd15",
+        "generatedAt": "2026-07-20T04:39:10.732Z"
       },
       "src/hooks/generated/iris-communications/personas.ts": {
-        "hash": "204a8cbdbe52d582",
-        "generatedAt": "2026-07-18T23:30:03.926Z"
+        "hash": "ad0b3a1643fec365",
+        "generatedAt": "2026-07-20T04:39:10.733Z"
       },
       "src/lib/utils/generated/iris-communications/personas.ts": {
-        "hash": "0000f78e71d7e8f3",
-        "generatedAt": "2026-07-18T23:30:03.927Z"
+        "hash": "4bc4daebec84e4be",
+        "generatedAt": "2026-07-20T04:39:10.734Z"
       },
       "src/types/generated/hestia-core/phylum.ts": {
         "hash": "e3b344b862f1a270",
@@ -15646,24 +17312,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.636Z"
       },
       "src/types/generated/hestia-core/plant_stages.ts": {
-        "hash": "4731438052743b79",
-        "generatedAt": "2026-07-18T23:30:03.932Z"
+        "hash": "493dab50e71cd67e",
+        "generatedAt": "2026-07-20T04:39:10.739Z"
       },
       "src/app/api/generated/hestia-core/plant_stages/route.ts": {
-        "hash": "d60bba928d1ee9b3",
-        "generatedAt": "2026-07-18T23:30:03.933Z"
+        "hash": "8bcfce2aade0d6a8",
+        "generatedAt": "2026-07-20T04:39:10.741Z"
       },
       "src/app/api/generated/hestia-core/plant_stages/[id]/route.ts": {
-        "hash": "2fb416c24d4eea0c",
-        "generatedAt": "2026-07-18T23:30:03.934Z"
+        "hash": "663ca25b316f40ff",
+        "generatedAt": "2026-07-20T04:39:10.742Z"
       },
       "src/hooks/generated/hestia-core/plant_stages.ts": {
-        "hash": "7534ab51719d022a",
-        "generatedAt": "2026-07-18T23:30:03.935Z"
+        "hash": "1cf2e067974c5469",
+        "generatedAt": "2026-07-20T04:39:10.743Z"
       },
       "src/lib/utils/generated/hestia-core/plant_stages.ts": {
-        "hash": "e32791c88e6d2e83",
-        "generatedAt": "2026-07-18T23:30:03.936Z"
+        "hash": "2808800ceb70d679",
+        "generatedAt": "2026-07-20T04:39:10.744Z"
       },
       "src/types/generated/hestia-core/platform_config.ts": {
         "hash": "4245429ba413acdb",
@@ -15706,24 +17372,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.652Z"
       },
       "src/types/generated/themis-governance/processes.ts": {
-        "hash": "ed85da1e9d46b5a6",
-        "generatedAt": "2026-07-18T23:30:03.946Z"
+        "hash": "39bfe7cf4460bf2b",
+        "generatedAt": "2026-07-20T04:39:10.755Z"
       },
       "src/app/api/generated/themis-governance/processes/route.ts": {
-        "hash": "6018b10066e63841",
-        "generatedAt": "2026-07-18T23:30:03.947Z"
+        "hash": "000f85d711829f49",
+        "generatedAt": "2026-07-20T04:39:10.756Z"
       },
       "src/app/api/generated/themis-governance/processes/[id]/route.ts": {
-        "hash": "626c5e7b2fa77860",
-        "generatedAt": "2026-07-18T23:30:03.948Z"
+        "hash": "bce8776a87daa3c7",
+        "generatedAt": "2026-07-20T04:39:10.757Z"
       },
       "src/hooks/generated/themis-governance/processes.ts": {
-        "hash": "18822a54fe53bc5c",
-        "generatedAt": "2026-07-18T23:30:03.949Z"
+        "hash": "d4e5e7ae2e9e0fd3",
+        "generatedAt": "2026-07-20T04:39:10.758Z"
       },
       "src/lib/utils/generated/themis-governance/processes.ts": {
-        "hash": "d982f70667cf6a3a",
-        "generatedAt": "2026-07-18T23:30:03.950Z"
+        "hash": "100b4de2749a58ed",
+        "generatedAt": "2026-07-20T04:39:10.760Z"
       },
       "src/types/generated/hestia-core/proposals.ts": {
         "hash": "b172e232acd8c5c6",
@@ -15746,24 +17412,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.662Z"
       },
       "src/types/generated/themis-governance/protocols.ts": {
-        "hash": "96b09ea5c5dd5861",
-        "generatedAt": "2026-07-18T23:30:03.956Z"
+        "hash": "928c3837008dadcf",
+        "generatedAt": "2026-07-20T04:39:10.766Z"
       },
       "src/app/api/generated/themis-governance/protocols/route.ts": {
-        "hash": "9a335005b15eae4f",
-        "generatedAt": "2026-07-18T23:30:03.956Z"
+        "hash": "f2f08a01d01b0d94",
+        "generatedAt": "2026-07-20T04:39:10.767Z"
       },
       "src/app/api/generated/themis-governance/protocols/[id]/route.ts": {
-        "hash": "8faa106d5a955c95",
-        "generatedAt": "2026-07-18T23:30:03.957Z"
+        "hash": "b3292a4de4e743a6",
+        "generatedAt": "2026-07-20T04:39:10.768Z"
       },
       "src/hooks/generated/themis-governance/protocols.ts": {
-        "hash": "ce30af59bba59b3d",
-        "generatedAt": "2026-07-18T23:30:03.958Z"
+        "hash": "c16ce9642b841da6",
+        "generatedAt": "2026-07-20T04:39:10.769Z"
       },
       "src/lib/utils/generated/themis-governance/protocols.ts": {
-        "hash": "ca73dc2c32902b22",
-        "generatedAt": "2026-07-18T23:30:03.959Z"
+        "hash": "6e50c4b73653b218",
+        "generatedAt": "2026-07-20T04:39:10.770Z"
       },
       "src/types/generated/hestia-core/quest_progress.ts": {
         "hash": "46bcadc5828fdfba",
@@ -15786,44 +17452,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.717Z"
       },
       "src/types/generated/athena-gamification/quests.ts": {
-        "hash": "31400a6705df0be5",
-        "generatedAt": "2026-07-18T23:30:03.964Z"
+        "hash": "561fd7f1df820192",
+        "generatedAt": "2026-07-20T04:39:10.774Z"
       },
       "src/app/api/generated/athena-gamification/quests/route.ts": {
-        "hash": "dea2c73f010c526f",
-        "generatedAt": "2026-07-18T23:30:03.965Z"
+        "hash": "7c9c08a67a116c2c",
+        "generatedAt": "2026-07-20T04:39:10.775Z"
       },
       "src/app/api/generated/athena-gamification/quests/[id]/route.ts": {
-        "hash": "7102b4b327d2e451",
-        "generatedAt": "2026-07-18T23:30:03.966Z"
+        "hash": "476dcd1fae6441c0",
+        "generatedAt": "2026-07-20T04:39:10.776Z"
       },
       "src/hooks/generated/athena-gamification/quests.ts": {
-        "hash": "a5166c89fc528326",
-        "generatedAt": "2026-07-18T23:30:03.967Z"
+        "hash": "3c01f93c0b01a320",
+        "generatedAt": "2026-07-20T04:39:10.777Z"
       },
       "src/lib/utils/generated/athena-gamification/quests.ts": {
-        "hash": "18038fb5a4eb3400",
-        "generatedAt": "2026-07-18T23:30:03.968Z"
+        "hash": "74bc98a36d71cc04",
+        "generatedAt": "2026-07-20T04:39:10.778Z"
       },
       "src/types/generated/themis-governance/rate_limits.ts": {
-        "hash": "a68d7fd352fea56c",
-        "generatedAt": "2026-07-18T23:30:03.969Z"
+        "hash": "87dc45bb3b9b55c7",
+        "generatedAt": "2026-07-20T04:39:10.779Z"
       },
       "src/app/api/generated/themis-governance/rate_limits/route.ts": {
-        "hash": "2168224682a5c715",
-        "generatedAt": "2026-07-18T23:30:03.970Z"
+        "hash": "a4585592c742da3d",
+        "generatedAt": "2026-07-20T04:39:10.780Z"
       },
       "src/app/api/generated/themis-governance/rate_limits/[id]/route.ts": {
-        "hash": "1b21696f8538909d",
-        "generatedAt": "2026-07-18T23:30:03.971Z"
+        "hash": "21ce871900629a7f",
+        "generatedAt": "2026-07-20T04:39:10.781Z"
       },
       "src/hooks/generated/themis-governance/rate_limits.ts": {
-        "hash": "d1b9cc31fdc6ef96",
-        "generatedAt": "2026-07-18T23:30:03.972Z"
+        "hash": "5f00f8d6520e1761",
+        "generatedAt": "2026-07-20T04:39:10.782Z"
       },
       "src/lib/utils/generated/themis-governance/rate_limits.ts": {
-        "hash": "eefda5e5ed4c6c39",
-        "generatedAt": "2026-07-18T23:30:03.973Z"
+        "hash": "05e0a22932840f92",
+        "generatedAt": "2026-07-20T04:39:10.783Z"
       },
       "src/types/generated/hestia-core/reference_values.ts": {
         "hash": "08d3a32b0bd20ba4",
@@ -15846,84 +17512,84 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.734Z"
       },
       "src/types/generated/iris-communications/regions.ts": {
-        "hash": "f84d4a1ca17b1118",
-        "generatedAt": "2026-07-18T23:30:03.979Z"
+        "hash": "b372f89e0cd9eb3f",
+        "generatedAt": "2026-07-20T04:39:10.789Z"
       },
       "src/app/api/generated/iris-communications/regions/route.ts": {
-        "hash": "1c30a13a962c6eff",
-        "generatedAt": "2026-07-18T23:30:03.980Z"
+        "hash": "c4368edd15452b28",
+        "generatedAt": "2026-07-20T04:39:10.790Z"
       },
       "src/app/api/generated/iris-communications/regions/[id]/route.ts": {
-        "hash": "f017e99a000df153",
-        "generatedAt": "2026-07-18T23:30:03.981Z"
+        "hash": "ae47553a5af83233",
+        "generatedAt": "2026-07-20T04:39:10.791Z"
       },
       "src/hooks/generated/iris-communications/regions.ts": {
-        "hash": "5393f313ef15b43b",
-        "generatedAt": "2026-07-18T23:30:03.982Z"
+        "hash": "e6f59a7c22aed1f8",
+        "generatedAt": "2026-07-20T04:39:10.792Z"
       },
       "src/lib/utils/generated/iris-communications/regions.ts": {
-        "hash": "f9b5ddd773f1b76e",
-        "generatedAt": "2026-07-18T23:30:03.983Z"
+        "hash": "7198cc86145c4d9e",
+        "generatedAt": "2026-07-20T04:39:10.793Z"
       },
       "src/types/generated/themis-governance/reports.ts": {
-        "hash": "4adfe31b266e28b5",
-        "generatedAt": "2026-07-18T23:30:03.984Z"
+        "hash": "ae612af71148533b",
+        "generatedAt": "2026-07-20T04:39:10.794Z"
       },
       "src/app/api/generated/themis-governance/reports/route.ts": {
-        "hash": "d20598e23f686c06",
-        "generatedAt": "2026-07-18T23:30:03.985Z"
+        "hash": "940661ab8cf65f59",
+        "generatedAt": "2026-07-20T04:39:10.795Z"
       },
       "src/app/api/generated/themis-governance/reports/[id]/route.ts": {
-        "hash": "557552b73c5e8d78",
-        "generatedAt": "2026-07-18T23:30:03.986Z"
+        "hash": "8dcc7b754097bb87",
+        "generatedAt": "2026-07-20T04:39:10.796Z"
       },
       "src/hooks/generated/themis-governance/reports.ts": {
-        "hash": "527de4c65368c114",
-        "generatedAt": "2026-07-18T23:30:03.987Z"
+        "hash": "3c93a8ff118a9c95",
+        "generatedAt": "2026-07-20T04:39:10.797Z"
       },
       "src/lib/utils/generated/themis-governance/reports.ts": {
-        "hash": "e8ed419e2fb9a81d",
-        "generatedAt": "2026-07-18T23:30:03.988Z"
+        "hash": "d883876c42133e10",
+        "generatedAt": "2026-07-20T04:39:10.798Z"
       },
       "src/types/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "1bece87b27391fd2",
-        "generatedAt": "2026-07-18T23:30:03.989Z"
+        "hash": "fb07e3b8591ff97d",
+        "generatedAt": "2026-07-20T04:39:10.799Z"
       },
       "src/app/api/generated/aethelred-connections/resend_connection/route.ts": {
-        "hash": "84b39b52d2365ee9",
-        "generatedAt": "2026-07-18T23:30:03.990Z"
+        "hash": "9e0eeea23298383f",
+        "generatedAt": "2026-07-20T04:39:10.800Z"
       },
       "src/app/api/generated/aethelred-connections/resend_connection/[id]/route.ts": {
-        "hash": "1b4b27206eaf0d5b",
-        "generatedAt": "2026-07-18T23:30:03.991Z"
+        "hash": "073142229a339279",
+        "generatedAt": "2026-07-20T04:39:10.801Z"
       },
       "src/hooks/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "b7d82fcb5eb36594",
-        "generatedAt": "2026-07-18T23:30:03.992Z"
+        "hash": "60d1743d5b760ffd",
+        "generatedAt": "2026-07-20T04:39:10.802Z"
       },
       "src/lib/utils/generated/aethelred-connections/resend_connection.ts": {
-        "hash": "36d463c81d0a1a4d",
-        "generatedAt": "2026-07-18T23:30:03.993Z"
+        "hash": "6a9affad50db095d",
+        "generatedAt": "2026-07-20T04:39:10.802Z"
       },
       "src/types/generated/plutus-economics/residual_pool.ts": {
-        "hash": "89365890258bc45b",
-        "generatedAt": "2026-07-18T23:30:03.994Z"
+        "hash": "2f639a605346d9a1",
+        "generatedAt": "2026-07-20T04:39:10.803Z"
       },
       "src/app/api/generated/plutus-economics/residual_pool/route.ts": {
-        "hash": "ecb615942459d80f",
-        "generatedAt": "2026-07-18T23:30:03.995Z"
+        "hash": "3eff7c8600b651a1",
+        "generatedAt": "2026-07-20T04:39:10.804Z"
       },
       "src/app/api/generated/plutus-economics/residual_pool/[id]/route.ts": {
-        "hash": "7426961ee5beabe0",
-        "generatedAt": "2026-07-18T23:30:03.996Z"
+        "hash": "50cddac8a897fe81",
+        "generatedAt": "2026-07-20T04:39:10.805Z"
       },
       "src/hooks/generated/plutus-economics/residual_pool.ts": {
-        "hash": "2f78c1146dc18c41",
-        "generatedAt": "2026-07-18T23:30:03.998Z"
+        "hash": "57a15342f98b8093",
+        "generatedAt": "2026-07-20T04:39:10.806Z"
       },
       "src/lib/utils/generated/plutus-economics/residual_pool.ts": {
-        "hash": "32e00a2b8620c10e",
-        "generatedAt": "2026-07-18T23:30:03.999Z"
+        "hash": "238784b333197b4b",
+        "generatedAt": "2026-07-20T04:39:10.807Z"
       },
       "src/types/generated/hestia-core/resonance.ts": {
         "hash": "e4c2eb1f05ee41d9",
@@ -15966,16 +17632,16 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.768Z"
       },
       "src/types/generated/athena-gamification/scene_participants.ts": {
-        "hash": "12e50d53a7299bb0",
-        "generatedAt": "2026-07-18T23:30:04.009Z"
+        "hash": "902c2642db0c0676",
+        "generatedAt": "2026-07-20T04:39:10.818Z"
       },
       "src/app/api/generated/athena-gamification/scene_participants/route.ts": {
-        "hash": "7bee4b5e1ab2ff6e",
-        "generatedAt": "2026-07-18T23:30:04.010Z"
+        "hash": "a00169c986a5d71d",
+        "generatedAt": "2026-07-20T04:39:10.819Z"
       },
       "src/app/api/generated/athena-gamification/scene_participants/[id]/route.ts": {
-        "hash": "43650798d176b92b",
-        "generatedAt": "2026-07-18T23:30:04.011Z"
+        "hash": "f32321cac1410242",
+        "generatedAt": "2026-07-20T04:39:10.820Z"
       },
       "src/hooks/generated/athena-gamification/scene_participants.ts": {
         "hash": "c856649ebd4a1777",
@@ -15986,44 +17652,44 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.774Z"
       },
       "src/types/generated/athena-gamification/scenes.ts": {
-        "hash": "3df70faef30a7cca",
-        "generatedAt": "2026-07-18T23:30:04.011Z"
+        "hash": "65e4e740d6223003",
+        "generatedAt": "2026-07-20T04:39:10.821Z"
       },
       "src/app/api/generated/athena-gamification/scenes/route.ts": {
-        "hash": "5c45ae43a62ca422",
-        "generatedAt": "2026-07-18T23:30:04.012Z"
+        "hash": "a3b3f2317158083d",
+        "generatedAt": "2026-07-20T04:39:10.822Z"
       },
       "src/app/api/generated/athena-gamification/scenes/[id]/route.ts": {
-        "hash": "ae2d3d4d937fc650",
-        "generatedAt": "2026-07-18T23:30:04.013Z"
+        "hash": "e21c84be2bc4b6ba",
+        "generatedAt": "2026-07-20T04:39:10.822Z"
       },
       "src/hooks/generated/athena-gamification/scenes.ts": {
-        "hash": "497de62305106681",
-        "generatedAt": "2026-07-18T23:30:04.014Z"
+        "hash": "0b1e6b284bf50480",
+        "generatedAt": "2026-07-20T04:39:10.823Z"
       },
       "src/lib/utils/generated/athena-gamification/scenes.ts": {
-        "hash": "99c8ad9375e59f28",
-        "generatedAt": "2026-07-18T23:30:04.015Z"
+        "hash": "7a5a3042f64fd846",
+        "generatedAt": "2026-07-20T04:39:10.824Z"
       },
       "src/types/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "aa6de278782b199a",
-        "generatedAt": "2026-07-18T23:30:04.016Z"
+        "hash": "f49b754903097d05",
+        "generatedAt": "2026-07-20T04:39:10.825Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scheduling/route.ts": {
-        "hash": "affa942aa8f1b742",
-        "generatedAt": "2026-07-18T23:30:04.017Z"
+        "hash": "20deb3189b77db9d",
+        "generatedAt": "2026-07-20T04:39:10.826Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scheduling/[id]/route.ts": {
-        "hash": "54001f8d6844186d",
-        "generatedAt": "2026-07-18T23:30:04.018Z"
+        "hash": "22af694ed3c2fc1f",
+        "generatedAt": "2026-07-20T04:39:10.827Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "c46537753619b404",
-        "generatedAt": "2026-07-18T23:30:04.019Z"
+        "hash": "a1a6eed7c32cb23d",
+        "generatedAt": "2026-07-20T04:39:10.828Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/scheduling.ts": {
-        "hash": "e84a87177983e301",
-        "generatedAt": "2026-07-18T23:30:04.020Z"
+        "hash": "879b9c12e881e7db",
+        "generatedAt": "2026-07-20T04:39:10.829Z"
       },
       "src/types/generated/hestia-core/script_executions.ts": {
         "hash": "e81c74821af57e77",
@@ -16046,64 +17712,64 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.791Z"
       },
       "src/types/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "074e8dc761f981e8",
-        "generatedAt": "2026-07-18T23:30:04.025Z"
+        "hash": "27b3f4c352ad6efb",
+        "generatedAt": "2026-07-20T04:39:10.835Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scripts/route.ts": {
-        "hash": "d399d3f0b90c4fa0",
-        "generatedAt": "2026-07-18T23:30:04.026Z"
+        "hash": "4e0d8668215fd517",
+        "generatedAt": "2026-07-20T04:39:10.836Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/scripts/[id]/route.ts": {
-        "hash": "7fc98501d6091bd0",
-        "generatedAt": "2026-07-18T23:30:04.027Z"
+        "hash": "0279edd32e50f647",
+        "generatedAt": "2026-07-20T04:39:10.837Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "1cbcf85b8e95b47c",
-        "generatedAt": "2026-07-18T23:30:04.028Z"
+        "hash": "dfc154d91ee694ee",
+        "generatedAt": "2026-07-20T04:39:10.838Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/scripts.ts": {
-        "hash": "3fe37556e48f54eb",
-        "generatedAt": "2026-07-18T23:30:04.029Z"
+        "hash": "c62d794214eea432",
+        "generatedAt": "2026-07-20T04:39:10.839Z"
       },
       "src/types/generated/hestia-core/seed_types.ts": {
-        "hash": "4daeb61fc834be46",
-        "generatedAt": "2026-07-18T23:30:04.030Z"
+        "hash": "a17bf9c2a2ea82c2",
+        "generatedAt": "2026-07-20T04:39:10.839Z"
       },
       "src/app/api/generated/hestia-core/seed_types/route.ts": {
-        "hash": "87d14ab15f09af32",
-        "generatedAt": "2026-07-18T23:30:04.031Z"
+        "hash": "3625c6733bbcb224",
+        "generatedAt": "2026-07-20T04:39:10.840Z"
       },
       "src/app/api/generated/hestia-core/seed_types/[id]/route.ts": {
-        "hash": "3a4e4b9ee5ba6525",
-        "generatedAt": "2026-07-18T23:30:04.031Z"
+        "hash": "91bc5a453d779b46",
+        "generatedAt": "2026-07-20T04:39:10.841Z"
       },
       "src/hooks/generated/hestia-core/seed_types.ts": {
-        "hash": "ee6c7baf5b0ca914",
-        "generatedAt": "2026-07-18T23:30:04.032Z"
+        "hash": "fd45b5236b3fde24",
+        "generatedAt": "2026-07-20T04:39:10.842Z"
       },
       "src/lib/utils/generated/hestia-core/seed_types.ts": {
-        "hash": "36aa9a481af547cc",
-        "generatedAt": "2026-07-18T23:30:04.033Z"
+        "hash": "8097f846a3332624",
+        "generatedAt": "2026-07-20T04:39:10.843Z"
       },
       "src/types/generated/aethelred-connections/seer.ts": {
-        "hash": "083519d087ad128a",
-        "generatedAt": "2026-07-18T23:30:04.034Z"
+        "hash": "99cb7748381f1305",
+        "generatedAt": "2026-07-20T04:39:10.844Z"
       },
       "src/app/api/generated/aethelred-connections/seer/route.ts": {
-        "hash": "abb942ae736f759d",
-        "generatedAt": "2026-07-18T23:30:04.035Z"
+        "hash": "27105ee4c4540bd1",
+        "generatedAt": "2026-07-20T04:39:10.845Z"
       },
       "src/app/api/generated/aethelred-connections/seer/[id]/route.ts": {
-        "hash": "b2536894ffde0529",
-        "generatedAt": "2026-07-18T23:30:04.036Z"
+        "hash": "ccd6a334746d14cb",
+        "generatedAt": "2026-07-20T04:39:10.846Z"
       },
       "src/hooks/generated/aethelred-connections/seer.ts": {
-        "hash": "06a847dcf4505820",
-        "generatedAt": "2026-07-18T23:30:04.037Z"
+        "hash": "9946a0cfe5818630",
+        "generatedAt": "2026-07-20T04:39:10.847Z"
       },
       "src/lib/utils/generated/aethelred-connections/seer.ts": {
-        "hash": "6723d7732b51b383",
-        "generatedAt": "2026-07-18T23:30:04.038Z"
+        "hash": "380fef04705e74f1",
+        "generatedAt": "2026-07-20T04:39:10.848Z"
       },
       "src/types/generated/hestia-core/sensory_lexicon.ts": {
         "hash": "3f30ec7a12aa4215",
@@ -16206,24 +17872,24 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.835Z"
       },
       "src/types/generated/aethelred-connections/skald.ts": {
-        "hash": "31f9c0b6d1c83150",
-        "generatedAt": "2026-07-18T23:30:04.060Z"
+        "hash": "0f7ad7aa435f9dcf",
+        "generatedAt": "2026-07-20T04:39:10.871Z"
       },
       "src/app/api/generated/aethelred-connections/skald/route.ts": {
-        "hash": "0903cb2974fe14ab",
-        "generatedAt": "2026-07-18T23:30:04.061Z"
+        "hash": "15259e9241562646",
+        "generatedAt": "2026-07-20T04:39:10.872Z"
       },
       "src/app/api/generated/aethelred-connections/skald/[id]/route.ts": {
-        "hash": "b29e72928401f8a5",
-        "generatedAt": "2026-07-18T23:30:04.062Z"
+        "hash": "03959a958b1201e9",
+        "generatedAt": "2026-07-20T04:39:10.873Z"
       },
       "src/hooks/generated/aethelred-connections/skald.ts": {
-        "hash": "5def78a0be61f769",
-        "generatedAt": "2026-07-18T23:30:04.063Z"
+        "hash": "37ef3bcfdbb085fd",
+        "generatedAt": "2026-07-20T04:39:10.874Z"
       },
       "src/lib/utils/generated/aethelred-connections/skald.ts": {
-        "hash": "69ef103e34c1b1d8",
-        "generatedAt": "2026-07-18T23:30:04.064Z"
+        "hash": "bec6c3f1221d5df4",
+        "generatedAt": "2026-07-20T04:39:10.875Z"
       },
       "src/types/generated/hestia-core/species.ts": {
         "hash": "c32467256fd27a7e",
@@ -16246,104 +17912,104 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.846Z"
       },
       "src/types/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "ead116e1c85be2c8",
-        "generatedAt": "2026-07-18T23:30:04.070Z"
+        "hash": "c17c2def6502ee57",
+        "generatedAt": "2026-07-20T04:39:10.881Z"
       },
       "src/app/api/generated/aethelred-connections/stripe_connection/route.ts": {
-        "hash": "1e99a33a7071a30c",
-        "generatedAt": "2026-07-18T23:30:04.071Z"
+        "hash": "c2cae2136c8efa52",
+        "generatedAt": "2026-07-20T04:39:10.883Z"
       },
       "src/app/api/generated/aethelred-connections/stripe_connection/[id]/route.ts": {
-        "hash": "a939847fcae67d5e",
-        "generatedAt": "2026-07-18T23:30:04.072Z"
+        "hash": "309e36d371c96593",
+        "generatedAt": "2026-07-20T04:39:10.885Z"
       },
       "src/hooks/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "597414b731960c12",
-        "generatedAt": "2026-07-18T23:30:04.073Z"
+        "hash": "a6b0dea023c15b35",
+        "generatedAt": "2026-07-20T04:39:10.886Z"
       },
       "src/lib/utils/generated/aethelred-connections/stripe_connection.ts": {
-        "hash": "5f9b9dc3bebfb1d1",
-        "generatedAt": "2026-07-18T23:30:04.073Z"
+        "hash": "a04658bf2627dcbc",
+        "generatedAt": "2026-07-20T04:39:10.887Z"
       },
       "src/types/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "6e406e8f749e60fb",
-        "generatedAt": "2026-07-18T23:30:04.074Z"
+        "hash": "91f176eff3853748",
+        "generatedAt": "2026-07-20T04:39:10.888Z"
       },
       "src/app/api/generated/aethelred-connections/supabase_connection/route.ts": {
-        "hash": "0d777069ae44411f",
-        "generatedAt": "2026-07-18T23:30:04.075Z"
+        "hash": "d21f6085d38e4dd1",
+        "generatedAt": "2026-07-20T04:39:10.889Z"
       },
       "src/app/api/generated/aethelred-connections/supabase_connection/[id]/route.ts": {
-        "hash": "357250c7891c2bb8",
-        "generatedAt": "2026-07-18T23:30:04.076Z"
+        "hash": "5f407876461628d5",
+        "generatedAt": "2026-07-20T04:39:10.890Z"
       },
       "src/hooks/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "e30cd9f2f12409d4",
-        "generatedAt": "2026-07-18T23:30:04.077Z"
+        "hash": "f2e7d2c5ab869581",
+        "generatedAt": "2026-07-20T04:39:10.891Z"
       },
       "src/lib/utils/generated/aethelred-connections/supabase_connection.ts": {
-        "hash": "88b9e57bbe5ae271",
-        "generatedAt": "2026-07-18T23:30:04.078Z"
+        "hash": "1b787068a1ab926e",
+        "generatedAt": "2026-07-20T04:39:10.892Z"
       },
       "src/types/generated/iris-communications/survey_responses.ts": {
-        "hash": "d78eacd5a7930c04",
-        "generatedAt": "2026-07-18T23:30:04.079Z"
+        "hash": "bf9a30d849574fe1",
+        "generatedAt": "2026-07-20T04:39:10.893Z"
       },
       "src/app/api/generated/iris-communications/survey_responses/route.ts": {
-        "hash": "05cde922fad3c9e4",
-        "generatedAt": "2026-07-18T23:30:04.080Z"
+        "hash": "d3fc09e033160a20",
+        "generatedAt": "2026-07-20T04:39:10.894Z"
       },
       "src/app/api/generated/iris-communications/survey_responses/[id]/route.ts": {
-        "hash": "a59c36d45693981f",
-        "generatedAt": "2026-07-18T23:30:04.081Z"
+        "hash": "b29bebe234040238",
+        "generatedAt": "2026-07-20T04:39:10.895Z"
       },
       "src/hooks/generated/iris-communications/survey_responses.ts": {
-        "hash": "972b5cc39639bf46",
-        "generatedAt": "2026-07-18T23:30:04.081Z"
+        "hash": "f4aeb1a91215dfb7",
+        "generatedAt": "2026-07-20T04:39:10.896Z"
       },
       "src/lib/utils/generated/iris-communications/survey_responses.ts": {
-        "hash": "68e4768290c585c8",
-        "generatedAt": "2026-07-18T23:30:04.082Z"
+        "hash": "39c1f92adcebe387",
+        "generatedAt": "2026-07-20T04:39:10.897Z"
       },
       "src/types/generated/iris-communications/surveys.ts": {
-        "hash": "5956ed135394ddd5",
-        "generatedAt": "2026-07-18T23:30:04.083Z"
+        "hash": "ec976fd0d3d4384a",
+        "generatedAt": "2026-07-20T04:39:10.898Z"
       },
       "src/app/api/generated/iris-communications/surveys/route.ts": {
-        "hash": "1a155d4b9478d7a0",
-        "generatedAt": "2026-07-18T23:30:04.085Z"
+        "hash": "f819f54f88754592",
+        "generatedAt": "2026-07-20T04:39:10.899Z"
       },
       "src/app/api/generated/iris-communications/surveys/[id]/route.ts": {
-        "hash": "71c8a6b29aea5bd4",
-        "generatedAt": "2026-07-18T23:30:04.085Z"
+        "hash": "7cad93a9cb84efe4",
+        "generatedAt": "2026-07-20T04:39:10.900Z"
       },
       "src/hooks/generated/iris-communications/surveys.ts": {
-        "hash": "2e38617b01520229",
-        "generatedAt": "2026-07-18T23:30:04.086Z"
+        "hash": "93131a72d359986d",
+        "generatedAt": "2026-07-20T04:39:10.901Z"
       },
       "src/lib/utils/generated/iris-communications/surveys.ts": {
-        "hash": "6b7553dd551d1969",
-        "generatedAt": "2026-07-18T23:30:04.087Z"
+        "hash": "76d3e5c7f29ffe38",
+        "generatedAt": "2026-07-20T04:39:10.902Z"
       },
       "src/types/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "17aa0b1910350367",
-        "generatedAt": "2026-07-18T23:30:04.088Z"
+        "hash": "3cf7f0eb3f0c1ef7",
+        "generatedAt": "2026-07-20T04:39:10.903Z"
       },
       "src/app/api/generated/mnemosyne-assessment/taxonomy/route.ts": {
-        "hash": "a7e4383087ebd561",
-        "generatedAt": "2026-07-18T23:30:04.090Z"
+        "hash": "a89afc61dc29bb35",
+        "generatedAt": "2026-07-20T04:39:10.904Z"
       },
       "src/app/api/generated/mnemosyne-assessment/taxonomy/[id]/route.ts": {
-        "hash": "b94d148fdebce650",
-        "generatedAt": "2026-07-18T23:30:04.091Z"
+        "hash": "e8673d18fa19ca10",
+        "generatedAt": "2026-07-20T04:39:10.905Z"
       },
       "src/hooks/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "812762d008c49cbe",
-        "generatedAt": "2026-07-18T23:30:04.092Z"
+        "hash": "83684247ea41c97a",
+        "generatedAt": "2026-07-20T04:39:10.906Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/taxonomy.ts": {
-        "hash": "513039626b438530",
-        "generatedAt": "2026-07-18T23:30:04.093Z"
+        "hash": "34149261621b0679",
+        "generatedAt": "2026-07-20T04:39:10.907Z"
       },
       "src/types/generated/hestia-core/templates.ts": {
         "hash": "6fe8d5e438c02bb8",
@@ -16406,344 +18072,344 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:14:59.892Z"
       },
       "src/types/generated/iris-communications/translations.ts": {
-        "hash": "d862e446a27590c0",
-        "generatedAt": "2026-07-18T23:30:04.108Z"
+        "hash": "7266f9097c31660c",
+        "generatedAt": "2026-07-20T04:39:10.923Z"
       },
       "src/app/api/generated/iris-communications/translations/route.ts": {
-        "hash": "a8894fc64c9d10c3",
-        "generatedAt": "2026-07-18T23:30:04.109Z"
+        "hash": "14ccda37ddaaca6d",
+        "generatedAt": "2026-07-20T04:39:10.924Z"
       },
       "src/app/api/generated/iris-communications/translations/[id]/route.ts": {
-        "hash": "a3ff7aa4c7904c11",
-        "generatedAt": "2026-07-18T23:30:04.109Z"
+        "hash": "344ea805e4cf3000",
+        "generatedAt": "2026-07-20T04:39:10.925Z"
       },
       "src/hooks/generated/iris-communications/translations.ts": {
-        "hash": "c64b09c114cbbfaf",
-        "generatedAt": "2026-07-18T23:30:04.110Z"
+        "hash": "b0e978c3019d588c",
+        "generatedAt": "2026-07-20T04:39:10.926Z"
       },
       "src/lib/utils/generated/iris-communications/translations.ts": {
-        "hash": "0b7e8a1615fb8c4e",
-        "generatedAt": "2026-07-18T23:30:04.112Z"
+        "hash": "952b763232785743",
+        "generatedAt": "2026-07-20T04:39:10.927Z"
       },
       "src/types/generated/hestia-core/user_financial.ts": {
-        "hash": "3ead4c585b3c578f",
-        "generatedAt": "2026-07-18T23:30:04.113Z"
+        "hash": "59606370db669cf4",
+        "generatedAt": "2026-07-20T04:39:10.928Z"
       },
       "src/app/api/generated/hestia-core/user_financial/route.ts": {
-        "hash": "20b20a8d732f900e",
-        "generatedAt": "2026-07-18T23:30:04.114Z"
+        "hash": "da7a0cc14a1d092a",
+        "generatedAt": "2026-07-20T04:39:10.929Z"
       },
       "src/app/api/generated/hestia-core/user_financial/[id]/route.ts": {
-        "hash": "3f2957d3592e743d",
-        "generatedAt": "2026-07-18T23:30:04.115Z"
+        "hash": "0a90b77bbfc9a8dd",
+        "generatedAt": "2026-07-20T04:39:10.930Z"
       },
       "src/hooks/generated/hestia-core/user_financial.ts": {
-        "hash": "7422439cdaf0841e",
-        "generatedAt": "2026-07-18T23:30:04.116Z"
+        "hash": "c612e4afd1c43805",
+        "generatedAt": "2026-07-20T04:39:10.931Z"
       },
       "src/lib/utils/generated/hestia-core/user_financial.ts": {
-        "hash": "f8e3b764ec4bc75a",
-        "generatedAt": "2026-07-18T23:30:04.117Z"
+        "hash": "87e10af3bfc56195",
+        "generatedAt": "2026-07-20T04:39:10.932Z"
       },
       "src/types/generated/hestia-core/user_page_views.ts": {
-        "hash": "56c8b87750e12a7f",
-        "generatedAt": "2026-07-18T23:30:04.118Z"
+        "hash": "adb688828e3c4aef",
+        "generatedAt": "2026-07-20T04:39:10.933Z"
       },
       "src/app/api/generated/hestia-core/user_page_views/route.ts": {
-        "hash": "0b48fa72ddbb7101",
-        "generatedAt": "2026-07-18T23:30:04.119Z"
+        "hash": "3acee21d0df24757",
+        "generatedAt": "2026-07-20T04:39:10.934Z"
       },
       "src/app/api/generated/hestia-core/user_page_views/[id]/route.ts": {
-        "hash": "3e9a747d85725ac2",
-        "generatedAt": "2026-07-18T23:30:04.119Z"
+        "hash": "1fe9c89ea434de15",
+        "generatedAt": "2026-07-20T04:39:10.934Z"
       },
       "src/hooks/generated/hestia-core/user_page_views.ts": {
-        "hash": "a92d0f4d034e2df9",
-        "generatedAt": "2026-07-18T23:30:04.120Z"
+        "hash": "62f931fbe7956553",
+        "generatedAt": "2026-07-20T04:39:10.935Z"
       },
       "src/lib/utils/generated/hestia-core/user_page_views.ts": {
-        "hash": "da09402aee520a75",
-        "generatedAt": "2026-07-18T23:30:04.121Z"
+        "hash": "0f456e56520d0495",
+        "generatedAt": "2026-07-20T04:39:10.936Z"
       },
       "src/types/generated/hestia-core/user_private.ts": {
-        "hash": "e3a2a11e2eec883e",
-        "generatedAt": "2026-07-18T23:30:04.122Z"
+        "hash": "41dcff1c7593bcd8",
+        "generatedAt": "2026-07-20T04:39:10.937Z"
       },
       "src/app/api/generated/hestia-core/user_private/route.ts": {
-        "hash": "fd7843a25fb96ab2",
-        "generatedAt": "2026-07-18T23:30:04.123Z"
+        "hash": "e0518fe5a0b67353",
+        "generatedAt": "2026-07-20T04:39:10.938Z"
       },
       "src/app/api/generated/hestia-core/user_private/[id]/route.ts": {
-        "hash": "918ce6c479cf2d02",
-        "generatedAt": "2026-07-18T23:30:04.124Z"
+        "hash": "42d4bc3bb28f942d",
+        "generatedAt": "2026-07-20T04:39:10.939Z"
       },
       "src/hooks/generated/hestia-core/user_private.ts": {
-        "hash": "b74fe294ef25afcb",
-        "generatedAt": "2026-07-18T23:30:04.125Z"
+        "hash": "a110f4eab9751e42",
+        "generatedAt": "2026-07-20T04:39:10.940Z"
       },
       "src/lib/utils/generated/hestia-core/user_private.ts": {
-        "hash": "9963383fe6ebdc61",
-        "generatedAt": "2026-07-18T23:30:04.126Z"
+        "hash": "931995625c90cd2d",
+        "generatedAt": "2026-07-20T04:39:10.941Z"
       },
       "src/types/generated/hestia-core/user_roles.ts": {
-        "hash": "1a2154068bdd2408",
-        "generatedAt": "2026-07-18T23:30:04.127Z"
+        "hash": "9fc0d094e129ba12",
+        "generatedAt": "2026-07-20T04:39:10.942Z"
       },
       "src/app/api/generated/hestia-core/user_roles/route.ts": {
-        "hash": "dfee8391810ba333",
-        "generatedAt": "2026-07-18T23:30:04.128Z"
+        "hash": "58c89adf99e2e91b",
+        "generatedAt": "2026-07-20T04:39:10.943Z"
       },
       "src/app/api/generated/hestia-core/user_roles/[id]/route.ts": {
-        "hash": "619b207cd1ee2d6a",
-        "generatedAt": "2026-07-18T23:30:04.129Z"
+        "hash": "57d3ed64e70790ac",
+        "generatedAt": "2026-07-20T04:39:10.944Z"
       },
       "src/hooks/generated/hestia-core/user_roles.ts": {
-        "hash": "fdb5afb22fc56182",
-        "generatedAt": "2026-07-18T23:30:04.130Z"
+        "hash": "917c9fea38cabf07",
+        "generatedAt": "2026-07-20T04:39:10.945Z"
       },
       "src/lib/utils/generated/hestia-core/user_roles.ts": {
-        "hash": "7c4e00cafce44cde",
-        "generatedAt": "2026-07-18T23:30:04.140Z"
+        "hash": "137711fa74b5f54a",
+        "generatedAt": "2026-07-20T04:39:10.946Z"
       },
       "src/types/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "91ea7778463556c2",
-        "generatedAt": "2026-07-18T23:30:04.142Z"
+        "hash": "6095b48f63749cb9",
+        "generatedAt": "2026-07-20T04:39:10.947Z"
       },
       "src/app/api/generated/aethelred-connections/vercel_connection/route.ts": {
-        "hash": "cda4c7404f343d3c",
-        "generatedAt": "2026-07-18T23:30:04.143Z"
+        "hash": "180978d287596b14",
+        "generatedAt": "2026-07-20T04:39:10.948Z"
       },
       "src/app/api/generated/aethelred-connections/vercel_connection/[id]/route.ts": {
-        "hash": "3af95ff93df44329",
-        "generatedAt": "2026-07-18T23:30:04.144Z"
+        "hash": "fdbca7bc874c7ea0",
+        "generatedAt": "2026-07-20T04:39:10.949Z"
       },
       "src/hooks/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "92b1f91dc60125e6",
-        "generatedAt": "2026-07-18T23:30:04.146Z"
+        "hash": "d70dd008cd4f8e8d",
+        "generatedAt": "2026-07-20T04:39:10.950Z"
       },
       "src/lib/utils/generated/aethelred-connections/vercel_connection.ts": {
-        "hash": "7827a4f1142e02a3",
-        "generatedAt": "2026-07-18T23:30:04.147Z"
+        "hash": "24e0ec1387718732",
+        "generatedAt": "2026-07-20T04:39:10.951Z"
       },
       "src/types/generated/hestia-core/vessel_anchors.ts": {
-        "hash": "8e755224fbea4caf",
-        "generatedAt": "2026-07-18T23:30:04.148Z"
+        "hash": "7fc62f1a1cc73629",
+        "generatedAt": "2026-07-20T04:39:10.952Z"
       },
       "src/app/api/generated/hestia-core/vessel_anchors/route.ts": {
-        "hash": "030f481823a10233",
-        "generatedAt": "2026-07-18T23:30:04.149Z"
+        "hash": "da13c37fcddcc2fa",
+        "generatedAt": "2026-07-20T04:39:10.953Z"
       },
       "src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts": {
-        "hash": "ba7b52e8c5cf116f",
-        "generatedAt": "2026-07-18T23:30:04.150Z"
+        "hash": "243df2b1c50cf092",
+        "generatedAt": "2026-07-20T04:39:10.954Z"
       },
       "src/hooks/generated/hestia-core/vessel_anchors.ts": {
-        "hash": "2a6fdca608c6d3ea",
-        "generatedAt": "2026-07-18T23:30:04.151Z"
+        "hash": "58870813ffebdc02",
+        "generatedAt": "2026-07-20T04:39:10.955Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_anchors.ts": {
-        "hash": "21845a9056397c09",
-        "generatedAt": "2026-07-18T23:30:04.153Z"
+        "hash": "6b24cfa76e617a6c",
+        "generatedAt": "2026-07-20T04:39:10.956Z"
       },
       "src/types/generated/hestia-core/vessel_bubbles.ts": {
-        "hash": "76f9fae24b95afc5",
-        "generatedAt": "2026-07-18T23:30:04.154Z"
+        "hash": "bb45b6de1ba11e42",
+        "generatedAt": "2026-07-20T04:39:10.957Z"
       },
       "src/app/api/generated/hestia-core/vessel_bubbles/route.ts": {
-        "hash": "4787c3eee65eda72",
-        "generatedAt": "2026-07-18T23:30:04.155Z"
+        "hash": "c59aeb8b60109db9",
+        "generatedAt": "2026-07-20T04:39:10.959Z"
       },
       "src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts": {
-        "hash": "baab019a18136b01",
-        "generatedAt": "2026-07-18T23:30:04.156Z"
+        "hash": "b4429c3c4ae86ba3",
+        "generatedAt": "2026-07-20T04:39:10.960Z"
       },
       "src/hooks/generated/hestia-core/vessel_bubbles.ts": {
-        "hash": "3d7419ac99c788f6",
-        "generatedAt": "2026-07-18T23:30:04.157Z"
+        "hash": "ba28fa6b4ed6e189",
+        "generatedAt": "2026-07-20T04:39:10.961Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_bubbles.ts": {
-        "hash": "471a6b9e7fabe2ad",
-        "generatedAt": "2026-07-18T23:30:04.158Z"
+        "hash": "80659c3af237c5e6",
+        "generatedAt": "2026-07-20T04:39:10.962Z"
       },
       "src/types/generated/hestia-core/vessel_collections.ts": {
-        "hash": "9e417000034f5707",
-        "generatedAt": "2026-07-18T23:30:04.159Z"
+        "hash": "07e4897a0075342e",
+        "generatedAt": "2026-07-20T04:39:10.963Z"
       },
       "src/app/api/generated/hestia-core/vessel_collections/route.ts": {
-        "hash": "55dd83be32eb1f4d",
-        "generatedAt": "2026-07-18T23:30:04.160Z"
+        "hash": "98dc6edad6e16a85",
+        "generatedAt": "2026-07-20T04:39:10.964Z"
       },
       "src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts": {
-        "hash": "5abca3cd2c15b33d",
-        "generatedAt": "2026-07-18T23:30:04.161Z"
+        "hash": "9e6d648b6d570207",
+        "generatedAt": "2026-07-20T04:39:10.965Z"
       },
       "src/hooks/generated/hestia-core/vessel_collections.ts": {
-        "hash": "9ddef5c74dc30647",
-        "generatedAt": "2026-07-18T23:30:04.162Z"
+        "hash": "ac36438bd8b3a403",
+        "generatedAt": "2026-07-20T04:39:10.966Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_collections.ts": {
-        "hash": "40a476972ddddc25",
-        "generatedAt": "2026-07-18T23:30:04.163Z"
+        "hash": "6ce97365a2440171",
+        "generatedAt": "2026-07-20T04:39:10.967Z"
       },
       "src/types/generated/hestia-core/vessel_companions.ts": {
-        "hash": "9438e63428ba49d1",
-        "generatedAt": "2026-07-18T23:30:04.164Z"
+        "hash": "932ca1d88853fa10",
+        "generatedAt": "2026-07-20T04:39:10.968Z"
       },
       "src/app/api/generated/hestia-core/vessel_companions/route.ts": {
-        "hash": "cbc0dd1fbd3830f3",
-        "generatedAt": "2026-07-18T23:30:04.165Z"
+        "hash": "ee9f1f0c55c74d2e",
+        "generatedAt": "2026-07-20T04:39:10.969Z"
       },
       "src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts": {
-        "hash": "42d9307c8c6f0ec4",
-        "generatedAt": "2026-07-18T23:30:04.166Z"
+        "hash": "92528133f7d7e80a",
+        "generatedAt": "2026-07-20T04:39:10.970Z"
       },
       "src/hooks/generated/hestia-core/vessel_companions.ts": {
-        "hash": "b1bb1e51e50b26be",
-        "generatedAt": "2026-07-18T23:30:04.167Z"
+        "hash": "5faa10b76aa5a12e",
+        "generatedAt": "2026-07-20T04:39:10.971Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_companions.ts": {
-        "hash": "8a211a764d9ef75b",
-        "generatedAt": "2026-07-18T23:30:04.168Z"
+        "hash": "b27ea3ef5ccb1031",
+        "generatedAt": "2026-07-20T04:39:10.972Z"
       },
       "src/types/generated/hestia-core/vessel_config.ts": {
-        "hash": "65104cc567ac669e",
-        "generatedAt": "2026-07-18T23:30:04.170Z"
+        "hash": "077c6c01ce0d96b8",
+        "generatedAt": "2026-07-20T04:39:10.973Z"
       },
       "src/app/api/generated/hestia-core/vessel_config/route.ts": {
-        "hash": "8d21a5f409fdcdee",
-        "generatedAt": "2026-07-18T23:30:04.171Z"
+        "hash": "da18b73e5c428b6d",
+        "generatedAt": "2026-07-20T04:39:10.975Z"
       },
       "src/app/api/generated/hestia-core/vessel_config/[id]/route.ts": {
-        "hash": "888bf761e28eef8d",
-        "generatedAt": "2026-07-18T23:30:04.171Z"
+        "hash": "ac0416353297afb1",
+        "generatedAt": "2026-07-20T04:39:10.976Z"
       },
       "src/hooks/generated/hestia-core/vessel_config.ts": {
-        "hash": "c90c566cdcdeead6",
-        "generatedAt": "2026-07-18T23:30:04.172Z"
+        "hash": "957a66eddc9a4d54",
+        "generatedAt": "2026-07-20T04:39:10.977Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_config.ts": {
-        "hash": "d192729bf13d714e",
-        "generatedAt": "2026-07-18T23:30:04.173Z"
+        "hash": "4b4496abd9670c79",
+        "generatedAt": "2026-07-20T04:39:10.978Z"
       },
       "src/types/generated/hestia-core/vessel_decorations.ts": {
-        "hash": "6734b88292f0f800",
-        "generatedAt": "2026-07-18T23:30:04.174Z"
+        "hash": "c707cc14a8bf3cea",
+        "generatedAt": "2026-07-20T04:39:10.979Z"
       },
       "src/app/api/generated/hestia-core/vessel_decorations/route.ts": {
-        "hash": "68b52cd7e8236900",
-        "generatedAt": "2026-07-18T23:30:04.175Z"
+        "hash": "c0094cb4672c56cb",
+        "generatedAt": "2026-07-20T04:39:10.980Z"
       },
       "src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts": {
-        "hash": "84dc7279beb103cd",
-        "generatedAt": "2026-07-18T23:30:04.176Z"
+        "hash": "3dc0fa0a71ed14e2",
+        "generatedAt": "2026-07-20T04:39:10.981Z"
       },
       "src/hooks/generated/hestia-core/vessel_decorations.ts": {
-        "hash": "750d0232e1cfd3e1",
-        "generatedAt": "2026-07-18T23:30:04.177Z"
+        "hash": "74f9f8cc64fca837",
+        "generatedAt": "2026-07-20T04:39:10.982Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_decorations.ts": {
-        "hash": "4bae8af76b4f3bfb",
-        "generatedAt": "2026-07-18T23:30:04.178Z"
+        "hash": "85764ee815ea12ad",
+        "generatedAt": "2026-07-20T04:39:10.983Z"
       },
       "src/types/generated/hestia-core/vessel_exteriors.ts": {
-        "hash": "bab25ef7aec34b7f",
-        "generatedAt": "2026-07-18T23:30:04.179Z"
+        "hash": "ae3fe143baefd247",
+        "generatedAt": "2026-07-20T04:39:10.984Z"
       },
       "src/app/api/generated/hestia-core/vessel_exteriors/route.ts": {
-        "hash": "be41c87bdc22eff6",
-        "generatedAt": "2026-07-18T23:30:04.180Z"
+        "hash": "f66af4869d11af00",
+        "generatedAt": "2026-07-20T04:39:10.985Z"
       },
       "src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts": {
-        "hash": "5d71ff8a7933a680",
-        "generatedAt": "2026-07-18T23:30:04.181Z"
+        "hash": "f8003f6a9e71db39",
+        "generatedAt": "2026-07-20T04:39:10.986Z"
       },
       "src/hooks/generated/hestia-core/vessel_exteriors.ts": {
-        "hash": "750b36b48fe6ca9b",
-        "generatedAt": "2026-07-18T23:30:04.182Z"
+        "hash": "c31432387267841d",
+        "generatedAt": "2026-07-20T04:39:10.987Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_exteriors.ts": {
-        "hash": "cd01ff0793cd2afe",
-        "generatedAt": "2026-07-18T23:30:04.183Z"
+        "hash": "8cd00d87f8c99b78",
+        "generatedAt": "2026-07-20T04:39:10.988Z"
       },
       "src/types/generated/hestia-core/vessel_interiors.ts": {
-        "hash": "7abc348f58140a08",
-        "generatedAt": "2026-07-18T23:30:04.184Z"
+        "hash": "ea08862dc8dd37c7",
+        "generatedAt": "2026-07-20T04:39:10.989Z"
       },
       "src/app/api/generated/hestia-core/vessel_interiors/route.ts": {
-        "hash": "b355369e108f18c4",
-        "generatedAt": "2026-07-18T23:30:04.185Z"
+        "hash": "3924df0823397096",
+        "generatedAt": "2026-07-20T04:39:10.990Z"
       },
       "src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts": {
-        "hash": "79010a244476e856",
-        "generatedAt": "2026-07-18T23:30:04.186Z"
+        "hash": "8cf999434ab6d19e",
+        "generatedAt": "2026-07-20T04:39:10.992Z"
       },
       "src/hooks/generated/hestia-core/vessel_interiors.ts": {
-        "hash": "66d8bc110e01001d",
-        "generatedAt": "2026-07-18T23:30:04.187Z"
+        "hash": "f36304f9978ed270",
+        "generatedAt": "2026-07-20T04:39:10.993Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_interiors.ts": {
-        "hash": "081367ba1c30323b",
-        "generatedAt": "2026-07-18T23:30:04.189Z"
+        "hash": "75c04616e3fd0727",
+        "generatedAt": "2026-07-20T04:39:10.994Z"
       },
       "src/types/generated/hestia-core/vessel_quests.ts": {
-        "hash": "67b10b017fa2bc9a",
-        "generatedAt": "2026-07-18T23:30:04.190Z"
+        "hash": "04e78db9fb9417ce",
+        "generatedAt": "2026-07-20T04:39:10.995Z"
       },
       "src/app/api/generated/hestia-core/vessel_quests/route.ts": {
-        "hash": "5fd40ad7f9c22734",
-        "generatedAt": "2026-07-18T23:30:04.190Z"
+        "hash": "4e408c21632e0a9b",
+        "generatedAt": "2026-07-20T04:39:10.996Z"
       },
       "src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts": {
-        "hash": "08bffc728ada2901",
-        "generatedAt": "2026-07-18T23:30:04.191Z"
+        "hash": "eb2775a64f819f23",
+        "generatedAt": "2026-07-20T04:39:10.997Z"
       },
       "src/hooks/generated/hestia-core/vessel_quests.ts": {
-        "hash": "da6b211ae868057d",
-        "generatedAt": "2026-07-18T23:30:04.192Z"
+        "hash": "c2e92e5e1d1e9d7d",
+        "generatedAt": "2026-07-20T04:39:10.998Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_quests.ts": {
-        "hash": "a029974e750af54f",
-        "generatedAt": "2026-07-18T23:30:04.193Z"
+        "hash": "7651e281172dbe29",
+        "generatedAt": "2026-07-20T04:39:10.999Z"
       },
       "src/types/generated/hestia-core/vessel_rooms.ts": {
-        "hash": "7a7d329bff51a92b",
-        "generatedAt": "2026-07-18T23:30:04.194Z"
+        "hash": "9d3ca531923e8b7a",
+        "generatedAt": "2026-07-20T04:39:11.000Z"
       },
       "src/app/api/generated/hestia-core/vessel_rooms/route.ts": {
-        "hash": "f8ab2814f3353d8c",
-        "generatedAt": "2026-07-18T23:30:04.196Z"
+        "hash": "408f6a0d0e2d1d55",
+        "generatedAt": "2026-07-20T04:39:11.001Z"
       },
       "src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts": {
-        "hash": "cc49b68b6e0b3261",
-        "generatedAt": "2026-07-18T23:30:04.196Z"
+        "hash": "4f59d87afaede3fa",
+        "generatedAt": "2026-07-20T04:39:11.002Z"
       },
       "src/hooks/generated/hestia-core/vessel_rooms.ts": {
-        "hash": "499c6e1dd3a789c0",
-        "generatedAt": "2026-07-18T23:30:04.197Z"
+        "hash": "77651c85d4c24fcb",
+        "generatedAt": "2026-07-20T04:39:11.003Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_rooms.ts": {
-        "hash": "4c4813ba82e6e551",
-        "generatedAt": "2026-07-18T23:30:04.198Z"
+        "hash": "9c266972a937f79a",
+        "generatedAt": "2026-07-20T04:39:11.004Z"
       },
       "src/types/generated/hestia-core/vessel_sigils.ts": {
-        "hash": "31f270e93b584e67",
-        "generatedAt": "2026-07-18T23:30:04.199Z"
+        "hash": "60b3cf209b8064a9",
+        "generatedAt": "2026-07-20T04:39:11.005Z"
       },
       "src/app/api/generated/hestia-core/vessel_sigils/route.ts": {
-        "hash": "132b9cb2dc40f74e",
-        "generatedAt": "2026-07-18T23:30:04.201Z"
+        "hash": "463e228d5e9e06ce",
+        "generatedAt": "2026-07-20T04:39:11.006Z"
       },
       "src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts": {
-        "hash": "034ce76ce32166fa",
-        "generatedAt": "2026-07-18T23:30:04.202Z"
+        "hash": "9c311524f703acf4",
+        "generatedAt": "2026-07-20T04:39:11.007Z"
       },
       "src/hooks/generated/hestia-core/vessel_sigils.ts": {
-        "hash": "b091d0143d1eecdb",
-        "generatedAt": "2026-07-18T23:30:04.203Z"
+        "hash": "aa8c21c8cef39fba",
+        "generatedAt": "2026-07-20T04:39:11.008Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_sigils.ts": {
-        "hash": "923c8d9f7c6e41bc",
-        "generatedAt": "2026-07-18T23:30:04.204Z"
+        "hash": "edf56fc41233612a",
+        "generatedAt": "2026-07-20T04:39:11.009Z"
       },
       "src/types/generated/hestia-core/ware_participants.ts": {
         "hash": "713466a5140ba679",
@@ -16826,84 +18492,84 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-10T18:15:00.005Z"
       },
       "src/lib/constants/generated/hestia-core/address_type.ts": {
-        "hash": "2e478f69cd1c9e53",
-        "generatedAt": "2026-07-18T23:30:04.225Z"
+        "hash": "7f09fccccc3f7f1b",
+        "generatedAt": "2026-07-20T04:39:11.036Z"
       },
       "src/lib/constants/generated/themis-governance/application_status.ts": {
-        "hash": "a65c1752b903425c",
-        "generatedAt": "2026-07-18T23:30:04.226Z"
+        "hash": "e1ab3474209d95c2",
+        "generatedAt": "2026-07-20T04:39:11.037Z"
       },
       "src/lib/constants/generated/themis-governance/application_type.ts": {
-        "hash": "38c84cb2aa3d51e7",
-        "generatedAt": "2026-07-18T23:30:04.227Z"
+        "hash": "79d3d5f1dba6abef",
+        "generatedAt": "2026-07-20T04:39:11.038Z"
       },
       "src/lib/constants/generated/hestia-core/content_status.ts": {
-        "hash": "4040ad96a97dbce5",
-        "generatedAt": "2026-07-18T23:30:04.228Z"
+        "hash": "d743f9e185bc1cca",
+        "generatedAt": "2026-07-20T04:39:11.040Z"
       },
       "src/lib/constants/generated/hestia-core/display_theme.ts": {
-        "hash": "508086033bc2f6d7",
-        "generatedAt": "2026-07-18T23:30:04.230Z"
+        "hash": "dcaa5f0f730faada",
+        "generatedAt": "2026-07-20T04:39:11.041Z"
       },
       "src/lib/constants/generated/hestia-core/exchange_status.ts": {
-        "hash": "d29c9a0f1ed8f775",
-        "generatedAt": "2026-07-18T23:30:04.231Z"
+        "hash": "68c521e5eb3a8ab5",
+        "generatedAt": "2026-07-20T04:39:11.042Z"
       },
       "src/lib/constants/generated/hestia-core/global_region.ts": {
-        "hash": "339f4822545f06e0",
-        "generatedAt": "2026-07-18T23:30:04.232Z"
+        "hash": "0d04b4913fc76564",
+        "generatedAt": "2026-07-20T04:39:11.043Z"
       },
       "src/lib/constants/generated/hestia-core/herald_digest.ts": {
-        "hash": "675a566e8600bdda",
-        "generatedAt": "2026-07-18T23:30:04.233Z"
+        "hash": "85302c50bece1f60",
+        "generatedAt": "2026-07-20T04:39:11.045Z"
       },
       "src/lib/constants/generated/hestia-core/notification_channel.ts": {
-        "hash": "b7efe35e6b672dfb",
-        "generatedAt": "2026-07-18T23:30:04.234Z"
+        "hash": "1db3b901d11a9a94",
+        "generatedAt": "2026-07-20T04:39:11.046Z"
       },
       "src/lib/constants/generated/hestia-core/pricing_model.ts": {
-        "hash": "6f6acbf181a3c91e",
-        "generatedAt": "2026-07-18T23:30:04.235Z"
+        "hash": "b2460b51594516d2",
+        "generatedAt": "2026-07-20T04:39:11.047Z"
       },
       "src/lib/constants/generated/hestia-core/processing_speed.ts": {
-        "hash": "001b8d453f5f1c92",
-        "generatedAt": "2026-07-18T23:30:04.236Z"
+        "hash": "9b105fa635bff6a7",
+        "generatedAt": "2026-07-20T04:39:11.049Z"
       },
       "src/lib/constants/generated/hestia-core/profile_status.ts": {
-        "hash": "fda4dc9a62ab9990",
-        "generatedAt": "2026-07-18T23:30:04.237Z"
+        "hash": "38e223191c3563e0",
+        "generatedAt": "2026-07-20T04:39:11.050Z"
       },
       "src/lib/constants/generated/hestia-core/relationship_type.ts": {
-        "hash": "fab47988fbb46e06",
-        "generatedAt": "2026-07-18T23:30:04.238Z"
+        "hash": "fac0d79c6fc405f6",
+        "generatedAt": "2026-07-20T04:39:11.051Z"
       },
       "src/lib/constants/generated/hestia-core/sensory_level.ts": {
-        "hash": "03fb4396db3d4db5",
-        "generatedAt": "2026-07-18T23:30:04.239Z"
+        "hash": "7ec80c1f26e0d468",
+        "generatedAt": "2026-07-20T04:39:11.052Z"
       },
       "src/lib/constants/generated/hestia-core/sovereign_tier.ts": {
-        "hash": "58bc3e4160e77edc",
-        "generatedAt": "2026-07-18T23:30:04.240Z"
+        "hash": "3d0af7f29ab5473f",
+        "generatedAt": "2026-07-20T04:39:11.053Z"
       },
       "src/lib/constants/generated/hestia-core/subscription_tier.ts": {
-        "hash": "bc2b192bb114ee2a",
-        "generatedAt": "2026-07-18T23:30:04.241Z"
+        "hash": "18d0922e0e6dd498",
+        "generatedAt": "2026-07-20T04:39:11.054Z"
       },
       "src/lib/constants/generated/hestia-core/user_role.ts": {
-        "hash": "8fa1ff003ec1e5b3",
-        "generatedAt": "2026-07-18T23:30:04.242Z"
+        "hash": "73281aeb1565e3b7",
+        "generatedAt": "2026-07-20T04:39:11.055Z"
       },
       "src/lib/constants/generated/hestia-core/visibility.ts": {
-        "hash": "089e99eaa168e07e",
-        "generatedAt": "2026-07-18T23:30:04.243Z"
+        "hash": "71380d928b920cd3",
+        "generatedAt": "2026-07-20T04:39:11.056Z"
       },
       "src/lib/constants/generated/hestia-core/ware_type.ts": {
-        "hash": "e08fa87b3d3ed018",
-        "generatedAt": "2026-07-18T23:30:04.245Z"
+        "hash": "1b01500a78bff119",
+        "generatedAt": "2026-07-20T04:39:11.058Z"
       },
       "src/lib/constants/generated/hestia-core/work_type.ts": {
-        "hash": "7c9d4089648f3489",
-        "generatedAt": "2026-07-18T23:30:04.246Z"
+        "hash": "00c5a1cd1d56f434",
+        "generatedAt": "2026-07-20T04:39:11.059Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\admin_actions.ts": {
         "hash": "28d787b00a1955cd",
@@ -16911,23 +18577,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\aethelred_house.ts": {
         "hash": "908270c3870214d8",
-        "generatedAt": "2026-07-18T23:30:04.250Z"
+        "generatedAt": "2026-07-20T04:39:11.062Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_activities.ts": {
         "hash": "70e3772bfe7728d4",
-        "generatedAt": "2026-07-18T23:30:04.251Z"
+        "generatedAt": "2026-07-20T04:39:11.063Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_conversations.ts": {
         "hash": "c70c0d9cbde6a2e0",
-        "generatedAt": "2026-07-18T23:30:04.253Z"
+        "generatedAt": "2026-07-20T04:39:11.064Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\agent_messages.ts": {
         "hash": "64bc017503020078",
-        "generatedAt": "2026-07-18T23:30:04.254Z"
+        "generatedAt": "2026-07-20T04:39:11.065Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\analytics.ts": {
         "hash": "336922d6d4b602d3",
-        "generatedAt": "2026-07-18T23:30:04.255Z"
+        "generatedAt": "2026-07-20T04:39:11.067Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\anchor_events.ts": {
         "hash": "d8e2b149ee08a0f9",
@@ -16935,11 +18601,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\applications.ts": {
         "hash": "a0bda5203f683ac1",
-        "generatedAt": "2026-07-18T23:30:04.258Z"
+        "generatedAt": "2026-07-20T04:39:11.069Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\archivist.ts": {
         "hash": "78ff170e5222c379",
-        "generatedAt": "2026-07-18T23:30:04.259Z"
+        "generatedAt": "2026-07-20T04:39:11.070Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\artisan_category_links.ts": {
         "hash": "3ec941556b62a779",
@@ -16975,11 +18641,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\bubbles.ts": {
         "hash": "851ae661cd3350fc",
-        "generatedAt": "2026-07-18T23:30:04.270Z"
+        "generatedAt": "2026-07-20T04:39:11.081Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\calendar.ts": {
         "hash": "3912c385f344d7bf",
-        "generatedAt": "2026-07-18T23:30:04.271Z"
+        "generatedAt": "2026-07-20T04:39:11.082Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\categories.ts": {
         "hash": "c8bb6ae20cfda4f7",
@@ -16987,7 +18653,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\chancellor.ts": {
         "hash": "06a91333ff591371",
-        "generatedAt": "2026-07-18T23:30:04.274Z"
+        "generatedAt": "2026-07-20T04:39:11.084Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\channels.ts": {
         "hash": "0538a906a1b8046e",
@@ -16999,59 +18665,59 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\codex.ts": {
         "hash": "e717dab6b1f068ff",
-        "generatedAt": "2026-07-18T23:30:04.277Z"
+        "generatedAt": "2026-07-20T04:39:11.087Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_items.ts": {
         "hash": "190470f0570d426d",
-        "generatedAt": "2026-07-18T23:30:04.279Z"
+        "generatedAt": "2026-07-20T04:39:11.088Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_sets.ts": {
         "hash": "2c94cc3e9c3a5aa2",
-        "generatedAt": "2026-07-18T23:30:04.280Z"
+        "generatedAt": "2026-07-20T04:39:11.089Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts": {
         "hash": "e2753d07e5ce3136",
-        "generatedAt": "2026-07-18T23:30:04.281Z"
+        "generatedAt": "2026-07-20T04:39:11.091Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\companion_cues.ts": {
         "hash": "9dfdb164f27b63df",
-        "generatedAt": "2026-07-18T23:30:04.282Z"
+        "generatedAt": "2026-07-20T04:39:11.092Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\consciousness.ts": {
         "hash": "413a9f0515380ad5",
-        "generatedAt": "2026-07-18T23:30:04.283Z"
+        "generatedAt": "2026-07-20T04:39:11.093Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\contact_submissions.ts": {
         "hash": "d7f4af04514851b5",
-        "generatedAt": "2026-07-18T23:30:04.284Z"
+        "generatedAt": "2026-07-20T04:39:11.094Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\continents.ts": {
         "hash": "17a7b29785fec180",
-        "generatedAt": "2026-07-18T23:30:04.285Z"
+        "generatedAt": "2026-07-20T04:39:11.095Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\council_houses.ts": {
         "hash": "2b23ba116c2bcddc",
-        "generatedAt": "2026-07-18T23:30:04.288Z"
+        "generatedAt": "2026-07-20T04:39:11.096Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\covenant_pool.ts": {
         "hash": "30d10cbe6d297c67",
-        "generatedAt": "2026-07-18T23:30:04.289Z"
+        "generatedAt": "2026-07-20T04:39:11.097Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\culturalization.ts": {
         "hash": "506b4dfbe56aa0ea",
-        "generatedAt": "2026-07-18T23:30:04.290Z"
+        "generatedAt": "2026-07-20T04:39:11.099Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\curator.ts": {
         "hash": "fad02972cc1c56ba",
-        "generatedAt": "2026-07-18T23:30:04.291Z"
+        "generatedAt": "2026-07-20T04:39:11.100Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\current.ts": {
         "hash": "b44aaff24d27b61b",
-        "generatedAt": "2026-07-18T23:30:04.292Z"
+        "generatedAt": "2026-07-20T04:39:11.101Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\customs.ts": {
         "hash": "8dc93d5307f034b9",
-        "generatedAt": "2026-07-18T23:30:04.293Z"
+        "generatedAt": "2026-07-20T04:39:11.102Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\distribution_recipients.ts": {
         "hash": "72f2bcf512ba0e65",
@@ -17067,11 +18733,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\email_communications.ts": {
         "hash": "e27cc186ae92826a",
-        "generatedAt": "2026-07-18T23:30:04.298Z"
+        "generatedAt": "2026-07-20T04:39:11.106Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\energy_entries.ts": {
         "hash": "85df5067b3e7778a",
-        "generatedAt": "2026-07-18T23:30:04.299Z"
+        "generatedAt": "2026-07-20T04:39:11.107Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\entity_states.ts": {
         "hash": "4708ae5d9b077435",
@@ -17079,7 +18745,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\etymology.ts": {
         "hash": "c7c65376ca7a0406",
-        "generatedAt": "2026-07-18T23:30:04.300Z"
+        "generatedAt": "2026-07-20T04:39:11.109Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\exchanges.ts": {
         "hash": "95aa759814b62baf",
@@ -17087,7 +18753,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\executioner.ts": {
         "hash": "48d78beceeb7035d",
-        "generatedAt": "2026-07-18T23:30:04.303Z"
+        "generatedAt": "2026-07-20T04:39:11.111Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\family.ts": {
         "hash": "9a3cb92d34493288",
@@ -17095,15 +18761,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\file_registry.ts": {
         "hash": "5ed08c54871a7e1e",
-        "generatedAt": "2026-07-18T23:30:04.304Z"
+        "generatedAt": "2026-07-20T04:39:11.112Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\file_type_standards.ts": {
         "hash": "11b614e3c92981d0",
-        "generatedAt": "2026-07-18T23:30:04.305Z"
+        "generatedAt": "2026-07-20T04:39:11.113Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\folksonomy.ts": {
         "hash": "e99ba81e47559552",
-        "generatedAt": "2026-07-18T23:30:04.307Z"
+        "generatedAt": "2026-07-20T04:39:11.114Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\gaia_config.ts": {
         "hash": "e6a1185cc7943abd",
@@ -17115,11 +18781,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_plots.ts": {
         "hash": "49a7ce540fed0255",
-        "generatedAt": "2026-07-18T23:30:04.310Z"
+        "generatedAt": "2026-07-20T04:39:11.117Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_visits.ts": {
         "hash": "a7d404aad25752be",
-        "generatedAt": "2026-07-18T23:30:04.311Z"
+        "generatedAt": "2026-07-20T04:39:11.118Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\generation_templates.ts": {
         "hash": "a42bed32bd8a8518",
@@ -17143,7 +18809,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\github_connection.ts": {
         "hash": "ad81df8bc508cdee",
-        "generatedAt": "2026-07-18T23:30:04.317Z"
+        "generatedAt": "2026-07-20T04:39:11.124Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\grant_applications.ts": {
         "hash": "0db132bc48c569b4",
@@ -17171,15 +18837,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\hearth_keeper.ts": {
         "hash": "346525ad53d8f126",
-        "generatedAt": "2026-07-18T23:30:04.326Z"
+        "generatedAt": "2026-07-20T04:39:11.130Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\heralds.ts": {
-        "hash": "13d45280d344c558",
-        "generatedAt": "2026-07-18T23:30:04.327Z"
+        "hash": "a8a0566d0cb8215e",
+        "generatedAt": "2026-07-20T04:39:11.131Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\journal_entries.ts": {
         "hash": "1fb70d931d131e93",
-        "generatedAt": "2026-07-18T23:30:04.327Z"
+        "generatedAt": "2026-07-20T04:39:11.132Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\keywords.ts": {
         "hash": "9034e138d19c0300",
@@ -17191,31 +18857,31 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\languages.ts": {
         "hash": "b00228ba2a81bd1f",
-        "generatedAt": "2026-07-18T23:30:04.331Z"
+        "generatedAt": "2026-07-20T04:39:11.135Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\learning_paths.ts": {
         "hash": "d5f55613ff031ccf",
-        "generatedAt": "2026-07-18T23:30:04.332Z"
+        "generatedAt": "2026-07-20T04:39:11.136Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\ledger.ts": {
         "hash": "5cfdb57c70eee1ec",
-        "generatedAt": "2026-07-18T23:30:04.333Z"
+        "generatedAt": "2026-07-20T04:39:11.137Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\lessons.ts": {
         "hash": "6eeb5fb7fb7e8d44",
-        "generatedAt": "2026-07-18T23:30:04.334Z"
+        "generatedAt": "2026-07-20T04:39:11.138Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\life_cycles.ts": {
         "hash": "33d64f54b8982c47",
-        "generatedAt": "2026-07-18T23:30:04.335Z"
+        "generatedAt": "2026-07-20T04:39:11.139Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\localization.ts": {
         "hash": "ee3481c993facb9d",
-        "generatedAt": "2026-07-18T23:30:04.336Z"
+        "generatedAt": "2026-07-20T04:39:11.140Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\maintenance.ts": {
         "hash": "ab6bf68992cb65e5",
-        "generatedAt": "2026-07-18T23:30:04.337Z"
+        "generatedAt": "2026-07-20T04:39:11.141Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\memories.ts": {
         "hash": "1e43cb6098ca7a73",
@@ -17235,15 +18901,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\moderation_actions.ts": {
         "hash": "551e2324378cb508",
-        "generatedAt": "2026-07-18T23:30:04.341Z"
+        "generatedAt": "2026-07-20T04:39:11.146Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\mythology.ts": {
         "hash": "030fd97f35c80417",
-        "generatedAt": "2026-07-18T23:30:04.343Z"
+        "generatedAt": "2026-07-20T04:39:11.146Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\ontology.ts": {
         "hash": "ad09722575c87a80",
-        "generatedAt": "2026-07-18T23:30:04.343Z"
+        "generatedAt": "2026-07-20T04:39:11.147Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\order.ts": {
         "hash": "0e45cc935f432f7f",
@@ -17251,7 +18917,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\path_lessons.ts": {
         "hash": "f2d3c3be6dfddac5",
-        "generatedAt": "2026-07-18T23:30:04.345Z"
+        "generatedAt": "2026-07-20T04:39:11.149Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\patronage.ts": {
         "hash": "09d4bfeceeec3334",
@@ -17267,7 +18933,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\personas.ts": {
         "hash": "1a8a3b1526001389",
-        "generatedAt": "2026-07-18T23:30:04.349Z"
+        "generatedAt": "2026-07-20T04:39:11.153Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\phylum.ts": {
         "hash": "bfff36a8b0f265f0",
@@ -17275,7 +18941,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\plant_stages.ts": {
         "hash": "526166481ef7340e",
-        "generatedAt": "2026-07-18T23:30:04.351Z"
+        "generatedAt": "2026-07-20T04:39:11.155Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\platform_config.ts": {
         "hash": "0c1d4ba496d3f5bc",
@@ -17287,7 +18953,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\processes.ts": {
         "hash": "0042d8305b92ae0b",
-        "generatedAt": "2026-07-18T23:30:04.353Z"
+        "generatedAt": "2026-07-20T04:39:11.158Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\proposals.ts": {
         "hash": "b469e55b4223c63f",
@@ -17295,7 +18961,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\protocols.ts": {
         "hash": "3b5dd8c9b290b48c",
-        "generatedAt": "2026-07-18T23:30:04.355Z"
+        "generatedAt": "2026-07-20T04:39:11.159Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\quest_progress.ts": {
         "hash": "819275bc382286e3",
@@ -17303,11 +18969,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\quests.ts": {
         "hash": "50d008ac23da72b0",
-        "generatedAt": "2026-07-18T23:30:04.357Z"
+        "generatedAt": "2026-07-20T04:39:11.162Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\rate_limits.ts": {
         "hash": "914ae93233c8a4ae",
-        "generatedAt": "2026-07-18T23:30:04.358Z"
+        "generatedAt": "2026-07-20T04:39:11.162Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\reference_values.ts": {
         "hash": "07c3febb70f9e97b",
@@ -17315,19 +18981,19 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\regions.ts": {
         "hash": "1504f8c2e7c5646f",
-        "generatedAt": "2026-07-18T23:30:04.360Z"
+        "generatedAt": "2026-07-20T04:39:11.164Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\reports.ts": {
         "hash": "3e8b4133acde41aa",
-        "generatedAt": "2026-07-18T23:30:04.361Z"
+        "generatedAt": "2026-07-20T04:39:11.165Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\resend_connection.ts": {
         "hash": "c7cdb3a08b9cfe27",
-        "generatedAt": "2026-07-18T23:30:04.362Z"
+        "generatedAt": "2026-07-20T04:39:11.167Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\residual_pool.ts": {
         "hash": "b0e17c2c4618ccff",
-        "generatedAt": "2026-07-18T23:30:04.363Z"
+        "generatedAt": "2026-07-20T04:39:11.167Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\resonance.ts": {
         "hash": "e4f2713d4c8aa5f1",
@@ -17339,15 +19005,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\scene_participants.ts": {
         "hash": "11cd40a7b2eac53f",
-        "generatedAt": "2026-07-18T23:30:04.365Z"
+        "generatedAt": "2026-07-20T04:39:11.171Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\scenes.ts": {
         "hash": "052578ea17dd6fff",
-        "generatedAt": "2026-07-18T23:30:04.366Z"
+        "generatedAt": "2026-07-20T04:39:11.172Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\scheduling.ts": {
         "hash": "5c8db15333e56e22",
-        "generatedAt": "2026-07-18T23:30:04.367Z"
+        "generatedAt": "2026-07-20T04:39:11.173Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\script_executions.ts": {
         "hash": "128014d8e50a023f",
@@ -17355,15 +19021,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\scripts.ts": {
         "hash": "a16284d5ab8b1928",
-        "generatedAt": "2026-07-18T23:30:04.369Z"
+        "generatedAt": "2026-07-20T04:39:11.174Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\seed_types.ts": {
         "hash": "e3c06a9347032722",
-        "generatedAt": "2026-07-18T23:30:04.370Z"
+        "generatedAt": "2026-07-20T04:39:11.175Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\seer.ts": {
         "hash": "a64cffca8d3732ad",
-        "generatedAt": "2026-07-18T23:30:04.371Z"
+        "generatedAt": "2026-07-20T04:39:11.176Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\sensory_lexicon.ts": {
         "hash": "a0033769ddc1cab1",
@@ -17387,7 +19053,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\skald.ts": {
         "hash": "eb502ff738805c21",
-        "generatedAt": "2026-07-18T23:30:04.377Z"
+        "generatedAt": "2026-07-20T04:39:11.182Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\species.ts": {
         "hash": "5e048bf8a0c68283",
@@ -17395,23 +19061,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\stripe_connection.ts": {
         "hash": "eb82a0db5ba57c46",
-        "generatedAt": "2026-07-18T23:30:04.378Z"
+        "generatedAt": "2026-07-20T04:39:11.184Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\supabase_connection.ts": {
         "hash": "b346b6983ec83f57",
-        "generatedAt": "2026-07-18T23:30:04.379Z"
+        "generatedAt": "2026-07-20T04:39:11.184Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\survey_responses.ts": {
         "hash": "c665abfe5041f5c4",
-        "generatedAt": "2026-07-18T23:30:04.380Z"
+        "generatedAt": "2026-07-20T04:39:11.186Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\surveys.ts": {
         "hash": "dbe34d7f5aedf615",
-        "generatedAt": "2026-07-18T23:30:04.381Z"
+        "generatedAt": "2026-07-20T04:39:11.186Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\taxonomy.ts": {
         "hash": "0e8b1ad084b2cb2e",
-        "generatedAt": "2026-07-18T23:30:04.382Z"
+        "generatedAt": "2026-07-20T04:39:11.187Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\templates.ts": {
         "hash": "af64b3b9da6cb255",
@@ -17427,71 +19093,71 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\translations.ts": {
         "hash": "6688e6bcaf36e35e",
-        "generatedAt": "2026-07-18T23:30:04.385Z"
+        "generatedAt": "2026-07-20T04:39:11.192Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_financial.ts": {
         "hash": "b5d53e12c42dad3c",
-        "generatedAt": "2026-07-18T23:30:04.386Z"
+        "generatedAt": "2026-07-20T04:39:11.193Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_page_views.ts": {
         "hash": "d52a972e37fc7982",
-        "generatedAt": "2026-07-18T23:30:04.387Z"
+        "generatedAt": "2026-07-20T04:39:11.194Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_private.ts": {
         "hash": "549bfb1b98f31408",
-        "generatedAt": "2026-07-18T23:30:04.388Z"
+        "generatedAt": "2026-07-20T04:39:11.194Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_roles.ts": {
         "hash": "40a9b12d3eb8cf3f",
-        "generatedAt": "2026-07-18T23:30:04.389Z"
+        "generatedAt": "2026-07-20T04:39:11.195Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\vercel_connection.ts": {
         "hash": "d2687ad032027b8a",
-        "generatedAt": "2026-07-18T23:30:04.390Z"
+        "generatedAt": "2026-07-20T04:39:11.196Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_anchors.ts": {
         "hash": "2df847154bfcea0f",
-        "generatedAt": "2026-07-18T23:30:04.391Z"
+        "generatedAt": "2026-07-20T04:39:11.197Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_bubbles.ts": {
         "hash": "722a4c6513e99f62",
-        "generatedAt": "2026-07-18T23:30:04.392Z"
+        "generatedAt": "2026-07-20T04:39:11.198Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_collections.ts": {
         "hash": "f122a8672d50100e",
-        "generatedAt": "2026-07-18T23:30:04.393Z"
+        "generatedAt": "2026-07-20T04:39:11.199Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_companions.ts": {
         "hash": "64d228155602100c",
-        "generatedAt": "2026-07-18T23:30:04.394Z"
+        "generatedAt": "2026-07-20T04:39:11.200Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_config.ts": {
         "hash": "2603d24b1364b54d",
-        "generatedAt": "2026-07-18T23:30:04.395Z"
+        "generatedAt": "2026-07-20T04:39:11.201Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_decorations.ts": {
         "hash": "75bc95bf8f305ee3",
-        "generatedAt": "2026-07-18T23:30:04.396Z"
+        "generatedAt": "2026-07-20T04:39:11.203Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_exteriors.ts": {
         "hash": "14e9c51b2f71d4ab",
-        "generatedAt": "2026-07-18T23:30:04.396Z"
+        "generatedAt": "2026-07-20T04:39:11.204Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_interiors.ts": {
         "hash": "cd282ad6f50a44c3",
-        "generatedAt": "2026-07-18T23:30:04.397Z"
+        "generatedAt": "2026-07-20T04:39:11.205Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_quests.ts": {
         "hash": "a63a450edd114477",
-        "generatedAt": "2026-07-18T23:30:04.398Z"
+        "generatedAt": "2026-07-20T04:39:11.205Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_rooms.ts": {
         "hash": "b5837e7e1188e667",
-        "generatedAt": "2026-07-18T23:30:04.399Z"
+        "generatedAt": "2026-07-20T04:39:11.206Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_sigils.ts": {
         "hash": "11bb90edfc89dbad",
-        "generatedAt": "2026-07-18T23:30:04.400Z"
+        "generatedAt": "2026-07-20T04:39:11.207Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\ware_participants.ts": {
         "hash": "4b255e7d31559df7",
@@ -17562,1220 +19228,1220 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "generatedAt": "2026-07-18T23:09:31.706Z"
       },
       "src/types/generated/themis-governance/admin_actions.ts": {
-        "hash": "add7e753e5395311",
-        "generatedAt": "2026-07-18T23:30:03.504Z"
+        "hash": "26730e9510e54731",
+        "generatedAt": "2026-07-20T04:39:10.293Z"
       },
       "src/app/api/generated/themis-governance/admin_actions/route.ts": {
-        "hash": "5f5790e17be6b9ea",
-        "generatedAt": "2026-07-18T23:30:03.513Z"
+        "hash": "24b4c63ab9b868cc",
+        "generatedAt": "2026-07-20T04:39:10.302Z"
       },
       "src/app/api/generated/themis-governance/admin_actions/[id]/route.ts": {
-        "hash": "ec57c015a85b9f5c",
-        "generatedAt": "2026-07-18T23:30:03.514Z"
+        "hash": "82aa0d93e5144454",
+        "generatedAt": "2026-07-20T04:39:10.303Z"
       },
       "src/hooks/generated/themis-governance/admin_actions.ts": {
-        "hash": "d1315ee7af439def",
-        "generatedAt": "2026-07-18T23:30:03.515Z"
+        "hash": "b8600f18f9f52042",
+        "generatedAt": "2026-07-20T04:39:10.304Z"
       },
       "src/lib/utils/generated/themis-governance/admin_actions.ts": {
-        "hash": "bf476fd227106519",
-        "generatedAt": "2026-07-18T23:30:03.516Z"
+        "hash": "8e7c8efc453db70f",
+        "generatedAt": "2026-07-20T04:39:10.306Z"
       },
       "src/types/generated/mnemosyne-assessment/anchor_events.ts": {
-        "hash": "2d95abe089ce2031",
-        "generatedAt": "2026-07-18T23:30:03.542Z"
+        "hash": "31623858f49a350e",
+        "generatedAt": "2026-07-20T04:39:10.332Z"
       },
       "src/app/api/generated/mnemosyne-assessment/anchor_events/route.ts": {
-        "hash": "100044c0be48c8ab",
-        "generatedAt": "2026-07-18T23:30:03.543Z"
+        "hash": "fd912c58f75f0f93",
+        "generatedAt": "2026-07-20T04:39:10.333Z"
       },
       "src/app/api/generated/mnemosyne-assessment/anchor_events/[id]/route.ts": {
-        "hash": "99aa342eb83516be",
-        "generatedAt": "2026-07-18T23:30:03.544Z"
+        "hash": "ecf1b9187d2be8e6",
+        "generatedAt": "2026-07-20T04:39:10.334Z"
       },
       "src/hooks/generated/mnemosyne-assessment/anchor_events.ts": {
-        "hash": "0dbd49d2b00315e1",
-        "generatedAt": "2026-07-18T23:30:03.545Z"
+        "hash": "d7ade857469eb1b7",
+        "generatedAt": "2026-07-20T04:39:10.335Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/anchor_events.ts": {
-        "hash": "bc542d80d66d9749",
-        "generatedAt": "2026-07-18T23:30:03.546Z"
+        "hash": "4aa60e1c2f216793",
+        "generatedAt": "2026-07-20T04:39:10.336Z"
       },
       "src/types/generated/hermes-social/artisan_category_links.ts": {
-        "hash": "d5b79d26e7c9cad7",
-        "generatedAt": "2026-07-18T23:30:03.556Z"
+        "hash": "e20c4700af6cbad5",
+        "generatedAt": "2026-07-20T04:39:10.347Z"
       },
       "src/app/api/generated/hermes-social/artisan_category_links/route.ts": {
-        "hash": "332777d77da69ef7",
-        "generatedAt": "2026-07-18T23:30:03.557Z"
+        "hash": "6b2bc9ed2d397e7a",
+        "generatedAt": "2026-07-20T04:39:10.348Z"
       },
       "src/app/api/generated/hermes-social/artisan_category_links/[id]/route.ts": {
-        "hash": "adc03e3ec84690d8",
-        "generatedAt": "2026-07-18T23:30:03.558Z"
+        "hash": "96cdee6a7e9d2ac8",
+        "generatedAt": "2026-07-20T04:39:10.349Z"
       },
       "src/types/generated/hermes-social/artisan_profiles.ts": {
-        "hash": "5dfe2d178d26bbca",
-        "generatedAt": "2026-07-18T23:30:03.559Z"
+        "hash": "cd7eace6b6f3598e",
+        "generatedAt": "2026-07-20T04:39:10.350Z"
       },
       "src/app/api/generated/hermes-social/artisan_profiles/route.ts": {
-        "hash": "5ed37acf5f97602b",
-        "generatedAt": "2026-07-18T23:30:03.560Z"
+        "hash": "4f5c66a749315661",
+        "generatedAt": "2026-07-20T04:39:10.351Z"
       },
       "src/app/api/generated/hermes-social/artisan_profiles/[id]/route.ts": {
-        "hash": "be74284afb7c6cb4",
-        "generatedAt": "2026-07-18T23:30:03.561Z"
+        "hash": "90e91d213b68b013",
+        "generatedAt": "2026-07-20T04:39:10.352Z"
       },
       "src/hooks/generated/hermes-social/artisan_profiles.ts": {
-        "hash": "bb61bdb87180aa89",
-        "generatedAt": "2026-07-18T23:30:03.562Z"
+        "hash": "f2a8e6d5c6074dc9",
+        "generatedAt": "2026-07-20T04:39:10.353Z"
       },
       "src/lib/utils/generated/hermes-social/artisan_profiles.ts": {
-        "hash": "db9e8f87b557b67c",
-        "generatedAt": "2026-07-18T23:30:03.563Z"
+        "hash": "52553870ef6f95e1",
+        "generatedAt": "2026-07-20T04:39:10.354Z"
       },
       "src/types/generated/mnemosyne-assessment/assessment_answers.ts": {
-        "hash": "cd441a11b5e7cefb",
-        "generatedAt": "2026-07-18T23:30:03.564Z"
+        "hash": "149664fb6abec6f1",
+        "generatedAt": "2026-07-20T04:39:10.355Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_answers/route.ts": {
-        "hash": "45c1b635dfcb8dc0",
-        "generatedAt": "2026-07-18T23:30:03.565Z"
+        "hash": "6c7feb13851f5934",
+        "generatedAt": "2026-07-20T04:39:10.356Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_answers/[id]/route.ts": {
-        "hash": "651e7fbf979b7d7b",
-        "generatedAt": "2026-07-18T23:30:03.566Z"
+        "hash": "02afcf8b4ff88f68",
+        "generatedAt": "2026-07-20T04:39:10.357Z"
       },
       "src/types/generated/mnemosyne-assessment/assessment_questions.ts": {
-        "hash": "b6f1d6c3cd1bb8f1",
-        "generatedAt": "2026-07-18T23:30:03.567Z"
+        "hash": "23981014efa9544b",
+        "generatedAt": "2026-07-20T04:39:10.358Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_questions/route.ts": {
-        "hash": "b49aad1bb83e3123",
-        "generatedAt": "2026-07-18T23:30:03.567Z"
+        "hash": "3c54ef9d293e8d5a",
+        "generatedAt": "2026-07-20T04:39:10.359Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_questions/[id]/route.ts": {
-        "hash": "9071a2df747fa463",
-        "generatedAt": "2026-07-18T23:30:03.568Z"
+        "hash": "18c01cf10028e26e",
+        "generatedAt": "2026-07-20T04:39:10.360Z"
       },
       "src/types/generated/mnemosyne-assessment/assessment_results.ts": {
-        "hash": "f734c8b66d13a9bf",
-        "generatedAt": "2026-07-18T23:30:03.569Z"
+        "hash": "0ce4ddb1cc5df421",
+        "generatedAt": "2026-07-20T04:39:10.361Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_results/route.ts": {
-        "hash": "f3eb17585cd0da4e",
-        "generatedAt": "2026-07-18T23:30:03.571Z"
+        "hash": "a8a564a15f034940",
+        "generatedAt": "2026-07-20T04:39:10.362Z"
       },
       "src/app/api/generated/mnemosyne-assessment/assessment_results/[id]/route.ts": {
-        "hash": "08e8273bb1b68a47",
-        "generatedAt": "2026-07-18T23:30:03.571Z"
+        "hash": "d0eb3d54770495a9",
+        "generatedAt": "2026-07-20T04:39:10.363Z"
       },
       "src/types/generated/daedalus-meta/blueprints.ts": {
-        "hash": "0f65d99d6d18d6ca",
-        "generatedAt": "2026-07-18T23:30:03.572Z"
+        "hash": "4c09e38cf75b1ea4",
+        "generatedAt": "2026-07-20T04:39:10.364Z"
       },
       "src/app/api/generated/daedalus-meta/blueprints/route.ts": {
-        "hash": "e9875e17352e37b3",
-        "generatedAt": "2026-07-18T23:30:03.573Z"
+        "hash": "575b687bff6b88cc",
+        "generatedAt": "2026-07-20T04:39:10.365Z"
       },
       "src/app/api/generated/daedalus-meta/blueprints/[id]/route.ts": {
-        "hash": "91c812f3eec086ba",
-        "generatedAt": "2026-07-18T23:30:03.574Z"
+        "hash": "5aee799dd2befe16",
+        "generatedAt": "2026-07-20T04:39:10.366Z"
       },
       "src/hooks/generated/daedalus-meta/blueprints.ts": {
-        "hash": "08f3e7ec0176a9a4",
-        "generatedAt": "2026-07-18T23:30:03.575Z"
+        "hash": "31dea061e4099293",
+        "generatedAt": "2026-07-20T04:39:10.367Z"
       },
       "src/lib/utils/generated/daedalus-meta/blueprints.ts": {
-        "hash": "eccf2a6daa7a5b6f",
-        "generatedAt": "2026-07-18T23:30:03.576Z"
+        "hash": "cd1c49e143b7d239",
+        "generatedAt": "2026-07-20T04:39:10.368Z"
       },
       "src/types/generated/daedalus-meta/boundaries.ts": {
-        "hash": "88b17bbcf598df6f",
-        "generatedAt": "2026-07-18T23:30:03.577Z"
+        "hash": "e47476f404e9d15a",
+        "generatedAt": "2026-07-20T04:39:10.369Z"
       },
       "src/app/api/generated/daedalus-meta/boundaries/route.ts": {
-        "hash": "8e995bed0deb5255",
-        "generatedAt": "2026-07-18T23:30:03.578Z"
+        "hash": "1d892da37bae7a79",
+        "generatedAt": "2026-07-20T04:39:10.370Z"
       },
       "src/app/api/generated/daedalus-meta/boundaries/[id]/route.ts": {
-        "hash": "69ceba2f4fe753f1",
-        "generatedAt": "2026-07-18T23:30:03.579Z"
+        "hash": "6f0445ff10cb1c25",
+        "generatedAt": "2026-07-20T04:39:10.371Z"
       },
       "src/hooks/generated/daedalus-meta/boundaries.ts": {
-        "hash": "e0aac663e087bb92",
-        "generatedAt": "2026-07-18T23:30:03.580Z"
+        "hash": "ee21c048cab84c34",
+        "generatedAt": "2026-07-20T04:39:10.372Z"
       },
       "src/lib/utils/generated/daedalus-meta/boundaries.ts": {
-        "hash": "4b96cec4cb02d4d9",
-        "generatedAt": "2026-07-18T23:30:03.581Z"
+        "hash": "810e1404e774db33",
+        "generatedAt": "2026-07-20T04:39:10.372Z"
       },
       "src/types/generated/athena-gamification/bubble_superposition.ts": {
-        "hash": "42a4e691dd6cdce3",
-        "generatedAt": "2026-07-18T23:30:03.581Z"
+        "hash": "81f12c41b129fb0b",
+        "generatedAt": "2026-07-20T04:39:10.373Z"
       },
       "src/app/api/generated/athena-gamification/bubble_superposition/route.ts": {
-        "hash": "c6bb5a1350ba7492",
-        "generatedAt": "2026-07-18T23:30:03.582Z"
+        "hash": "91e5c5bf24489433",
+        "generatedAt": "2026-07-20T04:39:10.374Z"
       },
       "src/app/api/generated/athena-gamification/bubble_superposition/[id]/route.ts": {
-        "hash": "1d5141a4dc68417f",
-        "generatedAt": "2026-07-18T23:30:03.583Z"
+        "hash": "67187bf41bb1f207",
+        "generatedAt": "2026-07-20T04:39:10.375Z"
       },
       "src/hooks/generated/athena-gamification/bubble_superposition.ts": {
-        "hash": "cd8766a6aa795fe4",
-        "generatedAt": "2026-07-18T23:30:03.584Z"
+        "hash": "c6a5e2ee802f8b3d",
+        "generatedAt": "2026-07-20T04:39:10.376Z"
       },
       "src/lib/utils/generated/athena-gamification/bubble_superposition.ts": {
-        "hash": "8b91d821bcb5886f",
-        "generatedAt": "2026-07-18T23:30:03.585Z"
+        "hash": "52cee679a5b05456",
+        "generatedAt": "2026-07-20T04:39:10.377Z"
       },
       "src/types/generated/hermes-social/categories.ts": {
-        "hash": "ffb82faabb5f395f",
-        "generatedAt": "2026-07-18T23:30:03.596Z"
+        "hash": "33f319c113b24c6a",
+        "generatedAt": "2026-07-20T04:39:10.388Z"
       },
       "src/app/api/generated/hermes-social/categories/route.ts": {
-        "hash": "8cfa492277ae729e",
-        "generatedAt": "2026-07-18T23:30:03.597Z"
+        "hash": "7515aab40139ea53",
+        "generatedAt": "2026-07-20T04:39:10.389Z"
       },
       "src/app/api/generated/hermes-social/categories/[id]/route.ts": {
-        "hash": "7750e3ec0c850c44",
-        "generatedAt": "2026-07-18T23:30:03.598Z"
+        "hash": "04e8c92aca669199",
+        "generatedAt": "2026-07-20T04:39:10.390Z"
       },
       "src/hooks/generated/hermes-social/categories.ts": {
-        "hash": "bef1a3a43ca540e7",
-        "generatedAt": "2026-07-18T23:30:03.599Z"
+        "hash": "fcc85c5b34b44485",
+        "generatedAt": "2026-07-20T04:39:10.391Z"
       },
       "src/lib/utils/generated/hermes-social/categories.ts": {
-        "hash": "bc3650abe1569afe",
-        "generatedAt": "2026-07-18T23:30:03.600Z"
+        "hash": "d5183998f0c55e8d",
+        "generatedAt": "2026-07-20T04:39:10.392Z"
       },
       "src/types/generated/iris-communications/channels.ts": {
-        "hash": "a0a5a79a2e0848ed",
-        "generatedAt": "2026-07-18T23:30:03.605Z"
+        "hash": "3cac30d41f91a5c9",
+        "generatedAt": "2026-07-20T04:39:10.398Z"
       },
       "src/app/api/generated/iris-communications/channels/route.ts": {
-        "hash": "868c9193ff78fd55",
-        "generatedAt": "2026-07-18T23:30:03.606Z"
+        "hash": "baa80e4d54f86aba",
+        "generatedAt": "2026-07-20T04:39:10.399Z"
       },
       "src/app/api/generated/iris-communications/channels/[id]/route.ts": {
-        "hash": "565ef709f85ad31f",
-        "generatedAt": "2026-07-18T23:30:03.607Z"
+        "hash": "c3d00a105cd11d7a",
+        "generatedAt": "2026-07-20T04:39:10.400Z"
       },
       "src/hooks/generated/iris-communications/channels.ts": {
-        "hash": "3418a918837b8972",
-        "generatedAt": "2026-07-18T23:30:03.608Z"
+        "hash": "43c33aa1a64d987f",
+        "generatedAt": "2026-07-20T04:39:10.401Z"
       },
       "src/lib/utils/generated/iris-communications/channels.ts": {
-        "hash": "3587360a17ae0330",
-        "generatedAt": "2026-07-18T23:30:03.609Z"
+        "hash": "5d39989b0628d38f",
+        "generatedAt": "2026-07-20T04:39:10.402Z"
       },
       "src/types/generated/mnemosyne-assessment/class.ts": {
-        "hash": "4b2722602006cf02",
-        "generatedAt": "2026-07-18T23:30:03.610Z"
+        "hash": "f460e5590587e3df",
+        "generatedAt": "2026-07-20T04:39:10.403Z"
       },
       "src/app/api/generated/mnemosyne-assessment/class/route.ts": {
-        "hash": "b7d834edb9e75581",
-        "generatedAt": "2026-07-18T23:30:03.611Z"
+        "hash": "d1a31622153a4468",
+        "generatedAt": "2026-07-20T04:39:10.404Z"
       },
       "src/app/api/generated/mnemosyne-assessment/class/[id]/route.ts": {
-        "hash": "cb3124edcaa26404",
-        "generatedAt": "2026-07-18T23:30:03.612Z"
+        "hash": "84d8897d73b029e7",
+        "generatedAt": "2026-07-20T04:39:10.405Z"
       },
       "src/hooks/generated/mnemosyne-assessment/class.ts": {
-        "hash": "223062e0f7df96e8",
-        "generatedAt": "2026-07-18T23:30:03.612Z"
+        "hash": "91d81b8e50d24c59",
+        "generatedAt": "2026-07-20T04:39:10.406Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/class.ts": {
-        "hash": "e45f40dbde9468d9",
-        "generatedAt": "2026-07-18T23:30:03.613Z"
+        "hash": "c895dfc3af9ccbad",
+        "generatedAt": "2026-07-20T04:39:10.406Z"
       },
       "src/hooks/generated/hestia-core/community_profiles.ts": {
-        "hash": "b7bd1098aa52bebb",
-        "generatedAt": "2026-07-18T23:30:03.629Z"
+        "hash": "90f8792a43e5b1a7",
+        "generatedAt": "2026-07-20T04:39:10.424Z"
       },
       "src/lib/utils/generated/hestia-core/community_profiles.ts": {
-        "hash": "461c754c11d93f1d",
-        "generatedAt": "2026-07-18T23:30:03.631Z"
+        "hash": "bf95bda1f732790c",
+        "generatedAt": "2026-07-20T04:39:10.425Z"
       },
       "src/types/generated/plutus-economics/distribution_recipients.ts": {
-        "hash": "b6d2f11165e91692",
-        "generatedAt": "2026-07-18T23:30:03.679Z"
+        "hash": "ceae446407d43489",
+        "generatedAt": "2026-07-20T04:39:10.474Z"
       },
       "src/app/api/generated/plutus-economics/distribution_recipients/route.ts": {
-        "hash": "bf9b5f82e7f882ed",
-        "generatedAt": "2026-07-18T23:30:03.680Z"
+        "hash": "e97a2a53d5272aa7",
+        "generatedAt": "2026-07-20T04:39:10.475Z"
       },
       "src/app/api/generated/plutus-economics/distribution_recipients/[id]/route.ts": {
-        "hash": "e6e810c934a0a2a8",
-        "generatedAt": "2026-07-18T23:30:03.680Z"
+        "hash": "28fccf2b8d3c6e85",
+        "generatedAt": "2026-07-20T04:39:10.476Z"
       },
       "src/types/generated/plutus-economics/distributions.ts": {
-        "hash": "f9cc580a3a6efc85",
-        "generatedAt": "2026-07-18T23:30:03.681Z"
+        "hash": "4aff568cf10d273b",
+        "generatedAt": "2026-07-20T04:39:10.477Z"
       },
       "src/app/api/generated/plutus-economics/distributions/route.ts": {
-        "hash": "f0a27719cf02866c",
-        "generatedAt": "2026-07-18T23:30:03.682Z"
+        "hash": "420ce05b53c85290",
+        "generatedAt": "2026-07-20T04:39:10.478Z"
       },
       "src/app/api/generated/plutus-economics/distributions/[id]/route.ts": {
-        "hash": "f213fe178a7db574",
-        "generatedAt": "2026-07-18T23:30:03.683Z"
+        "hash": "118c12a9a2b18326",
+        "generatedAt": "2026-07-20T04:39:10.478Z"
       },
       "src/hooks/generated/plutus-economics/distributions.ts": {
-        "hash": "9015d7f8c1930f1c",
-        "generatedAt": "2026-07-18T23:30:03.684Z"
+        "hash": "2ee6c3b94397b319",
+        "generatedAt": "2026-07-20T04:39:10.479Z"
       },
       "src/lib/utils/generated/plutus-economics/distributions.ts": {
-        "hash": "5c98e80ec3ce13ae",
-        "generatedAt": "2026-07-18T23:30:03.685Z"
+        "hash": "c13536770ef609b5",
+        "generatedAt": "2026-07-20T04:39:10.480Z"
       },
       "src/types/generated/mnemosyne-assessment/domain.ts": {
-        "hash": "20e092681b88fe74",
-        "generatedAt": "2026-07-18T23:30:03.686Z"
+        "hash": "7dd6f782e38ecedf",
+        "generatedAt": "2026-07-20T04:39:10.481Z"
       },
       "src/app/api/generated/mnemosyne-assessment/domain/route.ts": {
-        "hash": "b8dba4bc1bcec393",
-        "generatedAt": "2026-07-18T23:30:03.687Z"
+        "hash": "b9d3fb2eecb86e08",
+        "generatedAt": "2026-07-20T04:39:10.482Z"
       },
       "src/app/api/generated/mnemosyne-assessment/domain/[id]/route.ts": {
-        "hash": "39631fc0ddad5ba1",
-        "generatedAt": "2026-07-18T23:30:03.688Z"
+        "hash": "441350630d91abb1",
+        "generatedAt": "2026-07-20T04:39:10.483Z"
       },
       "src/hooks/generated/mnemosyne-assessment/domain.ts": {
-        "hash": "42f79126cc37a1a7",
-        "generatedAt": "2026-07-18T23:30:03.689Z"
+        "hash": "9fa9626ba05b7e52",
+        "generatedAt": "2026-07-20T04:39:10.484Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/domain.ts": {
-        "hash": "2f62703d50377a6c",
-        "generatedAt": "2026-07-18T23:30:03.690Z"
+        "hash": "b60a5fc4fb2748ee",
+        "generatedAt": "2026-07-20T04:39:10.485Z"
       },
       "src/types/generated/aethelred-connections/entity_states.ts": {
-        "hash": "cab5337bfaf6fcfe",
-        "generatedAt": "2026-07-18T23:30:03.700Z"
+        "hash": "5a86a18ff153f5ad",
+        "generatedAt": "2026-07-20T04:39:10.496Z"
       },
       "src/app/api/generated/aethelred-connections/entity_states/route.ts": {
-        "hash": "e2ad7597c80b80c4",
-        "generatedAt": "2026-07-18T23:30:03.701Z"
+        "hash": "c272d3a363c54249",
+        "generatedAt": "2026-07-20T04:39:10.497Z"
       },
       "src/app/api/generated/aethelred-connections/entity_states/[id]/route.ts": {
-        "hash": "a2786919eb61356b",
-        "generatedAt": "2026-07-18T23:30:03.702Z"
+        "hash": "424c534a91e3eb2d",
+        "generatedAt": "2026-07-20T04:39:10.498Z"
       },
       "src/hooks/generated/aethelred-connections/entity_states.ts": {
-        "hash": "0cfb154129c4f848",
-        "generatedAt": "2026-07-18T23:30:03.703Z"
+        "hash": "a3d576012dc0c7fd",
+        "generatedAt": "2026-07-20T04:39:10.499Z"
       },
       "src/lib/utils/generated/aethelred-connections/entity_states.ts": {
-        "hash": "0d9b15404bc8d86a",
-        "generatedAt": "2026-07-18T23:30:03.704Z"
+        "hash": "2591418d243393c0",
+        "generatedAt": "2026-07-20T04:39:10.500Z"
       },
       "src/types/generated/plutus-economics/exchanges.ts": {
-        "hash": "2a9f7d3582fb13b7",
-        "generatedAt": "2026-07-18T23:30:03.710Z"
+        "hash": "29fdee60b4ca3875",
+        "generatedAt": "2026-07-20T04:39:10.506Z"
       },
       "src/app/api/generated/plutus-economics/exchanges/route.ts": {
-        "hash": "625356440e2cde7b",
-        "generatedAt": "2026-07-18T23:30:03.710Z"
+        "hash": "b12bbcc6d977ec39",
+        "generatedAt": "2026-07-20T04:39:10.507Z"
       },
       "src/app/api/generated/plutus-economics/exchanges/[id]/route.ts": {
-        "hash": "cccfd48fcb25013a",
-        "generatedAt": "2026-07-18T23:30:03.711Z"
+        "hash": "05f1bfbe6ca4dc1a",
+        "generatedAt": "2026-07-20T04:39:10.509Z"
       },
       "src/hooks/generated/plutus-economics/exchanges.ts": {
-        "hash": "867c9af5b6ffcb05",
-        "generatedAt": "2026-07-18T23:30:03.712Z"
+        "hash": "e18b1c030fddeb55",
+        "generatedAt": "2026-07-20T04:39:10.510Z"
       },
       "src/lib/utils/generated/plutus-economics/exchanges.ts": {
-        "hash": "d5df7173ca7f1d89",
-        "generatedAt": "2026-07-18T23:30:03.713Z"
+        "hash": "180863ba5701a5b0",
+        "generatedAt": "2026-07-20T04:39:10.511Z"
       },
       "src/types/generated/mnemosyne-assessment/family.ts": {
-        "hash": "2da5dc5f54629ed6",
-        "generatedAt": "2026-07-18T23:30:03.718Z"
+        "hash": "e12c2fb8bf78a959",
+        "generatedAt": "2026-07-20T04:39:10.516Z"
       },
       "src/app/api/generated/mnemosyne-assessment/family/route.ts": {
-        "hash": "a643f028c0945c37",
-        "generatedAt": "2026-07-18T23:30:03.719Z"
+        "hash": "d03860bea6f40d22",
+        "generatedAt": "2026-07-20T04:39:10.518Z"
       },
       "src/app/api/generated/mnemosyne-assessment/family/[id]/route.ts": {
-        "hash": "43aeb97d1f60b7cb",
-        "generatedAt": "2026-07-18T23:30:03.720Z"
+        "hash": "1ce7fba2ec041aa3",
+        "generatedAt": "2026-07-20T04:39:10.519Z"
       },
       "src/hooks/generated/mnemosyne-assessment/family.ts": {
-        "hash": "a18ad0e0a4d27417",
-        "generatedAt": "2026-07-18T23:30:03.721Z"
+        "hash": "c48c1a1dbae42e93",
+        "generatedAt": "2026-07-20T04:39:10.520Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/family.ts": {
-        "hash": "4c073ebf7b559ced",
-        "generatedAt": "2026-07-18T23:30:03.722Z"
+        "hash": "eaeab99224619171",
+        "generatedAt": "2026-07-20T04:39:10.521Z"
       },
       "src/types/generated/daedalus-meta/gaia_config.ts": {
-        "hash": "0109213839f20c3f",
-        "generatedAt": "2026-07-18T23:30:03.739Z"
+        "hash": "fed1e2442645cc3b",
+        "generatedAt": "2026-07-20T04:39:10.537Z"
       },
       "src/app/api/generated/daedalus-meta/gaia_config/route.ts": {
-        "hash": "a7ca40fd134bd740",
-        "generatedAt": "2026-07-18T23:30:03.740Z"
+        "hash": "63817273c54a000e",
+        "generatedAt": "2026-07-20T04:39:10.538Z"
       },
       "src/app/api/generated/daedalus-meta/gaia_config/[id]/route.ts": {
-        "hash": "27862ee79430ee0b",
-        "generatedAt": "2026-07-18T23:30:03.741Z"
+        "hash": "2ed9b90328b63011",
+        "generatedAt": "2026-07-20T04:39:10.539Z"
       },
       "src/hooks/generated/daedalus-meta/gaia_config.ts": {
-        "hash": "490de1e185183e9d",
-        "generatedAt": "2026-07-18T23:30:03.742Z"
+        "hash": "756b0c327174e659",
+        "generatedAt": "2026-07-20T04:39:10.540Z"
       },
       "src/lib/utils/generated/daedalus-meta/gaia_config.ts": {
-        "hash": "93184f789ce5136f",
-        "generatedAt": "2026-07-18T23:30:03.743Z"
+        "hash": "557e08c337fccfba",
+        "generatedAt": "2026-07-20T04:39:10.541Z"
       },
       "src/types/generated/daedalus-meta/gaia_generation_log.ts": {
-        "hash": "ed5b88f52dee0e9e",
-        "generatedAt": "2026-07-18T23:30:03.743Z"
+        "hash": "f6c5b739eeaabc1a",
+        "generatedAt": "2026-07-20T04:39:10.542Z"
       },
       "src/app/api/generated/daedalus-meta/gaia_generation_log/route.ts": {
-        "hash": "8879b65e45e95d6c",
-        "generatedAt": "2026-07-18T23:30:03.744Z"
+        "hash": "0507903304cc381c",
+        "generatedAt": "2026-07-20T04:39:10.543Z"
       },
       "src/app/api/generated/daedalus-meta/gaia_generation_log/[id]/route.ts": {
-        "hash": "2911dbd638df7055",
-        "generatedAt": "2026-07-18T23:30:03.745Z"
+        "hash": "91ae6247a1538478",
+        "generatedAt": "2026-07-20T04:39:10.544Z"
       },
       "src/hooks/generated/daedalus-meta/gaia_generation_log.ts": {
-        "hash": "c202a7a3d24f0012",
-        "generatedAt": "2026-07-18T23:30:03.746Z"
+        "hash": "499f9d437d5fe706",
+        "generatedAt": "2026-07-20T04:39:10.545Z"
       },
       "src/lib/utils/generated/daedalus-meta/gaia_generation_log.ts": {
-        "hash": "400544e805231096",
-        "generatedAt": "2026-07-18T23:30:03.747Z"
+        "hash": "9d4660f907da5956",
+        "generatedAt": "2026-07-20T04:39:10.546Z"
       },
       "src/types/generated/daedalus-meta/generation_templates.ts": {
-        "hash": "2595e22a0a90c303",
-        "generatedAt": "2026-07-18T23:30:03.757Z"
+        "hash": "d65575dd48db764c",
+        "generatedAt": "2026-07-20T04:39:10.557Z"
       },
       "src/app/api/generated/daedalus-meta/generation_templates/route.ts": {
-        "hash": "5693d7a8d3d96369",
-        "generatedAt": "2026-07-18T23:30:03.758Z"
+        "hash": "fe851fb52f2e1273",
+        "generatedAt": "2026-07-20T04:39:10.558Z"
       },
       "src/app/api/generated/daedalus-meta/generation_templates/[id]/route.ts": {
-        "hash": "24b86da48e38551b",
-        "generatedAt": "2026-07-18T23:30:03.759Z"
+        "hash": "517a0e71f6d82535",
+        "generatedAt": "2026-07-20T04:39:10.559Z"
       },
       "src/hooks/generated/daedalus-meta/generation_templates.ts": {
-        "hash": "69fdf2aa387ce2a0",
-        "generatedAt": "2026-07-18T23:30:03.760Z"
+        "hash": "c638e27a46af6d65",
+        "generatedAt": "2026-07-20T04:39:10.560Z"
       },
       "src/lib/utils/generated/daedalus-meta/generation_templates.ts": {
-        "hash": "febad7a259dd4dbe",
-        "generatedAt": "2026-07-18T23:30:03.761Z"
+        "hash": "4ca4a0dfd7ccdd4c",
+        "generatedAt": "2026-07-20T04:39:10.561Z"
       },
       "src/types/generated/daedalus-meta/generations.ts": {
-        "hash": "c0fb552e0d9f1d08",
-        "generatedAt": "2026-07-18T23:30:03.762Z"
+        "hash": "c84e7caee72c2f76",
+        "generatedAt": "2026-07-20T04:39:10.562Z"
       },
       "src/app/api/generated/daedalus-meta/generations/route.ts": {
-        "hash": "ff4a38fe309f5108",
-        "generatedAt": "2026-07-18T23:30:03.763Z"
+        "hash": "7ba7043ad4c58283",
+        "generatedAt": "2026-07-20T04:39:10.563Z"
       },
       "src/app/api/generated/daedalus-meta/generations/[id]/route.ts": {
-        "hash": "3051b3952a352a39",
-        "generatedAt": "2026-07-18T23:30:03.764Z"
+        "hash": "1f74cd661b59074a",
+        "generatedAt": "2026-07-20T04:39:10.564Z"
       },
       "src/hooks/generated/daedalus-meta/generations.ts": {
-        "hash": "cbbca2029280be5e",
-        "generatedAt": "2026-07-18T23:30:03.765Z"
+        "hash": "1031c33ab2a13fca",
+        "generatedAt": "2026-07-20T04:39:10.565Z"
       },
       "src/lib/utils/generated/daedalus-meta/generations.ts": {
-        "hash": "f4a26479ee5163e3",
-        "generatedAt": "2026-07-18T23:30:03.766Z"
+        "hash": "11b6225cb8497faf",
+        "generatedAt": "2026-07-20T04:39:10.566Z"
       },
       "src/types/generated/mnemosyne-assessment/genus.ts": {
-        "hash": "fefe4f0e4bcfd6d1",
-        "generatedAt": "2026-07-18T23:30:03.767Z"
+        "hash": "bb831f458281ede8",
+        "generatedAt": "2026-07-20T04:39:10.567Z"
       },
       "src/app/api/generated/mnemosyne-assessment/genus/route.ts": {
-        "hash": "56af7a8a1a20441d",
-        "generatedAt": "2026-07-18T23:30:03.768Z"
+        "hash": "6aa9a0044d86fc4a",
+        "generatedAt": "2026-07-20T04:39:10.568Z"
       },
       "src/app/api/generated/mnemosyne-assessment/genus/[id]/route.ts": {
-        "hash": "838755e3a15b2efa",
-        "generatedAt": "2026-07-18T23:30:03.769Z"
+        "hash": "3804010df5a03e97",
+        "generatedAt": "2026-07-20T04:39:10.569Z"
       },
       "src/hooks/generated/mnemosyne-assessment/genus.ts": {
-        "hash": "fa66e51117b2a5b6",
-        "generatedAt": "2026-07-18T23:30:03.770Z"
+        "hash": "0d03bc210e4e7a9d",
+        "generatedAt": "2026-07-20T04:39:10.569Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/genus.ts": {
-        "hash": "81ca3e68b500f169",
-        "generatedAt": "2026-07-18T23:30:03.770Z"
+        "hash": "e94e7139198621eb",
+        "generatedAt": "2026-07-20T04:39:10.570Z"
       },
       "src/types/generated/plutus-economics/gift_wrappings.ts": {
-        "hash": "178907babcd83ad1",
-        "generatedAt": "2026-07-18T23:30:03.771Z"
+        "hash": "5cfa65530e3f01e1",
+        "generatedAt": "2026-07-20T04:39:10.571Z"
       },
       "src/app/api/generated/plutus-economics/gift_wrappings/route.ts": {
-        "hash": "a8975879abc1af55",
-        "generatedAt": "2026-07-18T23:30:03.772Z"
+        "hash": "6b2a8ba4f667c813",
+        "generatedAt": "2026-07-20T04:39:10.572Z"
       },
       "src/app/api/generated/plutus-economics/gift_wrappings/[id]/route.ts": {
-        "hash": "9dbec7b7853e5cd5",
-        "generatedAt": "2026-07-18T23:30:03.773Z"
+        "hash": "6a71623c5fcadcc0",
+        "generatedAt": "2026-07-20T04:39:10.573Z"
       },
       "src/hooks/generated/plutus-economics/gift_wrappings.ts": {
-        "hash": "5a8c9750afa1e77f",
-        "generatedAt": "2026-07-18T23:30:03.774Z"
+        "hash": "aa3d733d68aee3b6",
+        "generatedAt": "2026-07-20T04:39:10.574Z"
       },
       "src/lib/utils/generated/plutus-economics/gift_wrappings.ts": {
-        "hash": "fc37a00de02eff32",
-        "generatedAt": "2026-07-18T23:30:03.775Z"
+        "hash": "89d8fe1c95dd337d",
+        "generatedAt": "2026-07-20T04:39:10.575Z"
       },
       "src/types/generated/plutus-economics/gifts.ts": {
-        "hash": "2d33bd58634939c4",
-        "generatedAt": "2026-07-18T23:30:03.776Z"
+        "hash": "3c62c3db01f5da61",
+        "generatedAt": "2026-07-20T04:39:10.576Z"
       },
       "src/app/api/generated/plutus-economics/gifts/route.ts": {
-        "hash": "9d4e34b26158692a",
-        "generatedAt": "2026-07-18T23:30:03.777Z"
+        "hash": "317f95a319deb29b",
+        "generatedAt": "2026-07-20T04:39:10.577Z"
       },
       "src/app/api/generated/plutus-economics/gifts/[id]/route.ts": {
-        "hash": "c30036b2d5d48fe0",
-        "generatedAt": "2026-07-18T23:30:03.778Z"
+        "hash": "05a145c7d6972c6a",
+        "generatedAt": "2026-07-20T04:39:10.578Z"
       },
       "src/hooks/generated/plutus-economics/gifts.ts": {
-        "hash": "6f78d3196acad908",
-        "generatedAt": "2026-07-18T23:30:03.779Z"
+        "hash": "4300d18a9392a020",
+        "generatedAt": "2026-07-20T04:39:10.579Z"
       },
       "src/lib/utils/generated/plutus-economics/gifts.ts": {
-        "hash": "28789601fe62c639",
-        "generatedAt": "2026-07-18T23:30:03.780Z"
+        "hash": "53d6eda3c5a89255",
+        "generatedAt": "2026-07-20T04:39:10.580Z"
       },
       "src/types/generated/plutus-economics/grant_applications.ts": {
-        "hash": "9bd92581ff5b5e3c",
-        "generatedAt": "2026-07-18T23:30:03.785Z"
+        "hash": "94e68276e3fa090f",
+        "generatedAt": "2026-07-20T04:39:10.586Z"
       },
       "src/app/api/generated/plutus-economics/grant_applications/route.ts": {
-        "hash": "3924050f8ff6711a",
-        "generatedAt": "2026-07-18T23:30:03.786Z"
+        "hash": "983813a147993519",
+        "generatedAt": "2026-07-20T04:39:10.587Z"
       },
       "src/app/api/generated/plutus-economics/grant_applications/[id]/route.ts": {
-        "hash": "ecaed96c06c5b822",
-        "generatedAt": "2026-07-18T23:30:03.787Z"
+        "hash": "af0c347f63d50568",
+        "generatedAt": "2026-07-20T04:39:10.588Z"
       },
       "src/hooks/generated/plutus-economics/grant_applications.ts": {
-        "hash": "0b06557b332573ad",
-        "generatedAt": "2026-07-18T23:30:03.788Z"
+        "hash": "91ccc5ef9f788c15",
+        "generatedAt": "2026-07-20T04:39:10.589Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_applications.ts": {
-        "hash": "23e1f35bc18c0a6d",
-        "generatedAt": "2026-07-18T23:30:03.789Z"
+        "hash": "2018bdc8610f9360",
+        "generatedAt": "2026-07-20T04:39:10.589Z"
       },
       "src/types/generated/plutus-economics/grant_attachments.ts": {
-        "hash": "364c5890c91f62c4",
-        "generatedAt": "2026-07-18T23:30:03.790Z"
+        "hash": "095afbc8ca3f55c4",
+        "generatedAt": "2026-07-20T04:39:10.590Z"
       },
       "src/app/api/generated/plutus-economics/grant_attachments/route.ts": {
-        "hash": "55f46cd6da6881df",
-        "generatedAt": "2026-07-18T23:30:03.791Z"
+        "hash": "082028fa9c5f965e",
+        "generatedAt": "2026-07-20T04:39:10.591Z"
       },
       "src/app/api/generated/plutus-economics/grant_attachments/[id]/route.ts": {
-        "hash": "526ba1da9ae4a594",
-        "generatedAt": "2026-07-18T23:30:03.792Z"
+        "hash": "08b455b8e3713164",
+        "generatedAt": "2026-07-20T04:39:10.592Z"
       },
       "src/hooks/generated/plutus-economics/grant_attachments.ts": {
-        "hash": "5dd98a0d3c06a471",
-        "generatedAt": "2026-07-18T23:30:03.793Z"
+        "hash": "9baa56f0dc3a48ed",
+        "generatedAt": "2026-07-20T04:39:10.593Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_attachments.ts": {
-        "hash": "e0789d3da38f9ecc",
-        "generatedAt": "2026-07-18T23:30:03.794Z"
+        "hash": "cf612ca9bb4f0862",
+        "generatedAt": "2026-07-20T04:39:10.594Z"
       },
       "src/types/generated/plutus-economics/grant_collaborators.ts": {
-        "hash": "80b298bc7e255d18",
-        "generatedAt": "2026-07-18T23:30:03.795Z"
+        "hash": "e86fa0ab1e21c72c",
+        "generatedAt": "2026-07-20T04:39:10.595Z"
       },
       "src/app/api/generated/plutus-economics/grant_collaborators/route.ts": {
-        "hash": "864599598af8b87b",
-        "generatedAt": "2026-07-18T23:30:03.796Z"
+        "hash": "20b9ad51f93942b7",
+        "generatedAt": "2026-07-20T04:39:10.596Z"
       },
       "src/app/api/generated/plutus-economics/grant_collaborators/[id]/route.ts": {
-        "hash": "7a57ba7d581b5517",
-        "generatedAt": "2026-07-18T23:30:03.797Z"
+        "hash": "2fc05055e6ebdd59",
+        "generatedAt": "2026-07-20T04:39:10.597Z"
       },
       "src/hooks/generated/plutus-economics/grant_collaborators.ts": {
-        "hash": "b0537f317c6d245d",
-        "generatedAt": "2026-07-18T23:30:03.798Z"
+        "hash": "30b67f49f126a119",
+        "generatedAt": "2026-07-20T04:39:10.598Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_collaborators.ts": {
-        "hash": "6a5ab61aa0e6bb63",
-        "generatedAt": "2026-07-18T23:30:03.798Z"
+        "hash": "2f7a8c70982ee5cc",
+        "generatedAt": "2026-07-20T04:39:10.599Z"
       },
       "src/types/generated/plutus-economics/grant_milestones.ts": {
-        "hash": "09813b6e43cc20c1",
-        "generatedAt": "2026-07-18T23:30:03.799Z"
+        "hash": "4b0be60e3c29ee8a",
+        "generatedAt": "2026-07-20T04:39:10.600Z"
       },
       "src/app/api/generated/plutus-economics/grant_milestones/route.ts": {
-        "hash": "7f83cba9acad9001",
-        "generatedAt": "2026-07-18T23:30:03.800Z"
+        "hash": "b532f6eedb32924a",
+        "generatedAt": "2026-07-20T04:39:10.601Z"
       },
       "src/app/api/generated/plutus-economics/grant_milestones/[id]/route.ts": {
-        "hash": "c4dd41555d730d30",
-        "generatedAt": "2026-07-18T23:30:03.801Z"
+        "hash": "137cbddaefe2318c",
+        "generatedAt": "2026-07-20T04:39:10.602Z"
       },
       "src/hooks/generated/plutus-economics/grant_milestones.ts": {
-        "hash": "48b8cfc41612a658",
-        "generatedAt": "2026-07-18T23:30:03.802Z"
+        "hash": "4719215fc5375652",
+        "generatedAt": "2026-07-20T04:39:10.603Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_milestones.ts": {
-        "hash": "578317a68c75965a",
-        "generatedAt": "2026-07-18T23:30:03.803Z"
+        "hash": "95471250e98548cf",
+        "generatedAt": "2026-07-20T04:39:10.604Z"
       },
       "src/types/generated/plutus-economics/grant_narratives.ts": {
-        "hash": "8c652dd9602c7262",
-        "generatedAt": "2026-07-18T23:30:03.804Z"
+        "hash": "a8f80f1581c1bd16",
+        "generatedAt": "2026-07-20T04:39:10.605Z"
       },
       "src/app/api/generated/plutus-economics/grant_narratives/route.ts": {
-        "hash": "cc5be519c4ede3ff",
-        "generatedAt": "2026-07-18T23:30:03.805Z"
+        "hash": "16298694c2ddd876",
+        "generatedAt": "2026-07-20T04:39:10.606Z"
       },
       "src/app/api/generated/plutus-economics/grant_narratives/[id]/route.ts": {
-        "hash": "84467398544ea9ab",
-        "generatedAt": "2026-07-18T23:30:03.806Z"
+        "hash": "4e77b42ac8ee5bcd",
+        "generatedAt": "2026-07-20T04:39:10.607Z"
       },
       "src/hooks/generated/plutus-economics/grant_narratives.ts": {
-        "hash": "9796c3c16abb26d6",
-        "generatedAt": "2026-07-18T23:30:03.807Z"
+        "hash": "adff99fb7ac9d293",
+        "generatedAt": "2026-07-20T04:39:10.608Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_narratives.ts": {
-        "hash": "58169d9e64066478",
-        "generatedAt": "2026-07-18T23:30:03.808Z"
+        "hash": "417b8ef17606760c",
+        "generatedAt": "2026-07-20T04:39:10.609Z"
       },
       "src/types/generated/plutus-economics/grant_opportunities.ts": {
-        "hash": "53539dd7b4b60633",
-        "generatedAt": "2026-07-18T23:30:03.809Z"
+        "hash": "91bbbb04a8aca406",
+        "generatedAt": "2026-07-20T04:39:10.610Z"
       },
       "src/app/api/generated/plutus-economics/grant_opportunities/route.ts": {
-        "hash": "4d11618fcae4d8b1",
-        "generatedAt": "2026-07-18T23:30:03.810Z"
+        "hash": "b6bcc57d0d8726e7",
+        "generatedAt": "2026-07-20T04:39:10.611Z"
       },
       "src/app/api/generated/plutus-economics/grant_opportunities/[id]/route.ts": {
-        "hash": "15f4f661878f57ab",
-        "generatedAt": "2026-07-18T23:30:03.811Z"
+        "hash": "0a97a2de3d93ed67",
+        "generatedAt": "2026-07-20T04:39:10.612Z"
       },
       "src/hooks/generated/plutus-economics/grant_opportunities.ts": {
-        "hash": "5f4ff99f3d147ded",
-        "generatedAt": "2026-07-18T23:30:03.812Z"
+        "hash": "5f5a3e7df99ee553",
+        "generatedAt": "2026-07-20T04:39:10.613Z"
       },
       "src/lib/utils/generated/plutus-economics/grant_opportunities.ts": {
-        "hash": "e931d029ae8971ec",
-        "generatedAt": "2026-07-18T23:30:03.812Z"
+        "hash": "fba8fff5f00e9a93",
+        "generatedAt": "2026-07-20T04:39:10.614Z"
       },
       "src/types/generated/mnemosyne-assessment/keywords.ts": {
-        "hash": "064df06f04ed9986",
-        "generatedAt": "2026-07-18T23:30:03.827Z"
+        "hash": "8a322ea12d76d2e6",
+        "generatedAt": "2026-07-20T04:39:10.630Z"
       },
       "src/app/api/generated/mnemosyne-assessment/keywords/route.ts": {
-        "hash": "f90190e7a623cc7b",
-        "generatedAt": "2026-07-18T23:30:03.828Z"
+        "hash": "3151395ee5d5bd11",
+        "generatedAt": "2026-07-20T04:39:10.631Z"
       },
       "src/app/api/generated/mnemosyne-assessment/keywords/[id]/route.ts": {
-        "hash": "3ad5cfd6b5bebb7a",
-        "generatedAt": "2026-07-18T23:30:03.829Z"
+        "hash": "d2c1fa4404fd9a67",
+        "generatedAt": "2026-07-20T04:39:10.632Z"
       },
       "src/hooks/generated/mnemosyne-assessment/keywords.ts": {
-        "hash": "c091479fe4720ccb",
-        "generatedAt": "2026-07-18T23:30:03.830Z"
+        "hash": "bb2de8806ccd7fe9",
+        "generatedAt": "2026-07-20T04:39:10.633Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/keywords.ts": {
-        "hash": "932d7a4db74c57e4",
-        "generatedAt": "2026-07-18T23:30:03.831Z"
+        "hash": "44e286a25500791a",
+        "generatedAt": "2026-07-20T04:39:10.634Z"
       },
       "src/types/generated/mnemosyne-assessment/kingdom.ts": {
-        "hash": "675f99a95efe9bea",
-        "generatedAt": "2026-07-18T23:30:03.832Z"
+        "hash": "96de5ee8d5087bfd",
+        "generatedAt": "2026-07-20T04:39:10.635Z"
       },
       "src/app/api/generated/mnemosyne-assessment/kingdom/route.ts": {
-        "hash": "13348ee68ebc35ed",
-        "generatedAt": "2026-07-18T23:30:03.833Z"
+        "hash": "8ab92b56d3189352",
+        "generatedAt": "2026-07-20T04:39:10.636Z"
       },
       "src/app/api/generated/mnemosyne-assessment/kingdom/[id]/route.ts": {
-        "hash": "647f9e02a496cbe3",
-        "generatedAt": "2026-07-18T23:30:03.834Z"
+        "hash": "ff5eb458abd6c88e",
+        "generatedAt": "2026-07-20T04:39:10.637Z"
       },
       "src/hooks/generated/mnemosyne-assessment/kingdom.ts": {
-        "hash": "d64f0c20aa78717e",
-        "generatedAt": "2026-07-18T23:30:03.834Z"
+        "hash": "dfbf868f68feb9df",
+        "generatedAt": "2026-07-20T04:39:10.638Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/kingdom.ts": {
-        "hash": "e1dc174a98b7b4b2",
-        "generatedAt": "2026-07-18T23:30:03.835Z"
+        "hash": "92a3cb159715cfa7",
+        "generatedAt": "2026-07-20T04:39:10.639Z"
       },
       "src/types/generated/mnemosyne-assessment/memories.ts": {
-        "hash": "4549ef013ec584b8",
-        "generatedAt": "2026-07-18T23:30:03.871Z"
+        "hash": "6f5a99148a4c9f50",
+        "generatedAt": "2026-07-20T04:39:10.674Z"
       },
       "src/app/api/generated/mnemosyne-assessment/memories/route.ts": {
-        "hash": "c58479f83f4578ee",
-        "generatedAt": "2026-07-18T23:30:03.871Z"
+        "hash": "13cd583e66a47ce6",
+        "generatedAt": "2026-07-20T04:39:10.675Z"
       },
       "src/app/api/generated/mnemosyne-assessment/memories/[id]/route.ts": {
-        "hash": "8cf335ba74b5bd61",
-        "generatedAt": "2026-07-18T23:30:03.872Z"
+        "hash": "3eab1079d1133137",
+        "generatedAt": "2026-07-20T04:39:10.676Z"
       },
       "src/hooks/generated/mnemosyne-assessment/memories.ts": {
-        "hash": "e195468a2dbc304a",
-        "generatedAt": "2026-07-18T23:30:03.873Z"
+        "hash": "20f1eec1debb1275",
+        "generatedAt": "2026-07-20T04:39:10.677Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/memories.ts": {
-        "hash": "829b10c56a308c77",
-        "generatedAt": "2026-07-18T23:30:03.874Z"
+        "hash": "9bdf43858ac78a1c",
+        "generatedAt": "2026-07-20T04:39:10.678Z"
       },
       "src/types/generated/hermes-social/merchant_profiles.ts": {
-        "hash": "771d860127a4de55",
-        "generatedAt": "2026-07-18T23:30:03.875Z"
+        "hash": "52584f5f9cfb35a8",
+        "generatedAt": "2026-07-20T04:39:10.679Z"
       },
       "src/app/api/generated/hermes-social/merchant_profiles/route.ts": {
-        "hash": "024e102701364a13",
-        "generatedAt": "2026-07-18T23:30:03.876Z"
+        "hash": "7e23f825f4c1a7ff",
+        "generatedAt": "2026-07-20T04:39:10.680Z"
       },
       "src/app/api/generated/hermes-social/merchant_profiles/[id]/route.ts": {
-        "hash": "ba13027151aa8963",
-        "generatedAt": "2026-07-18T23:30:03.877Z"
+        "hash": "a268eedfd4f9b63b",
+        "generatedAt": "2026-07-20T04:39:10.681Z"
       },
       "src/hooks/generated/hermes-social/merchant_profiles.ts": {
-        "hash": "394bf3a81195dae0",
-        "generatedAt": "2026-07-18T23:30:03.878Z"
+        "hash": "c0d5290c4015bcee",
+        "generatedAt": "2026-07-20T04:39:10.682Z"
       },
       "src/lib/utils/generated/hermes-social/merchant_profiles.ts": {
-        "hash": "ad3c4e75390b444c",
-        "generatedAt": "2026-07-18T23:30:03.879Z"
+        "hash": "a1a919cb29a22dcc",
+        "generatedAt": "2026-07-20T04:39:10.683Z"
       },
       "src/types/generated/iris-communications/messages.ts": {
-        "hash": "4669bb1753892b48",
-        "generatedAt": "2026-07-18T23:30:03.880Z"
+        "hash": "6ffeda3e8f69f30c",
+        "generatedAt": "2026-07-20T04:39:10.684Z"
       },
       "src/app/api/generated/iris-communications/messages/route.ts": {
-        "hash": "2709be8a598e1750",
-        "generatedAt": "2026-07-18T23:30:03.881Z"
+        "hash": "14812f377db4b6f2",
+        "generatedAt": "2026-07-20T04:39:10.685Z"
       },
       "src/app/api/generated/iris-communications/messages/[id]/route.ts": {
-        "hash": "c12ea72229b28fdd",
-        "generatedAt": "2026-07-18T23:30:03.881Z"
+        "hash": "c0cb070be373a094",
+        "generatedAt": "2026-07-20T04:39:10.686Z"
       },
       "src/hooks/generated/iris-communications/messages.ts": {
-        "hash": "4da57f473163f2bb",
-        "generatedAt": "2026-07-18T23:30:03.882Z"
+        "hash": "976549e7a0b01bfa",
+        "generatedAt": "2026-07-20T04:39:10.687Z"
       },
       "src/lib/utils/generated/iris-communications/messages.ts": {
-        "hash": "125fb64db25d693a",
-        "generatedAt": "2026-07-18T23:30:03.883Z"
+        "hash": "6fcdad1427ed9c92",
+        "generatedAt": "2026-07-20T04:39:10.688Z"
       },
       "src/types/generated/mnemosyne-assessment/mind_traits.ts": {
-        "hash": "07f4210a7a3d816e",
-        "generatedAt": "2026-07-18T23:30:03.884Z"
+        "hash": "618a6b148c38ce0d",
+        "generatedAt": "2026-07-20T04:39:10.689Z"
       },
       "src/app/api/generated/mnemosyne-assessment/mind_traits/route.ts": {
-        "hash": "737bd6883ddc3f5c",
-        "generatedAt": "2026-07-18T23:30:03.885Z"
+        "hash": "497922286fb55b58",
+        "generatedAt": "2026-07-20T04:39:10.689Z"
       },
       "src/app/api/generated/mnemosyne-assessment/mind_traits/[id]/route.ts": {
-        "hash": "32875040223ea5f8",
-        "generatedAt": "2026-07-18T23:30:03.886Z"
+        "hash": "88b35ba3a88ff527",
+        "generatedAt": "2026-07-20T04:39:10.690Z"
       },
       "src/hooks/generated/mnemosyne-assessment/mind_traits.ts": {
-        "hash": "355170928b1f737e",
-        "generatedAt": "2026-07-18T23:30:03.887Z"
+        "hash": "36ca5303aa045f02",
+        "generatedAt": "2026-07-20T04:39:10.691Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/mind_traits.ts": {
-        "hash": "8f27cc0e66ba2e01",
-        "generatedAt": "2026-07-18T23:30:03.888Z"
+        "hash": "f5ca2229a1666861",
+        "generatedAt": "2026-07-20T04:39:10.692Z"
       },
       "src/types/generated/mnemosyne-assessment/order.ts": {
-        "hash": "1684a632a8c5cb89",
-        "generatedAt": "2026-07-18T23:30:03.903Z"
+        "hash": "1e40dfe2798ded2d",
+        "generatedAt": "2026-07-20T04:39:10.707Z"
       },
       "src/app/api/generated/mnemosyne-assessment/order/route.ts": {
-        "hash": "5ccb6a0d53200bd4",
-        "generatedAt": "2026-07-18T23:30:03.904Z"
+        "hash": "5ecda16fd07fe416",
+        "generatedAt": "2026-07-20T04:39:10.708Z"
       },
       "src/app/api/generated/mnemosyne-assessment/order/[id]/route.ts": {
-        "hash": "bf3315ad74766aa9",
-        "generatedAt": "2026-07-18T23:30:03.905Z"
+        "hash": "b1ab32f8c77cf8db",
+        "generatedAt": "2026-07-20T04:39:10.709Z"
       },
       "src/hooks/generated/mnemosyne-assessment/order.ts": {
-        "hash": "8b43db2b9e2e8546",
-        "generatedAt": "2026-07-18T23:30:03.905Z"
+        "hash": "97ad3f90f50129ea",
+        "generatedAt": "2026-07-20T04:39:10.710Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/order.ts": {
-        "hash": "d9147f8832d05aac",
-        "generatedAt": "2026-07-18T23:30:03.906Z"
+        "hash": "9bb2a454138fe7d7",
+        "generatedAt": "2026-07-20T04:39:10.711Z"
       },
       "src/types/generated/plutus-economics/patronage.ts": {
-        "hash": "db76b56fdb09d080",
-        "generatedAt": "2026-07-18T23:30:03.910Z"
+        "hash": "b076a2fa5d1f503f",
+        "generatedAt": "2026-07-20T04:39:10.715Z"
       },
       "src/app/api/generated/plutus-economics/patronage/route.ts": {
-        "hash": "33489350b16df4dc",
-        "generatedAt": "2026-07-18T23:30:03.911Z"
+        "hash": "64b6b6b60aa5be51",
+        "generatedAt": "2026-07-20T04:39:10.716Z"
       },
       "src/app/api/generated/plutus-economics/patronage/[id]/route.ts": {
-        "hash": "fe4989af535e9000",
-        "generatedAt": "2026-07-18T23:30:03.912Z"
+        "hash": "d4560735fdcee8da",
+        "generatedAt": "2026-07-20T04:39:10.717Z"
       },
       "src/hooks/generated/plutus-economics/patronage.ts": {
-        "hash": "bb0b300be3f5d47b",
-        "generatedAt": "2026-07-18T23:30:03.912Z"
+        "hash": "88374f1e0851d68c",
+        "generatedAt": "2026-07-20T04:39:10.718Z"
       },
       "src/lib/utils/generated/plutus-economics/patronage.ts": {
-        "hash": "1e2b63b89628926a",
-        "generatedAt": "2026-07-18T23:30:03.913Z"
+        "hash": "8bf484629921c339",
+        "generatedAt": "2026-07-20T04:39:10.719Z"
       },
       "src/types/generated/plutus-economics/patronage_tiers.ts": {
-        "hash": "78e09fca6b9705a5",
-        "generatedAt": "2026-07-18T23:30:03.914Z"
+        "hash": "fafea7da97e764c3",
+        "generatedAt": "2026-07-20T04:39:10.720Z"
       },
       "src/app/api/generated/plutus-economics/patronage_tiers/route.ts": {
-        "hash": "08593517945db960",
-        "generatedAt": "2026-07-18T23:30:03.915Z"
+        "hash": "6cbaf387c63edbe7",
+        "generatedAt": "2026-07-20T04:39:10.721Z"
       },
       "src/app/api/generated/plutus-economics/patronage_tiers/[id]/route.ts": {
-        "hash": "66a2029bdd2d1620",
-        "generatedAt": "2026-07-18T23:30:03.916Z"
+        "hash": "0a1096dda8831f34",
+        "generatedAt": "2026-07-20T04:39:10.722Z"
       },
       "src/hooks/generated/plutus-economics/patronage_tiers.ts": {
-        "hash": "00c103d72db560b6",
-        "generatedAt": "2026-07-18T23:30:03.917Z"
+        "hash": "2e0a29b7c15c79ec",
+        "generatedAt": "2026-07-20T04:39:10.723Z"
       },
       "src/lib/utils/generated/plutus-economics/patronage_tiers.ts": {
-        "hash": "e196158b1c2eb662",
-        "generatedAt": "2026-07-18T23:30:03.918Z"
+        "hash": "e64bd462d03160c8",
+        "generatedAt": "2026-07-20T04:39:10.724Z"
       },
       "src/types/generated/mnemosyne-assessment/patterns.ts": {
-        "hash": "006a5fc7388a0b9d",
-        "generatedAt": "2026-07-18T23:30:03.919Z"
+        "hash": "0e22ce5c5d4c5d30",
+        "generatedAt": "2026-07-20T04:39:10.725Z"
       },
       "src/app/api/generated/mnemosyne-assessment/patterns/route.ts": {
-        "hash": "1b1e3f8b2c7d9701",
-        "generatedAt": "2026-07-18T23:30:03.920Z"
+        "hash": "5bca7dc4cec341d3",
+        "generatedAt": "2026-07-20T04:39:10.726Z"
       },
       "src/app/api/generated/mnemosyne-assessment/patterns/[id]/route.ts": {
-        "hash": "400b47c5a05c7a32",
-        "generatedAt": "2026-07-18T23:30:03.921Z"
+        "hash": "881551eacd823c59",
+        "generatedAt": "2026-07-20T04:39:10.727Z"
       },
       "src/hooks/generated/mnemosyne-assessment/patterns.ts": {
-        "hash": "9fb49791ac95c6a2",
-        "generatedAt": "2026-07-18T23:30:03.922Z"
+        "hash": "527b7666785852dc",
+        "generatedAt": "2026-07-20T04:39:10.728Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/patterns.ts": {
-        "hash": "739510af5d3daad2",
-        "generatedAt": "2026-07-18T23:30:03.922Z"
+        "hash": "349479dff8a05d9c",
+        "generatedAt": "2026-07-20T04:39:10.729Z"
       },
       "src/types/generated/mnemosyne-assessment/phylum.ts": {
-        "hash": "5899f91c61d0f3ba",
-        "generatedAt": "2026-07-18T23:30:03.928Z"
+        "hash": "206e27bceb9f2f4d",
+        "generatedAt": "2026-07-20T04:39:10.735Z"
       },
       "src/app/api/generated/mnemosyne-assessment/phylum/route.ts": {
-        "hash": "72d56b21bba8a678",
-        "generatedAt": "2026-07-18T23:30:03.929Z"
+        "hash": "d96a45fdf905e79a",
+        "generatedAt": "2026-07-20T04:39:10.736Z"
       },
       "src/app/api/generated/mnemosyne-assessment/phylum/[id]/route.ts": {
-        "hash": "3934a9437c2e4935",
-        "generatedAt": "2026-07-18T23:30:03.930Z"
+        "hash": "6e829962fb7fa9ff",
+        "generatedAt": "2026-07-20T04:39:10.736Z"
       },
       "src/hooks/generated/mnemosyne-assessment/phylum.ts": {
-        "hash": "1268eb2216ee6521",
-        "generatedAt": "2026-07-18T23:30:03.931Z"
+        "hash": "d6a5592e8d3b40c2",
+        "generatedAt": "2026-07-20T04:39:10.737Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/phylum.ts": {
-        "hash": "e2b2fb758521f50e",
-        "generatedAt": "2026-07-18T23:30:03.932Z"
+        "hash": "b5cc94db36ace68d",
+        "generatedAt": "2026-07-20T04:39:10.738Z"
       },
       "src/types/generated/hephaestus-infrastructure/platform_config.ts": {
-        "hash": "efbbf457fa23bb94",
-        "generatedAt": "2026-07-18T23:30:03.937Z"
+        "hash": "59ac0359a443a24a",
+        "generatedAt": "2026-07-20T04:39:10.745Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/platform_config/route.ts": {
-        "hash": "7e5ab28e07e0964b",
-        "generatedAt": "2026-07-18T23:30:03.938Z"
+        "hash": "e9099d7653d72e16",
+        "generatedAt": "2026-07-20T04:39:10.746Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/platform_config/[id]/route.ts": {
-        "hash": "eeb105e926a62ae1",
-        "generatedAt": "2026-07-18T23:30:03.939Z"
+        "hash": "fe26c735297c4ac4",
+        "generatedAt": "2026-07-20T04:39:10.747Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/platform_config.ts": {
-        "hash": "b11d24c849166ea8",
-        "generatedAt": "2026-07-18T23:30:03.940Z"
+        "hash": "b7374fd678825eef",
+        "generatedAt": "2026-07-20T04:39:10.748Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/platform_config.ts": {
-        "hash": "3a9a7fe8fa0e68d6",
-        "generatedAt": "2026-07-18T23:30:03.940Z"
+        "hash": "ed44aac7a8c9f4a5",
+        "generatedAt": "2026-07-20T04:39:10.749Z"
       },
       "src/types/generated/hephaestus-infrastructure/platform_settings.ts": {
-        "hash": "1c1538ed8e2307a3",
-        "generatedAt": "2026-07-18T23:30:03.942Z"
+        "hash": "acda1d03ec8203ac",
+        "generatedAt": "2026-07-20T04:39:10.750Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/platform_settings/route.ts": {
-        "hash": "7ea69011b862728b",
-        "generatedAt": "2026-07-18T23:30:03.942Z"
+        "hash": "68aefc24bf53b3bc",
+        "generatedAt": "2026-07-20T04:39:10.751Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/platform_settings/[id]/route.ts": {
-        "hash": "d9d1180f5e86448f",
-        "generatedAt": "2026-07-18T23:30:03.943Z"
+        "hash": "db9ba8f15e7fc8ad",
+        "generatedAt": "2026-07-20T04:39:10.752Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/platform_settings.ts": {
-        "hash": "7b59d22a89f303bb",
-        "generatedAt": "2026-07-18T23:30:03.944Z"
+        "hash": "5f0030330ff3a4c2",
+        "generatedAt": "2026-07-20T04:39:10.753Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/platform_settings.ts": {
-        "hash": "29999fb3c736bc3f",
-        "generatedAt": "2026-07-18T23:30:03.945Z"
+        "hash": "1db7547f60da29c1",
+        "generatedAt": "2026-07-20T04:39:10.754Z"
       },
       "src/types/generated/themis-governance/proposals.ts": {
-        "hash": "390fc81be7bfd86f",
-        "generatedAt": "2026-07-18T23:30:03.951Z"
+        "hash": "91804232e6e464b1",
+        "generatedAt": "2026-07-20T04:39:10.761Z"
       },
       "src/app/api/generated/themis-governance/proposals/route.ts": {
-        "hash": "26892d9301ed2eef",
-        "generatedAt": "2026-07-18T23:30:03.952Z"
+        "hash": "ca137a7b60935218",
+        "generatedAt": "2026-07-20T04:39:10.762Z"
       },
       "src/app/api/generated/themis-governance/proposals/[id]/route.ts": {
-        "hash": "45a137bf5e877282",
-        "generatedAt": "2026-07-18T23:30:03.953Z"
+        "hash": "3acede672e55e57c",
+        "generatedAt": "2026-07-20T04:39:10.763Z"
       },
       "src/hooks/generated/themis-governance/proposals.ts": {
-        "hash": "590e583fa056c3fd",
-        "generatedAt": "2026-07-18T23:30:03.953Z"
+        "hash": "ad784d5086851aea",
+        "generatedAt": "2026-07-20T04:39:10.764Z"
       },
       "src/lib/utils/generated/themis-governance/proposals.ts": {
-        "hash": "8024312ef3015c99",
-        "generatedAt": "2026-07-18T23:30:03.955Z"
+        "hash": "ab89e329ecd222c3",
+        "generatedAt": "2026-07-20T04:39:10.765Z"
       },
       "src/types/generated/athena-gamification/quest_progress.ts": {
-        "hash": "d62eab511ecf1af1",
-        "generatedAt": "2026-07-18T23:30:03.960Z"
+        "hash": "f7c4841e3113ef25",
+        "generatedAt": "2026-07-20T04:39:10.771Z"
       },
       "src/app/api/generated/athena-gamification/quest_progress/route.ts": {
-        "hash": "1818b040a2dd6374",
-        "generatedAt": "2026-07-18T23:30:03.961Z"
+        "hash": "2381002b2b669da0",
+        "generatedAt": "2026-07-20T04:39:10.772Z"
       },
       "src/app/api/generated/athena-gamification/quest_progress/[id]/route.ts": {
-        "hash": "a56b8337ccd3e9e4",
-        "generatedAt": "2026-07-18T23:30:03.963Z"
+        "hash": "a2522e68198c1966",
+        "generatedAt": "2026-07-20T04:39:10.772Z"
       },
       "src/types/generated/mnemosyne-assessment/reference_values.ts": {
-        "hash": "0c5c161bb60b1dd5",
-        "generatedAt": "2026-07-18T23:30:03.974Z"
+        "hash": "0553bebf4c814100",
+        "generatedAt": "2026-07-20T04:39:10.784Z"
       },
       "src/app/api/generated/mnemosyne-assessment/reference_values/route.ts": {
-        "hash": "9c81fc4cda098706",
-        "generatedAt": "2026-07-18T23:30:03.975Z"
+        "hash": "e5d29982eb990720",
+        "generatedAt": "2026-07-20T04:39:10.785Z"
       },
       "src/app/api/generated/mnemosyne-assessment/reference_values/[id]/route.ts": {
-        "hash": "4085b64ab86213ba",
-        "generatedAt": "2026-07-18T23:30:03.976Z"
+        "hash": "82f0b4f289ef5e9f",
+        "generatedAt": "2026-07-20T04:39:10.786Z"
       },
       "src/hooks/generated/mnemosyne-assessment/reference_values.ts": {
-        "hash": "2d5c22b2009b08c9",
-        "generatedAt": "2026-07-18T23:30:03.977Z"
+        "hash": "3dad97d31a10e5d5",
+        "generatedAt": "2026-07-20T04:39:10.787Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/reference_values.ts": {
-        "hash": "417d20e00192ffd2",
-        "generatedAt": "2026-07-18T23:30:03.978Z"
+        "hash": "5a09802db8e11424",
+        "generatedAt": "2026-07-20T04:39:10.788Z"
       },
       "src/types/generated/mnemosyne-assessment/resonance.ts": {
-        "hash": "2bf59a4b63486ecd",
-        "generatedAt": "2026-07-18T23:30:04.000Z"
+        "hash": "cd6bc247ffc53bb0",
+        "generatedAt": "2026-07-20T04:39:10.808Z"
       },
       "src/app/api/generated/mnemosyne-assessment/resonance/route.ts": {
-        "hash": "2b453f0b01e7e526",
-        "generatedAt": "2026-07-18T23:30:04.001Z"
+        "hash": "1b65c0286fb22322",
+        "generatedAt": "2026-07-20T04:39:10.809Z"
       },
       "src/app/api/generated/mnemosyne-assessment/resonance/[id]/route.ts": {
-        "hash": "d914355370c2ea7a",
-        "generatedAt": "2026-07-18T23:30:04.002Z"
+        "hash": "8f9b3c25179dbc2c",
+        "generatedAt": "2026-07-20T04:39:10.810Z"
       },
       "src/hooks/generated/mnemosyne-assessment/resonance.ts": {
-        "hash": "c9889905afe8acc6",
-        "generatedAt": "2026-07-18T23:30:04.003Z"
+        "hash": "75a90f2ddb6074bf",
+        "generatedAt": "2026-07-20T04:39:10.811Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/resonance.ts": {
-        "hash": "1435289e85627201",
-        "generatedAt": "2026-07-18T23:30:04.003Z"
+        "hash": "1a2c7c534e680e11",
+        "generatedAt": "2026-07-20T04:39:10.812Z"
       },
       "src/types/generated/themis-governance/responses.ts": {
-        "hash": "e1cb7b94f4e29281",
-        "generatedAt": "2026-07-18T23:30:04.004Z"
+        "hash": "00730486263ec4c3",
+        "generatedAt": "2026-07-20T04:39:10.813Z"
       },
       "src/app/api/generated/themis-governance/responses/route.ts": {
-        "hash": "70253e3b21c5e6e5",
-        "generatedAt": "2026-07-18T23:30:04.005Z"
+        "hash": "d2d14f949cee6d7d",
+        "generatedAt": "2026-07-20T04:39:10.814Z"
       },
       "src/app/api/generated/themis-governance/responses/[id]/route.ts": {
-        "hash": "0a75590ea816e388",
-        "generatedAt": "2026-07-18T23:30:04.006Z"
+        "hash": "6c1e23ff8e242168",
+        "generatedAt": "2026-07-20T04:39:10.814Z"
       },
       "src/hooks/generated/themis-governance/responses.ts": {
-        "hash": "2b97f64a9e3b8e9d",
-        "generatedAt": "2026-07-18T23:30:04.007Z"
+        "hash": "0266c853de169660",
+        "generatedAt": "2026-07-20T04:39:10.815Z"
       },
       "src/lib/utils/generated/themis-governance/responses.ts": {
-        "hash": "d8e38d461790eb3f",
-        "generatedAt": "2026-07-18T23:30:04.008Z"
+        "hash": "56163c5129227f38",
+        "generatedAt": "2026-07-20T04:39:10.817Z"
       },
       "src/types/generated/hephaestus-infrastructure/script_executions.ts": {
-        "hash": "b6e95c8a39bca52c",
-        "generatedAt": "2026-07-18T23:30:04.021Z"
+        "hash": "3d7596e87b58033f",
+        "generatedAt": "2026-07-20T04:39:10.830Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/script_executions/route.ts": {
-        "hash": "3909eef21d728527",
-        "generatedAt": "2026-07-18T23:30:04.021Z"
+        "hash": "4e4a797d12290bc6",
+        "generatedAt": "2026-07-20T04:39:10.831Z"
       },
       "src/app/api/generated/hephaestus-infrastructure/script_executions/[id]/route.ts": {
-        "hash": "13448ff0058d8f38",
-        "generatedAt": "2026-07-18T23:30:04.022Z"
+        "hash": "0dcb1e0d78f40c4e",
+        "generatedAt": "2026-07-20T04:39:10.832Z"
       },
       "src/hooks/generated/hephaestus-infrastructure/script_executions.ts": {
-        "hash": "8d81e3bab111bdb7",
-        "generatedAt": "2026-07-18T23:30:04.023Z"
+        "hash": "b57655bc8401fa6f",
+        "generatedAt": "2026-07-20T04:39:10.833Z"
       },
       "src/lib/utils/generated/hephaestus-infrastructure/script_executions.ts": {
-        "hash": "f31a542a41d635d3",
-        "generatedAt": "2026-07-18T23:30:04.024Z"
+        "hash": "7d6316315aeb7880",
+        "generatedAt": "2026-07-20T04:39:10.834Z"
       },
       "src/types/generated/mnemosyne-assessment/sensory_lexicon.ts": {
-        "hash": "ce3acae03c90a109",
-        "generatedAt": "2026-07-18T23:30:04.039Z"
+        "hash": "d98c0f8dac6332c3",
+        "generatedAt": "2026-07-20T04:39:10.849Z"
       },
       "src/app/api/generated/mnemosyne-assessment/sensory_lexicon/route.ts": {
-        "hash": "e5f6c69dd22e9743",
-        "generatedAt": "2026-07-18T23:30:04.040Z"
+        "hash": "085dc1be84ab5d02",
+        "generatedAt": "2026-07-20T04:39:10.850Z"
       },
       "src/app/api/generated/mnemosyne-assessment/sensory_lexicon/[id]/route.ts": {
-        "hash": "c601d0bda7840d62",
-        "generatedAt": "2026-07-18T23:30:04.040Z"
+        "hash": "f5ddfda7268349b7",
+        "generatedAt": "2026-07-20T04:39:10.851Z"
       },
       "src/hooks/generated/mnemosyne-assessment/sensory_lexicon.ts": {
-        "hash": "134a8caa84202bb6",
-        "generatedAt": "2026-07-18T23:30:04.041Z"
+        "hash": "be65a6e349a17931",
+        "generatedAt": "2026-07-20T04:39:10.852Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/sensory_lexicon.ts": {
-        "hash": "c387e352214fbc59",
-        "generatedAt": "2026-07-18T23:30:04.042Z"
+        "hash": "10dab0abba8a73ce",
+        "generatedAt": "2026-07-20T04:39:10.853Z"
       },
       "src/types/generated/mnemosyne-assessment/sensory_map.ts": {
-        "hash": "55ea66e343f937ce",
-        "generatedAt": "2026-07-18T23:30:04.043Z"
+        "hash": "a1bf40da8b87f6ac",
+        "generatedAt": "2026-07-20T04:39:10.854Z"
       },
       "src/app/api/generated/mnemosyne-assessment/sensory_map/route.ts": {
-        "hash": "034f3eef3a1b69c1",
-        "generatedAt": "2026-07-18T23:30:04.044Z"
+        "hash": "f4294b8212d7fa09",
+        "generatedAt": "2026-07-20T04:39:10.855Z"
       },
       "src/app/api/generated/mnemosyne-assessment/sensory_map/[id]/route.ts": {
-        "hash": "6cb5d58dd242d19f",
-        "generatedAt": "2026-07-18T23:30:04.045Z"
+        "hash": "17fd55628bc3283b",
+        "generatedAt": "2026-07-20T04:39:10.856Z"
       },
       "src/hooks/generated/mnemosyne-assessment/sensory_map.ts": {
-        "hash": "e677684bbb0acce4",
-        "generatedAt": "2026-07-18T23:30:04.046Z"
+        "hash": "e8b8f96c4119f633",
+        "generatedAt": "2026-07-20T04:39:10.857Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/sensory_map.ts": {
-        "hash": "d3b790f4e9ef357c",
-        "generatedAt": "2026-07-18T23:30:04.047Z"
+        "hash": "30283a3a306cb757",
+        "generatedAt": "2026-07-20T04:39:10.858Z"
       },
       "src/types/generated/athena-gamification/sigil_unlocks.ts": {
-        "hash": "5c007fb251c9d42a",
-        "generatedAt": "2026-07-18T23:30:04.048Z"
+        "hash": "9ad3142ce1f995ae",
+        "generatedAt": "2026-07-20T04:39:10.859Z"
       },
       "src/app/api/generated/athena-gamification/sigil_unlocks/route.ts": {
-        "hash": "a6d973621a6dc920",
-        "generatedAt": "2026-07-18T23:30:04.049Z"
+        "hash": "4acd76dd9598087b",
+        "generatedAt": "2026-07-20T04:39:10.859Z"
       },
       "src/app/api/generated/athena-gamification/sigil_unlocks/[id]/route.ts": {
-        "hash": "5ff41716948a209d",
-        "generatedAt": "2026-07-18T23:30:04.049Z"
+        "hash": "0eff595643c9e4a7",
+        "generatedAt": "2026-07-20T04:39:10.860Z"
       },
       "src/types/generated/athena-gamification/sigils.ts": {
-        "hash": "c87118c66185c6de",
-        "generatedAt": "2026-07-18T23:30:04.050Z"
+        "hash": "d184b7af0ecabd48",
+        "generatedAt": "2026-07-20T04:39:10.861Z"
       },
       "src/app/api/generated/athena-gamification/sigils/route.ts": {
-        "hash": "01c5c4e111e690a0",
-        "generatedAt": "2026-07-18T23:30:04.052Z"
+        "hash": "517dab209f350de4",
+        "generatedAt": "2026-07-20T04:39:10.863Z"
       },
       "src/app/api/generated/athena-gamification/sigils/[id]/route.ts": {
-        "hash": "1ec7e414035aa63f",
-        "generatedAt": "2026-07-18T23:30:04.052Z"
+        "hash": "066a466f1a7200aa",
+        "generatedAt": "2026-07-20T04:39:10.863Z"
       },
       "src/hooks/generated/athena-gamification/sigils.ts": {
-        "hash": "6715780e80e1e2ab",
-        "generatedAt": "2026-07-18T23:30:04.053Z"
+        "hash": "37609eb156b985b9",
+        "generatedAt": "2026-07-20T04:39:10.864Z"
       },
       "src/lib/utils/generated/athena-gamification/sigils.ts": {
-        "hash": "b7c930729f4f7229",
-        "generatedAt": "2026-07-18T23:30:04.054Z"
+        "hash": "0b106d7ddca112df",
+        "generatedAt": "2026-07-20T04:39:10.865Z"
       },
       "src/types/generated/iris-communications/signals.ts": {
-        "hash": "8266ba95dcf08e3e",
-        "generatedAt": "2026-07-18T23:30:04.055Z"
+        "hash": "4663dd054c952baf",
+        "generatedAt": "2026-07-20T04:39:10.866Z"
       },
       "src/app/api/generated/iris-communications/signals/route.ts": {
-        "hash": "06f5185e100bed5a",
-        "generatedAt": "2026-07-18T23:30:04.056Z"
+        "hash": "3f9b4bb7a93b813c",
+        "generatedAt": "2026-07-20T04:39:10.867Z"
       },
       "src/app/api/generated/iris-communications/signals/[id]/route.ts": {
-        "hash": "1a561dc9e9a9989e",
-        "generatedAt": "2026-07-18T23:30:04.057Z"
+        "hash": "266901c5bcede9f6",
+        "generatedAt": "2026-07-20T04:39:10.868Z"
       },
       "src/hooks/generated/iris-communications/signals.ts": {
-        "hash": "6752ce63a0c3391f",
-        "generatedAt": "2026-07-18T23:30:04.058Z"
+        "hash": "b7edb2aab175653d",
+        "generatedAt": "2026-07-20T04:39:10.869Z"
       },
       "src/lib/utils/generated/iris-communications/signals.ts": {
-        "hash": "8b7bcbc2117c849c",
-        "generatedAt": "2026-07-18T23:30:04.059Z"
+        "hash": "120d4afd05d7dbc0",
+        "generatedAt": "2026-07-20T04:39:10.870Z"
       },
       "src/types/generated/mnemosyne-assessment/species.ts": {
-        "hash": "9099f5c07abffeeb",
-        "generatedAt": "2026-07-18T23:30:04.065Z"
+        "hash": "e01e87c5567b68ad",
+        "generatedAt": "2026-07-20T04:39:10.876Z"
       },
       "src/app/api/generated/mnemosyne-assessment/species/route.ts": {
-        "hash": "8f85d385f08284ee",
-        "generatedAt": "2026-07-18T23:30:04.065Z"
+        "hash": "685598aead582102",
+        "generatedAt": "2026-07-20T04:39:10.877Z"
       },
       "src/app/api/generated/mnemosyne-assessment/species/[id]/route.ts": {
-        "hash": "470d42fc7c4c1fc7",
-        "generatedAt": "2026-07-18T23:30:04.066Z"
+        "hash": "db2b2bc4e8c35fc9",
+        "generatedAt": "2026-07-20T04:39:10.878Z"
       },
       "src/hooks/generated/mnemosyne-assessment/species.ts": {
-        "hash": "ad5c06fa1f909b08",
-        "generatedAt": "2026-07-18T23:30:04.067Z"
+        "hash": "6770cf7eb16a5a74",
+        "generatedAt": "2026-07-20T04:39:10.879Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/species.ts": {
-        "hash": "b6ea6c5a874aef94",
-        "generatedAt": "2026-07-18T23:30:04.069Z"
+        "hash": "5f2ece7c9c222cb5",
+        "generatedAt": "2026-07-20T04:39:10.880Z"
       },
       "src/types/generated/daedalus-meta/templates.ts": {
-        "hash": "9c1cf91d92bded7d",
-        "generatedAt": "2026-07-18T23:30:04.094Z"
+        "hash": "4519a8bf92045dd4",
+        "generatedAt": "2026-07-20T04:39:10.908Z"
       },
       "src/app/api/generated/daedalus-meta/templates/route.ts": {
-        "hash": "0fcff976d9fdfa73",
-        "generatedAt": "2026-07-18T23:30:04.095Z"
+        "hash": "9cfe3d07aca93b24",
+        "generatedAt": "2026-07-20T04:39:10.909Z"
       },
       "src/app/api/generated/daedalus-meta/templates/[id]/route.ts": {
-        "hash": "43a587905420e56a",
-        "generatedAt": "2026-07-18T23:30:04.095Z"
+        "hash": "e592c4f0d48d511b",
+        "generatedAt": "2026-07-20T04:39:10.909Z"
       },
       "src/hooks/generated/daedalus-meta/templates.ts": {
-        "hash": "41b69fb48bb28786",
-        "generatedAt": "2026-07-18T23:30:04.096Z"
+        "hash": "ed27069fa1378d78",
+        "generatedAt": "2026-07-20T04:39:10.910Z"
       },
       "src/lib/utils/generated/daedalus-meta/templates.ts": {
-        "hash": "3baf995b3f4ff2db",
-        "generatedAt": "2026-07-18T23:30:04.097Z"
+        "hash": "87f8dd0df1b80bed",
+        "generatedAt": "2026-07-20T04:39:10.911Z"
       },
       "src/types/generated/mnemosyne-assessment/test_patterns.ts": {
-        "hash": "29d69739dd471279",
-        "generatedAt": "2026-07-18T23:30:04.098Z"
+        "hash": "ed2c3446a5354697",
+        "generatedAt": "2026-07-20T04:39:10.913Z"
       },
       "src/app/api/generated/mnemosyne-assessment/test_patterns/route.ts": {
-        "hash": "0837cdc1b89298ea",
-        "generatedAt": "2026-07-18T23:30:04.099Z"
+        "hash": "87ea329126de5cc3",
+        "generatedAt": "2026-07-20T04:39:10.914Z"
       },
       "src/app/api/generated/mnemosyne-assessment/test_patterns/[id]/route.ts": {
-        "hash": "d5c0d0469871e748",
-        "generatedAt": "2026-07-18T23:30:04.100Z"
+        "hash": "907d21277e6ab762",
+        "generatedAt": "2026-07-20T04:39:10.915Z"
       },
       "src/hooks/generated/mnemosyne-assessment/test_patterns.ts": {
-        "hash": "a99a6d9abe9d293c",
-        "generatedAt": "2026-07-18T23:30:04.101Z"
+        "hash": "1849b7e0937d9a76",
+        "generatedAt": "2026-07-20T04:39:10.916Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/test_patterns.ts": {
-        "hash": "5d11973a848a7100",
-        "generatedAt": "2026-07-18T23:30:04.102Z"
+        "hash": "286afbb243322a0f",
+        "generatedAt": "2026-07-20T04:39:10.917Z"
       },
       "src/types/generated/mnemosyne-assessment/thesaurus_entries.ts": {
-        "hash": "2708e2d493bf2543",
-        "generatedAt": "2026-07-18T23:30:04.103Z"
+        "hash": "17cb8099e37b98a1",
+        "generatedAt": "2026-07-20T04:39:10.918Z"
       },
       "src/app/api/generated/mnemosyne-assessment/thesaurus_entries/route.ts": {
-        "hash": "74d946938e6df61c",
-        "generatedAt": "2026-07-18T23:30:04.104Z"
+        "hash": "4e6f9eda1deb4da6",
+        "generatedAt": "2026-07-20T04:39:10.919Z"
       },
       "src/app/api/generated/mnemosyne-assessment/thesaurus_entries/[id]/route.ts": {
-        "hash": "db6bf0811cd466f8",
-        "generatedAt": "2026-07-18T23:30:04.105Z"
+        "hash": "1d2950de7a38b5c8",
+        "generatedAt": "2026-07-20T04:39:10.920Z"
       },
       "src/hooks/generated/mnemosyne-assessment/thesaurus_entries.ts": {
-        "hash": "a3cb419c504ba44e",
-        "generatedAt": "2026-07-18T23:30:04.106Z"
+        "hash": "9ccaef76be2fd833",
+        "generatedAt": "2026-07-20T04:39:10.921Z"
       },
       "src/lib/utils/generated/mnemosyne-assessment/thesaurus_entries.ts": {
-        "hash": "245fd4625ca2a347",
-        "generatedAt": "2026-07-18T23:30:04.107Z"
+        "hash": "0581e77c297edab0",
+        "generatedAt": "2026-07-20T04:39:10.922Z"
       },
       "src/types/generated/plutus-economics/ware_participants.ts": {
-        "hash": "7d6afe21676d95d3",
-        "generatedAt": "2026-07-18T23:30:04.205Z"
+        "hash": "227d4f183b9a230d",
+        "generatedAt": "2026-07-20T04:39:11.010Z"
       },
       "src/app/api/generated/plutus-economics/ware_participants/route.ts": {
-        "hash": "88bd9be804f5cf8f",
-        "generatedAt": "2026-07-18T23:30:04.206Z"
+        "hash": "1cdcab0f54ec90b5",
+        "generatedAt": "2026-07-20T04:39:11.011Z"
       },
       "src/app/api/generated/plutus-economics/ware_participants/[id]/route.ts": {
-        "hash": "7c289968c9d604c7",
-        "generatedAt": "2026-07-18T23:30:04.207Z"
+        "hash": "e23c307e9682bbb7",
+        "generatedAt": "2026-07-20T04:39:11.012Z"
       },
       "src/types/generated/plutus-economics/wares.ts": {
-        "hash": "09088f5b30ed13b4",
-        "generatedAt": "2026-07-18T23:30:04.208Z"
+        "hash": "4607013ed9807463",
+        "generatedAt": "2026-07-20T04:39:11.013Z"
       },
       "src/app/api/generated/plutus-economics/wares/route.ts": {
-        "hash": "9db955a473780038",
-        "generatedAt": "2026-07-18T23:30:04.209Z"
+        "hash": "5816df407d689434",
+        "generatedAt": "2026-07-20T04:39:11.014Z"
       },
       "src/app/api/generated/plutus-economics/wares/[id]/route.ts": {
-        "hash": "44a9539a6ddac54b",
-        "generatedAt": "2026-07-18T23:30:04.211Z"
+        "hash": "181cde956c4dc371",
+        "generatedAt": "2026-07-20T04:39:11.016Z"
       },
       "src/hooks/generated/plutus-economics/wares.ts": {
-        "hash": "f623f2bfcf72734e",
-        "generatedAt": "2026-07-18T23:30:04.212Z"
+        "hash": "ec543c207a35f692",
+        "generatedAt": "2026-07-20T04:39:11.017Z"
       },
       "src/lib/utils/generated/plutus-economics/wares.ts": {
-        "hash": "9b43e5122c8fb402",
-        "generatedAt": "2026-07-18T23:30:04.213Z"
+        "hash": "a98084fa7d953a02",
+        "generatedAt": "2026-07-20T04:39:11.018Z"
       },
       "src/types/generated/hermes-social/work_participants.ts": {
-        "hash": "86f65aadd1150b69",
-        "generatedAt": "2026-07-18T23:30:04.214Z"
+        "hash": "2c1532612799c462",
+        "generatedAt": "2026-07-20T04:39:11.020Z"
       },
       "src/app/api/generated/hermes-social/work_participants/route.ts": {
-        "hash": "6c97d1bbba6d70f3",
-        "generatedAt": "2026-07-18T23:30:04.215Z"
+        "hash": "d397e53023d30021",
+        "generatedAt": "2026-07-20T04:39:11.021Z"
       },
       "src/app/api/generated/hermes-social/work_participants/[id]/route.ts": {
-        "hash": "56420da5569a48f7",
-        "generatedAt": "2026-07-18T23:30:04.216Z"
+        "hash": "45a2854ba752c6a3",
+        "generatedAt": "2026-07-20T04:39:11.022Z"
       },
       "src/types/generated/hermes-social/works.ts": {
-        "hash": "1be55276a4c6d304",
-        "generatedAt": "2026-07-18T23:30:04.217Z"
+        "hash": "dc20aa53e8f029aa",
+        "generatedAt": "2026-07-20T04:39:11.024Z"
       },
       "src/app/api/generated/hermes-social/works/route.ts": {
-        "hash": "7b63cf7a701e1428",
-        "generatedAt": "2026-07-18T23:30:04.218Z"
+        "hash": "878c7c5fe54fa054",
+        "generatedAt": "2026-07-20T04:39:11.025Z"
       },
       "src/app/api/generated/hermes-social/works/[id]/route.ts": {
-        "hash": "e35b6b891610689f",
-        "generatedAt": "2026-07-18T23:30:04.219Z"
+        "hash": "668228d61091e6c3",
+        "generatedAt": "2026-07-20T04:39:11.027Z"
       },
       "src/hooks/generated/hermes-social/works.ts": {
-        "hash": "9b5cdd38ca3f2e02",
-        "generatedAt": "2026-07-18T23:30:04.220Z"
+        "hash": "1221221b748f3785",
+        "generatedAt": "2026-07-20T04:39:11.028Z"
       },
       "src/lib/utils/generated/hermes-social/works.ts": {
-        "hash": "0df6ecbe2186e095",
-        "generatedAt": "2026-07-18T23:30:04.221Z"
+        "hash": "54e875f876ab4e01",
+        "generatedAt": "2026-07-20T04:39:11.029Z"
       },
       "src/app/api/generated/hestia-core/get_acid_test_questions/route.ts": {
         "hash": "d4573b092b050129",
@@ -18787,259 +20453,259 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\admin_actions.ts": {
         "hash": "28d787b00a1955cd",
-        "generatedAt": "2026-07-18T23:30:04.249Z"
+        "generatedAt": "2026-07-20T04:39:11.061Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\anchor_events.ts": {
         "hash": "d8e2b149ee08a0f9",
-        "generatedAt": "2026-07-18T23:30:04.257Z"
+        "generatedAt": "2026-07-20T04:39:11.068Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\artisan_category_links.ts": {
         "hash": "3ec941556b62a779",
-        "generatedAt": "2026-07-18T23:30:04.261Z"
+        "generatedAt": "2026-07-20T04:39:11.071Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\artisan_profiles.ts": {
         "hash": "4fe4df6ccfa8a27e",
-        "generatedAt": "2026-07-18T23:30:04.262Z"
+        "generatedAt": "2026-07-20T04:39:11.073Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_answers.ts": {
         "hash": "ef87b68ba328555e",
-        "generatedAt": "2026-07-18T23:30:04.263Z"
+        "generatedAt": "2026-07-20T04:39:11.074Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_questions.ts": {
         "hash": "9f7722f21780e132",
-        "generatedAt": "2026-07-18T23:30:04.264Z"
+        "generatedAt": "2026-07-20T04:39:11.075Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\assessment_results.ts": {
         "hash": "bd9d78a5e7ac8170",
-        "generatedAt": "2026-07-18T23:30:04.265Z"
+        "generatedAt": "2026-07-20T04:39:11.076Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\blueprints.ts": {
         "hash": "cc32a3d86252c675",
-        "generatedAt": "2026-07-18T23:30:04.266Z"
+        "generatedAt": "2026-07-20T04:39:11.078Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\boundaries.ts": {
         "hash": "6ba4291ee937aac8",
-        "generatedAt": "2026-07-18T23:30:04.268Z"
+        "generatedAt": "2026-07-20T04:39:11.079Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\bubble_superposition.ts": {
         "hash": "d40a2a1763eaa6e3",
-        "generatedAt": "2026-07-18T23:30:04.269Z"
+        "generatedAt": "2026-07-20T04:39:11.080Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\categories.ts": {
         "hash": "c8bb6ae20cfda4f7",
-        "generatedAt": "2026-07-18T23:30:04.273Z"
+        "generatedAt": "2026-07-20T04:39:11.083Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\channels.ts": {
         "hash": "0538a906a1b8046e",
-        "generatedAt": "2026-07-18T23:30:04.275Z"
+        "generatedAt": "2026-07-20T04:39:11.085Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\class.ts": {
         "hash": "9f2f8620a78f02ec",
-        "generatedAt": "2026-07-18T23:30:04.276Z"
+        "generatedAt": "2026-07-20T04:39:11.086Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\distribution_recipients.ts": {
         "hash": "72f2bcf512ba0e65",
-        "generatedAt": "2026-07-18T23:30:04.294Z"
+        "generatedAt": "2026-07-20T04:39:11.103Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\distributions.ts": {
         "hash": "7103773aeb243315",
-        "generatedAt": "2026-07-18T23:30:04.295Z"
+        "generatedAt": "2026-07-20T04:39:11.104Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\domain.ts": {
         "hash": "e02bef83d9ab9559",
-        "generatedAt": "2026-07-18T23:30:04.297Z"
+        "generatedAt": "2026-07-20T04:39:11.105Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\entity_states.ts": {
         "hash": "4708ae5d9b077435",
-        "generatedAt": "2026-07-18T23:30:04.300Z"
+        "generatedAt": "2026-07-20T04:39:11.107Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\exchanges.ts": {
         "hash": "95aa759814b62baf",
-        "generatedAt": "2026-07-18T23:30:04.302Z"
+        "generatedAt": "2026-07-20T04:39:11.110Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\family.ts": {
         "hash": "9a3cb92d34493288",
-        "generatedAt": "2026-07-18T23:30:04.303Z"
+        "generatedAt": "2026-07-20T04:39:11.111Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\gaia_config.ts": {
         "hash": "e6a1185cc7943abd",
-        "generatedAt": "2026-07-18T23:30:04.308Z"
+        "generatedAt": "2026-07-20T04:39:11.115Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\gaia_generation_log.ts": {
         "hash": "698135053a96cc3d",
-        "generatedAt": "2026-07-18T23:30:04.309Z"
+        "generatedAt": "2026-07-20T04:39:11.116Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\generation_templates.ts": {
         "hash": "a42bed32bd8a8518",
-        "generatedAt": "2026-07-18T23:30:04.312Z"
+        "generatedAt": "2026-07-20T04:39:11.119Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\generations.ts": {
         "hash": "8c79e44066bfc918",
-        "generatedAt": "2026-07-18T23:30:04.313Z"
+        "generatedAt": "2026-07-20T04:39:11.120Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\genus.ts": {
         "hash": "5be1ded237f446b2",
-        "generatedAt": "2026-07-18T23:30:04.314Z"
+        "generatedAt": "2026-07-20T04:39:11.121Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\gift_wrappings.ts": {
         "hash": "ccc71bf8281012ba",
-        "generatedAt": "2026-07-18T23:30:04.315Z"
+        "generatedAt": "2026-07-20T04:39:11.122Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\gifts.ts": {
         "hash": "7d9f425c38a79d5b",
-        "generatedAt": "2026-07-18T23:30:04.316Z"
+        "generatedAt": "2026-07-20T04:39:11.123Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_applications.ts": {
         "hash": "0db132bc48c569b4",
-        "generatedAt": "2026-07-18T23:30:04.318Z"
+        "generatedAt": "2026-07-20T04:39:11.125Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_attachments.ts": {
         "hash": "fc525fd210eedc48",
-        "generatedAt": "2026-07-18T23:30:04.319Z"
+        "generatedAt": "2026-07-20T04:39:11.126Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_collaborators.ts": {
         "hash": "b76905018832713f",
-        "generatedAt": "2026-07-18T23:30:04.321Z"
+        "generatedAt": "2026-07-20T04:39:11.127Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_milestones.ts": {
         "hash": "83515cf9ca08df24",
-        "generatedAt": "2026-07-18T23:30:04.322Z"
+        "generatedAt": "2026-07-20T04:39:11.128Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_narratives.ts": {
         "hash": "389c122a495d6874",
-        "generatedAt": "2026-07-18T23:30:04.323Z"
+        "generatedAt": "2026-07-20T04:39:11.129Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\grant_opportunities.ts": {
         "hash": "47a7841f337fd31c",
-        "generatedAt": "2026-07-18T23:30:04.324Z"
+        "generatedAt": "2026-07-20T04:39:11.129Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\keywords.ts": {
         "hash": "9034e138d19c0300",
-        "generatedAt": "2026-07-18T23:30:04.329Z"
+        "generatedAt": "2026-07-20T04:39:11.133Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\kingdom.ts": {
         "hash": "dc9477cb13fa62f8",
-        "generatedAt": "2026-07-18T23:30:04.329Z"
+        "generatedAt": "2026-07-20T04:39:11.134Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\memories.ts": {
         "hash": "1e43cb6098ca7a73",
-        "generatedAt": "2026-07-18T23:30:04.337Z"
+        "generatedAt": "2026-07-20T04:39:11.142Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\merchant_profiles.ts": {
         "hash": "e562f8e7ac35cbf2",
-        "generatedAt": "2026-07-18T23:30:04.338Z"
+        "generatedAt": "2026-07-20T04:39:11.143Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\messages.ts": {
         "hash": "21c5b04959958a43",
-        "generatedAt": "2026-07-18T23:30:04.340Z"
+        "generatedAt": "2026-07-20T04:39:11.144Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\mind_traits.ts": {
         "hash": "8dcad6702d40cd73",
-        "generatedAt": "2026-07-18T23:30:04.341Z"
+        "generatedAt": "2026-07-20T04:39:11.145Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\order.ts": {
         "hash": "0e45cc935f432f7f",
-        "generatedAt": "2026-07-18T23:30:04.344Z"
+        "generatedAt": "2026-07-20T04:39:11.148Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\patronage.ts": {
         "hash": "09d4bfeceeec3334",
-        "generatedAt": "2026-07-18T23:30:04.346Z"
+        "generatedAt": "2026-07-20T04:39:11.150Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\patronage_tiers.ts": {
         "hash": "5407854c2a3898df",
-        "generatedAt": "2026-07-18T23:30:04.347Z"
+        "generatedAt": "2026-07-20T04:39:11.151Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\patterns.ts": {
         "hash": "45dbec6acb49baea",
-        "generatedAt": "2026-07-18T23:30:04.348Z"
+        "generatedAt": "2026-07-20T04:39:11.152Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\phylum.ts": {
         "hash": "bfff36a8b0f265f0",
-        "generatedAt": "2026-07-18T23:30:04.350Z"
+        "generatedAt": "2026-07-20T04:39:11.154Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\platform_config.ts": {
         "hash": "0c1d4ba496d3f5bc",
-        "generatedAt": "2026-07-18T23:30:04.351Z"
+        "generatedAt": "2026-07-20T04:39:11.156Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\platform_settings.ts": {
         "hash": "eff6b912f53b96b3",
-        "generatedAt": "2026-07-18T23:30:04.352Z"
+        "generatedAt": "2026-07-20T04:39:11.157Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\proposals.ts": {
         "hash": "b469e55b4223c63f",
-        "generatedAt": "2026-07-18T23:30:04.354Z"
+        "generatedAt": "2026-07-20T04:39:11.158Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\quest_progress.ts": {
         "hash": "819275bc382286e3",
-        "generatedAt": "2026-07-18T23:30:04.356Z"
+        "generatedAt": "2026-07-20T04:39:11.160Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\reference_values.ts": {
         "hash": "07c3febb70f9e97b",
-        "generatedAt": "2026-07-18T23:30:04.359Z"
+        "generatedAt": "2026-07-20T04:39:11.163Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\resonance.ts": {
         "hash": "e4f2713d4c8aa5f1",
-        "generatedAt": "2026-07-18T23:30:04.363Z"
+        "generatedAt": "2026-07-20T04:39:11.169Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\themis-governance\\responses.ts": {
         "hash": "6db239fda6c31371",
-        "generatedAt": "2026-07-18T23:30:04.364Z"
+        "generatedAt": "2026-07-20T04:39:11.170Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hephaestus-infrastructure\\script_executions.ts": {
         "hash": "128014d8e50a023f",
-        "generatedAt": "2026-07-18T23:30:04.368Z"
+        "generatedAt": "2026-07-20T04:39:11.173Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\sensory_lexicon.ts": {
         "hash": "a0033769ddc1cab1",
-        "generatedAt": "2026-07-18T23:30:04.372Z"
+        "generatedAt": "2026-07-20T04:39:11.177Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\sensory_map.ts": {
         "hash": "3a85632feddf8853",
-        "generatedAt": "2026-07-18T23:30:04.373Z"
+        "generatedAt": "2026-07-20T04:39:11.178Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\sigil_unlocks.ts": {
         "hash": "c6e25ee31bde9318",
-        "generatedAt": "2026-07-18T23:30:04.374Z"
+        "generatedAt": "2026-07-20T04:39:11.179Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\athena-gamification\\sigils.ts": {
         "hash": "576ece29e41c6a59",
-        "generatedAt": "2026-07-18T23:30:04.375Z"
+        "generatedAt": "2026-07-20T04:39:11.180Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\signals.ts": {
         "hash": "9ebb745fa45d5417",
-        "generatedAt": "2026-07-18T23:30:04.376Z"
+        "generatedAt": "2026-07-20T04:39:11.181Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\species.ts": {
         "hash": "5e048bf8a0c68283",
-        "generatedAt": "2026-07-18T23:30:04.377Z"
+        "generatedAt": "2026-07-20T04:39:11.183Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\daedalus-meta\\templates.ts": {
         "hash": "af64b3b9da6cb255",
-        "generatedAt": "2026-07-18T23:30:04.383Z"
+        "generatedAt": "2026-07-20T04:39:11.188Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\test_patterns.ts": {
         "hash": "1b52487230cf3487",
-        "generatedAt": "2026-07-18T23:30:04.384Z"
+        "generatedAt": "2026-07-20T04:39:11.189Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\mnemosyne-assessment\\thesaurus_entries.ts": {
         "hash": "8623f6b5ebb68b5c",
-        "generatedAt": "2026-07-18T23:30:04.384Z"
+        "generatedAt": "2026-07-20T04:39:11.190Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\ware_participants.ts": {
         "hash": "4b255e7d31559df7",
-        "generatedAt": "2026-07-18T23:30:04.401Z"
+        "generatedAt": "2026-07-20T04:39:11.209Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\plutus-economics\\wares.ts": {
         "hash": "84a4eb133acef9d8",
-        "generatedAt": "2026-07-18T23:30:04.402Z"
+        "generatedAt": "2026-07-20T04:39:11.210Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\work_participants.ts": {
         "hash": "f3c86b502b04f237",
-        "generatedAt": "2026-07-18T23:30:04.403Z"
+        "generatedAt": "2026-07-20T04:39:11.211Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hermes-social\\works.ts": {
         "hash": "88a45093cd11d987",
-        "generatedAt": "2026-07-18T23:30:04.403Z"
+        "generatedAt": "2026-07-20T04:39:11.212Z"
       }
     }
   },

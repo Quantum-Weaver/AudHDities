@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SensoryMapUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/sensory_map';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:04.043Z
+// Generated: 2026-07-20T04:39:10.854Z
 // Table: sensory_map
 
 export async function GET(

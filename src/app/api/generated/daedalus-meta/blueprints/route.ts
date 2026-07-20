@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { BlueprintsInsertSchema } from '@/lib/validators/generated/daedalus-meta/blueprints';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-18T23:30:03.572Z
+// Generated: 2026-07-20T04:39:10.364Z
 // Table: blueprints
 
 export async function GET(request: NextRequest) {

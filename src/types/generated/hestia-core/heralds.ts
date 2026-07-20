@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/heralds.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-18T23:30:03.817Z
+// GENERATED: 2026-07-20T04:39:10.619Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -39,6 +39,7 @@ export interface PublicHeralds {
   is_dismissed: boolean;
   is_read: boolean;
   read_at: string | null;
+  recipient: string | null;
   reference_id: string | null;
   reference_table: string | null;
   title: string | null;
@@ -59,6 +60,7 @@ export interface HeraldsFormData {
   is_dismissed?: boolean;
   is_read?: boolean;
   read_at?: string | null;
+  recipient?: string | null;
   reference_id?: string | null;
   reference_table?: string | null;
   title?: string | null;
@@ -80,6 +82,7 @@ export interface HeraldsValidationResult {
     is_dismissed?: string;
     is_read?: string;
     read_at?: string;
+    recipient?: string;
     reference_id?: string;
     reference_table?: string;
     title?: string;
