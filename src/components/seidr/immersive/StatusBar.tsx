@@ -4,6 +4,7 @@
 import { useUser, tierLight } from "@/hooks/useUser";
 import { useAuth } from "@/hooks/useAuth";
 import { useStatusBar } from "@/hooks/useStatusBar";
+import { useRealm } from "@/hooks/useRealm";
 import { HStack } from "@/components/hof/Stack";
 import { cn } from "@/lib/utils";
 import { Shield, Zap, Bell } from "lucide-react";
@@ -18,6 +19,10 @@ export function StatusBar({ className }: StatusBarProps) {
   const { profile, sovereignTier, isAuthenticated } = useUser();
   const sovereigntyScore = tierLight(sovereignTier);
   const { config } = useStatusBar();
+  // X-OP-0 THE TRIO ADDRESSABLE (Run 08, Phase 5, Movement I Step 2) —
+  // the realm this route belongs to, per the driver map (lib/constants/
+  // systems/trio.ts), replacing the environment this bar used to hardcode.
+  const { config: realmConfig } = useRealm();
 
   if (!isAuthenticated || !user) {
     return (
@@ -44,7 +49,7 @@ export function StatusBar({ className }: StatusBarProps) {
         {/* ════════════════════════════════════════════════════════════ */}
         {/* CENTER — Realm Name                                              */}
         {/* ════════════════════════════════════════════════════════════ */}
-        <RealmDisplay environment={'home'} />
+        <RealmDisplay environment={realmConfig.environment} />
 
         {/* ════════════════════════════════════════════════════════════ */}
         {/* RIGHT — Energy + Notifications                                  */}
@@ -101,6 +106,7 @@ function RealmDisplay({ environment }: { environment?: string | null }) {
     community: 'The Bazaar', music: 'The Stage', origin: 'The Origin',
     support: 'The Healing Flame', observatory: 'The Observatory',
     architecture: 'The Nexus', invitation: 'The Chamber', lounge: 'The Lounge',
+    forge: 'The Forge', // hephaestus, added with the trio driver map (Run 08 Phase 5 Movement I Step 2)
   };
   const variantLabels: Record<string, string> = {
     '1': 'Warm', '2': 'Mystical', '3': 'Sacred', '4': 'Ethereal',
@@ -125,7 +131,12 @@ function MetricsDisplay() {
   useEffect(() => {
     // Energy — would fetch from energy_logs where user_id = profile.id AND created_at::date = today
     // Notifications — would fetch COUNT from notifications where user_id = profile.id AND is_read = false
-    // For now, placeholder until hooks are connected
+    // Still stubbed: these need real hook wiring against energy_logs/
+    // notifications, which is the L1-05 sitting's job (Sovereign Pulse /
+    // Vessel Whisper / Cosmic Breath as vessel-configurable layers), not this
+    // one (Run 08, Phase 5, Movement I Step 2, 2026-07-20) — honest, not
+    // silently fixed. The sovereignty score just above is NOT stubbed: it
+    // already reads a real value via useUser()/tierLight(sovereignTier).
     setEnergyToday(null);
     setNotifications(0);
   }, [profile?.id]);

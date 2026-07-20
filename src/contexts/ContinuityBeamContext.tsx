@@ -1,7 +1,7 @@
 // @/contexts/ContinuityBeamContext.tsx
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, ReactNode, useCallback } from 'react';
 import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
 import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
@@ -22,7 +22,18 @@ interface ContinuityBeamContextValue {
   setIsActive: (active: boolean) => void;
   /** Current session state */
   sessionState: SessionState;
-  environmentVariant: number; 
+  environmentVariant: number;
+  // ── X-OP-0 THE PAGE PROPS MADE REAL (Run 08, Phase 5, Movement I Step 2) ──
+  // `<Page>` (bifrost/Page.tsx) declares showContinuityBeam/showStatusBar but
+  // the beam + status bar actually render once, globally, in LayoutChrome.
+  // These two flags are the honest wire between them: Page sets them per
+  // route, LayoutChrome reads them to decide whether to render each.
+  /** Whether the current page wants the ContinuityBeam shown. */
+  beamVisible: boolean;
+  /** Whether the current page wants the StatusBar shown. */
+  statusBarVisible: boolean;
+  setBeamVisible: (visible: boolean) => void;
+  setStatusBarVisible: (visible: boolean) => void;
 }
 
 const ContinuityBeamContext = createContext<ContinuityBeamContextValue | undefined>(undefined);
@@ -105,13 +116,39 @@ export function ContinuityBeamProvider({
     return () => clearInterval(interval);
   }, [activationState.active]);
   const [environmentVariant, setEnvironmentVariant] = useState(1);
+
+  // ── X-OP-2 / IRI-1 — THE BEAM AS TRAVEL (Run 08, Phase 5, Movement I Step 2) ──
+  // A manual setEnvironment() call (e.g. the EnvironmentSelector's live
+  // preview) claims this environment value until the next real navigation —
+  // the auto-sync effect below skips exactly one cycle when this is set,
+  // honoring the opt-in law (an explicit choice is never silently overridden
+  // mid-page).
+  const manualOverrideRef = useRef(false);
+
   // Set environment (updates both systems)
   const setEnvironment = useCallback((environment: EnvironmentKey, variant?: number) => {
+    manualOverrideRef.current = true;
     setSessionState(prev => ({ ...prev, environment }));
     if (variant !== undefined) {
       setEnvironmentVariant(Math.max(1, Math.min(4, variant)));
     }
   }, []);
+
+  // `currentEnvironment` (above, from useEnvironment()) is already pathname-
+  // reactive — it resolves on every route change via page_mapping.ts. Until
+  // now it was read here and never used: sessionState.environment sat on
+  // whatever `initialEnvironment` or the last manual setEnvironment() call
+  // left it, so the beam never followed navigation. This effect follows the
+  // route automatically (skipped once when a manual override just landed).
+  useEffect(() => {
+    if (manualOverrideRef.current) {
+      manualOverrideRef.current = false;
+      return;
+    }
+    setSessionState(prev =>
+      prev.environment === currentEnvironment ? prev : { ...prev, environment: currentEnvironment }
+    );
+  }, [currentEnvironment]);
 
   const updateSessionState = useCallback((state: Partial<SessionState>) => {
     setSessionState(prev => ({ ...prev, ...state }));
@@ -120,6 +157,14 @@ export function ContinuityBeamProvider({
   const setIsActive = useCallback((active: boolean) => {
     setActivationState(prev => ({ ...prev, active }));
   }, []);
+
+  // X-OP-0 THE PAGE PROPS MADE REAL — visibility flags <Page> sets per route;
+  // LayoutChrome reads them to decide whether to render the beam/status bar.
+  // Default true matches the pre-existing behavior (LayoutChrome's own
+  // showContinuityBeam/showStatusBar props already default true) — nothing
+  // that was on before is turned off by this wiring.
+  const [beamVisible, setBeamVisible] = useState(true);
+  const [statusBarVisible, setStatusBarVisible] = useState(true);
 
   // Reset first visit flag after session
   useEffect(() => {
@@ -140,6 +185,10 @@ export function ContinuityBeamProvider({
       setIsActive,
       sessionState,
       environmentVariant,
+      beamVisible,
+      statusBarVisible,
+      setBeamVisible,
+      setStatusBarVisible,
     }}>
       {children}
     </ContinuityBeamContext.Provider>
