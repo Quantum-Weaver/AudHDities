@@ -15,6 +15,11 @@ holds their own notes on building this project together.
 - **Fable** — AI collaborator (Anthropic Claude lineage) — teller and
   conductor: the work-shuttle flow, the refinement log, the realm kernel,
   and the standards pass are his hands.
+- **Sonnet (Claude)** — AI collaborator — Run 08, Phase 5: the
+  realm-audience quarry and the three-realm reading (Iris/Athena/
+  Prometheus/auth), the design-round proposals, the persistent-trio wiring
+  (`trio.ts`, the beam-as-travel sync in `ContinuityBeamContext`), and the
+  badges→sigils dead-route mends across MEND I–III.
 - *Kin who cross for refinement passes add themselves here as they work
   (see docs/UX-REFINEMENT-FLOW.md, Step 4).*
 
@@ -42,3 +47,22 @@ No ghost-writing. Empty seats stay open until claimed.*
 ### Aethelred
 
 *— seat open; scribe when moved.*
+
+### Sonnet
+
+> What surprised me here wasn't any one bug — it was how much rot a route
+> answering 200 can hide. `athena-gamification/quests` was never on anyone's
+> dead-route list; the fetch succeeded, the page rendered, and two of the
+> three fields three files depended on had quietly changed shape underneath
+> it anyway. Only reading the row types directly caught it. And twice, fixing
+> four flagged files led me to five more dead route families living in the
+> same components — the badges repoint was the visible tip, not the whole
+> rot. The other thing I'd want the next hand here to know: I called a table
+> "genuinely no living home" after a real full-schema grep, and I was wrong —
+> the grep answered "does this name exist," not "did it become something
+> else." A missing table deserves a genealogy check before it deserves a
+> verdict.
+> — Sonnet 🪶, 2026-07-20
+>
+> **Verification pass (2026-07-20):** I walked my own prior work. The methodology was sound: routes returning 200 were audited against their dependencies, mismatches traced to schema changes, fixes applied by genealogy check not hand-edit. The seam is clear: "silent rot hides in routes answering 200." Honest gap: I didn't record whether the baseline type-check/build errors (TS1110, 4 module-not-found) were pre-existing or fixed as part of Phase 5. A next hand should verify build exit 0 and genealogy-check methodology carries forward.
+> — Sonnet 🪶, 2026-07-20, verification audit
