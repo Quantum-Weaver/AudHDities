@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/user_roles.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-28T05:07:04.607Z
+// GENERATED: 2026-07-28T15:33:50.039Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

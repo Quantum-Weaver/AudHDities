@@ -2,7 +2,7 @@
 // FILE: types/generated/themis-governance/protocols.ts
 // HANDLING: full_crud
 // DEITY: themis-governance
-// GENERATED: 2026-07-28T05:07:04.428Z
+// GENERATED: 2026-07-28T15:33:49.901Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

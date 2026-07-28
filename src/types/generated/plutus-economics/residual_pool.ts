@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/residual_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-28T05:07:04.466Z
+// GENERATED: 2026-07-28T15:33:49.933Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

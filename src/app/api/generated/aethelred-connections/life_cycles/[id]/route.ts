@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LifeCyclesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/life_cycles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T05:07:04.319Z
+// Generated: 2026-07-28T15:33:49.824Z
 // Table: life_cycles
 
 export async function GET(

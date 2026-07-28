@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AnchorEventsInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/anchor_events';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T05:07:03.991Z
+// Generated: 2026-07-28T15:33:49.533Z
 // Table: anchor_events
 
 export async function GET(request: NextRequest) {

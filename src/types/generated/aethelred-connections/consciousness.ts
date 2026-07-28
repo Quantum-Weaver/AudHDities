@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/consciousness.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-28T05:07:04.090Z
+// GENERATED: 2026-07-28T15:33:49.631Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

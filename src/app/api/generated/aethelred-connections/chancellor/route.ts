@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ChancellorInsertSchema } from '@/lib/validators/generated/aethelred-connections/chancellor';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T05:07:04.053Z
+// Generated: 2026-07-28T15:33:49.595Z
 // Table: chancellor
 
 export async function GET(request: NextRequest) {

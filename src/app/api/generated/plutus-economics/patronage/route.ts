@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PatronageInsertSchema } from '@/lib/validators/generated/plutus-economics/patronage';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T05:07:04.375Z
+// Generated: 2026-07-28T15:33:49.859Z
 // Table: patronage
 
 export async function GET(request: NextRequest) {

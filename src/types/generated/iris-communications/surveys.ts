@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/surveys.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-07-28T05:07:04.562Z
+// GENERATED: 2026-07-28T15:33:50.011Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

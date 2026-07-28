@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SkaldUpdateSchema } from '@/lib/validators/generated/aethelred-connections/skald';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T05:07:04.537Z
+// Generated: 2026-07-28T15:33:50.001Z
 // Table: skald
 
 export async function GET(
