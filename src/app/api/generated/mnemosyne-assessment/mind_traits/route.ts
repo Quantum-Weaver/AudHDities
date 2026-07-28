@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MindTraitsInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/mind_traits';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-20T04:39:10.689Z
+// Generated: 2026-07-28T05:07:04.347Z
 // Table: mind_traits
 
 export async function GET(request: NextRequest) {

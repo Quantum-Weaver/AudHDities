@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/covenant_pool.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-20T04:39:10.449Z
+// GENERATED: 2026-07-28T05:07:04.109Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ReportsUpdateSchema } from '@/lib/validators/generated/themis-governance/reports';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-20T04:39:10.794Z
+// Generated: 2026-07-28T05:07:04.458Z
 // Table: reports
 
 export async function GET(

@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/agent_messages.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-20T04:39:10.321Z
+// GENERATED: 2026-07-28T05:07:03.980Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

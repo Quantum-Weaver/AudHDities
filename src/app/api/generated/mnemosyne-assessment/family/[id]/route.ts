@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { FamilyUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/family';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-20T04:39:10.516Z
+// Generated: 2026-07-28T05:07:04.176Z
 // Table: family
 
 export async function GET(

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { VesselInteriorsUpdateSchema } from '@/lib/validators/generated/hestia-core/vessel_interiors';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-20T04:39:10.989Z
+// Generated: 2026-07-28T05:07:04.654Z
 // Table: vessel_interiors
 
 export async function GET(

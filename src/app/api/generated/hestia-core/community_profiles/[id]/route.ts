@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CommunityProfilesUpdateSchema } from '@/lib/validators/generated/hestia-core/community_profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-20T04:39:10.421Z
+// Generated: 2026-07-28T05:07:04.081Z
 // Table: community_profiles
 
 export async function GET(
