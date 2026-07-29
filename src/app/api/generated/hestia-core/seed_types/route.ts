@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SeedTypesInsertSchema } from '@/lib/validators/generated/hestia-core/seed_types';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T15:33:49.976Z
+// Generated: 2026-07-29T16:16:54.014Z
 // Table: seed_types
 
 export async function GET(request: NextRequest) {

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_config.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-28T15:33:50.072Z
+// GENERATED: 2026-07-29T16:16:54.104Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,6 +34,8 @@ export type VesselConfigUpdate = TablesUpdate<'vessel_config'>;
 export interface PublicVesselConfig {
   autoplay_audio: boolean;
   autoplay_video: boolean;
+  ceremony_arrival: boolean;
+  ceremony_farewell: boolean;
   content_warnings: string;
   created_at: string;
   created_by: string | null;
@@ -68,6 +70,8 @@ export interface PublicVesselConfig {
 export interface VesselConfigFormData {
   autoplay_audio?: boolean;
   autoplay_video?: boolean;
+  ceremony_arrival?: boolean;
+  ceremony_farewell?: boolean;
   content_warnings?: string;
   created_at?: string;
   created_by?: string | null;
@@ -103,6 +107,8 @@ export interface VesselConfigValidationResult {
   errors: {
     autoplay_audio?: string;
     autoplay_video?: string;
+    ceremony_arrival?: string;
+    ceremony_farewell?: string;
     content_warnings?: string;
     created_at?: string;
     created_by?: string;

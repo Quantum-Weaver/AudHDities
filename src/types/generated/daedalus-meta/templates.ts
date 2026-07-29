@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/templates.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-07-28T15:33:50.016Z
+// GENERATED: 2026-07-29T16:16:54.051Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,6 +38,7 @@ export interface PublicTemplates {
   has_visual_anchors: boolean;
   icon_emoji: string | null;
   id: string;
+  log: Json;
   name: string;
   pk_pattern: string;
   rls_pattern: string;
@@ -63,6 +64,7 @@ export interface TemplatesFormData {
   has_visual_anchors?: boolean;
   icon_emoji?: string | null;
   id?: string;
+  log?: Json;
   name?: string;
   pk_pattern?: string;
   rls_pattern?: string;
@@ -89,6 +91,7 @@ export interface TemplatesValidationResult {
     has_visual_anchors?: string;
     icon_emoji?: string;
     id?: string;
+    log?: string;
     name?: string;
     pk_pattern?: string;
     rls_pattern?: string;

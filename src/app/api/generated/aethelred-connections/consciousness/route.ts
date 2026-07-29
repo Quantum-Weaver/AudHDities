@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ConsciousnessInsertSchema } from '@/lib/validators/generated/aethelred-connections/consciousness';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-28T15:33:49.632Z
+// Generated: 2026-07-29T16:16:53.664Z
 // Table: consciousness
 
 export async function GET(request: NextRequest) {

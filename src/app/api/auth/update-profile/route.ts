@@ -9,7 +9,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { z } from 'zod';
-import type { TablesUpdate } from '@/types/supabase/database.helpers';
 
 // community_profiles — the vessel's public identity
 const identityUpdateSchema = z.object({
@@ -91,20 +90,12 @@ export async function PATCH(request: NextRequest) {
         );
       }
       if (Object.keys(validatedConfig.data).length > 0) {
-        // STAGING CAST (Movement IV, 2026-07-29): ceremony_arrival/_farewell
-        // await their columns (migrations/20260729_ceremony_choices.sql, KP's
-        // hand) — until applied + types regenerated, the generated
-        // TablesUpdate doesn't know them, and the cast carries them through.
-        // Pre-migration, PostgREST refuses the unknown column (logged below,
-        // non-fatal; the switch reads false again on reload — absence of
-        // choice means OFF, the opt-in law failing safe). After the regen,
-        // this cast is a no-op and may drop.
         const { error: configError } = await supabase
           .from('vessel_config')
           .update({
             ...validatedConfig.data,
             updated_at: new Date().toISOString(),
-          } as TablesUpdate<'vessel_config'>)
+          })
           .eq('created_by', user.id);
 
         if (configError) {

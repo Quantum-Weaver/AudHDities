@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/lessons.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-07-28T15:33:49.817Z
+// GENERATED: 2026-07-29T16:16:53.855Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

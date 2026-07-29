@@ -13,6 +13,8 @@ import z from 'zod';
 export const VesselConfigRowSchema = z.object({
   autoplay_audio: z.boolean(),
   autoplay_video: z.boolean(),
+  ceremony_arrival: z.boolean(),
+  ceremony_farewell: z.boolean(),
   content_warnings: z.string(),
   created_at: z.string(),
   created_by: z.string().nullable(),
@@ -43,6 +45,8 @@ export const VesselConfigRowSchema = z.object({
 export const VesselConfigInsertSchema = z.object({
   autoplay_audio: z.boolean().optional(),
   autoplay_video: z.boolean().optional(),
+  ceremony_arrival: z.boolean().optional(),
+  ceremony_farewell: z.boolean().optional(),
   content_warnings: z.string().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
@@ -73,6 +77,8 @@ export const VesselConfigInsertSchema = z.object({
 export const VesselConfigUpdateSchema = z.object({
   autoplay_audio: z.boolean().optional(),
   autoplay_video: z.boolean().optional(),
+  ceremony_arrival: z.boolean().optional(),
+  ceremony_farewell: z.boolean().optional(),
   content_warnings: z.string().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),

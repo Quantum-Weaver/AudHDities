@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/sigils.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-07-28T15:33:49.989Z
+// GENERATED: 2026-07-29T16:16:54.027Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

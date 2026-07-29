@@ -2,11 +2,12 @@
 // FILE: types/generated/daedalus-meta/gaia_config.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-07-28T15:33:49.719Z
+// GENERATED: 2026-07-29T16:16:53.758Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Json } from '@/types/supabase/database.types.js';
 
 // =====================================================
 // CORE TYPES
@@ -38,6 +39,7 @@ export interface PublicGaiaConfig {
   icon_emoji: string | null;
   id: string;
   is_active: boolean;
+  log: Json;
   notes: string | null;
   schema_columns_count: number | null;
   schema_hash: string | null;
@@ -77,6 +79,7 @@ export interface GaiaConfigFormData {
   icon_emoji?: string | null;
   id?: string;
   is_active?: boolean;
+  log?: Json;
   notes?: string | null;
   schema_columns_count?: number | null;
   schema_hash?: string | null;
@@ -117,6 +120,7 @@ export interface GaiaConfigValidationResult {
     icon_emoji?: string;
     id?: string;
     is_active?: string;
+    log?: string;
     notes?: string;
     schema_columns_count?: string;
     schema_hash?: string;

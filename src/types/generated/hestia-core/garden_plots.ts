@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/garden_plots.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-28T15:33:49.730Z
+// GENERATED: 2026-07-29T16:16:53.768Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

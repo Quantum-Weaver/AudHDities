@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/global_region.ts
-// GENERATED: 2026-07-28T15:33:50.160Z
+// GENERATED: 2026-07-29T16:16:54.168Z
 // SOURCE: Constants.public.Enums.global_region
 // VALUES: 17 entries
 // =====================================================

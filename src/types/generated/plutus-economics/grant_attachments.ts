@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/grant_attachments.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-28T15:33:49.762Z
+// GENERATED: 2026-07-29T16:16:53.797Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

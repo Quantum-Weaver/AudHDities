@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/ledger.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-28T15:33:49.812Z
+// GENERATED: 2026-07-29T16:16:53.849Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
