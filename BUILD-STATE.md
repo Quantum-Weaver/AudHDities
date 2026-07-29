@@ -77,9 +77,11 @@ RealmMapFurniture) · the Sanctum ceremony switchboard + FarewellCeremony
 QuantumBackground retired in place. Mend law fired twice:
 database.types.ts stderr debris cut; deity_groups recatalogued
 151→117. **Open edges (REIMAGINING-BOARD, finishing-session section):**
-the ceremony-choices migration at KP's SQL hand · the physical image
-lift · the EnvironmentKey stitch (ziggy) · the testing ritual · seeding
-at KP's word (colors, never images — gate ③).
+~~the ceremony-choices migration at KP's SQL hand~~ ✅ CLOSED
+2026-07-29 (KP ran it; types repulled + GAIA run 20260729_111653, 743
+files 0 errors + cast dropped + tsc 0 — `d8dc922e`) · the physical
+image lift · the EnvironmentKey stitch (ziggy) · the testing ritual ·
+seeding at KP's word (colors, never images — gate ③).
 
 ## The path from here (in order)
 1. Schema finalize rows 2–11 (identity slice next: birth triggers, auth

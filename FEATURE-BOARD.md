@@ -58,12 +58,13 @@ RECONCILIATION-CAMPAIGN.md) is the deep record.*
   furniture per gate ②) · the Sanctum ceremony switchboard (opt-in,
   defaults false) with the farewell wearing *Gweld ti'n fuan* at the
   release beat. Full record: REIMAGINING-BOARD, finishing-session
-  section. **Five open edges:** ① `supabase/migrations/
-  20260729_ceremony_choices.sql` awaits KP's ⚛ SQL hand (toggles fail
-  safe to OFF until then) · ② the physical image lift
-  (public/environments + mapper.ts, no longer rendered) · ③ the
-  EnvironmentKey mirror stitch (lane ziggy's) · ④ the testing ritual
-  as acceptance rite (3–5 neurodivergent vessels) · ⑤ seeding
+  section. **Five open edges:** ① ✅ CLOSED 2026-07-29 — KP's ⚛ hand
+  ran the ceremony-choices migration; types repulled (byte-verified),
+  GAIA re-run (743 files, 0 errors), staging cast dropped, tsc 0
+  (`d8dc922e`). The toggles are live end to end · ② the physical
+  image lift (public/environments + mapper.ts, no longer rendered) ·
+  ③ the EnvironmentKey mirror stitch (lane ziggy's) · ④ the testing
+  ritual as acceptance rite (3–5 neurodivergent vessels) · ⑤ seeding
   activates at KP's word under gate ③ (colors, never images).
 
 ## Post-launch (queued, not blocking)
