@@ -67,6 +67,20 @@ KP's sequence: design the front → then seed. This inheritance is a
 parallel stream to the path below — the schema-finalize path is
 upstream of it, not in conflict (the Core's word, 2026-07-29).
 
+**→ BUILT the same day (trued at M10):** the finishing session ran
+①–⑤ whole — commit `c3a9ede0`, tsc 0 at every step (re-verified 0 by
+this lane). New organs live: `EnvironmentLayer` under all 127 pages ·
+`environments/affects.ts` (token bundles) · the scene renderer at
+`/vessel/home` (SceneRenderer · GardenBed · SceneDoorway ·
+RealmMapFurniture) · the Sanctum ceremony switchboard + FarewellCeremony
+(*Gweld ti'n fuan* at the release beat). PanoramaViewer +
+QuantumBackground retired in place. Mend law fired twice:
+database.types.ts stderr debris cut; deity_groups recatalogued
+151→117. **Open edges (REIMAGINING-BOARD, finishing-session section):**
+the ceremony-choices migration at KP's SQL hand · the physical image
+lift · the EnvironmentKey stitch (ziggy) · the testing ritual · seeding
+at KP's word (colors, never images — gate ③).
+
 ## The path from here (in order)
 1. Schema finalize rows 2–11 (identity slice next: birth triggers, auth
    canon, attribution) — ~9 more bounded sessions at today's pace.

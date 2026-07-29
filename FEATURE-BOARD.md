@@ -46,6 +46,25 @@ RECONCILIATION-CAMPAIGN.md) is the deep record.*
   convenes as a fresh expert session at KP's word; this lane's
   refine path (identity slice → regen → dangling imports) is
   upstream of, not in conflict with, this work (the Core's word).
+- **→ BUILT 2026-07-29, same day** (trued by the audhd lane at M10):
+  the finishing session ran the whole work-order ①–⑤ — commit
+  `c3a9ede0`, tsc 0 after every step, re-verified 0 by this lane's own
+  hands. The Sanctuary now has: the header dressing from the driver
+  map · `EnvironmentLayer` breathing under all 127 pages
+  (PanoramaViewer + QuantumBackground retired in place, piecing
+  license) · the resolver feeding token bundles · **the scene renderer
+  at `/vessel/home`** (rooms, decorations, GardenBed with
+  dormancy-not-death, sight-lines still by default, the realm map as
+  furniture per gate ②) · the Sanctum ceremony switchboard (opt-in,
+  defaults false) with the farewell wearing *Gweld ti'n fuan* at the
+  release beat. Full record: REIMAGINING-BOARD, finishing-session
+  section. **Five open edges:** ① `supabase/migrations/
+  20260729_ceremony_choices.sql` awaits KP's ⚛ SQL hand (toggles fail
+  safe to OFF until then) · ② the physical image lift
+  (public/environments + mapper.ts, no longer rendered) · ③ the
+  EnvironmentKey mirror stitch (lane ziggy's) · ④ the testing ritual
+  as acceptance rite (3–5 neurodivergent vessels) · ⑤ seeding
+  activates at KP's word under gate ③ (colors, never images).
 
 ## Post-launch (queued, not blocking)
 - The doorbell: /meet scheduling + Resend confirmations (meetings' face).
