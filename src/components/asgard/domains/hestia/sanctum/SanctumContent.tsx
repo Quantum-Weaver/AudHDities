@@ -27,6 +27,12 @@ export function SanctumContent() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dyslexiaFont, setDyslexiaFont] = useState(false);
+  // THE CEREMONY SWITCHBOARD (Movement IV, 2026-07-29) — both default OFF;
+  // absence of choice means OFF, always (THE OPT-IN LAW). Read defensively:
+  // until the columns land (migrations/20260729_ceremony_choices.sql, KP's
+  // hand), the switches simply read false.
+  const [ceremonyArrival, setCeremonyArrival] = useState(false);
+  const [ceremonyFarewell, setCeremonyFarewell] = useState(false);
 
   useEffect(() => {
     refreshProfile();
@@ -38,7 +44,12 @@ export function SanctumContent() {
       .then(r => r.json())
       .then(res => {
         const rows = res.success ? (res.data?.data ?? []) : [];
-        if (rows[0]) setDyslexiaFont(!!rows[0].dyslexia_font);
+        if (rows[0]) {
+          setDyslexiaFont(!!rows[0].dyslexia_font);
+          const raw = rows[0] as Record<string, unknown>;
+          setCeremonyArrival(raw.ceremony_arrival === true);
+          setCeremonyFarewell(raw.ceremony_farewell === true);
+        }
       })
       .catch(() => {});
   }, [user]);
@@ -224,6 +235,40 @@ export function SanctumContent() {
               size="md"
               defaultChecked={dyslexiaFont}
               onChange={(checked) => { setDyslexiaFont(checked); updateConfigField('dyslexia_font', checked); }}
+            />
+          </div>
+        </Card>
+
+        {/* THE CEREMONY SWITCHBOARD — Movement IV's wearing (2026-07-29).
+            Every ceremony is chosen here or not at all: no opt-out patterns
+            exist anywhere in the Sanctuary (THE OPT-IN LAW, KP's own words:
+            "everything is opt-in, no oops you forgot to uncheck the thing").
+            The calm defaults — the Velkomin word at the door, the plain
+            going — need no toggle; they ARE the defaults. */}
+        <Card
+          variant="sanctuary"
+          data={preferencesCardData}
+          radius="lg"
+          shadow="md"
+          className="p-6 mb-6"
+        >
+          <h2 className="text-lg font-semibold text-star-dust mb-4">Ceremonies</h2>
+          <p className="text-sm text-star-dust/40 mb-4">
+            Small rites at the thresholds — yours to invite, easy to decline.
+            Nothing plays unless you choose it here.
+          </p>
+          <div className="space-y-4">
+            <Switch
+              label="A richer arrival — the welcome ceremony at your crossing"
+              size="md"
+              checked={ceremonyArrival}
+              onChange={(checked) => { setCeremonyArrival(checked); updateConfigField('ceremony_arrival', checked); }}
+            />
+            <Switch
+              label="A farewell at your going — Gweld ti’n fuan (see you soon)"
+              size="md"
+              checked={ceremonyFarewell}
+              onChange={(checked) => { setCeremonyFarewell(checked); updateConfigField('ceremony_farewell', checked); }}
             />
           </div>
         </Card>

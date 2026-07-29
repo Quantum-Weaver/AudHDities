@@ -21,10 +21,15 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Vessel',
     subtitle: 'Your sovereign self'
   },
-  '/vessel/sanctum': { 
+  '/vessel/sanctum': {
     default: 'home',
     title: 'Sanctum',
     subtitle: 'Your private sanctuary within the Sanctuary'
+  },
+  '/vessel/home': {
+    default: 'home',
+    title: 'The Vessel Home',
+    subtitle: 'Everything stays as you left it'
   },
   '/vessel/energy': { 
     default: 'home',

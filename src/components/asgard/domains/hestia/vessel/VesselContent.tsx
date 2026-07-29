@@ -15,7 +15,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
@@ -120,6 +120,8 @@ export function VesselContent() {
   }
 
   const quickLinks = [
+    // The home — the scene renderer's door (Run 08, the finishing session)
+    { href: '/vessel/home', label: 'The Home', icon: Home, id: 'home' },
     { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
     { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
     { href: '/library/bubbles', label: 'Bubbles', icon: Droplets, id: 'bubbles' },

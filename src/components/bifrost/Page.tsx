@@ -10,7 +10,7 @@
 
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
-import PanoramaViewer from "@/components/seidr/immersive/PanoramaViewer";
+import EnvironmentLayer from "@/components/seidr/immersive/EnvironmentLayer";
 import { useContinuityBeam } from "@/contexts/ContinuityBeamContext";
 import type { EnvironmentKey } from "@/lib/constants/systems";
 
@@ -64,12 +64,17 @@ export function Page({
     };
   }, [showContinuityBeam, showStatusBar, setBeamVisible, setStatusBarVisible]);
 
+  // THE FIFTH INSTRUMENT (Run 08, Phase 5, the finishing session 2026-07-29):
+  // the PanoramaViewer layer yields to the token-driven EnvironmentLayer —
+  // affect from constants, not from pictures (KP's ✍ strokes 2026-07-19 and
+  // 2026-07-29; the images retire lose-nothing). All 127 pages inherit this
+  // in one stroke; showForeground rides until the scene renderer gives
+  // foregrounds their token-era successor.
   return (
     <div className={cn("relative", className)}>
-      <PanoramaViewer
+      <EnvironmentLayer
         environment={environment}
         variant={variant}
-        showForeground={showForeground}
         animated={animated}
         className="fixed inset-0 -z-10"
       />

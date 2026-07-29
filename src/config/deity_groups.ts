@@ -9,6 +9,16 @@
 // (Linnean ranks to Mnemosyne, the marketplace out of core, the vessel
 // experience homed at the hearth). Two placements flagged inline for KP's
 // eye rather than settled silently.
+//
+// Recatalogued again 2026-07-29 (the finishing session, mend law): THE
+// SUPERPOSITION REVIEW (151→117 by KP's hand) retired 34 tables — the
+// Linnean ladder, the knowledge lexicon set (taxonomy/etymology/sensory_
+// lexicon…, now the Grammar base's country), the Iris localization set,
+// the five *_connection tables (the integrations consolidation's ground),
+// categories/artisan_category_links/mythology/patterns/mind_traits/
+// test_patterns/generation_templates. Their references are removed here so
+// the map matches the base that knows itself; all 117 live tables remain
+// assigned, none orphaned (verified by diff against database.types.ts).
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -110,14 +120,12 @@ export const DEITY_GROUPS: DeityGroup[] = [
     sequence: 3,
     folderName: 'hermes-social',
     description:
-      'The Bazaar — creative works, artisans, merchants, and their categories',
+      'The Bazaar — creative works, artisans, and merchants',
     tables: [
       'works',
       'work_participants',
       'artisan_profiles',
-      'artisan_category_links',
       'merchant_profiles',
-      'categories',
     ],
   },
 
@@ -130,7 +138,7 @@ export const DEITY_GROUPS: DeityGroup[] = [
     sequence: 4,
     folderName: 'athena-gamification',
     description:
-      'The Library — quests, sigils (the badge successor), bubbles, learning paths, mythology, and the stage scenes',
+      'The Library — quests, sigils (the badge successor), bubbles, learning paths, and the stage scenes',
     tables: [
       'quests',
       'quest_progress',
@@ -141,7 +149,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'lessons',
       'learning_paths',
       'path_lessons',
-      'mythology',
       // scenes may someday deserve a prometheus-creative group of their own
       // (Stage & Studio's tables) — kept here until KP calls that birth,
       // since a new folderName moves generated routes
@@ -159,35 +166,16 @@ export const DEITY_GROUPS: DeityGroup[] = [
     sequence: 5,
     folderName: 'mnemosyne-assessment',
     description:
-      'The Observatory — the Acid Test, memories, patterns, the sensory lexicon, and the full Linnean rank ladder',
+      'The Observatory — the Acid Test, memories, resonance, and the folksonomy (the knowledge lexicon and Linnean ladder now live in the Grammar base, per the Superposition Review)',
     tables: [
       'assessment_questions',
       'assessment_answers',
       'assessment_results',
       'memories',
-      'patterns',
       'anchor_events',
-      'mind_traits',
       'resonance',
-      'taxonomy',
-      'ontology',
       'folksonomy',
-      'etymology',
-      'thesaurus_entries',
-      'keywords',
-      'sensory_lexicon',
-      'sensory_map',
-      'test_patterns',
       'reference_values',
-      // the Linnean ladder (the Linnean Ontological Design story, motherlode #2)
-      'domain',
-      'kingdom',
-      'phylum',
-      'class',
-      'order',
-      'family',
-      'genus',
-      'species',
     ],
   },
 
@@ -224,18 +212,11 @@ export const DEITY_GROUPS: DeityGroup[] = [
     sequence: 7,
     folderName: 'iris-communications',
     description:
-      'The Bridge — messages, channels, signals, localization, personas, surveys, contact',
+      'The Bridge — messages, channels, signals, personas, surveys, contact',
     tables: [
       'messages',
       'channels',
       'signals',
-      'continents',
-      'regions',
-      'languages',
-      'localization',
-      'translations',
-      'culturalization',
-      'customs',
       'personas',
       'contact_submissions',
       'email_communications',
@@ -277,13 +258,8 @@ export const DEITY_GROUPS: DeityGroup[] = [
     sequence: 9,
     folderName: 'aethelred-connections',
     description:
-      'The Nexus — external connections, consciousness, the eight seat tables, agents, entity states',
+      'The Nexus — consciousness, the eight seat tables, agents, entity states (the per-platform *_connection tables retired in the Superposition Review; the integrations consolidation will give this group its successor table when it lands)',
     tables: [
-      'supabase_connection',
-      'stripe_connection',
-      'resend_connection',
-      'vercel_connection',
-      'github_connection',
       'consciousness',
       'aethelred_house',
       // the eight archetypal seats (the ninth chair is Aethelred himself)
@@ -318,7 +294,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     tables: [
       'blueprints',
       'generations',
-      'generation_templates',
       'templates',
       'boundaries',
       'gaia_config',

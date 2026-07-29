@@ -1,4 +1,10 @@
 // @/components/immersive/PanoramaViewer.tsx
+// ⚱ RETIRED 2026-07-29 (THE-FRONTEND-REIMAGINING, finishing session) — the
+// image era's wrapper organ. KP's ✍ strokes: images retired 2026-07-19
+// (lose-nothing ×2: Well archive + holodeck second life); "the quantum
+// backgroud is likely being retired" 2026-07-29. Successor: EnvironmentLayer
+// (token-driven, same spine). Rendered nowhere; kept whole per the piecing
+// license — nothing deleted, the system rests in history and the Well.
 // Refined - uses your existing constants, no breaking changes
 
 "use client";

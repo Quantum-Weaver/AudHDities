@@ -42,6 +42,8 @@ import {
 } from '@/lib/constants/components/immersive/continuity_beam';
 import { GRADIENTS } from '@/lib/constants/cosmic/effects';
 import { getStatusBarConfig } from './environments/status_bar';
+import { HEADER_DATA, getPageMetadata } from './environments/page_mapping';
+import type { BaseEnvironmentKey, HeaderTypography } from './environments/types';
 
 // ============================================================================
 // REALM KEYS — the eleven `(parenthesis)` route groups + auth
@@ -207,4 +209,60 @@ export function detectRealmFromPath(pathname: string | null | undefined): RealmK
 /** Convenience accessor — the environment key a realm's chrome should read. */
 export function getRealmEnvironment(realm: RealmKey): EnvironmentKey {
   return REALM_TRIO_MAP[realm].environment;
+}
+
+// ============================================================================
+// THE HEADER LANE — the quartet's fourth instrument joins the driver map
+// ============================================================================
+// Provenance: THE QUARTET CORRECTION (KP, 2026-07-20, REIMAGINING-BOARD.md:
+// "i realize now i left out the header when offering the immersive
+// environmental tools") — the audience said it first (L1-05: "the status bar
+// should display something other than title and subtitle as the header
+// handles those"). Movement IV duty, built 2026-07-29 by the finishing
+// session of THE-FRONTEND-REIMAGINING (study record:
+// fable/lanes/study/e2-the-ux-study-bus.md, round 8a work-order step ①).
+//
+// A REFERENCE lane, additions-only: every value points at data that already
+// lives one file over — HEADER_DATA + getPageMetadata (page_mapping.ts) and
+// each realm's Feeling line already quoted above. The Header was always the
+// quartet's DRIVER (it sets the environment on route change); this lane lets
+// it also DRESS from the same spine the other three instruments read.
+
+export interface RealmHeaderConfig {
+  /** Page title (page-specific override, else the realm's environment default). */
+  title: string;
+  /** Page subtitle, same resolution order. */
+  subtitle: string;
+  /** The realm's Feeling line — the affect register this header stands in
+   *  (addressable for surfaces that wear it; the Header itself stays quiet). */
+  feeling: string;
+  /** The environment key the resolved page carries — the Header sets this
+   *  into ContinuityBeamContext, driving the other three instruments. */
+  environment: BaseEnvironmentKey;
+  /** Whether the header may carry an ancient quote (HEADER_DATA default). */
+  showAncientQuote: boolean;
+  /** Typography classes per breakpoint — HEADER_DATA.typography, by reference. */
+  typography: {
+    default: HeaderTypography;
+    mobile: HeaderTypography;
+    desktop: HeaderTypography;
+  };
+}
+
+/** The header lane's one door: pathname → realm-aware header dress.
+ *  Resolution order preserved from the pre-lane Header: page metadata wins
+ *  (exact route, then wildcard), the environment default is the fallback —
+ *  behavior identical, address unified. */
+export function getRealmHeader(pathname: string | null | undefined): RealmHeaderConfig {
+  const realm = detectRealmFromPath(pathname);
+  const metadata = getPageMetadata(pathname ?? '/');
+
+  return {
+    title: metadata.title,
+    subtitle: metadata.subtitle,
+    feeling: REALM_TRIO_MAP[realm].feeling,
+    environment: metadata.environment,
+    showAncientQuote: HEADER_DATA.showAncientQuoteDefault,
+    typography: HEADER_DATA.typography,
+  };
 }

@@ -6486,12 +6486,3 @@ export const Constants = {
     },
   },
 } as const
-node.exe : A new version of Supabase CLI is available: v2.110.0 (currently installed v2.95.5)
-At line:1 char:1
-+ & "C:\Program Files\nodejs/node.exe" "C:\Users\audhd\AppData\Roaming\ ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (A new version o...talled v2.95.5):String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-We recommend updating regularly for new features and bug fixes: 
-https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli

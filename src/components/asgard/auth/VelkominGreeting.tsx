@@ -33,13 +33,16 @@
 // showContinuityBeam on the /vessel page). A soft opacity fade only;
 // instant under prefers-reduced-motion.
 //
-// DATED HOOK (not built, not defaulted — 2026-07-20): should the Sanctum
-// ever offer a richer, explicitly opt-in arrival ceremony, the natural
-// composing token is O-1's `.ceremony-welcome` (ceremonies.css — approach/
-// weave/seat/bless beats, written for exactly a first admission) for the
-// inaugural crossing, with `.ceremony-recognition` for returns thereafter.
-// Neither is wired here; this file only leaves the seam named, per the
-// opt-in law — a future Sanctum choice turns it on, never a shipped default.
+// DATED HOOK (2026-07-20) → TURNED ON AT THE SANCTUM'S CHOICE (2026-07-29,
+// Movement IV, the finishing session): the Sanctum now offers the richer
+// arrival as an explicit opt-in (ceremony_arrival, default false —
+// migrations/20260729_ceremony_choices.sql). When — and only when — the
+// vessel chose it, the crossing wears O-1's `.ceremony-welcome` (approach/
+// weave/seat/bless beats, emitted in ceremonies.css; keyframes from the
+// generated animations vocabulary). The calm word remains the default for
+// everyone else, exactly as shipped in Movement III. The seam's other half
+// (`.ceremony-recognition` for returns) stays named, not wired — returns
+// are recognitions, and recognition surfaces belong to a later movement.
 
 'use client';
 
@@ -82,6 +85,10 @@ export default function VelkominGreeting() {
   const { user, profile, isLoading } = useUser();
   const [shouldRender, setShouldRender] = useState(false);
   const [visible, setVisible] = useState(false);
+  // The richer arrival — ONLY at the vessel's own Sanctum choice
+  // (ceremony_arrival, default false; read defensively so a not-yet-
+  // migrated base means the calm default, which is the opt-in law working).
+  const [richerArrival, setRicherArrival] = useState(false);
 
   // Decide, once, whether this mount IS the crossing.
   useEffect(() => {
@@ -92,6 +99,20 @@ export default function VelkominGreeting() {
     markCrossed();
     setShouldRender(true);
   }, [isLoading, user]);
+
+  // Read the ceremony choice only when this mount is a crossing at all.
+  useEffect(() => {
+    if (!shouldRender || !user) return;
+    fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
+      .then((r) => r.json())
+      .then((res) => {
+        const row = res.success ? (res.data?.data ?? [])[0] : undefined;
+        setRicherArrival(
+          !!row && (row as Record<string, unknown>).ceremony_arrival === true
+        );
+      })
+      .catch(() => {});
+  }, [shouldRender, user]);
 
   // Soft fade in; instant under reduced motion.
   useEffect(() => {
@@ -111,6 +132,32 @@ export default function VelkominGreeting() {
   // "Velkomin, {vessel_name}." verbatim — the period stands; no exclamation,
   // no "back," no inflection. Degrades to "Velkomin." alone, still whole.
   const words = vesselName ? `Velkomin, ${vesselName}.` : 'Velkomin.';
+
+  if (richerArrival) {
+    // The opted-in welcome ceremony — the word approaches, the blessing
+    // follows (O-1's emitted beats; the generated CSS stills every beat
+    // under reduced motion). Same words, same register: the ceremony is
+    // more time, never more noise.
+    return (
+      <div
+        className="ceremony-welcome w-full max-w-3xl mx-auto px-6 pt-8 text-center"
+        data-testid="velkomin-greeting"
+      >
+        <p
+          className="beat-approach text-lg md:text-xl font-medium text-star-dust"
+          style={{ animationName: 'fadeInUp' }}
+        >
+          {words}
+        </p>
+        <p
+          className="beat-bless mt-2 text-sm text-star-dust/50"
+          style={{ animationName: 'fadeInUp' }}
+        >
+          The flame has been waiting.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div
