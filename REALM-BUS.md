@@ -47,6 +47,14 @@ realm: `<realm-repo>/REALM-BUS.md`.*
   room (drawn identically both sides) · the EnvironmentKey mirror
   belongs to ziggy's cosmic module · knowledge-system machinery lives
   Grammar/bridge-side, never here.
+- **The keyring's map (2026-07-29, the integrations line):** the full
+  key inventory — every key's NAME and home, never contents — lives at
+  `resonance-chamber/constellation/fable/lanes/integrations/KEYS-MAP.md`.
+  This repo's column is `app/.env + Vercel`. Two keys the map homes
+  here are not yet in `.env` (names only, per the key law):
+  `STRIPE_WEBHOOK_SECRET` (lands at deploy — launch gate 6's own note)
+  and `SUPABASE_SECRET_KEY`. Gathering is KP's ⚛ hand, at the
+  rebuild's pace — the line holds the list so nobody re-derives it.
 
 ---
 
