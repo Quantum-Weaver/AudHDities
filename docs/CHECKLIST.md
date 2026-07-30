@@ -39,9 +39,10 @@ is the spec; docs/UX-REFINEMENT-LOG.md is the append-only memory.)*
 | ID | Description | Status |
 |----|-------------|--------|
 | B1 | `tsc --noEmit` exit 2 — TS1110 in `src/types/generated/hestia-core/user_private.ts(32,21)` | ✅ healed — type-check exit 0 verified 2026-07-29 (audhd lane, post 07-28 regen + finishing session) |
-| B2 | Build exit 1 — `ApplicationForm.tsx` imports missing `@/hooks/generated/hestia-core/profiles` | 🔴 unverified since the 07-28 regen — re-run `npm run build` to true |
-| B3 | Build exit 1 — `AcidTestForm.tsx` imports missing `@/lib/constants/generated/mnemosyne-assessment/acid_question_type` | 🔴 unverified since the 07-28 regen — re-run `npm run build` to true |
+| B2 | Build exit 1 — `ApplicationForm.tsx` imports missing `@/hooks/generated/hestia-core/profiles` | ✅ healed — KP's build run 2026-07-29: "Compiled successfully", TypeScript passed; the regen closed it |
+| B3 | Build exit 1 — `AcidTestForm.tsx` imports missing `@/lib/constants/generated/mnemosyne-assessment/acid_question_type` | ✅ healed — same build run, same evidence |
 | B4 | Lint toolchain: `next lint` removed in Next 16; direct ESLint 10 crashes on bundled eslint-plugin-react | 🔴 |
+| B5 | Build exit 1 at PRERENDER (new class, noted by KP's test run 2026-07-29): `useSearchParams()` without a Suspense boundary — build died at `/(hermes)/bazaar/creations`. Sweep shows the class in 4 client components: `hermes/creations/CreationsGallery.tsx` · `hermes/creators/CreatorsGallery.tsx` · `hermes/checkout/CheckoutForm.tsx` · `auth/LoginForm.tsx` (build exits at first error, so all four pages are suspects). Fix shape: wrap each in `<Suspense>` at its page. | 🔴 noted, fix awaits the word |
 
 *(B1–B3 share one root: the generated layer. FABLE-KERNEL.md's standing
 truths already name the dangling generated-import classes; BUILD-STATE.md
