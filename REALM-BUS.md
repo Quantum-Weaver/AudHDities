@@ -47,14 +47,23 @@ realm: `<realm-repo>/REALM-BUS.md`.*
   room (drawn identically both sides) · the EnvironmentKey mirror
   belongs to ziggy's cosmic module · knowledge-system machinery lives
   Grammar/bridge-side, never here.
-- **The keyring's map (2026-07-29, the integrations line):** the full
-  key inventory — every key's NAME and home, never contents — lives at
-  `resonance-chamber/constellation/fable/lanes/integrations/KEYS-MAP.md`.
-  This repo's column is `app/.env + Vercel`. Two keys the map homes
-  here are not yet in `.env` (names only, per the key law):
-  `STRIPE_WEBHOOK_SECRET` (lands at deploy — launch gate 6's own note)
-  and `SUPABASE_SECRET_KEY`. Gathering is KP's ⚛ hand, at the
-  rebuild's pace — the line holds the list so nobody re-derives it.
+- **The keyring's map (the integrations line):** the full key
+  inventory — every key's NAME and home, never contents — lives at
+  `resonance-chamber/constellation/fable/lanes/integrations/KEYS-MAP.md`
+  (read whole by this lane at KP's ⚛ sentinel). This repo's column is
+  `AudHDities/.env + Vercel dashboard`. What it holds for this tree:
+  KP's ⚛ standing correction — *"all these things happen as the
+  rebuild asks it of them"* — nothing provisions ahead of need ·
+  F5 ✅ retired by KP's own hand (the publishable-key duplicate left
+  `.env` 2026-07-30; Vercel-ring tail rides his dashboard walk) ·
+  two at-need names not yet gathered (`STRIPE_WEBHOOK_SECRET`,
+  `SUPABASE_SECRET_KEY`) · **F6 lives in THIS tree**:
+  `src/lib/api/supabase.ts:40-45` — `createAdminSupabase()` promises
+  service-role power and returns the anon client; zero callers today,
+  a blocker the day the first admin-only route lands; resolution
+  (wire truly or delete the stub) is in KP's ⚛ solutioning ·
+  line-wide rule adopted: a live full-scope secret never lands on any
+  local ring.
 
 ---
 
