@@ -52,11 +52,18 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
 - **Open edges (this realm's own):**
   - The testing ritual — 3–5 neurodivergent vessels, watched without
     instructions (the acceptance rite; the built surfaces await it).
-  - Seeding at KP's ⚛ word — DATA-SEEDS Movement VI rows under
-    ✍ gate ③ (colors, never image shapes, in fresh rows); includes
-    the realm map's own row (`vessel_decorations`,
-    `decoration_type='realm_map'`, `position='wall'` or table) under
-    gates ②+③.
+  - Seeding at KP's ⚛ word — **needs MAPPED 2026-07-30** (the Hearth
+    slice in `resonance-chamber/desk/records/the-reimagining/
+    DATA-SEEDS.md`): catalogs first (`plant_stages` — one global
+    ladder · `seed_types`), collections wait for their surface,
+    dweller rows (interiors/rooms/decorations incl. the `realm_map`
+    row/plots) are KP's First-Vessel rite, not a seed batch. All
+    under ✍ gate ③ (image-era columns stay NULL; no image shapes).
+    Base verified ZERO rows by KP's eye, 2026-07-30.
+  - The planting/watering gestures — the scene is read-only today
+    (verified: no create-hook consumers); plant/water/found-a-room
+    surfaces are unbuilt. They ride the arranging crossing or an
+    earlier one; intent convenes on this table first.
   - The ARRANGING surface — scene placement is deliberately
     flow-layout this pass (`display_order` stable sort; spatial
     `position`/`module_positions` unread by design intent, not
