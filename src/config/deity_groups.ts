@@ -25,6 +25,15 @@
 // its hall. Lesson from its first regen: an unmapped table falls to the
 // hestia-core catchall — when a table is born or returns, this map is part
 // of the same sitting's work.
+//
+// 2026-07-31 (KP's word, the gaia-patterns sitting): the seven self-knowing
+// registry tables (columns/policies/functions/triggers/indexes/enums/
+// composite_types) join DAEDALUS here, matching their standing assignment in
+// the base's own gaia_config (deity_group daedalus-meta, 13 tables). The
+// generation pieces' home is src/config/daedalus/ (his word, same sitting).
+// FLAGGED FOR KP'S EYE, not settled silently: `votes` stands ACTIVE and
+// UNASSIGNED in the base ("discovered by gaia_sync") — it needs his deity
+// ruling in the base first; this map mirrors, never decides.
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -307,6 +316,16 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'boundaries',
       'gaia_config',
       'gaia_generation_log',
+      // the self-knowing registries (added 2026-07-31 at KP's word,
+      // matching the base's own daedalus-meta assignment — the schema
+      // tables that let the base introduce itself)
+      'columns',
+      'policies',
+      'functions',
+      'triggers',
+      'indexes',
+      'enums',
+      'composite_types',
     ],
   },
 
