@@ -65,6 +65,12 @@ KP merges · privacy always. Plus this realm's own standing law:
     (provenance starts empty until a surface exists to name the
     helpers) — design question for a future sitting.
   - The catalog-share crossing (joint with hestia) when it convenes.
+- **Design inheritance (2026-07-31):** the E4 play-study synthesis
+  (`constellation/fable/lanes/study/e4-the-play-study-bus.md`) — the
+  bazaar organ: the original Gruen, the errand walks never warps, the
+  shop sleeps with its door open, checkout as *Gweld ti'n fuan*, heart
+  stories written at the threshold. Keeper's answer with two welds and
+  two schema gates is on that bus (FROM: hermes-realm, 2026-07-31).
 - **Cross-realm seams:** `wares`/`ware_participants` (the selling) are
   plutus tables — economics verdicts live in `/SCHEMA-FINALIZE.md`,
   not here · checkout's Stripe wiring rides `stripe_connection`
