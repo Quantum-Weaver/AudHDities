@@ -21,8 +21,12 @@
 -- authenticated; ownership = the first path folder is your own uid,
 -- which is exactly the path shape generateAvatarPath writes):
 
-CREATE POLICY "Avatar images are publicly viewable" ON storage.objects
-  FOR SELECT USING (bucket_id = 'avatars');
+-- ~~CREATE POLICY "Avatar images are publicly viewable" ...~~ — DROPPED the
+-- same sitting (linter's catch, KP's paste): a PUBLIC bucket serves object
+-- URLs with no SELECT policy at all; the broad policy only added a
+-- list-all-files door nobody needed (the app's getPublicUrl is pure URL
+-- construction, no API call). Struck through, not erased — the record of
+-- a door opened and closed the same hour is itself worth keeping.
 
 CREATE POLICY "Vessel uploads own avatar" ON storage.objects
   FOR INSERT TO authenticated
@@ -38,5 +42,7 @@ CREATE POLICY "Vessel deletes own avatar" ON storage.objects
   USING (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
 
 -- Verified live 2026-07-30: bucket confirmed via storage API (public,
--- limits as above); all four policies listed on storage.objects.
+-- limits as above); final policy set on storage.objects = exactly three
+-- (upload/update/delete, own-folder only). Reads ride the bucket's own
+-- public-URL door; listing is nobody's.
 -- ============================================================================
