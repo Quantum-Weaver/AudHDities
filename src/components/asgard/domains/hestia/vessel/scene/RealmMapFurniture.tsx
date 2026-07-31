@@ -79,10 +79,13 @@ export default function RealmMapFurniture({
         className={cn(
           // Solid, never glass — KP's ⚛ ruling from the first walk, 2026-07-30:
           // "the map on the table needs to not be transparent so it can be
-          // seen." (Mend note: the original bg-cosmic-deep token never existed
-          // in the design system — these classes rendered NO background at all;
-          // the true tokens are deep-space and surface.)
-          'group relative rounded-lg border border-star-dust/15 bg-surface',
+          // seen." (Mend note, twice-learned: bg-cosmic-deep never existed,
+          // and named tokens like bg-surface are ALSO unminted — this app is
+          // Tailwind v4 and the tokens live only as :root vars in the
+          // generated variables.css, outside any @theme. Until a deliberate
+          // theme-bridge pass, color utilities here use the var syntax
+          // bg-(--color-*), which reads the living variable directly.)
+          'group relative rounded-lg border border-star-dust/15 bg-(--color-surface)',
           'p-4 text-left w-full transition-colors motion-reduce:transition-none',
           'hover:border-star-dust/30 focus-visible:border-star-dust/30',
           placement === 'wall' ? 'aspect-[4/3]' : '',
@@ -106,13 +109,13 @@ export default function RealmMapFurniture({
           role="dialog"
           aria-modal="true"
           aria-label="The realm map, unfolded"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-deep-space/90 p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-(--color-deep-space)/90 p-6"
         >
           {/* The map MODULE — KP's ⚛ ruling, 2026-07-30: "the expanded map
               to be a module that takes over the ~80% of the screen with a
               solid background color to the popout window." ~80vw × ~80vh,
               solid deep-space, its own scroll when doors outgrow it. */}
-          <div className="flex h-[80vh] w-[80vw] flex-col rounded-xl border border-star-dust/15 bg-deep-space p-6">
+          <div className="flex h-[80vh] w-[80vw] flex-col rounded-xl border border-star-dust/15 bg-(--color-deep-space) p-6">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-base font-semibold text-star-dust">The Sanctuary</h2>
               <button

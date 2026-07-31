@@ -165,7 +165,7 @@ export default function SceneRenderer({ className }: { className?: string }) {
                   <section
                     key={room.id}
                     aria-label={room.name}
-                    className="rounded-lg border border-star-dust/10 bg-surface/70 p-5"
+                    className="rounded-lg border border-star-dust/10 bg-(--color-surface)/70 p-5"
                   >
                     <h2 className="text-base font-semibold text-star-dust">
                       {room.name}
