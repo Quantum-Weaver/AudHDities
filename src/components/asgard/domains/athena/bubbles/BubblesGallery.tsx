@@ -1,27 +1,31 @@
 // src/components/asgard/domains/athena/bubbles/BubblesGallery.tsx
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Droplets, Search, X } from 'lucide-react';
+import { ArrowLeft, Droplets, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useBubblesList } from '@/hooks/generated/athena-gamification/bubbles';
+import { useCollectionSetsList } from '@/hooks/generated/hestia-core/collection_sets';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface BubbleItem {
-  bubbles_id: string;
-  name: string;
-  slug: string;
-  description: string | null;
-  rarity: string;
-  color: string;
-  glow_color: string | null;
-  points_value: number;
-  collection_name: string | null;
-  is_active: boolean;
-}
+// The evolved bubbles table derives what it dropped: points and colors come
+// from rarity, collections resolve through collection_sets (the game's own
+// pattern, BubblePopGame.tsx).
+const RARITY_POINTS: Record<string, number> = {
+  common: 1, rare: 3, epic: 5, legendary: 10, mythic: 25,
+};
+
+const RARITY_FILL: Record<string, { color: string; glow: string }> = {
+  common: { color: '#94a3b8', glow: '#94a3b855' },
+  rare: { color: '#22d3ee', glow: '#22d3ee55' },
+  epic: { color: '#a855f7', glow: '#a855f755' },
+  legendary: { color: '#f59e0b', glow: '#f59e0b55' },
+  mythic: { color: '#f43f5e', glow: '#f43f5e55' },
+};
 
 const RARITY_COLORS: Record<string, string> = {
   common: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
@@ -31,64 +35,46 @@ const RARITY_COLORS: Record<string, string> = {
   mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 };
 
-const COLLECTION_COLORS: Record<string, string> = {
-  'Star Dust': 'bg-slate-500/20 text-slate-300 border-slate-500/30',
-  'The Hearth Collection': 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  'Cosmic Current': 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  'The Council Collection': 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-  'The Elemental Set': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  'Quantum Weave': 'bg-violet-500/20 text-violet-400 border-violet-500/30',
-  'Neurospark': 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
-  'The Cosmic Set': 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30',
-  'The Ninth Chair': 'bg-rose-500/20 text-rose-300 border-rose-500/30',
-  'The Ancient Ones': 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-};
-
 export function BubblesGallery() {
-  const [bubbles, setBubbles] = useState<BubbleItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null);
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchBubbles = async () => {
-      try {
-        const response = await fetch('/api/generated/athena-gamification/bubbles?is_active=true&order=rarity.desc,collection_name.asc,collection_order.asc');
-        const result = await response.json();
-        if (result.success) {
-          setBubbles(result.data?.data || result.data || []);
-        }
-      } catch (err) {
-        console.error('Failed to fetch bubbles:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBubbles();
-  }, []);
+  const { data: bubbles, loading } = useBubblesList({
+    filters: { status: 'published' },
+    sort: 'display_order',
+    order: 'asc',
+    limit: 200,
+  });
+  const { data: sets } = useCollectionSetsList({ limit: 100 });
+
+  const setNames = useMemo(
+    () => new Map(sets.map(s => [s.id, s.name || 'Collection'])),
+    [sets]
+  );
 
   const rarities = useMemo(() => {
     const set = new Set<string>();
-    bubbles.forEach((b) => set.add(b.rarity));
+    bubbles.forEach(b => { if (b.rarity) set.add(b.rarity); });
     return Array.from(set);
   }, [bubbles]);
 
   const collections = useMemo(() => {
     const set = new Set<string>();
-    bubbles.forEach((b) => { if (b.collection_name) set.add(b.collection_name); });
+    bubbles.forEach(b => { if (b.collection_id) set.add(setNames.get(b.collection_id) || 'Collection'); });
     return Array.from(set).sort();
-  }, [bubbles]);
+  }, [bubbles, setNames]);
 
   const filteredBubbles = useMemo(() => {
-    return bubbles.filter((b) => {
+    return bubbles.filter(b => {
+      const collectionName = b.collection_id ? (setNames.get(b.collection_id) || 'Collection') : null;
       const matchesSearch = b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (b.description || '').toLowerCase().includes(searchTerm.toLowerCase());
       const matchesRarity = !selectedRarity || b.rarity === selectedRarity;
-      const matchesCollection = !selectedCollection || b.collection_name === selectedCollection;
+      const matchesCollection = !selectedCollection || collectionName === selectedCollection;
       return matchesSearch && matchesRarity && matchesCollection;
     });
-  }, [bubbles, searchTerm, selectedRarity, selectedCollection]);
+  }, [bubbles, searchTerm, selectedRarity, selectedCollection, setNames]);
 
   if (loading) {
     return (
@@ -96,7 +82,7 @@ export function BubblesGallery() {
         <div className="container max-w-6xl mx-auto px-6">
           <Skeleton variant="text" className="h-8 w-48 mb-8" />
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (<Skeleton key={i} variant="card" className="h-44" />))}
+            {[1, 2, 3, 4, 5, 6].map(i => (<Skeleton key={i} variant="card" className="h-44" />))}
           </div>
         </div>
       </main>
@@ -127,22 +113,24 @@ export function BubblesGallery() {
             <button onClick={() => setSelectedRarity(null)}
               className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', !selectedRarity ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
             >All Rarities</button>
-            {rarities.map((r) => (
+            {rarities.map(r => (
               <button key={r} onClick={() => setSelectedRarity(selectedRarity === r ? null : r)}
                 className={cn('px-3 py-1.5 rounded-full text-xs font-medium border capitalize', RARITY_COLORS[r] || 'bg-white/5', selectedRarity === r ? 'ring-1 ring-current' : '')}
               >{r}</button>
             ))}
           </div>
-          <div className="flex flex-wrap gap-2">
-            <button onClick={() => setSelectedCollection(null)}
-              className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', !selectedCollection ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
-            >All Collections</button>
-            {collections.map((c) => (
-              <button key={c} onClick={() => setSelectedCollection(selectedCollection === c ? null : c)}
-                className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', COLLECTION_COLORS[c] || 'bg-white/5', selectedCollection === c ? 'ring-1 ring-current' : '')}
-              >{c}</button>
-            ))}
-          </div>
+          {collections.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              <button onClick={() => setSelectedCollection(null)}
+                className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', !selectedCollection ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
+              >All Collections</button>
+              {collections.map(c => (
+                <button key={c} onClick={() => setSelectedCollection(selectedCollection === c ? null : c)}
+                  className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', selectedCollection === c ? 'ring-1 ring-current bg-white/10 text-star-dust' : 'bg-white/5 text-star-dust/50 border-white/10')}
+                >{c}</button>
+              ))}
+            </div>
+          )}
         </div>
 
         {filteredBubbles.length === 0 && (
@@ -153,25 +141,30 @@ export function BubblesGallery() {
         )}
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredBubbles.map((bubble) => {
-            const cardData: CardData = { id: bubble.bubbles_id, type: 'value', title: bubble.name, value: bubble.rarity };
+          {filteredBubbles.map(bubble => {
+            const fill = RARITY_FILL[bubble.rarity || 'common'] || RARITY_FILL.common;
+            const points = RARITY_POINTS[bubble.rarity || 'common'] || 1;
+            const collectionName = bubble.collection_id ? setNames.get(bubble.collection_id) : null;
+            const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: bubble.rarity || '' };
             return (
-              <Card key={bubble.bubbles_id} data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
-                style={{ boxShadow: bubble.glow_color ? `0 0 20px ${bubble.glow_color}` : 'none' }}
-              >
-                <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center"
-                  style={{ background: `radial-gradient(circle at 30% 30%, ${bubble.glow_color || bubble.color}, ${bubble.color})`, boxShadow: bubble.glow_color ? `0 0 16px ${bubble.glow_color}` : `0 0 8px ${bubble.color}40` }}
-                />
-                <h3 className="font-semibold text-star-dust mb-1">{bubble.name}</h3>
-                {bubble.description && <p className="text-xs text-star-dust/50 line-clamp-2 mb-3">{bubble.description}</p>}
-                <div className="flex items-center justify-center gap-2 flex-wrap">
-                  <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[bubble.rarity] || '')}>{bubble.rarity}</Badge>
-                  <span className="text-xs text-neurospark font-medium">+{bubble.points_value}</span>
-                </div>
-                {bubble.collection_name && (
-                  <p className="text-[10px] text-star-dust/30 mt-2">{bubble.collection_name}</p>
-                )}
-              </Card>
+              <Link key={bubble.id} href={`/library/bubbles/${bubble.slug}`}>
+                <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
+                  style={{ boxShadow: `0 0 20px ${fill.glow}` }}
+                >
+                  <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center"
+                    style={{ background: `radial-gradient(circle at 30% 30%, ${fill.glow}, ${fill.color})`, boxShadow: `0 0 16px ${fill.glow}` }}
+                  />
+                  <h3 className="font-semibold text-star-dust mb-1">{bubble.name}</h3>
+                  {bubble.description && <p className="text-xs text-star-dust/50 line-clamp-2 mb-3">{bubble.description}</p>}
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                    {bubble.rarity && <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[bubble.rarity] || '')}>{bubble.rarity}</Badge>}
+                    <span className="text-xs text-neurospark font-medium">+{points}</span>
+                  </div>
+                  {collectionName && (
+                    <p className="text-[10px] text-star-dust/30 mt-2">{collectionName}</p>
+                  )}
+                </Card>
+              </Link>
             );
           })}
         </div>

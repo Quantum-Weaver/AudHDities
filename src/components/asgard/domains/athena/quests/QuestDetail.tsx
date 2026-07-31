@@ -1,44 +1,38 @@
 // src/components/asgard/domains/athena/quests/QuestDetail.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Award, Shield, Compass } from 'lucide-react';
+import { ArrowLeft, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useQuestsList } from '@/hooks/generated/athena-gamification/quests';
 import type { CardData } from '@/types/components/runes/card.types';
-import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 
-interface Quest {
-  id: string; title: string; description: string; house: string;
-  is_active: boolean; sovereignty_reward: number | null;
-  required_sovereignty_score: number | null; prerequisite_quest_id: string | null;
-  submission_type: string; instructions: string | null;
-}
-
-const HOUSE_LABELS: Record<string, string> = {
-  hearth_keeper: 'Hearth-Keeper', chancellor: 'Chancellor', seer: 'Seer',
-  aethelred: 'Aethelred', curator: 'Curator', archivist: 'Archivist',
-  skald: 'Skald', codex: 'Codex', executioner: 'Executioner',
+const DIFFICULTY_COLORS: Record<string, string> = {
+  beginner: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+  intermediate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  advanced: 'bg-red-500/20 text-red-400 border-red-500/30',
+  master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
+
+// objectives is Json in the evolved table; render only the shape we can
+// honestly show (an array of strings) — anything richer waits for row 10.
+function readObjectives(objectives: unknown): string[] {
+  if (!Array.isArray(objectives)) return [];
+  return objectives.filter((o): o is string => typeof o === 'string');
+}
 
 export function QuestDetail() {
   const params = useParams();
   const router = useRouter();
-  const [quest, setQuest] = useState<Quest | null>(null);
-  const [loading, setLoading] = useState(true);
+  const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  useEffect(() => {
-    fetch(`/api/generated/athena-gamification/quests/${params.id}`)
-      .then((r) => r.json())
-      .then((result) => { if (result.success) setQuest(result.data); })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [params.id]);
+  const { data: quests, loading } = useQuestsList({ filters: { slug }, limit: 1 });
+  const quest = quests[0] ?? null;
 
   if (loading) {
     return (
@@ -64,7 +58,8 @@ export function QuestDetail() {
     );
   }
 
-  const cardData: CardData = { id: quest.id, type: 'quest', title: quest.title, description: quest.description };
+  const objectives = readObjectives(quest.objectives);
+  const cardData: CardData = { id: quest.id, type: 'quest', title: quest.name, description: quest.description || '' };
 
   return (
     <main className="min-h-screen py-12">
@@ -74,40 +69,31 @@ export function QuestDetail() {
         </Link>
 
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <Badge variant="outline" size="sm" className="text-[10px] mb-2">{HOUSE_LABELS[quest.house] || quest.house}</Badge>
-              <h1 className="text-2xl font-bold text-star-dust">{quest.title}</h1>
-            </div>
-            {quest.sovereignty_reward && (
-              <div className="text-center">
-                <Award className="h-6 w-6 text-neurospark mx-auto mb-1" />
-                <span className="text-neurospark font-bold text-lg">+{quest.sovereignty_reward}</span>
-                <p className="text-[10px] text-star-dust/40">sovereignty</p>
-              </div>
+          <div className="flex items-center gap-3 mb-4">
+            {quest.quest_type && (
+              <Badge variant="outline" size="sm" className="text-[10px] capitalize">{quest.quest_type.replace(/_/g, ' ')}</Badge>
+            )}
+            {quest.difficulty && (
+              <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', DIFFICULTY_COLORS[quest.difficulty] || '')}>{quest.difficulty}</Badge>
             )}
           </div>
 
+          <h1 className="text-2xl font-bold text-star-dust mb-4">{quest.name}</h1>
           <p className="text-star-dust/70 leading-relaxed mb-6">{quest.description}</p>
 
-          {quest.instructions && (
+          {objectives.length > 0 && (
             <div className="bg-white/5 rounded-xl p-4 mb-6">
-              <h3 className="text-sm font-medium text-star-dust/60 mb-2">Instructions</h3>
-              <p className="text-star-dust/70 text-sm whitespace-pre-wrap">{quest.instructions}</p>
+              <h3 className="text-sm font-medium text-star-dust/60 mb-2">Objectives</h3>
+              <ul className="space-y-1">
+                {objectives.map((o, i) => (
+                  <li key={i} className="text-star-dust/70 text-sm">• {o}</li>
+                ))}
+              </ul>
             </div>
           )}
 
-          <div className="flex items-center gap-4 flex-wrap mb-6">
-            <Badge variant="outline" size="sm" className="text-[10px] capitalize">{quest.submission_type?.replace(/_/g, ' ')}</Badge>
-            {quest.required_sovereignty_score && (
-              <div className="flex items-center gap-1 text-xs text-star-dust/40">
-                <Shield size={12} />Requires {quest.required_sovereignty_score} sovereignty
-              </div>
-            )}
-          </div>
-
           <div className="flex gap-3">
-            <Button variant="primary" size="md">{quest.is_active ? 'Begin Quest' : 'Coming Soon'}</Button>
+            <Button variant="primary" size="md">Begin Quest</Button>
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
           </div>
         </Card>

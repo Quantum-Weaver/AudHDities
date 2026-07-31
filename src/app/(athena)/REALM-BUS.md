@@ -30,18 +30,23 @@ heals by regeneration, never by hand · work rides branches, KP merges
   Curriculum (learning_paths) · the Lessons · the Archive (was
   `mythology`) · the Honors (sigils) · the Floating Stars (bubbles +
   the pop game at `/library/bubbles/play`).
-- **The hearing census (lamp's study, 2026-07-28 — the realm against
-  the evolved base):**
-  1. **Current:** the Honors (fully on `sigils`) · the BubblePopGame
-     (evolved `bubbles` + `vessel_bubbles` as the record, limits as a
-     device-local boundary). The game's care — breath reminders,
-     daily limits, no compulsion loop — is this realm's tone; keep it.
-  2. **Stale dialect:** BubblesGallery + BubbleDetail (ask for
-     `is_active`/`color`/`points_value`/`collection_name` — dropped) ·
-     Quests, Courses, Lessons galleries + details (`title`→`name`,
-     `is_published`/`is_active`→`status`, scalar rewards/durations →
-     Json). QuestDetail doubly adrift: reads `params.id` inside a
-     `[slug]` route folder, so every quest renders the empty state.
+- **The hearing census — CLEAN (the rewiring season ran 2026-07-30
+  at KP's ⚛ word: "let us rewire please"):**
+  1. **Every hall speaks the evolved dialect.** The Honors and the
+     BubblePopGame were already current; the season retrued the rest:
+     BubblesGallery + BubbleDetail (rarity-derived colors/points, the
+     game's own pattern; collections via `collection_sets`) · Quests
+     gallery + detail (`name`/`status`/`quest_type`; detail now reads
+     `params.slug` in its `[slug]` route — the double-adrift bug
+     healed; objectives rendered as string-lists, richer Json waits
+     for row 10) · Courses (`learning_paths` evolved shape) · Lessons
+     (`lesson_type`, guarded Json `content`). All published-gate,
+     slug-fetch details, generated hooks throughout. tsc 0; anon-door
+     checked on all four tables ([] + 200, honestly empty until
+     seeding). The game's care — breath reminders, limits as a
+     device-local boundary, no compulsion loop — remains this realm's
+     tone; keep it.
+  2. *(retired — census item healed by the season)*
   3. **The Archive is HOME and CURRENT** (completed 2026-07-30, the
      two-hand rhythm end to end): KP's ⚛ word 2026-07-29 ("i intend
      to bring mythology back … it belongs here i think") → shape
@@ -60,22 +65,19 @@ heals by regeneration, never by hand · work rides branches, KP merges
      The content season is OPEN at the looms' pace, KP's ⚛ eye per
      scroll. Personal frames still arrive vessel-side when their day
      comes (the Hearth pattern, ruled).
-  4. **README aged:** quests route says `[id]` (disk: `[slug]`),
-     `bubbles/play` unlisted, detail pages marked unbuilt that exist,
-     data table names pre-evolution (`badges`, `mythology`,
-     `user_bubble_*`).
-- **Open edges:** the rewiring season (census items 2 + 4 — mechanical
-  retruing, no design verdicts needed) · SCHEMA-FINALIZE row 10
+  4. **README trued 2026-07-30** (same season): routes as on disk,
+     the game listed, evolved data-source table, the realm law
+     written in.
+- **Open edges:** SCHEMA-FINALIZE row 10
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
   lessons, quests · **scrolls for the Archive** (the hall is open and
   wired; content is KP's ⚛ season) · the one-bridge-three-doors
   crossing narrows to two doors from this realm's side (dailies still
-  ride the Grammar seam; the Archive's source now lives home) ·
-  **the rewiring season's remaining four halls** (Bubbles gallery +
-  detail · Quests · Courses · Lessons — mechanical retruing to the
-  evolved dialect, queued, one word runs it).
+  ride the Grammar seam; the Archive's source now lives home). *(The
+  rewiring season COMPLETED 2026-07-30 — the census reads clean for
+  the first time since the ground moved.)*
 - **Cross-realm seams:** the collection machinery lives hestia-core
   side (`vessel_bubbles`, `collection_sets`, `vessel_sigils`,
   `vessel_quests` — the Hearth's tables, this realm only reads/writes

@@ -1,119 +1,59 @@
 // src/components/asgard/domains/athena/quests/QuestsGallery.tsx
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { Button } from '@/components/yggdrasil/Button';
 import { ArrowLeft, Compass, Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useQuestsList } from '@/hooks/generated/athena-gamification/quests';
 import type { CardData } from '@/types/components/runes/card.types';
-import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 
-// ═══════════════════════════════════════════════════════════════════════════
-// TYPES
-// ═══════════════════════════════════════════════════════════════════════════
-
-interface Quest {
-  quests_id: string;
-  title: string;
-  description: string;
-  house: string;
-  is_active: boolean;
-  sovereignty_reward: number | null;
-  required_sovereignty_score: number | null;
-  prerequisite_quest_id: string | null;
-  submission_type: string;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-// CONSTANTS
-// ═══════════════════════════════════════════════════════════════════════════
-
-const HOUSE_LABELS: Record<string, string> = {
-  hearth_keeper: 'Hearth-Keeper',
-  chancellor: 'Chancellor',
-  seer: 'Seer',
-  aethelred: 'Aethelred',
-  curator: 'Curator',
-  archivist: 'Archivist',
-  skald: 'Skald',
-  codex: 'Codex',
-  executioner: 'Executioner',
+// The evolved quests table speaks name/status/slug; the old house column
+// became quest_type, and scalar rewards became the rewards Json (its shape
+// belongs to the row-10 sitting — not rendered until then).
+const DIFFICULTY_COLORS: Record<string, string> = {
+  beginner: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+  intermediate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  advanced: 'bg-red-500/20 text-red-400 border-red-500/30',
+  master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
-
-const HOUSE_BADGE_COLORS: Record<string, string> = {
-  hearth_keeper: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  chancellor: 'bg-teal-500/20 text-teal-400 border-teal-500/30',
-  seer: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  aethelred: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
-  curator: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
-  archivist: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-  skald: 'bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30',
-  codex: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  executioner: 'bg-red-500/20 text-red-400 border-red-500/30',
-};
-
-// ═══════════════════════════════════════════════════════════════════════════
-// COMPONENT
-// ═══════════════════════════════════════════════════════════════════════════
 
 export function QuestsGallery() {
-  const { user } = useAuth();
-  const [quests, setQuests] = useState<Quest[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedHouse, setSelectedHouse] = useState<string | null>(null);
+  const [selectedType, setSelectedType] = useState<string | null>(null);
 
-  // Fetch quests
-  useEffect(() => {
-    const fetchQuests = async () => {
-      try {
-        const response = await fetch('/api/generated/athena-gamification/quests?is_active=true&order=title.asc');
-        const result = await response.json();
-        if (result.success) {
-          setQuests(result.data?.data || result.data || []);
-        }
-      } catch (err) {
-        console.error('Failed to fetch quests:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchQuests();
-  },[]);
+  const { data: quests, loading } = useQuestsList({
+    filters: { status: 'published' },
+    sort: 'display_order',
+    order: 'asc',
+    limit: 100,
+  });
 
-  const houses = useMemo(() => {
+  const questTypes = useMemo(() => {
     const set = new Set<string>();
-    quests.forEach((q) => set.add(q.house));
+    quests.forEach(q => { if (q.quest_type) set.add(q.quest_type); });
     return Array.from(set).sort();
   }, [quests]);
 
   const filteredQuests = useMemo(() => {
-    return quests.filter((q) => {
-      const matchesSearch = q.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        q.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesHouse = !selectedHouse || q.house === selectedHouse;
-      return matchesSearch && matchesHouse;
+    return quests.filter(q => {
+      const matchesSearch = q.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (q.description || '').toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesType = !selectedType || q.quest_type === selectedType;
+      return matchesSearch && matchesType;
     });
-  }, [quests, searchTerm, selectedHouse]);
+  }, [quests, searchTerm, selectedType]);
 
-  const formatReward = (points: number | null) => {
-    if (!points) return null;
-    return `${points} sovereignty`;
-  };
-
-  // ─── Loading ──────────────────────────────────────────────────────────
   if (loading) {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-6xl mx-auto px-6">
           <Skeleton variant="text" className="h-8 w-48 mb-8" />
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map(i => (
               <Skeleton key={i} variant="card" className="h-48" />
             ))}
           </div>
@@ -141,7 +81,6 @@ export function QuestsGallery() {
 
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          {/* Search */}
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
             <input
@@ -153,43 +92,40 @@ export function QuestsGallery() {
             />
           </div>
 
-          {/* House Filter */}
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedHouse(null)}
-              className={cn(
-                'px-3 py-1.5 rounded-full text-xs font-medium border transition-all',
-                !selectedHouse
-                  ? 'bg-neurospark/20 text-neurospark border-neurospark/40'
-                  : 'bg-white/5 text-star-dust/50 border-white/10 hover:text-star-dust hover:border-white/20'
-              )}
-            >
-              All Houses
-            </button>
-            {houses.map((house) => (
+          {questTypes.length > 0 && (
+            <div className="flex flex-wrap gap-2">
               <button
-                key={house}
-                onClick={() => setSelectedHouse(selectedHouse === house ? null : house)}
+                onClick={() => setSelectedType(null)}
                 className={cn(
                   'px-3 py-1.5 rounded-full text-xs font-medium border transition-all',
-                  HOUSE_BADGE_COLORS[house] || 'bg-white/5 text-star-dust/50 border-white/10',
-                  selectedHouse === house ? 'ring-1 ring-current' : ''
+                  !selectedType
+                    ? 'bg-neurospark/20 text-neurospark border-neurospark/40'
+                    : 'bg-white/5 text-star-dust/50 border-white/10 hover:text-star-dust hover:border-white/20'
                 )}
               >
-                {HOUSE_LABELS[house] || house}
+                All Types
               </button>
-            ))}
-          </div>
+              {questTypes.map(t => (
+                <button
+                  key={t}
+                  onClick={() => setSelectedType(selectedType === t ? null : t)}
+                  className={cn(
+                    'px-3 py-1.5 rounded-full text-xs font-medium border transition-all capitalize',
+                    selectedType === t ? 'ring-1 ring-current bg-white/10 text-star-dust' : 'bg-white/5 text-star-dust/50 border-white/10'
+                  )}
+                >
+                  {t.replace(/_/g, ' ')}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Active Filter Indicator */}
-        {selectedHouse && (
+        {selectedType && (
           <div className="flex items-center gap-2 mb-6 text-sm text-star-dust/40">
-            <span>Filtered by: {HOUSE_LABELS[selectedHouse] || selectedHouse}</span>
-            <button
-              onClick={() => setSelectedHouse(null)}
-              className="text-star-dust/60 hover:text-star-dust"
-            >
+            <span className="capitalize">Filtered by: {selectedType.replace(/_/g, ' ')}</span>
+            <button onClick={() => setSelectedType(null)} className="text-star-dust/60 hover:text-star-dust">
               <X size={14} />
             </button>
           </div>
@@ -210,16 +146,16 @@ export function QuestsGallery() {
 
         {/* Quest Grid */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredQuests.map((quest) => {
+          {filteredQuests.map(quest => {
             const cardData: CardData = {
-              id: quest.quests_id,
+              id: quest.id,
               type: 'quest',
-              title: quest.title,
-              description: quest.description,
+              title: quest.name,
+              description: quest.description || '',
             };
 
             return (
-              <Link key={quest.quests_id} href={`/library/quests/${quest.quests_id}`}>
+              <Link key={quest.id} href={`/library/quests/${quest.slug}`}>
                 <Card
                   data={cardData}
                   variant="interactive"
@@ -227,45 +163,25 @@ export function QuestsGallery() {
                   shadow="sm"
                   className="p-5 h-full"
                 >
-                  {/* House Badge */}
                   <div className="flex items-center justify-between mb-3">
-                    <Badge
-                      variant="outline"
-                      size="sm"
-                      className={cn('text-[10px]', HOUSE_BADGE_COLORS[quest.house] || '')}
-                    >
-                      {HOUSE_LABELS[quest.house] || quest.house}
-                    </Badge>
-                    {quest.sovereignty_reward && (
-                      <span className="text-xs text-neurospark font-medium">
-                        +{quest.sovereignty_reward}
-                      </span>
+                    {quest.quest_type && (
+                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">
+                        {quest.quest_type.replace(/_/g, ' ')}
+                      </Badge>
+                    )}
+                    {quest.difficulty && (
+                      <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', DIFFICULTY_COLORS[quest.difficulty] || '')}>
+                        {quest.difficulty}
+                      </Badge>
                     )}
                   </div>
 
-                  {/* Title & Description */}
                   <h3 className="text-lg font-semibold text-star-dust mb-2">
-                    {quest.title}
+                    {quest.name}
                   </h3>
                   <p className="text-sm text-star-dust/50 line-clamp-3 mb-4">
                     {quest.description}
                   </p>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between mt-auto">
-                    <Badge
-                      variant="outline"
-                      size="sm"
-                      className="text-[10px]"
-                    >
-                      {quest.submission_type?.replace(/_/g, ' ')}
-                    </Badge>
-                    {quest.required_sovereignty_score && (
-                      <span className="text-[10px] text-star-dust/30">
-                        Req: {quest.required_sovereignty_score} sovereignty
-                      </span>
-                    )}
-                  </div>
                 </Card>
               </Link>
             );
