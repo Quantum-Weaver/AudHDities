@@ -35,16 +35,42 @@ export function BeingThere() {
   const { setEnvironment, environmentVariant } = useContinuityBeam();
   const [selectedVariant, setSelectedVariant] = useState(environmentVariant || 1);
   const prefersReducedMotion = useReducedMotion();
+  // "Set as My Realm" made TRUE (KP's ⚛ word, 2026-07-31: "the Playground
+  // can enable screen settings" — enabled by hestia's hand at his direction
+  // the sitting the Sanctum connection completed). Saves through the same
+  // walled door the Sanctum uses (vessel_config.environment_preference,
+  // docs/sql/013); the beam already wears this room, and hydration at every
+  // arrival is the beam provider's standing law.
+  const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'failed'>('idle');
 
   const rawId = params.id as string;
   const envId: EnvironmentKey = (rawId in PLACE_DISPLAY ? rawId : 'home') as EnvironmentKey;
   const affect = getEnvironmentAffect(envId);
   const place = PLACE_DISPLAY[envId];
 
+  const setAsMyRealm = async () => {
+    setSaveState('saving');
+    try {
+      const res = await fetch('/api/auth/update-profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          config: { environment_preference: `${envId}:${selectedVariant}` },
+        }),
+      });
+      const result = await res.json();
+      setSaveState(result?.success ? 'saved' : 'failed');
+    } catch {
+      setSaveState('failed');
+    }
+  };
+
   // THE CROSSING — arrival itself changes the sky (and deepening a variant
-  // re-grounds it). The beam session is this room's only state.
+  // re-grounds it). The beam session is this room's only state — and a new
+  // crossing or deeper variant re-offers the choice.
   useEffect(() => {
     setEnvironment(envId, selectedVariant);
+    setSaveState('idle');
   }, [envId, selectedVariant, setEnvironment]);
 
   const cardData: CardData = {
@@ -135,17 +161,37 @@ export function BeingThere() {
               </div>
             </div>
 
-            {/* Actions — the sanctum wiring untouched */}
-            <div className="flex gap-3">
-              <Link href={`/vessel/sanctum`}>
-                <Button variant="primary" size="md">
-                  <Sparkles className="h-4 w-4 mr-2" />
-                  Set as My Realm
-                </Button>
-              </Link>
+            {/* Actions — "Set as My Realm" saves for real now (the same
+                walled door as the Sanctum's picker); the Sanctum stays one
+                step away for shaping everything else. */}
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                variant="primary"
+                size="md"
+                onClick={setAsMyRealm}
+                loading={saveState === 'saving'}
+                disabled={saveState === 'saved'}
+              >
+                <Sparkles className="h-4 w-4 mr-2" />
+                {saveState === 'saved' ? 'This is your realm now' : 'Set as My Realm'}
+              </Button>
               <Button variant="ghost" size="md" onClick={() => router.back()}>
                 Back
               </Button>
+              {saveState === 'saved' && (
+                <span className="text-xs text-star-dust/50">
+                  It will greet you at every arrival —{' '}
+                  <Link href="/vessel/sanctum" className="underline hover:text-star-dust">
+                    shape more in your Sanctum
+                  </Link>
+                </span>
+              )}
+              {saveState === 'failed' && (
+                <span className="text-xs text-error">
+                  The saving stumbled — try once more, or set it in your{' '}
+                  <Link href="/vessel/sanctum" className="underline">Sanctum</Link>.
+                </span>
+              )}
             </div>
           </Card>
         </motion.div>
