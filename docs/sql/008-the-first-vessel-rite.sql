@@ -21,6 +21,29 @@
 -- plots, the map resting on the table.
 -- ----------------------------------------------------------------------------
 
+-- STEP 0 — INTRODUCE YOURSELF TO THE BASE (added 2026-07-30 after the rite's
+-- first run met 23502: the house trigger set_user_tracking_columns stamps
+-- created_by := auth.uid() UNCONDITIONALLY on insert, and in the dashboard's
+-- SQL session auth.uid() is NULL — it overwrote the rows' own values with
+-- nothing. So the rite now begins by telling the session who is running it;
+-- every stamp after this is truly yours. Run the WHOLE file in one go —
+-- these settings live only in the session that sets them.
+
+SELECT set_config(
+  'request.jwt.claims',
+  (SELECT json_build_object('sub', id::text, 'role', 'authenticated')::text
+     FROM auth.users LIMIT 1),
+  false
+);
+SELECT set_config(
+  'request.jwt.claim.sub',
+  (SELECT id::text FROM auth.users LIMIT 1),
+  false
+);
+
+-- Prove the introduction took (expect your uid, not null):
+SELECT auth.uid() AS i_am;
+
 -- THE INTERIOR — one row; the scene reads accent_color into --vessel-accent.
 -- Warm hearth amber as the first-light default; change freely.
 INSERT INTO public.vessel_interiors (user_id, created_by, accent_color, layout_style)
