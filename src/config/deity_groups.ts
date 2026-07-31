@@ -309,6 +309,25 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'gaia_generation_log',
     ],
   },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // PROMETHEUS — The Stage & Studio (Sequence 11)
+  // (The seat this file kept free since 2026-07-07 — "Prometheus is the
+  //  creative-arts domain." Born ground ruled by KP 2026-07-31, Door A:
+  //  docs/STAGE-GROUND-DECISION.md · docs/sql/003-the-stage-ground.sql.
+  //  scenes stays in athena per the double-earmark until KP rules otherwise.)
+  // ════════════════════════════════════════════════════════════════════════
+  {
+    name: 'prometheus',
+    domain: 'stage',
+    sequence: 11,
+    folderName: 'prometheus-stage',
+    description:
+      'The Stage & Studio — live performances, scheduled events, and recordings that hand into the Bazaar as works',
+    tables: [
+      'events',
+    ],
+  },
 ];
 
 // ============================================================================

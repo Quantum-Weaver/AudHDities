@@ -1959,6 +1959,77 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          event_type: string | null
+          genre: string | null
+          id: string
+          is_live: boolean
+          is_recorded: boolean
+          performer_id: string | null
+          recorded_at: string | null
+          recording_work_id: string | null
+          scheduled_for: string | null
+          slug: string
+          started_at: string | null
+          status: Database["public"]["Enums"]["content_status"]
+          title: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          event_type?: string | null
+          genre?: string | null
+          id?: string
+          is_live?: boolean
+          is_recorded?: boolean
+          performer_id?: string | null
+          recorded_at?: string | null
+          recording_work_id?: string | null
+          scheduled_for?: string | null
+          slug: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          event_type?: string | null
+          genre?: string | null
+          id?: string
+          is_live?: boolean
+          is_recorded?: boolean
+          performer_id?: string | null
+          recorded_at?: string | null
+          recording_work_id?: string | null
+          scheduled_for?: string | null
+          slug?: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_recording_work_id_fkey"
+            columns: ["recording_work_id"]
+            isOneToOne: false
+            referencedRelation: "works"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       exchanges: {
         Row: {
           adjustments: Json | null
@@ -6228,6 +6299,41 @@ export type Database = {
             columns: ["sigil_id"]
             isOneToOne: false
             referencedRelation: "sigils"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      votes: {
+        Row: {
+          cast_at: string
+          choice: string
+          id: string
+          proposal_id: string
+          updated_at: string
+          voter_id: string
+        }
+        Insert: {
+          cast_at?: string
+          choice: string
+          id?: string
+          proposal_id: string
+          updated_at?: string
+          voter_id: string
+        }
+        Update: {
+          cast_at?: string
+          choice?: string
+          id?: string
+          proposal_id?: string
+          updated_at?: string
+          voter_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "votes_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "proposals"
             referencedColumns: ["id"]
           },
         ]

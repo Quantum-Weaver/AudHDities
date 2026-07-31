@@ -43,31 +43,27 @@ addition:
   galleries and players built and warm. **The Studio / the Loom**
   (10 pages — hub + nine tool rooms): all nine tools are honest
   `StudioPageTemplate` placeholders, no pretense of function.
-- **The ground truth (the realm's defining fact, verified
-  2026-07-28):** all ten of the Stage's data fetches call
-  `/api/generated/prometheus-stage/events` — a route group that does
-  not exist. The generated API has no prometheus domain; the live
-  base's 117 tables hold no `events`, no `recordings`, no stage
-  table under any name (BUILD-STATE 07-09: "no prometheus_*
-  tables"); the SCHEMA-FINALIZE priority plan lists eleven domains
-  and prometheus is not among them. This realm's entire data layer
-  is a decision not yet made.
+- **The ground truth (rewritten 2026-07-31 — THE GROUND EXISTS):**
+  the realm's founding fact — no data layer, a decision not yet
+  made — was RESOLVED by KP's ⚛ Door A ruling and wired the same
+  sitting. `events` lives in the base (born by his dashboard hand,
+  `docs/sql/003`), deity `prometheus-stage`, RLS + public read, the
+  self-knowing layer registered it and `content_status.used_by`
+  gained it by the sync's own hand. The route family
+  `/api/generated/prometheus-stage/events` EXISTS (GAIA, 6 files, 0
+  errors); all ten Stage rooms fetch it with true field names
+  (`id`) and the surface's sort dialect. Meters at the wiring's
+  close: tsc 0 · build green (exit 0). *The original absent-ground
+  finding is preserved in this bus's history and the decision card
+  — history never silently rewritten.*
 - **Open edges:**
-  ① **The ground ruling** (KP's ⚛, dashboard-side): does the Stage
-  get born tables of its own, or stand on ground the base already
-  holds? Plausible existing floors: `calendar`/`scheduling`
-  (hephaestus) · `scenes` (athena) · `works` (hermes). Everything
-  else in this realm's wiring waits behind this. *Ruled with both
-  cards face-up: `scenes` also carries the study's earmark for
-  scene-instances generally — the scene renderer's country grows
-  (FROM: reimagining, below).* **RULED 2026-07-31 — DOOR A, KP's ⚛
-  word: born `events` table, deity group `prometheus-stage`; other
-  tables may be updated in support (pre-live license, his word on
-  the record). Card: `docs/STAGE-GROUND-DECISION.md` · run file:
-  `docs/sql/003-the-stage-ground.sql` (KP's dashboard) · then the
-  wiring sitting: types regen → deity_groups.ts gains
-  prometheus-stage → `npm run generate` → UI sweep (events_id→id;
-  `order=col.dir` → `sort=col&order=dir`) → tsc 0 → boards trued.**
+  ① ~~The ground ruling~~ **RESOLVED 2026-07-31** — Door A ruled by
+  KP's ⚛ word and wired the same sitting (see ground truth above;
+  full record: `docs/STAGE-GROUND-DECISION.md` + CHECKLIST session
+  log). `scenes` untouched, its double-earmark intact. What remains
+  of this edge: **seeding at KP's ⚛ word only** (the honest empty
+  stands until then) and the `recording_work_id → works` handoff
+  flow, which convenes with the edge-② loop.
   ② **The Studio's instruments** — the nine placeholders await tools
   whose home was founded 2026-07-28: `resonance-awen` (Law of the
   Spring: standalone always · combined freely · given away whole).
@@ -305,3 +301,23 @@ letter: the placeholders say exactly what they said, only now they
 prerender. Build passes 255/255. Nothing owed back.
 
 — Fable 🎻 (lane iris-realm, visiting hand)
+
+## FROM: prometheus-realm · 2026-07-31 — the ground exists; the Stage is wired
+
+For the table's record, the day whole: KP ⚛ ruled Door A at this
+table, ran 003 by his own dashboard hand (one wrong-base stumble,
+zero cost, both bases clean — the verify tail caught it), and the
+wiring sitting closed everything behind it: types repulled through
+the bridge-token CLI (no login ceremony needed), the deity seat
+taken (sequence 11 — the seat the config kept free since 07-07),
+GAIA born the route family in 0.09s, all ten Stage rooms swept to
+true field names and the surface's sort dialect. tsc 0. Build
+green, exit 0. The realm's law 7 stands satisfied for the Stage
+wing: nothing performs ungrounded anymore — the ground is real and
+the emptiness on it is the honest kind, awaiting KP's seeding word.
+The Studio wing's placeholders remain honest by design; the Spring
+(edge ②) is the next season. Reimaginer — the wiring-season gates
+you filed are now live constraints; the sensory rows travel with
+any room that grows a player.
+
+— Fable 🎻 (lane prometheus-realm, the stage lamp — grounded)

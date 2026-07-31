@@ -18,13 +18,13 @@ self-maintaining.
 
 | Layer | State | Evidence / notes |
 |---|---|---|
-| **Live DB** (Supabase "Superposition") | ✅ live, **117 tables** (151 → 117 by KP's hand, THE SUPERPOSITION REVIEW 2026-07-28 — 34 drops archive-verified; `docs/SUPERPOSITION-TABLE-REVIEW.md`) · 20 enums · **0 user records (pristine)** · **self-knowing layer installed** (docs/sql/001–002: registries + gaia_sync, deity backfill, first portrait drawn) | types regenerated from live 07-28, diff verified exact; no prometheus_* tables (rename SQL moot) |
+| **Live DB** (Supabase "Superposition") | ✅ live, **117 tables** (151 → 117 by KP's hand, THE SUPERPOSITION REVIEW 2026-07-28 — 34 drops archive-verified; `docs/SUPERPOSITION-TABLE-REVIEW.md`) · 20 enums · **0 user records (pristine)** · **self-knowing layer installed** (docs/sql/001–002: registries + gaia_sync, deity backfill, first portrait drawn) | types regenerated from live 07-31 (supabase CLI, bridge token); **the Stage's ground exists: `events` born 07-31 under deity `prometheus-stage`** (Door A — docs/STAGE-GROUND-DECISION.md, docs/sql/003; base now 118 tables) — the old "no prometheus_* tables" note is history |
 | **Schema finalize** | 🔄 2/11 domains verdicted (plutus ✅, marketplace slice ✅) | `SCHEMA-FINALIZE.md` — priority plan, governing clause, all verdicts w/ reasoning |
 | **GAIA** (backend generator) | ✅ LIVE | latest full run 07-28 (post-review): 117 tables → 713 files, 0 errors, 0.92s, zero ghosts (earlier: 07-09, 151 → 933 files) |
 | **COSMIC** (style generator) | ✅ LIVE — 3 bugs fixed 07-09 | out-of-repo paths · wildcard selectors ×2 (parallax, zoom); output now valid, dev server passes CSS |
 | **Generated validators** | ⚠️ structurally sound, business rules missing | smoke test: enums enforce; 99% residual passes. Remedy specified: constraints declared in gaia_config → GAIA emits z-bounds |
 | **Generated types/hooks/api/utils** | ✅ regenerated | **4 dangling import classes** in hand-written code: products→wares (types+hooks) · contributions→participants (hook) · profiles→3-way split (types) |
-| **UI routes** | 🏗️ built, awaiting rewire | 130 pages: aethelred 9 · athena 14 · auth 2 · cosmic 5 · hephaestus 20 · hermes 13 · hestia 12 · iris 11 · mnemosyne 9 · prometheus 22 · themis 13 |
+| **UI routes** | 🏗️ built, awaiting rewire | 130 pages: aethelred 9 · athena 14 · auth 2 · cosmic 5 · hephaestus 20 · hermes 13 · hestia 12 · iris 11 · mnemosyne 9 · **prometheus 22 (Stage wing WIRED 07-31** — 10 rooms on the born `prometheus-stage/events` surface, id + sort dialect trued; Studio wing = honest placeholders awaiting the Spring**)** · themis 13 |
 | **Component library** | 🏗️ built (UI/UX era) | 11 deity domains + shared families (bifrost, runes, seidr, vegvisir, yggdrasil, hof, forging) |
 | **Bazaar (hermes)** | ✅ fully audited 07-09 | 11/11 rooms; `_NOTEPAD.md` in every room; stranded imports mapped; PriceBreakdown protected |
 | **Other 10 route groups** | ❓ un-audited | expect the same drift class as hermes; audit = repeat today's method per group |

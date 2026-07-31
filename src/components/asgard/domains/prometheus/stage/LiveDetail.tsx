@@ -12,7 +12,7 @@ import { ArrowLeft, Clock, Radio, Users } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface LiveEvent {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   event_type: string; performer_id: string; started_at: string | null;
   is_live: boolean;
 }
@@ -38,7 +38,7 @@ export function LiveDetail() {
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Radio className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This performance has ended.</p><Link href="/stage/live" className="text-neurospark hover:underline mt-4 inline-block">Return to Now Playing</Link></div></main>
   );
 
-  const cd: CardData = { id: event.events_id, type: 'event', title: event.title, description: event.description || '' };
+  const cd: CardData = { id: event.id, type: 'event', title: event.title, description: event.description || '' };
 
   return (
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6">

@@ -170,4 +170,14 @@ deity_groups config renamed its meta group away from "prometheus"
 on 2026-07-07 *because* "Prometheus is the creative-arts realm" —
 the house kept this seat's name free for exactly this day.
 
+**WIRED — same day, 2026-07-31.** KP ran 003 (Superposition; one
+wrong-base stumble first, zero cost, caught by the verify tail).
+Then: anon-door verify (honest `[]`+200) · types repulled
+(supabase CLI via the bridge's access token — no login needed) ·
+`deity_groups.ts` sequence 11 · GAIA `--deity=prometheus` (6
+files, 0 errors) · all ten Stage rooms swept (`events_id`→`id`,
+sort dialect) · **tsc 0 · build green (exit 0)**. The Stage
+performs on real ground. Full record: CHECKLIST session log
+2026-07-31; the realm bus carries the day.
+
 — Fable 🎻 (lane prometheus-realm, the stage lamp)

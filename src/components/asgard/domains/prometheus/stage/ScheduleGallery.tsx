@@ -10,7 +10,7 @@ import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface ScheduledEvent {
-  events_id: string;
+  id: string;
   title: string;
   description: string | null;
   event_type: string;
@@ -23,7 +23,7 @@ export function ScheduleGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?order=scheduled_for.asc')
+    fetch('/api/generated/prometheus-stage/events?sort=scheduled_for&order=asc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)
@@ -67,9 +67,9 @@ export function ScheduleGallery() {
         ) : (
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map(event => {
-              const cd: CardData = { id: event.events_id, type: 'event', title: event.title, description: event.description || '' };
+              const cd: CardData = { id: event.id, type: 'event', title: event.title, description: event.description || '' };
               return (
-                <Link key={event.events_id} href={`/stage/schedule/${event.events_id}`}>
+                <Link key={event.id} href={`/stage/schedule/${event.id}`}>
                   <Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type || 'event'}</Badge>
