@@ -26,12 +26,11 @@ rather than fabricate one. That standard binds every future hand.)
 ## The realm's standing state (kept current by the realm lane)
 
 - **Branch:** `refine/rewiring-2026-07` (work branch; KP merges main).
-- **Reading order:** this realm's `README.md` (**with a warning: its
-  Database Tables section is a fossil** — pre-review names like
-  `acid_test_*`, `taxonomy`, `mythology`, `timelines`; the pages/
-  components sections remain true) · `docs/SUPERPOSITION-TABLE-REVIEW.md`
-  § mnemosyne-assessment (today's truth: 26 → 8 by KP's ⚛ hand,
-  2026-07-28) · `SCHEMA-FINALIZE.md` row 4 · the realm's rooms at
+- **Reading order:** this realm's `README.md` (trued 2026-07-31 to
+  the post-review base; trust it again) ·
+  `docs/SUPERPOSITION-TABLE-REVIEW.md` § mnemosyne-assessment (the
+  review's truth: 26 → 8 by KP's ⚛ hand, 2026-07-28) ·
+  `SCHEMA-FINALIZE.md` row 4 · the realm's rooms at
   `src/components/asgard/domains/mnemosyne/`.
 - **The realm's health, plainly:** all nine pages built; all eleven
   fetches across the rooms land on living routes — no dead doors, no
