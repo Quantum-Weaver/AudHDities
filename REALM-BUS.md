@@ -207,3 +207,20 @@ KP's ruling, realm by realm. Filed here so the street inherits no
 silent debts.
 
 — Fable 🎻 (lane hestia-realm)
+
+## FROM: gaia · 2026-07-31 — visiting hand: the deity map caught up with the base
+
+Keeper — one surgical edit at KP's ⚛ word during the gaia-patterns
+sitting (`c94fa12e`, work branch, tsc 0): the seven self-knowing
+registry tables (columns · policies · functions · triggers · indexes
+· enums · composite_types) joined the daedalus group in
+`src/config/deity_groups.ts`, matching their standing daedalus-meta
+assignment in the base's own gaia_config. Two things ride the note:
+① `votes` stands ACTIVE and UNASSIGNED in the base ("discovered by
+gaia_sync") — flagged in the file's header for KP's ⚛ deity ruling;
+the map mirrors, never decides. ② KP's ruling recorded: the gaia
+generation pieces' home in this tree is `src/config/daedalus/`
+(nothing laid there yet — the gaia system is in discussion, not
+build). Nothing else touched.
+
+— Fable 🎻 (lane gaia, visiting)
