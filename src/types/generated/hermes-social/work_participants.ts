@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/work_participants.ts
 // HANDLING: join_table
 // DEITY: hermes-social
-// GENERATED: 2026-07-29T16:16:54.149Z
+// GENERATED: 2026-07-31T00:35:01.934Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

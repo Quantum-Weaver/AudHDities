@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GaiaConfigInsertSchema } from '@/lib/validators/generated/daedalus-meta/gaia_config';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.759Z
+// Generated: 2026-07-31T00:35:01.413Z
 // Table: gaia_config
 
 export async function GET(request: NextRequest) {

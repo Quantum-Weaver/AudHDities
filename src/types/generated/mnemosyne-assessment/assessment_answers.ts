@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/assessment_answers.ts
 // HANDLING: assessment
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-29T16:16:53.573Z
+// GENERATED: 2026-07-31T00:35:01.198Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

@@ -3698,6 +3698,63 @@ export type Database = {
         }
         Relationships: []
       }
+      mythology: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          display_order: number
+          icon_url: string | null
+          id: string
+          myth_type: string | null
+          name: string
+          related_entity: string | null
+          related_entity_type: string | null
+          slug: string
+          status: Database["public"]["Enums"]["content_status"]
+          story: string | null
+          teachings: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          display_order?: number
+          icon_url?: string | null
+          id?: string
+          myth_type?: string | null
+          name: string
+          related_entity?: string | null
+          related_entity_type?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["content_status"]
+          story?: string | null
+          teachings?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          display_order?: number
+          icon_url?: string | null
+          id?: string
+          myth_type?: string | null
+          name?: string
+          related_entity?: string | null
+          related_entity_type?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["content_status"]
+          story?: string | null
+          teachings?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       path_lessons: {
         Row: {
           created_at: string

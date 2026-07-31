@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EntityStatesInsertSchema } from '@/lib/validators/generated/aethelred-connections/entity_states';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.713Z
+// Generated: 2026-07-31T00:35:01.361Z
 // Table: entity_states
 
 export async function GET(request: NextRequest) {

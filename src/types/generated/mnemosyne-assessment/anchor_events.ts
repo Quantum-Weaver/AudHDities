@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/anchor_events.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-29T16:16:53.551Z
+// GENERATED: 2026-07-31T00:35:01.172Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

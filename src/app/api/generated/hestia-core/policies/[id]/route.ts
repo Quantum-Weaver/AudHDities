@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PoliciesUpdateSchema } from '@/lib/validators/generated/hestia-core/policies';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.925Z
+// Generated: 2026-07-31T00:35:01.640Z
 // Table: policies
 
 export async function GET(

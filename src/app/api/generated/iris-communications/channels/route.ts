@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ChannelsInsertSchema } from '@/lib/validators/generated/iris-communications/channels';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.622Z
+// Generated: 2026-07-31T00:35:01.250Z
 // Table: channels
 
 export async function GET(request: NextRequest) {

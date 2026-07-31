@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/path_lessons.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-07-29T16:16:53.890Z
+// GENERATED: 2026-07-31T00:35:01.592Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

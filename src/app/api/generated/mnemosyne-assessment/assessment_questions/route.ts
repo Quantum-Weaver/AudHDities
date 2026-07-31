@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AssessmentQuestionsInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/assessment_questions';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.578Z
+// Generated: 2026-07-31T00:35:01.203Z
 // Table: assessment_questions
 
 export async function GET(request: NextRequest) {

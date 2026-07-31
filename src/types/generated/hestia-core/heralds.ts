@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/heralds.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-29T16:16:53.828Z
+// GENERATED: 2026-07-31T00:35:01.505Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

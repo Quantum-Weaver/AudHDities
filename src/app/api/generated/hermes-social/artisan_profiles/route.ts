@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ArtisanProfilesInsertSchema } from '@/lib/validators/generated/hermes-social/artisan_profiles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-29T16:16:53.569Z
+// Generated: 2026-07-31T00:35:01.193Z
 // Table: artisan_profiles
 
 export async function GET(request: NextRequest) {

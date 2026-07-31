@@ -19,6 +19,12 @@
 // test_patterns/generation_templates. Their references are removed here so
 // the map matches the base that knows itself; all 117 live tables remain
 // assigned, none orphaned (verified by diff against database.types.ts).
+//
+// 2026-07-30: mythology RETURNED at KP's word (the drop was for emptiness,
+// not wrongness — "it belongs here i think") and is re-listed under Athena,
+// its hall. Lesson from its first regen: an unmapped table falls to the
+// hestia-core catchall — when a table is born or returns, this map is part
+// of the same sitting's work.
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -149,6 +155,9 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'lessons',
       'learning_paths',
       'path_lessons',
+      // returned at KP's word 2026-07-29 (dropped 07-28 for emptiness only);
+      // the Archive is Athena's hall — docs/sql/005-mythology-returns.sql
+      'mythology',
       // scenes may someday deserve a prometheus-creative group of their own
       // (Stage & Studio's tables) — kept here until KP calls that birth,
       // since a new folderName moves generated routes
