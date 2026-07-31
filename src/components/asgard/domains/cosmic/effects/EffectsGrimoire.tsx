@@ -242,7 +242,7 @@ export function EffectsGrimoire() {
           <Sparkles className="h-5 w-5 text-neurospark mx-auto mb-2" />
           <p className="text-sm text-star-dust/40">
             All effects are generated from COSMIC design tokens.
-            Run <code className="text-neurospark">npm run cosmic</code> to regenerate.
+            Run <code className="text-neurospark">npm run generate</code> to regenerate.
           </p>
         </Card>
       </div>

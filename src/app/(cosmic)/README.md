@@ -2,16 +2,16 @@
 
 **Domain:** Cosmic  
 **Feeling:** Immersive, beautiful, responsive, alive  
-**Status:** ✅ COMPLETE (5 pages)  
-**Completed:** May 1, 2026
+**Status:** ✅ COMPLETE (5 pages) — Realms-as-travel redesign landed 2026-07-30  
+**Completed:** May 1, 2026 · Redrawn: July 30, 2026 (REALMS-AS-TRAVEL, ruled by KP ⚛)
 
 ---
 
 ## 🏛️ Purpose
 
-COSMIC is the final domain of the Sanctuary — the place where the design system becomes a playground. Here, users explore the immersive environments, test UI components with live controls, witness the Council entities in the Theater, and browse the Effects Grimoire for animation and styling inspiration.
+COSMIC is the final domain of the Sanctuary — the place where the design system becomes a playground. Here, users cross to the immersive environments through the Crossing Hall, test UI components with live controls, witness the Council entities in the Theater, and browse the Effects Grimoire for animation and styling inspiration.
 
-Every page in COSMIC is powered by systems built throughout the Sanctuary: the COSMIC design token generator, the AssetMapper environment library, the PanoramaViewer, the ContinuityBeam context, and the component library spanning seven pagan layers.
+Every page in COSMIC is powered by systems built throughout the Sanctuary: the COSMIC design token generator (the gaia lineage), the environment place-souls and affect bundles, the ContinuityBeam context, and the component library spanning seven pagan layers.
 
 ---
 
@@ -19,8 +19,8 @@ Every page in COSMIC is powered by systems built throughout the Sanctuary: the C
 
 | Page | Route | Purpose |
 |------|-------|---------|
-| **The Realms** | `/environments` | Browse all 11 immersive environments with their 4 visual variants |
-| **Realm Detail** | `/environments/[id]` | Live preview of a single realm with variant selector |
+| **The Crossing Hall** | `/environments` | Eleven places as doorways in a fixed geometry — step through and the sky changes |
+| **Being There** | `/environments/[id]` | The room is the place: the sky grounds on arrival, the place-soul reads as its own story |
 | **The Sandbox** | `/playground` | Component playground — test buttons, cards, badges, inputs, and feedback states |
 | **The Theater** | `/theater` | Witness the nine Council entities — their domains, temperatures, and presence |
 | **The Grimoire** | `/effects` | Browse glows, text effects, card styles, and animations with copyable code |
@@ -32,9 +32,9 @@ Every page in COSMIC is powered by systems built throughout the Sanctuary: the C
 ```
 src/app/(cosmic)/
 ├── environments/
-│   ├── page.tsx                       # The Realms — environment gallery
+│   ├── page.tsx                       # The Crossing Hall — doorways, fixed geometry
 │   └── [id]/
-│       └── page.tsx                   # Realm Detail — live preview
+│       └── page.tsx                   # Being There — arrival is the crossing
 ├── playground/
 │   └── page.tsx                       # The Sandbox — component testing
 ├── theater/
@@ -43,105 +43,95 @@ src/app/(cosmic)/
     └── page.tsx                       # The Grimoire — effects gallery
 ```
 
+Components live at `src/components/asgard/domains/cosmic/*`
+(`CrossingHall`, `BeingThere`, `Playground`, `Theater`, `EffectsGrimoire`).
+
 ---
 
 ## 🔗 System Dependencies
 
 | Page | Depends On |
 |------|-----------|
-| Environments Gallery | `Card`, `Badge`, `Grid`, `Search` — static data from environment descriptions |
-| Environment Detail | `Card`, `Badge`, `Button`, `ContinuityBeamContext` — live variant switching |
+| Crossing Hall | `getEnvironmentAffect` + `HALL_ORDER`/`PLACE_DISPLAY` (`lib/constants/systems/environments/places.ts`) — doorways wear each place's beam gradient |
+| Being There | `ContinuityBeamContext.setEnvironment` (arrival IS the crossing), `getEnvironmentAffect` (the place-soul), `Card`, `Badge`, `Button`, `motion` |
 | Playground | `Card`, `Badge`, `Button`, `Input`, `Select`, `Switch`, `Progress`, `Tabs` — all from component library |
-| Theater | `Card`, `Badge`, `Progress`, `motion` (Framer Motion) — council entity data |
+| Theater | `Card`, `Badge`, `Progress`, `motion` (Framer Motion) — council entity data (static) |
 | Effects Grimoire | `Card`, `Badge` — effect data referencing COSMIC tokens |
 
 ---
 
 ## 🎨 Design System Integration
 
-### Environments Gallery
-- Shows all 11 core environments from the AssetMapper descriptions
-- Each card displays: icon, name, variant count, description, mood badges, color palette
-- Filterable by mood (Warm, Sacred, Cosmic, etc.)
-- Searchable by name and description
+### The Crossing Hall (REALMS-AS-TRAVEL move 1)
+- Eleven place-souls as doorways in the hall's **fixed geometry** (`HALL_ORDER`) — derived from the realm map's order (RealmMapFurniture), the same map at two scales
+- Each doorway: still threshold-light in the place's own beam gradient, icon + name, feeling line from the soul's moods
+- **No search, no filters** — a hall you learn by heart needs no search; the order never shuffles
+- Keyboard-walkable, still by default, instant under reduced motion
 
-### Environment Detail
-- Live variant selector (1-4) that immediately updates the immersive background
-- Shows full environment description, mood badges, and color palette
-- "Set as My Realm" links to the Sanctum's EnvironmentSelector
-- Uses `ContinuityBeamContext.setEnvironment()` for instant preview
+### Being There (REALMS-AS-TRAVEL moves 2–3)
+- **Arrival is the crossing:** entering the room sets the beam's session environment — the page's own `EnvironmentLayer` sky becomes the place (one dress, never doubled)
+- The place-soul's description reads as the place's own story; mood/colors/themes as word-registers
+- "Deepen the Crossing" — the four variant registers (Warm · Mystical · Sacred · Ethereal), live on the beam, clamped 1–4
+- Content breathes in after the sky grounds (~400ms); instant under reduced motion
+- "Set as My Realm" links to the Sanctum (hestia) — wiring unchanged
 
 ### Playground
 - Five tabs: Buttons, Cards, Badges, Inputs, Feedback
 - Each tab has controls to change variant, size, and state
-- Live preview updates as controls change
-- Copy button on every code snippet
+- Live preview updates as controls change; copy button on every code snippet
 - Demonstrates loading, empty, error, and success states
 
 ### Theater
 - Grid of 9 Council entities with color-coded avatars
 - Click any entity to see its full detail card
 - Animated temperature meter (0.0 = logical, 1.0 = creative)
-- Entity status badges (Expressing, Embodying, Collaborating, etc.)
-- Smooth transitions with Framer Motion
+- Entity status badges and smooth Framer Motion transitions
+- *Note: the Nine are static stage-dressing today — see Future Enhancements*
 
 ### Effects Grimoire
 - 12 effects across 4 categories: Glow, Text, Card, Animation
-- Category filter tabs
-- Live preview area for each effect
-- Copy button for every code snippet
-- All effects reference COSMIC-generated classes
+- Category filter tabs, live preview area, copy button per snippet
+- All effects reference COSMIC-generated classes (`npm run generate`, the gaia lineage)
 
 ---
 
-## 🧬 Components Used (No New Components Created)
+## 🧬 Components Used
 
 | Component | Layer | Used In |
 |-----------|-------|---------|
-| `Card` | Runes | All pages |
-| `Badge` | Runes | All pages |
-| `Button` | Yggdrasil | Environment Detail, Playground |
+| `Card` | Runes | Being There, Playground, Theater, Grimoire |
+| `Badge` | Runes | All pages except the Hall |
+| `Button` | Yggdrasil | Being There, Playground |
 | `Input` | Forging | Playground |
 | `Select` | Forging | Playground |
 | `Switch` | Forging | Playground |
 | `Progress` | Runes | Playground, Theater |
 | `Tabs` | Vegvisir | Playground |
-| `Skeleton` | Runes | (available, not used — pages load instantly) |
-| `motion` | Framer Motion | Theater |
+| `motion` | Framer Motion | Being There (grounding beat), Theater |
+
+The Hall's doorways are the realm's own, wearing the SceneDoorway register
+(hestia's organ untouched — same register, this realm's idiom).
 
 ---
 
-## 🔐 Security
+## 🔐 Security (law 7 of the realm bus: the playground harvests nothing)
 
 - No API calls — all data is static or client-side only
-- No user data exposed
-- Environment switching is local to the user's session
-- No database writes from Cosmic pages
-
----
-
-## 📊 Completion Metrics
-
-| Metric | Value |
-|--------|:-----:|
-| Pages built | 5 |
-| New components created | 0 |
-| Components reused | 9 |
-| API routes called | 0 |
-| Hardcoded values | 0 |
+- No user data read, no database writes, no play-telemetry — ever
+- Environment crossing is local to the beam's session
+- The realm's standing law lives at `(cosmic)/REALM-BUS.md`
 
 ---
 
 ## 🚀 Future Enhancements
 
-- **Environments:** Add "Apply to Profile" button that saves the user's preferred environment directly from the detail page
-- **Playground:** Add more component tabs (Modal, Toast, Tooltip, Accordion, Tabs)
-- **Theater:** Connect to real entity activity data from the `entity_state_log` table
-- **Effects:** Add live parameter sliders for glow intensity, animation speed, and color
-- **All pages:** Add the "Favorite" button to save preferred environments, components, and effects
+- **Theater:** connect the Nine to living data — the base holds `entity_states` (the event stream) and `council_houses` (seat_limit, deity_alignment, responsibilities); the old `entity_state_log` named here previously is retired (survives only in the 07-07 types backup). Any wiring reads openly and writes nothing (law 7). Waits on KP's ⚛ word.
+- **Playground:** more component tabs (Modal, Toast, Tooltip, Accordion)
+- **Effects:** live parameter sliders for glow intensity, animation speed, and color
+- **Depictive placehood:** drawn scene elements over the sky — the holodeck's second life, a later season (noted in the ruled design; does not gate anything)
 
 ---
 
-*The Grimoire is open. The Theater is alive. The Realms await. The Sanctuary is complete.*
+*The Grimoire is open. The Theater is alive. The Hall stands, and every doorway stays where you left it.*
 
 🏛️✨
