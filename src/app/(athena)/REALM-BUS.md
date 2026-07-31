@@ -68,13 +68,17 @@ heals by regeneration, never by hand · work rides branches, KP merges
   4. **README trued 2026-07-30** (same season): routes as on disk,
      the game listed, evolved data-source table, the realm law
      written in.
-- **Open edges:** **the first seed packet AWAITS KP's ⚛ HAND**
-  (`docs/sql/008-the-library-first-seeds.sql`, drafted 2026-07-30 at
-  his word: 5 collections + 30 bubbles per L3-17's own numbers + 10
-  sigils in L2-06's markers-of-becoming register + 6 opt-in quests +
-  The Settled Tongue course, 6 lessons, emoji-first per L1-14; seam
-  note on the Hearth's bus for the collection_sets rows) ·
-  SCHEMA-FINALIZE row 10
+- **THE SHELVES ARE FULL AND THE DOORS ARE OPEN** (2026-07-30, KP's
+  ⚛ hand ran 008 + 009 the same sitting): 5 collections · 30 bubbles
+  (L3-17's own numbers, rarity census 10/8/6/4/2) · 10 sigils
+  (markers of becoming) · 6 opt-in quests · The Settled Tongue
+  (1 course, 6 lessons, emoji-first) · 1 scroll — all anon-door
+  verified with the full census after 009 healed the false-empty
+  (policies said "Anyone," roles said {authenticated}; seven ALTER
+  POLICY TO public, gates unchanged). Every gallery in the Library
+  now populates. 🚩 VITAL-REVISIT standing: completion_points math ·
+  sigil award triggers unwired · quest submission machinery unwired.
+- **Open edges:** SCHEMA-FINALIZE row 10
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
