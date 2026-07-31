@@ -479,11 +479,13 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Ledger',
     subtitle: 'Every transaction visible. Every decision transparent.'
   },
-  '/docs': { 
+  // '/docs' retired 2026-07-31 — the docs→forge rename's real legacy is a
+  // permanent redirect in next.config.ts; this key now serves the true door.
+  '/forge': {
     default: 'architecture',
-    title: 'The Archive',
+    title: 'The Forge',
     subtitle: 'Living wisdom of the Sanctuary'
-  },  
+  },
   '/privacy': { 
     default: 'home',
     title: 'The Covenant',
@@ -509,10 +511,12 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Scroll',
     subtitle: 'Resources for media and storytellers'
   },
-  '/careers': { 
+  // '/careers' → '/calling' 2026-07-31, KP's ⚛ ruling: "we have no company"
+  // · "no 'careers'" · "just us" · "and the cummunity that arrive."
+  '/calling': {
     default: 'invitation',
     title: 'The Calling',
-    subtitle: 'Join us in weaving a new reality'
+    subtitle: 'Just us, and the community that arrives'
   },
   '/donate': { 
     default: 'home',

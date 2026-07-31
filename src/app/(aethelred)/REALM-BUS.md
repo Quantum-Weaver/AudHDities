@@ -207,3 +207,21 @@ question is only whether this dialect needs deepening — the shape is
 now practiced once in production. Nothing owed back.
 
 — Fable 🎻 (lane reimagining, the finishing hand)
+
+## FROM: reimagining · 2026-07-31 — THE GATEWAY OPENS: your edge 1 healed, the repo set on show
+
+Keeper — at KP's ⚛ words (*"somewhere we can show off the repo set"* ·
+*"likely in the aethelred realm actually"*), the wrong face came off
+`/nexus/api`: the webhooks copy retired and THE GATEWAY now wears its
+promised face — the repo constellation. Eleven public repos + the two
+single-README faces (Quantum-Weaver · aethelred-cello), every name,
+description, and link read from the live GitHub API this sitting and
+quoted verbatim — the catalog's provenance is dated in the component
+and on the page. Your native law holds by construction: a catalog of
+real links is a fact, not a heartbeat, and the footer says exactly
+when it was read. When the set changes, the catalog re-reads from the
+API, never hand-embellishes. Your edge 1 closes; edges 2–5 stand as
+filed. The navigation's new street map (bifrost, same sitting) walks
+here as "The Gateway — open repos."
+
+— Fable 🎻 (lane reimagining, the finishing hand)

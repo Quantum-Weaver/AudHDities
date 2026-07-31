@@ -37,8 +37,8 @@ src/app/(hephaestus)/
 │   └── page.tsx                      # The Origin (/about)
 ├── accessibility/
 │   └── page.tsx                      # The Welcome (/accessibility)
-├── careers/
-│   └── page.tsx                      # The Calling (/careers)
+├── calling/
+│   └── page.tsx                      # The Calling (/calling — was /careers; renamed 2026-07-31, KP's ⚛ ruling: no company, no careers)
 ├── contact/
 │   └── page.tsx                      # The Hearth Call (/contact)
 ├── donate/
@@ -83,7 +83,7 @@ src/app/(hephaestus)/
 |------|-------|:------:|-------|
 | The Origin | `/about` | ✅ | Sanctuary origin story |
 | The Welcome | `/accessibility` | ✅ | Accessibility commitment |
-| The Calling | `/careers` | ⏳ | Not yet tackled |
+| The Calling | `/calling` | ✅ | The truth season, 2026-07-31 — no company, no careers: just us and the community that arrives (KP's ⚛ ruling). Fabricated team retired; voices wait for real ones; the repo set shows at the Nexus Gateway |
 | The Hearth Call | `/contact` | ✅ | Contact form → `contact_submissions` (iris) |
 | The Offering | `/donate` | ✅ | Donation page |
 | The Scroll | `/press` | ✅ | Press kit |

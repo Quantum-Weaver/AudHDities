@@ -1,5 +1,7 @@
-// components/supporting/CultureDeck.tsx
-// Culture Deck - Company values and philosophy
+// components/asgard/domains/hephaestus/calling/CultureDeck.tsx
+// How this place is — the house's principles (retitled 2026-07-31, the
+// truth season: no company, so no "company values" — but every principle
+// below is one the house actually holds and enforces; they stay).
 
 "use client";
 
@@ -55,8 +57,8 @@ export function CultureDeck() {
       className="p-6"
     >
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-star-dust mb-2">Our Culture</h2>
-        <p className="text-star-dust/60">The principles that guide everything we do</p>
+        <h2 className="text-2xl font-bold text-star-dust mb-2">How this place is</h2>
+        <p className="text-star-dust/60">The principles that guide everything here</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cultureValues.map((value) => (

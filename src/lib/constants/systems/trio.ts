@@ -166,7 +166,7 @@ export const REALM_TRIO_MAP: Record<RealmKey, RealmTrioConfig> = {
   ),
   hephaestus: buildRealmConfig(
     'forge',
-    ['/forge', '/about', '/privacy', '/terms', '/sanctuary'],
+    ['/forge', '/about', '/privacy', '/terms', '/sanctuary', '/calling'],
     // Both Feeling lines held at once — KP's Phase 4 signature, verbatim:
     // "hephaestus's register was deliberately both at once."
     'Structured, transparent, reliable, foundational — and, held at once, intelligent, powerful, sacred'
