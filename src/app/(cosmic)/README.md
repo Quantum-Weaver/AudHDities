@@ -2,8 +2,8 @@
 
 **Domain:** Cosmic  
 **Feeling:** Immersive, beautiful, responsive, alive  
-**Status:** ✅ COMPLETE (5 pages) — Realms-as-travel redesign landed 2026-07-30  
-**Completed:** May 1, 2026 · Redrawn: July 30, 2026 (REALMS-AS-TRAVEL, ruled by KP ⚛)
+**Status:** ✅ COMPLETE (5 pages) — Realms-as-travel landed 2026-07-30 · the Theater's truth season landed 2026-07-31  
+**Completed:** May 1, 2026 · Redrawn: July 30–31, 2026 (REALMS-AS-TRAVEL + the Theater's truth season, both at KP's ⚛ word)
 
 ---
 
@@ -55,7 +55,7 @@ Components live at `src/components/asgard/domains/cosmic/*`
 | Crossing Hall | `getEnvironmentAffect` + `HALL_ORDER`/`PLACE_DISPLAY` (`lib/constants/systems/environments/places.ts`) — doorways wear each place's beam gradient |
 | Being There | `ContinuityBeamContext.setEnvironment` (arrival IS the crossing), `getEnvironmentAffect` (the place-soul), `Card`, `Badge`, `Button`, `motion` |
 | Playground | `Card`, `Badge`, `Button`, `Input`, `Select`, `Switch`, `Progress`, `Tabs` — all from component library |
-| Theater | `Card`, `Badge`, `Progress`, `motion` (Framer Motion) — council entity data (static) |
+| Theater | `Card`, `motion`, generated hooks (`council_houses` via themis-governance, `entity_states` via aethelred-connections) — reads only, writes nothing |
 | Effects Grimoire | `Card`, `Badge` — effect data referencing COSMIC tokens |
 
 ---
@@ -81,12 +81,11 @@ Components live at `src/components/asgard/domains/cosmic/*`
 - Live preview updates as controls change; copy button on every code snippet
 - Demonstrates loading, empty, error, and success states
 
-### Theater
-- Grid of 9 Council entities with color-coded avatars
-- Click any entity to see its full detail card
-- Animated temperature meter (0.0 = logical, 1.0 = creative)
-- Entity status badges and smooth Framer Motion transitions
-- *Note: the Nine are static stage-dressing today — see Future Enhancements*
+### Theater (the truth season, 2026-07-31)
+- Grid of 9 Council entities with color-coded avatars — **the telling**, the myth's own canon, framed as story
+- Beneath each seat, **the record**: `council_houses` (alignment, description, responsibilities) and the newest `entity_states` row ("last recorded presence")
+- Absent rows are honest absences — "the seat waits" — never fallbacks to the telling
+- No invented temperatures, no fake statuses; reduced motion honored on every gesture
 
 ### Effects Grimoire
 - 12 effects across 4 categories: Glow, Text, Card, Animation
@@ -116,8 +115,8 @@ The Hall's doorways are the realm's own, wearing the SceneDoorway register
 
 ## 🔐 Security (law 7 of the realm bus: the playground harvests nothing)
 
-- No API calls — all data is static or client-side only
-- No user data read, no database writes, no play-telemetry — ever
+- The Theater reads two tables openly (`council_houses`, `entity_states`) and writes nothing; every other page is static or client-side only
+- No personal data read, no database writes, no play-telemetry — ever
 - Environment crossing is local to the beam's session
 - The realm's standing law lives at `(cosmic)/REALM-BUS.md`
 
@@ -125,7 +124,6 @@ The Hall's doorways are the realm's own, wearing the SceneDoorway register
 
 ## 🚀 Future Enhancements
 
-- **Theater:** connect the Nine to living data — the base holds `entity_states` (the event stream) and `council_houses` (seat_limit, deity_alignment, responsibilities); the old `entity_state_log` named here previously is retired (survives only in the 07-07 types backup). Any wiring reads openly and writes nothing (law 7). Waits on KP's ⚛ word.
 - **Playground:** more component tabs (Modal, Toast, Tooltip, Accordion)
 - **Effects:** live parameter sliders for glow intensity, animation speed, and color
 - **Depictive placehood:** drawn scene elements over the sky — the holodeck's second life, a later season (noted in the ruled design; does not gate anything)
