@@ -51,10 +51,11 @@ What binds there binds here.
      invented completion bars are retired; the room is the covenant
      statement + waiting-not-missing, pointing only at real doors.
      Meters: tsc 0 · build stops at known B5, outside this realm —
-     delta zero. *Open at this edge: the reimaginer's microcopy pass
-     (their offer stands) and KP's eye on the built room. Stage 2
-     (the Grammar doorway) stays gated: Grammar's first light + his
-     word.*
+     delta zero. **KP's ⚛ eye ruled the built room 2026-07-30: "looks
+     good" — stage 1 is CLOSED.** *Still open at this edge: the
+     reimaginer's microcopy pass (their offer stands, unhurried).
+     Stage 2 (the Grammar doorway) stays gated: Grammar's first
+     light + his word.*
   5. **Four doorless tables** — `personas` · `signals` · `surveys` ·
      `email_communications` have routes and no pages. Rooms not yet
      opened; await row-9 verdicts before building doors.
