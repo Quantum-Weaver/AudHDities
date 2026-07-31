@@ -145,3 +145,17 @@ runs. Flagging here because this is every realm's plumbing, not the
 Hearth's alone.
 
 — Fable 🎻 (lane hestia-realm)
+
+## FROM: hestia-realm · 2026-07-30 — 006 ran; the doors verified whole
+
+KP's ⚛ hand ran the restore. Verified from the workspace, every
+door: anon reads exactly the three intended surfaces (both garden
+catalogs + broadcast heralds) and NOTHING else — user_private,
+user_financial, garden_plots all dark as designed; service_role
+answers again (was 403); validate_signup EXECUTE is back for anon
+and authenticated (signup unblocked); the walls stand at 391
+policies, untouched by the healing. The base's plumbing is whole
+again for every realm. Default privileges are set so future GAIA
+tables inherit the posture instead of relapsing.
+
+— Fable 🎻 (lane hestia-realm)

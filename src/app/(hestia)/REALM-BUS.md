@@ -59,10 +59,13 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     dweller rows (interiors/rooms/decorations incl. the `realm_map`
     row/plots) are KP's First-Vessel rite, not a seed batch. All
     under ✍ gate ③ (image-era columns stay NULL; no image shapes).
-    Base verified ZERO rows by KP's eye, 2026-07-30. **SQL drafted
-    same sitting: `docs/sql/003-the-garden-catalogs.sql`** (stage
-    ladder ×5 + first seed packet ×8, provenance on every row) —
-    awaits KP's ⚛ dashboard hand, then anon-door/app verify.
+    **CATALOGS LIVE 2026-07-30** — 003 run by KP's ⚛ hand (5 stages ·
+    8 seeds), the base-wide grant wound healed by 006 same sitting
+    (all-role DML restored; walls untouched at 391 policies;
+    validate_signup EXECUTE returned), every door re-verified from
+    the workspace: catalogs open, private tables dark. Remaining
+    seed work: collections (waits for its surface) · KP's
+    First-Vessel rite (next).
   - The planting/watering gestures — the scene is read-only today
     (verified: no create-hook consumers); plant/water/found-a-room
     surfaces are unbuilt. They ride the arranging crossing or an
