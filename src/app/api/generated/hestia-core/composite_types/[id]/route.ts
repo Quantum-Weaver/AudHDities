@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CompositeTypesUpdateSchema } from '@/lib/validators/generated/hestia-core/composite_types';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.292Z
+// Generated: 2026-07-31T01:03:40.972Z
 // Table: composite_types
 
 export async function GET(

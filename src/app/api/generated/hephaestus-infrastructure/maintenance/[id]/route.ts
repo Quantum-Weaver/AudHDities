@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MaintenanceUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/maintenance';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.553Z
+// Generated: 2026-07-31T01:03:41.360Z
 // Table: maintenance
 
 export async function GET(

@@ -3708,6 +3708,7 @@ export type Database = {
           id: string
           myth_type: string | null
           name: string
+          provenance: string | null
           related_entity: string | null
           related_entity_type: string | null
           slug: string
@@ -3726,6 +3727,7 @@ export type Database = {
           id?: string
           myth_type?: string | null
           name: string
+          provenance?: string | null
           related_entity?: string | null
           related_entity_type?: string | null
           slug: string
@@ -3744,6 +3746,7 @@ export type Database = {
           id?: string
           myth_type?: string | null
           name?: string
+          provenance?: string | null
           related_entity?: string | null
           related_entity_type?: string | null
           slug?: string

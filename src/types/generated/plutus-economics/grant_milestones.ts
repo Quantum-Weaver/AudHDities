@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/grant_milestones.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-31T00:35:01.479Z
+// GENERATED: 2026-07-31T01:03:41.243Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

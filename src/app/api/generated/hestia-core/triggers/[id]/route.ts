@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TriggersUpdateSchema } from '@/lib/validators/generated/hestia-core/triggers';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.807Z
+// Generated: 2026-07-31T01:03:41.725Z
 // Table: triggers
 
 export async function GET(

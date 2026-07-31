@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { IndexesUpdateSchema } from '@/lib/validators/generated/hestia-core/indexes';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.512Z
+// Generated: 2026-07-31T01:03:41.301Z
 // Table: indexes
 
 export async function GET(

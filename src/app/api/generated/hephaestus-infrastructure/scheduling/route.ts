@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SchedulingInsertSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.729Z
+// Generated: 2026-07-31T01:03:41.606Z
 // Table: scheduling
 
 export async function GET(request: NextRequest) {

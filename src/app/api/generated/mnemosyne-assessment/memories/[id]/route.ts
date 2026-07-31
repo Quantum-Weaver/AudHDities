@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { MemoriesUpdateSchema } from '@/lib/validators/generated/mnemosyne-assessment/memories';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.560Z
+// Generated: 2026-07-31T01:03:41.370Z
 // Table: memories
 
 export async function GET(

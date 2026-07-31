@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/community_profiles.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-31T00:35:01.278Z
+// GENERATED: 2026-07-31T01:03:40.956Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

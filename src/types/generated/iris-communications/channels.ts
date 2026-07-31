@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/channels.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-07-31T00:35:01.249Z
+// GENERATED: 2026-07-31T01:03:40.923Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

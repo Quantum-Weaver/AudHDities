@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EnumsUpdateSchema } from '@/lib/validators/generated/hestia-core/enums';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.368Z
+// Generated: 2026-07-31T01:03:41.075Z
 // Table: enums
 
 export async function GET(

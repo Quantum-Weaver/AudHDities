@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/patronage_tiers.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-07-31T00:35:01.604Z
+// GENERATED: 2026-07-31T01:03:41.426Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

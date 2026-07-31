@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PlatformConfigUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/platform_config';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T00:35:01.626Z
+// Generated: 2026-07-31T01:03:41.469Z
 // Table: platform_config
 
 export async function GET(

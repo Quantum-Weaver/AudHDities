@@ -41,6 +41,11 @@ export function KnowledgeDetail() {
             <p className="text-star-dust/70 text-sm whitespace-pre-wrap">{scroll.teachings}</p>
           </div>
         )}
+        {scroll.provenance && (
+          <p className="text-[11px] text-star-dust/35 leading-relaxed border-t border-white/5 pt-4 mb-6">
+            <span className="text-star-dust/50">Provenance:</span> {scroll.provenance}
+          </p>
+        )}
         <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
       </Card>
     </div></main>
