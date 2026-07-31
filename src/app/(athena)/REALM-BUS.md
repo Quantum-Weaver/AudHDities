@@ -52,9 +52,13 @@ heals by regeneration, never by hand · work rides branches, KP merges
      hestia-core catchall) → GAIA re-run, wires born in
      athena-gamification → KnowledgeGallery/Detail retrued to the
      story-frames shape (name/story/teachings) → anon-door verified →
-     tsc 0. Commits `5c09bd15` + `27bd6176`. The hall is open with
-     empty shelves, waiting for its first scrolls (KP's content
-     season). Personal frames still arrive vessel-side when their day
+     tsc 0. Commits `5c09bd15` + `27bd6176`. **And the first scroll
+     is ON THE SHELF (2026-07-30):** KP ran 007 whole by his own hand
+     — the weaver's provenance column live, "The Opening — Kaos
+     Before Gaia" published, the detail page wearing the provenance
+     footer, anon-door verified end to end (`01409a47` + `35228b78`).
+     The content season is OPEN at the looms' pace, KP's ⚛ eye per
+     scroll. Personal frames still arrive vessel-side when their day
      comes (the Hearth pattern, ruled).
   4. **README aged:** quests route says `[id]` (disk: `[slug]`),
      `bubbles/play` unlisted, detail pages marked unbuilt that exist,
