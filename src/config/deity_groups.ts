@@ -31,9 +31,9 @@
 // composite_types) join DAEDALUS here, matching their standing assignment in
 // the base's own gaia_config (deity_group daedalus-meta, 13 tables). The
 // generation pieces' home is src/config/daedalus/ (his word, same sitting).
-// FLAGGED FOR KP'S EYE, not settled silently: `votes` stands ACTIVE and
-// UNASSIGNED in the base ("discovered by gaia_sync") — it needs his deity
-// ruling in the base first; this map mirrors, never decides.
+// The votes flag RESOLVED the same day, KP's word: "themis gets votes" —
+// listed under Themis below; the matching one-line UPDATE for gaia_config
+// rides his dashboard (deity_group = 'themis-governance').
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -218,6 +218,9 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'processes',
       'protocols',
       'rate_limits',
+      // discovered by gaia_sync 2026-07-31, assigned by KP's word the same
+      // day: "themis gets votes" — the Council counts them
+      'votes',
     ],
   },
 
