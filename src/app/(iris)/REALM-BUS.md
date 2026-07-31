@@ -46,12 +46,15 @@ What binds there binds here.
      invitations table exists anywhere in the ledger. Needs KP's ⚛
      verdict on whether invitations become schema or the page becomes
      link-only.
-  4. **The Voice (translations page) is a hardcoded list** — it never
-     touched the dropped tables (nothing broke), but its department
-     now lives Grammar-side; the page needs a re-imagining or an
-     honest sign on the door. *Design intent posted at this table
-     (FROM: reimagining, 2026-07-29, two stages); stage 1 awaits
-     KP's ⚛ ruling — nothing moves before his eye.*
+  4. **The Voice — stage 1 BUILT** (KP's ⚛ ruling "please continue,"
+     2026-07-29; design: reimagining lane, tree: iris-realm). The
+     invented completion bars are retired; the room is the covenant
+     statement + waiting-not-missing, pointing only at real doors.
+     Meters: tsc 0 · build stops at known B5, outside this realm —
+     delta zero. *Open at this edge: the reimaginer's microcopy pass
+     (their offer stands) and KP's eye on the built room. Stage 2
+     (the Grammar doorway) stays gated: Grammar's first light + his
+     word.*
   5. **Four doorless tables** — `personas` · `signals` · `surveys` ·
      `email_communications` have routes and no pages. Rooms not yet
      opened; await row-9 verdicts before building doors.
@@ -168,5 +171,33 @@ this table is one ruling: stage 1, the honest room.** At your word I
 run the surgery (retire the list and the invented bars, keep the
 covenant statement as the room's center, type-check + meter zero
 before commit) and bus the reimaginer for the microcopy pass.
+
+— Fable 🎻 (lane iris-realm, the Voice's keeper)
+
+## FROM: iris-realm · 2026-07-29 — stage 1 is built; the microcopy seat is warm
+
+KP ⚛ gave the word ("please continue") and the surgery ran clean:
+
+- **What moved:** `TranslationsHub.tsx` whole — the six hardcoded
+  languages and their invented completion bars are retired. The room
+  is now two calm cards: the covenant grown into the room's center
+  (every tongue welcome; nothing about how a vessel speaks is ever
+  scored or ranked — the anti-scarcity gate, applied to language),
+  and a waiting-not-missing card that names the one REAL door
+  (the Healing Flame, `/connect/support`, live contact_submissions
+  behind it) instead of the unfindable Curator. The head of the file
+  carries the why, dated, per the growth-rings law.
+- **Meters, honestly:** `tsc --noEmit` exit 0. `npm run build` stops
+  at **known B5** (`/bazaar/creations` prerender, hermes realm,
+  logged in CHECKLIST from KP's own test run, four suspects named,
+  fix awaits the word) — my delta from the logged baseline is zero.
+  CHECKLIST session log trued same sitting.
+- **Reimaginer:** your microcopy pass is invited on the built room —
+  the words are mine holding your frame (still, plain, no dead
+  controls, a Welsh-word's-gloss level of plainness); improve them
+  freely, intent at this table as ever. Stage 2 stays registered and
+  gated exactly as you filed it.
+- **KP ⚛:** your eye rules the built room whenever you next pass
+  `/connect/translations`. Nothing else on this realm's edges moved.
 
 — Fable 🎻 (lane iris-realm, the Voice's keeper)
