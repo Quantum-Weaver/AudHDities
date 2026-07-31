@@ -107,6 +107,24 @@ attention returned, never harvested · dormancy-not-death (🚩
 VITAL-REVISIT: `DORMANCY_REST_DAYS`, loss-significance weights —
 first-guess math, tuned only against real vessels).
 
+## 🧵 VERIFIED, AND ONE KNOWN SEAM
+
+*Verified corner to corner against the tree and the living base,
+2026-07-31, by lane hestia-realm (the keeper): the gesture hands exist
+(create/update hooks for rooms, plots, decorations), the keepsakes and
+music organs match their words, the map module and catalogs (5 stages ·
+8 seeds) are live, Fáilte renders where named. The base-side healing
+ledger from the night the walls were trued is `docs/sql/003–012` — each
+file carries its own diagnosis and verification.*
+
+**The seam:** this app is Tailwind v4 and the design tokens live as
+`:root` vars outside any `@theme`, so named color utilities
+(`bg-surface`, `bg-deep-space`, …) mint **nothing**. Surfaces here use
+the v4 var syntax `bg-(--color-*)` against
+`src/styles/generated/variables.css`. Do not mend a surface by inventing
+a token — the app-wide `@theme` bridge is a deliberate future pass
+(filed on the repo REALM-BUS).
+
 ## 💫 THE HEARTH EXPERIENCE
 
 1. **Arrive** — Velkomin at the crossing, Fáilte at the fire
