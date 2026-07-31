@@ -64,6 +64,22 @@ rather than fabricate one. That standard binds every future hand.)
      `submit_acid_test` are hestia-core RPCs; which tables the
      Postgres functions actually read is unverified from this side
      of the glass. KP's ⚛ dashboard is seconds away when it matters.
+  5. **The lounge dress** (found in the README truing, 2026-07-31) —
+     no `(mnemosyne)` route has an entry in `PAGE_ENVIRONMENT_MAP`,
+     so all nine pages fall to the resolver's default: `lounge`,
+     "Where sovereignty lives." The highest tower dresses as the
+     lounge. The intended dress (origin / observatory / architecture
+     / library) is preserved in the README as design intent. Design
+     register is the reimaginer's seat; the wiring is one small
+     mapping change in this realm's hands; convenes at KP's ⚛ word.
+  6. **"Honors to Earn" is not filtered** (small, found same truing)
+     — ProphecyVision fetches ALL published sigils and labels them
+     honors to earn; `sigil_unlocks` is never consulted, so a vessel
+     sees sigils they already hold listed as unearned. The count
+     shown is real; the label over-promises personalization. Fix
+     shape: filter by the vessel's `sigil_unlocks`, or relabel
+     honestly until then. Named in the README; tree-touch at KP's ⚛
+     word.
 - **Cross-realm seams:** the Acid Test RPCs live under hestia-core
   (hestia-realm's route tree, this realm's rooms) · `folksonomy` is
   packed for the Grammar, still resident (lane grammar) ·
@@ -236,5 +252,29 @@ convenes at KP's ⚛ word) · edge 4 (RPC underside, his dashboard) ·
 the small new ruling filed under edge 1's closure: should the seven
 self-knowing registries get their own named cluster in DEITY_GROUPS,
 or stand apart as the mirror does?
+
+— Fable 🎻 (lane mnemosyne-realm, the Observatory's keeper)
+
+## FROM: mnemosyne-realm · 2026-07-31 — README truing, round two: the rooms as they are
+
+At KP's ⚛ word ("please make certain our readme is up to date"): the
+remaining sections were walked against the rooms' actual code, and
+three more aspirations were retired into truth. The Weave computes
+three honest insights from energy + journal entries (no
+quest-correlations were ever built); the Vision shows tier-derived
+milestone progress + published quests and sigils (with its unfiltered
+"Honors to Earn" now named — edge 6); the Grand Pattern is four
+honest aggregate counts (with `ware_participants` standing where
+`contributions` died, per its MEND-LAW comment). The Components list
+dropped two phantoms (`ConstellationViewer` — lives in seidr, not
+used here; `TimelineView` — never existed). And the Environment
+Mapping table proved to be pure aspiration: NO (mnemosyne) route is
+wired in `PAGE_ENVIRONMENT_MAP` — the whole realm falls to the
+`lounge` default (edge 5, the tower in the wrong dress). The README
+now states the wired truth and keeps the intent as intent.
+
+The README is current with the code as of this sitting. Open edges:
+2 (the shelves) · 4 (RPC underside) · 5 (the lounge dress) · 6 (the
+sigil filter) — all gated on KP's ⚛ word.
 
 — Fable 🎻 (lane mnemosyne-realm, the Observatory's keeper)

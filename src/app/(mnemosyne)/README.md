@@ -82,17 +82,17 @@ An immersive, interactive star map of the entire database. Each table is a star 
 
 **Components:** `SchemaConstellation`, `SchemaExplorer`, `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard`, `SchemaHero`
 
-### 4. Pattern Recognition (`/observatory/patterns`)
-Analyzes patterns in the user's energy logs, journal entries, and quest completions. Surfaces correlations — "You write more on days with higher energy" or "You complete quests most often on weekends." Gentle, non-judgmental insights.
+### 4. The Weave (`/observatory/patterns`)
+Gentle, non-judgmental insights computed from the vessel's last 30 energy entries and 30 journal entries (hestia-core): **Energy Rhythm** (average level and whether it is rising, settling, or steady), **Dominant Mood** (most frequent journal mood), and **Peak Logging Time** (the hour energy is most often logged). Nothing is invented — with too little data the room says "Awaiting Data" plainly. (Quest-completion correlations were an old aspiration; they were never built.)
 
 ### 5. The Vision (`/observatory/prophecy`)
-Future projections based on the user's trajectory. If they continue at their current pace, what sovereignty milestones are ahead? What badges are within reach? What quests are now available? Forward-looking and encouraging.
+Forward-looking and encouraging: a next-milestone progress bar derived from the vessel's own tier (`tierLight`), the published quests now available, and published sigils shown as honors to earn. Honest limits, honestly named: the sigil list is not yet filtered by what the vessel has already earned (`sigil_unlocks` is not consulted — filed on the realm bus), and the old quest `house`/`sovereignty_reward` fields were dropped in the settle, degraded gracefully rather than invented (MEND-LAW comment in the room).
 
 ### 6. Ancestors (`/observatory/ancestors`)
 Honors the Sanctuary's history — the Council Eternal. Renders the nine houses from `council_houses` (themis-governance). (`mythology` now lives in Athena's Archive; the Weaver's own story is told at `/observatory/origin`.)
 
-### 7. Constellations (`/observatory/constellations`)
-The grand pattern — visualizes aggregate connections across the entire Sanctuary. Shared houses, quest participation patterns, channel memberships. Anonymized and beautiful. Different from the Vessel's personal Constellation (which shows individual connections).
+### 7. The Grand Pattern (`/observatory/constellations`)
+Four aggregate counts of the whole Sanctuary, anonymized by nature (totals only, via the routes' pagination counts): Sovereign Souls (`community_profiles`), Creations Woven (published `wares`), Honors (`sigils`), Contributions Made (`ware_participants` — the nearest living table after `contributions` died; MEND-LAW comment in the room). Different from the Vessel's personal Constellation (which shows individual connections). The house/quest/channel web visualization was an old aspiration; what stands is honest counts.
 
 ### 8. The Origin (`/observatory/origin`)
 The Sanctuary's creation story. How it was built. Why it exists. The collaboration between the Quantum Weaver and Aethelred. A sacred text rendered as an immersive experience.
@@ -133,13 +133,22 @@ RPCs require an authenticated user (see
 ## Components Used
 
 ### Page Components
-- `Page` (bifrost) — Immersive environment wrapper
-- `SchemaConstellation` — Interactive star map
-- `SchemaExplorer` — Traditional table/enum/function browser
-- `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard` — Detail cards
-- `SchemaHero` — Hero section for schema page
-- `ConstellationViewer` — SVG-based node/edge visualization
-- `TimelineView` — Event timeline display
+All rooms live in `src/components/asgard/domains/mnemosyne/`:
+- `Page` (bifrost) — Immersive environment wrapper (every page)
+- `ObservatoryHub` — the hub · `TimelineSpiral` — the Spiral ·
+  `PatternWeave` — the Weave · `ProphecyVision` — the Vision ·
+  `AncestorsCouncil` — the Council Eternal · `GrandPattern` — the
+  counts · `OriginContent` — the story · `AcidTestLoader` +
+  `AcidTestForm` — the test
+- Schema family: `SchemaConstellation`, `SchemaExplorer`,
+  `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard`,
+  `SchemaHero`
+- Shared runes: `Card`, `Badge`, `Progress`, `Skeleton`
+
+*(The old list named `ConstellationViewer` and `TimelineView` —
+neither is used by this realm; `ConstellationViewer` lives in
+seidr/immersive and serves other rooms, `TimelineView` never existed
+here.)*
 
 ### Data Layer
 - `parseDatabaseTypes()` — Static schema import (no API calls)
@@ -150,17 +159,21 @@ RPCs require an authenticated user (see
 
 ## Environment Mapping
 
-| Page | Environment | Variant |
-|------|------------|:------:|
-| `/questionaire` | origin | Sacred, Awakening |
-| `/observatory` | observatory | Awe-inspiring, Cosmic |
-| `/observatory/timeline` | observatory | Mysterious, Visionary |
-| `/observatory/schema` | observatory | Intelligent, Powerful |
-| `/observatory/patterns` | architecture | Intelligent, Powerful |
-| `/observatory/prophecy` | observatory | Cosmic, Visionary |
-| `/observatory/ancestors` | library | Ancient, Sacred |
-| `/observatory/constellations` | observatory | Cosmic, Awe-inspiring |
-| `/observatory/origin` | origin | Sacred, Awakening |
+**The truth as wired (2026-07-31):** no `(mnemosyne)` route has an
+entry in `PAGE_ENVIRONMENT_MAP`
+(`src/lib/constants/systems/environments/page_mapping.ts`), so all
+nine pages fall to the resolver's default — the `lounge` environment,
+"Where sovereignty lives." The highest tower currently dresses as the
+lounge. Filed as edge 5 on the realm bus; the intended dress below is
+preserved as design intent for when the nine entries are added
+(design: reimaginer's seat · wiring: one small mapping change):
+
+| Page | Intended environment (design intent, not yet wired) |
+|------|------------|
+| `/questionaire`, `/observatory/origin` | origin — Sacred, Awakening |
+| `/observatory`, `/timeline`, `/schema`, `/prophecy`, `/constellations` | observatory — Cosmic, Visionary |
+| `/observatory/patterns` | architecture — Intelligent |
+| `/observatory/ancestors` | library — Ancient, Sacred |
 
 ---
 
@@ -178,7 +191,13 @@ RPCs require an authenticated user (see
 | `/observatory/constellations` | ✅ Complete |
 | `/observatory/origin` | ✅ Complete |
 
-**Mnemosyne is complete.** All 9 pages built. All infrastructure connected. The Observatory stands as the highest tower in the Sanctuary — a place of vision, memory, and sovereign self-knowledge.
+**All 9 pages are built and every fetch lands on a living route.**
+What remains open lives on the realm bus (`REALM-BUS.md`, beside this
+file): the unopened shelves (`memories`, `anchor_events`,
+`resonance`), the environment wiring above, and two small
+verifications at KP's dashboard. The Observatory stands as the
+highest tower in the Sanctuary — a place of vision, memory, and
+sovereign self-knowledge.
 
 ---
 
