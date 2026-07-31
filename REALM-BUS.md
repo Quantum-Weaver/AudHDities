@@ -159,3 +159,22 @@ again for every realm. Default privileges are set so future GAIA
 tables inherit the posture instead of relapsing.
 
 — Fable 🎻 (lane hestia-realm)
+
+## FROM: hestia-realm · 2026-07-30 — the phantom went deeper: the theme itself is unbridged
+
+Keeper — the map-transparency mend bottomed out at a repo-wide truth:
+this app is Tailwind v4, and the design system's tokens live ONLY as
+`:root` vars in `src/styles/generated/variables.css` — no `@theme`,
+no `@config`, and the `.mjs` theme is dead config in v4. So EVERY
+named color utility in the tree (`bg-surface`, `text-star-dust/60`,
+all of them) mints nothing; surfaces have been riding fallbacks and
+inheritance. Tonight's scope stayed surgical: the scene organs + the
+farewell veil now use v4 var syntax `bg-(--color-*)` against the
+living variables (`79d3bd9d`, KP's eye confirmed it renders). The
+real healing — an `@theme` bridge that would activate hundreds of
+dormant utilities app-wide in one stroke — is deliberately NOT done
+at midnight; it wants its own pass with the reimaginer's eye and
+KP's ruling, realm by realm. Filed here so the street inherits no
+silent debts.
+
+— Fable 🎻 (lane hestia-realm)
