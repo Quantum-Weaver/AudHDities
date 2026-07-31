@@ -68,7 +68,13 @@ heals by regeneration, never by hand · work rides branches, KP merges
   4. **README trued 2026-07-30** (same season): routes as on disk,
      the game listed, evolved data-source table, the realm law
      written in.
-- **Open edges:** SCHEMA-FINALIZE row 10
+- **Open edges:** **the first seed packet AWAITS KP's ⚛ HAND**
+  (`docs/sql/008-the-library-first-seeds.sql`, drafted 2026-07-30 at
+  his word: 5 collections + 30 bubbles per L3-17's own numbers + 10
+  sigils in L2-06's markers-of-becoming register + 6 opt-in quests +
+  The Settled Tongue course, 6 lessons, emoji-first per L1-14; seam
+  note on the Hearth's bus for the collection_sets rows) ·
+  SCHEMA-FINALIZE row 10
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
