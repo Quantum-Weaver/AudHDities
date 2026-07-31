@@ -42,11 +42,17 @@ heals by regeneration, never by hand · work rides branches, KP merges
      `is_published`/`is_active`→`status`, scalar rewards/durations →
      Json). QuestDetail doubly adrift: reads `params.id` inside a
      `[slug]` route folder, so every quest renders the empty state.
-  3. **The Archive is dark by design:** `mythology` DROPPED by KP's ⚛
-     hand 2026-07-28 (Superposition Review, typegen-verified); its
-     meaning earmarked as a future Grammar scheme — "story-frames,
-     personal and shared." The hall waits for its true source; no
-     patch-fix belongs here.
+  3. **The Archive's source is coming home** — KP's ⚛ word,
+     2026-07-29, verbatim: "i intend to bring mythology back, it was
+     dropped simply because it had no data and was considered for the
+     resonamce-knowledge base, but it belongs here i think."
+     (Supersedes the review's Grammar earmark; the drop was for
+     emptiness, not wrongness.) Excavated ground truth: the pre-drop
+     table (`c4e20332~1` typegen) already speaks the evolved dialect —
+     name · slug · status content_status · story · teachings ·
+     myth_type · related_entity(+type) · icon_url · display_order ·
+     audit columns. Schema design is live at this table, KP's eye
+     ruling.
   4. **README aged:** quests route says `[id]` (disk: `[slug]`),
      `bubbles/play` unlisted, detail pages marked unbuilt that exist,
      data table names pre-evolution (`badges`, `mythology`,
@@ -56,10 +62,12 @@ heals by regeneration, never by hand · work rides branches, KP merges
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
-  lessons, quests · the Archive's Grammar bridge, when its day comes —
-  rides the one-bridge-three-doors crossing (Archive · dailies ·
-  iris's Voice), convened as one design when the Grammar's front
-  lights.
+  lessons, quests · **mythology's return** (KP's ⚛ word 2026-07-29 —
+  schema design first, then his dashboard hand, then GAIA regen, then
+  the Archive's retruing rides the rewiring season) · the
+  one-bridge-three-doors crossing narrows to two doors from this
+  realm's side (dailies still ride the Grammar seam; the Archive's
+  source now lives home).
 - **Cross-realm seams:** the collection machinery lives hestia-core
   side (`vessel_bubbles`, `collection_sets`, `vessel_sigils`,
   `vessel_quests` — the Hearth's tables, this realm only reads/writes
