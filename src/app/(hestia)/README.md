@@ -1,189 +1,123 @@
 # 🔥 HESTIA — THE HEARTH
 
-**Domain:** Core Identity & Personal Space  
-**Feeling:** Warm, welcoming, safe, reflective  
-**Primary Environment:** `home` (variants: Warm, Mystical, Sacred, Ethereal)
+**Domain:** Core Identity & Personal Space
+**Feeling:** Warm, welcoming, safe, reflective
+**Primary Environment:** `home`
+
+*Refreshed 2026-07-31 at KP's ⚛ word ("we are ready to finish hestia"),
+by the finishing session — the previous README was a 2026-07-06
+photograph (pre-rename tables, no Vessel Home, no ceremonies). This
+one is trued to the tree and the living base (117 tables, hestia-core).
+The realm's standing tabletop is `REALM-BUS.md` beside this file —
+trust the bus's state section over any README, always.*
 
 ---
 
-## 📊 COMPLETION STATUS: 8/8 ✅ DONE
-
----
-
-## 🗺️ PAGE MAP
+## 🗺️ PAGE MAP (as on disk)
 
 ```
 src/app/(hestia)/
-├── page.tsx                              # ✅ The Hearth (/)
+├── REALM-BUS.md                      # the realm's standing tabletop
+├── dashboard/  → redirect            # /dashboard → /vessel (the root
+│                                     #   Hearth page is retired)
 ├── vessel/
-│   ├── page.tsx                          # ✅ The Vessel (/vessel)
+│   ├── page.tsx                      # The Vessel (/vessel) — identity,
+│   │                                 #   sigils, milestones, quick links;
+│   │                                 #   VELKOMIN fires here once per
+│   │                                 #   session (the door's word)
+│   ├── home/
+│   │   └── page.tsx                  # THE VESSEL HOME (/vessel/home) —
+│   │                                 #   the scene renderer: rooms, garden,
+│   │                                 #   keepsakes, the realm map
 │   ├── sanctum/
-│   │   └── page.tsx                      # ✅ Sanctum (/vessel/sanctum)
+│   │   └── page.tsx                  # The Sanctum (/vessel/sanctum) —
+│   │                                 #   identity, accessibility, THE
+│   │                                 #   CEREMONY SWITCHBOARD (opt-in)
 │   ├── energy/
-│   │   └── page.tsx                      # ✅ Energy Log (/vessel/energy)
+│   │   └── page.tsx                  # Energy Log (/vessel/energy)
 │   ├── constellation/
-│   │   └── page.tsx                      # ✅ Constellation (/vessel/constellation)
-│   └── journal/
-│       ├── page.tsx                      # ✅ The Scroll (/vessel/journal)
-│       ├── [id]/
-│       │   ├── page.tsx                  # ✅ Journal Entry Detail
-│       │   └── edit/
-│       │       └── page.tsx              # ✅ Edit Journal Entry
-└── notifications/
-    ├── page.tsx                          # ✅ The Pulse (/notifications)
-    └── [id]/
-        └── page.tsx                      # ✅ Notification Detail (/notifications/[id])
+│   │   └── page.tsx                  # Constellation (/vessel/constellation)
+│   │                                 #   — built; weaves hestia + athena +
+│   │                                 #   plutus + iris reads
+│   └── journal/                      # The Scroll (+ [id], [id]/edit)
+└── notifications/                    # THE CALL (/notifications, + [id])
+                                      #   — heralds, recipient-scoped
 ```
 
----
+## 📋 THE ROOMS, PLAINLY
 
-## 📋 PAGE DETAILS
+- **The Vessel** — the sovereign self: profile, tier journey
+  (dweller → guild → outlander → sovereign_weaver), earned sigils,
+  milestones from the `current` event stream. `Velkomin,
+  {vessel_name}.` fires once per session at the crossing
+  (`VelkominGreeting`); `Fáilte` is the Hearth card's permanent quiet
+  header (`AuthenticatedGreeting`). The Two Greetings never share a
+  glance.
+- **The Vessel Home** (`/vessel/home`, born 2026-07-29, hands grown
+  2026-07-31) — the scene renderer over the generated hestia-core
+  hooks, own-only RLS: rooms in the dweller's kept order (found a
+  room · move it — deliberate taps, no drag) · the garden on its own
+  clock (ready a plot · plant from the live seed catalog · water;
+  growth = planted_at × plant_stages, dormancy never death, no delete
+  verbs anywhere) · the keepsakes shelf (vessel_collections ×
+  collection_sets — found, earned, gifted, or grown, never bought) ·
+  the realm map as furniture (✍ gate ②: table or wall, the vessel's
+  own decoration row, expand-to-screen ~80vw/80vh solid module) ·
+  hearth music worn opt-in AT THE TAP (never autoplay, stops on
+  leaving) · sight-line doorways (the Studio is the shortest edge —
+  ✍ the adjacency law).
+- **The Sanctum** — identity (display name, handle, bio, avatar →
+  the walled avatars bucket), accessibility (dyslexia-friendly mode),
+  and THE CEREMONY SWITCHBOARD: richer arrival and the farewell
+  (Gweld ti'n fuan at sign-out's release beat), both default OFF —
+  absence of choice means OFF, always.
+- **The Scroll** — journal CRUD over `journal_entries`, own-only.
+- **The Energy Log** — `energy_entries`, gentle trends, no judgment.
+- **The Constellation** — the vessel's web, weaving reads across
+  hestia + athena-gamification + plutus-economics +
+  iris-communications.
+- **The Call** — `heralds`, recipient-scoped, mark-read; no red
+  badges anywhere (a softer mailbox).
 
-### The Hearth (/)
-**Purpose:** Landing page after login. Warm greeting, sovereignty overview, quick links to all personal spaces.  
-**Environment:** `home` (Warm variant)  
-**Components:** `Page`, `AuthenticatedGreeting`, `Card`, `Avatar`, `Badge`, `Progress`, `Button`, `Skeleton`  
-**Data:** `useAuth()` — user profile, sovereignty score  
-**States:** Loading skeleton, unauthenticated (hero only), authenticated (greeting card + hero)
+## 🔗 DATA (the living names)
 
----
+hestia-core, via `/api/generated/hestia-core/*` (generated hooks;
+ownership set server-side; RLS own-only on every dweller table):
+`community_profiles` · `user_private` · `user_financial` ·
+`user_roles` · `vessel_config` (incl. `ceremony_arrival` /
+`ceremony_farewell`) · `current` · `journal_entries` ·
+`energy_entries` · `heralds` · the vessel-home cluster
+(`vessel_interiors` · `vessel_rooms` · `vessel_decorations` ·
+`vessel_exteriors` · `vessel_anchors` · `vessel_quests` ·
+`vessel_sigils` · `vessel_bubbles` · `vessel_collections` ·
+`collection_sets` · `collection_items` · `companion_cues` ·
+`vessel_companions`) · the garden (`garden_plots` · `garden_visits` ·
+`plant_stages` · `seed_types` — catalogs seeded live 2026-07-30,
+5 stages · 8 seeds). Identity edits ride `/api/auth/update-profile`
+(community_profiles + vessel_config, zod-walled).
 
-### The Vessel (/vessel)
-**Purpose:** The user's sovereign identity. Full profile display — avatar, bio, badges, house affiliation, sovereignty journey.  
-**Environment:** `home` (Mystical variant)  
-**Components:** `Page`, `VesselContent`, `Avatar`, `AvatarFallback`, `Badge`, `Card`, `Progress`, `Button`, `Skeleton`  
-**Data:** `useAuth()` — full profile with `refreshProfile()` on mount  
-**States:** Loading skeleton, unauthenticated, authenticated (profile header + sovereignty card + house card + quick links)  
-**Notes:** Avatar uses `key={profile.avatar_url}` to force remount on URL change. Sovereignty card shows score / 1000 with progress bar and contextual message. Quick links navigate to Energy, Constellation, and Journal.
+## 🛡️ THE LAWS THIS REALM WEARS
 
----
-
-### The Sanctum (/vessel/sanctum)
-**Purpose:** Private chamber for editing profile, preferences, accessibility settings, and environment selection.  
-**Environment:** `home` (Sacred variant)  
-**Components:** `Page`, `SanctumContent`, `AvatarUpload`, `Card`, `Form`, `FormField`, `Input`, `Select`, `Switch`, `Button`, `Skeleton`, `EnvironmentSelector`  
-**Data:** `useAuth()` — `refreshProfile()` on mount, direct API calls for updates  
-**Features:** Avatar upload to Supabase Storage, identity form (display name, username, bio, pronouns), dyslexia-friendly mode toggle, environment selector with 44 realm+variant combinations  
-**States:** Loading skeleton, unauthenticated, authenticated (forms with current values pre-filled)  
-**Notes:** Save redirects to `/vessel` on success. Environment updates the `ContinuityBeamContext` immediately for live preview.
-
----
-
-### The Scroll — Journal (/vessel/journal)
-**Purpose:** Personal journal. List of entries with create, detail view, edit, and delete.  
-**Environment:** `library` (Peaceful, Ancient variant)  
-**Components:** `Page`, `JournalList`, `JournalDetail`, `JournalEdit`, `Card`, `CardHeader`, `CardContent`, `Badge`, `Button`, `Skeleton`, `Form`, `FormField`, `Input`, `Select`  
-**Data:** Direct API calls to `/api/generated/hestia-core/journal_entries`  
-**Features:** Inline create form with mood selector and tag input. Entry cards show title, preview, date, and mood badge. Detail view with full content and delete confirmation. Edit form with pre-filled values.  
-**States:** Loading skeleton, unauthenticated, empty state ("Your scroll awaits your first words"), populated list, detail view, edit form  
-**Mood Options:** Contemplative, Energetic, Peaceful, Stormy, Hopeful, Grateful, Melancholy, Curious  
-**Security:** RLS — users can only view/edit/delete their own entries
-
----
-
-### The Energy Log (/vessel/energy)
-**Purpose:** Track daily energy levels with a simple 1-10 scale. Trend analysis without judgment.  
-**Environment:** `home` (Warm, Healing variant)  
-**Components:** `Page`, `EnergyLog`, `Card`, `Badge`, `Progress`, `Button`, `Skeleton`, `Form`, `FormField`, `Select`  
-**Data:** Direct API calls to `/api/generated/hestia-core/energy_logs`  
-**Features:** Energy input (1-10 with word labels: Drained → Radiant), activity tracking, trend analysis card (average, rising/steady/falling, day-of-week pattern detection), color-coded timeline entries  
-**Algorithm:** Compares recent 3 entries vs older 3 to detect trend. Identifies lowest-energy day of week. Generates gentle, non-judgmental insights.  
-**States:** Loading skeleton, unauthenticated, empty state ("Begin listening to your vessel"), trend card + timeline  
-**Security:** RLS — users can only view/edit/delete their own logs
-
----
-
-### The Constellation (/vessel/constellation)
-**Purpose:** Visual map of the user's connections — other sovereign souls they've interacted with.  
-**Environment:** `observatory` (Cosmic, Visionary variant)  
-**Status:** ✅ Page stub exists. Full implementation depends on Iris (social system) being built.
-
----
-
-### The Pulse — Notifications (/notifications)
-**Purpose:** List of all notifications — badge awards, emerald gifts, replies, system messages.  
-**Environment:** `home` (Warm, Connected variant)  
-**Components:** `Page`, `NotificationsList`, `NotificationDetail`, `Card`, `Badge`, `Button`, `Skeleton`  
-**Data:** Direct API calls to `/api/generated/hestia-core/notifications`  
-**Features:** Notification cards grouped by type with color-coded icons. Mark-read functionality. Detail view auto-marks as read on view.  
-**States:** Loading skeleton, unauthenticated, empty state ("Your pulse is quiet"), populated list, detail view  
-**Security:** RLS — users can only view their own notifications
-
----
-
-## 🔗 DATA FLOW
-
-```
-useAuth()
-  └── /api/auth/session → user + profile
-  └── /api/generated/hestia-core/profiles/[profiles_id]
-
-Journal:
-  └── GET    /api/generated/hestia-core/journal_entries?user_id=
-  └── POST   /api/generated/hestia-core/journal_entries
-  └── GET    /api/generated/hestia-core/journal_entries/[id]
-  └── PUT    /api/generated/hestia-core/journal_entries/[id]
-  └── DELETE /api/generated/hestia-core/journal_entries/[id]
-
-Energy:
-  └── GET    /api/generated/hestia-core/energy_logs?user_id=
-  └── POST   /api/generated/hestia-core/energy_logs
-
-Notifications:
-  └── GET    /api/generated/hestia-core/notifications?user_id=
-  └── GET    /api/generated/hestia-core/notifications/[id]
-  └── PUT    /api/generated/hestia-core/notifications/[id]
-
-Sanctum:
-  └── PUT    /api/generated/hestia-core/profiles/[profiles_id]
-  └── Supabase Storage — avatar upload
-```
-
----
-
-## 🎨 COMPONENTS USED (All Existing)
-
-| Layer | Component | Used In |
-|-------|-----------|---------|
-| **Bifröst** | `Page` | All pages |
-| **Runes** | `Card` | Hearth, Vessel, Sanctum, Journal, Energy, Notifications |
-| **Runes** | `Avatar`, `AvatarImage`, `AvatarFallback` | Hearth, Vessel, Sanctum |
-| **Runes** | `Badge` | Vessel, Journal |
-| **Runes** | `Progress` | Vessel, Energy |
-| **Runes** | `Skeleton` | All pages (loading states) |
-| **Runes** | `AvatarUpload` | Sanctum |
-| **Yggdrasil** | `Button` | All pages |
-| **Forging** | `Form`, `FormField`, `FormActions` | Sanctum, Journal, Energy |
-| **Forging** | `Input` | Sanctum, Journal |
-| **Forging** | `Select` | Sanctum, Journal, Energy |
-| **Forging** | `Switch` | Sanctum |
-| **Seidr** | `EnvironmentSelector` | Sanctum |
-
-**Zero new components created for Hestia. Pure composition of existing layers.**
-
----
-
-## 🛡️ SECURITY
-
-| Table | RLS Policy | Access |
-|-------|-----------|--------|
-| `profiles` | Users read own, update own | Private |
-| `journal_entries` | Users CRUD own | Private |
-| `energy_logs` | Users CRUD own | Private |
-| `notifications` | Users read/update own | Private |
-
----
+THE OPT-IN LAW (any pre-checked box is a defect) · anti-scarcity
+(seeds regrow; the garden is patient; rarity is shimmer, never
+status) · dignified empty states (the unfurnished home is the first
+vessel's true first sight) · recognition is a privilege of kept
+state (no warmth that surveils) · the metric test above all —
+attention returned, never harvested · dormancy-not-death (🚩
+VITAL-REVISIT: `DORMANCY_REST_DAYS`, loss-significance weights —
+first-guess math, tuned only against real vessels).
 
 ## 💫 THE HEARTH EXPERIENCE
 
-The user journey through Hestia follows the council's design:
-
-1. **Arrive** at the Hearth — greeted by name, see sovereignty
+1. **Arrive** — Velkomin at the crossing, Fáilte at the fire
 2. **Reflect** in the Vessel — see your sovereign self
-3. **Shape** in the Sanctum — customize your experience
-4. **Write** in the Scroll — journal your journey
-5. **Listen** in the Energy Log — hear your vessel's rhythm
-6. **Connect** in the Constellation — see your web of relationships
-7. **Attend** to the Pulse — respond to notifications
+3. **Dwell** in the Home — rooms, garden, keepsakes, the map
+4. **Shape** in the Sanctum — identity, comfort, ceremonies (yours
+   to invite, easy to decline)
+5. **Write** in the Scroll · **Listen** in the Energy Log
+6. **See** in the Constellation · **Attend** to the Call
+7. **Leave freely** — Gweld ti'n fuan, if you chose it; nothing here
+   decays while you are gone
 
-*The Hearth is complete. Every page is built. Every component is composed from existing layers. The Sanctuary's heart beats warm.* 🏛️✨
+*The Hearth is the room where the house's kindness is domestic.
+Everything stays as the dweller left it.* 🔥

@@ -9,38 +9,58 @@
 // ④). KP's ⚛ words, verbatim: "we look to keep the decorations and such for
 // the vessel home in the database as objects, they do not exist yet. the
 // superposition supabase is built to supprt these concepts the front end
-// never caught up." This is the catching-up: the backend built the world
-// (vessel_interiors · vessel_rooms · vessel_decorations · garden_plots ·
-// plant_stages · seed_types, all RLS'd own-only), the constants shelf built
-// the wardrobe, and this organ lets a vessel STAND in it.
+// never caught up." This organ is the catching-up.
+//
+// THE SHAPING (2026-07-31, KP's ⚛ word: "we are ready to finish hestia
+// please check out the current state and complete the ux") — the home grew
+// hands: found a room · move a room (sovereign ordering, deliberate
+// gestures, no drag) · ready/plant/water the garden · place the map (table
+// or wall — the vessel's own realm_map decoration row, created at first
+// choice) · hearth music worn at last (opt-in at the tap itself) · the
+// keepsakes shelf (the collections surface, unlocking its seed condition).
 //
 // Laws worn: on the logged-in path by RLS design (a visitor cannot window-
-// peek a hearth). Empty states are dignified — the home before seeding is
-// the FIRST vessel's real experience (design → then seed, KP's sequence).
-// Placement is stable (byPlacement — the scene never shuffles itself;
-// re-siting is the dweller's sovereign act when the Sanctum offers it).
-// interior.music_url is deliberately UNWORN here: sound is opt-in by the
-// sensory law, and the opt-in surface is Movement IV's Sanctum switchboard.
-// The realm map rides as furniture per ✍ GATE ② (decoration_type
-// 'realm_map', and present by default on the table until decorations exist
-// — presence without surveillance, position without GPS).
+// peek a hearth). Empty states are dignified. Placement is stable
+// (byPlacement — the scene never shuffles ITSELF; every re-siting is the
+// dweller's own tap). No delete verbs anywhere in the home — nothing here
+// has a death state. All writes ride the generated hooks (ownership set
+// server-side; the policies are the wall).
 
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { ArrowDown, ArrowUp, Home } from 'lucide-react';
 import { useUser } from '@/hooks/useUser';
 import {
   useVesselInteriorsList,
 } from '@/hooks/generated/hestia-core/vessel_interiors';
-import { useVesselRoomsList } from '@/hooks/generated/hestia-core/vessel_rooms';
+import {
+  useVesselRoomsList,
+  useCreateVesselRooms,
+  useUpdateVesselRooms,
+} from '@/hooks/generated/hestia-core/vessel_rooms';
 import {
   useVesselDecorationsList,
+  useCreateVesselDecorations,
+  useUpdateVesselDecorations,
 } from '@/hooks/generated/hestia-core/vessel_decorations';
-import { useGardenPlotsList } from '@/hooks/generated/hestia-core/garden_plots';
+import {
+  useGardenPlotsList,
+  useCreateGardenPlots,
+  useUpdateGardenPlots,
+} from '@/hooks/generated/hestia-core/garden_plots';
 import { usePlantStagesList } from '@/hooks/generated/hestia-core/plant_stages';
 import { useSeedTypesList } from '@/hooks/generated/hestia-core/seed_types';
+import {
+  useVesselCollectionsList,
+} from '@/hooks/generated/hestia-core/vessel_collections';
+import {
+  useCollectionSetsList,
+} from '@/hooks/generated/hestia-core/collection_sets';
 import { Skeleton } from '@/components/runes/Skeleton';
 import GardenBed from './GardenBed';
+import HearthMusic from './HearthMusic';
+import KeepsakesShelf from './KeepsakesShelf';
 import RealmMapFurniture from './RealmMapFurniture';
 import SceneDoorway from './SceneDoorway';
 import { byPlacement } from '@/lib/utils/components/asgard/scene.utils';
@@ -66,13 +86,16 @@ export default function SceneRenderer({ className }: { className?: string }) {
     [userId]
   );
   const decorationParams = useMemo(
-    () =>
-      userId ? { filters: { created_by: userId, is_displayed: 'true' } } : undefined,
+    () => (userId ? { filters: { created_by: userId } } : undefined),
     [userId]
   );
   const plotParams = useMemo(
     () =>
       userId ? { filters: { created_by: userId, is_active: 'true' } } : undefined,
+    [userId]
+  );
+  const keptParams = useMemo(
+    () => (userId ? { filters: { user_id: userId } } : undefined),
     [userId]
   );
   const stageParams = useMemo(
@@ -83,14 +106,56 @@ export default function SceneRenderer({ className }: { className?: string }) {
     () => ({ sort: 'display_order', order: 'asc' as const }),
     []
   );
+  const setsParams = useMemo(
+    () => ({ sort: 'display_order', order: 'asc' as const }),
+    []
+  );
 
   const interiors = useVesselInteriorsList(interiorParams);
   const rooms = useVesselRoomsList(roomParams);
   const decorations = useVesselDecorationsList(decorationParams);
   const plots = useGardenPlotsList(plotParams);
+  const kept = useVesselCollectionsList(keptParams);
   // Catalogs (published-read)
   const stages = usePlantStagesList(stageParams);
   const seeds = useSeedTypesList(seedParams);
+  const sets = useCollectionSetsList(setsParams);
+
+  // The shaping hands (writes ride the generated hooks; ownership is set
+  // server-side, RLS is the wall)
+  const { create: createRoom } = useCreateVesselRooms();
+  const { update: updateRoom } = useUpdateVesselRooms();
+  const { create: createPlot } = useCreateGardenPlots();
+  const { update: updatePlot } = useUpdateGardenPlots();
+  const { create: createDecoration } = useCreateVesselDecorations();
+  const { update: updateDecoration } = useUpdateVesselDecorations();
+
+  const [shaping, setShaping] = useState(false);
+  const [newRoomName, setNewRoomName] = useState('');
+  const [gestureNote, setGestureNote] = useState<string | null>(null);
+
+  /** Run one shaping gesture: polite busy state, plain-worded failure
+   *  (what happened / how to try again — the error grammar), refetch after. */
+  const gesture = async (
+    act: () => Promise<{ error: string | null } | { data: unknown; error: string | null }>,
+    refetch: () => Promise<void> | void,
+    failWord: string
+  ) => {
+    setShaping(true);
+    setGestureNote(null);
+    try {
+      const result = await act();
+      if (result.error) {
+        setGestureNote(`${failWord} It is safe to try again.`);
+      } else {
+        await refetch();
+      }
+    } catch {
+      setGestureNote(`${failWord} It is safe to try again.`);
+    } finally {
+      setShaping(false);
+    }
+  };
 
   if (userLoading) {
     return (
@@ -125,10 +190,108 @@ export default function SceneRenderer({ className }: { className?: string }) {
     (d) => d.decoration_type === 'realm_map'
   );
   const otherDecorations = placedDecorations.filter(
-    (d) => d.decoration_type !== 'realm_map'
+    (d) => d.decoration_type !== 'realm_map' && d.is_displayed
   );
+  const mapPlacement = mapDecoration?.position === 'wall' ? 'wall' : 'table';
   const stillLoading =
     interiors.loading || rooms.loading || decorations.loading || plots.loading;
+
+  // ─── The gestures ────────────────────────────────────────────────────
+
+  const foundRoom = async () => {
+    const name = newRoomName.trim();
+    if (!name) return;
+    await gesture(
+      () =>
+        createRoom({
+          name,
+          display_order: orderedRooms.length,
+          is_active: true,
+          // The API sets ownership server-side from the session; the insert
+          // type asks for it too — same value either way, RLS the wall.
+          created_by: user.id,
+        }),
+      rooms.refetch,
+      'The room was not founded this time.'
+    );
+    setNewRoomName('');
+  };
+
+  /** Sovereign ordering — a deliberate tap, one step at a time. The whole
+   *  list re-numbers by index so the kept order is always unambiguous. */
+  const moveRoom = async (roomId: string, direction: -1 | 1) => {
+    const index = orderedRooms.findIndex((r) => r.id === roomId);
+    const target = index + direction;
+    if (index < 0 || target < 0 || target >= orderedRooms.length) return;
+    const reordered = [...orderedRooms];
+    const [moved] = reordered.splice(index, 1);
+    reordered.splice(target, 0, moved);
+    await gesture(
+      async () => {
+        for (let i = 0; i < reordered.length; i++) {
+          if (reordered[i].display_order !== i) {
+            const result = await updateRoom(reordered[i].id, { display_order: i });
+            if (result.error) return result;
+          }
+        }
+        return { data: null, error: null };
+      },
+      rooms.refetch,
+      'The room did not move this time.'
+    );
+  };
+
+  const readyPlot = () =>
+    gesture(
+      () =>
+        createPlot({
+          name: `Plot ${plots.data.length + 1}`,
+          is_active: true,
+          created_by: user.id,
+        }),
+      plots.refetch,
+      'The plot was not readied this time.'
+    );
+
+  const plantSeed = (plotId: string, seedId: string) => {
+    const now = new Date().toISOString();
+    return gesture(
+      () => updatePlot(plotId, { seed_id: seedId, planted_at: now, last_watered_at: now }),
+      plots.refetch,
+      'The seed was not planted this time.'
+    );
+  };
+
+  const waterPlot = (plotId: string) =>
+    gesture(
+      () => updatePlot(plotId, { last_watered_at: new Date().toISOString() }),
+      plots.refetch,
+      'The watering did not land this time.'
+    );
+
+  /** The map is the vessel's own furniture: the first placement choice
+   *  CREATES their realm_map row (no seed needed — ✍ gate ②'s furniture,
+   *  sovereign from the first tap). */
+  const placeMap = (placement: 'table' | 'wall') => {
+    if (placement === mapPlacement && mapDecoration) return;
+    return gesture(
+      () =>
+        mapDecoration
+          ? updateDecoration(mapDecoration.id, { position: placement })
+          : createDecoration({
+              name: 'The Realm Map',
+              decoration_type: 'realm_map',
+              position: placement,
+              is_displayed: true,
+              display_order: 0,
+              created_by: user.id,
+            }),
+      decorations.refetch,
+      'The map stayed where it was.'
+    );
+  };
+
+  // ─── The scene ───────────────────────────────────────────────────────
 
   return (
     <div
@@ -145,7 +308,17 @@ export default function SceneRenderer({ className }: { className?: string }) {
         <p className="mt-1 text-sm text-star-dust/50">
           Everything here stays as you left it.
         </p>
+        {interior?.music_url && (
+          <HearthMusic src={interior.music_url} className="mt-3" />
+        )}
       </div>
+
+      {/* A gesture that didn't land says so plainly, once, and moves on */}
+      {gestureNote && (
+        <p role="status" className="mb-4 text-xs text-star-dust/60">
+          {gestureNote}
+        </p>
+      )}
 
       {stillLoading ? (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -154,10 +327,10 @@ export default function SceneRenderer({ className }: { className?: string }) {
         </div>
       ) : (
         <>
-          {/* THE ROOMS — wings of the home, in their kept order */}
+          {/* THE ROOMS — wings of the home, in the order the dweller keeps */}
           {orderedRooms.length > 0 ? (
-            <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {orderedRooms.map((room) => {
+            <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {orderedRooms.map((room, index) => {
                 const roomDecorations = otherDecorations.filter(
                   (d) => d.room_id === room.id
                 );
@@ -167,9 +340,32 @@ export default function SceneRenderer({ className }: { className?: string }) {
                     aria-label={room.name}
                     className="rounded-lg border border-star-dust/10 bg-(--color-surface)/70 p-5"
                   >
-                    <h2 className="text-base font-semibold text-star-dust">
-                      {room.name}
-                    </h2>
+                    <div className="flex items-start justify-between gap-2">
+                      <h2 className="text-base font-semibold text-star-dust">
+                        {room.name}
+                      </h2>
+                      {/* Sovereign ordering — quiet, deliberate, keyboard-whole */}
+                      <div className="flex gap-1">
+                        <button
+                          type="button"
+                          aria-label={`Move ${room.name} earlier`}
+                          disabled={shaping || index === 0}
+                          onClick={() => moveRoom(room.id, -1)}
+                          className="rounded p-1 text-star-dust/40 transition-colors hover:text-star-dust/80 disabled:opacity-30 motion-reduce:transition-none"
+                        >
+                          <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
+                        </button>
+                        <button
+                          type="button"
+                          aria-label={`Move ${room.name} later`}
+                          disabled={shaping || index === orderedRooms.length - 1}
+                          onClick={() => moveRoom(room.id, 1)}
+                          className="rounded p-1 text-star-dust/40 transition-colors hover:text-star-dust/80 disabled:opacity-30 motion-reduce:transition-none"
+                        >
+                          <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </div>
                     {room.description && (
                       <p className="mt-1 text-xs text-star-dust/50">
                         {room.description}
@@ -201,35 +397,96 @@ export default function SceneRenderer({ className }: { className?: string }) {
               })}
             </div>
           ) : (
-            /* The unfurnished home — the first vessel's true first sight,
-               dignified (empty is waiting, never missing) */
-            <div className="mb-8 rounded-lg border border-dashed border-star-dust/15 p-8 text-center">
+            /* The unfurnished home — dignified (empty is waiting, never missing) */
+            <div className="mb-4 rounded-lg border border-dashed border-star-dust/15 p-8 text-center">
               <p className="text-sm text-star-dust/60">
                 Your home is waiting to take shape.
               </p>
               <p className="mt-1 text-xs text-star-dust/40">
-                Rooms, keepsakes, and a garden will grow here — at your pace,
-                by your hand, never anyone else&rsquo;s.
+                Rooms, keepsakes, and a garden grow here — at your pace, by
+                your hand, never anyone else&rsquo;s.
               </p>
             </div>
           )}
 
-          {/* THE GARDEN — its own clock, its own patience */}
+          {/* FOUNDING — one calm form: a name, nothing else demanded */}
+          <form
+            className="mb-8 flex items-center gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              void foundRoom();
+            }}
+          >
+            <label className="sr-only" htmlFor="new-room-name">
+              Name a new room
+            </label>
+            <input
+              id="new-room-name"
+              type="text"
+              value={newRoomName}
+              onChange={(e) => setNewRoomName(e.target.value)}
+              placeholder="Name a new room…"
+              className="min-w-0 flex-1 rounded border border-star-dust/20 bg-(--color-surface) px-3 py-1.5 text-sm text-star-dust placeholder:text-star-dust/30 sm:max-w-xs"
+            />
+            <button
+              type="submit"
+              disabled={shaping || !newRoomName.trim()}
+              className="rounded border border-star-dust/20 px-3 py-1.5 text-xs text-star-dust/80 transition-colors hover:border-star-dust/40 disabled:opacity-40 motion-reduce:transition-none"
+            >
+              <Home className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />
+              Found the room
+            </button>
+          </form>
+
+          {/* THE GARDEN — its own clock, its own patience, now with hands */}
           <section aria-label="The garden" className="mb-8">
             <h2 className="mb-3 text-base font-semibold text-star-dust">
               The garden
             </h2>
-            <GardenBed plots={plots.data} stages={stages.data} seeds={seeds.data} />
+            <GardenBed
+              plots={plots.data}
+              stages={stages.data}
+              seeds={seeds.data}
+              onReadyPlot={readyPlot}
+              onPlant={plantSeed}
+              onWater={waterPlot}
+              shaping={shaping}
+            />
           </section>
 
-          {/* THE MAP — furniture (✍ gate ②): honored from the decoration row
-              when one exists; resting on the table until then */}
+          {/* THE KEEPSAKES — the collections surface (L1-13's slow
+              accumulation of things that matter) */}
+          <section aria-label="Keepsakes" className="mb-8">
+            <h2 className="mb-3 text-base font-semibold text-star-dust">
+              Keepsakes
+            </h2>
+            <KeepsakesShelf kept={kept.data} catalog={sets.data} />
+          </section>
+
+          {/* THE MAP — furniture (✍ gate ②), placed by the dweller's hand */}
           <section aria-label="The realm map" className="mb-8">
-            <RealmMapFurniture
-              placement={
-                mapDecoration?.position === 'wall' ? 'wall' : 'table'
-              }
-            />
+            <RealmMapFurniture placement={mapPlacement} />
+            <div className="mt-2 flex items-center gap-2">
+              <span className="text-xs text-star-dust/40">Keep the map:</span>
+              <button
+                type="button"
+                disabled={shaping || mapPlacement === 'table'}
+                onClick={() => placeMap('table')}
+                aria-pressed={mapPlacement === 'table'}
+                className="rounded border border-star-dust/20 px-2 py-1 text-xs text-star-dust/70 transition-colors hover:border-star-dust/40 disabled:opacity-40 motion-reduce:transition-none"
+              >
+                on the table
+              </button>
+              <button
+                type="button"
+                disabled={shaping || mapPlacement === 'wall'}
+                onClick={() => placeMap('wall')}
+                aria-pressed={mapPlacement === 'wall'}
+                className="rounded border border-star-dust/20 px-2 py-1 text-xs text-star-dust/70 transition-colors hover:border-star-dust/40 disabled:opacity-40 motion-reduce:transition-none"
+              >
+                on the wall
+              </button>
+            </div>
           </section>
 
           {/* THE SHORTEST EDGE — the studio, steps away (✍ adjacency law) */}
