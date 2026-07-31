@@ -16376,9 +16376,208 @@
    "count": 3,
    "archived_marked": 0,
    "names": [
-    "address",
-    "emergency_contact",
-    "source_signature"
+    {
+     "name": "address",
+     "attributes": [
+      {
+       "name": "country_code",
+       "type": "text"
+      },
+      {
+       "name": "administrative_area",
+       "type": "text"
+      },
+      {
+       "name": "sub_administrative_area",
+       "type": "text"
+      },
+      {
+       "name": "locality",
+       "type": "text"
+      },
+      {
+       "name": "sub_locality",
+       "type": "text"
+      },
+      {
+       "name": "dependent_locality",
+       "type": "text"
+      },
+      {
+       "name": "postal_code",
+       "type": "text"
+      },
+      {
+       "name": "sorting_code",
+       "type": "text"
+      },
+      {
+       "name": "street_address",
+       "type": "text"
+      },
+      {
+       "name": "building_name",
+       "type": "text"
+      },
+      {
+       "name": "building_number",
+       "type": "text"
+      },
+      {
+       "name": "street_name",
+       "type": "text"
+      },
+      {
+       "name": "unit",
+       "type": "text"
+      },
+      {
+       "name": "floor",
+       "type": "text"
+      },
+      {
+       "name": "room",
+       "type": "text"
+      },
+      {
+       "name": "po_box",
+       "type": "text"
+      },
+      {
+       "name": "landmark",
+       "type": "text"
+      },
+      {
+       "name": "directions",
+       "type": "text"
+      },
+      {
+       "name": "address_type",
+       "type": "address_type"
+      },
+      {
+       "name": "is_primary",
+       "type": "boolean"
+      },
+      {
+       "name": "local_format",
+       "type": "text"
+      },
+      {
+       "name": "local_format_language",
+       "type": "text"
+      },
+      {
+       "name": "verified_at",
+       "type": "timestamp with time zone"
+      },
+      {
+       "name": "verification_method",
+       "type": "text"
+      },
+      {
+       "name": "notes",
+       "type": "text"
+      }
+     ],
+     "used_by": []
+    },
+    {
+     "name": "emergency_contact",
+     "attributes": [
+      {
+       "name": "full_name",
+       "type": "text"
+      },
+      {
+       "name": "relationship",
+       "type": "relationship_type"
+      },
+      {
+       "name": "phone_primary",
+       "type": "text"
+      },
+      {
+       "name": "phone_secondary",
+       "type": "text"
+      },
+      {
+       "name": "email",
+       "type": "text"
+      },
+      {
+       "name": "preferred_method",
+       "type": "notification_channel"
+      },
+      {
+       "name": "address",
+       "type": "address"
+      },
+      {
+       "name": "has_keys",
+       "type": "boolean"
+      },
+      {
+       "name": "knows_crisis_plan",
+       "type": "boolean"
+      },
+      {
+       "name": "languages_spoken",
+       "type": "text[]"
+      },
+      {
+       "name": "availability_notes",
+       "type": "text"
+      },
+      {
+       "name": "relationship_notes",
+       "type": "text"
+      },
+      {
+       "name": "is_primary_contact",
+       "type": "boolean"
+      },
+      {
+       "name": "contact_order",
+       "type": "smallint"
+      }
+     ],
+     "used_by": []
+    },
+    {
+     "name": "source_signature",
+     "attributes": [
+      {
+       "name": "source_type",
+       "type": "text"
+      },
+      {
+       "name": "source_id",
+       "type": "text"
+      },
+      {
+       "name": "source_file",
+       "type": "text"
+      },
+      {
+       "name": "source_line",
+       "type": "integer"
+      },
+      {
+       "name": "source_function",
+       "type": "text"
+      },
+      {
+       "name": "source_version",
+       "type": "text"
+      },
+      {
+       "name": "reason",
+       "type": "text"
+      }
+     ],
+     "used_by": []
+    }
    ]
   }
  }
