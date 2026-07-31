@@ -63,9 +63,16 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     8 seeds), the base-wide grant wound healed by 006 same sitting
     (all-role DML restored; walls untouched at 391 policies;
     validate_signup EXECUTE returned), every door re-verified from
-    the workspace: catalogs open, private tables dark. Remaining
-    seed work: collections (waits for its surface) · KP's
-    First-Vessel rite (next).
+    the workspace: catalogs open, private tables dark. **The First
+    Vessel's rite COMPLETE 2026-07-30** (008 by KP's ⚛ hand: interior
+    · five rooms · the map on the table · two plots, one planted —
+    the Sanctuary's first Hearthflower, growing on real time). The
+    sitting also healed, in order: identity trigger rebuilt (007) ·
+    RLS recursion + stale id=auth.uid() ownership on four identity
+    tables (009) · has_role moved to the private schema (010) · the
+    dashboard-session naming rite (008 step 0, for any future
+    dashboard-run dweller rows). Remaining seed work: collections
+    (waits for its surface).
   - The planting/watering gestures — the scene is read-only today
     (verified: no create-hook consumers); plant/water/found-a-room
     surfaces are unbuilt. They ride the arranging crossing or an
