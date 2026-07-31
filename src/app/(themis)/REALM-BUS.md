@@ -56,19 +56,28 @@ the acceptance criteria: *every voice recorded, every action visible.*
      consent surfaces become honestly-waiting (plain words, not grey
      theater) whenever this realm's season allows, KP's ⚛ eye on the
      crossing.*
-  2. **The Ledger room's stale door** — `LedgerHub.tsx` fetches
-     `/api/generated/themis-governance/ledger`; the real door is
-     `/api/generated/plutus-economics/ledger`. The transparency page
-     currently errors. One-line rewire, unblocked.
+     *Draft ready for the sitting (2026-07-30, KP's "let us
+     continue"): `docs/sql/013-the-consent-record-DRAFT.sql` — the
+     votes table with the consent laws in its columns (choice NOT
+     NULL no DEFAULT · unique voter+proposal · abstain recordable ·
+     no DELETE policy until the purge law is designed) and five open
+     questions marked Q1–Q5 for KP's ⚛ rulings. Nothing applied.*
+  2. ✅ **HEALED 2026-07-30** — the Ledger room's stale door: rewired
+     to `/api/generated/plutus-economics/ledger` AND trued to the
+     live schema (the component's interface was UI-era — amount_cents
+     /ledger_id/public_note; now imports `PublicLedger` from the
+     generated types: amount+currency via Intl, event_at shown,
+     icon_emoji honored). tsc 0.
   3. **Decorative moderation** — ApplicationsHub Approve/Reject
      buttons have no handlers (generated update hooks exist, wiring
-     absent). Same class: ProposalDetail's vote buttons.
-  4. **Map drift** — README maps 10 pages / 9 components; 13 / 11
-     stand (the creator + vendor ApplicationForm flow is unmapped and
-     is the realm's best-wired corridor; `applications/[id]` is a
-     stub). SCHEMA-FINALIZE row 3 lists 7 tables where the domain has
-     10 (admin_actions, proposals, responses absent from the
-     hand-kept ledger — the census walker's own drift class).
+     absent). Same class: ProposalDetail's vote buttons. Wires after
+     row 3 (votes) / anytime (applications), honestly-waiting
+     register meanwhile per the ruled design.
+  4. ✅ **HEALED 2026-07-30** — map drift: README trued to 13 pages /
+     11 components (creator+vendor ApplicationForm corridor mapped,
+     `[id]` marked stub, the plutus ledger door named, living-state
+     pointer to this bus added); SCHEMA-FINALIZE row 3 trued 7→10
+     with the correction noted in place.
 - **Cross-realm seams:** the `ledger` table is **plutus-economics**
   (the Council's transparency page reads across that seam — edge 2) ·
   ApplicationForm reads **hestia-core** `community_profiles` · all

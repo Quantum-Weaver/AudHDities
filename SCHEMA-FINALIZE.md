@@ -15,7 +15,7 @@ near this table). Pre-seeded: the round table's standing decisions.*
 | ✅ | plutus-economics (+3 immigrants) | 3+3 | value paths first — trust is the product |
 | ✅ | hestia-core · **marketplace slice** | ~8 (wares, ware_participants, works, work_participants, artisan_*, patronage_*) | the first-wares shelf — **complete 2026-07-09**, same day as plutus |
 | 2 | hestia-core · **identity slice** | ~7 (user_*, artisan/community/merchant profiles) | who vessels are; covenant pledge valve lands here |
-| 3 | themis-governance | 7 | the safety floor a public site stands on |
+| 3 | themis-governance | 10 | the safety floor a public site stands on *(7→10 trued 2026-07-30 by lane themis-realm against the 07-28 census: admin_actions, proposals, responses were missing from this ledger)* |
 | 4 | mnemosyne-assessment | 4 | the Grammar's bones — feeds the library + Bridge |
 | 5 | hephaestus-infrastructure | 7 | **the landfill-to-lighthouse registry** (file_registry, file_type_standards, scripts) — the method itself, made durable |
 | 6 | aethelred-connections | 19 | Council seats + agents + service connections; T-Red's seller identity touches here |
@@ -78,17 +78,24 @@ pass (row 10 class).
 (anti-farming for equal splits) · tax/KYC character of member distributions ·
 non-human sovereign payout path (see north star).
 
-## themis-governance (7 tables)
+## themis-governance (10 tables)
+*(7→10 trued 2026-07-30 against the 07-28 Superposition Review: all 10
+census-verified active. The Council's ground truth and open edges live at
+`src/app/(themis)/REALM-BUS.md`; the consent-record question — votes have
+no per-voter table — rides this row's walk.)*
 
 | Table | Cols | Verdict | Notes |
 |---|---|---|---|
+| `admin_actions` |  |  |  |
 | `applications` |  |  |  |
 | `council_houses` |  |  |  |
 | `moderation_actions` |  |  |  |
 | `processes` |  |  |  |
+| `proposals` |  |  |  | 
 | `protocols` |  |  |  |
 | `rate_limits` |  |  |  |
 | `reports` |  |  |  |
+| `responses` |  |  |  |
 
 ## mnemosyne-assessment (4 tables)
 
