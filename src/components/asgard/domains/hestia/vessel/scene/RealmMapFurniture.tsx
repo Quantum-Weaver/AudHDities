@@ -108,9 +108,11 @@ export default function RealmMapFurniture({
           aria-label="The realm map, unfolded"
           className="fixed inset-0 z-50 flex items-center justify-center bg-deep-space/90 p-6"
         >
-          {/* Solid panel — "a background between the map and the room as the
-              map expands" (KP's ⚛ ruling, 2026-07-30) */}
-          <div className="w-full max-w-2xl rounded-xl border border-star-dust/15 bg-deep-space p-6">
+          {/* The map MODULE — KP's ⚛ ruling, 2026-07-30: "the expanded map
+              to be a module that takes over the ~80% of the screen with a
+              solid background color to the popout window." ~80vw × ~80vh,
+              solid deep-space, its own scroll when doors outgrow it. */}
+          <div className="flex h-[80vh] w-[80vw] flex-col rounded-xl border border-star-dust/15 bg-deep-space p-6">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-base font-semibold text-star-dust">The Sanctuary</h2>
               <button
@@ -123,7 +125,7 @@ export default function RealmMapFurniture({
               </button>
             </div>
             {/* One geometry, everywhere, forever — the order never shuffles */}
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="grid flex-1 auto-rows-min grid-cols-1 gap-3 overflow-y-auto sm:grid-cols-2">
               {REALM_MAP_ORDER.map((door) => (
                 <SceneDoorway
                   key={door.realm + door.href}
