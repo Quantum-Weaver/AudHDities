@@ -1,4 +1,8 @@
 // src/components/asgard/domains/hermes/creators/CreatorsGallery.tsx
+// Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
+// became artisan_profiles (hermes-social) — the makers live in this
+// realm's own deity now. profile_status has no 'verified' value: the
+// directory shows status=active; the verified badge reads verified_at.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -7,36 +11,31 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { CreatorCardRenderer } from '@/components/asgard/domains/hermes/creators/CreatorCardRenderer';
 import { ArrowLeft, Users, Search } from 'lucide-react';
 import { CardData } from '@/types/components/runes/card.types';
-import { useSearchParams } from 'next/navigation';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 
-interface CreatorItem {
-  creator_profiles_id: string; creator_moniker: string; creative_description: string | null;
-  creative_categories: string[] | null; verification_status: string | null;
-  verified_badge: boolean | null; total_products: number | null;
-}
-
-
+type ArtisanItem = Tables<'artisan_profiles'>;
 
 export function CreatorsGallery() {
-  const [creators, setCreators] = useState<CreatorItem[]>([]);
+  const [artisans, setArtisans] = useState<ArtisanItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/api/generated/hestia-core/creator_profiles?verification_status=verified&order=creator_moniker.asc')
+    fetch('/api/generated/hermes-social/artisan_profiles?status=active&order=artisan_name.asc')
       .then((r) => r.json())
       .then((result) => {
-        if (result.success) setCreators(result.data?.data || result.data || []);
+        if (result.success) setArtisans(result.data?.data || result.data || []);
       })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
 
   const filtered = useMemo(() =>
-    creators.filter((c) =>
-      c.creator_moniker.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (c.creative_description || '').toLowerCase().includes(searchTerm.toLowerCase())
-    ), [creators, searchTerm]);
+    artisans.filter((a) =>
+      a.artisan_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (a.tagline || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (a.bio || '').toLowerCase().includes(searchTerm.toLowerCase())
+    ), [artisans, searchTerm]);
 
   if (loading) {
     return (
@@ -78,17 +77,18 @@ export function CreatorsGallery() {
         )}
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((c) => (
-            <Link key={c.creator_profiles_id} href={`/bazaar/creators/${c.creator_profiles_id}`}>
+          {filtered.map((a) => (
+            <Link key={a.id} href={`/bazaar/creators/${a.id}`}>
               <CreatorCardRenderer
                 variant="interactive"
                 radius="lg"
                 shadow="sm"
                 data={{
-                  id: c.creator_profiles_id, type: 'creator', title: c.creator_moniker,
-                  description: c.creative_description || undefined,
-                  productCount: c.total_products || 0,
-                  isVerified: c.verified_badge || false,
+                  id: a.id, type: 'creator', title: a.artisan_name,
+                  description: a.tagline || a.bio || undefined,
+                  avatar: a.avatar_url || undefined,
+                  productCount: a.total_creations || 0,
+                  isVerified: !!a.verified_at,
                 } as CardData}
               />
             </Link>

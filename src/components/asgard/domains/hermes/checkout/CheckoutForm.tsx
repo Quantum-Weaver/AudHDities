@@ -42,7 +42,7 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
 
     const checkStatus = async () => {
       try {
-        const response = await fetch(`/api/checkout/session/${effectiveSessionId}`);
+        const response = await fetch(`/api/auth/checkout/session/${effectiveSessionId}`);
         const data = await response.json();
 
         if (!response.ok) throw new Error(data.error || "Could not confirm the exchange");

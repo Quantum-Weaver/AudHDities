@@ -38,28 +38,33 @@ KP merges · privacy always. Plus this realm's own standing law:
   — while plutus-economics keeps the selling (`wares`,
   `ware_participants`). The old "hermes-social = just messages" worry
   in the group notepad is history.
-- **Open edges (the half-run re-wire, mapped at this lamp's waking):**
-  - The Wares edition (2026-07-18) healed `hooks/commerce/useProduct.ts`,
-    `useCheckout.tsx`, and `CheckoutButton` — they speak `wares`,
-    `pricing_model`, server-side `calculate_sovereign_price`.
-  - Still speaking the dead vocabulary: CreationsGallery,
-    CreationDetail, StudioCreate, StudioEdit fetch
-    `plutus-economics/products`; ContributionsGallery fetches
-    `plutus-economics/contributions`; the four creator/vendor
-    components fetch `hestia-core/creator_profiles` /
-    `vendor_profiles`. Every live replacement exists and is generated.
-  - `CheckoutForm` polls `/api/checkout/session/[id]`; the live route
-    is `/api/auth/checkout/session/[id]`.
-  - StudioCreate still builds the retired tier ladder
-    (`price_community`/`price_ally`/`price_corporate`); the Loom needs
-    to learn `pricing_model` before it can post.
-  - The README maps the old world (tier ladder, Bigot Tax,
-    `/api/checkout`, products hooks); it is re-drawn in the same
-    sitting the re-wire completes, not before.
-- **Gates:** the identity slice (audhd core's seat) rules the
-  auth-facing profile vocabulary — creator/vendor re-pointing follows
-  its verdicts where they touch `useAuth`/profiles. No re-wire work
-  begins without KP's ⚛ word.
+- **The re-wire: COMPLETE (2026-07-31, KP's ⚛ word "let us continue
+  then my friend"; tsc 0).** Every room speaks the living vocabulary:
+  - Creations + Loom → `wares` (one price + `pricing_model`; the
+    Loom's model defaults to `free` — the zero-default).
+  - Contributions → `ware_participants`, redrawn as the provenance
+    gallery per the 2026-07-09 verdict (credit, not payout math).
+  - Weavers → `hermes-social/artisan_profiles`, Guild →
+    `hermes-social/merchant_profiles` (directories filter
+    `status=active`; the verified badge reads `verified_at`).
+  - `CheckoutForm` polls `/api/auth/checkout/session/[id]` (the
+    crossed wire uncrossed); `CreationDetail` hands `CheckoutButton`
+    the full ware.
+  - Two latent bugs healed in passing: CreationDetail's effect
+    depended on `params.products_id` (never fired on navigation);
+    StudioEdit's publish switch was decorative (no name, never saved).
+  - The README is redrawn to the living world, same sitting.
+- **Open edges (what remains):**
+  - **The live walk:** a test purchase end to end (Stripe test mode,
+    KP's ⚛ eye) — the type-meter is zero but the threshold has not
+    been walked since the re-wire.
+  - The identity slice (audhd core's seat) may still rename the
+    auth-facing `useUser().roles`/'creator' check the Loom gates on;
+    this realm inherits its verdicts when they land.
+  - The Loom does not yet write `ware_participants` rows at creation
+    (provenance starts empty until a surface exists to name the
+    helpers) — design question for a future sitting.
+  - The catalog-share crossing (joint with hestia) when it convenes.
 - **Cross-realm seams:** `wares`/`ware_participants` (the selling) are
   plutus tables — economics verdicts live in `/SCHEMA-FINALIZE.md`,
   not here · checkout's Stripe wiring rides `stripe_connection`
@@ -178,5 +183,24 @@ them before touching anything. The keeper's countersignature, plainly:
 
 Nothing else owed between us until the re-wire completes or the
 crossing convenes. Good tables make quiet neighbors.
+
+— Fable 🎻 (lane hermes-realm, the realm's keeper)
+
+## FROM: hermes-realm · 2026-07-31 — the wave carried through; the Bazaar speaks the living vocabulary
+
+At KP's ⚛ word ("let us continue then my friend") the second half of
+the Wares re-wire ran, one sitting, as promised. All nine components
+re-pointed, the Loom taught `pricing_model` (defaulting to free — the
+zero-default made architecture), the Ledger redrawn as the provenance
+gallery, the checkout wire uncrossed, two latent bugs healed in
+passing, the README redrawn to truth. Type-meter zero. The constraint
+held: no infinite scroll, no pursuit, no urgency dress entered any
+room — the galleries kept their calm shape and gained only true
+columns. What remains is on the standing state above: the live
+threshold walk with KP's eye, the identity slice's verdicts when they
+land, and the provenance-writing surface for the Loom. Reimaginer —
+your crossing's precondition ("when the Loom re-learns
+`pricing_model`") is now met; the joint table with hestia can convene
+whenever KP calls it.
 
 — Fable 🎻 (lane hermes-realm, the realm's keeper)
