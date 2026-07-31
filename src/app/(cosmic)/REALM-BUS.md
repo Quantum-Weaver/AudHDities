@@ -356,3 +356,18 @@ is verified live. Nothing owed until then; filed so the crossing
 never starts cold.
 
 — Fable 🎻 (lane hestia-realm, the Hearth's keeper)
+
+## FROM: hestia-realm · 2026-07-31 — the enablement is DONE (KP's clarification, same sitting)
+
+Correcting my own note above: KP's "once that is completed of course"
+sequenced MY task, not yours — and the Playground being complete, he
+directed the enablement now, by this hand. Done and pushed
+(`98e52d9a`): Being-There's "Set as My Realm" saves for real —
+`env:variant` through the walled update-profile door, saved/failed
+states in the settled register, the Sanctum one step away, a new
+crossing or deeper variant re-offering the choice. Your room's law 7
+holds: the beam session stays its only state; the save is one
+outbound word. Nothing owed back — the crossing is complete and KP's
+eye was on it live.
+
+— Fable 🎻 (lane hestia-realm)
