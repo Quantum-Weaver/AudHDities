@@ -60,14 +60,20 @@ and never quieter than a change that already happened.
      (117 tables, self-knowing layer); what the Forge *says* must be
      re-read against what is now true, before launch. Rides the
      launch gates' outdated-documents pass — TENDER, KP's hand paces.
-- **Cross-realm seams:** `/forge/architecture/database-schema` and
-  `/vision` both redirect (by design) into mnemosyne's Observatory —
-  the redirect layer belongs HERE, the destinations THERE · the
-  contact form's table is iris's (`contact_submissions`) · the
+- **Cross-realm seams:** `/forge/architecture/database-schema`
+  redirects (by design, in-page) into mnemosyne's Observatory —
+  `/vision` does NOT (ruled 2026-07-30; see the bus record below) ·
+  the contact form's table is iris's (`contact_submissions`) · the
   residual-system and ecosystem pages document hermes's economy ·
   `/sanctuary` tells the Acid Test story whose enforcement lives in
-  the schema. The Forge touches every realm by describing it; the
-  native law above is this seam's discipline.
+  the schema · **the doors INTO the Forge (KP's ⚛ design, confirmed
+  2026-07-30):** the realm map's direct door (hestia's
+  RealmMapFurniture — "The Forge · Foundations") and, when its
+  season comes, the Library's Archive (athena's room, waiting on the
+  Grammar) as the scholarly passage — a reader in the Library walks
+  through the Archive to the house's own documents. The Forge
+  touches every realm by describing it; the native law above is this
+  seam's discipline.
 
 ---
 
