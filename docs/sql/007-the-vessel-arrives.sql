@@ -67,6 +67,15 @@ BEGIN
 END;
 $$;
 
+-- The function is for the trigger's hand ONLY — Postgres grants new
+-- functions EXECUTE to PUBLIC by default, which surfaces it at
+-- /rest/v1/rpc/ (Supabase's linter rightly flags this). Revoking is
+-- safe: trigger firing never checks the acting user's EXECUTE.
+-- (Added 2026-07-30 at the linter's catch, KP's paste — the real risk
+-- was low since trigger-returning functions refuse RPC calls, but a
+-- door that should not exist gets closed, not argued with.)
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM PUBLIC, anon, authenticated;
+
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
