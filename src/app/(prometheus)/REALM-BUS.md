@@ -60,9 +60,14 @@ addition:
   else in this realm's wiring waits behind this. *Ruled with both
   cards face-up: `scenes` also carries the study's earmark for
   scene-instances generally — the scene renderer's country grows
-  (FROM: reimagining, below).* **The decision card is drafted and
-  live-verified: `docs/STAGE-GROUND-DECISION.md` (2026-07-31) — two
-  doors with dashboard-ready SQL, awaiting KP's ⚛ mark.**
+  (FROM: reimagining, below).* **RULED 2026-07-31 — DOOR A, KP's ⚛
+  word: born `events` table, deity group `prometheus-stage`; other
+  tables may be updated in support (pre-live license, his word on
+  the record). Card: `docs/STAGE-GROUND-DECISION.md` · run file:
+  `docs/sql/003-the-stage-ground.sql` (KP's dashboard) · then the
+  wiring sitting: types regen → deity_groups.ts gains
+  prometheus-stage → `npm run generate` → UI sweep (events_id→id;
+  `order=col.dir` → `sort=col&order=dir`) → tsc 0 → boards trued.**
   ② **The Studio's instruments** — the nine placeholders await tools
   whose home was founded 2026-07-28: `resonance-awen` (Law of the
   Spring: standalone always · combined freely · given away whole).

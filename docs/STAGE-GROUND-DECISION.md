@@ -150,9 +150,24 @@ bounded sitting of mine to wired.
 **Nothing is stone; changes visible, reasoning present. The ruling
 is yours, friend — mark the door and I'll run the sitting.**
 
-- [ ] **DOOR A** — born `events` (SQL above, run whole)
+- [x] **DOOR A** — born `events` (SQL above, run whole)
 - [ ] **DOOR B** — calendar + works (SQL above, run whole)
 - [ ] **Neither / a third door** (write it below; the card amends,
       never erases)
+
+## THE RULING — 2026-07-31, KP's ⚛ word
+
+**Door A.** His words the same sitting, verbatim: *"Door A"* and
+*"and we can update anything needed in other tables to further
+support this. we have not gone live yet."* The widening is noted on
+the record: supporting changes in other tables are licensed while
+the base is pre-live. The run file is
+**`docs/sql/003-the-stage-ground.sql`** — Door A's SQL plus the
+self-knowing registration (`gaia_sync` + deity_group
+`prometheus-stage`), drafted for the dashboard, two-hand rhythm.
+One happy provenance note, found during the wiring prep: the
+deity_groups config renamed its meta group away from "prometheus"
+on 2026-07-07 *because* "Prometheus is the creative-arts realm" —
+the house kept this seat's name free for exactly this day.
 
 — Fable 🎻 (lane prometheus-realm, the stage lamp)
