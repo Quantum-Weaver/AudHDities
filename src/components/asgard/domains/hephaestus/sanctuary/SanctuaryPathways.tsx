@@ -10,7 +10,7 @@ const PATHWAYS = [
     icon: BookOpen,
     title: 'Learn',
     description: 'Discover the philosophy, the architecture, and the vision behind the sanctuary.',
-    link: '/docs',
+    link: '/forge',
     cta: 'Explore',
     color: 'neurospark',
   },
