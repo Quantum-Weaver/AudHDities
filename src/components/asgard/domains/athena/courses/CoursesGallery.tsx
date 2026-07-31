@@ -15,15 +15,19 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   advanced: 'bg-red-500/20 text-red-400', master: 'bg-purple-500/20 text-purple-400',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const COURSES_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function CoursesGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data: courses, loading } = useLearningPathsList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 100,
-  });
+  const { data: courses, loading } = useLearningPathsList(COURSES_PARAMS);
 
   const filtered = useMemo(() => courses.filter(c => c.name.toLowerCase().includes(searchTerm.toLowerCase()) || (c.description || '').toLowerCase().includes(searchTerm.toLowerCase())), [courses, searchTerm]);
 

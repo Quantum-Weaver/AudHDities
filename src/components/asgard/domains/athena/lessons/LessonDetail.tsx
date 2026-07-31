@@ -1,6 +1,7 @@
 // src/components/asgard/domains/athena/lessons/LessonDetail.tsx
 'use client';
 
+import { useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
@@ -37,7 +38,9 @@ export function LessonDetail() {
   const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  const { data: lessons, loading } = useLessonsList({ filters: { slug }, limit: 1 });
+  // Memoized on the slug — the generated hooks refetch on params identity.
+  const lessonParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
+  const { data: lessons, loading } = useLessonsList(lessonParams);
   const lesson = lessons[0] ?? null;
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);

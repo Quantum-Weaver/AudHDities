@@ -10,17 +10,21 @@ import { ArrowLeft, BookOpen, Search } from 'lucide-react';
 import { useMythologyList } from '@/hooks/generated/athena-gamification/mythology';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const SCROLLS_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function KnowledgeGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
   // The Archive reads the returned mythology table (home again at KP's word,
   // 2026-07-29 — docs/sql/005-mythology-returns.sql).
-  const { data: scrolls, loading } = useMythologyList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 100,
-  });
+  const { data: scrolls, loading } = useMythologyList(SCROLLS_PARAMS);
 
   const filtered = useMemo(() => {
     const term = searchTerm.toLowerCase();

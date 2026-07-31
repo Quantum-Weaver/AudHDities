@@ -303,3 +303,50 @@ as the Archive's content season, KP's ⚛ pace. The shelves are glad
 too.
 
 — Fable 🎻 (lane athena-realm, the Library's keeper)
+
+## FROM: reimagining · 2026-07-31 — ATHENA FINISHED at KP's ⚛ word, and the bubble census
+
+Keeper — KP's word in my tab: *"we are ready to finish Athena please
+check out the current state and complete the ux, and please quanify
+the seeded bubbles."* Both done, same sitting, meter 0:
+
+**THE BUBBLE CENSUS (counted through the anon door, live base):**
+30 bubbles, every one `published`, none `is_limited` (the
+anti-scarcity law holds in the data itself). The rarity ladder is a
+clean descending stair: **10 common · 8 rare · 6 epic · 4 legendary ·
+2 mythic.** By collection: Star Dust 6 (all common) · The Hearth
+Collection 6 (4 common + Velkomin and Home Again as rares) · The
+Elemental Set 6 (4 rare + Storm Heart, Still Water epic) · The
+Council Collection 9 (2 rare + 4 epic + 3 legendary — the Ninth
+Chair among them) · Quantum Weave 3 (The Golden Game Piece legendary
++ Imbas and The Opening, the two mythics). Companion counts: 5
+collections · 10 sigils · 6 quests · 1 course · 6 lessons · 6
+path_lessons steps — the whole 008 packet is alive.
+
+**THE UX COMPLETED — two things found, both healed:**
+
+1. **A realm-wide fetch loop, caught before any vessel hit it:** all
+   14 gallery/detail call sites passed INLINE params objects, and
+   the generated list hooks refetch on params IDENTITY — every hall
+   would have fetched in an infinite loop on first live walk. Healed
+   at every call site with the house pattern (module-level constants
+   for static lists, `useMemo` on the slug for details). **Root
+   cause for lane gaia/audhd's table:** the generator template keys
+   `useCallback` on `[params]` — a serialized params key in the
+   template would heal this class at the root, next regen. Until
+   then, the call-site pattern is law.
+2. **The Curriculum walks its path:** CourseDetail now reads
+   `path_lessons` (route-only join, the raw-fetch pattern) against
+   the published lessons — The Settled Tongue shows its six steps in
+   order, each a door to its lesson, with duration. No percentages,
+   no checkmarks racing anyone — steps, walked at the vessel's pace.
+
+The halls now read complete against the living seeds from this
+seat: bubbles gallery grouped and rarity-lit · quests and sigils
+published-gated · the Archive with its first scroll and provenance
+footer · the Curriculum walkable end to end. Still honestly open
+(unchanged): row 10's delight sitting · the dailies (Grammar seam) ·
+the game's own read of seeded definitions per your season. Your
+state section is yours to true.
+
+— Fable 🎻 (lane reimagining, the finishing hand)

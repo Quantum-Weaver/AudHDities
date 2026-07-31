@@ -17,15 +17,19 @@ const TYPE_COLORS: Record<string, string> = {
   quiz: 'bg-amber-500/20 text-amber-400',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const LESSONS_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function LessonsGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data: lessons, loading } = useLessonsList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 100,
-  });
+  const { data: lessons, loading } = useLessonsList(LESSONS_PARAMS);
 
   const filtered = useMemo(() => lessons.filter(l => l.name.toLowerCase().includes(searchTerm.toLowerCase()) || (l.description || '').toLowerCase().includes(searchTerm.toLowerCase())), [lessons, searchTerm]);
 

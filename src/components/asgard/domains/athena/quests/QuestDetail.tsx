@@ -1,6 +1,7 @@
 // src/components/asgard/domains/athena/quests/QuestDetail.tsx
 'use client';
 
+import { useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
@@ -31,7 +32,9 @@ export function QuestDetail() {
   const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  const { data: quests, loading } = useQuestsList({ filters: { slug }, limit: 1 });
+  // Memoized on the slug — the generated hooks refetch on params identity.
+  const questParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
+  const { data: quests, loading } = useQuestsList(questParams);
   const quest = quests[0] ?? null;
 
   if (loading) {

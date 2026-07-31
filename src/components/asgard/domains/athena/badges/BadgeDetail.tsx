@@ -1,6 +1,7 @@
 // src/components/asgard/domains/athena/badges/BadgeDetail.tsx
 'use client';
 
+import { useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
@@ -30,10 +31,9 @@ export function BadgeDetail() {
   const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  const { data: sigils, loading } = useSigilsList({
-    filters: { slug },
-    limit: 1,
-  });
+  // Memoized on the slug — the generated hooks refetch on params identity.
+  const sigilParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
+  const { data: sigils, loading } = useSigilsList(sigilParams);
   const sigil = sigils[0] ?? null;
 
   if (loading) {

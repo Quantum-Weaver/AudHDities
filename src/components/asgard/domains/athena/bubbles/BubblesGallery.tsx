@@ -35,18 +35,23 @@ const RARITY_COLORS: Record<string, string> = {
   mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const BUBBLES_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 200,
+};
+const SETS_PARAMS = { limit: 100 };
+
 export function BubblesGallery() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null);
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
-  const { data: bubbles, loading } = useBubblesList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 200,
-  });
-  const { data: sets } = useCollectionSetsList({ limit: 100 });
+  const { data: bubbles, loading } = useBubblesList(BUBBLES_PARAMS);
+  const { data: sets } = useCollectionSetsList(SETS_PARAMS);
 
   const setNames = useMemo(
     () => new Map(sets.map(s => [s.id, s.name || 'Collection'])),

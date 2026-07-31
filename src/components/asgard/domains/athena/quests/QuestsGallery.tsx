@@ -21,16 +21,20 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const QUESTS_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function QuestsGallery() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
-  const { data: quests, loading } = useQuestsList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 100,
-  });
+  const { data: quests, loading } = useQuestsList(QUESTS_PARAMS);
 
   const questTypes = useMemo(() => {
     const set = new Set<string>();

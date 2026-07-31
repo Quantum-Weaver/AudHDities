@@ -36,14 +36,20 @@ const RARITY_COLORS: Record<string, string> = {
   mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 };
 
+// Stable catalog params (module-level — identity never changes).
+const SETS_PARAMS = { limit: 100 };
+
 export function BubbleDetail() {
   const params = useParams();
   const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  const { data: bubbles, loading } = useBubblesList({ filters: { slug }, limit: 1 });
+  // Params memoized on the slug — the generated hooks refetch on params
+  // identity (the StatusBar pattern); an inline object would loop the fetch.
+  const bubbleParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
+  const { data: bubbles, loading } = useBubblesList(bubbleParams);
   const bubble = bubbles[0] ?? null;
-  const { data: sets } = useCollectionSetsList({ limit: 100 });
+  const { data: sets } = useCollectionSetsList(SETS_PARAMS);
 
   const collectionName = useMemo(() => {
     if (!bubble?.collection_id) return null;

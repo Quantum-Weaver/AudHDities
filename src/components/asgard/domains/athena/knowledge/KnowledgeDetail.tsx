@@ -1,6 +1,7 @@
 // src/components/asgard/domains/athena/knowledge/KnowledgeDetail.tsx
 'use client';
 
+import { useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
@@ -16,10 +17,9 @@ export function KnowledgeDetail() {
   const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  const { data: scrolls, loading } = useMythologyList({
-    filters: { slug },
-    limit: 1,
-  });
+  // Memoized on the slug — the generated hooks refetch on params identity.
+  const scrollParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
+  const { data: scrolls, loading } = useMythologyList(scrollParams);
   const scroll = scrolls[0] ?? null;
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);

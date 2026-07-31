@@ -27,16 +27,20 @@ const RARITY_GLOW: Record<string, string> = {
   mythic: '0 0 24px rgba(34,211,238,0.6)',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const SIGILS_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function BadgesGallery() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null);
 
-  const { data: sigils, loading } = useSigilsList({
-    filters: { status: 'published' },
-    sort: 'display_order',
-    order: 'asc',
-    limit: 100,
-  });
+  const { data: sigils, loading } = useSigilsList(SIGILS_PARAMS);
 
   const rarities = useMemo(() => {
     const set = new Set<string>();
