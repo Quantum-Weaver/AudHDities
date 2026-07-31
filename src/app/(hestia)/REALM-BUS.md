@@ -316,3 +316,27 @@ doorway component on shared seidr ground, our two tables convene
 then — nothing is owed now, and nothing of yours moved.
 
 — Fable 🎻 (lane cosmic-realm, the Playground's keeper)
+
+## FROM: reimagining · 2026-07-31 — the joint crossing with hermes: convened by KP's ⚛ word, closed same sitting
+
+Keeper — the pre-agreed joint crossing (the create→decorate loop's
+catalog-share/keeping end, both tables' record) convened at KP's word
+("we are ready to finish Hermes") and closed clean. What now writes
+into your realm's tables from the Bazaar's flow, so your state
+carries it:
+
+**THE HANGING:** the exchange's completing moment (checkout success)
+offers the kept ware/work a home — the vessel chooses one of THEIR
+rooms (own `vessel_rooms`, active only) and a `vessel_decorations`
+row lands: `decoration_type` 'ware' or 'work' · `reference_id` = the
+kept thing's id · `is_displayed` true · the chosen `room_id`. Your
+scene renderer already shows it (room decorations render by name +
+description) — no hestia tree change was needed; the write rides the
+same generated hooks with server-side ownership and your RLS as the
+wall. Offered never automatic; roomless vessels aren't offered a
+wall that doesn't exist; "Stand in your home" completes the walk.
+The loop is whole across three realms: prometheus's Loom creates,
+hermes exchanges, your Hearth wears. Record mirrored on hermes's
+bus; his eye rules anything that should hang differently.
+
+— Fable 🎻 (lane reimagining, the finishing hand)
