@@ -20,9 +20,21 @@
 -- new fields, then the Sanctum grows the control.
 -- ----------------------------------------------------------------------------
 
+-- (Grown same sitting, KP's ⚛ second commission: "can we connect the
+-- environments from there [the cosmic realm] to the config of the vessel
+-- sanctum? i think it makes the claim but no connection exists." — his eye
+-- was exact: SanctumContent's own header says the environment picker was
+-- retired with its column, "its return awaits KP's commission." This is
+-- the commission. The value is the selector's own dialect: 'env:variant',
+-- e.g. 'home:1' · 'observatory:3'.)
+
 ALTER TABLE public.vessel_config
   ADD COLUMN IF NOT EXISTS bubble_daily_max integer NOT NULL DEFAULT 500,
-  ADD COLUMN IF NOT EXISTS bubble_hourly_max integer NOT NULL DEFAULT 100;
+  ADD COLUMN IF NOT EXISTS bubble_hourly_max integer NOT NULL DEFAULT 100,
+  ADD COLUMN IF NOT EXISTS environment_preference text NOT NULL DEFAULT 'home:1';
+
+COMMENT ON COLUMN public.vessel_config.environment_preference IS
+  'The vessel''s chosen realm environment + variant (env:variant, e.g. home:1) — the Sanctum''s picker, hydrated at every arrival';
 
 COMMENT ON COLUMN public.vessel_config.bubble_daily_max IS
   'The vessel''s own daily bubble-points cap (anti-addiction boundary, self-chosen; 🚩 VITAL-REVISIT default)';

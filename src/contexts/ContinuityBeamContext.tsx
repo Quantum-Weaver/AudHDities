@@ -6,6 +6,7 @@ import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import type { SessionState, BeamActivationState } from '@/lib/constants/cosmic/consciousness';
 import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmic/consciousness';
 import { getBeamConfig, type BeamConfig } from '@/lib/constants/components/immersive/continuity_beam';
+import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
 import { useUser } from '@/hooks/useUser';
 import { useEnvironment } from '@/lib/constants/systems/environments/contexts';
 
@@ -133,6 +134,32 @@ export function ContinuityBeamProvider({
       setEnvironmentVariant(Math.max(1, Math.min(4, variant)));
     }
   }, []);
+
+  // ── THE SANCTUM'S CHOICE, REMEMBERED (KP's commission, 2026-07-31) ──
+  // The Sanctum's environment picker persists to
+  // vessel_config.environment_preference ('env:variant', docs/sql/013).
+  // Until now the choice previewed live and then evaporated — the claim
+  // without the connection. This hydrates it ONCE per session at arrival:
+  // the vessel's chosen realm is the opening chord; navigation retunes
+  // after, exactly as the beam-as-travel law already rules.
+  const hydratedPreferenceRef = useRef(false);
+  useEffect(() => {
+    if (!isAuthenticated || hydratedPreferenceRef.current) return;
+    hydratedPreferenceRef.current = true;
+    fetch('/api/generated/hestia-core/vessel_config?limit=1')
+      .then(r => r.json())
+      .then(res => {
+        const rows = res?.success ? (res.data?.data ?? []) : [];
+        const raw = rows[0] as Record<string, unknown> | undefined;
+        const pref = typeof raw?.environment_preference === 'string' ? raw.environment_preference : '';
+        if (!pref) return;
+        const [env, variantStr] = pref.split(':');
+        if (!env || !(env in EnvironmentPromptMap)) return;
+        const variant = Math.max(1, Math.min(4, parseInt(variantStr || '1', 10) || 1));
+        setEnvironment(env as EnvironmentKey, variant);
+      })
+      .catch(() => {});
+  }, [isAuthenticated, setEnvironment]);
 
   // `currentEnvironment` (above, from useEnvironment()) is already pathname-
   // reactive — it resolves on every route change via page_mapping.ts. Until

@@ -44,6 +44,12 @@ const configUpdateSchema = z.object({
   // KP's hand). Absence of choice means OFF, per THE OPT-IN LAW.
   ceremony_arrival: z.boolean().optional(),
   ceremony_farewell: z.boolean().optional(),
+  // THE RETURNS (2026-07-31, KP's commissions, docs/sql/013): the bubble
+  // caps come home from device-localStorage, and the environment picker
+  // gets its schema home back ('env:variant', the selector's own dialect).
+  bubble_daily_max: z.number().int().min(0).max(9999).optional(),
+  bubble_hourly_max: z.number().int().min(0).max(999).optional(),
+  environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
 });
 
 export async function PATCH(request: NextRequest) {
@@ -90,12 +96,18 @@ export async function PATCH(request: NextRequest) {
         );
       }
       if (Object.keys(validatedConfig.data).length > 0) {
+        // Cast note (2026-07-31, temporary until the generated types repull):
+        // bubble_daily_max / bubble_hourly_max / environment_preference land
+        // in docs/sql/013 ahead of the next GAIA regeneration, so the typed
+        // client doesn't know them yet. The zod wall above is the real gate;
+        // this cast only quiets the stale Database types and dies at regen.
+        const configUpdate = {
+          ...validatedConfig.data,
+          updated_at: new Date().toISOString(),
+        } as never;
         const { error: configError } = await supabase
           .from('vessel_config')
-          .update({
-            ...validatedConfig.data,
-            updated_at: new Date().toISOString(),
-          })
+          .update(configUpdate)
           .eq('created_by', user.id);
 
         if (configError) {

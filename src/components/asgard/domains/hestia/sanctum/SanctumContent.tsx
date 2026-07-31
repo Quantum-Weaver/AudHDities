@@ -4,8 +4,15 @@
 // Repointed 2026-07-18 for the evolved schema: identity edits go to
 // community_profiles and accessibility to vessel_config, both through
 // /api/auth/update-profile. Retired with their columns: username (now slug),
-// pronouns, and the preferred-environment realm picker (no schema home yet —
-// its return awaits KP's commission).
+// pronouns — and the preferred-environment realm picker, whose return
+// awaited KP's commission. THE COMMISSION CAME 2026-07-31 ("can we connect
+// the environments from there to the config of the vessel sanctum? i think
+// it makes the claim but no connection exists" — his eye exact): the picker
+// is re-mounted below over vessel_config.environment_preference
+// (docs/sql/013), previewed live through the ContinuityBeam and hydrated at
+// every arrival by the beam provider. The bubble limits came home the same
+// sitting (localStorage → vessel_config, mirrored back so the game honors
+// the boundary immediately).
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -17,7 +24,9 @@ import { Form } from '@/components/forging/Form';
 import { FormField } from '@/components/forging/FormField';
 import { Input } from '@/components/forging/Input';
 import { Switch } from '@/components/forging/Switch';
-import { ArrowLeft, Save } from 'lucide-react';
+import { Slider } from '@/components/forging/Slider';
+import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
+import { ArrowLeft, Save, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
@@ -33,10 +42,32 @@ export function SanctumContent() {
   // hand), the switches simply read false.
   const [ceremonyArrival, setCeremonyArrival] = useState(false);
   const [ceremonyFarewell, setCeremonyFarewell] = useState(false);
+  // The environment picker's value ('env:variant') and the bubble caps —
+  // both live on vessel_config since docs/sql/013 (read defensively until
+  // the columns land; sensible defaults meanwhile).
+  const [environmentPreference, setEnvironmentPreference] = useState<string>('home:1');
+  const [bubbleDailyMax, setBubbleDailyMax] = useState(500);
+  const [bubbleHourlyMax, setBubbleHourlyMax] = useState(100);
+  // Bubble caps save debounced (slider drags fire many changes); the flag
+  // keeps the initial config load from writing itself straight back.
+  const [bubbleTouched, setBubbleTouched] = useState(false);
 
   useEffect(() => {
     refreshProfile();
   }, []);
+
+  useEffect(() => {
+    if (!bubbleTouched) return;
+    const t = setTimeout(() => {
+      updateConfigField('bubble_daily_max', bubbleDailyMax);
+      updateConfigField('bubble_hourly_max', bubbleHourlyMax);
+      // Mirror for the bubbles game's current localStorage reads (athena
+      // repoints at leisure — bus note filed).
+      localStorage.setItem('bubble-daily-max', String(bubbleDailyMax));
+      localStorage.setItem('bubble-hourly-max', String(bubbleHourlyMax));
+    }, 600);
+    return () => clearTimeout(t);
+  }, [bubbleTouched, bubbleDailyMax, bubbleHourlyMax]);
 
   useEffect(() => {
     if (!user) return;
@@ -49,6 +80,11 @@ export function SanctumContent() {
           const raw = rows[0] as Record<string, unknown>;
           setCeremonyArrival(raw.ceremony_arrival === true);
           setCeremonyFarewell(raw.ceremony_farewell === true);
+          if (typeof raw.environment_preference === 'string' && raw.environment_preference) {
+            setEnvironmentPreference(raw.environment_preference);
+          }
+          if (typeof raw.bubble_daily_max === 'number') setBubbleDailyMax(raw.bubble_daily_max);
+          if (typeof raw.bubble_hourly_max === 'number') setBubbleHourlyMax(raw.bubble_hourly_max);
         }
       })
       .catch(() => {});
@@ -239,6 +275,32 @@ export function SanctumContent() {
           </div>
         </Card>
 
+        {/* YOUR REALM — the environment picker returned (KP's commission,
+            2026-07-31). The choice previews live through the ContinuityBeam
+            (the selector's own hand), persists to vessel_config, and the
+            beam provider hydrates it at every arrival — the connection the
+            Sanctum claimed and finally has. */}
+        <Card
+          variant="sanctuary"
+          data={preferencesCardData}
+          radius="lg"
+          shadow="md"
+          className="p-6 mb-6"
+        >
+          <h2 className="text-lg font-semibold text-star-dust mb-4">Your Realm</h2>
+          <p className="text-sm text-star-dust/40 mb-4">
+            Choose the environment the Sanctuary wears for you — previewed as
+            you choose, remembered every time you return.
+          </p>
+          <EnvironmentSelector
+            value={environmentPreference}
+            onChange={(newValue) => {
+              setEnvironmentPreference(newValue);
+              updateConfigField('environment_preference', newValue);
+            }}
+          />
+        </Card>
+
         {/* THE CEREMONY SWITCHBOARD — Movement IV's wearing (2026-07-29).
             Every ceremony is chosen here or not at all: no opt-out patterns
             exist anywhere in the Sanctuary (THE OPT-IN LAW, KP's own words:
@@ -269,6 +331,55 @@ export function SanctumContent() {
               size="md"
               checked={ceremonyFarewell}
               onChange={(checked) => { setCeremonyFarewell(checked); updateConfigField('ceremony_farewell', checked); }}
+            />
+          </div>
+        </Card>
+
+        {/* YOUR DAILY RHYTHM — the bubble limits come home (KP's word,
+            2026-07-31: "add back to the vessel config the bubble limits
+            setting"). Source of truth is vessel_config; the localStorage
+            mirror keeps the bubbles game honoring the boundary immediately
+            (the game's own reads repoint at athena's leisure — bus note
+            filed). 🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
+        <Card
+          variant="sanctuary"
+          data={preferencesCardData}
+          radius="lg"
+          shadow="md"
+          className="p-6 mb-6"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <Shield className="h-4 w-4 text-neurospark" />
+            <h2 className="text-lg font-semibold text-star-dust">Your Daily Rhythm</h2>
+          </div>
+          <p className="text-sm text-star-dust/40 mb-6">
+            Your own boundaries for the bubbles — a kindness to your future
+            self, never a score. They follow your vessel to every device.
+          </p>
+          <div className="mb-6 text-left">
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-xs text-star-dust/60">Daily bubble points</label>
+              <span className="text-xs text-neurospark font-bold">{bubbleDailyMax}</span>
+            </div>
+            <Slider
+              value={bubbleDailyMax}
+              max={2000}
+              min={100}
+              step={50}
+              onValueChange={([v]) => { setBubbleTouched(true); setBubbleDailyMax(v); }}
+            />
+          </div>
+          <div className="text-left">
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-xs text-star-dust/60">Hourly pops</label>
+              <span className="text-xs text-neurospark font-bold">{bubbleHourlyMax}</span>
+            </div>
+            <Slider
+              value={bubbleHourlyMax}
+              max={500}
+              min={20}
+              step={10}
+              onValueChange={([v]) => { setBubbleTouched(true); setBubbleHourlyMax(v); }}
             />
           </div>
         </Card>
