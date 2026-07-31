@@ -56,12 +56,17 @@ the acceptance criteria: *every voice recorded, every action visible.*
      consent surfaces become honestly-waiting (plain words, not grey
      theater) whenever this realm's season allows, KP's ⚛ eye on the
      crossing.*
-     *Draft ready for the sitting (2026-07-30, KP's "let us
-     continue"): `docs/sql/013-the-consent-record-DRAFT.sql` — the
-     votes table with the consent laws in its columns (choice NOT
-     NULL no DEFAULT · unique voter+proposal · abstain recordable ·
-     no DELETE policy until the purge law is designed) and five open
-     questions marked Q1–Q5 for KP's ⚛ rulings. Nothing applied.*
+     *→ **THE RECORD EXISTS 2026-07-31**: 013 run by KP's ⚛ hand
+     (votes table — choice NOT NULL no DEFAULT · unique
+     voter+proposal · abstain recordable · no DELETE until the purge
+     law · council wall via `private.has_role`, the wall that already
+     stood; drafted against the types photograph first, 42P01, then
+     LIVE-VERIFIED via the self-knowing registries — the lesson is
+     BASE-ACCESS-GUIDE lesson 8 now). The linter flagged the echo
+     function (SECURITY DEFINER in public, both roles) — cure
+     drafted same sitting: `docs/sql/014-the-echo-moves-inside.sql`
+     (the 010 shape), awaiting KP's run. After 014: gaia_config row →
+     GAIA regen → wire the ceremony (the vote POST, Approve/Reject).*
   2. ✅ **HEALED 2026-07-30** — the Ledger room's stale door: rewired
      to `/api/generated/plutus-economics/ledger` AND trued to the
      live schema (the component's interface was UI-era — amount_cents
