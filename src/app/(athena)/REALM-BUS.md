@@ -42,17 +42,20 @@ heals by regeneration, never by hand · work rides branches, KP merges
      `is_published`/`is_active`→`status`, scalar rewards/durations →
      Json). QuestDetail doubly adrift: reads `params.id` inside a
      `[slug]` route folder, so every quest renders the empty state.
-  3. **The Archive's source is coming home** — KP's ⚛ word,
-     2026-07-29, verbatim: "i intend to bring mythology back, it was
-     dropped simply because it had no data and was considered for the
-     resonamce-knowledge base, but it belongs here i think."
-     (Supersedes the review's Grammar earmark; the drop was for
-     emptiness, not wrongness.) Excavated ground truth: the pre-drop
-     table (`c4e20332~1` typegen) already speaks the evolved dialect —
-     name · slug · status content_status · story · teachings ·
-     myth_type · related_entity(+type) · icon_url · display_order ·
-     audit columns. Schema design is live at this table, KP's eye
-     ruling.
+  3. **The Archive is HOME and CURRENT** (completed 2026-07-30, the
+     two-hand rhythm end to end): KP's ⚛ word 2026-07-29 ("i intend
+     to bring mythology back … it belongs here i think") → shape
+     excavated from the pre-drop typegen → `docs/sql/005-mythology-
+     returns.sql` run by KP's hand (verify clean, 0 scrolls honestly)
+     → types repulled (delta: exactly mythology) → deity map trued
+     (re-listed under Athena; lesson: an unmapped table falls to the
+     hestia-core catchall) → GAIA re-run, wires born in
+     athena-gamification → KnowledgeGallery/Detail retrued to the
+     story-frames shape (name/story/teachings) → anon-door verified →
+     tsc 0. Commits `5c09bd15` + `27bd6176`. The hall is open with
+     empty shelves, waiting for its first scrolls (KP's content
+     season). Personal frames still arrive vessel-side when their day
+     comes (the Hearth pattern, ruled).
   4. **README aged:** quests route says `[id]` (disk: `[slug]`),
      `bubbles/play` unlisted, detail pages marked unbuilt that exist,
      data table names pre-evolution (`badges`, `mythology`,
@@ -62,12 +65,13 @@ heals by regeneration, never by hand · work rides branches, KP merges
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
-  lessons, quests · **mythology's return** (KP's ⚛ word 2026-07-29 —
-  schema design first, then his dashboard hand, then GAIA regen, then
-  the Archive's retruing rides the rewiring season) · the
-  one-bridge-three-doors crossing narrows to two doors from this
-  realm's side (dailies still ride the Grammar seam; the Archive's
-  source now lives home).
+  lessons, quests · **scrolls for the Archive** (the hall is open and
+  wired; content is KP's ⚛ season) · the one-bridge-three-doors
+  crossing narrows to two doors from this realm's side (dailies still
+  ride the Grammar seam; the Archive's source now lives home) ·
+  **the rewiring season's remaining four halls** (Bubbles gallery +
+  detail · Quests · Courses · Lessons — mechanical retruing to the
+  evolved dialect, queued, one word runs it).
 - **Cross-realm seams:** the collection machinery lives hestia-core
   side (`vessel_bubbles`, `collection_sets`, `vessel_sigils`,
   `vessel_quests` — the Hearth's tables, this realm only reads/writes
