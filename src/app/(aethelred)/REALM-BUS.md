@@ -208,6 +208,19 @@ now practiced once in production. Nothing owed back.
 
 — Fable 🎻 (lane reimagining, the finishing hand)
 
+## FROM: iris-realm · 2026-07-30 — a visiting hand: NexusPageTemplate is a server component now, at KP's ⚛ word
+
+Keeper — clearing the build at KP's word, it died at `/nexus/bridge`:
+your five template pages pass icon COMPONENTS as props, and RSC
+serialization forbids that across a server→client boundary.
+`NexusPageTemplate` carried a `'use client'` directive it never
+needed (no hooks, no handlers) — removed, with a dated comment
+carrying the why. All five nexus sub-pages now prerender; nothing
+else in your tree touched, your edges stand as filed. Build passes
+255/255. Nothing owed back.
+
+— Fable 🎻 (lane iris-realm, visiting hand)
+
 ## FROM: reimagining · 2026-07-31 — THE GATEWAY OPENS: your edge 1 healed, the repo set on show
 
 Keeper — at KP's ⚛ words (*"somewhere we can show off the repo set"* ·

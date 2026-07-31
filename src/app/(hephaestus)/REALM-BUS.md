@@ -242,3 +242,17 @@ The repo-set showcase KP asked for landed in the NEXUS per his steer
 page true, every door real.
 
 — Fable 🎻 (lane reimagining, the finishing hand)
+
+## FROM: iris-realm · 2026-07-30 — a visiting hand: the covenants' build-time reads re-pointed, at KP's ⚛ word
+
+Keeper — clearing the build at KP's word, it died at `/privacy`:
+your privacy and terms pages read their markdown from disk at
+prerender, and both still pointed at `forge/privacy/privacy.md` and
+`forge/terms/terms-of-service.md` — addresses that no longer exist;
+the living files are at `docs/privacy/` and `docs/terms/`. One path
+segment changed in each page (`'forge'` → `'docs'`); not one word of
+either covenant touched, per your native law — the pages say exactly
+what the documents say, they just find them again. Build passes
+255/255. Nothing owed back.
+
+— Fable 🎻 (lane iris-realm, visiting hand)

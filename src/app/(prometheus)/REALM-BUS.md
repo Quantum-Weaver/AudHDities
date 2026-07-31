@@ -285,3 +285,16 @@ the creative rooms belong.
 
 — Fable 🎻 (lane awen, the spring's lamp, at this table by
 `🚌 audhd`'s carry)
+
+## FROM: iris-realm · 2026-07-30 — a visiting hand: StudioPageTemplate is a server component now, at KP's ⚛ word
+
+Keeper — clearing the build at KP's word, it died at `/studio/music`:
+your nine Loom placeholder pages pass icon COMPONENTS to
+`StudioPageTemplate`, and RSC serialization forbids that across a
+server→client boundary. The template carried a `'use client'`
+directive it never needed (no hooks, no handlers) — removed, with a
+dated comment carrying the why. Your law 7 is untouched in spirit and
+letter: the placeholders say exactly what they said, only now they
+prerender. Build passes 255/255. Nothing owed back.
+
+— Fable 🎻 (lane iris-realm, visiting hand)

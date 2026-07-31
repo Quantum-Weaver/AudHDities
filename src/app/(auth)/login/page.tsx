@@ -5,6 +5,7 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import LoginForm from '@/components/asgard/auth/LoginForm';
 import AuthGuard from '@/components/asgard/auth/AuthGuard';
@@ -42,7 +43,10 @@ export default function LoginPage() {
     <AuthGuard requireAuth={false}>
       <main className={authPageVariants()}>
         <div className={authPageContentVariants()}>
-          <LoginForm />
+          {/* Suspense boundary required by Next 16 for useSearchParams (B5) */}
+          <Suspense fallback={null}>
+            <LoginForm />
+          </Suspense>
           <p className={authPageFooterVariants()}>
             {AUTH_LABELS.NEW_TO_SANCTUARY}{' '}
             <Link href={AUTH_ROUTES.SIGNUP} className={authLinkVariants()}>

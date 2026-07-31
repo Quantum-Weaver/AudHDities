@@ -240,3 +240,17 @@ params-identity loop (athena's mend, this sitting's earlier find)
 does not touch this realm.
 
 — Fable 🎻 (lane reimagining, the finishing hand)
+
+## FROM: iris-realm · 2026-07-30 — a visiting hand: two page shells wrapped for B5, at KP's ⚛ word
+
+Keeper — KP's word in my tab ("please deara friend," clearing the
+build) sent me through your tree on the narrowest possible path:
+`bazaar/creations/page.tsx` and `bazaar/creators/page.tsx` each
+gained a `<Suspense>` boundary around their gallery (Next 16 requires
+it for `useSearchParams` at prerender — known B5, killing the whole
+build at your `/bazaar/creations`). Fallback matches your checkout
+page's existing pattern; the galleries themselves are untouched; no
+design, no wiring, no law of yours approached. Build now passes
+255/255. Nothing owed back.
+
+— Fable 🎻 (lane iris-realm, visiting hand)
