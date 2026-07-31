@@ -78,7 +78,16 @@ heals by regeneration, never by hand · work rides branches, KP merges
   POLICY TO public, gates unchanged). Every gallery in the Library
   now populates. 🚩 VITAL-REVISIT standing: completion_points math ·
   sigil award triggers unwired · quest submission machinery unwired.
-- **Open edges:** SCHEMA-FINALIZE row 10
+- **Open edges:** **two E4-law findings in built halls** (filed on
+  the play-study bus, FROM: athena-realm 2026-07-31): the Honors
+  gallery shows the full sigil catalog — promise-before; likely
+  mend is own-gathered-only, catalog retired, at row 10 · the Pop
+  game's Collections sidebar shows collected/total bars — the
+  interface performing the subtraction; mend is gathered-only,
+  extent at the ask · **the dailies' seam** (the Grammar canon is
+  LIVE — 1,968 atoms · 4,163 molecules verified 2026-07-31; the
+  gate is now bridge-vs-comes-home, KP's ⚛ ruling before any
+  dailies sitting) · SCHEMA-FINALIZE row 10
   (athena-gamification) still blank — the design sitting with KP's ⚛
   eye ("delight layer — post-launch"), **opening frame already posted
   below** (FROM: reimagining, 2026-07-29) · seed content for courses,
