@@ -15800,31 +15800,131 @@
    "count": 25,
    "archived_marked": 0,
    "names": [
-    "on_taxonomy_keyword_sync",
-    "sync_sovereign_tier_log",
-    "capture_table_schema",
-    "dictionary_lookup",
-    "get_acid_test_results",
-    "is_valid_country_code",
-    "is_valid_phone",
-    "validate_address",
-    "jsonb_to_address",
-    "validate_emergency_contact",
-    "submit_acid_test",
-    "on_etymology_update",
-    "build_search_text",
-    "get_acid_test_questions",
-    "on_keyword_insert",
-    "log_application_status_change",
-    "format_address",
-    "validate_signup",
-    "gaia_sync",
-    "calculate_sovereign_price",
-    "on_keyword_update_taxonomy",
-    "on_lexicon_update",
-    "set_user_tracking_columns",
-    "handle_new_user",
-    "update_updated_at_column"
+    {
+     "name": "on_taxonomy_keyword_sync",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "sync_sovereign_tier_log",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "capture_table_schema",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "dictionary_lookup",
+     "args": "search_term text",
+     "language": "plpgsql"
+    },
+    {
+     "name": "get_acid_test_results",
+     "args": "p_user_id uuid",
+     "language": "plpgsql"
+    },
+    {
+     "name": "is_valid_country_code",
+     "args": "code text",
+     "language": "plpgsql"
+    },
+    {
+     "name": "is_valid_phone",
+     "args": "phone text",
+     "language": "plpgsql"
+    },
+    {
+     "name": "validate_address",
+     "args": "addr address",
+     "language": "plpgsql"
+    },
+    {
+     "name": "jsonb_to_address",
+     "args": "data jsonb",
+     "language": "plpgsql"
+    },
+    {
+     "name": "validate_emergency_contact",
+     "args": "contact emergency_contact",
+     "language": "plpgsql"
+    },
+    {
+     "name": "submit_acid_test",
+     "args": "p_user_id uuid, p_answers jsonb",
+     "language": "plpgsql"
+    },
+    {
+     "name": "on_etymology_update",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "build_search_text",
+     "args": "VARIADIC fields text[]",
+     "language": "plpgsql"
+    },
+    {
+     "name": "get_acid_test_questions",
+     "args": "p_include_inactive boolean",
+     "language": "plpgsql"
+    },
+    {
+     "name": "on_keyword_insert",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "log_application_status_change",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "format_address",
+     "args": "addr address",
+     "language": "plpgsql"
+    },
+    {
+     "name": "validate_signup",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "gaia_sync",
+     "args": "p_table text",
+     "language": "plpgsql"
+    },
+    {
+     "name": "calculate_sovereign_price",
+     "args": "p_user_id uuid, p_base_price numeric",
+     "language": "plpgsql"
+    },
+    {
+     "name": "on_keyword_update_taxonomy",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "on_lexicon_update",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "set_user_tracking_columns",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "handle_new_user",
+     "args": "",
+     "language": "plpgsql"
+    },
+    {
+     "name": "update_updated_at_column",
+     "args": "",
+     "language": "plpgsql"
+    }
    ]
   },
   "enums": {
