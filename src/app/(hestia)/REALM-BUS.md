@@ -71,8 +71,12 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     RLS recursion + stale id=auth.uid() ownership on four identity
     tables (009) · has_role moved to the private schema (010) · the
     dashboard-session naming rite (008 step 0, for any future
-    dashboard-run dweller rows). Remaining seed work: collections
-    (waits for its surface).
+    dashboard-run dweller rows) · orphaned identity rows re-homed +
+    tracking trigger learned COALESCE (011) · the avatars bucket
+    created and walled, lint-clean, first avatar SAVED by KP's own
+    hand in the Sanctum (012). The identity path runs whole:
+    signup → trigger → profile → Sanctum → face. Remaining seed
+    work: collections (waits for its surface).
   - The planting/watering gestures — the scene is read-only today
     (verified: no create-hook consumers); plant/water/found-a-room
     surfaces are unbuilt. They ride the arranging crossing or an
