@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/archivist.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-31T01:03:40.844Z
+// GENERATED: 2026-07-31T23:16:54.253Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

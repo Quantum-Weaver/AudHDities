@@ -2,7 +2,7 @@
 // FILE: types/generated/prometheus-stage/events.ts
 // HANDLING: full_crud
 // DEITY: prometheus-stage
-// GENERATED: 2026-07-31T14:07:34.871Z
+// GENERATED: 2026-07-31T23:16:54.443Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

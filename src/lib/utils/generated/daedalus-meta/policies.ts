@@ -1,0 +1,109 @@
+// =====================================================
+// UTILITIES: Policies
+// DEITY: daedalus-meta
+// GENERATED: 2026-07-31T23:16:54.716Z
+// =====================================================
+
+
+import { createClient } from '@/lib/supabase/client';
+import { PoliciesInsertSchema, PoliciesUpdateSchema } from '@/lib/validators/generated/daedalus-meta/policies';
+import type { PoliciesInsert, PoliciesRow, PoliciesUpdate } from '@/types/generated/daedalus-meta/policies';
+
+// ============================================================================
+// CRUD OPERATIONS
+// ============================================================================
+
+/**
+ * Create a new policies record
+ */
+export async function createPolicies(data: PoliciesInsert): Promise<PoliciesRow> {
+  const validated = PoliciesInsertSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('policies')
+    .insert(validated)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Get a single policies record by ID
+ */
+export async function getPolicies(id: string): Promise<PoliciesRow> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from('policies')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Get a list of policies records with pagination
+ */
+export async function listPolicies(params?: {
+  page?: number;
+  limit?: number;
+  filters?: Record<string, string>;
+  sort?: string;
+  order?: 'asc' | 'desc';
+}): Promise<{ data: PoliciesRow[]; total: number }> {
+  const { page = 1, limit = 20, filters = {}, sort = 'created_at', order = 'desc' } = params || {};
+  const supabase = createClient();
+  
+  let query = supabase.from('policies').select('*', { count: 'exact' });
+  
+  for (const [key, value] of Object.entries(filters)) {
+    query = query.eq(key, value);
+  }
+  
+  query = query.order(sort, { ascending: order === 'asc' });
+  
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.range(from, to);
+  
+  const { data, error, count } = await query;
+  if (error) throw error;
+  
+  return { data: data || [], total: count || 0 };
+}
+
+/**
+ * Update a policies record
+ */
+export async function updatePolicies(id: string, data: PoliciesUpdate): Promise<PoliciesRow> {
+  const validated = PoliciesUpdateSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('policies')
+    .update(validated)
+    .eq('id', id)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Delete a policies record
+ */
+export async function deletePolicies(id: string): Promise<boolean> {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from('policies')
+    .delete()
+    .eq('id', id);
+  
+  if (error) throw error;
+  return true;
+}

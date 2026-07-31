@@ -96,18 +96,12 @@ export async function PATCH(request: NextRequest) {
         );
       }
       if (Object.keys(validatedConfig.data).length > 0) {
-        // Cast note (2026-07-31, temporary until the generated types repull):
-        // bubble_daily_max / bubble_hourly_max / environment_preference land
-        // in docs/sql/013 ahead of the next GAIA regeneration, so the typed
-        // client doesn't know them yet. The zod wall above is the real gate;
-        // this cast only quiets the stale Database types and dies at regen.
-        const configUpdate = {
-          ...validatedConfig.data,
-          updated_at: new Date().toISOString(),
-        } as never;
         const { error: configError } = await supabase
           .from('vessel_config')
-          .update(configUpdate)
+          .update({
+            ...validatedConfig.data,
+            updated_at: new Date().toISOString(),
+          })
           .eq('created_by', user.id);
 
         if (configError) {

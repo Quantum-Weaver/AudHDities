@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PersonasInsertSchema } from '@/lib/validators/generated/iris-communications/personas';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:41.438Z
+// Generated: 2026-07-31T23:16:54.686Z
 // Table: personas
 
 export async function GET(request: NextRequest) {

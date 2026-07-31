@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PatronageTiersUpdateSchema } from '@/lib/validators/generated/plutus-economics/patronage_tiers';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:41.428Z
+// Generated: 2026-07-31T23:16:54.679Z
 // Table: patronage_tiers
 
 export async function GET(

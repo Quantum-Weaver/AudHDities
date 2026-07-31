@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_config.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-31T01:03:41.810Z
+// GENERATED: 2026-07-31T23:16:54.954Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -34,6 +34,8 @@ export type VesselConfigUpdate = TablesUpdate<'vessel_config'>;
 export interface PublicVesselConfig {
   autoplay_audio: boolean;
   autoplay_video: boolean;
+  bubble_daily_max: number;
+  bubble_hourly_max: number;
   ceremony_arrival: boolean;
   ceremony_farewell: boolean;
   content_warnings: string;
@@ -46,6 +48,7 @@ export interface PublicVesselConfig {
   discovery_map_style: string;
   discovery_show_undiscovered: boolean;
   dyslexia_font: boolean;
+  environment_preference: string;
   font_scale: number;
   herald_channel: NotificationChannel;
   herald_digest: HeraldDigest;
@@ -70,6 +73,8 @@ export interface PublicVesselConfig {
 export interface VesselConfigFormData {
   autoplay_audio?: boolean;
   autoplay_video?: boolean;
+  bubble_daily_max?: number;
+  bubble_hourly_max?: number;
   ceremony_arrival?: boolean;
   ceremony_farewell?: boolean;
   content_warnings?: string;
@@ -82,6 +87,7 @@ export interface VesselConfigFormData {
   discovery_map_style?: string;
   discovery_show_undiscovered?: boolean;
   dyslexia_font?: boolean;
+  environment_preference?: string;
   font_scale?: number;
   herald_channel?: NotificationChannel;
   herald_digest?: HeraldDigest;
@@ -107,6 +113,8 @@ export interface VesselConfigValidationResult {
   errors: {
     autoplay_audio?: string;
     autoplay_video?: string;
+    bubble_daily_max?: string;
+    bubble_hourly_max?: string;
     ceremony_arrival?: string;
     ceremony_farewell?: string;
     content_warnings?: string;
@@ -119,6 +127,7 @@ export interface VesselConfigValidationResult {
     discovery_map_style?: string;
     discovery_show_undiscovered?: string;
     dyslexia_font?: string;
+    environment_preference?: string;
     font_scale?: string;
     herald_channel?: string;
     herald_digest?: string;

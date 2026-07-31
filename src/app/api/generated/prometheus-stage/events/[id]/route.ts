@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EventsUpdateSchema } from '@/lib/validators/generated/prometheus-stage/events';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T14:07:34.882Z
+// Generated: 2026-07-31T23:16:54.444Z
 // Table: events
 
 export async function GET(

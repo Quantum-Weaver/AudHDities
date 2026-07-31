@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SurveyResponsesUpdateSchema } from '@/lib/validators/generated/iris-communications/survey_responses';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:41.694Z
+// Generated: 2026-07-31T23:16:54.862Z
 // Table: survey_responses
 
 export async function GET(

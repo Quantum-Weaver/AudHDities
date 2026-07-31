@@ -60,10 +60,11 @@ interface CollectionProgress {
 // CONSTANTS
 // ═══════════════════════════════════════════════════════════════════════════
 
-// The charter's numbers (L1-07), same for every vessel. A personal boundary
-// (localStorage, the limit slider) may sit BELOW them, never above.
-const DAILY_CAP = 500;
-const HOURLY_CAP = 100;
+// The charter's gentle defaults (L1-07 · docs/sql/013). The vessel's own
+// caps live in vessel_config now — self-chosen boundaries that follow the
+// vessel to every device; these numbers rule only until the row answers.
+const DEFAULT_DAILY_MAX = 500;
+const DEFAULT_HOURLY_MAX = 100;
 const SPAWN_INTERVAL_MS = 1200;
 
 const RARITY_POINTS: Record<string, number> = {
@@ -108,7 +109,7 @@ export function BubblePopGame() {
 
   const [bubbles, setBubbles] = useState<BubbleDef[]>([]);
   const [floating, setFloating] = useState<FloatingBubble[]>([]);
-  const [limits, setLimits] = useState<UserLimits>({ daily_points: 0, hourly_pops: 0, max_daily_points: DAILY_CAP, max_hourly_pops: HOURLY_CAP });
+  const [limits, setLimits] = useState<UserLimits>({ daily_points: 0, hourly_pops: 0, max_daily_points: DEFAULT_DAILY_MAX, max_hourly_pops: DEFAULT_HOURLY_MAX });
   const [score, setScore] = useState(0);
   const [sessionPops, setSessionPops] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -117,7 +118,7 @@ export function BubblePopGame() {
   const [popEffects, setPopEffects] = useState<Array<{ id: string; x: number; y: number; emoji: string; }>>([]);
   const [collections, setCollections] = useState<CollectionProgress[]>([]);
   const [loading, setLoading] = useState(true);
-  const [customDailyMax, setCustomDailyMax] = useState<number>(DAILY_CAP);
+  const [customDailyMax, setCustomDailyMax] = useState<number>(DEFAULT_DAILY_MAX);
 
   // ─── Fetch bubble definitions ────────────────────────────────────────
   useEffect(() => {
@@ -128,16 +129,20 @@ export function BubblePopGame() {
       .finally(() => setLoading(false));
   }, []);
 
-  // ─── Limits: counted from today's collections (the counter table died;
-  //     vessel_bubbles IS the record) + the personal cap from localStorage ──
+  // ─── Limits: usage counted from today's collections (vessel_bubbles IS
+  //     the record) + the vessel's own caps from vessel_config (013 — the
+  //     boundary follows the vessel, not the device) ────────────────────
   useEffect(() => {
     if (!user || bubbles.length === 0) return;
-    const storedMax = Number(localStorage.getItem('bubble-daily-max')) || DAILY_CAP;
-    const maxDaily = Math.min(DAILY_CAP, storedMax);
-    fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&sort=collected_at&order=desc&limit=100`)
-      .then(r => r.json())
-      .then(result => {
-        const rows: Array<{ bubble_id: string; collected_at: string }> = result.success ? (result.data?.data || []) : [];
+    Promise.all([
+      fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&sort=collected_at&order=desc&limit=100`).then(r => r.json()),
+      fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`).then(r => r.json()),
+    ])
+      .then(([popsRes, configRes]) => {
+        const rows: Array<{ bubble_id: string; collected_at: string }> = popsRes.success ? (popsRes.data?.data || []) : [];
+        const config = configRes.success ? (configRes.data?.data ?? [])[0] : null;
+        const maxDaily = typeof config?.bubble_daily_max === 'number' ? config.bubble_daily_max : DEFAULT_DAILY_MAX;
+        const maxHourly = typeof config?.bubble_hourly_max === 'number' ? config.bubble_hourly_max : DEFAULT_HOURLY_MAX;
         const startOfDay = new Date(); startOfDay.setHours(0, 0, 0, 0);
         const startOfHour = Date.now() - 3600_000;
         const pointsById = new Map(bubbles.map(b => [b.id, RARITY_POINTS[b.rarity] || 1]));
@@ -147,7 +152,7 @@ export function BubblePopGame() {
           if (t >= startOfDay.getTime()) daily += pointsById.get(row.bubble_id) || 1;
           if (t >= startOfHour) hourly += 1;
         }
-        setLimits({ daily_points: daily, hourly_pops: hourly, max_daily_points: maxDaily, max_hourly_pops: HOURLY_CAP });
+        setLimits({ daily_points: daily, hourly_pops: hourly, max_daily_points: maxDaily, max_hourly_pops: maxHourly });
         setCustomDailyMax(maxDaily);
         setIsDailyLimitReached(daily >= maxDaily);
       })
@@ -314,12 +319,19 @@ export function BubblePopGame() {
     lastSpawnRef.current = Date.now();
   };
 
-  // ─── Save custom limit (a personal boundary — kept on the device) ────
+  // ─── Save custom limit (a personal boundary — kept in vessel_config,
+  //     following the vessel to every device; the Sanctum edits it too) ──
   const saveCustomLimit = async () => {
     if (!user) return;
     setLimits(prev => ({ ...prev, max_daily_points: customDailyMax }));
     setIsDailyLimitReached(limits.daily_points >= customDailyMax);
-    localStorage.setItem('bubble-daily-max', String(customDailyMax));
+    try {
+      await fetch('/api/auth/update-profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ config: { bubble_daily_max: customDailyMax } }),
+      });
+    } catch (err) { console.error('Failed to save limit:', err); }
   };
 
   // ─── Loading ──────────────────────────────────────────────────────────
@@ -456,12 +468,13 @@ export function BubblePopGame() {
                       You've collected {limits.daily_points} points today. Come back tomorrow for more stars!
                     </p>
                     <div className="mb-6 px-4">
-                      <p className="text-xs text-star-dust/40 mb-2">Adjust your daily limit (max {DAILY_CAP})</p>
+                      <p className="text-xs text-star-dust/40 mb-2">Adjust your daily limit — the boundary is yours</p>
                       <div className="flex items-center gap-3">
                         <input
                           type="range"
                           min={0}
-                          max={DAILY_CAP}
+                          max={2000}
+                          step={50}
                           value={customDailyMax}
                           onChange={(e) => setCustomDailyMax(parseInt(e.target.value))}
                           className="flex-1"

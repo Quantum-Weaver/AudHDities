@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CouncilHousesUpdateSchema } from '@/lib/validators/generated/themis-governance/council_houses';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:40.995Z
+// Generated: 2026-07-31T23:16:54.384Z
 // Table: council_houses
 
 export async function GET(

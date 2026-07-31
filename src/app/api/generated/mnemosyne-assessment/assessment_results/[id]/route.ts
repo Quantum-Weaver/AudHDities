@@ -2,7 +2,7 @@ import { errorResponse, notFound, successResponse } from '@/lib/api/auth';
 import { createApiSupabase } from '@/lib/api/supabase';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:40.874Z
+// Generated: 2026-07-31T23:16:54.276Z
 // Table: assessment_results
 
 export async function GET(

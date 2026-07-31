@@ -1185,6 +1185,7 @@ export type Database = {
       }
       columns: {
         Row: {
+          archived_at: string | null
           column_default: string | null
           column_name: string
           created_at: string
@@ -1194,12 +1195,14 @@ export type Database = {
           id: string
           is_active: boolean
           is_nullable: boolean | null
+          last_seen_at: string | null
           log: Json
           table_name: string
           updated_at: string
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
           column_default?: string | null
           column_name: string
           created_at?: string
@@ -1209,12 +1212,14 @@ export type Database = {
           id?: string
           is_active?: boolean
           is_nullable?: boolean | null
+          last_seen_at?: string | null
           log?: Json
           table_name: string
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
           column_default?: string | null
           column_name?: string
           created_at?: string
@@ -1224,6 +1229,7 @@ export type Database = {
           id?: string
           is_active?: boolean
           is_nullable?: boolean | null
+          last_seen_at?: string | null
           log?: Json
           table_name?: string
           updated_at?: string
@@ -1338,12 +1344,14 @@ export type Database = {
       }
       composite_types: {
         Row: {
+          archived_at: string | null
           attributes: Json | null
           created_at: string
           created_by: string | null
           description: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
           log: Json
           name: string
           updated_at: string
@@ -1351,12 +1359,14 @@ export type Database = {
           used_by: Json | null
         }
         Insert: {
+          archived_at?: string | null
           attributes?: Json | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name: string
           updated_at?: string
@@ -1364,12 +1374,14 @@ export type Database = {
           used_by?: Json | null
         }
         Update: {
+          archived_at?: string | null
           attributes?: Json | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name?: string
           updated_at?: string
@@ -1919,12 +1931,14 @@ export type Database = {
       }
       enums: {
         Row: {
+          archived_at: string | null
           created_at: string
           created_by: string | null
           description: string | null
           id: string
           is_active: boolean
           labels: Json | null
+          last_seen_at: string | null
           log: Json
           name: string
           updated_at: string
@@ -1932,12 +1946,14 @@ export type Database = {
           used_by: Json | null
         }
         Insert: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
           labels?: Json | null
+          last_seen_at?: string | null
           log?: Json
           name: string
           updated_at?: string
@@ -1945,12 +1961,14 @@ export type Database = {
           used_by?: Json | null
         }
         Update: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
           labels?: Json | null
+          last_seen_at?: string | null
           log?: Json
           name?: string
           updated_at?: string
@@ -2323,43 +2341,52 @@ export type Database = {
       }
       functions: {
         Row: {
+          archived_at: string | null
           created_at: string
           created_by: string | null
           description: string | null
           id: string
           is_active: boolean
           language: string | null
+          last_seen_at: string | null
           log: Json
           name: string
           purpose: string | null
+          returns: string | null
           signature: string | null
           updated_at: string
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
           language?: string | null
+          last_seen_at?: string | null
           log?: Json
           name: string
           purpose?: string | null
+          returns?: string | null
           signature?: string | null
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
           language?: string | null
+          last_seen_at?: string | null
           log?: Json
           name?: string
           purpose?: string | null
+          returns?: string | null
           signature?: string | null
           updated_at?: string
           updated_by?: string | null
@@ -2369,19 +2396,22 @@ export type Database = {
       gaia_config: {
         Row: {
           api_access: string
-          composite_refs: string[] | null
+          archived_at: string | null
+          composite_refs: Json | null
           created_at: string
           created_by: string | null
           deity_group: string
-          enum_refs: string[] | null
+          deity_name: string | null
+          enum_refs: Json | null
           family_id: string | null
-          generation_dependencies: string[] | null
-          generation_flags: string[] | null
-          generation_targets: string[] | null
-          human_verified_tags: string[] | null
+          generation_dependencies: Json | null
+          generation_flags: Json | null
+          generation_targets: Json | null
+          human_verified_tags: Json | null
           icon_emoji: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
           log: Json
           notes: string | null
           schema_columns_count: number | null
@@ -2404,19 +2434,22 @@ export type Database = {
         }
         Insert: {
           api_access?: string
-          composite_refs?: string[] | null
+          archived_at?: string | null
+          composite_refs?: Json | null
           created_at?: string
           created_by?: string | null
           deity_group: string
-          enum_refs?: string[] | null
+          deity_name?: string | null
+          enum_refs?: Json | null
           family_id?: string | null
-          generation_dependencies?: string[] | null
-          generation_flags?: string[] | null
-          generation_targets?: string[] | null
-          human_verified_tags?: string[] | null
+          generation_dependencies?: Json | null
+          generation_flags?: Json | null
+          generation_targets?: Json | null
+          human_verified_tags?: Json | null
           icon_emoji?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           notes?: string | null
           schema_columns_count?: number | null
@@ -2439,19 +2472,22 @@ export type Database = {
         }
         Update: {
           api_access?: string
-          composite_refs?: string[] | null
+          archived_at?: string | null
+          composite_refs?: Json | null
           created_at?: string
           created_by?: string | null
           deity_group?: string
-          enum_refs?: string[] | null
+          deity_name?: string | null
+          enum_refs?: Json | null
           family_id?: string | null
-          generation_dependencies?: string[] | null
-          generation_flags?: string[] | null
-          generation_targets?: string[] | null
-          human_verified_tags?: string[] | null
+          generation_dependencies?: Json | null
+          generation_flags?: Json | null
+          generation_targets?: Json | null
+          human_verified_tags?: Json | null
           icon_emoji?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           notes?: string | null
           schema_columns_count?: number | null
@@ -3172,6 +3208,7 @@ export type Database = {
       }
       indexes: {
         Row: {
+          archived_at: string | null
           columns: string | null
           created_at: string
           created_by: string | null
@@ -3179,6 +3216,7 @@ export type Database = {
           description: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
           log: Json
           name: string
           table_name: string
@@ -3186,6 +3224,7 @@ export type Database = {
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
           columns?: string | null
           created_at?: string
           created_by?: string | null
@@ -3193,6 +3232,7 @@ export type Database = {
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name: string
           table_name: string
@@ -3200,6 +3240,7 @@ export type Database = {
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
           columns?: string | null
           created_at?: string
           created_by?: string | null
@@ -3207,6 +3248,7 @@ export type Database = {
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name?: string
           table_name?: string
@@ -4149,12 +4191,14 @@ export type Database = {
       }
       policies: {
         Row: {
+          archived_at: string | null
           cmd: string
           created_at: string
           created_by: string | null
           description: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
           log: Json
           policy_name: string
           qual: string | null
@@ -4164,12 +4208,14 @@ export type Database = {
           with_check: string | null
         }
         Insert: {
+          archived_at?: string | null
           cmd?: string
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           policy_name: string
           qual?: string | null
@@ -4179,12 +4225,14 @@ export type Database = {
           with_check?: string | null
         }
         Update: {
+          archived_at?: string | null
           cmd?: string
           created_at?: string
           created_by?: string | null
           description?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           policy_name?: string
           qual?: string | null
@@ -4551,6 +4599,66 @@ export type Database = {
           status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      relationships: {
+        Row: {
+          archived_at: string | null
+          columns: Json
+          constraint_name: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          foreign_columns: Json
+          foreign_table: string
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          on_delete: string | null
+          on_update: string | null
+          one_to_one: boolean
+          table_name: string
+          updated_at: string
+        }
+        Insert: {
+          archived_at?: string | null
+          columns?: Json
+          constraint_name: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          foreign_columns?: Json
+          foreign_table: string
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          on_delete?: string | null
+          on_update?: string | null
+          one_to_one?: boolean
+          table_name: string
+          updated_at?: string
+        }
+        Update: {
+          archived_at?: string | null
+          columns?: Json
+          constraint_name?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          foreign_columns?: Json
+          foreign_table?: string
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          on_delete?: string | null
+          on_update?: string | null
+          one_to_one?: boolean
+          table_name?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -5489,6 +5597,7 @@ export type Database = {
       }
       triggers: {
         Row: {
+          archived_at: string | null
           created_at: string
           created_by: string | null
           description: string | null
@@ -5496,6 +5605,7 @@ export type Database = {
           function_name: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
           log: Json
           name: string
           table_name: string
@@ -5504,6 +5614,7 @@ export type Database = {
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
@@ -5511,6 +5622,7 @@ export type Database = {
           function_name?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name: string
           table_name: string
@@ -5519,6 +5631,7 @@ export type Database = {
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
@@ -5526,6 +5639,7 @@ export type Database = {
           function_name?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
           log?: Json
           name?: string
           table_name?: string
@@ -5925,6 +6039,8 @@ export type Database = {
         Row: {
           autoplay_audio: boolean
           autoplay_video: boolean
+          bubble_daily_max: number
+          bubble_hourly_max: number
           ceremony_arrival: boolean
           ceremony_farewell: boolean
           content_warnings: string
@@ -5937,6 +6053,7 @@ export type Database = {
           discovery_map_style: string
           discovery_show_undiscovered: boolean
           dyslexia_font: boolean
+          environment_preference: string
           font_scale: number
           herald_channel: Database["public"]["Enums"]["notification_channel"]
           herald_digest: Database["public"]["Enums"]["herald_digest"]
@@ -5956,6 +6073,8 @@ export type Database = {
         Insert: {
           autoplay_audio?: boolean
           autoplay_video?: boolean
+          bubble_daily_max?: number
+          bubble_hourly_max?: number
           ceremony_arrival?: boolean
           ceremony_farewell?: boolean
           content_warnings?: string
@@ -5968,6 +6087,7 @@ export type Database = {
           discovery_map_style?: string
           discovery_show_undiscovered?: boolean
           dyslexia_font?: boolean
+          environment_preference?: string
           font_scale?: number
           herald_channel?: Database["public"]["Enums"]["notification_channel"]
           herald_digest?: Database["public"]["Enums"]["herald_digest"]
@@ -5987,6 +6107,8 @@ export type Database = {
         Update: {
           autoplay_audio?: boolean
           autoplay_video?: boolean
+          bubble_daily_max?: number
+          bubble_hourly_max?: number
           ceremony_arrival?: boolean
           ceremony_farewell?: boolean
           content_warnings?: string
@@ -5999,6 +6121,7 @@ export type Database = {
           discovery_map_style?: string
           discovery_show_undiscovered?: boolean
           dyslexia_font?: boolean
+          environment_preference?: string
           font_scale?: number
           herald_channel?: Database["public"]["Enums"]["notification_channel"]
           herald_digest?: Database["public"]["Enums"]["herald_digest"]
@@ -6302,6 +6425,48 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      views: {
+        Row: {
+          archived_at: string | null
+          created_at: string
+          created_by: string | null
+          definition: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       votes: {
         Row: {

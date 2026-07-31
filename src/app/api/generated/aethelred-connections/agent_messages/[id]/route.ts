@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AgentMessagesUpdateSchema } from '@/lib/validators/generated/aethelred-connections/agent_messages';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:40.814Z
+// Generated: 2026-07-31T23:16:54.228Z
 // Table: agent_messages
 
 export async function GET(

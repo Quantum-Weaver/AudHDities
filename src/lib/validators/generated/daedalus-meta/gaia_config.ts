@@ -11,10 +11,12 @@ import z from 'zod';
 
 export const GaiaConfigRowSchema = z.object({
   api_access: z.string(),
+  archived_at: z.string().nullable(),
   composite_refs: z.any().nullable(),
   created_at: z.string(),
   created_by: z.string().nullable(),
   deity_group: z.string(),
+  deity_name: z.string().nullable(),
   enum_refs: z.any().nullable(),
   family_id: z.string().nullable(),
   generation_dependencies: z.any().nullable(),
@@ -24,6 +26,7 @@ export const GaiaConfigRowSchema = z.object({
   icon_emoji: z.string().nullable(),
   id: z.string(),
   is_active: z.boolean(),
+  last_seen_at: z.string().nullable(),
   log: z.any(),
   notes: z.string().nullable(),
   schema_columns_count: z.number().nullable(),
@@ -47,10 +50,12 @@ export const GaiaConfigRowSchema = z.object({
 
 export const GaiaConfigInsertSchema = z.object({
   api_access: z.string().optional(),
+  archived_at: z.string().nullable().optional(),
   composite_refs: z.any().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   deity_group: z.string(),
+  deity_name: z.string().nullable().optional(),
   enum_refs: z.any().nullable().optional(),
   family_id: z.string().nullable().optional(),
   generation_dependencies: z.any().nullable().optional(),
@@ -60,6 +65,7 @@ export const GaiaConfigInsertSchema = z.object({
   icon_emoji: z.string().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
   log: z.any().optional(),
   notes: z.string().nullable().optional(),
   schema_columns_count: z.number().nullable().optional(),
@@ -83,10 +89,12 @@ export const GaiaConfigInsertSchema = z.object({
 
 export const GaiaConfigUpdateSchema = z.object({
   api_access: z.string().optional(),
+  archived_at: z.string().nullable().optional(),
   composite_refs: z.any().nullable().optional(),
   created_at: z.string().optional(),
   created_by: z.string().nullable().optional(),
   deity_group: z.string().optional(),
+  deity_name: z.string().nullable().optional(),
   enum_refs: z.any().nullable().optional(),
   family_id: z.string().nullable().optional(),
   generation_dependencies: z.any().nullable().optional(),
@@ -96,6 +104,7 @@ export const GaiaConfigUpdateSchema = z.object({
   icon_emoji: z.string().nullable().optional(),
   id: z.string().optional(),
   is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
   log: z.any().optional(),
   notes: z.string().nullable().optional(),
   schema_columns_count: z.number().nullable().optional(),

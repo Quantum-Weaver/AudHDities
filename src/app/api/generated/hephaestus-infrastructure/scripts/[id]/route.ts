@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ScriptsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scripts';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T01:03:41.627Z
+// Generated: 2026-07-31T23:16:54.819Z
 // Table: scripts
 
 export async function GET(

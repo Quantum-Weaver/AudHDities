@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/gaia_config.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-07-31T01:03:41.147Z
+// GENERATED: 2026-07-31T23:16:54.490Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -26,19 +26,22 @@ export type GaiaConfigUpdate = TablesUpdate<'gaia_config'>;
  */
 export interface PublicGaiaConfig {
   api_access: string;
-  composite_refs: string[] | null;
+  archived_at: string | null;
+  composite_refs: Json | null;
   created_at: string;
   created_by: string | null;
   deity_group: string;
-  enum_refs: string[] | null;
+  deity_name: string | null;
+  enum_refs: Json | null;
   family_id: string | null;
-  generation_dependencies: string[] | null;
-  generation_flags: string[] | null;
-  generation_targets: string[] | null;
-  human_verified_tags: string[] | null;
+  generation_dependencies: Json | null;
+  generation_flags: Json | null;
+  generation_targets: Json | null;
+  human_verified_tags: Json | null;
   icon_emoji: string | null;
   id: string;
   is_active: boolean;
+  last_seen_at: string | null;
   log: Json;
   notes: string | null;
   schema_columns_count: number | null;
@@ -66,19 +69,22 @@ export interface PublicGaiaConfig {
  */
 export interface GaiaConfigFormData {
   api_access?: string;
-  composite_refs?: string[] | null;
+  archived_at?: string | null;
+  composite_refs?: Json | null;
   created_at?: string;
   created_by?: string | null;
   deity_group?: string;
-  enum_refs?: string[] | null;
+  deity_name?: string | null;
+  enum_refs?: Json | null;
   family_id?: string | null;
-  generation_dependencies?: string[] | null;
-  generation_flags?: string[] | null;
-  generation_targets?: string[] | null;
-  human_verified_tags?: string[] | null;
+  generation_dependencies?: Json | null;
+  generation_flags?: Json | null;
+  generation_targets?: Json | null;
+  human_verified_tags?: Json | null;
   icon_emoji?: string | null;
   id?: string;
   is_active?: boolean;
+  last_seen_at?: string | null;
   log?: Json;
   notes?: string | null;
   schema_columns_count?: number | null;
@@ -107,10 +113,12 @@ export interface GaiaConfigValidationResult {
   valid: boolean;
   errors: {
     api_access?: string;
+    archived_at?: string;
     composite_refs?: string;
     created_at?: string;
     created_by?: string;
     deity_group?: string;
+    deity_name?: string;
     enum_refs?: string;
     family_id?: string;
     generation_dependencies?: string;
@@ -120,6 +128,7 @@ export interface GaiaConfigValidationResult {
     icon_emoji?: string;
     id?: string;
     is_active?: string;
+    last_seen_at?: string;
     log?: string;
     notes?: string;
     schema_columns_count?: string;
