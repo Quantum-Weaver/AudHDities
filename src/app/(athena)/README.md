@@ -2,7 +2,7 @@
 
 **Feeling:** Peaceful, wise, expansive, curious
 **Environment:** `library` (Ancient, Awe-inspiring variants)
-**Status:** ✅ All pages built and speaking the evolved schema (trued 2026-07-30, the rewiring season)
+**Status:** ✅ Built, wired, seeded, and open (trued 2026-07-31 — rewiring season + first seeds 008 + doors 009 + the course path walk + the game detiered)
 
 > Realm coordination: [`REALM-BUS.md`](REALM-BUS.md) (the standing tabletop — laws, census, open edges).
 
@@ -67,8 +67,8 @@ generated hooks; details fetch by `slug`.
 | Hall | Table | Deity Group | Notes |
 |------|-------|-------------|-------|
 | Quests | `quests` | athena-gamification | `name`/`quest_type`/`difficulty`; `objectives`/`rewards` are Json (rendering beyond string-lists waits for row 10) |
-| Bubbles | `bubbles` | athena-gamification | points + colors DERIVE from `rarity`; collections resolve via `collection_sets` (hestia-core); pops record to `vessel_bubbles` (hestia-core) |
-| Courses | `learning_paths` | athena-gamification | `name`/`path_type`/`difficulty`/`estimated_duration` |
+| Bubbles | `bubbles` | athena-gamification | points + colors DERIVE from `rarity`; collections resolve via `collection_sets` (hestia-core); pops record to `vessel_bubbles` (hestia-core). **The game has NO tiers** (detiered 2026-07-31, KP's word): flat charter caps — 500 points/day · 100 pops/hour — every rarity open to every vessel; personal boundaries device-local, always allowed lower |
+| Courses | `learning_paths` | athena-gamification | `name`/`path_type`/`difficulty`/`estimated_duration`; **CourseDetail walks the path** — `path_lessons` (ordered, via the generated route) joined to published lessons, rendered as numbered steps, no completion percentages |
 | Lessons | `lessons` | athena-gamification | `lesson_type`; `content` is Json (body/url shapes rendered, richer waits for row 10) |
 | Knowledge | `mythology` | athena-gamification | RETURNED at KP's word 2026-07-29 (docs/sql/005); story-frames shape: `story` + `teachings` + `provenance` (the myth lane's law, docs/sql/007) |
 | Badges | `sigils` | athena-gamification | the badge successor; `rarity`/`category`/`icon_emoji` |
@@ -82,8 +82,17 @@ doors.
 
 Base-wide posture (see `docs/sql/004` + `006`): RLS ON everywhere,
 grants restored for `anon`/`authenticated`, content tables readable
-through published-gate policies. New tables follow the ritual:
-`resonance-grammar/docs/sql/000-NEW-TABLE-RITUAL.md`.
+through published-gate policies — **extended to the anon door for all
+Library shelves by `docs/sql/009`** (the policies said "Anyone"; 009
+made the roles agree, so signed-out browsing works). New tables follow
+the ritual: `resonance-grammar/docs/sql/000-NEW-TABLE-RITUAL.md`.
+
+## 🌱 Seeded (2026-07-30, KP's hand, `docs/sql/008`)
+
+5 collections · 30 bubbles (rarity census 10/8/6/4/2) · 10 sigils
+(markers of becoming) · 6 opt-in quests · The Settled Tongue (1 course
+→ 6 lessons via `path_lessons`) · 1 Archive scroll (docs/sql/005+007).
+All anon-door verified.
 
 ---
 
@@ -91,9 +100,9 @@ through published-gate policies. New tables follow the ritual:
 
 | Task | Owner |
 |------|-------|
-| Seed content — courses, lessons, quests | KP's content season |
 | More scrolls for the Archive | the myth lane's looms, KP's eye per scroll |
 | Row 10 design sitting (dailies, Json shapes, Grammar data contract) | KP convenes; opening frame waits on the REALM-BUS |
+| 🚩 VITAL-REVISIT trio: completion_points math · sigil award triggers · quest submission machinery | with row 10 or its own sitting |
 
 ---
 

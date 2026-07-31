@@ -1,18 +1,22 @@
 // src/components/asgard/domains/athena/bubbles/BubblePopGame.tsx
+// DETIERED 2026-07-31 at KP's ⚛ word ("make certain it no longer has tier
+// settings at all"): the game had two generations of tier vocabulary — the
+// old subscription ladder (community/ally/corporate/council) in the limit
+// slider and the sovereign_tier enum here — and their collision crashed the
+// page. Now the charter's own flat numbers rule for everyone (L1-07: daily
+// cap 500 · cooldown after 15 min · "Take a breath" after 50 pops), every
+// rarity drifts for every vessel, and the only ceiling a vessel meets is
+// the charter's or their own.
 'use client';
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
-import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { Slider } from '@/components/forging/Slider';
-import { ArrowLeft, Droplets, Star, Heart, Pause, Play, X, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import type { CardData } from '@/types/components/runes/card.types';
+import { ArrowLeft, Droplets, Star, Heart, Pause, Play, Sparkles } from 'lucide-react';
 import { BubbleLimitSlider } from './BubbleLimitSlider';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -56,12 +60,11 @@ interface CollectionProgress {
 // CONSTANTS
 // ═══════════════════════════════════════════════════════════════════════════
 
-const TIER_LIMITS: Record<string, { daily: number; hourly: number }> = {
-  dweller: { daily: 500, hourly: 100 },
-  guild: { daily: 1500, hourly: 300 },
-  outlander: { daily: 5000, hourly: 500 },
-  sovereign_weaver: { daily: 99999, hourly: 9999 },
-};
+// The charter's numbers (L1-07), same for every vessel. A personal boundary
+// (localStorage, the limit slider) may sit BELOW them, never above.
+const DAILY_CAP = 500;
+const HOURLY_CAP = 100;
+const SPAWN_INTERVAL_MS = 1200;
 
 const RARITY_POINTS: Record<string, number> = {
   common: 1, rare: 3, epic: 5, legendary: 10, mythic: 25,
@@ -87,14 +90,6 @@ const RARITY_SPEED: Record<string, number> = {
   common: 0.6, rare: 0.5, epic: 0.4, legendary: 0.3, mythic: 0.2,
 };
 
-const RARITY_COLORS: Record<string, string> = {
-  common: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-  rare: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  epic: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  legendary: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
-};
-
 const RARITY_POP_EMOJI: Record<string, string> = {
   common: '✨', rare: '💫', epic: '⚡', legendary: '🌌', mythic: '🪐',
 };
@@ -104,8 +99,7 @@ const RARITY_POP_EMOJI: Record<string, string> = {
 // ═══════════════════════════════════════════════════════════════════════════
 
 export function BubblePopGame() {
-  const { user, sovereignTier, isLoading: authLoading } = useUser();
-  const tierKey = sovereignTier || 'dweller';
+  const { user, isLoading: authLoading } = useUser();
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const lastSpawnRef = useRef<number>(0);
@@ -114,7 +108,7 @@ export function BubblePopGame() {
 
   const [bubbles, setBubbles] = useState<BubbleDef[]>([]);
   const [floating, setFloating] = useState<FloatingBubble[]>([]);
-  const [limits, setLimits] = useState<UserLimits>({ daily_points: 0, hourly_pops: 0, max_daily_points: 500, max_hourly_pops: 100 });
+  const [limits, setLimits] = useState<UserLimits>({ daily_points: 0, hourly_pops: 0, max_daily_points: DAILY_CAP, max_hourly_pops: HOURLY_CAP });
   const [score, setScore] = useState(0);
   const [sessionPops, setSessionPops] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -123,7 +117,7 @@ export function BubblePopGame() {
   const [popEffects, setPopEffects] = useState<Array<{ id: string; x: number; y: number; emoji: string; }>>([]);
   const [collections, setCollections] = useState<CollectionProgress[]>([]);
   const [loading, setLoading] = useState(true);
-  const [customDailyMax, setCustomDailyMax] = useState<number>(500);
+  const [customDailyMax, setCustomDailyMax] = useState<number>(DAILY_CAP);
 
   // ─── Fetch bubble definitions ────────────────────────────────────────
   useEffect(() => {
@@ -138,9 +132,8 @@ export function BubblePopGame() {
   //     vessel_bubbles IS the record) + the personal cap from localStorage ──
   useEffect(() => {
     if (!user || bubbles.length === 0) return;
-    const tierMax = TIER_LIMITS[tierKey] || TIER_LIMITS.dweller;
-    const storedMax = Number(localStorage.getItem('bubble-daily-max')) || tierMax.daily;
-    const maxDaily = Math.min(tierMax.daily, storedMax);
+    const storedMax = Number(localStorage.getItem('bubble-daily-max')) || DAILY_CAP;
+    const maxDaily = Math.min(DAILY_CAP, storedMax);
     fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&sort=collected_at&order=desc&limit=100`)
       .then(r => r.json())
       .then(result => {
@@ -154,12 +147,12 @@ export function BubblePopGame() {
           if (t >= startOfDay.getTime()) daily += pointsById.get(row.bubble_id) || 1;
           if (t >= startOfHour) hourly += 1;
         }
-        setLimits({ daily_points: daily, hourly_pops: hourly, max_daily_points: maxDaily, max_hourly_pops: tierMax.hourly });
+        setLimits({ daily_points: daily, hourly_pops: hourly, max_daily_points: maxDaily, max_hourly_pops: HOURLY_CAP });
         setCustomDailyMax(maxDaily);
         setIsDailyLimitReached(daily >= maxDaily);
       })
       .catch(() => {});
-  }, [user, bubbles, tierKey]);
+  }, [user, bubbles]);
 
   // ─── Fetch collection progress (vessel_bubbles ⨝ collection_sets) ────
   useEffect(() => {
@@ -187,24 +180,18 @@ export function BubblePopGame() {
       .catch(() => {});
   }, [user, bubbles]);
 
-  // ─── Pick a random bubble by rarity weight ────────────────────────────
+  // ─── Pick a random bubble by rarity weight (every rarity, every vessel —
+  //     the weights alone keep mythic rare; no gate does) ────────────────
   const pickBubble = useCallback(() => {
     if (bubbles.length === 0) return null;
-    const eligible = bubbles.filter(b => {
-      if (tierKey === 'dweller') return b.rarity === 'common' || b.rarity === 'rare';
-      if (tierKey === 'guild') return b.rarity !== 'legendary' && b.rarity !== 'mythic';
-      return true;
-    });
-    if (eligible.length === 0) return bubbles[Math.floor(Math.random() * bubbles.length)];
-
-    const totalWeight = eligible.reduce((sum, b) => sum + (RARITY_WEIGHTS[b.rarity] || 10), 0);
+    const totalWeight = bubbles.reduce((sum, b) => sum + (RARITY_WEIGHTS[b.rarity] || 10), 0);
     let roll = Math.random() * totalWeight;
-    for (const b of eligible) {
+    for (const b of bubbles) {
       roll -= RARITY_WEIGHTS[b.rarity] || 10;
       if (roll <= 0) return b;
     }
-    return eligible[eligible.length - 1];
-  }, [bubbles, tierKey]);
+    return bubbles[bubbles.length - 1];
+  }, [bubbles]);
 
   // ─── Spawn a bubble ──────────────────────────────────────────────────
   const spawnBubble = useCallback(() => {
@@ -238,9 +225,7 @@ export function BubblePopGame() {
 
     const animate = () => {
       const now = Date.now();
-      // Spawn new bubble every 1-3 seconds based on tier
-      const spawnInterval = tierKey === 'sovereign_weaver' ? 600 : tierKey === 'outlander' ? 900 : tierKey === 'guild' ? 1200 : 1800;
-      if (now - lastSpawnRef.current > spawnInterval + Math.random() * 1000) {
+      if (now - lastSpawnRef.current > SPAWN_INTERVAL_MS + Math.random() * 1000) {
         lastSpawnRef.current = now;
         spawnBubble();
       }
@@ -263,7 +248,7 @@ export function BubblePopGame() {
 
     animationRef.current = requestAnimationFrame(animate);
     return () => { if (animationRef.current) cancelAnimationFrame(animationRef.current); };
-  }, [isPaused, isDailyLimitReached, spawnBubble, tierKey]);
+  }, [isPaused, isDailyLimitReached, spawnBubble]);
 
   // ─── Handle pop ──────────────────────────────────────────────────────
   const handlePop = useCallback(async (bubble: FloatingBubble) => {
@@ -360,8 +345,6 @@ export function BubblePopGame() {
       </main>
     );
   }
-
-  const tierMax = TIER_LIMITS[tierKey] || TIER_LIMITS.dweller;
 
   return (
     <main className="min-h-screen py-8">
@@ -473,12 +456,12 @@ export function BubblePopGame() {
                       You've collected {limits.daily_points} points today. Come back tomorrow for more stars!
                     </p>
                     <div className="mb-6 px-4">
-                      <p className="text-xs text-star-dust/40 mb-2">Adjust your daily limit (max {tierMax.daily})</p>
+                      <p className="text-xs text-star-dust/40 mb-2">Adjust your daily limit (max {DAILY_CAP})</p>
                       <div className="flex items-center gap-3">
                         <input
                           type="range"
                           min={0}
-                          max={tierMax.daily}
+                          max={DAILY_CAP}
                           value={customDailyMax}
                           onChange={(e) => setCustomDailyMax(parseInt(e.target.value))}
                           className="flex-1"
@@ -508,9 +491,6 @@ export function BubblePopGame() {
                 <p className="text-xs text-star-dust/30 mb-1">Daily progress</p>
                 <Progress value={limits.daily_points} max={limits.max_daily_points} variant="default" size="sm" />
               </div>
-              <div className="mt-3">
-                <Badge variant="outline" size="sm" className="text-[10px] capitalize">{tierKey.replace(/_/g, ' ')} tier</Badge>
-              </div>
             </Card>
 
             {/* Collections */}
@@ -531,14 +511,11 @@ export function BubblePopGame() {
               </Card>
             )}
 
-            {/* Tier Info */}
-            <Card data={{ id: 'bubble-tier', type: 'value', title: 'Your Tier', value: tierKey.replace(/_/g, ' ') }} variant="glass" radius="lg" shadow="sm" className="p-4">
-              <h3 className="text-sm font-semibold text-star-dust mb-2">Your Tier: <span className="capitalize">{tierKey.replace(/_/g, ' ')}</span></h3>
-              <p className="text-xs text-star-dust/40 mb-3">
-                {tierKey === 'dweller' && 'Access to Common and Rare bubbles. Your journey unlocks Epic, Legendary, and Mythic stars.'}
-                {tierKey === 'guild' && 'Access to Common, Rare, and Epic bubbles. The road ahead holds Legendary and Mythic.'}
-                {tierKey === 'outlander' && 'Access to all rarities. The rarest stars now drift within reach.'}
-                {tierKey === 'sovereign_weaver' && 'Full access to all rarities including Mythic. The complete collection.'}
+            {/* Every rarity drifts for everyone */}
+            <Card data={{ id: 'bubble-stars', type: 'value', title: 'The Stars', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-4">
+              <h3 className="text-sm font-semibold text-star-dust mb-2">The Stars</h3>
+              <p className="text-xs text-star-dust/40">
+                Every rarity drifts here for everyone — the rarest stars are simply rare, never locked. Common to Mythic, all within reach of a patient eye.
               </p>
             </Card>
           </div>

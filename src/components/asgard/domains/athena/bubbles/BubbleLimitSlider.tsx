@@ -1,50 +1,37 @@
 // src/components/asgard/domains/athena/bubbles/BubbleLimitSlider.tsx
+// DETIERED 2026-07-31 at KP's ⚛ word: this component's old TIER_CEILINGS
+// map (community/ally/corporate/council) predated the tier removal and its
+// missing fallback crashed the game page for every vessel. There are no
+// tiers now — one flat charter ceiling (L1-07: 500 daily · 100 hourly),
+// and a personal boundary kept on the device, always allowed to sit lower.
 
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useUser } from '@/hooks/useUser';
 import { Slider } from '@/components/forging/Slider';
 import { Card } from '@/components/runes/Card';
-import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Shield, Zap } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface TierLimits {
-  maxDailyPoints: number;
-  maxHourlyPops: number;
-  label: string;
-}
-
-const TIER_CEILINGS: Record<string, TierLimits> = {
-  community: { maxDailyPoints: 500, maxHourlyPops: 100, label: 'Community' },
-  ally: { maxDailyPoints: 1500, maxHourlyPops: 300, label: 'Ally' },
-  corporate: { maxDailyPoints: 5000, maxHourlyPops: 500, label: 'Corporate' },
-  council: { maxDailyPoints: 9999, maxHourlyPops: 999, label: 'Council' },
-};
+const MAX_DAILY_POINTS = 500;
+const MAX_HOURLY_POPS = 100;
 
 export function BubbleLimitSlider() {
-  // The limits counter table died in the schema evolution; a personal
-  // boundary is a device-local choice now (the game derives actual usage
-  // from vessel_bubbles). Tier ceilings ride the sovereign_tier ladder.
-  const { sovereignTier, isLoading } = useUser();
-  const tierKey = sovereignTier || 'dweller';
-  const limits = TIER_CEILINGS[tierKey] || TIER_CEILINGS.dweller;
-
-  const [dailyPoints, setDailyPoints] = useState(limits.maxDailyPoints);
-  const [hourlyPops, setHourlyPops] = useState(limits.maxHourlyPops);
+  // A personal boundary is a device-local choice (the game derives actual
+  // usage from vessel_bubbles; no counter table, no account setting).
+  const [dailyPoints, setDailyPoints] = useState(MAX_DAILY_POINTS);
+  const [hourlyPops, setHourlyPops] = useState(MAX_HOURLY_POPS);
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const loading = isLoading;
 
   // Load current limits from the device
   useEffect(() => {
     const storedDaily = Number(localStorage.getItem('bubble-daily-max'));
     const storedHourly = Number(localStorage.getItem('bubble-hourly-max'));
-    if (storedDaily && storedDaily <= limits.maxDailyPoints) setDailyPoints(storedDaily);
-    if (storedHourly && storedHourly <= limits.maxHourlyPops) setHourlyPops(storedHourly);
-  }, [limits.maxDailyPoints, limits.maxHourlyPops]);
+    if (storedDaily && storedDaily <= MAX_DAILY_POINTS) setDailyPoints(storedDaily);
+    if (storedHourly && storedHourly <= MAX_HOURLY_POPS) setHourlyPops(storedHourly);
+  }, []);
 
   const handleSave = async () => {
     setIsSaving(true);
@@ -55,20 +42,17 @@ export function BubbleLimitSlider() {
     setIsSaving(false);
   };
 
-  const cardData: CardData = { id: 'bubble-limits', type: 'value', title: 'Your Limits', value: limits.label };
+  const cardData: CardData = { id: 'bubble-limits', type: 'value', title: 'Your Limits', value: '' };
 
   return (
     <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-6 max-w-md mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <Shield className="h-4 w-4 text-neurospark" />
-          <h3 className="text-sm font-semibold text-star-dust">Your Daily Rhythm</h3>
-        </div>
-        <Badge variant="outline" size="sm" className="text-[10px]">{limits.label} Tier</Badge>
+      <div className="flex items-center gap-2 mb-4">
+        <Shield className="h-4 w-4 text-neurospark" />
+        <h3 className="text-sm font-semibold text-star-dust">Your Daily Rhythm</h3>
       </div>
 
       <p className="text-xs text-star-dust/50 mb-6">
-        Set limits that feel right for you. You can always adjust within your tier&apos;s ceiling.
+        Set limits that feel right for you — the ceiling is the same for everyone, and yours may always sit below it.
       </p>
 
       {/* Daily Points Slider */}
@@ -81,15 +65,14 @@ export function BubbleLimitSlider() {
         </div>
         <Slider
           defaultValue={[dailyPoints]}
-          max={limits.maxDailyPoints}
+          max={MAX_DAILY_POINTS}
           min={100}
           step={50}
           onValueChange={([v]) => setDailyPoints(v)}
-          disabled={loading}
         />
         <div className="flex justify-between text-[10px] text-star-dust/30 mt-1">
           <span>100</span>
-          <span>{limits.maxDailyPoints} max</span>
+          <span>{MAX_DAILY_POINTS} max</span>
         </div>
       </div>
 
@@ -101,27 +84,20 @@ export function BubbleLimitSlider() {
         </div>
         <Slider
           defaultValue={[hourlyPops]}
-          max={limits.maxHourlyPops}
+          max={MAX_HOURLY_POPS}
           min={20}
           step={10}
           onValueChange={([v]) => setHourlyPops(v)}
-          disabled={loading}
         />
         <div className="flex justify-between text-[10px] text-star-dust/30 mt-1">
           <span>20</span>
-          <span>{limits.maxHourlyPops} max</span>
+          <span>{MAX_HOURLY_POPS} max</span>
         </div>
       </div>
 
       <Button variant="primary" size="sm" onClick={handleSave} loading={isSaving} className="w-full">
         {saved ? '✓ Saved' : 'Save Limits'}
       </Button>
-
-      {tierKey === 'dweller' && (
-        <p className="text-[10px] text-star-dust/30 text-center mt-3">
-          Your journey deepens your tier — higher tiers unlock higher ceilings and rarer bubbles.
-        </p>
-      )}
     </Card>
   );
 }
