@@ -77,6 +77,14 @@ select table_name, deity_group, status
   from public.gaia_config
  where table_name = 'events';
 
+-- The enum table keeps itself: gaia_sync stewards enums.used_by
+-- from the living columns (001, the whole-base section). Expected:
+-- content_status's used_by now includes 'events'.
+
+select name, labels, used_by
+  from public.enums
+ where name = 'content_status';
+
 -- After this runs clean: Fable's sitting takes over — anon-door
 -- verify (expect [] + 200, the honest empty), regenerate types +
 -- GAIA (the prometheus-stage group joins deity_groups.ts by
