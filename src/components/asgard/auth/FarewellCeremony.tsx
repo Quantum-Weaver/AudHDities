@@ -76,7 +76,7 @@ export default function FarewellCeremony({
     <div
       role="status"
       aria-live="polite"
-      className="ceremony-farewell fixed inset-0 z-50 flex flex-col items-center justify-center bg-cosmic-deep/95 px-6 text-center"
+      className="ceremony-farewell fixed inset-0 z-50 flex flex-col items-center justify-center bg-deep-space/95 px-6 text-center"
       data-testid="farewell-ceremony"
     >
       {/* beat one — the circle pauses together */}

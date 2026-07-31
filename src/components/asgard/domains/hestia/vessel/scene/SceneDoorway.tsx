@@ -42,7 +42,7 @@ export default function SceneDoorway({
       href={href}
       className={cn(
         'group relative block rounded-lg border border-star-dust/10',
-        'bg-cosmic-deep/40 p-4 pl-5 overflow-hidden',
+        'bg-surface/70 p-4 pl-5 overflow-hidden',
         'transition-colors motion-reduce:transition-none',
         'hover:border-star-dust/25 focus-visible:border-star-dust/25',
         className

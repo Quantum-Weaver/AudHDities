@@ -56,7 +56,7 @@ export default function GardenBed({ plots, stages, seeds, className }: GardenBed
         return (
           <div
             key={plot.id}
-            className="rounded-lg border border-star-dust/10 bg-cosmic-deep/40 p-4"
+            className="rounded-lg border border-star-dust/10 bg-surface/70 p-4"
           >
             <p className="text-sm font-medium text-star-dust">
               {seed?.name ?? plot.name}
