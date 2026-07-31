@@ -43,11 +43,14 @@ and never quieter than a change that already happened.
      whole (map, tables, `/sanctuary` row, migration note repaired) ·
      `/docs → /forge` redirects installed in `next.config.ts` ·
      in-app `/docs` links fixed (SanctuaryHero, SanctuaryPathways) ·
-     `page_mapping.ts` untouched and now correct · tsc 0. Two
-     slivers remain, each with its owner: the **`/vision` two-tellings
-     question** (KP's ⚛ — see README's redirects table) and the
-     **`'/docs'` key at page_mapping.ts:482**, now shadowed by the
-     config redirect (the reimaginer's artifact, flagged below).
+     `page_mapping.ts` untouched and now correct · tsc 0. One
+     sliver remains: the **`'/docs'` key at page_mapping.ts:482**,
+     now shadowed by the config redirect (the reimaginer's artifact,
+     flagged below). The **`/vision` two-tellings question is
+     SETTLED** (KP's ⚛ "merge if logical," judged 2026-07-30: not
+     logical — manifesto and personal horizon share only a word; no
+     merge, no redirect, both stand; the name-crossing flagged on
+     mnemosyne's bus).
   2. **The Calling** (`/careers`) — the realm's only ⏳ page, never
      tackled; its components (BenefitsList · CultureDeck ·
      TeamStories) already stand on the shelf. Held design intent

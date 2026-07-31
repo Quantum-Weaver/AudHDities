@@ -91,7 +91,7 @@ src/app/(hephaestus)/
 | The Sanctuary | `/sanctuary` | ✅ | Eight-section showpiece — hero, problem, pillars, economics, Acid Test, pathways, transparency, footer |
 | The Agreement | `/terms` | ✅ | Terms of service |
 | The Ledger | `/transparency` | ✅ | Financial transparency |
-| The Prophecy | `/vision` | ✅ | Full page (Four Pillars). See open question below |
+| The Prophecy | `/vision` | ✅ | Public manifesto (Four Pillars) — distinct from `/observatory/prophecy` by ruling, 2026-07-30 |
 
 ---
 
@@ -101,7 +101,7 @@ src/app/(hephaestus)/
 |------|----|--------|
 | `/docs` and `/docs/*` | `/forge` and `/forge/*` | ✅ Installed in `next.config.ts` (2026-07-30) — the docs → forge rename's legacy addresses |
 | `/forge/architecture/database-schema` | `/observatory/schema` | ✅ In-page `redirect()` — schema explorer lives in Mnemosyne |
-| `/vision` | `/observatory/prophecy` | ❓ **Open question (KP's ruling):** an earlier plan said "Vision merged into Observatory," but the merge never happened — `/vision` holds unique content (the Four Pillars) and `/observatory/prophecy` tells a different telling (`ProphecyVision`). Merge, keep both, or retire one — lose-nothing either way. No redirect installed until ruled. |
+| `/vision` | `/observatory/prophecy` | ❌ **Ruled off (KP's word "merge if logical," judged 2026-07-30): not logical — no merge, no redirect.** They are different organs sharing a word: `/vision` is the public manifesto (Four Pillars, static, for visitors); `/observatory/prophecy` is a sovereign's personal horizon (milestones, quests — live, logged-in). The merge idea came from crossed names (the prophecy page titles itself "The Vision"); flagged to mnemosyne's realm bus. Both pages stand. |
 
 ---
 
