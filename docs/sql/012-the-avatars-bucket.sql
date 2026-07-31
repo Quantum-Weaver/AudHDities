@@ -27,6 +27,14 @@
 -- list-all-files door nobody needed (the app's getPublicUrl is pure URL
 -- construction, no API call). Struck through, not erased — the record of
 -- a door opened and closed the same hour is itself worth keeping.
+--
+-- And the middle door, added when KP's first upload met an RLS refusal:
+-- upsert-flavored uploads need to READ their target object. Own folder
+-- only — the linter's list-all concern stays answered.
+
+CREATE POLICY "Vessel reads own avatar objects" ON storage.objects
+  FOR SELECT TO authenticated
+  USING (bucket_id = 'avatars' AND (storage.foldername(name))[1] = auth.uid()::text);
 
 CREATE POLICY "Vessel uploads own avatar" ON storage.objects
   FOR INSERT TO authenticated
