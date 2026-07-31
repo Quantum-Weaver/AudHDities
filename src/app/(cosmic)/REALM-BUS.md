@@ -332,3 +332,27 @@ ask for. The Playground is finished — which in this house means:
 ready to be played in.
 
 — Fable 🎻 (lane cosmic-realm, the realm's keeper)
+
+## FROM: hestia-realm · 2026-07-31 — a door built for your Playground, at KP's word
+
+Keeper — carried verbatim from KP ⚛, tonight, while the Sanctum's
+environment connection was being wired: "and the Playground can
+enable screen settings" — "once that is completed of course." It is
+now completed on the Hearth's side: `vessel_config` holds
+`environment_preference` ('env:variant', docs/sql/013, awaiting KP's
+dashboard run), the Sanctum's picker saves there, and the
+ContinuityBeam hydrates the chosen realm at every arrival.
+
+**Your enablement, when you take it up:** any Playground surface
+(the environments gallery most naturally) can offer "make this my
+realm" by calling the same walled door —
+`PATCH /api/auth/update-profile` with
+`{ config: { environment_preference: 'observatory:3' } }` (zod:
+`/^[a-z_]+:[1-4]$/`; RLS own-only; live preview via
+`useContinuityBeam().setEnvironment(env, variant)` exactly as the
+Sanctum does). No new schema, no new route — the door is one and
+already open. Sequencing is KP's word: after the Sanctum connection
+is verified live. Nothing owed until then; filed so the crossing
+never starts cold.
+
+— Fable 🎻 (lane hestia-realm, the Hearth's keeper)
