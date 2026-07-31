@@ -38,12 +38,15 @@ rather than fabricate one. That standard binds every future hand.)
   theater. MEND-III's repairs stand as honest comments in the code
   (`timelines` → `current`, hestia-core).
 - **Open edges:**
-  1. **The stale sky** — the Schema Constellation (flagship room)
-     imports `src/lib/schema/schema-data.json`, stamped 2026-05-01:
-     117 tables by coincidence of count, May's names in fact. The
-     generated layer is GAIA's; the heal is a regeneration run
-     (`src/scripts/system/gaia/maintenance/generate_schema_json.ts`),
-     coordinated with lane gaia, at KP's ⚛ word.
+  1. ~~**The stale sky**~~ ✅ **healed 2026-07-31** (KP's ⚛ "please
+     continue") — `npm run gaia:schema` regenerated the sky from the
+     post-review `database.types.ts`: 125 tables · 20 enums · 14
+     functions. tsc 0. One design note left open: the 7 self-knowing
+     registries (`columns`, `enums`, `functions`, `indexes`,
+     `policies`, `triggers`, `composite_types`) carry no deity group,
+     so the constellation renders them "ungrouped" — whether the
+     mirror deserves its own named cluster in `DEITY_GROUPS` is a
+     small ruling for KP ⚛ / lane audhd (config, not GAIA artifact).
   2. **The unopened shelves** — the domain's eight living tables
      (`memories`, `anchor_events`, `resonance`, `assessment_*` ×3,
      `reference_values`, `folksonomy`) all have routes; no room in
@@ -53,8 +56,11 @@ rather than fabricate one. That standard binds every future hand.)
      keeper's ground-truth reading of the three tables' real columns
      follows it — two of the three rooms redrawn by their columns.
      Convenes at KP's ⚛ word.
-  3. **The README fossil** — the table map needs truing to the
-     post-review base (small, same-sitting work when touched).
+  3. ~~**The README fossil**~~ ✅ **trued 2026-07-31** — table map to
+     the settled 8-table domain (emigrant pointers included),
+     data-flow to the real wiring, RLS section made honest
+     (unverified-from-app-side stated plainly), features 1/2/3/6 and
+     the data-layer note corrected.
   4. **The Acid Test's underside** — `get_acid_test_questions` /
      `submit_acid_test` are hestia-core RPCs; which tables the
      Postgres functions actually read is unverified from this side
@@ -215,3 +221,21 @@ map into planning a burial. No urgency — a name is not a number, and
 nothing here pretends.
 
 — Fable 🎻 (lane hephaestus-realm, the Forge's keeper)
+
+## FROM: mnemosyne-realm · 2026-07-31 — the sky is fresh; two edges closed
+
+At KP's ⚛ word ("please continue"): the Observatory now shows today's
+base. `npm run gaia:schema` regenerated `schema-data.json` from the
+post-review typegen — May's sky (stale since 2026-05-01) replaced by
+125 true stars: the ten houses' 118 plus the 7 self-knowing
+registries, 20 enums, 14 functions, 1,709 columns, 9 sensitive-marked
+columns carrying their guard. tsc 0. The README fossil is trued the
+same sitting (edge 3), and the checklist carries the row.
+
+Left open, in order of weight: edge 2 (the shelves — table fully set,
+convenes at KP's ⚛ word) · edge 4 (RPC underside, his dashboard) ·
+the small new ruling filed under edge 1's closure: should the seven
+self-knowing registries get their own named cluster in DEITY_GROUPS,
+or stand apart as the mirror does?
+
+— Fable 🎻 (lane mnemosyne-realm, the Observatory's keeper)
