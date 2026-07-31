@@ -15832,26 +15832,543 @@
    "count": 20,
    "archived_marked": 0,
    "names": [
-    "exchange_status",
-    "processing_speed",
-    "profile_status",
-    "sovereign_tier",
-    "application_status",
-    "notification_channel",
-    "application_type",
-    "address_type",
-    "ware_type",
-    "pricing_model",
-    "content_status",
-    "work_type",
-    "user_role",
-    "display_theme",
-    "sensory_level",
-    "relationship_type",
-    "subscription_tier",
-    "herald_digest",
-    "visibility",
-    "global_region"
+    {
+     "name": "exchange_status",
+     "labels": [
+      "pending",
+      "completed",
+      "failed",
+      "refunded"
+     ],
+     "used_by": [
+      {
+       "table": "exchanges",
+       "column": "status"
+      }
+     ]
+    },
+    {
+     "name": "processing_speed",
+     "labels": [
+      "slower",
+      "standard",
+      "faster"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "profile_status",
+     "labels": [
+      "draft",
+      "pending",
+      "active",
+      "inactive",
+      "suspended",
+      "closed"
+     ],
+     "used_by": [
+      {
+       "table": "merchant_profiles",
+       "column": "status"
+      },
+      {
+       "table": "artisan_profiles",
+       "column": "status"
+      },
+      {
+       "table": "community_profiles",
+       "column": "status"
+      }
+     ]
+    },
+    {
+     "name": "sovereign_tier",
+     "labels": [
+      "dweller",
+      "guild",
+      "outlander",
+      "sovereign_weaver"
+     ],
+     "used_by": [
+      {
+       "table": "community_profiles",
+       "column": "sovereign_tier"
+      }
+     ]
+    },
+    {
+     "name": "application_status",
+     "labels": [
+      "draft",
+      "submitted",
+      "under_review",
+      "approved",
+      "rejected",
+      "suspended",
+      "withdrawn"
+     ],
+     "used_by": [
+      {
+       "table": "proposals",
+       "column": "status"
+      },
+      {
+       "table": "applications",
+       "column": "status"
+      },
+      {
+       "table": "reports",
+       "column": "status"
+      }
+     ]
+    },
+    {
+     "name": "notification_channel",
+     "labels": [
+      "in_app",
+      "email",
+      "push",
+      "none"
+     ],
+     "used_by": [
+      {
+       "table": "vessel_config",
+       "column": "herald_channel"
+      },
+      {
+       "table": "heralds",
+       "column": "channel"
+      }
+     ]
+    },
+    {
+     "name": "application_type",
+     "labels": [
+      "creator",
+      "vendor",
+      "curator",
+      "council"
+     ],
+     "used_by": [
+      {
+       "table": "applications",
+       "column": "application_type"
+      }
+     ]
+    },
+    {
+     "name": "address_type",
+     "labels": [
+      "home",
+      "work",
+      "billing",
+      "shipping",
+      "mailing",
+      "other"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "ware_type",
+     "labels": [
+      "physical",
+      "digital",
+      "service"
+     ],
+     "used_by": [
+      {
+       "table": "wares",
+       "column": "ware_type"
+      }
+     ]
+    },
+    {
+     "name": "pricing_model",
+     "labels": [
+      "free",
+      "fixed",
+      "pay_what_you_want",
+      "patronage_only"
+     ],
+     "used_by": [
+      {
+       "table": "wares",
+       "column": "pricing_model"
+      },
+      {
+       "table": "works",
+       "column": "pricing_model"
+      }
+     ]
+    },
+    {
+     "name": "content_status",
+     "labels": [
+      "draft",
+      "published",
+      "archived"
+     ],
+     "used_by": [
+      {
+       "table": "wares",
+       "column": "status"
+      },
+      {
+       "table": "processes",
+       "column": "status"
+      },
+      {
+       "table": "plant_stages",
+       "column": "status"
+      },
+      {
+       "table": "seed_types",
+       "column": "status"
+      },
+      {
+       "table": "sigils",
+       "column": "status"
+      },
+      {
+       "table": "vessel_interiors",
+       "column": "status"
+      },
+      {
+       "table": "vessel_rooms",
+       "column": "status"
+      },
+      {
+       "table": "email_communications",
+       "column": "status"
+      },
+      {
+       "table": "rate_limits",
+       "column": "status"
+      },
+      {
+       "table": "quests",
+       "column": "status"
+      },
+      {
+       "table": "learning_paths",
+       "column": "status"
+      },
+      {
+       "table": "garden_plots",
+       "column": "status"
+      },
+      {
+       "table": "scenes",
+       "column": "status"
+      },
+      {
+       "table": "assessment_questions",
+       "column": "status"
+      },
+      {
+       "table": "bubble_superposition",
+       "column": "status"
+      },
+      {
+       "table": "collection_sets",
+       "column": "status"
+      },
+      {
+       "table": "protocols",
+       "column": "status"
+      },
+      {
+       "table": "works",
+       "column": "status"
+      },
+      {
+       "table": "council_houses",
+       "column": "status"
+      },
+      {
+       "table": "lessons",
+       "column": "status"
+      },
+      {
+       "table": "bubbles",
+       "column": "status"
+      },
+      {
+       "table": "channels",
+       "column": "status"
+      },
+      {
+       "table": "patronage_tiers",
+       "column": "status"
+      },
+      {
+       "table": "vessel_decorations",
+       "column": "status"
+      },
+      {
+       "table": "journal_entries",
+       "column": "status"
+      },
+      {
+       "table": "energy_entries",
+       "column": "status"
+      },
+      {
+       "table": "grant_narratives",
+       "column": "status"
+      },
+      {
+       "table": "grant_attachments",
+       "column": "status"
+      },
+      {
+       "table": "surveys",
+       "column": "status"
+      },
+      {
+       "table": "messages",
+       "column": "status"
+      },
+      {
+       "table": "contact_submissions",
+       "column": "status"
+      },
+      {
+       "table": "maintenance",
+       "column": "status"
+      },
+      {
+       "table": "platform_config",
+       "column": "status"
+      },
+      {
+       "table": "sigil_unlocks",
+       "column": "status"
+      },
+      {
+       "table": "reference_values",
+       "column": "status"
+      },
+      {
+       "table": "personas",
+       "column": "status"
+      },
+      {
+       "table": "blueprints",
+       "column": "status"
+      },
+      {
+       "table": "boundaries",
+       "column": "status"
+      },
+      {
+       "table": "collection_items",
+       "column": "status"
+      },
+      {
+       "table": "gift_wrappings",
+       "column": "status"
+      },
+      {
+       "table": "signals",
+       "column": "status"
+      },
+      {
+       "table": "responses",
+       "column": "status"
+      },
+      {
+       "table": "vessel_exteriors",
+       "column": "status"
+      },
+      {
+       "table": "grant_opportunities",
+       "column": "status"
+      },
+      {
+       "table": "life_cycles",
+       "column": "status"
+      },
+      {
+       "table": "vessel_companions",
+       "column": "status"
+      },
+      {
+       "table": "vessel_anchors",
+       "column": "status"
+      },
+      {
+       "table": "file_registry",
+       "column": "status"
+      },
+      {
+       "table": "file_type_standards",
+       "column": "status"
+      },
+      {
+       "table": "calendar",
+       "column": "status"
+      },
+      {
+       "table": "scheduling",
+       "column": "status"
+      },
+      {
+       "table": "folksonomy",
+       "column": "status"
+      },
+      {
+       "table": "mythology",
+       "column": "status"
+      },
+      {
+       "table": "events",
+       "column": "status"
+      }
+     ]
+    },
+    {
+     "name": "work_type",
+     "labels": [
+      "music",
+      "writing",
+      "vision",
+      "performance",
+      "code",
+      "other"
+     ],
+     "used_by": [
+      {
+       "table": "works",
+       "column": "work_type"
+      }
+     ]
+    },
+    {
+     "name": "user_role",
+     "labels": [
+      "community",
+      "creator",
+      "vendor",
+      "curator",
+      "council",
+      "admin"
+     ],
+     "used_by": [
+      {
+       "table": "user_roles",
+       "column": "role"
+      }
+     ]
+    },
+    {
+     "name": "display_theme",
+     "labels": [
+      "cosmic_dark",
+      "cosmic_light",
+      "quantum",
+      "sanctuary",
+      "high_contrast"
+     ],
+     "used_by": [
+      {
+       "table": "vessel_config",
+       "column": "theme"
+      }
+     ]
+    },
+    {
+     "name": "sensory_level",
+     "labels": [
+      "low",
+      "medium",
+      "high",
+      "extreme"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "relationship_type",
+     "labels": [
+      "spouse",
+      "partner",
+      "parent",
+      "child",
+      "sibling",
+      "grandparent",
+      "grandchild",
+      "aunt",
+      "uncle",
+      "cousin",
+      "friend",
+      "roommate",
+      "caregiver",
+      "doctor",
+      "therapist",
+      "social_worker",
+      "other"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "subscription_tier",
+     "labels": [
+      "community",
+      "ally",
+      "council",
+      "corporate"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "herald_digest",
+     "labels": [
+      "instant",
+      "hourly",
+      "daily",
+      "weekly",
+      "never"
+     ],
+     "used_by": [
+      {
+       "table": "vessel_config",
+       "column": "herald_digest"
+      }
+     ]
+    },
+    {
+     "name": "visibility",
+     "labels": [
+      "public",
+      "community",
+      "connections",
+      "private"
+     ],
+     "used_by": []
+    },
+    {
+     "name": "global_region",
+     "labels": [
+      "north_america",
+      "central_america",
+      "south_america",
+      "caribbean",
+      "western_europe",
+      "eastern_europe",
+      "northern_europe",
+      "southern_europe",
+      "north_africa",
+      "sub_saharan_africa",
+      "middle_east",
+      "central_asia",
+      "south_asia",
+      "east_asia",
+      "southeast_asia",
+      "oceania",
+      "pacific_islands"
+     ],
+     "used_by": []
+    }
    ]
   },
   "composite_types": {
