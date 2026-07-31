@@ -86,7 +86,24 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     `position`/`module_positions` unread by design intent, not
     omission). Re-siting is the dweller's sovereign act; the
     drag/place/keep design is a future crossing that convenes on
-    this table first (FROM: reimagining, below).
+    this table first (FROM: reimagining, below). E4's synthesis
+    rules the register when it comes: interior free placement,
+    true coordinates, OPT-IN snap-assist.
+  - **THE E4 INHERITANCE (2026-07-31, KP's ⚛ finishing commission;
+    synthesis at `constellation/fable/lanes/study/
+    e4-the-play-study-bus.md`, organs half):** care-as-GENERATION
+    (watering opens — hybrids, growth-shaping — never prevents
+    loss; every care verb declinable forever; time told as
+    returns, never countdowns) · the home is the profile reborn ·
+    gardens-instead-of-walls (`garden_visits` two-consented,
+    guestbook by hand or not at all, witness never metric) ·
+    heart stories on kept things (found/earned/gifted/grown;
+    anonymous forever) · companion cues point at REAL pets,
+    silence answered with silence. **Ground-truth gaps carried
+    back to the pair (their bus, FROM: hestia-realm):**
+    `cross_pollination` + `seasonal_effects` ABSENT from the
+    living 124 · `vessel_collections` has no heart-story columns
+    yet — both await KP's ⚛ schema gate before any seed sitting.
   - 🚩 VITAL-REVISIT parameters standing in this realm's code:
     `DORMANCY_REST_DAYS` (scene.utils) · loss-significance weights —
     first-guess math, tuned only against real vessels.
