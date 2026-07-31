@@ -1,6 +1,6 @@
 // src/components/asgard/domains/iris/translations/TranslationsHub.tsx
 //
-// STAGE 1 — the honest room (KP's ruling, 2026-07-29, at the realm bus).
+// STAGE 1 — the honest room (KP's ruling, 2026-07-30, at the realm bus).
 // The six hardcoded languages with invented completion percentages are
 // retired: no table ever backed those numbers, and this house does not
 // dress theater as measurement. The language-craft itself (the tables
