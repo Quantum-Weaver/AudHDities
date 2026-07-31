@@ -67,7 +67,10 @@ A ware carries **one base price** and a **`pricing_model`**:
 
 The old client-side tier ladder (community/ally/corporate + Bigot Tax)
 died with the `products` table — the kindness is enforced in the schema
-now, not re-derived per client.
+now, not re-derived per client. *(One honest remnant: `PriceBreakdown`
+still carries a dormant `showBigotTax` display prop, default off; its
+removal or revival belongs to the plutus split-model verdict in
+`/SCHEMA-FINALIZE.md`, not to this realm alone.)*
 
 ## 💰 CHECKOUT FLOW
 
@@ -104,7 +107,7 @@ as UX, through every rewire and every redesign.
 | **Bifröst** | `Page` |
 | **Runes** | `Card`, `Badge`, `Avatar`, `AvatarFallback`, `Skeleton` |
 | **Runes/Cards** | `CardHeader`, `CardContent`, `CardFooter`, `CreatorCardRenderer`, `VendorCardRenderer` |
-| **Yggdrasil** | `Button` |
+| **Yggdrasil** | `Button`, `Spinner` |
 | **Forging** | `Form`, `FormField`, `Input`, `Select`, `Switch` |
 | **Seidr** | `Tooltip` (PriceBreakdown) |
 | **Hof** | `Grid` (Tailwind grid) |

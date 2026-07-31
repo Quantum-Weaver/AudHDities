@@ -41,7 +41,7 @@ export function CheckoutHub() {
             <div className="text-center">
               <CreditCard className="h-8 w-8 text-purple-400 mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">2. Bring home</h3>
-              <p className="text-xs text-star-dust/50">Secure payment via Stripe. Tiered pricing based on your journey.</p>
+              <p className="text-xs text-star-dust/50">Secure payment via Stripe. Solidarity pricing, computed for you — the full split shown before anything is charged.</p>
             </div>
             <div className="text-center">
               <Shield className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
