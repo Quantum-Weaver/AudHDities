@@ -187,7 +187,9 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       <h2 className="text-xl font-semibold text-star-dust mb-2">
         {kept ? `${kept.name} — taken into your keeping.` : "Taken into your keeping."}
       </h2>
-      <p className="text-star-dust/60 mb-6">The exchange is complete.</p>
+      <p className="text-star-dust/60 mb-1">The exchange is complete.</p>
+      {/* The third word at the going — a goodbye carrying a return inside it */}
+      <p className="text-star-dust/40 text-sm italic mb-6">Gweld ti&apos;n fuan — see you soon.</p>
 
       {/* THE HANGING — the loop's last link, offered never imposed.
           The exchange completes at the vessel's fire. */}

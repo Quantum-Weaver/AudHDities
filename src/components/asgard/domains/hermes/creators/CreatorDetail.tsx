@@ -5,6 +5,11 @@
 // default were the old table's; earnings never belonged on a public
 // profile). The works link filters wares by created_by — the profile's
 // owner — because wares knows makers by user id, not profile id.
+//
+// The maker's room (2026-08-01, KP's word via the E4 study): the stall
+// is the artisan's own small room — "At the loom" shows their works,
+// the making itself, so worth is felt as human before price is read as
+// number. Presence, never pressure: the works display; nothing sells.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -20,11 +25,18 @@ import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/types/supabase/database.helpers.js';
 
 type ArtisanItem = Tables<'artisan_profiles'>;
+type WorkItem = Tables<'works'>;
+
+const WORK_TYPE_LABELS: Record<string, string> = {
+  music: 'Music', writing: 'Writing', vision: 'Vision',
+  performance: 'Performance', code: 'Code', other: 'Craft',
+};
 
 export function CreatorDetail() {
   const params = useParams();
   const router = useRouter();
   const [artisan, setArtisan] = useState<ArtisanItem | null>(null);
+  const [works, setWorks] = useState<WorkItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,6 +46,14 @@ export function CreatorDetail() {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, [params.id]);
+
+  useEffect(() => {
+    if (!artisan?.created_by) return;
+    fetch(`/api/generated/hermes-social/works?created_by=${artisan.created_by}&status=published&order=updated_at.desc&limit=6`)
+      .then((r) => r.json())
+      .then((result) => { if (result.success) setWorks(result.data?.data || result.data || []); })
+      .catch(console.error);
+  }, [artisan?.created_by]);
 
   if (loading) {
     return (
@@ -133,6 +153,31 @@ export function CreatorDetail() {
 
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
         </Card>
+
+        {/* At the loom — the making itself, visible. Presence, never pressure. */}
+        {works.length > 0 && (
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold text-star-dust mb-1">At the loom</h2>
+            <p className="text-sm text-star-dust/40 mb-4">What {artisan.artisan_name} is making</p>
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+              {works.map((work) => {
+                const wd: CardData = { id: work.id, type: 'product', title: work.name, description: work.description || '' };
+                return (
+                  <Card key={work.id} data={wd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">
+                        {WORK_TYPE_LABELS[work.work_type] || work.work_type}
+                      </Badge>
+                      {work.icon_emoji && <span aria-hidden>{work.icon_emoji}</span>}
+                    </div>
+                    <h3 className="text-base font-semibold text-star-dust mb-1">{work.name}</h3>
+                    {work.description && <p className="text-sm text-star-dust/50 line-clamp-2">{work.description}</p>}
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

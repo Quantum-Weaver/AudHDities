@@ -44,7 +44,7 @@ src/app/(hermes)/bazaar/
 | **The Tapestry** | `/bazaar/creations` | `CreationsGallery` | Browse published wares with search + type filters |
 | **Creation Detail** | `/bazaar/creations/[id]` | `CreationDetail` | Full ware view with pricing model + checkout |
 | **The Weavers** | `/bazaar/creators` | `CreatorsGallery` | Active artisan directory with search |
-| **Creator Sanctuary** | `/bazaar/creators/[id]` | `CreatorDetail` | Artisan profile with stats + portfolio |
+| **Creator Sanctuary** | `/bazaar/creators/[id]` | `CreatorDetail` | Artisan profile with stats, portfolio + "At the loom" (their works, the making itself) |
 | **The Guild** | `/bazaar/vendors` | `VendorsGallery` | Active merchant directory with search |
 | **Vendor Sanctuary** | `/bazaar/vendors/[id]` | `VendorDetail` | Merchant profile with stats + website |
 | **The Loom** | `/bazaar/studio` | `StudioCreate` | Ware creation form (pricing model + residual pool) |
@@ -71,6 +71,19 @@ now, not re-derived per client. *(One honest remnant: `PriceBreakdown`
 still carries a dormant `showBigotTax` display prop, default off; its
 removal or revival belongs to the plutus split-model verdict in
 `/SCHEMA-FINALIZE.md`, not to this realm alone.)*
+
+**Display rulings (KP's ⚛ word, 2026-08-01, via the E4 play study):**
+
+- **The quiet square, the plain stall:** gallery cards carry no price —
+  the work and its maker lead ("freely given" may still say so, being a
+  gift, not a number); the price speaks plainly at the detail page with
+  the full `PriceBreakdown` beside it. Worth felt as human before price
+  read as number.
+- **The empty stall:** when `quantity_available` reaches 0 the stall
+  says *"These have all gone home — the maker may weave more"* — never
+  a countdown on the way down, never "only 2 left."
+- **The third word at every going:** *Gweld ti'n fuan* stands on the
+  checkout success page and the set-aside page both.
 
 ## 💰 CHECKOUT FLOW
 
