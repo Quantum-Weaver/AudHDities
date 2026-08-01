@@ -67,6 +67,19 @@ KP merges · privacy always. Plus this realm's own standing law:
   already given checkout the settled tongue AND built the hanging —
   the create→decorate loop's last link (kept thing → vessel_decoration,
   offered never imposed). The loop lives.
+- **The seeding sitting (2026-08-01, two hands at full speed):** 034
+  seeded the Tapestry's first threads (Bubble Game 🫧 free · Echoes 🌀
+  free · Compass 🧭 3.33 · Lantern 🏮 free — all Android + PC via
+  metadata.formats, shown at the stall) and the three tiers by KP's ⚛
+  own ladder (Community free · Ally 3.33 · Wanderer 11.11) · 035
+  seeded the Weaver's artisan seat (Quantum Weaver) and merchant seat
+  (The Sovereign Sanctuary), both active — all verified via the secret
+  door. **The false-empty chased to ground:** every "Anyone can view…"
+  policy on the Bazaar's tables is TO authenticated — anon has no
+  door; 036-the-bazaar-doors (grammar drawer) alters the five misnamed
+  policies to public (009-library-doors precedent), deliberately NOT
+  touching the pending-profiles policies (applicant visibility is a
+  consent question). Awaits KP's ⚛ run.
 - **Open edges (what remains):**
   - **The live walk:** a test purchase end to end (Stripe test mode,
     KP's ⚛ eye) — the type-meter is zero but the threshold has not

@@ -38,6 +38,16 @@ function priceLabel(ware: WareItem): string {
   return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
 }
 
+const FORMAT_LABELS: Record<string, string> = { android: 'Android', pc: 'PC' };
+
+function formatsOf(ware: WareItem): string[] {
+  const meta = ware.metadata;
+  if (!meta || typeof meta !== 'object' || Array.isArray(meta)) return [];
+  const formats = (meta as Record<string, unknown>).formats;
+  if (!Array.isArray(formats)) return [];
+  return formats.filter((f): f is string => typeof f === 'string');
+}
+
 export function CreationDetail() {
   const params = useParams();
   const router = useRouter();
@@ -92,6 +102,12 @@ export function CreationDetail() {
           </div>
           <h1 className="text-2xl font-bold text-star-dust mb-4">{ware.name}</h1>
           {ware.description && <p className="text-star-dust/70 leading-relaxed mb-6">{ware.description}</p>}
+
+          {formatsOf(ware).length > 0 && (
+            <p className="text-xs text-star-dust/40 mb-6">
+              Available for {formatsOf(ware).map((f) => FORMAT_LABELS[f] || f).join(' · ')}
+            </p>
+          )}
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-6 text-center">
             <p className="text-xs text-star-dust/40 mb-1">
