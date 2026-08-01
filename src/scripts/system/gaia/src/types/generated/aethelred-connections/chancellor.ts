@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/chancellor.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-08-01T17:46:58.388Z
+// GENERATED: 2026-08-01T17:49:54.542Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

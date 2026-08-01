@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/boundaries.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-08-01T17:46:58.384Z
+// GENERATED: 2026-08-01T17:49:54.539Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

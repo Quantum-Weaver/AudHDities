@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/processing_speed.ts
-// GENERATED: 2026-08-01T17:46:58.358Z
+// GENERATED: 2026-08-01T17:49:54.519Z
 // SOURCE: Constants.public.Enums.processing_speed
 // VALUES: 3 entries
 // =====================================================

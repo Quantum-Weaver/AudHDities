@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/exchange_status.ts
-// GENERATED: 2026-08-01T17:46:58.353Z
+// GENERATED: 2026-08-01T17:49:54.515Z
 // SOURCE: Constants.public.Enums.exchange_status
 // VALUES: 4 entries
 // =====================================================

@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/plant_stages.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-08-01T17:46:58.438Z
+// GENERATED: 2026-08-01T17:49:54.592Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
