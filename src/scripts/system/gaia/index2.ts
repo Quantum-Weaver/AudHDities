@@ -15,7 +15,8 @@
 //   3c. Generate Zod validator files.
 //   3d. Generate API route files for tables, views, and functions.
 //   3e. Generate React hook files.
-// Stops after phase 3e for review and testing.
+//   3f. Generate table util files (depend on 3b types and 3c validators).
+// Stops after phase 3f for review and testing.
 // ============================================================================
 
 import * as readline from 'readline';
@@ -52,6 +53,7 @@ import {
   generateFunctionApiRoute,
 } from './generate/generate_api_routes.js';
 import { generateHooks } from './generate/generate_hooks.js';
+import { generateUtils } from './generate/generate_utils.js';
 import { formatObjectTypes } from './format/format_object_types.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
@@ -990,6 +992,89 @@ async function runPhase3e(
 }
 
 // ============================================================================
+// PHASE 3f: UTILS
+// ============================================================================
+
+async function runPhase3f(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔧 GAIA v2 - Phase 3f (Utils)');
+  console.log('═'.repeat(60));
+
+  // Utils are tables-only, and the generated file imports from BOTH earlier
+  // phases: Row/Insert/Update types (3b) and the Insert/Update Zod schemas
+  // (3c). Running 3f against a target those phases skipped leaves dangling
+  // imports — generate the same target through 3b and 3c first.
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateUtils),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No util files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} util file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      const result = generateUtils(table, { verbose: plan.verbose });
+
+      if (!result) {
+        skipped++;
+        continue;
+      }
+
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3f summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
 // ENTRY POINT
 // ============================================================================
 
@@ -1006,9 +1091,10 @@ async function main() {
     const phase3cStats = await runPhase3c(enriched, plan, foundation.dryRun);
     const phase3dStats = await runPhase3d(enriched, plan, foundation.dryRun);
     const phase3eStats = await runPhase3e(enriched, plan, foundation.dryRun);
+    const phase3fStats = await runPhase3f(enriched, plan, foundation.dryRun);
 
     console.log('\n' + '═'.repeat(60));
-    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, 3b, 3c, 3d, and 3e complete');
+    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, 3b, 3c, 3d, 3e, and 3f complete');
     console.log(`   Tables: ${enriched.tables.length}`);
     console.log(`   Views:  ${enriched.views.length}`);
     console.log(`   Functions: ${enriched.functions.length}`);
@@ -1018,6 +1104,7 @@ async function main() {
     console.log(`   Phase 3c validators: ${phase3cStats.generated} generated, ${phase3cStats.skipped} skipped, ${phase3cStats.errors} errors`);
     console.log(`   Phase 3d api routes: ${phase3dStats.generated} generated, ${phase3dStats.skipped} skipped, ${phase3dStats.errors} errors`);
     console.log(`   Phase 3e hooks:      ${phase3eStats.generated} generated, ${phase3eStats.skipped} skipped, ${phase3eStats.errors} errors`);
+    console.log(`   Phase 3f utils:      ${phase3fStats.generated} generated, ${phase3fStats.skipped} skipped, ${phase3fStats.errors} errors`);
     console.log('═'.repeat(60) + '\n');
   } catch (error) {
     console.error(
