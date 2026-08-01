@@ -37,7 +37,11 @@ import {
   type EnrichedRuntimeEnum,
 } from './enrich/enrich_objects.js';
 
+import type { ExtractedObjectWithDetails } from '../../shared/types.js';
+
 import { generateConstant } from './generate/generate_constants.js';
+import { generateViewTypes } from './generate/generate_types.js';
+import { formatObjectTypes } from './format/format_object_types.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
@@ -509,6 +513,156 @@ async function runPhase3a(
 }
 
 // ============================================================================
+// PHASE 3b: TYPES
+// ============================================================================
+
+function filterTablesAndViewsForTarget(
+  tables: EnrichedTable[],
+  views: EnrichedView[],
+  plan: GenerationOptions
+): { tables: EnrichedTable[]; views: EnrichedView[] } {
+  if (plan.target === 'all') {
+    return { tables, views };
+  }
+
+  if (plan.target === 'deity' && plan.targetValue) {
+    return {
+      tables: tables.filter(t => t.deityFolder === plan.targetValue),
+      views: views.filter(v => v.deityFolder === plan.targetValue),
+    };
+  }
+
+  if (plan.target === 'table' && plan.targetValue) {
+    return {
+      tables: tables.filter(t => t.name === plan.targetValue),
+      views: [],
+    };
+  }
+
+  return { tables: [], views: [] };
+}
+
+async function runPhase3b(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('📝 GAIA v2 - Phase 3b (Types)');
+  console.log('═'.repeat(60));
+
+  const { tables, views } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateTypes),
+    enriched.views.filter(v => v.shouldGenerateTypes),
+    plan
+  );
+
+  const total = tables.length + views.length;
+  if (total === 0) {
+    console.log('\n⏭️  No type files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${total} type file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  // Tables
+  for (const table of tables) {
+    try {
+      const object: ExtractedObjectWithDetails = {
+        name: table.name,
+        type: 'table',
+        content: '',
+        startLine: 0,
+        endLine: 0,
+        rowContent: table.rowContent,
+        insertContent: table.insertContent,
+        updateContent: table.updateContent,
+        enumRefs: table.enumRefs,
+        hasJson: table.hasJson,
+      };
+
+      const formatted = formatObjectTypes(object, table.category, {
+        deityGroup: table.deityFolder,
+        outputFolder: `generated/${table.deityFolder}`,
+        verbose: plan.verbose,
+      });
+
+      const filePath = `src/types/generated/${table.deityFolder}/${table.name}.ts`;
+      const writeResult = await writeGeneratedFile(
+        filePath,
+        formatted.fullContent,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  // Views
+  for (const view of views) {
+    try {
+      const result = generateViewTypes(view);
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`EnrichedView:${view.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${view.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3b summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
 // ENTRY POINT
 // ============================================================================
 
@@ -521,14 +675,16 @@ async function main() {
     const enriched = await runPhase2(schema);
     const plan = await runGenerationGate(enriched, generation);
     const phase3aStats = await runPhase3a(enriched, plan, foundation.dryRun);
+    const phase3bStats = await runPhase3b(enriched, plan, foundation.dryRun);
 
     console.log('\n' + '═'.repeat(60));
-    console.log('✅ GAIA v2 Phases 0, 1, 2, and 3a complete');
+    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, and 3b complete');
     console.log(`   Tables: ${enriched.tables.length}`);
     console.log(`   Views:  ${enriched.views.length}`);
     console.log(`   Functions: ${enriched.functions.length}`);
     console.log(`   Runtime Enums: ${enriched.runtimeEnums.length}`);
     console.log(`\n   Phase 3a constants: ${phase3aStats.generated} generated, ${phase3aStats.skipped} skipped, ${phase3aStats.errors} errors`);
+    console.log(`   Phase 3b types:     ${phase3bStats.generated} generated, ${phase3bStats.skipped} skipped, ${phase3bStats.errors} errors`);
     console.log('═'.repeat(60) + '\n');
   } catch (error) {
     console.error(
