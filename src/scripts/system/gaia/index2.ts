@@ -46,7 +46,8 @@ import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
 import { DEITY_GROUPS, getAllTableNames, getAllViewNames } from '@/config/deity_groups.js';
-
+import { getProjectRoot } from '../../shared/paths.js';   // same depth as the system_logger import
+const PROJECT_ROOT = getProjectRoot();
 // ============================================================================
 // SCHEMA MODEL
 // ============================================================================

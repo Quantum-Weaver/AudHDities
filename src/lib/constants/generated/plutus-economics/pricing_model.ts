@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/plutus-economics/pricing_model.ts
-// GENERATED: 2026-08-01T17:44:39.289Z
+// GENERATED: 2026-08-01T18:08:02.155Z
 // SOURCE: Constants.public.Enums.pricing_model
 // VALUES: 4 entries
 // =====================================================
