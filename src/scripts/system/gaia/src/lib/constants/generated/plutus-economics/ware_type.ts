@@ -1,6 +1,6 @@
 // =====================================================
-// FILE: constants/generated/hestia-core/ware_type.ts
-// GENERATED: 2026-08-01T16:03:07.248Z
+// FILE: constants/generated/plutus-economics/ware_type.ts
+// GENERATED: 2026-08-01T17:36:51.714Z
 // SOURCE: Constants.public.Enums.ware_type
 // VALUES: 3 entries
 // =====================================================

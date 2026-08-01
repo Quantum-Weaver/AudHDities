@@ -336,6 +336,33 @@ export function getTableHandlingLevel(tableName: PublicTableNames): HandlingLeve
 // ============================================================================
 
 /**
+ * Manual overrides for function deity assignment.
+ * Function signatures in database.types.ts do not reference tables, so we
+ * classify them by domain here. Everything else falls back to hestia-core.
+ */
+const FUNCTION_DEITY_OVERRIDES: Record<string, string> = {
+  // Identity / address / signup utilities stay in the core hearth
+  'validate_signup': 'hestia-core',
+  'validate_address': 'hestia-core',
+  'validate_emergency_contact': 'hestia-core',
+  'format_address': 'hestia-core',
+  'jsonb_to_address': 'hestia-core',
+  'is_valid_country_code': 'hestia-core',
+  'is_valid_phone': 'hestia-core',
+  'build_search_text': 'hestia-core',
+  'dictionary_lookup': 'hestia-core',
+  'gaia_sync': 'hestia-core',
+
+  // Financial mechanics live with Plutus
+  'calculate_sovereign_price': 'plutus-economics',
+
+  // Assessment / acid-test tooling lives with Mnemosyne
+  'get_acid_test_questions': 'mnemosyne-assessment',
+  'get_acid_test_results': 'mnemosyne-assessment',
+  'submit_acid_test': 'mnemosyne-assessment',
+};
+
+/**
  * Get deity folder for any object based on table association
  * 
  * ✅ UPDATED: Uses type-safe parameters
@@ -363,8 +390,12 @@ export function getDeityFolderForObject(
     if (folder) return folder;
   }
   
-  // For functions, try to derive from name pattern
+  // For functions, check manual overrides first, then fall back to pattern matching
   if (objectType === 'function') {
+    if (FUNCTION_DEITY_OVERRIDES[objectName]) {
+      return FUNCTION_DEITY_OVERRIDES[objectName];
+    }
+
     for (const group of DEITY_GROUPS) {
       for (const table of group.tables) {
         if (objectName.includes(table) || table.includes(objectName)) {

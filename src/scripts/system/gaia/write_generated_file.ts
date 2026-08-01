@@ -34,18 +34,22 @@ function generateContentHash(content: string): string {
 }
 
 /**
- * Build the full output path with generated subfolder
+ * Build the full output path with generated subfolder.
+ * If the path already contains a 'generated' segment, trust it as-is.
  */
 function buildGeneratedPath(filePath: string): string {
+  if (/[\\/]generated[\\/]/.test(filePath)) {
+    return filePath;
+  }
+
   // Insert '/generated/' after the first directory after src/
-  // Example: src/types/generated/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
-  const parts = filePath.split(path.sep);
+  // Example: src/types/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
+  const parts = filePath.split(/[\\/]/);
   const srcIndex = parts.indexOf('src');
   if (srcIndex !== -1 && parts.length > srcIndex + 2) {
-    // Insert 'generated' after the type/constants/etc folder
     parts.splice(srcIndex + 2, 0, 'generated');
   }
-  return parts.join(path.sep);
+  return parts.join('/');
 }
 
 /**

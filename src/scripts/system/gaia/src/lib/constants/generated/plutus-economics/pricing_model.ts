@@ -1,6 +1,6 @@
 // =====================================================
-// FILE: constants/generated/hestia-core/pricing_model.ts
-// GENERATED: 2026-08-01T16:03:07.234Z
+// FILE: constants/generated/plutus-economics/pricing_model.ts
+// GENERATED: 2026-08-01T17:36:51.707Z
 // SOURCE: Constants.public.Enums.pricing_model
 // VALUES: 4 entries
 // =====================================================

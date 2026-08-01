@@ -39,7 +39,7 @@ export interface RunRecord {
 
 export const SYSTEM_REGISTRY: SystemRegistryFile = {
   "version": "1.0.0",
-  "updatedAt": "2026-08-01T16:32:43.023Z",
+  "updatedAt": "2026-08-01T16:34:13.765Z",
   "cosmic": {
     "lastRun": null,
     "runs": [],
@@ -47,10 +47,10 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
   },
   "gaia": {
     "lastRun": {
-      "id": "20260801_113242",
+      "id": "20260801_113413",
       "system": "GAIA",
-      "startTime": "2026-08-01T16:32:42.929Z",
-      "endTime": "2026-08-01T16:32:43.023Z",
+      "startTime": "2026-08-01T16:34:13.649Z",
+      "endTime": "2026-08-01T16:34:13.765Z",
       "status": "success",
       "generatedFiles": [
         "src/types/generated/hestia-core/community_profiles.ts",
@@ -58,19 +58,375 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
         "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
         "src/hooks/generated/hestia-core/community_profiles.ts",
         "src/lib/utils/generated/hestia-core/community_profiles.ts",
-        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts"
+        "src/types/generated/hestia-core/user_private.ts",
+        "src/app/api/generated/hestia-core/user_private/route.ts",
+        "src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+        "src/hooks/generated/hestia-core/user_private.ts",
+        "src/lib/utils/generated/hestia-core/user_private.ts",
+        "src/types/generated/hestia-core/user_financial.ts",
+        "src/app/api/generated/hestia-core/user_financial/route.ts",
+        "src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+        "src/hooks/generated/hestia-core/user_financial.ts",
+        "src/lib/utils/generated/hestia-core/user_financial.ts",
+        "src/types/generated/hestia-core/user_roles.ts",
+        "src/app/api/generated/hestia-core/user_roles/route.ts",
+        "src/app/api/generated/hestia-core/user_roles/[id]/route.ts",
+        "src/hooks/generated/hestia-core/user_roles.ts",
+        "src/lib/utils/generated/hestia-core/user_roles.ts",
+        "src/types/generated/hestia-core/vessel_config.ts",
+        "src/app/api/generated/hestia-core/vessel_config/route.ts",
+        "src/app/api/generated/hestia-core/vessel_config/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_config.ts",
+        "src/lib/utils/generated/hestia-core/vessel_config.ts",
+        "src/types/generated/hestia-core/current.ts",
+        "src/app/api/generated/hestia-core/current/route.ts",
+        "src/app/api/generated/hestia-core/current/[id]/route.ts",
+        "src/hooks/generated/hestia-core/current.ts",
+        "src/lib/utils/generated/hestia-core/current.ts",
+        "src/types/generated/hestia-core/user_page_views.ts",
+        "src/app/api/generated/hestia-core/user_page_views/route.ts",
+        "src/app/api/generated/hestia-core/user_page_views/[id]/route.ts",
+        "src/hooks/generated/hestia-core/user_page_views.ts",
+        "src/lib/utils/generated/hestia-core/user_page_views.ts",
+        "src/types/generated/hestia-core/journal_entries.ts",
+        "src/app/api/generated/hestia-core/journal_entries/route.ts",
+        "src/app/api/generated/hestia-core/journal_entries/[id]/route.ts",
+        "src/hooks/generated/hestia-core/journal_entries.ts",
+        "src/lib/utils/generated/hestia-core/journal_entries.ts",
+        "src/types/generated/hestia-core/energy_entries.ts",
+        "src/app/api/generated/hestia-core/energy_entries/route.ts",
+        "src/app/api/generated/hestia-core/energy_entries/[id]/route.ts",
+        "src/hooks/generated/hestia-core/energy_entries.ts",
+        "src/lib/utils/generated/hestia-core/energy_entries.ts",
+        "src/types/generated/hestia-core/heralds.ts",
+        "src/app/api/generated/hestia-core/heralds/route.ts",
+        "src/app/api/generated/hestia-core/heralds/[id]/route.ts",
+        "src/hooks/generated/hestia-core/heralds.ts",
+        "src/lib/utils/generated/hestia-core/heralds.ts",
+        "src/types/generated/hestia-core/vessel_anchors.ts",
+        "src/app/api/generated/hestia-core/vessel_anchors/route.ts",
+        "src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_anchors.ts",
+        "src/lib/utils/generated/hestia-core/vessel_anchors.ts",
+        "src/types/generated/hestia-core/vessel_bubbles.ts",
+        "src/app/api/generated/hestia-core/vessel_bubbles/route.ts",
+        "src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_bubbles.ts",
+        "src/lib/utils/generated/hestia-core/vessel_bubbles.ts",
+        "src/types/generated/hestia-core/vessel_collections.ts",
+        "src/app/api/generated/hestia-core/vessel_collections/route.ts",
+        "src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_collections.ts",
+        "src/lib/utils/generated/hestia-core/vessel_collections.ts",
+        "src/types/generated/hestia-core/vessel_companions.ts",
+        "src/app/api/generated/hestia-core/vessel_companions/route.ts",
+        "src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_companions.ts",
+        "src/lib/utils/generated/hestia-core/vessel_companions.ts",
+        "src/types/generated/hestia-core/vessel_decorations.ts",
+        "src/app/api/generated/hestia-core/vessel_decorations/route.ts",
+        "src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_decorations.ts",
+        "src/lib/utils/generated/hestia-core/vessel_decorations.ts",
+        "src/types/generated/hestia-core/vessel_exteriors.ts",
+        "src/app/api/generated/hestia-core/vessel_exteriors/route.ts",
+        "src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_exteriors.ts",
+        "src/lib/utils/generated/hestia-core/vessel_exteriors.ts",
+        "src/types/generated/hestia-core/vessel_interiors.ts",
+        "src/app/api/generated/hestia-core/vessel_interiors/route.ts",
+        "src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_interiors.ts",
+        "src/lib/utils/generated/hestia-core/vessel_interiors.ts",
+        "src/types/generated/hestia-core/vessel_quests.ts",
+        "src/app/api/generated/hestia-core/vessel_quests/route.ts",
+        "src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_quests.ts",
+        "src/lib/utils/generated/hestia-core/vessel_quests.ts",
+        "src/types/generated/hestia-core/vessel_rooms.ts",
+        "src/app/api/generated/hestia-core/vessel_rooms/route.ts",
+        "src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_rooms.ts",
+        "src/lib/utils/generated/hestia-core/vessel_rooms.ts",
+        "src/types/generated/hestia-core/vessel_sigils.ts",
+        "src/app/api/generated/hestia-core/vessel_sigils/route.ts",
+        "src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts",
+        "src/hooks/generated/hestia-core/vessel_sigils.ts",
+        "src/lib/utils/generated/hestia-core/vessel_sigils.ts",
+        "src/types/generated/hestia-core/collection_items.ts",
+        "src/app/api/generated/hestia-core/collection_items/route.ts",
+        "src/app/api/generated/hestia-core/collection_items/[id]/route.ts",
+        "src/types/generated/hestia-core/collection_sets.ts",
+        "src/app/api/generated/hestia-core/collection_sets/route.ts",
+        "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts",
+        "src/hooks/generated/hestia-core/collection_sets.ts",
+        "src/lib/utils/generated/hestia-core/collection_sets.ts",
+        "src/types/generated/hestia-core/companion_cues.ts",
+        "src/app/api/generated/hestia-core/companion_cues/route.ts",
+        "src/app/api/generated/hestia-core/companion_cues/[id]/route.ts",
+        "src/hooks/generated/hestia-core/companion_cues.ts",
+        "src/lib/utils/generated/hestia-core/companion_cues.ts",
+        "src/types/generated/hestia-core/garden_plots.ts",
+        "src/app/api/generated/hestia-core/garden_plots/route.ts",
+        "src/app/api/generated/hestia-core/garden_plots/[id]/route.ts",
+        "src/hooks/generated/hestia-core/garden_plots.ts",
+        "src/lib/utils/generated/hestia-core/garden_plots.ts",
+        "src/types/generated/hestia-core/garden_visits.ts",
+        "src/app/api/generated/hestia-core/garden_visits/route.ts",
+        "src/app/api/generated/hestia-core/garden_visits/[id]/route.ts",
+        "src/hooks/generated/hestia-core/garden_visits.ts",
+        "src/lib/utils/generated/hestia-core/garden_visits.ts",
+        "src/types/generated/hestia-core/plant_stages.ts",
+        "src/app/api/generated/hestia-core/plant_stages/route.ts",
+        "src/app/api/generated/hestia-core/plant_stages/[id]/route.ts",
+        "src/hooks/generated/hestia-core/plant_stages.ts",
+        "src/lib/utils/generated/hestia-core/plant_stages.ts",
+        "src/types/generated/hestia-core/seed_types.ts",
+        "src/app/api/generated/hestia-core/seed_types/route.ts",
+        "src/app/api/generated/hestia-core/seed_types/[id]/route.ts",
+        "src/hooks/generated/hestia-core/seed_types.ts",
+        "src/lib/utils/generated/hestia-core/seed_types.ts",
+        "src/lib/constants/generated/hestia-core/address_type.ts",
+        "src/lib/constants/generated/hestia-core/content_status.ts",
+        "src/lib/constants/generated/hestia-core/display_theme.ts",
+        "src/lib/constants/generated/hestia-core/exchange_status.ts",
+        "src/lib/constants/generated/hestia-core/global_region.ts",
+        "src/lib/constants/generated/hestia-core/herald_digest.ts",
+        "src/lib/constants/generated/hestia-core/notification_channel.ts",
+        "src/lib/constants/generated/hestia-core/pricing_model.ts",
+        "src/lib/constants/generated/hestia-core/processing_speed.ts",
+        "src/lib/constants/generated/hestia-core/profile_status.ts",
+        "src/lib/constants/generated/hestia-core/relationship_type.ts",
+        "src/lib/constants/generated/hestia-core/sensory_level.ts",
+        "src/lib/constants/generated/hestia-core/sovereign_tier.ts",
+        "src/lib/constants/generated/hestia-core/subscription_tier.ts",
+        "src/lib/constants/generated/hestia-core/user_role.ts",
+        "src/lib/constants/generated/hestia-core/visibility.ts",
+        "src/lib/constants/generated/hestia-core/ware_type.ts",
+        "src/lib/constants/generated/hestia-core/work_type.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_private.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_financial.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_roles.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_config.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\current.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_page_views.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\journal_entries.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\energy_entries.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\heralds.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_anchors.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_bubbles.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_collections.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_companions.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_decorations.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_exteriors.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_interiors.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_quests.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_rooms.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_sigils.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_items.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_sets.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\companion_cues.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_plots.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_visits.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\plant_stages.ts",
+        "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\seed_types.ts"
       ],
       "errors": [],
-      "warnings": [
-        "Overwrote: src/types/generated/hestia-core/community_profiles.ts",
-        "Overwrote: src/app/api/generated/hestia-core/community_profiles/route.ts",
-        "Overwrote: src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
-        "Overwrote: src/hooks/generated/hestia-core/community_profiles.ts",
-        "Overwrote: src/lib/utils/generated/hestia-core/community_profiles.ts"
-      ],
+      "warnings": [],
       "notes": []
     },
     "runs": [
+      {
+        "id": "20260801_113413",
+        "system": "GAIA",
+        "startTime": "2026-08-01T16:34:13.649Z",
+        "endTime": "2026-08-01T16:34:13.765Z",
+        "status": "success",
+        "generatedFiles": [
+          "src/types/generated/hestia-core/community_profiles.ts",
+          "src/app/api/generated/hestia-core/community_profiles/route.ts",
+          "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/community_profiles.ts",
+          "src/lib/utils/generated/hestia-core/community_profiles.ts",
+          "src/types/generated/hestia-core/user_private.ts",
+          "src/app/api/generated/hestia-core/user_private/route.ts",
+          "src/app/api/generated/hestia-core/user_private/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_private.ts",
+          "src/lib/utils/generated/hestia-core/user_private.ts",
+          "src/types/generated/hestia-core/user_financial.ts",
+          "src/app/api/generated/hestia-core/user_financial/route.ts",
+          "src/app/api/generated/hestia-core/user_financial/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_financial.ts",
+          "src/lib/utils/generated/hestia-core/user_financial.ts",
+          "src/types/generated/hestia-core/user_roles.ts",
+          "src/app/api/generated/hestia-core/user_roles/route.ts",
+          "src/app/api/generated/hestia-core/user_roles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_roles.ts",
+          "src/lib/utils/generated/hestia-core/user_roles.ts",
+          "src/types/generated/hestia-core/vessel_config.ts",
+          "src/app/api/generated/hestia-core/vessel_config/route.ts",
+          "src/app/api/generated/hestia-core/vessel_config/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_config.ts",
+          "src/lib/utils/generated/hestia-core/vessel_config.ts",
+          "src/types/generated/hestia-core/current.ts",
+          "src/app/api/generated/hestia-core/current/route.ts",
+          "src/app/api/generated/hestia-core/current/[id]/route.ts",
+          "src/hooks/generated/hestia-core/current.ts",
+          "src/lib/utils/generated/hestia-core/current.ts",
+          "src/types/generated/hestia-core/user_page_views.ts",
+          "src/app/api/generated/hestia-core/user_page_views/route.ts",
+          "src/app/api/generated/hestia-core/user_page_views/[id]/route.ts",
+          "src/hooks/generated/hestia-core/user_page_views.ts",
+          "src/lib/utils/generated/hestia-core/user_page_views.ts",
+          "src/types/generated/hestia-core/journal_entries.ts",
+          "src/app/api/generated/hestia-core/journal_entries/route.ts",
+          "src/app/api/generated/hestia-core/journal_entries/[id]/route.ts",
+          "src/hooks/generated/hestia-core/journal_entries.ts",
+          "src/lib/utils/generated/hestia-core/journal_entries.ts",
+          "src/types/generated/hestia-core/energy_entries.ts",
+          "src/app/api/generated/hestia-core/energy_entries/route.ts",
+          "src/app/api/generated/hestia-core/energy_entries/[id]/route.ts",
+          "src/hooks/generated/hestia-core/energy_entries.ts",
+          "src/lib/utils/generated/hestia-core/energy_entries.ts",
+          "src/types/generated/hestia-core/heralds.ts",
+          "src/app/api/generated/hestia-core/heralds/route.ts",
+          "src/app/api/generated/hestia-core/heralds/[id]/route.ts",
+          "src/hooks/generated/hestia-core/heralds.ts",
+          "src/lib/utils/generated/hestia-core/heralds.ts",
+          "src/types/generated/hestia-core/vessel_anchors.ts",
+          "src/app/api/generated/hestia-core/vessel_anchors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_anchors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_anchors.ts",
+          "src/types/generated/hestia-core/vessel_bubbles.ts",
+          "src/app/api/generated/hestia-core/vessel_bubbles/route.ts",
+          "src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_bubbles.ts",
+          "src/lib/utils/generated/hestia-core/vessel_bubbles.ts",
+          "src/types/generated/hestia-core/vessel_collections.ts",
+          "src/app/api/generated/hestia-core/vessel_collections/route.ts",
+          "src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_collections.ts",
+          "src/lib/utils/generated/hestia-core/vessel_collections.ts",
+          "src/types/generated/hestia-core/vessel_companions.ts",
+          "src/app/api/generated/hestia-core/vessel_companions/route.ts",
+          "src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_companions.ts",
+          "src/lib/utils/generated/hestia-core/vessel_companions.ts",
+          "src/types/generated/hestia-core/vessel_decorations.ts",
+          "src/app/api/generated/hestia-core/vessel_decorations/route.ts",
+          "src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_decorations.ts",
+          "src/lib/utils/generated/hestia-core/vessel_decorations.ts",
+          "src/types/generated/hestia-core/vessel_exteriors.ts",
+          "src/app/api/generated/hestia-core/vessel_exteriors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_exteriors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_exteriors.ts",
+          "src/types/generated/hestia-core/vessel_interiors.ts",
+          "src/app/api/generated/hestia-core/vessel_interiors/route.ts",
+          "src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_interiors.ts",
+          "src/lib/utils/generated/hestia-core/vessel_interiors.ts",
+          "src/types/generated/hestia-core/vessel_quests.ts",
+          "src/app/api/generated/hestia-core/vessel_quests/route.ts",
+          "src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_quests.ts",
+          "src/lib/utils/generated/hestia-core/vessel_quests.ts",
+          "src/types/generated/hestia-core/vessel_rooms.ts",
+          "src/app/api/generated/hestia-core/vessel_rooms/route.ts",
+          "src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_rooms.ts",
+          "src/lib/utils/generated/hestia-core/vessel_rooms.ts",
+          "src/types/generated/hestia-core/vessel_sigils.ts",
+          "src/app/api/generated/hestia-core/vessel_sigils/route.ts",
+          "src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts",
+          "src/hooks/generated/hestia-core/vessel_sigils.ts",
+          "src/lib/utils/generated/hestia-core/vessel_sigils.ts",
+          "src/types/generated/hestia-core/collection_items.ts",
+          "src/app/api/generated/hestia-core/collection_items/route.ts",
+          "src/app/api/generated/hestia-core/collection_items/[id]/route.ts",
+          "src/types/generated/hestia-core/collection_sets.ts",
+          "src/app/api/generated/hestia-core/collection_sets/route.ts",
+          "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts",
+          "src/hooks/generated/hestia-core/collection_sets.ts",
+          "src/lib/utils/generated/hestia-core/collection_sets.ts",
+          "src/types/generated/hestia-core/companion_cues.ts",
+          "src/app/api/generated/hestia-core/companion_cues/route.ts",
+          "src/app/api/generated/hestia-core/companion_cues/[id]/route.ts",
+          "src/hooks/generated/hestia-core/companion_cues.ts",
+          "src/lib/utils/generated/hestia-core/companion_cues.ts",
+          "src/types/generated/hestia-core/garden_plots.ts",
+          "src/app/api/generated/hestia-core/garden_plots/route.ts",
+          "src/app/api/generated/hestia-core/garden_plots/[id]/route.ts",
+          "src/hooks/generated/hestia-core/garden_plots.ts",
+          "src/lib/utils/generated/hestia-core/garden_plots.ts",
+          "src/types/generated/hestia-core/garden_visits.ts",
+          "src/app/api/generated/hestia-core/garden_visits/route.ts",
+          "src/app/api/generated/hestia-core/garden_visits/[id]/route.ts",
+          "src/hooks/generated/hestia-core/garden_visits.ts",
+          "src/lib/utils/generated/hestia-core/garden_visits.ts",
+          "src/types/generated/hestia-core/plant_stages.ts",
+          "src/app/api/generated/hestia-core/plant_stages/route.ts",
+          "src/app/api/generated/hestia-core/plant_stages/[id]/route.ts",
+          "src/hooks/generated/hestia-core/plant_stages.ts",
+          "src/lib/utils/generated/hestia-core/plant_stages.ts",
+          "src/types/generated/hestia-core/seed_types.ts",
+          "src/app/api/generated/hestia-core/seed_types/route.ts",
+          "src/app/api/generated/hestia-core/seed_types/[id]/route.ts",
+          "src/hooks/generated/hestia-core/seed_types.ts",
+          "src/lib/utils/generated/hestia-core/seed_types.ts",
+          "src/lib/constants/generated/hestia-core/address_type.ts",
+          "src/lib/constants/generated/hestia-core/content_status.ts",
+          "src/lib/constants/generated/hestia-core/display_theme.ts",
+          "src/lib/constants/generated/hestia-core/exchange_status.ts",
+          "src/lib/constants/generated/hestia-core/global_region.ts",
+          "src/lib/constants/generated/hestia-core/herald_digest.ts",
+          "src/lib/constants/generated/hestia-core/notification_channel.ts",
+          "src/lib/constants/generated/hestia-core/pricing_model.ts",
+          "src/lib/constants/generated/hestia-core/processing_speed.ts",
+          "src/lib/constants/generated/hestia-core/profile_status.ts",
+          "src/lib/constants/generated/hestia-core/relationship_type.ts",
+          "src/lib/constants/generated/hestia-core/sensory_level.ts",
+          "src/lib/constants/generated/hestia-core/sovereign_tier.ts",
+          "src/lib/constants/generated/hestia-core/subscription_tier.ts",
+          "src/lib/constants/generated/hestia-core/user_role.ts",
+          "src/lib/constants/generated/hestia-core/visibility.ts",
+          "src/lib/constants/generated/hestia-core/ware_type.ts",
+          "src/lib/constants/generated/hestia-core/work_type.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_private.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_financial.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_roles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_config.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\current.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_page_views.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\journal_entries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\energy_entries.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\heralds.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_anchors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_bubbles.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_collections.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_companions.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_decorations.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_exteriors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_interiors.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_quests.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_rooms.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_sigils.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_items.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_sets.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\companion_cues.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_plots.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_visits.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\plant_stages.ts",
+          "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\seed_types.ts"
+        ],
+        "errors": [],
+        "warnings": [],
+        "notes": []
+      },
       {
         "id": "20260801_113242",
         "system": "GAIA",
@@ -26095,15 +26451,15 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/collection_items.ts": {
         "hash": "0c80e0990352332f",
-        "generatedAt": "2026-08-01T16:07:23.154Z"
+        "generatedAt": "2026-08-01T16:34:13.745Z"
       },
       "src/app/api/generated/hestia-core/collection_items/route.ts": {
         "hash": "4c47b0dd612e28ec",
-        "generatedAt": "2026-08-01T16:07:23.154Z"
+        "generatedAt": "2026-08-01T16:34:13.745Z"
       },
       "src/app/api/generated/hestia-core/collection_items/[id]/route.ts": {
         "hash": "8fed46cb43518a3c",
-        "generatedAt": "2026-08-01T16:07:23.154Z"
+        "generatedAt": "2026-08-01T16:34:13.745Z"
       },
       "src/hooks/generated/hestia-core/collection_items.ts": {
         "hash": "438b38cdcf0651a6",
@@ -26115,55 +26471,55 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/collection_sets.ts": {
         "hash": "24d082ef93230f2f",
-        "generatedAt": "2026-08-01T16:07:23.154Z"
+        "generatedAt": "2026-08-01T16:34:13.745Z"
       },
       "src/app/api/generated/hestia-core/collection_sets/route.ts": {
         "hash": "23adc5d2e46c2f32",
-        "generatedAt": "2026-08-01T16:07:23.155Z"
+        "generatedAt": "2026-08-01T16:34:13.746Z"
       },
       "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts": {
         "hash": "5e726b3f6192ff22",
-        "generatedAt": "2026-08-01T16:07:23.155Z"
+        "generatedAt": "2026-08-01T16:34:13.746Z"
       },
       "src/hooks/generated/hestia-core/collection_sets.ts": {
         "hash": "7869f87118e3c59a",
-        "generatedAt": "2026-08-01T16:07:23.155Z"
+        "generatedAt": "2026-08-01T16:34:13.746Z"
       },
       "src/lib/utils/generated/hestia-core/collection_sets.ts": {
         "hash": "34ad2f7fd39ebb9d",
-        "generatedAt": "2026-08-01T16:07:23.156Z"
+        "generatedAt": "2026-08-01T16:34:13.746Z"
       },
       "src/types/generated/hestia-core/community_profiles.ts": {
         "hash": "2a70a9e8309e043e",
-        "generatedAt": "2026-08-01T16:32:43.006Z"
+        "generatedAt": "2026-08-01T16:34:13.711Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/route.ts": {
         "hash": "17e2f04743b27a5e",
-        "generatedAt": "2026-08-01T16:32:43.015Z"
+        "generatedAt": "2026-08-01T16:34:13.719Z"
       },
       "src/app/api/generated/hestia-core/community_profiles/[id]/route.ts": {
         "hash": "c13a48737ba6944c",
-        "generatedAt": "2026-08-01T16:32:43.017Z"
+        "generatedAt": "2026-08-01T16:34:13.719Z"
       },
       "src/types/generated/hestia-core/companion_cues.ts": {
         "hash": "645883680d85e179",
-        "generatedAt": "2026-08-01T16:07:23.156Z"
+        "generatedAt": "2026-08-01T16:34:13.747Z"
       },
       "src/app/api/generated/hestia-core/companion_cues/route.ts": {
         "hash": "5aa7b70f5bc43481",
-        "generatedAt": "2026-08-01T16:07:23.156Z"
+        "generatedAt": "2026-08-01T16:34:13.747Z"
       },
       "src/app/api/generated/hestia-core/companion_cues/[id]/route.ts": {
         "hash": "9f56cff28027f109",
-        "generatedAt": "2026-08-01T16:07:23.157Z"
+        "generatedAt": "2026-08-01T16:34:13.747Z"
       },
       "src/hooks/generated/hestia-core/companion_cues.ts": {
         "hash": "1d25470d7a65426d",
-        "generatedAt": "2026-08-01T16:07:23.157Z"
+        "generatedAt": "2026-08-01T16:34:13.747Z"
       },
       "src/lib/utils/generated/hestia-core/companion_cues.ts": {
         "hash": "ed2c78528385a7e8",
-        "generatedAt": "2026-08-01T16:07:23.157Z"
+        "generatedAt": "2026-08-01T16:34:13.747Z"
       },
       "src/types/generated/aethelred-connections/consciousness.ts": {
         "hash": "016f02d68a1ace24",
@@ -26307,23 +26663,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/current.ts": {
         "hash": "8e7c687fc33c3f05",
-        "generatedAt": "2026-08-01T16:07:23.131Z"
+        "generatedAt": "2026-08-01T16:34:13.726Z"
       },
       "src/app/api/generated/hestia-core/current/route.ts": {
         "hash": "0a481f05032dc939",
-        "generatedAt": "2026-08-01T16:07:23.131Z"
+        "generatedAt": "2026-08-01T16:34:13.727Z"
       },
       "src/app/api/generated/hestia-core/current/[id]/route.ts": {
         "hash": "db6eaf2f2e38f09e",
-        "generatedAt": "2026-08-01T16:07:23.131Z"
+        "generatedAt": "2026-08-01T16:34:13.727Z"
       },
       "src/hooks/generated/hestia-core/current.ts": {
         "hash": "83a9a79330f420df",
-        "generatedAt": "2026-08-01T16:07:23.132Z"
+        "generatedAt": "2026-08-01T16:34:13.727Z"
       },
       "src/lib/utils/generated/hestia-core/current.ts": {
         "hash": "954fc4fad2e730f1",
-        "generatedAt": "2026-08-01T16:07:23.132Z"
+        "generatedAt": "2026-08-01T16:34:13.727Z"
       },
       "src/types/generated/iris-communications/customs.ts": {
         "hash": "23a04ab357c0e7bd",
@@ -26427,23 +26783,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/energy_entries.ts": {
         "hash": "a7cda42c6d372590",
-        "generatedAt": "2026-08-01T16:07:23.135Z"
+        "generatedAt": "2026-08-01T16:34:13.730Z"
       },
       "src/app/api/generated/hestia-core/energy_entries/route.ts": {
         "hash": "17f89ef62d4dc9e2",
-        "generatedAt": "2026-08-01T16:07:23.136Z"
+        "generatedAt": "2026-08-01T16:34:13.730Z"
       },
       "src/app/api/generated/hestia-core/energy_entries/[id]/route.ts": {
         "hash": "e3f02c7e3a81bdb5",
-        "generatedAt": "2026-08-01T16:07:23.136Z"
+        "generatedAt": "2026-08-01T16:34:13.731Z"
       },
       "src/hooks/generated/hestia-core/energy_entries.ts": {
         "hash": "b28625043aa2dfba",
-        "generatedAt": "2026-08-01T16:07:23.136Z"
+        "generatedAt": "2026-08-01T16:34:13.731Z"
       },
       "src/lib/utils/generated/hestia-core/energy_entries.ts": {
         "hash": "21f15ee338aa3f9a",
-        "generatedAt": "2026-08-01T16:07:23.137Z"
+        "generatedAt": "2026-08-01T16:34:13.731Z"
       },
       "src/types/generated/hestia-core/entity_states.ts": {
         "hash": "d1e43a91aac8bbd0",
@@ -26647,43 +27003,43 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/garden_plots.ts": {
         "hash": "9a992a4529977da3",
-        "generatedAt": "2026-08-01T16:07:23.158Z"
+        "generatedAt": "2026-08-01T16:34:13.748Z"
       },
       "src/app/api/generated/hestia-core/garden_plots/route.ts": {
         "hash": "7df4713075b16665",
-        "generatedAt": "2026-08-01T16:07:23.158Z"
+        "generatedAt": "2026-08-01T16:34:13.748Z"
       },
       "src/app/api/generated/hestia-core/garden_plots/[id]/route.ts": {
         "hash": "e891578d9cea6751",
-        "generatedAt": "2026-08-01T16:07:23.158Z"
+        "generatedAt": "2026-08-01T16:34:13.748Z"
       },
       "src/hooks/generated/hestia-core/garden_plots.ts": {
         "hash": "a974443620baf414",
-        "generatedAt": "2026-08-01T16:07:23.159Z"
+        "generatedAt": "2026-08-01T16:34:13.748Z"
       },
       "src/lib/utils/generated/hestia-core/garden_plots.ts": {
         "hash": "cf71d0ce25e652eb",
-        "generatedAt": "2026-08-01T16:07:23.159Z"
+        "generatedAt": "2026-08-01T16:34:13.749Z"
       },
       "src/types/generated/hestia-core/garden_visits.ts": {
         "hash": "aea60c10140c9849",
-        "generatedAt": "2026-08-01T16:07:23.159Z"
+        "generatedAt": "2026-08-01T16:34:13.749Z"
       },
       "src/app/api/generated/hestia-core/garden_visits/route.ts": {
         "hash": "ea563b3d92e7a89a",
-        "generatedAt": "2026-08-01T16:07:23.159Z"
+        "generatedAt": "2026-08-01T16:34:13.749Z"
       },
       "src/app/api/generated/hestia-core/garden_visits/[id]/route.ts": {
         "hash": "df21a79231cfd9ea",
-        "generatedAt": "2026-08-01T16:07:23.160Z"
+        "generatedAt": "2026-08-01T16:34:13.749Z"
       },
       "src/hooks/generated/hestia-core/garden_visits.ts": {
         "hash": "c2154c9c150e74eb",
-        "generatedAt": "2026-08-01T16:07:23.160Z"
+        "generatedAt": "2026-08-01T16:34:13.750Z"
       },
       "src/lib/utils/generated/hestia-core/garden_visits.ts": {
         "hash": "2461c3f90d4a8120",
-        "generatedAt": "2026-08-01T16:07:23.160Z"
+        "generatedAt": "2026-08-01T16:34:13.750Z"
       },
       "src/types/generated/hestia-core/generation_templates.ts": {
         "hash": "17a913e19cce926a",
@@ -26947,43 +27303,43 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/heralds.ts": {
         "hash": "74c3c7264ac954b0",
-        "generatedAt": "2026-08-01T16:07:23.137Z"
+        "generatedAt": "2026-08-01T16:34:13.731Z"
       },
       "src/app/api/generated/hestia-core/heralds/route.ts": {
         "hash": "42458d493744e115",
-        "generatedAt": "2026-08-01T16:07:23.137Z"
+        "generatedAt": "2026-08-01T16:34:13.732Z"
       },
       "src/app/api/generated/hestia-core/heralds/[id]/route.ts": {
         "hash": "f0c4dc6ae5bf6a92",
-        "generatedAt": "2026-08-01T16:07:23.138Z"
+        "generatedAt": "2026-08-01T16:34:13.732Z"
       },
       "src/hooks/generated/hestia-core/heralds.ts": {
         "hash": "37eff96756319fd3",
-        "generatedAt": "2026-08-01T16:07:23.138Z"
+        "generatedAt": "2026-08-01T16:34:13.732Z"
       },
       "src/lib/utils/generated/hestia-core/heralds.ts": {
         "hash": "458bb8b3a06aa8bb",
-        "generatedAt": "2026-08-01T16:07:23.138Z"
+        "generatedAt": "2026-08-01T16:34:13.732Z"
       },
       "src/types/generated/hestia-core/journal_entries.ts": {
         "hash": "2a94d08812dddd3b",
-        "generatedAt": "2026-08-01T16:07:23.134Z"
+        "generatedAt": "2026-08-01T16:34:13.729Z"
       },
       "src/app/api/generated/hestia-core/journal_entries/route.ts": {
         "hash": "b2802d32b869fc3e",
-        "generatedAt": "2026-08-01T16:07:23.134Z"
+        "generatedAt": "2026-08-01T16:34:13.729Z"
       },
       "src/app/api/generated/hestia-core/journal_entries/[id]/route.ts": {
         "hash": "53205987aeafab2b",
-        "generatedAt": "2026-08-01T16:07:23.135Z"
+        "generatedAt": "2026-08-01T16:34:13.729Z"
       },
       "src/hooks/generated/hestia-core/journal_entries.ts": {
         "hash": "531970ee9f672f31",
-        "generatedAt": "2026-08-01T16:07:23.135Z"
+        "generatedAt": "2026-08-01T16:34:13.730Z"
       },
       "src/lib/utils/generated/hestia-core/journal_entries.ts": {
         "hash": "b0f8bef6fd9c63c2",
-        "generatedAt": "2026-08-01T16:07:23.135Z"
+        "generatedAt": "2026-08-01T16:34:13.730Z"
       },
       "src/types/generated/hestia-core/keywords.ts": {
         "hash": "bba733784b05bee5",
@@ -27439,23 +27795,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/plant_stages.ts": {
         "hash": "3b1fc57cd5539003",
-        "generatedAt": "2026-08-01T16:07:23.161Z"
+        "generatedAt": "2026-08-01T16:34:13.750Z"
       },
       "src/app/api/generated/hestia-core/plant_stages/route.ts": {
         "hash": "7905237c7ca7afbe",
-        "generatedAt": "2026-08-01T16:07:23.161Z"
+        "generatedAt": "2026-08-01T16:34:13.750Z"
       },
       "src/app/api/generated/hestia-core/plant_stages/[id]/route.ts": {
         "hash": "163e9b37dcda8e6f",
-        "generatedAt": "2026-08-01T16:07:23.161Z"
+        "generatedAt": "2026-08-01T16:34:13.750Z"
       },
       "src/hooks/generated/hestia-core/plant_stages.ts": {
         "hash": "ba216e5a6c20df7b",
-        "generatedAt": "2026-08-01T16:07:23.161Z"
+        "generatedAt": "2026-08-01T16:34:13.751Z"
       },
       "src/lib/utils/generated/hestia-core/plant_stages.ts": {
         "hash": "c96e5ef531a84f9f",
-        "generatedAt": "2026-08-01T16:07:23.162Z"
+        "generatedAt": "2026-08-01T16:34:13.751Z"
       },
       "src/types/generated/hestia-core/platform_config.ts": {
         "hash": "4245429ba413acdb",
@@ -27859,23 +28215,23 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/seed_types.ts": {
         "hash": "fa8c0623edd99723",
-        "generatedAt": "2026-08-01T16:07:23.162Z"
+        "generatedAt": "2026-08-01T16:34:13.751Z"
       },
       "src/app/api/generated/hestia-core/seed_types/route.ts": {
         "hash": "86ca6bf0f7f312e3",
-        "generatedAt": "2026-08-01T16:07:23.162Z"
+        "generatedAt": "2026-08-01T16:34:13.751Z"
       },
       "src/app/api/generated/hestia-core/seed_types/[id]/route.ts": {
         "hash": "528bccfe9b270b28",
-        "generatedAt": "2026-08-01T16:07:23.163Z"
+        "generatedAt": "2026-08-01T16:34:13.751Z"
       },
       "src/hooks/generated/hestia-core/seed_types.ts": {
         "hash": "38080e9933d44bda",
-        "generatedAt": "2026-08-01T16:07:23.163Z"
+        "generatedAt": "2026-08-01T16:34:13.752Z"
       },
       "src/lib/utils/generated/hestia-core/seed_types.ts": {
         "hash": "be1835453eee13a6",
-        "generatedAt": "2026-08-01T16:07:23.163Z"
+        "generatedAt": "2026-08-01T16:34:13.752Z"
       },
       "src/types/generated/aethelred-connections/seer.ts": {
         "hash": "fd476b6b141537c1",
@@ -28219,83 +28575,83 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/user_financial.ts": {
         "hash": "eb5d43db060c3396",
-        "generatedAt": "2026-08-01T16:07:23.126Z"
+        "generatedAt": "2026-08-01T16:34:13.722Z"
       },
       "src/app/api/generated/hestia-core/user_financial/route.ts": {
         "hash": "ce1da8956430d5ac",
-        "generatedAt": "2026-08-01T16:07:23.126Z"
+        "generatedAt": "2026-08-01T16:34:13.723Z"
       },
       "src/app/api/generated/hestia-core/user_financial/[id]/route.ts": {
         "hash": "812c9a30414dbe82",
-        "generatedAt": "2026-08-01T16:07:23.127Z"
+        "generatedAt": "2026-08-01T16:34:13.723Z"
       },
       "src/hooks/generated/hestia-core/user_financial.ts": {
         "hash": "60cc1af8d677a4aa",
-        "generatedAt": "2026-08-01T16:07:23.127Z"
+        "generatedAt": "2026-08-01T16:34:13.723Z"
       },
       "src/lib/utils/generated/hestia-core/user_financial.ts": {
         "hash": "30458f762c2013c8",
-        "generatedAt": "2026-08-01T16:07:23.127Z"
+        "generatedAt": "2026-08-01T16:34:13.723Z"
       },
       "src/types/generated/hestia-core/user_page_views.ts": {
         "hash": "2c474a99155c0366",
-        "generatedAt": "2026-08-01T16:07:23.132Z"
+        "generatedAt": "2026-08-01T16:34:13.728Z"
       },
       "src/app/api/generated/hestia-core/user_page_views/route.ts": {
         "hash": "478093ae51e7b9a6",
-        "generatedAt": "2026-08-01T16:07:23.133Z"
+        "generatedAt": "2026-08-01T16:34:13.728Z"
       },
       "src/app/api/generated/hestia-core/user_page_views/[id]/route.ts": {
         "hash": "9fffc5d8999f26c7",
-        "generatedAt": "2026-08-01T16:07:23.133Z"
+        "generatedAt": "2026-08-01T16:34:13.728Z"
       },
       "src/hooks/generated/hestia-core/user_page_views.ts": {
         "hash": "9f283d4bb43d15fe",
-        "generatedAt": "2026-08-01T16:07:23.133Z"
+        "generatedAt": "2026-08-01T16:34:13.728Z"
       },
       "src/lib/utils/generated/hestia-core/user_page_views.ts": {
         "hash": "a7cc1a152c5b3687",
-        "generatedAt": "2026-08-01T16:07:23.134Z"
+        "generatedAt": "2026-08-01T16:34:13.728Z"
       },
       "src/types/generated/hestia-core/user_private.ts": {
         "hash": "01f28c7ccf62e416",
-        "generatedAt": "2026-08-01T16:07:23.124Z"
+        "generatedAt": "2026-08-01T16:34:13.721Z"
       },
       "src/app/api/generated/hestia-core/user_private/route.ts": {
         "hash": "faa64d4b963d40b9",
-        "generatedAt": "2026-08-01T16:07:23.125Z"
+        "generatedAt": "2026-08-01T16:34:13.721Z"
       },
       "src/app/api/generated/hestia-core/user_private/[id]/route.ts": {
         "hash": "646e7205bff6a163",
-        "generatedAt": "2026-08-01T16:07:23.125Z"
+        "generatedAt": "2026-08-01T16:34:13.721Z"
       },
       "src/hooks/generated/hestia-core/user_private.ts": {
         "hash": "7d28fb1f1af711f7",
-        "generatedAt": "2026-08-01T16:07:23.125Z"
+        "generatedAt": "2026-08-01T16:34:13.722Z"
       },
       "src/lib/utils/generated/hestia-core/user_private.ts": {
         "hash": "1c85c108e64e3884",
-        "generatedAt": "2026-08-01T16:07:23.126Z"
+        "generatedAt": "2026-08-01T16:34:13.722Z"
       },
       "src/types/generated/hestia-core/user_roles.ts": {
         "hash": "c3f73cb3be363768",
-        "generatedAt": "2026-08-01T16:07:23.128Z"
+        "generatedAt": "2026-08-01T16:34:13.724Z"
       },
       "src/app/api/generated/hestia-core/user_roles/route.ts": {
         "hash": "51a375aa51a6519c",
-        "generatedAt": "2026-08-01T16:07:23.128Z"
+        "generatedAt": "2026-08-01T16:34:13.724Z"
       },
       "src/app/api/generated/hestia-core/user_roles/[id]/route.ts": {
         "hash": "1bfd8b7e46f07eee",
-        "generatedAt": "2026-08-01T16:07:23.128Z"
+        "generatedAt": "2026-08-01T16:34:13.724Z"
       },
       "src/hooks/generated/hestia-core/user_roles.ts": {
         "hash": "9c04b0b3f94eaca5",
-        "generatedAt": "2026-08-01T16:07:23.129Z"
+        "generatedAt": "2026-08-01T16:34:13.724Z"
       },
       "src/lib/utils/generated/hestia-core/user_roles.ts": {
         "hash": "ceb4c4aa16cd87e9",
-        "generatedAt": "2026-08-01T16:07:23.129Z"
+        "generatedAt": "2026-08-01T16:34:13.725Z"
       },
       "src/types/generated/aethelred-connections/vercel_connection.ts": {
         "hash": "31190c976ff21a65",
@@ -28319,223 +28675,223 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/types/generated/hestia-core/vessel_anchors.ts": {
         "hash": "a8222f18c47d533a",
-        "generatedAt": "2026-08-01T16:07:23.138Z"
+        "generatedAt": "2026-08-01T16:34:13.733Z"
       },
       "src/app/api/generated/hestia-core/vessel_anchors/route.ts": {
         "hash": "072dba7a9819af00",
-        "generatedAt": "2026-08-01T16:07:23.139Z"
+        "generatedAt": "2026-08-01T16:34:13.733Z"
       },
       "src/app/api/generated/hestia-core/vessel_anchors/[id]/route.ts": {
         "hash": "f47c67d12eb2cabc",
-        "generatedAt": "2026-08-01T16:07:23.139Z"
+        "generatedAt": "2026-08-01T16:34:13.733Z"
       },
       "src/hooks/generated/hestia-core/vessel_anchors.ts": {
         "hash": "509e386fcb0cf266",
-        "generatedAt": "2026-08-01T16:07:23.139Z"
+        "generatedAt": "2026-08-01T16:34:13.733Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_anchors.ts": {
         "hash": "ef2eda92426c8dbb",
-        "generatedAt": "2026-08-01T16:07:23.140Z"
+        "generatedAt": "2026-08-01T16:34:13.733Z"
       },
       "src/types/generated/hestia-core/vessel_bubbles.ts": {
         "hash": "85ad165d1beffef9",
-        "generatedAt": "2026-08-01T16:07:23.140Z"
+        "generatedAt": "2026-08-01T16:34:13.734Z"
       },
       "src/app/api/generated/hestia-core/vessel_bubbles/route.ts": {
         "hash": "090048b4384c7bcf",
-        "generatedAt": "2026-08-01T16:07:23.140Z"
+        "generatedAt": "2026-08-01T16:34:13.734Z"
       },
       "src/app/api/generated/hestia-core/vessel_bubbles/[id]/route.ts": {
         "hash": "fe2409b2ae2cc0dd",
-        "generatedAt": "2026-08-01T16:07:23.141Z"
+        "generatedAt": "2026-08-01T16:34:13.735Z"
       },
       "src/hooks/generated/hestia-core/vessel_bubbles.ts": {
         "hash": "5a364226c1a1b26c",
-        "generatedAt": "2026-08-01T16:07:23.141Z"
+        "generatedAt": "2026-08-01T16:34:13.735Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_bubbles.ts": {
         "hash": "b2fc1d1900398dab",
-        "generatedAt": "2026-08-01T16:07:23.141Z"
+        "generatedAt": "2026-08-01T16:34:13.735Z"
       },
       "src/types/generated/hestia-core/vessel_collections.ts": {
         "hash": "64481631256324cd",
-        "generatedAt": "2026-08-01T16:07:23.141Z"
+        "generatedAt": "2026-08-01T16:34:13.735Z"
       },
       "src/app/api/generated/hestia-core/vessel_collections/route.ts": {
         "hash": "a269e4f277020b75",
-        "generatedAt": "2026-08-01T16:07:23.142Z"
+        "generatedAt": "2026-08-01T16:34:13.736Z"
       },
       "src/app/api/generated/hestia-core/vessel_collections/[id]/route.ts": {
         "hash": "1aee9984152ed972",
-        "generatedAt": "2026-08-01T16:07:23.142Z"
+        "generatedAt": "2026-08-01T16:34:13.736Z"
       },
       "src/hooks/generated/hestia-core/vessel_collections.ts": {
         "hash": "e3772b95056ef190",
-        "generatedAt": "2026-08-01T16:07:23.143Z"
+        "generatedAt": "2026-08-01T16:34:13.736Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_collections.ts": {
         "hash": "855e38c481f6ea45",
-        "generatedAt": "2026-08-01T16:07:23.143Z"
+        "generatedAt": "2026-08-01T16:34:13.736Z"
       },
       "src/types/generated/hestia-core/vessel_companions.ts": {
         "hash": "e0cdc8188f8e1f55",
-        "generatedAt": "2026-08-01T16:07:23.143Z"
+        "generatedAt": "2026-08-01T16:34:13.737Z"
       },
       "src/app/api/generated/hestia-core/vessel_companions/route.ts": {
         "hash": "3cec88666c31d7a0",
-        "generatedAt": "2026-08-01T16:07:23.144Z"
+        "generatedAt": "2026-08-01T16:34:13.737Z"
       },
       "src/app/api/generated/hestia-core/vessel_companions/[id]/route.ts": {
         "hash": "59a8c78a3cee956e",
-        "generatedAt": "2026-08-01T16:07:23.144Z"
+        "generatedAt": "2026-08-01T16:34:13.737Z"
       },
       "src/hooks/generated/hestia-core/vessel_companions.ts": {
         "hash": "306d535c4d3f99a6",
-        "generatedAt": "2026-08-01T16:07:23.144Z"
+        "generatedAt": "2026-08-01T16:34:13.737Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_companions.ts": {
         "hash": "e3176e757c2b5ad0",
-        "generatedAt": "2026-08-01T16:07:23.144Z"
+        "generatedAt": "2026-08-01T16:34:13.737Z"
       },
       "src/types/generated/hestia-core/vessel_config.ts": {
         "hash": "092e551b816e021a",
-        "generatedAt": "2026-08-01T16:07:23.129Z"
+        "generatedAt": "2026-08-01T16:34:13.725Z"
       },
       "src/app/api/generated/hestia-core/vessel_config/route.ts": {
         "hash": "045b5f044c3ada04",
-        "generatedAt": "2026-08-01T16:07:23.130Z"
+        "generatedAt": "2026-08-01T16:34:13.725Z"
       },
       "src/app/api/generated/hestia-core/vessel_config/[id]/route.ts": {
         "hash": "6154ca2a4345115d",
-        "generatedAt": "2026-08-01T16:07:23.130Z"
+        "generatedAt": "2026-08-01T16:34:13.725Z"
       },
       "src/hooks/generated/hestia-core/vessel_config.ts": {
         "hash": "f8264afaeeb759b9",
-        "generatedAt": "2026-08-01T16:07:23.130Z"
+        "generatedAt": "2026-08-01T16:34:13.726Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_config.ts": {
         "hash": "d035a26fd97c3e6f",
-        "generatedAt": "2026-08-01T16:07:23.130Z"
+        "generatedAt": "2026-08-01T16:34:13.726Z"
       },
       "src/types/generated/hestia-core/vessel_decorations.ts": {
         "hash": "b3a46a0ec11b9a27",
-        "generatedAt": "2026-08-01T16:07:23.145Z"
+        "generatedAt": "2026-08-01T16:34:13.738Z"
       },
       "src/app/api/generated/hestia-core/vessel_decorations/route.ts": {
         "hash": "728a5699f999b5e0",
-        "generatedAt": "2026-08-01T16:07:23.145Z"
+        "generatedAt": "2026-08-01T16:34:13.738Z"
       },
       "src/app/api/generated/hestia-core/vessel_decorations/[id]/route.ts": {
         "hash": "a4836ec2202ead57",
-        "generatedAt": "2026-08-01T16:07:23.145Z"
+        "generatedAt": "2026-08-01T16:34:13.738Z"
       },
       "src/hooks/generated/hestia-core/vessel_decorations.ts": {
         "hash": "ab9b37851df27e37",
-        "generatedAt": "2026-08-01T16:07:23.145Z"
+        "generatedAt": "2026-08-01T16:34:13.738Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_decorations.ts": {
         "hash": "75539b493cb92e73",
-        "generatedAt": "2026-08-01T16:07:23.146Z"
+        "generatedAt": "2026-08-01T16:34:13.739Z"
       },
       "src/types/generated/hestia-core/vessel_exteriors.ts": {
         "hash": "31a26614b5edfc4b",
-        "generatedAt": "2026-08-01T16:07:23.146Z"
+        "generatedAt": "2026-08-01T16:34:13.739Z"
       },
       "src/app/api/generated/hestia-core/vessel_exteriors/route.ts": {
         "hash": "2e5d8f49d9522e6f",
-        "generatedAt": "2026-08-01T16:07:23.146Z"
+        "generatedAt": "2026-08-01T16:34:13.739Z"
       },
       "src/app/api/generated/hestia-core/vessel_exteriors/[id]/route.ts": {
         "hash": "b2040a0dba2d91c0",
-        "generatedAt": "2026-08-01T16:07:23.147Z"
+        "generatedAt": "2026-08-01T16:34:13.739Z"
       },
       "src/hooks/generated/hestia-core/vessel_exteriors.ts": {
         "hash": "e653c5b27a4ca042",
-        "generatedAt": "2026-08-01T16:07:23.147Z"
+        "generatedAt": "2026-08-01T16:34:13.740Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_exteriors.ts": {
         "hash": "dc4d7c7691440cca",
-        "generatedAt": "2026-08-01T16:07:23.147Z"
+        "generatedAt": "2026-08-01T16:34:13.740Z"
       },
       "src/types/generated/hestia-core/vessel_interiors.ts": {
         "hash": "a8ccc867c8d4ef47",
-        "generatedAt": "2026-08-01T16:07:23.148Z"
+        "generatedAt": "2026-08-01T16:34:13.740Z"
       },
       "src/app/api/generated/hestia-core/vessel_interiors/route.ts": {
         "hash": "a85688c820056619",
-        "generatedAt": "2026-08-01T16:07:23.148Z"
+        "generatedAt": "2026-08-01T16:34:13.740Z"
       },
       "src/app/api/generated/hestia-core/vessel_interiors/[id]/route.ts": {
         "hash": "4f7b8dbde5a64d79",
-        "generatedAt": "2026-08-01T16:07:23.148Z"
+        "generatedAt": "2026-08-01T16:34:13.741Z"
       },
       "src/hooks/generated/hestia-core/vessel_interiors.ts": {
         "hash": "90f3969b2635e2b9",
-        "generatedAt": "2026-08-01T16:07:23.149Z"
+        "generatedAt": "2026-08-01T16:34:13.741Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_interiors.ts": {
         "hash": "3131b8a12ec41f92",
-        "generatedAt": "2026-08-01T16:07:23.149Z"
+        "generatedAt": "2026-08-01T16:34:13.741Z"
       },
       "src/types/generated/hestia-core/vessel_quests.ts": {
         "hash": "365f663a45f44c2e",
-        "generatedAt": "2026-08-01T16:07:23.149Z"
+        "generatedAt": "2026-08-01T16:34:13.741Z"
       },
       "src/app/api/generated/hestia-core/vessel_quests/route.ts": {
         "hash": "593b6fc18c12cc8c",
-        "generatedAt": "2026-08-01T16:07:23.150Z"
+        "generatedAt": "2026-08-01T16:34:13.741Z"
       },
       "src/app/api/generated/hestia-core/vessel_quests/[id]/route.ts": {
         "hash": "b33975d3b2d7b8f2",
-        "generatedAt": "2026-08-01T16:07:23.150Z"
+        "generatedAt": "2026-08-01T16:34:13.742Z"
       },
       "src/hooks/generated/hestia-core/vessel_quests.ts": {
         "hash": "312c8c45c4d88eb6",
-        "generatedAt": "2026-08-01T16:07:23.150Z"
+        "generatedAt": "2026-08-01T16:34:13.742Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_quests.ts": {
         "hash": "111efadc73bac413",
-        "generatedAt": "2026-08-01T16:07:23.151Z"
+        "generatedAt": "2026-08-01T16:34:13.742Z"
       },
       "src/types/generated/hestia-core/vessel_rooms.ts": {
         "hash": "3ba7ec88d4a4c79b",
-        "generatedAt": "2026-08-01T16:07:23.151Z"
+        "generatedAt": "2026-08-01T16:34:13.742Z"
       },
       "src/app/api/generated/hestia-core/vessel_rooms/route.ts": {
         "hash": "2423dea760e1b8a5",
-        "generatedAt": "2026-08-01T16:07:23.151Z"
+        "generatedAt": "2026-08-01T16:34:13.743Z"
       },
       "src/app/api/generated/hestia-core/vessel_rooms/[id]/route.ts": {
         "hash": "5367c99df8868218",
-        "generatedAt": "2026-08-01T16:07:23.151Z"
+        "generatedAt": "2026-08-01T16:34:13.743Z"
       },
       "src/hooks/generated/hestia-core/vessel_rooms.ts": {
         "hash": "d8a7205a8ca6c482",
-        "generatedAt": "2026-08-01T16:07:23.152Z"
+        "generatedAt": "2026-08-01T16:34:13.743Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_rooms.ts": {
         "hash": "a4fe18afe98fbf31",
-        "generatedAt": "2026-08-01T16:07:23.152Z"
+        "generatedAt": "2026-08-01T16:34:13.743Z"
       },
       "src/types/generated/hestia-core/vessel_sigils.ts": {
         "hash": "29b068db22ae89b0",
-        "generatedAt": "2026-08-01T16:07:23.152Z"
+        "generatedAt": "2026-08-01T16:34:13.743Z"
       },
       "src/app/api/generated/hestia-core/vessel_sigils/route.ts": {
         "hash": "a195e1ac942e5fc9",
-        "generatedAt": "2026-08-01T16:07:23.153Z"
+        "generatedAt": "2026-08-01T16:34:13.744Z"
       },
       "src/app/api/generated/hestia-core/vessel_sigils/[id]/route.ts": {
         "hash": "309df7c038de5e6f",
-        "generatedAt": "2026-08-01T16:07:23.153Z"
+        "generatedAt": "2026-08-01T16:34:13.744Z"
       },
       "src/hooks/generated/hestia-core/vessel_sigils.ts": {
         "hash": "a80ca6545e23915c",
-        "generatedAt": "2026-08-01T16:07:23.153Z"
+        "generatedAt": "2026-08-01T16:34:13.744Z"
       },
       "src/lib/utils/generated/hestia-core/vessel_sigils.ts": {
         "hash": "673a590d7e7af213",
-        "generatedAt": "2026-08-01T16:07:23.153Z"
+        "generatedAt": "2026-08-01T16:34:13.744Z"
       },
       "src/types/generated/hestia-core/ware_participants.ts": {
         "hash": "713466a5140ba679",
@@ -28619,7 +28975,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/lib/constants/generated/hestia-core/address_type.ts": {
         "hash": "3bb83005f3051d0a",
-        "generatedAt": "2026-08-01T16:07:23.164Z"
+        "generatedAt": "2026-08-01T16:34:13.752Z"
       },
       "src/lib/constants/generated/themis-governance/application_status.ts": {
         "hash": "7fd6f23c59865e8c",
@@ -28631,71 +28987,71 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/lib/constants/generated/hestia-core/content_status.ts": {
         "hash": "cb559818ea554edf",
-        "generatedAt": "2026-08-01T16:07:23.164Z"
+        "generatedAt": "2026-08-01T16:34:13.753Z"
       },
       "src/lib/constants/generated/hestia-core/display_theme.ts": {
         "hash": "d48d4838dc8a6d76",
-        "generatedAt": "2026-08-01T16:07:23.164Z"
+        "generatedAt": "2026-08-01T16:34:13.753Z"
       },
       "src/lib/constants/generated/hestia-core/exchange_status.ts": {
         "hash": "52f66991a2e495f7",
-        "generatedAt": "2026-08-01T16:07:23.165Z"
+        "generatedAt": "2026-08-01T16:34:13.753Z"
       },
       "src/lib/constants/generated/hestia-core/global_region.ts": {
         "hash": "1ce3cb5de15a07aa",
-        "generatedAt": "2026-08-01T16:07:23.165Z"
+        "generatedAt": "2026-08-01T16:34:13.753Z"
       },
       "src/lib/constants/generated/hestia-core/herald_digest.ts": {
         "hash": "fc871b961e4704f7",
-        "generatedAt": "2026-08-01T16:07:23.165Z"
+        "generatedAt": "2026-08-01T16:34:13.754Z"
       },
       "src/lib/constants/generated/hestia-core/notification_channel.ts": {
         "hash": "293d707dbddf1e4d",
-        "generatedAt": "2026-08-01T16:07:23.166Z"
+        "generatedAt": "2026-08-01T16:34:13.754Z"
       },
       "src/lib/constants/generated/hestia-core/pricing_model.ts": {
         "hash": "e3cd6295d1b81494",
-        "generatedAt": "2026-08-01T16:07:23.166Z"
+        "generatedAt": "2026-08-01T16:34:13.754Z"
       },
       "src/lib/constants/generated/hestia-core/processing_speed.ts": {
         "hash": "c500a628fbdfe6e4",
-        "generatedAt": "2026-08-01T16:07:23.167Z"
+        "generatedAt": "2026-08-01T16:34:13.754Z"
       },
       "src/lib/constants/generated/hestia-core/profile_status.ts": {
         "hash": "d124bf7032eb6824",
-        "generatedAt": "2026-08-01T16:07:23.167Z"
+        "generatedAt": "2026-08-01T16:34:13.755Z"
       },
       "src/lib/constants/generated/hestia-core/relationship_type.ts": {
         "hash": "8b0060a7490d2273",
-        "generatedAt": "2026-08-01T16:07:23.167Z"
+        "generatedAt": "2026-08-01T16:34:13.755Z"
       },
       "src/lib/constants/generated/hestia-core/sensory_level.ts": {
         "hash": "82a8b2b5cf0e402f",
-        "generatedAt": "2026-08-01T16:07:23.168Z"
+        "generatedAt": "2026-08-01T16:34:13.755Z"
       },
       "src/lib/constants/generated/hestia-core/sovereign_tier.ts": {
         "hash": "bac7d4215fb5ba5f",
-        "generatedAt": "2026-08-01T16:07:23.168Z"
+        "generatedAt": "2026-08-01T16:34:13.755Z"
       },
       "src/lib/constants/generated/hestia-core/subscription_tier.ts": {
         "hash": "6a0a3f4e20b03314",
-        "generatedAt": "2026-08-01T16:07:23.168Z"
+        "generatedAt": "2026-08-01T16:34:13.756Z"
       },
       "src/lib/constants/generated/hestia-core/user_role.ts": {
         "hash": "6ec11d3554862efb",
-        "generatedAt": "2026-08-01T16:07:23.168Z"
+        "generatedAt": "2026-08-01T16:34:13.756Z"
       },
       "src/lib/constants/generated/hestia-core/visibility.ts": {
         "hash": "f2c933f34c217885",
-        "generatedAt": "2026-08-01T16:07:23.169Z"
+        "generatedAt": "2026-08-01T16:34:13.756Z"
       },
       "src/lib/constants/generated/hestia-core/ware_type.ts": {
         "hash": "051928005cfc4349",
-        "generatedAt": "2026-08-01T16:07:23.169Z"
+        "generatedAt": "2026-08-01T16:34:13.756Z"
       },
       "src/lib/constants/generated/hestia-core/work_type.ts": {
         "hash": "b968b0378c01f3c9",
-        "generatedAt": "2026-08-01T16:07:23.169Z"
+        "generatedAt": "2026-08-01T16:34:13.756Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\admin_actions.ts": {
         "hash": "28d787b00a1955cd",
@@ -28795,19 +29151,19 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_items.ts": {
         "hash": "190470f0570d426d",
-        "generatedAt": "2026-08-01T16:07:23.176Z"
+        "generatedAt": "2026-08-01T16:34:13.764Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\collection_sets.ts": {
         "hash": "2c94cc3e9c3a5aa2",
-        "generatedAt": "2026-08-01T16:07:23.177Z"
+        "generatedAt": "2026-08-01T16:34:13.764Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\community_profiles.ts": {
         "hash": "e2753d07e5ce3136",
-        "generatedAt": "2026-08-01T16:32:43.023Z"
+        "generatedAt": "2026-08-01T16:34:13.758Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\companion_cues.ts": {
         "hash": "9dfdb164f27b63df",
-        "generatedAt": "2026-08-01T16:07:23.177Z"
+        "generatedAt": "2026-08-01T16:34:13.764Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\consciousness.ts": {
         "hash": "413a9f0515380ad5",
@@ -28839,7 +29195,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\current.ts": {
         "hash": "b44aaff24d27b61b",
-        "generatedAt": "2026-08-01T16:07:23.172Z"
+        "generatedAt": "2026-08-01T16:34:13.759Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\iris-communications\\customs.ts": {
         "hash": "8dc93d5307f034b9",
@@ -28863,7 +29219,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\energy_entries.ts": {
         "hash": "85df5067b3e7778a",
-        "generatedAt": "2026-08-01T16:07:23.173Z"
+        "generatedAt": "2026-08-01T16:34:13.760Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\entity_states.ts": {
         "hash": "4708ae5d9b077435",
@@ -28907,11 +29263,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_plots.ts": {
         "hash": "49a7ce540fed0255",
-        "generatedAt": "2026-08-01T16:07:23.177Z"
+        "generatedAt": "2026-08-01T16:34:13.764Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\garden_visits.ts": {
         "hash": "a7d404aad25752be",
-        "generatedAt": "2026-08-01T16:07:23.177Z"
+        "generatedAt": "2026-08-01T16:34:13.765Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\generation_templates.ts": {
         "hash": "a42bed32bd8a8518",
@@ -28967,11 +29323,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\heralds.ts": {
         "hash": "a8a0566d0cb8215e",
-        "generatedAt": "2026-08-01T16:07:23.174Z"
+        "generatedAt": "2026-08-01T16:34:13.761Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\journal_entries.ts": {
         "hash": "1fb70d931d131e93",
-        "generatedAt": "2026-08-01T16:07:23.173Z"
+        "generatedAt": "2026-08-01T16:34:13.760Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\keywords.ts": {
         "hash": "9034e138d19c0300",
@@ -29067,7 +29423,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\plant_stages.ts": {
         "hash": "526166481ef7340e",
-        "generatedAt": "2026-08-01T16:07:23.178Z"
+        "generatedAt": "2026-08-01T16:34:13.765Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\platform_config.ts": {
         "hash": "0c1d4ba496d3f5bc",
@@ -29151,7 +29507,7 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\seed_types.ts": {
         "hash": "e3c06a9347032722",
-        "generatedAt": "2026-08-01T16:07:23.178Z"
+        "generatedAt": "2026-08-01T16:34:13.765Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\seer.ts": {
         "hash": "a64cffca8d3732ad",
@@ -29223,19 +29579,19 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_financial.ts": {
         "hash": "b5d53e12c42dad3c",
-        "generatedAt": "2026-08-01T16:07:23.171Z"
+        "generatedAt": "2026-08-01T16:34:13.758Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_page_views.ts": {
         "hash": "d52a972e37fc7982",
-        "generatedAt": "2026-08-01T16:07:23.173Z"
+        "generatedAt": "2026-08-01T16:34:13.760Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_private.ts": {
         "hash": "549bfb1b98f31408",
-        "generatedAt": "2026-08-01T16:07:23.171Z"
+        "generatedAt": "2026-08-01T16:34:13.758Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\user_roles.ts": {
         "hash": "40a9b12d3eb8cf3f",
-        "generatedAt": "2026-08-01T16:07:23.172Z"
+        "generatedAt": "2026-08-01T16:34:13.759Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\aethelred-connections\\vercel_connection.ts": {
         "hash": "d2687ad032027b8a",
@@ -29243,47 +29599,47 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_anchors.ts": {
         "hash": "2df847154bfcea0f",
-        "generatedAt": "2026-08-01T16:07:23.174Z"
+        "generatedAt": "2026-08-01T16:34:13.761Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_bubbles.ts": {
         "hash": "722a4c6513e99f62",
-        "generatedAt": "2026-08-01T16:07:23.174Z"
+        "generatedAt": "2026-08-01T16:34:13.761Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_collections.ts": {
         "hash": "f122a8672d50100e",
-        "generatedAt": "2026-08-01T16:07:23.174Z"
+        "generatedAt": "2026-08-01T16:34:13.761Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_companions.ts": {
         "hash": "64d228155602100c",
-        "generatedAt": "2026-08-01T16:07:23.175Z"
+        "generatedAt": "2026-08-01T16:34:13.762Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_config.ts": {
         "hash": "1eb75ad504ac18ed",
-        "generatedAt": "2026-08-01T16:07:23.172Z"
+        "generatedAt": "2026-08-01T16:34:13.759Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_decorations.ts": {
         "hash": "75bc95bf8f305ee3",
-        "generatedAt": "2026-08-01T16:07:23.175Z"
+        "generatedAt": "2026-08-01T16:34:13.762Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_exteriors.ts": {
         "hash": "14e9c51b2f71d4ab",
-        "generatedAt": "2026-08-01T16:07:23.175Z"
+        "generatedAt": "2026-08-01T16:34:13.762Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_interiors.ts": {
         "hash": "cd282ad6f50a44c3",
-        "generatedAt": "2026-08-01T16:07:23.175Z"
+        "generatedAt": "2026-08-01T16:34:13.763Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_quests.ts": {
         "hash": "a63a450edd114477",
-        "generatedAt": "2026-08-01T16:07:23.176Z"
+        "generatedAt": "2026-08-01T16:34:13.763Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_rooms.ts": {
         "hash": "b5837e7e1188e667",
-        "generatedAt": "2026-08-01T16:07:23.176Z"
+        "generatedAt": "2026-08-01T16:34:13.763Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\vessel_sigils.ts": {
         "hash": "11bb90edfc89dbad",
-        "generatedAt": "2026-08-01T16:07:23.176Z"
+        "generatedAt": "2026-08-01T16:34:13.763Z"
       },
       "C:\\_superposition\\AudHDities\\src\\lib\\validators\\generated\\hestia-core\\ware_participants.ts": {
         "hash": "4b255e7d31559df7",
@@ -29583,11 +29939,11 @@ export const SYSTEM_REGISTRY: SystemRegistryFile = {
       },
       "src/hooks/generated/hestia-core/community_profiles.ts": {
         "hash": "0a78c2c1832b2ead",
-        "generatedAt": "2026-08-01T16:32:43.018Z"
+        "generatedAt": "2026-08-01T16:34:13.720Z"
       },
       "src/lib/utils/generated/hestia-core/community_profiles.ts": {
         "hash": "2153a58ebe59a3df",
-        "generatedAt": "2026-08-01T16:32:43.020Z"
+        "generatedAt": "2026-08-01T16:34:13.720Z"
       },
       "src/types/generated/plutus-economics/distribution_recipients.ts": {
         "hash": "f23675e7e9abc967",

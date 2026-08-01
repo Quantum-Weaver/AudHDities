@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/herald_digest.ts
-// GENERATED: 2026-08-01T16:03:07.231Z
+// GENERATED: 2026-08-01T17:36:51.706Z
 // SOURCE: Constants.public.Enums.herald_digest
 // VALUES: 5 entries
 // =====================================================

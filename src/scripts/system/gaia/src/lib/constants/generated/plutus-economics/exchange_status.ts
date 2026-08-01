@@ -1,6 +1,6 @@
 // =====================================================
-// FILE: constants/generated/hestia-core/exchange_status.ts
-// GENERATED: 2026-08-01T16:03:07.227Z
+// FILE: constants/generated/plutus-economics/exchange_status.ts
+// GENERATED: 2026-08-01T17:36:51.703Z
 // SOURCE: Constants.public.Enums.exchange_status
 // VALUES: 4 entries
 // =====================================================
