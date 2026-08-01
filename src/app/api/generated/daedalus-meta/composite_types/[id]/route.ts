@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CompositeTypesUpdateSchema } from '@/lib/validators/generated/daedalus-meta/composite_types';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.251Z
+// Generated: 2026-08-01T21:41:40.458Z
 // Table: composite_types
 
 export async function GET(

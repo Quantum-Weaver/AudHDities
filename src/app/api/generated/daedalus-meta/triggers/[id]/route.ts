@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TriggersUpdateSchema } from '@/lib/validators/generated/daedalus-meta/triggers';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.401Z
+// Generated: 2026-08-01T21:41:40.609Z
 // Table: triggers
 
 export async function GET(

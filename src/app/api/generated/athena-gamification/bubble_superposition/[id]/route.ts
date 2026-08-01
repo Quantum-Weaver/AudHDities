@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { BubbleSuperpositionUpdateSchema } from '@/lib/validators/generated/athena-gamification/bubble_superposition';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.232Z
+// Generated: 2026-08-01T21:41:40.440Z
 // Table: bubble_superposition
 
 export async function GET(

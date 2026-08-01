@@ -71,12 +71,28 @@ KP merges · privacy always. Plus this realm's own standing law:
   - **The live walk:** a test purchase end to end (Stripe test mode,
     KP's ⚛ eye) — the type-meter is zero but the threshold has not
     been walked since the re-wire.
-  - **The Loom naming the hands — GATED on consent design:**
-    `ware_participants.user_id` is a true user reference, so naming a
-    helper publishes another vessel's association; the two-consent law
-    applies (the named hand must say yes), and a user-search surface
-    is needed. Design for the pair's table / KP's ⚛ eye — not a form
-    field to be built casually.
+  - **The participants' consent — RULED by KP ⚛ 2026-08-01, his words
+    verbatim:** "participant user id will be published if opted in to
+    do so. this will be asked and handled when the participant and the
+    artisan collaborate on a project. participants will need a menu
+    space they can see the works and wares they participated in, with
+    a way to communicate with the system to toggle on and off that
+    visibility. the id will be connected to the works and wares to
+    enable distribution of residual pool regardless of published
+    status." Existence is economics; publication is the participant's
+    own toggle. **Landed same sitting:** 033-the-participants-consent
+    (grammar docs/sql — is_public default false on both participant
+    tables · opt-in public read replacing publish-by-default · the
+    self-toggle UPDATE policy) — run by KP's hand, verified live
+    (columns + policies + anon door), gaia sync run. The Contributions
+    Ledger is now the menu space: both tables shown, Shown-with-the-
+    work / Kept-quiet toggle writing through the supabase client under
+    the participant-own policy. Awaits KP's GAIA regen for is_public
+    to reach the local types (tsc red on exactly that until it lands).
+    **Still future:** the ASK surface at collaboration time (when the
+    artisan and participant agree to collaborate — where the row is
+    born and the question is first asked); design rides the pair's
+    table.
   - The identity slice (audhd core's seat) may still rename the
     auth-facing `useUser().roles`/'creator' check the Loom gates on;
     this realm inherits its verdicts when they land.

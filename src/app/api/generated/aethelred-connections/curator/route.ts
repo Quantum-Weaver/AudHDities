@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CuratorInsertSchema } from '@/lib/validators/generated/aethelred-connections/curator';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.260Z
+// Generated: 2026-08-01T21:41:40.466Z
 // Table: curator
 
 export async function GET(request: NextRequest) {

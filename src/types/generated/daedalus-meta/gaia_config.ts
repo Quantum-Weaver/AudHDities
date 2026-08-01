@@ -2,7 +2,7 @@
 // FILE: types/generated/daedalus-meta/gaia_config.ts
 // HANDLING: full_crud
 // DEITY: daedalus-meta
-// GENERATED: 2026-08-01T18:15:38.597Z
+// GENERATED: 2026-08-01T21:41:40.266Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

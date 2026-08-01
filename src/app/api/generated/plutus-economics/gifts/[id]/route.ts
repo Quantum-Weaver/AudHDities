@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GiftsUpdateSchema } from '@/lib/validators/generated/plutus-economics/gifts';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.299Z
+// Generated: 2026-08-01T21:41:40.503Z
 // Table: gifts
 
 export async function GET(

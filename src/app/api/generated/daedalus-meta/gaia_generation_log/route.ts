@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GaiaGenerationLogInsertSchema } from '@/lib/validators/generated/daedalus-meta/gaia_generation_log';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.289Z
+// Generated: 2026-08-01T21:41:40.494Z
 // Table: gaia_generation_log
 
 export async function GET(request: NextRequest) {

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { IndexesUpdateSchema } from '@/lib/validators/generated/daedalus-meta/indexes';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.315Z
+// Generated: 2026-08-01T21:41:40.520Z
 // Table: indexes
 
 export async function GET(

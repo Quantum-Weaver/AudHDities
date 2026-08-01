@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { RelationshipsUpdateSchema } from '@/lib/validators/generated/hestia-core/relationships';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.362Z
+// Generated: 2026-08-01T21:41:40.575Z
 // Table: relationships
 
 export async function GET(
