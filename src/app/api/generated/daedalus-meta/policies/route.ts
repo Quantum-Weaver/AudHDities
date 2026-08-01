@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PoliciesInsertSchema } from '@/lib/validators/generated/daedalus-meta/policies';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.348Z
+// Generated: 2026-08-01T21:41:40.560Z
 // Table: policies
 
 export async function GET(request: NextRequest) {

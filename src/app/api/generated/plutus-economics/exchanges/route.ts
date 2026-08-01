@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ExchangesInsertSchema } from '@/lib/validators/generated/plutus-economics/exchanges';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.276Z
+// Generated: 2026-08-01T21:41:40.482Z
 // Table: exchanges
 
 export async function GET(request: NextRequest) {

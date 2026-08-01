@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/gift_wrappings.ts
 // HANDLING: full_crud
 // DEITY: plutus-economics
-// GENERATED: 2026-08-01T18:15:38.600Z
+// GENERATED: 2026-08-01T21:41:40.270Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

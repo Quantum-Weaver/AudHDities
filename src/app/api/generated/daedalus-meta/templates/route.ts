@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { TemplatesInsertSchema } from '@/lib/validators/generated/daedalus-meta/templates';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.400Z
+// Generated: 2026-08-01T21:41:40.608Z
 // Table: templates
 
 export async function GET(request: NextRequest) {

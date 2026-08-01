@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GardenPlotsUpdateSchema } from '@/lib/validators/generated/hestia-core/garden_plots';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.291Z
+// Generated: 2026-08-01T21:41:40.496Z
 // Table: garden_plots
 
 export async function GET(

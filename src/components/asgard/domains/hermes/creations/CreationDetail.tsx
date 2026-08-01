@@ -4,6 +4,10 @@
 // computed server-side at the Exchange (the buyer sees the split there:
 // PriceBreakdown is this realm's protected feature). The exchange verbs
 // are the realm's ceremony: Receive (freely) · Bring home (exchanged).
+// The plain stall (2026-08-01, KP's ruling via the E4 study): the square
+// is quiet; HERE the price speaks plainly with the split beside it. And
+// when the last has gone home, the stall says so in the settled register
+// — never a countdown on the way down.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -14,6 +18,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { CheckoutButton } from '@/components/asgard/domains/hermes/checkout/CheckoutButton';
+import { PriceBreakdown } from '@/components/asgard/domains/hermes/checkout/PriceBreakdown';
 import { formatPrice } from '@/lib/utils/components/runes/card.utils';
 import { ArrowLeft, Package, TrendingUp } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -71,6 +76,7 @@ export function CreationDetail() {
   }
 
   const cardData: CardData = { id: ware.id, type: 'product', title: ware.name, description: ware.description || '' };
+  const soldOut = ware.quantity_available !== null && ware.quantity_available <= 0;
 
   return (
     <main className="min-h-screen py-12">
@@ -100,6 +106,17 @@ export function CreationDetail() {
             )}
           </div>
 
+          {/* The split, beside the price (KP's ruling: the stall speaks plainly) */}
+          {(ware.pricing_model === 'fixed' || ware.pricing_model === 'pay_what_you_want') && ware.price !== null && ware.price > 0 && (
+            <div className="mb-6">
+              <PriceBreakdown
+                subtotal={ware.price}
+                showResidualPool={!!ware.residual_pool_percent && ware.residual_pool_percent > 0}
+                residualPoolPercent={ware.residual_pool_percent ?? 0}
+              />
+            </div>
+          )}
+
           {ware.residual_pool_percent !== null && ware.residual_pool_percent > 0 && (
             <p className="text-xs text-star-dust/40 text-center flex items-center justify-center gap-1.5 mb-6">
               <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
@@ -108,7 +125,11 @@ export function CreationDetail() {
           )}
 
           <div className="flex gap-3 mt-6">
-            {ware.pricing_model === 'free' ? (
+            {soldOut ? (
+              <p className="text-sm text-star-dust/60 italic">
+                These have all gone home — the maker may weave more.
+              </p>
+            ) : ware.pricing_model === 'free' ? (
               <Button variant="primary" size="md">Receive</Button>
             ) : (
               <CheckoutButton product={ware} size="md" />

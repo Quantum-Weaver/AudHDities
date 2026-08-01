@@ -1,8 +1,11 @@
 // src/components/asgard/domains/hermes/creations/CreationsGallery.tsx
 // Wares edition (2026-07-31): products became wares — one base price plus a
 // pricing_model, status enum instead of is_published/active, created_by
-// instead of creator_id/owner_id. Price display follows ProductCard's
-// priceLabel; solidarity pricing is computed server-side at the Exchange.
+// instead of creator_id/owner_id.
+// The quiet square (2026-08-01, KP's ruling via the E4 study): gallery
+// cards carry no price — the work and its maker lead; the price speaks
+// plainly at the stall (CreationDetail), with the split beside it.
+// Worth felt as human before price read as number.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -12,7 +15,6 @@ import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Package, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { formatPrice } from '@/lib/utils/components/runes/card.utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/types/supabase/database.helpers.js';
 import { useSearchParams } from 'next/navigation';
@@ -22,14 +24,6 @@ type WareItem = Tables<'wares'>;
 const TYPE_LABELS: Record<string, string> = {
   physical: 'Physical', digital: 'Digital', service: 'Service',
 };
-
-function priceLabel(ware: WareItem): string {
-  if (ware.pricing_model === 'free') return 'Free';
-  if (ware.pricing_model === 'patronage_only') return 'Patronage';
-  if (ware.price === null || ware.price <= 0) return '—';
-  const base = formatPrice(ware.price) ?? '—';
-  return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
-}
 
 export function CreationsGallery() {
   const [wares, setWares] = useState<WareItem[]>([]);
@@ -142,12 +136,9 @@ export function CreationsGallery() {
                   </div>
                   <h3 className="text-lg font-semibold text-star-dust mb-2">{ware.name}</h3>
                   {ware.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{ware.description}</p>}
-                  <div className="flex items-center gap-3 mt-auto">
-                    <span className="text-neurospark font-medium">{priceLabel(ware)}</span>
-                    {ware.pricing_model === 'pay_what_you_want' && (
-                      <span className="text-xs text-emerald-400">pay what you want</span>
-                    )}
-                  </div>
+                  {ware.pricing_model === 'free' && (
+                    <span className="text-xs text-emerald-400 mt-auto">freely given</span>
+                  )}
                 </Card>
               </Link>
             );

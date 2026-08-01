@@ -26,9 +26,11 @@ export default function CheckoutCancelPage() {
               <XCircle className="w-6 h-6 text-yellow-400" />
             </div>
             <h2 className="text-xl font-semibold text-star-dust mb-2">Exchange Set Aside</h2>
-            <p className="text-star-dust/60 mb-6">
+            <p className="text-star-dust/60 mb-1">
               Your exchange was set aside. No charges have been made.
             </p>
+            {/* The third word stands at every going — set-aside included */}
+            <p className="text-star-dust/40 text-sm italic mb-6">Gweld ti&apos;n fuan — the Bazaar keeps no ledger of this.</p>
             <div className="flex gap-3 justify-center">
               <Link href="/bazaar">
                 <Button>Return to the Bazaar</Button>

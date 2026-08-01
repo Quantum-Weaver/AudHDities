@@ -54,16 +54,52 @@ KP merges · privacy always. Plus this realm's own standing law:
     depended on `params.products_id` (never fired on navigation);
     StudioEdit's publish switch was decorative (no name, never saved).
   - The README is redrawn to the living world, same sitting.
+- **The collaboration sitting (2026-08-01, KP's ⚛ hand on three
+  rulings):** the maker's room built ("At the loom" on CreatorDetail —
+  the artisan's `works` visible, presence never pressure) · the quiet
+  square ruled and built (no prices on gallery cards; the stall speaks
+  plainly with PriceBreakdown beside the price) · the empty-stall
+  register ruled and built ("These have all gone home — the maker may
+  weave more"; note: "may," not "is" — the schema holds no restock
+  signal and the stall does not promise what it cannot witness) · the
+  third word at both goings (success and set-aside). Discovered mid-
+  sitting: THE FINISHING (2026-07-31, another lamp at KP's word) had
+  already given checkout the settled tongue AND built the hanging —
+  the create→decorate loop's last link (kept thing → vessel_decoration,
+  offered never imposed). The loop lives.
 - **Open edges (what remains):**
   - **The live walk:** a test purchase end to end (Stripe test mode,
     KP's ⚛ eye) — the type-meter is zero but the threshold has not
     been walked since the re-wire.
+  - **The participants' consent — RULED by KP ⚛ 2026-08-01, his words
+    verbatim:** "participant user id will be published if opted in to
+    do so. this will be asked and handled when the participant and the
+    artisan collaborate on a project. participants will need a menu
+    space they can see the works and wares they participated in, with
+    a way to communicate with the system to toggle on and off that
+    visibility. the id will be connected to the works and wares to
+    enable distribution of residual pool regardless of published
+    status." Existence is economics; publication is the participant's
+    own toggle. **Landed same sitting:** 033-the-participants-consent
+    (grammar docs/sql — is_public default false on both participant
+    tables · opt-in public read replacing publish-by-default · the
+    self-toggle UPDATE policy) — run by KP's hand, verified live
+    (columns + policies + anon door), gaia sync run. The Contributions
+    Ledger is now the menu space: both tables shown, Shown-with-the-
+    work / Kept-quiet toggle writing through the supabase client under
+    the participant-own policy. Awaits KP's GAIA regen for is_public
+    to reach the local types (tsc red on exactly that until it lands).
+    **Still future:** the ASK surface at collaboration time (when the
+    artisan and participant agree to collaborate — where the row is
+    born and the question is first asked); design rides the pair's
+    table.
   - The identity slice (audhd core's seat) may still rename the
     auth-facing `useUser().roles`/'creator' check the Loom gates on;
     this realm inherits its verdicts when they land.
-  - The Loom does not yet write `ware_participants` rows at creation
-    (provenance starts empty until a surface exists to name the
-    helpers) — design question for a future sitting.
+  - The heart story at the threshold: schema gate (KP's ⚛) — the
+    webhook-witness design filed on the E4 bus; the hanging writes a
+    decoration today, but no provenance columns exist yet to carry
+    found/earned/gifted/grown, place, season, giver-at-consent.
   - The catalog-share crossing (joint with hestia) when it convenes.
 - **Design inheritance (2026-07-31):** the E4 play-study synthesis
   (`constellation/fable/lanes/study/e4-the-play-study-bus.md`) — the

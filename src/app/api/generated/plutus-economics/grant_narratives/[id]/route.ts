@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { GrantNarrativesUpdateSchema } from '@/lib/validators/generated/plutus-economics/grant_narratives';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-08-01T18:27:13.308Z
+// Generated: 2026-08-01T21:41:40.513Z
 // Table: grant_narratives
 
 export async function GET(
