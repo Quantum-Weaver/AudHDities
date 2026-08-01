@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ResonanceInsertSchema } from '@/lib/validators/generated/mnemosyne-assessment/resonance';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.781Z
+// Generated: 2026-08-01T16:03:06.916Z
 // Table: resonance
 
 export async function GET(request: NextRequest) {

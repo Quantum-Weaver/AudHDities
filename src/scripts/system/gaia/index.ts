@@ -40,6 +40,7 @@ import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js
 
 // Configuration
 import { getAllTableNames, getAllViewNames, DEITY_GROUPS } from '@/config/deity_groups.js';
+import { getEnumFolder } from '@/config/enum_mapping.js';
 import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
 import { formatObjectTypes } from './format/format_object_types.js';
@@ -298,7 +299,6 @@ function filterObjects(
         return false;
       }),
       runtimeEnums: allRuntimeEnums.filter(e => {
-        const { getEnumFolder } = require('@/config/enum_mapping.js');
         return getEnumFolder(e.name) === deityGroup.folderName;
       }),
     };
@@ -1019,7 +1019,7 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
             verbose: writeOptions.verbose, 
             dryRun: writeOptions.dryRun, 
             forceOverwrite: writeOptions.force,
-            outputBase: `lib/validators/generated/${table.deityFolder}`
+            outputBase: `src/lib/validators/generated/${table.deityFolder}`
           }
         );
         

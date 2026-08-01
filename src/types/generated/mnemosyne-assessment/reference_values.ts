@@ -2,7 +2,7 @@
 // FILE: types/generated/mnemosyne-assessment/reference_values.ts
 // HANDLING: full_crud
 // DEITY: mnemosyne-assessment
-// GENERATED: 2026-07-31T23:16:54.753Z
+// GENERATED: 2026-08-01T16:03:06.874Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

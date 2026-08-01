@@ -2,7 +2,7 @@
 // FILE: types/generated/hestia-core/vessel_sigils.ts
 // HANDLING: full_crud
 // DEITY: hestia-core
-// GENERATED: 2026-07-31T23:16:54.995Z
+// GENERATED: 2026-08-01T16:03:07.165Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

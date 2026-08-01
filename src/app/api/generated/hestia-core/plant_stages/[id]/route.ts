@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PlantStagesUpdateSchema } from '@/lib/validators/generated/hestia-core/plant_stages';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.692Z
+// Generated: 2026-08-01T16:03:06.787Z
 // Table: plant_stages
 
 export async function GET(

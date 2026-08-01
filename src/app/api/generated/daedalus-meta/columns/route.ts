@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ColumnsInsertSchema } from '@/lib/validators/generated/daedalus-meta/columns';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.342Z
+// Generated: 2026-08-01T16:03:06.361Z
 // Table: columns
 
 export async function GET(request: NextRequest) {

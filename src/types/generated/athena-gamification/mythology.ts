@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/mythology.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-07-31T23:16:54.660Z
+// GENERATED: 2026-08-01T16:03:06.746Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

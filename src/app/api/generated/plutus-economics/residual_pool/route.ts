@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ResidualPoolInsertSchema } from '@/lib/validators/generated/plutus-economics/residual_pool';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.774Z
+// Generated: 2026-08-01T16:03:06.908Z
 // Table: residual_pool
 
 export async function GET(request: NextRequest) {

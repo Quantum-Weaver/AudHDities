@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { ViewsUpdateSchema } from '@/lib/validators/generated/hestia-core/views';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:55.002Z
+// Generated: 2026-08-01T16:03:07.175Z
 // Table: views
 
 export async function GET(

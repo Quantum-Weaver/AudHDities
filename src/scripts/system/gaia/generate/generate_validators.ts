@@ -10,7 +10,7 @@ import { ImportManager } from '../../../shared/import_manager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../../');
 
 export interface GenerateValidatorsOptions {
   verbose?: boolean;
@@ -41,9 +41,9 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
   if (baseType === 'string') {
     zodType = 'z.string()';
   } else if (baseType === 'id') {
-    zodType = 'z.uuid()';
+    zodType = 'z.string().uuid()';
   } else if (baseType === 'email') {
-    zodType = 'z.email()';    
+    zodType = 'z.string().email()';
   } else if (baseType === 'number') {
     zodType = 'z.number()';
   } else if (baseType === 'boolean') {

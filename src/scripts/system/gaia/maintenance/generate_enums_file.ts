@@ -21,13 +21,13 @@ import { logInfo, logSuccess, logError, logWarning, logDebug } from '../../../sh
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../../');
 
 // ============================================================================
 // PATHS
 // ============================================================================
 
-const OUTPUT_PATH = path.join(PROJECT_ROOT, 'types/supabase/enums.ts');
+const OUTPUT_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/enums.ts');
 
 // ============================================================================
 // TYPES

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserRolesInsertSchema } from '@/lib/validators/generated/hestia-core/user_roles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.916Z
+// Generated: 2026-08-01T16:03:07.077Z
 // Table: user_roles
 
 export async function GET(request: NextRequest) {

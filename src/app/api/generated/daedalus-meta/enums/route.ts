@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { EnumsInsertSchema } from '@/lib/validators/generated/daedalus-meta/enums';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-31T23:16:54.438Z
+// Generated: 2026-08-01T16:03:06.478Z
 // Table: enums
 
 export async function GET(request: NextRequest) {
