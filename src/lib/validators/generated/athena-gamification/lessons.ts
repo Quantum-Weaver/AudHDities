@@ -1,0 +1,76 @@
+// =====================================================
+// FILE: validators/lessons.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import { ENUM_VALUES } from '@/types/supabase/enums';
+import z from 'zod';
+
+// =====================================================
+// Lessons SCHEMAS
+// =====================================================
+
+export const LessonsRowSchema = z.object({
+  content: z.any().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  difficulty: z.string().nullable(),
+  display_order: z.number(),
+  estimated_duration: z.string().nullable(),
+  icon_url: z.string().nullable(),
+  id: z.string(),
+  lesson_type: z.string().nullable(),
+  name: z.string(),
+  resources: z.any().nullable(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const LessonsInsertSchema = z.object({
+  content: z.any().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  difficulty: z.string().nullable().optional(),
+  display_order: z.number().optional(),
+  estimated_duration: z.string().nullable().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
+  lesson_type: z.string().nullable().optional(),
+  name: z.string(),
+  resources: z.any().nullable().optional(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const LessonsUpdateSchema = z.object({
+  content: z.any().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  difficulty: z.string().nullable().optional(),
+  display_order: z.number().optional(),
+  estimated_duration: z.string().nullable().optional(),
+  icon_url: z.string().nullable().optional(),
+  id: z.string().optional(),
+  lesson_type: z.string().nullable().optional(),
+  name: z.string().optional(),
+  resources: z.any().nullable().optional(),
+  slug: z.string().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type LessonsRowInput = z.infer<typeof LessonsRowSchema>;
+export type LessonsInsertInput = z.infer<typeof LessonsInsertSchema>;
+export type LessonsUpdateInput = z.infer<typeof LessonsUpdateSchema>;

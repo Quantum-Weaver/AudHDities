@@ -2,7 +2,7 @@
 // FILE: types/generated/iris-communications/personas.ts
 // HANDLING: full_crud
 // DEITY: iris-communications
-// GENERATED: 2026-08-01T18:08:02.225Z
+// GENERATED: 2026-08-01T18:15:38.617Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

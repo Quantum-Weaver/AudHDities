@@ -1,0 +1,84 @@
+// =====================================================
+// FILE: validators/user_financial.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// UserFinancial SCHEMAS
+// =====================================================
+
+export const UserFinancialRowSchema = z.object({
+  covenant_pool_percent: z.number().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  current_balance: z.number().nullable(),
+  icon_emoji: z.string().nullable(),
+  id: z.string(),
+  payout_details: z.any().nullable(),
+  payout_method: z.string().nullable(),
+  payout_schedule: z.string().nullable(),
+  stripe_account_id: z.string().nullable(),
+  stripe_customer_id: z.string().nullable(),
+  tax_country: z.string().nullable(),
+  tax_id: z.string().nullable(),
+  tax_info: z.any().nullable(),
+  total_contributions: z.number().nullable(),
+  total_earned: z.number().nullable(),
+  total_paid_out: z.number().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const UserFinancialInsertSchema = z.object({
+  covenant_pool_percent: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  current_balance: z.number().nullable().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string(),
+  payout_details: z.any().nullable().optional(),
+  payout_method: z.string().nullable().optional(),
+  payout_schedule: z.string().nullable().optional(),
+  stripe_account_id: z.string().nullable().optional(),
+  stripe_customer_id: z.string().nullable().optional(),
+  tax_country: z.string().nullable().optional(),
+  tax_id: z.string().nullable().optional(),
+  tax_info: z.any().nullable().optional(),
+  total_contributions: z.number().nullable().optional(),
+  total_earned: z.number().nullable().optional(),
+  total_paid_out: z.number().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const UserFinancialUpdateSchema = z.object({
+  covenant_pool_percent: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  current_balance: z.number().nullable().optional(),
+  icon_emoji: z.string().nullable().optional(),
+  id: z.string().optional(),
+  payout_details: z.any().nullable().optional(),
+  payout_method: z.string().nullable().optional(),
+  payout_schedule: z.string().nullable().optional(),
+  stripe_account_id: z.string().nullable().optional(),
+  stripe_customer_id: z.string().nullable().optional(),
+  tax_country: z.string().nullable().optional(),
+  tax_id: z.string().nullable().optional(),
+  tax_info: z.any().nullable().optional(),
+  total_contributions: z.number().nullable().optional(),
+  total_earned: z.number().nullable().optional(),
+  total_paid_out: z.number().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type UserFinancialRowInput = z.infer<typeof UserFinancialRowSchema>;
+export type UserFinancialInsertInput = z.infer<typeof UserFinancialInsertSchema>;
+export type UserFinancialUpdateInput = z.infer<typeof UserFinancialUpdateSchema>;

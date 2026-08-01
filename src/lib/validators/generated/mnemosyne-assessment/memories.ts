@@ -1,0 +1,51 @@
+// =====================================================
+// FILE: validators/memories.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// Memories SCHEMAS
+// =====================================================
+
+export const MemoriesRowSchema = z.object({
+  confidence: z.number().nullable(),
+  created_at: z.string(),
+  description: z.string().nullable(),
+  id: z.string(),
+  memory_data: z.any().nullable(),
+  memory_type: z.string().nullable(),
+  name: z.string(),
+  source_generation_id: z.string().nullable(),
+});
+
+export const MemoriesInsertSchema = z.object({
+  confidence: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  memory_data: z.any().nullable().optional(),
+  memory_type: z.string().nullable().optional(),
+  name: z.string(),
+  source_generation_id: z.string().nullable().optional(),
+});
+
+export const MemoriesUpdateSchema = z.object({
+  confidence: z.number().nullable().optional(),
+  created_at: z.string().optional(),
+  description: z.string().nullable().optional(),
+  id: z.string().optional(),
+  memory_data: z.any().nullable().optional(),
+  memory_type: z.string().nullable().optional(),
+  name: z.string().optional(),
+  source_generation_id: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type MemoriesRowInput = z.infer<typeof MemoriesRowSchema>;
+export type MemoriesInsertInput = z.infer<typeof MemoriesInsertSchema>;
+export type MemoriesUpdateInput = z.infer<typeof MemoriesUpdateSchema>;

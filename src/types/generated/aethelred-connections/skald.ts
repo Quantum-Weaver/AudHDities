@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/skald.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-08-01T18:08:02.242Z
+// GENERATED: 2026-08-01T18:15:38.637Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

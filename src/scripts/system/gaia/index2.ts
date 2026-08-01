@@ -11,7 +11,11 @@
 //   Gate: Ask the user what to generate (all / one table / one deity group)
 //         and whether the next phase should run with force and verbose.
 //   3a. Generate runtime enum constant files.
-// Stops after phase 3a for review and testing.
+//   3b. Generate table and view type files.
+//   3c. Generate Zod validator files.
+//   3d. Generate API route files for tables, views, and functions.
+//   3e. Generate React hook files.
+// Stops after phase 3e for review and testing.
 // ============================================================================
 
 import * as readline from 'readline';
@@ -41,13 +45,19 @@ import type { ExtractedObjectWithDetails } from '../../shared/types.js';
 
 import { generateConstant } from './generate/generate_constants.js';
 import { generateViewTypes } from './generate/generate_types.js';
+import { generateValidatorContent } from './generate/generate_validators.js';
+import {
+  generateTableApiRoutes,
+  generateViewApiRoutes,
+  generateFunctionApiRoute,
+} from './generate/generate_api_routes.js';
+import { generateHooks } from './generate/generate_hooks.js';
 import { formatObjectTypes } from './format/format_object_types.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
 import { DEITY_GROUPS, getAllTableNames, getAllViewNames } from '@/config/deity_groups.js';
-import { getProjectRoot } from '../../shared/paths.js';   // same depth as the system_logger import
-const PROJECT_ROOT = getProjectRoot();
+
 // ============================================================================
 // SCHEMA MODEL
 // ============================================================================
@@ -664,6 +674,322 @@ async function runPhase3b(
 }
 
 // ============================================================================
+// PHASE 3c: VALIDATORS
+// ============================================================================
+
+async function runPhase3c(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔒 GAIA v2 - Phase 3c (Validators)');
+  console.log('═'.repeat(60));
+
+  // Validators are tables-only — views are read-only and get no Zod schemas,
+  // so the view half of the shared filter is passed empty and ignored.
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateValidators),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No validator files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} validator file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      // Phase 1 already split Row/Insert/Update and resolved enum references;
+      // enrichment carried them through. Nothing is re-parsed here.
+      if (!table.rowContent && !table.insertContent) {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped (no Row/Insert content): ${table.name}`);
+        }
+        continue;
+      }
+
+      const content = generateValidatorContent(
+        table.name,
+        table.rowContent,
+        table.insertContent,
+        table.updateContent
+      );
+
+      const filePath = `src/lib/validators/generated/${table.deityFolder}/${table.name}.ts`;
+      const writeResult = await writeGeneratedFile(
+        filePath,
+        content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3c summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
+// PHASE 3d: API ROUTES
+// ============================================================================
+
+/**
+ * Functions have no link back to a single table, so a --table target has
+ * nothing to select them by. 'all' takes every function, 'deity' takes the
+ * ones resolved to that folder, 'table' takes none.
+ */
+function filterFunctionsForTarget(
+  functions: EnrichedFunction[],
+  plan: GenerationOptions
+): EnrichedFunction[] {
+  if (plan.target === 'all') {
+    return functions;
+  }
+
+  if (plan.target === 'deity' && plan.targetValue) {
+    return functions.filter(f => f.deityFolder === plan.targetValue);
+  }
+
+  return [];
+}
+
+async function runPhase3d(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🛣️  GAIA v2 - Phase 3d (API Routes)');
+  console.log('═'.repeat(60));
+
+  const { tables, views } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateApiRoutes),
+    enriched.views.filter(v => v.shouldGenerateViewApiRoutes),
+    plan
+  );
+  const functions = filterFunctionsForTarget(
+    enriched.functions.filter(f => f.shouldGenerateApiRoutes),
+    plan
+  );
+
+  const totalObjects = tables.length + views.length + functions.length;
+  if (totalObjects === 0) {
+    console.log('\n⏭️  No API routes to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(
+    `\n📦 Generating API routes for ${totalObjects} object(s) ` +
+    `(${tables.length} tables, ${views.length} views, ${functions.length} functions)...`
+  );
+  console.log('   A table or view yields up to two files: the list route and the [id] route.');
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  // One route file at a time, so a single bad object can't sink the phase.
+  const writeRoute = async (
+    route: { filePath: string; content: string },
+    sourceTag: string
+  ): Promise<void> => {
+    const writeResult = await writeGeneratedFile(
+      route.filePath,
+      route.content,
+      [sourceTag],
+      writeOptions
+    );
+
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      generated++;
+      if (plan.verbose) {
+        console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+      }
+    } else if (writeResult.action === 'skipped') {
+      skipped++;
+      if (plan.verbose) {
+        console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+      }
+    }
+  };
+
+  // Tables — list route and [id] route
+  for (const table of tables) {
+    try {
+      for (const route of generateTableApiRoutes(table, { verbose: plan.verbose })) {
+        await writeRoute(route, `EnrichedTable:${table.name}`);
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  // Views — read-only, GET routes only
+  for (const view of views) {
+    try {
+      for (const route of generateViewApiRoutes(view, { verbose: plan.verbose })) {
+        await writeRoute(route, `EnrichedView:${view.name}`);
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${view.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  // Functions — a single invoke route each
+  for (const fn of functions) {
+    try {
+      const route = generateFunctionApiRoute(fn, { verbose: plan.verbose });
+      if (!route) {
+        skipped++;
+        continue;
+      }
+      await writeRoute(route, `EnrichedFunction:${fn.name}`);
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${fn.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3d summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
+// PHASE 3e: HOOKS
+// ============================================================================
+
+async function runPhase3e(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🪝 GAIA v2 - Phase 3e (Hooks)');
+  console.log('═'.repeat(60));
+
+  // Hooks are tables-only — the generated file imports the table's Row/Insert/
+  // Update types from src/types/generated (phase 3b).
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateHooks),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No hook files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} hook file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      const result = generateHooks(table, { verbose: plan.verbose });
+
+      if (!result) {
+        skipped++;
+        continue;
+      }
+
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3e summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
 // ENTRY POINT
 // ============================================================================
 
@@ -677,15 +1003,21 @@ async function main() {
     const plan = await runGenerationGate(enriched, generation);
     const phase3aStats = await runPhase3a(enriched, plan, foundation.dryRun);
     const phase3bStats = await runPhase3b(enriched, plan, foundation.dryRun);
+    const phase3cStats = await runPhase3c(enriched, plan, foundation.dryRun);
+    const phase3dStats = await runPhase3d(enriched, plan, foundation.dryRun);
+    const phase3eStats = await runPhase3e(enriched, plan, foundation.dryRun);
 
     console.log('\n' + '═'.repeat(60));
-    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, and 3b complete');
+    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, 3b, 3c, 3d, and 3e complete');
     console.log(`   Tables: ${enriched.tables.length}`);
     console.log(`   Views:  ${enriched.views.length}`);
     console.log(`   Functions: ${enriched.functions.length}`);
     console.log(`   Runtime Enums: ${enriched.runtimeEnums.length}`);
     console.log(`\n   Phase 3a constants: ${phase3aStats.generated} generated, ${phase3aStats.skipped} skipped, ${phase3aStats.errors} errors`);
     console.log(`   Phase 3b types:     ${phase3bStats.generated} generated, ${phase3bStats.skipped} skipped, ${phase3bStats.errors} errors`);
+    console.log(`   Phase 3c validators: ${phase3cStats.generated} generated, ${phase3cStats.skipped} skipped, ${phase3cStats.errors} errors`);
+    console.log(`   Phase 3d api routes: ${phase3dStats.generated} generated, ${phase3dStats.skipped} skipped, ${phase3dStats.errors} errors`);
+    console.log(`   Phase 3e hooks:      ${phase3eStats.generated} generated, ${phase3eStats.skipped} skipped, ${phase3eStats.errors} errors`);
     console.log('═'.repeat(60) + '\n');
   } catch (error) {
     console.error(

@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/quest_progress.ts
 // HANDLING: join_table
 // DEITY: athena-gamification
-// GENERATED: 2026-08-01T18:08:02.230Z
+// GENERATED: 2026-08-01T18:15:38.622Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

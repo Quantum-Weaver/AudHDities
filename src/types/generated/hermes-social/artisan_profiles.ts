@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/artisan_profiles.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-08-01T18:08:02.178Z
+// GENERATED: 2026-08-01T18:15:38.572Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

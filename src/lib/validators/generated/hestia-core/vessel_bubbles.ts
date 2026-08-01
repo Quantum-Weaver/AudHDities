@@ -1,0 +1,51 @@
+// =====================================================
+// FILE: validators/vessel_bubbles.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// VesselBubbles SCHEMAS
+// =====================================================
+
+export const VesselBubblesRowSchema = z.object({
+  bubble_id: z.string(),
+  collected_at: z.string(),
+  collection_context: z.any().nullable(),
+  collection_method: z.string().nullable(),
+  created_at: z.string(),
+  id: z.string(),
+  updated_at: z.string(),
+  user_id: z.string(),
+});
+
+export const VesselBubblesInsertSchema = z.object({
+  bubble_id: z.string(),
+  collected_at: z.string().optional(),
+  collection_context: z.any().nullable().optional(),
+  collection_method: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
+  updated_at: z.string().optional(),
+  user_id: z.string(),
+});
+
+export const VesselBubblesUpdateSchema = z.object({
+  bubble_id: z.string().optional(),
+  collected_at: z.string().optional(),
+  collection_context: z.any().nullable().optional(),
+  collection_method: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  id: z.string().optional(),
+  updated_at: z.string().optional(),
+  user_id: z.string().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type VesselBubblesRowInput = z.infer<typeof VesselBubblesRowSchema>;
+export type VesselBubblesInsertInput = z.infer<typeof VesselBubblesInsertSchema>;
+export type VesselBubblesUpdateInput = z.infer<typeof VesselBubblesUpdateSchema>;

@@ -1,0 +1,88 @@
+// =====================================================
+// FILE: validators/grant_opportunities.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import { ENUM_VALUES } from '@/types/supabase/enums';
+import z from 'zod';
+
+// =====================================================
+// GrantOpportunities SCHEMAS
+// =====================================================
+
+export const GrantOpportunitiesRowSchema = z.object({
+  application_url: z.string().nullable(),
+  category: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  currency: z.string(),
+  deadline: z.string().nullable(),
+  description: z.string().nullable(),
+  eligibility: z.string().nullable(),
+  funding_amount: z.string().nullable(),
+  funding_organization: z.string().nullable(),
+  id: z.string(),
+  is_verified: z.boolean(),
+  name: z.string(),
+  opportunity_type: z.string().nullable(),
+  requirements: z.any().nullable(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus),
+  submitted_by: z.string().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const GrantOpportunitiesInsertSchema = z.object({
+  application_url: z.string().nullable().optional(),
+  category: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  currency: z.string().optional(),
+  deadline: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  eligibility: z.string().nullable().optional(),
+  funding_amount: z.string().nullable().optional(),
+  funding_organization: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_verified: z.boolean().optional(),
+  name: z.string(),
+  opportunity_type: z.string().nullable().optional(),
+  requirements: z.any().nullable().optional(),
+  slug: z.string(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  submitted_by: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const GrantOpportunitiesUpdateSchema = z.object({
+  application_url: z.string().nullable().optional(),
+  category: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  currency: z.string().optional(),
+  deadline: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  eligibility: z.string().nullable().optional(),
+  funding_amount: z.string().nullable().optional(),
+  funding_organization: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_verified: z.boolean().optional(),
+  name: z.string().optional(),
+  opportunity_type: z.string().nullable().optional(),
+  requirements: z.any().nullable().optional(),
+  slug: z.string().optional(),
+  status: z.enum(ENUM_VALUES.contentStatus).optional(),
+  submitted_by: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type GrantOpportunitiesRowInput = z.infer<typeof GrantOpportunitiesRowSchema>;
+export type GrantOpportunitiesInsertInput = z.infer<typeof GrantOpportunitiesInsertSchema>;
+export type GrantOpportunitiesUpdateInput = z.infer<typeof GrantOpportunitiesUpdateSchema>;

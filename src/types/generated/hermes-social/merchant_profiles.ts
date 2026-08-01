@@ -2,7 +2,7 @@
 // FILE: types/generated/hermes-social/merchant_profiles.ts
 // HANDLING: full_crud
 // DEITY: hermes-social
-// GENERATED: 2026-08-01T18:08:02.221Z
+// GENERATED: 2026-08-01T18:15:38.612Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

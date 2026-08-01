@@ -8,6 +8,7 @@ import * as path from 'path';
 import { createHash } from 'crypto';
 import type { SystemLogger } from '../../shared/system_logger.js';
 import { logSuccess, logError, logInfo, logWarning, logDebug } from '../../shared/logger.js';
+import { getProjectRoot } from '../../shared/paths.js';
 
 export interface WriteOptions {
   dryRun: boolean;
@@ -24,7 +25,11 @@ export interface WriteResult {
   fileHash?: string;
 }
 
-const PROJECT_ROOT = path.resolve(process.cwd());
+// Anchored to the repo root via paths.ts (import.meta.url), NOT process.cwd().
+// With cwd, every relative output path moved with the launch folder — running
+// this from src/scripts/system/gaia wrote the whole generated layer into
+// gaia/src/ instead of the repo's src/ (2026-08-01).
+const PROJECT_ROOT = getProjectRoot();
 
 /**
  * Generate a hash of file content for change detection
@@ -85,7 +90,12 @@ export async function writeGeneratedFile(
   
   // Build the generated path
   const generatedPath = buildGeneratedPath(filePath);
-  const fullPath = path.join(PROJECT_ROOT, generatedPath);
+  // Accept both styles: repo-relative strings (what the orchestrators pass)
+  // and the absolute constants from paths.ts (TYPES_BASE_PATH, getDeityFilePath).
+  // Joining an absolute path onto the root would double it on Windows.
+  const fullPath = path.isAbsolute(generatedPath)
+    ? generatedPath
+    : path.join(PROJECT_ROOT, generatedPath);
   const dir = path.dirname(fullPath);
   
   // Check if file exists

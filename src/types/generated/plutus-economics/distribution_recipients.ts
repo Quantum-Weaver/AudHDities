@@ -2,7 +2,7 @@
 // FILE: types/generated/plutus-economics/distribution_recipients.ts
 // HANDLING: join_table
 // DEITY: plutus-economics
-// GENERATED: 2026-08-01T18:08:02.196Z
+// GENERATED: 2026-08-01T18:15:38.589Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
