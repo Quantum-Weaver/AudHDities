@@ -2,7 +2,7 @@
 // FILE: types/generated/aethelred-connections/seer.ts
 // HANDLING: full_crud
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.802Z
+// GENERATED: 2026-08-01T18:15:38.634Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 

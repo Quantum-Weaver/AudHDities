@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: EmailCommunications
 // DEITY: iris-communications
-// GENERATED: 2026-07-10T18:14:59.387Z
+// GENERATED: 2026-08-01T18:34:04.342Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getEmailCommunications(id: string): Promise<EmailCommunica
   const { data, error } = await supabase
     .from('email_communications')
     .select('*')
-    .eq('email_communications_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateEmailCommunications(id: string, data: EmailCommunica
   const { data: result, error } = await supabase
     .from('email_communications')
     .update(validated)
-    .eq('email_communications_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteEmailCommunications(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('email_communications')
     .delete()
-    .eq('email_communications_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

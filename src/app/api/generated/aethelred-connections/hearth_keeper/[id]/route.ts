@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { HearthKeeperUpdateSchema } from '@/lib/validators/generated/aethelred-connections/hearth_keeper';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.511Z
+// Generated: 2026-08-01T18:27:13.311Z
 // Table: hearth_keeper
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('hearth_keeper')
       .select('*')
-      .eq('hearth_keeper_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('hearth_keeper')
       .update(validated)
-      .eq('hearth_keeper_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('hearth_keeper').delete().eq('hearth_keeper_id', id);
+    const { error } = await supabase.from('hearth_keeper').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('hearth_keeper');

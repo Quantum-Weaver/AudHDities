@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { PathLessonsInsertSchema } from '@/lib/validators/generated/athena-gamification/path_lessons';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.606Z
+// Generated: 2026-08-01T18:27:13.336Z
 // Table: path_lessons
 
 export async function GET(request: NextRequest) {
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('path_lessons')
-      .insert({ ...validated, created_by: userId })
+      .insert(validated)
       .select()
       .single();
     

@@ -12,7 +12,7 @@ import { ArrowLeft, Clock, MapPin, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface EventItem {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   event_type: string; genre: string | null; scheduled_for: string | null;
   performer_id: string; is_live: boolean;
 }
@@ -38,7 +38,7 @@ export function EventDetail() {
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><p className="text-star-dust/40">This event has passed beyond the veil.</p><Link href="/stage/schedule" className="text-neurospark hover:underline mt-4 inline-block">Return to the Calendar</Link></div></main>
   );
 
-  const cd: CardData = { id: event.events_id, type: 'event', title: event.title, description: event.description || '' };
+  const cd: CardData = { id: event.id, type: 'event', title: event.title, description: event.description || '' };
   const formatDate = (d: string | null) => d ? new Date(d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : 'TBA';
 
   return (

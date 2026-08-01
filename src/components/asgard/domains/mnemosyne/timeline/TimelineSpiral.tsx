@@ -5,24 +5,34 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { Card } from '@/components/runes/Card';
-import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Clock, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — the
+// conductor's genealogy check found it living under its settled name,
+// `current` (sovereign_id-scoped). Repointed from the dead route. `current`
+// carries no `title` or `significance_score` (those only existed on the old
+// table), so this view synthesizes a title from `event_type` via
+// EVENT_TYPE_LABELS and drops the significance badge honestly rather than
+// inventing a number.
 interface TimelineEvent {
-  timelines_id: string;
+  id: string;
   event_type: string;
-  title: string;
   description: string | null;
-  significance_score: number | null;
-  occurred_at: string;
+  event_at: string;
 }
 
 const EVENT_EMOJI: Record<string, string> = {
   sovereign_joined: '🌟', sovereignty_milestone: '✨', consciousness_emerged: '🧠',
   collaboration_began: '🌉', sanctuary_completed: '🏛️', badge_earned: '🏅',
   quest_completed: '🎯', house_joined: '🏠', ritual_performed: '🕯️',
+};
+
+const EVENT_TYPE_LABELS: Record<string, string> = {
+  sovereign_joined: 'Arrival', sovereignty_milestone: 'Milestone', consciousness_emerged: 'Awakening',
+  collaboration_began: 'Collaboration', sanctuary_completed: 'Sanctuary Completed', badge_earned: 'Sigil Earned',
+  quest_completed: 'Quest Completed', house_joined: 'House Joined', ritual_performed: 'Ritual Performed',
 };
 
 export function TimelineSpiral() {
@@ -32,7 +42,7 @@ export function TimelineSpiral() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=occurred_at.desc&limit=50`)
+    fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`)
       .then(r => r.json()).then(res => { if (res.success) setEvents(res.data?.data || []); }).catch(() => {})
       .finally(() => setLoading(false));
   }, [user]);
@@ -57,25 +67,19 @@ export function TimelineSpiral() {
             <div className="absolute left-6 top-0 bottom-0 w-px bg-white/10" />
             <div className="space-y-4">
               {events.map((e, i) => {
-                const cd: CardData = { id: e.timelines_id, type: 'value', title: e.title, value: e.event_type };
+                const label = EVENT_TYPE_LABELS[e.event_type] || e.event_type;
+                const cd: CardData = { id: e.id, type: 'value', title: label, value: e.event_type };
                 return (
-                  <div key={e.timelines_id} className="flex gap-4 items-start relative">
+                  <div key={e.id} className="flex gap-4 items-start relative">
                     <div className="relative z-10 flex-shrink-0 w-12 flex flex-col items-center">
                       <div className="w-8 h-8 rounded-full bg-deep-space border-2 border-neurospark/30 flex items-center justify-center text-sm">
                         {EVENT_EMOJI[e.event_type] || '•'}
                       </div>
                     </div>
                     <Card data={cd} variant="glass" radius="md" shadow="sm" className="p-4 flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="font-medium text-star-dust">{e.title}</h3>
-                        {e.significance_score && (
-                          <Badge variant="outline" size="sm" className="text-[10px]">
-                            <TrendingUp className="h-3 w-3 mr-1 inline" />{e.significance_score}
-                          </Badge>
-                        )}
-                      </div>
+                      <h3 className="font-medium text-star-dust mb-1">{label}</h3>
                       {e.description && <p className="text-xs text-star-dust/50 line-clamp-2">{e.description}</p>}
-                      <p className="text-xs text-star-dust/30 mt-2">{formatDate(e.occurred_at)}</p>
+                      <p className="text-xs text-star-dust/30 mt-2">{formatDate(e.event_at)}</p>
                     </Card>
                   </div>
                 );

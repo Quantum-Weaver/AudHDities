@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { AnalyticsUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/analytics';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.212Z
+// Generated: 2026-08-01T18:27:13.213Z
 // Table: analytics
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('analytics')
       .select('*')
-      .eq('analytics_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('analytics')
       .update(validated)
-      .eq('analytics_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('analytics').delete().eq('analytics_id', id);
+    const { error } = await supabase.from('analytics').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('analytics');

@@ -19,7 +19,7 @@ export default function CreatorApplicationPage() {
             </div>
           ) : !user ? (
             <div className="text-center">
-              <p className="text-star-dust/60">Sign in to apply as a creator.</p>
+              <p className="text-star-dust/60">Sign in to apply as an artisan.</p>
             </div>
           ) : (
             <ApplicationForm

@@ -41,16 +41,16 @@ export async function auth(): Promise<Session> {
     return { user: null, profile: null };
   }
   
-  // Fetch user profile
+  // Fetch user profile (community_profiles is the identity successor)
   const { data: profile } = await supabase
-    .from('profiles')
+    .from('community_profiles')
     .select('*')
-    .eq('profiles_id', user.id)
-    .single();
-  
+    .eq('created_by', user.id)
+    .maybeSingle();
+
   return {
     user,
-    profile: profile as Profile | null,
+    profile: (profile ?? null) as Profile | null,
   };
 }
 

@@ -3,23 +3,29 @@
 
 import type { EnvironmentRule, EnvironmentContext, BaseEnvironmentKey } from './types';
 
-// User tier based rules
+// User tier based rules — the sovereignty journey
 export const userTierRules: EnvironmentRule[] = [
   {
-    name: 'council_member_premium',
-    condition: (ctx) => ctx.userTier === 'council',
+    name: 'sovereign_weaver_premium',
+    condition: (ctx) => ctx.userTier === 'sovereign_weaver',
     result: 'council',
     priority: 100,
   },
   {
-    name: 'ally_support',
-    condition: (ctx) => ctx.userTier === 'ally',
+    name: 'outlander_farsight',
+    condition: (ctx) => ctx.userTier === 'outlander',
+    result: 'observatory',
+    priority: 90,
+  },
+  {
+    name: 'guild_kindred',
+    condition: (ctx) => ctx.userTier === 'guild',
     result: 'community',
     priority: 80,
   },
   {
-    name: 'community_member',
-    condition: (ctx) => ctx.userTier === 'community',
+    name: 'dweller_hearth',
+    condition: (ctx) => ctx.userTier === 'dweller',
     result: 'home',
     priority: 60,
   },

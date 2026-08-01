@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Scripts
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.796Z
+// GENERATED: 2026-08-01T18:34:04.386Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getScripts(id: string): Promise<ScriptsRow> {
   const { data, error } = await supabase
     .from('scripts')
     .select('*')
-    .eq('scripts_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateScripts(id: string, data: ScriptsUpdate): Promise<Sc
   const { data: result, error } = await supabase
     .from('scripts')
     .update(validated)
-    .eq('scripts_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteScripts(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('scripts')
     .delete()
-    .eq('scripts_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

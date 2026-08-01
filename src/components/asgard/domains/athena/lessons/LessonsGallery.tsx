@@ -1,37 +1,37 @@
 // src/components/asgard/domains/athena/lessons/LessonsGallery.tsx
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, FileText, Search, Clock } from 'lucide-react';
+import { useLessonsList } from '@/hooks/generated/athena-gamification/lessons';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface LessonItem {
-  lessons_id: string; title: string; description: string; slug: string;
-  content_type: string; duration_minutes: number | null; is_published: boolean | null;
-}
-
-const CONTENT_COLORS: Record<string, string> = {
+// content_type became lesson_type in the evolved dialect; same palette.
+const TYPE_COLORS: Record<string, string> = {
   text: 'bg-slate-500/20 text-slate-400', video: 'bg-cyan-500/20 text-cyan-400',
   audio: 'bg-purple-500/20 text-purple-400', interactive: 'bg-emerald-500/20 text-emerald-400',
   quiz: 'bg-amber-500/20 text-amber-400',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const LESSONS_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function LessonsGallery() {
-  const [lessons, setLessons] = useState<LessonItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetch('/api/generated/athena-gamification/lessons?is_published=true&order=title.asc')
-      .then(r => r.json()).then(result => { if (result.success) setLessons(result.data?.data || result.data || []); })
-      .catch(console.error).finally(() => setLoading(false));
-  }, []);
+  const { data: lessons, loading } = useLessonsList(LESSONS_PARAMS);
 
-  const filtered = useMemo(() => lessons.filter(l => l.title.toLowerCase().includes(searchTerm.toLowerCase()) || l.description.toLowerCase().includes(searchTerm.toLowerCase())), [lessons, searchTerm]);
+  const filtered = useMemo(() => lessons.filter(l => l.name.toLowerCase().includes(searchTerm.toLowerCase()) || (l.description || '').toLowerCase().includes(searchTerm.toLowerCase())), [lessons, searchTerm]);
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-6xl mx-auto px-6"><Skeleton variant="text" className="h-8 w-48 mb-8" /><div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{[1,2,3,4,5,6].map(i => <Skeleton key={i} variant="card" className="h-40" />)}</div></div></main>);
 
@@ -42,11 +42,11 @@ export function LessonsGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No lessons match' : 'The lessons are being prepared'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(l => {
-          const cd: CardData = { id: l.lessons_id, type: 'value', title: l.title, value: l.content_type };
+          const cd: CardData = { id: l.id, type: 'value', title: l.name, value: l.lesson_type || '' };
           return (
-            <Link key={l.lessons_id} href={`/library/lessons/${l.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-              <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${CONTENT_COLORS[l.content_type] || ''}`}>{l.content_type}</Badge>{l.duration_minutes && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{l.duration_minutes}m</span>}</div>
-              <h3 className="text-lg font-semibold text-star-dust mb-2">{l.title}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{l.description}</p>
+            <Link key={l.id} href={`/library/lessons/${l.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+              <div className="flex items-center justify-between mb-3">{l.lesson_type && <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[l.lesson_type] || ''}`}>{l.lesson_type.replace(/_/g, ' ')}</Badge>}{l.estimated_duration && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{l.estimated_duration}</span>}</div>
+              <h3 className="text-lg font-semibold text-star-dust mb-2">{l.name}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{l.description}</p>
             </Card></Link>
           );
         })}

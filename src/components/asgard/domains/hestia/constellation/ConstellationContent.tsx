@@ -18,21 +18,29 @@ import type { CardData } from '@/types/components/runes/card.types';
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
+// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
+// (earlier today) removed this fetch believing no living home existed; the
+// conductor's genealogy check found it living under its settled name,
+// `current` (sovereign_id-scoped). `current` carries no `title` or
+// `significance_score` (those only existed on the old table) — the label
+// below is synthesized from `event_type` via EVENT_TYPE_LABELS, and the ring
+// layout uses recency instead of a significance score it no longer has.
 interface TimelineEvent {
-  timelines_id: string;
+  id: string;
   event_type: string;
-  title: string;
   description: string | null;
-  significance_score: number | null;
-  occurred_at: string;
+  event_at: string;
 }
 
-interface BadgeItem {
-  badge_id: string;
+interface SigilItem {
+  sigil_id: string;
   name: string;
   rarity: string;
-  earned_reason: string | null;
   earned_at: string | null;
+  // MEND-LAW 2026-07-19: earned_reason dropped in the badges -> sigils repoint.
+  // Neither `sigils` nor `vessel_sigils` carries a display-text reason field
+  // (vessel_sigils.award_context is an opaque Json blob, not prose) — degraded
+  // gracefully rather than invented. See journal for the fuller note.
 }
 
 interface QuestItem {
@@ -75,7 +83,7 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
   collaboration_began: 'Collaboration',
   sovereign_milestone: 'Milestone',
   sanctuary_completed: 'Completion',
-  badge_earned: 'Badge',
+  badge_earned: 'Sigil',
   quest_completed: 'Quest',
 };
 
@@ -105,11 +113,10 @@ const HOUSE_COLORS: Record<string, string> = {
 
 function buildConstellation(
   timeline: TimelineEvent[],
-  badges: BadgeItem[],
+  sigils: SigilItem[],
   quests: QuestItem[],
   productCount: number,
   messageCount: number,
-  emeraldCount: number,
   postCount: number,
   channelCount: number
 ): { nodes: ConstellationNode[]; edges: ConstellationEdge[] } {
@@ -129,51 +136,52 @@ function buildConstellation(
   });
 
   // Orbit 1: Timeline events (inner ring)
-  const significantEvents = timeline
-    .filter((e) => (e.significance_score ?? 0) >= 70)
-    .slice(0, 12);
+  // MEND-III 2026-07-20: `current` has no significance_score, so the ring
+  // shows the most recent events (already ordered event_at.desc from the
+  // fetch) at a fixed distance/radius rather than inventing a score.
+  const recentEvents = timeline.slice(0, 12);
 
-  significantEvents.forEach((event, i) => {
-    const angle = (i / Math.max(significantEvents.length, 1)) * Math.PI * 2;
-    const distance = 100 + (event.significance_score ?? 50) * 1.2;
+  recentEvents.forEach((event, i) => {
+    const angle = (i / Math.max(recentEvents.length, 1)) * Math.PI * 2;
+    const distance = 160;
     const x = centerX + Math.cos(angle) * distance;
     const y = centerY + Math.sin(angle) * distance;
 
     nodes.push({
-      id: event.timelines_id,
+      id: event.id,
       x,
       y,
-      label: event.title,
-      radius: 5 + (event.significance_score ?? 50) / 25,
+      label: EVENT_TYPE_LABELS[event.event_type] || event.event_type,
+      radius: 6,
       color: EVENT_TYPE_COLORS[event.event_type] || '#6C5CE7',
     });
 
     edges.push({
       from: 'self',
-      to: event.timelines_id,
-      strength: (event.significance_score ?? 50) / 100,
+      to: event.id,
+      strength: 0.5,
     });
   });
 
-  // Orbit 2: Badges (middle ring)
-  badges.forEach((badge, i) => {
-    const angle = (i / Math.max(badges.length, 1)) * Math.PI * 2 + 0.5;
+  // Orbit 2: Sigils (middle ring)
+  sigils.forEach((sigil, i) => {
+    const angle = (i / Math.max(sigils.length, 1)) * Math.PI * 2 + 0.5;
     const distance = 180;
     const x = centerX + Math.cos(angle) * distance;
     const y = centerY + Math.sin(angle) * distance;
 
     nodes.push({
-      id: `badge-${badge.badge_id}`,
+      id: `sigil-${sigil.sigil_id}`,
       x,
       y,
-      label: badge.name,
+      label: sigil.name,
       radius: 6,
-      color: badge.rarity === 'mythic' ? '#22D3EE' : badge.rarity === 'legendary' ? '#FDCB6E' : '#6C5CE7',
+      color: sigil.rarity === 'mythic' ? '#22D3EE' : sigil.rarity === 'legendary' ? '#FDCB6E' : '#6C5CE7',
     });
 
     edges.push({
       from: 'self',
-      to: `badge-${badge.badge_id}`,
+      to: `sigil-${sigil.sigil_id}`,
       strength: 0.6,
     });
   });
@@ -205,7 +213,8 @@ function buildConstellation(
   const companionData = [
     { id: 'products', label: `${productCount} Products`, icon: Package, distance: 150, angle: 2.5, color: '#00B894' },
     { id: 'messages', label: `${messageCount} Messages`, icon: MessageCircle, distance: 150, angle: 3.5, color: '#0984E3' },
-    { id: 'emeralds', label: `${emeraldCount} Emeralds`, icon: Star, distance: 150, angle: 4.5, color: '#FDCB6E' },
+    // MEND-LAW 2026-07-20: the Emeralds companion star is retired here — no living
+    // table backs it (see fetchData above).
     { id: 'posts', label: `${postCount} Posts`, icon: Compass, distance: 150, angle: 5.5, color: '#6C5CE7' },
   ];
 
@@ -235,7 +244,7 @@ function buildConstellation(
 export function ConstellationContent() {
   const { user, loading: authLoading } = useAuth();
   const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
-  const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const [sigils, setSigils] = useState<SigilItem[]>([]);
   const [quests, setQuests] = useState<QuestItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedNode, setSelectedNode] = useState<ConstellationNode | null>(null);
@@ -243,7 +252,6 @@ export function ConstellationContent() {
   // Counts
   const [productCount, setProductCount] = useState(0);
   const [messageCount, setMessageCount] = useState(0);
-  const [emeraldCount, setEmeraldCount] = useState(0);
   const [postCount, setPostCount] = useState(0);
   const [channelCount, setChannelCount] = useState(0);
 
@@ -252,39 +260,44 @@ export function ConstellationContent() {
 
     const fetchData = async () => {
       try {
-        // Timeline
-        const tRes = await fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=significance_score.desc&limit=20`);
+        // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
+        // conductor's genealogy check found `timelines` living under its settled
+        // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
+        const tRes = await fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`);
         const tData = await tRes.json();
-        if (tData.success) setTimeline(tData.data?.data || tData.data || []);
+        if (tData.success) {
+          setTimeline(tData.data?.data || []);
+        }
 
-        // Badges
-        const bRes = await fetch(`/api/generated/athena-gamification/user_badges?user_id=${user.id}&limit=20`);
-        const bData = await bRes.json();
-        if (bData.success) {
-          const rawBadges = bData.data?.data || bData.data || [];
-          // Fetch badge details
-          const badgeDetails = await Promise.all(
-            rawBadges.map(async (ub: any) => {
+        // Sigils earned by this vessel (badges/user_badges are gone — GAIA now
+        // emits vessel_sigils for the earning record and sigils for the definition)
+        const vsRes = await fetch(`/api/generated/hestia-core/vessel_sigils?user_id=${user.id}&limit=20`);
+        const vsData = await vsRes.json();
+        if (vsData.success) {
+          const rawVesselSigils = vsData.data?.data || vsData.data || [];
+          // Fetch sigil details
+          const sigilDetails = await Promise.all(
+            rawVesselSigils.map(async (vs: any) => {
               try {
-                const bdRes = await fetch(`/api/generated/athena-gamification/badges/${ub.badge_id}`);
-                const bdData = await bdRes.json();
+                const sRes = await fetch(`/api/generated/athena-gamification/sigils/${vs.sigil_id}`);
+                const sData = await sRes.json();
                 return {
-                  badge_id: ub.badge_id,
-                  name: bdData.success ? bdData.data?.name : 'Badge',
-                  rarity: bdData.success ? bdData.data?.rarity : 'common',
-                  earned_reason: ub.earned_reason || null,
-                  earned_at: ub.earned_at || null,
+                  sigil_id: vs.sigil_id,
+                  name: sData.success ? sData.data?.name : 'Sigil',
+                  rarity: sData.success ? sData.data?.rarity : 'common',
+                  earned_at: vs.awarded_at || null,
                 };
               } catch {
-                return { badge_id: ub.badge_id, name: 'Badge', rarity: 'common', earned_reason: null, earned_at: null };
+                return { sigil_id: vs.sigil_id, name: 'Sigil', rarity: 'common', earned_at: null };
               }
             })
           );
-          setBadges(badgeDetails);
+          setSigils(sigilDetails);
         }
 
-        // Quests
-        const qRes = await fetch(`/api/generated/athena-gamification/user_quests?user_id=${user.id}&status=completed&limit=20`);
+        // Quests completed by this vessel (user_quests is gone — hestia-core now
+        // tracks per-vessel quest completion as vessel_quests)
+        const qRes = await fetch(`/api/generated/hestia-core/vessel_quests?user_id=${user.id}&status=completed&limit=20`);
         const qData = await qRes.json();
         if (qData.success) {
           const rawQuests = qData.data?.data || qData.data || [];
@@ -295,12 +308,16 @@ export function ConstellationContent() {
                 const qdData = await qdRes.json();
                 return {
                   quest_id: uq.quest_id,
-                  title: qdData.success ? qdData.data?.title : 'Quest',
-                  house: qdData.success ? qdData.data?.house || 'hearth_keeper' : 'hearth_keeper',
+                  // quests.title -> quests.name in the settle
+                  title: qdData.success ? qdData.data?.name : 'Quest',
+                  // MEND-LAW 2026-07-20: `house` dropped from the quests table in the
+                  // settle — no field carries it anymore, so we no longer invent one.
+                  // Left blank; HOUSE_COLORS/HOUSE_LABELS fall back to their neutral default.
+                  house: '',
                   status: uq.status || 'completed',
                 };
               } catch {
-                return { quest_id: uq.quest_id, title: 'Quest', house: 'hearth_keeper', status: 'completed' };
+                return { quest_id: uq.quest_id, title: 'Quest', house: '', status: 'completed' };
               }
             })
           );
@@ -308,18 +325,19 @@ export function ConstellationContent() {
         }
 
         // Counts
+        // MEND-LAW 2026-07-20: emeralds has no living equivalent anywhere in the
+        // schema (verified against database.types.ts) — the Emeralds companion star
+        // is retired rather than faked; emeraldCount is gone along with it.
         const counts = [
-          fetch(`/api/generated/plutus-economics/products?creator_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || d.data?.data?.length || d.data?.length || 0).catch(() => 0),
+          fetch(`/api/generated/plutus-economics/wares?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || d.data?.data?.length || d.data?.length || 0).catch(() => 0),
           fetch(`/api/generated/iris-communications/messages?limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/emeralds?limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/posts?author_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
-          fetch(`/api/generated/hermes-social/channels?owner_id=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
+          fetch(`/api/generated/iris-communications/signals?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
+          fetch(`/api/generated/iris-communications/channels?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
         ];
 
-        const [pCount, mCount, eCount, poCount, chCount] = await Promise.all(counts);
+        const [pCount, mCount, poCount, chCount] = await Promise.all(counts);
         setProductCount(pCount || 0);
         setMessageCount(mCount || 0);
-        setEmeraldCount(eCount || 0);
         setPostCount(poCount || 0);
         setChannelCount(chCount || 0);
       } catch (err) {
@@ -333,11 +351,11 @@ export function ConstellationContent() {
   }, [user]);
 
   const { nodes, edges } = useMemo(() => {
-    if (timeline.length === 0 && badges.length === 0 && quests.length === 0) {
+    if (timeline.length === 0 && sigils.length === 0 && quests.length === 0) {
       return { nodes: [], edges: [] };
     }
-    return buildConstellation(timeline, badges, quests, productCount, messageCount, emeraldCount, postCount, channelCount);
-  }, [timeline, badges, quests, productCount, messageCount, emeraldCount, postCount, channelCount]);
+    return buildConstellation(timeline, sigils, quests, productCount, messageCount, postCount, channelCount);
+  }, [timeline, sigils, quests, productCount, messageCount, postCount, channelCount]);
 
   const handleNodeClick = (node: ConstellationNode) => {
     setSelectedNode(selectedNode?.id === node.id ? null : node);
@@ -395,7 +413,7 @@ export function ConstellationContent() {
             <Star className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg mb-2">Your constellation awaits its first star</p>
             <p className="text-star-dust/30 text-sm">
-              Complete quests, earn badges, and connect with others to fill your sky
+              Complete quests, earn sigils, and connect with others to fill your sky
             </p>
           </Card>
         ) : (
@@ -466,15 +484,15 @@ export function ConstellationContent() {
             </Link>
             <Link href="/library/badges">
               <Card
-                data={{ id: 'summary-badges', type: 'value', title: 'Badges', value: `${badges.length}` }}
+                data={{ id: 'summary-sigils', type: 'value', title: 'Sigils', value: `${sigils.length}` }}
                 variant="interactive"
                 radius="lg"
                 shadow="sm"
                 className="p-4 text-center"
               >
                 <Award className="h-5 w-5 text-amber-400 mx-auto mb-1" />
-                <span className="text-lg font-bold text-star-dust">{badges.length}</span>
-                <p className="text-xs text-star-dust/40">Badges</p>
+                <span className="text-lg font-bold text-star-dust">{sigils.length}</span>
+                <p className="text-xs text-star-dust/40">Sigils</p>
               </Card>
             </Link>
             <Link href="/library/quests">

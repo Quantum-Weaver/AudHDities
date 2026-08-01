@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CovenantPool
 // DEITY: plutus-economics
-// GENERATED: 2026-07-10T18:14:59.344Z
+// GENERATED: 2026-08-01T18:34:04.339Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCovenantPool(id: string): Promise<CovenantPoolRow> {
   const { data, error } = await supabase
     .from('covenant_pool')
     .select('*')
-    .eq('covenant_pool_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCovenantPool(id: string, data: CovenantPoolUpdate): 
   const { data: result, error } = await supabase
     .from('covenant_pool')
     .update(validated)
-    .eq('covenant_pool_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCovenantPool(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('covenant_pool')
     .delete()
-    .eq('covenant_pool_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

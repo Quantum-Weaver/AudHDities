@@ -7,7 +7,7 @@ import { StudioCreate } from '@/components/asgard/domains/hermes/studio/StudioCr
 
 export const metadata = {
   title: 'The Loom | Sovereign Sanctuary',
-  description: 'Every creation begins with a single thread',
+  description: 'Every work begins with a single thread',
 };
 
 export default function StudioPage() {

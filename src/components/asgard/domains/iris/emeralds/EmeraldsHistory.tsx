@@ -4,42 +4,47 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { Avatar, AvatarFallback } from '@/components/runes/Avatar';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { useAuth } from '@/hooks/useAuth';
-import { ArrowLeft, Heart, TrendingUp, TrendingDown, Sparkles } from 'lucide-react';
+import { ArrowLeft, Heart, Sparkles } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface Emerald {
-  emeralds_id: string;
-  giver_id: string;
-  receiver_id: string;
-  amount: number;
-  message: string | null;
+// MEND-III 2026-07-20: `hermes-social/emeralds` never actually died — the
+// conductor's genealogy check found the reactions family living under its
+// settled name, `resonance` (mnemosyne-assessment). `resonance` carries no
+// `amount` (that field only existed on the old table) and `resonance_type`
+// is free text with no enum backing it — so nothing here filters for an
+// assumed 'emerald' value; every spark this vessel has given is shown.
+// GIVEN is wired for real (user_id = this vessel, a plain equality filter).
+// RECEIVED (resonance aimed at this vessel's own signals/works) needs a
+// join the generated single-table route can't express — getFilters() only
+// supports `.eq()`, no signal_id-in-list — so it's deferred honestly below
+// rather than faked with an invented number.
+interface Resonance {
+  id: string;
+  user_id: string;
+  resonance_type: string;
+  signal_id: string | null;
+  work_id: string | null;
+  notes: string | null;
   created_at: string;
-  giver_name?: string;
-  post_title?: string;
 }
 
 export function EmeraldsHistory() {
   const { user } = useAuth();
-  const [given, setGiven] = useState<Emerald[]>([]);
-  const [received, setReceived] = useState<Emerald[]>([]);
+  const [given, setGiven] = useState<Resonance[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    Promise.all([
-      fetch(`/api/generated/hermes-social/emeralds?giver_id=${user.id}&order=created_at.desc&limit=20`).then(r => r.json()),
-      fetch(`/api/generated/hermes-social/emeralds?receiver_id=${user.id}&order=created_at.desc&limit=20`).then(r => r.json()),
-    ]).then(([givenResult, receivedResult]) => {
-      if (givenResult.success) setGiven(givenResult.data?.data || []);
-      if (receivedResult.success) setReceived(receivedResult.data?.data || []);
-    }).catch(console.error).finally(() => setLoading(false));
+    fetch(`/api/generated/mnemosyne-assessment/resonance?user_id=${user.id}&order=created_at.desc&limit=20`)
+      .then(r => r.json())
+      .then(result => { if (result.success) setGiven(result.data?.data || []); })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, [user]);
 
-  const totalGiven = given.reduce((sum, e) => sum + e.amount, 0);
-  const totalReceived = received.reduce((sum, e) => sum + e.amount, 0);
+  const totalGiven = given.length;
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
@@ -89,15 +94,15 @@ export function EmeraldsHistory() {
         <div className="grid grid-cols-2 gap-4 mb-8">
           <Card data={{ id: 'emeralds-given', type: 'stat', title: 'Given', value: totalGiven.toString() }}
             variant="glass" radius="lg" shadow="sm" className="p-4 text-center">
-            <TrendingUp className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
-            <p className="text-emerald-400 font-bold text-xl">{totalGiven}</p>
-            <p className="text-xs text-star-dust/40">Emeralds Given</p>
+            <Sparkles className="h-5 w-5 text-amber-400 mx-auto mb-1" />
+            <p className="text-amber-400 font-bold text-xl">{totalGiven}</p>
+            <p className="text-xs text-star-dust/40">Sparks Given</p>
           </Card>
-          <Card data={{ id: 'emeralds-received', type: 'stat', title: 'Received', value: totalReceived.toString() }}
+          <Card data={{ id: 'emeralds-received', type: 'stat', title: 'Received', value: '—' }}
             variant="glass" radius="lg" shadow="sm" className="p-4 text-center">
-            <TrendingDown className="h-5 w-5 text-neurospark mx-auto mb-1" />
-            <p className="text-neurospark font-bold text-xl">{totalReceived}</p>
-            <p className="text-xs text-star-dust/40">Emeralds Received</p>
+            <Heart className="h-5 w-5 text-rose-400 mx-auto mb-1" />
+            <p className="text-rose-400/60 font-bold text-xl">—</p>
+            <p className="text-xs text-star-dust/40">Sparks Received</p>
           </Card>
         </div>
 
@@ -105,43 +110,34 @@ export function EmeraldsHistory() {
         <h2 className="text-lg font-semibold text-star-dust mb-4 flex items-center gap-2">
           <Heart className="h-4 w-4 text-rose-400" />Received
         </h2>
-        {received.length === 0 ? (
-          <p className="text-star-dust/40 text-sm mb-8">No emeralds received yet.</p>
-        ) : (
-          <div className="space-y-2 mb-8">
-            {received.map((e) => {
-              const cardData: CardData = { id: e.emeralds_id, type: 'value', title: e.message || 'Emerald', value: `${e.amount}` };
-              return (
-                <Card key={e.emeralds_id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-3">
-                  <div className="flex items-center gap-3">
-                    <Heart className="h-4 w-4 text-rose-400" />
-                    <span className="text-neurospark font-bold">+{e.amount}</span>
-                    <span className="text-xs text-star-dust/40">{e.message || 'Emerald received'}</span>
-                    <span className="ml-auto text-[10px] text-star-dust/30">{formatDate(e.created_at)}</span>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        )}
+        {/*
+          MEND-III 2026-07-20: honestly deferred. Received sparks would mean
+          resonance rows whose signal_id/work_id points at something this
+          vessel created — a join the generated single-table route can't
+          express (equality filters only, no in-list). Rather than fake it,
+          this waits for a proper endpoint.
+        */}
+        <p className="text-star-dust/40 text-sm mb-8">
+          The record of sparks others have given you awaits a proper endpoint — not shown yet.
+        </p>
 
         {/* Given */}
         <h2 className="text-lg font-semibold text-star-dust mb-4 flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-amber-400" />Given
         </h2>
         {given.length === 0 ? (
-          <p className="text-star-dust/40 text-sm">No emeralds given yet.</p>
+          <p className="text-star-dust/40 text-sm">No sparks given yet.</p>
         ) : (
           <div className="space-y-2">
-            {given.map((e) => {
-              const cardData: CardData = { id: e.emeralds_id, type: 'value', title: e.message || 'Emerald', value: `${e.amount}` };
+            {given.map((r) => {
+              const cardData: CardData = { id: r.id, type: 'value', title: r.notes || r.resonance_type, value: r.resonance_type };
               return (
-                <Card key={e.emeralds_id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-3">
+                <Card key={r.id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-3">
                   <div className="flex items-center gap-3">
                     <Sparkles className="h-4 w-4 text-amber-400" />
-                    <span className="text-amber-400 font-bold">-{e.amount}</span>
-                    <span className="text-xs text-star-dust/40">{e.message || 'Emerald given'}</span>
-                    <span className="ml-auto text-[10px] text-star-dust/30">{formatDate(e.created_at)}</span>
+                    <span className="text-amber-400 font-bold text-xs uppercase tracking-wide">{r.resonance_type}</span>
+                    <span className="text-xs text-star-dust/40">{r.notes || 'A spark given'}</span>
+                    <span className="ml-auto text-[10px] text-star-dust/30">{formatDate(r.created_at)}</span>
                   </div>
                 </Card>
               );

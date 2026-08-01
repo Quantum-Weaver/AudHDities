@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AgentConversations
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.205Z
+// GENERATED: 2026-08-01T18:34:04.317Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAgentConversations(id: string): Promise<AgentConversati
   const { data, error } = await supabase
     .from('agent_conversations')
     .select('*')
-    .eq('agent_conversations_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAgentConversations(id: string, data: AgentConversati
   const { data: result, error } = await supabase
     .from('agent_conversations')
     .update(validated)
-    .eq('agent_conversations_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAgentConversations(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('agent_conversations')
     .delete()
-    .eq('agent_conversations_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -1,4 +1,10 @@
 // src/components/asgard/domains/hermes/creators/CreatorDetail.tsx
+// Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
+// became artisan_profiles (hermes-social). The stats grid follows the
+// new columns: creations + followers (total_sales and the residual
+// default were the old table's; earnings never belonged on a public
+// profile). The works link filters wares by created_by — the profile's
+// owner — because wares knows makers by user id, not profile id.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -9,30 +15,25 @@ import { Badge } from '@/components/runes/Badge';
 import { Avatar, AvatarFallback } from '@/components/runes/Avatar';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Shield, Package, Globe } from 'lucide-react';
+import { ArrowLeft, Shield, Package, Globe, Heart } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 
-interface CreatorItem {
-  creator_profiles_id: string; creator_moniker: string; creative_description: string | null;
-  creative_categories: string[] | null; portfolio_url: string | null;
-  verification_status: string | null; verified_badge: boolean | null;
-  total_products: number | null; total_sales: number | null;
-  total_earnings: number | null; default_residual_pool: number | null;
-}
+type ArtisanItem = Tables<'artisan_profiles'>;
 
 export function CreatorDetail() {
   const params = useParams();
   const router = useRouter();
-  const [creator, setCreator] = useState<CreatorItem | null>(null);
+  const [artisan, setArtisan] = useState<ArtisanItem | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/generated/hestia-core/creator_profiles/${params.id}`)
+    fetch(`/api/generated/hermes-social/artisan_profiles/${params.id}`)
       .then((r) => r.json())
-      .then((result) => { if (result.success) setCreator(result.data); })
+      .then((result) => { if (result.success) setArtisan(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.creator_profiles_id]);
+  }, [params.id]);
 
   if (loading) {
     return (
@@ -45,7 +46,7 @@ export function CreatorDetail() {
     );
   }
 
-  if (!creator) {
+  if (!artisan) {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
@@ -56,7 +57,12 @@ export function CreatorDetail() {
     );
   }
 
-  const cardData: CardData = { id: creator.creator_profiles_id, type: 'creator', title: creator.creator_moniker, description: creator.creative_description || '' };
+  const categories = [
+    ...(artisan.primary_category ? [artisan.primary_category] : []),
+    ...(artisan.secondary_categories || []),
+  ];
+
+  const cardData: CardData = { id: artisan.id, type: 'creator', title: artisan.artisan_name, description: artisan.bio || '' };
 
   return (
     <main className="min-h-screen py-12">
@@ -68,66 +74,60 @@ export function CreatorDetail() {
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
           <div className="flex items-center gap-4 mb-6">
             <Avatar size="2xl">
-              <AvatarFallback>{creator.creator_moniker?.charAt(0)?.toUpperCase() || 'C'}</AvatarFallback>
+              <AvatarFallback>{artisan.artisan_name?.charAt(0)?.toUpperCase() || 'W'}</AvatarFallback>
             </Avatar>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold text-star-dust">{creator.creator_moniker}</h1>
-                {creator.verified_badge && <Shield size={18} className="text-neurospark" />}
+                <h1 className="text-2xl font-bold text-star-dust">{artisan.artisan_name}</h1>
+                {artisan.verified_at && <Shield size={18} className="text-neurospark" />}
               </div>
-              <p className="text-sm text-star-dust/40">Creator</p>
+              <p className="text-sm text-star-dust/40">{artisan.tagline || 'Weaver'}</p>
             </div>
           </div>
 
-          {creator.creative_description && (
-            <p className="text-star-dust/70 leading-relaxed mb-6">{creator.creative_description}</p>
+          {artisan.bio && (
+            <p className="text-star-dust/70 leading-relaxed mb-6">{artisan.bio}</p>
           )}
 
-          {creator.creative_categories && creator.creative_categories.length > 0 && (
+          {categories.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
-              {creator.creative_categories.map((cat) => (
+              {categories.map((cat) => (
                 <Badge key={cat} variant="outline" size="sm" className="text-[10px] capitalize">{cat}</Badge>
               ))}
             </div>
           )}
 
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            {creator.total_products !== null && (
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {artisan.total_creations !== null && (
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
                 <Package className="h-5 w-5 text-neurospark mx-auto mb-1" />
-                <p className="text-neurospark font-bold text-lg">{creator.total_products}</p>
-                <p className="text-xs text-star-dust/40">Creations</p>
+                <p className="text-neurospark font-bold text-lg">{artisan.total_creations}</p>
+                <p className="text-xs text-star-dust/40">Works</p>
               </div>
             )}
-            {creator.total_sales !== null && (
+            {artisan.total_followers !== null && (
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                <Shield className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
-                <p className="text-emerald-400 font-bold text-lg">{creator.total_sales}</p>
-                <p className="text-xs text-star-dust/40">Sales</p>
-              </div>
-            )}
-            {creator.default_residual_pool !== null && (
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                <span className="text-purple-400 font-bold text-lg block mb-1">{creator.default_residual_pool}%</span>
-                <p className="text-xs text-star-dust/40">Residual Pool</p>
+                <Heart className="h-5 w-5 text-emerald-400 mx-auto mb-1" />
+                <p className="text-emerald-400 font-bold text-lg">{artisan.total_followers}</p>
+                <p className="text-xs text-star-dust/40">Followers</p>
               </div>
             )}
           </div>
 
-          {creator.portfolio_url && (
-            <a href={creator.portfolio_url} target="_blank" rel="noopener noreferrer"
+          {(artisan.portfolio_url || artisan.website_url) && (
+            <a href={artisan.portfolio_url || artisan.website_url || '#'} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mb-6">
-              <Globe size={14} />{creator.portfolio_url}
+              <Globe size={14} />{artisan.portfolio_url || artisan.website_url}
             </a>
           )}
-          
-          {creator.total_products !== null && creator.total_products > 0 && (
+
+          {artisan.total_creations !== null && artisan.total_creations > 0 && (
             <Link
-              href={`/bazaar/creations?creator_id=${creator.creator_profiles_id}`}
+              href={`/bazaar/creations?creator_id=${artisan.created_by}`}
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
             >
               <Package size={14} />
-              View all {creator.total_products} creations by {creator.creator_moniker}
+              View all {artisan.total_creations} works by {artisan.artisan_name}
             </Link>
           )}
 

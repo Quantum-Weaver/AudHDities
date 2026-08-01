@@ -25,7 +25,7 @@ const MILESTONES = [
   {
     date: 'April 2026',
     title: 'The Hearth Lit',
-    description: 'The first pages came alive. Users could sign in, shape their Vessel, and enter their Sanctum. The Sanctuary opened its doors.',
+    description: 'The first pages came alive. Vessels could sign in, shape themselves, and enter their Sanctum. The Sanctuary opened its doors.',
   },
   {
     date: 'April 2026',

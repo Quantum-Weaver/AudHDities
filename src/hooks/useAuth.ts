@@ -6,11 +6,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
-import type { ProfilesRow } from '@/types/generated/hestia-core/profiles';
+// The profiles table dissolved in the schema evolution; public identity
+// now lives in community_profiles (found by created_by, not by id).
+import type { CommunityProfilesRow } from '@/types/generated/hestia-core/community_profiles';
 
 export interface AuthState {
   user: User | null;
-  profile: ProfilesRow | null;
+  profile: CommunityProfilesRow | null;
   loading: boolean;
   error: string | null;
 }
@@ -25,17 +27,20 @@ export interface AuthActions {
 export function useAuth(): AuthState & AuthActions {
   const supabase = createClient();
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<ProfilesRow | null>(null);
+  const [profile, setProfile] = useState<CommunityProfilesRow | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchProfile = useCallback(async (userId: string) => {
     try {
-      const response = await fetch(`/api/generated/hestia-core/profiles/${userId}`);
+      const response = await fetch(
+        `/api/generated/hestia-core/community_profiles?created_by=${userId}&limit=1`
+      );
       const result = await response.json();
-      
+
       if (result.success) {
-        setProfile(result.data);
+        const rows = result.data?.data ?? result.data ?? [];
+        setProfile(Array.isArray(rows) ? (rows[0] ?? null) : rows);
       } else {
         console.error('Failed to fetch profile:', result.error);
         setProfile(null);

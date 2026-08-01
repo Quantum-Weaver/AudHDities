@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselAnchors
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.926Z
+// GENERATED: 2026-08-01T18:34:04.397Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselAnchors(id: string): Promise<VesselAnchorsRow> {
   const { data, error } = await supabase
     .from('vessel_anchors')
     .select('*')
-    .eq('vessel_anchors_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselAnchors(id: string, data: VesselAnchorsUpdate)
   const { data: result, error } = await supabase
     .from('vessel_anchors')
     .update(validated)
-    .eq('vessel_anchors_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselAnchors(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_anchors')
     .delete()
-    .eq('vessel_anchors_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

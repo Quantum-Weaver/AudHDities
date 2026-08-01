@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { LedgerUpdateSchema } from '@/lib/validators/generated/plutus-economics/ledger';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.544Z
+// Generated: 2026-08-01T18:27:13.320Z
 // Table: ledger
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('ledger')
       .select('*')
-      .eq('ledger_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('ledger')
       .update(validated)
-      .eq('ledger_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('ledger').delete().eq('ledger_id', id);
+    const { error } = await supabase.from('ledger').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('ledger');

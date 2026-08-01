@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, Shield, AlertTriangle, Flag, CheckCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -31,7 +31,7 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 export function ReportsHub() {
-  const { profile } = useAuth();
+  const { profile, roles } = useUser();
   const [reports, setReports] = useState<Report[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,7 +45,7 @@ export function ReportsHub() {
       .finally(() => setLoading(false));
   }, []);
 
-  const isModerator = profile?.is_admin === true || profile?.is_moderator === true;
+  const isModerator = roles.includes('admin') || roles.includes('council');
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });

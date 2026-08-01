@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselRooms
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.972Z
+// GENERATED: 2026-08-01T18:34:04.403Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselRooms(id: string): Promise<VesselRoomsRow> {
   const { data, error } = await supabase
     .from('vessel_rooms')
     .select('*')
-    .eq('vessel_rooms_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselRooms(id: string, data: VesselRoomsUpdate): Pr
   const { data: result, error } = await supabase
     .from('vessel_rooms')
     .update(validated)
-    .eq('vessel_rooms_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselRooms(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_rooms')
     .delete()
-    .eq('vessel_rooms_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

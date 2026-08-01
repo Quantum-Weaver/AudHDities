@@ -2,7 +2,7 @@
 // FILE: types/generated/athena-gamification/mythology.ts
 // HANDLING: full_crud
 // DEITY: athena-gamification
-// GENERATED: 2026-07-10T18:14:59.590Z
+// GENERATED: 2026-08-01T18:15:38.614Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -38,6 +38,7 @@ export interface PublicMythology {
   id: string;
   myth_type: string | null;
   name: string;
+  provenance: string | null;
   related_entity: string | null;
   related_entity_type: string | null;
   slug: string;
@@ -61,6 +62,7 @@ export interface MythologyFormData {
   id?: string;
   myth_type?: string | null;
   name?: string;
+  provenance?: string | null;
   related_entity?: string | null;
   related_entity_type?: string | null;
   slug?: string;
@@ -85,6 +87,7 @@ export interface MythologyValidationResult {
     id?: string;
     myth_type?: string;
     name?: string;
+    provenance?: string;
     related_entity?: string;
     related_entity_type?: string;
     slug?: string;

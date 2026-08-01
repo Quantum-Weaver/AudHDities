@@ -1,71 +1,85 @@
 // src/app/api/auth/update-profile/route.ts
-// src/app/api/auth/update-profile/route.ts
+// Rewritten 2026-07-18 for the evolved schema. The profiles table dissolved:
+// public identity edits go to community_profiles (by created_by), and
+// accessibility/display preferences go to vessel_config. Fields the schema
+// retired (username, pronouns, user_tier, communication_style,
+// preferred_environment, primary_house, the crisis_contact_* columns —
+// crisis data now lives in user_private under its own protections) are no
+// longer accepted here.
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { z } from 'zod';
-import { ENUM_VALUES } from '@/types/supabase/enums';
 
-// Validation schema for profile updates — aligned with validators/profiles.ts
-const profileUpdateSchema = z.object({
-  display_name: z.string().min(1).max(100).optional().nullable(),
-  username: z.string().min(3).max(30).regex(/^[a-zA-Z0-9_]+$/).optional().nullable(),
+// community_profiles — the vessel's public identity
+const identityUpdateSchema = z.object({
+  display_name: z.string().min(1).max(100).optional(),
+  slug: z.string().min(3).max(40).regex(/^[a-z0-9-]+$/).optional(),
   bio: z.string().max(500).optional().nullable(),
   avatar_url: z.string().url().optional().nullable(),
   banner_url: z.string().url().optional().nullable(),
-  full_name: z.string().max(200).optional().nullable(),
-  user_tier: z.enum(ENUM_VALUES.userTier).optional(),
-  communication_style: z.enum(ENUM_VALUES.communicationStyle).optional().nullable(),
-  preferred_environment: z.string().optional().nullable(),
-  pronouns: z.string().optional().nullable(),
-  dyslexia_mode: z.boolean().optional().nullable(),
-  sensory_mode: z.enum(ENUM_VALUES.sensoryMode).optional().nullable(),
-  primary_house: z.enum(ENUM_VALUES.councilHouse).optional().nullable(),
-  nd_preferences: z.any().optional().nullable(),
-  sensory_preferences: z.any().optional().nullable(),
-  algorithm_preferences: z.any().optional().nullable(),
-  last_active: z.string().datetime().optional().nullable(),
+  website_url: z.string().url().optional().nullable(),
+  icon_emoji: z.string().max(16).optional().nullable(),
+  sensory_hints: z.string().max(500).optional().nullable(),
+  social_links: z.any().optional().nullable(),
 });
 
-// Community profile update schema — aligned with validators/community_profiles.ts
-const communityProfileUpdateSchema = z.object({
-  nd_identity: z.array(z.string()).optional().nullable(),
-  sensory_accommodations: z.array(z.string()).optional().nullable(),
-  support_needs: z.array(z.string()).optional().nullable(),
-  is_mentor: z.boolean().optional().nullable(),
-  mentee_count: z.number().int().min(0).optional().nullable(),
-  crisis_contact_name: z.string().optional().nullable(),
-  crisis_contact_phone: z.string().optional().nullable(),
-  crisis_contact_email: z.string().email().optional().nullable(),
-  crisis_instructions: z.string().optional().nullable(),
-  joined_house: z.enum(ENUM_VALUES.councilHouse).optional().nullable(),
+// vessel_config — how the Sanctuary presents itself to this vessel
+const configUpdateSchema = z.object({
+  theme: z.enum(['cosmic_dark', 'cosmic_light', 'quantum', 'sanctuary', 'high_contrast']).optional(),
+  dyslexia_font: z.boolean().optional(),
+  reduce_motion: z.boolean().optional(),
+  reduce_transparency: z.boolean().optional(),
+  high_contrast: z.boolean().optional(),
+  font_scale: z.number().min(0.5).max(3).optional(),
+  autoplay_audio: z.boolean().optional(),
+  autoplay_video: z.boolean().optional(),
+  content_warnings: z.string().optional(),
+  density: z.string().optional(),
+  language: z.string().optional(),
+  timezone: z.string().optional(),
+  heralds_enabled: z.boolean().optional(),
+  herald_sounds: z.boolean().optional(),
+  // THE CEREMONY SWITCHBOARD (Movement IV, 2026-07-29) — both opt-in,
+  // default false in the schema (migrations/20260729_ceremony_choices.sql,
+  // KP's hand). Absence of choice means OFF, per THE OPT-IN LAW.
+  ceremony_arrival: z.boolean().optional(),
+  ceremony_farewell: z.boolean().optional(),
+  // THE RETURNS (2026-07-31, KP's commissions, docs/sql/013): the bubble
+  // caps come home from device-localStorage, and the environment picker
+  // gets its schema home back ('env:variant', the selector's own dialect).
+  bubble_daily_max: z.number().int().min(0).max(9999).optional(),
+  bubble_hourly_max: z.number().int().min(0).max(999).optional(),
+  environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
 });
 
 export async function PATCH(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
-    
+
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
+
     if (authError || !user) {
       return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
     }
 
     const body = await request.json();
-    const { community, ...profileData } = body;
-    
-    const validatedProfile = profileUpdateSchema.safeParse(profileData);
-    if (!validatedProfile.success) {
+    const { config, community, ...identityData } = body;
+    // `community` accepted as a legacy alias for identity fields
+    const identityInput = { ...identityData, ...(community || {}) };
+
+    const validatedIdentity = identityUpdateSchema.safeParse(identityInput);
+    if (!validatedIdentity.success) {
       return NextResponse.json(
-        { error: 'Invalid profile data', details: validatedProfile.error.issues },
+        { error: 'Invalid profile data', details: validatedIdentity.error.issues },
         { status: 400 }
       );
     }
 
-    if (Object.keys(validatedProfile.data).length > 0) {
+    if (Object.keys(validatedIdentity.data).length > 0) {
       const { error: updateError } = await supabase
-        .from('profiles')
-        .update({ ...validatedProfile.data, updated_at: new Date().toISOString() } as any)
-        .eq('profiles_id', user.id);
+        .from('community_profiles')
+        .update({ ...validatedIdentity.data, updated_at: new Date().toISOString() })
+        .eq('created_by', user.id);
 
       if (updateError) {
         console.error('Profile update error:', updateError);
@@ -73,32 +87,41 @@ export async function PATCH(request: NextRequest) {
       }
     }
 
-    if (community) {
-      const validatedCommunity = communityProfileUpdateSchema.safeParse(community);
-      if (validatedCommunity.success && Object.keys(validatedCommunity.data).length > 0) {
-        const { error: communityError } = await supabase
-          .from('community_profiles')
-          .update({ ...validatedCommunity.data, updated_at: new Date().toISOString() })
-          .eq('profile_id', user.id);
+    if (config) {
+      const validatedConfig = configUpdateSchema.safeParse(config);
+      if (!validatedConfig.success) {
+        return NextResponse.json(
+          { error: 'Invalid config data', details: validatedConfig.error.issues },
+          { status: 400 }
+        );
+      }
+      if (Object.keys(validatedConfig.data).length > 0) {
+        const { error: configError } = await supabase
+          .from('vessel_config')
+          .update({
+            ...validatedConfig.data,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('created_by', user.id);
 
-        if (communityError) {
-          console.error('Community profile update error:', communityError);
+        if (configError) {
+          console.error('Vessel config update error:', configError);
         }
       }
     }
 
-    const { data: updatedProfile, error: fetchError } = await supabase
-      .from('profiles')
-      .select(`*, community_profiles!fk_community_profiles_profile_id (*), creator_profiles!fk_creator_profile_id (*), vendor_profiles!fk_vendor_profiles_profile_id (*)`)
-      .eq('profiles_id', user.id)
-      .single();
+    const [profileRes, configRes] = await Promise.all([
+      supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
+      supabase.from('vessel_config').select('*').eq('created_by', user.id).maybeSingle(),
+    ]);
 
-    if (fetchError) {
-      console.error('Fetch updated profile error:', fetchError);
-    }
+    return NextResponse.json({
+      success: true,
+      profile: profileRes.data ?? null,
+      config: configRes.data ?? null,
+      message: 'Profile updated successfully',
+    });
 
-    return NextResponse.json({ success: true, profile: updatedProfile, message: 'Profile updated successfully' });
-    
   } catch (error) {
     console.error('Profile update error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

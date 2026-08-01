@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: PlantStages
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.640Z
+// GENERATED: 2026-08-01T18:34:04.373Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getPlantStages(id: string): Promise<PlantStagesRow> {
   const { data, error } = await supabase
     .from('plant_stages')
     .select('*')
-    .eq('plant_stages_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updatePlantStages(id: string, data: PlantStagesUpdate): Pr
   const { data: result, error } = await supabase
     .from('plant_stages')
     .update(validated)
-    .eq('plant_stages_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deletePlantStages(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('plant_stages')
     .delete()
-    .eq('plant_stages_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Analytics
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.215Z
+// GENERATED: 2026-08-01T18:34:04.324Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAnalytics(id: string): Promise<AnalyticsRow> {
   const { data, error } = await supabase
     .from('analytics')
     .select('*')
-    .eq('analytics_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAnalytics(id: string, data: AnalyticsUpdate): Promis
   const { data: result, error } = await supabase
     .from('analytics')
     .update(validated)
-    .eq('analytics_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAnalytics(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('analytics')
     .delete()
-    .eq('analytics_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CalendarUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/calendar';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.274Z
+// Generated: 2026-08-01T18:27:13.235Z
 // Table: calendar
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('calendar')
       .select('*')
-      .eq('calendar_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('calendar')
       .update(validated)
-      .eq('calendar_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('calendar').delete().eq('calendar_id', id);
+    const { error } = await supabase.from('calendar').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('calendar');

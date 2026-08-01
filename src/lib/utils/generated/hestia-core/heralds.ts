@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Heralds
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.518Z
+// GENERATED: 2026-08-01T18:34:04.361Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getHeralds(id: string): Promise<HeraldsRow> {
   const { data, error } = await supabase
     .from('heralds')
     .select('*')
-    .eq('heralds_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateHeralds(id: string, data: HeraldsUpdate): Promise<He
   const { data: result, error } = await supabase
     .from('heralds')
     .update(validated)
-    .eq('heralds_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteHeralds(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('heralds')
     .delete()
-    .eq('heralds_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -11,7 +11,7 @@ import { parseDatabaseTypes } from '@/lib/schema/parseDatabaseTypes';
 import { Heart, Shield, Sparkles, Infinity } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Database Schema | AUDHDITIES Architecture',
+  title: 'The Schema | Sovereign Sanctuary',
   description: 'The living blueprint of our sanctuary',
 };
 
@@ -65,7 +65,7 @@ export default async function DatabaseSchemaPage() {
             <Shield />
             <h3 className="text-white font-bold mb-2">Row Level Security (RLS)</h3>
             <p className="text-white/60 text-sm max-w-2xl mx-auto">
-              Every table has Row Level Security enabled. Users can only access their own data.
+              Every table has Row Level Security enabled. Vessels can only access their own data.
               Admins have elevated access. All policies are public and auditable.
             </p>
           </section>

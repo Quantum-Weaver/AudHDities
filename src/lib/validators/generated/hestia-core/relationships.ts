@@ -1,0 +1,78 @@
+// =====================================================
+// FILE: validators/relationships.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// Relationships SCHEMAS
+// =====================================================
+
+export const RelationshipsRowSchema = z.object({
+  archived_at: z.string().nullable(),
+  columns: z.any(),
+  constraint_name: z.string(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  foreign_columns: z.any(),
+  foreign_table: z.string(),
+  id: z.string(),
+  is_active: z.boolean(),
+  last_seen_at: z.string().nullable(),
+  log: z.any(),
+  on_delete: z.string().nullable(),
+  on_update: z.string().nullable(),
+  one_to_one: z.boolean(),
+  table_name: z.string(),
+  updated_at: z.string(),
+});
+
+export const RelationshipsInsertSchema = z.object({
+  archived_at: z.string().nullable().optional(),
+  columns: z.any().optional(),
+  constraint_name: z.string(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  foreign_columns: z.any().optional(),
+  foreign_table: z.string(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
+  log: z.any().optional(),
+  on_delete: z.string().nullable().optional(),
+  on_update: z.string().nullable().optional(),
+  one_to_one: z.boolean().optional(),
+  table_name: z.string(),
+  updated_at: z.string().optional(),
+});
+
+export const RelationshipsUpdateSchema = z.object({
+  archived_at: z.string().nullable().optional(),
+  columns: z.any().optional(),
+  constraint_name: z.string().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  foreign_columns: z.any().optional(),
+  foreign_table: z.string().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
+  log: z.any().optional(),
+  on_delete: z.string().nullable().optional(),
+  on_update: z.string().nullable().optional(),
+  one_to_one: z.boolean().optional(),
+  table_name: z.string().optional(),
+  updated_at: z.string().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type RelationshipsRowInput = z.infer<typeof RelationshipsRowSchema>;
+export type RelationshipsInsertInput = z.infer<typeof RelationshipsInsertSchema>;
+export type RelationshipsUpdateInput = z.infer<typeof RelationshipsUpdateSchema>;

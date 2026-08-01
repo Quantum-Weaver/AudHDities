@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Scheduling
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.784Z
+// GENERATED: 2026-08-01T18:34:04.385Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getScheduling(id: string): Promise<SchedulingRow> {
   const { data, error } = await supabase
     .from('scheduling')
     .select('*')
-    .eq('scheduling_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateScheduling(id: string, data: SchedulingUpdate): Prom
   const { data: result, error } = await supabase
     .from('scheduling')
     .update(validated)
-    .eq('scheduling_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteScheduling(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('scheduling')
     .delete()
-    .eq('scheduling_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

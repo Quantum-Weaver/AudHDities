@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser, tierLight } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
@@ -13,16 +13,25 @@ import {
 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
+// (earlier today) removed this fetch believing no living home existed; the
+// conductor's genealogy check found it living under its settled name,
+// `current` (sovereign_id-scoped). `current` carries no `title` field (that
+// only existed on the old table) — the preview line below falls back to a
+// humanized `event_type` when `description` is empty, honestly.
 interface TimelineEvent {
-  timelines_id: string;
-  title: string;
+  id: string;
   description: string | null;
   event_type: string;
-  occurred_at: string;
+  event_at: string;
 }
 
-interface BadgeItem {
-  badges_id: string;
+function humanizeEventType(type: string): string {
+  return type.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+interface SigilItem {
+  id: string;
   name: string;
   slug: string;
   rarity: string;
@@ -30,21 +39,25 @@ interface BadgeItem {
 }
 
 export function ObservatoryHub() {
-  const { user, profile, loading: authLoading } = useAuth();
+  const { user, profile, sovereignTier, isLoading: authLoading } = useUser();
   const [timeline, setTimeline] = useState<TimelineEvent[]>([]);
-  const [badges, setBadges] = useState<BadgeItem[]>([]);
+  const [sigils, setSigils] = useState<SigilItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
     Promise.all([
-      fetch(`/api/generated/hestia-core/timelines?user_id=${user.id}&order=occurred_at.desc&limit=5`)
+      // badges route is gone — GAIA now emits sigils
+      fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
         .then(r => r.json()),
-      fetch(`/api/generated/athena-gamification/badges?is_active=true&order=name.asc&limit=6`)
+      // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
+      // conductor's genealogy check found `timelines` living under its settled
+      // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
+      fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=3`)
         .then(r => r.json()),
-    ]).then(([tlRes, badgeRes]) => {
-      if (tlRes.success) setTimeline(tlRes.data?.data || []);
-      if (badgeRes.success) setBadges(badgeRes.data?.data || []);
+    ]).then(([sigilRes, currentRes]) => {
+      if (sigilRes.success) setSigils(sigilRes.data?.data || []);
+      if (currentRes.success) setTimeline(currentRes.data?.data || []);
     }).catch(console.error).finally(() => setLoading(false));
   }, [user]);
 
@@ -94,9 +107,9 @@ export function ObservatoryHub() {
               {isAuthenticated && timeline.length > 0 ? (
                 <div className="space-y-2">
                   {timeline.slice(0, 3).map(t => (
-                    <div key={t.timelines_id} className="text-xs text-star-dust/40 flex items-center gap-2">
+                    <div key={t.id} className="text-xs text-star-dust/40 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-neurospark flex-shrink-0" />
-                      <span className="truncate">{t.title}</span>
+                      <span className="truncate">{t.description || humanizeEventType(t.event_type)}</span>
                     </div>
                   ))}
                 </div>
@@ -109,18 +122,18 @@ export function ObservatoryHub() {
             </Card>
           </Link>
 
-          {/* Pattern Recognition */}
+          {/* The Weave */}
           <Link href="/observatory/patterns" className="group">
-            <Card data={{ id: 'obs-patterns', type: 'value', title: 'Pattern Recognition', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6 h-full">
+            <Card data={{ id: 'obs-patterns', type: 'value', title: 'The Weave', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6 h-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center"><TrendingUp className="h-5 w-5 text-cyan-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Pattern Recognition</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Weave</h2>
               </div>
               <p className="text-sm text-star-dust/50 mb-4">Insights emerging from your data. What the stars reveal.</p>
               {isAuthenticated && profile ? (
                 <div className="space-y-2">
                   <div className="text-xs text-star-dust/40">
-                    <span className="text-neurospark">{profile.sovereignty_score ?? 0}</span> sovereignty points earned
+                    <span className="text-neurospark">{tierLight(sovereignTier)}</span> sovereignty points earned
                   </div>
                   <div className="text-xs text-star-dust/40">
                     Energy trend available in your <span className="text-neurospark">Energy Log</span>
@@ -141,14 +154,14 @@ export function ObservatoryHub() {
                 <h2 className="text-lg font-semibold text-star-dust">The Vision</h2>
               </div>
               <p className="text-sm text-star-dust/50 mb-4">Possible futures. Potential paths. What could be.</p>
-              {badges.length > 0 ? (
+              {sigils.length > 0 ? (
                 <div className="flex flex-wrap gap-1">
-                  {badges.slice(0, 4).map(b => (
-                    <Badge key={b.badges_id} variant="outline" size="sm" className="text-[10px]">{b.name}</Badge>
+                  {sigils.slice(0, 4).map(s => (
+                    <Badge key={s.id} variant="outline" size="sm" className="text-[10px]">{s.name}</Badge>
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-star-dust/30 italic">Badges yet to be earned await</p>
+                <p className="text-xs text-star-dust/30 italic">Sigils yet to be earned await</p>
               )}
               <span className="flex items-center gap-1 text-xs text-neurospark mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
             </Card>
@@ -157,24 +170,24 @@ export function ObservatoryHub() {
 
         {/* Bottom Row */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {/* Constellations */}
+          {/* The Grand Pattern */}
           <Link href="/observatory/constellations" className="group">
-            <Card data={{ id: 'obs-constellations', type: 'value', title: 'Constellations', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
+            <Card data={{ id: 'obs-constellations', type: 'value', title: 'The Grand Pattern', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center"><Star className="h-5 w-5 text-indigo-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Constellations</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Grand Pattern</h2>
               </div>
               <p className="text-sm text-star-dust/50">See how all threads weave together across the Sanctuary.</p>
               <span className="flex items-center gap-1 text-xs text-neurospark mt-3 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
             </Card>
           </Link>
 
-          {/* Ancestors */}
+          {/* The Council Eternal */}
           <Link href="/observatory/ancestors" className="group">
-            <Card data={{ id: 'obs-ancestors', type: 'value', title: 'Ancestors', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
+            <Card data={{ id: 'obs-ancestors', type: 'value', title: 'The Council Eternal', value: '' }} variant="interactive" radius="xl" shadow="md" className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center"><Users className="h-5 w-5 text-rose-400" /></div>
-                <h2 className="text-lg font-semibold text-star-dust">Ancestors</h2>
+                <h2 className="text-lg font-semibold text-star-dust">The Council Eternal</h2>
               </div>
               <p className="text-sm text-star-dust/50">Honoring the Council and those who shaped the Sanctuary.</p>
               <span className="flex items-center gap-1 text-xs text-neurospark mt-3 opacity-0 group-hover:opacity-100 transition-opacity">Explore <ArrowRight size={12} /></span>
@@ -185,16 +198,16 @@ export function ObservatoryHub() {
         {/* Bottom Links */}
         <div className="grid md:grid-cols-3 gap-6">
           <Link href="/observatory/schema" className="group">
-            <Card data={{ id: 'obs-schema', type: 'value', title: 'Schema', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
+            <Card data={{ id: 'obs-schema', type: 'value', title: 'The Schema', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
               <Telescope className="h-6 w-6 text-neurospark mx-auto mb-2" />
-              <h3 className="text-sm font-medium text-star-dust">Schema Explorer</h3>
+              <h3 className="text-sm font-medium text-star-dust">The Schema</h3>
               <p className="text-xs text-star-dust/40">The living blueprint</p>
             </Card>
           </Link>
           <Link href="/observatory/origin" className="group">
-            <Card data={{ id: 'obs-origin', type: 'value', title: 'Origin', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
+            <Card data={{ id: 'obs-origin', type: 'value', title: 'The First Light', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-5 text-center">
               <ScrollText className="h-6 w-6 text-neurospark mx-auto mb-2" />
-              <h3 className="text-sm font-medium text-star-dust">The Origin</h3>
+              <h3 className="text-sm font-medium text-star-dust">The First Light</h3>
               <p className="text-xs text-star-dust/40">Where it all began</p>
             </Card>
           </Link>

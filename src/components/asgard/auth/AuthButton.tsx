@@ -6,11 +6,12 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User, LogOut } from 'lucide-react';
+import FarewellCeremony from './FarewellCeremony';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -36,21 +37,66 @@ import {
 
 export default function AuthButton() {
   const router = useRouter();
-  const { user, signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
 
   // ─── Hover State ─────────────────────────────────────────────────────
   const [isHovered, setIsHovered] = useState(false);
   const hoverHandlers = buildAuthButtonHoverHandlers(setIsHovered);
 
-  const handleLogout = async () => {
+  // ─── The farewell choice (Movement IV, stroke 5) ─────────────────────
+  // Read once per signed-in mount from vessel_config. The column is opt-in,
+  // default false (migrations/20260729_ceremony_choices.sql); read
+  // defensively so a not-yet-migrated base simply means OFF — absence of
+  // choice always means OFF, which is THE OPT-IN LAW behaving as designed.
+  const [farewellChosen, setFarewellChosen] = useState(false);
+  const [departing, setDeparting] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      setFarewellChosen(false);
+      return;
+    }
+    fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
+      .then((r) => r.json())
+      .then((res) => {
+        const row = res.success ? (res.data?.data ?? [])[0] : undefined;
+        setFarewellChosen(
+          !!row && (row as Record<string, unknown>).ceremony_farewell === true
+        );
+      })
+      .catch(() => setFarewellChosen(false));
+  }, [user]);
+
+  const completeSignOut = async () => {
     try {
       await signOut();
       router.push(AUTH_ROUTES.HOME);
       router.refresh();
     } catch (error) {
       console.error('Logout error:', error);
+    } finally {
+      setDeparting(false);
     }
   };
+
+  const handleLogout = async () => {
+    // The vessel's own chosen ceremony, or the plain going — never both,
+    // never imposed. Gweld ti'n fuan speaks only where it was invited.
+    if (farewellChosen) {
+      setDeparting(true);
+      return;
+    }
+    await completeSignOut();
+  };
+
+  if (user && departing) {
+    return (
+      <FarewellCeremony
+        vesselName={profile?.display_name}
+        onComplete={completeSignOut}
+      />
+    );
+  }
 
   if (user) {
     return (

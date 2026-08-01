@@ -21,8 +21,18 @@ export const HOME_LABELS = {
   TRUST_1: 'No hidden fees',
   TRUST_2: '100% transparent',
   TRUST_3: 'Community-owned',
-  GREETING_PREFIX: 'Welcome back,',
-  GREETING_FALLBACK: 'Sovereign',  
+  // FÁILTE — the Hearth's own greeting (Shuttle Run 08, Phase 5, Movement
+  // III, "THE THRESHOLDS"). Provenance: REIMAGINING-BOARD.md, THE SIX
+  // STROKES, stroke 1, KP's word verbatim: "Velkomin at the door + Fáilte
+  // at the Hearth." Irish — Brigid's own tongue, the Hearth-Keeper deity;
+  // a NOUN-greeting, structurally incapable of inference (no tense, no
+  // "back," no assumption about return-vs-first-visit). Distinct from
+  // Velkomin (the door's word, fired once at the crossing in
+  // VelkominGreeting.tsx) — this is the persistent eyebrow the Hearth
+  // always wears, every visit, never doubled with the door's word in the
+  // same glance.
+  HEARTH_GREETING: 'Fáilte',
+  GREETING_FALLBACK: 'Sovereign',
 } as const;
 
 export const HOME_ROUTES = {

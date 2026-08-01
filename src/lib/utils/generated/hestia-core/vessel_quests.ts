@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselQuests
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.967Z
+// GENERATED: 2026-08-01T18:34:04.403Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselQuests(id: string): Promise<VesselQuestsRow> {
   const { data, error } = await supabase
     .from('vessel_quests')
     .select('*')
-    .eq('vessel_quests_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselQuests(id: string, data: VesselQuestsUpdate): 
   const { data: result, error } = await supabase
     .from('vessel_quests')
     .update(validated)
-    .eq('vessel_quests_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselQuests(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_quests')
     .delete()
-    .eq('vessel_quests_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

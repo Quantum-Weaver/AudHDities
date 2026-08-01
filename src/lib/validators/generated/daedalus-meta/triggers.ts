@@ -1,0 +1,72 @@
+// =====================================================
+// FILE: validators/triggers.ts
+// GENERATED FROM: database.types.ts
+// =====================================================
+
+import z from 'zod';
+
+// =====================================================
+// Triggers SCHEMAS
+// =====================================================
+
+export const TriggersRowSchema = z.object({
+  archived_at: z.string().nullable(),
+  created_at: z.string(),
+  created_by: z.string().nullable(),
+  description: z.string().nullable(),
+  events: z.string().nullable(),
+  function_name: z.string().nullable(),
+  id: z.string(),
+  is_active: z.boolean(),
+  last_seen_at: z.string().nullable(),
+  log: z.any(),
+  name: z.string(),
+  table_name: z.string(),
+  timing: z.string().nullable(),
+  updated_at: z.string(),
+  updated_by: z.string().nullable(),
+});
+
+export const TriggersInsertSchema = z.object({
+  archived_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  events: z.string().nullable().optional(),
+  function_name: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
+  log: z.any().optional(),
+  name: z.string(),
+  table_name: z.string(),
+  timing: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+export const TriggersUpdateSchema = z.object({
+  archived_at: z.string().nullable().optional(),
+  created_at: z.string().optional(),
+  created_by: z.string().nullable().optional(),
+  description: z.string().nullable().optional(),
+  events: z.string().nullable().optional(),
+  function_name: z.string().nullable().optional(),
+  id: z.string().optional(),
+  is_active: z.boolean().optional(),
+  last_seen_at: z.string().nullable().optional(),
+  log: z.any().optional(),
+  name: z.string().optional(),
+  table_name: z.string().optional(),
+  timing: z.string().nullable().optional(),
+  updated_at: z.string().optional(),
+  updated_by: z.string().nullable().optional(),
+});
+
+// =====================================================
+// TYPE INFERENCE
+// =====================================================
+
+export type TriggersRowInput = z.infer<typeof TriggersRowSchema>;
+export type TriggersInsertInput = z.infer<typeof TriggersInsertSchema>;
+export type TriggersUpdateInput = z.infer<typeof TriggersUpdateSchema>;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CouncilHouses
 // DEITY: themis-governance
-// GENERATED: 2026-07-10T18:14:59.339Z
+// GENERATED: 2026-08-01T18:34:04.339Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCouncilHouses(id: string): Promise<CouncilHousesRow> {
   const { data, error } = await supabase
     .from('council_houses')
     .select('*')
-    .eq('council_houses_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCouncilHouses(id: string, data: CouncilHousesUpdate)
   const { data: result, error } = await supabase
     .from('council_houses')
     .update(validated)
-    .eq('council_houses_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCouncilHouses(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('council_houses')
     .delete()
-    .eq('council_houses_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -10,7 +10,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { createHash } from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -368,7 +368,7 @@ async function writeTablesFile(
 // MAIN FUNCTION
 // ============================================================================
 
-async function generateTablesFile(options: WriteOptions): Promise<{
+export async function generateTablesFile(options: WriteOptions): Promise<{
   success: boolean;
   filePath: string;
   action: string;
@@ -435,7 +435,6 @@ async function main() {
 }
 
 // Run if called directly
-main();
-
-
-export { generateTablesFile };
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
+}

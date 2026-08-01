@@ -6,7 +6,7 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { 
   Shield, ScrollText, Vote, Users, Eye, 
   FileText, Settings, UserCheck, ArrowRight, Sparkles 
@@ -48,7 +48,7 @@ const SECTIONS = [
   },
   {
     title: 'The Ledger',
-    description: 'Complete transparency, every transaction visible',
+    description: 'Complete transparency, every exchange visible',
     href: '/council/ledger',
     icon: FileText,
     color: 'text-teal-400',
@@ -73,7 +73,7 @@ const SECTIONS = [
   },
   {
     title: 'Applications',
-    description: 'Review creator, vendor, and curator applications',
+    description: 'Review artisan, merchant, and curator applications',
     href: '/council/applications',
     icon: UserCheck,
     color: 'text-indigo-400',
@@ -83,7 +83,7 @@ const SECTIONS = [
 ];
 
 export function CouncilHub() {
-  const { user, profile, loading } = useAuth();
+  const { user, profile, isLoading: loading, roles } = useUser();
 
   if (loading) {
     return (
@@ -101,8 +101,8 @@ export function CouncilHub() {
     );
   }
 
-  const isAdmin = profile?.is_admin === true || profile?.is_moderator === true;
-  const isCouncilTier = profile?.user_tier === 'council';
+  const isAdmin = roles.includes('admin') || roles.includes('council');
+  const isCouncilTier = roles.includes('council');
 
   return (
     <main className="min-h-screen py-12">

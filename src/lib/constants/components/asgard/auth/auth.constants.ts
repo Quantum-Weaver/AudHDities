@@ -48,11 +48,11 @@ export const AUTH_LABELS = {
 // ─── Page Metadata ─────────────────────────────────────────────────────────
 export const AUTH_METADATA = {
   LOGIN: {
-    title: 'Login | AUDHDITIES',
+    title: 'Enter the Sanctuary | AUDHDITIES',
     description: 'Return to the sanctuary',
   },
   SIGNUP: {
-    title: 'Sign Up | AUDHDITIES',
+    title: 'Join the Sanctuary | AUDHDITIES',
     description: 'Join the sovereign network',
   },
 } as const;

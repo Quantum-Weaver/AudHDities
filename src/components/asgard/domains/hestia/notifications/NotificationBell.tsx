@@ -26,9 +26,9 @@ export function NotificationBell({ className }: NotificationBellProps) {
     const fetchNotifications = async () => {
       const supabase = createClient();
       const { data } = await supabase
-        .from("notifications")
+        .from("heralds")
         .select("*")
-        .eq("user_id", user.id)
+        .eq("created_by", user.id)
         .order("created_at", { ascending: false })
         .limit(10);
 
@@ -43,14 +43,14 @@ export function NotificationBell({ className }: NotificationBellProps) {
     // Subscribe to new notifications
     const supabase = createClient();
     const channel = supabase
-      .channel("notifications")
+      .channel("heralds")
       .on(
         "postgres_changes",
         {
           event: "INSERT",
           schema: "public",
-          table: "notifications",
-          filter: `user_id=eq.${user.id}`,
+          table: "heralds",
+          filter: `created_by=eq.${user.id}`,
         },
         (payload) => {
           setNotifications((prev) => [payload.new as any, ...prev.slice(0, 9)]);
@@ -68,9 +68,9 @@ export function NotificationBell({ className }: NotificationBellProps) {
     if (!user) return;
     const supabase = createClient();
     await supabase
-      .from("notifications")
+      .from("heralds")
       .update({ is_read: true, read_at: new Date().toISOString() })
-      .eq("user_id", user.id)
+      .eq("created_by", user.id)
       .eq("is_read", false);
     setUnreadCount(0);
     setNotifications((prev) =>
@@ -123,7 +123,7 @@ export function NotificationBell({ className }: NotificationBellProps) {
                 notifications.map((notification) => (
                   <Link
                     key={notification.id}
-                    href={notification.action_url || "#"}
+                    href={`/notifications/${notification.id}`}
                     className={cn(
                       "block p-3 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0",
                       !notification.is_read && "bg-cyan-500/5"
@@ -132,11 +132,11 @@ export function NotificationBell({ className }: NotificationBellProps) {
                   >
                     <div className="flex items-start gap-3">
                       <div className="text-lg">
-                        {notification.type === "emerald_received" && "💚"}
-                        {notification.type === "comment_reply" && "💬"}
-                        {notification.type === "subscription_renewal" && "🔄"}
-                        {notification.type === "product_purchased" && "🛒"}
-                        {!notification.type && "📢"}
+                        {notification.herald_type === "emerald_received" && "💚"}
+                        {notification.herald_type === "comment_reply" && "💬"}
+                        {notification.herald_type === "subscription_renewal" && "🔄"}
+                        {notification.herald_type === "product_purchased" && "🛒"}
+                        {!notification.herald_type && "📢"}
                       </div>
                       <div className="flex-1">
                         <p className="text-sm text-star-dust">{notification.title}</p>

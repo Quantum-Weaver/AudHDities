@@ -12,7 +12,7 @@ import { ArrowLeft, Mic, Clock, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface ComedyEvent {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   scheduled_for: string | null; performer_id: string; is_live: boolean;
 }
 
@@ -32,7 +32,7 @@ export function ComedyDetail() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
   if (!event) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Mic className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This set has ended.</p><Link href="/stage/comedy" className="text-neurospark hover:underline mt-4 inline-block">Return to the Comedy Hearth</Link></div></main>);
 
-  const cd: CardData = { id: event.events_id, type: 'event', title: event.title, description: event.description || '' };
+  const cd: CardData = { id: event.id, type: 'event', title: event.title, description: event.description || '' };
   const formatDate = (d: string | null) => d ? new Date(d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : 'TBA';
 
   return (

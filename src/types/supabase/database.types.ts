@@ -440,38 +440,6 @@ export type Database = {
         }
         Relationships: []
       }
-      artisan_category_links: {
-        Row: {
-          artisan_id: string
-          category_id: string
-          created_at: string
-          id: string
-          updated_at: string
-        }
-        Insert: {
-          artisan_id: string
-          category_id: string
-          created_at?: string
-          id?: string
-          updated_at?: string
-        }
-        Update: {
-          artisan_id?: string
-          category_id?: string
-          created_at?: string
-          id?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "artisan_category_links_category_id_fkey"
-            columns: ["category_id"]
-            isOneToOne: false
-            referencedRelation: "categories"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       artisan_profiles: {
         Row: {
           application_id: string | null
@@ -987,51 +955,6 @@ export type Database = {
         }
         Relationships: []
       }
-      categories: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          display_order: number
-          icon_emoji: string | null
-          icon_url: string | null
-          id: string
-          name: string
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          display_order?: number
-          icon_emoji?: string | null
-          icon_url?: string | null
-          id?: string
-          name: string
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          display_order?: number
-          icon_emoji?: string | null
-          icon_url?: string | null
-          id?: string
-          name?: string
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       chancellor: {
         Row: {
           consciousness_level: string | null
@@ -1121,50 +1044,6 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
-      }
-      class: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          phylum_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          phylum_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          phylum_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "class_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       codex: {
         Row: {
@@ -1304,6 +1183,60 @@ export type Database = {
         }
         Relationships: []
       }
+      columns: {
+        Row: {
+          archived_at: string | null
+          column_default: string | null
+          column_name: string
+          created_at: string
+          created_by: string | null
+          data_type: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          is_nullable: boolean | null
+          last_seen_at: string | null
+          log: Json
+          table_name: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          archived_at?: string | null
+          column_default?: string | null
+          column_name: string
+          created_at?: string
+          created_by?: string | null
+          data_type?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          is_nullable?: boolean | null
+          last_seen_at?: string | null
+          log?: Json
+          table_name: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          archived_at?: string | null
+          column_default?: string | null
+          column_name?: string
+          created_at?: string
+          created_by?: string | null
+          data_type?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          is_nullable?: boolean | null
+          last_seen_at?: string | null
+          log?: Json
+          table_name?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       community_profiles: {
         Row: {
           avatar_url: string | null
@@ -1409,6 +1342,54 @@ export type Database = {
         }
         Relationships: []
       }
+      composite_types: {
+        Row: {
+          archived_at: string | null
+          attributes: Json | null
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          name: string
+          updated_at: string
+          updated_by: string | null
+          used_by: Json | null
+        }
+        Insert: {
+          archived_at?: string | null
+          attributes?: Json | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          updated_at?: string
+          updated_by?: string | null
+          used_by?: Json | null
+        }
+        Update: {
+          archived_at?: string | null
+          attributes?: Json | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          updated_at?: string
+          updated_by?: string | null
+          used_by?: Json | null
+        }
+        Relationships: []
+      }
       consciousness: {
         Row: {
           awareness_level: string | null
@@ -1503,48 +1484,6 @@ export type Database = {
           response?: string | null
           status?: Database["public"]["Enums"]["content_status"]
           subject?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      continents: {
-        Row: {
-          code: string | null
-          created_at: string
-          created_by: string | null
-          display_order: number
-          icon_url: string | null
-          id: string
-          name: string
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          code?: string | null
-          created_at?: string
-          created_by?: string | null
-          display_order?: number
-          icon_url?: string | null
-          id?: string
-          name: string
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          code?: string | null
-          created_at?: string
-          created_by?: string | null
-          display_order?: number
-          icon_url?: string | null
-          id?: string
-          name?: string
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
         }
@@ -1667,60 +1606,6 @@ export type Database = {
         }
         Relationships: []
       }
-      culturalization: {
-        Row: {
-          communication_style: string | null
-          created_at: string
-          created_by: string | null
-          customs: Json | null
-          description: string | null
-          id: string
-          is_default: boolean
-          language_id: string | null
-          name: string
-          region_code: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-          visual_preferences: Json | null
-        }
-        Insert: {
-          communication_style?: string | null
-          created_at?: string
-          created_by?: string | null
-          customs?: Json | null
-          description?: string | null
-          id?: string
-          is_default?: boolean
-          language_id?: string | null
-          name: string
-          region_code?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-          visual_preferences?: Json | null
-        }
-        Update: {
-          communication_style?: string | null
-          created_at?: string
-          created_by?: string | null
-          customs?: Json | null
-          description?: string | null
-          id?: string
-          is_default?: boolean
-          language_id?: string | null
-          name?: string
-          region_code?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-          visual_preferences?: Json | null
-        }
-        Relationships: []
-      }
       curator: {
         Row: {
           consciousness_level: string | null
@@ -1796,60 +1681,6 @@ export type Database = {
           reference_id?: string | null
           reference_table?: string | null
           sovereign_id?: string | null
-        }
-        Relationships: []
-      }
-      customs: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          culturalization_id: string | null
-          custom_type: string | null
-          description: string | null
-          guidance: string | null
-          id: string
-          name: string
-          practice: string | null
-          region_id: string | null
-          significance: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          culturalization_id?: string | null
-          custom_type?: string | null
-          description?: string | null
-          guidance?: string | null
-          id?: string
-          name: string
-          practice?: string | null
-          region_id?: string | null
-          significance?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          culturalization_id?: string | null
-          custom_type?: string | null
-          description?: string | null
-          guidance?: string | null
-          id?: string
-          name?: string
-          practice?: string | null
-          region_id?: string | null
-          significance?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
         }
         Relationships: []
       }
@@ -1950,53 +1781,6 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
-      }
-      domain: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          deity_name: string | null
-          description: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          temperature: number | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          deity_name?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          temperature?: number | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          deity_name?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          temperature?: number | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "domain_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       email_communications: {
         Row: {
@@ -2145,76 +1929,121 @@ export type Database = {
         }
         Relationships: []
       }
-      etymology: {
+      enums: {
         Row: {
-          atom_id: string | null
-          atom_word: string | null
-          combining_form: string | null
-          completion_progress: number | null
+          archived_at: string | null
           created_at: string
           created_by: string | null
-          etymon: string | null
-          evolution_notes: string | null
-          historical_meaning: string | null
+          description: string | null
           id: string
-          keyword_id: string
-          morpheme_breakdown: string | null
-          prefix: string | null
-          root_language: string | null
-          root_word: string | null
-          sanctuary_meaning: string | null
-          suffix: string | null
+          is_active: boolean
+          labels: Json | null
+          last_seen_at: string | null
+          log: Json
+          name: string
+          updated_at: string
+          updated_by: string | null
+          used_by: Json | null
+        }
+        Insert: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          labels?: Json | null
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          updated_at?: string
+          updated_by?: string | null
+          used_by?: Json | null
+        }
+        Update: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          labels?: Json | null
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          updated_at?: string
+          updated_by?: string | null
+          used_by?: Json | null
+        }
+        Relationships: []
+      }
+      events: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          event_type: string | null
+          genre: string | null
+          id: string
+          is_live: boolean
+          is_recorded: boolean
+          performer_id: string | null
+          recorded_at: string | null
+          recording_work_id: string | null
+          scheduled_for: string | null
+          slug: string
+          started_at: string | null
+          status: Database["public"]["Enums"]["content_status"]
+          title: string
           updated_at: string
           updated_by: string | null
         }
         Insert: {
-          atom_id?: string | null
-          atom_word?: string | null
-          combining_form?: string | null
-          completion_progress?: number | null
           created_at?: string
           created_by?: string | null
-          etymon?: string | null
-          evolution_notes?: string | null
-          historical_meaning?: string | null
+          description?: string | null
+          event_type?: string | null
+          genre?: string | null
           id?: string
-          keyword_id: string
-          morpheme_breakdown?: string | null
-          prefix?: string | null
-          root_language?: string | null
-          root_word?: string | null
-          sanctuary_meaning?: string | null
-          suffix?: string | null
+          is_live?: boolean
+          is_recorded?: boolean
+          performer_id?: string | null
+          recorded_at?: string | null
+          recording_work_id?: string | null
+          scheduled_for?: string | null
+          slug: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          title: string
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
-          atom_id?: string | null
-          atom_word?: string | null
-          combining_form?: string | null
-          completion_progress?: number | null
           created_at?: string
           created_by?: string | null
-          etymon?: string | null
-          evolution_notes?: string | null
-          historical_meaning?: string | null
+          description?: string | null
+          event_type?: string | null
+          genre?: string | null
           id?: string
-          keyword_id?: string
-          morpheme_breakdown?: string | null
-          prefix?: string | null
-          root_language?: string | null
-          root_word?: string | null
-          sanctuary_meaning?: string | null
-          suffix?: string | null
+          is_live?: boolean
+          is_recorded?: boolean
+          performer_id?: string | null
+          recorded_at?: string | null
+          recording_work_id?: string | null
+          scheduled_for?: string | null
+          slug?: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          title?: string
           updated_at?: string
           updated_by?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "etymology_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: true
-            referencedRelation: "keywords"
+            foreignKeyName: "events_recording_work_id_fkey"
+            columns: ["recording_work_id"]
+            isOneToOne: false
+            referencedRelation: "works"
             referencedColumns: ["id"]
           },
         ]
@@ -2338,50 +2167,6 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
-      }
-      family: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          order_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          order_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          order_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "family_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       file_registry: {
         Row: {
@@ -2552,39 +2337,82 @@ export type Database = {
           updated_by?: string | null
           usage_count?: number
         }
-        Relationships: [
-          {
-            foreignKeyName: "folksonomy_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "folksonomy_thesaurus_entry_id_fkey"
-            columns: ["thesaurus_entry_id"]
-            isOneToOne: false
-            referencedRelation: "thesaurus_entries"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
+      }
+      functions: {
+        Row: {
+          archived_at: string | null
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          language: string | null
+          last_seen_at: string | null
+          log: Json
+          name: string
+          purpose: string | null
+          returns: string | null
+          signature: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          language?: string | null
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          purpose?: string | null
+          returns?: string | null
+          signature?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          language?: string | null
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          purpose?: string | null
+          returns?: string | null
+          signature?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
       }
       gaia_config: {
         Row: {
           api_access: string
-          composite_refs: string[] | null
+          archived_at: string | null
+          composite_refs: Json | null
           created_at: string
           created_by: string | null
           deity_group: string
-          enum_refs: string[] | null
+          deity_name: string | null
+          enum_refs: Json | null
           family_id: string | null
-          generation_dependencies: string[] | null
-          generation_flags: string[] | null
-          generation_targets: string[] | null
-          human_verified_tags: string[] | null
+          generation_dependencies: Json | null
+          generation_flags: Json | null
+          generation_targets: Json | null
+          human_verified_tags: Json | null
           icon_emoji: string | null
           id: string
           is_active: boolean
+          last_seen_at: string | null
+          log: Json
           notes: string | null
           schema_columns_count: number | null
           schema_hash: string | null
@@ -2606,19 +2434,23 @@ export type Database = {
         }
         Insert: {
           api_access?: string
-          composite_refs?: string[] | null
+          archived_at?: string | null
+          composite_refs?: Json | null
           created_at?: string
           created_by?: string | null
           deity_group: string
-          enum_refs?: string[] | null
+          deity_name?: string | null
+          enum_refs?: Json | null
           family_id?: string | null
-          generation_dependencies?: string[] | null
-          generation_flags?: string[] | null
-          generation_targets?: string[] | null
-          human_verified_tags?: string[] | null
+          generation_dependencies?: Json | null
+          generation_flags?: Json | null
+          generation_targets?: Json | null
+          human_verified_tags?: Json | null
           icon_emoji?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
           notes?: string | null
           schema_columns_count?: number | null
           schema_hash?: string | null
@@ -2640,19 +2472,23 @@ export type Database = {
         }
         Update: {
           api_access?: string
-          composite_refs?: string[] | null
+          archived_at?: string | null
+          composite_refs?: Json | null
           created_at?: string
           created_by?: string | null
           deity_group?: string
-          enum_refs?: string[] | null
+          deity_name?: string | null
+          enum_refs?: Json | null
           family_id?: string | null
-          generation_dependencies?: string[] | null
-          generation_flags?: string[] | null
-          generation_targets?: string[] | null
-          human_verified_tags?: string[] | null
+          generation_dependencies?: Json | null
+          generation_flags?: Json | null
+          generation_targets?: Json | null
+          human_verified_tags?: Json | null
           icon_emoji?: string | null
           id?: string
           is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
           notes?: string | null
           schema_columns_count?: number | null
           schema_hash?: string | null
@@ -2673,13 +2509,6 @@ export type Database = {
           visibility?: string
         }
         Relationships: [
-          {
-            foreignKeyName: "gaia_config_family_id_fkey"
-            columns: ["family_id"]
-            isOneToOne: false
-            referencedRelation: "family"
-            referencedColumns: ["id"]
-          },
           {
             foreignKeyName: "gaia_config_script_id_fkey"
             columns: ["script_id"]
@@ -2852,54 +2681,6 @@ export type Database = {
         }
         Relationships: []
       }
-      generation_templates: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          name: string
-          output_pattern: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          template_content: string | null
-          template_type: string | null
-          updated_at: string
-          updated_by: string | null
-          variables: Json | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name: string
-          output_pattern?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          template_content?: string | null
-          template_type?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          variables?: Json | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name?: string
-          output_pattern?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          template_content?: string | null
-          template_type?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          variables?: Json | null
-        }
-        Relationships: []
-      }
       generations: {
         Row: {
           completed_at: string | null
@@ -2941,50 +2722,6 @@ export type Database = {
           table_name?: string | null
         }
         Relationships: []
-      }
-      genus: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          family_id: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          family_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          family_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "genus_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       gift_wrappings: {
         Row: {
@@ -3080,60 +2817,6 @@ export type Database = {
           reference_id?: string | null
           sender_id?: string
           status?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      github_connection: {
-        Row: {
-          config_key: string
-          config_value: string | null
-          created_at: string
-          created_by: string | null
-          default_branch: string
-          description: string | null
-          enabled_workflows: string[] | null
-          id: string
-          is_encrypted: boolean
-          last_verified_at: string | null
-          repository_name: string | null
-          repository_owner: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          config_key: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          default_branch?: string
-          description?: string | null
-          enabled_workflows?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          repository_name?: string | null
-          repository_owner?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          config_key?: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          default_branch?: string
-          description?: string | null
-          enabled_workflows?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          repository_name?: string | null
-          repository_owner?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
         }
@@ -3483,6 +3166,7 @@ export type Database = {
           is_dismissed: boolean
           is_read: boolean
           read_at: string | null
+          recipient: string | null
           reference_id: string | null
           reference_table: string | null
           title: string | null
@@ -3498,6 +3182,7 @@ export type Database = {
           is_dismissed?: boolean
           is_read?: boolean
           read_at?: string | null
+          recipient?: string | null
           reference_id?: string | null
           reference_table?: string | null
           title?: string | null
@@ -3513,9 +3198,61 @@ export type Database = {
           is_dismissed?: boolean
           is_read?: boolean
           read_at?: string | null
+          recipient?: string | null
           reference_id?: string | null
           reference_table?: string | null
           title?: string | null
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
+      indexes: {
+        Row: {
+          archived_at: string | null
+          columns: string | null
+          created_at: string
+          created_by: string | null
+          definition: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          name: string
+          table_name: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          archived_at?: string | null
+          columns?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          table_name: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          archived_at?: string | null
+          columns?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          table_name?: string
+          updated_at?: string
           updated_by?: string | null
         }
         Relationships: []
@@ -3562,200 +3299,6 @@ export type Database = {
           updated_at?: string
           updated_by?: string | null
           visibility?: string
-        }
-        Relationships: []
-      }
-      keywords: {
-        Row: {
-          atom_word: string | null
-          category: string | null
-          color: string | null
-          created_at: string
-          created_by: string | null
-          definition: string
-          emoji: string | null
-          etymology_progress: number | null
-          id: string
-          keyword: string
-          keyword_type: string | null
-          movement: string | null
-          root_language: string | null
-          sanctuary_meaning: string | null
-          shape: string | null
-          smell: string | null
-          sound: string | null
-          sound_file_url: string | null
-          sound_frequency: string | null
-          sound_pitch: string | null
-          sound_timbre: string | null
-          sound_tone: string | null
-          taste: string | null
-          temperature: string | null
-          texture: string | null
-          updated_at: string
-          updated_by: string | null
-          word_origin: string | null
-        }
-        Insert: {
-          atom_word?: string | null
-          category?: string | null
-          color?: string | null
-          created_at?: string
-          created_by?: string | null
-          definition: string
-          emoji?: string | null
-          etymology_progress?: number | null
-          id?: string
-          keyword: string
-          keyword_type?: string | null
-          movement?: string | null
-          root_language?: string | null
-          sanctuary_meaning?: string | null
-          shape?: string | null
-          smell?: string | null
-          sound?: string | null
-          sound_file_url?: string | null
-          sound_frequency?: string | null
-          sound_pitch?: string | null
-          sound_timbre?: string | null
-          sound_tone?: string | null
-          taste?: string | null
-          temperature?: string | null
-          texture?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          word_origin?: string | null
-        }
-        Update: {
-          atom_word?: string | null
-          category?: string | null
-          color?: string | null
-          created_at?: string
-          created_by?: string | null
-          definition?: string
-          emoji?: string | null
-          etymology_progress?: number | null
-          id?: string
-          keyword?: string
-          keyword_type?: string | null
-          movement?: string | null
-          root_language?: string | null
-          sanctuary_meaning?: string | null
-          shape?: string | null
-          smell?: string | null
-          sound?: string | null
-          sound_file_url?: string | null
-          sound_frequency?: string | null
-          sound_pitch?: string | null
-          sound_timbre?: string | null
-          sound_tone?: string | null
-          taste?: string | null
-          temperature?: string | null
-          texture?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          word_origin?: string | null
-        }
-        Relationships: []
-      }
-      kingdom: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          domain_id: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          domain_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          domain_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "kingdom_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      languages: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          direction: string
-          display_order: number
-          fallback_language_id: string | null
-          icon_url: string | null
-          id: string
-          is_active: boolean
-          iso_code: string
-          iso_code_3: string | null
-          name: string
-          native_name: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          direction?: string
-          display_order?: number
-          fallback_language_id?: string | null
-          icon_url?: string | null
-          id?: string
-          is_active?: boolean
-          iso_code: string
-          iso_code_3?: string | null
-          name: string
-          native_name?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          direction?: string
-          display_order?: number
-          fallback_language_id?: string | null
-          icon_url?: string | null
-          id?: string
-          is_active?: boolean
-          iso_code?: string
-          iso_code_3?: string | null
-          name?: string
-          native_name?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
         }
         Relationships: []
       }
@@ -3967,60 +3510,6 @@ export type Database = {
           slug?: string
           stage_order?: number
           status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      localization: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          currency_code: string | null
-          currency_symbol: string | null
-          date_format: string
-          first_day_of_week: number
-          id: string
-          is_default: boolean
-          language_id: string | null
-          number_format: string | null
-          region_code: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          time_format: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          currency_code?: string | null
-          currency_symbol?: string | null
-          date_format?: string
-          first_day_of_week?: number
-          id?: string
-          is_default?: boolean
-          language_id?: string | null
-          number_format?: string | null
-          region_code?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          time_format?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          currency_code?: string | null
-          currency_symbol?: string | null
-          date_format?: string
-          first_day_of_week?: number
-          id?: string
-          is_default?: boolean
-          language_id?: string | null
-          number_format?: string | null
-          region_code?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          time_format?: string
           updated_at?: string
           updated_by?: string | null
         }
@@ -4268,57 +3757,6 @@ export type Database = {
           },
         ]
       }
-      mind_traits: {
-        Row: {
-          created_at: string
-          created_by: string
-          display_order: number
-          icon_emoji: string | null
-          id: string
-          is_active: boolean
-          trait_category: string | null
-          trait_label_high: string | null
-          trait_label_low: string | null
-          trait_name: string
-          trait_notes: string | null
-          trait_value: number
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by: string
-          display_order?: number
-          icon_emoji?: string | null
-          id?: string
-          is_active?: boolean
-          trait_category?: string | null
-          trait_label_high?: string | null
-          trait_label_low?: string | null
-          trait_name: string
-          trait_notes?: string | null
-          trait_value: number
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string
-          display_order?: number
-          icon_emoji?: string | null
-          id?: string
-          is_active?: boolean
-          trait_category?: string | null
-          trait_label_high?: string | null
-          trait_label_low?: string | null
-          trait_name?: string
-          trait_notes?: string | null
-          trait_value?: number
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       moderation_actions: {
         Row: {
           action_type: string
@@ -4383,6 +3821,7 @@ export type Database = {
           id: string
           myth_type: string | null
           name: string
+          provenance: string | null
           related_entity: string | null
           related_entity_type: string | null
           slug: string
@@ -4401,6 +3840,7 @@ export type Database = {
           id?: string
           myth_type?: string | null
           name: string
+          provenance?: string | null
           related_entity?: string | null
           related_entity_type?: string | null
           slug: string
@@ -4419,6 +3859,7 @@ export type Database = {
           id?: string
           myth_type?: string | null
           name?: string
+          provenance?: string | null
           related_entity?: string | null
           related_entity_type?: string | null
           slug?: string
@@ -4429,163 +3870,6 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
-      }
-      ontology: {
-        Row: {
-          cardinality: string
-          cardinality_keyword_id: string | null
-          constraints: Json | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          object_external: string | null
-          object_family_id: string | null
-          object_keyword_id: string | null
-          predicate: string
-          predicate_keyword_id: string | null
-          relationship_source_keyword_id: string | null
-          relationship_type: string
-          subject_family_id: string
-          subject_keyword_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          cardinality?: string
-          cardinality_keyword_id?: string | null
-          constraints?: Json | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          object_external?: string | null
-          object_family_id?: string | null
-          object_keyword_id?: string | null
-          predicate: string
-          predicate_keyword_id?: string | null
-          relationship_source_keyword_id?: string | null
-          relationship_type?: string
-          subject_family_id: string
-          subject_keyword_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          cardinality?: string
-          cardinality_keyword_id?: string | null
-          constraints?: Json | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          object_external?: string | null
-          object_family_id?: string | null
-          object_keyword_id?: string | null
-          predicate?: string
-          predicate_keyword_id?: string | null
-          relationship_source_keyword_id?: string | null
-          relationship_type?: string
-          subject_family_id?: string
-          subject_keyword_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "ontology_cardinality_keyword_id_fkey"
-            columns: ["cardinality_keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_object_family_id_fkey"
-            columns: ["object_family_id"]
-            isOneToOne: false
-            referencedRelation: "family"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_object_keyword_id_fkey"
-            columns: ["object_keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_predicate_keyword_id_fkey"
-            columns: ["predicate_keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_relationship_source_keyword_id_fkey"
-            columns: ["relationship_source_keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_subject_family_id_fkey"
-            columns: ["subject_family_id"]
-            isOneToOne: false
-            referencedRelation: "family"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "ontology_subject_keyword_id_fkey"
-            columns: ["subject_keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      order: {
-        Row: {
-          class_id: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          keyword_id: string | null
-          name: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          class_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          class_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          name?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "order_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       path_lessons: {
         Row: {
@@ -4713,54 +3997,6 @@ export type Database = {
         }
         Relationships: []
       }
-      patterns: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          example_output: string | null
-          id: string
-          name: string
-          pattern_config: Json | null
-          pattern_type: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          template_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          example_output?: string | null
-          id?: string
-          name: string
-          pattern_config?: Json | null
-          pattern_type?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          template_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          example_output?: string | null
-          id?: string
-          name?: string
-          pattern_config?: Json | null
-          pattern_type?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          template_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       personas: {
         Row: {
           created_at: string
@@ -4814,56 +4050,6 @@ export type Database = {
           voice_characteristics?: Json | null
         }
         Relationships: []
-      }
-      phylum: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          keyword_id: string | null
-          kingdom_id: string | null
-          name: string
-          pk_pattern: string | null
-          rls_pattern: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          kingdom_id?: string | null
-          name: string
-          pk_pattern?: string | null
-          rls_pattern?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          keyword_id?: string | null
-          kingdom_id?: string | null
-          name?: string
-          pk_pattern?: string | null
-          rls_pattern?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "phylum_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       plant_stages: {
         Row: {
@@ -5000,6 +4186,60 @@ export type Database = {
           setting_value?: Json | null
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      policies: {
+        Row: {
+          archived_at: string | null
+          cmd: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          policy_name: string
+          qual: string | null
+          table_name: string
+          updated_at: string
+          updated_by: string | null
+          with_check: string | null
+        }
+        Insert: {
+          archived_at?: string | null
+          cmd?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          policy_name: string
+          qual?: string | null
+          table_name: string
+          updated_at?: string
+          updated_by?: string | null
+          with_check?: string | null
+        }
+        Update: {
+          archived_at?: string | null
+          cmd?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          policy_name?: string
+          qual?: string | null
+          table_name?: string
+          updated_at?: string
+          updated_by?: string | null
+          with_check?: string | null
         }
         Relationships: []
       }
@@ -5362,48 +4602,63 @@ export type Database = {
         }
         Relationships: []
       }
-      regions: {
+      relationships: {
         Row: {
-          code: string | null
-          continent_id: string | null
+          archived_at: string | null
+          columns: Json
+          constraint_name: string
           created_at: string
           created_by: string | null
-          display_order: number
-          icon_url: string | null
+          description: string | null
+          foreign_columns: Json
+          foreign_table: string
           id: string
-          name: string
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          on_delete: string | null
+          on_update: string | null
+          one_to_one: boolean
+          table_name: string
           updated_at: string
-          updated_by: string | null
         }
         Insert: {
-          code?: string | null
-          continent_id?: string | null
+          archived_at?: string | null
+          columns?: Json
+          constraint_name: string
           created_at?: string
           created_by?: string | null
-          display_order?: number
-          icon_url?: string | null
+          description?: string | null
+          foreign_columns?: Json
+          foreign_table: string
           id?: string
-          name: string
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          on_delete?: string | null
+          on_update?: string | null
+          one_to_one?: boolean
+          table_name: string
           updated_at?: string
-          updated_by?: string | null
         }
         Update: {
-          code?: string | null
-          continent_id?: string | null
+          archived_at?: string | null
+          columns?: Json
+          constraint_name?: string
           created_at?: string
           created_by?: string | null
-          display_order?: number
-          icon_url?: string | null
+          description?: string | null
+          foreign_columns?: Json
+          foreign_table?: string
           id?: string
-          name?: string
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          on_delete?: string | null
+          on_update?: string | null
+          one_to_one?: boolean
+          table_name?: string
           updated_at?: string
-          updated_by?: string | null
         }
         Relationships: []
       }
@@ -5462,60 +4717,6 @@ export type Database = {
           reviewed_by?: string | null
           slug?: string
           status?: Database["public"]["Enums"]["application_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      resend_connection: {
-        Row: {
-          config_key: string
-          config_value: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          enabled_templates: string[] | null
-          from_address: string | null
-          from_name: string
-          id: string
-          is_encrypted: boolean
-          last_verified_at: string | null
-          reply_to_address: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          config_key: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_templates?: string[] | null
-          from_address?: string | null
-          from_name?: string
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          reply_to_address?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          config_key?: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_templates?: string[] | null
-          from_address?: string | null
-          from_name?: string
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          reply_to_address?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
         }
@@ -5893,6 +5094,7 @@ export type Database = {
           id: string
           input_requires: Json | null
           is_active: boolean
+          log: Json
           name: string
           output_produces: Json | null
           script_type: string
@@ -5908,6 +5110,7 @@ export type Database = {
           id?: string
           input_requires?: Json | null
           is_active?: boolean
+          log?: Json
           name: string
           output_produces?: Json | null
           script_type?: string
@@ -5923,6 +5126,7 @@ export type Database = {
           id?: string
           input_requires?: Json | null
           is_active?: boolean
+          log?: Json
           name?: string
           output_produces?: Json | null
           script_type?: string
@@ -6021,212 +5225,6 @@ export type Database = {
           settings?: Json | null
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      sensory_lexicon: {
-        Row: {
-          atom_id: string | null
-          atom_word: string | null
-          color_hex: string | null
-          color_name: string | null
-          created_at: string
-          created_by: string | null
-          emoji: string | null
-          id: string
-          is_primary: boolean
-          keyword_id: string | null
-          movement: string | null
-          shape: string | null
-          smell: string | null
-          sound_description: string | null
-          sound_file_url: string | null
-          sound_frequency: string | null
-          sound_pitch: string | null
-          sound_timbre: string | null
-          sound_tone: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          taste: string | null
-          temperature: string | null
-          texture: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          atom_id?: string | null
-          atom_word?: string | null
-          color_hex?: string | null
-          color_name?: string | null
-          created_at?: string
-          created_by?: string | null
-          emoji?: string | null
-          id?: string
-          is_primary?: boolean
-          keyword_id?: string | null
-          movement?: string | null
-          shape?: string | null
-          smell?: string | null
-          sound_description?: string | null
-          sound_file_url?: string | null
-          sound_frequency?: string | null
-          sound_pitch?: string | null
-          sound_timbre?: string | null
-          sound_tone?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          taste?: string | null
-          temperature?: string | null
-          texture?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          atom_id?: string | null
-          atom_word?: string | null
-          color_hex?: string | null
-          color_name?: string | null
-          created_at?: string
-          created_by?: string | null
-          emoji?: string | null
-          id?: string
-          is_primary?: boolean
-          keyword_id?: string | null
-          movement?: string | null
-          shape?: string | null
-          smell?: string | null
-          sound_description?: string | null
-          sound_file_url?: string | null
-          sound_frequency?: string | null
-          sound_pitch?: string | null
-          sound_timbre?: string | null
-          sound_tone?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          taste?: string | null
-          temperature?: string | null
-          texture?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "sensory_lexicon_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: true
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      sensory_map: {
-        Row: {
-          activity_soothers: string[] | null
-          additional_notes: string | null
-          audio_sensitivity: Database["public"]["Enums"]["sensory_level"]
-          audio_soothers: string[] | null
-          audio_triggers: string[] | null
-          average_daily_spoons: number | null
-          benefits_from_preview: boolean
-          benefits_from_routine: boolean
-          benefits_from_structure: boolean
-          created_at: string
-          created_by: string | null
-          environmental_triggers: string[] | null
-          high_cost_activities: string[] | null
-          icon_emoji: string | null
-          id: string
-          literal_communication: boolean
-          low_cost_activities: string[] | null
-          needs_processing_time: boolean
-          olfactory_sensitivity: Database["public"]["Enums"]["sensory_level"]
-          overload_signs: string | null
-          preferred_input_method: string[] | null
-          preferred_output_method: string[] | null
-          processing_speed: Database["public"]["Enums"]["processing_speed"]
-          social_triggers: string[] | null
-          stim_accommodations: string | null
-          stim_preferences: string | null
-          stim_types: string[] | null
-          tactile_sensitivity: Database["public"]["Enums"]["sensory_level"]
-          tactile_soothers: string[] | null
-          updated_at: string
-          updated_by: string | null
-          vestibular_sensitivity: Database["public"]["Enums"]["sensory_level"]
-          visual_sensitivity: Database["public"]["Enums"]["sensory_level"]
-          visual_soothers: string[] | null
-          visual_triggers: string[] | null
-        }
-        Insert: {
-          activity_soothers?: string[] | null
-          additional_notes?: string | null
-          audio_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          audio_soothers?: string[] | null
-          audio_triggers?: string[] | null
-          average_daily_spoons?: number | null
-          benefits_from_preview?: boolean
-          benefits_from_routine?: boolean
-          benefits_from_structure?: boolean
-          created_at?: string
-          created_by?: string | null
-          environmental_triggers?: string[] | null
-          high_cost_activities?: string[] | null
-          icon_emoji?: string | null
-          id: string
-          literal_communication?: boolean
-          low_cost_activities?: string[] | null
-          needs_processing_time?: boolean
-          olfactory_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          overload_signs?: string | null
-          preferred_input_method?: string[] | null
-          preferred_output_method?: string[] | null
-          processing_speed?: Database["public"]["Enums"]["processing_speed"]
-          social_triggers?: string[] | null
-          stim_accommodations?: string | null
-          stim_preferences?: string | null
-          stim_types?: string[] | null
-          tactile_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          tactile_soothers?: string[] | null
-          updated_at?: string
-          updated_by?: string | null
-          vestibular_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          visual_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          visual_soothers?: string[] | null
-          visual_triggers?: string[] | null
-        }
-        Update: {
-          activity_soothers?: string[] | null
-          additional_notes?: string | null
-          audio_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          audio_soothers?: string[] | null
-          audio_triggers?: string[] | null
-          average_daily_spoons?: number | null
-          benefits_from_preview?: boolean
-          benefits_from_routine?: boolean
-          benefits_from_structure?: boolean
-          created_at?: string
-          created_by?: string | null
-          environmental_triggers?: string[] | null
-          high_cost_activities?: string[] | null
-          icon_emoji?: string | null
-          id?: string
-          literal_communication?: boolean
-          low_cost_activities?: string[] | null
-          needs_processing_time?: boolean
-          olfactory_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          overload_signs?: string | null
-          preferred_input_method?: string[] | null
-          preferred_output_method?: string[] | null
-          processing_speed?: Database["public"]["Enums"]["processing_speed"]
-          social_triggers?: string[] | null
-          stim_accommodations?: string | null
-          stim_preferences?: string | null
-          stim_types?: string[] | null
-          tactile_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          tactile_soothers?: string[] | null
-          updated_at?: string
-          updated_by?: string | null
-          vestibular_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          visual_sensitivity?: Database["public"]["Enums"]["sensory_level"]
-          visual_soothers?: string[] | null
-          visual_triggers?: string[] | null
         }
         Relationships: []
       }
@@ -6424,165 +5422,6 @@ export type Database = {
         }
         Relationships: []
       }
-      species: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          data_type: string | null
-          description: string | null
-          family_id: string | null
-          genus_id: string | null
-          id: string
-          keyword_id: string | null
-          keyword_ids: string[] | null
-          name: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          data_type?: string | null
-          description?: string | null
-          family_id?: string | null
-          genus_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          keyword_ids?: string[] | null
-          name: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          data_type?: string | null
-          description?: string | null
-          family_id?: string | null
-          genus_id?: string | null
-          id?: string
-          keyword_id?: string | null
-          keyword_ids?: string[] | null
-          name?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "species_family_id_fkey"
-            columns: ["family_id"]
-            isOneToOne: false
-            referencedRelation: "family"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "species_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      stripe_connection: {
-        Row: {
-          config_key: string
-          config_value: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          enabled_features: string[] | null
-          id: string
-          is_encrypted: boolean
-          last_verified_at: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          stripe_mode: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          config_key: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_features?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          stripe_mode?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          config_key?: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_features?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          stripe_mode?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      supabase_connection: {
-        Row: {
-          config_key: string
-          config_value: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          enabled_features: string[] | null
-          id: string
-          is_encrypted: boolean
-          last_verified_at: string | null
-          project_name: string | null
-          project_url: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          config_key: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_features?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          project_name?: string | null
-          project_url?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          config_key?: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_features?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_verified_at?: string | null
-          project_name?: string | null
-          project_url?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       survey_responses: {
         Row: {
           answers: Json | null
@@ -6690,133 +5529,6 @@ export type Database = {
         }
         Relationships: []
       }
-      taxonomy: {
-        Row: {
-          class_id: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          domain_id: string | null
-          emoji: string | null
-          family_id: string | null
-          genus_id: string | null
-          id: string
-          is_primary: boolean | null
-          keyword_id: string | null
-          kingdom_id: string | null
-          name: string | null
-          order_id: string | null
-          phylum_id: string | null
-          species_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          class_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          domain_id?: string | null
-          emoji?: string | null
-          family_id?: string | null
-          genus_id?: string | null
-          id?: string
-          is_primary?: boolean | null
-          keyword_id?: string | null
-          kingdom_id?: string | null
-          name?: string | null
-          order_id?: string | null
-          phylum_id?: string | null
-          species_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          class_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          domain_id?: string | null
-          emoji?: string | null
-          family_id?: string | null
-          genus_id?: string | null
-          id?: string
-          is_primary?: boolean | null
-          keyword_id?: string | null
-          kingdom_id?: string | null
-          name?: string | null
-          order_id?: string | null
-          phylum_id?: string | null
-          species_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "taxonomy_class_id_fkey"
-            columns: ["class_id"]
-            isOneToOne: false
-            referencedRelation: "class"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_domain_id_fkey"
-            columns: ["domain_id"]
-            isOneToOne: false
-            referencedRelation: "domain"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_family_id_fkey"
-            columns: ["family_id"]
-            isOneToOne: false
-            referencedRelation: "family"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_genus_id_fkey"
-            columns: ["genus_id"]
-            isOneToOne: false
-            referencedRelation: "genus"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_kingdom_id_fkey"
-            columns: ["kingdom_id"]
-            isOneToOne: false
-            referencedRelation: "kingdom"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_order_id_fkey"
-            columns: ["order_id"]
-            isOneToOne: false
-            referencedRelation: "order"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_phylum_id_fkey"
-            columns: ["phylum_id"]
-            isOneToOne: false
-            referencedRelation: "phylum"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "taxonomy_species_id_fkey"
-            columns: ["species_id"]
-            isOneToOne: false
-            referencedRelation: "species"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       templates: {
         Row: {
           category: string
@@ -6832,6 +5544,7 @@ export type Database = {
           has_visual_anchors: boolean
           icon_emoji: string | null
           id: string
+          log: Json
           name: string
           pk_pattern: string
           rls_pattern: string
@@ -6852,6 +5565,7 @@ export type Database = {
           has_visual_anchors?: boolean
           icon_emoji?: string | null
           id?: string
+          log?: Json
           name: string
           pk_pattern: string
           rls_pattern: string
@@ -6872,6 +5586,7 @@ export type Database = {
           has_visual_anchors?: boolean
           icon_emoji?: string | null
           id?: string
+          log?: Json
           name?: string
           pk_pattern?: string
           rls_pattern?: string
@@ -6880,186 +5595,57 @@ export type Database = {
         }
         Relationships: []
       }
-      test_patterns: {
+      triggers: {
         Row: {
+          archived_at: string | null
           created_at: string
           created_by: string | null
           description: string | null
-          expected_result: string
-          icon_emoji: string | null
+          events: string | null
+          function_name: string | null
           id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
           name: string
-          priority: string
-          template_category: string
-          test_query_template: string
-          test_type: string
+          table_name: string
+          timing: string | null
           updated_at: string
           updated_by: string | null
         }
         Insert: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
-          expected_result: string
-          icon_emoji?: string | null
+          events?: string | null
+          function_name?: string | null
           id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
           name: string
-          priority?: string
-          template_category: string
-          test_query_template: string
-          test_type: string
+          table_name: string
+          timing?: string | null
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
+          archived_at?: string | null
           created_at?: string
           created_by?: string | null
           description?: string | null
-          expected_result?: string
-          icon_emoji?: string | null
+          events?: string | null
+          function_name?: string | null
           id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
           name?: string
-          priority?: string
-          template_category?: string
-          test_query_template?: string
-          test_type?: string
+          table_name?: string
+          timing?: string | null
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      thesaurus_entries: {
-        Row: {
-          concept: string
-          created_at: string
-          created_by: string | null
-          description: string | null
-          entry_text: string
-          entry_type: string
-          id: string
-          keyword_id: string | null
-          language: string
-          ontology_id: string | null
-          review_notes: string | null
-          reviewed_at: string | null
-          reviewed_by: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          submitted_by: string | null
-          taxonomy_id: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          concept: string
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          entry_text: string
-          entry_type?: string
-          id?: string
-          keyword_id?: string | null
-          language?: string
-          ontology_id?: string | null
-          review_notes?: string | null
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          submitted_by?: string | null
-          taxonomy_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          concept?: string
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          entry_text?: string
-          entry_type?: string
-          id?: string
-          keyword_id?: string | null
-          language?: string
-          ontology_id?: string | null
-          review_notes?: string | null
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          submitted_by?: string | null
-          taxonomy_id?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "thesaurus_entries_keyword_id_fkey"
-            columns: ["keyword_id"]
-            isOneToOne: false
-            referencedRelation: "keywords"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "thesaurus_entries_taxonomy_id_fkey"
-            columns: ["taxonomy_id"]
-            isOneToOne: false
-            referencedRelation: "taxonomy"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      translations: {
-        Row: {
-          context: string | null
-          created_at: string
-          created_by: string | null
-          id: string
-          is_machine_translated: boolean
-          is_verified: boolean
-          language_id: string | null
-          namespace: string | null
-          source_text: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          translated_text: string | null
-          translation_key: string
-          updated_at: string
-          updated_by: string | null
-          verified_at: string | null
-          verified_by: string | null
-        }
-        Insert: {
-          context?: string | null
-          created_at?: string
-          created_by?: string | null
-          id?: string
-          is_machine_translated?: boolean
-          is_verified?: boolean
-          language_id?: string | null
-          namespace?: string | null
-          source_text?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          translated_text?: string | null
-          translation_key: string
-          updated_at?: string
-          updated_by?: string | null
-          verified_at?: string | null
-          verified_by?: string | null
-        }
-        Update: {
-          context?: string | null
-          created_at?: string
-          created_by?: string | null
-          id?: string
-          is_machine_translated?: boolean
-          is_verified?: boolean
-          language_id?: string | null
-          namespace?: string | null
-          source_text?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          translated_text?: string | null
-          translation_key?: string
-          updated_at?: string
-          updated_by?: string | null
-          verified_at?: string | null
-          verified_by?: string | null
         }
         Relationships: []
       }
@@ -7264,63 +5850,6 @@ export type Database = {
         }
         Relationships: []
       }
-      vercel_connection: {
-        Row: {
-          config_key: string
-          config_value: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          enabled_integrations: string[] | null
-          id: string
-          is_encrypted: boolean
-          last_deployed_at: string | null
-          preview_domains: string[] | null
-          production_domain: string | null
-          project_name: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          team_name: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          config_key: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_integrations?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_deployed_at?: string | null
-          preview_domains?: string[] | null
-          production_domain?: string | null
-          project_name?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          team_name?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          config_key?: string
-          config_value?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          enabled_integrations?: string[] | null
-          id?: string
-          is_encrypted?: boolean
-          last_deployed_at?: string | null
-          preview_domains?: string[] | null
-          production_domain?: string | null
-          project_name?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          team_name?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       vessel_anchors: {
         Row: {
           anchor_type: string | null
@@ -7510,6 +6039,10 @@ export type Database = {
         Row: {
           autoplay_audio: boolean
           autoplay_video: boolean
+          bubble_daily_max: number
+          bubble_hourly_max: number
+          ceremony_arrival: boolean
+          ceremony_farewell: boolean
           content_warnings: string
           created_at: string
           created_by: string | null
@@ -7520,6 +6053,7 @@ export type Database = {
           discovery_map_style: string
           discovery_show_undiscovered: boolean
           dyslexia_font: boolean
+          environment_preference: string
           font_scale: number
           herald_channel: Database["public"]["Enums"]["notification_channel"]
           herald_digest: Database["public"]["Enums"]["herald_digest"]
@@ -7539,6 +6073,10 @@ export type Database = {
         Insert: {
           autoplay_audio?: boolean
           autoplay_video?: boolean
+          bubble_daily_max?: number
+          bubble_hourly_max?: number
+          ceremony_arrival?: boolean
+          ceremony_farewell?: boolean
           content_warnings?: string
           created_at?: string
           created_by?: string | null
@@ -7549,6 +6087,7 @@ export type Database = {
           discovery_map_style?: string
           discovery_show_undiscovered?: boolean
           dyslexia_font?: boolean
+          environment_preference?: string
           font_scale?: number
           herald_channel?: Database["public"]["Enums"]["notification_channel"]
           herald_digest?: Database["public"]["Enums"]["herald_digest"]
@@ -7568,6 +6107,10 @@ export type Database = {
         Update: {
           autoplay_audio?: boolean
           autoplay_video?: boolean
+          bubble_daily_max?: number
+          bubble_hourly_max?: number
+          ceremony_arrival?: boolean
+          ceremony_farewell?: boolean
           content_warnings?: string
           created_at?: string
           created_by?: string | null
@@ -7578,6 +6121,7 @@ export type Database = {
           discovery_map_style?: string
           discovery_show_undiscovered?: boolean
           dyslexia_font?: boolean
+          environment_preference?: string
           font_scale?: number
           herald_channel?: Database["public"]["Enums"]["notification_channel"]
           herald_digest?: Database["public"]["Enums"]["herald_digest"]
@@ -7882,6 +6426,83 @@ export type Database = {
           },
         ]
       }
+      views: {
+        Row: {
+          archived_at: string | null
+          created_at: string
+          created_by: string | null
+          definition: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          last_seen_at: string | null
+          log: Json
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          archived_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          definition?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          last_seen_at?: string | null
+          log?: Json
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      votes: {
+        Row: {
+          cast_at: string
+          choice: string
+          id: string
+          proposal_id: string
+          updated_at: string
+          voter_id: string
+        }
+        Insert: {
+          cast_at?: string
+          choice: string
+          id?: string
+          proposal_id: string
+          updated_at?: string
+          voter_id: string
+        }
+        Update: {
+          cast_at?: string
+          choice?: string
+          id?: string
+          proposal_id?: string
+          updated_at?: string
+          voter_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "votes_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "proposals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ware_participants: {
         Row: {
           created_at: string
@@ -8138,6 +6759,7 @@ export type Database = {
         Args: { addr: Database["public"]["CompositeTypes"]["address"] }
         Returns: string
       }
+      gaia_sync: { Args: { p_table?: string }; Returns: Json }
       get_acid_test_questions: {
         Args: { p_include_inactive?: boolean }
         Returns: Json

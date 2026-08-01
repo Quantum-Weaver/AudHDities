@@ -12,13 +12,18 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Calendar, Star } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// MEND-III 2026-07-20: `hestia-core/timelines/${id}` never actually died — the
+// conductor's genealogy check found it living under its settled name,
+// `current` (the `[id]` route exists on disk, verified). `current` has no
+// `title` or `significance_score` field (those only existed on the old
+// table); the title below is synthesized from `event_type` via
+// EVENT_TYPE_LABELS, and the significance star-rating UI is dropped honestly
+// rather than inventing a number.
 interface TimelineEvent {
-  timelines_id: string;
+  id: string;
   event_type: string;
-  title: string;
   description: string | null;
-  significance_score: number | null;
-  occurred_at: string;
+  event_at: string;
 }
 
 const EVENT_TYPE_LABELS: Record<string, string> = {
@@ -27,7 +32,7 @@ const EVENT_TYPE_LABELS: Record<string, string> = {
   collaboration_began: 'Collaboration',
   sovereign_milestone: 'Milestone',
   sanctuary_completed: 'Completion',
-  badge_earned: 'Badge Earned',
+  badge_earned: 'Sigil Earned',
   quest_completed: 'Quest Completed',
 };
 
@@ -42,7 +47,7 @@ export function ConstellationDetail() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/hestia-core/timelines/${eventId}`)
+    fetch(`/api/generated/hestia-core/current/${eventId}`)
       .then((r) => r.json())
       .then((result) => { if (result.success) setEvent(result.data); })
       .catch(console.error)
@@ -77,7 +82,8 @@ export function ConstellationDetail() {
     );
   }
 
-  const cardData: CardData = { id: event.timelines_id, type: 'value', title: event.title, value: event.event_type };
+  const label = EVENT_TYPE_LABELS[event.event_type] || event.event_type;
+  const cardData: CardData = { id: event.id, type: 'value', title: label, value: event.event_type };
 
   return (
     <main className="min-h-screen py-12">
@@ -89,21 +95,15 @@ export function ConstellationDetail() {
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
           <div className="flex items-center justify-between mb-4">
             <Badge variant="outline" size="sm" className="text-[10px]">
-              {EVENT_TYPE_LABELS[event.event_type] || event.event_type}
+              {label}
             </Badge>
-            {event.significance_score && (
-              <div className="flex items-center gap-1 text-xs text-star-dust/40">
-                <Star className="h-3 w-3 text-amber-400" />
-                <span>Significance: {event.significance_score}/100</span>
-              </div>
-            )}
           </div>
 
-          <h1 className="text-2xl font-bold text-star-dust mb-2">{event.title}</h1>
+          <h1 className="text-2xl font-bold text-star-dust mb-2">{label}</h1>
 
           <div className="flex items-center gap-2 text-xs text-star-dust/40 mb-6">
             <Calendar className="h-3 w-3" />
-            <span>{formatDate(event.occurred_at)}</span>
+            <span>{formatDate(event.event_at)}</span>
           </div>
 
           {event.description && (
@@ -114,11 +114,6 @@ export function ConstellationDetail() {
 
           <div className="flex items-center justify-between">
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
-            <div className="flex items-center gap-1">
-              {Array.from({ length: Math.ceil((event.significance_score ?? 50) / 20) }).map((_, i) => (
-                <Star key={i} className="h-3 w-3 text-amber-400 fill-amber-400" />
-              ))}
-            </div>
           </div>
         </Card>
       </div>

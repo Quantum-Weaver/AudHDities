@@ -11,7 +11,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
-import { getPageMetadata } from '@/lib/constants/systems/environments/page_mapping';
+import { getRealmHeader } from '@/lib/constants/systems/trio';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -46,7 +46,10 @@ export default function Header({
   const { setEnvironment } = useContinuityBeam();
   const pathname = usePathname();
 
-  const metadata = getPageMetadata(pathname);
+  // The header lane (trio.ts) — the Header now dresses from the same driver
+  // map it feeds: title/subtitle resolved realm-aware, environment set into
+  // context for the other three instruments (THE QUARTET CORRECTION).
+  const metadata = getRealmHeader(pathname);
 
   useEffect(() => {
     setEnvironment(metadata.environment);

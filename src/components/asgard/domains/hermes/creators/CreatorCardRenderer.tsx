@@ -84,7 +84,7 @@ export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
       {creator.productCount !== undefined && (
         <div className="flex items-center gap-1 text-xs text-star-dust/40 mt-2">
           <Package size={12} />
-          <span>{creator.productCount} creations</span>
+          <span>{creator.productCount} works</span>
         </div>
       )}
     </Card>

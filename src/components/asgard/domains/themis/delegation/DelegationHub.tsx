@@ -7,14 +7,14 @@ import { Card } from '@/components/runes/Card';
 import { Avatar, AvatarFallback } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, Users, UserCheck, Shield, Sparkles } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 export function DelegationHub() {
-  const { profile } = useAuth();
+  const { profile, roles } = useUser();
   const [delegates, setDelegates] = useState<any[]>([]);
-  const isCouncilTier = profile?.user_tier === 'council' || profile?.is_admin === true;
+  const isCouncilTier = roles.includes('council') || roles.includes('admin');
 
   return (
     <main className="min-h-screen py-12">

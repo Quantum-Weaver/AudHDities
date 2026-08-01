@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Executioner
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.411Z
+// GENERATED: 2026-08-01T18:34:04.346Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getExecutioner(id: string): Promise<ExecutionerRow> {
   const { data, error } = await supabase
     .from('executioner')
     .select('*')
-    .eq('executioner_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateExecutioner(id: string, data: ExecutionerUpdate): Pr
   const { data: result, error } = await supabase
     .from('executioner')
     .update(validated)
-    .eq('executioner_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteExecutioner(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('executioner')
     .delete()
-    .eq('executioner_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: AethelredHouse
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.193Z
+// GENERATED: 2026-08-01T18:34:04.315Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getAethelredHouse(id: string): Promise<AethelredHouseRow> 
   const { data, error } = await supabase
     .from('aethelred_house')
     .select('*')
-    .eq('aethelred_house_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateAethelredHouse(id: string, data: AethelredHouseUpdat
   const { data: result, error } = await supabase
     .from('aethelred_house')
     .update(validated)
-    .eq('aethelred_house_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteAethelredHouse(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('aethelred_house')
     .delete()
-    .eq('aethelred_house_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

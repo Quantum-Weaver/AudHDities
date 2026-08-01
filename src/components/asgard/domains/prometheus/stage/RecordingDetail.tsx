@@ -12,7 +12,7 @@ import { ArrowLeft, Play, Clock, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface Recording {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   event_type: string; genre: string | null; recorded_at: string | null;
   performer_id: string;
 }
@@ -33,7 +33,7 @@ export function RecordingDetail() {
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-80" /></div></main>);
   if (!recording) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Play className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This recording has faded.</p><Link href="/stage/recordings" className="text-neurospark hover:underline mt-4 inline-block">Return to the Echo</Link></div></main>);
 
-  const cd: CardData = { id: recording.events_id, type: 'event', title: recording.title, description: recording.description || '' };
+  const cd: CardData = { id: recording.id, type: 'event', title: recording.title, description: recording.description || '' };
   const formatDate = (d: string | null) => d ? new Date(d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) : '';
 
   return (

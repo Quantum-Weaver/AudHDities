@@ -3,7 +3,7 @@ import { Page } from '@/components/bifrost/Page';
 import { CreationDetail } from '@/components/asgard/domains/hermes/creations/CreationDetail';
 
 export const metadata = {
-  title: 'Creation | The Tapestry | Sovereign Sanctuary',
+  title: 'Work | The Tapestry | Sovereign Sanctuary',
   description: 'A sovereign offering',
 };
 

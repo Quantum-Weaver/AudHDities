@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Protocols
 // DEITY: themis-governance
-// GENERATED: 2026-07-10T18:14:59.711Z
+// GENERATED: 2026-08-01T18:34:04.378Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getProtocols(id: string): Promise<ProtocolsRow> {
   const { data, error } = await supabase
     .from('protocols')
     .select('*')
-    .eq('protocols_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateProtocols(id: string, data: ProtocolsUpdate): Promis
   const { data: result, error } = await supabase
     .from('protocols')
     .update(validated)
-    .eq('protocols_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteProtocols(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('protocols')
     .delete()
-    .eq('protocols_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -12,7 +12,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 const SECTIONS = [
   {
     title: 'The Tapestry',
-    description: 'Discover creations from sovereign souls',
+    description: 'Discover works from sovereign souls',
     href: '/bazaar/creations',
     icon: Package,
     color: 'text-neurospark',
@@ -20,7 +20,7 @@ const SECTIONS = [
   },
   {
     title: 'The Weavers',
-    description: 'Meet the creators of the Sanctuary',
+    description: 'Meet the artisans of the Sanctuary',
     href: '/bazaar/creators',
     icon: Users,
     color: 'text-purple-400',
@@ -28,7 +28,7 @@ const SECTIONS = [
   },
   {
     title: 'The Guild',
-    description: 'Ethical vendors serving the community',
+    description: 'Ethical merchants serving the community',
     href: '/bazaar/vendors',
     icon: Building2,
     color: 'text-emerald-400',
@@ -36,7 +36,7 @@ const SECTIONS = [
   },
   {
     title: 'The Loom',
-    description: 'Create and share your own offerings',
+    description: 'Create and share your own works',
     href: '/bazaar/studio',
     icon: Palette,
     color: 'text-rose-400',
@@ -44,7 +44,7 @@ const SECTIONS = [
   },
   {
     title: 'Contributions Ledger',
-    description: 'Track your residual earnings and impact',
+    description: 'Track your distributions and impact',
     href: '/bazaar/contributions',
     icon: HandCoins,
     color: 'text-amber-400',
@@ -52,7 +52,7 @@ const SECTIONS = [
   },
   {
     title: 'The Exchange',
-    description: 'Complete your purchases securely',
+    description: 'Bring home your wares securely',
     href: '/bazaar/checkout',
     icon: CreditCard,
     color: 'text-teal-400',
@@ -73,7 +73,7 @@ export function BazaarHub() {
           </div>
           <h1 className="text-3xl font-bold text-star-dust mb-4">The Bazaar</h1>
           <p className="text-lg text-star-dust/60 max-w-xl mx-auto">
-            Where sovereign souls exchange their gifts. Every purchase supports creators, 
+            Where sovereign souls exchange their gifts. Every exchange supports artisans,
             contributors, and the community — forever.
           </p>
         </div>
@@ -131,7 +131,7 @@ export function BazaarHub() {
                 Create
               </h3>
               <p className="text-sm text-star-dust/50">
-                Weavers craft their offerings in the Loom. Set tiered pricing, add contributors, 
+                Weavers craft their works in the Loom. Set tiered pricing, add contributors,
                 and publish to the Tapestry.
               </p>
             </div>
@@ -141,7 +141,7 @@ export function BazaarHub() {
                 Discover
               </h3>
               <p className="text-sm text-star-dust/50">
-                Browse the Tapestry for creations. Meet the Weavers and Guild members who 
+                Browse the Tapestry for works. Meet the Weavers and Guild members who
                 make the Sanctuary thrive.
               </p>
             </div>
@@ -151,7 +151,7 @@ export function BazaarHub() {
                 Circulate
               </h3>
               <p className="text-sm text-star-dust/50">
-                90% goes to creators. 10% platform fee — with up to 50% flowing to contributors 
+                90% goes to artisans. 10% platform fee — with up to 50% flowing to contributors
                 forever through the residual pool.
               </p>
             </div>

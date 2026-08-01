@@ -6,7 +6,7 @@
 
 'use client';
 
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Check } from 'lucide-react';
 
@@ -78,7 +78,19 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const generatedId = useId();
     const checkboxId = externalId || `checkbox-${generatedId}`;
     const hasError = !!error;
-    const isChecked = checked ?? defaultChecked;
+    // MEND-LAW 2026-07-20 (found on the First Vessel's own crossing): an
+    // uncontrolled checkbox (no `checked`/`defaultChecked` prop) toggled its
+    // native input invisibly — `isChecked` stayed undefined forever, so the
+    // check icon never appeared and agreement LOOKED impossible. Internal
+    // state now mirrors the real DOM state when uncontrolled.
+    const [internalChecked, setInternalChecked] = useState(
+      defaultChecked ?? false
+    );
+    const isChecked = checked ?? internalChecked;
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (checked === undefined) setInternalChecked(e.target.checked);
+      props.onChange?.(e);
+    };
 
     return (
       <div className="flex flex-col gap-1">
@@ -106,6 +118,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               }
               disabled={disabled}
               {...props}
+              onChange={handleChange}
             />
             <Check
               className={cn(

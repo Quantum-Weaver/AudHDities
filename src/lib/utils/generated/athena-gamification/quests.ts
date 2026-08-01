@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Quests
 // DEITY: athena-gamification
-// GENERATED: 2026-07-10T18:14:59.721Z
+// GENERATED: 2026-08-01T18:34:04.378Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getQuests(id: string): Promise<QuestsRow> {
   const { data, error } = await supabase
     .from('quests')
     .select('*')
-    .eq('quests_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateQuests(id: string, data: QuestsUpdate): Promise<Ques
   const { data: result, error } = await supabase
     .from('quests')
     .update(validated)
-    .eq('quests_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteQuests(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('quests')
     .delete()
-    .eq('quests_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

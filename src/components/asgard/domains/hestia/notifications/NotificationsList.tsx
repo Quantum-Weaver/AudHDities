@@ -11,13 +11,15 @@ import { ArrowLeft, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
+// The Pulse rides the heralds table (the notifications successor);
+// action_url did not survive the evolution — detail links go by id, and
+// reference_table/reference_id carry the "about what" instead.
 interface Notification {
-  notifications_id: string;
-  type: string;
-  title: string;
-  body: string;
-  action_url: string | null;
-  is_read: boolean | null;
+  id: string;
+  herald_type: string;
+  title: string | null;
+  body: string | null;
+  is_read: boolean;
   created_at: string;
 }
 
@@ -37,7 +39,7 @@ export function NotificationsList() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/hestia-core/notifications?user_id=${user.id}&order=created_at.desc&limit=50`)
+    fetch(`/api/generated/hestia-core/heralds?created_by=${user.id}&sort=created_at&order=desc&limit=50`)
       .then(r => r.json())
       .then(result => { if (result.success) setNotifications(result.data?.data || result.data || []); })
       .catch(console.error)
@@ -47,9 +49,9 @@ export function NotificationsList() {
   const markAllRead = async () => {
     for (const n of notifications) {
       if (!n.is_read) {
-        await fetch(`/api/generated/hestia-core/notifications/${n.notifications_id}`, {
+        await fetch(`/api/generated/hestia-core/heralds/${n.id}`, {
           method: 'PUT', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ is_read: true }),
+          body: JSON.stringify({ is_read: true, read_at: new Date().toISOString() }),
         });
       }
     }
@@ -84,12 +86,12 @@ export function NotificationsList() {
         ) : (
           <div className="space-y-2">
             {notifications.map(n => {
-              const cd: CardData = { id: n.notifications_id, type: 'value', title: n.title, value: n.type };
+              const cd: CardData = { id: n.id, type: 'value', title: n.title || 'Notification', value: n.herald_type };
               return (
-                <Link key={n.notifications_id} href={n.action_url || `/notifications/${n.notifications_id}`}>
+                <Link key={n.id} href={`/notifications/${n.id}`}>
                   <Card data={cd} variant={n.is_read ? 'ghost' : 'glass'} radius="md" shadow="sm" className={cn('p-4', !n.is_read && 'border-l-2 border-l-neurospark')}>
                     <div className="flex items-start gap-3">
-                      <span className="text-xl">{TYPE_EMOJI[n.type] || '📢'}</span>
+                      <span className="text-xl">{TYPE_EMOJI[n.herald_type] || '📢'}</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-star-dust">{n.title}</p>
                         <p className="text-xs text-star-dust/50 line-clamp-1">{n.body}</p>

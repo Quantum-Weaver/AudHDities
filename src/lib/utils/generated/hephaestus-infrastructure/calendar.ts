@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Calendar
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.277Z
+// GENERATED: 2026-08-01T18:34:04.331Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCalendar(id: string): Promise<CalendarRow> {
   const { data, error } = await supabase
     .from('calendar')
     .select('*')
-    .eq('calendar_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCalendar(id: string, data: CalendarUpdate): Promise<
   const { data: result, error } = await supabase
     .from('calendar')
     .update(validated)
-    .eq('calendar_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCalendar(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('calendar')
     .delete()
-    .eq('calendar_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

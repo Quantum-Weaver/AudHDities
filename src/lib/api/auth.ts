@@ -68,13 +68,12 @@ export async function getOptionalUser(request: NextRequest): Promise<{ userId?: 
  */
 export async function isAdmin(userId: string): Promise<boolean> {
   const supabase = await createServerSupabase();
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('is_admin')
-    .eq('profiles_id', userId)
-    .single();
-  
-  return profile?.is_admin === true;
+  const { data: roleRows } = await supabase
+    .from('user_roles')
+    .select('role')
+    .eq('user_id', userId);
+
+  return (roleRows ?? []).some(r => r.role === 'admin');
 }
 
 /**
