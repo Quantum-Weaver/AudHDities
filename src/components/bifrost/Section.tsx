@@ -85,9 +85,9 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
           {title}
         </h2>
         {description && (
-          <h3 className={sectionDescriptionVariants({ align: titleAlign })}>
+          <p className={sectionDescriptionVariants({ align: titleAlign })}>
             {description}
-          </h3>
+          </p>
         )}
       </div>
     );
