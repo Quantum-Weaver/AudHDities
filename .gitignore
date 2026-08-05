@@ -56,3 +56,5 @@ desktop.ini
 # ─── IDE ───────────────────────────────────────────────────
 .vscode/settings.json
 .idea/
+tools/
+docs/blueprints
