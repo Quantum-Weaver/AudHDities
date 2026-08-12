@@ -9,7 +9,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Clock, FileText } from 'lucide-react';
-import { useLessonsList } from '@/hooks/generated/athena-gamification/lessons';
+import { useLessonsList } from '@/lib/generated/hooks/athena-gamification/lessons';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const TYPE_COLORS: Record<string, string> = {

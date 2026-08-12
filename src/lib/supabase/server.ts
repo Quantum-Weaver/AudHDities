@@ -1,6 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import { Database } from '@/types/supabase/database.types';
+// Repointed 2026-08-11 to the layer GAIA now delivers (see MIRROR.md).
+import { Database } from '@/lib/generated/supabase/database.types';
 
 export async function createServerSupabase() {
   const cookieStore = await cookies();

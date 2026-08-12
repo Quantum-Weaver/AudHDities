@@ -105,7 +105,7 @@ export const HELPER_IMPORTS = {
     return [
       `import { useState, useEffect, useCallback } from 'react';`,
       `import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';`,
-      `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/types/generated/${deityFolder}/${tableName}';`,
+      `import type { ${pascalName}Row, ${pascalName}Insert, ${pascalName}Update } from '@/lib/generated/types/${deityFolder}/${tableName}';`,
     ].join('\n');
   },
   

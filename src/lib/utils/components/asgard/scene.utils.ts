@@ -9,7 +9,7 @@
 // ever computes a death state, because the schema and the law both refuse
 // one: plants go dormant, never die.
 
-import type { PlantStagesRow } from '@/types/generated/hestia-core/plant_stages';
+import type { PlantStagesRow } from '@/lib/generated/types/hestia-core/plant_stages';
 
 export interface GrowthReading {
   /** The stage the plot stands in right now (null = not yet planted). */

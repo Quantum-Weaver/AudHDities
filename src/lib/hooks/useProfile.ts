@@ -14,7 +14,7 @@
 
 import { useCallback, useMemo } from 'react';
 import { useUser } from './useUser';
-import type { CommunityProfilesRow, CommunityProfilesUpdate } from '@/types/generated/hestia-core/community_profiles';
+import type { CommunityProfilesRow, CommunityProfilesUpdate } from '@/lib/generated/types/hestia-core/community_profiles';
 
 export type Profile = CommunityProfilesRow;
 export type ProfileUpdate = CommunityProfilesUpdate;

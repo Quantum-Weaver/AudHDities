@@ -16,11 +16,11 @@ import { Select } from "@/components/forging/Select";
 import { Card } from "@/components/runes/Card";
 
 // Generated Types
-import type { ApplicationsInsert } from "@/types/generated/themis-governance/applications";
+import type { ApplicationsInsert } from "@/lib/generated/types/themis-governance/applications";
 
 // Generated Hooks
-import { useCreateApplications } from "@/hooks/generated/themis-governance/applications";
-import { useCommunityProfilesList } from "@/hooks/generated/hestia-core/community_profiles";
+import { useCreateApplications } from "@/lib/generated/hooks/themis-governance/applications";
+import { useCommunityProfilesList } from "@/lib/generated/hooks/hestia-core/community_profiles";
 
 // =====================================================
 // TYPES

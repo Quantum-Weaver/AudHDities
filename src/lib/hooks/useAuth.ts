@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
 // The profiles table dissolved in the schema evolution; public identity
 // now lives in community_profiles (found by created_by, not by id).
-import type { CommunityProfilesRow } from '@/types/generated/hestia-core/community_profiles';
+import type { CommunityProfilesRow } from '@/lib/generated/types/hestia-core/community_profiles';
 
 export interface AuthState {
   user: User | null;

@@ -40,7 +40,7 @@ function generateHeader(table: EnrichedTable): string {
   const timestamp = new Date().toISOString();
   const { name: tableName, deityFolder } = table;
   const pascalName = toPascalCase(tableName);
-  const typesImportPath = `@/types/generated/${deityFolder}/${tableName}`;
+  const typesImportPath = `@/lib/generated/types/${deityFolder}/${tableName}`;
   
   return `// =====================================================
 // HOOKS: ${tableName}

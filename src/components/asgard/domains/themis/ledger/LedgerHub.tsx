@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, FileText, Eye, DollarSign, TrendingUp, TrendingDown, Activity } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { PublicLedger } from '@/types/generated/plutus-economics/ledger';
+import type { PublicLedger } from '@/lib/generated/types/plutus-economics/ledger';
 
 type LedgerEntry = PublicLedger;
 

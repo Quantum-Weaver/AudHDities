@@ -7,7 +7,7 @@
 'use client';
 
 import { useState, useCallback, useMemo, useEffect } from 'react';
-import { useWares } from '@/hooks/generated/plutus-economics/wares.js';
+import { useWares } from '@/lib/generated/hooks/plutus-economics/wares.js';
 import type { Tables, Enums } from '@/types/supabase/database.helpers.js';
 
 // ============================================================================

@@ -10,8 +10,8 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Droplets, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useBubblesList } from '@/hooks/generated/athena-gamification/bubbles';
-import { useCollectionSetsList } from '@/hooks/generated/hestia-core/collection_sets';
+import { useBubblesList } from '@/lib/generated/hooks/athena-gamification/bubbles';
+import { useCollectionSetsList } from '@/lib/generated/hooks/hestia-core/collection_sets';
 import type { CardData } from '@/types/components/runes/card.types';
 
 // Points and colors derive from rarity; collections resolve through

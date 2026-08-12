@@ -10,7 +10,7 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Award } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useSigilsList } from '@/hooks/generated/athena-gamification/sigils';
+import { useSigilsList } from '@/lib/generated/hooks/athena-gamification/sigils';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const RARITY_COLORS: Record<string, string> = {

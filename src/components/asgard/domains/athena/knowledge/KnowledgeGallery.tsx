@@ -7,7 +7,7 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, BookOpen, Search } from 'lucide-react';
-import { useMythologyList } from '@/hooks/generated/athena-gamification/mythology';
+import { useMythologyList } from '@/lib/generated/hooks/athena-gamification/mythology';
 import type { CardData } from '@/types/components/runes/card.types';
 
 // Stable params — the generated list hooks refetch on params IDENTITY

@@ -13,7 +13,7 @@
 import { createClient } from '@/lib/supabase/client';
 import { useEffect, useState, useCallback } from 'react';
 import type { User } from '@supabase/supabase-js';
-import type { CommunityProfilesRow } from '@/types/generated/hestia-core/community_profiles';
+import type { CommunityProfilesRow } from '@/lib/generated/types/hestia-core/community_profiles';
 import type { Enums } from '@/types/supabase/database.helpers';
 
 export type UserRole = Enums<'user_role'>;

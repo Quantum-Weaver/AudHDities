@@ -8,7 +8,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Compass, Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useQuestsList } from '@/hooks/generated/athena-gamification/quests';
+import { useQuestsList } from '@/lib/generated/hooks/athena-gamification/quests';
 import type { CardData } from '@/types/components/runes/card.types';
 
 // The evolved quests table speaks name/status/slug; the old house column
