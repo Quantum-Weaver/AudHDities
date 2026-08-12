@@ -22,7 +22,20 @@
         "name": "next"
       }
     ],
+    // THE MOVE COMPLETED (2026-08-11). `types/` and `hooks/` moved to
+    // src/lib/ on 2026-08-08 (commit 5320c47e, "types moved") but the ~870
+    // `@/types/*` and `@/hooks/*` imports never followed, so the tree had
+    // been red since: 1,297 tsc errors, of which 870 were unresolved modules
+    // and the rest their downstream. These two entries finish the move
+    // without touching a single import line. More specific prefixes win in
+    // TypeScript path mapping, so `@/*` still serves everything else.
     "paths": {
+      "@/types/*": [
+        "./src/lib/types/*"
+      ],
+      "@/hooks/*": [
+        "./src/lib/hooks/*"
+      ],
       "@/*": [
         "./src/*"
       ]
@@ -38,6 +51,18 @@
     "node_modules",
     "**/staging/**",
     "**/archive/**",
-    "**/.next/**"
+    "**/.next/**",
+    // THE SUPERSEDED UTILS (2026-08-11). GAIA now delivers this layer to
+    // src/lib/generated/utils/, and nothing imports the old copy as a module
+    // — verified: its only mention anywhere is as a STRING PATH inside
+    // config/generated/system_registry.ts, which is a manifest, not an
+    // import. The stale copy was still being type-checked against the fresh
+    // database types and reporting six errors about columns gaia_config has
+    // since gained (family_id, taxonomy_id, taxonomy_notes).
+    //
+    // EXCLUDED, NOT DELETED — lose-nothing. The files stand on disk exactly
+    // as they were; they simply stop being compiled. Retiring them for real
+    // is KP's ⚛ word, alongside the rest of the scattered layer.
+    "src/lib/utils/generated/**"
   ]
 }
