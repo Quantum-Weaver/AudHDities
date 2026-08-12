@@ -21,6 +21,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Map as MapIcon, X } from 'lucide-react';
 import SceneDoorway from './SceneDoorway';
+import Learscail from '@/components/seidr/immersive/Learscail';
 import type { RealmKey } from '@/lib/constants/systems/trio';
 import { cn } from '@/lib/utils';
 
@@ -127,6 +128,17 @@ export default function RealmMapFurniture({
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
+            {/* THE LÉARSCÁIL — KP's ⚛ word 2026-08-11, "the map from the
+                vessel… was already a component… just needs this." The
+                furniture keeps its whole ritual (unfold, Escape, the 80%
+                module); what it holds is now the land drawn as land, the
+                same water the street's nav unfurls. The doorways stay
+                beneath it: the map is the calm way in, the doorways are
+                every door, and neither is the admission ticket. */}
+            <div className="mb-5 shrink-0">
+              <Learscail onTravel={close} />
+            </div>
+
             {/* One geometry, everywhere, forever — the order never shuffles */}
             <div className="grid flex-1 auto-rows-min grid-cols-1 gap-3 overflow-y-auto sm:grid-cols-2">
               {REALM_MAP_ORDER.map((door) => (
