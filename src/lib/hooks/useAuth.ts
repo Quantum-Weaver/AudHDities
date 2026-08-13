@@ -20,6 +20,8 @@ export interface AuthState {
 export interface AuthActions {
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, metadata?: Record<string, unknown>) => Promise<{ error: Error | null }>;
+  resetPassword: (email: string, redirectTo?: string) => Promise<{ error: Error | null }>;
+  updatePassword: (password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
@@ -71,6 +73,23 @@ export function useAuth(): AuthState & AuthActions {
     return { error: null };
   }, [supabase]);
 
+  const resetPassword = useCallback(async (email: string, redirectTo?: string) => {
+    setError(null);
+    const { error } = await supabase.auth.resetPasswordForEmail(
+      email,
+      redirectTo ? { redirectTo } : undefined
+    );
+    if (error) { setError(error.message); return { error }; }
+    return { error: null };
+  }, [supabase]);
+
+  const updatePassword = useCallback(async (password: string) => {
+    setError(null);
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) { setError(error.message); return { error }; }
+    return { error: null };
+  }, [supabase]);
+
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setUser(null);
@@ -96,5 +115,5 @@ export function useAuth(): AuthState & AuthActions {
     return () => { subscription.unsubscribe(); };
   }, [supabase, fetchProfile]);
 
-  return { user, profile, loading, error, signIn, signUp, signOut, refreshProfile };
+  return { user, profile, loading, error, signIn, signUp, resetPassword, updatePassword, signOut, refreshProfile };
 }

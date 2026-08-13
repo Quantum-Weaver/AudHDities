@@ -35,6 +35,11 @@ export const AUTH_LABELS = {
   RETURN_SANCTUARY: 'Return to the Sanctuary',
   INITIALIZE_CONSCIOUSNESS: 'Initialize Consciousness',
   FORGOT_PASSWORD: 'Forgot your password?',
+  SEND_RESET_LINK: 'Send Reset Link',
+  SENDING_RESET: 'Sending...',
+  SET_NEW_PASSWORD: 'Set New Password',
+  SETTING_PASSWORD: 'Setting...',
+  BACK_TO_LOGIN: 'Return to login',
   NEW_TO_SANCTUARY: 'New to the Sanctuary?',
   ALREADY_MANIFESTED: 'Already manifested?',
   ALREADY_HAVE_ACCOUNT: 'Already have an account?',
@@ -55,6 +60,14 @@ export const AUTH_METADATA = {
     title: 'Join the Sanctuary | AUDHDITIES',
     description: 'Join the sovereign network',
   },
+  FORGOT_PASSWORD: {
+    title: 'Reset Password | AUDHDITIES',
+    description: 'Recover access to your sanctuary',
+  },
+  RESET_PASSWORD: {
+    title: 'Set a New Password | AUDHDITIES',
+    description: 'Choose a new password for your vessel',
+  },
 } as const;
 
 // ─── Placeholders ──────────────────────────────────────────────────────────
@@ -63,6 +76,7 @@ export const AUTH_PLACEHOLDERS = {
   PASSWORD: 'Enter your password',
   CREATE_PASSWORD: 'Create a password (min 6 characters)',
   CONFIRM_PASSWORD: 'Confirm your password',
+  NEW_PASSWORD: 'Choose a new password (min 6 characters)',
   USERNAME: 'Choose a username',
 } as const;
 
@@ -71,6 +85,8 @@ export const AUTH_ROUTES = {
   LOGIN: '/login',
   SIGNUP: '/signup',
   FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
+  CALLBACK: '/callback',
   DASHBOARD: '/vessel',
   QUESTIONNAIRE: '/questionaire',
   TERMS: '/terms',
