@@ -17,6 +17,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { Slider } from '@/components/forging/Slider';
+import { Switch } from '@/components/forging/Switch';
 import { Button } from '@/components/yggdrasil/Button';
 import { HeartHandshake } from 'lucide-react';
 import type { UserFinancialRow } from '@/lib/generated/types/hestia-core/user_financial';
@@ -25,11 +26,36 @@ const COVENANT_MIN = 0;
 const COVENANT_MAX = 50;
 
 export function CovenantSpace() {
-  const { user } = useAuth();
+  const { user, profile, refreshProfile } = useAuth();
   const [row, setRow] = useState<UserFinancialRow | null>(null);
   const [percent, setPercent] = useState(0);
   const [isSetting, setIsSetting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  // THE DISPLAY CHOICE — the pledge shown on the vessel face only by the
+  // vessel's own hand; null in community_profiles means not displayed.
+  const [displayed, setDisplayed] = useState(false);
+
+  useEffect(() => {
+    setDisplayed(profile?.covenant_pledge_percent != null);
+  }, [profile]);
+
+  const mirrorDisplay = async (value: number | null) => {
+    try {
+      await fetch('/api/auth/update-profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ covenant_pledge_percent: value }),
+      });
+      await refreshProfile();
+    } catch {
+      // The face keeps its last true state; the sanctum message stays calm.
+    }
+  };
+
+  const handleDisplayToggle = async (checked: boolean) => {
+    setDisplayed(checked);
+    await mirrorDisplay(checked ? Math.round(percent) : null);
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -66,12 +92,21 @@ export function CovenantSpace() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             // created_by passes explicitly; the API overrides with the
-            // session's own value regardless (the Shaping's pattern).
-            body: JSON.stringify({ created_by: user.id, covenant_pool_percent: value }),
+            // session's own value regardless (the Shaping's pattern). The id
+            // rides along because the generated InsertSchema requires one
+            // (2026-08-12, the 400 KP's own hand found — seam noted for
+            // GAIA: the base defaults it, the validator demands it).
+            body: JSON.stringify({
+              id: crypto.randomUUID(),
+              created_by: user.id,
+              covenant_pool_percent: value,
+            }),
           });
       const result = await response.json();
       if (result.success) {
         if (!row && result.data) setRow(result.data);
+        // A displayed pledge follows its own change — one gesture, one truth.
+        if (displayed) await mirrorDisplay(value);
         setMessage(`Your covenant is set — ${value}% flows to the commons.`);
       } else {
         setMessage('The setting did not take. It is safe to try again.');
@@ -115,6 +150,19 @@ export function CovenantSpace() {
           Set my covenant
         </Button>
         {message && <span className="text-sm text-star-dust/60">{message}</span>}
+      </div>
+
+      <div className="mt-6 border-t border-star-dust/10 pt-6">
+        <Switch
+          label="Display my pledge on my vessel face"
+          size="md"
+          checked={displayed}
+          onChange={handleDisplayToggle}
+        />
+        <p className="text-xs text-star-dust/40 mt-2">
+          Off by default. Your choice, in both directions, any time — an
+          undisplayed pledge gives exactly as much.
+        </p>
       </div>
     </div>
   );

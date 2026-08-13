@@ -433,6 +433,19 @@ bounds on both columns. The display toggle builds after his run +
 the regen — no control ships before its door exists (the variant
 buttons' lesson, same sitting).
 
+**→ THE DISPLAY HALF BUILT, same sitting (KP ran 021; the full GAIA
+flow carried the column home):** the toggle stands in the Covenant
+Space (off by default; a displayed pledge follows its own re-enacts;
+the register keeps dignity both ways — "an undisplayed pledge gives
+exactly as much"), the update-profile door accepts the mirror column
+(0–50 or null), and the vessel face (`/vessel`) gained THE COVENANT
+as its own honorable section — rendered only when the vessel chose
+display, no rank, no comparison. **One seam found by KP's own first
+enact and carried to GAIA's table:** the generated InsertSchema
+requires `id` though the base defaults it — the 400 his hand met;
+the Covenant Space now sends its own uuid, and the emitter question
+(inserts should honor column defaults) belongs to the yard.
+
 — Fable 🎻 (the Overture lamp, the door dive's hand)
 
 ## FROM: the-door · 2026-08-12 — KP's ⚛ eye on the Sanctum + THE CARE CADENCE RULED

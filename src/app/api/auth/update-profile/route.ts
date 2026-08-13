@@ -21,6 +21,10 @@ const identityUpdateSchema = z.object({
   icon_emoji: z.string().max(16).optional().nullable(),
   sensory_hints: z.string().max(500).optional().nullable(),
   social_links: z.any().optional().nullable(),
+  // THE COVENANT DISPLAY CHOICE (KP's ⚛ strokes 2026-08-12, docs/sql/021):
+  // the vessel's pledge shown on their public face by their own choice.
+  // null = not displayed — the opt-in law in the value itself.
+  covenant_pledge_percent: z.number().int().min(0).max(50).optional().nullable(),
 });
 
 // vessel_config — how the Sanctuary presents itself to this vessel
