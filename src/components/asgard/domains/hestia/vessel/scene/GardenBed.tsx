@@ -134,8 +134,10 @@ export default function GardenBed({
     <div className={className}>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {plots.map((plot) => {
-          const growth = readGrowth(plot.planted_at, plot.last_watered_at, stages);
           const seed = plot.seed_id ? seedById.get(plot.seed_id) : undefined;
+          // The care cadence follows the plant (KP's ⚛ ruling 2026-08-12):
+          // the seed's rarity sets the rest window; rarer asks less often.
+          const growth = readGrowth(plot.planted_at, plot.last_watered_at, stages, seed?.rarity ?? null);
 
           return (
             <div

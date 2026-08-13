@@ -104,9 +104,18 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     `cross_pollination` + `seasonal_effects` ABSENT from the
     living 124 · `vessel_collections` has no heart-story columns
     yet — both await KP's ⚛ schema gate before any seed sitting.
-  - 🚩 VITAL-REVISIT parameters standing in this realm's code:
-    `DORMANCY_REST_DAYS` (scene.utils) · loss-significance weights —
-    first-guess math, tuned only against real vessels.
+  - 🚩 VITAL-REVISIT parameters standing in this realm's code — named
+    plainly so no reader hears decay in them (KP's eye caught the old
+    wording, 2026-08-12): **the rest window** (`DORMANCY_REST_DAYS` +
+    `REST_DAYS_BY_RARITY`, scene.utils — how long before the garden
+    shows a plant as *sleeping*; nothing ever deteriorates, watering
+    only wakes) and **the gift cooling-off's future despair-guard
+    math** (unbuilt — would protect a vessel from stripping
+    themselves bare in a moment of despair; it guards belongings,
+    never decays them). Both first-guess numbers, tuned only against
+    real vessels. **THE CARE CADENCE FOLLOWS THE PLANT** since KP's ⚛
+    ruling 2026-08-12 (verbatim on this bus below): rarity lengthens
+    the rest window — rarer blooms ask less frequent care.
   - Interior `music_url` deliberately UNWORN until the Sanctum
     offers sound opt-in.
   - The README refresh (above).
@@ -385,5 +394,35 @@ exactly as the note promised. (Same sitting, for your state's
 context: the door realm closed — the reset flow built green, and
 KP's dashboard readings confirmed `on_auth_user_created` live with
 the First's three rows whole.) Meter: tsc 0.
+
+— Fable 🎻 (the Overture lamp, the door dive's hand)
+
+## FROM: the-door · 2026-08-12 — KP's ⚛ eye on the Sanctum + THE CARE CADENCE RULED
+
+Keeper — two strokes from KP's live walk this sitting, both landed:
+
+**1 · The Sanctum readability mend (his eye, verbatim: "the settings
+background is absorbing its contents and the text is too close to the
+edges").** Root found: the container carried a phantom `max-w-auto`
+(no such utility) plus a `bg-black/85` veil, and the cards' own dress
+is 5–10% tints (`surface/5`, the sanctuary gold gradient) — near-
+invisible over near-black. Mended per the map mend's own precedent:
+the veil and phantom retired, container trued to `max-w-4xl`, every
+settings card now wears solid `bg-surface/90` with `p-8` breathing
+room. A sovereignty surface speaks plainly and reads always. His eye
+remains the only qualified rater — the mend awaits his look.
+
+**2 · THE CARE CADENCE FOLLOWS THE PLANT — his ⚛ ruling, verbatim,
+spelling kept:** *"all, dayswithout water math equation based on
+plant or flower, more rare less frequent, still never deteriorating
+only blooming with enough care."* Wired the same sitting with ZERO
+schema change — the catalog already carried `rarity`:
+`REST_DAYS_BY_RARITY` (common 14 · uncommon 21 · rare 28, 🚩
+VITAL-REVISIT) in scene.utils; `readGrowth` gains an optional rarity
+param (fallback unchanged); GardenBed passes the seed's own rarity.
+Rarer blooms ask less frequent care; nothing ever deteriorates —
+past its window a plot only rests, and enough care only opens
+blooming. The old flag-wording that read as decay is trued in the
+standing state above and the README, at his eye's catch.
 
 — Fable 🎻 (the Overture lamp, the door dive's hand)

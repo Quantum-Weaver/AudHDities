@@ -187,7 +187,12 @@ export function SanctumContent() {
 
   return (
     <main className="min-h-screen py-12">
-      <div className="container text-center flex-col items-center max-w-auto mx-auto px-6 bg-black/85">
+      {/* Readability mend 2026-08-12 (KP's eye: "the settings background is
+          absorbing its contents and the text is too close to the edges") —
+          the phantom `max-w-auto` and the black/85 veil retired; the cards
+          below carry solid surface dress instead, per the map mend's own
+          precedent. A sovereignty surface speaks plainly and reads always. */}
+      <div className="container max-w-4xl mx-auto px-6">
 
         <button
           onClick={() => router.back()}
@@ -204,7 +209,7 @@ export function SanctumContent() {
           data={identityCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <div className="flex flex-col items-center">
             <AvatarUpload
@@ -223,7 +228,7 @@ export function SanctumContent() {
           data={identityCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Sovereign Identity</h2>
           <Form onSubmit={handleSave}>
@@ -256,7 +261,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Accessibility</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -282,7 +287,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Your Realm</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -309,7 +314,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Ceremonies</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -343,7 +348,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-4 w-4 text-neurospark" />
