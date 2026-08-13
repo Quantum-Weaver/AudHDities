@@ -428,7 +428,9 @@ export function SanctumContent() {
           {saveMessage && (
             <span className={cn(
               'text-sm',
-              saveMessage.includes('Failed') ? 'text-error' : 'text-sanctuary-green'
+              // 2026-08-12: error/sanctuary-green are phantom tokens (the
+              // white-dots finding); real theme classes only.
+              saveMessage.includes('Failed') ? 'text-red-400' : 'text-neurospark'
             )}>
               {saveMessage}
             </span>
