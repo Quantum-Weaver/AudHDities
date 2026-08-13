@@ -28,8 +28,8 @@ export function SanctuaryHero() {
         </h1>
         
         <p className="text-xl md:text-2xl text-star-dust/70 max-w-2xl mx-auto mb-12 leading-relaxed">
-          A platform where creators keep 70%, contributors earn forever, 
-          and every community member shares in the abundance.
+          A platform where 90% of everything circulates, every contributor is
+          paid an equal share, and every member shares in the abundance.
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center">

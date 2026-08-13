@@ -19,8 +19,8 @@ export function SanctuaryAcidTest() {
           Take the Acid Test
         </h2>
         <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-12">
-          A playful, gentle survey that determines your access tier. 
-          No judgment. No labels. Just recognition.
+          A playful, gentle survey that sets what you pay — never what you may reach.
+          Nothing here is gated. No judgment. No labels. Just recognition.
         </p>
         
         <Card
@@ -39,10 +39,14 @@ export function SanctuaryAcidTest() {
             </ul>
             <p className="text-star-dust/80 mt-4">💫 Based on your answers:</p>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2"><span className="text-sanctuary-green">🌿 Community Tier</span> <span className="text-star-dust/40 text-sm">— Subsidized access</span></li>
-              <li className="flex items-center gap-2"><span className="text-hearth-gold">🌟 Ally Tier</span> <span className="text-star-dust/40 text-sm">— Standard pricing</span></li>
-              <li className="flex items-center gap-2"><span className="text-quantum-purple">🏢 Corporate Tier</span> <span className="text-star-dust/40 text-sm">— Premium pricing</span></li>
+              <li className="flex items-center gap-2"><span className="text-sanctuary-green">🌿 Guild</span> <span className="text-star-dust/40 text-sm">— Guild community pricing. Half.</span></li>
+              <li className="flex items-center gap-2"><span className="text-hearth-gold">🏠 Dweller</span> <span className="text-star-dust/40 text-sm">— Standard pricing.</span></li>
+              <li className="flex items-center gap-2"><span className="text-quantum-purple">🧭 Outlander</span> <span className="text-star-dust/40 text-sm">— Outlander contribution pricing. Double, and half of it goes to the commons.</span></li>
             </ul>
+            <p className="text-star-dust/50 text-sm mt-4">
+              And one tier the test never assigns — <span className="text-neurospark">✷ Sovereign Weaver</span>, who pays
+              standard and gives half to the commons. That one is chosen, not scored.
+            </p>
           </div>
           
           <div className="mt-8">
