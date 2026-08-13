@@ -1,10 +1,10 @@
-// src/types/preferences.ts
+﻿// src/types/preferences.ts
 // =====================================================
 // PREFERENCES TYPES - Aligned with Database Schema
 // =====================================================
 
-import type { Json } from './supabase/database.types';
-import type { SensoryLevel as SensitivityLevel } from './supabase/enums.js';
+import type { Json } from '../generated/supabase/database.types';
+import type { SensoryLevel as SensitivityLevel } from '../generated/supabase/enums.js';
 
 // =====================================================
 // ND PREFERENCES (stored in profiles.nd_preferences)

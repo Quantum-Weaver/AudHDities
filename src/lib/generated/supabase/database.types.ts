@@ -1242,6 +1242,7 @@ export type Database = {
           avatar_url: string | null
           banner_url: string | null
           bio: string | null
+          covenant_pledge_percent: number | null
           created_at: string
           created_by: string | null
           display_name: string
@@ -1260,6 +1261,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          covenant_pledge_percent?: number | null
           created_at?: string
           created_by?: string | null
           display_name: string
@@ -1278,6 +1280,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          covenant_pledge_percent?: number | null
           created_at?: string
           created_by?: string | null
           display_name?: string

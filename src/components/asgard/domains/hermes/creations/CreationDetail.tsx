@@ -1,13 +1,13 @@
-// src/components/asgard/domains/hermes/creations/CreationDetail.tsx
+﻿// src/components/asgard/domains/hermes/creations/CreationDetail.tsx
 // Wares edition (2026-07-31): the three-tier price grid died with the
-// products table — one base price + pricing_model, solidarity pricing
+// products table â€” one base price + pricing_model, solidarity pricing
 // computed server-side at the Exchange (the buyer sees the split there:
 // PriceBreakdown is this realm's protected feature). The exchange verbs
-// are the realm's ceremony: Receive (freely) · Bring home (exchanged).
+// are the realm's ceremony: Receive (freely) Â· Bring home (exchanged).
 // The plain stall (2026-08-01, KP's ruling via the E4 study): the square
 // is quiet; HERE the price speaks plainly with the split beside it. And
 // when the last has gone home, the stall says so in the settled register
-// — never a countdown on the way down.
+// â€” never a countdown on the way down.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -22,7 +22,7 @@ import { PriceBreakdown } from '@/components/asgard/domains/hermes/checkout/Pric
 import { formatPrice } from '@/lib/utils/components/runes/card.utils';
 import { ArrowLeft, Package, TrendingUp } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
 type WareItem = Tables<'wares'>;
 
@@ -33,8 +33,8 @@ const TYPE_LABELS: Record<string, string> = {
 function priceLabel(ware: WareItem): string {
   if (ware.pricing_model === 'free') return 'Freely given';
   if (ware.pricing_model === 'patronage_only') return 'Through patronage';
-  if (ware.price === null || ware.price <= 0) return '—';
-  const base = formatPrice(ware.price) ?? '—';
+  if (ware.price === null || ware.price <= 0) return 'â€”';
+  const base = formatPrice(ware.price) ?? 'â€”';
   return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
 }
 
@@ -105,7 +105,7 @@ export function CreationDetail() {
 
           {formatsOf(ware).length > 0 && (
             <p className="text-xs text-star-dust/40 mb-6">
-              Available for {formatsOf(ware).map((f) => FORMAT_LABELS[f] || f).join(' · ')}
+              Available for {formatsOf(ware).map((f) => FORMAT_LABELS[f] || f).join(' Â· ')}
             </p>
           )}
 
@@ -115,10 +115,10 @@ export function CreationDetail() {
             </p>
             <p className="text-neurospark font-bold text-2xl">{priceLabel(ware)}</p>
             {ware.pricing_model === 'fixed' && (
-              <p className="text-xs text-star-dust/40 mt-2">Solidarity pricing applied at the Exchange — you see the full split before anything is charged</p>
+              <p className="text-xs text-star-dust/40 mt-2">Solidarity pricing applied at the Exchange â€” you see the full split before anything is charged</p>
             )}
             {ware.pricing_model === 'pay_what_you_want' && (
-              <p className="text-xs text-star-dust/40 mt-2">Pay what you want — the split is shown before anything is charged</p>
+              <p className="text-xs text-star-dust/40 mt-2">Pay what you want â€” the split is shown before anything is charged</p>
             )}
           </div>
 
@@ -143,7 +143,7 @@ export function CreationDetail() {
           <div className="flex gap-3 mt-6">
             {soldOut ? (
               <p className="text-sm text-star-dust/60 italic">
-                These have all gone home — the maker may weave more.
+                These have all gone home â€” the maker may weave more.
               </p>
             ) : ware.pricing_model === 'free' ? (
               <Button variant="primary" size="md">Receive</Button>

@@ -8,7 +8,7 @@
 // sovereign_weaver), pricing kindness moved into calculate_sovereign_price,
 // and capabilities are user_roles rows rather than profile flags.
 
-import type { Database } from './supabase/database.types';
+import type { Database } from '../generated/supabase/database.types';
 
 export type UserTier = Database['public']['Enums']['sovereign_tier'];
 

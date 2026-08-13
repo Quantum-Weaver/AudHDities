@@ -1,5 +1,5 @@
-// hooks/commerce/useProduct.ts
-// Wares edition (2026-07-18): products became wares — one base price plus a
+﻿// hooks/commerce/useProduct.ts
+// Wares edition (2026-07-18): products became wares â€” one base price plus a
 // pricing_model (free | fixed | pay_what_you_want | patronage_only), with
 // per-user solidarity pricing computed server-side by
 // calculate_sovereign_price at checkout. The old client-side tier ladder
@@ -8,7 +8,7 @@
 
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useWares } from '@/lib/generated/hooks/plutus-economics/wares.js';
-import type { Tables, Enums } from '@/types/supabase/database.helpers.js';
+import type { Tables, Enums } from '@/lib/generated/supabase/database.helpers.js';
 
 // ============================================================================
 // TYPES

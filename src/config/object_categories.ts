@@ -1,4 +1,4 @@
-// src/config/object-categories.ts
+﻿// src/config/object-categories.ts
 // ============================================================================
 // OBJECT CATEGORIES - Single source of truth for all generation behavior
 // ============================================================================
@@ -8,7 +8,7 @@
 
 import { ENUM_MAPPING, getEnumFolder } from './enum_mapping.js';
 import { getFolderNameForTable, getFolderNameForView, DEITY_GROUPS } from './deity_groups.js';
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers.js';
 
 // ============================================================================
 // TYPE IMPORTS (unchanged)
@@ -269,7 +269,7 @@ export const LEVEL_CONFIG: Record<HandlingLevel, ObjectCategory> = {
  * Determine handling level based on table name patterns
  * This covers ALL tables without needing to list each one
  * 
- * ✅ UPDATED: Accepts PublicTableNames for type safety
+ * âœ… UPDATED: Accepts PublicTableNames for type safety
  */
 export function getHandlingLevelByPattern(tableName: PublicTableNames): HandlingLevel {
   // Assessment tables (acid_test_* became assessment_* in the schema evolution)
@@ -278,7 +278,7 @@ export function getHandlingLevelByPattern(tableName: PublicTableNames): Handling
   }
 
   // Join/link tables. NOTE (2026-07-18): the old '_profiles' pattern is gone
-  // on purpose — community_profiles is now the PRIMARY identity table, and
+  // on purpose â€” community_profiles is now the PRIMARY identity table, and
   // artisan/merchant profiles are full entities, not joins.
   const joinPatterns = [
     '_participants',       // ware_participants, work_participants, scene_participants
@@ -303,7 +303,7 @@ export function getHandlingLevelByPattern(tableName: PublicTableNames): Handling
 /**
  * Determine handling level for a view
  * 
- * ✅ NEW: Type-safe view pattern matching
+ * âœ… NEW: Type-safe view pattern matching
  */
 export function getViewHandlingLevelByPattern(_viewName: PublicViewNames): HandlingLevel {
   // The current schema exposes no public views (the old personalized_feed /
@@ -315,7 +315,7 @@ export function getViewHandlingLevelByPattern(_viewName: PublicViewNames): Handl
 /**
  * Get handling level for a table (with manual override option)
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function getTableHandlingLevel(tableName: PublicTableNames): HandlingLevel {
   // Manual overrides for exceptions
@@ -365,7 +365,7 @@ const FUNCTION_DEITY_OVERRIDES: Record<string, string> = {
 /**
  * Get deity folder for any object based on table association
  * 
- * ✅ UPDATED: Uses type-safe parameters
+ * âœ… UPDATED: Uses type-safe parameters
  */
 export function getDeityFolderForObject(
   objectType: 'table' | 'view' | 'function' | 'type_enum' | 'runtime_enum',
@@ -416,7 +416,7 @@ export function getDeityFolderForObject(
 /**
  * Get full category config for a table
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function getTableCategory(tableName: PublicTableNames): ObjectCategory {
   const level = getTableHandlingLevel(tableName);
@@ -426,7 +426,7 @@ export function getTableCategory(tableName: PublicTableNames): ObjectCategory {
 /**
  * Get full category config for a view
  * 
- * ✅ NEW: Type-safe view category lookup
+ * âœ… NEW: Type-safe view category lookup
  */
 export function getViewCategory(viewName: PublicViewNames): ObjectCategory {
   const level = getViewHandlingLevelByPattern(viewName);
@@ -436,7 +436,7 @@ export function getViewCategory(viewName: PublicViewNames): ObjectCategory {
 /**
  * Get handling level for a function
  * 
- * ✅ UPDATED: Consistent naming
+ * âœ… UPDATED: Consistent naming
  */
 export function getFunctionHandlingLevel(functionName: string): HandlingLevel {
   return 'function';
@@ -445,7 +445,7 @@ export function getFunctionHandlingLevel(functionName: string): HandlingLevel {
 /**
  * Get handling level for an enum (type-level)
  * 
- * ✅ UPDATED: Accepts PublicEnumNames for type safety
+ * âœ… UPDATED: Accepts PublicEnumNames for type safety
  */
 export function getTypeEnumHandlingLevel(enumName: PublicEnumNames): HandlingLevel {
   return 'type_enum';
@@ -454,7 +454,7 @@ export function getTypeEnumHandlingLevel(enumName: PublicEnumNames): HandlingLev
 /**
  * Get handling level for an enum (runtime)
  * 
- * ✅ UPDATED: Accepts PublicEnumNames for type safety
+ * âœ… UPDATED: Accepts PublicEnumNames for type safety
  */
 export function getRuntimeEnumHandlingLevel(enumName: PublicEnumNames): HandlingLevel {
   return 'runtime_enum';
@@ -463,7 +463,7 @@ export function getRuntimeEnumHandlingLevel(enumName: PublicEnumNames): Handling
 /**
  * Get category config for any object based on type and name
  * 
- * ✅ UPDATED: Type-safe overloads
+ * âœ… UPDATED: Type-safe overloads
  */
 export function getObjectCategory(
   objectType: 'table',
@@ -504,7 +504,7 @@ export function getObjectCategory(
 /**
  * Check if a table needs API routes
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function needsApiRoutes(tableName: PublicTableNames): boolean {
   const category = getTableCategory(tableName);
@@ -516,7 +516,7 @@ export function needsApiRoutes(tableName: PublicTableNames): boolean {
 /**
  * Check if a view needs API routes
  * 
- * ✅ NEW: Type-safe view API check
+ * âœ… NEW: Type-safe view API check
  */
 export function needsViewApiRoutes(viewName: PublicViewNames): boolean {
   const category = getViewCategory(viewName);
@@ -526,7 +526,7 @@ export function needsViewApiRoutes(viewName: PublicViewNames): boolean {
 /**
  * Check if a table needs validators
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function needsValidators(tableName: PublicTableNames): boolean {
   const category = getTableCategory(tableName);
@@ -536,7 +536,7 @@ export function needsValidators(tableName: PublicTableNames): boolean {
 /**
  * Check if a table needs utilities
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function needsUtils(tableName: PublicTableNames): boolean {
   const category = getTableCategory(tableName);
@@ -546,7 +546,7 @@ export function needsUtils(tableName: PublicTableNames): boolean {
 /**
  * Check if a table needs hooks
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function needsHooks(tableName: PublicTableNames): boolean {
   const category = getTableCategory(tableName);
@@ -556,7 +556,7 @@ export function needsHooks(tableName: PublicTableNames): boolean {
 /**
  * Check if a table needs type generation
  * 
- * ✅ UPDATED: Accepts PublicTableNames
+ * âœ… UPDATED: Accepts PublicTableNames
  */
 export function needsTypeGeneration(tableName: PublicTableNames): boolean {
   const category = getTableCategory(tableName);
@@ -566,7 +566,7 @@ export function needsTypeGeneration(tableName: PublicTableNames): boolean {
 /**
  * Check if a view needs type generation
  * 
- * ✅ NEW: Type-safe view type check
+ * âœ… NEW: Type-safe view type check
  */
 export function needsViewTypeGeneration(viewName: PublicViewNames): boolean {
   const category = getViewCategory(viewName);
@@ -576,7 +576,7 @@ export function needsViewTypeGeneration(viewName: PublicViewNames): boolean {
 /**
  * Check if an enum needs constant generation
  * 
- * ✅ UPDATED: Accepts PublicEnumNames
+ * âœ… UPDATED: Accepts PublicEnumNames
  */
 export function needsConstantGeneration(enumName: PublicEnumNames): boolean {
   const category = getObjectCategory('runtime_enum', enumName);
@@ -590,7 +590,7 @@ export function needsConstantGeneration(enumName: PublicEnumNames): boolean {
 /**
  * Get all tables that need a specific generation flag
  * 
- * ✅ NEW: Type-safe bulk filtering
+ * âœ… NEW: Type-safe bulk filtering
  */
 export function filterTablesByNeed(
   tables: PublicTableNames[],

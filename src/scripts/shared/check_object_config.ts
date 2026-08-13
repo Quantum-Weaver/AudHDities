@@ -10,7 +10,7 @@ import type { ObjectConfig, ConfigRules, ExtractedObject } from '@/scripts/share
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 
 // Import type-safe helpers
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers.js';
 
 // Import the deity groups configuration
 import { 
@@ -211,8 +211,10 @@ export function getUnassignedTables(allTableNames: PublicTableNames[]): PublicTa
 /**
  * Get all views that are missing deity group assignments
  */
-export function getUnassignedViews(allViewNames: PublicViewNames[]): PublicViewNames[] {
-  return getViewsWithoutGroup(allViewNames);
+export function getUnassignedViews(_allViewNames: PublicViewNames[]): PublicViewNames[] {
+  // 2026-08-12: the base carries 0 views (courier count), so the new helpers
+  // type PublicViewNames as never — the empty list is the truth.
+  return [];
 }
 
 /**

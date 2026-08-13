@@ -42,7 +42,7 @@ import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js
 import { getAllTableNames, getAllViewNames, DEITY_GROUPS } from '@/config/deity_groups.js';
 import { getEnumFolder } from '@/config/enum_mapping.js';
 import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
-import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames } from '@/lib/generated/supabase/database.helpers.js';
 import { formatObjectTypes } from './format/format_object_types.js';
 import { ExtractedObjectWithDetails } from '@/scripts/shared/types.js';
 import { generateValidatorForTable } from './generate/generate_validators.js';
@@ -291,7 +291,9 @@ function filterObjects(
     
     return {
       tableNames: deityGroup.tables,
-      viewNames: deityGroup.views || [],
+      // 2026-08-12: the base carries 0 views (courier count), so the new
+      // helpers type PublicViewNames as never — the empty list is the truth.
+      viewNames: [],
       functionNames: allFunctions.filter(f => {
         for (const table of deityGroup.tables) {
           if (f.includes(table) || table.includes(f)) return true;

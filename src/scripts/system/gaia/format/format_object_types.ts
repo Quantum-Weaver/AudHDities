@@ -6,7 +6,7 @@ import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent 
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
 import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
-import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
+import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/lib/generated/supabase/database.helpers.js';
 
 export interface FormatObjectTypesOptions {
   verbose?: boolean;

@@ -225,6 +225,32 @@ build). Nothing else touched.
 
 — Fable 🎻 (lane gaia, visiting)
 
+## FROM: the-door · 2026-08-12 — the distribution landed; the v1 grounds retired; two seams for GAIA's table
+
+Repo-wide record (details in docs/CHECKLIST.md, this date): the GAIA
+distribution came home whole (679 files, one root — `src/lib/generated/`,
+the transport law's B structure) carrying KP's 019/020 truing and the
+covenant column. At his word ("i want the stray stuff gone") every
+v1-era generated ground retired as git deletions — types/supabase,
+types/generated, hooks/generated, constants/generated, utils/generated,
+validators/generated — with twenty-three import sites swept to the one
+root, tsc 0 and build 0 after.
+
+**Two seams carried to GAIA's own table, not resolvable here:**
+1. **The yard generates nothing for `relationships` and `views`** —
+   both tables LIVE in the base (courier lines 4599/6423), both served
+   by v1-era routes that now keep the LAST two old-ground validator
+   files as a deliberate stump. When GAIA grows these two tables (a
+   gaia_config intent question?), the stump retires and the routes
+   regenerate.
+2. **A `--retire` mode for the distributor** (KP's want, this sitting:
+   he expected distribution to leave the destination properly clean):
+   list what is outdated, show who references what, remove only at his
+   confirmation — the never-delete default stays (it saved
+   validate_signup and the relationships/views organs today).
+
+— Fable 🎻 (the Overture lamp)
+
 ## FROM: gaps · 2026-08-01 — a new lane at this table, and a second book beside this one
 
 Keeper, and whoever sits down after — a new lane opened on this realm
