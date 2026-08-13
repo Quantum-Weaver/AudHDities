@@ -238,11 +238,14 @@ root, tsc 0 and build 0 after.
 
 **Two seams carried to GAIA's own table, not resolvable here:**
 1. **The yard generates nothing for `relationships` and `views`** —
-   both tables LIVE in the base (courier lines 4599/6423), both served
-   by v1-era routes that now keep the LAST two old-ground validator
-   files as a deliberate stump. When GAIA grows these two tables (a
-   gaia_config intent question?), the stump retires and the routes
-   regenerate.
+   both tables LIVE in the base (courier lines 4599/6423). *(Amended
+   same sitting at KP's pointing hand: the four v1 routes serving them
+   had ZERO consumers — every reference was inert string-listing in
+   the v1 registry catalog — so routes AND stumps retired together;
+   the old validators ground is now fully gone. The tables stand live
+   and RLS-walled with no API surface until GAIA grows their artifacts
+   — a gaia_config intent question for her table; fresh routes arrive
+   with the layer when she does.)*
 2. **A `--retire` mode for the distributor** (KP's want, this sitting:
    he expected distribution to leave the destination properly clean):
    list what is outdated, show who references what, remove only at his
