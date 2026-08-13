@@ -128,29 +128,37 @@
 │                                                                              │
 │  ┌─────────────────────────────────────────────────────────────────────┐    │
 │  │                    TWO POOLS: RESIDUAL & COVENANT                    │    │
+│  │            both set by the earner, both from THEIR OWN 90%           │    │
 │  │                                                                      │    │
-│  │  RESIDUAL POOL (from platform fee, 0-50% adjustable per product)    │    │
-│  │       │                                                              │    │
-│  │       └──▶ Contributors (based on their percentage share)           │    │
-│  │             • Anyone who contributed to the product                 │    │
-│  │             • Paid forever, for every sale                          │    │
+│  │  ① THE RESIDUAL DIAL (0-50%) splits the 90% — it measures how much   │    │
+│  │     stays LOCAL, and a LOWER setting sends MORE to the commons:      │    │
 │  │                                                                      │    │
-│  │  COVENANT POOL (from creator earnings, 0-50% adjustable in profile) │    │
-│  │       │                                                              │    │
-│  │       └──▶ Community Pool                                           │    │
-│  │             • Distributed equally to all active community members   │    │
-│  │             • Including disabled members who cannot be active       │    │
-│  │             • Dignity for all, regardless of productivity           │    │
+│  │     the dial's share ──▶ THIS ITEM'S CONTRIBUTORS, divided EQUALLY  │    │
+│  │                          • the creator is ONE OF THEM               │    │
+│  │                          • no ranking, no percentage shares         │    │
 │  │                                                                      │    │
+│  │     everything left  ──▶ THE RESIDUAL POOL                          │    │
+│  │                          • ALL contributors on the platform         │    │
+│  │                          • EQUALLY, at intervals as allowed         │    │
+│  │                                                                      │    │
+│  │  ② THE COVENANT DIAL (0-50%) is NOT a slice of the sale — it is a   │    │
+│  │     slice of each vessel's OWN INCOME, wherever money lands:         │    │
+│  │                                                                      │    │
+│  │                      ──▶ THE COVENANT POOL                          │    │
+│  │                          • ALL users on the platform, EQUALLY       │    │
+│  │                          • including those who cannot be active     │    │
+│  │                          • dignity for all, regardless of output    │    │
+│  │                                                                      │    │
+│  │  NOTHING IN THE 90% IS HELD BACK. Both destinations are GROUPS.     │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  KEY PRINCIPLES:                                                             │
-│  • Platform fee is 10% (industry standard is 30-50%)                        │
-│  • Residual Pool: Creator sets per product (0-50% of platform fee)         │
-│  • Covenant Pool: Creator sets in profile (0-50% of creator earnings)      │
-│  • Contributors earn forever (the "background actor dividend")              │
-│  • Community members share dignity share regardless of activity level       │
-│  • All fees are fixed and transparent                                      │
+│  • 90% OF EVERYTHING CIRCULATES. 10% FUNDS THE MACHINE.                     │
+│  • Platform fee is 10%, fixed, always (industry standard is 30-50%)         │
+│  • The creator takes an EQUAL SHARE beside everyone who made the thing      │
+│  • Equal shares, not ranked shares. Not a competition.                      │
+│  • A payout is income: the recipient's covenant fires again on arrival,     │
+│    which is why the system circulates instead of settling                    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -192,11 +200,14 @@
           ▼                           ▼                           ▼
    ╔═══════════════════╗       ╔═══════════════════╗       ╔═══════════════════╗
    ║   RESIDUAL POOL   ║       ║   COVENANT POOL   ║       ║   OPT-IN USERS    ║
-   ║ (0-50% of fee)    ║       ║ (0-50% of earnings)║       ║ (Ad viewers)      ║
+   ║ (0-50% of the 90) ║       ║ (0-50% of the 90) ║       ║ (Ad viewers)      ║
    ║                   ║       ║                   ║       ║                   ║
-   ║ Contributors      ║       ║ Community Members ║       ║ Choose to see ads ║
-   ║ (split by %)      ║       ║ (equal split)     ║       ║ Get paid equally  ║
+   ║ ALL contributors  ║       ║ ALL users         ║       ║ Choose to see ads ║
+   ║ EQUALLY, at       ║       ║ EQUALLY, at       ║       ║ Get paid equally  ║
+   ║ intervals         ║       ║ intervals         ║       ║                   ║
    ╚═══════════════════╝       ╚═══════════════════╝       ╚═══════════════════╝
+
+        THE SAME LAW IN ALL THREE COLUMNS: EQUAL SHARES, NOT RANKED SHARES.
 ```
 
 ---
@@ -205,60 +216,143 @@
 
 | Fee Type | Percentage | Notes |
 |----------|------------|-------|
-| **Platform Fee** | 10% of sale | Covers hosting, development, support |
-| **Creator Immediate** | 90% of sale (minus Covenant) | Paid at time of purchase |
-| **Residual Pool** | 0-50% of platform fee | Creator sets per product |
-| **Covenant Pool** | 0-50% of creator earnings | Creator sets in profile |
-| **Residual Distribution** | 100% of residual pool | Split among contributors |
-| **Covenant Distribution** | 100% of covenant pool | Split equally among community members |
+| **Platform Fee** | **10% of sale, fixed, always** | The only money that leaves the ecosystem — hosting, development, support, processing |
+| **The Ecosystem's Share** | **90% of sale** | Nothing here is held back; both destinations are groups |
+| **Residual dial** | **0–50%**, set on the item | The share of the 90% that stays with **this item's contributors** |
+| → *this item's contributors* | the dial's share | **Divided EQUALLY by headcount. The creator is one of them.** |
+| → *the residual pool* | **everything remaining** | **EQUALLY to ALL contributors on the platform**, at intervals |
+| **Covenant dial** | **0–50%**, set per account/vessel | **A share of the vessel's own income, wherever it lands** — not a slice of the sale |
+| → *the covenant pool* | 100% of it | **EQUALLY to ALL users on the platform**, at intervals |
+
+*A **lower** residual dial sends **more** to the commons: at 50% the split is 45/45
+of the sale; at 30% it is 27/63; at 0% the entire 90% goes to the pool. **There is no
+30% platform fee anywhere in this system** — any document still saying so is out of
+date.*
+
+---
+
+### ⛔ THE HELD-FUNDS LAW
+
+> # **WE DO NOT APPROPRIATE THESE FUNDS FOR OTHER THINGS TO MAKE PROFITS**
+> — KP ⚛, in his own emphasis
+
+Pools accumulate between disbursements, and **the money waiting there is the
+vessels' — held, not deployed.** *"They grow organically and get disbursed."* **There
+is no third thing it does in between.**
+
+Not float. Not working capital. Not a treasury, collateral, or an investment. **Any
+yield the holding incidentally produces belongs to the pool it came from**, never to
+operations, and the holding is visible in the public ledger rather than promised.
+
+**Why this is stated in the business document and not only in the architecture:** the
+instant a platform credits people and disburses later, it is holding other people's
+money — and float is exactly where payment businesses quietly earn their real margin.
+**A platform earning on held balances takes a second cut nobody agreed to, on top of
+the 10%, invisible in every fee table.** *"10% funds the machine and 90% circulates"
+is either true or it is a lie, and the float is the first place it would be broken.*
 
 ---
 
 ### **Example: $100 Sale with Both Pools Active**
 
 ```
-$100 Sale
+$100 Sale · residual dial 50% · three contributors, creator among them
     │
-    ├── $10 → Platform Fee (10%)
-    │       │
-    │       ├── $5 → Residual Pool (50% of fee, creator sets per product)
-    │       │      ├── Contributor A (40%): $2.00
-    │       │      ├── Contributor B (35%): $1.75
-    │       │      └── Contributor C (25%): $1.25
-    │       │
-    │       └── $5 → Operations
+    ├── $10.00 → 10%, funds the machine (fixed, always)
     │
-    └── $90 → Creator Earnings (90%)
+    └── $90.00 → THE ECOSYSTEM
             │
-            ├── $72 → Creator Immediate (80% after Covenant)
+            ├── $45.00 → THIS ITEM'S CONTRIBUTORS, divided EQUALLY
+            │            └── $15.00 each — the creator included, no premium
+            │                 └── each vessel's covenant fires here on its own income
             │
-            └── $18 → Covenant Pool (20% of earnings, creator sets in profile)
-                    │
-                    └── Distributed equally to all active community members
-                        (500 members = $0.036 each)
+            └── $45.00 → THE RESIDUAL POOL
+                         └── EQUALLY to ALL contributors on the platform,
+                             at intervals — and covenant fires again as each
+                             share lands
 ```
 
 ---
 
-### **Example: $100 Sale with No Contributors, Covenant Active**
+### **THE EARLY ADVANTAGE — and it is arithmetic, not an offer**
 
-```
-$100 Sale
-    │
-    ├── $10 → Platform Fee (10%)
-    │       │
-    │       ├── $0 → Residual Pool (creator chose 0% for this product)
-    │       │
-    │       └── $10 → Operations
-    │
-    └── $90 → Creator Earnings (90%)
-            │
-            ├── $72 → Creator Immediate (80% after Covenant)
-            │
-            └── $18 → Covenant Pool (20% of earnings)
-                    │
-                    └── Distributed equally to all active community members
-```
+**KP ⚛, 2026-08-12:** *"and transparency on all things. who would not come checkout
+what we built, buy a few things, get a payout, because small audience means earlier
+payout opportunity, rinse and repeat."*
+
+Because a share is **`pool ÷ recipients − cost`**, **a small audience is an advantage
+to the audience.** The divisor is the whole story:
+
+| contributors in the pool | pool needed for a **$5** share |
+|---|---|
+| **10** | **~$53** |
+| 100 | ~$530 |
+| 1,000 | ~$5,300 |
+| 10,000 | ~$53,000 |
+
+**So the earliest participants are paid soonest and largest — and no one had to
+promise them anything for that to be true.** There is no founder tier, no token, no
+equity grant, no "early access" pricing, and nothing anyone can revoke. *It falls out
+of the division.*
+
+**And this is why transparency is load-bearing rather than decorative.** The claim is
+checkable **before** you participate: the pool total is public, the headcount is
+public, the fee is fixed at 10%, and the arithmetic is one line. **A prospective
+member does not have to trust the pitch — they can do the division.** *Every other
+platform's early-adopter story requires believing a projection; this one requires a
+calculator.*
+
+**Stated honestly, because it is the obvious question:** as the platform grows the
+divisor grows, and a given pool yields a smaller individual share. **That is not
+early members losing something** — it is the incentive doing precisely what it exists
+to do, and the pools grow alongside the headcount as more sales flow through them.
+*Nothing is taken from anyone when someone new arrives; there is simply less reason
+to have waited.*
+
+**The loop, in his words: buy a few things → get a payout → rinse and repeat.**
+Participation funds the pools, the pools pay the participants, and being early is
+worth more than being told it will be.
+
+### **And the pools are not empty on day one — KP ⚛: *"meanwhile i set all my things at 50%"***
+
+**This is the sentence that turns the early advantage from a projection into a
+standing fact.** The obvious objection to everything above is *"an empty pool divides
+to nothing"* — and the answer is that **the founder's entire catalogue runs at the
+maximum contribution, permanently.** Every sale of his work pushes 45% of the sale
+into the residual pool and puts half of everything he personally receives into the
+covenant pool.
+
+**So the earliest arrivals are drawing from pools that his own output is filling** —
+at a moment when the divisor is smallest and the shares are largest. *He is the
+initial push, and he is putting in far more than he draws back, precisely while there
+are fewest people to divide among.*
+
+**And he takes it back the same way everyone else does — one equal share as a
+contributor, one equal share as a user.** *There is no position in this system that
+pays a person more than the people beside them, including the position of having
+built it.*
+
+---
+
+### **What a 50/50 vessel actually is**
+
+*KP ⚛'s own standing setting: **everything he does, 50%, always.***
+
+Read plainly, that vessel is paid **three ways, and every one of them is an equal
+share:**
+
+1. as **one of an item's contributors** — the same amount as everyone who made it;
+2. as **one contributor among all** on the platform, from the residual pool;
+3. as **one user among all** users, from the covenant pool.
+
+**What 50/50 removes is the premium, not the income.** *Declining a larger slice is
+a different act from declining a slice* — and there is no position in this system
+that pays a person more than the people beside them.
+
+**And it is the cheapest it will ever be to commit.** Half of nearly-nothing costs
+almost nothing today and buys the maximum credibility; half of a large number later
+is a sacrifice made under pressure with people watching. **Committing before revenue
+exists is the correct moment, not the wrong one.**
 
 ---
 
