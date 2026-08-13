@@ -27,6 +27,7 @@ import { Input } from '@/components/forging/Input';
 import { Switch } from '@/components/forging/Switch';
 import { Slider } from '@/components/forging/Slider';
 import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
+import { CovenantSpace } from '@/components/asgard/domains/hestia/sanctum/CovenantSpace';
 import { ArrowLeft, Save, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -122,6 +123,13 @@ export function SanctumContent() {
   const preferencesCardData: CardData = {
     id: `${user.id}-sanctum-preferences`,
     title: 'Accessibility',
+    type: 'value',
+    value: '',
+  };
+
+  const covenantCardData: CardData = {
+    id: `${user.id}-sanctum-covenant`,
+    title: 'The Covenant',
     type: 'value',
     value: '',
   };
@@ -335,6 +343,22 @@ export function SanctumContent() {
               onChange={(checked) => { setCeremonyFarewell(checked); updateConfigField('ceremony_farewell', checked); }}
             />
           </div>
+        </Card>
+
+        {/* THE COVENANT SPACE — ceremonial, not a settings row (KP's ⚛
+            strokes 2026-08-12, verbatim on the realm bus): the pledge
+            slider 0–50, 0 by default, enacted by deliberate gesture. The
+            sanctuary dress carries the ceremony: solid surface for
+            readability, the hearth-gold border for the register. The
+            display choice arrives with docs/sql/021 (his hand). */}
+        <Card
+          variant="sanctuary"
+          data={covenantCardData}
+          radius="lg"
+          shadow="md"
+          className="p-8 mb-6 bg-surface/90"
+        >
+          <CovenantSpace />
         </Card>
 
         {/* YOUR DAILY RHYTHM — the bubble limits come home (KP's word,

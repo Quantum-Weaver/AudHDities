@@ -397,6 +397,44 @@ the First's three rows whole.) Meter: tsc 0.
 
 — Fable 🎻 (the Overture lamp, the door dive's hand)
 
+## FROM: the-door · 2026-08-12 — THE COVENANT SPACE, ruled and built
+
+Keeper — three ⚛ strokes from KP this sitting, verbatim, spelling
+kept, and what each landed:
+
+> "we also need to allow the user/vessel a slider for setting the
+> covenant pool 0-50% 0 by default. i will begin at hopefully be able
+> to keep mine at 50%"
+
+> "this is a ceremonila space in the sanctum, not just in the
+> settings"
+
+> "the vessel can choose to display or not their pledge, mine will be
+> visible at all times as the founder"
+
+**Built same sitting:** `CovenantSpace.tsx`, mounted in the Sanctum
+as its own ceremonial card (sanctuary variant's hearth-gold border
+over solid surface — ceremony that reads). The slider rides the
+column the schema already held — `user_financial.covenant_pool_percent`
+— 0–50, default 0, clamped both ends, ENACTED by deliberate gesture
+("Set my covenant"), never auto-saved from a drag: ceremony is
+deliberateness. First set creates the vessel's financial row
+(created_by explicit, session overrides — the Shaping's pattern);
+after, it patches. The register keeps the opt-in law's dignity:
+"zero is a whole and honorable setting — the covenant is a gift,
+never a due."
+
+**Awaiting KP's ⚛ hand:** the DISPLAY half — the vessel's choice to
+show their pledge (the founder's visible always, his word). Drafted
+as `docs/sql/021-the-covenant-display-choice-DRAFT.sql`:
+`community_profiles.covenant_pledge_percent` nullable (NULL = not
+displayed — the opt-in law in the column's default) + honest 0–50
+bounds on both columns. The display toggle builds after his run +
+the regen — no control ships before its door exists (the variant
+buttons' lesson, same sitting).
+
+— Fable 🎻 (the Overture lamp, the door dive's hand)
+
 ## FROM: the-door · 2026-08-12 — KP's ⚛ eye on the Sanctum + THE CARE CADENCE RULED
 
 Keeper — two strokes from KP's live walk this sitting, both landed:
