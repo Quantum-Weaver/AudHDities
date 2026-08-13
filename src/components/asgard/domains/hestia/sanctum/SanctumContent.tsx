@@ -11,8 +11,9 @@
 // is re-mounted below over vessel_config.environment_preference
 // (docs/sql/013), previewed live through the ContinuityBeam and hydrated at
 // every arrival by the beam provider. The bubble limits came home the same
-// sitting (localStorage → vessel_config, mirrored back so the game honors
-// the boundary immediately).
+// sitting (localStorage → vessel_config); the transitional localStorage
+// mirror retired 2026-08-12 after athena's repoint (013) — vessel_config
+// is the one source, both rooms agreeing.
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -61,10 +62,6 @@ export function SanctumContent() {
     const t = setTimeout(() => {
       updateConfigField('bubble_daily_max', bubbleDailyMax);
       updateConfigField('bubble_hourly_max', bubbleHourlyMax);
-      // Mirror for the bubbles game's current localStorage reads (athena
-      // repoints at leisure — bus note filed).
-      localStorage.setItem('bubble-daily-max', String(bubbleDailyMax));
-      localStorage.setItem('bubble-hourly-max', String(bubbleHourlyMax));
     }, 600);
     return () => clearTimeout(t);
   }, [bubbleTouched, bubbleDailyMax, bubbleHourlyMax]);
@@ -337,10 +334,10 @@ export function SanctumContent() {
 
         {/* YOUR DAILY RHYTHM — the bubble limits come home (KP's word,
             2026-07-31: "add back to the vessel config the bubble limits
-            setting"). Source of truth is vessel_config; the localStorage
-            mirror keeps the bubbles game honoring the boundary immediately
-            (the game's own reads repoint at athena's leisure — bus note
-            filed). 🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
+            setting"). Source of truth is vessel_config — the game reads it
+            directly since athena's repoint (013); the transitional
+            localStorage mirror retired 2026-08-12, both rooms agreeing.
+            🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
         <Card
           variant="sanctuary"
           data={preferencesCardData}
