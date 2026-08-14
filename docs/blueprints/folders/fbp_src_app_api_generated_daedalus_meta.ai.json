@@ -1,0 +1,27 @@
+{
+  "folder_name": "daedalus-meta",
+  "folder_path": "src/app/api/generated/daedalus-meta",
+  "description": "0 files, 13 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.401384 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/api/generated/daedalus-meta/blueprints",
+    "src/app/api/generated/daedalus-meta/boundaries",
+    "src/app/api/generated/daedalus-meta/columns",
+    "src/app/api/generated/daedalus-meta/composite_types",
+    "src/app/api/generated/daedalus-meta/enums",
+    "src/app/api/generated/daedalus-meta/functions",
+    "src/app/api/generated/daedalus-meta/gaia_config",
+    "src/app/api/generated/daedalus-meta/gaia_generation_log",
+    "src/app/api/generated/daedalus-meta/generations",
+    "src/app/api/generated/daedalus-meta/indexes",
+    "src/app/api/generated/daedalus-meta/policies",
+    "src/app/api/generated/daedalus-meta/templates",
+    "src/app/api/generated/daedalus-meta/triggers"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

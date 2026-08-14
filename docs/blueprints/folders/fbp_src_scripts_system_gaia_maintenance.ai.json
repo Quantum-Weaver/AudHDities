@@ -1,0 +1,110 @@
+{
+  "folder_name": "maintenance",
+  "folder_path": "src/scripts/system/gaia/maintenance",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.714769 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/system/gaia/maintenance/generate_enum_mapping.ts",
+      "description": "src/scripts/system/gaia/maintenance/generate_enum_mapping.ts"
+    },
+    {
+      "path": "src/scripts/system/gaia/maintenance/generate_enums_file.ts",
+      "description": "src/scripts/system/gaia/maintenance/generate_enums_file.ts"
+    },
+    {
+      "path": "src/scripts/system/gaia/maintenance/generate_schema_json.ts",
+      "description": "src/scripts/system/gaia/maintenance/generate_schema_json.ts"
+    },
+    {
+      "path": "src/scripts/system/gaia/maintenance/generate_tables_file.ts",
+      "description": "src/scripts/system/gaia/maintenance/generate_tables_file.ts"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "generate_enum_mapping.ts": {
+      "language": "typescript",
+      "lines": 330,
+      "exported_functions": [
+        "generateEnumMapping",
+        "getEnumFolder",
+        "getEnumMapping",
+        "getEnumsByDeity",
+        "generateEnumMappingFile"
+      ],
+      "exported_consts": [
+        "ENUM_MAPPING"
+      ],
+      "interfaces": [
+        "EnumMappingEntry"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_enums_file.ts": {
+      "language": "typescript",
+      "lines": 420,
+      "exported_functions": [
+        "isValid",
+        "get",
+        "generateEnumsFile"
+      ],
+      "exported_consts": [
+        "ENUM_VALUES",
+        "ALL_ENUM_NAMES"
+      ],
+      "interfaces": [],
+      "types": [
+        "EnumName"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_schema_json.ts": {
+      "language": "typescript",
+      "lines": 298,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_tables_file.ts": {
+      "language": "typescript",
+      "lines": 440,
+      "exported_functions": [
+        "generateTablesFile"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [
+        "Tables",
+        "TablesInsert",
+        "TablesUpdate",
+        "Enums",
+        "CompositeTypes",
+        "PublicTableNames",
+        "PublicViewNames",
+        "PublicEnumNames",
+        "PublicCompositeTypeNames"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

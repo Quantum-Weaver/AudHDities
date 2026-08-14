@@ -1,0 +1,27 @@
+{
+  "folder_name": "extracted-foregrounds",
+  "folder_path": "public/environments/extracted-foregrounds",
+  "description": "0 files, 13 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.896630 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "public/environments/extracted-foregrounds/architecture-elements",
+    "public/environments/extracted-foregrounds/community-elements",
+    "public/environments/extracted-foregrounds/council-elements",
+    "public/environments/extracted-foregrounds/distant-structures-elements",
+    "public/environments/extracted-foregrounds/home-elements",
+    "public/environments/extracted-foregrounds/invitation-elements",
+    "public/environments/extracted-foregrounds/library-elements",
+    "public/environments/extracted-foregrounds/lounge-elements",
+    "public/environments/extracted-foregrounds/music-elements",
+    "public/environments/extracted-foregrounds/observatory-elements",
+    "public/environments/extracted-foregrounds/origin-elements",
+    "public/environments/extracted-foregrounds/support-elements",
+    "public/environments/extracted-foregrounds/transitional-elements"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

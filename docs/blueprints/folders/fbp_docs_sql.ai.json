@@ -1,0 +1,437 @@
+{
+  "folder_name": "sql",
+  "folder_path": "docs/sql",
+  "description": "21 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.759536 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/sql/001-the-self-knowing-layer.sql",
+      "description": "sql, 23,392 bytes"
+    },
+    {
+      "path": "docs/sql/002-deity-backfill.sql",
+      "description": "sql, 4,499 bytes"
+    },
+    {
+      "path": "docs/sql/003-the-garden-catalogs.sql",
+      "description": "sql, 5,676 bytes"
+    },
+    {
+      "path": "docs/sql/003-the-stage-ground.sql",
+      "description": "sql, 3,991 bytes"
+    },
+    {
+      "path": "docs/sql/004-garden-catalog-doors.sql",
+      "description": "sql, 3,693 bytes"
+    },
+    {
+      "path": "docs/sql/005-mythology-returns.sql",
+      "description": "sql, 6,627 bytes"
+    },
+    {
+      "path": "docs/sql/006-restore-the-grants.sql",
+      "description": "sql, 4,013 bytes"
+    },
+    {
+      "path": "docs/sql/007-archive-provenance-and-first-scroll.sql",
+      "description": "sql, 5,310 bytes"
+    },
+    {
+      "path": "docs/sql/007-the-vessel-arrives.sql",
+      "description": "sql, 6,063 bytes"
+    },
+    {
+      "path": "docs/sql/008-the-first-vessel-rite.sql",
+      "description": "sql, 5,816 bytes"
+    },
+    {
+      "path": "docs/sql/008-the-library-first-seeds.sql",
+      "description": "sql, 23,635 bytes"
+    },
+    {
+      "path": "docs/sql/009-library-doors-for-anyone.sql",
+      "description": "sql, 3,300 bytes"
+    },
+    {
+      "path": "docs/sql/009-the-walls-learn-the-new-names.sql",
+      "description": "sql, 8,780 bytes"
+    },
+    {
+      "path": "docs/sql/010-the-window-moves-inside.sql",
+      "description": "sql, 3,669 bytes"
+    },
+    {
+      "path": "docs/sql/011-the-rows-come-home.sql",
+      "description": "sql, 3,252 bytes"
+    },
+    {
+      "path": "docs/sql/012-the-avatars-bucket.sql",
+      "description": "sql, 2,994 bytes"
+    },
+    {
+      "path": "docs/sql/013-bubble-limits-return.sql",
+      "description": "sql, 3,201 bytes"
+    },
+    {
+      "path": "docs/sql/013-the-consent-record-DRAFT.sql",
+      "description": "sql, 7,219 bytes"
+    },
+    {
+      "path": "docs/sql/014-the-echo-moves-inside.sql",
+      "description": "sql, 2,976 bytes"
+    },
+    {
+      "path": "docs/sql/015-the-tended-library.sql",
+      "description": "sql, 30,475 bytes"
+    },
+    {
+      "path": "docs/sql/016-the-three-facts.sql",
+      "description": "sql, 36,340 bytes"
+    }
+  ],
+  "file_count": 21,
+  "subdirectories": [],
+  "code_analysis": {
+    "001-the-self-knowing-layer.sql": {
+      "language": "sql",
+      "lines": 507,
+      "statements": 88,
+      "tables_created": [
+        "public.policies",
+        "public.functions",
+        "public.triggers",
+        "public.indexes",
+        "public.enums",
+        "public.composite_types",
+        "public.columns"
+      ],
+      "rls_enabled_on": [
+        "public.policies",
+        "public.functions",
+        "public.triggers",
+        "public.indexes",
+        "public.enums",
+        "public.composite_types",
+        "public.columns"
+      ],
+      "policies_created": [
+        "Authenticated read policies",
+        "Authenticated read functions",
+        "Authenticated read triggers",
+        "Authenticated read indexes",
+        "Authenticated read enums",
+        "Authenticated read composite_types",
+        "Authenticated read columns"
+      ],
+      "functions_created": [
+        "public.gaia_sync"
+      ],
+      "indexes_created": 1,
+      "uses_do_block": false
+    },
+    "002-deity-backfill.sql": {
+      "language": "sql",
+      "lines": 63,
+      "statements": 12,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "003-the-garden-catalogs.sql": {
+      "language": "sql",
+      "lines": 111,
+      "statements": 3,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "003-the-stage-ground.sql": {
+      "language": "sql",
+      "lines": 93,
+      "statements": 10,
+      "tables_created": [
+        "public.events"
+      ],
+      "rls_enabled_on": [
+        "public.events"
+      ],
+      "policies_created": [
+        "Public read events"
+      ],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "004-garden-catalog-doors.sql": {
+      "language": "sql",
+      "lines": 78,
+      "statements": 10,
+      "tables_created": [],
+      "rls_enabled_on": [
+        "public.plant_stages",
+        "public.seed_types"
+      ],
+      "policies_created": [
+        "Public read published plant_stages",
+        "Public read published seed_types"
+      ],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "005-mythology-returns.sql": {
+      "language": "sql",
+      "lines": 121,
+      "statements": 16,
+      "tables_created": [
+        "public.mythology"
+      ],
+      "rls_enabled_on": [
+        "public.mythology"
+      ],
+      "policies_created": [
+        "Public read published mythology"
+      ],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "006-restore-the-grants.sql": {
+      "language": "sql",
+      "lines": 74,
+      "statements": 9,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "007-archive-provenance-and-first-scroll.sql": {
+      "language": "sql",
+      "lines": 73,
+      "statements": 9,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "007-the-vessel-arrives.sql": {
+      "language": "sql",
+      "lines": 134,
+      "statements": 27,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [
+        "public.handle_new_user"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "008-the-first-vessel-rite.sql": {
+      "language": "sql",
+      "lines": 114,
+      "statements": 10,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "008-the-library-first-seeds.sql": {
+      "language": "sql",
+      "lines": 259,
+      "statements": 17,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "009-library-doors-for-anyone.sql": {
+      "language": "sql",
+      "lines": 56,
+      "statements": 8,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "009-the-walls-learn-the-new-names.sql": {
+      "language": "sql",
+      "lines": 169,
+      "statements": 44,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [
+        "Admins can view all roles",
+        "Admins can assign roles",
+        "Admins can update roles",
+        "Admins can delete roles",
+        "Owner can view own profile",
+        "Owner can insert own profile",
+        "Owner can update own profile",
+        "Owner can delete own profile",
+        "Users can view their own private data",
+        "Users can insert their own private data",
+        "Users can update their own private data",
+        "Users can delete their own private data",
+        "Sovereign can view own vessel config",
+        "Sovereign can insert own vessel config",
+        "Sovereign can update own vessel config",
+        "Sovereign can delete own vessel config",
+        "Users can view their own financial data",
+        "Users can insert their own financial data",
+        "Users can update their own financial data"
+      ],
+      "functions_created": [
+        "public.has_role"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "010-the-window-moves-inside.sql": {
+      "language": "sql",
+      "lines": 78,
+      "statements": 17,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [
+        "Admins can view all roles",
+        "Admins can assign roles",
+        "Admins can update roles",
+        "Admins can delete roles"
+      ],
+      "functions_created": [
+        "private.has_role"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "011-the-rows-come-home.sql": {
+      "language": "sql",
+      "lines": 73,
+      "statements": 11,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [
+        "public.set_user_tracking_columns"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "012-the-avatars-bucket.sql": {
+      "language": "sql",
+      "lines": 57,
+      "statements": 4,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [
+        "Vessel reads own avatar objects",
+        "Vessel uploads own avatar",
+        "Vessel updates own avatar",
+        "Vessel deletes own avatar"
+      ],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "013-bubble-limits-return.sql": {
+      "language": "sql",
+      "lines": 56,
+      "statements": 8,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "013-the-consent-record-DRAFT.sql": {
+      "language": "sql",
+      "lines": 140,
+      "statements": 14,
+      "tables_created": [
+        "public.votes"
+      ],
+      "rls_enabled_on": [
+        "public.votes"
+      ],
+      "policies_created": [
+        "Members read the consent record",
+        "Council members cast their own vote",
+        "Voter amends own vote before the deadline"
+      ],
+      "functions_created": [
+        "public.sync_proposal_vote_counts"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "014-the-echo-moves-inside.sql": {
+      "language": "sql",
+      "lines": 64,
+      "statements": 11,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [
+        "private.sync_proposal_vote_counts"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "015-the-tended-library.sql": {
+      "language": "sql",
+      "lines": 663,
+      "statements": 131,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [
+        "public.gaia_sync"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    },
+    "016-the-three-facts.sql": {
+      "language": "sql",
+      "lines": 813,
+      "statements": 142,
+      "tables_created": [
+        "public.relationships",
+        "public.views"
+      ],
+      "rls_enabled_on": [
+        "public.relationships",
+        "public.views"
+      ],
+      "policies_created": [
+        "Public read relationships",
+        "Public read views"
+      ],
+      "functions_created": [
+        "public.gaia_sync"
+      ],
+      "indexes_created": 0,
+      "uses_do_block": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

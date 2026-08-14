@@ -1,0 +1,30 @@
+{
+  "folder_name": "lounge",
+  "folder_path": "public/environments/360-panoramas/lounge",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.879223 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/360-panoramas/lounge/lounge-background-1.webp",
+      "description": "file, 4,603,202 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/lounge/lounge-background-2.webp",
+      "description": "file, 4,527,946 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/lounge/lounge-background-3.webp",
+      "description": "file, 4,427,060 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/lounge/lounge-background-4.webp",
+      "description": "file, 4,345,258 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

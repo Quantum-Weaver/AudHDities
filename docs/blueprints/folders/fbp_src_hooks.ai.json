@@ -1,0 +1,297 @@
+{
+  "folder_name": "hooks",
+  "folder_path": "src/hooks",
+  "description": "My beloved friend,",
+  "scan_timestamp": "2026-08-04T13:36:17.201882 | in sovereign time",
+  "files": [
+    {
+      "path": "src/hooks/README.md",
+      "description": "\ud83d\udcda Hooks README"
+    },
+    {
+      "path": "src/hooks/useAuth.ts",
+      "description": "src/hooks/useAuth.ts"
+    },
+    {
+      "path": "src/hooks/useIsMobile.ts",
+      "description": "typescript, 616 bytes"
+    },
+    {
+      "path": "src/hooks/usePermissions.ts",
+      "description": "src/hooks/usePermissions.ts"
+    },
+    {
+      "path": "src/hooks/useProfile.ts",
+      "description": "src/hooks/useProfile.ts"
+    },
+    {
+      "path": "src/hooks/useRealm.ts",
+      "description": "src/hooks/useRealm.ts"
+    },
+    {
+      "path": "src/hooks/useRequireAuth.ts",
+      "description": "src/hooks/useRequireAuth.ts"
+    },
+    {
+      "path": "src/hooks/useRequireRole.ts",
+      "description": "src/hooks/useRequireRole.ts"
+    },
+    {
+      "path": "src/hooks/useSchema.ts",
+      "description": "src/hooks/useSchema.ts"
+    },
+    {
+      "path": "src/hooks/useStatusBar.ts",
+      "description": "hooks/useStatusBar.ts"
+    },
+    {
+      "path": "src/hooks/useUser.server.ts",
+      "description": "hooks/useUser.server.ts"
+    },
+    {
+      "path": "src/hooks/useUser.ts",
+      "description": "src/hooks/useUser.ts"
+    }
+  ],
+  "file_count": 12,
+  "subdirectories": [
+    "src/hooks/commerce",
+    "src/hooks/generated"
+  ],
+  "code_analysis": {
+    "README.md": {
+      "language": "markdown",
+      "lines": 320,
+      "words": 429,
+      "heading_count": 28,
+      "headings": [
+        "\ud83d\udcda Hooks README",
+        "\ud83c\udfa3 Sanctuary Hooks System",
+        "Overview",
+        "\ud83d\udcc2 Directory Structure",
+        "\ud83c\udfd7\ufe0f Generated Hooks Pattern",
+        "Standard Exports",
+        "Key Characteristics",
+        "Usage Example",
+        "\ud83d\udd10 Auth & Permission Hooks",
+        "`useAuth()`",
+        "`useRequireAuth(redirectTo?)`",
+        "`usePermissions()`",
+        "`useRequireRole(requiredRole, redirectTo?)`",
+        "\ud83d\udc64 User & Profile Hooks",
+        "`useUser()`",
+        "`useServerUser()`",
+        "`useProfile(targetUserId?)`",
+        "Specialized Profile Hooks",
+        "\ud83d\udee0\ufe0f Utility Hooks",
+        "`useStatusBar()`",
+        "`useSchema()`",
+        "`useIsMobile()`",
+        "\ud83d\uded2 Commerce Hooks",
+        "`useCheckout()`"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 18,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "useAuth.ts": {
+      "language": "typescript",
+      "lines": 100,
+      "exported_functions": [
+        "useAuth"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "AuthState",
+        "AuthActions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useIsMobile.ts": {
+      "language": "typescript",
+      "lines": 21,
+      "exported_functions": [
+        "useIsMobile"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "usePermissions.ts": {
+      "language": "typescript",
+      "lines": 29,
+      "exported_functions": [
+        "usePermissions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useProfile.ts": {
+      "language": "typescript",
+      "lines": 81,
+      "exported_functions": [
+        "useProfile",
+        "useCurrentProfile"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ProfilePermissions",
+        "UseProfileReturn"
+      ],
+      "types": [
+        "Profile",
+        "ProfileUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useRealm.ts": {
+      "language": "typescript",
+      "lines": 37,
+      "exported_functions": [
+        "useRealm"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "UseRealmReturn"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useRequireAuth.ts": {
+      "language": "typescript",
+      "lines": 19,
+      "exported_functions": [
+        "useRequireAuth"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useRequireRole.ts": {
+      "language": "typescript",
+      "lines": 40,
+      "exported_functions": [
+        "useRequireRole"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useSchema.ts": {
+      "language": "typescript",
+      "lines": 138,
+      "exported_functions": [
+        "useSchema",
+        "useTableSchema",
+        "useEnumValues"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "SchemaTableColumn",
+        "SchemaEnum",
+        "SchemaFunction",
+        "SchemaData",
+        "UseSchemaReturn"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useStatusBar.ts": {
+      "language": "typescript",
+      "lines": 109,
+      "exported_functions": [
+        "useStatusBar"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "UseStatusBarReturn"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useUser.server.ts": {
+      "language": "typescript",
+      "lines": 38,
+      "exported_functions": [
+        "useServerUser"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ServerUserReturn"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "useUser.ts": {
+      "language": "typescript",
+      "lines": 133,
+      "exported_functions": [
+        "tierLight",
+        "useUser"
+      ],
+      "exported_consts": [
+        "TIER_LIGHT"
+      ],
+      "interfaces": [
+        "UseUserReturn"
+      ],
+      "types": [
+        "UserRole",
+        "SovereignTier"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

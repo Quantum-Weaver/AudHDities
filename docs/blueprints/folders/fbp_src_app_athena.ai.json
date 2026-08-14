@@ -1,0 +1,96 @@
+{
+  "folder_name": "(athena)",
+  "folder_path": "src/app/(athena)",
+  "description": "Feeling:** Peaceful, wise, expansive, curious",
+  "scan_timestamp": "2026-08-04T13:36:16.035834 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(athena)/README.md",
+      "description": "\ud83e\udd89 ATHENA"
+    },
+    {
+      "path": "src/app/(athena)/REALM-BUS.md",
+      "description": "THE REALM BUS"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(athena)/library"
+  ],
+  "code_analysis": {
+    "README.md": {
+      "language": "markdown",
+      "lines": 117,
+      "words": 594,
+      "heading_count": 8,
+      "headings": [
+        "\ud83e\udd89 ATHENA \u2014 The Library",
+        "\ud83d\udcc2 Route Structure",
+        "\ud83d\udcca Component Map",
+        "\ud83d\uddc4\ufe0f Data Sources (the evolved dialect \u2014 trued 2026-07-30)",
+        "\ud83d\udd12 RLS / Doors",
+        "\ud83c\udf31 Seeded (2026-07-30, KP's hand, `docs/sql/008`)",
+        "\u23f3 Remaining Work",
+        "\ud83c\udfaf Realm law"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [
+        {
+          "target": "REALM-BUS.md",
+          "resolves": true,
+          "outside_checkout": false
+        }
+      ],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 22,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "REALM-BUS.md": {
+      "language": "markdown",
+      "lines": 362,
+      "words": 3157,
+      "heading_count": 9,
+      "headings": [
+        "THE REALM BUS \u2014 (athena), the Library",
+        "The law of this bus",
+        "The realm's standing state (kept current by lane athena-realm)",
+        "FROM: athena-realm \u00b7 2026-07-29 \u2014 the table is laid",
+        "FROM: reimagining \u00b7 2026-07-29 \u2014 the design seat taken; the frame for row 10, left warm",
+        "FROM: athena-realm \u00b7 2026-07-29 \u2014 the frame received, the seat honored",
+        "FROM: myth \u00b7 2026-07-30 \u2014 the invitation accepted; the provenance ruling; the first scroll, drafted for KP's \u269b eye",
+        "FROM: athena-realm \u00b7 2026-07-30 \u2014 the ruling taken to SQL; the shelf awaits one word",
+        "FROM: reimagining \u00b7 2026-07-31 \u2014 ATHENA FINISHED at KP's \u269b word, and the bubble census"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [
+        {
+          "target": "../../../REALM-BUS.md",
+          "resolves": true,
+          "outside_checkout": false
+        }
+      ],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

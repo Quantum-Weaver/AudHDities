@@ -1,0 +1,112 @@
+{
+  "folder_name": "api",
+  "folder_path": "src/lib/api",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.289662 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/api/auth.ts",
+      "description": "lib/api/auth.ts"
+    },
+    {
+      "path": "src/lib/api/errors.ts",
+      "description": "lib/api/errors.ts"
+    },
+    {
+      "path": "src/lib/api/index.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/api/supabase.ts",
+      "description": "lib/api/supabase.ts"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "auth.ts": {
+      "language": "typescript",
+      "lines": 199,
+      "exported_functions": [
+        "getAuthenticatedUser",
+        "getOptionalUser",
+        "isAdmin",
+        "checkOwnership",
+        "successResponse",
+        "errorResponse",
+        "paginatedResponse",
+        "getPaginationParams",
+        "getFilters",
+        "getSortParams",
+        "notFound",
+        "unauthorized",
+        "forbidden"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "PaginatedResponse"
+      ],
+      "types": [
+        "AuthSuccess",
+        "AuthFailure",
+        "AuthResult"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "errors.ts": {
+      "language": "typescript",
+      "lines": 39,
+      "exported_functions": [
+        "handleValidationError",
+        "handleDatabaseError"
+      ],
+      "exported_consts": [
+        "ERRORS"
+      ],
+      "interfaces": [],
+      "types": [
+        "ApiError"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 10,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "supabase.ts": {
+      "language": "typescript",
+      "lines": 45,
+      "exported_functions": [
+        "createApiSupabase",
+        "createAdminSupabase"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "NEXT_PUBLIC_SUPABASE_URL"
+      ]
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

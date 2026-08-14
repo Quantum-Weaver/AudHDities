@@ -1,0 +1,51 @@
+{
+  "folder_name": "studio",
+  "folder_path": "src/components/asgard/domains/prometheus/studio",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.026633 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/prometheus/studio/StudioHub.tsx",
+      "description": "src/components/asgard/domains/prometheus/studio/StudioHub.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/prometheus/studio/StudioPageTemplate.tsx",
+      "description": "src/components/asgard/domains/prometheus/studio/StudioPageTemplate.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "StudioHub.tsx": {
+      "language": "typescript",
+      "lines": 56,
+      "exported_functions": [
+        "StudioHub"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "StudioPageTemplate.tsx": {
+      "language": "typescript",
+      "lines": 42,
+      "exported_functions": [
+        "StudioPageTemplate"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

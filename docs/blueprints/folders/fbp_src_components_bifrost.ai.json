@@ -1,0 +1,153 @@
+{
+  "folder_name": "bifrost",
+  "folder_path": "src/components/bifrost",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.055323 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/bifrost/Footer.tsx",
+      "description": "@/components/bifrost/Footer.tsx"
+    },
+    {
+      "path": "src/components/bifrost/Header.tsx",
+      "description": "@/components/bifrost/Header.tsx"
+    },
+    {
+      "path": "src/components/bifrost/LayoutChrome.tsx",
+      "description": "@/components/bifrost/LayoutChrome.tsx"
+    },
+    {
+      "path": "src/components/bifrost/MarkdownBio.tsx",
+      "description": "components/bifrost/MarkdownBio.tsx"
+    },
+    {
+      "path": "src/components/bifrost/Navigation.tsx",
+      "description": "@/components/bifrost/Navigation.tsx"
+    },
+    {
+      "path": "src/components/bifrost/Page.tsx",
+      "description": "@/components/bifrost/Page.tsx"
+    },
+    {
+      "path": "src/components/bifrost/Section.tsx",
+      "description": "components/bifrost/Section.tsx"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {
+    "Footer.tsx": {
+      "language": "typescript",
+      "lines": 89,
+      "exported_functions": [],
+      "exported_consts": [
+        "Footer"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Header.tsx": {
+      "language": "typescript",
+      "lines": 92,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "LayoutChrome.tsx": {
+      "language": "typescript",
+      "lines": 76,
+      "exported_functions": [
+        "LayoutChrome"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "LayoutChromeProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "NODE_ENV"
+      ]
+    },
+    "MarkdownBio.tsx": {
+      "language": "typescript",
+      "lines": 23,
+      "exported_functions": [
+        "MarkdownBio"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Navigation.tsx": {
+      "language": "typescript",
+      "lines": 420,
+      "exported_functions": [
+        "Navigation"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Page.tsx": {
+      "language": "typescript",
+      "lines": 86,
+      "exported_functions": [
+        "Page"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "PageProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Section.tsx": {
+      "language": "typescript",
+      "lines": 216,
+      "exported_functions": [],
+      "exported_consts": [
+        "Section",
+        "MutedSection",
+        "GlowSection",
+        "GradientSection",
+        "GlassSection",
+        "HeroSection",
+        "SectionHeader",
+        "SectionDivider",
+        "SectionGroup"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

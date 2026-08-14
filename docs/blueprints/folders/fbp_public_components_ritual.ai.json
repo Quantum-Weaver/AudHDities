@@ -1,0 +1,340 @@
+{
+  "folder_name": "ritual",
+  "folder_path": "public/components/ritual",
+  "description": "25 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.851759 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/ritual/constellation-map-1.png",
+      "description": "image, 615,795 bytes"
+    },
+    {
+      "path": "public/components/ritual/constellation-map-2.png",
+      "description": "image, 194,469 bytes"
+    },
+    {
+      "path": "public/components/ritual/constellation-map-3.png",
+      "description": "image, 335,060 bytes"
+    },
+    {
+      "path": "public/components/ritual/constellation-map-4.png",
+      "description": "image, 340,156 bytes"
+    },
+    {
+      "path": "public/components/ritual/contact-orb-2.png",
+      "description": "image, 459,782 bytes"
+    },
+    {
+      "path": "public/components/ritual/contact-orb-3.png",
+      "description": "image, 435,653 bytes"
+    },
+    {
+      "path": "public/components/ritual/contact-orb-4.png",
+      "description": "image, 460,669 bytes"
+    },
+    {
+      "path": "public/components/ritual/contact-orb.png",
+      "description": "image, 482,570 bytes"
+    },
+    {
+      "path": "public/components/ritual/crystal.png",
+      "description": "image, 44,893 bytes"
+    },
+    {
+      "path": "public/components/ritual/crystals.png",
+      "description": "image, 378,127 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-snake-1.png",
+      "description": "image, 751,698 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-snake-2.png",
+      "description": "image, 453,928 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-1.png",
+      "description": "image, 552,406 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-2.png",
+      "description": "image, 628,605 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-3.png",
+      "description": "image, 624,164 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-4.png",
+      "description": "image, 618,371 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-triangle-1.png",
+      "description": "image, 1,088,737 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-triangle-2.png",
+      "description": "image, 1,072,640 bytes"
+    },
+    {
+      "path": "public/components/ritual/eye-sun-triangle-3.png",
+      "description": "image, 1,026,588 bytes"
+    },
+    {
+      "path": "public/components/ritual/moon-chart-1.png",
+      "description": "image, 1,076,589 bytes"
+    },
+    {
+      "path": "public/components/ritual/runic-card-c-1.png",
+      "description": "image, 723,158 bytes"
+    },
+    {
+      "path": "public/components/ritual/runic-card-c-2.png",
+      "description": "image, 735,481 bytes"
+    },
+    {
+      "path": "public/components/ritual/triangle-ritual-1.png",
+      "description": "image, 715,680 bytes"
+    },
+    {
+      "path": "public/components/ritual/triangle-ritual-2.png",
+      "description": "image, 698,917 bytes"
+    },
+    {
+      "path": "public/components/ritual/triangle-ritual-3.png",
+      "description": "image, 862,681 bytes"
+    }
+  ],
+  "file_count": 25,
+  "subdirectories": [],
+  "code_analysis": {
+    "constellation-map-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "constellation-map-1.png",
+      "location": "public/components/ritual",
+      "bytes": 615795,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "constellation-map-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "constellation-map-2.png",
+      "location": "public/components/ritual",
+      "bytes": 194469,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "constellation-map-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "constellation-map-3.png",
+      "location": "public/components/ritual",
+      "bytes": 335060,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "constellation-map-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "constellation-map-4.png",
+      "location": "public/components/ritual",
+      "bytes": 340156,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "contact-orb-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "contact-orb-2.png",
+      "location": "public/components/ritual",
+      "bytes": 459782,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "contact-orb-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "contact-orb-3.png",
+      "location": "public/components/ritual",
+      "bytes": 435653,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "contact-orb-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "contact-orb-4.png",
+      "location": "public/components/ritual",
+      "bytes": 460669,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "contact-orb.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "contact-orb.png",
+      "location": "public/components/ritual",
+      "bytes": 482570,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "crystal.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "crystal.png",
+      "location": "public/components/ritual",
+      "bytes": 44893,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "crystals.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "crystals.png",
+      "location": "public/components/ritual",
+      "bytes": 378127,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-snake-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-snake-1.png",
+      "location": "public/components/ritual",
+      "bytes": 751698,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-snake-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-snake-2.png",
+      "location": "public/components/ritual",
+      "bytes": 453928,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-1.png",
+      "location": "public/components/ritual",
+      "bytes": 552406,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-2.png",
+      "location": "public/components/ritual",
+      "bytes": 628605,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-3.png",
+      "location": "public/components/ritual",
+      "bytes": 624164,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-4.png",
+      "location": "public/components/ritual",
+      "bytes": 618371,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-triangle-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-triangle-1.png",
+      "location": "public/components/ritual",
+      "bytes": 1088737,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-triangle-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-triangle-2.png",
+      "location": "public/components/ritual",
+      "bytes": 1072640,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "eye-sun-triangle-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "eye-sun-triangle-3.png",
+      "location": "public/components/ritual",
+      "bytes": 1026588,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "moon-chart-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "moon-chart-1.png",
+      "location": "public/components/ritual",
+      "bytes": 1076589,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "runic-card-c-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "runic-card-c-1.png",
+      "location": "public/components/ritual",
+      "bytes": 723158,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "runic-card-c-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "runic-card-c-2.png",
+      "location": "public/components/ritual",
+      "bytes": 735481,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-ritual-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-ritual-1.png",
+      "location": "public/components/ritual",
+      "bytes": 715680,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-ritual-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-ritual-2.png",
+      "location": "public/components/ritual",
+      "bytes": 698917,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-ritual-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-ritual-3.png",
+      "location": "public/components/ritual",
+      "bytes": 862681,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

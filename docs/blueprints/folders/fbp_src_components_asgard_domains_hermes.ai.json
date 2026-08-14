@@ -1,0 +1,21 @@
+{
+  "folder_name": "hermes",
+  "folder_path": "src/components/asgard/domains/hermes",
+  "description": "0 files, 7 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.913026 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/components/asgard/domains/hermes/bazaar",
+    "src/components/asgard/domains/hermes/checkout",
+    "src/components/asgard/domains/hermes/contributions",
+    "src/components/asgard/domains/hermes/creations",
+    "src/components/asgard/domains/hermes/creators",
+    "src/components/asgard/domains/hermes/studio",
+    "src/components/asgard/domains/hermes/vendors"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

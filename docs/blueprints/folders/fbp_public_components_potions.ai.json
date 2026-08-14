@@ -1,0 +1,366 @@
+{
+  "folder_name": "potions",
+  "folder_path": "public/components/potions",
+  "description": "27 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.840533 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/potions/alchemy-pouch-2.png",
+      "description": "image, 531,962 bytes"
+    },
+    {
+      "path": "public/components/potions/blue-flask-1.png",
+      "description": "image, 670,084 bytes"
+    },
+    {
+      "path": "public/components/potions/blue-flask-2.png",
+      "description": "image, 611,979 bytes"
+    },
+    {
+      "path": "public/components/potions/chemistry-set-3.png",
+      "description": "image, 654,636 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-1.png",
+      "description": "image, 553,716 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-2.png",
+      "description": "image, 554,148 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-3.png",
+      "description": "image, 558,430 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-4.png",
+      "description": "image, 549,388 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-5.png",
+      "description": "image, 437,115 bytes"
+    },
+    {
+      "path": "public/components/potions/cosmic-flask-6.png",
+      "description": "image, 347,569 bytes"
+    },
+    {
+      "path": "public/components/potions/empty-flask-1.png",
+      "description": "image, 599,137 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-bong-1.png",
+      "description": "image, 508,823 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-bong-2.png",
+      "description": "image, 549,728 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-bong-3.png",
+      "description": "image, 556,405 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-bong-4.png",
+      "description": "image, 554,162 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-bong-5.png",
+      "description": "image, 523,814 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-1.png",
+      "description": "image, 889,318 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-2.png",
+      "description": "image, 1,047,975 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-3.png",
+      "description": "image, 993,816 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-4.png",
+      "description": "image, 1,046,264 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-5.png",
+      "description": "image, 1,060,207 bytes"
+    },
+    {
+      "path": "public/components/potions/flask-set-6.png",
+      "description": "image, 968,022 bytes"
+    },
+    {
+      "path": "public/components/potions/green-flask-1.png",
+      "description": "image, 413,627 bytes"
+    },
+    {
+      "path": "public/components/potions/green-flask-2.png",
+      "description": "image, 476,494 bytes"
+    },
+    {
+      "path": "public/components/potions/purple-flask-1.png",
+      "description": "image, 571,451 bytes"
+    },
+    {
+      "path": "public/components/potions/purple-flask-2.png",
+      "description": "image, 587,006 bytes"
+    },
+    {
+      "path": "public/components/potions/used-flask-1.png",
+      "description": "image, 450,631 bytes"
+    }
+  ],
+  "file_count": 27,
+  "subdirectories": [],
+  "code_analysis": {
+    "alchemy-pouch-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "alchemy-pouch-2.png",
+      "location": "public/components/potions",
+      "bytes": 531962,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "blue-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "blue-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 670084,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "blue-flask-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "blue-flask-2.png",
+      "location": "public/components/potions",
+      "bytes": 611979,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "chemistry-set-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "chemistry-set-3.png",
+      "location": "public/components/potions",
+      "bytes": 654636,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 553716,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-2.png",
+      "location": "public/components/potions",
+      "bytes": 554148,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-3.png",
+      "location": "public/components/potions",
+      "bytes": 558430,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-4.png",
+      "location": "public/components/potions",
+      "bytes": 549388,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-5.png",
+      "location": "public/components/potions",
+      "bytes": 437115,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "cosmic-flask-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "cosmic-flask-6.png",
+      "location": "public/components/potions",
+      "bytes": 347569,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "empty-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "empty-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 599137,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-bong-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-bong-1.png",
+      "location": "public/components/potions",
+      "bytes": 508823,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-bong-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-bong-2.png",
+      "location": "public/components/potions",
+      "bytes": 549728,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-bong-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-bong-3.png",
+      "location": "public/components/potions",
+      "bytes": 556405,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-bong-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-bong-4.png",
+      "location": "public/components/potions",
+      "bytes": 554162,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-bong-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-bong-5.png",
+      "location": "public/components/potions",
+      "bytes": 523814,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-1.png",
+      "location": "public/components/potions",
+      "bytes": 889318,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-2.png",
+      "location": "public/components/potions",
+      "bytes": 1047975,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-3.png",
+      "location": "public/components/potions",
+      "bytes": 993816,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-4.png",
+      "location": "public/components/potions",
+      "bytes": 1046264,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-5.png",
+      "location": "public/components/potions",
+      "bytes": 1060207,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "flask-set-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "flask-set-6.png",
+      "location": "public/components/potions",
+      "bytes": 968022,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "green-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "green-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 413627,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "green-flask-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "green-flask-2.png",
+      "location": "public/components/potions",
+      "bytes": 476494,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "purple-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "purple-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 571451,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "purple-flask-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "purple-flask-2.png",
+      "location": "public/components/potions",
+      "bytes": 587006,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "used-flask-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "used-flask-1.png",
+      "location": "public/components/potions",
+      "bytes": 450631,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

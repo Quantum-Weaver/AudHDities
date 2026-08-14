@@ -1,0 +1,69 @@
+{
+  "folder_name": "vendors",
+  "folder_path": "src/components/asgard/domains/hermes/vendors",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.933295 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hermes/vendors/VendorCardRenderer.tsx",
+      "description": "src/components/asgard/domains/hermes/vendors/VendorCardRenderer.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/vendors/VendorDetail.tsx",
+      "description": "src/components/asgard/domains/hermes/vendors/VendorDetail.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/vendors/VendorsGallery.tsx",
+      "description": "src/components/asgard/domains/hermes/vendors/VendorsGallery.tsx"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "VendorCardRenderer.tsx": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [
+        "VendorCardRenderer"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "VendorDetail.tsx": {
+      "language": "typescript",
+      "lines": 145,
+      "exported_functions": [
+        "VendorDetail"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "VendorsGallery.tsx": {
+      "language": "typescript",
+      "lines": 102,
+      "exported_functions": [
+        "VendorsGallery"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

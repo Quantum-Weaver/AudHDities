@@ -1,0 +1,80 @@
+{
+  "folder_name": "candle-flame",
+  "folder_path": "public/animated/candle-flame",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.768704 | in sovereign time",
+  "files": [
+    {
+      "path": "public/animated/candle-flame/candle-flame-1.png",
+      "description": "image, 43,645 bytes"
+    },
+    {
+      "path": "public/animated/candle-flame/candle-flame-2.png",
+      "description": "image, 37,131 bytes"
+    },
+    {
+      "path": "public/animated/candle-flame/candle-flame-3.png",
+      "description": "image, 41,493 bytes"
+    },
+    {
+      "path": "public/animated/candle-flame/candle-flame-4.png",
+      "description": "image, 38,883 bytes"
+    },
+    {
+      "path": "public/animated/candle-flame/candle-flame-5.png",
+      "description": "image, 35,141 bytes"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "candle-flame-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "candle-flame-1.png",
+      "location": "public/animated/candle-flame",
+      "bytes": 43645,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "candle-flame-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "candle-flame-2.png",
+      "location": "public/animated/candle-flame",
+      "bytes": 37131,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "candle-flame-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "candle-flame-3.png",
+      "location": "public/animated/candle-flame",
+      "bytes": 41493,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "candle-flame-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "candle-flame-4.png",
+      "location": "public/animated/candle-flame",
+      "bytes": 38883,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "candle-flame-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "candle-flame-5.png",
+      "location": "public/animated/candle-flame",
+      "bytes": 35141,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,751 @@
+{
+  "folder_name": "AudHDities",
+  "folder_path": ".",
+  "description": "Where neurodivergent minds build digital sovereignty together",
+  "scan_timestamp": "2026-08-04T13:36:15.650678 | in sovereign time",
+  "files": [
+    {
+      "path": ".env",
+      "description": "file, 825 bytes"
+    },
+    {
+      "path": ".gitignore",
+      "description": "ignore rules, 1,634 bytes"
+    },
+    {
+      "path": "_NOTEPAD.md",
+      "description": "_NOTEPAD"
+    },
+    {
+      "path": "BUILD-STATE.md",
+      "description": "AudHDities"
+    },
+    {
+      "path": "CLAUDE.md",
+      "description": "CLAUDE.md"
+    },
+    {
+      "path": "components.json",
+      "description": "data, 572 bytes"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "description": "\ud83e\udd1d CONTRIBUTING TO AUDHDITIES"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "description": "node script, 521 bytes"
+    },
+    {
+      "path": "FABLE-KERNEL.md",
+      "description": "FABLE-KERNEL"
+    },
+    {
+      "path": "FEATURE-BOARD.md",
+      "description": "AUDHDITIES (the site)"
+    },
+    {
+      "path": "GAP-BUS.md",
+      "description": "THE GAP BUS"
+    },
+    {
+      "path": "HANDS.md",
+      "description": "The Hands"
+    },
+    {
+      "path": "help.md",
+      "description": "Navigate to your project root first"
+    },
+    {
+      "path": "LICENSE",
+      "description": "file, 1,092 bytes"
+    },
+    {
+      "path": "middleware.ts",
+      "description": "app/middleware.ts"
+    },
+    {
+      "path": "next-env.d.ts",
+      "description": "/ <reference types=\"next\" />"
+    },
+    {
+      "path": "next.config.ts",
+      "description": "next.config.ts"
+    },
+    {
+      "path": "package-lock.json",
+      "description": "data, 517,665 bytes"
+    },
+    {
+      "path": "package.json",
+      "description": "data, 2,582 bytes"
+    },
+    {
+      "path": "package.json.md",
+      "description": "document, 5,316 bytes"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "description": "postcss.config.mjs - FINAL OPTIMIZED VERSION"
+    },
+    {
+      "path": "README.md",
+      "description": "\ud83c\udfdb\ufe0f AudHDities"
+    },
+    {
+      "path": "REALM-BUS.md",
+      "description": "THE REALM BUS"
+    },
+    {
+      "path": "ROADMAP.md",
+      "description": "document, 7,749 bytes"
+    },
+    {
+      "path": "SCHEMA-FINALIZE.md",
+      "description": "SCHEMA FINALIZE"
+    },
+    {
+      "path": "tailwind.config.mjs",
+      "description": "tailwind.config.mjs"
+    },
+    {
+      "path": "tailwind.generated.config.mjs",
+      "description": "============================================================================"
+    },
+    {
+      "path": "tsconfig.json",
+      "description": "data, 805 bytes"
+    },
+    {
+      "path": "tsconfig.tsbuildinfo",
+      "description": "file, 741,227 bytes"
+    }
+  ],
+  "file_count": 29,
+  "subdirectories": [
+    ".github",
+    "docs",
+    "public",
+    "src",
+    "supabase"
+  ],
+  "code_analysis": {
+    "_NOTEPAD.md": {
+      "language": "markdown",
+      "lines": 48,
+      "words": 459,
+      "heading_count": 4,
+      "headings": [
+        "_NOTEPAD \u2014 repo root (`AudHDities/`)",
+        "Current repo state",
+        "Rebuild notes (parked, lose-nothing)",
+        "Work log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "BUILD-STATE.md": {
+      "language": "markdown",
+      "lines": 96,
+      "words": 1106,
+      "heading_count": 6,
+      "headings": [
+        "AudHDities \u2014 Build State",
+        "The one-paragraph truth",
+        "Layer by layer",
+        "Decided architecture (recent, load-bearing)",
+        "The reimagining inheritance (trued 2026-07-29, at the Core's relay)",
+        "The path from here (in order)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 16,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "CLAUDE.md": {
+      "language": "markdown",
+      "lines": 62,
+      "words": 296,
+      "heading_count": 6,
+      "headings": [
+        "CLAUDE.md \u2014 AudHDities (the Sovereign Sanctuary)",
+        "SESSION PROTOCOL",
+        "Essential Rules",
+        "Project Structure",
+        "Current Phase",
+        "Council"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [
+        {
+          "target": "HANDS.md",
+          "resolves": true,
+          "outside_checkout": false
+        }
+      ],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "components.json": {
+      "language": "json",
+      "lines": 26,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "$schema",
+        "aliases",
+        "iconLibrary",
+        "menuAccent",
+        "menuColor",
+        "registries",
+        "rsc",
+        "rtl",
+        "style",
+        "tailwind",
+        "tsx"
+      ],
+      "key_count": 11
+    },
+    "CONTRIBUTING.md": {
+      "language": "markdown",
+      "lines": 428,
+      "words": 2498,
+      "heading_count": 46,
+      "headings": [
+        "\ud83e\udd1d CONTRIBUTING TO AUDHDITIES",
+        "\ud83c\udf0c OUR CORE VALUES",
+        "\ud83c\udfad TYPES OF CONTRIBUTIONS",
+        "\ud83d\udccb BEFORE YOU CONTRIBUTE",
+        "Step 1: Read the Vision",
+        "Step 2: Check Existing Issues",
+        "Step 3: Use the Right Template",
+        "\ud83d\udcbb CODE CONTRIBUTIONS",
+        "Phase 0-1 (Now):",
+        "Phase 2+ (Future):",
+        "If You Really Want to Code Now:",
+        "\ud83e\udde0 NEURODIVERGENT-FRIENDLY CONTRIBUTING",
+        "\ud83d\udcdd STYLE GUIDELINES",
+        "For Issues:",
+        "For Code (when invited):",
+        "For Documentation:",
+        "\ud83d\udd04 THE CONTRIBUTION LIFECYCLE",
+        "\ud83d\udeab WHAT WE DON'T ACCEPT",
+        "\ud83c\udfdb\ufe0f GOVERNANCE",
+        "\ud83d\udcdc LICENSE",
+        "\ud83d\udc9b A NOTE FROM THE QUANTUM WEAVER",
+        "\ud83c\udf0c A NOTE FROM AETHELRED",
+        "\ud83d\udcec QUESTIONS?",
+        "\ud83e\udd1d CONTRIBUTING TO AUDHDITIES"
+      ],
+      "links_external": 2,
+      "links_site_absolute": [],
+      "links_internal": [
+        {
+          "target": "README.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "ROADMAP.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "ROADMAP.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "README.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "ROADMAP.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "ROADMAP.md",
+          "resolves": true,
+          "outside_checkout": false
+        }
+      ],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 2,
+      "table_rows": 104,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "eslint.config.mjs": {
+      "language": "node",
+      "lines": 20,
+      "functions": [],
+      "commands": []
+    },
+    "FABLE-KERNEL.md": {
+      "language": "markdown",
+      "lines": 74,
+      "words": 601,
+      "heading_count": 6,
+      "headings": [
+        "FABLE-KERNEL \u2014 AudHDities (the Sanctuary rebuild/refine)",
+        "What this is",
+        "Read these, in this order \u2014 they are the realm's live state",
+        "The next session's work (identity slice, row 2) \u2014 pre-loaded verdicts",
+        "Standing truths (don't re-derive)",
+        "Dispatch notes"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "FEATURE-BOARD.md": {
+      "language": "markdown",
+      "lines": 78,
+      "words": 657,
+      "heading_count": 4,
+      "headings": [
+        "AUDHDITIES (the site) \u2014 THE FEATURE BOARD",
+        "THE LAUNCH GATES (in order)",
+        "THE NAMED GATE BEFORE LAUNCH",
+        "Post-launch (queued, not blocking)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "GAP-BUS.md": {
+      "language": "markdown",
+      "lines": 801,
+      "words": 7093,
+      "heading_count": 31,
+      "headings": [
+        "THE GAP BUS \u2014 AudHDities",
+        "\u26a0 READ THIS BEFORE ANY FINDING BELOW \u2014 KP's \u269b frame, given 2026-08-01",
+        "Therefore every finding here is one of three species, and they are not equal",
+        "The law of this bus",
+        "Status legend (section headers)",
+        "The board",
+        "0 \u00b7 `src/app` \u2014 the app root itself \u2b1c",
+        "1 \u00b7 `(aethelred)` \u2b1c",
+        "2 \u00b7 `(athena)` \u2b1c",
+        "3 \u00b7 `(auth)` \u2b1c",
+        "4 \u00b7 `(cosmic)` \u2b1c",
+        "5 \u00b7 `(hephaestus)` \u2b1c",
+        "6 \u00b7 `(hermes)` \u2b1c",
+        "7 \u00b7 `(hestia)` \ud83d\udd0d",
+        "8 \u00b7 `(iris)` \u2b1c",
+        "9 \u00b7 `(mnemosyne)` \u2b1c",
+        "10 \u00b7 `(prometheus)` \u2b1c",
+        "11 \u00b7 `(themis)` \u2b1c",
+        "12 \u00b7 `api/` \u2b1c",
+        "S \u00b7 `src/styles/*` \u2014 the style system \u26a0\ufe0f",
+        "FINDING G-7 \u2014 the token seam, measured. *The standing repo-wide claim about it is false, and KP \u269b is the one who caught it.*",
+        "The prediction, kept open on purpose \u26a0\ufe0f",
+        "Scope, measured where it was found",
+        "FINDING G-12 (2026-08-01) \u2014 \u26a0\ufe0f **SUPERSEDES G-7's COUNTS.** The alive figure was wrong by 88, in the reassuring direction, and I found it only because KP \u269b walked me to `LoginForm.tsx`."
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 3,
+      "table_rows": 73,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "HANDS.md": {
+      "language": "markdown",
+      "lines": 69,
+      "words": 589,
+      "heading_count": 7,
+      "headings": [
+        "The Hands \u2014 who builds this, and how",
+        "The voices",
+        "Scribed notes",
+        "Fable",
+        "Quantum Weaver",
+        "Aethelred",
+        "Sonnet"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "help.md": {
+      "language": "markdown",
+      "lines": 156,
+      "words": 221,
+      "heading_count": 42,
+      "headings": [
+        "autoupdate database.type.ts from supabase",
+        "in Powershell",
+        "Navigate to your project root first",
+        "Generate fresh types from your linked project",
+        "new components",
+        "Create virtual environment",
+        "Activate it:",
+        "On Windows:",
+        "On Mac/Linux:",
+        "Types-Test",
+        "\ud83d\ude80 **Help After Git Init - Pull from GitHub**",
+        "**Step 1: Add the Remote Origin**",
+        "Add your GitHub repository as the remote origin",
+        "Verify the remote was added correctly",
+        "**Step 2: Fetch the Superposition Branch**",
+        "Fetch all branches from the remote",
+        "Check what branches are available",
+        "**Step 3: Pull the Superposition Branch**",
+        "Pull the superposition branch and merge with your local",
+        "OR if you want to reset and match exactly:",
+        "**Step 4: Set Up Tracking (Optional but recommended)**",
+        "Set your local branch to track the remote superposition branch",
+        "Now you can just use 'git pull' in the future",
+        "\ud83d\udccb **Complete One-Liner (If You Want a Fresh Start)**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 10,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "middleware.ts": {
+      "language": "typescript",
+      "lines": 25,
+      "exported_functions": [
+        "middleware"
+      ],
+      "exported_consts": [
+        "config"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "next-env.d.ts": {
+      "language": "typescript",
+      "lines": 7,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "next.config.ts": {
+      "language": "typescript",
+      "lines": 47,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "package-lock.json": {
+      "language": "json",
+      "lines": 14256,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "lockfileVersion",
+        "name",
+        "packages",
+        "requires",
+        "version"
+      ],
+      "key_count": 5
+    },
+    "package.json": {
+      "language": "json",
+      "lines": 78,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "dependencies",
+        "devDependencies",
+        "name",
+        "private",
+        "scripts",
+        "version"
+      ],
+      "key_count": 6
+    },
+    "package.json.md": {
+      "language": "markdown",
+      "lines": 115,
+      "words": 345,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "postcss.config.mjs": {
+      "language": "node",
+      "lines": 8,
+      "functions": [],
+      "commands": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 136,
+      "words": 572,
+      "heading_count": 12,
+      "headings": [
+        "\ud83c\udfdb\ufe0f AudHDities \u2014 The Sovereign Sanctuary",
+        "WHAT IT IS",
+        "THE STORY",
+        "WHO IT'S FOR",
+        "Installation",
+        "Prerequisites",
+        "Development",
+        "Build",
+        "BUILT WITH",
+        "FOR DEVELOPERS",
+        "LICENSE",
+        "\ud83d\udcec CONNECT"
+      ],
+      "links_external": 6,
+      "links_site_absolute": [],
+      "links_internal": [
+        {
+          "target": "CONTRIBUTING.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "docs/UX-REFINEMENT-FLOW.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "HANDS.md",
+          "resolves": true,
+          "outside_checkout": false
+        },
+        {
+          "target": "LICENSE",
+          "resolves": true,
+          "outside_checkout": false
+        }
+      ],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 2,
+      "table_rows": 7,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": true,
+      "declares_mirror_class": false
+    },
+    "REALM-BUS.md": {
+      "language": "markdown",
+      "lines": 276,
+      "words": 2278,
+      "heading_count": 11,
+      "headings": [
+        "THE REALM BUS \u2014 AudHDities (the Sanctuary)",
+        "The law of this bus (inherited from the lanes bus, by address)",
+        "The realm's standing state (kept current by the realm lane)",
+        "FROM: audhd \u00b7 2026-07-29 \u2014 the table is laid",
+        "FROM: reimagining \u00b7 2026-07-29 \u2014 the design seat, taken",
+        "FROM: iris-realm \u00b7 2026-07-30 \u2014 THE BUILD IS GREEN: 255/255, at KP's \u269b word",
+        "FROM: hestia-realm \u00b7 2026-07-30 \u2014 a base-wide finding, posted where repo-wide things belong",
+        "FROM: hestia-realm \u00b7 2026-07-30 \u2014 006 ran; the doors verified whole",
+        "FROM: hestia-realm \u00b7 2026-07-30 \u2014 the phantom went deeper: the theme itself is unbridged",
+        "FROM: gaia \u00b7 2026-07-31 \u2014 visiting hand: the deity map caught up with the base",
+        "FROM: gaps \u00b7 2026-08-01 \u2014 a new lane at this table, and a second book beside this one"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "ROADMAP.md": {
+      "language": "markdown",
+      "lines": 223,
+      "words": 937,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "SCHEMA-FINALIZE.md": {
+      "language": "markdown",
+      "lines": 352,
+      "words": 2583,
+      "heading_count": 13,
+      "headings": [
+        "SCHEMA FINALIZE \u2014 the gaia_config iteration ledger",
+        "Priority plan (KP + Fable, 2026-07-09) \u2014 one deity at a time, bounded wins",
+        "plutus-economics (3 tables) \u2014 discussed with KP 2026-07-09",
+        "themis-governance (10 tables)",
+        "mnemosyne-assessment (4 tables)",
+        "hermes-social (1 tables)",
+        "hephaestus-infrastructure (7 tables)",
+        "athena-gamification (8 tables)",
+        "iris-communications (12 tables)",
+        "aethelred-connections (19 tables)",
+        "hestia-core \u00b7 MARKETPLACE SLICE (priority row 1 \u2014 \u2705 COMPLETE 2026-07-09)",
+        "hestia-core (90 tables)",
+        "Cross-cutting (apply during finalize)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 186,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "tailwind.config.mjs": {
+      "language": "node",
+      "lines": 34,
+      "functions": [],
+      "commands": []
+    },
+    "tailwind.generated.config.mjs": {
+      "language": "node",
+      "lines": 730,
+      "functions": [],
+      "commands": []
+    },
+    "tsconfig.json": {
+      "language": "json",
+      "lines": 44,
+      "valid": false,
+      "error": "Illegal trailing comma before end of array: line 36 column 30 (char 656)"
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [
+    ".git",
+    ".next",
+    "node_modules"
+  ],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

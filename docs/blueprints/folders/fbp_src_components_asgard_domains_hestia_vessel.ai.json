@@ -1,0 +1,90 @@
+{
+  "folder_name": "vessel",
+  "folder_path": "src/components/asgard/domains/hestia/vessel",
+  "description": "4 files, 1 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.956913 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hestia/vessel/QuickLinks.tsx",
+      "description": "src/components/asgard/domains/hestia/vessel/QuickLinks.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/vessel/SovereigntyScore.tsx",
+      "description": "react component, 1,025 bytes"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/vessel/UserCard.tsx",
+      "description": "src/components/hestia/UserCard.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/vessel/VesselContent.tsx",
+      "description": "src/components/asgard/domains/hestia/vessel/VesselContent.tsx"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [
+    "src/components/asgard/domains/hestia/vessel/scene"
+  ],
+  "code_analysis": {
+    "QuickLinks.tsx": {
+      "language": "typescript",
+      "lines": 83,
+      "exported_functions": [
+        "QuickLinks"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "QuickLink",
+        "QuickLinksProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SovereigntyScore.tsx": {
+      "language": "typescript",
+      "lines": 37,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "UserCard.tsx": {
+      "language": "typescript",
+      "lines": 105,
+      "exported_functions": [],
+      "exported_consts": [
+        "UserCardRenderer"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "VesselContent.tsx": {
+      "language": "typescript",
+      "lines": 240,
+      "exported_functions": [
+        "VesselContent"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

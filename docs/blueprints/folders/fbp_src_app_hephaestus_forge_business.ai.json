@@ -1,0 +1,16 @@
+{
+  "folder_name": "business",
+  "folder_path": "src/app/(hephaestus)/forge/business",
+  "description": "0 files, 2 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.102072 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/(hephaestus)/forge/business/ecosystem",
+    "src/app/(hephaestus)/forge/business/plan"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

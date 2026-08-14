@@ -1,0 +1,24 @@
+{
+  "folder_name": "themis",
+  "folder_path": "src/components/asgard/domains/themis",
+  "description": "0 files, 10 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.030793 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/components/asgard/domains/themis/admin",
+    "src/components/asgard/domains/themis/applications",
+    "src/components/asgard/domains/themis/council",
+    "src/components/asgard/domains/themis/curators",
+    "src/components/asgard/domains/themis/delegation",
+    "src/components/asgard/domains/themis/governance",
+    "src/components/asgard/domains/themis/ledger",
+    "src/components/asgard/domains/themis/proposals",
+    "src/components/asgard/domains/themis/reports",
+    "src/components/asgard/domains/themis/voting"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

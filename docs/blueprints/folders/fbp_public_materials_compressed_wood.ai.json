@@ -1,0 +1,42 @@
+{
+  "folder_name": "compressed-wood",
+  "folder_path": "public/materials/compressed-wood",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.988304 | in sovereign time",
+  "files": [
+    {
+      "path": "public/materials/compressed-wood/brown-wooden-textured-flooring-background.webp",
+      "description": "file, 3,951,282 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/close-up-wooden-texture-background.webp",
+      "description": "file, 9,018,248 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/dark-wood-h.webp",
+      "description": "file, 6,069,064 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/dark-wood-table-vertical.webp",
+      "description": "file, 2,840,472 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/dark-wood-v.webp",
+      "description": "file, 3,950,810 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/texture-damaged-boards.webp",
+      "description": "file, 14,707,320 bytes"
+    },
+    {
+      "path": "public/materials/compressed-wood/wooden-texture-background.webp",
+      "description": "file, 19,397,620 bytes"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

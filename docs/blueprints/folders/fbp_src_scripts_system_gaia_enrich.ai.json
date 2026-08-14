@@ -1,0 +1,50 @@
+{
+  "folder_name": "enrich",
+  "folder_path": "src/scripts/system/gaia/enrich",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.693017 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/system/gaia/enrich/enrich_objects.ts",
+      "description": "src/scripts/system/gaia/enrich/enrich_objects.ts"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "enrich_objects.ts": {
+      "language": "typescript",
+      "lines": 402,
+      "exported_functions": [
+        "enrichTable",
+        "enrichTables",
+        "enrichView",
+        "enrichViews",
+        "enrichFunction",
+        "enrichFunctions",
+        "enrichRuntimeEnum",
+        "enrichRuntimeEnums",
+        "enrichTypeEnum",
+        "enrichTypeEnums",
+        "enrichAll"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "EnrichedTable",
+        "EnrichedView",
+        "EnrichedFunction",
+        "EnrichedRuntimeEnum",
+        "EnrichedTypeEnum",
+        "EnrichedExtractionResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

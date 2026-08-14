@@ -1,0 +1,43 @@
+{
+  "folder_name": "utils",
+  "folder_path": "src/lib/utils",
+  "description": "1 files, 4 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.433419 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/environment.utils.ts",
+      "description": "lib/utils/environment.utils.ts"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [
+    "src/lib/utils/components",
+    "src/lib/utils/formatting",
+    "src/lib/utils/generated",
+    "src/lib/utils/validation"
+  ],
+  "code_analysis": {
+    "environment.utils.ts": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [
+        "parseEnvironmentPreference",
+        "buildEnvironmentPreference"
+      ],
+      "exported_consts": [
+        "ENVIRONMENT_VARIANTS"
+      ],
+      "interfaces": [
+        "ParsedEnvironment"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

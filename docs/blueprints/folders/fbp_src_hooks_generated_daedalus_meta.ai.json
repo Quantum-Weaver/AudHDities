@@ -1,0 +1,301 @@
+{
+  "folder_name": "daedalus-meta",
+  "folder_path": "src/hooks/generated/daedalus-meta",
+  "description": "13 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.230983 | in sovereign time",
+  "files": [
+    {
+      "path": "src/hooks/generated/daedalus-meta/blueprints.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/boundaries.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/columns.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/composite_types.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/enums.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/functions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/gaia_config.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/gaia_generation_log.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/generations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/indexes.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/policies.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/templates.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/daedalus-meta/triggers.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 13,
+  "subdirectories": [],
+  "code_analysis": {
+    "blueprints.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useBlueprints",
+        "useBlueprintsList",
+        "useCreateBlueprints",
+        "useUpdateBlueprints",
+        "useDeleteBlueprints"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "boundaries.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useBoundaries",
+        "useBoundariesList",
+        "useCreateBoundaries",
+        "useUpdateBoundaries",
+        "useDeleteBoundaries"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "columns.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useColumns",
+        "useColumnsList",
+        "useCreateColumns",
+        "useUpdateColumns",
+        "useDeleteColumns"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "composite_types.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useCompositeTypes",
+        "useCompositeTypesList",
+        "useCreateCompositeTypes",
+        "useUpdateCompositeTypes",
+        "useDeleteCompositeTypes"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "enums.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useEnums",
+        "useEnumsList",
+        "useCreateEnums",
+        "useUpdateEnums",
+        "useDeleteEnums"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "functions.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useFunctions",
+        "useFunctionsList",
+        "useCreateFunctions",
+        "useUpdateFunctions",
+        "useDeleteFunctions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_config.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useGaiaConfig",
+        "useGaiaConfigList",
+        "useCreateGaiaConfig",
+        "useUpdateGaiaConfig",
+        "useDeleteGaiaConfig"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_generation_log.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useGaiaGenerationLog",
+        "useGaiaGenerationLogList",
+        "useCreateGaiaGenerationLog",
+        "useUpdateGaiaGenerationLog",
+        "useDeleteGaiaGenerationLog"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "generations.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useGenerations",
+        "useGenerationsList",
+        "useCreateGenerations",
+        "useUpdateGenerations",
+        "useDeleteGenerations"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "indexes.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useIndexes",
+        "useIndexesList",
+        "useCreateIndexes",
+        "useUpdateIndexes",
+        "useDeleteIndexes"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "policies.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "usePolicies",
+        "usePoliciesList",
+        "useCreatePolicies",
+        "useUpdatePolicies",
+        "useDeletePolicies"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "templates.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useTemplates",
+        "useTemplatesList",
+        "useCreateTemplates",
+        "useUpdateTemplates",
+        "useDeleteTemplates"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "triggers.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useTriggers",
+        "useTriggersList",
+        "useCreateTriggers",
+        "useUpdateTriggers",
+        "useDeleteTriggers"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

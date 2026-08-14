@@ -1,0 +1,105 @@
+{
+  "folder_name": "donations",
+  "folder_path": "src/components/asgard/domains/hephaestus/donations",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.877158 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/donations/DonationTiers.tsx",
+      "description": "src/components/supporting/DonationTiers.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/donations/ImpactCalculator.tsx",
+      "description": "src/components/supporting/ImpactCalculator.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/donations/RecurringOptions.tsx",
+      "description": "src/components/supporting/RecurringOptions.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/donations/TaxReceipt.tsx",
+      "description": "src/components/supporting/TaxReceipt.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/donations/ThankYouNote.tsx",
+      "description": "src/components/supporting/ThankYouNote.tsx"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "DonationTiers.tsx": {
+      "language": "typescript",
+      "lines": 132,
+      "exported_functions": [
+        "DonationTiers"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ImpactCalculator.tsx": {
+      "language": "typescript",
+      "lines": 100,
+      "exported_functions": [
+        "ImpactCalculator"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "RecurringOptions.tsx": {
+      "language": "typescript",
+      "lines": 111,
+      "exported_functions": [
+        "RecurringOptions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "TaxReceipt.tsx": {
+      "language": "typescript",
+      "lines": 100,
+      "exported_functions": [
+        "TaxReceipt"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ThankYouNote.tsx": {
+      "language": "typescript",
+      "lines": 79,
+      "exported_functions": [
+        "ThankYouNote"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

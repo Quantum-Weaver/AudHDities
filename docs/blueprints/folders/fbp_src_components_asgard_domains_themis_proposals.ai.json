@@ -1,0 +1,51 @@
+{
+  "folder_name": "proposals",
+  "folder_path": "src/components/asgard/domains/themis/proposals",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.046261 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/themis/proposals/ProposalDetail.tsx",
+      "description": "src/components/asgard/domains/themis/proposals/ProposalDetail.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/themis/proposals/ProposalsGallery.tsx",
+      "description": "src/components/asgard/domains/themis/proposals/ProposalsGallery.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "ProposalDetail.tsx": {
+      "language": "typescript",
+      "lines": 191,
+      "exported_functions": [
+        "ProposalDetail"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ProposalsGallery.tsx": {
+      "language": "typescript",
+      "lines": 233,
+      "exported_functions": [
+        "ProposalsGallery"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

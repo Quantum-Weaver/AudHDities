@@ -1,0 +1,124 @@
+{
+  "object_name": "public_components",
+  "object_path": "public/components",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.065340 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components.ai.json",
+      "folder_path": "public/components",
+      "description": "0 files, 11 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 11
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_ambient.ai.json",
+      "folder_path": "public/components/ambient",
+      "description": "13 files, 0 subfolders",
+      "file_count": 13,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_book_page_frames.ai.json",
+      "folder_path": "public/components/book-page-frames",
+      "description": "16 files, 0 subfolders",
+      "file_count": 16,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_books.ai.json",
+      "folder_path": "public/components/books",
+      "description": "35 files, 0 subfolders",
+      "file_count": 35,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_diagrams.ai.json",
+      "folder_path": "public/components/diagrams",
+      "description": "11 files, 0 subfolders",
+      "file_count": 11,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_gaming.ai.json",
+      "folder_path": "public/components/gaming",
+      "description": "12 files, 4 subfolders",
+      "file_count": 12,
+      "subdirectory_count": 4
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_gaming_difficulty_icons.ai.json",
+      "folder_path": "public/components/gaming/difficulty-icons",
+      "description": "10 files, 0 subfolders",
+      "file_count": 10,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_gaming_mastery_badges.ai.json",
+      "folder_path": "public/components/gaming/mastery-badges",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_gaming_rarity_frames.ai.json",
+      "folder_path": "public/components/gaming/rarity-frames",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_gaming_unlock_animations.ai.json",
+      "folder_path": "public/components/gaming/unlock-animations",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_phoenix.ai.json",
+      "folder_path": "public/components/phoenix",
+      "description": "16 files, 0 subfolders",
+      "file_count": 16,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_player_frames.ai.json",
+      "folder_path": "public/components/player-frames",
+      "description": "31 files, 0 subfolders",
+      "file_count": 31,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_potions.ai.json",
+      "folder_path": "public/components/potions",
+      "description": "27 files, 0 subfolders",
+      "file_count": 27,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_quantum.ai.json",
+      "folder_path": "public/components/quantum",
+      "description": "6 files, 0 subfolders",
+      "file_count": 6,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_random.ai.json",
+      "folder_path": "public/components/random",
+      "description": "16 files, 0 subfolders",
+      "file_count": 16,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_components_ritual.ai.json",
+      "folder_path": "public/components/ritual",
+      "description": "25 files, 0 subfolders",
+      "file_count": 25,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 16,
+  "total_files": 229,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

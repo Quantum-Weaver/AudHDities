@@ -1,0 +1,208 @@
+{
+  "folder_name": "runes",
+  "folder_path": "public/icons/runes",
+  "description": "19 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.942605 | in sovereign time",
+  "files": [
+    {
+      "path": "public/icons/runes/community-rune-1.png",
+      "description": "image, 636,776 bytes"
+    },
+    {
+      "path": "public/icons/runes/community-rune-2.png",
+      "description": "image, 2,697,438 bytes"
+    },
+    {
+      "path": "public/icons/runes/community-rune.svg",
+      "description": "vector image, 0 bytes"
+    },
+    {
+      "path": "public/icons/runes/council-rune-1.png",
+      "description": "image, 2,503,373 bytes"
+    },
+    {
+      "path": "public/icons/runes/council-rune-2.png",
+      "description": "image, 740,942 bytes"
+    },
+    {
+      "path": "public/icons/runes/council-rune.svg",
+      "description": "vector image, 1,121 bytes"
+    },
+    {
+      "path": "public/icons/runes/library-rune-1.png",
+      "description": "image, 930,297 bytes"
+    },
+    {
+      "path": "public/icons/runes/library-rune-2.png",
+      "description": "image, 2,774,807 bytes"
+    },
+    {
+      "path": "public/icons/runes/library-rune.svg",
+      "description": "vector image, 932 bytes"
+    },
+    {
+      "path": "public/icons/runes/music-rune-1.png",
+      "description": "image, 504,027 bytes"
+    },
+    {
+      "path": "public/icons/runes/music-rune-2.png",
+      "description": "image, 2,387,696 bytes"
+    },
+    {
+      "path": "public/icons/runes/music-rune.svg",
+      "description": "vector image, 776 bytes"
+    },
+    {
+      "path": "public/icons/runes/origin-rune-1.png",
+      "description": "image, 2,606,279 bytes"
+    },
+    {
+      "path": "public/icons/runes/origin-rune-2.png",
+      "description": "image, 878,173 bytes"
+    },
+    {
+      "path": "public/icons/runes/origin-rune.svg",
+      "description": "vector image, 692 bytes"
+    },
+    {
+      "path": "public/icons/runes/support-rune-1.png",
+      "description": "image, 545,354 bytes"
+    },
+    {
+      "path": "public/icons/runes/support-rune-2.png",
+      "description": "image, 2,480,832 bytes"
+    },
+    {
+      "path": "public/icons/runes/support-rune.svg",
+      "description": "vector image, 713 bytes"
+    },
+    {
+      "path": "public/icons/runes/Untitled-3.png",
+      "description": "image, 17,447,871 bytes"
+    }
+  ],
+  "file_count": 19,
+  "subdirectories": [],
+  "code_analysis": {
+    "community-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "community-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 636776,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "community-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "community-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 2697438,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "council-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "council-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 2503373,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "council-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "council-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 740942,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "library-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "library-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 930297,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "library-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "library-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 2774807,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "music-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 504027,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "music-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 2387696,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "origin-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 2606279,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "origin-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 878173,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "support-rune-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-rune-1.png",
+      "location": "public/icons/runes",
+      "bytes": 545354,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "support-rune-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-rune-2.png",
+      "location": "public/icons/runes",
+      "bytes": 2480832,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "Untitled-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "Untitled-3.png",
+      "location": "public/icons/runes",
+      "bytes": 17447871,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

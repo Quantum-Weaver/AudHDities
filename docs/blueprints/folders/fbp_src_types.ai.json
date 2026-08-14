@@ -1,0 +1,196 @@
+{
+  "folder_name": "types",
+  "folder_path": "src/types",
+  "description": "5 files, 4 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.737550 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/categories.ts",
+      "description": "src/types/categories.ts"
+    },
+    {
+      "path": "src/types/index.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/preferences.ts",
+      "description": "src/types/preferences.ts"
+    },
+    {
+      "path": "src/types/react-syntax-highlighter.d.ts",
+      "description": "src/types/react-syntax-highlighter.d.ts"
+    },
+    {
+      "path": "src/types/roles.ts",
+      "description": "src/types/roles.ts"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [
+    "src/types/components",
+    "src/types/generated",
+    "src/types/stripe",
+    "src/types/supabase"
+  ],
+  "code_analysis": {
+    "categories.ts": {
+      "language": "typescript",
+      "lines": 143,
+      "exported_functions": [
+        "getContentCategoryLabel",
+        "getContentCategoryEmoji",
+        "getProductCategoryLabel",
+        "getSupportNeedLabel"
+      ],
+      "exported_consts": [
+        "CONTENT_CATEGORIES",
+        "PRODUCT_CATEGORIES",
+        "SUPPORT_NEEDS"
+      ],
+      "interfaces": [],
+      "types": [
+        "ContentCategory",
+        "ProductCategory",
+        "SupportNeed"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 12,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "preferences.ts": {
+      "language": "typescript",
+      "lines": 148,
+      "exported_functions": [
+        "parseNDPreferences",
+        "parseSensoryPreferences",
+        "parseAlgorithmPreferences",
+        "serializeNDPreferences",
+        "serializeSensoryPreferences",
+        "serializeAlgorithmPreferences"
+      ],
+      "exported_consts": [
+        "DEFAULT_ND_PREFERENCES",
+        "DEFAULT_SENSORY_PREFERENCES",
+        "DEFAULT_ALGORITHM_PREFERENCES"
+      ],
+      "interfaces": [],
+      "types": [
+        "NDPreferences",
+        "SensoryPreferences",
+        "AlgorithmPreferences"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "react-syntax-highlighter.d.ts": {
+      "language": "typescript",
+      "lines": 70,
+      "exported_functions": [],
+      "exported_consts": [
+        "Prism",
+        "SyntaxHighlighter",
+        "PrismLight",
+        "Default",
+        "vscDarkPlus",
+        "atomDark",
+        "base16AteliersulphurpoolLight",
+        "cb",
+        "coldarkCold",
+        "coldarkDark",
+        "coy",
+        "darcula",
+        "dark",
+        "dracula",
+        "duotoneDark",
+        "duotoneEarth",
+        "duotoneForest",
+        "duotoneLight",
+        "duotoneSea",
+        "duotoneSpace",
+        "funky",
+        "ghcolors",
+        "gruvboxDark",
+        "gruvboxLight",
+        "holiTheme",
+        "hopscotch",
+        "materialDark",
+        "materialLight",
+        "materialOceanic",
+        "nord",
+        "okaidia",
+        "oneDark",
+        "oneLight",
+        "pojoaque",
+        "prism",
+        "shadesOfPurple",
+        "solarizedDarkAtom",
+        "solarizedlight",
+        "synthwave84",
+        "tomorrow",
+        "twilight",
+        "vs",
+        "vscDarkPlus",
+        "xonokai",
+        "zTouch"
+      ],
+      "interfaces": [
+        "SyntaxHighlighterProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "roles.ts": {
+      "language": "typescript",
+      "lines": 177,
+      "exported_functions": [
+        "getUserPermissions",
+        "getUserPermissionsLegacy",
+        "getTierLabel",
+        "getTierColor",
+        "getTierIcon",
+        "getTierDescription",
+        "getTierOrder",
+        "getSortedTiers",
+        "isCouncilMember",
+        "isQuantumWeaver"
+      ],
+      "exported_consts": [
+        "USER_TIERS",
+        "USER_TIER_MAP"
+      ],
+      "interfaces": [
+        "RoleFlags",
+        "UserPermissions"
+      ],
+      "types": [
+        "UserTier",
+        "UserRole"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

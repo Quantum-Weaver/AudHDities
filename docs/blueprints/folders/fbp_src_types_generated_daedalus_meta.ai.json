@@ -1,0 +1,329 @@
+{
+  "folder_name": "daedalus-meta",
+  "folder_path": "src/types/generated/daedalus-meta",
+  "description": "13 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.804460 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/generated/daedalus-meta/blueprints.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/boundaries.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/columns.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/composite_types.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/enums.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/functions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/gaia_config.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/gaia_generation_log.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/generations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/indexes.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/policies.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/templates.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/daedalus-meta/triggers.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 13,
+  "subdirectories": [],
+  "code_analysis": {
+    "blueprints.ts": {
+      "language": "typescript",
+      "lines": 94,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicBlueprints",
+        "BlueprintsFormData",
+        "BlueprintsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "BlueprintsRow",
+        "BlueprintsInsert",
+        "BlueprintsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "boundaries.ts": {
+      "language": "typescript",
+      "lines": 94,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicBoundaries",
+        "BoundariesFormData",
+        "BoundariesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "BoundariesRow",
+        "BoundariesInsert",
+        "BoundariesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "columns.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicColumns",
+        "ColumnsFormData",
+        "ColumnsValidationResult"
+      ],
+      "types": [
+        "ColumnsRow",
+        "ColumnsInsert",
+        "ColumnsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "composite_types.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicCompositeTypes",
+        "CompositeTypesFormData",
+        "CompositeTypesValidationResult"
+      ],
+      "types": [
+        "CompositeTypesRow",
+        "CompositeTypesInsert",
+        "CompositeTypesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "enums.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicEnums",
+        "EnumsFormData",
+        "EnumsValidationResult"
+      ],
+      "types": [
+        "EnumsRow",
+        "EnumsInsert",
+        "EnumsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "functions.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicFunctions",
+        "FunctionsFormData",
+        "FunctionsValidationResult"
+      ],
+      "types": [
+        "FunctionsRow",
+        "FunctionsInsert",
+        "FunctionsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_config.ts": {
+      "language": "typescript",
+      "lines": 154,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicGaiaConfig",
+        "GaiaConfigFormData",
+        "GaiaConfigValidationResult"
+      ],
+      "types": [
+        "GaiaConfigRow",
+        "GaiaConfigInsert",
+        "GaiaConfigUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_generation_log.ts": {
+      "language": "typescript",
+      "lines": 82,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicGaiaGenerationLog",
+        "GaiaGenerationLogFormData",
+        "GaiaGenerationLogValidationResult"
+      ],
+      "types": [
+        "GaiaGenerationLogRow",
+        "GaiaGenerationLogInsert",
+        "GaiaGenerationLogUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "generations.ts": {
+      "language": "typescript",
+      "lines": 79,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicGenerations",
+        "GenerationsFormData",
+        "GenerationsValidationResult"
+      ],
+      "types": [
+        "GenerationsRow",
+        "GenerationsInsert",
+        "GenerationsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "indexes.ts": {
+      "language": "typescript",
+      "lines": 88,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicIndexes",
+        "IndexesFormData",
+        "IndexesValidationResult"
+      ],
+      "types": [
+        "IndexesRow",
+        "IndexesInsert",
+        "IndexesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "policies.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicPolicies",
+        "PoliciesFormData",
+        "PoliciesValidationResult"
+      ],
+      "types": [
+        "PoliciesRow",
+        "PoliciesInsert",
+        "PoliciesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "templates.ts": {
+      "language": "typescript",
+      "lines": 103,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicTemplates",
+        "TemplatesFormData",
+        "TemplatesValidationResult"
+      ],
+      "types": [
+        "TemplatesRow",
+        "TemplatesInsert",
+        "TemplatesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "triggers.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicTriggers",
+        "TriggersFormData",
+        "TriggersValidationResult"
+      ],
+      "types": [
+        "TriggersRow",
+        "TriggersInsert",
+        "TriggersUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

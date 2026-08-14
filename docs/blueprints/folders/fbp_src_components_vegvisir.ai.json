@@ -1,0 +1,170 @@
+{
+  "folder_name": "vegvisir",
+  "folder_path": "src/components/vegvisir",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.106563 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/vegvisir/Breadcrumb.tsx",
+      "description": "components/vegvisir/Breadcrumb.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/FilterBar.tsx",
+      "description": "src/components/vegvisir/FilterBar.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/Pagination.tsx",
+      "description": "src/components/vegvisir/Pagination.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/SearchBar.tsx",
+      "description": "src/components/vegvisir/SearchBar.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/Sidebar.tsx",
+      "description": "src/components/vegvisir/Sidebar.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/SortDropdown.tsx",
+      "description": "src/components/vegvisir/SortDropdown.tsx"
+    },
+    {
+      "path": "src/components/vegvisir/Tabs.tsx",
+      "description": "src/components/vegvisir/Tabs.tsx"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {
+    "Breadcrumb.tsx": {
+      "language": "typescript",
+      "lines": 392,
+      "exported_functions": [],
+      "exported_consts": [
+        "Breadcrumb",
+        "BreadcrumbItem",
+        "BreadcrumbSeparator",
+        "BreadcrumbList",
+        "BreadcrumbWithDropdown"
+      ],
+      "interfaces": [
+        "BreadcrumbItem",
+        "BreadcrumbProps",
+        "BreadcrumbDropdownProps",
+        "BreadcrumbItemComponentProps",
+        "BreadcrumbSeparatorComponentProps",
+        "BreadcrumbListProps",
+        "BreadcrumbWithDropdownProps"
+      ],
+      "types": [
+        "BreadcrumbSize",
+        "BreadcrumbSeparator"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FilterBar.tsx": {
+      "language": "typescript",
+      "lines": 144,
+      "exported_functions": [
+        "FilterBar"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Pagination.tsx": {
+      "language": "typescript",
+      "lines": 343,
+      "exported_functions": [],
+      "exported_consts": [
+        "Pagination",
+        "CompactPagination",
+        "SimplePagination",
+        "PaginationInfo"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SearchBar.tsx": {
+      "language": "typescript",
+      "lines": 124,
+      "exported_functions": [
+        "SearchBar"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Sidebar.tsx": {
+      "language": "typescript",
+      "lines": 634,
+      "exported_functions": [],
+      "exported_consts": [
+        "useSidebar",
+        "Sidebar",
+        "SidebarNavItem",
+        "SidebarGroup",
+        "SidebarHeader",
+        "SidebarFooter"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SortDropdown.tsx": {
+      "language": "typescript",
+      "lines": 134,
+      "exported_functions": [
+        "SortDropdown"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "Tabs.tsx": {
+      "language": "typescript",
+      "lines": 334,
+      "exported_functions": [],
+      "exported_consts": [
+        "Tabs",
+        "TabsList",
+        "TabsTrigger",
+        "TabsPanel",
+        "AnimatedTabsPanel",
+        "IconTabsTrigger",
+        "BadgeTabsTrigger"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

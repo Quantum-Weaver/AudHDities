@@ -1,0 +1,102 @@
+{
+  "folder_name": "library",
+  "folder_path": "public/environments/360-panoramas/library",
+  "description": "22 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.877485 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/360-panoramas/library/arcane-library-1.webp",
+      "description": "file, 3,425,120 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-0.webp",
+      "description": "file, 1,951,554 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-1.webp",
+      "description": "file, 2,149,792 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-2.webp",
+      "description": "file, 2,800,508 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-3.webp",
+      "description": "file, 2,740,874 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-4.webp",
+      "description": "file, 2,681,248 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf-1-5.webp",
+      "description": "file, 2,569,026 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/bookshelf.webp",
+      "description": "file, 1,269,192 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-background-1.webp",
+      "description": "file, 4,962,692 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-background-2.webp",
+      "description": "file, 4,930,524 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-background-3.webp",
+      "description": "file, 4,834,898 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-background-4.webp",
+      "description": "file, 5,048,670 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-corner-1-0.webp",
+      "description": "file, 2,220,690 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-corner-1-1.webp",
+      "description": "file, 3,275,848 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-corner-1-2.webp",
+      "description": "file, 3,273,008 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-corner-1-3.webp",
+      "description": "file, 3,420,108 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-table-1.webp",
+      "description": "file, 5,289,836 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-table-2.webp",
+      "description": "file, 3,810,418 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-table-3.webp",
+      "description": "file, 3,506,364 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-table-4.webp",
+      "description": "file, 3,817,138 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/library-table-5.webp",
+      "description": "file, 3,450,228 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/library/table-down-1.webp",
+      "description": "file, 6,307,242 bytes"
+    }
+  ],
+  "file_count": 22,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

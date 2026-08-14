@@ -1,0 +1,53 @@
+{
+  "folder_name": "auth",
+  "folder_path": "src/lib/auth",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.291232 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/auth/admin.ts",
+      "description": "src/lib/auth/admin.ts"
+    },
+    {
+      "path": "src/lib/auth/pwned.ts",
+      "description": "lib/auth/pwned.ts"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "admin.ts": {
+      "language": "typescript",
+      "lines": 10,
+      "exported_functions": [
+        "isUserAdmin"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "pwned.ts": {
+      "language": "typescript",
+      "lines": 54,
+      "exported_functions": [
+        "pwnedCount"
+      ],
+      "exported_consts": [
+        "PWNED_MESSAGE"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

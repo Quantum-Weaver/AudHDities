@@ -1,0 +1,367 @@
+{
+  "folder_name": "plutus-economics",
+  "folder_path": "src/lib/utils/generated/plutus-economics",
+  "description": "16 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.543596 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/generated/plutus-economics/covenant_pool.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/distributions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/exchanges.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/gift_wrappings.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/gifts.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_applications.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_attachments.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_collaborators.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_milestones.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_narratives.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/grant_opportunities.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/ledger.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/patronage.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/patronage_tiers.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/residual_pool.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/plutus-economics/wares.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 16,
+  "subdirectories": [],
+  "code_analysis": {
+    "covenant_pool.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createCovenantPool",
+        "getCovenantPool",
+        "listCovenantPool",
+        "updateCovenantPool",
+        "deleteCovenantPool"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "distributions.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createDistributions",
+        "getDistributions",
+        "listDistributions",
+        "updateDistributions",
+        "deleteDistributions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "exchanges.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createExchanges",
+        "getExchanges",
+        "listExchanges",
+        "updateExchanges",
+        "deleteExchanges"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gift_wrappings.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGiftWrappings",
+        "getGiftWrappings",
+        "listGiftWrappings",
+        "updateGiftWrappings",
+        "deleteGiftWrappings"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gifts.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGifts",
+        "getGifts",
+        "listGifts",
+        "updateGifts",
+        "deleteGifts"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_applications.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantApplications",
+        "getGrantApplications",
+        "listGrantApplications",
+        "updateGrantApplications",
+        "deleteGrantApplications"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_attachments.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantAttachments",
+        "getGrantAttachments",
+        "listGrantAttachments",
+        "updateGrantAttachments",
+        "deleteGrantAttachments"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_collaborators.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantCollaborators",
+        "getGrantCollaborators",
+        "listGrantCollaborators",
+        "updateGrantCollaborators",
+        "deleteGrantCollaborators"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_milestones.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantMilestones",
+        "getGrantMilestones",
+        "listGrantMilestones",
+        "updateGrantMilestones",
+        "deleteGrantMilestones"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_narratives.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantNarratives",
+        "getGrantNarratives",
+        "listGrantNarratives",
+        "updateGrantNarratives",
+        "deleteGrantNarratives"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_opportunities.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createGrantOpportunities",
+        "getGrantOpportunities",
+        "listGrantOpportunities",
+        "updateGrantOpportunities",
+        "deleteGrantOpportunities"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ledger.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createLedger",
+        "getLedger",
+        "listLedger",
+        "updateLedger",
+        "deleteLedger"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "patronage.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createPatronage",
+        "getPatronage",
+        "listPatronage",
+        "updatePatronage",
+        "deletePatronage"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "patronage_tiers.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createPatronageTiers",
+        "getPatronageTiers",
+        "listPatronageTiers",
+        "updatePatronageTiers",
+        "deletePatronageTiers"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "residual_pool.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createResidualPool",
+        "getResidualPool",
+        "listResidualPool",
+        "updateResidualPool",
+        "deleteResidualPool"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "wares.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createWares",
+        "getWares",
+        "listWares",
+        "updateWares",
+        "deleteWares"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

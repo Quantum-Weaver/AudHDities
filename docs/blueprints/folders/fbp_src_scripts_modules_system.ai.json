@@ -1,0 +1,128 @@
+{
+  "folder_name": "system",
+  "folder_path": "src/scripts/modules/system",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.663949 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/modules/system/approve_staged.ts",
+      "description": "typescript, 943 bytes"
+    },
+    {
+      "path": "src/scripts/modules/system/count_items.ts",
+      "description": "typescript, 7,856 bytes"
+    },
+    {
+      "path": "src/scripts/modules/system/find_closing_braces.ts",
+      "description": "typescript, 7,501 bytes"
+    },
+    {
+      "path": "src/scripts/modules/system/find_markers.ts",
+      "description": "typescript, 8,831 bytes"
+    },
+    {
+      "path": "src/scripts/modules/system/staging.ts",
+      "description": "typescript, 7,253 bytes"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "approve_staged.ts": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "count_items.ts": {
+      "language": "typescript",
+      "lines": 255,
+      "exported_functions": [
+        "countItemsInCollection",
+        "countAllCollections",
+        "countConstantsEnums",
+        "getItemRange",
+        "itemExists",
+        "findItemLine"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "CountItemsOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "find_closing_braces.ts": {
+      "language": "typescript",
+      "lines": 229,
+      "exported_functions": [
+        "findClosingBrace",
+        "findAllClosingBraces",
+        "hasClosingBrace",
+        "getBraceContent"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "FindClosingBraceOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "find_markers.ts": {
+      "language": "typescript",
+      "lines": 258,
+      "exported_functions": [
+        "findMarkers"
+      ],
+      "exported_consts": [
+        "Constants"
+      ],
+      "interfaces": [
+        "FindMarkersOptions"
+      ],
+      "types": [
+        "Database"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "staging.ts": {
+      "language": "typescript",
+      "lines": 236,
+      "exported_functions": [
+        "getStagingPath",
+        "getDiffPath",
+        "stageFileChange",
+        "approveStagedFile",
+        "listStagedFiles",
+        "approveAllStagedFiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "StagingOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

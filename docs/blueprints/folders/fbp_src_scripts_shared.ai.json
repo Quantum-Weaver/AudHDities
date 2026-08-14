@@ -1,0 +1,512 @@
+{
+  "folder_name": "shared",
+  "folder_path": "src/scripts/shared",
+  "description": "\ud83d\udcc1 Scripts/Shared Directory Analysis & README Outline",
+  "scan_timestamp": "2026-08-04T13:36:17.677015 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/shared/check_object_config.ts",
+      "description": "@/scripts/shared/check_object_config.ts"
+    },
+    {
+      "path": "src/scripts/shared/file_reader.ts",
+      "description": "@/scripts/core/file_reader.ts"
+    },
+    {
+      "path": "src/scripts/shared/fix_insert_schema.ts",
+      "description": "scripts/fix-insert-schemas.ts"
+    },
+    {
+      "path": "src/scripts/shared/helper_imports.ts",
+      "description": "src/scripts/shared/helper_imports.ts"
+    },
+    {
+      "path": "src/scripts/shared/import_manager.ts",
+      "description": "src/scripts/shared/import_manager.ts"
+    },
+    {
+      "path": "src/scripts/shared/index.ts",
+      "description": "src/scripts/shared/pause.ts"
+    },
+    {
+      "path": "src/scripts/shared/inspect_schema.ts",
+      "description": "scripts/inspect-schema.ts"
+    },
+    {
+      "path": "src/scripts/shared/list_tables.ts",
+      "description": "scripts/shared/list-tables.ts"
+    },
+    {
+      "path": "src/scripts/shared/logger.ts",
+      "description": "typescript, 4,141 bytes"
+    },
+    {
+      "path": "src/scripts/shared/object_checklist.ts",
+      "description": "typescript, 12,308 bytes"
+    },
+    {
+      "path": "src/scripts/shared/paths.ts",
+      "description": "src/scripts/shared/paths.ts"
+    },
+    {
+      "path": "src/scripts/shared/pause.ts",
+      "description": "src/scripts/shared/pause.ts"
+    },
+    {
+      "path": "src/scripts/shared/quote_manager.ts",
+      "description": "src/scripts/shared/quote_manager.ts"
+    },
+    {
+      "path": "src/scripts/shared/README.md",
+      "description": "\ud83d\udcc1 Scripts/Shared Directory Analysis & README Outline"
+    },
+    {
+      "path": "src/scripts/shared/scan_components.ts",
+      "description": "scripts/scan-components.ts"
+    },
+    {
+      "path": "src/scripts/shared/system_logger.ts",
+      "description": "@/scripts/shared/systemLogger.ts"
+    },
+    {
+      "path": "src/scripts/shared/type_mappings.ts",
+      "description": "src/scripts/shared/type_mappings.ts"
+    },
+    {
+      "path": "src/scripts/shared/types.ts",
+      "description": "@/scripts/shared/types.ts"
+    }
+  ],
+  "file_count": 18,
+  "subdirectories": [],
+  "code_analysis": {
+    "check_object_config.ts": {
+      "language": "typescript",
+      "lines": 352,
+      "exported_functions": [
+        "getTableConfig",
+        "getViewConfig",
+        "getFunctionConfig",
+        "getEnumConfig",
+        "getObjectConfig",
+        "getUnassignedTables",
+        "getUnassignedViews",
+        "getDeityGroupSummary",
+        "validateTableAssignments",
+        "validateViewAssignments",
+        "getOutputPath"
+      ],
+      "exported_consts": [
+        "DEFAULT_SENSITIVE_FIELDS",
+        "DEFAULT_CONFIG_RULES"
+      ],
+      "interfaces": [
+        "CheckObjectConfigOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "file_reader.ts": {
+      "language": "typescript",
+      "lines": 82,
+      "exported_functions": [
+        "readDatabaseTypes"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "FileReadResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "fix_insert_schema.ts": {
+      "language": "typescript",
+      "lines": 148,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "helper_imports.ts": {
+      "language": "typescript",
+      "lines": 139,
+      "exported_functions": [
+        "toPascalCase",
+        "toUpperSnakeCase"
+      ],
+      "exported_consts": [
+        "HELPER_IMPORTS"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "import_manager.ts": {
+      "language": "typescript",
+      "lines": 219,
+      "exported_functions": [
+        "createImportBlock"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ImportStatement",
+        "ImportManagerOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 286,
+      "exported_functions": [
+        "pauseForReview",
+        "confirmAction",
+        "autoPause",
+        "isAutomatedEnvironment",
+        "intelligentPause"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "PauseOptions",
+        "PauseResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "CI",
+        "GITHUB_ACTIONS",
+        "NODE_ENV"
+      ]
+    },
+    "inspect_schema.ts": {
+      "language": "typescript",
+      "lines": 51,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "NEXT_PUBLIC_SUPABASE_URL"
+      ]
+    },
+    "list_tables.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "logger.ts": {
+      "language": "typescript",
+      "lines": 136,
+      "exported_functions": [
+        "logSuccess",
+        "logError",
+        "logInfo",
+        "logWarning",
+        "logStep",
+        "logDebug",
+        "logBom",
+        "logSeparator",
+        "logHeader",
+        "logSubHeader",
+        "logProgress",
+        "logObjectSummary",
+        "logLineRange",
+        "logSectionStart",
+        "logSectionEnd",
+        "logFilePreview"
+      ],
+      "exported_consts": [
+        "colors"
+      ],
+      "interfaces": [
+        "ProgressOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "object_checklist.ts": {
+      "language": "typescript",
+      "lines": 412,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "ObjectCheckListOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "paths.ts": {
+      "language": "typescript",
+      "lines": 130,
+      "exported_functions": [
+        "getDeityFilePath",
+        "getFlatFilePath",
+        "toRelativePath",
+        "getProjectRoot"
+      ],
+      "exported_consts": [
+        "DB_TYPES_PATH",
+        "HELPERS_PATH",
+        "ENUMS_HELPER_PATH",
+        "CONSTANTS_BASE_PATH",
+        "VALIDATORS_BASE_PATH",
+        "TYPES_BASE_PATH",
+        "UTILS_BASE_PATH",
+        "HOOKS_BASE_PATH",
+        "API_BASE_PATH",
+        "COSMIC_STYLES_BASE_PATH",
+        "TAILWIND_GENERATED_PATH",
+        "DEITY_GROUPS_PATH",
+        "OBJECT_CATEGORIES_PATH",
+        "ENUM_MAPPING_PATH",
+        "SYSTEM_REGISTRY_PATH",
+        "DEPENDENCY_MAP_PATH",
+        "EFFICIENCY_RECORDS_PATH"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "pause.ts": {
+      "language": "typescript",
+      "lines": 286,
+      "exported_functions": [
+        "pauseForReview",
+        "confirmAction",
+        "autoPause",
+        "isAutomatedEnvironment",
+        "intelligentPause"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "PauseOptions",
+        "PauseResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "CI",
+        "GITHUB_ACTIONS",
+        "NODE_ENV"
+      ]
+    },
+    "quote_manager.ts": {
+      "language": "typescript",
+      "lines": 145,
+      "exported_functions": [
+        "needsConstantValueCleaning",
+        "isExcludedEnum",
+        "cleanConstantValue",
+        "formatConstantKeyValue",
+        "cleanEnumValue",
+        "cleanEnumValues",
+        "needsQuoteWrapping",
+        "formatFieldDeclaration",
+        "parseFieldLine",
+        "formatFieldList"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 551,
+      "words": 1027,
+      "heading_count": 38,
+      "headings": [
+        "\ud83d\udcc1 Scripts/Shared Directory Analysis & README Outline",
+        "Executive Summary",
+        "\ud83d\udccb README.md for `@/scripts/shared/`",
+        "Shared Utilities Directory",
+        "\ud83d\udccc Purpose",
+        "\ud83c\udfdb\ufe0f Architecture",
+        "\ud83d\udcc2 File Inventory",
+        "\ud83d\udd0d Detailed File Analysis",
+        "1. `paths.ts` - Centralized Path Configuration",
+        "2. `logger.ts` - Console Output Formatting",
+        "3. `system_logger.ts` - Structured Logging with Registry",
+        "4. `file_reader.ts` - Database Types Reader",
+        "5. `import_manager.ts` - Import Collection & Deduplication",
+        "6. `types.ts` - Shared TypeScript Interfaces",
+        "7. `pause.ts` - User Interaction Utilities",
+        "8. `object_checklist.ts` - Progress Tracking",
+        "9. `check_object_config.ts` - Config Validation",
+        "10. `analyze_dependencies.ts` - Dependency Graph Analysis",
+        "11. `quote_manager.ts` - Constants-Only Formatting",
+        "\ud83d\udd17 Integration with `database.helpers.ts`",
+        "Current State",
+        "Enhancement Path",
+        "\ud83d\uddc2\ufe0f Recommended Directory Structure Updates",
+        "\ud83c\udfaf Key Insights"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 22,
+      "table_rows": 13,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "scan_components.ts": {
+      "language": "typescript",
+      "lines": 197,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "system_logger.ts": {
+      "language": "typescript",
+      "lines": 333,
+      "exported_functions": [],
+      "exported_consts": [
+        "SYSTEM_REGISTRY",
+        "SYSTEM_REGISTRY"
+      ],
+      "interfaces": [
+        "LogEntry",
+        "RunRecord",
+        "SystemRegistryFile",
+        "SystemRegistryFile",
+        "RunRecord"
+      ],
+      "types": [
+        "SystemName",
+        "LogLevel"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "type_mappings.ts": {
+      "language": "typescript",
+      "lines": 212,
+      "exported_functions": [
+        "toCamelCase",
+        "pascalToCamelCase",
+        "toPascalCase",
+        "findZodType",
+        "findFieldNameOverride",
+        "isAutoGeneratedField",
+        "applyModifiers"
+      ],
+      "exported_consts": [
+        "TYPE_MAPPINGS",
+        "ENUM_PATTERN",
+        "ENUM_ZOD_TEMPLATE",
+        "FIELD_NAME_OVERRIDES",
+        "AUTO_GENERATED_FIELDS"
+      ],
+      "interfaces": [
+        "TypeMapping",
+        "FieldNameOverride",
+        "ParsedField"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "types.ts": {
+      "language": "typescript",
+      "lines": 259,
+      "exported_functions": [],
+      "exported_consts": [
+        "Constants"
+      ],
+      "interfaces": [
+        "TypeSafeExtractedTable",
+        "TypeSafeExtractedView",
+        "TypeSafeExtractedEnum",
+        "FileReadResult",
+        "ParsedFile",
+        "MarkerResult",
+        "ExtractedObject",
+        "ExtractedObjectWithDetails",
+        "CollectionInfo",
+        "CollectionResult",
+        "ObjectConfig",
+        "ConfigRules",
+        "ChecklistProgress",
+        "PipelineProgress",
+        "ValidationResult",
+        "FileValidationResult",
+        "GeneratedFile",
+        "GenerationResult",
+        "FormattedTypeContent",
+        "FormattedConstantContent",
+        "FormattedUtilContent",
+        "FormattedApiContent",
+        "PatternMatch"
+      ],
+      "types": [
+        "Database",
+        "ObjectType"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

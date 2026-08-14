@@ -1,0 +1,39 @@
+{
+  "folder_name": "boundaries",
+  "folder_path": "src/config/daedalus/boundaries",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.126446 | in sovereign time",
+  "files": [
+    {
+      "path": "src/config/daedalus/boundaries/index.ts.md",
+      "description": "@system DAEDALUS @config Boundary Rules @purpose Vetting rules and generation boundaries @created 2026-04-12"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "index.ts.md": {
+      "language": "markdown",
+      "lines": 139,
+      "words": 356,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

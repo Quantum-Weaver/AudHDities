@@ -1,0 +1,252 @@
+{
+  "folder_name": "forging",
+  "folder_path": "src/lib/utils/components/forging",
+  "description": "10 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.455476 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/components/forging/checkbox.utils.ts",
+      "description": "src/lib/utils/components/forging/checkbox.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/form.utils.ts",
+      "description": "src/utils/components/forging/form.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/form_field.utils.ts",
+      "description": "src/utils/components/forging/form_field.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/form_validation.utils.ts",
+      "description": "src/utils/components/forging/form_validation.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/input.utils.ts",
+      "description": "src/lib/utils/components/forging/input.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/radio.utils.ts",
+      "description": "src/utils/components/forging/radio.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/select.utils.ts",
+      "description": "src/utils/components/forging/select.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/slider.utils.ts",
+      "description": "src/lib/utils/components/forging/slider.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/switch.utils.ts",
+      "description": "src/utils/components/forging/tabs.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/forging/textare.utils.ts",
+      "description": "src/lib/utils/components/forging/textarea.utils.ts"
+    }
+  ],
+  "file_count": 10,
+  "subdirectories": [],
+  "code_analysis": {
+    "checkbox.utils.ts": {
+      "language": "typescript",
+      "lines": 210,
+      "exported_functions": [
+        "toggleCheckboxValue",
+        "areAllSelected",
+        "isIndeterminate",
+        "selectAll",
+        "deselectAll",
+        "toggleAll",
+        "validateCheckboxGroup",
+        "formatSelectionSummary",
+        "countSelectedBy"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "CheckboxOption",
+        "ToggleResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form.utils.ts": {
+      "language": "typescript",
+      "lines": 86,
+      "exported_functions": [
+        "getFieldNameFromChild",
+        "collectFormData",
+        "scrollToFirstError"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_field.utils.ts": {
+      "language": "typescript",
+      "lines": 28,
+      "exported_functions": [
+        "generateFieldId",
+        "getHelperId",
+        "getErrorId"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_validation.utils.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [
+        "executeValidator",
+        "filterTouchedErrors",
+        "hasVisibleErrors",
+        "requiredError",
+        "minLengthError",
+        "emailError"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "input.utils.ts": {
+      "language": "typescript",
+      "lines": 99,
+      "exported_functions": [
+        "generateInputId",
+        "resolveIconModifier",
+        "getInputAriaDescribedBy",
+        "resolveInputVariant"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [
+        "IconModifier"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "radio.utils.ts": {
+      "language": "typescript",
+      "lines": 49,
+      "exported_functions": [
+        "generateRadioId",
+        "getRadioErrorState",
+        "getRadioDescriptionId",
+        "createRadioGroupContext"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "select.utils.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [
+        "composeSelectTriggerClasses",
+        "composeSelectLabelClasses",
+        "getSelectRequiredIndicator",
+        "getSelectOptionalIndicator"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "slider.utils.ts": {
+      "language": "typescript",
+      "lines": 198,
+      "exported_functions": [
+        "valueToPercentage",
+        "percentageToValue",
+        "clampValue",
+        "snapToStep",
+        "thumbPositionOffset",
+        "generateMarks",
+        "isMajorMark",
+        "defaultFormatValue",
+        "formatAsPercentage",
+        "hasValueChanged",
+        "stepCount",
+        "validateSliderConfig"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "switch.utils.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [
+        "composeSwitchTrackClasses",
+        "composeSwitchThumbClasses",
+        "composeSwitchLabelClasses",
+        "composeSwitchHelperClasses",
+        "generateSwitchId"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "textare.utils.ts": {
+      "language": "typescript",
+      "lines": 192,
+      "exported_functions": [
+        "generateTextareaId",
+        "resetTextareaIdCounter",
+        "getTextareaAriaDescribedBy",
+        "getLabelIndicator",
+        "countCharacters",
+        "formatRemaining",
+        "autoResizeTextarea",
+        "meetsMinLength",
+        "exceedsMaxLength"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "LabelIndicator",
+        "CharacterCount"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

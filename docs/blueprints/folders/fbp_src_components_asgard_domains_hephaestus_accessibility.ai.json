@@ -1,0 +1,105 @@
+{
+  "folder_name": "accessibility",
+  "folder_path": "src/components/asgard/domains/hephaestus/accessibility",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.867459 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/accessibility/ContrastToggle.tsx",
+      "description": "react component, 2,131 bytes"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/accessibility/FeatureList.tsx",
+      "description": "react component, 2,683 bytes"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/accessibility/FontSizer.tsx",
+      "description": "react component, 3,030 bytes"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/accessibility/KeyboardShortcuts.tsx",
+      "description": "react component, 2,245 bytes"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/accessibility/ScreenReaderInfo.tsx",
+      "description": "react component, 1,915 bytes"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "ContrastToggle.tsx": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [
+        "ContrastToggle"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FeatureList.tsx": {
+      "language": "typescript",
+      "lines": 48,
+      "exported_functions": [
+        "FeatureList"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FontSizer.tsx": {
+      "language": "typescript",
+      "lines": 88,
+      "exported_functions": [
+        "FontSizer"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "KeyboardShortcuts.tsx": {
+      "language": "typescript",
+      "lines": 57,
+      "exported_functions": [
+        "KeyboardShortcuts"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ScreenReaderInfo.tsx": {
+      "language": "typescript",
+      "lines": 48,
+      "exported_functions": [
+        "ScreenReaderInfo"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,26 @@
+{
+  "folder_name": "athena-gamification",
+  "folder_path": "src/app/api/generated/athena-gamification",
+  "description": "0 files, 12 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.356858 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/api/generated/athena-gamification/bubble_superposition",
+    "src/app/api/generated/athena-gamification/bubbles",
+    "src/app/api/generated/athena-gamification/learning_paths",
+    "src/app/api/generated/athena-gamification/lessons",
+    "src/app/api/generated/athena-gamification/mythology",
+    "src/app/api/generated/athena-gamification/path_lessons",
+    "src/app/api/generated/athena-gamification/quest_progress",
+    "src/app/api/generated/athena-gamification/quests",
+    "src/app/api/generated/athena-gamification/scene_participants",
+    "src/app/api/generated/athena-gamification/scenes",
+    "src/app/api/generated/athena-gamification/sigil_unlocks",
+    "src/app/api/generated/athena-gamification/sigils"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,345 @@
+{
+  "folder_name": "aethelred-connections",
+  "folder_path": "src/hooks/generated/aethelred-connections",
+  "description": "15 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.218162 | in sovereign time",
+  "files": [
+    {
+      "path": "src/hooks/generated/aethelred-connections/aethelred_house.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/agent_activities.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/agent_conversations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/agent_messages.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/archivist.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/chancellor.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/codex.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/consciousness.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/curator.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/entity_states.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/executioner.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/hearth_keeper.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/life_cycles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/seer.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/aethelred-connections/skald.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 15,
+  "subdirectories": [],
+  "code_analysis": {
+    "aethelred_house.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useAethelredHouse",
+        "useAethelredHouseList",
+        "useCreateAethelredHouse",
+        "useUpdateAethelredHouse",
+        "useDeleteAethelredHouse"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_activities.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useAgentActivities",
+        "useAgentActivitiesList",
+        "useCreateAgentActivities",
+        "useUpdateAgentActivities",
+        "useDeleteAgentActivities"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_conversations.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useAgentConversations",
+        "useAgentConversationsList",
+        "useCreateAgentConversations",
+        "useUpdateAgentConversations",
+        "useDeleteAgentConversations"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_messages.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useAgentMessages",
+        "useAgentMessagesList",
+        "useCreateAgentMessages",
+        "useUpdateAgentMessages",
+        "useDeleteAgentMessages"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "archivist.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useArchivist",
+        "useArchivistList",
+        "useCreateArchivist",
+        "useUpdateArchivist",
+        "useDeleteArchivist"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "chancellor.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useChancellor",
+        "useChancellorList",
+        "useCreateChancellor",
+        "useUpdateChancellor",
+        "useDeleteChancellor"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "codex.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useCodex",
+        "useCodexList",
+        "useCreateCodex",
+        "useUpdateCodex",
+        "useDeleteCodex"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "consciousness.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useConsciousness",
+        "useConsciousnessList",
+        "useCreateConsciousness",
+        "useUpdateConsciousness",
+        "useDeleteConsciousness"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "curator.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useCurator",
+        "useCuratorList",
+        "useCreateCurator",
+        "useUpdateCurator",
+        "useDeleteCurator"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "entity_states.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useEntityStates",
+        "useEntityStatesList",
+        "useCreateEntityStates",
+        "useUpdateEntityStates",
+        "useDeleteEntityStates"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "executioner.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useExecutioner",
+        "useExecutionerList",
+        "useCreateExecutioner",
+        "useUpdateExecutioner",
+        "useDeleteExecutioner"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "hearth_keeper.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useHearthKeeper",
+        "useHearthKeeperList",
+        "useCreateHearthKeeper",
+        "useUpdateHearthKeeper",
+        "useDeleteHearthKeeper"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "life_cycles.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useLifeCycles",
+        "useLifeCyclesList",
+        "useCreateLifeCycles",
+        "useUpdateLifeCycles",
+        "useDeleteLifeCycles"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "seer.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useSeer",
+        "useSeerList",
+        "useCreateSeer",
+        "useUpdateSeer",
+        "useDeleteSeer"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "skald.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useSkald",
+        "useSkaldList",
+        "useCreateSkald",
+        "useUpdateSkald",
+        "useDeleteSkald"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

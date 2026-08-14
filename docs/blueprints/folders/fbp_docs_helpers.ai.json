@@ -1,0 +1,917 @@
+{
+  "folder_name": "helpers",
+  "folder_path": "docs/helpers",
+  "description": "24 files, 2 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.723359 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/helpers/accordians.md",
+      "description": "# \ud83d\udcda **ACCORDION COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/alerts.md",
+      "description": "# \u26a0\ufe0f **ALERT COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/aspectiratios.md",
+      "description": "# \ud83d\udcd0 **ASPECT RATIO COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/avatars.md",
+      "description": "# \ud83d\udcc1 **`components/ui/Avatar.tsx`"
+    },
+    {
+      "path": "docs/helpers/breadcrumbs.md",
+      "description": "# \ud83c\udf5e **BREADCRUMB COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/cards.md",
+      "description": "# \ud83c\udccf **CARD COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/containers.md",
+      "description": "# \ud83d\udce6 **CONTAINER COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/data-display.md",
+      "description": "# \ud83d\udcca **DATA DISPLAY COMPONENTS: Overview"
+    },
+    {
+      "path": "docs/helpers/dividers.md",
+      "description": "# \u2796 **DIVIDER COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/drawers.md",
+      "description": "# \ud83d\udcc2 **DRAWER COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/flex.md",
+      "description": "# \ud83d\udd32 **FLEX COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/form-components.md",
+      "description": "# \ud83d\udcdd **FORM COMPONENTS: Overview"
+    },
+    {
+      "path": "docs/helpers/grids.md",
+      "description": "# \ud83d\udd32 **GRID LAYOUT COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/modals.md",
+      "description": "# \ud83d\udce6 **MODAL COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/pagination.md",
+      "description": "# \ud83d\udcc4 **PAGINATION COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/scroll-areas.md",
+      "description": "# \ud83d\udcdc **SCROLLAREA COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/sections.md",
+      "description": "# \ud83d\udcd0 **SECTION COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/sidebars.md",
+      "description": "# \ud83d\udcc1 **SIDEBAR COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/skeletons.md",
+      "description": "# \u25fb\ufe0f **SKELETON COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/spacers.md",
+      "description": "# \ud83d\udccf **SPACER COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/stacks.md",
+      "description": "document, 10,230 bytes"
+    },
+    {
+      "path": "docs/helpers/tabs.md",
+      "description": "# \ud83d\udcd1 **TABS COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/toasts.md",
+      "description": "# \ud83d\udd14 **TOAST COMPONENT: Overview"
+    },
+    {
+      "path": "docs/helpers/tooltips.md",
+      "description": "# \ud83d\udcac **TOOLTIP COMPONENT: Overview"
+    }
+  ],
+  "file_count": 24,
+  "subdirectories": [
+    "docs/helpers/kernel_imbuement",
+    "docs/helpers/sidequest-main"
+  ],
+  "code_analysis": {
+    "accordians.md": {
+      "language": "markdown",
+      "lines": 700,
+      "words": 504,
+      "heading_count": 16,
+      "headings": [
+        "\ud83d\udcda **ACCORDION COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Accordion.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Accordion",
+        "Multiple Open Items",
+        "Bordered Variant",
+        "Separated Variant",
+        "Minimal Variant",
+        "Disabled Item",
+        "Custom Icons",
+        "Nested Accordion",
+        "FAQ Section",
+        "\u2705 **VARIANT REFERENCE TABLE**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS \u2014 COMPLETE**",
+        "\ud83c\udfdb\ufe0f **LAYOUT SYSTEM COMPLETE**",
+        "\ud83d\ude80 **WHAT'S NEXT?**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 10,
+      "table_rows": 26,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "alerts.md": {
+      "language": "markdown",
+      "lines": 331,
+      "words": 206,
+      "heading_count": 10,
+      "headings": [
+        "\u26a0\ufe0f **ALERT COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Alert.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Info Alert",
+        "Success Alert with Description",
+        "Dismissible Error Alert",
+        "Quantum Alert with Action",
+        "Compact Alert",
+        "Alert Group",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 7,
+      "table_rows": 11,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "aspectiratios.md": {
+      "language": "markdown",
+      "lines": 526,
+      "words": 372,
+      "heading_count": 15,
+      "headings": [
+        "\ud83d\udcd0 **ASPECT RATIO COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/AspectRatio.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Image with 16:9 Ratio",
+        "Square Avatar with Hover Glow",
+        "Video Player",
+        "YouTube Embed",
+        "TikTok/Reel Style Vertical Video",
+        "Artwork with Golden Ratio",
+        "Product Image Grid",
+        "Hero Section with Cinematic Ratio",
+        "Fallback Content",
+        "\u2705 **ASPECT RATIO REFERENCE TABLE**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 10,
+      "table_rows": 18,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "avatars.md": {
+      "language": "markdown",
+      "lines": 490,
+      "words": 237,
+      "heading_count": 11,
+      "headings": [
+        "\ud83d\udcc1 **`components/ui/Avatar.tsx`",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Avatar",
+        "Avatar with Status Indicator",
+        "Avatar with Variant Ring",
+        "Avatar with Badge (Verified)",
+        "Interactive Avatar",
+        "Avatar Group",
+        "In UserCard (Fixed)",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83d\ude80 **NEXT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 8,
+      "table_rows": 24,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "breadcrumbs.md": {
+      "language": "markdown",
+      "lines": 407,
+      "words": 278,
+      "heading_count": 12,
+      "headings": [
+        "\ud83c\udf5e **BREADCRUMB COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Breadcrumb.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Breadcrumb",
+        "With Home Icon and Custom Separator",
+        "With Custom Icons",
+        "Truncated Breadcrumb (Mobile)",
+        "Manual Composition",
+        "Breadcrumb with Dropdown",
+        "In Page Header",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfdb\ufe0f **COMPLETE FEEDBACK & NAVIGATION COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 8,
+      "table_rows": 24,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "cards.md": {
+      "language": "markdown",
+      "lines": 610,
+      "words": 438,
+      "heading_count": 14,
+      "headings": [
+        "\ud83c\udccf **CARD COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Card.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Card",
+        "Card with Header, Body, Footer",
+        "Glass Card with Image",
+        "Interactive Product Card",
+        "User Profile Card",
+        "Metric Card Dashboard",
+        "Card Grid",
+        "Outline Card for Form",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 9,
+      "table_rows": 35,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "containers.md": {
+      "language": "markdown",
+      "lines": 515,
+      "words": 466,
+      "heading_count": 12,
+      "headings": [
+        "\ud83d\udce6 **CONTAINER COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Container.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Page Container",
+        "Hero Section with Background",
+        "Blog Post with Narrow Container",
+        "Fluid Section with No Padding",
+        "Elevated Card Container",
+        "Responsive Section with Custom Padding",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **CONTAINER + GRID + STACK: THE COMPLETE LAYOUT SYSTEM**",
+        "\ud83d\ude80 **NEXT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 7,
+      "table_rows": 31,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "data-display.md": {
+      "language": "markdown",
+      "lines": 1006,
+      "words": 159,
+      "heading_count": 7,
+      "headings": [
+        "\ud83d\udcca **DATA DISPLAY COMPONENTS: Overview**",
+        "\ud83d\udcc1 **`components/ui/Table.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Badge.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Progress.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Avatar.tsx`**",
+        "\ud83d\udccb **DATA DISPLAY COMPONENTS SUMMARY**",
+        "\ud83c\udfdb\ufe0f **COMPLETE REFERENCE FILES**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 5,
+      "table_rows": 6,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "dividers.md": {
+      "language": "markdown",
+      "lines": 518,
+      "words": 396,
+      "heading_count": 17,
+      "headings": [
+        "\u2796 **DIVIDER COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Divider.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Horizontal Divider",
+        "Glowing Section Divider",
+        "Labeled Divider",
+        "Divider with Icon",
+        "Vertical Divider (between columns)",
+        "Gradient Divider for Major Sections",
+        "Dashed Divider for Draft Content",
+        "SectionDivider Component",
+        "DividerWithText Component",
+        "In a Stack Layout",
+        "In a Form",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 12,
+      "table_rows": 26,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "drawers.md": {
+      "language": "markdown",
+      "lines": 576,
+      "words": 307,
+      "heading_count": 11,
+      "headings": [
+        "\ud83d\udcc2 **DRAWER COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Drawer.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Right Drawer",
+        "Bottom Drawer (Mobile-friendly)",
+        "Left Drawer (Navigation)",
+        "Filter Drawer",
+        "Custom Drawer with Composition",
+        "Full-Screen Drawer",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfdb\ufe0f **COMPLETE COMPONENT LIBRARY STATUS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 7,
+      "table_rows": 21,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "flex.md": {
+      "language": "markdown",
+      "lines": 434,
+      "words": 444,
+      "heading_count": 6,
+      "headings": [
+        "\ud83d\udd32 **FLEX COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Flex.tsx`**",
+        "\u2705 **GAP REFERENCE TABLE**",
+        "\ud83c\udfaf **STACK VS FLEX: WHEN TO USE WHICH**",
+        "\ud83d\udcca **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 31,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "form-components.md": {
+      "language": "markdown",
+      "lines": 934,
+      "words": 161,
+      "heading_count": 8,
+      "headings": [
+        "\ud83d\udcdd **FORM COMPONENTS: Overview**",
+        "\ud83d\udcc1 **`components/ui/Input.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Textarea.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Select.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Checkbox.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Radio.tsx`**",
+        "\ud83d\udcc1 **`components/ui/Switch.tsx`**",
+        "\ud83d\udccb **FORM COMPONENTS SUMMARY**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 6,
+      "table_rows": 8,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "grids.md": {
+      "language": "markdown",
+      "lines": 543,
+      "words": 370,
+      "heading_count": 12,
+      "headings": [
+        "\ud83d\udd32 **GRID LAYOUT COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Grid.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Grid (2 columns on mobile, 4 on desktop)",
+        "Responsive Grid (1 \u2192 2 \u2192 3 \u2192 4 columns)",
+        "Masonry Grid (Auto-fit cards)",
+        "Grid with Column Span",
+        "Dashboard Grid",
+        "Form Grid",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **GRID + STACK: THE LAYOUT SYSTEM**",
+        "\ud83d\ude80 **NEXT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 7,
+      "table_rows": 18,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "modals.md": {
+      "language": "markdown",
+      "lines": 600,
+      "words": 217,
+      "heading_count": 10,
+      "headings": [
+        "\ud83d\udce6 **MODAL COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Modal.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Modal",
+        "Confirmation Modal",
+        "Form Modal",
+        "Large Modal with Custom Content",
+        "Full-Screen Modal",
+        "Modal with Custom Close Button Position",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 7,
+      "table_rows": 15,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "pagination.md": {
+      "language": "markdown",
+      "lines": 523,
+      "words": 219,
+      "heading_count": 11,
+      "headings": [
+        "\ud83d\udcc4 **PAGINATION COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Pagination.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Pagination",
+        "With First/Last Buttons",
+        "With Page Size Selector",
+        "Compact Pagination (Mobile)",
+        "Simple Pagination (Prev/Next Only)",
+        "Pagination with Info",
+        "Table with Pagination",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 8,
+      "table_rows": 16,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "scroll-areas.md": {
+      "language": "markdown",
+      "lines": 635,
+      "words": 409,
+      "heading_count": 15,
+      "headings": [
+        "\ud83d\udcdc **SCROLLAREA COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/ScrollArea.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Vertical Scroll Area",
+        "Horizontal Scroll Area (Image Gallery)",
+        "Card Style Scroll Area",
+        "Auto-Hide Scrollbar",
+        "With Shadow on Scroll",
+        "Scroll to Top Button",
+        "With Scroll Indicator",
+        "Chat Messages (Snap Scroll)",
+        "Dashboard Widget",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 10,
+      "table_rows": 27,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "sections.md": {
+      "language": "markdown",
+      "lines": 468,
+      "words": 350,
+      "heading_count": 16,
+      "headings": [
+        "\ud83d\udcd0 **SECTION COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Section.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Section",
+        "Section with Description",
+        "Hero Section (No Container, Full Width)",
+        "Glass Section with Border",
+        "Glow Section for Emphasis",
+        "Muted Section for Testimonials",
+        "Section with Separator",
+        "Section Group",
+        "Custom Spacing",
+        "No Container (Full Width Content)",
+        "\u2705 **SPACING REFERENCE TABLE**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 11,
+      "table_rows": 21,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "sidebars.md": {
+      "language": "markdown",
+      "lines": 625,
+      "words": 282,
+      "heading_count": 12,
+      "headings": [
+        "\ud83d\udcc1 **SIDEBAR COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Sidebar.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Sidebar",
+        "Sidebar with Nested Items",
+        "Sidebar with Groups",
+        "Glass Variant Sidebar",
+        "Right-aligned Sidebar",
+        "Using Sidebar Context (Custom Content)",
+        "With useSidebar Hook",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfdb\ufe0f **COMPLETE FEEDBACK & NAVIGATION COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 8,
+      "table_rows": 24,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "skeletons.md": {
+      "language": "markdown",
+      "lines": 593,
+      "words": 373,
+      "heading_count": 18,
+      "headings": [
+        "\u25fb\ufe0f **SKELETON COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Skeleton.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Text Skeleton",
+        "Multi-line Text Skeleton",
+        "Avatar Skeleton",
+        "Card Skeleton with Image",
+        "List Skeleton",
+        "Profile Skeleton",
+        "Dashboard Skeleton",
+        "Chat Loading Placeholder",
+        "Image Grid Loading",
+        "Wave Animation (Subtle)",
+        "No Animation (Static)",
+        "Custom Dimensions",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 13,
+      "table_rows": 21,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "spacers.md": {
+      "language": "markdown",
+      "lines": 503,
+      "words": 361,
+      "heading_count": 13,
+      "headings": [
+        "\ud83d\udccf **SPACER COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Spacer.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Vertical Spacing",
+        "Flex Layout with Grow Spacer",
+        "Form Field Spacing",
+        "Toolbar with Horizontal Spacing",
+        "Responsive Spacing",
+        "Specific Direction Spacing",
+        "SpacerGroup for Lists",
+        "Custom Pixel Spacing",
+        "\u2705 **SPACING REFERENCE TABLE**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 9,
+      "table_rows": 17,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "stacks.md": {
+      "language": "markdown",
+      "lines": 365,
+      "words": 266,
+      "heading_count": 9,
+      "headings": [
+        "\ud83e\uddf1 **STACK LAYOUT COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Stack.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Vertical Stack",
+        "Horizontal Stack with Dividers",
+        "Responsive Stack (Vertical on mobile, Horizontal on desktop)",
+        "Form Layout with Stretch",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**",
+        "\ud83d\ude80 **NEXT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 5,
+      "table_rows": 8,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "tabs.md": {
+      "language": "markdown",
+      "lines": 639,
+      "words": 371,
+      "heading_count": 16,
+      "headings": [
+        "\ud83d\udcd1 **TABS COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Tabs.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Basic Tabs",
+        "Pill Variant",
+        "Bordered Variant",
+        "Icon Tabs",
+        "Badge Tabs",
+        "Vertical Tabs",
+        "Animated Tabs",
+        "Full Width Tabs",
+        "Controlled Tabs",
+        "Disabled Tab",
+        "\u2705 **VARIANT REFERENCE TABLE**",
+        "\ud83c\udfaf **LAYOUT COMPONENTS COMPLETE**",
+        "\ud83d\ude80 **REMAINING LAYOUT COMPONENTS**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 11,
+      "table_rows": 25,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "toasts.md": {
+      "language": "markdown",
+      "lines": 420,
+      "words": 211,
+      "heading_count": 9,
+      "headings": [
+        "\ud83d\udd14 **TOAST COMPONENT: Overview**",
+        "\ud83d\udcc1 **`components/ui/Toast.tsx`**",
+        "\ud83d\udccb **USAGE EXAMPLES**",
+        "Wrap App with Provider",
+        "Using Toast in Components",
+        "Toast with Title and Action",
+        "Quantum Toast",
+        "Custom Duration",
+        "\u2705 **DESIGN TOKENS ALIGNMENT**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 6,
+      "table_rows": 13,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "tooltips.md": {
+      "language": "markdown",
+      "lines": 285,
+      "words": 922,
+      "heading_count": 19,
+      "headings": [
+        "\ud83d\udcac **TOOLTIP COMPONENT: Overview**",
+        "\ud83e\udded TOOLTIP COMPONENT SYSTEM \u2014 COMPLETE GUIDE",
+        "Architecture Overview",
+        "\ud83d\udcc1 File Manifest",
+        "\ud83c\udfa8 Variants Reference",
+        "\ud83d\udd27 Placement Options",
+        "\ud83d\udce6 Exports",
+        "\ud83d\udccb Usage Patterns",
+        "Basic Setup",
+        "Simple Tooltip",
+        "Variant Shortcut",
+        "Explicit Variant",
+        "Icon + Tooltip",
+        "Keyboard Shortcut",
+        "Tooltip Group (Action Bar)",
+        "Rich Content",
+        "Form Validation Indicator",
+        "\ud83d\udd17 Dependency Graph",
+        "\u2705 Component Build Checklist"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 11,
+      "table_rows": 50,
+      "checkboxes": {
+        "open": 15,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

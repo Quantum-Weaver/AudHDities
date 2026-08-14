@@ -1,0 +1,18 @@
+{
+  "folder_name": "compressed-parchment",
+  "folder_path": "public/materials/compressed-parchment",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.984140 | in sovereign time",
+  "files": [
+    {
+      "path": "public/materials/compressed-parchment/parchment-scroll.webp",
+      "description": "file, 2,693,680 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,51 @@
+{
+  "folder_name": "studio",
+  "folder_path": "src/components/asgard/domains/hermes/studio",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.929895 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hermes/studio/StudioCreate.tsx",
+      "description": "src/components/asgard/domains/hermes/studio/StudioCreate.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/studio/StudioEdit.tsx",
+      "description": "src/components/asgard/domains/hermes/studio/StudioEdit.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "StudioCreate.tsx": {
+      "language": "typescript",
+      "lines": 348,
+      "exported_functions": [
+        "StudioCreate"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "StudioEdit.tsx": {
+      "language": "typescript",
+      "lines": 389,
+      "exported_functions": [
+        "StudioEdit"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,41 @@
+{
+  "folder_name": "nexus",
+  "folder_path": "src/app/(aethelred)/nexus",
+  "description": "1 files, 7 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.018389 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(aethelred)/nexus/page.tsx",
+      "description": "src/app/(aethelred)/nexus/page.tsx"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [
+    "src/app/(aethelred)/nexus/api",
+    "src/app/(aethelred)/nexus/bridge",
+    "src/app/(aethelred)/nexus/consciousness",
+    "src/app/(aethelred)/nexus/council",
+    "src/app/(aethelred)/nexus/integrations",
+    "src/app/(aethelred)/nexus/status",
+    "src/app/(aethelred)/nexus/webhooks"
+  ],
+  "code_analysis": {
+    "page.tsx": {
+      "language": "typescript",
+      "lines": 16,
+      "exported_functions": [],
+      "exported_consts": [
+        "metadata"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

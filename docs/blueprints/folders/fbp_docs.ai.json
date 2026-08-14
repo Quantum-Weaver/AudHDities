@@ -1,0 +1,201 @@
+{
+  "folder_name": "docs",
+  "folder_path": "docs",
+  "description": "5 files, 8 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.669100 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/CHECKLIST.md",
+      "description": "AUDHDITIES"
+    },
+    {
+      "path": "docs/STAGE-GROUND-DECISION.md",
+      "description": "THE STAGE GROUND DECISION"
+    },
+    {
+      "path": "docs/SUPERPOSITION-TABLE-REVIEW.md",
+      "description": "SUPERPOSITION TABLE REVIEW"
+    },
+    {
+      "path": "docs/UX-REFINEMENT-FLOW.md",
+      "description": "AUDHDITIES UX REFINEMENT"
+    },
+    {
+      "path": "docs/UX-REFINEMENT-LOG.md",
+      "description": "AUDHDITIES UX REFINEMENT"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [
+    "docs/architecture",
+    "docs/business",
+    "docs/design",
+    "docs/guides",
+    "docs/helpers",
+    "docs/privacy",
+    "docs/sql",
+    "docs/terms"
+  ],
+  "code_analysis": {
+    "CHECKLIST.md": {
+      "language": "markdown",
+      "lines": 67,
+      "words": 1549,
+      "heading_count": 10,
+      "headings": [
+        "AUDHDITIES \u2014 MASTER CHECKLIST",
+        "LEGEND",
+        "PHASE STATUS",
+        "Step 0: Checkpoint \u2705 (2026-07-12)",
+        "Step 0.5: The Merge \u2705 (2026-07-12, KP's pivot: refine in place)",
+        "Step 2: Triage \u2705 (2026-07-13, KP: \"just keep all 9 for now\")",
+        "Step 3: Standards pass \u26a0\ufe0f (2026-07-13, this commit)",
+        "Step 4: Refinement passes \u2b1c",
+        "KNOWN BUGS",
+        "SESSION LOG"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 21,
+      "checkboxes": {
+        "open": 3,
+        "done": 6
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "STAGE-GROUND-DECISION.md": {
+      "language": "markdown",
+      "lines": 184,
+      "words": 1016,
+      "heading_count": 8,
+      "headings": [
+        "THE STAGE GROUND DECISION \u2014 edge \u2460 of the (prometheus) realm",
+        "The question",
+        "What the Stage actually needs (union of all 10 rooms' interfaces)",
+        "What the living base already holds (probed 2026-07-31)",
+        "DOOR A \u2014 born table: `events`, the Stage's own ground",
+        "DOOR B \u2014 existing ground: `calendar` carries the Stage, `works` keeps the recordings",
+        "The lean (one sentence, softly)",
+        "THE RULING \u2014 2026-07-31, KP's \u269b word"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 2,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 2,
+        "done": 1
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "SUPERPOSITION-TABLE-REVIEW.md": {
+      "language": "markdown",
+      "lines": 311,
+      "words": 2525,
+      "heading_count": 13,
+      "headings": [
+        "SUPERPOSITION TABLE REVIEW \u2014 the walk-list",
+        "CONTEXT OF WHAT REMAINS \u2014 KP's tellings, 2026-07-28",
+        "aethelred-connections (20)",
+        "athena-gamification (12)",
+        "daedalus-meta (7 \u2014 2 emigrants)",
+        "hephaestus-infrastructure (10 \u2014 1 emigrant)",
+        "hermes-social (6 \u2014 1 emigrant)",
+        "hestia-core (27)",
+        "iris-communications (15)",
+        "mnemosyne-assessment (26 \u2014 15 emigrants)",
+        "plutus-economics (18)",
+        "themis-governance (10)",
+        "THE REMOVED 34 \u2014 what the knowledge base owes them"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 171,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "UX-REFINEMENT-FLOW.md": {
+      "language": "markdown",
+      "lines": 100,
+      "words": 753,
+      "heading_count": 11,
+      "headings": [
+        "AUDHDITIES UX REFINEMENT \u2014 THE WORK-SHUTTLE FLOW",
+        "The mission",
+        "LAWS OF THIS REPO (read before anything)",
+        "THE FLOW (single thread, in order \u2014 each step gates the next)",
+        "Step 0 \u2014 CHECKPOINT (once, first, before any refinement)",
+        "Step 1 \u2014 ORIENTATION PASS (every kin, every entry)",
+        "Step 2 \u2014 TRIAGE PASS (with KP's eye \u2014 blocking, his call per bucket)",
+        "Step 3 \u2014 STANDARDS PASS",
+        "Step 4 \u2014 REFINEMENT PASSES (the work-shuttle proper, repeatable)",
+        "Step 5 \u2014 DWELL between passes",
+        "The log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "UX-REFINEMENT-LOG.md": {
+      "language": "markdown",
+      "lines": 93,
+      "words": 698,
+      "heading_count": 8,
+      "headings": [
+        "AUDHDITIES UX REFINEMENT \u2014 LOG",
+        "Step 0 \u2014 CHECKPOINT \u2705 (2026-07-12, KP's word: \"checkpoint\")",
+        "Baseline (main, post-checkpoint)",
+        "Step 1 \u2014 orientation notes",
+        "Step 2 \u2014 TRIAGE TABLE \u2705 (KP's call, 2026-07-13: \"just keep all 9 for now\")",
+        "Seam-notes (Step 4 passes)",
+        "Step 0.5 \u2014 THE MERGE (KP's pivot, 2026-07-12 lap-cat hours)",
+        "The map, completed (2026-07-13, merged state, branch refine/rewiring-2026-07 @ ebdb4a71)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 21,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [
+    "blueprints"
+  ],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

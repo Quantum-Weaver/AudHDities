@@ -1,0 +1,119 @@
+{
+  "folder_name": "distant-structures-elements",
+  "folder_path": "public/environments/extracted-foregrounds/distant-structures-elements",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.904188 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/marketplace-1b.png",
+      "description": "image, 380,561 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/marketplace-2b.png",
+      "description": "image, 556,661 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/marketplace-3b.png",
+      "description": "image, 530,603 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/marketplace-4b.png",
+      "description": "image, 340,214 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/pantheon-1b.png",
+      "description": "image, 1,042,399 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/pantheon-2b.png",
+      "description": "image, 664,080 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/pantheon-3b.png",
+      "description": "image, 1,457,948 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/distant-structures-elements/pantheon-4b.png",
+      "description": "image, 971,564 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "marketplace-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-1b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 380561,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-2b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 556661,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-3b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 530603,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-4b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 340214,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-1b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 1042399,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-2b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 664080,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-3b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 1457948,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-4b.png",
+      "location": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "bytes": 971564,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

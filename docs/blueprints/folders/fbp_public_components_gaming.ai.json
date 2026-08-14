@@ -1,0 +1,176 @@
+{
+  "folder_name": "gaming",
+  "folder_path": "public/components/gaming",
+  "description": "12 files, 4 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.816867 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/gaming/game-icons-a-1.png",
+      "description": "image, 147,824 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-10.png",
+      "description": "image, 398,690 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-11.png",
+      "description": "image, 289,132 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-12.png",
+      "description": "image, 211,188 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-2.png",
+      "description": "image, 169,715 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-3.png",
+      "description": "image, 169,927 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-4.png",
+      "description": "image, 227,195 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-5.png",
+      "description": "image, 252,759 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-6.png",
+      "description": "image, 330,611 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-7.png",
+      "description": "image, 384,811 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-8.png",
+      "description": "image, 212,088 bytes"
+    },
+    {
+      "path": "public/components/gaming/game-icons-a-9.png",
+      "description": "image, 346,461 bytes"
+    }
+  ],
+  "file_count": 12,
+  "subdirectories": [
+    "public/components/gaming/difficulty-icons",
+    "public/components/gaming/mastery-badges",
+    "public/components/gaming/rarity-frames",
+    "public/components/gaming/unlock-animations"
+  ],
+  "code_analysis": {
+    "game-icons-a-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-1.png",
+      "location": "public/components/gaming",
+      "bytes": 147824,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-10.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-10.png",
+      "location": "public/components/gaming",
+      "bytes": 398690,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-11.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-11.png",
+      "location": "public/components/gaming",
+      "bytes": 289132,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-12.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-12.png",
+      "location": "public/components/gaming",
+      "bytes": 211188,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-2.png",
+      "location": "public/components/gaming",
+      "bytes": 169715,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-3.png",
+      "location": "public/components/gaming",
+      "bytes": 169927,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-4.png",
+      "location": "public/components/gaming",
+      "bytes": 227195,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-5.png",
+      "location": "public/components/gaming",
+      "bytes": 252759,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-6.png",
+      "location": "public/components/gaming",
+      "bytes": 330611,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-7.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-7.png",
+      "location": "public/components/gaming",
+      "bytes": 384811,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-8.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-8.png",
+      "location": "public/components/gaming",
+      "bytes": 212088,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "game-icons-a-9.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "game-icons-a-9.png",
+      "location": "public/components/gaming",
+      "bytes": 346461,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

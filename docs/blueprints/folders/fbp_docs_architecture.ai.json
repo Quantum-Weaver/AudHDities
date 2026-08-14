@@ -1,0 +1,208 @@
+{
+  "folder_name": "architecture",
+  "folder_path": "docs/architecture",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.675059 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/architecture/auth-flow.md",
+      "description": "\ud83d\udd10 Authentication Flow Documentation"
+    },
+    {
+      "path": "docs/architecture/DATABASE-REBIRTH.md",
+      "description": "DATABASE REBIRTH"
+    },
+    {
+      "path": "docs/architecture/database-schema.md",
+      "description": "\ud83c\udfdb\ufe0f Database Schema Documentation"
+    },
+    {
+      "path": "docs/architecture/gdpr.md",
+      "description": "document, 3,418 bytes"
+    },
+    {
+      "path": "docs/architecture/residual-system.md",
+      "description": "\ud83d\udcb0 Residual Payment System Documentation"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "auth-flow.md": {
+      "language": "markdown",
+      "lines": 96,
+      "words": 287,
+      "heading_count": 10,
+      "headings": [
+        "\ud83d\udd10 Authentication Flow Documentation",
+        "Overview",
+        "Flow Diagram",
+        "Step-by-Step Process",
+        "1. User Signs Up",
+        "2. Supabase Creates User",
+        "3. User Receives Email",
+        "4. User is Logged In",
+        "Client-Side Auth",
+        "`src/lib/supabase/client.ts`"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "DATABASE-REBIRTH.md": {
+      "language": "markdown",
+      "lines": 139,
+      "words": 1136,
+      "heading_count": 6,
+      "headings": [
+        "DATABASE REBIRTH \u2014 decisions and insights",
+        "The verdict on refine-vs-rebuild (KP asked for insights)",
+        "Decisions (KP, 2026-07-12)",
+        "The local-first rebuild path (KP, 2026-07-13 \u2014 his proposal, feasibility confirmed)",
+        "Shape of the reborn database (PROPOSED, for the fresh sitting)",
+        "Open questions (KP's call, no urgency)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "database-schema.md": {
+      "language": "markdown",
+      "lines": 232,
+      "words": 584,
+      "heading_count": 30,
+      "headings": [
+        "\ud83c\udfdb\ufe0f Database Schema Documentation",
+        "Overview",
+        "Core Tables",
+        "\ud83d\udc64 `profiles`",
+        "\ud83d\udce6 `products`",
+        "\ud83d\udcb0 `sales`",
+        "\ud83d\udcca `residual_payouts`",
+        "Row Level Security (RLS)",
+        "Profiles Table",
+        "Products Table",
+        "Sales Table",
+        "Triggers & Functions",
+        "`handle_new_user()`",
+        "`calculate_sale_splits()`",
+        "TypeScript Integration",
+        "\ud83c\udfdb\ufe0f Database Schema Documentation",
+        "Overview",
+        "Core Tables",
+        "\ud83d\udc64 `profiles`",
+        "\ud83d\udce6 `products`",
+        "\ud83d\udcb0 `sales`",
+        "\ud83d\udcca `residual_payouts`",
+        "Row Level Security (RLS)",
+        "Profiles Table"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 86,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "gdpr.md": {
+      "language": "markdown",
+      "lines": 51,
+      "words": 485,
+      "heading_count": 4,
+      "headings": [
+        "Audit: Extraction Architecture vs. Sovereign Inversion",
+        "\u2705 Systems That Exist",
+        "\u274c Systems Missing",
+        "What We Should Build Next"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 23,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "residual-system.md": {
+      "language": "markdown",
+      "lines": 326,
+      "words": 404,
+      "heading_count": 31,
+      "headings": [
+        "\ud83d\udcc1 **UPDATED: Residual Payment System Documentation**",
+        "\ud83d\udcb0 Residual Payment System Documentation",
+        "Overview",
+        "The Philosophy",
+        "The Two Pools",
+        "How Splits Work",
+        "Example: $100 Sale with Both Pools",
+        "Example: $100 Sale with Contributors + Covenant",
+        "The Two Pools Explained",
+        "1. Residual Pool (Product-Level, Optional)",
+        "2. Covenant Pool (Profile-Level, Voluntary)",
+        "Database Tables",
+        "`profiles.residual_pledge_percent`",
+        "`products.residual_pool_percent`",
+        "`contributions`",
+        "`residual_payouts`",
+        "The Trigger: How It Happens Automatically",
+        "Example Flows",
+        "Scenario 1: No Contributors, No Covenant",
+        "Scenario 2: With Contributors, No Covenant",
+        "Scenario 3: With Contributors and Covenant",
+        "Visual Flowchart",
+        "Database Tables",
+        "`profiles.residual_pledge_percent`"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 6,
+      "table_rows": 38,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

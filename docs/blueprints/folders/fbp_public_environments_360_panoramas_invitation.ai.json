@@ -1,0 +1,83 @@
+{
+  "folder_name": "invitation",
+  "folder_path": "public/environments/360-panoramas/invitation",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.873147 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-1.png",
+      "description": "image, 12,039,561 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-1.webp",
+      "description": "file, 4,321,118 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-2.png",
+      "description": "image, 12,522,226 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-2.webp",
+      "description": "file, 4,519,760 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-3.png",
+      "description": "image, 11,867,529 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-3.webp",
+      "description": "file, 4,445,052 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-4.png",
+      "description": "image, 12,382,011 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/invitation/invitaion-background-4.webp",
+      "description": "file, 4,519,280 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "invitaion-background-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-1.png",
+      "location": "public/environments/360-panoramas/invitation",
+      "bytes": 12039561,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-2.png",
+      "location": "public/environments/360-panoramas/invitation",
+      "bytes": 12522226,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-3.png",
+      "location": "public/environments/360-panoramas/invitation",
+      "bytes": 11867529,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-4.png",
+      "location": "public/environments/360-panoramas/invitation",
+      "bytes": 12382011,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

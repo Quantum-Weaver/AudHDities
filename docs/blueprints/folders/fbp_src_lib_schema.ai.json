@@ -1,0 +1,56 @@
+{
+  "folder_name": "schema",
+  "folder_path": "src/lib/schema",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.425393 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/schema/parseDatabaseTypes.ts",
+      "description": "src/lib/schema/parseDatabaseTypes.ts"
+    },
+    {
+      "path": "src/lib/schema/schema-data.json",
+      "description": "data, 220,515 bytes"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "parseDatabaseTypes.ts": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [
+        "parseDatabaseTypes"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "SchemaColumn",
+        "SchemaRelationship",
+        "SchemaTable",
+        "SchemaEnum",
+        "SchemaFunction"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "schema-data.json": {
+      "language": "json",
+      "lines": 10281,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "enums",
+        "functions",
+        "generatedAt",
+        "tables"
+      ],
+      "key_count": 4
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

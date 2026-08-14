@@ -1,0 +1,106 @@
+{
+  "project_name": "AudHDities",
+  "project_path": "C:\\_superposition\\AudHDities",
+  "description": "Where neurodivergent minds build digital sovereignty together",
+  "generated": "2026-08-04T13:36:18.420112 | in sovereign time",
+  "tier_ladder": "file -> folder (fbp) -> object (obp) -> domain (dbp) -> project (pbp)",
+  "law": "Each tier links to where the details live. Nothing above the folder tier duplicates a body.",
+  "domains": [
+    {
+      "blueprint": "docs/blueprints/dbp_docs.ai.json",
+      "domain_path": "docs",
+      "description": "0 files, 0 subfolders",
+      "object_count": 8,
+      "total_folders": 11,
+      "total_files": 97
+    },
+    {
+      "blueprint": "docs/blueprints/dbp_public.ai.json",
+      "domain_path": "public",
+      "description": "0 files, 0 subfolders",
+      "object_count": 8,
+      "total_folders": 80,
+      "total_files": 774
+    },
+    {
+      "blueprint": "docs/blueprints/dbp_src.ai.json",
+      "domain_path": "src",
+      "description": "0 files, 0 subfolders",
+      "object_count": 10,
+      "total_folders": 709,
+      "total_files": 1665
+    }
+  ],
+  "domain_count": 3,
+  "objects_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/obp_github.ai.json",
+      "object_path": ".github",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 2,
+      "total_files": 7
+    },
+    {
+      "blueprint": "docs/blueprints/obp_supabase.ai.json",
+      "object_path": "supabase",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 3,
+      "total_files": 4
+    }
+  ],
+  "folders_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_root.ai.json",
+      "folder_path": ".",
+      "description": "Where neurodivergent minds build digital sovereignty together",
+      "file_count": 29,
+      "subdirectory_count": 5
+    }
+  ],
+  "analysis": [
+    {
+      "blueprint": "analysis_sovereignty.ai.json",
+      "description": "the sovereignty law \u2014 HELD"
+    },
+    {
+      "blueprint": "reconciliation.ai.json",
+      "description": "declared versus present \u2014 0 findings"
+    }
+  ],
+  "totals": {
+    "folders_blueprinted": 806,
+    "files_described": 2576
+  },
+  "not_walked": {
+    "reason": "package-class trees, this repo's own gitignored trees, reparse points, and this tool's own output",
+    "package_dirs": [
+      ".cache",
+      ".dart_tool",
+      ".git",
+      ".gradle",
+      ".mypy_cache",
+      ".next",
+      ".nuxt",
+      ".pytest_cache",
+      ".svelte-kit",
+      ".turbo",
+      ".venv",
+      "Pods",
+      "__pycache__",
+      "build",
+      "dist",
+      "env",
+      "gen",
+      "mimirs-well",
+      "node_modules",
+      "out",
+      "target",
+      "venv"
+    ],
+    "gitignored_trees": {},
+    "reparse_points_not_followed": [],
+    "reparse_note": "Junctions and symlinks are named, never entered. Following one would pull an external ground into this repo's count, or loop on a self-junction.",
+    "own_output": "C:\\_superposition\\AudHDities\\docs\\blueprints"
+  },
+  "maintaining_agent": "ProjectAgent"
+}

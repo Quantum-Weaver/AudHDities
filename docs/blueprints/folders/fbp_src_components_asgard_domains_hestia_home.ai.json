@@ -1,0 +1,31 @@
+{
+  "folder_name": "home",
+  "folder_path": "src/components/asgard/domains/hestia/home",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.944095 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hestia/home/AuthenticatedGreeting.tsx",
+      "description": "src/components/asgard/domains/hestia/home/AuthenticatedGreeting.tsx"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "AuthenticatedGreeting.tsx": {
+      "language": "typescript",
+      "lines": 101,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

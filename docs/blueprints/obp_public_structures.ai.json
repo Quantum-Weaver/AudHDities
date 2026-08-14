@@ -1,0 +1,47 @@
+{
+  "object_name": "public_structures",
+  "object_path": "public/structures",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.170725 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_structures.ai.json",
+      "folder_path": "public/structures",
+      "description": "0 files, 4 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 4
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_structures_buildings.ai.json",
+      "folder_path": "public/structures/buildings",
+      "description": "7 files, 0 subfolders",
+      "file_count": 7,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_structures_floating_islands.ai.json",
+      "folder_path": "public/structures/floating-islands",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_structures_planets.ai.json",
+      "folder_path": "public/structures/planets",
+      "description": "10 files, 0 subfolders",
+      "file_count": 10,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_structures_portalls.ai.json",
+      "folder_path": "public/structures/portalls",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 5,
+  "total_files": 23,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

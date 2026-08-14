@@ -1,0 +1,83 @@
+{
+  "folder_name": "support",
+  "folder_path": "public/environments/360-panoramas/support",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.887926 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/360-panoramas/support/support-background-1.png",
+      "description": "image, 10,613,101 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-1.webp",
+      "description": "file, 4,405,356 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-2.png",
+      "description": "image, 10,660,376 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-2.webp",
+      "description": "file, 4,403,058 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-3.png",
+      "description": "image, 11,075,970 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-3.webp",
+      "description": "file, 4,454,106 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-4.png",
+      "description": "image, 10,258,666 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/support/support-background-4.webp",
+      "description": "file, 4,299,718 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "support-background-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-background-1.png",
+      "location": "public/environments/360-panoramas/support",
+      "bytes": 10613101,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "support-background-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-background-2.png",
+      "location": "public/environments/360-panoramas/support",
+      "bytes": 10660376,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "support-background-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-background-3.png",
+      "location": "public/environments/360-panoramas/support",
+      "bytes": 11075970,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "support-background-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "support-background-4.png",
+      "location": "public/environments/360-panoramas/support",
+      "bytes": 10258666,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

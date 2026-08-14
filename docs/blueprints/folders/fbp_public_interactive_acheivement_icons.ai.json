@@ -1,0 +1,67 @@
+{
+  "folder_name": "acheivement-icons",
+  "folder_path": "public/interactive/acheivement-icons",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.955109 | in sovereign time",
+  "files": [
+    {
+      "path": "public/interactive/acheivement-icons/archivist.png",
+      "description": "image, 1,251,169 bytes"
+    },
+    {
+      "path": "public/interactive/acheivement-icons/first-discovery.png",
+      "description": "image, 1,362,439 bytes"
+    },
+    {
+      "path": "public/interactive/acheivement-icons/master-archivist.png",
+      "description": "image, 0 bytes"
+    },
+    {
+      "path": "public/interactive/acheivement-icons/quantum-scholar.png",
+      "description": "image, 1,334,953 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "archivist.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "archivist.png",
+      "location": "public/interactive/acheivement-icons",
+      "bytes": 1251169,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "first-discovery.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "first-discovery.png",
+      "location": "public/interactive/acheivement-icons",
+      "bytes": 1362439,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "master-archivist.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "master-archivist.png",
+      "location": "public/interactive/acheivement-icons",
+      "bytes": 0,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "quantum-scholar.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "quantum-scholar.png",
+      "location": "public/interactive/acheivement-icons",
+      "bytes": 1334953,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

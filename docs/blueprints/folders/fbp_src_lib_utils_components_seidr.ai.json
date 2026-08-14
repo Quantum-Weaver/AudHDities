@@ -1,0 +1,149 @@
+{
+  "folder_name": "seidr",
+  "folder_path": "src/lib/utils/components/seidr",
+  "description": "6 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.471959 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/components/seidr/alert.utils.ts",
+      "description": "src/utils/components/seidr/alert.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/seidr/dialog.utils.ts",
+      "description": "src/utils/components/seidr/dialog.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/seidr/drawer.utils.ts",
+      "description": "src/utils/components/seidr/drawer.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/seidr/modal.utils.ts",
+      "description": "src/utils/components/seidr/modal.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/seidr/toast.utils.ts",
+      "description": "src/utils/components/seidr/toast.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/seidr/tooltip.utils.ts",
+      "description": "src/utils/components/seidr/tooltip.utils.ts"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [],
+  "code_analysis": {
+    "alert.utils.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [
+        "composeAlertContainerClasses",
+        "getAlertIconColorClass",
+        "composeAlertTitleClasses",
+        "composeAlertBodyClasses",
+        "getAlertFlexGap"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "dialog.utils.ts": {
+      "language": "typescript",
+      "lines": 81,
+      "exported_functions": [
+        "getDialogOverlayAnimationClasses",
+        "getDialogContentAnimationClasses",
+        "composeDialogOverlayClasses",
+        "composeDialogContentClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "drawer.utils.ts": {
+      "language": "typescript",
+      "lines": 107,
+      "exported_functions": [
+        "getDrawerSizeClass",
+        "getDrawerAnimationClass",
+        "getDrawerPositionClass",
+        "getDrawerBorderClass",
+        "lockBodyScroll",
+        "composeDrawerPanelClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "modal.utils.ts": {
+      "language": "typescript",
+      "lines": 132,
+      "exported_functions": [
+        "useFocusTrap",
+        "useEscapeKey",
+        "useScrollLock",
+        "useMounted",
+        "useModalState"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "toast.utils.ts": {
+      "language": "typescript",
+      "lines": 94,
+      "exported_functions": [
+        "composeToastItemClasses",
+        "composeToastIconClasses",
+        "composeToasterContainerClasses",
+        "resolveToastDuration",
+        "generateToastId"
+      ],
+      "exported_consts": [
+        "TOAST_ICONS"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "tooltip.utils.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "getTooltipAnimationClasses",
+        "getTooltipArrowPosition",
+        "resolveTooltipMaxWidth",
+        "composeTooltipContentClasses",
+        "composeTooltipArrowClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

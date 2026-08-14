@@ -1,0 +1,23 @@
+{
+  "folder_name": "components",
+  "folder_path": "src/types/components",
+  "description": "0 files, 9 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.740454 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/types/components/asgard",
+    "src/types/components/bifrost",
+    "src/types/components/forging",
+    "src/types/components/hof",
+    "src/types/components/immersive",
+    "src/types/components/runes",
+    "src/types/components/seidr",
+    "src/types/components/vegvisir",
+    "src/types/components/yggdrasil"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

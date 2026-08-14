@@ -1,0 +1,23 @@
+{
+  "folder_name": "iris",
+  "folder_path": "src/components/asgard/domains/iris",
+  "description": "0 files, 9 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.964511 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/components/asgard/domains/iris/channels",
+    "src/components/asgard/domains/iris/community",
+    "src/components/asgard/domains/iris/connect",
+    "src/components/asgard/domains/iris/emeralds",
+    "src/components/asgard/domains/iris/feed",
+    "src/components/asgard/domains/iris/invitations",
+    "src/components/asgard/domains/iris/messages",
+    "src/components/asgard/domains/iris/support",
+    "src/components/asgard/domains/iris/translations"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

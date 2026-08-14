@@ -1,0 +1,67 @@
+{
+  "folder_name": "rarity-frames",
+  "folder_path": "public/components/gaming/rarity-frames",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.823456 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/gaming/rarity-frames/common-frame.png",
+      "description": "image, 363,537 bytes"
+    },
+    {
+      "path": "public/components/gaming/rarity-frames/epic-frame.png",
+      "description": "image, 567,698 bytes"
+    },
+    {
+      "path": "public/components/gaming/rarity-frames/legendary-frame.png",
+      "description": "image, 588,668 bytes"
+    },
+    {
+      "path": "public/components/gaming/rarity-frames/rare-frame.png",
+      "description": "image, 404,542 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "common-frame.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "common-frame.png",
+      "location": "public/components/gaming/rarity-frames",
+      "bytes": 363537,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "epic-frame.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "epic-frame.png",
+      "location": "public/components/gaming/rarity-frames",
+      "bytes": 567698,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "legendary-frame.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "legendary-frame.png",
+      "location": "public/components/gaming/rarity-frames",
+      "bytes": 588668,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "rare-frame.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "rare-frame.png",
+      "location": "public/components/gaming/rarity-frames",
+      "bytes": 404542,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

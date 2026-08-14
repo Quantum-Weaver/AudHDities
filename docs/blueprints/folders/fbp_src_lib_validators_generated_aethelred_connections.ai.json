@@ -1,0 +1,375 @@
+{
+  "folder_name": "aethelred-connections",
+  "folder_path": "src/lib/validators/generated/aethelred-connections",
+  "description": "15 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.567328 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/aethelred_house.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/agent_activities.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/agent_conversations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/agent_messages.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/archivist.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/chancellor.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/codex.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/consciousness.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/curator.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/entity_states.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/executioner.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/hearth_keeper.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/life_cycles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/seer.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/aethelred-connections/skald.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 15,
+  "subdirectories": [],
+  "code_analysis": {
+    "aethelred_house.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "AethelredHouseRowSchema",
+        "AethelredHouseInsertSchema",
+        "AethelredHouseUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "AethelredHouseRowInput",
+        "AethelredHouseInsertInput",
+        "AethelredHouseUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_activities.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "AgentActivitiesRowSchema",
+        "AgentActivitiesInsertSchema",
+        "AgentActivitiesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "AgentActivitiesRowInput",
+        "AgentActivitiesInsertInput",
+        "AgentActivitiesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_conversations.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "AgentConversationsRowSchema",
+        "AgentConversationsInsertSchema",
+        "AgentConversationsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "AgentConversationsRowInput",
+        "AgentConversationsInsertInput",
+        "AgentConversationsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "agent_messages.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "AgentMessagesRowSchema",
+        "AgentMessagesInsertSchema",
+        "AgentMessagesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "AgentMessagesRowInput",
+        "AgentMessagesInsertInput",
+        "AgentMessagesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "archivist.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "ArchivistRowSchema",
+        "ArchivistInsertSchema",
+        "ArchivistUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ArchivistRowInput",
+        "ArchivistInsertInput",
+        "ArchivistUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "chancellor.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "ChancellorRowSchema",
+        "ChancellorInsertSchema",
+        "ChancellorUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ChancellorRowInput",
+        "ChancellorInsertInput",
+        "ChancellorUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "codex.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "CodexRowSchema",
+        "CodexInsertSchema",
+        "CodexUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "CodexRowInput",
+        "CodexInsertInput",
+        "CodexUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "consciousness.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "ConsciousnessRowSchema",
+        "ConsciousnessInsertSchema",
+        "ConsciousnessUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ConsciousnessRowInput",
+        "ConsciousnessInsertInput",
+        "ConsciousnessUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "curator.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "CuratorRowSchema",
+        "CuratorInsertSchema",
+        "CuratorUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "CuratorRowInput",
+        "CuratorInsertInput",
+        "CuratorUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "entity_states.ts": {
+      "language": "typescript",
+      "lines": 58,
+      "exported_functions": [],
+      "exported_consts": [
+        "EntityStatesRowSchema",
+        "EntityStatesInsertSchema",
+        "EntityStatesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "EntityStatesRowInput",
+        "EntityStatesInsertInput",
+        "EntityStatesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "executioner.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "ExecutionerRowSchema",
+        "ExecutionerInsertSchema",
+        "ExecutionerUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ExecutionerRowInput",
+        "ExecutionerInsertInput",
+        "ExecutionerUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "hearth_keeper.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "HearthKeeperRowSchema",
+        "HearthKeeperInsertSchema",
+        "HearthKeeperUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "HearthKeeperRowInput",
+        "HearthKeeperInsertInput",
+        "HearthKeeperUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "life_cycles.ts": {
+      "language": "typescript",
+      "lines": 65,
+      "exported_functions": [],
+      "exported_consts": [
+        "LifeCyclesRowSchema",
+        "LifeCyclesInsertSchema",
+        "LifeCyclesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "LifeCyclesRowInput",
+        "LifeCyclesInsertInput",
+        "LifeCyclesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "seer.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "SeerRowSchema",
+        "SeerInsertSchema",
+        "SeerUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "SeerRowInput",
+        "SeerInsertInput",
+        "SeerUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "skald.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "SkaldRowSchema",
+        "SkaldInsertSchema",
+        "SkaldUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "SkaldRowInput",
+        "SkaldInsertInput",
+        "SkaldUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,69 @@
+{
+  "folder_name": "journal",
+  "folder_path": "src/components/asgard/domains/hestia/journal",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.947888 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hestia/journal/JournalDetail.tsx",
+      "description": "src/components/asgard/domains/hestia/journal/JournalDetail.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/journal/JournalEdit.tsx",
+      "description": "src/components/asgard/domains/hestia/journal/JournalEdit.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/journal/JournalList.tsx",
+      "description": "src/components/asgard/domains/hestia/journal/JournalList.tsx"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "JournalDetail.tsx": {
+      "language": "typescript",
+      "lines": 228,
+      "exported_functions": [
+        "JournalDetail"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "JournalEdit.tsx": {
+      "language": "typescript",
+      "lines": 221,
+      "exported_functions": [
+        "JournalEdit"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "JournalList.tsx": {
+      "language": "typescript",
+      "lines": 297,
+      "exported_functions": [
+        "JournalList"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

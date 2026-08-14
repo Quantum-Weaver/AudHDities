@@ -1,0 +1,111 @@
+{
+  "folder_name": "hermes-social",
+  "folder_path": "src/lib/validators/generated/hermes-social",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.591463 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/validators/generated/hermes-social/artisan_profiles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/hermes-social/merchant_profiles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/hermes-social/work_participants.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/hermes-social/works.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "artisan_profiles.ts": {
+      "language": "typescript",
+      "lines": 101,
+      "exported_functions": [],
+      "exported_consts": [
+        "ArtisanProfilesRowSchema",
+        "ArtisanProfilesInsertSchema",
+        "ArtisanProfilesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ArtisanProfilesRowInput",
+        "ArtisanProfilesInsertInput",
+        "ArtisanProfilesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "merchant_profiles.ts": {
+      "language": "typescript",
+      "lines": 113,
+      "exported_functions": [],
+      "exported_consts": [
+        "MerchantProfilesRowSchema",
+        "MerchantProfilesInsertSchema",
+        "MerchantProfilesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "MerchantProfilesRowInput",
+        "MerchantProfilesInsertInput",
+        "MerchantProfilesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "work_participants.ts": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [],
+      "exported_consts": [
+        "WorkParticipantsRowSchema",
+        "WorkParticipantsInsertSchema",
+        "WorkParticipantsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "WorkParticipantsRowInput",
+        "WorkParticipantsInsertInput",
+        "WorkParticipantsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "works.ts": {
+      "language": "typescript",
+      "lines": 86,
+      "exported_functions": [],
+      "exported_consts": [
+        "WorksRowSchema",
+        "WorksInsertSchema",
+        "WorksUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "WorksRowInput",
+        "WorksInsertInput",
+        "WorksUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

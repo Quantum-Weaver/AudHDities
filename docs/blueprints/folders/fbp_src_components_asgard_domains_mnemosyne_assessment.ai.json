@@ -1,0 +1,56 @@
+{
+  "folder_name": "assessment",
+  "folder_path": "src/components/asgard/domains/mnemosyne/assessment",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.987436 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/mnemosyne/assessment/AcidTestForm.tsx",
+      "description": "src/components/asgard/domains/mnemosyne/assessment/AcidTestForm.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/assessment/AcidTestLoader.tsx",
+      "description": "src/components/asgard/domains/mnemosyne/assessment/AcidTestLoader.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "AcidTestForm.tsx": {
+      "language": "typescript",
+      "lines": 479,
+      "exported_functions": [
+        "AcidTestForm"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "AssessmentOption",
+        "AssessmentQuestion",
+        "AcidTestResult",
+        "AcidTestFormProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "AcidTestLoader.tsx": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [
+        "AcidTestLoader"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

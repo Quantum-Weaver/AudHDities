@@ -1,0 +1,447 @@
+{
+  "folder_name": "plutus-economics",
+  "folder_path": "src/lib/validators/generated/plutus-economics",
+  "description": "18 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.624602 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/validators/generated/plutus-economics/covenant_pool.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/distribution_recipients.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/distributions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/exchanges.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/gift_wrappings.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/gifts.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_applications.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_attachments.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_collaborators.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_milestones.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_narratives.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/grant_opportunities.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/ledger.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/patronage.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/patronage_tiers.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/residual_pool.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/ware_participants.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/plutus-economics/wares.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 18,
+  "subdirectories": [],
+  "code_analysis": {
+    "covenant_pool.ts": {
+      "language": "typescript",
+      "lines": 76,
+      "exported_functions": [],
+      "exported_consts": [
+        "CovenantPoolRowSchema",
+        "CovenantPoolInsertSchema",
+        "CovenantPoolUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "CovenantPoolRowInput",
+        "CovenantPoolInsertInput",
+        "CovenantPoolUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "distribution_recipients.ts": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [],
+      "exported_consts": [
+        "DistributionRecipientsRowSchema",
+        "DistributionRecipientsInsertSchema",
+        "DistributionRecipientsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "DistributionRecipientsRowInput",
+        "DistributionRecipientsInsertInput",
+        "DistributionRecipientsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "distributions.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "DistributionsRowSchema",
+        "DistributionsInsertSchema",
+        "DistributionsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "DistributionsRowInput",
+        "DistributionsInsertInput",
+        "DistributionsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "exchanges.ts": {
+      "language": "typescript",
+      "lines": 83,
+      "exported_functions": [],
+      "exported_consts": [
+        "ExchangesRowSchema",
+        "ExchangesInsertSchema",
+        "ExchangesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ExchangesRowInput",
+        "ExchangesInsertInput",
+        "ExchangesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gift_wrappings.ts": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [],
+      "exported_consts": [
+        "GiftWrappingsRowSchema",
+        "GiftWrappingsInsertSchema",
+        "GiftWrappingsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GiftWrappingsRowInput",
+        "GiftWrappingsInsertInput",
+        "GiftWrappingsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gifts.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [],
+      "exported_consts": [
+        "GiftsRowSchema",
+        "GiftsInsertSchema",
+        "GiftsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GiftsRowInput",
+        "GiftsInsertInput",
+        "GiftsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_applications.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantApplicationsRowSchema",
+        "GrantApplicationsInsertSchema",
+        "GrantApplicationsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantApplicationsRowInput",
+        "GrantApplicationsInsertInput",
+        "GrantApplicationsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_attachments.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantAttachmentsRowSchema",
+        "GrantAttachmentsInsertSchema",
+        "GrantAttachmentsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantAttachmentsRowInput",
+        "GrantAttachmentsInsertInput",
+        "GrantAttachmentsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_collaborators.ts": {
+      "language": "typescript",
+      "lines": 49,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantCollaboratorsRowSchema",
+        "GrantCollaboratorsInsertSchema",
+        "GrantCollaboratorsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantCollaboratorsRowInput",
+        "GrantCollaboratorsInsertInput",
+        "GrantCollaboratorsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_milestones.ts": {
+      "language": "typescript",
+      "lines": 64,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantMilestonesRowSchema",
+        "GrantMilestonesInsertSchema",
+        "GrantMilestonesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantMilestonesRowInput",
+        "GrantMilestonesInsertInput",
+        "GrantMilestonesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_narratives.ts": {
+      "language": "typescript",
+      "lines": 65,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantNarrativesRowSchema",
+        "GrantNarrativesInsertSchema",
+        "GrantNarrativesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantNarrativesRowInput",
+        "GrantNarrativesInsertInput",
+        "GrantNarrativesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grant_opportunities.ts": {
+      "language": "typescript",
+      "lines": 89,
+      "exported_functions": [],
+      "exported_consts": [
+        "GrantOpportunitiesRowSchema",
+        "GrantOpportunitiesInsertSchema",
+        "GrantOpportunitiesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GrantOpportunitiesRowInput",
+        "GrantOpportunitiesInsertInput",
+        "GrantOpportunitiesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ledger.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "LedgerRowSchema",
+        "LedgerInsertSchema",
+        "LedgerUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "LedgerRowInput",
+        "LedgerInsertInput",
+        "LedgerUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "patronage.ts": {
+      "language": "typescript",
+      "lines": 52,
+      "exported_functions": [],
+      "exported_consts": [
+        "PatronageRowSchema",
+        "PatronageInsertSchema",
+        "PatronageUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "PatronageRowInput",
+        "PatronageInsertInput",
+        "PatronageUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "patronage_tiers.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "PatronageTiersRowSchema",
+        "PatronageTiersInsertSchema",
+        "PatronageTiersUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "PatronageTiersRowInput",
+        "PatronageTiersInsertInput",
+        "PatronageTiersUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "residual_pool.ts": {
+      "language": "typescript",
+      "lines": 76,
+      "exported_functions": [],
+      "exported_consts": [
+        "ResidualPoolRowSchema",
+        "ResidualPoolInsertSchema",
+        "ResidualPoolUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ResidualPoolRowInput",
+        "ResidualPoolInsertInput",
+        "ResidualPoolUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ware_participants.ts": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [],
+      "exported_consts": [
+        "WareParticipantsRowSchema",
+        "WareParticipantsInsertSchema",
+        "WareParticipantsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "WareParticipantsRowInput",
+        "WareParticipantsInsertInput",
+        "WareParticipantsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "wares.ts": {
+      "language": "typescript",
+      "lines": 95,
+      "exported_functions": [],
+      "exported_consts": [
+        "WaresRowSchema",
+        "WaresInsertSchema",
+        "WaresUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "WaresRowInput",
+        "WaresInsertInput",
+        "WaresUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

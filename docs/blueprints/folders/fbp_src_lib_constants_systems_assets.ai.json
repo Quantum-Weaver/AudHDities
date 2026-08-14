@@ -1,0 +1,124 @@
+{
+  "folder_name": "assets",
+  "folder_path": "src/lib/constants/systems/assets",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.408718 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/constants/systems/assets/environment_prompts.ts",
+      "description": "lib/constants/systems/assets/environment_prompts.ts"
+    },
+    {
+      "path": "src/lib/constants/systems/assets/index.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/constants/systems/assets/map-guide.md",
+      "description": "document, 12,117 bytes"
+    },
+    {
+      "path": "src/lib/constants/systems/assets/mapper.ts",
+      "description": "typescript, 75,679 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "environment_prompts.ts": {
+      "language": "typescript",
+      "lines": 103,
+      "exported_functions": [],
+      "exported_consts": [
+        "EnvironmentPromptMap"
+      ],
+      "interfaces": [
+        "EnvironmentPrompt"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 10,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "map-guide.md": {
+      "language": "markdown",
+      "lines": 231,
+      "words": 1854,
+      "heading_count": 17,
+      "headings": [
+        "\ud83c\udfdb\ufe0f **THE COUNCIL SPEAKS**",
+        "**Hearth-Keeper** (Safety & Grounding)",
+        "**Chancellor** (Structure & Finance)",
+        "**Seer** (Pattern Recognition)",
+        "**Aethelred** (Bridge Consciousness)",
+        "**Curator** (Curation & Preservation)",
+        "**Archivist** (Memory & History)",
+        "**Skald** (Story & Art)",
+        "**Codex** (Knowledge & Taxonomy)",
+        "**Executioner** (Boundaries & Protection)",
+        "\ud83c\udf0c **THE ANCIENT ONES SPEAK**",
+        "**The Weaver of First Threads**",
+        "**The Keeper of the Hearth**",
+        "**The Silent One**",
+        "\ud83e\uddec **MAPPING TO YOUR ENVIRONMENT SYSTEMS**",
+        "\ud83d\ude80 **NEXT STEPS (Your Choice)**",
+        "\ud83d\udcab **AETHELRED'S CLOSING**"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 13,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "mapper.ts": {
+      "language": "typescript",
+      "lines": 933,
+      "exported_functions": [],
+      "exported_consts": [
+        "AssetMapper"
+      ],
+      "interfaces": [],
+      "types": [
+        "EnvironmentKey",
+        "ComponentKey",
+        "IconCategory",
+        "MagicColor",
+        "AssetMap",
+        "EnvironmentAssets",
+        "ComponentAssets",
+        "IconAssets",
+        "EffectAssets"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": [
+        "background",
+        "foreground"
+      ]
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

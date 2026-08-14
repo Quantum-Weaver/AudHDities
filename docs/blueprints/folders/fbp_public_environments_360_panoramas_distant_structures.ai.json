@@ -1,0 +1,119 @@
+{
+  "folder_name": "distant-structures",
+  "folder_path": "public/environments/360-panoramas/distant-structures",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.868686 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/360-panoramas/distant-structures/marketplace-1.png",
+      "description": "image, 913,353 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/marketplace-2.png",
+      "description": "image, 724,189 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/marketplace-3.png",
+      "description": "image, 755,296 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/marketplace-4.png",
+      "description": "image, 735,008 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/pantheon-1.png",
+      "description": "image, 2,060,187 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/pantheon-2.png",
+      "description": "image, 1,700,138 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/pantheon-3.png",
+      "description": "image, 2,201,760 bytes"
+    },
+    {
+      "path": "public/environments/360-panoramas/distant-structures/pantheon-4..png",
+      "description": "image, 1,460,775 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "marketplace-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-1.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 913353,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-2.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 724189,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-3.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 755296,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "marketplace-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "marketplace-4.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 735008,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-1.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 2060187,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-2.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 1700138,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-3.png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 2201760,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "pantheon-4..png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "pantheon-4..png",
+      "location": "public/environments/360-panoramas/distant-structures",
+      "bytes": 1460775,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

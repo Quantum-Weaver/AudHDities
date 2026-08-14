@@ -1,0 +1,54 @@
+{
+  "object_name": "public_animated",
+  "object_path": "public/animated",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.047766 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated.ai.json",
+      "folder_path": "public/animated",
+      "description": "0 files, 5 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 5
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated_candle_flame.ai.json",
+      "folder_path": "public/animated/candle-flame",
+      "description": "5 files, 0 subfolders",
+      "file_count": 5,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated_effects.ai.json",
+      "folder_path": "public/animated/effects",
+      "description": "84 files, 0 subfolders",
+      "file_count": 84,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated_item_glow.ai.json",
+      "folder_path": "public/animated/item-glow",
+      "description": "11 files, 0 subfolders",
+      "file_count": 11,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated_page_turn.ai.json",
+      "folder_path": "public/animated/page-turn",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_animated_scroll_unroll.ai.json",
+      "folder_path": "public/animated/scroll-unroll",
+      "description": "3 files, 0 subfolders",
+      "file_count": 3,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 6,
+  "total_files": 111,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

@@ -1,0 +1,25 @@
+{
+  "folder_name": "components",
+  "folder_path": "public/components",
+  "description": "0 files, 11 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.795312 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "public/components/ambient",
+    "public/components/book-page-frames",
+    "public/components/books",
+    "public/components/diagrams",
+    "public/components/gaming",
+    "public/components/phoenix",
+    "public/components/player-frames",
+    "public/components/potions",
+    "public/components/quantum",
+    "public/components/random",
+    "public/components/ritual"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,123 @@
+{
+  "folder_name": "schema",
+  "folder_path": "src/components/asgard/domains/mnemosyne/schema",
+  "description": "6 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.000931 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaConstellation.tsx",
+      "description": "src/components/asgard/domains/mnemosyne/schema/SchemaConstellation.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaEnumCard.tsx",
+      "description": "@/components/asgard/domains/mnemosyne/schema/SchemaEnumCard.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaExplorer.tsx",
+      "description": "@/components/asgard/domains/mnemosyne/schema/SchemaExplorer.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaFunctionCard.tsx",
+      "description": "@/components/asgard/domains/mnemosyne/schema/SchemaFunctionCard.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaHero.tsx",
+      "description": "@/components/asgard/domains/mnemosyne/schema/SchemaHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/mnemosyne/schema/SchemaTableCard.tsx",
+      "description": "@/components/asgard/domains/mnemosyne/schema/SchemaTableCard.tsx"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [],
+  "code_analysis": {
+    "SchemaConstellation.tsx": {
+      "language": "typescript",
+      "lines": 458,
+      "exported_functions": [
+        "SchemaConstellation"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SchemaEnumCard.tsx": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [
+        "SchemaEnumCard"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SchemaExplorer.tsx": {
+      "language": "typescript",
+      "lines": 307,
+      "exported_functions": [
+        "SchemaExplorer"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SchemaFunctionCard.tsx": {
+      "language": "typescript",
+      "lines": 121,
+      "exported_functions": [
+        "SchemaFunctionCard"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SchemaHero.tsx": {
+      "language": "typescript",
+      "lines": 52,
+      "exported_functions": [
+        "SchemaHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SchemaTableCard.tsx": {
+      "language": "typescript",
+      "lines": 117,
+      "exported_functions": [
+        "SchemaTableCard"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

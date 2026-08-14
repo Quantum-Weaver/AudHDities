@@ -1,0 +1,51 @@
+{
+  "folder_name": "energy",
+  "folder_path": "src/components/asgard/domains/hestia/energy",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.942315 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hestia/energy/EnergyEntryDetail.tsx",
+      "description": "src/components/asgard/domains/hestia/energy/EnergyEntryDetail.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hestia/energy/EnergyLog.tsx",
+      "description": "src/components/asgard/domains/hestia/energy/EnergyLog.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "EnergyEntryDetail.tsx": {
+      "language": "typescript",
+      "lines": 104,
+      "exported_functions": [
+        "EnergyEntryDetail"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "EnergyLog.tsx": {
+      "language": "typescript",
+      "lines": 422,
+      "exported_functions": [
+        "EnergyLog"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

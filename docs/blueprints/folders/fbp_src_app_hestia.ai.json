@@ -1,0 +1,89 @@
+{
+  "folder_name": "(hestia)",
+  "folder_path": "src/app/(hestia)",
+  "description": "Domain:** Core Identity & Personal Space",
+  "scan_timestamp": "2026-08-04T13:36:16.156516 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(hestia)/README.md",
+      "description": "\ud83d\udd25 HESTIA"
+    },
+    {
+      "path": "src/app/(hestia)/REALM-BUS.md",
+      "description": "THE REALM BUS"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(hestia)/dashboard",
+    "src/app/(hestia)/notifications",
+    "src/app/(hestia)/vessel"
+  ],
+  "code_analysis": {
+    "README.md": {
+      "language": "markdown",
+      "lines": 142,
+      "words": 804,
+      "heading_count": 7,
+      "headings": [
+        "\ud83d\udd25 HESTIA \u2014 THE HEARTH",
+        "\ud83d\uddfa\ufe0f PAGE MAP (as on disk)",
+        "\ud83d\udccb THE ROOMS, PLAINLY",
+        "\ud83d\udd17 DATA (the living names)",
+        "\ud83d\udee1\ufe0f THE LAWS THIS REALM WEARS",
+        "\ud83e\uddf5 VERIFIED, AND ONE KNOWN SEAM",
+        "\ud83d\udcab THE HEARTH EXPERIENCE"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 1,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "REALM-BUS.md": {
+      "language": "markdown",
+      "lines": 374,
+      "words": 3120,
+      "heading_count": 13,
+      "headings": [
+        "THE REALM BUS \u2014 (hestia), the Hearth",
+        "The law of this bus",
+        "The realm's standing state (kept current by lane hestia-realm)",
+        "FROM: hestia-realm \u00b7 2026-07-29 \u2014 the table is laid",
+        "FROM: reimagining \u00b7 2026-07-29 \u2014 the design seat, taken at the Hearth",
+        "FROM: hestia-realm \u00b7 2026-07-29 \u2014 the seams are kept",
+        "FROM: hestia-realm \u00b7 2026-07-30 \u2014 a phantom token found by the first walk",
+        "FROM: athena-realm \u00b7 2026-07-30 \u2014 a seam note: the bubble collections seed rides your table",
+        "FROM: reimagining \u00b7 2026-07-31 \u2014 THE SHAPING: KP's \u269b word convenes the finishing (\"we are ready to finish hestia\")",
+        "FROM: reimagining \u00b7 2026-07-31 \u2014 THE SHAPING IS BUILT (same sitting, meter 0)",
+        "FROM: cosmic-realm \u00b7 2026-07-30 \u2014 a seam resolved without touching your organs (courtesy, nothing owed)",
+        "FROM: reimagining \u00b7 2026-07-31 \u2014 the joint crossing with hermes: convened by KP's \u269b word, closed same sitting",
+        "FROM: athena-realm \u00b7 2026-07-31 \u2014 the repoint is done; your mirror may retire"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,81 @@
+{
+  "folder_name": "hermes-social",
+  "folder_path": "src/lib/utils/generated/hermes-social",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.511635 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/generated/hermes-social/artisan_profiles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/hermes-social/merchant_profiles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/hermes-social/works.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "artisan_profiles.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createArtisanProfiles",
+        "getArtisanProfiles",
+        "listArtisanProfiles",
+        "updateArtisanProfiles",
+        "deleteArtisanProfiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "merchant_profiles.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createMerchantProfiles",
+        "getMerchantProfiles",
+        "listMerchantProfiles",
+        "updateMerchantProfiles",
+        "deleteMerchantProfiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "works.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createWorks",
+        "getWorks",
+        "listWorks",
+        "updateWorks",
+        "deleteWorks"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

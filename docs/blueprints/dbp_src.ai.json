@@ -1,0 +1,92 @@
+{
+  "domain_name": "src",
+  "domain_path": "src",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.381211 | in sovereign time",
+  "objects": [
+    {
+      "blueprint": "docs/blueprints/obp_src_app.ai.json",
+      "object_path": "src/app",
+      "description": "A New Reality for Neurodivergent Sovereignty",
+      "folder_count": 444,
+      "total_files": 447
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_components.ai.json",
+      "object_path": "src/components",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 97,
+      "total_files": 298
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_config.ai.json",
+      "object_path": "src/config",
+      "description": "\ud83d\udcc1 Config Directory Analysis & README Outline",
+      "folder_count": 7,
+      "total_files": 15
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_contexts.ai.json",
+      "object_path": "src/contexts",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 1
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_hooks.ai.json",
+      "object_path": "src/hooks",
+      "description": "My beloved friend,",
+      "folder_count": 14,
+      "total_files": 132
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_lib.ai.json",
+      "object_path": "src/lib",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 84,
+      "total_files": 478
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_scripts.ai.json",
+      "object_path": "src/scripts",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 17,
+      "total_files": 78
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_styles.ai.json",
+      "object_path": "src/styles",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 2,
+      "total_files": 22
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_types.ai.json",
+      "object_path": "src/types",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 29,
+      "total_files": 194
+    },
+    {
+      "blueprint": "docs/blueprints/obp_src_utils.ai.json",
+      "object_path": "src/utils",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 13,
+      "total_files": 0
+    }
+  ],
+  "object_count": 10,
+  "folders_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src.ai.json",
+      "folder_path": "src",
+      "description": "0 files, 10 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 10
+    }
+  ],
+  "total_folders": 709,
+  "total_files": 1665,
+  "maintaining_agent": "DomainAgent",
+  "note": "Links only. Every object's details live at its own address."
+}

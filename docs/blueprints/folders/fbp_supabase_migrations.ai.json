@@ -1,0 +1,47 @@
+{
+  "folder_name": "migrations",
+  "folder_path": "supabase/migrations",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.881365 | in sovereign time",
+  "files": [
+    {
+      "path": "supabase/migrations/20260720_heralds_recipient.sql",
+      "description": "sql, 1,722 bytes"
+    },
+    {
+      "path": "supabase/migrations/20260729_ceremony_choices.sql",
+      "description": "sql, 1,595 bytes"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "20260720_heralds_recipient.sql": {
+      "language": "sql",
+      "lines": 35,
+      "statements": 6,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [
+        "vessels_read_their_heralds"
+      ],
+      "functions_created": [],
+      "indexes_created": 1,
+      "uses_do_block": false
+    },
+    "20260729_ceremony_choices.sql": {
+      "language": "sql",
+      "lines": 27,
+      "statements": 4,
+      "tables_created": [],
+      "rls_enabled_on": [],
+      "policies_created": [],
+      "functions_created": [],
+      "indexes_created": 0,
+      "uses_do_block": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

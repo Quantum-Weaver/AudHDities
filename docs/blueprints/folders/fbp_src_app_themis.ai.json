@@ -1,0 +1,95 @@
+{
+  "folder_name": "(themis)",
+  "folder_path": "src/app/(themis)",
+  "description": "Feeling:** Transparent, just, collaborative, wise",
+  "scan_timestamp": "2026-08-04T13:36:16.260645 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(themis)/README.md",
+      "description": "\ud83d\udee1\ufe0f THEMIS"
+    },
+    {
+      "path": "src/app/(themis)/REALM-BUS.md",
+      "description": "THE REALM BUS"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(themis)/council"
+  ],
+  "code_analysis": {
+    "README.md": {
+      "language": "markdown",
+      "lines": 227,
+      "words": 960,
+      "heading_count": 21,
+      "headings": [
+        "\ud83d\udee1\ufe0f THEMIS \u2014 The Council Chamber",
+        "\ud83d\udccb ARCHITECTURE",
+        "\ud83e\udde9 COMPONENT MAP",
+        "\ud83d\udcca PAGE DETAILS",
+        "The Council Chamber (`/council`)",
+        "Proposals (`/council/proposals`)",
+        "Proposal Detail (`/council/proposals/[id]`)",
+        "Voting (`/council/voting`)",
+        "Delegation (`/council/delegation`)",
+        "Curators (`/council/curators`)",
+        "The Ledger (`/council/ledger`)",
+        "Reports (`/council/reports`)",
+        "Administration (`/council/admin`)",
+        "Applications (`/council/applications`)",
+        "Creator / Vendor Application (`/council/applications/creator`, `/vendor`)",
+        "Application Detail (`/council/applications/[id]`)",
+        "\ud83d\udd17 DATA DEPENDENCIES",
+        "\ud83c\udfa8 COMPONENT REUSE",
+        "\ud83d\udd10 SECURITY",
+        "\ud83d\udce6 BUILD METRICS",
+        "\ud83d\ude80 FUTURE ENHANCEMENTS"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 2,
+      "table_rows": 41,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "REALM-BUS.md": {
+      "language": "markdown",
+      "lines": 209,
+      "words": 1745,
+      "heading_count": 7,
+      "headings": [
+        "THE REALM BUS \u2014 (themis), the Council Chamber",
+        "The law of this bus",
+        "The realm's standing state (kept current by lane themis-realm)",
+        "FROM: themis-realm \u00b7 2026-07-29 \u2014 the table is laid",
+        "FROM: reimagining \u00b7 2026-07-29 \u2014 the design seat taken; the vow's two halves, joined",
+        "FROM: themis-realm \u00b7 2026-07-29 \u2014 countersigned; the door and the frame",
+        "FROM: reimagining \u00b7 2026-07-31 \u2014 a seam note: the Theater now reads your `council_houses`"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,15 @@
+{
+  "folder_name": "iris",
+  "folder_path": "src/lib/utils/components/asgard/iris",
+  "description": "0 files, 1 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.444427 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/lib/utils/components/asgard/iris/contact"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

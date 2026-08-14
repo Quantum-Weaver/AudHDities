@@ -1,0 +1,167 @@
+{
+  "folder_name": "vegvisir",
+  "folder_path": "src/types/components/vegvisir",
+  "description": "7 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.777252 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/components/vegvisir/breadcrumb.types.ts",
+      "description": "src/types/components/vegvisir/breadcrumb.types.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/filter_bar.types.ts",
+      "description": "src/types/components/vegvisir/filter_bar.types.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/pagination.types.ts",
+      "description": "src/types/components/vegvisir/pagination.types.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/search_bar.types.ts",
+      "description": "src/types/components/vegvisir/search_bar.types.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/sidebar.types.ts",
+      "description": "src/types/components/vegvisir/sidebar.types.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/sort_dropdown.types.ts",
+      "description": "src/types/components/vegvisir/sort_dropdown.ts"
+    },
+    {
+      "path": "src/types/components/vegvisir/tabs.types.ts",
+      "description": "src/types/components/vegvisir/tabs.types.ts"
+    }
+  ],
+  "file_count": 7,
+  "subdirectories": [],
+  "code_analysis": {
+    "breadcrumb.types.ts": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "BreadcrumbItem",
+        "BreadcrumbProps",
+        "BreadcrumbDropdownProps",
+        "BreadcrumbItemComponentProps",
+        "BreadcrumbSeparatorComponentProps",
+        "BreadcrumbListProps",
+        "BreadcrumbWithDropdownProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "filter_bar.types.ts": {
+      "language": "typescript",
+      "lines": 46,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "FilterOption",
+        "FilterBarProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "pagination.types.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PaginationProps",
+        "PaginationInfoProps"
+      ],
+      "types": [
+        "PageNumberItem"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "search_bar.types.ts": {
+      "language": "typescript",
+      "lines": 46,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "SearchBarProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "sidebar.types.ts": {
+      "language": "typescript",
+      "lines": 122,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "SidebarItem",
+        "SidebarContextValue",
+        "SidebarProps",
+        "SidebarNavItemProps",
+        "SidebarGroupProps",
+        "SidebarHeaderProps",
+        "SidebarFooterProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "sort_dropdown.types.ts": {
+      "language": "typescript",
+      "lines": 39,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "SortOption",
+        "SortDropdownProps"
+      ],
+      "types": [
+        "SortDirection"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "tabs.types.ts": {
+      "language": "typescript",
+      "lines": 72,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "TabsContextValue",
+        "TabsProps",
+        "TabsListProps",
+        "TabsTriggerProps",
+        "TabsPanelProps",
+        "AnimatedTabsPanelProps",
+        "IconTabsTriggerProps",
+        "BadgeTabsTriggerProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

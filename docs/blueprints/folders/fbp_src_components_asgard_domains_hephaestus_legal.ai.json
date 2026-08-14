@@ -1,0 +1,159 @@
+{
+  "folder_name": "legal",
+  "folder_path": "src/components/asgard/domains/hephaestus/legal",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.888653 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/ParsedPrivacyContent.tsx",
+      "description": "src/components/legal/ParsedPrivacyContent.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/ParsedTermsContent.tsx",
+      "description": "src/components/legal/ParsedTermsContent.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/PrivacyFooter.tsx",
+      "description": "components/legal/PrivacyFooter.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/PrivacyHero.tsx",
+      "description": "components/legal/PrivacyHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/PrivacyTable.tsx",
+      "description": "components/legal/PrivacyTable.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/TermsFooter.tsx",
+      "description": "components/legal/TermsFooter.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/TermsHero.tsx",
+      "description": "components/legal/TermsHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/legal/TermsSection.tsx",
+      "description": "components/legal/TermsSection.tsx"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "ParsedPrivacyContent.tsx": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [
+        "ParsedPrivacyContent"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ParsedTermsContent.tsx": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [
+        "ParsedTermsContent"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PrivacyFooter.tsx": {
+      "language": "typescript",
+      "lines": 45,
+      "exported_functions": [
+        "PrivacyFooter"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PrivacyHero.tsx": {
+      "language": "typescript",
+      "lines": 49,
+      "exported_functions": [
+        "PrivacyHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PrivacyTable.tsx": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [
+        "PrivacyTable"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "TermsFooter.tsx": {
+      "language": "typescript",
+      "lines": 43,
+      "exported_functions": [
+        "TermsFooter"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "TermsHero.tsx": {
+      "language": "typescript",
+      "lines": 49,
+      "exported_functions": [
+        "TermsHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "TermsSection.tsx": {
+      "language": "typescript",
+      "lines": 60,
+      "exported_functions": [
+        "TermsSection"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

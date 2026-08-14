@@ -1,0 +1,67 @@
+{
+  "folder_name": "home-elements",
+  "folder_path": "public/environments/extracted-foregrounds/home-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.906009 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/home-elements/home-background-1b.png",
+      "description": "image, 1,148,663 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/home-elements/home-background-2b.png",
+      "description": "image, 2,467,428 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/home-elements/home-background-3b.png",
+      "description": "image, 2,445,475 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/home-elements/home-background-4b.png",
+      "description": "image, 1,403,801 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "home-background-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "home-background-1b.png",
+      "location": "public/environments/extracted-foregrounds/home-elements",
+      "bytes": 1148663,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "home-background-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "home-background-2b.png",
+      "location": "public/environments/extracted-foregrounds/home-elements",
+      "bytes": 2467428,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "home-background-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "home-background-3b.png",
+      "location": "public/environments/extracted-foregrounds/home-elements",
+      "bytes": 2445475,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "home-background-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "home-background-4b.png",
+      "location": "public/environments/extracted-foregrounds/home-elements",
+      "bytes": 1403801,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

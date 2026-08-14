@@ -1,0 +1,54 @@
+{
+  "folder_name": "portalls",
+  "folder_path": "public/structures/portalls",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.000282 | in sovereign time",
+  "files": [
+    {
+      "path": "public/structures/portalls/hillside-door.png",
+      "description": "image, 410,159 bytes"
+    },
+    {
+      "path": "public/structures/portalls/rainbow-waterfall.png",
+      "description": "image, 480,344 bytes"
+    },
+    {
+      "path": "public/structures/portalls/river-path.png",
+      "description": "image, 582,922 bytes"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "hillside-door.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "hillside-door.png",
+      "location": "public/structures/portalls",
+      "bytes": 410159,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "rainbow-waterfall.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "rainbow-waterfall.png",
+      "location": "public/structures/portalls",
+      "bytes": 480344,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "river-path.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "river-path.png",
+      "location": "public/structures/portalls",
+      "bytes": 582922,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

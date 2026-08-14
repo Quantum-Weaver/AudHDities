@@ -1,0 +1,286 @@
+{
+  "folder_name": "runes",
+  "folder_path": "src/lib/utils/components/runes",
+  "description": "9 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.467943 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/components/runes/avatar.utils.ts",
+      "description": "src/utils/components/runes/avatar.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/avatar_upload.utils.ts",
+      "description": "src/lib/utils/components/runes/avatar_upload.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/badge.utils.ts",
+      "description": "src/utils/components/runes/badge.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/card.utils.ts",
+      "description": "src/lib/utils/components/runes/card.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/empty_state.utils.ts",
+      "description": "src/lib/utils/components/runes/empty_state.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/error_boundary.utils.ts",
+      "description": "src/lib/utils/components/runes/error_boundary.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/progress.utils.ts",
+      "description": "src/lib/utils/components/runes/progress.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/skeleton.utils.ts",
+      "description": "src/utils/components/runes/skeleton.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/runes/table.utils.ts",
+      "description": "src/lib/utils/components/runes/table.utils.ts"
+    }
+  ],
+  "file_count": 9,
+  "subdirectories": [],
+  "code_analysis": {
+    "avatar.utils.ts": {
+      "language": "typescript",
+      "lines": 80,
+      "exported_functions": [
+        "getAvatarSizeClass",
+        "getAvatarStatusSizeClass",
+        "getAvatarFallbackFontSizeClass",
+        "getAvatarBadgePositionClass",
+        "getAvatarBadgeSizeClass",
+        "getAvatarBadgeFontSizeClass"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "avatar_upload.utils.ts": {
+      "language": "typescript",
+      "lines": 74,
+      "exported_functions": [
+        "validateAvatarFile",
+        "mapUploadSizeToAvatarSize",
+        "generateAvatarPath",
+        "createAvatarPreview",
+        "getAvatarInitials"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "badge.utils.ts": {
+      "language": "typescript",
+      "lines": 93,
+      "exported_functions": [
+        "getDifficultyColor",
+        "getProposalStatusColor",
+        "getTierBadgeColor",
+        "formatPrice",
+        "getLowestPrice",
+        "getPriceRange"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "card.utils.ts": {
+      "language": "typescript",
+      "lines": 415,
+      "exported_functions": [
+        "isProductCard",
+        "isQuestCard",
+        "isEventCard",
+        "isProposalCard",
+        "isEntityCard",
+        "isCreatorCard",
+        "isVendorCard",
+        "isStatCard",
+        "isStepCard",
+        "isValueCard",
+        "isPillarCard",
+        "isPrincipleCard",
+        "isInvitationCard",
+        "isPathwayCard",
+        "isUserCard",
+        "isFileCard",
+        "isSchemaTableCard",
+        "isSchemaEnumCard",
+        "isSchemaFunctionCard",
+        "formatPrice",
+        "getLowestPrice",
+        "getPriceRange",
+        "getAvailableTiers",
+        "getDifficultyColor",
+        "getProposalStatusColor",
+        "getEntityTemperatureColor",
+        "getTierBadgeColor",
+        "getPublicationBadgeColor",
+        "getVerifiedBadgeColor",
+        "getHouseBadgeColor",
+        "getRoleBadgeColor",
+        "getTrendIcon",
+        "getTrendColorClass",
+        "getStepStatus",
+        "getStepStatusColor",
+        "getStepProgress",
+        "truncateText",
+        "truncateTextWordBoundary",
+        "formatFileSize",
+        "getFileTypeIcon",
+        "getFileExtension",
+        "getSchemaTypeIcon",
+        "getProgressPercentage",
+        "formatProgress",
+        "formatDate",
+        "formatRelativeTime",
+        "formatVoteRatio",
+        "getVoteStatus",
+        "getRecommendedVariant"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "empty_state.utils.ts": {
+      "language": "typescript",
+      "lines": 144,
+      "exported_functions": [
+        "getEmptyStateIconColor",
+        "resolveActionButtonVariant",
+        "getLayoutClasses",
+        "getDefaultEmptyStateContent",
+        "shouldShowEmptyState"
+      ],
+      "exported_consts": [
+        "EMPTY_STATE_DEFAULTS"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "error_boundary.utils.ts": {
+      "language": "typescript",
+      "lines": 199,
+      "exported_functions": [
+        "serializeError",
+        "getSeverity",
+        "isSeverityCritical",
+        "logError",
+        "getRecoveryAction",
+        "executeRecovery",
+        "isInsideErrorBoundary",
+        "createResetState"
+      ],
+      "exported_consts": [
+        "ERROR_BOUNDARY_RESET_STATE"
+      ],
+      "interfaces": [
+        "SerializedError"
+      ],
+      "types": [
+        "ErrorLogFn",
+        "RecoveryAction"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "progress.utils.ts": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [
+        "calculateProgressPercentage",
+        "getProgressLabelLayout",
+        "formatProgressLabel",
+        "calculateCircularProgressGeometry",
+        "calculateStrokeDashoffset"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "skeleton.utils.ts": {
+      "language": "typescript",
+      "lines": 74,
+      "exported_functions": [
+        "resolveSkeletonSize",
+        "resolveSkeletonVariantClass",
+        "resolveSkeletonRoundedClass",
+        "resolveSkeletonCustomStyle"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "table.utils.ts": {
+      "language": "typescript",
+      "lines": 311,
+      "exported_functions": [
+        "toggleSortDirection",
+        "updateSortState",
+        "sortData",
+        "getSortIndicatorState",
+        "isActiveSortColumn",
+        "filterData",
+        "applyFilters",
+        "isStripedRow",
+        "getColumnAlignment",
+        "toggleRowSelection",
+        "toggleSelectAll",
+        "isRowSelected",
+        "getCellDisplayValue",
+        "getRowId"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "SortState",
+        "ColumnConfig",
+        "FilterState",
+        "SelectionState"
+      ],
+      "types": [
+        "SortDirection"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

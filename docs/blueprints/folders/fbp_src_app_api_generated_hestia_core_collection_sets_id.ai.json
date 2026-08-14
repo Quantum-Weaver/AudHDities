@@ -1,0 +1,35 @@
+{
+  "folder_name": "[id]",
+  "folder_path": "src/app/api/generated/hestia-core/collection_sets/[id]",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.515752 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/api/generated/hestia-core/collection_sets/[id]/route.ts",
+      "description": "typescript, 3,121 bytes"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "route.ts": {
+      "language": "typescript",
+      "lines": 101,
+      "exported_functions": [
+        "GET",
+        "PUT",
+        "DELETE"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

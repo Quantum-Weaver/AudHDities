@@ -1,0 +1,111 @@
+{
+  "folder_name": "daedalus",
+  "folder_path": "src/lib/daedalus",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.419115 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/daedalus/generator.ts.md",
+      "description": "@system DAEDALUS @lib Core Generator @purpose Core generation engine - creates files from templates @created 2026-04-12"
+    },
+    {
+      "path": "src/lib/daedalus/logger.ts.md",
+      "description": "@system DAEDALUS @lib Logger @purpose Activity logging for DAEDALUS operations @created 2026-04-12"
+    },
+    {
+      "path": "src/lib/daedalus/storyteller.ts.md",
+      "description": "@system DAEDALUS @lib Storyteller @purpose SAGA implementation - narrative generation @created 2026-04-12"
+    },
+    {
+      "path": "src/lib/daedalus/validator.ts.md",
+      "description": "@system DAEDALUS @lib Validator @purpose Blueprint validation logic @created 2026-04-12"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "generator.ts.md": {
+      "language": "markdown",
+      "lines": 158,
+      "words": 525,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "logger.ts.md": {
+      "language": "markdown",
+      "lines": 99,
+      "words": 358,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "storyteller.ts.md": {
+      "language": "markdown",
+      "lines": 169,
+      "words": 494,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "validator.ts.md": {
+      "language": "markdown",
+      "lines": 128,
+      "words": 369,
+      "heading_count": 0,
+      "headings": [],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

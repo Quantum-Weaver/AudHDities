@@ -1,0 +1,67 @@
+{
+  "folder_name": "origin-elements",
+  "folder_path": "public/environments/extracted-foregrounds/origin-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.920120 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/origin-elements/origin-background-1b.png",
+      "description": "image, 873,354 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/origin-elements/origin-background-2b.png",
+      "description": "image, 978,084 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/origin-elements/origin-background-3b.png",
+      "description": "image, 945,972 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/origin-elements/origin-background-4b.png",
+      "description": "image, 765,910 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "origin-background-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-background-1b.png",
+      "location": "public/environments/extracted-foregrounds/origin-elements",
+      "bytes": 873354,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "origin-background-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-background-2b.png",
+      "location": "public/environments/extracted-foregrounds/origin-elements",
+      "bytes": 978084,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "origin-background-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-background-3b.png",
+      "location": "public/environments/extracted-foregrounds/origin-elements",
+      "bytes": 945972,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "origin-background-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "origin-background-4b.png",
+      "location": "public/environments/extracted-foregrounds/origin-elements",
+      "bytes": 765910,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

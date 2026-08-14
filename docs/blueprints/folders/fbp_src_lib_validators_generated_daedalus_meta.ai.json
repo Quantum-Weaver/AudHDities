@@ -1,0 +1,327 @@
+{
+  "folder_name": "daedalus-meta",
+  "folder_path": "src/lib/validators/generated/daedalus-meta",
+  "description": "13 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.582725 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/blueprints.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/boundaries.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/columns.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/composite_types.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/enums.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/functions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/gaia_config.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/gaia_generation_log.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/generations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/indexes.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/policies.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/templates.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/daedalus-meta/triggers.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 13,
+  "subdirectories": [],
+  "code_analysis": {
+    "blueprints.ts": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [],
+      "exported_consts": [
+        "BlueprintsRowSchema",
+        "BlueprintsInsertSchema",
+        "BlueprintsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "BlueprintsRowInput",
+        "BlueprintsInsertInput",
+        "BlueprintsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "boundaries.ts": {
+      "language": "typescript",
+      "lines": 71,
+      "exported_functions": [],
+      "exported_consts": [
+        "BoundariesRowSchema",
+        "BoundariesInsertSchema",
+        "BoundariesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "BoundariesRowInput",
+        "BoundariesInsertInput",
+        "BoundariesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "columns.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "ColumnsRowSchema",
+        "ColumnsInsertSchema",
+        "ColumnsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ColumnsRowInput",
+        "ColumnsInsertInput",
+        "ColumnsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "composite_types.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [],
+      "exported_consts": [
+        "CompositeTypesRowSchema",
+        "CompositeTypesInsertSchema",
+        "CompositeTypesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "CompositeTypesRowInput",
+        "CompositeTypesInsertInput",
+        "CompositeTypesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "enums.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [],
+      "exported_consts": [
+        "EnumsRowSchema",
+        "EnumsInsertSchema",
+        "EnumsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "EnumsRowInput",
+        "EnumsInsertInput",
+        "EnumsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "functions.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "FunctionsRowSchema",
+        "FunctionsInsertSchema",
+        "FunctionsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "FunctionsRowInput",
+        "FunctionsInsertInput",
+        "FunctionsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_config.ts": {
+      "language": "typescript",
+      "lines": 136,
+      "exported_functions": [],
+      "exported_consts": [
+        "GaiaConfigRowSchema",
+        "GaiaConfigInsertSchema",
+        "GaiaConfigUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GaiaConfigRowInput",
+        "GaiaConfigInsertInput",
+        "GaiaConfigUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "gaia_generation_log.ts": {
+      "language": "typescript",
+      "lines": 64,
+      "exported_functions": [],
+      "exported_consts": [
+        "GaiaGenerationLogRowSchema",
+        "GaiaGenerationLogInsertSchema",
+        "GaiaGenerationLogUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GaiaGenerationLogRowInput",
+        "GaiaGenerationLogInsertInput",
+        "GaiaGenerationLogUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "generations.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "GenerationsRowSchema",
+        "GenerationsInsertSchema",
+        "GenerationsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "GenerationsRowInput",
+        "GenerationsInsertInput",
+        "GenerationsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "indexes.ts": {
+      "language": "typescript",
+      "lines": 70,
+      "exported_functions": [],
+      "exported_consts": [
+        "IndexesRowSchema",
+        "IndexesInsertSchema",
+        "IndexesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "IndexesRowInput",
+        "IndexesInsertInput",
+        "IndexesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "policies.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "PoliciesRowSchema",
+        "PoliciesInsertSchema",
+        "PoliciesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "PoliciesRowInput",
+        "PoliciesInsertInput",
+        "PoliciesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "templates.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [],
+      "exported_consts": [
+        "TemplatesRowSchema",
+        "TemplatesInsertSchema",
+        "TemplatesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "TemplatesRowInput",
+        "TemplatesInsertInput",
+        "TemplatesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "triggers.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "TriggersRowSchema",
+        "TriggersInsertSchema",
+        "TriggersUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "TriggersRowInput",
+        "TriggersInsertInput",
+        "TriggersUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

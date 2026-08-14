@@ -1,0 +1,37 @@
+{
+  "folder_name": "prometheus-stage",
+  "folder_path": "src/hooks/generated/prometheus-stage",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.275217 | in sovereign time",
+  "files": [
+    {
+      "path": "src/hooks/generated/prometheus-stage/events.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "events.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useEvents",
+        "useEventsList",
+        "useCreateEvents",
+        "useUpdateEvents",
+        "useDeleteEvents"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

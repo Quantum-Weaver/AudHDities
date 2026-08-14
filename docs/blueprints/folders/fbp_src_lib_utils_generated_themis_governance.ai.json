@@ -1,0 +1,257 @@
+{
+  "folder_name": "themis-governance",
+  "folder_path": "src/lib/utils/generated/themis-governance",
+  "description": "11 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.551349 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/generated/themis-governance/admin_actions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/applications.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/council_houses.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/moderation_actions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/processes.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/proposals.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/protocols.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/rate_limits.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/reports.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/responses.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/utils/generated/themis-governance/votes.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 11,
+  "subdirectories": [],
+  "code_analysis": {
+    "admin_actions.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createAdminActions",
+        "getAdminActions",
+        "listAdminActions",
+        "updateAdminActions",
+        "deleteAdminActions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "applications.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createApplications",
+        "getApplications",
+        "listApplications",
+        "updateApplications",
+        "deleteApplications"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "council_houses.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createCouncilHouses",
+        "getCouncilHouses",
+        "listCouncilHouses",
+        "updateCouncilHouses",
+        "deleteCouncilHouses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "moderation_actions.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createModerationActions",
+        "getModerationActions",
+        "listModerationActions",
+        "updateModerationActions",
+        "deleteModerationActions"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "processes.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createProcesses",
+        "getProcesses",
+        "listProcesses",
+        "updateProcesses",
+        "deleteProcesses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "proposals.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createProposals",
+        "getProposals",
+        "listProposals",
+        "updateProposals",
+        "deleteProposals"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "protocols.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createProtocols",
+        "getProtocols",
+        "listProtocols",
+        "updateProtocols",
+        "deleteProtocols"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "rate_limits.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createRateLimits",
+        "getRateLimits",
+        "listRateLimits",
+        "updateRateLimits",
+        "deleteRateLimits"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "reports.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createReports",
+        "getReports",
+        "listReports",
+        "updateReports",
+        "deleteReports"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "responses.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createResponses",
+        "getResponses",
+        "listResponses",
+        "updateResponses",
+        "deleteResponses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "votes.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [
+        "createVotes",
+        "getVotes",
+        "listVotes",
+        "updateVotes",
+        "deleteVotes"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

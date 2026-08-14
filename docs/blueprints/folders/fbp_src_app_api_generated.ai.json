@@ -1,0 +1,25 @@
+{
+  "folder_name": "generated",
+  "folder_path": "src/app/api/generated",
+  "description": "0 files, 11 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.300383 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/api/generated/aethelred-connections",
+    "src/app/api/generated/athena-gamification",
+    "src/app/api/generated/daedalus-meta",
+    "src/app/api/generated/hephaestus-infrastructure",
+    "src/app/api/generated/hermes-social",
+    "src/app/api/generated/hestia-core",
+    "src/app/api/generated/iris-communications",
+    "src/app/api/generated/mnemosyne-assessment",
+    "src/app/api/generated/plutus-economics",
+    "src/app/api/generated/prometheus-stage",
+    "src/app/api/generated/themis-governance"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,50 @@
+{
+  "folder_name": "scripts",
+  "folder_path": "src/scripts",
+  "description": "1 files, 4 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.636117 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/_NOTEPAD.md",
+      "description": "_NOTEPAD"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [
+    "src/scripts/audit",
+    "src/scripts/modules",
+    "src/scripts/shared",
+    "src/scripts/system"
+  ],
+  "code_analysis": {
+    "_NOTEPAD.md": {
+      "language": "markdown",
+      "lines": 45,
+      "words": 466,
+      "heading_count": 5,
+      "headings": [
+        "_NOTEPAD \u2014 `src/scripts`",
+        "What this folder is",
+        "Inventory & status  \u26a0\ufe0f USED-vs-UNUSED AUDIT PENDING (KP flagged 2026-07-08: \"so much in it that might be going unused\")",
+        "Local first job",
+        "Work log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 9,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

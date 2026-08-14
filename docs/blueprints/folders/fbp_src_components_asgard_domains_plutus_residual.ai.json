@@ -1,0 +1,161 @@
+{
+  "folder_name": "residual",
+  "folder_path": "src/components/asgard/domains/plutus/residual",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.015564 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/plutus/residual/ContributionBreakdown.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/ContributionBreakdown.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/ExampleSale.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/ExampleSale.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/FlowDiagram.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/FlowDiagram.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/FlowStep.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/FlowStep.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/ResidualFAQ.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/ResidualFAQ.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/ResidualHero.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/ResidualHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/SourceAttribution.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/SourceAttribution.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/plutus/residual/TwoPoolsSection.tsx",
+      "description": "src/components/asgard/domains/plutus/residual/TwoPoolsSection.tsx"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "ContributionBreakdown.tsx": {
+      "language": "typescript",
+      "lines": 149,
+      "exported_functions": [
+        "ContributionBreakdown"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ExampleSale.tsx": {
+      "language": "typescript",
+      "lines": 237,
+      "exported_functions": [
+        "ExampleSale"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FlowDiagram.tsx": {
+      "language": "typescript",
+      "lines": 208,
+      "exported_functions": [
+        "FlowDiagram"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FlowStep.tsx": {
+      "language": "typescript",
+      "lines": 70,
+      "exported_functions": [
+        "FlowStep"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [
+        "FlowStepColor"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ResidualFAQ.tsx": {
+      "language": "typescript",
+      "lines": 63,
+      "exported_functions": [
+        "ResidualFAQ"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ResidualHero.tsx": {
+      "language": "typescript",
+      "lines": 53,
+      "exported_functions": [
+        "ResidualHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "SourceAttribution.tsx": {
+      "language": "typescript",
+      "lines": 166,
+      "exported_functions": [
+        "SourceAttribution"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "TwoPoolsSection.tsx": {
+      "language": "typescript",
+      "lines": 141,
+      "exported_functions": [
+        "TwoPoolsSection"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

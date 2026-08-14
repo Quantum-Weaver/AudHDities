@@ -1,0 +1,105 @@
+{
+  "folder_name": "press",
+  "folder_path": "src/components/asgard/domains/hephaestus/press",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.897016 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/press/CoverageHighlights.tsx",
+      "description": "src/components/asgard/domains/hephaestus/press/CoverageHighlights.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/press/InterviewRequests.tsx",
+      "description": "src/components/asgard/domains/hephaestus/press/InterviewRequests.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/press/LogoDownloads.tsx",
+      "description": "src/components/asgard/domains/hephaestus/press/LogoDownloads.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/press/MediaAssets.tsx",
+      "description": "src/components/asgard/domains/hephaestus/press/MediaAssets.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/press/PressKit.tsx",
+      "description": "src/components/asgard/domains/hephaestus/press/PressKit.tsx"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "CoverageHighlights.tsx": {
+      "language": "typescript",
+      "lines": 190,
+      "exported_functions": [
+        "CoverageHighlights"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "InterviewRequests.tsx": {
+      "language": "typescript",
+      "lines": 223,
+      "exported_functions": [
+        "InterviewRequests"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "LogoDownloads.tsx": {
+      "language": "typescript",
+      "lines": 219,
+      "exported_functions": [
+        "LogoDownloads"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "MediaAssets.tsx": {
+      "language": "typescript",
+      "lines": 237,
+      "exported_functions": [
+        "MediaAssets"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PressKit.tsx": {
+      "language": "typescript",
+      "lines": 191,
+      "exported_functions": [
+        "PressKit"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

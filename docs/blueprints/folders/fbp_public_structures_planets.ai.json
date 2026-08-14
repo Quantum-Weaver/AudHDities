@@ -1,0 +1,145 @@
+{
+  "folder_name": "planets",
+  "folder_path": "public/structures/planets",
+  "description": "10 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.998523 | in sovereign time",
+  "files": [
+    {
+      "path": "public/structures/planets/floating-planet-1.png",
+      "description": "image, 419,427 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-10.png",
+      "description": "image, 465,771 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-2.png",
+      "description": "image, 261,245 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-3.png",
+      "description": "image, 281,091 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-4.png",
+      "description": "image, 326,020 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-5.png",
+      "description": "image, 424,375 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-6.png",
+      "description": "image, 364,111 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-7.png",
+      "description": "image, 366,958 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-8.png",
+      "description": "image, 343,197 bytes"
+    },
+    {
+      "path": "public/structures/planets/floating-planet-9.png",
+      "description": "image, 362,126 bytes"
+    }
+  ],
+  "file_count": 10,
+  "subdirectories": [],
+  "code_analysis": {
+    "floating-planet-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-1.png",
+      "location": "public/structures/planets",
+      "bytes": 419427,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-10.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-10.png",
+      "location": "public/structures/planets",
+      "bytes": 465771,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-2.png",
+      "location": "public/structures/planets",
+      "bytes": 261245,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-3.png",
+      "location": "public/structures/planets",
+      "bytes": 281091,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-4.png",
+      "location": "public/structures/planets",
+      "bytes": 326020,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-5.png",
+      "location": "public/structures/planets",
+      "bytes": 424375,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-6.png",
+      "location": "public/structures/planets",
+      "bytes": 364111,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-7.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-7.png",
+      "location": "public/structures/planets",
+      "bytes": 366958,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-8.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-8.png",
+      "location": "public/structures/planets",
+      "bytes": 343197,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "floating-planet-9.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "floating-planet-9.png",
+      "location": "public/structures/planets",
+      "bytes": 362126,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

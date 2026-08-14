@@ -1,0 +1,37 @@
+{
+  "folder_name": "forge",
+  "folder_path": "src/app/(hephaestus)/forge",
+  "description": "1 files, 3 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.093874 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(hephaestus)/forge/page.tsx",
+      "description": "src/app/(content)/forge/page.tsx"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [
+    "src/app/(hephaestus)/forge/architecture",
+    "src/app/(hephaestus)/forge/business",
+    "src/app/(hephaestus)/forge/guides"
+  ],
+  "code_analysis": {
+    "page.tsx": {
+      "language": "typescript",
+      "lines": 19,
+      "exported_functions": [],
+      "exported_consts": [
+        "metadata"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

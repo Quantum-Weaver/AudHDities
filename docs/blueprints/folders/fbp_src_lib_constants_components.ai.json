@@ -1,0 +1,23 @@
+{
+  "folder_name": "components",
+  "folder_path": "src/lib/constants/components",
+  "description": "0 files, 9 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.296009 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/lib/constants/components/asgard",
+    "src/lib/constants/components/bifrost",
+    "src/lib/constants/components/forging",
+    "src/lib/constants/components/hof",
+    "src/lib/constants/components/immersive",
+    "src/lib/constants/components/runes",
+    "src/lib/constants/components/seidr",
+    "src/lib/constants/components/vegvisir",
+    "src/lib/constants/components/yggdrasil"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

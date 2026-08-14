@@ -1,0 +1,43 @@
+{
+  "folder_name": "discover",
+  "folder_path": "src/scripts/modules/discover",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.649043 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/modules/discover/discover_directories.ts",
+      "description": "src/scripts/modules/discover/discover_directories.ts"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "discover_directories.ts": {
+      "language": "typescript",
+      "lines": 525,
+      "exported_functions": [
+        "getAllDeityFolderNames",
+        "discoverDirectories",
+        "ensureAllDirectories"
+      ],
+      "exported_consts": [
+        "PROTECTED_DIRECTORIES"
+      ],
+      "interfaces": [
+        "GenerationPaths",
+        "FileInfo",
+        "DirectoryManifest",
+        "DiscoveryResult",
+        "DiscoverDirectoriesOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

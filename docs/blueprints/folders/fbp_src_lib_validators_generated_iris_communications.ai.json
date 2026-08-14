@@ -1,0 +1,207 @@
+{
+  "folder_name": "iris-communications",
+  "folder_path": "src/lib/validators/generated/iris-communications",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.609912 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/validators/generated/iris-communications/channels.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/contact_submissions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/email_communications.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/messages.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/personas.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/signals.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/survey_responses.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/lib/validators/generated/iris-communications/surveys.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "channels.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "ChannelsRowSchema",
+        "ChannelsInsertSchema",
+        "ChannelsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ChannelsRowInput",
+        "ChannelsInsertInput",
+        "ChannelsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "contact_submissions.ts": {
+      "language": "typescript",
+      "lines": 77,
+      "exported_functions": [],
+      "exported_consts": [
+        "ContactSubmissionsRowSchema",
+        "ContactSubmissionsInsertSchema",
+        "ContactSubmissionsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "ContactSubmissionsRowInput",
+        "ContactSubmissionsInsertInput",
+        "ContactSubmissionsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "email_communications.ts": {
+      "language": "typescript",
+      "lines": 83,
+      "exported_functions": [],
+      "exported_consts": [
+        "EmailCommunicationsRowSchema",
+        "EmailCommunicationsInsertSchema",
+        "EmailCommunicationsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "EmailCommunicationsRowInput",
+        "EmailCommunicationsInsertInput",
+        "EmailCommunicationsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "messages.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "MessagesRowSchema",
+        "MessagesInsertSchema",
+        "MessagesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "MessagesRowInput",
+        "MessagesInsertInput",
+        "MessagesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "personas.ts": {
+      "language": "typescript",
+      "lines": 74,
+      "exported_functions": [],
+      "exported_consts": [
+        "PersonasRowSchema",
+        "PersonasInsertSchema",
+        "PersonasUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "PersonasRowInput",
+        "PersonasInsertInput",
+        "PersonasUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "signals.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "SignalsRowSchema",
+        "SignalsInsertSchema",
+        "SignalsUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "SignalsRowInput",
+        "SignalsInsertInput",
+        "SignalsUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "survey_responses.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "SurveyResponsesRowSchema",
+        "SurveyResponsesInsertSchema",
+        "SurveyResponsesUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "SurveyResponsesRowInput",
+        "SurveyResponsesInsertInput",
+        "SurveyResponsesUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "surveys.ts": {
+      "language": "typescript",
+      "lines": 77,
+      "exported_functions": [],
+      "exported_consts": [
+        "SurveysRowSchema",
+        "SurveysInsertSchema",
+        "SurveysUpdateSchema"
+      ],
+      "interfaces": [],
+      "types": [
+        "SurveysRowInput",
+        "SurveysInsertInput",
+        "SurveysUpdateInput"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

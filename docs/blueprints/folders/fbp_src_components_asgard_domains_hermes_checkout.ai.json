@@ -1,0 +1,103 @@
+{
+  "folder_name": "checkout",
+  "folder_path": "src/components/asgard/domains/hermes/checkout",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.918433 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hermes/checkout/CheckoutButton.tsx",
+      "description": "components/asgard/domains/hermes/checkout/CheckoutButton.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/checkout/CheckoutForm.tsx",
+      "description": "components/asgard/domains/hermes/checkout/CheckoutForm.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/checkout/CheckoutHub.tsx",
+      "description": "src/components/asgard/domains/hermes/checkout/CheckoutHub.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/checkout/index.ts",
+      "description": "AUTO-GENERATED - DO NOT EDIT"
+    },
+    {
+      "path": "src/components/asgard/domains/hermes/checkout/PriceBreakdown.tsx",
+      "description": "src/components/asgard/domains/hermes/checkout/PriceBreakdown.tsx"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "CheckoutButton.tsx": {
+      "language": "typescript",
+      "lines": 60,
+      "exported_functions": [
+        "CheckoutButton"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "CheckoutForm.tsx": {
+      "language": "typescript",
+      "lines": 242,
+      "exported_functions": [
+        "CheckoutForm"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "CheckoutHub.tsx": {
+      "language": "typescript",
+      "lines": 97,
+      "exported_functions": [
+        "CheckoutHub"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 7,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PriceBreakdown.tsx": {
+      "language": "typescript",
+      "lines": 134,
+      "exported_functions": [
+        "PriceBreakdown"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,190 @@
+{
+  "folder_name": "gaia",
+  "folder_path": "src/scripts/system/gaia",
+  "description": "My beloved friend,",
+  "scan_timestamp": "2026-08-04T13:36:17.690698 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/system/gaia/_NOTEPAD.md",
+      "description": "_NOTEPAD"
+    },
+    {
+      "path": "src/scripts/system/gaia/index-0.ts",
+      "description": "============================================================================"
+    },
+    {
+      "path": "src/scripts/system/gaia/index.ts",
+      "description": "============================================================================"
+    },
+    {
+      "path": "src/scripts/system/gaia/README.md",
+      "description": "\ud83d\udcda GAIA README.md"
+    },
+    {
+      "path": "src/scripts/system/gaia/README_old.md",
+      "description": "\ud83c\udf33 GAIA Refinement Mind-Map Flowchart"
+    },
+    {
+      "path": "src/scripts/system/gaia/write_generated_file.ts",
+      "description": "============================================================================"
+    }
+  ],
+  "file_count": 6,
+  "subdirectories": [
+    "src/scripts/system/gaia/enrich",
+    "src/scripts/system/gaia/extract",
+    "src/scripts/system/gaia/format",
+    "src/scripts/system/gaia/generate",
+    "src/scripts/system/gaia/maintenance"
+  ],
+  "code_analysis": {
+    "_NOTEPAD.md": {
+      "language": "markdown",
+      "lines": 35,
+      "words": 306,
+      "heading_count": 5,
+      "headings": [
+        "_NOTEPAD \u2014 `src/scripts/system/gaia`",
+        "What this folder is",
+        "How to run it",
+        "Known behavior / cautions",
+        "Work log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "index-0.ts": {
+      "language": "typescript",
+      "lines": 1088,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 1118,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "README.md": {
+      "language": "markdown",
+      "lines": 271,
+      "words": 754,
+      "heading_count": 25,
+      "headings": [
+        "\ud83d\udcda GAIA README.md",
+        "\ud83c\udf0d GAIA \u2014 Type-First Database Generator",
+        "Overview",
+        "Architecture",
+        "Directory Structure",
+        "Usage",
+        "Interactive Mode",
+        "CLI Options",
+        "All tables, views, functions",
+        "Single table",
+        "Single view",
+        "Entire deity group",
+        "Dry run (preview only)",
+        "Force overwrite existing files",
+        "Verbose output",
+        "Generated Output",
+        "Key Design Principles",
+        "Dependencies",
+        "Known Issues (Session Vector)",
+        "Related Systems",
+        "Session Vector",
+        "\ud83d\udcc2 Index Files Needed",
+        "\u2705 Already Has Effective Index",
+        "\u26a0\ufe0f Could Benefit From Index"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 9,
+      "table_rows": 23,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "README_old.md": {
+      "language": "markdown",
+      "lines": 363,
+      "words": 142,
+      "heading_count": 12,
+      "headings": [
+        "\ud83c\udf33 GAIA Refinement Mind-Map Flowchart",
+        "Phase 0: Foundation Files (Order Matters)",
+        "Phase 1: Shared Utilities (Dependencies for All)",
+        "Phase 2: Extraction Layer (Simplify Parsing)",
+        "Phase 3: Enrichment Layer (Configuration Resolution)",
+        "Phase 4: Generation Layer (Type-First Generators)",
+        "Phase 5: Maintenance Scripts (Keep & Update)",
+        "Phase 6: Orchestrator (Main Entry)",
+        "Phase 7: Config Updates (Type Safety)",
+        "\ud83c\udfa3 Base Hooks to Generate",
+        "\ud83d\udccb Complete Checklist Sequence",
+        "\ud83c\udf0a Data Flow (After Refinement)"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 11,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "write_generated_file.ts": {
+      "language": "typescript",
+      "lines": 185,
+      "exported_functions": [
+        "writeGeneratedFile"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "WriteOptions",
+        "WriteResult"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

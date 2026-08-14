@@ -1,0 +1,216 @@
+{
+  "folder_name": "generate",
+  "folder_path": "src/scripts/modules/generate",
+  "description": "10 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.660188 | in sovereign time",
+  "files": [
+    {
+      "path": "src/scripts/modules/generate/generate_api_routes.ts",
+      "description": "typescript, 7,517 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_constants.ts",
+      "description": "typescript, 6,283 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_index_files.ts",
+      "description": "typescript, 7,083 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_object_constants.ts",
+      "description": "typescript, 6,705 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_object_types.ts",
+      "description": "typescript, 10,822 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_type_files.ts",
+      "description": "typescript, 7,255 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/generate_validators.ts",
+      "description": "typescript, 11,125 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/index.ts",
+      "description": "typescript, 607 bytes"
+    },
+    {
+      "path": "src/scripts/modules/generate/index_files_0.ts",
+      "description": "generate-indexes.ts"
+    },
+    {
+      "path": "src/scripts/modules/generate/index_files_1.ts",
+      "description": "generate-indexes.ts"
+    }
+  ],
+  "file_count": 10,
+  "subdirectories": [],
+  "code_analysis": {
+    "generate_api_routes.ts": {
+      "language": "typescript",
+      "lines": 210,
+      "exported_functions": [
+        "generateApiRoutesForTable",
+        "generateApiRoutesForTables"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateApiRoutesOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_constants.ts": {
+      "language": "typescript",
+      "lines": 173,
+      "exported_functions": [
+        "generateConstantContent",
+        "generateConstantFile",
+        "generateMultipleConstantFiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateConstantsOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_index_files.ts": {
+      "language": "typescript",
+      "lines": 226,
+      "exported_functions": [
+        "generateIndexForDirectory",
+        "generateIndexesRecursively",
+        "generateIndexesForPaths"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateIndexOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_object_constants.ts": {
+      "language": "typescript",
+      "lines": 184,
+      "exported_functions": [
+        "generateConstantFile",
+        "generateMultipleConstantFiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateConstantsOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_object_types.ts": {
+      "language": "typescript",
+      "lines": 336,
+      "exported_functions": [
+        "generateSingleTypeFile",
+        "generateMultipleTypeFiles",
+        "generateTypeFilesByDeity",
+        "previewTypeGeneration"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateObjectTypesOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_type_files.ts": {
+      "language": "typescript",
+      "lines": 223,
+      "exported_functions": [
+        "generateSingleTypeFile",
+        "generateMultipleTypeFiles"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateTypeFilesOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "generate_validators.ts": {
+      "language": "typescript",
+      "lines": 328,
+      "exported_functions": [
+        "parseTableSections",
+        "generateValidatorContent",
+        "generateValidatorForTable",
+        "generateValidatorsForTables"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "GenerateValidatorsOptions"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 15,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index_files_0.ts": {
+      "language": "typescript",
+      "lines": 175,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    },
+    "index_files_1.ts": {
+      "language": "typescript",
+      "lines": 368,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": true,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

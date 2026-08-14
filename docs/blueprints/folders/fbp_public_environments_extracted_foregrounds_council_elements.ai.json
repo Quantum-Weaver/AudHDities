@@ -1,0 +1,30 @@
+{
+  "folder_name": "council-elements",
+  "folder_path": "public/environments/extracted-foregrounds/council-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.901476 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/council-elements/council-background-1b.webp",
+      "description": "file, 1,667,644 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/council-elements/council-background-2b.webp",
+      "description": "file, 1,021,854 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/council-elements/council-background-3b.webp",
+      "description": "file, 1,406,762 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/council-elements/council-background-4b.webp",
+      "description": "file, 1,616,458 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

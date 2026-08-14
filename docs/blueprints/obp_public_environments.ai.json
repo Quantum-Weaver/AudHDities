@@ -1,0 +1,215 @@
+{
+  "object_name": "public_environments",
+  "object_path": "public/environments",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.081949 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments.ai.json",
+      "folder_path": "public/environments",
+      "description": "0 files, 2 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 2
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas.ai.json",
+      "folder_path": "public/environments/360-panoramas",
+      "description": "0 files, 13 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 13
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_architecture.ai.json",
+      "folder_path": "public/environments/360-panoramas/architecture",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_community.ai.json",
+      "folder_path": "public/environments/360-panoramas/community",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_council.ai.json",
+      "folder_path": "public/environments/360-panoramas/council",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_distant_structures.ai.json",
+      "folder_path": "public/environments/360-panoramas/distant-structures",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_home.ai.json",
+      "folder_path": "public/environments/360-panoramas/home",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_invitation.ai.json",
+      "folder_path": "public/environments/360-panoramas/invitation",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_library.ai.json",
+      "folder_path": "public/environments/360-panoramas/library",
+      "description": "22 files, 0 subfolders",
+      "file_count": 22,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_lounge.ai.json",
+      "folder_path": "public/environments/360-panoramas/lounge",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_music.ai.json",
+      "folder_path": "public/environments/360-panoramas/music",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_observatory.ai.json",
+      "folder_path": "public/environments/360-panoramas/observatory",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_origin.ai.json",
+      "folder_path": "public/environments/360-panoramas/origin",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_support.ai.json",
+      "folder_path": "public/environments/360-panoramas/support",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_360_panoramas_transitional.ai.json",
+      "folder_path": "public/environments/360-panoramas/transitional",
+      "description": "24 files, 0 subfolders",
+      "file_count": 24,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds",
+      "description": "0 files, 13 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 13
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_architecture_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/architecture-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_community_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/community-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_council_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/council-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_distant_structures_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/distant-structures-elements",
+      "description": "8 files, 0 subfolders",
+      "file_count": 8,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_home_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/home-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_invitation_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/invitation-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_library_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/library-elements",
+      "description": "21 files, 0 subfolders",
+      "file_count": 21,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_lounge_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/lounge-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_music_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/music-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_observatory_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/observatory-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_origin_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/origin-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_support_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/support-elements",
+      "description": "4 files, 0 subfolders",
+      "file_count": 4,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_environments_extracted_foregrounds_transitional_elements.ai.json",
+      "folder_path": "public/environments/extracted-foregrounds/transitional-elements",
+      "description": "19 files, 0 subfolders",
+      "file_count": 19,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 29,
+  "total_files": 206,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

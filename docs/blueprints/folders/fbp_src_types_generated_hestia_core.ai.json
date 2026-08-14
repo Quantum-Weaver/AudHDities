@@ -1,0 +1,729 @@
+{
+  "folder_name": "hestia-core",
+  "folder_path": "src/types/generated/hestia-core",
+  "description": "29 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.826116 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/generated/hestia-core/collection_items.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/collection_sets.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/community_profiles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/companion_cues.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/current.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/energy_entries.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/garden_plots.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/garden_visits.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/heralds.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/journal_entries.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/plant_stages.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/relationships.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/seed_types.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/user_financial.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/user_page_views.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/user_private.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/user_roles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_anchors.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_bubbles.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_collections.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_companions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_config.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_decorations.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_exteriors.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_interiors.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_quests.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_rooms.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/vessel_sigils.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/hestia-core/views.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 29,
+  "subdirectories": [],
+  "code_analysis": {
+    "collection_items.ts": {
+      "language": "typescript",
+      "lines": 47,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "CollectionItemsFormData"
+      ],
+      "types": [
+        "ContentStatus",
+        "CollectionItemsRow",
+        "CollectionItemsInsert",
+        "CollectionItemsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "collection_sets.ts": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicCollectionSets",
+        "CollectionSetsFormData",
+        "CollectionSetsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "CollectionSetsRow",
+        "CollectionSetsInsert",
+        "CollectionSetsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "community_profiles.ts": {
+      "language": "typescript",
+      "lines": 101,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicCommunityProfiles",
+        "CommunityProfilesFormData",
+        "CommunityProfilesValidationResult"
+      ],
+      "types": [
+        "SovereignTier",
+        "ProfileStatus",
+        "CommunityProfilesRow",
+        "CommunityProfilesInsert",
+        "CommunityProfilesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "companion_cues.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicCompanionCues",
+        "CompanionCuesFormData",
+        "CompanionCuesValidationResult"
+      ],
+      "types": [
+        "CompanionCuesRow",
+        "CompanionCuesInsert",
+        "CompanionCuesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "current.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicCurrent",
+        "CurrentFormData",
+        "CurrentValidationResult"
+      ],
+      "types": [
+        "CurrentRow",
+        "CurrentInsert",
+        "CurrentUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "energy_entries.ts": {
+      "language": "typescript",
+      "lines": 87,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicEnergyEntries",
+        "EnergyEntriesFormData",
+        "EnergyEntriesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "EnergyEntriesRow",
+        "EnergyEntriesInsert",
+        "EnergyEntriesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "garden_plots.ts": {
+      "language": "typescript",
+      "lines": 105,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicGardenPlots",
+        "GardenPlotsFormData",
+        "GardenPlotsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "GardenPlotsRow",
+        "GardenPlotsInsert",
+        "GardenPlotsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "garden_visits.ts": {
+      "language": "typescript",
+      "lines": 69,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicGardenVisits",
+        "GardenVisitsFormData",
+        "GardenVisitsValidationResult"
+      ],
+      "types": [
+        "GardenVisitsRow",
+        "GardenVisitsInsert",
+        "GardenVisitsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "heralds.ts": {
+      "language": "typescript",
+      "lines": 93,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicHeralds",
+        "HeraldsFormData",
+        "HeraldsValidationResult"
+      ],
+      "types": [
+        "NotificationChannel",
+        "HeraldsRow",
+        "HeraldsInsert",
+        "HeraldsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "journal_entries.ts": {
+      "language": "typescript",
+      "lines": 87,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicJournalEntries",
+        "JournalEntriesFormData",
+        "JournalEntriesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "JournalEntriesRow",
+        "JournalEntriesInsert",
+        "JournalEntriesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "plant_stages.ts": {
+      "language": "typescript",
+      "lines": 94,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicPlantStages",
+        "PlantStagesFormData",
+        "PlantStagesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "PlantStagesRow",
+        "PlantStagesInsert",
+        "PlantStagesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "relationships.ts": {
+      "language": "typescript",
+      "lines": 97,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicRelationships",
+        "RelationshipsFormData",
+        "RelationshipsValidationResult"
+      ],
+      "types": [
+        "RelationshipsRow",
+        "RelationshipsInsert",
+        "RelationshipsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "seed_types.ts": {
+      "language": "typescript",
+      "lines": 94,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicSeedTypes",
+        "SeedTypesFormData",
+        "SeedTypesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "SeedTypesRow",
+        "SeedTypesInsert",
+        "SeedTypesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "user_financial.ts": {
+      "language": "typescript",
+      "lines": 103,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicUserFinancial",
+        "UserFinancialFormData",
+        "UserFinancialValidationResult"
+      ],
+      "types": [
+        "UserFinancialRow",
+        "UserFinancialInsert",
+        "UserFinancialUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "user_page_views.ts": {
+      "language": "typescript",
+      "lines": 78,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicUserPageViews",
+        "UserPageViewsFormData",
+        "UserPageViewsValidationResult"
+      ],
+      "types": [
+        "UserPageViewsRow",
+        "UserPageViewsInsert",
+        "UserPageViewsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "user_private.ts": {
+      "language": "typescript",
+      "lines": 82,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicUserPrivate",
+        "UserPrivateFormData",
+        "UserPrivateValidationResult"
+      ],
+      "types": [
+        "UserPrivateRow",
+        "UserPrivateInsert",
+        "UserPrivateUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "user_roles.ts": {
+      "language": "typescript",
+      "lines": 78,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicUserRoles",
+        "UserRolesFormData",
+        "UserRolesValidationResult"
+      ],
+      "types": [
+        "UserRole",
+        "UserRolesRow",
+        "UserRolesInsert",
+        "UserRolesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_anchors.ts": {
+      "language": "typescript",
+      "lines": 99,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselAnchors",
+        "VesselAnchorsFormData",
+        "VesselAnchorsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselAnchorsRow",
+        "VesselAnchorsInsert",
+        "VesselAnchorsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_bubbles.ts": {
+      "language": "typescript",
+      "lines": 70,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselBubbles",
+        "VesselBubblesFormData",
+        "VesselBubblesValidationResult"
+      ],
+      "types": [
+        "VesselBubblesRow",
+        "VesselBubblesInsert",
+        "VesselBubblesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_collections.ts": {
+      "language": "typescript",
+      "lines": 66,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselCollections",
+        "VesselCollectionsFormData",
+        "VesselCollectionsValidationResult"
+      ],
+      "types": [
+        "VesselCollectionsRow",
+        "VesselCollectionsInsert",
+        "VesselCollectionsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_companions.ts": {
+      "language": "typescript",
+      "lines": 100,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselCompanions",
+        "VesselCompanionsFormData",
+        "VesselCompanionsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselCompanionsRow",
+        "VesselCompanionsInsert",
+        "VesselCompanionsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_config.ts": {
+      "language": "typescript",
+      "lines": 149,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselConfig",
+        "VesselConfigFormData",
+        "VesselConfigValidationResult"
+      ],
+      "types": [
+        "NotificationChannel",
+        "HeraldDigest",
+        "DisplayTheme",
+        "VesselConfigRow",
+        "VesselConfigInsert",
+        "VesselConfigUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_decorations.ts": {
+      "language": "typescript",
+      "lines": 93,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselDecorations",
+        "VesselDecorationsFormData",
+        "VesselDecorationsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselDecorationsRow",
+        "VesselDecorationsInsert",
+        "VesselDecorationsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_exteriors.ts": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselExteriors",
+        "VesselExteriorsFormData",
+        "VesselExteriorsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselExteriorsRow",
+        "VesselExteriorsInsert",
+        "VesselExteriorsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_interiors.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselInteriors",
+        "VesselInteriorsFormData",
+        "VesselInteriorsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselInteriorsRow",
+        "VesselInteriorsInsert",
+        "VesselInteriorsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_quests.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselQuests",
+        "VesselQuestsFormData",
+        "VesselQuestsValidationResult"
+      ],
+      "types": [
+        "VesselQuestsRow",
+        "VesselQuestsInsert",
+        "VesselQuestsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_rooms.ts": {
+      "language": "typescript",
+      "lines": 87,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselRooms",
+        "VesselRoomsFormData",
+        "VesselRoomsValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "VesselRoomsRow",
+        "VesselRoomsInsert",
+        "VesselRoomsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "vessel_sigils.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicVesselSigils",
+        "VesselSigilsFormData",
+        "VesselSigilsValidationResult"
+      ],
+      "types": [
+        "VesselSigilsRow",
+        "VesselSigilsInsert",
+        "VesselSigilsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "views.ts": {
+      "language": "typescript",
+      "lines": 79,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicViews",
+        "ViewsFormData",
+        "ViewsValidationResult"
+      ],
+      "types": [
+        "ViewsRow",
+        "ViewsInsert",
+        "ViewsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

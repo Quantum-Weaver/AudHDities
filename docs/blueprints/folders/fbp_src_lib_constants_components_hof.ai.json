@@ -1,0 +1,437 @@
+{
+  "folder_name": "hof",
+  "folder_path": "src/lib/constants/components/hof",
+  "description": "14 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.329259 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/constants/components/hof/aspect_ratio.constants.ts",
+      "description": "src/lib/constants/components/hof/aspect_ratio.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/aspect_ratio.variants.ts",
+      "description": "src/lib/constants/components/hof/aspect_ratio.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/container.constants.ts",
+      "description": "src/lib/constants/components/hof/container.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/container.variants.ts",
+      "description": "src/lib/constants/components/hof/container.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/divider.constants.ts",
+      "description": "src/lib/constants/components/hof/divider.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/divider.variants.ts",
+      "description": "src/lib/constants/components/hof/divider.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/flex.constants.ts",
+      "description": "srv/lib/constants/components/hof/flex.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/grid.constants.ts",
+      "description": "src/lib/constants/components/hof/grid.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/grid.variants.ts",
+      "description": "src/lib/constants/components/hof/grid.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/scroll_area.constants.ts",
+      "description": "src/lib/constants/components/hof/scroll_area.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/scroll_area.variants.ts",
+      "description": "src/lib/constants/components/hof/scroll_area.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/spacer.constants.ts",
+      "description": "src/lib/constants/components/hof/spacer.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/spacer.variants.ts",
+      "description": "src/lib/constants/components/hof/spacer.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/hof/stack.constants.ts",
+      "description": "src/lib/constants/components/hof/stack.constants.ts"
+    }
+  ],
+  "file_count": 14,
+  "subdirectories": [],
+  "code_analysis": {
+    "aspect_ratio.constants.ts": {
+      "language": "typescript",
+      "lines": 110,
+      "exported_functions": [],
+      "exported_consts": [
+        "ASPECT_RATIO_VALUES",
+        "ASPECT_RATIO_PERCENTAGES",
+        "OBJECT_FIT_VALUES",
+        "OBJECT_FIT_CLASSES",
+        "ASPECT_RATIO_ROUNDED_SIZES",
+        "ROUNDED_SIZE_CLASSES",
+        "ASPECT_RATIO_CONTAINER_BASE",
+        "ASPECT_RATIO_INNER_BASE",
+        "ASPECT_RATIO_MEDIA_BASE",
+        "ASPECT_RATIO_BORDER_CLASS",
+        "ASPECT_RATIO_TRANSITION",
+        "ASPECT_RATIO_FALLBACK_BG"
+      ],
+      "interfaces": [],
+      "types": [
+        "AspectRatioValue",
+        "ObjectFit",
+        "AspectRatioRoundedSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "aspect_ratio.variants.ts": {
+      "language": "typescript",
+      "lines": 68,
+      "exported_functions": [],
+      "exported_consts": [
+        "aspectRatioContainerVariants",
+        "aspectRatioInnerVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "AspectRatioContainerVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "container.constants.ts": {
+      "language": "typescript",
+      "lines": 99,
+      "exported_functions": [],
+      "exported_consts": [
+        "CONTAINER_SIZE_CLASSES",
+        "CONTAINER_PADDING_X_CLASSES",
+        "CONTAINER_PADDING_Y_CLASSES",
+        "CONTAINER_PADDING_TOP_CLASSES",
+        "CONTAINER_PADDING_BOTTOM_CLASSES",
+        "CONTAINER_RESPONSIVE_PADDING_X_CLASSES",
+        "CONTAINER_BORDER_CLASSES",
+        "CONTAINER_BACKGROUND_CLASSES",
+        "CONTAINER_ELEVATED_CLASSES",
+        "CONTAINER_CENTERED_CLASS",
+        "CONTAINER_BASE_CLASS",
+        "CONTAINER_HEADER_MARGIN_BOTTOM",
+        "CONTAINER_BODY_GAP",
+        "CONTAINER_FOOTER_MARGIN_TOP",
+        "CONTAINER_FOOTER_PADDING_TOP",
+        "CONTAINER_FOOTER_DIVIDER"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "container.variants.ts": {
+      "language": "typescript",
+      "lines": 60,
+      "exported_functions": [],
+      "exported_consts": [
+        "CONTAINER_SIZES",
+        "CONTAINER_PADDING_SIZES",
+        "containerVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "ContainerSize",
+        "ContainerPadding",
+        "ContainerVisualVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "divider.constants.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [],
+      "exported_consts": [
+        "DIVIDER_THICKNESS",
+        "DIVIDER_THICKNESS_VERTICAL",
+        "DIVIDER_LENGTH_HORIZONTAL",
+        "DIVIDER_LENGTH_VERTICAL",
+        "DIVIDER_SPACING_HORIZONTAL",
+        "DIVIDER_SPACING_VERTICAL",
+        "DIVIDER_LABEL_GAP",
+        "DIVIDER_LABEL_TEXT",
+        "DIVIDER_LABEL_ICON_SIZE",
+        "DIVIDER_SECTION_SUBTITLE",
+        "DIVIDER_SECTION_PADDING",
+        "DIVIDER_LINE_BASE"
+      ],
+      "interfaces": [],
+      "types": [
+        "DividerThickness",
+        "DividerLength",
+        "DividerSpacingSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "divider.variants.ts": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [],
+      "exported_consts": [
+        "DIVIDER_VARIANTS",
+        "DIVIDER_LINE_STYLES",
+        "DIVIDER_ORIENTATIONS",
+        "dividerColorVariants",
+        "dividerColorVerticalVariants",
+        "dividerLineStyleVariants",
+        "dividerLineStyleVerticalVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "DividerVariant",
+        "DividerLineStyle",
+        "DividerOrientation"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "flex.constants.ts": {
+      "language": "typescript",
+      "lines": 155,
+      "exported_functions": [],
+      "exported_consts": [
+        "FLEX_DIRECTION",
+        "FLEX_DIRECTION_CLASSES",
+        "FLEX_WRAP",
+        "FLEX_WRAP_CLASSES",
+        "FLEX_JUSTIFY",
+        "FLEX_JUSTIFY_CLASSES",
+        "FLEX_ALIGN",
+        "FLEX_ALIGN_CLASSES",
+        "FLEX_GAP",
+        "FLEX_GAP_CLASSES",
+        "FLEX_ROW_GAP_CLASSES",
+        "FLEX_COLUMN_GAP_CLASSES",
+        "FLEX_ALIGN_SELF",
+        "FLEX_ALIGN_SELF_CLASSES",
+        "FLEX_RESPONSIVE_PREFIXES"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grid.constants.ts": {
+      "language": "typescript",
+      "lines": 133,
+      "exported_functions": [],
+      "exported_consts": [
+        "GRID_SPACING_VALUES",
+        "GRID_GAP_MAP",
+        "GRID_ROW_GAP_MAP",
+        "GRID_COL_GAP_MAP",
+        "GRID_ALIGN_VALUES",
+        "GRID_ALIGN_MAP",
+        "GRID_JUSTIFY_VALUES",
+        "GRID_JUSTIFY_MAP",
+        "GRID_FLOW_VALUES",
+        "GRID_FLOW_MAP",
+        "RESPONSIVE_PREFIX",
+        "GRID_SPAN_FULL",
+        "GRID_SPAN_AUTO",
+        "GRID_MAX_SPAN",
+        "GRID_DEFAULT_COLS"
+      ],
+      "interfaces": [],
+      "types": [
+        "GridSpacing",
+        "GridAlign",
+        "GridJustify",
+        "GridFlow",
+        "ResponsivePrefix"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grid.variants.ts": {
+      "language": "typescript",
+      "lines": 220,
+      "exported_functions": [
+        "getGridColsClass",
+        "getGridGapClass"
+      ],
+      "exported_consts": [
+        "GRID_VARIANTS",
+        "BREAKPOINT_KEYS",
+        "GRID_COLUMNS",
+        "GRID_GAPS",
+        "GRID_CONTAINER_WIDTHS",
+        "GRID_VARIANT_CLASSES",
+        "FRAMER_EASING",
+        "GRID_ANIMATIONS",
+        "RESPONSIVE_BREAKPOINTS",
+        "DEFAULT_GRID_VARIANT",
+        "DEFAULT_GRID_GAP",
+        "DEFAULT_CONTAINER_CLASS"
+      ],
+      "interfaces": [],
+      "types": [
+        "GridVariant",
+        "BreakpointKey"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "scroll_area.constants.ts": {
+      "language": "typescript",
+      "lines": 126,
+      "exported_functions": [],
+      "exported_consts": [
+        "SCROLLBAR_THICKNESS",
+        "SCROLLBAR_TRACK_BG",
+        "SCROLLBAR_THUMB_BG",
+        "SCROLLBAR_THUMB_HOVER_BG",
+        "SCROLLBAR_VISIBILITY",
+        "SCROLL_ORIENTATION",
+        "SNAP_DIRECTION",
+        "SCROLL_AREA_ROUNDED",
+        "SCROLL_AREA_BORDER",
+        "SCROLL_AREA_BACKGROUND",
+        "SCROLL_SHADOW_INSET",
+        "SCROLL_INDICATOR_TRACK_BG",
+        "SCROLL_INDICATOR_THUMB_BG",
+        "SCROLL_TO_TOP_BUTTON_BG",
+        "SCROLL_TO_TOP_BUTTON_HOVER_BG",
+        "SCROLLBAR_WEBKIT_BASE",
+        "SCROLLBAR_FIREFOX_BASE",
+        "SCROLL_INDICATOR_TRANSITION"
+      ],
+      "interfaces": [],
+      "types": [
+        "ScrollbarThickness",
+        "ScrollbarVisibility",
+        "ScrollOrientation",
+        "SnapDirection",
+        "ScrollAreaRoundedSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "scroll_area.variants.ts": {
+      "language": "typescript",
+      "lines": 72,
+      "exported_functions": [],
+      "exported_consts": [
+        "scrollAreaVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "ScrollAreaVariantProps"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "spacer.constants.ts": {
+      "language": "typescript",
+      "lines": 115,
+      "exported_functions": [],
+      "exported_consts": [
+        "SPACER_SIZES",
+        "SPACER_SIZE_VALUES",
+        "SPACER_PX_MAP",
+        "SPACER_AXIS",
+        "SPACER_DIRECTION",
+        "SPACER_RESPONSIVE_BREAKPOINTS",
+        "RESPONSIVE_PREFIX_MAP",
+        "SPACER_FULL_CLASSES",
+        "SPACER_FLEX_CLASSES"
+      ],
+      "interfaces": [],
+      "types": [
+        "SpacerSize",
+        "SpacerAxis",
+        "SpacerDirection",
+        "SpacerResponsiveBreakpoint"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "spacer.variants.ts": {
+      "language": "typescript",
+      "lines": 65,
+      "exported_functions": [],
+      "exported_consts": [
+        "spacerVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "SpacerVariantProps"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "stack.constants.ts": {
+      "language": "typescript",
+      "lines": 98,
+      "exported_functions": [],
+      "exported_consts": [
+        "STACK_SPACING",
+        "STACK_ALIGN",
+        "STACK_JUSTIFY",
+        "STACK_DIRECTION",
+        "STACK_GAP_MAP",
+        "STACK_ALIGN_MAP",
+        "STACK_JUSTIFY_VERTICAL_MAP",
+        "STACK_JUSTIFY_HORIZONTAL_MAP",
+        "STACK_RESPONSIVE_PREFIX",
+        "STACK_DIVIDER_WRAPPER_VERTICAL",
+        "STACK_DIVIDER_WRAPPER_HORIZONTAL"
+      ],
+      "interfaces": [],
+      "types": [
+        "StackSpacing",
+        "StackAlign",
+        "StackJustify",
+        "StackDirection"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

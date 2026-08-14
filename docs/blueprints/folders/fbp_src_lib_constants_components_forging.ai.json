@@ -1,0 +1,569 @@
+{
+  "folder_name": "forging",
+  "folder_path": "src/lib/constants/components/forging",
+  "description": "20 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.322038 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/constants/components/forging/checkbox.constants.ts",
+      "description": "src/lib/constants/components/forging/checkbox.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/checkbox.variants.ts",
+      "description": "src/lib/constants/components/forging/checkbox.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form.constants.ts",
+      "description": "src/lib/constants/components/forging/form.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form.variants.ts",
+      "description": "src/lib/constants/components/forging/form.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form_field.constants.ts",
+      "description": "srv/lib/constants/components/forging/form_field.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form_field.variants.ts",
+      "description": "srv/lib/constants/components/forging/form_field.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form_validation.constants.ts",
+      "description": "srv/lib/constants/components/forging/form_validation.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/form_validation.variants.ts",
+      "description": "srv/lib/constants/components/forging/form_validation.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/input.constants.ts",
+      "description": "src/lib/constants/components/forging/input.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/input.variants.ts",
+      "description": "src/lib/constants/components/forging/input.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/radio.constants.ts",
+      "description": "src/lib/constants/components/forging/radio.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/radio.variants.ts",
+      "description": "src/lib/constants/components/forging/radio.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/select.constants.ts",
+      "description": "src/lib/constants/components/forging/select.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/select.variants.ts",
+      "description": "src/lib/constants/components/forging/select.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/slider.constants.ts",
+      "description": "src/lib/constants/components/forging/slider.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/slider.variants.ts",
+      "description": "src/lib/constants/components/forging/slider.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/switch.constants.ts",
+      "description": "src/lib/constants/components/forging/switch.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/switch.variants.ts",
+      "description": "src/lib/constants/components/forging/switch.variants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/textarea.constants.ts",
+      "description": "src/lib/constants/components/forging/textarea.constants.ts"
+    },
+    {
+      "path": "src/lib/constants/components/forging/textarea.variants.ts",
+      "description": "src/lib/constants/components/forging/textarea.variants.ts"
+    }
+  ],
+  "file_count": 20,
+  "subdirectories": [],
+  "code_analysis": {
+    "checkbox.constants.ts": {
+      "language": "typescript",
+      "lines": 61,
+      "exported_functions": [],
+      "exported_consts": [
+        "CHECKBOX_SIZE",
+        "CHECK_ICON_SIZE",
+        "CHECKBOX_LABEL_SIZE",
+        "CHECKBOX_SPACING",
+        "CHECKBOX_TEXT_OPACITY",
+        "CHECKBOX_ERROR",
+        "CHECKBOX_SIZE_VALUES"
+      ],
+      "interfaces": [],
+      "types": [
+        "CheckboxSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "checkbox.variants.ts": {
+      "language": "typescript",
+      "lines": 63,
+      "exported_functions": [],
+      "exported_consts": [
+        "checkboxVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "CheckboxVariant",
+        "CheckboxSizeVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form.constants.ts": {
+      "language": "typescript",
+      "lines": 50,
+      "exported_functions": [],
+      "exported_consts": [
+        "FORM_LAYOUT_VERTICAL",
+        "FORM_LAYOUT_HORIZONTAL",
+        "FORM_FULL_WIDTH",
+        "FORM_FIELD_SPACING",
+        "FORM_ACTIONS_BUTTON_SPACING",
+        "FORM_ACTIONS_ALIGNMENT",
+        "FORM_ACTIONS_MARGIN_TOP",
+        "FORM_ACTIONS_PADDING_TOP",
+        "FORM_ACTIONS_BORDER_TOP",
+        "FORM_ACTIONS_BORDER_COLOR",
+        "FORM_SUBMITTING_MESSAGE",
+        "FORM_ERROR_SCROLL_BEHAVIOR"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form.variants.ts": {
+      "language": "typescript",
+      "lines": 77,
+      "exported_functions": [],
+      "exported_consts": [
+        "FORM_LAYOUTS",
+        "FORM_SPACINGS",
+        "FORM_ACTIONS_ALIGNMENTS",
+        "formContainerVariants",
+        "formActionsContainerVariants",
+        "formActionsDividerClasses"
+      ],
+      "interfaces": [],
+      "types": [
+        "FormLayout",
+        "FormSpacing",
+        "FormActionsAlign"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_field.constants.ts": {
+      "language": "typescript",
+      "lines": 49,
+      "exported_functions": [],
+      "exported_consts": [
+        "FORM_FIELD_LAYOUT_VERTICAL",
+        "FORM_FIELD_LAYOUT_HORIZONTAL",
+        "FORM_FIELD_FULL_WIDTH",
+        "FORM_FIELD_SIZE_CONFIG",
+        "FORM_FIELD_HORIZONTAL_LABEL_MIN_WIDTH",
+        "FORM_FIELD_HORIZONTAL_LABEL_PADDING_TOP",
+        "FORM_FIELD_CONTENT_FLEX",
+        "FORM_FIELD_HELPER_MARGIN_TOP",
+        "FORM_FIELD_HELPER_COLOR",
+        "FORM_FIELD_ERROR_MARGIN_TOP",
+        "FORM_FIELD_ERROR_COLOR",
+        "FORM_FIELD_DISABLED_OPACITY"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_field.variants.ts": {
+      "language": "typescript",
+      "lines": 62,
+      "exported_functions": [],
+      "exported_consts": [
+        "FORM_FIELD_SIZES",
+        "FORM_FIELD_LAYOUTS",
+        "formFieldHelperVariants",
+        "formFieldErrorVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "FormFieldSize",
+        "FormFieldLayout"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_validation.constants.ts": {
+      "language": "typescript",
+      "lines": 35,
+      "exported_functions": [],
+      "exported_consts": [
+        "FORM_VALIDATION_SUMMARY_MARGIN_BOTTOM",
+        "FORM_VALIDATION_SUMMARY_PADDING",
+        "FORM_VALIDATION_SUMMARY_RADIUS",
+        "FORM_VALIDATION_SUCCESS_MARGIN_BOTTOM",
+        "FORM_VALIDATION_SUCCESS_PADDING",
+        "FORM_VALIDATION_SUCCESS_RADIUS",
+        "FORM_VALIDATION_CONTENT_GAP",
+        "FORM_VALIDATION_ICON_SIZE",
+        "FORM_VALIDATION_ICON_MARGIN_TOP",
+        "FORM_VALIDATION_TITLE_SIZE",
+        "FORM_VALIDATION_TITLE_WEIGHT",
+        "FORM_VALIDATION_LIST_MARGIN_TOP",
+        "FORM_VALIDATION_LIST_SPACING",
+        "FORM_VALIDATION_LIST_ITEM_SIZE",
+        "FORM_VALIDATION_DEFAULT_SUMMARY_TITLE"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "form_validation.variants.ts": {
+      "language": "typescript",
+      "lines": 105,
+      "exported_functions": [],
+      "exported_consts": [
+        "VALIDATION_STATUSES",
+        "formValidationSummaryVariants",
+        "formValidationTextVariants",
+        "formValidationSuccessVariants",
+        "formValidationSuccessTextVariants",
+        "formValidationStatusIconVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "ValidationStatus"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "input.constants.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "INPUT_HEIGHT",
+        "INPUT_PADDING",
+        "INPUT_ICON_OFFSET",
+        "INPUT_ICON_PADDING",
+        "INPUT_BASE_CLASSES",
+        "INPUT_LABEL_CLASSES",
+        "INPUT_LABEL_ERROR_CLASSES",
+        "INPUT_HELPER_CLASSES",
+        "INPUT_ERROR_CLASSES",
+        "INPUT_REQUIRED_INDICATOR",
+        "INPUT_OPTIONAL_INDICATOR",
+        "INPUT_WRAPPER_CLASSES",
+        "INPUT_FULL_WIDTH_CLASS",
+        "INPUT_ICON_CONTAINER_CLASSES",
+        "INPUT_CONTAINER_CLASSES"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "input.variants.ts": {
+      "language": "typescript",
+      "lines": 67,
+      "exported_functions": [],
+      "exported_consts": [
+        "inputVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "InputVariant",
+        "InputSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "radio.constants.ts": {
+      "language": "typescript",
+      "lines": 69,
+      "exported_functions": [],
+      "exported_consts": [
+        "RADIO_SIZE",
+        "RADIO_INDICATOR_SIZE",
+        "RADIO_LABEL_SIZE",
+        "RADIO_RADIUS",
+        "RADIO_GAP",
+        "RADIO_PADDING",
+        "RADIO_FOCUS_RING",
+        "RADIO_TRANSITION",
+        "RADIO_DISABLED",
+        "RADIO_SIZE_VALUES"
+      ],
+      "interfaces": [],
+      "types": [
+        "RadioSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "radio.variants.ts": {
+      "language": "typescript",
+      "lines": 153,
+      "exported_functions": [],
+      "exported_consts": [
+        "radioControlVariants",
+        "radioIndicatorVariants",
+        "radioLabelVariants",
+        "radioGroupVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "RadioVariant",
+        "RadioSize",
+        "RadioGroupDirection"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "select.constants.ts": {
+      "language": "typescript",
+      "lines": 84,
+      "exported_functions": [],
+      "exported_consts": [
+        "SELECT_BORDER_DEFAULT",
+        "SELECT_BORDER_FOCUS",
+        "SELECT_RING_FOCUS",
+        "SELECT_BORDER_ERROR",
+        "SELECT_BORDER_SUCCESS",
+        "SELECT_BG_DEFAULT",
+        "SELECT_BG_FILLED",
+        "SELECT_TEXT_COLOR",
+        "SELECT_LABEL_COLOR",
+        "SELECT_LABEL_ERROR_COLOR",
+        "SELECT_REQUIRED_STAR_COLOR",
+        "SELECT_OPTIONAL_TEXT_COLOR",
+        "SELECT_PLACEHOLDER_COLOR",
+        "SELECT_HELPER_COLOR",
+        "SELECT_ERROR_TEXT_COLOR",
+        "SELECT_CHEVRON_COLOR",
+        "SELECT_OPTION_BG",
+        "SELECT_SIZE",
+        "SELECT_CHEVRON_SIZE",
+        "SELECT_CHEVRON_DATA_URI",
+        "SELECT_CHEVRON_POSITION",
+        "SELECT_GAP",
+        "SELECT_TRANSITION",
+        "SELECT_BORDER_RADIUS",
+        "SELECT_DISABLED"
+      ],
+      "interfaces": [],
+      "types": [
+        "SelectSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "select.variants.ts": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [],
+      "exported_consts": [
+        "selectVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "SelectVariant",
+        "SelectSizeVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "slider.constants.ts": {
+      "language": "typescript",
+      "lines": 172,
+      "exported_functions": [],
+      "exported_consts": [
+        "SLIDER_VARIANTS",
+        "SLIDER_SIZES",
+        "SLIDER_RANGE_COLOR_CLASSES",
+        "SLIDER_VALUE_COLOR_CLASSES",
+        "SLIDER_FOCUS_COLOR_CLASSES",
+        "SLIDER_TRACK_SIZE_CLASSES",
+        "SLIDER_THUMB_SIZE_CLASSES",
+        "SLIDER_THUMB_PIXEL_SIZE",
+        "SLIDER_VALUE_SIZE_CLASSES",
+        "SLIDER_LABEL_COLOR_CLASS",
+        "SLIDER_HELPER_TEXT_COLOR_CLASS",
+        "SLIDER_TRACK_BG_CLASS",
+        "SLIDER_MARK_COLOR_CLASS",
+        "SLIDER_THUMB_BASE_CLASSES",
+        "SLIDER_CONTAINER_SPACING",
+        "SLIDER_TRACK_CONTAINER_SPACING",
+        "DEFAULT_SLIDER_VARIANT",
+        "DEFAULT_SLIDER_SIZE",
+        "DEFAULT_SLIDER_MIN",
+        "DEFAULT_SLIDER_MAX",
+        "DEFAULT_SLIDER_STEP"
+      ],
+      "interfaces": [],
+      "types": [
+        "SliderVariant",
+        "SliderSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "slider.variants.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [
+        "sliderTrackVariants",
+        "sliderRangeVariants",
+        "sliderThumbVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "SliderVariantProp",
+        "SliderSizeProp"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "switch.constants.ts": {
+      "language": "typescript",
+      "lines": 119,
+      "exported_functions": [],
+      "exported_consts": [
+        "SWITCH_TRACK_UNCHECKED_BG",
+        "SWITCH_TRACK_CHECKED_BG",
+        "SWITCH_THUMB_BG",
+        "SWITCH_FOCUS_RING",
+        "SWITCH_LABEL_TEXT",
+        "SWITCH_LABEL_ERROR_TEXT",
+        "SWITCH_HELPER_TEXT",
+        "SWITCH_DISABLED_OPACITY",
+        "SWITCH_DISABLED_CURSOR",
+        "SWITCH_TRACK_SIZE",
+        "SWITCH_THUMB_SIZE",
+        "SWITCH_THUMB_TRANSLATE",
+        "SWITCH_TRANSITION_DURATION",
+        "SWITCH_LABEL_SIZE",
+        "SWITCH_TRACK_BASE",
+        "SWITCH_THUMB_BASE"
+      ],
+      "interfaces": [],
+      "types": [
+        "SwitchSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "switch.variants.ts": {
+      "language": "typescript",
+      "lines": 73,
+      "exported_functions": [],
+      "exported_consts": [
+        "switchTrackVariants",
+        "switchThumbVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "SwitchVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "textarea.constants.ts": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [],
+      "exported_consts": [
+        "TEXTAREA_DEFAULT_ROWS",
+        "TEXTAREA_LABEL_BASE_CLASSES",
+        "TEXTAREA_LABEL_DEFAULT_CLASS",
+        "TEXTAREA_LABEL_ERROR_CLASS",
+        "TEXTAREA_REQUIRED_CLASS",
+        "TEXTAREA_REQUIRED_SYMBOL",
+        "TEXTAREA_OPTIONAL_CLASS",
+        "TEXTAREA_OPTIONAL_TEXT",
+        "TEXTAREA_HELPER_CLASS",
+        "TEXTAREA_ERROR_CLASS",
+        "TEXTAREA_WRAPPER_BASE_CLASSES"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "textarea.variants.ts": {
+      "language": "typescript",
+      "lines": 72,
+      "exported_functions": [],
+      "exported_consts": [
+        "textareaVariants"
+      ],
+      "interfaces": [],
+      "types": [
+        "TextareaVariant",
+        "TextareaSize"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

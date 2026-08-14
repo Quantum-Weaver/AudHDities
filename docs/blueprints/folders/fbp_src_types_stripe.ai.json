@@ -1,0 +1,83 @@
+{
+  "folder_name": "stripe",
+  "folder_path": "src/types/stripe",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.852486 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/stripe/events.ts",
+      "description": "src/types/stripe/events.ts"
+    },
+    {
+      "path": "src/types/stripe/index.ts",
+      "description": "src/types/stripe/index.ts"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "events.ts": {
+      "language": "typescript",
+      "lines": 172,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "WebhookHandler",
+        "WebhookResult",
+        "CheckoutSessionCompletedHandler",
+        "PaymentIntentSucceededHandler",
+        "PaymentIntentFailedHandler",
+        "ChargeSucceededHandler",
+        "WebhookProcessingOptions",
+        "WebhookEventMetadata",
+        "WebhookSaleRecord",
+        "WebhookError",
+        "WebhookQueueItem",
+        "WebhookStats",
+        "EventCategoryMap"
+      ],
+      "types": [
+        "WebhookHandlers",
+        "WebhookErrorType",
+        "EventHandlerMap",
+        "EventCategory"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 447,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "StripeProduct",
+        "StripePrice",
+        "StripeCustomer",
+        "StripePaymentMethod",
+        "StripeCheckoutSession",
+        "CreateCheckoutSessionParams",
+        "CheckoutSessionResponse",
+        "StripePaymentIntent",
+        "WebhookEvent",
+        "FormatPriceOptions",
+        "PriceBreakdown",
+        "CheckoutError"
+      ],
+      "types": [
+        "PaymentIntentStatus",
+        "WebhookEventType",
+        "CheckoutErrorType"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

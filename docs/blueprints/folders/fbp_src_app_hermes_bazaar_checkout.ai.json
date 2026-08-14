@@ -1,0 +1,66 @@
+{
+  "folder_name": "checkout",
+  "folder_path": "src/app/(hermes)/bazaar/checkout",
+  "description": "2 files, 2 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.132967 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(hermes)/bazaar/checkout/_NOTEPAD.md",
+      "description": "_NOTEPAD"
+    },
+    {
+      "path": "src/app/(hermes)/bazaar/checkout/page.tsx",
+      "description": "src/app/(hermes)/bazaar/checkout/page.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(hermes)/bazaar/checkout/cancel",
+    "src/app/(hermes)/bazaar/checkout/success"
+  ],
+  "code_analysis": {
+    "_NOTEPAD.md": {
+      "language": "markdown",
+      "lines": 28,
+      "words": 153,
+      "heading_count": 5,
+      "headings": [
+        "_NOTEPAD \u2014 `bazaar/checkout/` \u00b7 Checkout",
+        "What this room is",
+        "Gaps (2026-07-09 sweep)",
+        "Rewire plan (pending canon confirmation)",
+        "Work log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "page.tsx": {
+      "language": "typescript",
+      "lines": 19,
+      "exported_functions": [],
+      "exported_consts": [
+        "metadata"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

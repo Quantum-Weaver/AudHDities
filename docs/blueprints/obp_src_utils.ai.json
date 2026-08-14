@@ -1,0 +1,103 @@
+{
+  "object_name": "src_utils",
+  "object_path": "src/utils",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.343345 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils.ai.json",
+      "folder_path": "src/utils",
+      "description": "0 files, 1 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 1
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated.ai.json",
+      "folder_path": "src/utils/generated",
+      "description": "0 files, 11 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 11
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_aethelred_connections.ai.json",
+      "folder_path": "src/utils/generated/aethelred-connections",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_athena_gamification.ai.json",
+      "folder_path": "src/utils/generated/athena-gamification",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_daedalus_meta.ai.json",
+      "folder_path": "src/utils/generated/daedalus-meta",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_hephaestus_infrastructure.ai.json",
+      "folder_path": "src/utils/generated/hephaestus-infrastructure",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_hermes_social.ai.json",
+      "folder_path": "src/utils/generated/hermes-social",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_hestia_core.ai.json",
+      "folder_path": "src/utils/generated/hestia-core",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_iris_communications.ai.json",
+      "folder_path": "src/utils/generated/iris-communications",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_mnemosyne_assessment.ai.json",
+      "folder_path": "src/utils/generated/mnemosyne-assessment",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_plutus_economics.ai.json",
+      "folder_path": "src/utils/generated/plutus-economics",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_prometheus_stage.ai.json",
+      "folder_path": "src/utils/generated/prometheus-stage",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_src_utils_generated_themis_governance.ai.json",
+      "folder_path": "src/utils/generated/themis-governance",
+      "description": "0 files, 0 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 13,
+  "total_files": 0,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

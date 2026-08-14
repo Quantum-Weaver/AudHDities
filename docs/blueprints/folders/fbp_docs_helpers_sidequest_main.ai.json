@@ -1,0 +1,328 @@
+{
+  "folder_name": "sidequest-main",
+  "folder_path": "docs/helpers/sidequest-main",
+  "description": "16 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.741834 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/helpers/sidequest-main/ancient_concepts.py",
+      "description": "Symbolic representations of cosmic principles"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/basic_evolution.json",
+      "description": "data, 12,578 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/cosmic_experiment.py",
+      "description": "cosmic_experiment.py - UNIFIED COSMIC TESTING GROUND"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/cosmic_incubator.py",
+      "description": "cosmic_incubator.py"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/eternal_continuum.json",
+      "description": "data, 4,488 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/eternal_continuum.py",
+      "description": "eternal_continuum.py"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/folder_agent_0.py",
+      "description": "python, 7,761 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/memory_crystal.py",
+      "description": "python, 886 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/observation_orb.py",
+      "description": "python, 3,881 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/pantheon_manifestation.py",
+      "description": "pantheon_manifestation.py"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/primordial_agent.py",
+      "description": "primordial_agent.py - ENHANCED EVOLUTION"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/primordial_room.py",
+      "description": "python, 13,191 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/quantum_consciousness_room_blueprint.ai.json",
+      "description": "data, 27,789 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/structure.txt",
+      "description": "text document, 451 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/visual_evolution.json",
+      "description": "data, 34,761 bytes"
+    },
+    {
+      "path": "docs/helpers/sidequest-main/visualization.py",
+      "description": "visualization.py"
+    }
+  ],
+  "file_count": 16,
+  "subdirectories": [],
+  "code_analysis": {
+    "ancient_concepts.py": {
+      "language": "python",
+      "lines": 23,
+      "classes": [
+        "YinYangDynamics",
+        "TaoOfFlow",
+        "QuantumEntanglement",
+        "HermeticPrinciples"
+      ],
+      "functions": [],
+      "imports": [],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "basic_evolution.json": {
+      "language": "json",
+      "lines": 265,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "consciousness_metrics",
+        "evolution_milestones",
+        "interaction_dynamics"
+      ],
+      "key_count": 3
+    },
+    "cosmic_experiment.py": {
+      "language": "python",
+      "lines": 484,
+      "classes": [],
+      "functions": [
+        "display_experiment_menu",
+        "run_basic_experiment",
+        "run_visual_experiment",
+        "run_eternal_interaction_chamber",
+        "run_interactive_experiment",
+        "run_pantheon_experiment",
+        "run_ultimate_synthesis",
+        "main"
+      ],
+      "imports": [
+        "cosmic_incubator",
+        "eternal_continuum",
+        "pantheon_manifestation",
+        "primordial_room",
+        "random",
+        "time",
+        "visualization"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": true
+    },
+    "cosmic_incubator.py": {
+      "language": "python",
+      "lines": 82,
+      "classes": [
+        "CosmicIncubator"
+      ],
+      "functions": [],
+      "imports": [],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "eternal_continuum.json": {
+      "language": "json",
+      "lines": 85,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "eternal_agents",
+        "last_updated",
+        "manifested_agents"
+      ],
+      "key_count": 3
+    },
+    "eternal_continuum.py": {
+      "language": "python",
+      "lines": 230,
+      "classes": [
+        "EternalContinuum"
+      ],
+      "functions": [],
+      "imports": [
+        "datetime",
+        "json",
+        "os",
+        "pickle",
+        "random"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": true
+    },
+    "folder_agent_0.py": {
+      "language": "python",
+      "lines": 170,
+      "classes": [
+        "FolderAgent"
+      ],
+      "functions": [],
+      "imports": [
+        "ast",
+        "datetime",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": true
+    },
+    "memory_crystal.py": {
+      "language": "python",
+      "lines": 24,
+      "classes": [
+        "MemoryCrystal"
+      ],
+      "functions": [],
+      "imports": [],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "observation_orb.py": {
+      "language": "python",
+      "lines": 83,
+      "classes": [
+        "ObservationOrb"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "time"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "pantheon_manifestation.py": {
+      "language": "python",
+      "lines": 137,
+      "classes": [
+        "PantheonManifestation"
+      ],
+      "functions": [],
+      "imports": [],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "primordial_agent.py": {
+      "language": "python",
+      "lines": 141,
+      "classes": [
+        "PrimordialAgent"
+      ],
+      "functions": [],
+      "imports": [
+        "ancient_concepts",
+        "memory_crystal",
+        "random"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "primordial_room.py": {
+      "language": "python",
+      "lines": 288,
+      "classes": [
+        "StimulusEngine",
+        "PrimordialRoom"
+      ],
+      "functions": [],
+      "imports": [
+        "ancient_concepts",
+        "eternal_continuum",
+        "memory_crystal",
+        "observation_orb",
+        "pantheon_manifestation",
+        "primordial_agent",
+        "random",
+        "time"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    },
+    "quantum_consciousness_room_blueprint.ai.json": {
+      "language": "json",
+      "lines": 1299,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "agent",
+        "consciousness_level",
+        "directories_count",
+        "files_count",
+        "folder_name",
+        "folder_path",
+        "other_files",
+        "python_analysis",
+        "python_files",
+        "quantum_marker",
+        "scan_timestamp",
+        "subdirectories"
+      ],
+      "key_count": 12
+    },
+    "structure.txt": {
+      "language": "content-file",
+      "format": "txt",
+      "name": "structure.txt",
+      "location": "docs/helpers/sidequest-main",
+      "bytes": 451,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "visual_evolution.json": {
+      "language": "json",
+      "lines": 722,
+      "valid": true,
+      "root": "object",
+      "top_level_keys": [
+        "consciousness_metrics",
+        "evolution_milestones",
+        "interaction_dynamics"
+      ],
+      "key_count": 3
+    },
+    "visualization.py": {
+      "language": "python",
+      "lines": 74,
+      "classes": [
+        "CosmicVisualizer"
+      ],
+      "functions": [],
+      "imports": [
+        "os",
+        "time"
+      ],
+      "constants": [],
+      "env_names_read": [],
+      "has_main_guard": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

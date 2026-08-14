@@ -1,0 +1,125 @@
+{
+  "folder_name": "mnemosyne-assessment",
+  "folder_path": "src/hooks/generated/mnemosyne-assessment",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.262894 | in sovereign time",
+  "files": [
+    {
+      "path": "src/hooks/generated/mnemosyne-assessment/anchor_events.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/mnemosyne-assessment/folksonomy.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/mnemosyne-assessment/memories.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/mnemosyne-assessment/reference_values.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/hooks/generated/mnemosyne-assessment/resonance.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "anchor_events.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useAnchorEvents",
+        "useAnchorEventsList",
+        "useCreateAnchorEvents",
+        "useUpdateAnchorEvents",
+        "useDeleteAnchorEvents"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "folksonomy.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useFolksonomy",
+        "useFolksonomyList",
+        "useCreateFolksonomy",
+        "useUpdateFolksonomy",
+        "useDeleteFolksonomy"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "memories.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useMemories",
+        "useMemoriesList",
+        "useCreateMemories",
+        "useUpdateMemories",
+        "useDeleteMemories"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "reference_values.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useReferenceValues",
+        "useReferenceValuesList",
+        "useCreateReferenceValues",
+        "useUpdateReferenceValues",
+        "useDeleteReferenceValues"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "resonance.ts": {
+      "language": "typescript",
+      "lines": 218,
+      "exported_functions": [
+        "useResonance",
+        "useResonanceList",
+        "useCreateResonance",
+        "useUpdateResonance",
+        "useDeleteResonance"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

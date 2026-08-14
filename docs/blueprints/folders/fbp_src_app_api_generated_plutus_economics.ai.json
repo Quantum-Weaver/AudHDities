@@ -1,0 +1,33 @@
+{
+  "folder_name": "plutus-economics",
+  "folder_path": "src/app/api/generated/plutus-economics",
+  "description": "0 files, 19 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.693216 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/api/generated/plutus-economics/calculate_sovereign_price",
+    "src/app/api/generated/plutus-economics/covenant_pool",
+    "src/app/api/generated/plutus-economics/distribution_recipients",
+    "src/app/api/generated/plutus-economics/distributions",
+    "src/app/api/generated/plutus-economics/exchanges",
+    "src/app/api/generated/plutus-economics/gift_wrappings",
+    "src/app/api/generated/plutus-economics/gifts",
+    "src/app/api/generated/plutus-economics/grant_applications",
+    "src/app/api/generated/plutus-economics/grant_attachments",
+    "src/app/api/generated/plutus-economics/grant_collaborators",
+    "src/app/api/generated/plutus-economics/grant_milestones",
+    "src/app/api/generated/plutus-economics/grant_narratives",
+    "src/app/api/generated/plutus-economics/grant_opportunities",
+    "src/app/api/generated/plutus-economics/ledger",
+    "src/app/api/generated/plutus-economics/patronage",
+    "src/app/api/generated/plutus-economics/patronage_tiers",
+    "src/app/api/generated/plutus-economics/residual_pool",
+    "src/app/api/generated/plutus-economics/ware_participants",
+    "src/app/api/generated/plutus-economics/wares"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

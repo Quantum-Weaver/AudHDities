@@ -1,0 +1,71 @@
+{
+  "folder_name": "calling",
+  "folder_path": "src/components/asgard/domains/hephaestus/calling",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.870575 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/calling/BenefitsList.tsx",
+      "description": "components/asgard/domains/hephaestus/calling/BenefitsList.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/calling/CommunityVoices.tsx",
+      "description": "components/asgard/domains/hephaestus/calling/CommunityVoices.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/calling/CultureDeck.tsx",
+      "description": "components/asgard/domains/hephaestus/calling/CultureDeck.tsx"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "BenefitsList.tsx": {
+      "language": "typescript",
+      "lines": 93,
+      "exported_functions": [
+        "BenefitsList"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "CommunityVoices.tsx": {
+      "language": "typescript",
+      "lines": 92,
+      "exported_functions": [
+        "CommunityVoices"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "SanctuaryVoice"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "CultureDeck.tsx": {
+      "language": "typescript",
+      "lines": 79,
+      "exported_functions": [
+        "CultureDeck"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

@@ -1,0 +1,67 @@
+{
+  "folder_name": "lounge-elements",
+  "folder_path": "public/environments/extracted-foregrounds/lounge-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.914207 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/lounge-elements/lounge-background-1b.png",
+      "description": "image, 3,200,623 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/lounge-elements/lounge-background-2b.png",
+      "description": "image, 4,273,332 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/lounge-elements/lounge-background-3b.png",
+      "description": "image, 3,636,269 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/lounge-elements/lounge-background-4b.png",
+      "description": "image, 2,659,576 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "lounge-background-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lounge-background-1b.png",
+      "location": "public/environments/extracted-foregrounds/lounge-elements",
+      "bytes": 3200623,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lounge-background-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lounge-background-2b.png",
+      "location": "public/environments/extracted-foregrounds/lounge-elements",
+      "bytes": 4273332,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lounge-background-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lounge-background-3b.png",
+      "location": "public/environments/extracted-foregrounds/lounge-elements",
+      "bytes": 3636269,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "lounge-background-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "lounge-background-4b.png",
+      "location": "public/environments/extracted-foregrounds/lounge-elements",
+      "bytes": 2659576,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

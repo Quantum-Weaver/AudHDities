@@ -1,0 +1,69 @@
+{
+  "folder_name": "bazaar",
+  "folder_path": "src/app/(hermes)/bazaar",
+  "description": "2 files, 6 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.130664 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(hermes)/bazaar/_NOTEPAD.md",
+      "description": "_NOTEPAD"
+    },
+    {
+      "path": "src/app/(hermes)/bazaar/page.tsx",
+      "description": "src/app/(hermes)/bazaar/page.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(hermes)/bazaar/checkout",
+    "src/app/(hermes)/bazaar/contributions",
+    "src/app/(hermes)/bazaar/creations",
+    "src/app/(hermes)/bazaar/creators",
+    "src/app/(hermes)/bazaar/studio",
+    "src/app/(hermes)/bazaar/vendors"
+  ],
+  "code_analysis": {
+    "_NOTEPAD.md": {
+      "language": "markdown",
+      "lines": 18,
+      "words": 95,
+      "heading_count": 4,
+      "headings": [
+        "_NOTEPAD \u2014 `bazaar/` \u00b7 the Bazaar hub",
+        "What this room is",
+        "Status",
+        "Work log"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "page.tsx": {
+      "language": "typescript",
+      "lines": 16,
+      "exported_functions": [],
+      "exported_consts": [
+        "metadata"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

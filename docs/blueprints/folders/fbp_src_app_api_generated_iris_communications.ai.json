@@ -1,0 +1,22 @@
+{
+  "folder_name": "iris-communications",
+  "folder_path": "src/app/api/generated/iris-communications",
+  "description": "0 files, 8 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.625149 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/app/api/generated/iris-communications/channels",
+    "src/app/api/generated/iris-communications/contact_submissions",
+    "src/app/api/generated/iris-communications/email_communications",
+    "src/app/api/generated/iris-communications/messages",
+    "src/app/api/generated/iris-communications/personas",
+    "src/app/api/generated/iris-communications/signals",
+    "src/app/api/generated/iris-communications/survey_responses",
+    "src/app/api/generated/iris-communications/surveys"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

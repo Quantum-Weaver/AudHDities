@@ -1,0 +1,16 @@
+{
+  "folder_name": "asgard",
+  "folder_path": "src/types/components/asgard",
+  "description": "0 files, 2 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.741970 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/types/components/asgard/auth",
+    "src/types/components/asgard/domains"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

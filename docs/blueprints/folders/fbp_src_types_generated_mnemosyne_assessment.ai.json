@@ -1,0 +1,204 @@
+{
+  "folder_name": "mnemosyne-assessment",
+  "folder_path": "src/types/generated/mnemosyne-assessment",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.835078 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/generated/mnemosyne-assessment/anchor_events.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/assessment_answers.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/assessment_questions.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/assessment_results.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/folksonomy.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/memories.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/reference_values.ts",
+      "description": "====================================================="
+    },
+    {
+      "path": "src/types/generated/mnemosyne-assessment/resonance.ts",
+      "description": "====================================================="
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "anchor_events.ts": {
+      "language": "typescript",
+      "lines": 96,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicAnchorEvents",
+        "AnchorEventsFormData",
+        "AnchorEventsValidationResult"
+      ],
+      "types": [
+        "AnchorEventsRow",
+        "AnchorEventsInsert",
+        "AnchorEventsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "assessment_answers.ts": {
+      "language": "typescript",
+      "lines": 41,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "AssessmentAnswersFormData"
+      ],
+      "types": [
+        "AssessmentAnswersRow",
+        "AssessmentAnswersInsert",
+        "AssessmentAnswersUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "assessment_questions.ts": {
+      "language": "typescript",
+      "lines": 53,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "AssessmentQuestionsFormData"
+      ],
+      "types": [
+        "ContentStatus",
+        "AssessmentQuestionsRow",
+        "AssessmentQuestionsInsert",
+        "AssessmentQuestionsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "assessment_results.ts": {
+      "language": "typescript",
+      "lines": 42,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "AssessmentResultsFormData"
+      ],
+      "types": [
+        "AssessmentResultsRow",
+        "AssessmentResultsInsert",
+        "AssessmentResultsUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "folksonomy.ts": {
+      "language": "typescript",
+      "lines": 99,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicFolksonomy",
+        "FolksonomyFormData",
+        "FolksonomyValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "FolksonomyRow",
+        "FolksonomyInsert",
+        "FolksonomyUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "memories.ts": {
+      "language": "typescript",
+      "lines": 70,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicMemories",
+        "MemoriesFormData",
+        "MemoriesValidationResult"
+      ],
+      "types": [
+        "MemoriesRow",
+        "MemoriesInsert",
+        "MemoriesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "reference_values.ts": {
+      "language": "typescript",
+      "lines": 91,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicReferenceValues",
+        "ReferenceValuesFormData",
+        "ReferenceValuesValidationResult"
+      ],
+      "types": [
+        "ContentStatus",
+        "ReferenceValuesRow",
+        "ReferenceValuesInsert",
+        "ReferenceValuesUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "resonance.ts": {
+      "language": "typescript",
+      "lines": 69,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PublicResonance",
+        "ResonanceFormData",
+        "ResonanceValidationResult"
+      ],
+      "types": [
+        "ResonanceRow",
+        "ResonanceInsert",
+        "ResonanceUpdate"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

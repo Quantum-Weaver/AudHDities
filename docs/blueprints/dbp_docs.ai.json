@@ -1,0 +1,78 @@
+{
+  "domain_name": "docs",
+  "domain_path": "docs",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.379452 | in sovereign time",
+  "objects": [
+    {
+      "blueprint": "docs/blueprints/obp_docs_architecture.ai.json",
+      "object_path": "docs/architecture",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 5
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_business.ai.json",
+      "object_path": "docs/business",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 2
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_design.ai.json",
+      "object_path": "docs/design",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 2
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_guides.ai.json",
+      "object_path": "docs/guides",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 4
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_helpers.ai.json",
+      "object_path": "docs/helpers",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 3,
+      "total_files": 56
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_privacy.ai.json",
+      "object_path": "docs/privacy",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 1
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_sql.ai.json",
+      "object_path": "docs/sql",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 21
+    },
+    {
+      "blueprint": "docs/blueprints/obp_docs_terms.ai.json",
+      "object_path": "docs/terms",
+      "description": "0 files, 0 subfolders",
+      "folder_count": 1,
+      "total_files": 1
+    }
+  ],
+  "object_count": 8,
+  "folders_reporting_directly": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_docs.ai.json",
+      "folder_path": "docs",
+      "description": "5 files, 8 subfolders",
+      "file_count": 5,
+      "subdirectory_count": 8
+    }
+  ],
+  "total_folders": 11,
+  "total_files": 97,
+  "maintaining_agent": "DomainAgent",
+  "note": "Links only. Every object's details live at its own address."
+}

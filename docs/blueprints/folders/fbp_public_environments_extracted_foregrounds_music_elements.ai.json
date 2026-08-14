@@ -1,0 +1,67 @@
+{
+  "folder_name": "music-elements",
+  "folder_path": "public/environments/extracted-foregrounds/music-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.916232 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/music-elements/music-page-background-1b.png",
+      "description": "image, 532,587 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/music-elements/music-page-background-2b.png",
+      "description": "image, 1,709,071 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/music-elements/music-page-background-3b.png",
+      "description": "image, 1,960,596 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/music-elements/music-page-background-4b.png",
+      "description": "image, 8,364,348 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "music-page-background-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-page-background-1b.png",
+      "location": "public/environments/extracted-foregrounds/music-elements",
+      "bytes": 532587,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "music-page-background-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-page-background-2b.png",
+      "location": "public/environments/extracted-foregrounds/music-elements",
+      "bytes": 1709071,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "music-page-background-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-page-background-3b.png",
+      "location": "public/environments/extracted-foregrounds/music-elements",
+      "bytes": 1960596,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "music-page-background-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "music-page-background-4b.png",
+      "location": "public/environments/extracted-foregrounds/music-elements",
+      "bytes": 8364348,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

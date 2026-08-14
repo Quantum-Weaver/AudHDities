@@ -1,0 +1,67 @@
+{
+  "folder_name": "mastery-badges",
+  "folder_path": "public/components/gaming/mastery-badges",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.821553 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/gaming/mastery-badges/adept-scholar.png",
+      "description": "image, 1,100,727 bytes"
+    },
+    {
+      "path": "public/components/gaming/mastery-badges/grand-librarian.png",
+      "description": "image, 1,067,462 bytes"
+    },
+    {
+      "path": "public/components/gaming/mastery-badges/master-archivist.png",
+      "description": "image, 1,194,498 bytes"
+    },
+    {
+      "path": "public/components/gaming/mastery-badges/novice-researcher.png",
+      "description": "image, 1,095,922 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "adept-scholar.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "adept-scholar.png",
+      "location": "public/components/gaming/mastery-badges",
+      "bytes": 1100727,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "grand-librarian.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "grand-librarian.png",
+      "location": "public/components/gaming/mastery-badges",
+      "bytes": 1067462,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "master-archivist.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "master-archivist.png",
+      "location": "public/components/gaming/mastery-badges",
+      "bytes": 1194498,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "novice-researcher.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "novice-researcher.png",
+      "location": "public/components/gaming/mastery-badges",
+      "bytes": 1095922,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

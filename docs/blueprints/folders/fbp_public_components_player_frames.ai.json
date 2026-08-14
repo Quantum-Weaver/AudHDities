@@ -1,0 +1,418 @@
+{
+  "folder_name": "player-frames",
+  "folder_path": "public/components/player-frames",
+  "description": "31 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.835183 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/player-frames/frame-a-1.png",
+      "description": "image, 110,035 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-a-2.png",
+      "description": "image, 148,512 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-a-3.png",
+      "description": "image, 127,940 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-1.png",
+      "description": "image, 57,112 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-2.png",
+      "description": "image, 70,433 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-3.png",
+      "description": "image, 47,265 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-4.png",
+      "description": "image, 72,983 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-5.png",
+      "description": "image, 53,011 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-b-6.png",
+      "description": "image, 48,302 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-1.png",
+      "description": "image, 49,339 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-2.png",
+      "description": "image, 56,691 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-3.png",
+      "description": "image, 55,062 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-4.png",
+      "description": "image, 50,098 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-5.png",
+      "description": "image, 50,476 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-6.png",
+      "description": "image, 51,339 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-c-7.png",
+      "description": "image, 47,160 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-1.png",
+      "description": "image, 68,871 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-2.png",
+      "description": "image, 63,743 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-3.png",
+      "description": "image, 73,273 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-4.png",
+      "description": "image, 73,658 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-5.png",
+      "description": "image, 67,989 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-6.png",
+      "description": "image, 74,300 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-7.png",
+      "description": "image, 75,619 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-d-8.png",
+      "description": "image, 76,193 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-e-1.png",
+      "description": "image, 60,639 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-e-2.png",
+      "description": "image, 52,181 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-e-3.png",
+      "description": "image, 43,809 bytes"
+    },
+    {
+      "path": "public/components/player-frames/frame-e-4.png",
+      "description": "image, 50,639 bytes"
+    },
+    {
+      "path": "public/components/player-frames/triangle-gold-1.png",
+      "description": "image, 279,170 bytes"
+    },
+    {
+      "path": "public/components/player-frames/triangle-gold-2.png",
+      "description": "image, 268,341 bytes"
+    },
+    {
+      "path": "public/components/player-frames/triangle-gold-3.png",
+      "description": "image, 282,725 bytes"
+    }
+  ],
+  "file_count": 31,
+  "subdirectories": [],
+  "code_analysis": {
+    "frame-a-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-a-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 110035,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-a-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-a-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 148512,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-a-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-a-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 127940,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 57112,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 70433,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 47265,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-4.png",
+      "location": "public/components/player-frames",
+      "bytes": 72983,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-5.png",
+      "location": "public/components/player-frames",
+      "bytes": 53011,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-b-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-b-6.png",
+      "location": "public/components/player-frames",
+      "bytes": 48302,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 49339,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 56691,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 55062,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-4.png",
+      "location": "public/components/player-frames",
+      "bytes": 50098,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-5.png",
+      "location": "public/components/player-frames",
+      "bytes": 50476,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-6.png",
+      "location": "public/components/player-frames",
+      "bytes": 51339,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-c-7.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-c-7.png",
+      "location": "public/components/player-frames",
+      "bytes": 47160,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 68871,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 63743,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 73273,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-4.png",
+      "location": "public/components/player-frames",
+      "bytes": 73658,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-5.png",
+      "location": "public/components/player-frames",
+      "bytes": 67989,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-6.png",
+      "location": "public/components/player-frames",
+      "bytes": 74300,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-7.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-7.png",
+      "location": "public/components/player-frames",
+      "bytes": 75619,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-d-8.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-d-8.png",
+      "location": "public/components/player-frames",
+      "bytes": 76193,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-e-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-e-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 60639,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-e-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-e-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 52181,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-e-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-e-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 43809,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "frame-e-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "frame-e-4.png",
+      "location": "public/components/player-frames",
+      "bytes": 50639,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-gold-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-gold-1.png",
+      "location": "public/components/player-frames",
+      "bytes": 279170,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-gold-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-gold-2.png",
+      "location": "public/components/player-frames",
+      "bytes": 268341,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "triangle-gold-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "triangle-gold-3.png",
+      "location": "public/components/player-frames",
+      "bytes": 282725,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

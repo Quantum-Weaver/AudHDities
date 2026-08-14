@@ -1,0 +1,119 @@
+{
+  "folder_name": "page-turn",
+  "folder_path": "public/animated/page-turn",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.789984 | in sovereign time",
+  "files": [
+    {
+      "path": "public/animated/page-turn/page-turn-1.png",
+      "description": "image, 45,093 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-2.png",
+      "description": "image, 35,731 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-3.png",
+      "description": "image, 39,327 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-4.png",
+      "description": "image, 41,319 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-5.png",
+      "description": "image, 37,763 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-6.png",
+      "description": "image, 33,173 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-7.png",
+      "description": "image, 28,726 bytes"
+    },
+    {
+      "path": "public/animated/page-turn/page-turn-8.png",
+      "description": "image, 36,884 bytes"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "page-turn-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-1.png",
+      "location": "public/animated/page-turn",
+      "bytes": 45093,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-2.png",
+      "location": "public/animated/page-turn",
+      "bytes": 35731,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-3.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-3.png",
+      "location": "public/animated/page-turn",
+      "bytes": 39327,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-4.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-4.png",
+      "location": "public/animated/page-turn",
+      "bytes": 41319,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-5.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-5.png",
+      "location": "public/animated/page-turn",
+      "bytes": 37763,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-6.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-6.png",
+      "location": "public/animated/page-turn",
+      "bytes": 33173,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-7.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-7.png",
+      "location": "public/animated/page-turn",
+      "bytes": 28726,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "page-turn-8.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "page-turn-8.png",
+      "location": "public/animated/page-turn",
+      "bytes": 36884,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

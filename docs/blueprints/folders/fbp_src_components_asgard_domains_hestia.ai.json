@@ -1,0 +1,21 @@
+{
+  "folder_name": "hestia",
+  "folder_path": "src/components/asgard/domains/hestia",
+  "description": "0 files, 7 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.936561 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/components/asgard/domains/hestia/constellation",
+    "src/components/asgard/domains/hestia/energy",
+    "src/components/asgard/domains/hestia/home",
+    "src/components/asgard/domains/hestia/journal",
+    "src/components/asgard/domains/hestia/notifications",
+    "src/components/asgard/domains/hestia/sanctum",
+    "src/components/asgard/domains/hestia/vessel"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

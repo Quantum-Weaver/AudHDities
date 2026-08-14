@@ -1,0 +1,70 @@
+{
+  "folder_name": "socials-platforms",
+  "folder_path": "public/icons/socials-platforms",
+  "description": "14 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.945170 | in sovereign time",
+  "files": [
+    {
+      "path": "public/icons/socials-platforms/gaming-battlenet.svg",
+      "description": "vector image, 4,389 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/gaming-playstation.svg",
+      "description": "vector image, 2,008 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/gaming-steam.svg",
+      "description": "vector image, 1,416 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/gaming-twitch.svg",
+      "description": "vector image, 1,129 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-bluesky.svg",
+      "description": "vector image, 2,019 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-facebook.svg",
+      "description": "vector image, 1,491 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-instagram.svg",
+      "description": "vector image, 1,233 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-linkedin.svg",
+      "description": "vector image, 1,956 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-patreon.svg",
+      "description": "vector image, 925 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-threads.svg",
+      "description": "vector image, 2,087 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-tiktok.svg",
+      "description": "vector image, 1,507 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-twitter.svg",
+      "description": "vector image, 1,907 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/social-youtube.svg",
+      "description": "vector image, 1,328 bytes"
+    },
+    {
+      "path": "public/icons/socials-platforms/technical-github.svg",
+      "description": "vector image, 2,430 bytes"
+    }
+  ],
+  "file_count": 14,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

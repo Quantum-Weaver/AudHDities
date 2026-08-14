@@ -1,0 +1,67 @@
+{
+  "folder_name": "invitation-elements",
+  "folder_path": "public/environments/extracted-foregrounds/invitation-elements",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.907918 | in sovereign time",
+  "files": [
+    {
+      "path": "public/environments/extracted-foregrounds/invitation-elements/invitaion-background-1b.png",
+      "description": "image, 3,933,977 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/invitation-elements/invitaion-background-2b.png",
+      "description": "image, 4,377,061 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/invitation-elements/invitaion-background-3b.png",
+      "description": "image, 3,587,559 bytes"
+    },
+    {
+      "path": "public/environments/extracted-foregrounds/invitation-elements/invitaion-background-4b.png",
+      "description": "image, 4,280,031 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "invitaion-background-1b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-1b.png",
+      "location": "public/environments/extracted-foregrounds/invitation-elements",
+      "bytes": 3933977,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-2b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-2b.png",
+      "location": "public/environments/extracted-foregrounds/invitation-elements",
+      "bytes": 4377061,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-3b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-3b.png",
+      "location": "public/environments/extracted-foregrounds/invitation-elements",
+      "bytes": 3587559,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "invitaion-background-4b.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "invitaion-background-4b.png",
+      "location": "public/environments/extracted-foregrounds/invitation-elements",
+      "bytes": 4280031,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

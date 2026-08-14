@@ -1,0 +1,145 @@
+{
+  "folder_name": "difficulty-icons",
+  "folder_path": "public/components/gaming/difficulty-icons",
+  "description": "10 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.819646 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-easy-1.png",
+      "description": "image, 55,277 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-easy-2.png",
+      "description": "image, 59,027 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-easy.png",
+      "description": "image, 1,062,356 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-hard-1.png",
+      "description": "image, 54,156 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-hard-2.png",
+      "description": "image, 58,228 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-hard.png",
+      "description": "image, 1,063,757 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-legendary.png",
+      "description": "image, 1,038,949 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-medium-1.png",
+      "description": "image, 62,581 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-medium-2.png",
+      "description": "image, 64,552 bytes"
+    },
+    {
+      "path": "public/components/gaming/difficulty-icons/difficulty-medium.png",
+      "description": "image, 1,075,272 bytes"
+    }
+  ],
+  "file_count": 10,
+  "subdirectories": [],
+  "code_analysis": {
+    "difficulty-easy-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-easy-1.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 55277,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-easy-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-easy-2.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 59027,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-easy.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-easy.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 1062356,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-hard-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-hard-1.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 54156,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-hard-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-hard-2.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 58228,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-hard.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-hard.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 1063757,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-legendary.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-legendary.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 1038949,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-medium-1.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-medium-1.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 62581,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-medium-2.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-medium-2.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 64552,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "difficulty-medium.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "difficulty-medium.png",
+      "location": "public/components/gaming/difficulty-icons",
+      "bytes": 1075272,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

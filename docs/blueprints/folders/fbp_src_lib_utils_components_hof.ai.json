@@ -1,0 +1,202 @@
+{
+  "folder_name": "hof",
+  "folder_path": "src/lib/utils/components/hof",
+  "description": "8 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.460290 | in sovereign time",
+  "files": [
+    {
+      "path": "src/lib/utils/components/hof/aspect_ratio.utils.ts",
+      "description": "src/utils/components/ui/aspect_ratio.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/container.utils.ts",
+      "description": "src/lib/utils/container.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/divider.utils.ts",
+      "description": "src/utils/components/ui/divider.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/flex.utils.ts",
+      "description": "src/utils/components/ui/flex.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/grid.utils.ts",
+      "description": "src/lib/utils/components/ui/grid.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/scroll_area.utils.ts",
+      "description": "src/utils/components/ui/scroll_area.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/spacer.utils.ts",
+      "description": "src/utils/components/ui/spacer.utils.ts"
+    },
+    {
+      "path": "src/lib/utils/components/hof/stack.utils.ts",
+      "description": "src/utils/components/ui/stack.utils.ts"
+    }
+  ],
+  "file_count": 8,
+  "subdirectories": [],
+  "code_analysis": {
+    "aspect_ratio.utils.ts": {
+      "language": "typescript",
+      "lines": 92,
+      "exported_functions": [
+        "getAspectRatioPadding",
+        "getAspectRatioPercentage",
+        "getObjectFitClass",
+        "getRoundedSizeClass",
+        "isMediaElement"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "container.utils.ts": {
+      "language": "typescript",
+      "lines": 103,
+      "exported_functions": [
+        "getContainerSizeClass",
+        "getContainerPaddingXClass",
+        "getContainerPaddingYClass",
+        "getContainerPaddingTopClass",
+        "getContainerPaddingBottomClass",
+        "resolveContainerVisualVariant"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "divider.utils.ts": {
+      "language": "typescript",
+      "lines": 141,
+      "exported_functions": [
+        "getDividerColorClass",
+        "getDividerThicknessClass",
+        "getDividerLengthClass",
+        "getDividerLineStyleClass",
+        "getDividerSpacingClass",
+        "composeDividerLineClasses",
+        "getDividerFlexClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "flex.utils.ts": {
+      "language": "typescript",
+      "lines": 142,
+      "exported_functions": [
+        "getDirectionClass",
+        "getWrapClass",
+        "getJustifyClass",
+        "getAlignClass",
+        "getGapClass",
+        "getRowGapClass",
+        "getColumnGapClass",
+        "getAlignSelfClass",
+        "getResponsiveGapClasses",
+        "resolveFlexBasis"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "grid.utils.ts": {
+      "language": "typescript",
+      "lines": 212,
+      "exported_functions": [
+        "resolveGridColsClass",
+        "buildResponsiveColsClass",
+        "buildAutoColsClass",
+        "buildResponsiveGapClass",
+        "resolveSpanClass",
+        "buildResponsiveSpanClass",
+        "resolveStartClass",
+        "getColumnsForVariant",
+        "getAllColumnClasses",
+        "getGapForVariant",
+        "getGapClass"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "scroll_area.utils.ts": {
+      "language": "typescript",
+      "lines": 87,
+      "exported_functions": [
+        "resolveScrollAreaSize",
+        "getScrollAreaSizeStyle",
+        "composeScrollAreaClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "spacer.utils.ts": {
+      "language": "typescript",
+      "lines": 130,
+      "exported_functions": [
+        "resolveDirectionClass",
+        "resolveCustomPixelClass",
+        "composeResponsiveClasses",
+        "composeFlexClasses",
+        "composeSpacerClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ComposeSpacerClassesParams"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "stack.utils.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [
+        "resolveStackSpacing",
+        "composeStackClasses"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

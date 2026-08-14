@@ -1,0 +1,54 @@
+{
+  "object_name": "public_materials",
+  "object_path": "public/materials",
+  "description": "0 files, 0 subfolders",
+  "integration_timestamp": "2026-08-04T13:36:18.153252 | in sovereign time",
+  "folders": [
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials.ai.json",
+      "folder_path": "public/materials",
+      "description": "0 files, 5 subfolders",
+      "file_count": 0,
+      "subdirectory_count": 5
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials_compressed_bronze.ai.json",
+      "folder_path": "public/materials/compressed-bronze",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials_compressed_leather.ai.json",
+      "folder_path": "public/materials/compressed-leather",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials_compressed_parchment.ai.json",
+      "folder_path": "public/materials/compressed-parchment",
+      "description": "1 files, 0 subfolders",
+      "file_count": 1,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials_compressed_stone.ai.json",
+      "folder_path": "public/materials/compressed-stone",
+      "description": "2 files, 0 subfolders",
+      "file_count": 2,
+      "subdirectory_count": 0
+    },
+    {
+      "blueprint": "docs/blueprints/folders/fbp_public_materials_compressed_wood.ai.json",
+      "folder_path": "public/materials/compressed-wood",
+      "description": "7 files, 0 subfolders",
+      "file_count": 7,
+      "subdirectory_count": 0
+    }
+  ],
+  "folder_count": 6,
+  "total_files": 12,
+  "maintaining_agent": "ObjectAgent",
+  "note": "Links only. Every folder's details live at its own address."
+}

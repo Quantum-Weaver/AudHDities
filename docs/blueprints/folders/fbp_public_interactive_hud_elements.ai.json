@@ -1,0 +1,70 @@
+{
+  "folder_name": "hud-elements",
+  "folder_path": "public/interactive/hud-elements",
+  "description": "14 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.960667 | in sovereign time",
+  "files": [
+    {
+      "path": "public/interactive/hud-elements/hud-1.webp",
+      "description": "file, 248,856 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-11.webp",
+      "description": "file, 2,712,420 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-12.webp",
+      "description": "file, 441,708 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-13.webp",
+      "description": "file, 2,534,322 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-2.webp",
+      "description": "file, 1,975,604 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-3.webp",
+      "description": "file, 2,197,562 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-4.webp",
+      "description": "file, 2,584,424 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-5.webp",
+      "description": "file, 2,835,702 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-6.webp",
+      "description": "file, 2,421,528 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-7.webp",
+      "description": "file, 3,391,636 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-8.webp",
+      "description": "file, 2,785,906 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-9.webp",
+      "description": "file, 3,577,372 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/hud-frame.webp",
+      "description": "file, 341,570 bytes"
+    },
+    {
+      "path": "public/interactive/hud-elements/notification-glow.webp",
+      "description": "file, 73,958 bytes"
+    }
+  ],
+  "file_count": 14,
+  "subdirectories": [],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

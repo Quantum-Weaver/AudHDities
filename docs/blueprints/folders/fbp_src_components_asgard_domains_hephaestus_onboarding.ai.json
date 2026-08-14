@@ -1,0 +1,107 @@
+{
+  "folder_name": "onboarding",
+  "folder_path": "src/components/asgard/domains/hephaestus/onboarding",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.892158 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/onboarding/ChecklistItem.tsx",
+      "description": "src/components/asgard/domains/hephaestus/onboarding/InfoTable.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/onboarding/InfoTable.tsx",
+      "description": "src/components/asgard/domains/hephaestus/onboarding/InfoTable.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/onboarding/NextSteps.tsx",
+      "description": "src/components/asgard/domains/hephaestus/onboarding/InfoTable.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/onboarding/OnboardingHero.tsx",
+      "description": "src/components/asgard/domains/hephaestus/onboarding/OnboardingHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/onboarding/StepCard.tsx",
+      "description": "src/components/asgard/domains/hephaestus/onboarding/StepCard.tsx"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "ChecklistItem.tsx": {
+      "language": "typescript",
+      "lines": 34,
+      "exported_functions": [
+        "ChecklistItem"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "InfoTable.tsx": {
+      "language": "typescript",
+      "lines": 39,
+      "exported_functions": [
+        "InfoTable"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "NextSteps.tsx": {
+      "language": "typescript",
+      "lines": 52,
+      "exported_functions": [
+        "NextSteps"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "OnboardingHero.tsx": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [
+        "OnboardingHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "OnboardingHeroProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "StepCard.tsx": {
+      "language": "typescript",
+      "lines": 53,
+      "exported_functions": [
+        "StepCard"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

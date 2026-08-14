@@ -1,0 +1,201 @@
+{
+  "folder_name": "forge",
+  "folder_path": "src/components/asgard/domains/hephaestus/forge",
+  "description": "10 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.883839 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/AuthFlowHero.tsx",
+      "description": "src/components/forge/AuthFlowHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/CodeBlock.tsx",
+      "description": "src/components/forge/CodeBlock.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/DocCategoryCrystal.tsx",
+      "description": "src/components/asgard/domains/hephaestus/forge/interactive/DocCategoryCrystal.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/DocsConstellation.tsx",
+      "description": "src/components/asgard/domains/hephaestus/forge/interactive/DocsConstellation.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/DocsContent.tsx",
+      "description": "src/components/asgard/domains/hephaestus/forge/DocsContent.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/DocsHero.tsx",
+      "description": "src/components/forge/DocsHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/FlowDiagram.tsx",
+      "description": "src/components/forge/AuthFlowHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/MarkdownViewer.tsx",
+      "description": "src/components/asgard/domains/hephaestus/forge/MarkdownViewer.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/ProtectedRoutesTable.tsx",
+      "description": "src/components/forge/ProtectedRoutesTable.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/forge/StepCard.tsx",
+      "description": "src/components/forge/StepCard/tsx"
+    }
+  ],
+  "file_count": 10,
+  "subdirectories": [],
+  "code_analysis": {
+    "AuthFlowHero.tsx": {
+      "language": "typescript",
+      "lines": 44,
+      "exported_functions": [
+        "AuthFlowHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "CodeBlock.tsx": {
+      "language": "typescript",
+      "lines": 51,
+      "exported_functions": [
+        "CodeBlock"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "DocCategoryCrystal.tsx": {
+      "language": "typescript",
+      "lines": 258,
+      "exported_functions": [
+        "DocCategoryCrystal"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "DocCategory",
+        "DocPage",
+        "DocCategoryCrystalProps"
+      ],
+      "types": [
+        "CategoryColor"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "DocsConstellation.tsx": {
+      "language": "typescript",
+      "lines": 271,
+      "exported_functions": [
+        "DocsConstellation"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "DocsContent.tsx": {
+      "language": "typescript",
+      "lines": 229,
+      "exported_functions": [
+        "DocsContent"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "DocsHero.tsx": {
+      "language": "typescript",
+      "lines": 53,
+      "exported_functions": [
+        "DocsHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "FlowDiagram.tsx": {
+      "language": "typescript",
+      "lines": 45,
+      "exported_functions": [
+        "FlowDiagram"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "MarkdownViewer.tsx": {
+      "language": "typescript",
+      "lines": 57,
+      "exported_functions": [
+        "MarkdownViewer"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ProtectedRoutesTable.tsx": {
+      "language": "typescript",
+      "lines": 39,
+      "exported_functions": [
+        "ProtectedRoutesTable"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "StepCard.tsx": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [
+        "StepCard"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

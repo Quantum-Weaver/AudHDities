@@ -1,0 +1,51 @@
+{
+  "folder_name": "lessons",
+  "folder_path": "src/components/asgard/domains/athena/lessons",
+  "description": "2 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.839086 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/athena/lessons/LessonDetail.tsx",
+      "description": "src/components/asgard/domains/athena/lessons/LessonDetail.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/athena/lessons/LessonsGallery.tsx",
+      "description": "src/components/asgard/domains/athena/lessons/LessonsGallery.tsx"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [],
+  "code_analysis": {
+    "LessonDetail.tsx": {
+      "language": "typescript",
+      "lines": 66,
+      "exported_functions": [
+        "LessonDetail"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "LessonsGallery.tsx": {
+      "language": "typescript",
+      "lines": 57,
+      "exported_functions": [
+        "LessonsGallery"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

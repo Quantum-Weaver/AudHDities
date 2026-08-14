@@ -1,0 +1,187 @@
+{
+  "folder_name": "immersive",
+  "folder_path": "src/components/seidr/immersive",
+  "description": "9 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.100594 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/seidr/immersive/ConstellationViewer.tsx",
+      "description": "@/components/seidr/immersive/ConstellationViewer.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/ContinuityBeam.tsx",
+      "description": "@/components/immersive/ContinuityBeam.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/EnvironmentLayer.tsx",
+      "description": "@/components/seidr/immersive/EnvironmentLayer.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/EnvironmentPortal.tsx",
+      "description": "@/components/immersive/EnvironmentPortal.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/index.ts",
+      "description": "AUTO-GENERATED - DO NOT EDIT"
+    },
+    {
+      "path": "src/components/seidr/immersive/PanoramaViewer.tsx",
+      "description": "@/components/immersive/PanoramaViewer.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/QuantumBackground.tsx",
+      "description": "@/components/immersive/QuantumBackground.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/StatusBar.tsx",
+      "description": "@/components/seidr/immersive/StatusBar.tsx"
+    },
+    {
+      "path": "src/components/seidr/immersive/ZoomTarget.tsx",
+      "description": "@/components/immersive/ZoomTarget.tsx"
+    }
+  ],
+  "file_count": 9,
+  "subdirectories": [],
+  "code_analysis": {
+    "ConstellationViewer.tsx": {
+      "language": "typescript",
+      "lines": 113,
+      "exported_functions": [
+        "ConstellationViewer"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ConstellationNode",
+        "ConstellationEdge",
+        "ConstellationViewerProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ContinuityBeam.tsx": {
+      "language": "typescript",
+      "lines": 92,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "ContinuityBeamProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "EnvironmentLayer.tsx": {
+      "language": "typescript",
+      "lines": 89,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "EnvironmentLayerProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "EnvironmentPortal.tsx": {
+      "language": "typescript",
+      "lines": 58,
+      "exported_functions": [
+        "EnvironmentPortal"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "EnvironmentPortalProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "index.ts": {
+      "language": "typescript",
+      "lines": 11,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "PanoramaViewer.tsx": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "PanoramaViewerProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "QuantumBackground.tsx": {
+      "language": "typescript",
+      "lines": 119,
+      "exported_functions": [
+        "QuantumBackground"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "QuantumBackgroundProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "StatusBar.tsx": {
+      "language": "typescript",
+      "lines": 360,
+      "exported_functions": [
+        "StatusBar"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "StatusBarProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "ZoomTarget.tsx": {
+      "language": "typescript",
+      "lines": 55,
+      "exported_functions": [
+        "ZoomTarget"
+      ],
+      "exported_consts": [],
+      "interfaces": [
+        "ZoomTargetProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

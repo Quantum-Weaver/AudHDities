@@ -1,0 +1,53 @@
+{
+  "folder_name": "stage",
+  "folder_path": "src/app/(prometheus)/stage",
+  "description": "2 files, 6 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.224593 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(prometheus)/stage/page.tsx",
+      "description": "src/app/(prometheus)/stage/page.tsx"
+    },
+    {
+      "path": "src/app/(prometheus)/stage/structure.txt",
+      "description": "text document, 1,301 bytes"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(prometheus)/stage/comedy",
+    "src/app/(prometheus)/stage/live",
+    "src/app/(prometheus)/stage/music",
+    "src/app/(prometheus)/stage/recordings",
+    "src/app/(prometheus)/stage/schedule",
+    "src/app/(prometheus)/stage/studio"
+  ],
+  "code_analysis": {
+    "page.tsx": {
+      "language": "typescript",
+      "lines": 16,
+      "exported_functions": [],
+      "exported_consts": [
+        "metadata"
+      ],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "structure.txt": {
+      "language": "content-file",
+      "format": "txt",
+      "name": "structure.txt",
+      "location": "src/app/(prometheus)/stage",
+      "bytes": 1301,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

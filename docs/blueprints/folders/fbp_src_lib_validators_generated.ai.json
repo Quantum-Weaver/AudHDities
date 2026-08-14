@@ -1,0 +1,25 @@
+{
+  "folder_name": "generated",
+  "folder_path": "src/lib/validators/generated",
+  "description": "0 files, 11 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.558812 | in sovereign time",
+  "files": [],
+  "file_count": 0,
+  "subdirectories": [
+    "src/lib/validators/generated/aethelred-connections",
+    "src/lib/validators/generated/athena-gamification",
+    "src/lib/validators/generated/daedalus-meta",
+    "src/lib/validators/generated/hephaestus-infrastructure",
+    "src/lib/validators/generated/hermes-social",
+    "src/lib/validators/generated/hestia-core",
+    "src/lib/validators/generated/iris-communications",
+    "src/lib/validators/generated/mnemosyne-assessment",
+    "src/lib/validators/generated/plutus-economics",
+    "src/lib/validators/generated/prometheus-stage",
+    "src/lib/validators/generated/themis-governance"
+  ],
+  "code_analysis": {},
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

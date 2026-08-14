@@ -1,0 +1,54 @@
+{
+  "folder_name": "unlock-animations",
+  "folder_path": "public/components/gaming/unlock-animations",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.824938 | in sovereign time",
+  "files": [
+    {
+      "path": "public/components/gaming/unlock-animations/achievement-unlock.png",
+      "description": "image, 0 bytes"
+    },
+    {
+      "path": "public/components/gaming/unlock-animations/level-up-effect.png",
+      "description": "image, 0 bytes"
+    },
+    {
+      "path": "public/components/gaming/unlock-animations/new-item-glow.png",
+      "description": "image, 0 bytes"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "achievement-unlock.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "achievement-unlock.png",
+      "location": "public/components/gaming/unlock-animations",
+      "bytes": 0,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "level-up-effect.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "level-up-effect.png",
+      "location": "public/components/gaming/unlock-animations",
+      "bytes": 0,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "new-item-glow.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "new-item-glow.png",
+      "location": "public/components/gaming/unlock-animations",
+      "bytes": 0,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

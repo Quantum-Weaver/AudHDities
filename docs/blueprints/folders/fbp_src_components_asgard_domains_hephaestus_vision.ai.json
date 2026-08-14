@@ -1,0 +1,69 @@
+{
+  "folder_name": "vision",
+  "folder_path": "src/components/asgard/domains/hephaestus/vision",
+  "description": "3 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:16.909774 | in sovereign time",
+  "files": [
+    {
+      "path": "src/components/asgard/domains/hephaestus/vision/VisionCTA.tsx",
+      "description": "src/components/vision/VisionCTA.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/vision/VisionHero.tsx",
+      "description": "src/components/vision/VisionHero.tsx"
+    },
+    {
+      "path": "src/components/asgard/domains/hephaestus/vision/WorldWithoutExploitation.tsx",
+      "description": "src/components/vision/WorldWithoutExploitation.tsx"
+    }
+  ],
+  "file_count": 3,
+  "subdirectories": [],
+  "code_analysis": {
+    "VisionCTA.tsx": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [
+        "VisionCTA"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "VisionHero.tsx": {
+      "language": "typescript",
+      "lines": 39,
+      "exported_functions": [
+        "VisionHero"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "WorldWithoutExploitation.tsx": {
+      "language": "typescript",
+      "lines": 36,
+      "exported_functions": [
+        "WorldWithoutExploitation"
+      ],
+      "exported_consts": [],
+      "interfaces": [],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

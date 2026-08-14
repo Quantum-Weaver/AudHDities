@@ -1,0 +1,67 @@
+{
+  "folder_name": "terms",
+  "folder_path": "docs/terms",
+  "description": "1 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.761191 | in sovereign time",
+  "files": [
+    {
+      "path": "docs/terms/terms-of-service.md",
+      "description": "Terms of Service"
+    }
+  ],
+  "file_count": 1,
+  "subdirectories": [],
+  "code_analysis": {
+    "terms-of-service.md": {
+      "language": "markdown",
+      "lines": 117,
+      "words": 638,
+      "heading_count": 30,
+      "headings": [
+        "Terms of Service",
+        "Welcome to AUDHDITIES",
+        "1. Our Commitment",
+        "2. User Accounts",
+        "2.1 Eligibility",
+        "2.2 Account Responsibility",
+        "2.3 Account Types",
+        "3. Neurodivergent Accessibility",
+        "4. Economic Terms",
+        "4.1 Pricing Tiers",
+        "4.2 Fees",
+        "4.3 The 50% Covenant",
+        "5. Creator and Vendor Terms",
+        "5.1 Approval Process",
+        "5.2 Prohibited Content",
+        "5.3 Residual Obligations",
+        "6. Community Guidelines",
+        "6.1 Be Respectful",
+        "6.2 No Exploitation",
+        "6.3 Mutual Aid",
+        "7. Privacy",
+        "8. Intellectual Property",
+        "8.1 Your Content",
+        "8.2 License to Platform"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [
+        "/privacy",
+        "/contact"
+      ],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

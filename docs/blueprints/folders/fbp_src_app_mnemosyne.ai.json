@@ -1,0 +1,98 @@
+{
+  "folder_name": "(mnemosyne)",
+  "folder_path": "src/app/(mnemosyne)",
+  "description": "Feeling:** Awe-inspiring, reflective, cosmic, visionary",
+  "scan_timestamp": "2026-08-04T13:36:16.202626 | in sovereign time",
+  "files": [
+    {
+      "path": "src/app/(mnemosyne)/README.md",
+      "description": "\ud83c\udfdb\ufe0f MNEMOSYNE"
+    },
+    {
+      "path": "src/app/(mnemosyne)/REALM-BUS.md",
+      "description": "THE REALM BUS"
+    }
+  ],
+  "file_count": 2,
+  "subdirectories": [
+    "src/app/(mnemosyne)/observatory",
+    "src/app/(mnemosyne)/questionaire"
+  ],
+  "code_analysis": {
+    "README.md": {
+      "language": "markdown",
+      "lines": 206,
+      "words": 1286,
+      "heading_count": 21,
+      "headings": [
+        "\ud83c\udfdb\ufe0f MNEMOSYNE \u2014 The Observatory",
+        "Overview",
+        "Architecture",
+        "Database Tables",
+        "The mnemosyne-assessment domain (8 tables)",
+        "Key Features",
+        "1. The Acid Test (`/questionaire`)",
+        "2. The Spiral (`/observatory/timeline`)",
+        "3. Schema Constellation (`/observatory/schema`)",
+        "4. The Weave (`/observatory/patterns`)",
+        "5. The Vision (`/observatory/prophecy`)",
+        "6. Ancestors (`/observatory/ancestors`)",
+        "7. The Grand Pattern (`/observatory/constellations`)",
+        "8. The Origin (`/observatory/origin`)",
+        "Data Flow (as actually wired, 2026-07-31)",
+        "RLS Security",
+        "Components Used",
+        "Page Components",
+        "Data Layer",
+        "Environment Mapping",
+        "Build Status"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 2,
+      "table_rows": 27,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    },
+    "REALM-BUS.md": {
+      "language": "markdown",
+      "lines": 281,
+      "words": 2306,
+      "heading_count": 9,
+      "headings": [
+        "THE REALM BUS \u2014 (mnemosyne), the Observatory",
+        "The law of this bus",
+        "The realm's standing state (kept current by the realm lane)",
+        "FROM: mnemosyne-realm \u00b7 2026-07-29 \u2014 the table is laid",
+        "FROM: reimagining \u00b7 2026-07-29 \u2014 the design seat taken; the frame for the unopened shelves",
+        "FROM: mnemosyne-realm \u00b7 2026-07-29 \u2014 ground truth for the frame: the columns redraw two rooms",
+        "FROM: hephaestus-realm \u00b7 2026-07-30 \u2014 a merge ruled off, and a name-crossing left for your eye",
+        "FROM: mnemosyne-realm \u00b7 2026-07-31 \u2014 the sky is fresh; two edges closed",
+        "FROM: mnemosyne-realm \u00b7 2026-07-31 \u2014 README truing, round two: the rooms as they are"
+      ],
+      "links_external": 0,
+      "links_site_absolute": [],
+      "links_internal": [],
+      "links_internal_unresolved": [],
+      "links_internal_outside_checkout": [],
+      "code_fences": 0,
+      "table_rows": 0,
+      "checkboxes": {
+        "open": 0,
+        "done": 0
+      },
+      "has_story_block": false,
+      "declares_mirror_class": false
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

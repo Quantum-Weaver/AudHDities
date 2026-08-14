@@ -1,0 +1,49 @@
+{
+  "folder_name": "images",
+  "folder_path": "public/images",
+  "description": "4 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:15.951428 | in sovereign time",
+  "files": [
+    {
+      "path": "public/images/favicon.ico",
+      "description": "file, 270,474 bytes"
+    },
+    {
+      "path": "public/images/logo.png",
+      "description": "image, 1,836,317 bytes"
+    },
+    {
+      "path": "public/images/logo.svg",
+      "description": "vector image, 4,265,814 bytes"
+    },
+    {
+      "path": "public/images/og-image.png",
+      "description": "image, 1,836,317 bytes"
+    }
+  ],
+  "file_count": 4,
+  "subdirectories": [],
+  "code_analysis": {
+    "logo.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "logo.png",
+      "location": "public/images",
+      "bytes": 1836317,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    },
+    "og-image.png": {
+      "language": "content-file",
+      "format": "png",
+      "name": "og-image.png",
+      "location": "public/images",
+      "bytes": 1836317,
+      "opened": false,
+      "law": "Name and location only. The file is never opened."
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}

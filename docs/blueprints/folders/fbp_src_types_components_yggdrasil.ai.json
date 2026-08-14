@@ -1,0 +1,120 @@
+{
+  "folder_name": "yggdrasil",
+  "folder_path": "src/types/components/yggdrasil",
+  "description": "5 files, 0 subfolders",
+  "scan_timestamp": "2026-08-04T13:36:17.780847 | in sovereign time",
+  "files": [
+    {
+      "path": "src/types/components/yggdrasil/accordion.types.ts",
+      "description": "src/types/components/yggdrasil/accordion.types.ts"
+    },
+    {
+      "path": "src/types/components/yggdrasil/button.types.ts",
+      "description": "src/types/components/yggdrasil/button.types.ts"
+    },
+    {
+      "path": "src/types/components/yggdrasil/inline.types.ts",
+      "description": "src/types/components/yggdrasil/inline.types.ts"
+    },
+    {
+      "path": "src/types/components/yggdrasil/label.types.ts",
+      "description": "src/types/components/yggdrasil/label.types.ts"
+    },
+    {
+      "path": "src/types/components/yggdrasil/spinner.types.ts",
+      "description": "src/types/components/yggdrasil/spinner.types.ts"
+    }
+  ],
+  "file_count": 5,
+  "subdirectories": [],
+  "code_analysis": {
+    "accordion.types.ts": {
+      "language": "typescript",
+      "lines": 85,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "AccordionContextValue",
+        "AccordionProps",
+        "AccordionItemProps",
+        "AccordionTriggerProps",
+        "AccordionContentProps",
+        "IconAccordionTriggerProps",
+        "NestedAccordionProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "button.types.ts": {
+      "language": "typescript",
+      "lines": 109,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "ButtonIconProps",
+        "ButtonLoadingProps",
+        "ButtonGroupProps",
+        "ButtonProps",
+        "IconButtonProps",
+        "CosmicButtonProps"
+      ],
+      "types": [
+        "ButtonVariant",
+        "ButtonSize",
+        "ButtonCosmicVariant"
+      ],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "inline.types.ts": {
+      "language": "typescript",
+      "lines": 37,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "InlineProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "label.types.ts": {
+      "language": "typescript",
+      "lines": 25,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "LabelProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    },
+    "spinner.types.ts": {
+      "language": "typescript",
+      "lines": 41,
+      "exported_functions": [],
+      "exported_consts": [],
+      "interfaces": [
+        "SpinnerProps"
+      ],
+      "types": [],
+      "imports_node": [],
+      "spawns_process": false,
+      "writes_files": false,
+      "env_names_read": []
+    }
+  },
+  "maintaining_agent": "FolderAgent",
+  "folders_not_walked": [],
+  "note": "The details live here. Upper tiers link to this address; they do not copy this body."
+}
