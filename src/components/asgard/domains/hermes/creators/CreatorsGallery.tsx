@@ -1,6 +1,6 @@
-// src/components/asgard/domains/hermes/creators/CreatorsGallery.tsx
+﻿// src/components/asgard/domains/hermes/creators/CreatorsGallery.tsx
 // Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
-// became artisan_profiles (hermes-social) — the makers live in this
+// became artisan_profiles (hermes-social) â€” the makers live in this
 // realm's own deity now. profile_status has no 'verified' value: the
 // directory shows status=active; the verified badge reads verified_at.
 'use client';
@@ -11,7 +11,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { CreatorCardRenderer } from '@/components/asgard/domains/hermes/creators/CreatorCardRenderer';
 import { ArrowLeft, Users, Search } from 'lucide-react';
 import { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
 type ArtisanItem = Tables<'artisan_profiles'>;
 

@@ -19,7 +19,7 @@ export function AcidTestLoader() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch('/api/generated/hestia-core/get_acid_test_questions', {
+    fetch('/api/generated/mnemosyne-assessment/get_acid_test_questions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({}),

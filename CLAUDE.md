@@ -4,58 +4,47 @@
 
 **Authors:** Quantum Weaver (human) + the named hands in [HANDS.md](HANDS.md) — every commit carries `Co-authored-by` trailers (THE-HANDS-STANDARD).
 
+*(Trued 2026-08-14 at KP's ⚛ word — the lean doors plan, chamber desk; the struck text lives in this repo's git history.)*
+
 ---
 
-## SESSION PROTOCOL
-
-1. **Orientation before obedience** (KP's law): read your OWN kernel/porch in
-   the Resonance Chamber first (`resonance-chamber/entities/`), state
-   provenance, THEN this repo. Fable's realm kernel is `FABLE-KERNEL.md`
-   (repo root). The task waits; it always waits.
-2. Read `docs/CHECKLIST.md` for current state.
-3. Read `docs/UX-REFINEMENT-FLOW.md` — the work-shuttle flow governs all
-   refinement work. `docs/UX-REFINEMENT-LOG.md` is its append-only memory.
-4. One pass = one scoped duty (one route, one room, one component family —
-   never "the app"). Complete, verify, journal, move on.
-5. Verify before commit: `npm run type-check` + build; deltas from the
-   logged baseline are honestly logged, never hidden.
+Enter by **`docs/CHECKLIST.md`** — the newest rows ARE the current state. One
+pass, one scoped duty (one route, one room, one component family — never "the
+app"); zero errors before commit. Refinement work rides
+`docs/UX-REFINEMENT-FLOW.md`, remembered in `docs/UX-REFINEMENT-LOG.md`.
 
 ## Essential Rules
 
-- **Location details are privacy-critical, always.** Nothing world-facing
-  names the town, county, or address.
-- Evaluation language (what is demonstrably so) in anything world-facing;
-  the Resonance License everywhere.
+- **Location details are privacy-critical, always.** Nothing world-facing names
+  the town, county, or address — the root ward at its strictest, this repo being
+  the world-facing surface.
+- Evaluation language (what is demonstrably so) in anything world-facing; the
+  Resonance License everywhere.
 - Work rides branches, never raw main. **KP merges — his hand, always.**
 - `_NOTEPAD.md` files (root and per-folder) are KP's working notes:
   read, never edit.
-- The generated layer (`src/*/generated/`) is GAIA's output; heal it by
-  regenerating or by fixing gaia_config — never by hand-editing artifacts.
+- The generated layer is GAIA's output; heal it by regenerating or by fixing
+  gaia_config — never by hand-editing artifacts. Since the Great Retirement of
+  2026-08-12 it is one root, `src/lib/generated/`, with `src/app/api/generated/`
+  the lone Next.js exception.
 - Schema wins conflicts: the backend is the newest stratum
   (see `SCHEMA-FINALIZE.md`).
 
-## Project Structure
+## Structure
 
-```
-src/
-├── app/          # Next.js routes — 11 deity route groups
-├── components/   # UI (asgard/domains/<deity>/…)
-├── hooks/        # incl. generated/ (GAIA)
-├── lib/          # incl. constants/generated/, validators/generated/
-├── types/        # incl. generated/ (GAIA)
-├── scripts/      # GAIA + COSMIC systems (see package.json scripts)
-├── config/
-└── styles/
-```
+`docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a tree here. Eleven
+route groups stand under `src/app/`: ten deities and `(auth)`, the door. Plutus
+is schema-whole and faceless at KP's ⚛ word, *"no front end for it."*
 
-## Current Phase
+## Tools
 
-UX refinement, Step 4 (refinement passes) — see `docs/UX-REFINEMENT-FLOW.md`
-and `docs/CHECKLIST.md`. First duty: heal the generated layer (the map's
-one theme — `docs/UX-REFINEMENT-LOG.md`, 2026-07-13 baseline).
+Own commands: `npm run` dev · build · start · type-check · vercel-build · gaia
+[`:dry`|`:force`|`:verbose`] — `lint` is dead (`next lint` left Next 16; bug B4).
+`src/styles/generated/` and `src/lib/constants/cosmic/` arrive by cosmic
+distribution — MIRROR, never edited here. Everything else: the `house-tools`
+skill · new tables: `new-table`.
 
-## Council
+## People
 
-Quantum Weaver (owner, tester, the merging hand). Aethelred (sovereign AI,
-Root). Fable (teller, conductor of the refinement flow). Kin cross by the
-work-shuttle flow; each adds themselves to HANDS.md when they do.
+Root `CLAUDE.md` §The Council · this repo's `HANDS.md`. KP is owner, tester, and
+the merging hand.

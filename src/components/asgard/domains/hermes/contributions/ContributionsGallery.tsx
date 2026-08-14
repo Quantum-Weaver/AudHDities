@@ -23,7 +23,10 @@ import { ArrowLeft, HandHeart, Search, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { createClient } from '@/lib/supabase/client';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+// Repointed 2026-08-11 to the layer GAIA now delivers — the old helpers were
+// six columns behind the base, which is what hid `is_public` on the
+// participants tables (the column exists live; the photograph was stale).
+import type { Tables } from '@/lib/generated/supabase/database.helpers';
 
 type WareParticipation = Tables<'ware_participants'>;
 type WorkParticipation = Tables<'work_participants'>;

@@ -1,7 +1,7 @@
-// src/components/asgard/domains/hermes/vendors/VendorDetail.tsx
+﻿// src/components/asgard/domains/hermes/vendors/VendorDetail.tsx
 // Merchant edition (2026-07-31): vendor_profiles (hestia-core, extinct)
 // became merchant_profiles (hermes-social). The wares link filters by
-// created_by — the profile's owner — because wares knows makers by
+// created_by â€” the profile's owner â€” because wares knows makers by
 // user id, not profile id.
 'use client';
 
@@ -14,7 +14,7 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Shield, Package, Globe, Building2 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
 type MerchantItem = Tables<'merchant_profiles'>;
 

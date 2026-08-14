@@ -33,30 +33,30 @@ import { ArrowDown, ArrowUp, Home } from 'lucide-react';
 import { useUser } from '@/hooks/useUser';
 import {
   useVesselInteriorsList,
-} from '@/hooks/generated/hestia-core/vessel_interiors';
+} from '@/lib/generated/hooks/hestia-core/vessel_interiors';
 import {
   useVesselRoomsList,
   useCreateVesselRooms,
   useUpdateVesselRooms,
-} from '@/hooks/generated/hestia-core/vessel_rooms';
+} from '@/lib/generated/hooks/hestia-core/vessel_rooms';
 import {
   useVesselDecorationsList,
   useCreateVesselDecorations,
   useUpdateVesselDecorations,
-} from '@/hooks/generated/hestia-core/vessel_decorations';
+} from '@/lib/generated/hooks/hestia-core/vessel_decorations';
 import {
   useGardenPlotsList,
   useCreateGardenPlots,
   useUpdateGardenPlots,
-} from '@/hooks/generated/hestia-core/garden_plots';
-import { usePlantStagesList } from '@/hooks/generated/hestia-core/plant_stages';
-import { useSeedTypesList } from '@/hooks/generated/hestia-core/seed_types';
+} from '@/lib/generated/hooks/hestia-core/garden_plots';
+import { usePlantStagesList } from '@/lib/generated/hooks/hestia-core/plant_stages';
+import { useSeedTypesList } from '@/lib/generated/hooks/hestia-core/seed_types';
 import {
   useVesselCollectionsList,
-} from '@/hooks/generated/hestia-core/vessel_collections';
+} from '@/lib/generated/hooks/hestia-core/vessel_collections';
 import {
   useCollectionSetsList,
-} from '@/hooks/generated/hestia-core/collection_sets';
+} from '@/lib/generated/hooks/hestia-core/collection_sets';
 import { Skeleton } from '@/components/runes/Skeleton';
 import GardenBed from './GardenBed';
 import HearthMusic from './HearthMusic';

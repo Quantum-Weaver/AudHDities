@@ -13,8 +13,8 @@
 
 'use client';
 
-import type { VesselCollectionsRow } from '@/types/generated/hestia-core/vessel_collections';
-import type { CollectionSetsRow } from '@/types/generated/hestia-core/collection_sets';
+import type { VesselCollectionsRow } from '@/lib/generated/types/hestia-core/vessel_collections';
+import type { CollectionSetsRow } from '@/lib/generated/types/hestia-core/collection_sets';
 import { byPlacement } from '@/lib/utils/components/asgard/scene.utils';
 import { cn } from '@/lib/utils';
 

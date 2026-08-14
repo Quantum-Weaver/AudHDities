@@ -3,7 +3,10 @@
 
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import type { Database } from '@/types/supabase/database.types';
+// Repointed 2026-08-11 to the layer GAIA now delivers. MIRROR.md's own law:
+// the single editable truth is schema/superposition/database.types.ts in
+// resonance-gaia — never edited here, healed by rerunning the foundation.
+import type { Database } from '@/lib/generated/supabase/database.types';
 
 /**
  * Create server-side Supabase client for API routes

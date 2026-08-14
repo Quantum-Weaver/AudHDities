@@ -5,7 +5,7 @@
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
-import type { PublicTableNames } from '@/types/supabase/database.helpers';
+import type { PublicTableNames } from '@/lib/generated/supabase/database.helpers';
 
 export interface FormatObjectTypesOptions {
   verbose?: boolean;

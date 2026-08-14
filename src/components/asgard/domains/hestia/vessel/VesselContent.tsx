@@ -15,7 +15,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, HeartHandshake } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
@@ -209,6 +209,35 @@ export function VesselContent() {
           <p className="text-xs text-star-dust/40">Complete the Acid Test to discover your house.</p>
         </Card>
       </div>
+
+      {/* THE COVENANT — displayed honorably in its own section, only when
+          the vessel chose display (KP's ⚛ strokes 2026-08-12; the toggle
+          lives in the Sanctum's Covenant Space). No rank, no comparison —
+          a pledge spoken in the vessel's own room. */}
+      {profile.covenant_pledge_percent != null && (
+        <div className="mb-8">
+          <h3 className="text-sm font-medium text-star-dust/40 mb-3 flex items-center gap-2">
+            <HeartHandshake className="h-4 w-4" />The Covenant
+          </h3>
+          <Card
+            variant="sanctuary"
+            data={{ id: `${user.id}-covenant`, type: 'value', title: 'The Covenant', value: '' }}
+            radius="lg"
+            shadow="md"
+            className="p-6 bg-surface/90"
+          >
+            <p className="text-star-dust">
+              This vessel pledges{' '}
+              <span className="font-bold text-neurospark">{profile.covenant_pledge_percent}%</span>{' '}
+              of their earnings to the covenant pool — the commons that flows
+              equally to every active member.
+            </p>
+            <p className="text-xs text-star-dust/40 mt-2">
+              Displayed by their own choice. The covenant is a gift, never a due.
+            </p>
+          </Card>
+        </div>
+      )}
 
       {/* Recent Milestones — the `current` stream */}
       {events.length > 0 && (

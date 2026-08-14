@@ -7,7 +7,7 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, GraduationCap, Search, Clock } from 'lucide-react';
-import { useLearningPathsList } from '@/hooks/generated/athena-gamification/learning_paths';
+import { useLearningPathsList } from '@/lib/generated/hooks/athena-gamification/learning_paths';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const DIFFICULTY_COLORS: Record<string, string> = {

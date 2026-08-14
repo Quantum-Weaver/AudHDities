@@ -5,7 +5,7 @@
 import type { ExtractedObject as ExtractedObjectType } from './types.js';
 
 // Helper-derived types for type-safe generation
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers';
 
 // Type-safe variants of extracted objects
 export interface TypeSafeExtractedTable {

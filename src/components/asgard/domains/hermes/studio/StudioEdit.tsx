@@ -1,6 +1,6 @@
-// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
+﻿// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
 // Wares edition (2026-07-31): the tier ladder died with the products
-// table — one base price + pricing_model, status enum instead of
+// table â€” one base price + pricing_model, status enum instead of
 // is_published/active. The publish switch is now genuinely wired (the
 // old form's switch was decorative: no name, no state, never saved).
 'use client';
@@ -21,11 +21,11 @@ import { Switch } from '@/components/forging/Switch';
 import { ArrowLeft, Save, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables, TablesUpdate } from '@/types/supabase/database.helpers.js';
+import type { Tables, TablesUpdate } from '@/lib/generated/supabase/database.helpers.js';
 
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // CONSTANTS
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 const WARE_TYPES = [
   { value: 'digital', label: 'Digital' },
@@ -34,26 +34,26 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free — given to anyone who receives it' },
-  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
-  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
-  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
+  { value: 'free', label: 'Free â€” given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed â€” one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want â€” the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only â€” for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
-  { value: '0', label: '0% — No residual pool' },
+  { value: '0', label: '0% â€” No residual pool' },
   { value: '10', label: '10%' },
   { value: '20', label: '20%' },
-  { value: '30', label: '30% — Standard' },
+  { value: '30', label: '30% â€” Standard' },
   { value: '40', label: '40%' },
-  { value: '50', label: '50% — Maximum' },
+  { value: '50', label: '50% â€” Maximum' },
 ];
 
 type WareItem = Tables<'wares'>;
 
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // COMPONENT
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 export function StudioEdit() {
   const params = useParams();
@@ -161,7 +161,7 @@ export function StudioEdit() {
     }
   };
 
-  // ─── Loading ──────────────────────────────────────────────────────────
+  // â”€â”€â”€ Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (loading) {
     return (
       <main className="min-h-screen py-12">
@@ -174,7 +174,7 @@ export function StudioEdit() {
     );
   }
 
-  // ─── Not Found ────────────────────────────────────────────────────────
+  // â”€â”€â”€ Not Found â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (!ware) {
     return (
       <main className="min-h-screen py-12">

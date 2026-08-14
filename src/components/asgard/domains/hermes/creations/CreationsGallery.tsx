@@ -1,9 +1,9 @@
-// src/components/asgard/domains/hermes/creations/CreationsGallery.tsx
-// Wares edition (2026-07-31): products became wares — one base price plus a
+﻿// src/components/asgard/domains/hermes/creations/CreationsGallery.tsx
+// Wares edition (2026-07-31): products became wares â€” one base price plus a
 // pricing_model, status enum instead of is_published/active, created_by
 // instead of creator_id/owner_id.
 // The quiet square (2026-08-01, KP's ruling via the E4 study): gallery
-// cards carry no price — the work and its maker lead; the price speaks
+// cards carry no price â€” the work and its maker lead; the price speaks
 // plainly at the stall (CreationDetail), with the split beside it.
 // Worth felt as human before price read as number.
 'use client';
@@ -16,7 +16,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Package, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 import { useSearchParams } from 'next/navigation';
 
 type WareItem = Tables<'wares'>;

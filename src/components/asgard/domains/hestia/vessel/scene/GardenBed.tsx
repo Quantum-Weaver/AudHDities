@@ -20,9 +20,9 @@
 
 import { useState } from 'react';
 import { Droplets, Sprout } from 'lucide-react';
-import type { GardenPlotsRow } from '@/types/generated/hestia-core/garden_plots';
-import type { PlantStagesRow } from '@/types/generated/hestia-core/plant_stages';
-import type { SeedTypesRow } from '@/types/generated/hestia-core/seed_types';
+import type { GardenPlotsRow } from '@/lib/generated/types/hestia-core/garden_plots';
+import type { PlantStagesRow } from '@/lib/generated/types/hestia-core/plant_stages';
+import type { SeedTypesRow } from '@/lib/generated/types/hestia-core/seed_types';
 import { readGrowth } from '@/lib/utils/components/asgard/scene.utils';
 import { cn } from '@/lib/utils';
 
@@ -134,8 +134,10 @@ export default function GardenBed({
     <div className={className}>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {plots.map((plot) => {
-          const growth = readGrowth(plot.planted_at, plot.last_watered_at, stages);
           const seed = plot.seed_id ? seedById.get(plot.seed_id) : undefined;
+          // The care cadence follows the plant (KP's ⚛ ruling 2026-08-12):
+          // the seed's rarity sets the rest window; rarer asks less often.
+          const growth = readGrowth(plot.planted_at, plot.last_watered_at, stages, seed?.rarity ?? null);
 
           return (
             <div

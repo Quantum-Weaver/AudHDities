@@ -1,6 +1,6 @@
-// One-off smoke test: do generated validators load and enforce?
+﻿// One-off smoke test: do generated validators load and enforce?
 // Run: npx tsx src/scripts/audit/validator-smoke.ts
-import { WaresRowSchema } from '../../lib/validators/generated/plutus-economics/wares';
+import { WaresRowSchema } from '../../lib/generated/validators/plutus-economics/wares';
 
 const sample = {
   cover_url: null, created_at: '2026-07-09', created_by: 'u1', currency: 'USD',
@@ -12,9 +12,9 @@ const sample = {
 };
 
 const good = WaresRowSchema.safeParse(sample);
-console.log('valid sample:', good.success ? 'PASSES' : 'FAILS → ' + JSON.stringify(good.error.issues.slice(0, 3)));
+console.log('valid sample:', good.success ? 'PASSES' : 'FAILS â†’ ' + JSON.stringify(good.error.issues.slice(0, 3)));
 
 const bad = { ...sample, residual_pool_percent: 99, pricing_model: 'exploitative' };
 const r2 = WaresRowSchema.safeParse(bad);
 console.log('bad sample (99% residual + fake enum):',
-  r2.success ? 'PASSES — enforcement GAP' : 'rejected on ' + r2.error.issues.map(i => i.path.join('.')).join(', '));
+  r2.success ? 'PASSES â€” enforcement GAP' : 'rejected on ' + r2.error.issues.map(i => i.path.join('.')).join(', '));

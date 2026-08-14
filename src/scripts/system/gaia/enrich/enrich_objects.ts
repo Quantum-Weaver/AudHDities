@@ -21,7 +21,7 @@ import {
   needsViewApiRoutes
 } from '@/config/object_categories.js';
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers.js';
 import { TableInfo } from '../extract/extract_tables.js';
 
 // ============================================================================

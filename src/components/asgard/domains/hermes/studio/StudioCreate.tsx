@@ -1,8 +1,8 @@
-// src/components/asgard/domains/hermes/studio/StudioCreate.tsx
+﻿// src/components/asgard/domains/hermes/studio/StudioCreate.tsx
 // Wares edition (2026-07-31): the tier ladder (community/ally/corporate)
 // died with the products table. A ware carries one base price plus a
 // pricing_model; solidarity pricing is computed server-side at the
-// Exchange. The model defaults to 'free' — worth is not priced unless
+// Exchange. The model defaults to 'free' â€” worth is not priced unless
 // the maker chooses (the zero-default is the realm's own thesis).
 'use client';
 
@@ -22,11 +22,11 @@ import { Switch } from '@/components/forging/Switch';
 import { ArrowLeft, Sparkles, Save, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { TablesInsert } from '@/types/supabase/database.helpers.js';
+import type { TablesInsert } from '@/lib/generated/supabase/database.helpers.js';
 
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // CONSTANTS
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 const WARE_TYPES = [
   { value: 'digital', label: 'Digital' },
@@ -35,19 +35,19 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free — given to anyone who receives it' },
-  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
-  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
-  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
+  { value: 'free', label: 'Free â€” given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed â€” one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want â€” the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only â€” for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
-  { value: '0', label: '0% — No residual pool' },
+  { value: '0', label: '0% â€” No residual pool' },
   { value: '10', label: '10%' },
   { value: '20', label: '20%' },
-  { value: '30', label: '30% — Standard' },
+  { value: '30', label: '30% â€” Standard' },
   { value: '40', label: '40%' },
-  { value: '50', label: '50% — Maximum' },
+  { value: '50', label: '50% â€” Maximum' },
 ];
 
 function slugify(name: string): string {
@@ -55,9 +55,9 @@ function slugify(name: string): string {
   return `${base}-${Date.now().toString(36)}`;
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // COMPONENT
-// ═══════════════════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 export function StudioCreate() {
   const router = useRouter();
@@ -111,7 +111,7 @@ export function StudioCreate() {
     }
   };
 
-  // ─── Loading ──────────────────────────────────────────────────────────
+  // â”€â”€â”€ Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (authLoading) {
     return (
       <main className="min-h-screen py-12">
@@ -123,7 +123,7 @@ export function StudioCreate() {
     );
   }
 
-  // ─── Unauthenticated ─────────────────────────────────────────────────
+  // â”€â”€â”€ Unauthenticated â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (!user) {
     return (
       <main className="min-h-screen py-12">
@@ -134,7 +134,7 @@ export function StudioCreate() {
     );
   }
 
-  // ─── Not a Creator ───────────────────────────────────────────────────
+  // â”€â”€â”€ Not a Creator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (!isCreator) {
     return (
       <main className="min-h-screen py-12">
@@ -214,7 +214,7 @@ export function StudioCreate() {
             <div className="border-t border-white/10 pt-6 mt-2 mb-4">
               <h3 className="text-lg font-semibold text-star-dust mb-1">Pricing</h3>
               <p className="text-sm text-star-dust/40 mb-4">
-                One base price, one model. Solidarity pricing is applied per person at the Exchange —
+                One base price, one model. Solidarity pricing is applied per person at the Exchange â€”
                 the buyer always sees the full split before anything is charged.
               </p>
 
@@ -222,7 +222,7 @@ export function StudioCreate() {
                 <Select
                   name="pricing_model"
                   options={PRICING_MODELS}
-                  placeholder="Free — given to anyone who receives it"
+                  placeholder="Free â€” given to anyone who receives it"
                   defaultValue="free"
                   disabled={isSaving}
                 />
@@ -251,7 +251,7 @@ export function StudioCreate() {
               <Select
                 name="residual_pool_percent"
                 options={RESIDUAL_OPTIONS}
-                placeholder="30% — Standard"
+                placeholder="30% â€” Standard"
                 defaultValue="30"
                 disabled={isSaving}
               />
@@ -338,7 +338,7 @@ export function StudioCreate() {
             </div>
           </div>
           <p className="text-xs text-star-dust/30 mt-3 text-center">
-            The residual pool comes from your chosen percentage of the 10% platform fee — rewarding contributors forever.
+            The residual pool comes from your chosen percentage of the 10% platform fee â€” rewarding contributors forever.
           </p>
         </Card>
       </div>

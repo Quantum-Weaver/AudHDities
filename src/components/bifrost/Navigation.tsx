@@ -24,6 +24,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
+import { THE_STREET } from '@/lib/constants/systems/the-street';
+import Learscail from '@/components/seidr/immersive/Learscail';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // THE BAR — calm, six realms + three side-doors (unchanged reach)
@@ -51,116 +53,10 @@ const SECONDARY = [
 // walked to.
 // ═══════════════════════════════════════════════════════════════════════════
 
-interface StreetRoom {
-  href: string;
-  label: string;
-}
-interface StreetRealm {
-  name: string;
-  rooms: StreetRoom[];
-}
-
-const THE_STREET: StreetRealm[] = [
-  {
-    name: 'The Hearth',
-    rooms: [
-      { href: '/vessel', label: 'The Vessel' },
-      { href: '/vessel/home', label: 'The Home' },
-      { href: '/vessel/sanctum', label: 'The Sanctum' },
-      { href: '/vessel/energy', label: 'Energy Log' },
-      { href: '/vessel/journal', label: 'The Scroll' },
-      { href: '/vessel/constellation', label: 'Constellation' },
-      { href: '/notifications', label: 'The Call' },
-    ],
-  },
-  {
-    name: 'The Stage & Studio',
-    rooms: [
-      { href: '/stage', label: 'The Stage' },
-      { href: '/studio', label: 'The Loom' },
-    ],
-  },
-  {
-    name: 'The Library',
-    rooms: [
-      { href: '/library', label: 'The Library' },
-      { href: '/library/quests', label: 'The Path' },
-      { href: '/library/courses', label: 'The Curriculum' },
-      { href: '/library/knowledge', label: 'The Archive' },
-      { href: '/library/badges', label: 'The Honors' },
-      { href: '/library/bubbles', label: 'The Floating Stars' },
-    ],
-  },
-  {
-    name: 'The Bazaar',
-    rooms: [
-      { href: '/bazaar', label: 'The Bazaar' },
-      { href: '/bazaar/creations', label: 'The Tapestry' },
-      { href: '/bazaar/creators', label: 'The Weavers' },
-      { href: '/bazaar/studio', label: 'The Loom (Bazaar)' },
-      { href: '/bazaar/contributions', label: 'Contributions' },
-    ],
-  },
-  {
-    name: 'The Bridge',
-    rooms: [
-      { href: '/connect', label: 'The Bridge' },
-      { href: '/connect/messages', label: 'The Stream' },
-      { href: '/connect/channels', label: 'Channels' },
-      { href: '/connect/support', label: 'The Healing Flame' },
-    ],
-  },
-  {
-    name: 'The Observatory',
-    rooms: [
-      { href: '/observatory', label: 'The Observatory' },
-    ],
-  },
-  {
-    name: 'The Council',
-    rooms: [
-      { href: '/council', label: 'The Chamber' },
-      { href: '/council/proposals', label: 'Proposals' },
-      { href: '/council/voting', label: 'The Vote' },
-      { href: '/transparency', label: 'The Ledger' },
-    ],
-  },
-  {
-    name: 'The Forge',
-    rooms: [
-      { href: '/forge', label: 'The Forge' },
-      { href: '/about', label: 'The Origin' },
-      { href: '/sanctuary', label: 'The Sanctuary' },
-      { href: '/vision', label: 'The Prophecy' },
-      { href: '/calling', label: 'The Calling' },
-      { href: '/accessibility', label: 'The Welcome' },
-      { href: '/contact', label: 'The Hearth Call' },
-      { href: '/press', label: 'The Scroll (Press)' },
-      { href: '/donate', label: 'The Offering' },
-      { href: '/privacy', label: 'The Covenant' },
-      { href: '/terms', label: 'The Agreement' },
-    ],
-  },
-  {
-    name: 'The Nexus',
-    rooms: [
-      { href: '/nexus', label: 'The Nexus' },
-      { href: '/nexus/consciousness', label: 'Consciousness' },
-      { href: '/nexus/council', label: 'The Nine' },
-      { href: '/nexus/api', label: 'The Gateway — open repos' },
-      { href: '/nexus/status', label: 'The Health' },
-    ],
-  },
-  {
-    name: 'The Realms',
-    rooms: [
-      { href: '/environments', label: 'The Crossing Hall' },
-      { href: '/playground', label: 'The Sandbox' },
-      { href: '/theater', label: 'The Theater' },
-      { href: '/effects', label: 'The Grimoire' },
-    ],
-  },
-];
+// THE STREET MOVED OUT (2026-08-11) — it lives at
+// `@/lib/constants/systems/the-street` now, so the nav and the LÉARSCÁIL
+// read one definition and cannot drift apart. Nothing about the list
+// changed in the move; it only stopped being a second copy.
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
@@ -301,6 +197,14 @@ export function Navigation({ className }: { className?: string }) {
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
+            {/* THE LÉARSCÁIL — the land itself, drawn (KP's ⚛ commission
+                2026-08-11). The room index below stays exactly as it was:
+                the map is the calm way in, the index is every door, and
+                neither is the admission ticket (law VIII). */}
+            <div className="mb-6 shrink-0">
+              <Learscail onTravel={closeMap} />
+            </div>
+
             <div className="grid flex-1 auto-rows-min grid-cols-2 gap-x-8 gap-y-6 overflow-y-auto lg:grid-cols-3">
               {THE_STREET.map((realm) => (
                 <section key={realm.name} aria-label={realm.name}>

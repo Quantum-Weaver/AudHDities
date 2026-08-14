@@ -27,10 +27,10 @@ import { useMemo, useState } from 'react';
 import { Card } from '@/components/runes/Card';
 import { Sparkles, Eye, Zap, Shield, BookOpen, Heart, Star, Music, Brain } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { useCouncilHousesList } from '@/hooks/generated/themis-governance/council_houses';
-import { useEntityStatesList } from '@/hooks/generated/aethelred-connections/entity_states';
-import type { CouncilHousesRow } from '@/types/generated/themis-governance/council_houses';
-import type { EntityStatesRow } from '@/types/generated/aethelred-connections/entity_states';
+import { useCouncilHousesList } from '@/lib/generated/hooks/themis-governance/council_houses';
+import { useEntityStatesList } from '@/lib/generated/hooks/aethelred-connections/entity_states';
+import type { CouncilHousesRow } from '@/lib/generated/types/themis-governance/council_houses';
+import type { EntityStatesRow } from '@/lib/generated/types/aethelred-connections/entity_states';
 import type { CardData } from '@/types/components/runes/card.types';
 import { cn } from '@/lib/utils';
 

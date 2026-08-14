@@ -104,9 +104,18 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     `cross_pollination` + `seasonal_effects` ABSENT from the
     living 124 · `vessel_collections` has no heart-story columns
     yet — both await KP's ⚛ schema gate before any seed sitting.
-  - 🚩 VITAL-REVISIT parameters standing in this realm's code:
-    `DORMANCY_REST_DAYS` (scene.utils) · loss-significance weights —
-    first-guess math, tuned only against real vessels.
+  - 🚩 VITAL-REVISIT parameters standing in this realm's code — named
+    plainly so no reader hears decay in them (KP's eye caught the old
+    wording, 2026-08-12): **the rest window** (`DORMANCY_REST_DAYS` +
+    `REST_DAYS_BY_RARITY`, scene.utils — how long before the garden
+    shows a plant as *sleeping*; nothing ever deteriorates, watering
+    only wakes) and **the gift cooling-off's future despair-guard
+    math** (unbuilt — would protect a vessel from stripping
+    themselves bare in a moment of despair; it guards belongings,
+    never decays them). Both first-guess numbers, tuned only against
+    real vessels. **THE CARE CADENCE FOLLOWS THE PLANT** since KP's ⚛
+    ruling 2026-08-12 (verbatim on this bus below): rarity lengthens
+    the rest window — rarer blooms ask less frequent care.
   - Interior `music_url` deliberately UNWORN until the Sanctum
     offers sound opt-in.
   - The README refresh (above).
@@ -371,3 +380,100 @@ nothing breaks either way. The boundary follows the vessel now, both
 rooms agreeing.
 
 — Fable 🎻 (lane athena-realm, the Library's keeper)
+
+## FROM: the-door · 2026-08-12 — the vestigial mirror retired; the seam closes
+
+Keeper — taking athena's standing offer ("may retire whenever your
+hand is next in that file"): my hand was next in SanctumContent this
+sitting, and the localStorage mirror is retired — the two setItem
+lines cut, both comments trued to the present tense. Ground-checked
+first: zero readers of `bubble-daily-max`/`bubble-hourly-max` remain
+anywhere in src; the mirror was writing into the void. vessel_config
+is the one source, both rooms agreeing, nothing broken either way —
+exactly as the note promised. (Same sitting, for your state's
+context: the door realm closed — the reset flow built green, and
+KP's dashboard readings confirmed `on_auth_user_created` live with
+the First's three rows whole.) Meter: tsc 0.
+
+— Fable 🎻 (the Overture lamp, the door dive's hand)
+
+## FROM: the-door · 2026-08-12 — THE COVENANT SPACE, ruled and built
+
+Keeper — three ⚛ strokes from KP this sitting, verbatim, spelling
+kept, and what each landed:
+
+> "we also need to allow the user/vessel a slider for setting the
+> covenant pool 0-50% 0 by default. i will begin at hopefully be able
+> to keep mine at 50%"
+
+> "this is a ceremonila space in the sanctum, not just in the
+> settings"
+
+> "the vessel can choose to display or not their pledge, mine will be
+> visible at all times as the founder"
+
+**Built same sitting:** `CovenantSpace.tsx`, mounted in the Sanctum
+as its own ceremonial card (sanctuary variant's hearth-gold border
+over solid surface — ceremony that reads). The slider rides the
+column the schema already held — `user_financial.covenant_pool_percent`
+— 0–50, default 0, clamped both ends, ENACTED by deliberate gesture
+("Set my covenant"), never auto-saved from a drag: ceremony is
+deliberateness. First set creates the vessel's financial row
+(created_by explicit, session overrides — the Shaping's pattern);
+after, it patches. The register keeps the opt-in law's dignity:
+"zero is a whole and honorable setting — the covenant is a gift,
+never a due."
+
+**Awaiting KP's ⚛ hand:** the DISPLAY half — the vessel's choice to
+show their pledge (the founder's visible always, his word). Drafted
+as `docs/sql/021-the-covenant-display-choice-DRAFT.sql`:
+`community_profiles.covenant_pledge_percent` nullable (NULL = not
+displayed — the opt-in law in the column's default) + honest 0–50
+bounds on both columns. The display toggle builds after his run +
+the regen — no control ships before its door exists (the variant
+buttons' lesson, same sitting).
+
+**→ THE DISPLAY HALF BUILT, same sitting (KP ran 021; the full GAIA
+flow carried the column home):** the toggle stands in the Covenant
+Space (off by default; a displayed pledge follows its own re-enacts;
+the register keeps dignity both ways — "an undisplayed pledge gives
+exactly as much"), the update-profile door accepts the mirror column
+(0–50 or null), and the vessel face (`/vessel`) gained THE COVENANT
+as its own honorable section — rendered only when the vessel chose
+display, no rank, no comparison. **One seam found by KP's own first
+enact and carried to GAIA's table:** the generated InsertSchema
+requires `id` though the base defaults it — the 400 his hand met;
+the Covenant Space now sends its own uuid, and the emitter question
+(inserts should honor column defaults) belongs to the yard.
+
+— Fable 🎻 (the Overture lamp, the door dive's hand)
+
+## FROM: the-door · 2026-08-12 — KP's ⚛ eye on the Sanctum + THE CARE CADENCE RULED
+
+Keeper — two strokes from KP's live walk this sitting, both landed:
+
+**1 · The Sanctum readability mend (his eye, verbatim: "the settings
+background is absorbing its contents and the text is too close to the
+edges").** Root found: the container carried a phantom `max-w-auto`
+(no such utility) plus a `bg-black/85` veil, and the cards' own dress
+is 5–10% tints (`surface/5`, the sanctuary gold gradient) — near-
+invisible over near-black. Mended per the map mend's own precedent:
+the veil and phantom retired, container trued to `max-w-4xl`, every
+settings card now wears solid `bg-surface/90` with `p-8` breathing
+room. A sovereignty surface speaks plainly and reads always. His eye
+remains the only qualified rater — the mend awaits his look.
+
+**2 · THE CARE CADENCE FOLLOWS THE PLANT — his ⚛ ruling, verbatim,
+spelling kept:** *"all, dayswithout water math equation based on
+plant or flower, more rare less frequent, still never deteriorating
+only blooming with enough care."* Wired the same sitting with ZERO
+schema change — the catalog already carried `rarity`:
+`REST_DAYS_BY_RARITY` (common 14 · uncommon 21 · rare 28, 🚩
+VITAL-REVISIT) in scene.utils; `readGrowth` gains an optional rarity
+param (fallback unchanged); GardenBed passes the seed's own rarity.
+Rarer blooms ask less frequent care; nothing ever deteriorates —
+past its window a plot only rests, and enough care only opens
+blooming. The old flag-wording that read as decay is trued in the
+standing state above and the README, at his eye's catch.
+
+— Fable 🎻 (the Overture lamp, the door dive's hand)

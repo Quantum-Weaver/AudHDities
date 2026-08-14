@@ -9,7 +9,7 @@
 // ever computes a death state, because the schema and the law both refuse
 // one: plants go dormant, never die.
 
-import type { PlantStagesRow } from '@/types/generated/hestia-core/plant_stages';
+import type { PlantStagesRow } from '@/lib/generated/types/hestia-core/plant_stages';
 
 export interface GrowthReading {
   /** The stage the plot stands in right now (null = not yet planted). */
@@ -25,10 +25,23 @@ export interface GrowthReading {
   dormant: boolean;
 }
 
-/** Days without water after which a plot RESTS (never dies). The number is
- *  gentle on purpose and 🚩 VITAL-REVISIT — tuned against real gardens once
- *  vessels live here, like every formula parameter in the house. */
+/** Days without water after which a plot RESTS (never dies) — the fallback
+ *  when a plot's seed is unknown. Gentle on purpose and 🚩 VITAL-REVISIT —
+ *  tuned against real gardens once vessels live here. */
 export const DORMANCY_REST_DAYS = 14;
+
+/** THE CARE CADENCE FOLLOWS THE PLANT — KP's ⚛ ruling, 2026-08-12, verbatim:
+ *  "dayswithout water math equation based on plant or flower, more rare less
+ *  frequent, still never deteriorating only blooming with enough care."
+ *  Rarer blooms ask LESS frequent care: the rest window lengthens with the
+ *  catalog's own rarity word. Nothing here ever deteriorates — past its
+ *  window a plot only RESTS, and enough care only opens blooming.
+ *  🚩 VITAL-REVISIT numbers, first-guess spacing. */
+export const REST_DAYS_BY_RARITY: Record<string, number> = {
+  common: 14,
+  uncommon: 21,
+  rare: 28,
+};
 
 /**
  * Read a plot's growth from planted time + the stage ladder.
@@ -40,6 +53,7 @@ export function readGrowth(
   plantedAt: string | null,
   lastWateredAt: string | null,
   stages: PlantStagesRow[],
+  rarity: string | null = null,
   now: Date = new Date()
 ): GrowthReading {
   const ladder = [...stages].sort((a, b) => a.stage_order - b.stage_order);
@@ -59,7 +73,8 @@ export function readGrowth(
 
   const watered = lastWateredAt ? new Date(lastWateredAt).getTime() : planted;
   const daysSinceWater = (now.getTime() - watered) / 864e5;
-  const dormant = daysSinceWater > DORMANCY_REST_DAYS;
+  const restDays = (rarity && REST_DAYS_BY_RARITY[rarity]) || DORMANCY_REST_DAYS;
+  const dormant = daysSinceWater > restDays;
 
   let hoursWalked = 0;
   for (let i = 0; i < ladder.length; i++) {

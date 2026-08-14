@@ -9,30 +9,31 @@ import { SPACING_SCALE } from '@/lib/constants/cosmic/dimensions';
 import { durations } from '@/lib/constants/cosmic/motion';
 
 // ─── Color Tokens ──────────────────────────────────────────────────────────
-const starDust = QUANTUM_COLORS['starDust'];     // #E0E0E0
-const neurospark = QUANTUM_COLORS['neurospark']; // #22D3EE
-const errorColor = QUANTUM_COLORS['error'];       // #E17055
+// Mended 2026-08-12 (KP's eye: "they are just white dots"): every class here
+// was assembled at runtime from template strings, so Tailwind's scanner never
+// saw the finished names and never compiled them — no track, no travel.
+// Static literal classes on REAL theme tokens (star-dust · neurospark) only.
 
 /** Track background when unchecked */
-export const SWITCH_TRACK_UNCHECKED_BG = `bg-[${starDust}]/20`;
+export const SWITCH_TRACK_UNCHECKED_BG = 'bg-star-dust/20';
 
 /** Track background when checked (default) */
-export const SWITCH_TRACK_CHECKED_BG = `bg-[${neurospark}]`;
+export const SWITCH_TRACK_CHECKED_BG = 'bg-neurospark';
 
 /** Thumb background */
 export const SWITCH_THUMB_BG = 'bg-white';
 
 /** Focus ring color */
-export const SWITCH_FOCUS_RING = `focus-visible:ring-[${neurospark}]/50`;
+export const SWITCH_FOCUS_RING = 'focus-visible:ring-neurospark/50';
 
 /** Label text color */
-export const SWITCH_LABEL_TEXT = `text-[${starDust}]/80`;
+export const SWITCH_LABEL_TEXT = 'text-star-dust/80';
 
-/** Label error text color */
-export const SWITCH_LABEL_ERROR_TEXT = `text-[${errorColor}]`;
+/** Label error text color (Tailwind's own red — no `error` token in theme) */
+export const SWITCH_LABEL_ERROR_TEXT = 'text-red-400';
 
 /** Helper text color */
-export const SWITCH_HELPER_TEXT = `text-[${starDust}]/40`;
+export const SWITCH_HELPER_TEXT = 'text-star-dust/40';
 
 /** Disabled opacity */
 export const SWITCH_DISABLED_OPACITY = 'disabled:opacity-50';
@@ -73,18 +74,20 @@ export const SWITCH_THUMB_SIZE = {
   },
 } as const;
 
-/** Thumb translate distance per size (when checked) */
+/** Thumb travel per size — FULL static classes (a runtime-assembled
+ *  `data-[state=checked]:${x}` never reaches the compiled CSS). */
 export const SWITCH_THUMB_TRANSLATE = {
-  sm: 'translate-x-4',
-  md: 'translate-x-5',
-  lg: 'translate-x-6',
+  sm: 'data-[state=checked]:translate-x-4',
+  md: 'data-[state=checked]:translate-x-5',
+  lg: 'data-[state=checked]:translate-x-6',
 } as const;
 
 export type SwitchSize = keyof typeof SWITCH_TRACK_SIZE;
 
 // ─── Transition ────────────────────────────────────────────────────────────
-/** Transition duration for track and thumb */
-export const SWITCH_TRANSITION_DURATION = `duration-${durations.fast}ms`;
+/** Transition duration for track and thumb (static; `duration-200ms` was
+ *  never a real class) */
+export const SWITCH_TRANSITION_DURATION = 'duration-200';
 
 // ─── Label Size Classes ────────────────────────────────────────────────────
 export const SWITCH_LABEL_SIZE = {

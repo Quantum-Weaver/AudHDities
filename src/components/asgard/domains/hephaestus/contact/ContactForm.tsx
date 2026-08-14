@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hephaestus/contact/ContactForm.tsx
+﻿// src/components/asgard/domains/hephaestus/contact/ContactForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { Input } from "@/components/forging/Input";
 import { Textarea } from "@/components/forging/Textarea";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle } from "lucide-react";
-import type { ContactSubmissionsInsertInput } from "@/lib/validators/generated/iris-communications/contact_submissions";
+import type { ContactSubmissionsInsertInput } from "@/lib/generated/validators/iris-communications/contact_submissions";
 
 interface ContactFormProps {
   onSuccess?: () => void;

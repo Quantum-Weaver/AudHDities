@@ -50,8 +50,8 @@ export function SanctuaryEconomics() {
               <Zap className="text-quantum-purple" size={24} />
             </div>
             <h3 className="text-xl font-bold text-star-dust mb-4">Sales Stream</h3>
-            <p className="text-star-dust/60 text-sm mb-4">Creators sell products. 70% goes to creator + contributors. 30% supports the sanctuary.</p>
-            <div className="text-quantum-purple font-medium">Creators earn. Contributors earn forever.</div>
+            <p className="text-star-dust/60 text-sm mb-4">90% of every sale circulates through the ecosystem — to the people who made the thing, and to the pool that pays every contributor equally. 10% funds the machine.</p>
+            <div className="text-quantum-purple font-medium">Equal shares, not ranked shares.</div>
           </Card>
         </div>
         

@@ -57,7 +57,7 @@ import { generateUtils } from './generate/generate_utils.js';
 import { formatObjectTypes } from './format/format_object_types.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
-import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames } from '@/lib/generated/supabase/database.helpers.js';
 import { DEITY_GROUPS, getAllTableNames, getAllViewNames } from '@/config/deity_groups.js';
 
 // ============================================================================

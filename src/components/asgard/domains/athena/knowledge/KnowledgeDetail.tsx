@@ -9,7 +9,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, BookOpen } from 'lucide-react';
-import { useMythologyList } from '@/hooks/generated/athena-gamification/mythology';
+import { useMythologyList } from '@/lib/generated/hooks/athena-gamification/mythology';
 import type { CardData } from '@/types/components/runes/card.types';
 
 export function KnowledgeDetail() {

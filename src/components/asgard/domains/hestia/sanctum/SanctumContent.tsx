@@ -11,8 +11,9 @@
 // is re-mounted below over vessel_config.environment_preference
 // (docs/sql/013), previewed live through the ContinuityBeam and hydrated at
 // every arrival by the beam provider. The bubble limits came home the same
-// sitting (localStorage → vessel_config, mirrored back so the game honors
-// the boundary immediately).
+// sitting (localStorage → vessel_config); the transitional localStorage
+// mirror retired 2026-08-12 after athena's repoint (013) — vessel_config
+// is the one source, both rooms agreeing.
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -26,6 +27,7 @@ import { Input } from '@/components/forging/Input';
 import { Switch } from '@/components/forging/Switch';
 import { Slider } from '@/components/forging/Slider';
 import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
+import { CovenantSpace } from '@/components/asgard/domains/hestia/sanctum/CovenantSpace';
 import { ArrowLeft, Save, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -61,10 +63,6 @@ export function SanctumContent() {
     const t = setTimeout(() => {
       updateConfigField('bubble_daily_max', bubbleDailyMax);
       updateConfigField('bubble_hourly_max', bubbleHourlyMax);
-      // Mirror for the bubbles game's current localStorage reads (athena
-      // repoints at leisure — bus note filed).
-      localStorage.setItem('bubble-daily-max', String(bubbleDailyMax));
-      localStorage.setItem('bubble-hourly-max', String(bubbleHourlyMax));
     }, 600);
     return () => clearTimeout(t);
   }, [bubbleTouched, bubbleDailyMax, bubbleHourlyMax]);
@@ -125,6 +123,13 @@ export function SanctumContent() {
   const preferencesCardData: CardData = {
     id: `${user.id}-sanctum-preferences`,
     title: 'Accessibility',
+    type: 'value',
+    value: '',
+  };
+
+  const covenantCardData: CardData = {
+    id: `${user.id}-sanctum-covenant`,
+    title: 'The Covenant',
     type: 'value',
     value: '',
   };
@@ -190,7 +195,12 @@ export function SanctumContent() {
 
   return (
     <main className="min-h-screen py-12">
-      <div className="container text-center flex-col items-center max-w-auto mx-auto px-6 bg-black/85">
+      {/* Readability mend 2026-08-12 (KP's eye: "the settings background is
+          absorbing its contents and the text is too close to the edges") —
+          the phantom `max-w-auto` and the black/85 veil retired; the cards
+          below carry solid surface dress instead, per the map mend's own
+          precedent. A sovereignty surface speaks plainly and reads always. */}
+      <div className="container max-w-4xl mx-auto px-6">
 
         <button
           onClick={() => router.back()}
@@ -207,7 +217,7 @@ export function SanctumContent() {
           data={identityCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <div className="flex flex-col items-center">
             <AvatarUpload
@@ -226,7 +236,7 @@ export function SanctumContent() {
           data={identityCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Sovereign Identity</h2>
           <Form onSubmit={handleSave}>
@@ -259,7 +269,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Accessibility</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -285,7 +295,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Your Realm</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -312,7 +322,7 @@ export function SanctumContent() {
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Ceremonies</h2>
           <p className="text-sm text-star-dust/40 mb-4">
@@ -335,18 +345,34 @@ export function SanctumContent() {
           </div>
         </Card>
 
+        {/* THE COVENANT SPACE — ceremonial, not a settings row (KP's ⚛
+            strokes 2026-08-12, verbatim on the realm bus): the pledge
+            slider 0–50, 0 by default, enacted by deliberate gesture. The
+            sanctuary dress carries the ceremony: solid surface for
+            readability, the hearth-gold border for the register. The
+            display choice arrives with docs/sql/021 (his hand). */}
+        <Card
+          variant="sanctuary"
+          data={covenantCardData}
+          radius="lg"
+          shadow="md"
+          className="p-8 mb-6 bg-surface/90"
+        >
+          <CovenantSpace />
+        </Card>
+
         {/* YOUR DAILY RHYTHM — the bubble limits come home (KP's word,
             2026-07-31: "add back to the vessel config the bubble limits
-            setting"). Source of truth is vessel_config; the localStorage
-            mirror keeps the bubbles game honoring the boundary immediately
-            (the game's own reads repoint at athena's leisure — bus note
-            filed). 🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
+            setting"). Source of truth is vessel_config — the game reads it
+            directly since athena's repoint (013); the transitional
+            localStorage mirror retired 2026-08-12, both rooms agreeing.
+            🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
         <Card
           variant="sanctuary"
           data={preferencesCardData}
           radius="lg"
           shadow="md"
-          className="p-6 mb-6"
+          className="p-8 mb-6 bg-surface/90"
         >
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-4 w-4 text-neurospark" />
@@ -402,7 +428,9 @@ export function SanctumContent() {
           {saveMessage && (
             <span className={cn(
               'text-sm',
-              saveMessage.includes('Failed') ? 'text-error' : 'text-sanctuary-green'
+              // 2026-08-12: error/sanctuary-green are phantom tokens (the
+              // white-dots finding); real theme classes only.
+              saveMessage.includes('Failed') ? 'text-red-400' : 'text-neurospark'
             )}>
               {saveMessage}
             </span>

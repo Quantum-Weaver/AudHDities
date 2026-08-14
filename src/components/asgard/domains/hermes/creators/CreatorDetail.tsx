@@ -1,13 +1,13 @@
-// src/components/asgard/domains/hermes/creators/CreatorDetail.tsx
+﻿// src/components/asgard/domains/hermes/creators/CreatorDetail.tsx
 // Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
 // became artisan_profiles (hermes-social). The stats grid follows the
 // new columns: creations + followers (total_sales and the residual
 // default were the old table's; earnings never belonged on a public
-// profile). The works link filters wares by created_by — the profile's
-// owner — because wares knows makers by user id, not profile id.
+// profile). The works link filters wares by created_by â€” the profile's
+// owner â€” because wares knows makers by user id, not profile id.
 //
 // The maker's room (2026-08-01, KP's word via the E4 study): the stall
-// is the artisan's own small room — "At the loom" shows their works,
+// is the artisan's own small room â€” "At the loom" shows their works,
 // the making itself, so worth is felt as human before price is read as
 // number. Presence, never pressure: the works display; nothing sells.
 'use client';
@@ -22,7 +22,7 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Shield, Package, Globe, Heart } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
-import type { Tables } from '@/types/supabase/database.helpers.js';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
 type ArtisanItem = Tables<'artisan_profiles'>;
 type WorkItem = Tables<'works'>;
@@ -154,7 +154,7 @@ export function CreatorDetail() {
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
         </Card>
 
-        {/* At the loom — the making itself, visible. Presence, never pressure. */}
+        {/* At the loom â€” the making itself, visible. Presence, never pressure. */}
         {works.length > 0 && (
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-star-dust mb-1">At the loom</h2>

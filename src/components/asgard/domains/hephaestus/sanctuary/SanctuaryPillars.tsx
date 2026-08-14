@@ -16,7 +16,7 @@ const PILLARS = [
   {
     icon: Infinity,
     title: 'Value Circulation',
-    description: 'Contributors earn forever. Creators keep 70%. Residuals flow to everyone who helped build what sells.',
+    description: '90% of every sale circulates. Residuals flow to everyone who helped build what sells — and to every contributor on the platform, equally.',
     badge: 'Never extraction',
     color: 'quantum-purple',
   },

@@ -12,6 +12,7 @@ import Header from '@/components/bifrost/Header';
 import ContinuityBeam from '@/components/seidr/immersive/ContinuityBeam';
 import { ContinuityBeamProvider, useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/seidr/immersive/StatusBar';
+import LearscailScroll from '@/components/bifrost/LearscailScroll';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
 import { cn } from '@/lib/utils';
 import Footer from './Footer';
@@ -40,6 +41,12 @@ export function LayoutChrome({
               {showHeader && <Header />}
               <ChromeBeam allowed={showContinuityBeam} />
               <ChromeStatusBar allowed={showStatusBar} />
+              {/* THE LÉARSCÁIL, hung LAST on purpose — KP's ⚛ stroke
+                  2026-08-11: "scroll out from the bottom of the continuity
+                  bar section" · "or statsus bar, whichever is the botom of
+                  the stack." Being last is how it never needs to know which
+                  chrome is showing. */}
+              <LearscailScroll />
           </div>
 
           {/* Content */}

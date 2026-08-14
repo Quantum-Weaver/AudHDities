@@ -12,7 +12,7 @@ import { SanctuaryFooter } from '@/components/asgard/domains/hephaestus/sanctuar
 
 export const metadata: Metadata = {
   title: 'The Sanctuary | AUDHDITIES',
-  description: 'Where neurodivergent minds build the future. A platform where creators keep 70%, contributors earn forever, and every community member shares in the abundance.',
+  description: 'Where neurodivergent minds build the future. A platform where 90% of everything circulates, every contributor is paid an equal share, and every community member shares in the abundance.',
 };
 
 export default function SanctuaryPage() {

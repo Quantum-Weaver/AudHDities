@@ -104,8 +104,11 @@ status) · dignified empty states (the unfurnished home is the first
 vessel's true first sight) · recognition is a privilege of kept
 state (no warmth that surveils) · the metric test above all —
 attention returned, never harvested · dormancy-not-death (🚩
-VITAL-REVISIT: `DORMANCY_REST_DAYS`, loss-significance weights —
-first-guess math, tuned only against real vessels).
+VITAL-REVISIT: the rest window — `DORMANCY_REST_DAYS` +
+`REST_DAYS_BY_RARITY`, rarity lengthening it per KP's ⚛ 2026-08-12
+ruling, rarer blooms asking less frequent care; and the unbuilt
+despair-guard math of the gift cooling-off. Nothing deteriorates,
+ever — first-guess numbers, tuned only against real vessels).
 
 ## 🧵 VERIFIED, AND ONE KNOWN SEAM
 

@@ -23,8 +23,8 @@ import { Card } from "@/components/runes/Card";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle, Home } from "lucide-react";
 import { useUser } from "@/hooks/useUser";
-import { useVesselRoomsList } from "@/hooks/generated/hestia-core/vessel_rooms";
-import { useCreateVesselDecorations } from "@/hooks/generated/hestia-core/vessel_decorations";
+import { useVesselRoomsList } from "@/lib/generated/hooks/hestia-core/vessel_rooms";
+import { useCreateVesselDecorations } from "@/lib/generated/hooks/hestia-core/vessel_decorations";
 
 interface KeptThing {
   kind: "ware" | "work";

@@ -7,7 +7,7 @@
 // ============================================================================
 
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
-import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/types/supabase/database.helpers.js';
+import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers.js';
 
 export interface ExtractNamesOptions {
   verbose?: boolean;

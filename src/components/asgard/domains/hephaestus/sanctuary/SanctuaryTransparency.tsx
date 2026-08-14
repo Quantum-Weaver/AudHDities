@@ -25,15 +25,15 @@ export function SanctuaryTransparency() {
         <div className="flex flex-wrap gap-6 justify-center mb-12">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-sanctuary-green rounded-full" />
-            <span className="text-star-dust/70">Creator: 70%</span>
+            <span className="text-star-dust/70">The ecosystem: 90%</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-neurospark rounded-full" />
-            <span className="text-star-dust/70">Platform: 30%</span>
+            <span className="text-star-dust/70">Funds the machine: 10%</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-quantum-purple rounded-full" />
-            <span className="text-star-dust/70">Residual Pool: adjustable (0-50%)</span>
+            <span className="text-star-dust/70">Residual dial: yours (0-50%)</span>
           </div>
         </div>
         

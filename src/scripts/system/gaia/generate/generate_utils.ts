@@ -70,17 +70,17 @@ export function generateUtils(
   // Add imports
   importManager.addImport('@/lib/supabase/client', 'createClient', false);
   importManager.addImport(
-    `@/types/generated/${deityFolder}/${tableName}`,
+    `@/lib/generated/types/${deityFolder}/${tableName}`,
     `${pascalName}Row`,
     true
   );
   importManager.addImport(
-    `@/types/generated/${deityFolder}/${tableName}`,
+    `@/lib/generated/types/${deityFolder}/${tableName}`,
     `${pascalName}Insert`,
     true
   );
   importManager.addImport(
-    `@/types/generated/${deityFolder}/${tableName}`,
+    `@/lib/generated/types/${deityFolder}/${tableName}`,
     `${pascalName}Update`,
     true
   );
