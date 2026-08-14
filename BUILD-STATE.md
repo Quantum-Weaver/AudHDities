@@ -51,7 +51,7 @@ self-maintaining.
 THE-FRONTEND-REIMAGINING's **design is complete** — the E2 UX study
 (eight rounds, both yeses, KP's four gates all ruled) closed
 2026-07-29. The whole inheritance lives at
-`resonance-chamber/constellation/fable/lanes/study/e2-the-ux-study-bus.md`
+`resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md`
 (the finishing session reads it whole; every claim file:line-cited
 against this repo). Its structural conclusion, one sentence: *every
 layer already exists — DB (vessel-home cluster, RLS-sovereign) ·

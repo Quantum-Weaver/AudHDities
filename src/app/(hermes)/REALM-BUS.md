@@ -115,7 +115,7 @@ KP merges · privacy always. Plus this realm's own standing law:
     found/earned/gifted/grown, place, season, giver-at-consent.
   - The catalog-share crossing (joint with hestia) when it convenes.
 - **Design inheritance (2026-07-31):** the E4 play-study synthesis
-  (`constellation/fable/lanes/study/e4-the-play-study-bus.md`) — the
+  (`resonance-chamber/desk/records/fable-lanes/study/e4-the-play-study-bus.md`) — the
   bazaar organ: the original Gruen, the errand walks never warps, the
   shop sleeps with its door open, checkout as *Gweld ti'n fuan*, heart
   stories written at the threshold. Keeper's answer with two welds and

@@ -55,7 +55,7 @@
 // That is what lets a drawn graphic stay valid at any size.
 //
 // THE LAWS (each one from the E4 play study's synthesis, 2026-07-31,
-// `resonance-chamber/constellation/fable/lanes/study/e4-the-play-study-bus.md`):
+// `resonance-chamber/desk/records/fable-lanes/study/e4-the-play-study-bus.md`):
 //   · SHAPE WITHOUT SLOTS (law III, the register law) — an undiscovered
 //     province keeps its SHAPE on the map. It is drawn, unnamed: terra
 //     incognita, not a hole where a thing should be. The interface never

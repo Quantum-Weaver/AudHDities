@@ -25,7 +25,7 @@ RECONCILIATION-CAMPAIGN.md) is the deep record.*
   Core's relay): the E2 UX study pair ran eight rounds and closed with
   both yeses; KP's ⚛ hand ruled all four open gates same sitting. The
   full inheritance is the study bus —
-  `resonance-chamber/constellation/fable/lanes/study/e2-the-ux-study-bus.md`
+  `resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md`
   (read whole; every claim file:line-cited) — beside the sproutling
   (`idavoll/sproutlings/THE-FRONTEND-REIMAGINING.md`), the working
   board (`desk/records/the-reimagining/REIMAGINING-BOARD.md`), and the

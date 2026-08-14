@@ -4,7 +4,7 @@
 // wardrobe, and the resolver's token-era output)
 // ============================================================================
 // Provenance: THE-FRONTEND-REIMAGINING, finishing session 2026-07-29 (study
-// record: resonance-chamber/constellation/fable/lanes/study/
+// record: resonance-chamber/desk/records/fable-lanes/study/
 // e2-the-ux-study-bus.md — round 8a work-order, steps ② and ③). KP's
 // commission verbatim: "the current state of the AudHDities build still has
 // background images. i want to use our cosmic system to provide a better
