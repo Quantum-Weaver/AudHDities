@@ -348,7 +348,7 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     }));
 
     try {
-      const response = await fetch("/api/generated/hestia-core/submit_acid_test", {
+      const response = await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
