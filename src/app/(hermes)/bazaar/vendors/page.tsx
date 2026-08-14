@@ -4,7 +4,7 @@ import { VendorsGallery } from '@/components/asgard/domains/hermes/vendors/Vendo
 
 export const metadata = {
   title: 'The Guild | Sovereign Sanctuary',
-  description: 'Meet the vendors of the Sanctuary',
+  description: 'Meet the merchants of the Sanctuary',
 };
 
 export default function VendorsPage() {

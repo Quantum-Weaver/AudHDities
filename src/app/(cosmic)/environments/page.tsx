@@ -1,16 +1,16 @@
 // src/app/(cosmic)/environments/page.tsx
 import { Page } from '@/components/bifrost/Page';
-import { EnvironmentsGallery } from '@/components/asgard/domains/cosmic/environments/EnvironmentsGallery';
+import { CrossingHall } from '@/components/asgard/domains/cosmic/environments/CrossingHall';
 
 export const metadata = {
-  title: 'The Realms | Sovereign Sanctuary',
-  description: 'Choose the environment that calls to you',
+  title: 'The Crossing Hall | Sovereign Sanctuary',
+  description: 'Step through a doorway and the sky changes',
 };
 
 export default function EnvironmentsPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
-      <EnvironmentsGallery />
+      <CrossingHall />
     </Page>
   );
 }

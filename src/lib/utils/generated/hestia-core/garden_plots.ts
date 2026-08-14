@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: GardenPlots
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.446Z
+// GENERATED: 2026-08-01T21:41:40.795Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getGardenPlots(id: string): Promise<GardenPlotsRow> {
   const { data, error } = await supabase
     .from('garden_plots')
     .select('*')
-    .eq('garden_plots_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateGardenPlots(id: string, data: GardenPlotsUpdate): Pr
   const { data: result, error } = await supabase
     .from('garden_plots')
     .update(validated)
-    .eq('garden_plots_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteGardenPlots(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('garden_plots')
     .delete()
-    .eq('garden_plots_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

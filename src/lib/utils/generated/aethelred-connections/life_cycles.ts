@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: LifeCycles
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.556Z
+// GENERATED: 2026-08-01T21:41:40.810Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getLifeCycles(id: string): Promise<LifeCyclesRow> {
   const { data, error } = await supabase
     .from('life_cycles')
     .select('*')
-    .eq('life_cycles_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateLifeCycles(id: string, data: LifeCyclesUpdate): Prom
   const { data: result, error } = await supabase
     .from('life_cycles')
     .update(validated)
-    .eq('life_cycles_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteLifeCycles(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('life_cycles')
     .delete()
-    .eq('life_cycles_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

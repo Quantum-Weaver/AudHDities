@@ -67,14 +67,14 @@ export default function FinancialEcosystemPage() {
               <div className="bg-white/5 rounded-xl p-4">
                 <div className="text-neurospark text-sm mb-2">Phase 3</div>
                 <div className="text-star-dust font-bold mb-1">Distribution</div>
-                <p className="text-star-dust/40 text-sm">Remaining funds distributed equally to all opt-in users. No competition. No performance metrics. Just dignity.</p>
+                <p className="text-star-dust/40 text-sm">Remaining funds distributed equally to all opt-in vessels. No competition. No performance metrics. Just dignity.</p>
               </div>
             </div>
             
             <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-4">
               <p className="text-star-dust/60 text-sm flex items-center gap-2">
-                <span className="text-neurospark">✦</span> 
-                Users choose to opt in. Their attention is sovereign. Their time is valued. Even inactive members receive their share.
+                <span className="text-neurospark">✦</span>
+                Vessels choose to opt in. Their attention is sovereign. Their time is valued. Even inactive members receive their share.
               </p>
             </div>
           </section>

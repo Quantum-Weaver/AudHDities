@@ -4,7 +4,7 @@ import { LedgerHub } from '@/components/asgard/domains/themis/ledger/LedgerHub';
 
 export const metadata = {
   title: 'The Ledger | The Council | Sovereign Sanctuary',
-  description: 'Complete transparency, every transaction visible',
+  description: 'Complete transparency, every exchange visible',
 };
 
 export default function LedgerPage() {

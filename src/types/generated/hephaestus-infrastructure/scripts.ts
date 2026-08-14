@@ -2,7 +2,7 @@
 // FILE: types/generated/hephaestus-infrastructure/scripts.ts
 // HANDLING: full_crud
 // DEITY: hephaestus-infrastructure
-// GENERATED: 2026-07-10T18:14:59.791Z
+// GENERATED: 2026-08-01T21:41:40.311Z
 // SOURCE: database.types.ts lines 0-0
 // =====================================================
 
@@ -33,6 +33,7 @@ export interface PublicScripts {
   id: string;
   input_requires: Json | null;
   is_active: boolean;
+  log: Json;
   name: string;
   output_produces: Json | null;
   script_type: string;
@@ -53,6 +54,7 @@ export interface ScriptsFormData {
   id?: string;
   input_requires?: Json | null;
   is_active?: boolean;
+  log?: Json;
   name?: string;
   output_produces?: Json | null;
   script_type?: string;
@@ -74,6 +76,7 @@ export interface ScriptsValidationResult {
     id?: string;
     input_requires?: string;
     is_active?: string;
+    log?: string;
     name?: string;
     output_produces?: string;
     script_type?: string;

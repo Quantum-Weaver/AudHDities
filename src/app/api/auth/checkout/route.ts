@@ -1,157 +1,154 @@
-// app/api/checkout/route.ts
+// app/api/auth/checkout/route.ts
+// Rewritten 2026-07-18 for the evolved commerce schema: products/sales
+// became wares/exchanges, and tiered pricing (community/ally/corporate +
+// bigot tax) became the calculate_sovereign_price database function — the
+// kindness is enforced in the schema now, not re-derived per client. The
+// checkout inserts ONE pending exchange; the Stripe webhook completes that
+// same row by session id (the old flow double-inserted).
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
-import { stripe as getStripe} from '@/lib/stripe/server';
-import type { ProfilesFormData } from '@/types/generated/hestia-core/profiles';
+import { stripe as getStripe } from '@/lib/stripe/server';
 
 interface CheckoutRequest {
-  productId: string;
-  tier: 'community' | 'ally' | 'corporate';
+  wareId?: string;
+  productId?: string; // legacy alias, accepted for older callers
   quantity?: number;
+  amount?: number; // pay_what_you_want offers
 }
 
-function shouldApplyBigotTax(profile: ProfilesFormData, tier: string): boolean {
-  if (tier === 'corporate') return true;
-  const corporateDomains = ['.gov', '.mil', '.edu', 'corp', 'inc', 'llc'];
-  const emailDomain = profile.email?.split('@')[1]?.toLowerCase() || '';
-  return corporateDomains.some(domain => emailDomain.includes(domain));
+const PLATFORM_FEE_PERCENT = 10;
+
+/** calculate_sovereign_price returns Json — extract a price defensively. */
+function extractPrice(result: unknown, fallback: number): { amount: number; detail: unknown } {
+  if (typeof result === 'number' && result > 0) return { amount: result, detail: result };
+  if (result && typeof result === 'object') {
+    const r = result as Record<string, unknown>;
+    for (const key of ['final_price', 'price', 'amount', 'final_amount']) {
+      const v = r[key];
+      if (typeof v === 'number' && v > 0) return { amount: v, detail: result };
+    }
+  }
+  return { amount: fallback, detail: result ?? null };
 }
 
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createServerSupabase();
-    
+
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     if (authError || !user) {
       return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
     }
 
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
+    const body: CheckoutRequest = await request.json();
+    const wareId = body.wareId || body.productId;
+    const quantity = body.quantity ?? 1;
+
+    if (!wareId) {
+      return NextResponse.json({ error: 'Ware ID required' }, { status: 400 });
+    }
+
+    const { data: ware, error: wareError } = await supabase
+      .from('wares')
       .select('*')
-      .eq('profiles_id', user.id)
+      .eq('id', wareId)
+      .eq('status', 'published')
       .single();
 
-    if (profileError || !profile) {
-      return NextResponse.json({ error: 'User profile not found' }, { status: 404 });
+    if (wareError || !ware) {
+      return NextResponse.json({ error: 'Ware not found or unavailable' }, { status: 404 });
     }
 
-    const body = await request.json();
-    const { productId, tier = 'ally', quantity = 1 }: CheckoutRequest = body;
-
-    if (!productId) {
-      return NextResponse.json({ error: 'Product ID required' }, { status: 400 });
+    if (ware.pricing_model === 'free') {
+      return NextResponse.json({ error: 'This ware is free — no checkout needed' }, { status: 400 });
+    }
+    if (ware.pricing_model === 'patronage_only') {
+      return NextResponse.json({ error: 'This ware is available through patronage' }, { status: 400 });
+    }
+    if (ware.quantity_available !== null && ware.quantity_available <= 0) {
+      return NextResponse.json({ error: 'This ware is sold out' }, { status: 400 });
     }
 
-    const userTier = profile.user_tier as 'community' | 'ally' | 'corporate' | 'council' | null;
-    if (tier === 'community' && userTier !== 'community' && userTier !== 'council') {
-      return NextResponse.json({ error: 'Community tier is only available for neurodivergent community members' }, { status: 403 });
+    let baseAmount = ware.price ?? 0;
+    if (ware.pricing_model === 'pay_what_you_want' && typeof body.amount === 'number') {
+      baseAmount = Math.max(body.amount, ware.price ?? 0);
     }
-
-    const { data: product, error: productError } = await supabase
-      .from('products')
-      .select('*')
-      .eq('products_id', productId)
-      .eq('is_published', true)
-      .eq('active', true)
-      .single();
-
-    if (productError || !product) {
-      return NextResponse.json({ error: 'Product not found or unavailable' }, { status: 404 });
-    }
-
-    let baseAmount: number | null = null;
-    switch (tier) {
-      case 'community': baseAmount = product.price_community; break;
-      case 'ally': baseAmount = product.price_ally; break;
-      case 'corporate': baseAmount = product.price_corporate; break;
-    }
-
-    if (baseAmount === null || baseAmount <= 0) {
-      baseAmount = product.price_ally;
-    }
-
     if (!baseAmount || baseAmount <= 0) {
-      return NextResponse.json({ error: 'Product has no valid price' }, { status: 400 });
+      return NextResponse.json({ error: 'Ware has no valid price' }, { status: 400 });
     }
 
-    const applyBigotTax = shouldApplyBigotTax(profile, tier);
-    let finalAmount = baseAmount;
-    let bigotTaxApplied = false;
-    
-    if (applyBigotTax && product.bigot_tax_cents) {
-      finalAmount = baseAmount + (product.bigot_tax_cents / 100);
-      bigotTaxApplied = true;
+    // The sovereign price: solidarity adjustments computed by the database,
+    // with the raw result preserved on the exchange as provenance.
+    const { data: priceResult, error: priceError } = await supabase.rpc('calculate_sovereign_price', {
+      p_base_price: baseAmount,
+      p_user_id: user.id,
+    });
+    if (priceError) {
+      console.error('calculate_sovereign_price failed; using base price:', priceError);
     }
+    const { amount: finalAmount, detail: priceDetail } = extractPrice(priceResult, baseAmount);
 
-    const amountInCents = Math.round(finalAmount * 100);
-    const PLATFORM_FEE_PERCENT = 10;
-    const platformFeeCents = Math.round(amountInCents * (PLATFORM_FEE_PERCENT / 100));
-    const creatorEarningsCents = amountInCents - platformFeeCents;
+    const amountInCents = Math.round(finalAmount * quantity * 100);
+    const grossAmount = finalAmount * quantity;
+    const netAmount = grossAmount * (1 - PLATFORM_FEE_PERCENT / 100);
 
-    const { data: sale, error: saleError } = await supabase
-      .from('sales')
+    const { data: exchange, error: exchangeError } = await supabase
+      .from('exchanges')
       .insert({
-        product_id: product.products_id,
         buyer_id: user.id,
-        amount_cents: amountInCents,
-        gross_amount: finalAmount,
-        tier_applied: tier as 'community' | 'ally' | 'corporate',
-        nd_price_applied: tier === 'community',
-        bigot_tax_applied: bigotTaxApplied,
-        platform_fee_cents: platformFeeCents,
-        creator_earnings_cents: creatorEarningsCents,
-        payment_status: 'pending',
+        ware_id: ware.id,
+        gross_amount: grossAmount,
+        net_amount: netAmount,
+        currency: ware.currency || 'usd',
+        platform_fee_percent: PLATFORM_FEE_PERCENT,
+        adjustments: (priceDetail ?? null) as never,
+        status: 'pending',
       })
       .select()
       .single();
 
-    if (saleError) {
-      console.error('Error creating sales record:', saleError);
-      return NextResponse.json({ error: 'Failed to create sales record' }, { status: 500 });
+    if (exchangeError || !exchange) {
+      console.error('Error creating exchange record:', exchangeError);
+      return NextResponse.json({ error: 'Failed to create exchange record' }, { status: 500 });
     }
 
-    const stripe = getStripe();
     const session = await getStripe().checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [{
         price_data: {
-          currency: 'usd',
+          currency: ware.currency || 'usd',
           product_data: {
-            name: product.title,
-            description: product.description || undefined,
-            images: product.media_urls ? [] : [],
+            name: ware.name,
+            description: ware.description || undefined,
+            images: ware.cover_url ? [ware.cover_url] : undefined,
           },
-          unit_amount: amountInCents,
+          unit_amount: Math.round(finalAmount * 100),
         },
         quantity,
       }],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&sale_id=${sale.sales_id}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/success?session_id={CHECKOUT_SESSION_ID}&exchange_id=${exchange.id}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/cancel`,
       metadata: {
-        productId: product.products_id,
+        wareId: ware.id,
         userId: user.id,
-        saleId: sale.sales_id,
-        tier,
-        productTitle: product.title,
-        creatorId: product.creator_id,
-        residualPoolPercent: product.residual_pool_percent?.toString() || '30',
-        bigotTaxApplied: bigotTaxApplied.toString(),
+        exchangeId: exchange.id,
+        wareName: ware.name,
+        residualPoolPercent: ware.residual_pool_percent?.toString() || '30',
       },
       client_reference_id: user.id,
       customer_email: user.email,
     });
 
     await supabase
-      .from('sales')
+      .from('exchanges')
       .update({ stripe_session_id: session.id })
-      .eq('sales_id', sale.sales_id);
+      .eq('id', exchange.id);
 
-    return NextResponse.json({ 
-      sessionId: session.id, 
+    return NextResponse.json({
+      sessionId: session.id,
       url: session.url,
-      saleId: sale.sales_id 
+      exchangeId: exchange.id,
     });
 
   } catch (error) {

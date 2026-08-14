@@ -1,7 +1,7 @@
 // =====================================================
 // GENERATED DaATABASE HELPER - DO NOT EDIT MANUALLY
 // =====================================================
-// Generated: 2026-07-07T20:00:04.766Z
+// Generated: 2026-08-01T21:41:30.994Z
 // Source: database.types.ts
 // Purpose: Type-safe helpers for accessing tables, enums, and composite types
 // =====================================================

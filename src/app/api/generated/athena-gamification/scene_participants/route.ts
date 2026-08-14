@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SceneParticipantsInsertSchema } from '@/lib/validators/generated/athena-gamification/scene_participants';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.769Z
+// Generated: 2026-08-01T21:41:40.584Z
 // Table: scene_participants
 
 export async function GET(request: NextRequest) {
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('scene_participants')
-      .insert({ ...validated, created_by: userId })
+      .insert(validated)
       .select()
       .single();
     

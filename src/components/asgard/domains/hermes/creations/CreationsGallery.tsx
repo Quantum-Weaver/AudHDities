@@ -1,4 +1,11 @@
 // src/components/asgard/domains/hermes/creations/CreationsGallery.tsx
+// Wares edition (2026-07-31): products became wares — one base price plus a
+// pricing_model, status enum instead of is_published/active, created_by
+// instead of creator_id/owner_id.
+// The quiet square (2026-08-01, KP's ruling via the E4 study): gallery
+// cards carry no price — the work and its maker lead; the price speaks
+// plainly at the stall (CreationDetail), with the split beside it.
+// Worth felt as human before price read as number.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -6,83 +13,64 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Package, Search, X } from 'lucide-react';
+import { ArrowLeft, Package, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 import { useSearchParams } from 'next/navigation';
 
-interface ProductItem {
-  products_id: string;
-  title: string;
-  description: string | null;
-  product_type: string;
-  price_community: number | null;
-  price_ally: number | null;
-  price_corporate: number | null;
-  creator_id: string;
-  is_published: boolean;
-}
+type WareItem = Tables<'wares'>;
 
 const TYPE_LABELS: Record<string, string> = {
-  digital_course: 'Course', digital_download: 'Download', physical_product: 'Physical',
-  audio: 'Audio', video: 'Video', music: 'Music', event_live: 'Live Event',
-  workshop: 'Workshop', service: 'Service', mutual_aid: 'Mutual Aid',
-  clothing: 'Clothing', accessory: 'Accessory', bundle: 'Bundle',
+  physical: 'Physical', digital: 'Digital', service: 'Service',
 };
 
 export function CreationsGallery() {
-  const [products, setProducts] = useState<ProductItem[]>([]);
+  const [wares, setWares] = useState<WareItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchWares = async () => {
       try {
         const params = new URLSearchParams();
-        params.set('is_published', 'true');
-        params.set('active', 'true');
+        params.set('status', 'published');
         params.set('order', 'created_at.desc');
-        
-        const creatorId = searchParams.get('creator_id');
-        const vendorId = searchParams.get('vendor_id');
-        if (creatorId) params.set('creator_id', creatorId);
-        if (vendorId) params.set('owner_id', vendorId);
-        
-        const response = await fetch(`/api/generated/plutus-economics/products?${params.toString()}`);
+
+        // Maker links arrive as ?creator_id= or ?vendor_id=; wares knows one owner column.
+        const makerId = searchParams.get('creator_id') || searchParams.get('vendor_id');
+        if (makerId) params.set('created_by', makerId);
+
+        const response = await fetch(`/api/generated/plutus-economics/wares?${params.toString()}`);
         const result = await response.json();
         if (result.success) {
-          setProducts(result.data?.data || result.data || []);
+          setWares(result.data?.data || result.data || []);
         }
       } catch (err) {
-        console.error('Failed to fetch products:', err);
+        console.error('Failed to fetch wares:', err);
       } finally {
         setLoading(false);
       }
     };
-    fetchProducts();
+    fetchWares();
   }, [searchParams]);
- 
+
   const types = useMemo(() => {
     const set = new Set<string>();
-    products.forEach((p) => set.add(p.product_type));
+    wares.forEach((w) => set.add(w.ware_type));
     return Array.from(set);
-  }, [products]);
+  }, [wares]);
 
-  const filteredProducts = useMemo(() => {
-    return products.filter((p) => {
-      const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (p.description || '').toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesType = !selectedType || p.product_type === selectedType;
+  const filteredWares = useMemo(() => {
+    return wares.filter((w) => {
+      const matchesSearch = w.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (w.description || '').toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesType = !selectedType || w.ware_type === selectedType;
       return matchesSearch && matchesType;
     });
-  }, [products, searchTerm, selectedType]);
-
-  const formatPrice = (cents: number | null) => {
-    if (!cents) return null;
-    return `$${(cents / 100).toFixed(2)}`;
-  };
+  }, [wares, searchTerm, selectedType]);
 
   if (loading) {
     return (
@@ -106,13 +94,13 @@ export function CreationsGallery() {
             <ArrowLeft className="h-4 w-4" />Return to the Bazaar
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Tapestry</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Discover creations from sovereign souls</p>
+          <p className="text-sm text-star-dust/40 mt-1">Discover works from sovereign souls</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
-            <input type="text" placeholder="Search creations..." value={searchTerm}
+            <input type="text" placeholder="Search works..." value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none"
             />
@@ -129,33 +117,28 @@ export function CreationsGallery() {
           </div>
         </div>
 
-        {filteredProducts.length === 0 && (
+        {filteredWares.length === 0 && (
           <div className="text-center py-20">
             <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No creations match' : 'The tapestry awaits its first threads'}</p>
+            <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No works match' : 'The tapestry awaits its first threads'}</p>
           </div>
         )}
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => {
-            const cardData: CardData = { id: product.products_id, type: 'product', title: product.title, description: product.description || '' };
-            const allyPrice = product.price_ally;
-            const communityPrice = product.price_community;
+          {filteredWares.map((ware) => {
+            const cardData: CardData = { id: ware.id, type: 'product', title: ware.name, description: ware.description || '' };
             return (
-              <Link key={product.products_id} href={`/bazaar/creations/${product.products_id}`}>
+              <Link key={ware.id} href={`/bazaar/creations/${ware.id}`}>
                 <Card data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
                   <div className="flex items-center justify-between mb-3">
-                    <Badge variant="outline" size="sm" className="text-[10px] capitalize">{TYPE_LABELS[product.product_type] || product.product_type}</Badge>
+                    <Badge variant="outline" size="sm" className="text-[10px] capitalize">{TYPE_LABELS[ware.ware_type] || ware.ware_type}</Badge>
+                    {ware.icon_emoji && <span aria-hidden>{ware.icon_emoji}</span>}
                   </div>
-                  <h3 className="text-lg font-semibold text-star-dust mb-2">{product.title}</h3>
-                  {product.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{product.description}</p>}
-                  <div className="flex items-center gap-3 mt-auto">
-                    {allyPrice && <span className="text-neurospark font-medium">${allyPrice}</span>}
-                    {communityPrice && allyPrice && communityPrice < allyPrice && (
-                      <span className="text-xs text-star-dust/30 line-through">${allyPrice}</span>
-                    )}
-                    {communityPrice && <span className="text-xs text-emerald-400">from ${communityPrice} community</span>}
-                  </div>
+                  <h3 className="text-lg font-semibold text-star-dust mb-2">{ware.name}</h3>
+                  {ware.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{ware.description}</p>}
+                  {ware.pricing_model === 'free' && (
+                    <span className="text-xs text-emerald-400 mt-auto">freely given</span>
+                  )}
                 </Card>
               </Link>
             );

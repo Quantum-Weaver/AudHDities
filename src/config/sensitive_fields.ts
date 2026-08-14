@@ -21,7 +21,16 @@ export const SENSITIVE_FIELDS = [
   'verification_token',
   'reset_token',
   'ip_address',
-  'user_agent'
+  'user_agent',
+  // user_private columns (the identity split, 2026-07): everything on that
+  // table is crown-jewel PII and never travels through a public interface
+  'legal_name',
+  'government_id',
+  'date_of_birth',
+  'phone_number',
+  'address',
+  'emergency_contact',
+  'crisis_plan'
 ];
 
 export type SensitiveField = typeof SENSITIVE_FIELDS[number];

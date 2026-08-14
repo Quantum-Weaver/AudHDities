@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Archivist
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.231Z
+// GENERATED: 2026-08-01T21:41:40.765Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getArchivist(id: string): Promise<ArchivistRow> {
   const { data, error } = await supabase
     .from('archivist')
     .select('*')
-    .eq('archivist_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateArchivist(id: string, data: ArchivistUpdate): Promis
   const { data: result, error } = await supabase
     .from('archivist')
     .update(validated)
-    .eq('archivist_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteArchivist(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('archivist')
     .delete()
-    .eq('archivist_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { UserRolesUpdateSchema } from '@/lib/validators/generated/hestia-core/user_roles';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.913Z
+// Generated: 2026-08-01T21:41:40.616Z
 // Table: user_roles
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('user_roles')
       .select('*')
-      .eq('user_roles_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('user_roles')
       .update(validated)
-      .eq('user_roles_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('user_roles').delete().eq('user_roles_id', id);
+    const { error } = await supabase.from('user_roles').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('user_roles');

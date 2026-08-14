@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Skald
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.840Z
+// GENERATED: 2026-08-01T21:41:40.839Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSkald(id: string): Promise<SkaldRow> {
   const { data, error } = await supabase
     .from('skald')
     .select('*')
-    .eq('skald_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSkald(id: string, data: SkaldUpdate): Promise<SkaldR
   const { data: result, error } = await supabase
     .from('skald')
     .update(validated)
-    .eq('skald_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSkald(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('skald')
     .delete()
-    .eq('skald_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

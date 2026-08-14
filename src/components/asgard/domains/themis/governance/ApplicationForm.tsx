@@ -20,7 +20,7 @@ import type { ApplicationsInsert } from "@/types/generated/themis-governance/app
 
 // Generated Hooks
 import { useCreateApplications } from "@/hooks/generated/themis-governance/applications";
-import { useProfiles } from "@/hooks/generated/hestia-core/profiles";
+import { useCommunityProfilesList } from "@/hooks/generated/hestia-core/community_profiles";
 
 // =====================================================
 // TYPES
@@ -167,7 +167,8 @@ export function ApplicationForm({
 }: ApplicationFormProps) {
   const router = useRouter();
   const { create, loading: isSubmitting } = useCreateApplications();
-  const { data: profile, loading: profileLoading } = useProfiles(userId);
+  const { data: profileRows, loading: profileLoading } = useCommunityProfilesList({ filters: userId ? { created_by: userId } : undefined, limit: 1 });
+  const profile = profileRows?.[0] ?? null;
 
   const [formData, setFormData] = useState<ApplicationFormData>({
     business_name: "",
@@ -316,7 +317,7 @@ export function ApplicationForm({
       application_type: applicationType,
       form_data,
       user_id: userId,
-      status: "pending",
+      status: "submitted",
     };
 
     const result = await create(applicationData);
@@ -373,7 +374,7 @@ export function ApplicationForm({
         <p className="text-star-dust/60 mb-6">
           You already have a pending application. Our council will review it shortly.
         </p>
-        <Button onClick={onCancel}>Return to Dashboard</Button>
+        <Button onClick={onCancel}>Return to your realms</Button>
       </Card>
     );
   }
@@ -384,10 +385,10 @@ export function ApplicationForm({
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-star-dust mb-2">
-          {applicationType === "creator" ? "Creator Application" : "Vendor Application"}
+          {applicationType === "creator" ? "Artisan Application" : "Merchant Application"}
         </h1>
         <p className="text-star-dust/60">
-          Join the Sanctuary as a sovereign {applicationType}
+          Join the Sanctuary as a sovereign {applicationType === "creator" ? "artisan" : "merchant"}
         </p>
       </div>
 
@@ -434,7 +435,7 @@ export function ApplicationForm({
         <div>
           <Input
             name="business_name"
-            label={applicationType === "creator" ? "Creator Name" : "Business Name"}
+            label={applicationType === "creator" ? "Artisan Name" : "Business Name"}
             required
             value={formData.business_name}
             onChange={(e) => updateField("business_name", e.target.value)}

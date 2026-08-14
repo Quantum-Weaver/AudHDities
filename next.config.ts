@@ -14,6 +14,21 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: ['192.168.40.111', '192.168.56.1'],
   transpilePackages: ['react-syntax-highlighter'],
+  async redirects() {
+    return [
+      // The docs hub renamed docs → forge; old addresses still land.
+      {
+        source: '/docs/:path*',
+        destination: '/forge/:path*',
+        permanent: true,
+      },
+      {
+        source: '/docs',
+        destination: '/forge',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

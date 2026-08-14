@@ -52,7 +52,7 @@ export interface HeaderData {
 // Add these missing types:
 
 export interface EnvironmentContext {
-  userTier: 'community' | 'ally' | 'corporate' | 'council';
+  userTier: 'dweller' | 'guild' | 'outlander' | 'sovereign_weaver';
   sovereigntyScore?: number;
   currentEnergy?: 'low' | 'medium' | 'high' | 'quantum';
   currentMood?: string[];

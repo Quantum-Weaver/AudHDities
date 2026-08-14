@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CompanionCuesInsertSchema } from '@/lib/validators/generated/hestia-core/companion_cues';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.316Z
+// Generated: 2026-08-01T21:41:40.457Z
 // Table: companion_cues
 
 export async function GET(request: NextRequest) {

@@ -98,7 +98,7 @@ export default function AboutPage() {
               shadow="md"
             />
             <ValueCardRenderer
-              data={{ id: 'no-exploit', type: 'value', title: 'No Exploitation', value: 'Safety', description: 'We do not farm users for profit. Advertisers are vetted. Bigotry is taxed. Transparency is absolute.' }}
+              data={{ id: 'no-exploit', type: 'value', title: 'No Exploitation', value: 'Safety', description: 'We do not farm vessels for profit. Patrons are vetted. Transparency is absolute.' }}
               radius="lg"
               shadow="md"
             />

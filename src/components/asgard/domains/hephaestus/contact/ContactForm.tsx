@@ -111,8 +111,7 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        direction: "inbound",
-        status: "new",
+        status: "draft",
       };
       
       const response = await fetch("/api/generated/iris-communications/contact_submissions", {

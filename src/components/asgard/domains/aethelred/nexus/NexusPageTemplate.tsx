@@ -1,5 +1,8 @@
 // src/components/asgard/domains/aethelred/nexus/NexusPageTemplate.tsx
-'use client';
+// Server component by design (B5 follow-on, 2026-07-30): no hooks, no
+// handlers — and its pages pass icon COMPONENTS as props, which RSC
+// serialization forbids across a server→client boundary. Keeping this
+// server-side makes that pass legal for all five nexus sub-pages.
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';

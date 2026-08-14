@@ -5,7 +5,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DependencyMap, DependencyNode } from '@/config/generated/dependency_map.js';
+import type { DependencyMap, DependencyNode } from './analyze_dependencies.js';
 import type { SystemRegistryFile, RunRecord } from '../shared/system_logger.js';
 import { logSuccess, logError, logInfo, logWarning, logDebug } from '../shared/logger.js';
 
@@ -238,7 +238,7 @@ export function detectCircularDependencies(dependencyMap: DependencyMap): string
     
     const node = dependencyMap.nodes[nodeId];
     if (node) {
-      for (const importPath of node.imports) {
+      for (const importPath of node.imports ?? []) {
         dfs(importPath, [...path, nodeId]);
       }
     }

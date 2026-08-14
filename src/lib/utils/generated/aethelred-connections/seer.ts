@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Seer
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.807Z
+// GENERATED: 2026-08-01T21:41:40.836Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSeer(id: string): Promise<SeerRow> {
   const { data, error } = await supabase
     .from('seer')
     .select('*')
-    .eq('seer_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSeer(id: string, data: SeerUpdate): Promise<SeerRow>
   const { data: result, error } = await supabase
     .from('seer')
     .update(validated)
-    .eq('seer_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSeer(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('seer')
     .delete()
-    .eq('seer_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

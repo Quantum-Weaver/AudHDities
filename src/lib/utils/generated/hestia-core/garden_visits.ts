@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: GardenVisits
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.451Z
+// GENERATED: 2026-08-01T21:41:40.796Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getGardenVisits(id: string): Promise<GardenVisitsRow> {
   const { data, error } = await supabase
     .from('garden_visits')
     .select('*')
-    .eq('garden_visits_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateGardenVisits(id: string, data: GardenVisitsUpdate): 
   const { data: result, error } = await supabase
     .from('garden_visits')
     .update(validated)
-    .eq('garden_visits_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteGardenVisits(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('garden_visits')
     .delete()
-    .eq('garden_visits_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

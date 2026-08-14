@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: UserPageViews
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.906Z
+// GENERATED: 2026-08-01T21:41:40.844Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getUserPageViews(id: string): Promise<UserPageViewsRow> {
   const { data, error } = await supabase
     .from('user_page_views')
     .select('*')
-    .eq('user_page_views_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateUserPageViews(id: string, data: UserPageViewsUpdate)
   const { data: result, error } = await supabase
     .from('user_page_views')
     .update(validated)
-    .eq('user_page_views_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteUserPageViews(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('user_page_views')
     .delete()
-    .eq('user_page_views_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

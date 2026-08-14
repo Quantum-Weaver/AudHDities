@@ -1,4 +1,13 @@
 // src/components/asgard/domains/hermes/creations/CreationDetail.tsx
+// Wares edition (2026-07-31): the three-tier price grid died with the
+// products table — one base price + pricing_model, solidarity pricing
+// computed server-side at the Exchange (the buyer sees the split there:
+// PriceBreakdown is this realm's protected feature). The exchange verbs
+// are the realm's ceremony: Receive (freely) · Bring home (exchanged).
+// The plain stall (2026-08-01, KP's ruling via the E4 study): the square
+// is quiet; HERE the price speaks plainly with the split beside it. And
+// when the last has gone home, the stall says so in the settled register
+// — never a countdown on the way down.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,33 +17,40 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Package, Shield, Users } from 'lucide-react';
+import { CheckoutButton } from '@/components/asgard/domains/hermes/checkout/CheckoutButton';
+import { PriceBreakdown } from '@/components/asgard/domains/hermes/checkout/PriceBreakdown';
+import { formatPrice } from '@/lib/utils/components/runes/card.utils';
+import { ArrowLeft, Package, TrendingUp } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 
-interface ProductItem {
-  products_id: string; title: string; description: string | null; product_type: string;
-  price_community: number | null; price_ally: number | null; price_corporate: number | null;
-  creator_id: string; residual_pool_percent: number | null;
-}
+type WareItem = Tables<'wares'>;
 
 const TYPE_LABELS: Record<string, string> = {
-  digital_course: 'Course', digital_download: 'Download', physical_product: 'Physical',
-  audio: 'Audio', video: 'Video', music: 'Music',
+  physical: 'Physical', digital: 'Digital', service: 'Service',
 };
+
+function priceLabel(ware: WareItem): string {
+  if (ware.pricing_model === 'free') return 'Freely given';
+  if (ware.pricing_model === 'patronage_only') return 'Through patronage';
+  if (ware.price === null || ware.price <= 0) return '—';
+  const base = formatPrice(ware.price) ?? '—';
+  return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
+}
 
 export function CreationDetail() {
   const params = useParams();
   const router = useRouter();
-  const [product, setProduct] = useState<ProductItem | null>(null);
+  const [ware, setWare] = useState<WareItem | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/generated/plutus-economics/products/${params.id}`)
+    fetch(`/api/generated/plutus-economics/wares/${params.id}`)
       .then((r) => r.json())
-      .then((result) => { if (result.success) setProduct(result.data); })
+      .then((result) => { if (result.success) setWare(result.data); })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [params.products_id]);
+  }, [params.id]);
 
   if (loading) {
     return (
@@ -47,19 +63,20 @@ export function CreationDetail() {
     );
   }
 
-  if (!product) {
+  if (!ware) {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-          <p className="text-star-dust/40">This creation has been unwoven.</p>
+          <p className="text-star-dust/40">This work has been unwoven.</p>
           <Link href="/bazaar/creations" className="text-neurospark hover:underline mt-4 inline-block">Return to the Tapestry</Link>
         </div>
       </main>
     );
   }
 
-  const cardData: CardData = { id: product.products_id, type: 'product', title: product.title, description: product.description || '' };
+  const cardData: CardData = { id: ware.id, type: 'product', title: ware.name, description: ware.description || '' };
+  const soldOut = ware.quantity_available !== null && ware.quantity_available <= 0;
 
   return (
     <main className="min-h-screen py-12">
@@ -69,42 +86,54 @@ export function CreationDetail() {
         </Link>
 
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
-          <Badge variant="outline" size="sm" className="text-[10px] capitalize mb-4">{TYPE_LABELS[product.product_type] || product.product_type}</Badge>
-          <h1 className="text-2xl font-bold text-star-dust mb-4">{product.title}</h1>
-          {product.description && <p className="text-star-dust/70 leading-relaxed mb-6">{product.description}</p>}
+          <div className="flex items-center gap-2 mb-4">
+            <Badge variant="outline" size="sm" className="text-[10px] capitalize">{TYPE_LABELS[ware.ware_type] || ware.ware_type}</Badge>
+            {ware.icon_emoji && <span aria-hidden>{ware.icon_emoji}</span>}
+          </div>
+          <h1 className="text-2xl font-bold text-star-dust mb-4">{ware.name}</h1>
+          {ware.description && <p className="text-star-dust/70 leading-relaxed mb-6">{ware.description}</p>}
 
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            {product.price_community && (
-              <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-4 text-center">
-                <Users className="h-5 w-5 text-emerald-400 mx-auto mb-2" />
-                <p className="text-xs text-star-dust/40 mb-1">Community</p>
-                <p className="text-emerald-400 font-bold text-xl">${product.price_community}</p>
-              </div>
+          <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-6 text-center">
+            <p className="text-xs text-star-dust/40 mb-1">
+              {ware.pricing_model === 'pay_what_you_want' ? 'From' : ''}
+            </p>
+            <p className="text-neurospark font-bold text-2xl">{priceLabel(ware)}</p>
+            {ware.pricing_model === 'fixed' && (
+              <p className="text-xs text-star-dust/40 mt-2">Solidarity pricing applied at the Exchange — you see the full split before anything is charged</p>
             )}
-            {product.price_ally && (
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-                <Shield className="h-5 w-5 text-neurospark mx-auto mb-2" />
-                <p className="text-xs text-star-dust/40 mb-1">Ally</p>
-                <p className="text-neurospark font-bold text-xl">${product.price_ally}</p>
-              </div>
-            )}
-            {product.price_corporate && (
-              <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-4 text-center">
-                <Package className="h-5 w-5 text-purple-400 mx-auto mb-2" />
-                <p className="text-xs text-star-dust/40 mb-1">Corporate</p>
-                <p className="text-purple-400 font-bold text-xl">${product.price_corporate}</p>
-              </div>
+            {ware.pricing_model === 'pay_what_you_want' && (
+              <p className="text-xs text-star-dust/40 mt-2">Pay what you want — the split is shown before anything is charged</p>
             )}
           </div>
 
-          {product.residual_pool_percent && (
-            <p className="text-xs text-star-dust/40 text-center">
-              {product.residual_pool_percent}% of platform fee goes to contributors
+          {/* The split, beside the price (KP's ruling: the stall speaks plainly) */}
+          {(ware.pricing_model === 'fixed' || ware.pricing_model === 'pay_what_you_want') && ware.price !== null && ware.price > 0 && (
+            <div className="mb-6">
+              <PriceBreakdown
+                subtotal={ware.price}
+                showResidualPool={!!ware.residual_pool_percent && ware.residual_pool_percent > 0}
+                residualPoolPercent={ware.residual_pool_percent ?? 0}
+              />
+            </div>
+          )}
+
+          {ware.residual_pool_percent !== null && ware.residual_pool_percent > 0 && (
+            <p className="text-xs text-star-dust/40 text-center flex items-center justify-center gap-1.5 mb-6">
+              <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
+              {ware.residual_pool_percent}% flows to the residual pool
             </p>
           )}
 
           <div className="flex gap-3 mt-6">
-            <Button variant="primary" size="md">Purchase</Button>
+            {soldOut ? (
+              <p className="text-sm text-star-dust/60 italic">
+                These have all gone home — the maker may weave more.
+              </p>
+            ) : ware.pricing_model === 'free' ? (
+              <Button variant="primary" size="md">Receive</Button>
+            ) : (
+              <CheckoutButton product={ware} size="md" />
+            )}
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
           </div>
         </Card>

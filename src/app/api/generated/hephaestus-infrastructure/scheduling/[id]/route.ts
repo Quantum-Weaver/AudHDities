@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { SchedulingUpdateSchema } from '@/lib/validators/generated/hephaestus-infrastructure/scheduling';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.780Z
+// Generated: 2026-08-01T21:41:40.588Z
 // Table: scheduling
 
 export async function GET(
@@ -17,7 +17,7 @@ export async function GET(
     const { data, error } = await supabase
       .from('scheduling')
       .select('*')
-      .eq('scheduling_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -52,7 +52,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('scheduling')
       .update(validated)
-      .eq('scheduling_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -85,7 +85,7 @@ export async function DELETE(
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('scheduling').delete().eq('scheduling_id', id);
+    const { error } = await supabase.from('scheduling').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('scheduling');

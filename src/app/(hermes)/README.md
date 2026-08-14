@@ -1,7 +1,7 @@
 # 🦊 HERMES — THE BAZAAR
 
 **Feeling:** Abundant, curious, playful, connected  
-**Status:** ✅ COMPLETE — 11 of 11 pages
+**Status:** ✅ COMPLETE — 11 of 11 pages · re-wired to the wares schema 2026-07-31
 
 ---
 
@@ -29,7 +29,9 @@ src/app/(hermes)/bazaar/
 ├── contributions/
 │   └── page.tsx                      # Contributions Ledger (/bazaar/contributions)
 └── checkout/
-    └── page.tsx                      # The Exchange (/bazaar/checkout)
+    ├── page.tsx                      # The Exchange (/bazaar/checkout)
+    ├── success/page.tsx              # Exchange confirmed
+    └── cancel/page.tsx               # Exchange cancelled
 ```
 
 ---
@@ -39,40 +41,75 @@ src/app/(hermes)/bazaar/
 | Page | Route | Component | Purpose |
 |------|-------|-----------|---------|
 | **The Bazaar** | `/bazaar` | `BazaarHub` | Marketplace hub linking to all sections |
-| **The Tapestry** | `/bazaar/creations` | `CreationsGallery` | Browse published products with search + type filters |
-| **Creation Detail** | `/bazaar/creations/[id]` | `CreationDetail` | Full product view with tiered pricing |
-| **The Weavers** | `/bazaar/creators` | `CreatorsGallery` | Verified creator directory with search |
-| **Creator Sanctuary** | `/bazaar/creators/[id]` | `CreatorDetail` | Creator profile with stats + portfolio |
-| **The Guild** | `/bazaar/vendors` | `VendorsGallery` | Verified vendor directory with search |
-| **Vendor Sanctuary** | `/bazaar/vendors/[id]` | `VendorDetail` | Vendor profile with stats + website |
-| **The Loom** | `/bazaar/studio` | `StudioCreate` | Product creation form with tiered pricing |
-| **Edit Creation** | `/bazaar/studio/[id]` | `StudioEdit` | Edit existing product with delete option |
-| **Contributions Ledger** | `/bazaar/contributions` | `ContributionsGallery` | User's contribution history and residual earnings |
+| **The Tapestry** | `/bazaar/creations` | `CreationsGallery` | Browse published wares with search + type filters |
+| **Creation Detail** | `/bazaar/creations/[id]` | `CreationDetail` | Full ware view with pricing model + checkout |
+| **The Weavers** | `/bazaar/creators` | `CreatorsGallery` | Active artisan directory with search |
+| **Creator Sanctuary** | `/bazaar/creators/[id]` | `CreatorDetail` | Artisan profile with stats, portfolio + "At the loom" (their works, the making itself) |
+| **The Guild** | `/bazaar/vendors` | `VendorsGallery` | Active merchant directory with search |
+| **Vendor Sanctuary** | `/bazaar/vendors/[id]` | `VendorDetail` | Merchant profile with stats + website |
+| **The Loom** | `/bazaar/studio` | `StudioCreate` | Ware creation form (pricing model + residual pool) |
+| **Edit Creation** | `/bazaar/studio/[id]` | `StudioEdit` | Edit existing ware with delete option |
+| **Contributions Ledger** | `/bazaar/contributions` | `ContributionsGallery` | Provenance gallery — your part in every work |
 | **The Exchange** | `/bazaar/checkout` | `CheckoutHub` | Checkout information and economics overview |
 
 ---
 
+## 💰 PRICING — THE WARES MODEL (since 2026-07-18)
+
+A ware carries **one base price** and a **`pricing_model`**:
+
+| Model | Meaning |
+|-------|---------|
+| `free` | Given to anyone who receives it (the Loom's default) |
+| `fixed` | One base price; solidarity pricing computed **server-side** by `calculate_sovereign_price` at the Exchange |
+| `pay_what_you_want` | The price is a floor, not a wall |
+| `patronage_only` | For patrons of the maker's work |
+
+The old client-side tier ladder (community/ally/corporate + Bigot Tax)
+died with the `products` table — the kindness is enforced in the schema
+now, not re-derived per client. *(One honest remnant: `PriceBreakdown`
+still carries a dormant `showBigotTax` display prop, default off; its
+removal or revival belongs to the plutus split-model verdict in
+`/SCHEMA-FINALIZE.md`, not to this realm alone.)*
+
+**Display rulings (KP's ⚛ word, 2026-08-01, via the E4 play study):**
+
+- **The quiet square, the plain stall:** gallery cards carry no price —
+  the work and its maker lead ("freely given" may still say so, being a
+  gift, not a number); the price speaks plainly at the detail page with
+  the full `PriceBreakdown` beside it. Worth felt as human before price
+  read as number.
+- **The empty stall:** when `quantity_available` reaches 0 the stall
+  says *"These have all gone home — the maker may weave more"* — never
+  a countdown on the way down, never "only 2 left."
+- **The third word at every going:** *Gweld ti'n fuan* stands on the
+  checkout success page and the set-aside page both.
+
 ## 💰 CHECKOUT FLOW
 
 ```
-Product Detail → CheckoutButton → useCheckout Hook
+Creation Detail → CheckoutButton → useCheckout Hook
     │
     ├── Unauthenticated → Save to sessionStorage → Redirect to Login
     │
-    └── Authenticated → POST /api/checkout
+    └── Authenticated → POST /api/auth/checkout
          │
-         ├── Validates user profile + product availability
-         ├── Calculates tiered pricing (community/ally/corporate)
-         ├── Applies Bigot Tax for corporate domains
-         ├── Creates sale record (payment_status: pending)
+         ├── Validates user + ware (status = published)
+         ├── calculate_sovereign_price (server-side, per person)
+         ├── Inserts ONE pending exchange row
          ├── Creates Stripe Checkout Session
          └── Redirects to Stripe hosted page
               │
-              ├── Success → /checkout/success → CheckoutForm (polls Stripe)
-              │   └── Stripe Webhook → sale marked completed
+              ├── Success → /bazaar/checkout/success → CheckoutForm
+              │   polls GET /api/auth/checkout/session/[id]
+              │   └── Stripe Webhook → the SAME exchange row completed
               │
-              └── Cancel → /checkout/cancel
+              └── Cancel → /bazaar/checkout/cancel
 ```
+
+**PriceBreakdown is a protected feature** (realm law 7, REALM-BUS.md):
+the buyer sees the full split at the moment of purchase — transparency
+as UX, through every rewire and every redesign.
 
 ---
 
@@ -83,9 +120,9 @@ Product Detail → CheckoutButton → useCheckout Hook
 | **Bifröst** | `Page` |
 | **Runes** | `Card`, `Badge`, `Avatar`, `AvatarFallback`, `Skeleton` |
 | **Runes/Cards** | `CardHeader`, `CardContent`, `CardFooter`, `CreatorCardRenderer`, `VendorCardRenderer` |
-| **Yggdrasil** | `Button` |
+| **Yggdrasil** | `Button`, `Spinner` |
 | **Forging** | `Form`, `FormField`, `Input`, `Select`, `Switch` |
-| **Vegvisir** | `SearchBar` (inline) |
+| **Seidr** | `Tooltip` (PriceBreakdown) |
 | **Hof** | `Grid` (Tailwind grid) |
 
 ---
@@ -94,31 +131,36 @@ Product Detail → CheckoutButton → useCheckout Hook
 
 | Concern | Protection |
 |---------|-----------|
-| **Product visibility** | RLS: `is_published = true AND active = true` for public SELECT |
-| **Product creation** | Creator-only via `useAuth().profile.is_creator` + RLS |
-| **Product editing** | Owner-only via `checkOwnership()` + RLS |
-| **Creator visibility** | RLS: `verification_status = 'verified'` |
-| **Vendor visibility** | RLS: `verification_status = 'verified'` |
-| **Checkout** | Authenticated only, validates product exists + is published |
-| **Pricing** | Tiered pricing enforced server-side |
-| **Contributions** | User sees only own contributions via RLS |
+| **Ware visibility** | RLS: `status = 'published'` for public SELECT |
+| **Ware creation** | Creator role via `useUser().roles` + RLS |
+| **Ware editing** | Owner-only via RLS (`created_by`) |
+| **Artisan visibility** | RLS + directory filter: `status = 'active'`; verified badge reads `verified_at` |
+| **Merchant visibility** | RLS + directory filter: `status = 'active'`; verified badge reads `verified_at` |
+| **Checkout** | Authenticated only; validates ware exists + is published |
+| **Pricing** | `calculate_sovereign_price` runs server-side — the client never computes a price |
+| **Contributions** | User sees only own `ware_participants` rows via RLS |
 
 ---
 
 ## 📊 DATA DEPENDENCIES
 
-| Page | Generated Hook | API Route |
-|------|---------------|-----------|
-| Creations Gallery | `useProductsList()` | `GET /api/generated/plutus-economics/products` |
-| Creation Detail | `useProduct(id)` | `GET /api/generated/plutus-economics/products/[id]` |
-| Creators Gallery | `useCreatorProfilesList()` | `GET /api/generated/hestia-core/creator_profiles` |
-| Creator Detail | `useCreatorProfiles(id)` | `GET /api/generated/hestia-core/creator_profiles/[id]` |
-| Vendors Gallery | `useVendorProfilesList()` | `GET /api/generated/hestia-core/vendor_profiles` |
-| Vendor Detail | `useVendorProfiles(id)` | `GET /api/generated/hestia-core/vendor_profiles/[id]` |
-| Studio Create | `useCreateProducts()` | `POST /api/generated/plutus-economics/products` |
-| Studio Edit | `useUpdateProducts()` | `PUT /api/generated/plutus-economics/products/[id]` |
-| Contributions | `useContributionsList()` | `GET /api/generated/plutus-economics/contributions` |
-| Checkout | `useCheckout()` | `POST /api/checkout` |
+| Page | Live table (deity) | API Route |
+|------|--------------------|-----------|
+| Creations Gallery | `wares` (plutus-economics) | `GET /api/generated/plutus-economics/wares` |
+| Creation Detail | `wares` | `GET /api/generated/plutus-economics/wares/[id]` |
+| Creators Gallery | `artisan_profiles` (hermes-social) | `GET /api/generated/hermes-social/artisan_profiles` |
+| Creator Detail | `artisan_profiles` | `GET /api/generated/hermes-social/artisan_profiles/[id]` |
+| Vendors Gallery | `merchant_profiles` (hermes-social) | `GET /api/generated/hermes-social/merchant_profiles` |
+| Vendor Detail | `merchant_profiles` | `GET /api/generated/hermes-social/merchant_profiles/[id]` |
+| Studio Create | `wares` | `POST /api/generated/plutus-economics/wares` |
+| Studio Edit | `wares` | `PUT /api/generated/plutus-economics/wares/[id]` |
+| Contributions | `ware_participants` (plutus-economics) | `GET /api/generated/plutus-economics/ware_participants` |
+| Checkout | `exchanges` + Stripe | `POST /api/auth/checkout` · `GET /api/auth/checkout/session/[id]` |
+
+Hand-written hooks: `hooks/commerce/useProduct.ts` (wares read layer) ·
+`hooks/commerce/useCheckout.tsx` (the Exchange). The maker↔ware join is
+`created_by` (a user id) — profile pages link into the Tapestry with
+their profile's `created_by`, never the profile id.
 
 ---
 
@@ -130,7 +172,7 @@ Product Detail → CheckoutButton → useCheckout Hook
 
 **Seer:** *"The pattern is proven. Galleries, detail pages, creation forms — all compose from existing components. The remaining domains will follow this same template."*
 
-**Executioner:** *"RLS enforced at every layer. Verified-only visibility. Owner-only editing. Tiered pricing validated server-side. No exploitation possible."*
+**Executioner:** *"RLS enforced at every layer. Active-only visibility. Owner-only editing. Sovereign pricing computed server-side. No exploitation possible."*
 
 ---
 

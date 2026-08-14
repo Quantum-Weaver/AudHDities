@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Current
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.360Z
+// GENERATED: 2026-08-01T21:41:40.782Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCurrent(id: string): Promise<CurrentRow> {
   const { data, error } = await supabase
     .from('current')
     .select('*')
-    .eq('current_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCurrent(id: string, data: CurrentUpdate): Promise<Cu
   const { data: result, error } = await supabase
     .from('current')
     .update(validated)
-    .eq('current_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCurrent(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('current')
     .delete()
-    .eq('current_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

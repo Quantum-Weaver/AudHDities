@@ -10,7 +10,7 @@ import { ArrowLeft, Play, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface Recording {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   event_type: string; genre: string | null; recorded_at: string | null;
 }
 
@@ -19,7 +19,7 @@ export function RecordingsGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?is_recorded=true&order=recorded_at.desc')
+    fetch('/api/generated/prometheus-stage/events?is_recorded=true&sort=recorded_at&order=desc')
       .then(r => r.json())
       .then(result => { if (result.success) setRecordings(result.data?.data || result.data || []); })
       .catch(console.error)
@@ -40,9 +40,9 @@ export function RecordingsGallery() {
       ) : (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {recordings.map(r => {
-            const cd: CardData = { id: r.events_id, type: 'event', title: r.title, description: r.description || '' };
+            const cd: CardData = { id: r.id, type: 'event', title: r.title, description: r.description || '' };
             return (
-              <Link key={r.events_id} href={`/stage/recordings/${r.events_id}`}>
+              <Link key={r.id} href={`/stage/recordings/${r.id}`}>
                 <Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
                   <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className="text-[10px] capitalize">{r.event_type}</Badge>{r.genre && <Badge variant="outline" size="sm" className="text-[10px]">{r.genre}</Badge>}</div>
                   <h3 className="text-lg font-semibold text-star-dust mb-2">{r.title}</h3>

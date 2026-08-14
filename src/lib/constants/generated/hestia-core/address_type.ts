@@ -1,6 +1,6 @@
 // =====================================================
 // FILE: constants/generated/hestia-core/address_type.ts
-// GENERATED: 2026-07-10T18:15:00.023Z
+// GENERATED: 2026-08-01T21:41:40.202Z
 // SOURCE: Constants.public.Enums.address_type
 // VALUES: 6 entries
 // =====================================================

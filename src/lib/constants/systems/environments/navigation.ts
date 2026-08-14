@@ -42,7 +42,7 @@ export interface NavItem {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   environments?: BaseEnvironmentKey[];
-  userTiers?: ('community' | 'ally' | 'corporate' | 'council')[];
+  userTiers?: ('dweller' | 'guild' | 'outlander' | 'sovereign_weaver')[];
   requiresAuth?: boolean;
   requiresAdmin?: boolean;
   minSovereignty?: number;
@@ -60,11 +60,11 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
     { href: '/bazaar', label: 'The Bazaar', icon: Store, environments: ['community', 'home'] },
     { href: '/library', label: 'The Library', icon: Library, environments: ['library', 'observatory', 'home'] },
     { href: '/stage', label: 'The Stage', icon: Music, environments: ['music', 'lounge', 'community'] },
-    { href: '/studio', label: 'The Studio', icon: Palette, environments: ['music', 'architecture', 'library'], userTiers: ['ally', 'council'] },
+    { href: '/studio', label: 'The Studio', icon: Palette, environments: ['music', 'architecture', 'library'], userTiers: ['guild', 'outlander', 'sovereign_weaver'] },
     { href: '/connect', label: 'The Bridge', icon: MessageCircle, environments: ['community', 'home'] },
-    { href: '/council', label: 'The Council', icon: Shield, environments: ['council', 'architecture'], userTiers: ['council'] },
+    { href: '/council', label: 'The Council', icon: Shield, environments: ['council', 'architecture'], userTiers: ['sovereign_weaver'] },
     { href: '/observatory', label: 'The Observatory', icon: Eye, environments: ['observatory', 'library'], minSovereignty: 100 },
-    { href: '/nexus', label: 'The Nexus', icon: Network, environments: ['architecture', 'council'], userTiers: ['ally', 'council'] },
+    { href: '/nexus', label: 'The Nexus', icon: Network, environments: ['architecture', 'council'], userTiers: ['guild', 'outlander', 'sovereign_weaver'] },
   ],
   secondary: [
     { href: '/vision', label: 'Vision', icon: TrendingUp },
@@ -79,7 +79,7 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
     { href: '/notifications', label: 'The Pulse', icon: Bell, requiresAuth: true },
     { href: '/vessel/constellation', label: 'Constellation', icon: Star, requiresAuth: true },
     { href: '/bazaar/contributions', label: 'Contributions', icon: Zap, requiresAuth: true },
-    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, requiresAuth: true, userTiers: ['ally', 'council'] },
+    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, requiresAuth: true, userTiers: ['guild', 'outlander', 'sovereign_weaver'] },
     { href: '/council/admin', label: 'Governance', icon: Shield, requiresAuth: true, requiresAdmin: true },
   ],
 };
@@ -88,7 +88,7 @@ export function filterNavItems(
   items: NavItem[],
   context: {
     environment: BaseEnvironmentKey;
-    userTier?: 'community' | 'ally' | 'corporate' | 'council';
+    userTier?: 'dweller' | 'guild' | 'outlander' | 'sovereign_weaver';
     isAuthenticated?: boolean;
     isAdmin?: boolean;
     sovereigntyScore?: number;

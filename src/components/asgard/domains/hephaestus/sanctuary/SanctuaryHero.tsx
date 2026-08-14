@@ -39,7 +39,7 @@ export function SanctuaryHero() {
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link href="/docs">
+          <Link href="/forge">
             <Button size="lg" variant="outline">
               Explore the Vision
             </Button>

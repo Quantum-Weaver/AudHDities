@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: SurveyResponses
 // DEITY: iris-communications
-// GENERATED: 2026-07-10T18:14:59.863Z
+// GENERATED: 2026-08-01T21:41:40.839Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getSurveyResponses(id: string): Promise<SurveyResponsesRow
   const { data, error } = await supabase
     .from('survey_responses')
     .select('*')
-    .eq('survey_responses_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateSurveyResponses(id: string, data: SurveyResponsesUpd
   const { data: result, error } = await supabase
     .from('survey_responses')
     .update(validated)
-    .eq('survey_responses_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteSurveyResponses(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('survey_responses')
     .delete()
-    .eq('survey_responses_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

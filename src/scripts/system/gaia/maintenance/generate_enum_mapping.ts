@@ -2,16 +2,43 @@
 // ============================================================================
 // GENERATE ENUM MAPPING
 // ============================================================================
+// Purpose: Scan all tables for enum references and build enum_mapping.ts,
+//          assigning each runtime enum to the deity folder of its highest
+//          priority referencing table.
+// Output: src/config/enum_mapping.ts
+// Usage: tsx src/scripts/system/gaia/maintenance/generate_enum_mapping.ts [--dry-run] [--force] [--verbose]
+// ============================================================================
 
-import { getDeityFolderForObject } from "@/config/object_categories.js";
-import type { EnumMappingEntry } from "@/config/enum_mapping.js";
-import type { EnrichedTable } from "../enrich/enrich_objects.js";
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
+import { createHash } from 'crypto';
 
-interface EnumReference {
-  enumName: string;
-  tableName: string;
-  deityFolder: string;
-  tablePriority: number;
+import { getDeityFolderForObject } from '@/config/object_categories.js';
+import type { EnumMappingEntry } from '@/config/enum_mapping.js';
+
+import { readDatabaseTypes } from '../../../shared/file_reader.js';
+import { findMarkers } from '../../../modules/system/find_markers.js';
+import { findAllClosingBraces } from '../../../modules/system/find_closing_braces.js';
+import { extractTables, type TableInfo } from '../extract/extract_tables.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../../');
+const OUTPUT_PATH = path.join(PROJECT_ROOT, 'src/config/enum_mapping.ts');
+
+interface EnumMappingOptions {
+  dryRun: boolean;
+  force: boolean;
+  verbose: boolean;
+}
+
+interface EnumMappingResult {
+  success: boolean;
+  filePath: string;
+  action: 'created' | 'updated' | 'skipped' | 'dryrun' | 'error';
+  message: string;
+  mappingCount: number;
 }
 
 const DEITY_PRIORITY: Record<string, number> = {
@@ -33,65 +60,270 @@ const MANUAL_OVERRIDES: Record<string, string> = {
   'council_house': 'hestia-core',
 };
 
+interface EnumMappingInputTable {
+  name: string;
+  deityFolder: string;
+  enumRefs: string[];
+}
+
 /**
- * Generate enum mapping from enriched tables
- * Note: enumRefs are no longer on EnrichedTable - 
- * we need to get them from the original extraction or regenerate
+ * Generate enum mapping from tables and their enum references.
  */
-export function generateEnumMapping(
-  tables: EnrichedTable[],
-  getEnumRefsForTable: (tableName: string) => string[]
-): Record<string, EnumMappingEntry> {
-  const references: Map<string, EnumReference[]> = new Map();
-  
+export function generateEnumMapping(tables: EnumMappingInputTable[]): Record<string, EnumMappingEntry> {
+  const references: Map<string, EnumMappingInputTable[]> = new Map();
+
   for (const table of tables) {
-    const deityFolder = table.deityFolder;
-    const priority = DEITY_PRIORITY[deityFolder] || 0;
-    const enumRefs = getEnumRefsForTable(table.name);
-    
-    for (const enumRef of enumRefs) {
+    const priority = DEITY_PRIORITY[table.deityFolder] || 0;
+
+    for (const enumRef of table.enumRefs) {
       if (!references.has(enumRef)) {
         references.set(enumRef, []);
       }
-      references.get(enumRef)!.push({
-        enumName: enumRef,
-        tableName: table.name,
-        deityFolder,
-        tablePriority: priority
-      });
+      references.get(enumRef)!.push(table);
     }
   }
-  
+
   const mapping: Record<string, EnumMappingEntry> = {};
-  
+
   for (const [enumName, refs] of references) {
     if (MANUAL_OVERRIDES[enumName]) {
       mapping[enumName] = {
         enumName,
         deityFolder: MANUAL_OVERRIDES[enumName],
-        referencedIn: refs.map(r => r.tableName),
-        priority: 100
+        referencedIn: refs.map(r => r.name),
+        priority: 100,
       };
       continue;
     }
-    
-    const bestMatch = refs.reduce((best, current) => 
-      current.tablePriority > best.tablePriority ? current : best, refs[0]);
-    
+
+    const bestMatch = refs.reduce((best, current) => {
+      const currentPriority = DEITY_PRIORITY[current.deityFolder] || 0;
+      const bestPriority = DEITY_PRIORITY[best.deityFolder] || 0;
+      return currentPriority > bestPriority ? current : best;
+    }, refs[0]);
+
     mapping[enumName] = {
       enumName,
       deityFolder: bestMatch.deityFolder,
-      referencedIn: refs.map(r => r.tableName),
-      priority: bestMatch.tablePriority
+      referencedIn: refs.map(r => r.name),
+      priority: DEITY_PRIORITY[bestMatch.deityFolder] || 0,
     };
   }
-  
+
   mapping.default = {
     enumName: 'default',
     deityFolder: 'hestia-core',
     referencedIn: [],
-    priority: 0
+    priority: 0,
   };
-  
+
   return mapping;
+}
+
+/**
+ * Format the enum mapping as a TypeScript file.
+ */
+function formatEnumMappingFile(mapping: Record<string, EnumMappingEntry>): string {
+  const timestamp = new Date().toISOString();
+  const entries = Object.values(mapping);
+
+  const lines: string[] = [
+    '// src/config/enum_mapping.ts',
+    '// ============================================================================',
+    '// ENUM MAPPING - AUTOGENERATED - DO NOT EDIT MANUALLY',
+    '// ============================================================================',
+    `// Generated by GAIA on ${timestamp}`,
+    '// Maps each enum to the deity folder of the highest priority table that references it',
+    '// ============================================================================',
+    '',
+    'export interface EnumMappingEntry {',
+    '  enumName: string;',
+    '  deityFolder: string;',
+    '  referencedIn: string[];',
+    '  priority: number;',
+    '}',
+    '',
+    'export const ENUM_MAPPING: Record<string, EnumMappingEntry> = {',
+  ];
+
+  for (const entry of entries) {
+    lines.push(`  "${entry.enumName}": {`);
+    lines.push(`    "enumName": "${entry.enumName}",`);
+    lines.push(`    "deityFolder": "${entry.deityFolder}",`);
+    lines.push('    "referencedIn": [');
+    for (let i = 0; i < entry.referencedIn.length; i++) {
+      const comma = i < entry.referencedIn.length - 1 ? ',' : '';
+      lines.push(`      "${entry.referencedIn[i]}"${comma}`);
+    }
+    lines.push('    ],');
+    lines.push(`    "priority": ${entry.priority}`);
+    lines.push('  },');
+  }
+
+  lines.push('};');
+  lines.push('');
+  lines.push('/**');
+  lines.push(' * Get the deity folder for an enum');
+  lines.push(' */');
+  lines.push('export function getEnumFolder(enumName: string): string {');
+  lines.push('  return ENUM_MAPPING[enumName]?.deityFolder || ENUM_MAPPING.default.deityFolder;');
+  lines.push('}');
+  lines.push('');
+  lines.push('/**');
+  lines.push(' * Get the full mapping entry for an enum');
+  lines.push(' */');
+  lines.push('export function getEnumMapping(enumName: string): EnumMappingEntry | undefined {');
+  lines.push('  return ENUM_MAPPING[enumName];');
+  lines.push('}');
+  lines.push('');
+  lines.push('/**');
+  lines.push(' * Get all enums that belong to a specific deity folder');
+  lines.push(' */');
+  lines.push('export function getEnumsByDeity(deityFolder: string): string[] {');
+  lines.push('  return Object.values(ENUM_MAPPING)');
+  lines.push('    .filter(entry => entry.deityFolder === deityFolder)');
+  lines.push('    .map(entry => entry.enumName);');
+  lines.push('}');
+  lines.push('');
+
+  return lines.join('\n');
+}
+
+function generateContentHash(content: string): string {
+  return createHash('sha256').update(content, 'utf-8').digest('hex');
+}
+
+function contentHasChanged(existingPath: string, newContent: string): boolean {
+  if (!fs.existsSync(existingPath)) return true;
+  const existingContent = fs.readFileSync(existingPath, 'utf-8');
+  return generateContentHash(existingContent) !== generateContentHash(newContent);
+}
+
+async function writeEnumMappingFile(
+  content: string,
+  options: EnumMappingOptions
+): Promise<{ success: boolean; action: EnumMappingResult['action']; message: string }> {
+  const { dryRun, force, verbose } = options;
+  const fullPath = OUTPUT_PATH;
+  const dir = path.dirname(fullPath);
+  const exists = fs.existsSync(fullPath);
+
+  if (dryRun) {
+    if (verbose) {
+      console.log(`[DRY RUN] Would write to: ${fullPath}`);
+    }
+    return { success: true, action: 'dryrun', message: `Would write to ${fullPath}` };
+  }
+
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  if (!exists) {
+    fs.writeFileSync(fullPath, content, 'utf-8');
+    return { success: true, action: 'created', message: `Created ${fullPath}` };
+  }
+
+  if (!contentHasChanged(fullPath, content)) {
+    return { success: true, action: 'skipped', message: `Unchanged: ${fullPath}` };
+  }
+
+  if (force) {
+    fs.writeFileSync(fullPath, content, 'utf-8');
+    return { success: true, action: 'updated', message: `Overwrote ${fullPath}` };
+  }
+
+  return {
+    success: false,
+    action: 'skipped',
+    message: `Skipped ${fullPath} (would overwrite; use --force)`,
+  };
+}
+
+/**
+ * Generate enum mapping from the current database.types.ts snapshot.
+ */
+export async function generateEnumMappingFile(options: EnumMappingOptions): Promise<EnumMappingResult> {
+  const { verbose } = options;
+
+  if (verbose) {
+    console.log('\n📦 Generating enum mapping...\n');
+  }
+
+  // Read source file
+  const fileResult = readDatabaseTypes();
+  if (!fileResult.success) {
+    throw new Error(`Failed to read database.types.ts: ${fileResult.error}`);
+  }
+
+  const lines = fileResult.content.split('\n');
+
+  if (verbose) {
+    console.log(`Read ${lines.length} lines`);
+  }
+
+  // Find markers and extract tables
+  const markers = findMarkers(lines, { verbose });
+  const markersWithBraces = findAllClosingBraces(lines, markers, { verbose });
+
+  const tables = await extractTables(
+    lines,
+    markersWithBraces.tablesLine,
+    markersWithBraces.tablesEndLine,
+    { verbose }
+  );
+
+  // Build enum mapping input
+  const mappingInput: EnumMappingInputTable[] = tables.map(table => ({
+    name: table.name,
+    deityFolder: getDeityFolderForObject('table', table.name),
+    enumRefs: table.enumRefs,
+  }));
+
+  const mapping = generateEnumMapping(mappingInput);
+  const content = formatEnumMappingFile(mapping);
+
+  const writeResult = await writeEnumMappingFile(content, options);
+
+  return {
+    success: writeResult.success,
+    filePath: OUTPUT_PATH,
+    action: writeResult.action,
+    message: writeResult.message,
+    mappingCount: Object.keys(mapping).length,
+  };
+}
+
+// ============================================================================
+// CLI ENTRY POINT
+// ============================================================================
+
+async function main() {
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run') || args.includes('-d');
+  const force = args.includes('--force') || args.includes('-f');
+  const verbose = args.includes('--verbose') || args.includes('-v');
+
+  console.log('\n' + '='.repeat(60));
+  console.log('🌍 GAIA - Enum Mapping Generator');
+  console.log('='.repeat(60));
+
+  if (dryRun) console.log('\n⚠️  DRY RUN MODE - No files will be written');
+  if (force) console.log('\n⚠️  FORCE MODE - Will overwrite existing files');
+
+  const result = await generateEnumMappingFile({ dryRun, force, verbose });
+
+  console.log('\n' + '='.repeat(60));
+  if (result.success) {
+    console.log(`✅ Success: ${result.message}`);
+    console.log(`   ${result.mappingCount} enums mapped`);
+  } else {
+    console.log(`❌ Failed: ${result.message}`);
+    process.exit(1);
+  }
+  console.log('='.repeat(60) + '\n');
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(console.error);
 }

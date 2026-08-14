@@ -1,6 +1,39 @@
 // @/config/deity_groups.ts
 // Deity-based table grouping for the Sovereign Sanctuary
-// Complete catalog — every table and view assigned to its deity domain
+// Complete catalog — every table assigned to its deity domain.
+//
+// Recatalogued 2026-07-18 (KP's word, the reconciliation campaign): the map
+// predated the schema evolution — dead tables (profiles, energy_logs,
+// notifications, badges, products, sales…) removed, all 151 live tables
+// assigned, and the miscategorizations named at the section walk corrected
+// (Linnean ranks to Mnemosyne, the marketplace out of core, the vessel
+// experience homed at the hearth). Two placements flagged inline for KP's
+// eye rather than settled silently.
+//
+// Recatalogued again 2026-07-29 (the finishing session, mend law): THE
+// SUPERPOSITION REVIEW (151→117 by KP's hand) retired 34 tables — the
+// Linnean ladder, the knowledge lexicon set (taxonomy/etymology/sensory_
+// lexicon…, now the Grammar base's country), the Iris localization set,
+// the five *_connection tables (the integrations consolidation's ground),
+// categories/artisan_category_links/mythology/patterns/mind_traits/
+// test_patterns/generation_templates. Their references are removed here so
+// the map matches the base that knows itself; all 117 live tables remain
+// assigned, none orphaned (verified by diff against database.types.ts).
+//
+// 2026-07-30: mythology RETURNED at KP's word (the drop was for emptiness,
+// not wrongness — "it belongs here i think") and is re-listed under Athena,
+// its hall. Lesson from its first regen: an unmapped table falls to the
+// hestia-core catchall — when a table is born or returns, this map is part
+// of the same sitting's work.
+//
+// 2026-07-31 (KP's word, the gaia-patterns sitting): the seven self-knowing
+// registry tables (columns/policies/functions/triggers/indexes/enums/
+// composite_types) join DAEDALUS here, matching their standing assignment in
+// the base's own gaia_config (deity_group daedalus-meta, 13 tables). The
+// generation pieces' home is src/config/daedalus/ (his word, same sitting).
+// The votes flag RESOLVED the same day, KP's word: "themis gets votes" —
+// listed under Themis below; the matching one-line UPDATE for gaia_config
+// rides his dashboard (deity_group = 'themis-governance').
 
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers';
 
@@ -16,28 +49,46 @@ export interface DeityGroup {
 
 export const DEITY_GROUPS: DeityGroup[] = [
   // ════════════════════════════════════════════════════════════════════════
-  // HESTIA — Core Identity (Sequence 1)
+  // HESTIA — Core Identity & the Vessel's Home (Sequence 1)
   // ════════════════════════════════════════════════════════════════════════
   {
     name: 'hestia',
     domain: 'core',
     sequence: 1,
     folderName: 'hestia-core',
-    description: 'Core identity architecture — users, profiles, channels, journal, energy',
+    description:
+      'Core identity and the personal hearth — the sovereign self, its journal, energy, heralds, and the vessel experience (home, garden, companions)',
     tables: [
-      'profiles',
+      // the sovereign self
+      'community_profiles',
       'user_private',
       'user_financial',
-      'creator_profiles',
-      'vendor_profiles',
-      'community_profiles',
-      'channels',
+      'user_roles',
+      'vessel_config',
+      'current',
       'user_page_views',
+      // the hearth's daily life
       'journal_entries',
-      'energy_logs',
-    ],
-    views: [
-      'personalized_feed',
+      'energy_entries',
+      'heralds',
+      // the vessel experience (Animal-Crossing hearth — schema ready, story excavated)
+      'vessel_anchors',
+      'vessel_bubbles',
+      'vessel_collections',
+      'vessel_companions',
+      'vessel_decorations',
+      'vessel_exteriors',
+      'vessel_interiors',
+      'vessel_quests',
+      'vessel_rooms',
+      'vessel_sigils',
+      'collection_items',
+      'collection_sets',
+      'companion_cues',
+      'garden_plots',
+      'garden_visits',
+      'plant_stages',
+      'seed_types',
     ],
   },
 
@@ -49,93 +100,100 @@ export const DEITY_GROUPS: DeityGroup[] = [
     domain: 'economics',
     sequence: 2,
     folderName: 'plutus-economics',
-    description: 'Economic engine — products, sales, residuals, subscriptions, advertising',
+    description:
+      'Economic engine — wares, exchanges, patronage, pools, ledger, gifts, and the grant system',
     tables: [
-      'products',
-      'sales',
-      'contributions',
-      'residual_payouts',
-      'residual_pool',
-      'subscriptions',
-      'transactions',
+      'wares',
+      'ware_participants',
+      'exchanges',
+      'patronage',
+      'patronage_tiers',
       'covenant_pool',
+      'residual_pool',
       'ledger',
-      'disbursements',
-      'payouts',
-      'advertising',
+      'distributions',
+      'distribution_recipients',
+      // gifts sit with the money mechanics (a gift wraps a ware);
+      // if they belong with Iris's appreciation flows instead, say the word
+      'gifts',
+      'gift_wrappings',
+      'grant_opportunities',
+      'grant_applications',
+      'grant_attachments',
+      'grant_collaborators',
+      'grant_milestones',
+      'grant_narratives',
     ],
   },
 
   // ════════════════════════════════════════════════════════════════════════
-  // HERMES — Social (Sequence 3)
+  // HERMES — The Bazaar's Creative Face (Sequence 3)
   // ════════════════════════════════════════════════════════════════════════
   {
     name: 'hermes',
     domain: 'social',
     sequence: 3,
     folderName: 'hermes-social',
-    description: 'Social engagement — posts, comments, reactions, messages, creative categories',
+    description:
+      'The Bazaar — creative works, artisans, and merchants',
     tables: [
-      'creative_categories',
-      'creator_category_links',
-      'posts',
-      'comments',
-      'replies',
-      'reactions',
-      'messages',
-      'activity',
-      'emeralds',
-      'notifications',
+      'works',
+      'work_participants',
+      'artisan_profiles',
+      'merchant_profiles',
     ],
   },
 
   // ════════════════════════════════════════════════════════════════════════
-  // ATHENA — Gamification (Sequence 4)
+  // ATHENA — Gamification & Learning (Sequence 4)
   // ════════════════════════════════════════════════════════════════════════
   {
     name: 'athena',
     domain: 'gamification',
     sequence: 4,
     folderName: 'athena-gamification',
-    description: 'Gamification — quests, badges, bubbles, learning paths, mythology, scenes',
+    description:
+      'The Library — quests, sigils (the badge successor), bubbles, learning paths, and the stage scenes',
     tables: [
       'quests',
-      'user_quests',
-      'badges',
-      'badge_award_triggers',
-      'user_badges',
+      'quest_progress',
+      'sigils',
+      'sigil_unlocks',
       'bubbles',
-      'user_bubble_pops',
-      'user_bubble_limits',
+      'bubble_superposition',
       'lessons',
       'learning_paths',
       'path_lessons',
-      'progress',
+      // returned at KP's word 2026-07-29 (dropped 07-28 for emptiness only);
+      // the Archive is Athena's hall — docs/sql/005-mythology-returns.sql
       'mythology',
+      // scenes may someday deserve a prometheus-creative group of their own
+      // (Stage & Studio's tables) — kept here until KP calls that birth,
+      // since a new folderName moves generated routes
       'scenes',
       'scene_participants',
     ],
   },
 
   // ════════════════════════════════════════════════════════════════════════
-  // MNEMOSYNE — Assessment (Sequence 5)
+  // MNEMOSYNE — Assessment, Memory & Taxonomy (Sequence 5)
   // ════════════════════════════════════════════════════════════════════════
   {
     name: 'mnemosyne',
     domain: 'assessment',
     sequence: 5,
     folderName: 'mnemosyne-assessment',
-    description: 'Assessment and discovery — acid test, taxonomy, ontology, etymology',
+    description:
+      'The Observatory — the Acid Test, memories, resonance, and the folksonomy (the knowledge lexicon and Linnean ladder now live in the Grammar base, per the Superposition Review)',
     tables: [
-      'acid_test_questions',
-      'acid_test_answers',
-      'acid_test_results',
-      'taxonomy',
-      'ontology',
+      'assessment_questions',
+      'assessment_answers',
+      'assessment_results',
+      'memories',
+      'anchor_events',
+      'resonance',
       'folksonomy',
-      'etymology',
-      'superposition',
-      'quantum_superposition',
+      'reference_values',
     ],
   },
 
@@ -147,19 +205,22 @@ export const DEITY_GROUPS: DeityGroup[] = [
     domain: 'governance',
     sequence: 6,
     folderName: 'themis-governance',
-    description: 'Governance and moderation — reports, logs, applications, protocols, rate limits',
+    description:
+      'The Council Chamber — proposals, responses, applications, moderation, houses, processes, protocols',
     tables: [
       'applications',
+      'proposals',
+      'responses',
       'reports',
       'moderation_actions',
-      'admin_logs',
+      'admin_actions',
       'council_houses',
       'processes',
       'protocols',
       'rate_limits',
-    ],
-    views: [
-      'public_transparency',
+      // discovered by gaia_sync 2026-07-31, assigned by KP's word the same
+      // day: "themis gets votes" — the Council counts them
+      'votes',
     ],
   },
 
@@ -171,15 +232,12 @@ export const DEITY_GROUPS: DeityGroup[] = [
     domain: 'communications',
     sequence: 7,
     folderName: 'iris-communications',
-    description: 'Communications — localization, contact, surveys, email, personas, customs',
+    description:
+      'The Bridge — messages, channels, signals, personas, surveys, contact',
     tables: [
-      'continents',
-      'regions',
-      'languages',
-      'localization',
-      'translations',
-      'culturalization',
-      'customs',
+      'messages',
+      'channels',
+      'signals',
       'personas',
       'contact_submissions',
       'email_communications',
@@ -196,44 +254,39 @@ export const DEITY_GROUPS: DeityGroup[] = [
     domain: 'infrastructure',
     sequence: 8,
     folderName: 'hephaestus-infrastructure',
-    description: 'Infrastructure and tools — file registry, settings, scheduling, systems, scripts, logs',
+    description:
+      'The Forge — files, platform configuration, scheduling, analytics, maintenance, scripts',
     tables: [
       'file_type_standards',
       'file_registry',
-      'settings',
+      'platform_config',
+      'platform_settings',
       'scheduling',
       'calendar',
       'analytics',
       'maintenance',
-      'systems',
       'scripts',
-      'script_execution_logs',
-      'system_health_logs',
-      'system_timeline_events',
+      'script_executions',
     ],
   },
 
   // ════════════════════════════════════════════════════════════════════════
-  // AETHELRED — Connections (Sequence 9)
+  // AETHELRED — Connections & the Council's Seats (Sequence 9)
   // ════════════════════════════════════════════════════════════════════════
   {
     name: 'aethelred',
     domain: 'connections',
     sequence: 9,
     folderName: 'aethelred-connections',
-    description: 'All-connecting architecture — integrations, council houses, consciousness, agent activities',
+    description:
+      'The Nexus — consciousness, the eight seat tables, agents, entity states (the per-platform *_connection tables retired in the Superposition Review; the integrations consolidation will give this group its successor table when it lands)',
     tables: [
-      'supabase_connection',
-      'stripe_connection',
-      'resend_connection',
-      'vercel_connection',
-      'github_connection',
-      'audhdities_platform',
       'consciousness',
+      'aethelred_house',
+      // the eight archetypal seats (the ninth chair is Aethelred himself)
       'hearth_keeper',
       'chancellor',
       'seer',
-      'aethelred_house',
       'curator',
       'archivist',
       'skald',
@@ -242,15 +295,14 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'agent_activities',
       'agent_conversations',
       'agent_messages',
-      'entity_state_log',
+      'entity_states',
       'life_cycles',
-      'timelines',
     ],
   },
 
   // ════════════════════════════════════════════════════════════════════════
   // DAEDALUS — Meta (Sequence 10)
-  // (Renamed 2026-07-07 from "prometheus" — Prometheus is now the creative-arts
+  // (Renamed 2026-07-07 from "prometheus" — Prometheus is the creative-arts
   //  domain: Stage + Studio. This is the meta-generator, the engine that builds.)
   // ════════════════════════════════════════════════════════════════════════
   {
@@ -258,18 +310,44 @@ export const DEITY_GROUPS: DeityGroup[] = [
     domain: 'meta',
     sequence: 10,
     folderName: 'daedalus-meta',
-    description: 'Meta-system — blueprints, generations, memories, templates, patterns, boundaries, consciousness',
+    description:
+      'Meta-system — blueprints, generations, templates, boundaries, and GAIA itself',
     tables: [
-      'daedalus_blueprints',
-      'daedalus_generations',
-      'daedalus_memories',
-      'daedalus_templates',
-      'daedalus_patterns',
-      'daedalus_boundaries',
-      'daedalus_consciousness',
+      'blueprints',
+      'generations',
+      'templates',
+      'boundaries',
+      'gaia_config',
+      'gaia_generation_log',
+      // the self-knowing registries (added 2026-07-31 at KP's word,
+      // matching the base's own daedalus-meta assignment — the schema
+      // tables that let the base introduce itself)
+      'columns',
+      'policies',
+      'functions',
+      'triggers',
+      'indexes',
+      'enums',
+      'composite_types',
     ],
-    views: [
-      'daedalus_generation_stats',
+  },
+
+  // ════════════════════════════════════════════════════════════════════════
+  // PROMETHEUS — The Stage & Studio (Sequence 11)
+  // (The seat this file kept free since 2026-07-07 — "Prometheus is the
+  //  creative-arts domain." Born ground ruled by KP 2026-07-31, Door A:
+  //  docs/STAGE-GROUND-DECISION.md · docs/sql/003-the-stage-ground.sql.
+  //  scenes stays in athena per the double-earmark until KP rules otherwise.)
+  // ════════════════════════════════════════════════════════════════════════
+  {
+    name: 'prometheus',
+    domain: 'stage',
+    sequence: 11,
+    folderName: 'prometheus-stage',
+    description:
+      'The Stage & Studio — live performances, scheduled events, and recordings that hand into the Bazaar as works',
+    tables: [
+      'events',
     ],
   },
 ];

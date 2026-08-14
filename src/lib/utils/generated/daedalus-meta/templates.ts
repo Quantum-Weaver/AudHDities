@@ -1,0 +1,109 @@
+// =====================================================
+// UTILITIES: Templates
+// DEITY: daedalus-meta
+// GENERATED: 2026-08-01T21:41:40.841Z
+// =====================================================
+
+
+import { createClient } from '@/lib/supabase/client';
+import { TemplatesInsertSchema, TemplatesUpdateSchema } from '@/lib/validators/generated/daedalus-meta/templates';
+import type { TemplatesInsert, TemplatesRow, TemplatesUpdate } from '@/types/generated/daedalus-meta/templates';
+
+// ============================================================================
+// CRUD OPERATIONS
+// ============================================================================
+
+/**
+ * Create a new templates record
+ */
+export async function createTemplates(data: TemplatesInsert): Promise<TemplatesRow> {
+  const validated = TemplatesInsertSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('templates')
+    .insert(validated)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Get a single templates record by ID
+ */
+export async function getTemplates(id: string): Promise<TemplatesRow> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from('templates')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Get a list of templates records with pagination
+ */
+export async function listTemplates(params?: {
+  page?: number;
+  limit?: number;
+  filters?: Record<string, string>;
+  sort?: string;
+  order?: 'asc' | 'desc';
+}): Promise<{ data: TemplatesRow[]; total: number }> {
+  const { page = 1, limit = 20, filters = {}, sort = 'created_at', order = 'desc' } = params || {};
+  const supabase = createClient();
+  
+  let query = supabase.from('templates').select('*', { count: 'exact' });
+  
+  for (const [key, value] of Object.entries(filters)) {
+    query = query.eq(key, value);
+  }
+  
+  query = query.order(sort, { ascending: order === 'asc' });
+  
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.range(from, to);
+  
+  const { data, error, count } = await query;
+  if (error) throw error;
+  
+  return { data: data || [], total: count || 0 };
+}
+
+/**
+ * Update a templates record
+ */
+export async function updateTemplates(id: string, data: TemplatesUpdate): Promise<TemplatesRow> {
+  const validated = TemplatesUpdateSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('templates')
+    .update(validated)
+    .eq('id', id)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Delete a templates record
+ */
+export async function deleteTemplates(id: string): Promise<boolean> {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from('templates')
+    .delete()
+    .eq('id', id);
+  
+  if (error) throw error;
+  return true;
+}

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselSigils
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.977Z
+// GENERATED: 2026-08-01T21:41:40.854Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselSigils(id: string): Promise<VesselSigilsRow> {
   const { data, error } = await supabase
     .from('vessel_sigils')
     .select('*')
-    .eq('vessel_sigils_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselSigils(id: string, data: VesselSigilsUpdate): 
   const { data: result, error } = await supabase
     .from('vessel_sigils')
     .update(validated)
-    .eq('vessel_sigils_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselSigils(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_sigils')
     .delete()
-    .eq('vessel_sigils_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

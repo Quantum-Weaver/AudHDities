@@ -17,7 +17,7 @@ src/app/(hephaestus)/
 │   │   ├── auth-flow/
 │   │   │   └── page.tsx              # Authentication Flow
 │   │   ├── database-schema/
-│   │   │   └── page.tsx              # → REDIRECT to /observatory/schema
+│   │   │   └── page.tsx              # → in-page redirect to /observatory/schema
 │   │   └── residual-system/
 │   │       └── page.tsx              # Residual System
 │   ├── business/
@@ -37,8 +37,8 @@ src/app/(hephaestus)/
 │   └── page.tsx                      # The Origin (/about)
 ├── accessibility/
 │   └── page.tsx                      # The Welcome (/accessibility)
-├── careers/
-│   └── page.tsx                      # The Calling (/careers)
+├── calling/
+│   └── page.tsx                      # The Calling (/calling — was /careers; renamed 2026-07-31, KP's ⚛ ruling: no company, no careers)
 ├── contact/
 │   └── page.tsx                      # The Hearth Call (/contact)
 ├── donate/
@@ -47,12 +47,16 @@ src/app/(hephaestus)/
 │   └── page.tsx                      # The Scroll (/press)
 ├── privacy/
 │   └── page.tsx                      # The Covenant (/privacy)
+├── sanctuary/
+│   └── page.tsx                      # The Sanctuary (/sanctuary)
 ├── terms/
 │   └── page.tsx                      # The Agreement (/terms)
 ├── transparency/
 │   └── page.tsx                      # The Ledger (/transparency)
-└── vision/
-    └── page.tsx                      # The Prophecy (/vision)
+├── vision/
+│   └── page.tsx                      # The Prophecy (/vision)
+│
+└── REALM-BUS.md                      # The realm's standing tabletop
 ```
 
 ---
@@ -65,7 +69,7 @@ src/app/(hephaestus)/
 |------|-------|:------:|-------|
 | Forge Hub | `/forge` | ✅ | Tabbed catalog — Architecture, Business, Guides, Sanctuary |
 | Auth Flow | `/forge/architecture/auth-flow` | ✅ | Magic link auth documentation |
-| Database Schema | `/forge/architecture/database-schema` | 🔀 | Redirect to `/observatory/schema` |
+| Database Schema | `/forge/architecture/database-schema` | 🔀 | In-page redirect to `/observatory/schema` |
 | Residual System | `/forge/architecture/residual-system` | ✅ | Value flow documentation |
 | Financial Ecosystem | `/forge/business/ecosystem` | ✅ | Two-stream economic model |
 | Business Plan | `/forge/business/plan` | ✅ | Projections, pillars, economics |
@@ -79,53 +83,35 @@ src/app/(hephaestus)/
 |------|-------|:------:|-------|
 | The Origin | `/about` | ✅ | Sanctuary origin story |
 | The Welcome | `/accessibility` | ✅ | Accessibility commitment |
-| The Calling | `/careers` | ⏳ | Not yet tackled |
-| The Hearth Call | `/contact` | ✅ | Contact form |
+| The Calling | `/calling` | ✅ | The truth season, 2026-07-31 — no company, no careers: just us and the community that arrives (KP's ⚛ ruling). Fabricated team retired; voices wait for real ones; the repo set shows at the Nexus Gateway |
+| The Hearth Call | `/contact` | ✅ | Contact form → `contact_submissions` (iris) |
 | The Offering | `/donate` | ✅ | Donation page |
 | The Scroll | `/press` | ✅ | Press kit |
 | The Covenant | `/privacy` | ✅ | Privacy policy |
+| The Sanctuary | `/sanctuary` | ✅ | Eight-section showpiece — hero, problem, pillars, economics, Acid Test, pathways, transparency, footer |
 | The Agreement | `/terms` | ✅ | Terms of service |
 | The Ledger | `/transparency` | ✅ | Financial transparency |
-| The Prophecy | `/vision` | 🔀 | → Redirect to `/observatory/prophecy` |
+| The Prophecy | `/vision` | ✅ | Public manifesto (Four Pillars) — distinct from `/observatory/prophecy` by ruling, 2026-07-30 |
 
 ---
 
-## 🔀 Redirects Needed
+## 🔀 Redirects
 
-| From | To | Reason |
+| From | To | Status |
 |------|----|--------|
-| `/forge/architecture/database-schema` | `/observatory/schema` | Schema explorer moved to Mnemosyne |
-| `/vision` | `/observatory/prophecy` | Vision merged into Observatory |
-| `/forge/*` | `/forge/*` | Renamed from docs to forge |
+| `/docs` and `/docs/*` | `/forge` and `/forge/*` | ✅ Installed in `next.config.ts` (2026-07-30) — the docs → forge rename's legacy addresses |
+| `/forge/architecture/database-schema` | `/observatory/schema` | ✅ In-page `redirect()` — schema explorer lives in Mnemosyne |
+| `/vision` | `/observatory/prophecy` | ❌ **Ruled off (KP's word "merge if logical," judged 2026-07-30): not logical — no merge, no redirect.** They are different organs sharing a word: `/vision` is the public manifesto (Four Pillars, static, for visitors); `/observatory/prophecy` is a sovereign's personal horizon (milestones, quests — live, logged-in). The merge idea came from crossed names (the prophecy page titles itself "The Vision"); flagged to mnemosyne's realm bus. Both pages stand. |
 
 ---
 
-## 🏛️ Migration: `docs` → `forge`
+## 🏛️ Migration: `docs` → `forge` (completed)
 
-The folder `src/app/(hephaestus)/forge/` has been renamed to `src/app/(hephaestus)/forge/`. All imports within those pages that reference `docs` paths must be updated.
+The documentation hub was renamed from `src/app/(hephaestus)/docs/` to `src/app/(hephaestus)/forge/`. History of the seam, for the record:
 
-**Next.js redirect in `next.config.js`:**
-```javascript
-async redirects() {
-  return [
-    {
-      source: '/forge/:path*',
-      destination: '/forge/:path*',
-      permanent: true,
-    },
-    {
-      source: '/forge/architecture/database-schema',
-      destination: '/observatory/schema',
-      permanent: true,
-    },
-    {
-      source: '/vision',
-      destination: '/observatory/prophecy',
-      permanent: true,
-    },
-  ];
-}
-```
+- The rename originally swept seven sanctuary-wide pages (`accessibility`, `careers`, `contact`, `donate`, `press`, `transparency`, `vision`) *into* `forge/`, giving them unintended `/forge/` route prefixes. **Moved back to the realm root 2026-07-30 at KP's ruling** — their own header comments, this README's map, and the chrome's address book (`page_mapping.ts`) had root all along.
+- Legacy `/docs/*` addresses redirect permanently to `/forge/*` via `next.config.ts`.
+- In-app `/docs` links (SanctuaryHero, SanctuaryPathways) updated to `/forge` the same sitting.
 
 ---
 

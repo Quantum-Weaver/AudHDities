@@ -75,7 +75,7 @@ export const VendorCardRenderer: React.FC<VendorCardRendererProps> = ({
       <div className="flex items-center gap-3 mt-2 flex-wrap">
         {vendor.productCount !== undefined && (
           <span className="flex items-center gap-1 text-xs text-star-dust/40">
-            <Package size={12} />{vendor.productCount} products
+            <Package size={12} />{vendor.productCount} wares
           </span>
         )}
         {vendor.website && (

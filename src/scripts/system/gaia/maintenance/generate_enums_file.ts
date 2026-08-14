@@ -9,7 +9,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { createHash } from 'crypto';
 
 // Use existing shared utilities
@@ -21,13 +21,13 @@ import { logInfo, logSuccess, logError, logWarning, logDebug } from '../../../sh
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../../');
 
 // ============================================================================
 // PATHS
 // ============================================================================
 
-const OUTPUT_PATH = path.join(PROJECT_ROOT, 'types/supabase/enums.ts');
+const OUTPUT_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/enums.ts');
 
 // ============================================================================
 // TYPES
@@ -322,7 +322,7 @@ async function writeEnumsFile(
 // MAIN FUNCTION
 // ============================================================================
 
-async function generateEnumsFile(options: WriteOptions): Promise<{
+export async function generateEnumsFile(options: WriteOptions): Promise<{
   success: boolean;
   enumsCount: number;
   filePath: string;
@@ -415,6 +415,6 @@ async function main() {
 }
 
 // Run directly
-main().catch(console.error);
-
-export { generateEnumsFile };
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(console.error);
+}

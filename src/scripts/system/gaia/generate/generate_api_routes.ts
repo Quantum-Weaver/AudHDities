@@ -101,7 +101,7 @@ function generateGetSingleRoute(tableName: string, importManager: ImportManager)
     const { data, error } = await supabase
       .from('${tableName}')
       .select('*')
-      .eq('${tableName}_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -117,7 +117,7 @@ function generateGetSingleRoute(tableName: string, importManager: ImportManager)
 }`;
 }
 
-function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager): string {
+function generatePostRoute(tableName: string, deityFolder: string, importManager: ImportManager, hasCreatedBy: boolean = true): string {
   const pascalName = toPascalCase(tableName);
   
   importManager.addImport('next/server', 'NextRequest', false);
@@ -139,7 +139,7 @@ function generatePostRoute(tableName: string, deityFolder: string, importManager
     const supabase = await createApiSupabase();
     const { data, error } = await supabase
       .from('${tableName}')
-      .insert({ ...validated, created_by: userId })
+      .insert(${hasCreatedBy ? '{ ...validated, created_by: userId }' : 'validated'})
       .select()
       .single();
     
@@ -190,7 +190,7 @@ function generatePutRoute(tableName: string, deityFolder: string, importManager:
     const { data, error } = await supabase
       .from('${tableName}')
       .update(validated)
-      .eq('${tableName}_id', id)
+      .eq('id', id)
       .select()
       .single();
     
@@ -236,7 +236,7 @@ function generateDeleteRoute(tableName: string, importManager: ImportManager): s
     if (!ownsRecord && !admin) return forbidden();
     
     const supabase = await createApiSupabase();
-    const { error } = await supabase.from('${tableName}').delete().eq('${tableName}_id', id);
+    const { error } = await supabase.from('${tableName}').delete().eq('id', id);
     
     if (error) {
       if (error.code === 'PGRST116') return notFound('${tableName}');
@@ -306,7 +306,7 @@ function generateViewGetSingleRoute(viewName: string, importManager: ImportManag
     const { data, error } = await supabase
       .from('${viewName}')
       .select('*')
-      .eq('${viewName}_id', id)
+      .eq('id', id)
       .single();
     
     if (error) {
@@ -338,15 +338,20 @@ function generateFunctionInvokeRoute(functionName: string, importManager: Import
   try {
     const { userId, success } = await getAuthenticatedUser(request);
     if (!success) return unauthorized();
-    
+
     const body = await request.json();
     const supabase = await createApiSupabase();
-    
-    const { data, error } = await supabase.rpc('${functionName}', {
+
+    // p_user_id is offered to every function; if this function's signature
+    // doesn't accept it, retry without (PGRST202 = no matching function).
+    let { data, error } = await supabase.rpc('${functionName}', {
       ...body,
       p_user_id: userId
     });
-    
+    if (error && (error.code === 'PGRST202' || (error.message || '').includes('p_user_id'))) {
+      ({ data, error } = await supabase.rpc('${functionName}', body));
+    }
+
     if (error) throw error;
     return successResponse(data);
   } catch (error) {
@@ -383,7 +388,10 @@ export function generateTableApiRoutes(
       content += generateGetListRoute(tableName, importManager) + '\n\n';
     }
     if (category.generateApiPost) {
-      content += generatePostRoute(tableName, deityFolder, importManager) + '\n';
+      // Some tables (current, ledger, analytics…) have no created_by column;
+      // stamping it there was a type error and would be a runtime error too.
+      const hasCreatedBy = /\bcreated_by\??:/.test(table.rowContent || '');
+      content += generatePostRoute(tableName, deityFolder, importManager, hasCreatedBy) + '\n';
     }
     
     const importBlock = importManager.getImportBlock();

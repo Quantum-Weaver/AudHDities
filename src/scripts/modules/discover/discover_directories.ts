@@ -14,7 +14,7 @@ import { DEITY_GROUPS } from '@/config/deity_groups.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, '../../..');
+const PROJECT_ROOT = path.resolve(__dirname, '../../../../');
 
 // ============================================================================
 // CONFIGURATION - DIRECTORIES WE GENERATE INTO
@@ -115,12 +115,12 @@ export interface DiscoverDirectoriesOptions {
 
 // Default generation paths
 const DEFAULT_GENERATION_PATHS: GenerationPaths = {
-  constantsBase: 'lib/constants/generated',
-  typesBase: 'types/generated',
-  validatorsBase: 'lib/validators/generated',
-  utilsBase: 'utils/generated',
-  hooksBase: 'hooks/generated',
-  apiBase: 'app/api/generated'
+  constantsBase: 'src/lib/constants/generated',
+  typesBase: 'src/types/generated',
+  validatorsBase: 'src/lib/validators/generated',
+  utilsBase: 'src/lib/utils/generated',
+  hooksBase: 'src/hooks/generated',
+  apiBase: 'src/app/api/generated'
 };
 
 // ============================================================================

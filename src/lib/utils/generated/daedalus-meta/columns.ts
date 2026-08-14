@@ -1,0 +1,109 @@
+// =====================================================
+// UTILITIES: Columns
+// DEITY: daedalus-meta
+// GENERATED: 2026-08-01T21:41:40.775Z
+// =====================================================
+
+
+import { createClient } from '@/lib/supabase/client';
+import { ColumnsInsertSchema, ColumnsUpdateSchema } from '@/lib/validators/generated/daedalus-meta/columns';
+import type { ColumnsInsert, ColumnsRow, ColumnsUpdate } from '@/types/generated/daedalus-meta/columns';
+
+// ============================================================================
+// CRUD OPERATIONS
+// ============================================================================
+
+/**
+ * Create a new columns record
+ */
+export async function createColumns(data: ColumnsInsert): Promise<ColumnsRow> {
+  const validated = ColumnsInsertSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('columns')
+    .insert(validated)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Get a single columns record by ID
+ */
+export async function getColumns(id: string): Promise<ColumnsRow> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from('columns')
+    .select('*')
+    .eq('id', id)
+    .single();
+  
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Get a list of columns records with pagination
+ */
+export async function listColumns(params?: {
+  page?: number;
+  limit?: number;
+  filters?: Record<string, string>;
+  sort?: string;
+  order?: 'asc' | 'desc';
+}): Promise<{ data: ColumnsRow[]; total: number }> {
+  const { page = 1, limit = 20, filters = {}, sort = 'created_at', order = 'desc' } = params || {};
+  const supabase = createClient();
+  
+  let query = supabase.from('columns').select('*', { count: 'exact' });
+  
+  for (const [key, value] of Object.entries(filters)) {
+    query = query.eq(key, value);
+  }
+  
+  query = query.order(sort, { ascending: order === 'asc' });
+  
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+  query = query.range(from, to);
+  
+  const { data, error, count } = await query;
+  if (error) throw error;
+  
+  return { data: data || [], total: count || 0 };
+}
+
+/**
+ * Update a columns record
+ */
+export async function updateColumns(id: string, data: ColumnsUpdate): Promise<ColumnsRow> {
+  const validated = ColumnsUpdateSchema.parse(data);
+  const supabase = createClient();
+  
+  const { data: result, error } = await supabase
+    .from('columns')
+    .update(validated)
+    .eq('id', id)
+    .select()
+    .single();
+  
+  if (error) throw error;
+  return result;
+}
+
+/**
+ * Delete a columns record
+ */
+export async function deleteColumns(id: string): Promise<boolean> {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from('columns')
+    .delete()
+    .eq('id', id);
+  
+  if (error) throw error;
+  return true;
+}

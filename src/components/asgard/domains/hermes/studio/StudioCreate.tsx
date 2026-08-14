@@ -1,10 +1,15 @@
 // src/components/asgard/domains/hermes/studio/StudioCreate.tsx
+// Wares edition (2026-07-31): the tier ladder (community/ally/corporate)
+// died with the products table. A ware carries one base price plus a
+// pricing_model; solidarity pricing is computed server-side at the
+// Exchange. The model defaults to 'free' — worth is not priced unless
+// the maker chooses (the zero-default is the realm's own thesis).
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
@@ -17,25 +22,23 @@ import { Switch } from '@/components/forging/Switch';
 import { ArrowLeft, Sparkles, Save, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { TablesInsert } from '@/types/supabase/database.helpers.js';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
 // ═══════════════════════════════════════════════════════════════════════════
 
-const PRODUCT_TYPES = [
-  { value: 'digital_download', label: 'Digital Download' },
-  { value: 'digital_course', label: 'Digital Course' },
-  { value: 'physical_product', label: 'Physical Product' },
-  { value: 'audio', label: 'Audio' },
-  { value: 'video', label: 'Video' },
-  { value: 'music', label: 'Music' },
-  { value: 'event_live', label: 'Live Event' },
-  { value: 'workshop', label: 'Workshop' },
+const WARE_TYPES = [
+  { value: 'digital', label: 'Digital' },
+  { value: 'physical', label: 'Physical' },
   { value: 'service', label: 'Service' },
-  { value: 'mutual_aid', label: 'Mutual Aid' },
-  { value: 'clothing', label: 'Clothing' },
-  { value: 'accessory', label: 'Accessory' },
-  { value: 'bundle', label: 'Bundle' },
+];
+
+const PRICING_MODELS = [
+  { value: 'free', label: 'Free — given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
@@ -47,18 +50,23 @@ const RESIDUAL_OPTIONS = [
   { value: '50', label: '50% — Maximum' },
 ];
 
+function slugify(name: string): string {
+  const base = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `${base}-${Date.now().toString(36)}`;
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 
 export function StudioCreate() {
   const router = useRouter();
-  const { user, profile, loading: authLoading } = useAuth();
+  const { user, profile, isLoading: authLoading, roles } = useUser();
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [isDraft, setIsDraft] = useState(false);
 
-  const isCreator = profile?.is_creator === true;
+  const isCreator = roles.includes('creator');
 
   const handleSubmit = async (data: Record<string, any>) => {
     if (!user) return;
@@ -66,22 +74,19 @@ export function StudioCreate() {
     setSaveMessage(null);
 
     try {
-      const body = {
-        title: data.title,
+      const body: TablesInsert<'wares'> = {
+        name: data.name,
+        slug: slugify(data.name || 'work'),
         description: data.description || null,
-        product_type: data.product_type || 'digital_download',
-        price_community: data.price_community ? parseFloat(data.price_community) : null,
-        price_ally: data.price_ally ? parseFloat(data.price_ally) : null,
-        price_corporate: data.price_corporate ? parseFloat(data.price_corporate) : null,
+        ware_type: data.ware_type || 'digital',
+        pricing_model: data.pricing_model || 'free',
+        price: data.price ? parseFloat(data.price) : null,
         residual_pool_percent: data.residual_pool_percent ? parseInt(data.residual_pool_percent) : 30,
-        is_published: !isDraft,
-        active: !isDraft,
-        creator_id: user.id,
-        owner_type: 'creator',
+        status: isDraft ? 'draft' : 'published',
         created_by: user.id,
       };
 
-      const response = await fetch('/api/generated/plutus-economics/products', {
+      const response = await fetch('/api/generated/plutus-economics/wares', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -90,17 +95,17 @@ export function StudioCreate() {
       const result = await response.json();
 
       if (result.success) {
-        const productId = result.data?.products_id || result.data?.id;
+        const wareId = result.data?.id;
         if (isDraft) {
-          router.push(`/bazaar/studio/${productId}`);
+          router.push(`/bazaar/studio/${wareId}`);
         } else {
-          router.push(`/bazaar/creations/${productId}`);
+          router.push(`/bazaar/creations/${wareId}`);
         }
       } else {
-        setSaveMessage(result.error || 'Failed to create product');
+        setSaveMessage(result.error || 'Failed to create work');
       }
     } catch (err) {
-      setSaveMessage('Failed to create product. Please try again.');
+      setSaveMessage('Failed to create work. Please try again.');
     } finally {
       setIsSaving(false);
     }
@@ -136,7 +141,7 @@ export function StudioCreate() {
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Sparkles className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
           <p className="text-star-dust/40 text-lg mb-2">The Loom awaits your application</p>
-          <p className="text-star-dust/30 text-sm mb-6">Apply to become a creator to start weaving your offerings.</p>
+          <p className="text-star-dust/30 text-sm mb-6">Apply to become an artisan to start weaving your works.</p>
           <Link href="/council/applications">
             <Button variant="primary">Apply to Create</Button>
           </Link>
@@ -146,9 +151,9 @@ export function StudioCreate() {
   }
 
   const cardData: CardData = {
-    id: 'new-product',
+    id: 'new-ware',
     type: 'product',
-    title: 'New Creation',
+    title: 'New Work',
   };
 
   return (
@@ -165,7 +170,7 @@ export function StudioCreate() {
             Return to the Bazaar
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Loom</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Every creation begins with a single thread</p>
+          <p className="text-sm text-star-dust/40 mt-1">Every work begins with a single thread</p>
         </div>
 
         {/* Form Card */}
@@ -177,29 +182,29 @@ export function StudioCreate() {
           className="p-8"
         >
           <Form onSubmit={handleSubmit}>
-            {/* Title */}
-            <FormField label="Title" required>
+            {/* Name */}
+            <FormField label="Name" required>
               <Input
-                name="title"
+                name="name"
                 placeholder="What are you creating?"
                 disabled={isSaving}
               />
             </FormField>
 
             {/* Description */}
-            <FormField label="Description" optional helper="Tell buyers what this is and why it matters">
+            <FormField label="Description" optional helper="Tell vessels what this is and why it matters">
               <Input
                 name="description"
-                placeholder="Describe your creation..."
+                placeholder="Describe your work..."
                 disabled={isSaving}
               />
             </FormField>
 
-            {/* Product Type */}
+            {/* Ware Type */}
             <FormField label="Type" required>
               <Select
-                name="product_type"
-                options={PRODUCT_TYPES}
+                name="ware_type"
+                options={WARE_TYPES}
                 placeholder="Select a type..."
                 disabled={isSaving}
               />
@@ -207,44 +212,41 @@ export function StudioCreate() {
 
             {/* Pricing Section */}
             <div className="border-t border-white/10 pt-6 mt-2 mb-4">
-              <h3 className="text-lg font-semibold text-star-dust mb-1">Tiered Pricing</h3>
+              <h3 className="text-lg font-semibold text-star-dust mb-1">Pricing</h3>
               <p className="text-sm text-star-dust/40 mb-4">
-                Set prices for each tier. Community tier can be lower or free. Ally is the standard price.
+                One base price, one model. Solidarity pricing is applied per person at the Exchange —
+                the buyer always sees the full split before anything is charged.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <FormField label="Community Price" optional helper="For community tier members">
-                  <Input
-                    name="price_community"
-                    type="number"
-                    placeholder="0.00"
-                    disabled={isSaving}
-                  />
-                </FormField>
-                <FormField label="Ally Price" required helper="Standard price">
-                  <Input
-                    name="price_ally"
-                    type="number"
-                    placeholder="19.99"
-                    disabled={isSaving}
-                  />
-                </FormField>
-                <FormField label="Corporate Price" optional helper="Premium tier pricing">
-                  <Input
-                    name="price_corporate"
-                    type="number"
-                    placeholder="49.99"
-                    disabled={isSaving}
-                  />
-                </FormField>
-              </div>
+              <FormField label="Pricing Model" required>
+                <Select
+                  name="pricing_model"
+                  options={PRICING_MODELS}
+                  placeholder="Free — given to anyone who receives it"
+                  defaultValue="free"
+                  disabled={isSaving}
+                />
+              </FormField>
+
+              <FormField
+                label="Base Price"
+                optional
+                helper="Leave empty for free or patronage-only works. For pay-what-you-want, this is the suggested floor."
+              >
+                <Input
+                  name="price"
+                  type="number"
+                  placeholder="0.00"
+                  disabled={isSaving}
+                />
+              </FormField>
             </div>
 
             {/* Residual Pool */}
             <FormField
               label="Residual Pool"
               optional
-              helper="Percentage of platform fee shared with contributors who helped create this product"
+              helper="Percentage of platform fee shared with contributors who helped create this work"
             >
               <Select
                 name="residual_pool_percent"
@@ -289,7 +291,7 @@ export function StudioCreate() {
                   ) : (
                     <Eye className="h-4 w-4 mr-2" />
                   )}
-                  {isDraft ? 'Save Draft' : 'Publish Creation'}
+                  {isDraft ? 'Save Draft' : 'Publish Work'}
                 </Button>
                 <Button
                   type="button"

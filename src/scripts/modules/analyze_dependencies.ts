@@ -6,8 +6,30 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { createHash } from 'crypto';
-import type { DependencyMap, DependencyNode, DependencyEdge } from '@/config/generated/dependency_map.js';
 import { logDebug, logInfo, logWarning, logSuccess } from '../shared/logger';
+
+// These shapes used to be imported from the generated dependency_map — but
+// this module is what GENERATES that file (a chicken-and-egg import). The
+// canonical definitions live here now; the generated file re-exports data.
+export interface DependencyNode {
+  id: string;
+  imports?: string[];
+  [key: string]: unknown;
+}
+
+export interface DependencyEdge {
+  from: string;
+  to: string;
+  kind?: string;
+  [key: string]: unknown;
+}
+
+export interface DependencyMap {
+  nodes: Record<string, DependencyNode>;
+  edges: DependencyEdge[];
+  generatedAt?: string;
+  [key: string]: unknown;
+}
 
 export interface AnalyzeOptions {
   paths: string[];

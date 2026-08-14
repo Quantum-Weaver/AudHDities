@@ -19,7 +19,7 @@ export default function VendorApplicationPage() {
             </div>
           ) : !user ? (
             <div className="text-center">
-              <p className="text-star-dust/60">Sign in to apply as a vendor.</p>
+              <p className="text-star-dust/60">Sign in to apply as a merchant.</p>
             </div>
           ) : (
             <ApplicationForm

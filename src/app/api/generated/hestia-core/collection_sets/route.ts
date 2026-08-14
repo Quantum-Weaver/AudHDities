@@ -3,7 +3,7 @@ import { createApiSupabase } from '@/lib/api/supabase';
 import { CollectionSetsInsertSchema } from '@/lib/validators/generated/hestia-core/collection_sets';
 import { NextRequest } from 'next/server';
 
-// Generated: 2026-07-10T18:14:59.308Z
+// Generated: 2026-08-01T21:41:40.452Z
 // Table: collection_sets
 
 export async function GET(request: NextRequest) {

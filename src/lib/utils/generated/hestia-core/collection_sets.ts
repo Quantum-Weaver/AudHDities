@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: CollectionSets
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.311Z
+// GENERATED: 2026-08-01T21:41:40.774Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCollectionSets(id: string): Promise<CollectionSetsRow> 
   const { data, error } = await supabase
     .from('collection_sets')
     .select('*')
-    .eq('collection_sets_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCollectionSets(id: string, data: CollectionSetsUpdat
   const { data: result, error } = await supabase
     .from('collection_sets')
     .update(validated)
-    .eq('collection_sets_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCollectionSets(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('collection_sets')
     .delete()
-    .eq('collection_sets_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

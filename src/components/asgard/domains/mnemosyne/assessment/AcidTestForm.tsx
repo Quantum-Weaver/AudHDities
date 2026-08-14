@@ -1,6 +1,11 @@
 // src/components/asgard/domains/mnemosyne/assessment/AcidTestForm.tsx
-// Acid Test Form - Multi-step assessment questionnaire
-// Integrates with generated types, validators, and API routes
+// Acid Test Form — multi-step assessment questionnaire.
+// Assessment edition (2026-07-18): acid_test_* became assessment_* in the
+// schema evolution. Answer OPTIONS now live on the question row as Json
+// (the separate answers table is the user's submissions), explanation became
+// description, slider endpoints come from labels_low/labels_high, and
+// SCORING MOVED SERVER-SIDE into the submit_acid_test function — this form
+// renders, collects, submits, and displays; it no longer computes tiers.
 
 "use client";
 
@@ -12,46 +17,39 @@ import { Card } from "@/components/runes/Card";
 import { Slider } from "@/components/forging/Slider";
 import { RadioGroup, Radio } from "@/components/forging/Radio";
 import { Textarea } from "@/components/forging/Textarea";
-import { Label } from "@/components/yggdrasil/Label";
-
-// Generated Types
-import type { 
-  AcidTestQuestionsRow,
-  AcidTestQuestionsFormData,
-} from "@/types/generated/mnemosyne-assessment/acid_test_questions";
-import type { 
-  AcidTestAnswersRow,
-} from "@/types/generated/mnemosyne-assessment/acid_test_answers";
-import type { 
-  AcidTestResultsRow,
-  AcidPersona,
-  UserTier,
-} from "@/types/generated/mnemosyne-assessment/acid_test_results";
-
-// Generated Constants
-import { ACID_QUESTION_TYPE, type AcidQuestionType } from "@/lib/constants/generated/mnemosyne-assessment/acid_question_type";
-import { ACID_PERSONA } from "@/lib/constants/generated/mnemosyne-assessment/acid_persona";
 
 // ============================================================================
-// TYPES
+// TYPES (local — the question shape mirrors assessment_questions)
 // ============================================================================
 
-interface QuestionWithAnswers extends AcidTestQuestionsRow {
-  answers: AcidTestAnswersRow[];
+export interface AssessmentOption {
+  value: string;
+  label: string;
+}
+
+export interface AssessmentQuestion {
+  id: string;
+  question_text: string;
+  question_type: string | null;
+  description: string | null;
+  labels_low: string | null;
+  labels_high: string | null;
+  options: unknown; // Json in the schema — parsed defensively below
+  display_order: number;
+  is_required: boolean;
 }
 
 interface AnswerValue {
   questionId: string;
-  answerId: string;
-  score: number;
   value: string | number;
 }
 
-interface AcidTestResult {
-  totalScore: number;
-  suggestedTier: UserTier;
-  personaLabel: AcidPersona;
-  personaDescription: string;
+export interface AcidTestResult {
+  persona: string | null;
+  personaDescription: string | null;
+  summary: string | null;
+  category: string | null;
+  raw: unknown;
 }
 
 // ============================================================================
@@ -60,7 +58,7 @@ interface AcidTestResult {
 
 const RESULT_REDIRECT = '/vessel' as const;
 
-const PERSONA_EMOJIS: Record<AcidPersona, string> = {
+const PERSONA_EMOJIS: Record<string, string> = {
   masked_traveler: '🎭🌍',
   tab_hoarder: '📑🔥',
   seam_warrior: '🧦⚔️',
@@ -69,7 +67,7 @@ const PERSONA_EMOJIS: Record<AcidPersona, string> = {
   quantum_witness: '✨👁️',
 };
 
-const PERSONA_DESCRIPTIONS: Record<AcidPersona, string> = {
+const PERSONA_DESCRIPTIONS: Record<string, string> = {
   masked_traveler: "You have been navigating the world in disguise. The Sanctuary welcomes you home.",
   tab_hoarder: "Your many open tabs reflect a mind hungry for connection and pattern.",
   seam_warrior: "You have been fighting invisible battles. Your awareness is your strength.",
@@ -82,23 +80,45 @@ const PERSONA_DESCRIPTIONS: Record<AcidPersona, string> = {
 // UTILITIES
 // ============================================================================
 
-function calculateScore(answers: AnswerValue[]): number {
-  return answers.reduce((sum, a) => sum + a.score, 0);
+function parseOptions(raw: unknown): AssessmentOption[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((o, i): AssessmentOption | null => {
+      if (typeof o === 'string') return { value: o, label: o };
+      if (o && typeof o === 'object') {
+        const r = o as Record<string, unknown>;
+        const value = String(r.value ?? r.id ?? r.slug ?? i);
+        const label = String(r.label ?? r.text ?? r.answer_text ?? r.value ?? value);
+        return { value, label };
+      }
+      return null;
+    })
+    .filter((o): o is AssessmentOption => !!o);
 }
 
-function determineTier(score: number): UserTier {
-  if (score >= 20) return "community";
-  if (score >= 10) return "ally";
-  return "ally";
-}
-
-
-function getPersonaDescription(persona: AcidPersona): string {
-  return PERSONA_DESCRIPTIONS[persona] || "The Loom recognizes your unique consciousness.";
-}
-
-function formatPersonaDisplay(persona: AcidPersona): string {
+function formatPersonaDisplay(persona: string): string {
   return persona.split("_").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+}
+
+/** submit_acid_test returns Json whose exact shape the server owns — read it kindly. */
+function parseResult(raw: unknown): AcidTestResult {
+  const r = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
+  const inner = (r.result_data && typeof r.result_data === 'object' ? r.result_data : {}) as Record<string, unknown>;
+  const persona =
+    (typeof r.persona === 'string' && r.persona) ||
+    (typeof inner.persona === 'string' && inner.persona) ||
+    (typeof r.category === 'string' && r.category) || null;
+  return {
+    persona,
+    personaDescription:
+      (typeof r.persona_description === 'string' && r.persona_description) ||
+      (persona && PERSONA_DESCRIPTIONS[persona]) || null,
+    summary:
+      (typeof r.summary_text === 'string' && r.summary_text) ||
+      (typeof r.summary === 'string' && r.summary) || null,
+    category: (typeof r.category === 'string' && r.category) || null,
+    raw,
+  };
 }
 
 // ============================================================================
@@ -106,150 +126,102 @@ function formatPersonaDisplay(persona: AcidPersona): string {
 // ============================================================================
 
 interface QuestionRendererProps {
-  question: QuestionWithAnswers;
+  question: AssessmentQuestion;
   value: AnswerValue | null;
   onChange: (answer: AnswerValue) => void;
   disabled?: boolean;
 }
 
 function QuestionRenderer({ question, value, onChange, disabled }: QuestionRendererProps) {
-  const questionType = question.question_type as AcidQuestionType;
+  const questionType = (question.question_type || '').toLowerCase();
   const currentValue = value?.value;
+  const options = parseOptions(question.options);
 
-  switch (questionType) {
-    case ACID_QUESTION_TYPE.MULTIPLE_CHOICE:
-      return (
-        <RadioGroup
-        name={question.acid_test_questions_id}
-          value={typeof currentValue === "string" ? currentValue : ""}
-          onChange={(val) => {
-            const selectedAnswer = question.answers.find(a => a.acid_test_answers_id === val);
-            if (selectedAnswer) {
-              onChange({
-                questionId: question.acid_test_questions_id,
-                answerId: selectedAnswer.acid_test_answers_id,
-                score: selectedAnswer.score_value || 0,
-                value: selectedAnswer.acid_test_answers_id,
-              });
-            }
-          }}
-          className="space-y-3"
-        >
-          {question.answers.map((answer) => (
-            <Radio
-              key={answer.acid_test_answers_id}
-              value={answer.acid_test_answers_id}
-              label={answer.answer_text}
-              disabled={disabled}
-              className="w-full p-4 border border-star-dust/10 rounded-lg data-[state=checked]:border-neurospark data-[state=checked]:bg-neurospark/10"
-            />
-          ))}
-        </RadioGroup>
-      );
-
-    case ACID_QUESTION_TYPE.SLIDER:
-      const handleSliderChange = (vals: number | readonly number[]) => {
-        const normalizedVals = Array.isArray(vals) ? vals : [vals];
-        const score = normalizedVals[0];
-        onChange({
-          questionId: question.acid_test_questions_id,
-          answerId: "",
-          score: Math.floor(score / 10),
-          value: score,
-        });
-      };
-
-      return (
-        <div className="space-y-4">
-          <Slider
-            value={typeof currentValue === "number" ? currentValue : 50}
-            onChange={(val) => {
-              onChange({
-                questionId: question.acid_test_questions_id,
-                answerId: "",
-                score: Math.floor(val / 10),
-                value: val,
-              });
-            }}
-            min={0}
-            max={100}
-            step={1}
+  if (questionType === 'multiple_choice' || (options.length > 0 && questionType !== 'slider' && questionType !== 'scale' && questionType !== 'text')) {
+    return (
+      <RadioGroup
+        name={question.id}
+        value={typeof currentValue === "string" ? currentValue : ""}
+        onChange={(val) => onChange({ questionId: question.id, value: val })}
+        className="space-y-3"
+      >
+        {options.map((option) => (
+          <Radio
+            key={option.value}
+            value={option.value}
+            label={option.label}
             disabled={disabled}
-            className="w-full"
+            className="w-full p-4 border border-star-dust/10 rounded-lg data-[state=checked]:border-neurospark data-[state=checked]:bg-neurospark/10"
           />
-          <div className="flex justify-between text-sm text-star-dust/40">
-            <span>Not like me</span>
-            <span className="text-neurospark">{currentValue || 50}</span>
-            <span>Very like me</span>
-          </div>
-        </div>
-      );
+        ))}
+      </RadioGroup>
+    );
+  }
 
-    case ACID_QUESTION_TYPE.SCALE:
-      return (
-        <div className="grid grid-cols-5 gap-2">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => (
-            <button
-              key={val}
-              type="button"
-              onClick={() => {
-                onChange({
-                  questionId: question.acid_test_questions_id,
-                  answerId: "",
-                  score: val,
-                  value: val,
-                });
-              }}
-              className={cn(
-                "py-2 rounded-lg transition-all",
-                currentValue === val
-                  ? "bg-neurospark text-star-dust"
-                  : "bg-star-dust/5 text-star-dust/60 hover:bg-star-dust/10"
-              )}
-              disabled={disabled}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-      );
-
-    case ACID_QUESTION_TYPE.TEXT:
-      return (
-        <Textarea
-          value={typeof currentValue === "string" ? currentValue : ""}
-          onChange={(e) => {
-            onChange({
-              questionId: question.acid_test_questions_id,
-              answerId: "",
-              score: 0,
-              value: e.target.value,
-            });
-          }}
-          placeholder="Share your thoughts..."
-          rows={4}
+  if (questionType === 'slider') {
+    return (
+      <div className="space-y-4">
+        <Slider
+          value={typeof currentValue === "number" ? currentValue : 50}
+          onChange={(val) => onChange({ questionId: question.id, value: val })}
+          min={0}
+          max={100}
+          step={1}
           disabled={disabled}
           className="w-full"
         />
-      );
-
-    default:
-      return null;
+        <div className="flex justify-between text-sm text-star-dust/40">
+          <span>{question.labels_low || 'Not like me'}</span>
+          <span className="text-neurospark">{currentValue ?? 50}</span>
+          <span>{question.labels_high || 'Very like me'}</span>
+        </div>
+      </div>
+    );
   }
+
+  if (questionType === 'scale') {
+    return (
+      <div className="grid grid-cols-5 gap-2">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => (
+          <button
+            key={val}
+            type="button"
+            onClick={() => onChange({ questionId: question.id, value: val })}
+            className={cn(
+              "py-2 rounded-lg transition-all",
+              currentValue === val
+                ? "bg-neurospark text-star-dust"
+                : "bg-star-dust/5 text-star-dust/60 hover:bg-star-dust/10"
+            )}
+            disabled={disabled}
+          >
+            {val}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  // text (and the honest default)
+  return (
+    <Textarea
+      value={typeof currentValue === "string" ? currentValue : ""}
+      onChange={(e) => onChange({ questionId: question.id, value: e.target.value })}
+      placeholder="Share your thoughts..."
+      rows={4}
+      disabled={disabled}
+      className="w-full"
+    />
+  );
 }
 
 // ============================================================================
 // PROGRESS INDICATOR
 // ============================================================================
 
-interface ProgressIndicatorProps {
-  current: number;
-  total: number;
-}
-
-function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
+function ProgressIndicator({ current, total }: { current: number; total: number }) {
   const progress = ((current + 1) / total) * 100;
-  
+
   return (
     <div className="space-y-2">
       <div className="flex justify-between text-sm text-star-dust/60">
@@ -270,13 +242,9 @@ function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
 // RESULT VIEW
 // ============================================================================
 
-interface ResultViewProps {
-  result: AcidTestResult;
-}
-
-function ResultView({ result }: ResultViewProps) {
-  const personaDisplay = formatPersonaDisplay(result.personaLabel);
-  const emoji = PERSONA_EMOJIS[result.personaLabel] || '✨';
+function ResultView({ result }: { result: AcidTestResult }) {
+  const personaDisplay = result.persona ? formatPersonaDisplay(result.persona) : 'Sovereign';
+  const emoji = (result.persona && PERSONA_EMOJIS[result.persona]) || '✨';
 
   return (
     <Card
@@ -287,36 +255,21 @@ function ResultView({ result }: ResultViewProps) {
       className="p-8 text-center space-y-6"
     >
       <div className="text-6xl mb-4">{emoji}</div>
-      
+
       <h2 className="text-2xl font-bold text-star-dust">
         The Loom Recognizes You
       </h2>
-      
+
       <div className="text-xl text-neurospark">
         {personaDisplay}
       </div>
-      
-      <p className="text-star-dust/60 max-w-md mx-auto">
-        {result.personaDescription}
-      </p>
-      
-      <div className="flex items-center justify-center gap-4">
-        <div className="px-4 py-2 bg-star-dust/10 rounded-lg">
-          <span className="text-sm text-star-dust/60">Score</span>
-          <div className="text-2xl font-bold text-star-dust">{result.totalScore}</div>
-        </div>
-        <div className="px-4 py-2 bg-star-dust/10 rounded-lg">
-          <span className="text-sm text-star-dust/60">Tier</span>
-          <div className="text-2xl font-bold text-hearth-gold capitalize">{result.suggestedTier}</div>
-        </div>
-      </div>
-      
-      {result.suggestedTier === "community" && (
-        <p className="text-sanctuary-green text-sm">
-          Welcome home. Your access is subsidized by the Sanctuary.
+
+      {(result.personaDescription || result.summary) && (
+        <p className="text-star-dust/60 max-w-md mx-auto">
+          {result.personaDescription || result.summary}
         </p>
       )}
-      
+
       <div className="animate-pulse text-star-dust/40 text-sm">
         Entering the Sanctuary...
       </div>
@@ -351,7 +304,7 @@ function LoadingView({ className }: { className?: string }) {
 // ============================================================================
 
 export interface AcidTestFormProps {
-  questions: QuestionWithAnswers[];
+  questions: AssessmentQuestion[];
   userId?: string;
   onComplete?: (result: AcidTestResult) => void;
   className?: string;
@@ -366,7 +319,7 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   const [error, setError] = useState<string | null>(null);
 
   const currentQuestion = questions[currentIndex];
-  const currentAnswer = answers.find(a => a.questionId === currentQuestion?.acid_test_questions_id);
+  const currentAnswer = answers.find(a => a.questionId === currentQuestion?.id);
   const isLastQuestion = currentIndex === questions.length - 1;
   const isFirstQuestion = currentIndex === 0;
 
@@ -383,21 +336,19 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     setError(null);
   }, []);
 
-  // In AcidTestForm.tsx — update the submit URL and persona logic
-
   const handleSubmit = async () => {
     setIsSubmitting(true);
     setError(null);
 
+    // Scoring is the server's duty now: submit_acid_test receives the raw
+    // answers and returns the computed result.
     const answersPayload = answers.map(a => ({
       question_id: a.questionId,
-      answer_text: a.value?.toString() || '',
-      score: a.score,
+      value: a.value,
     }));
 
     try {
-      // Use the RPC endpoint instead of direct table insert
-      const response = await fetch("/api/generated/mnemosyne-assessment/acid_test_answers_submit", {
+      const response = await fetch("/api/generated/hestia-core/submit_acid_test", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -406,30 +357,19 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit assessment");
+      const payload = await response.json();
+      if (!response.ok || payload.success === false) {
+        throw new Error(payload.error || payload.message || "Failed to submit assessment");
       }
 
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || "Submission failed");
-      }
-
-      const resultData: AcidTestResult = {
-        totalScore: result.total_score,
-        suggestedTier: result.suggested_tier as UserTier,
-        personaLabel: result.persona as AcidPersona,
-        personaDescription: result.persona_description,
-      };
-
-      setResult(resultData);
-      onComplete?.(resultData);
+      const parsed = parseResult(payload.data ?? payload);
+      setResult(parsed);
+      onComplete?.(parsed);
 
       setTimeout(() => {
         router.push(RESULT_REDIRECT);
       }, 2000);
-      
+
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to submit. Please try again.");
     } finally {
@@ -438,11 +378,14 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   };
 
   const handleNext = useCallback(() => {
-    if (!currentAnswer && currentQuestion?.question_type !== ACID_QUESTION_TYPE.TEXT) {
-      setError("Please answer the question before continuing.");
+    const questionType = (currentQuestion?.question_type || '').toLowerCase();
+    if (!currentAnswer && questionType !== 'text' && currentQuestion?.is_required !== false) {
+      // MNE-4 register: a gentle pause, not a wall — no exclamation, no
+      // demand. See desk/realm-proposals/mnemosyne.md.
+      setError("This one is waiting for an answer before we continue.");
       return;
     }
-    
+
     if (isLastQuestion) {
       handleSubmit();
     } else {
@@ -466,23 +409,36 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     return <LoadingView className={className} />;
   }
 
+  // MNE-4 — THE ACID TEST AS WELCOME, NOT GATEKEEPING (Shuttle Run 08,
+  // Phase 5, Movement III). Provenance: desk/realm-proposals/mnemosyne.md,
+  // Haiku's MNE-4 — "the test is how the house learns to welcome you, not
+  // a wall." Copy and framing only; the loader/scoring logic beneath is
+  // untouched. This invitational line replaces what would otherwise be an
+  // unstated assessment-tool assumption — shown once, on the first
+  // question, so the house names what the test is before asking anything.
+  const welcomeFraming =
+    "These questions are mirrors. They ask how you experience thought, sensation, time, and connection. Your answers belong only to you.";
+
   return (
     <Card
-      data={{ id: 'acid-test-form', type: 'value', title: 'Acid Test', value: currentQuestion?.question_text || '' }}
+      data={{ id: 'acid-test-form', type: 'value', title: 'The Acid Test', value: currentQuestion?.question_text || '' }}
       variant="glass"
       radius="lg"
       shadow="md"
       className={cn("p-6 md:p-8", className)}
     >
+      {isFirstQuestion && (
+        <p className="text-star-dust/60 text-sm mb-6">{welcomeFraming}</p>
+      )}
       <ProgressIndicator current={currentIndex} total={questions.length} />
-      
+
       <div className="mt-8 space-y-6">
         <div>
           <h3 className="text-xl md:text-2xl font-bold text-star-dust mb-2">
             {currentQuestion.question_text}
           </h3>
-          {currentQuestion.explanation && (
-            <p className="text-star-dust/40 text-sm">{currentQuestion.explanation}</p>
+          {currentQuestion.description && (
+            <p className="text-star-dust/40 text-sm">{currentQuestion.description}</p>
           )}
         </div>
 
@@ -506,7 +462,7 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
           >
             Previous
           </Button>
-          
+
           <Button
             type="button"
             variant="primary"

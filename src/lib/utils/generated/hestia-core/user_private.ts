@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: UserPrivate
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.911Z
+// GENERATED: 2026-08-01T21:41:40.844Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getUserPrivate(id: string): Promise<UserPrivateRow> {
   const { data, error } = await supabase
     .from('user_private')
     .select('*')
-    .eq('user_private_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateUserPrivate(id: string, data: UserPrivateUpdate): Pr
   const { data: result, error } = await supabase
     .from('user_private')
     .update(validated)
-    .eq('user_private_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteUserPrivate(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('user_private')
     .delete()
-    .eq('user_private_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Chancellor
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.287Z
+// GENERATED: 2026-08-01T21:41:40.771Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getChancellor(id: string): Promise<ChancellorRow> {
   const { data, error } = await supabase
     .from('chancellor')
     .select('*')
-    .eq('chancellor_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateChancellor(id: string, data: ChancellorUpdate): Prom
   const { data: result, error } = await supabase
     .from('chancellor')
     .update(validated)
-    .eq('chancellor_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteChancellor(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('chancellor')
     .delete()
-    .eq('chancellor_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

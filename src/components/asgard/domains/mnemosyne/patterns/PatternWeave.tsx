@@ -22,8 +22,8 @@ export function PatternWeave() {
   useEffect(() => {
     if (!user) { setLoading(false); return; }
     Promise.all([
-      fetch(`/api/generated/hestia-core/energy_logs?user_id=${user.id}&order=created_at.desc&limit=30`).then(r => r.json()),
-      fetch(`/api/generated/hestia-core/journal_entries?user_id=${user.id}&order=created_at.desc&limit=30`).then(r => r.json()),
+      fetch(`/api/generated/hestia-core/energy_entries?created_by=${user.id}&sort=created_at&order=desc&limit=30`).then(r => r.json()),
+      fetch(`/api/generated/hestia-core/journal_entries?created_by=${user.id}&sort=created_at&order=desc&limit=30`).then(r => r.json()),
     ]).then(([energyRes, journalRes]) => {
       if (energyRes.success) setEnergyEntries(energyRes.data?.data || []);
       if (journalRes.success) setJournalEntries(journalRes.data?.data || []);

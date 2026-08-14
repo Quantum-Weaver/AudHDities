@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: UserFinancial
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.901Z
+// GENERATED: 2026-08-01T21:41:40.843Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getUserFinancial(id: string): Promise<UserFinancialRow> {
   const { data, error } = await supabase
     .from('user_financial')
     .select('*')
-    .eq('user_financial_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateUserFinancial(id: string, data: UserFinancialUpdate)
   const { data: result, error } = await supabase
     .from('user_financial')
     .update(validated)
-    .eq('user_financial_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteUserFinancial(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('user_financial')
     .delete()
-    .eq('user_financial_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

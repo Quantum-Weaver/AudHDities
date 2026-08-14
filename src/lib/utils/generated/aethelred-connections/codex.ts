@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: Codex
 // DEITY: aethelred-connections
-// GENERATED: 2026-07-10T18:14:59.301Z
+// GENERATED: 2026-08-01T21:41:40.773Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getCodex(id: string): Promise<CodexRow> {
   const { data, error } = await supabase
     .from('codex')
     .select('*')
-    .eq('codex_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateCodex(id: string, data: CodexUpdate): Promise<CodexR
   const { data: result, error } = await supabase
     .from('codex')
     .update(validated)
-    .eq('codex_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteCodex(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('codex')
     .delete()
-    .eq('codex_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

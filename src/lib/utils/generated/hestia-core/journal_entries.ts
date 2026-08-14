@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: JournalEntries
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.523Z
+// GENERATED: 2026-08-01T21:41:40.807Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getJournalEntries(id: string): Promise<JournalEntriesRow> 
   const { data, error } = await supabase
     .from('journal_entries')
     .select('*')
-    .eq('journal_entries_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateJournalEntries(id: string, data: JournalEntriesUpdat
   const { data: result, error } = await supabase
     .from('journal_entries')
     .update(validated)
-    .eq('journal_entries_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteJournalEntries(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('journal_entries')
     .delete()
-    .eq('journal_entries_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

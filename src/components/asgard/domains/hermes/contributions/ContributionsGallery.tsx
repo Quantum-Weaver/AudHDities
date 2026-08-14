@@ -1,22 +1,44 @@
 // src/components/asgard/domains/hermes/contributions/ContributionsGallery.tsx
+// Wares edition (2026-07-31): contributions became ware_participants, and
+// the room became what the 2026-07-09 verdict named it — a provenance
+// gallery. Credit, not payout math.
+//
+// THE PARTICIPANT'S MENU SPACE (2026-08-01, KP's ⚛ ruling, his words on
+// the realm bus): the room now shows BOTH tables — the wares and the
+// works the vessel participated in — each with the visibility toggle.
+// The row always exists (residual distribution rides on it, regardless
+// of published status); only PUBLICATION is the vessel's toggle, opt-in,
+// default quiet (033-the-participants-consent.sql). The toggle writes
+// through the supabase client under the participant-own UPDATE policy —
+// RLS is the guard, not the UI.
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, HandCoins, Search, Percent } from 'lucide-react';
+import { Switch } from '@/components/forging/Switch';
+import { ArrowLeft, HandHeart, Search, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { createClient } from '@/lib/supabase/client';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/types/supabase/database.helpers.js';
 
-interface ContributionItem {
-  contributions_id: string; product_id: string; contributor_id: string;
-  contribution_type: string; percent_share: number;
-  is_residual_eligible: boolean | null; is_one_time: boolean | null;
+type WareParticipation = Tables<'ware_participants'>;
+type WorkParticipation = Tables<'work_participants'>;
+
+interface Participation {
+  kind: 'ware' | 'work';
+  id: string;
+  targetId: string;
+  role: string | null;
+  notes: string | null;
+  createdAt: string;
+  isPublic: boolean;
 }
 
-const TYPE_COLORS: Record<string, string> = {
+const ROLE_COLORS: Record<string, string> = {
   concept: 'bg-purple-500/20 text-purple-400', code: 'bg-cyan-500/20 text-cyan-400',
   design: 'bg-pink-500/20 text-pink-400', content: 'bg-emerald-500/20 text-emerald-400',
   testing: 'bg-amber-500/20 text-amber-400', promotion: 'bg-rose-500/20 text-rose-400',
@@ -25,18 +47,55 @@ const TYPE_COLORS: Record<string, string> = {
 
 export function ContributionsGallery() {
   const { user } = useAuth();
-  const [items, setItems] = useState<ContributionItem[]>([]);
+  const [items, setItems] = useState<Participation[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [toggling, setToggling] = useState<string | null>(null);
+  const [toggleNote, setToggleNote] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/plutus-economics/contributions?contributor_id=${user.id}&order=created_at.desc`)
-      .then(r => r.json()).then(result => { if (result.success) setItems(result.data?.data || result.data || []); })
-      .catch(console.error).finally(() => setLoading(false));
+    Promise.all([
+      fetch(`/api/generated/plutus-economics/ware_participants?user_id=${user.id}&order=created_at.desc`).then(r => r.json()),
+      fetch(`/api/generated/hermes-social/work_participants?user_id=${user.id}&order=created_at.desc`).then(r => r.json()),
+    ])
+      .then(([wares, works]) => {
+        const wareRows: WareParticipation[] = wares.success ? (wares.data?.data || wares.data || []) : [];
+        const workRows: WorkParticipation[] = works.success ? (works.data?.data || works.data || []) : [];
+        const all: Participation[] = [
+          ...wareRows.map((r): Participation => ({
+            kind: 'ware', id: r.id, targetId: r.ware_id, role: r.role,
+            notes: r.notes, createdAt: r.created_at, isPublic: r.is_public,
+          })),
+          ...workRows.map((r): Participation => ({
+            kind: 'work', id: r.id, targetId: r.work_id, role: r.role,
+            notes: r.notes, createdAt: r.created_at, isPublic: r.is_public,
+          })),
+        ].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+        setItems(all);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, [user]);
 
-  const filtered = useMemo(() => items.filter(i => i.contribution_type.toLowerCase().includes(searchTerm.toLowerCase())), [items, searchTerm]);
+  const toggleVisibility = useCallback(async (item: Participation, next: boolean) => {
+    setToggling(item.id);
+    setToggleNote(null);
+    const supabase = createClient();
+    const table = item.kind === 'ware' ? 'ware_participants' : 'work_participants';
+    const { error } = await supabase.from(table).update({ is_public: next }).eq('id', item.id);
+    if (error) {
+      setToggleNote('The change did not take this time. It is safe to try again.');
+    } else {
+      setItems(prev => prev.map(i => i.id === item.id ? { ...i, isPublic: next } : i));
+    }
+    setToggling(null);
+  }, []);
+
+  const filtered = useMemo(() => items.filter(i =>
+    (i.role || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (i.notes || '').toLowerCase().includes(searchTerm.toLowerCase())
+  ), [items, searchTerm]);
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-6xl mx-auto px-6"><Skeleton variant="text" className="h-8 w-48 mb-8" /><div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{[1,2,3,4,5,6].map(i => <Skeleton key={i} variant="card" className="h-32" />)}</div></div></main>);
 
@@ -44,17 +103,45 @@ export function ContributionsGallery() {
 
   return (
     <main className="min-h-screen py-12"><div className="container max-w-6xl mx-auto px-6">
-      <div className="mb-8"><Link href="/bazaar" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"><ArrowLeft className="h-4 w-4" />Return to the Bazaar</Link><h1 className="text-2xl font-bold text-star-dust">Contributions Ledger</h1><p className="text-sm text-star-dust/40 mt-1">Your impact, recorded forever</p></div>
-      <div className="relative mb-8"><Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} /><input type="text" placeholder="Filter by type..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none" /></div>
-      {filtered.length === 0 && (<div className="text-center py-20"><HandCoins className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No contributions match' : 'Your contributions will appear here'}</p></div>)}
+      <div className="mb-8"><Link href="/bazaar" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"><ArrowLeft className="h-4 w-4" />Return to the Bazaar</Link><h1 className="text-2xl font-bold text-star-dust">Contributions Ledger</h1><p className="text-sm text-star-dust/40 mt-1">Your part in every work, recorded forever</p></div>
+
+      <p className="text-sm text-star-dust/50 mb-8 max-w-2xl">
+        Your name on a work is yours to show or keep quiet. The credit — and the
+        residual share — stand either way.
+      </p>
+
+      <div className="relative mb-8"><Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} /><input type="text" placeholder="Filter by role..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none" /></div>
+      {toggleNote && <p role="status" className="text-xs text-star-dust/50 mb-4">{toggleNote}</p>}
+      {filtered.length === 0 && (<div className="text-center py-20"><HandHeart className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No contributions match' : 'Your contributions will appear here'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(i => {
-          const cd: CardData = { id: i.contributions_id, type: 'value', title: i.contribution_type, value: `${i.percent_share}%` };
+          const role = i.role || 'contributor';
+          const cd: CardData = { id: i.id, type: 'value', title: role, value: '' };
           return (
-            <Card key={i.contributions_id} data={cd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
-              <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[i.contribution_type] || ''}`}>{i.contribution_type}</Badge><span className="flex items-center gap-1 text-neurospark font-bold"><Percent size={14} />{i.percent_share}%</span></div>
-              <p className="text-sm text-star-dust/50">Product: {i.product_id}</p>
-              <div className="flex gap-2 mt-3">{i.is_residual_eligible && <Badge variant="outline" size="sm" className="text-[10px] bg-emerald-500/20 text-emerald-400">Residual</Badge>}{i.is_one_time && <Badge variant="outline" size="sm" className="text-[10px] bg-amber-500/20 text-amber-400">One-Time</Badge>}</div>
+            <Card key={i.id} data={cd} variant="glass" radius="lg" shadow="sm" className="p-5 h-full">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${ROLE_COLORS[role] || ''}`}>{role}</Badge>
+                  <Badge variant="outline" size="sm" className="text-[10px] capitalize bg-white/5 text-star-dust/50">{i.kind}</Badge>
+                </div>
+                <span className="text-xs text-star-dust/30">{new Date(i.createdAt).toLocaleDateString()}</span>
+              </div>
+              {i.notes && <p className="text-sm text-star-dust/50 mb-3">{i.notes}</p>}
+              {i.kind === 'ware' && (
+                <Link href={`/bazaar/creations/${i.targetId}`} className="text-sm text-neurospark hover:underline">View the work</Link>
+              )}
+              <div className="flex items-center gap-2 mt-4 pt-3 border-t border-white/10">
+                {i.isPublic
+                  ? <Eye className="h-3.5 w-3.5 text-emerald-400" aria-hidden />
+                  : <EyeOff className="h-3.5 w-3.5 text-star-dust/40" aria-hidden />}
+                <Switch
+                  label={i.isPublic ? 'Shown with the work' : 'Kept quiet'}
+                  size="sm"
+                  checked={i.isPublic}
+                  onChange={(checked) => toggleVisibility(i, checked)}
+                  disabled={toggling === i.id}
+                />
+              </div>
             </Card>
           );
         })}

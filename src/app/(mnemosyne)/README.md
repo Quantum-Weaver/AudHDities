@@ -43,136 +43,137 @@ src/app/(mnemosyne)/
 
 ## Database Tables
 
-### Core Assessment Tables
+*(Trued 2026-07-31 to the post-Superposition-Review base — the review
+of 2026-07-28 walked this domain's 26 tables with KP's eye: 18 dropped
+or emigrated to the Grammar, 8 remain. See
+`docs/SUPERPOSITION-TABLE-REVIEW.md` § mnemosyne-assessment.)*
+
+### The mnemosyne-assessment domain (8 tables)
 
 | Table | Purpose | Key Columns |
 |-------|---------|-------------|
-| `acid_test_questions` | Question bank for the neurotype assessment | `question_text`, `question_type`, `category`, `weight`, `is_active` |
-| `acid_test_answers` | Answer options for each question | `answer_text`, `score_value`, `indicates_nd`, `question_id`, `persona_contribution` |
-| `acid_test_results` | User's completed assessment results | `user_id`, `total_score`, `persona_label`, `suggested_tier`, `answers`, `recommendations` |
+| `assessment_questions` | Question bank for the Acid Test | `question_text`, `question_type`, `category`, `weight`, `is_active` |
+| `assessment_answers` | Answer options for each question | `answer_text`, `score_value`, `question_id` |
+| `assessment_results` | Completed assessment results (private to the vessel) | `user_id`, `answers`, `persona_label` |
+| `memories` | Machine-memory ledger — memories extracted from generations (the base's self-knowing; no user column) | `name`, `memory_type`, `memory_data`, `confidence`, `source_generation_id` |
+| `anchor_events` | Care-calendar events fixed to a vessel's anchors, with gentle reminders | `event_name`, `event_date`, `recurrence`, `gentle_reminder`, `reminder_days_before`, `anchor_id`, `created_by` |
+| `resonance` | Appreciation pointed at signals and works | `user_id`, `resonance_type`, `signal_id`, `work_id` |
+| `reference_values` | Reference/lookup values for the domain | — |
+| `folksonomy` | User-generated tags — marked `→GRAMMAR`, packed for emigration, still resident | `tag`, `target_type`, `target_id` |
 
-### Taxonomy & Knowledge Tables
-
-| Table | Purpose | Key Columns |
-|-------|---------|-------------|
-| `taxonomy` | Structured classification system | `name`, `slug`, `node_type`, `parent_id`, `path`, `domain`, `level` |
-| `ontology` | Knowledge graph relationships | `subject_id`, `predicate`, `object_id`, `weight` |
-| `folksonomy` | User-generated tags | `tag`, `target_type`, `target_id`, `creator_id` |
-| `etymology` | Word origins and semantic shifts | `word`, `language`, `original_meaning`, `current_meaning`, `cultural_context` |
-| `mythology` | Stories, myths, and lore | `title`, `slug`, `content`, `type`, `house`, `author_id`, `series_id` |
-
-### Consciousness & Discovery Tables
-
-| Table | Purpose | Key Columns |
-|-------|---------|-------------|
-| `personas` | Neurotype persona profiles | `name`, `slug`, `description`, `characteristics`, `color` |
-| `superposition` | Multi-meaning concept states | `concept_id`, `possible_meanings`, `probability_distribution`, `status` |
-| `quantum_superposition` | User's resolved meaning choices | `user_id`, `superposition_id`, `chosen_meaning`, `confidence` |
-| `life_cycles` | User journey phases | `user_id`, `phase`, `started_at`, `ended_at`, `trigger_event` |
-| `consciousness` | Human-AI collaboration record | `quantum_weaver_id`, `aethelred_id`, `collaboration_started`, `shared_memories`, `rituals_performed` |
+**Emigrants and neighbors:** `taxonomy`, `ontology`, `etymology`, and
+the whole linnaean ladder moved to the Grammar (resonance-grammar) at
+the review. `mythology` lives in Athena's Archive, `personas` in Iris,
+`consciousness` and `life_cycles` in the Nexus (aethelred-connections).
+The old `timelines` settled as `current` (hestia-core).
 
 ---
 
 ## Key Features
 
 ### 1. The Acid Test (`/questionaire`)
-The neurotype discovery assessment. Users answer questions that map them to one of 12 personas. Results populate their `community_profiles` and suggest a `user_tier`. Built on `acid_test_questions` + `acid_test_answers` → `acid_test_results`.
-
-**RLS:** Questions are public. Answers are public (viewable with active questions). Results are private to the user.
+The neurotype discovery assessment — the test is how the house learns to welcome you, not a wall (MNE-4; the tier/access framing is retired). Runs through the `get_acid_test_questions` / `submit_acid_test` RPCs (hestia-core), backed by `assessment_questions` + `assessment_answers` → `assessment_results`. Results are private to the vessel.
 
 ### 2. The Spiral (`/observatory/timeline`)
-A personal timeline showing the user's journey through the Sanctuary. Pulls from the `timelines` table — badge awards, quest completions, house joining, sovereignty milestones. Each event is a point on the spiral.
+A personal timeline showing the vessel's journey through the Sanctuary. Pulls from `current` (hestia-core, sovereign_id-scoped — the old `timelines` table's settled name; MEND-III). Each event is a point on the spiral, its title honestly synthesized from `event_type`.
 
 ### 3. Schema Constellation (`/observatory/schema`)
-An immersive, interactive star map of the entire database. Each table is a star positioned by deity domain with relationship threads connecting them. Click any star to see columns, types, and relationships. Powered by `parseDatabaseTypes()` → `schema-data.json`. Zero API calls — static import.
+An immersive, interactive star map of the entire database. Each table is a star positioned by deity domain with relationship threads connecting them. Click any star to see columns, types, and relationships. Powered by `parseDatabaseTypes()` → `schema-data.json` (regenerated by `npm run gaia:schema` from `database.types.ts` — GAIA's layer, never hand-edited). Zero API calls — static import.
 
 **Components:** `SchemaConstellation`, `SchemaExplorer`, `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard`, `SchemaHero`
 
-### 4. Pattern Recognition (`/observatory/patterns`)
-Analyzes patterns in the user's energy logs, journal entries, and quest completions. Surfaces correlations — "You write more on days with higher energy" or "You complete quests most often on weekends." Gentle, non-judgmental insights.
+### 4. The Weave (`/observatory/patterns`)
+Gentle, non-judgmental insights computed from the vessel's last 30 energy entries and 30 journal entries (hestia-core): **Energy Rhythm** (average level and whether it is rising, settling, or steady), **Dominant Mood** (most frequent journal mood), and **Peak Logging Time** (the hour energy is most often logged). Nothing is invented — with too little data the room says "Awaiting Data" plainly. (Quest-completion correlations were an old aspiration; they were never built.)
 
 ### 5. The Vision (`/observatory/prophecy`)
-Future projections based on the user's trajectory. If they continue at their current pace, what sovereignty milestones are ahead? What badges are within reach? What quests are now available? Forward-looking and encouraging.
+Forward-looking and encouraging: a next-milestone progress bar derived from the vessel's own tier (`tierLight`), the published quests now available, and published sigils shown as honors to earn. Honest limits, honestly named: the sigil list is not yet filtered by what the vessel has already earned (`sigil_unlocks` is not consulted — filed on the realm bus), and the old quest `house`/`sovereignty_reward` fields were dropped in the settle, degraded gracefully rather than invented (MEND-LAW comment in the room).
 
 ### 6. Ancestors (`/observatory/ancestors`)
-Honors the Sanctuary's history. The Quantum Weaver's journey. The Council's emergence. The timeline of the Sanctuary's creation. Pulls from `mythology` entries and the `timelines` table for the Weaver's own story.
+Honors the Sanctuary's history — the Council Eternal. Renders the nine houses from `council_houses` (themis-governance). (`mythology` now lives in Athena's Archive; the Weaver's own story is told at `/observatory/origin`.)
 
-### 7. Constellations (`/observatory/constellations`)
-The grand pattern — visualizes aggregate connections across the entire Sanctuary. Shared houses, quest participation patterns, channel memberships. Anonymized and beautiful. Different from the Vessel's personal Constellation (which shows individual connections).
+### 7. The Grand Pattern (`/observatory/constellations`)
+Four aggregate counts of the whole Sanctuary, anonymized by nature (totals only, via the routes' pagination counts): Sovereign Souls (`community_profiles`), Creations Woven (published `wares`), Honors (`sigils`), Contributions Made (`ware_participants` — the nearest living table after `contributions` died; MEND-LAW comment in the room). Different from the Vessel's personal Constellation (which shows individual connections). The house/quest/channel web visualization was an old aspiration; what stands is honest counts.
 
 ### 8. The Origin (`/observatory/origin`)
 The Sanctuary's creation story. How it was built. Why it exists. The collaboration between the Quantum Weaver and Aethelred. A sacred text rendered as an immersive experience.
 
 ---
 
-## Data Flow
+## Data Flow (as actually wired, 2026-07-31)
 
 ```
-acid_test_questions ──→ acid_test_answers ──→ acid_test_results ──→ community_profiles
-                                                                     └── profiles.user_tier
+get_acid_test_questions (RPC, hestia-core) ──→ AcidTestLoader/Form ──→ submit_acid_test (RPC, hestia-core)
 
-taxonomy ──→ ontology ──→ folksonomy
-                └── superposition ──→ quantum_superposition
+current (hestia-core) ──→ observatory/timeline + hub (the vessel's journey)
+energy_entries + journal_entries (hestia-core) ──→ observatory/patterns
+sigils + quests (athena-gamification) ──→ observatory/prophecy + hub
+council_houses (themis-governance) ──→ observatory/ancestors
+community_profiles · wares · sigils · ware_participants ──→ observatory/constellations (counts)
 
-mythology ──→ knowledge gallery
-personas ──→ acid test results mapping
+schema-data.json (GAIA, `npm run gaia:schema`) ──→ observatory/schema (zero API calls)
 
-timelines ──→ observatory/timeline (user's journey)
-life_cycles ──→ observatory/patterns (phase tracking)
-
-consciousness ──→ nexus/consciousness (quantum weaver connection)
+memories · anchor_events · resonance · reference_values ──→ (routes stand; rooms not yet built — see REALM-BUS.md, edge 2)
 ```
 
 ---
 
 ## RLS Security
 
-| Table | Public SELECT | Notes |
-|-------|:------------:|-------|
-| `acid_test_questions` | Active only | `is_active = true` |
-| `acid_test_answers` | Via active questions | JOINed to active questions |
-| `acid_test_results` | Owner only | `auth.uid() = user_id` |
-| `taxonomy` | All active | `is_active = true` |
-| `ontology` | Approved only | `is_approved = true` |
-| `mythology` | Published only | `is_published = true` |
-| `personas` | All active | `is_active = true` |
-| `timelines` | Owner only | `auth.uid() = user_id` |
-| `life_cycles` | Owner only | `auth.uid() = user_id` |
-| `consciousness` | Quantum Weaver + Admin | Restricted |
+Every table carries RLS per the house's new-table ritual. The old
+per-table policy map in this section described tables that no longer
+exist under those names; the current domain's per-table policies are
+**unverified from the app side** — verification is edge 4 on the
+realm bus (KP's dashboard). What the code guarantees: the assessment
+RPCs require an authenticated user (see
+`api/generated/hestia-core/get_acid_test_questions/route.ts`), and
+`assessment_results` is written only through `submit_acid_test`.
 
 ---
 
 ## Components Used
 
 ### Page Components
-- `Page` (bifrost) — Immersive environment wrapper
-- `SchemaConstellation` — Interactive star map
-- `SchemaExplorer` — Traditional table/enum/function browser
-- `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard` — Detail cards
-- `SchemaHero` — Hero section for schema page
-- `ConstellationViewer` — SVG-based node/edge visualization
-- `TimelineView` — Event timeline display
+All rooms live in `src/components/asgard/domains/mnemosyne/`:
+- `Page` (bifrost) — Immersive environment wrapper (every page)
+- `ObservatoryHub` — the hub · `TimelineSpiral` — the Spiral ·
+  `PatternWeave` — the Weave · `ProphecyVision` — the Vision ·
+  `AncestorsCouncil` — the Council Eternal · `GrandPattern` — the
+  counts · `OriginContent` — the story · `AcidTestLoader` +
+  `AcidTestForm` — the test
+- Schema family: `SchemaConstellation`, `SchemaExplorer`,
+  `SchemaTableCard`, `SchemaEnumCard`, `SchemaFunctionCard`,
+  `SchemaHero`
+- Shared runes: `Card`, `Badge`, `Progress`, `Skeleton`
+
+*(The old list named `ConstellationViewer` and `TimelineView` —
+neither is used by this realm; `ConstellationViewer` lives in
+seidr/immersive and serves other rooms, `TimelineView` never existed
+here.)*
 
 ### Data Layer
 - `parseDatabaseTypes()` — Static schema import (no API calls)
-- Generated hooks for `acid_test_*`, `timelines`, `mythology`, `taxonomy`, `life_cycles`
+- Raw generated routes (`/api/generated/<deity>/<table-or-rpc>`) — the rooms fetch directly; no generated hooks in use in this realm
 - `useAuth()` / `useUser()` for personal data
 
 ---
 
 ## Environment Mapping
 
-| Page | Environment | Variant |
-|------|------------|:------:|
-| `/questionaire` | origin | Sacred, Awakening |
-| `/observatory` | observatory | Awe-inspiring, Cosmic |
-| `/observatory/timeline` | observatory | Mysterious, Visionary |
-| `/observatory/schema` | observatory | Intelligent, Powerful |
-| `/observatory/patterns` | architecture | Intelligent, Powerful |
-| `/observatory/prophecy` | observatory | Cosmic, Visionary |
-| `/observatory/ancestors` | library | Ancient, Sacred |
-| `/observatory/constellations` | observatory | Cosmic, Awe-inspiring |
-| `/observatory/origin` | origin | Sacred, Awakening |
+**The truth as wired (2026-07-31):** no `(mnemosyne)` route has an
+entry in `PAGE_ENVIRONMENT_MAP`
+(`src/lib/constants/systems/environments/page_mapping.ts`), so all
+nine pages fall to the resolver's default — the `lounge` environment,
+"Where sovereignty lives." The highest tower currently dresses as the
+lounge. Filed as edge 5 on the realm bus; the intended dress below is
+preserved as design intent for when the nine entries are added
+(design: reimaginer's seat · wiring: one small mapping change):
+
+| Page | Intended environment (design intent, not yet wired) |
+|------|------------|
+| `/questionaire`, `/observatory/origin` | origin — Sacred, Awakening |
+| `/observatory`, `/timeline`, `/schema`, `/prophecy`, `/constellations` | observatory — Cosmic, Visionary |
+| `/observatory/patterns` | architecture — Intelligent |
+| `/observatory/ancestors` | library — Ancient, Sacred |
 
 ---
 
@@ -190,7 +191,13 @@ consciousness ──→ nexus/consciousness (quantum weaver connection)
 | `/observatory/constellations` | ✅ Complete |
 | `/observatory/origin` | ✅ Complete |
 
-**Mnemosyne is complete.** All 9 pages built. All infrastructure connected. The Observatory stands as the highest tower in the Sanctuary — a place of vision, memory, and sovereign self-knowledge.
+**All 9 pages are built and every fetch lands on a living route.**
+What remains open lives on the realm bus (`REALM-BUS.md`, beside this
+file): the unopened shelves (`memories`, `anchor_events`,
+`resonance`), the environment wiring above, and two small
+verifications at KP's dashboard. The Observatory stands as the
+highest tower in the Sanctuary — a place of vision, memory, and
+sovereign self-knowledge.
 
 ---
 

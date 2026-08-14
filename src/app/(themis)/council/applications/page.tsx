@@ -4,7 +4,7 @@ import { ApplicationsHub } from '@/components/asgard/domains/themis/applications
 
 export const metadata = {
   title: 'Applications | The Council | Sovereign Sanctuary',
-  description: 'Review creator, vendor, and curator applications',
+  description: 'Review artisan, merchant, and curator applications',
 };
 
 export default function ApplicationsPage() {

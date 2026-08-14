@@ -5,6 +5,7 @@
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 import { getObjectCategory, type ObjectCategory } from '@/config/object_categories.js';
+import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
 import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';
 
 export interface FormatObjectTypesOptions {
@@ -15,27 +16,36 @@ export interface FormatObjectTypesOptions {
   outputFolder?: string;           // For header comments
 }
 
-// Default sensitive fields to exclude from public interfaces
-const DEFAULT_SENSITIVE_FIELDS = [
-  'email',
-  'password',
-  'stripe_account_id',
-  'stripe_account',
-  'crisis_contact_email',
-  'crisis_contact_phone',
-  'crisis_contact_name',
-  'crisis_instructions',
-  'access_token',
-  'refresh_token',
-  'api_key',
-  'secret_key',
-  'private_key',
-  'encrypted_data',
-  'verification_token',
-  'reset_token',
-  'ip_address',
-  'user_agent'
-];
+// Sensitive fields to exclude from public interfaces — single source of
+// truth is @/config/sensitive_fields (this file used to carry its own
+// hardcoded copy, which silently drifted from the config; unified
+// 2026-07-18 so a config edit reaches every generated Public interface).
+const DEFAULT_SENSITIVE_FIELDS = [...SENSITIVE_FIELDS];
+
+/**
+ * Collapse multiline type declarations onto one line.
+ * database.types.ts renders long union types like:
+ *   emergency_contact:
+ *     | Database["public"]["CompositeTypes"]["emergency_contact"]
+ *     | null
+ * The line-based field regexes below would otherwise emit an empty type
+ * (`emergency_contact:;`) and drop the continuation lines — the exact
+ * syntax error that suppressed the repo's whole typecheck until 2026-07-18.
+ */
+export function normalizeMultilineTypes(rowContent: string): string {
+  const out: string[] = [];
+  for (const raw of rowContent.split('\n')) {
+    const line = raw.trimEnd();
+    const startsContinuation = /^\s*\|/.test(line);
+    const prev = out[out.length - 1];
+    if (prev !== undefined && (startsContinuation || prev.trimEnd().endsWith(':'))) {
+      out[out.length - 1] = `${prev} ${line.trim()}`;
+    } else {
+      out.push(line);
+    }
+  }
+  return out.join('\n');
+}
 
 /**
  * Convert snake_case to PascalCase
@@ -81,8 +91,8 @@ export function parseTableContent(content: string): {
   if (rowStartLine !== -1 && insertStartLine !== -1) {
     rowEndLine = insertStartLine - 1;
     const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
-    let rowContent = rowLines.join('\n').trim();
-    
+    let rowContent = normalizeMultilineTypes(rowLines.join('\n').trim());
+
     if (rowContent.endsWith('}')) {
       rowContent = rowContent.slice(0, -1).trim();
     }
@@ -251,12 +261,14 @@ export function formatObjectTypes(
   const tableName = object.name;
   const pascalName = toPascalCase(tableName);
   
-  let rowContent = object.rowContent || '';
+  // Defensive normalization: rowContent may arrive from the extract phase
+  // (bypassing parseTableContent) still carrying multiline type unions.
+  let rowContent = normalizeMultilineTypes(object.rowContent || '');
   let insertContent = object.insertContent || '';
   let updateContent = object.updateContent || '';
   let enumRefs = object.enumRefs || [];
   let hasJson = object.hasJson || false;
-  
+
   if (!rowContent && object.content) {
     const parsed = parseTableContent(object.content);
     rowContent = parsed.rowContent;
@@ -285,6 +297,11 @@ export function formatObjectTypes(
   imports.push(`import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';`);
   if (hasJson) {
     imports.push(`import type { Json } from '@/types/supabase/database.types.js';`);
+  }
+  // Composite-type columns reference Database[...] directly in the derived
+  // interfaces (possible since the multiline normalization landed).
+  if (rowContent.includes('Database[')) {
+    imports.push(`import type { Database } from '@/types/supabase/database.types.js';`);
   }
   
   // Build core types section

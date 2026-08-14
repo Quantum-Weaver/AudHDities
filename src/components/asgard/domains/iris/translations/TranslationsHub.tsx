@@ -1,25 +1,25 @@
 // src/components/asgard/domains/iris/translations/TranslationsHub.tsx
+//
+// STAGE 1 — the honest room (KP's ruling, 2026-07-30, at the realm bus).
+// The six hardcoded languages with invented completion percentages are
+// retired: no table ever backed those numbers, and this house does not
+// dress theater as measurement. The language-craft itself (the tables
+// this room once imagined — languages, translations, localization)
+// emigrated to the Resonance Grammar by KP's hand, 2026-07-28.
+// This room now says what is true: the welcome stands, the craft is
+// being grown, and the room is waiting — never missing. Stage 2 (the
+// doorway into the Grammar's language walk) convenes at the realm bus
+// when the Grammar's front lights and KP gives the word.
 'use client';
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { Badge } from '@/components/runes/Badge';
 import { ArrowLeft, Globe, Sparkles } from 'lucide-react';
-import type { CardData } from '@/types/components/runes/card.types';
-
-const LANGUAGES = [
-  { code: 'en', name: 'English', native: 'English', complete: 100 },
-  { code: 'es', name: 'Spanish', native: 'Español', complete: 65 },
-  { code: 'fr', name: 'French', native: 'Français', complete: 45 },
-  { code: 'de', name: 'German', native: 'Deutsch', complete: 30 },
-  { code: 'ja', name: 'Japanese', native: '日本語', complete: 15 },
-  { code: 'ar', name: 'Arabic', native: 'العربية', complete: 10 },
-];
 
 export function TranslationsHub() {
   return (
     <main className="min-h-screen py-12">
-      <div className="container max-w-5xl mx-auto px-6">
+      <div className="container max-w-3xl mx-auto px-6">
 
         <div className="mb-8">
           <Link href="/connect" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2">
@@ -29,32 +29,43 @@ export function TranslationsHub() {
           <p className="text-sm text-star-dust/40 mt-1">Every language, every voice, welcome here</p>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {LANGUAGES.map((lang) => {
-            const cardData: CardData = { id: lang.code, type: 'value', title: lang.name, value: lang.native };
-            return (
-              <Card key={lang.code} data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-                <Globe className="h-6 w-6 text-neurospark mb-3" />
-                <h3 className="text-lg font-semibold text-star-dust">{lang.name}</h3>
-                <p className="text-sm text-star-dust/50 mb-3">{lang.native}</p>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div className="h-full bg-neurospark rounded-full" style={{ width: `${lang.complete}%` }} />
-                  </div>
-                  <span className="text-xs text-star-dust/40">{lang.complete}%</span>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+        <Card
+          data={{ id: 'voice-covenant', type: 'value', title: 'The Voice', value: '' }}
+          variant="sanctuary" radius="xl" shadow="md" className="p-10 text-center"
+        >
+          <Globe className="h-8 w-8 text-teal-400 mx-auto mb-4" />
+          <h2 className="text-xl font-bold text-star-dust mb-4">
+            Every tongue, every dialect, every voice
+          </h2>
+          <p className="text-star-dust/60 text-sm leading-relaxed max-w-xl mx-auto mb-4">
+            The Sanctuary&apos;s welcome is not written in one language.
+            Whatever tongue you carry — spoken, signed, typed, or found
+            late in life — it belongs here, and nothing about how you
+            speak will ever be scored, ranked, or measured against
+            anyone else&apos;s.
+          </p>
+          <p className="text-star-dust/60 text-sm leading-relaxed max-w-xl mx-auto">
+            The craft of carrying the Sanctuary into many languages is
+            being grown with care in the Resonance Grammar — the
+            house&apos;s home for shared meaning — rather than rushed
+            here. When that work is ready, this room becomes its
+            doorway.
+          </p>
+        </Card>
 
         <Card
-          data={{ id: 'translations-covenant', type: 'value', title: 'Translation Covenant', value: '' }}
-          variant="glass" radius="xl" shadow="md" className="mt-12 p-8 text-center"
+          data={{ id: 'voice-waiting', type: 'value', title: 'A room that waits', value: '' }}
+          variant="glass" radius="xl" shadow="sm" className="mt-8 p-8 text-center"
         >
-          <Sparkles className="h-6 w-6 text-purple-400 mx-auto mb-3" />
+          <Sparkles className="h-6 w-6 text-teal-400/70 mx-auto mb-3" />
           <p className="text-star-dust/50 text-sm max-w-lg mx-auto">
-            The Sanctuary welcomes every tongue, every dialect, every voice. Community translators help make the Sanctuary accessible to all. If you'd like to contribute translations, contact the Curator.
+            This room is waiting, not missing. If you would like to help
+            carry the Sanctuary into your tongue, the{' '}
+            <Link href="/connect/support" className="text-neurospark hover:underline">
+              Healing Flame
+            </Link>{' '}
+            is a real door — leave word there, and it will reach the
+            hands growing this work.
           </p>
         </Card>
       </div>

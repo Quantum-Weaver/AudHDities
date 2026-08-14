@@ -1,7 +1,7 @@
 // =====================================================
 // UTILITIES: VesselExteriors
 // DEITY: hestia-core
-// GENERATED: 2026-07-10T18:14:59.956Z
+// GENERATED: 2026-08-01T21:41:40.851Z
 // =====================================================
 
 
@@ -38,7 +38,7 @@ export async function getVesselExteriors(id: string): Promise<VesselExteriorsRow
   const { data, error } = await supabase
     .from('vessel_exteriors')
     .select('*')
-    .eq('vessel_exteriors_id', id)
+    .eq('id', id)
     .single();
   
   if (error) throw error;
@@ -86,7 +86,7 @@ export async function updateVesselExteriors(id: string, data: VesselExteriorsUpd
   const { data: result, error } = await supabase
     .from('vessel_exteriors')
     .update(validated)
-    .eq('vessel_exteriors_id', id)
+    .eq('id', id)
     .select()
     .single();
   
@@ -102,7 +102,7 @@ export async function deleteVesselExteriors(id: string): Promise<boolean> {
   const { error } = await supabase
     .from('vessel_exteriors')
     .delete()
-    .eq('vessel_exteriors_id', id);
+    .eq('id', id);
   
   if (error) throw error;
   return true;

@@ -10,7 +10,7 @@ import { ArrowLeft, Music } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 interface MusicEvent {
-  events_id: string; title: string; description: string | null;
+  id: string; title: string; description: string | null;
   scheduled_for: string | null; is_live: boolean;
 }
 
@@ -19,7 +19,7 @@ export function MusicGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?genre=music&order=scheduled_for.asc')
+    fetch('/api/generated/prometheus-stage/events?genre=music&sort=scheduled_for&order=asc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)
@@ -38,9 +38,9 @@ export function MusicGallery() {
       ) : (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map(e => {
-            const cd: CardData = { id: e.events_id, type: 'event', title: e.title, description: e.description || '' };
+            const cd: CardData = { id: e.id, type: 'event', title: e.title, description: e.description || '' };
             return (
-              <Link key={e.events_id} href={`/stage/music/${e.events_id}`}>
+              <Link key={e.id} href={`/stage/music/${e.id}`}>
                 <Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
                   <div className="flex items-center justify-between mb-3">
                     <Badge variant="outline" size="sm" className="text-[10px]">Music</Badge>

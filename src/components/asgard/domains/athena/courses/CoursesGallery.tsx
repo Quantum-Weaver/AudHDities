@@ -1,37 +1,35 @@
 // src/components/asgard/domains/athena/courses/CoursesGallery.tsx
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, GraduationCap, Search, Clock } from 'lucide-react';
+import { useLearningPathsList } from '@/hooks/generated/athena-gamification/learning_paths';
 import type { CardData } from '@/types/components/runes/card.types';
-
-interface CourseItem {
-  courses_id: string; title: string; description: string; slug: string;
-  difficulty: string; house: string | null;
-  estimated_duration_hours: number | null; is_published: boolean | null;
-}
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400', intermediate: 'bg-amber-500/20 text-amber-400',
   advanced: 'bg-red-500/20 text-red-400', master: 'bg-purple-500/20 text-purple-400',
 };
 
+// Stable params — the generated list hooks refetch on params IDENTITY
+// (the StatusBar pattern); an inline object here would loop the fetch.
+const COURSES_PARAMS = {
+  filters: { status: 'published' },
+  sort: 'display_order',
+  order: 'asc' as const,
+  limit: 100,
+};
+
 export function CoursesGallery() {
-  const [courses, setCourses] = useState<CourseItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetch('/api/generated/athena-gamification/learning_paths?is_published=true&order=title.asc')
-      .then(r => r.json()).then(result => { if (result.success) setCourses(result.data?.data || result.data || []); })
-      .catch(console.error).finally(() => setLoading(false));
-  }, []);
+  const { data: courses, loading } = useLearningPathsList(COURSES_PARAMS);
 
-  const filtered = useMemo(() => courses.filter(c => c.title.toLowerCase().includes(searchTerm.toLowerCase()) || c.description.toLowerCase().includes(searchTerm.toLowerCase())), [courses, searchTerm]);
+  const filtered = useMemo(() => courses.filter(c => c.name.toLowerCase().includes(searchTerm.toLowerCase()) || (c.description || '').toLowerCase().includes(searchTerm.toLowerCase())), [courses, searchTerm]);
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-6xl mx-auto px-6"><Skeleton variant="text" className="h-8 w-48 mb-8" /><div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{[1,2,3,4,5,6].map(i => <Skeleton key={i} variant="card" className="h-44" />)}</div></div></main>);
 
@@ -42,11 +40,12 @@ export function CoursesGallery() {
       {filtered.length === 0 && (<div className="text-center py-20"><GraduationCap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No courses match' : 'The curriculum is being prepared'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(c => {
-          const cd: CardData = { id: c.courses_id, type: 'value', title: c.title, value: c.difficulty };
+          const cd: CardData = { id: c.id, type: 'value', title: c.name, value: c.difficulty || '' };
           return (
-            <Link key={c.courses_id} href={`/library/courses/${c.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-              <div className="flex items-center justify-between mb-3"><Badge variant="outline" size="sm" className={`text-[10px] capitalize ${DIFFICULTY_COLORS[c.difficulty] || ''}`}>{c.difficulty}</Badge>{c.estimated_duration_hours && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{c.estimated_duration_hours}h</span>}</div>
-              <h3 className="text-lg font-semibold text-star-dust mb-2">{c.title}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{c.description}</p>
+            <Link key={c.id} href={`/library/courses/${c.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+              <div className="flex items-center justify-between mb-3">{c.difficulty && <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${DIFFICULTY_COLORS[c.difficulty] || ''}`}>{c.difficulty}</Badge>}{c.estimated_duration && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{c.estimated_duration}</span>}</div>
+              <h3 className="text-lg font-semibold text-star-dust mb-2">{c.name}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{c.description}</p>
+              {c.path_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize mt-3">{c.path_type.replace(/_/g, ' ')}</Badge>}
             </Card></Link>
           );
         })}

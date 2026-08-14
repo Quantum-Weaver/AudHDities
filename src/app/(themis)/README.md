@@ -3,6 +3,7 @@
 **Feeling:** Transparent, just, collaborative, wise  
 **Environment:** `council` — Regal, Sacred, Contemplative, Authoritative  
 **Status:** ✅ COMPLETE — May 1, 2026
+**Living state:** `REALM-BUS.md` (this folder) — standing state, open edges, and the realm's tabletop; trued 2026-07-30
 
 ---
 
@@ -28,7 +29,13 @@ src/app/(themis)/council/
 ├── admin/
 │   └── page.tsx                      # Administration (/council/admin)
 └── applications/
-    └── page.tsx                      # Applications (/council/applications)
+    ├── page.tsx                      # Applications (/council/applications)
+    ├── [id]/
+    │   └── page.tsx                  # Application Detail (stub)
+    ├── creator/
+    │   └── page.tsx                  # Creator Application (/council/applications/creator)
+    └── vendor/
+        └── page.tsx                  # Vendor Application (/council/applications/vendor)
 ```
 
 ---
@@ -54,8 +61,10 @@ src/components/asgard/domains/themis/
 │   └── ReportsHub.tsx                # Moderator-gated report queue
 ├── admin/
 │   └── AdminHub.tsx                  # Admin-gated tools directory
-└── applications/
-    └── ApplicationsHub.tsx           # Reviewer-gated application queue
+├── applications/
+│   └── ApplicationsHub.tsx           # Reviewer-gated application queue
+└── governance/
+    └── ApplicationForm.tsx           # Creator/vendor application form (shared)
 ```
 
 ---
@@ -132,6 +141,16 @@ src/components/asgard/domains/themis/
 - **Features:** Queue for reviewers, Apply buttons for users, Approve/Reject actions
 - **Access:** Public view, review actions restricted to moderators/admins
 
+### Creator / Vendor Application (`/council/applications/creator`, `/vendor`)
+- **Purpose:** Submit an application to become a creator or vendor
+- **Data:** `useCreateApplications()` + `useCommunityProfilesList()` — generated hooks; duplicate-pending guard via applications query
+- **Components:** ApplicationForm (shared), Card, Button, Skeleton
+- **Features:** Auth-gated form, one pending application per user enforced client-side
+- **Access:** Authenticated users
+
+### Application Detail (`/council/applications/[id]`)
+- **Purpose:** Single application view — stub, not yet built
+
 ---
 
 ## 🔗 DATA DEPENDENCIES
@@ -144,7 +163,7 @@ src/components/asgard/domains/themis/
 | Voting Hub | `useProposalsList({ status: 'active' })` | `proposals` | (needs policy) |
 | Delegation | Future | `delegation` | Future |
 | Curators | Future | `community_profiles` | `public_can_view` |
-| Ledger | `useLedgerList()` | `ledger` | (needs policy) |
+| Ledger | fetch → `/api/generated/plutus-economics/ledger` | `ledger` (plutus-economics) | (needs policy) |
 | Reports | `useReportsList()` | `reports` | `moderators_can_view` |
 | Admin | `useAuth()` | `profiles` | `authenticated_can_read_profiles` |
 | Applications | `useApplicationsList()` | `applications` | `users_view_own`, `admins_view_all` |
@@ -181,8 +200,8 @@ All Themis pages use **zero new components**. Every page is composition of:
 
 | Metric | Count |
 |--------|:-----:|
-| Server pages | 10 |
-| Client components | 10 |
+| Server pages | 13 |
+| Client components | 11 |
 | New components built | 0 |
 | Components reused | Card, Badge, Progress, Avatar, Button, Skeleton |
 | Generated hooks used | `useProposalsList`, `useProposals`, `useLedgerList`, `useReportsList`, `useApplicationsList` |

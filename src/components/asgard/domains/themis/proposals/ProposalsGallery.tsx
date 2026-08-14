@@ -8,7 +8,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, ScrollText, Search, Plus, Clock, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -43,7 +43,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 export function ProposalsGallery() {
-  const { user, profile } = useAuth();
+  const { user, profile, roles } = useUser();
   const [proposals, setProposals] = useState<Proposal[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,7 +81,7 @@ export function ProposalsGallery() {
     });
   }, [proposals, searchTerm, selectedStatus]);
 
-  const isCouncilTier = profile?.user_tier === 'council' || profile?.is_admin === true;
+  const isCouncilTier = roles.includes('council') || roles.includes('admin');
 
   const formatDate = (dateStr: string) => {
     if (!dateStr) return null;

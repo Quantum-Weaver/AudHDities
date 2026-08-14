@@ -1,99 +1,140 @@
 // ============================================================================
-// GAIA ORCHESTRATOR - Refined Type-First Generator
+// GAIA v2 ORCHESTRATOR - Phases 0, 1, and 2 + Generation Gate
 // ============================================================================
-// Purpose: Orchestrate the complete generation pipeline
-// Uses: Type-safe helpers, enrichment layer, modular generators
+// Purpose: Foundation helpers, discovery, enrichment, then artifact generation.
+// Phases:
+//   0a. Generate src/types/supabase/database.helpers.ts
+//   0b. Generate src/types/supabase/enums.ts
+//   0c. Generate src/config/enum_mapping.ts from table enum references.
+//   1.  Read database.types.ts and build the GaiaSchema model.
+//   2.  Resolve deity folders, categories, and generation flags.
+//   Gate: Ask the user what to generate (all / one table / one deity group)
+//         and whether the next phase should run with force and verbose.
+//   3a. Generate runtime enum constant files.
+//   3b. Generate table and view type files.
+//   3c. Generate Zod validator files.
+//   3d. Generate API route files for tables, views, and functions.
+//   3e. Generate React hook files.
+//   3f. Generate table util files (depend on 3b types and 3c validators).
+// Stops after phase 3f for review and testing.
 // ============================================================================
 
-import * as fs from 'fs';
 import * as readline from 'readline';
-import { fileURLToPath } from 'url';
-import path from 'path';
 
-// Shared utilities
+import { generateTablesFile } from './maintenance/generate_tables_file.js';
+import { generateEnumsFile } from './maintenance/generate_enums_file.js';
+import { generateEnumMappingFile } from './maintenance/generate_enum_mapping.js';
+
 import { readDatabaseTypes } from '../../shared/file_reader.js';
-import { logSuccess, logInfo, logError, logStep, logSeparator, logWarning, logDebug, logHeader } from '../../shared/logger.js';
-import { SystemLogger } from '../../shared/system_logger.js';
-
-// Core parsing
 import { findMarkers } from '../../modules/system/find_markers.js';
 import { findAllClosingBraces } from '../../modules/system/find_closing_braces.js';
 
-// Extraction layer
 import { extractAllNames } from './extract/extract_names.js';
-import { extractRuntimeEnums } from './extract/extract_runtime_enums.js';
-import { extractFunctions } from './extract/extract_functions.js';
-import { extractTables } from './extract/extract_tables.js';
+import { extractTables, type TableInfo } from './extract/extract_tables.js';
+import { extractFunctions, type FunctionInfo } from './extract/extract_functions.js';
+import { extractRuntimeEnums, type RuntimeEnumInfo } from './extract/extract_runtime_enums.js';
 
-// Enrichment layer
-import { enrichAll, type EnrichedTable, type EnrichedView, type EnrichedFunction, type EnrichedRuntimeEnum } from './enrich/enrich_objects.js';
+import {
+  enrichAll,
+  type EnrichedTable,
+  type EnrichedView,
+  type EnrichedFunction,
+  type EnrichedRuntimeEnum,
+} from './enrich/enrich_objects.js';
 
-// Generation layer
-import { generateViewTypes } from './generate/generate_types.js';
+import type { ExtractedObjectWithDetails } from '../../shared/types.js';
+
 import { generateConstant } from './generate/generate_constants.js';
-import { generateTableApiRoutes, generateViewApiRoutes, generateFunctionApiRoute } from './generate/generate_api_routes.js';
+import { generateViewTypes } from './generate/generate_types.js';
+import { generateValidatorContent } from './generate/generate_validators.js';
+import {
+  generateTableApiRoutes,
+  generateViewApiRoutes,
+  generateFunctionApiRoute,
+} from './generate/generate_api_routes.js';
 import { generateHooks } from './generate/generate_hooks.js';
 import { generateUtils } from './generate/generate_utils.js';
-
-// File writing
+import { formatObjectTypes } from './format/format_object_types.js';
 import { writeGeneratedFile, type WriteOptions } from './write_generated_file.js';
 
-// Configuration
-import { getAllTableNames, getAllViewNames, DEITY_GROUPS } from '@/config/deity_groups.js';
-import { ensureAllDirectories } from '../../modules/discover/discover_directories.js';
 import type { PublicTableNames, PublicViewNames } from '@/types/supabase/database.helpers.js';
-import { formatObjectTypes } from './format/format_object_types.js';
-import { ExtractedObjectWithDetails } from '@/scripts/shared/types.js';
-import { generateValidatorForTable } from './generate/generate_validators.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { DEITY_GROUPS, getAllTableNames, getAllViewNames } from '@/config/deity_groups.js';
 
 // ============================================================================
-// TYPES
+// SCHEMA MODEL
 // ============================================================================
 
-interface GaiaOptions {
+interface GaiaSchema {
+  sourcePath: string;
+  tables: TableInfo[];
+  views: string[];
+  functions: FunctionInfo[];
+  typeEnums: string[];
+  compositeTypes: string[];
+  runtimeEnums: RuntimeEnumInfo[];
+}
+
+interface EnrichedSchema {
+  tables: EnrichedTable[];
+  views: EnrichedView[];
+  functions: EnrichedFunction[];
+  runtimeEnums: EnrichedRuntimeEnum[];
+}
+
+// ============================================================================
+// CLI OPTIONS
+// ============================================================================
+
+interface FoundationOptions {
   dryRun: boolean;
-  verbose: boolean;
-  force: boolean;
-  target: 'all' | 'deity' | 'table' | 'view' | 'function';
+}
+
+interface GenerationOptions {
+  target: 'all' | 'table' | 'deity';
   targetValue: string | null;
-  interactive: boolean;
+  force: boolean;
+  verbose: boolean;
 }
 
-interface GenerationPlan {
-  tables: number;
-  views: number;
-  functions: number;
-  runtimeEnums: number;
-  
-  typeFiles: number;
-  validatorFiles: number;
-  constantFiles: number;
-  apiRouteFiles: number;
-  hookFiles: number;
-  utilFiles: number;
-  
-  totalFiles: number;
-}
+function parseArgs(): { foundation: FoundationOptions; generation: GenerationOptions | null } {
+  const args = process.argv.slice(2);
 
-interface GenerationStats {
-  tablesProcessed: number;
-  viewsProcessed: number;
-  functionsProcessed: number;
-  runtimeEnumsProcessed: number;
-  
-  filesWritten: string[];
-  filesSkipped: string[];
-  errors: Array<{ object: string; error: string }>;
-  
-  startTime: Date;
-  endTime: Date;
+  const dryRun = args.includes('--dry-run') || args.includes('-d');
+  const forceFlag = args.includes('--force') || args.includes('-f');
+  const verboseFlag = args.includes('--verbose') || args.includes('-v');
+
+  const tableArg = args.find(a => a.startsWith('--table='));
+  const deityArg = args.find(a => a.startsWith('--deity='));
+  const allFlag = args.includes('--all');
+
+  let target: GenerationOptions['target'] = 'all';
+  let targetValue: string | null = null;
+  let hasTargetFlag = false;
+
+  if (tableArg) {
+    hasTargetFlag = true;
+    target = 'table';
+    targetValue = tableArg.split('=')[1];
+  } else if (deityArg) {
+    hasTargetFlag = true;
+    target = 'deity';
+    targetValue = deityArg.split('=')[1];
+  } else if (allFlag) {
+    hasTargetFlag = true;
+  }
+
+  const generation: GenerationOptions | null = hasTargetFlag
+    ? { target, targetValue, force: forceFlag, verbose: verboseFlag }
+    : null;
+
+  return {
+    foundation: { dryRun },
+    generation,
+  };
 }
 
 // ============================================================================
-// INTERACTIVE MODE
+// INTERACTIVE PROMPT
 // ============================================================================
 
 function askUser(question: string): Promise<string> {
@@ -106,82 +147,57 @@ function askUser(question: string): Promise<string> {
   });
 }
 
-async function getInteractiveOptions(): Promise<GaiaOptions> {
-  console.log('\n');
-  logSeparator('═', 60);
-  logHeader('🌍 GAIA - Interactive Mode');
-  logSeparator('═', 60);
-  console.log('');
-  
-  console.log('What would you like to generate?');
+async function promptForGenerationPlan(enriched: EnrichedSchema): Promise<GenerationOptions> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🚦 GENERATION GATE');
+  console.log('═'.repeat(60));
+  console.log('\nWhat would you like to generate next?');
   console.log('  1) Full schema (all tables, views, functions)');
   console.log('  2) Single table');
-  console.log('  3) Single view');
-  console.log('  4) Entire deity group');
+  console.log('  3) Entire deity group');
   console.log('');
-  
-  const choice = await askUser('Enter choice (1-4): ');
-  
-  let target: GaiaOptions['target'] = 'all';
+
+  const choice = await askUser('Enter choice (1-3): ');
+
+  let target: GenerationOptions['target'] = 'all';
   let targetValue: string | null = null;
-  
+
   if (choice === '2') {
     target = 'table';
     const allTables = getAllTableNames();
-    console.log('\n📊 Available tables:');
+    console.log(`\n📊 Available tables (${allTables.length} total):`);
     console.log(`  ${allTables.slice(0, 20).join(', ')}${allTables.length > 20 ? '...' : ''}`);
-    console.log(`  (${allTables.length} total tables)`);
     console.log('');
     targetValue = await askUser('Enter table name: ');
-    
+
     if (!allTables.includes(targetValue as PublicTableNames)) {
-      logWarning(`Table "${targetValue}" not found in deity_groups.ts`);
+      console.log(`\n⚠️  Table "${targetValue}" not found in deity_groups.ts`);
       const confirm = await askUser('Continue anyway? (y/N): ');
       if (confirm.toLowerCase() !== 'y') {
         console.log('\n❌ Generation cancelled.');
         process.exit(0);
       }
     }
-    
   } else if (choice === '3') {
-    target = 'view';
-    const allViews = getAllViewNames();
-    console.log('\n📊 Available views:');
-    console.log(`  ${allViews.join(', ')}`);
-    console.log(`  (${allViews.length} total views)`);
-    console.log('');
-    targetValue = await askUser('Enter view name: ');
-    
-    if (!allViews.includes(targetValue as PublicViewNames)) {
-      logWarning(`View "${targetValue}" not found`);
-      const confirm = await askUser('Continue anyway? (y/N): ');
-      if (confirm.toLowerCase() !== 'y') {
-        console.log('\n❌ Generation cancelled.');
-        process.exit(0);
-      }
-    }
-    
-  } else if (choice === '4') {
     target = 'deity';
     console.log('\n📊 Available deity groups:');
     DEITY_GROUPS.forEach((g, i) => {
       console.log(`  ${i + 1}) ${g.name} (${g.folderName})`);
       console.log(`     ${g.tables.length} tables, ${g.views?.length || 0} views`);
-      console.log(`     ${g.description}`);
-      console.log('');
     });
+    console.log('');
     const deityChoice = await askUser('Enter deity name or number: ');
-    
+
     const num = parseInt(deityChoice);
     if (!isNaN(num) && num >= 1 && num <= DEITY_GROUPS.length) {
       targetValue = DEITY_GROUPS[num - 1].folderName;
     } else {
       targetValue = deityChoice;
     }
-    
+
     const deityExists = DEITY_GROUPS.some(g => g.folderName === targetValue || g.name === targetValue);
     if (!deityExists) {
-      logWarning(`Deity "${targetValue}" not found`);
+      console.log(`\n⚠️  Deity "${targetValue}" not found`);
       const confirm = await askUser('Continue anyway? (y/N): ');
       if (confirm.toLowerCase() !== 'y') {
         console.log('\n❌ Generation cancelled.');
@@ -189,900 +205,913 @@ async function getInteractiveOptions(): Promise<GaiaOptions> {
       }
     }
   }
-  
+
   console.log('');
-  const dryRunAnswer = await askUser('Dry run? (y/N): ');
-  const dryRun = dryRunAnswer.toLowerCase() === 'y';
-  
-  const verboseAnswer = await askUser('Verbose output? (y/N): ');
-  const verbose = verboseAnswer.toLowerCase() === 'y';
-  
   const forceAnswer = await askUser('Force overwrite existing files? (y/N): ');
   const force = forceAnswer.toLowerCase() === 'y';
-  
-  return { dryRun, verbose, force, target, targetValue, interactive: true };
+
+  const verboseAnswer = await askUser('Verbose output? (y/N): ');
+  const verbose = verboseAnswer.toLowerCase() === 'y';
+
+  return { target, targetValue, force, verbose };
 }
 
 // ============================================================================
-// CLI OPTIONS PARSING
+// PHASE 0: FOUNDATION HELPERS
 // ============================================================================
 
-function parseOptions(): GaiaOptions {
-  const args = process.argv.slice(2);
-  const interactive = args.includes('--interactive') || args.includes('-i');
-  const force = args.includes('--force') || args.includes('-f');
-  
-  if (interactive) {
-    return { dryRun: false, verbose: false, force, target: 'all', targetValue: null, interactive: true };
+async function runPhase0(options: FoundationOptions): Promise<void> {
+  const { dryRun } = options;
+
+  // Foundation helpers always run force + verbose so they stay fresh.
+  const foundationWriteOptions = { dryRun, force: true, verbose: true };
+
+  console.log('\n' + '═'.repeat(60));
+  console.log('🌍 GAIA v2 - Phase 0 (Foundation Helpers)');
+  console.log('═'.repeat(60));
+
+  if (dryRun) console.log('\n⚠️  DRY RUN MODE - No files will be written');
+
+  // ── Phase 0a: Database Helpers ──
+  console.log('\n📦 Phase 0a: Generate database.helpers.ts');
+  const tablesResult = await generateTablesFile(foundationWriteOptions);
+  if (!tablesResult.success) {
+    console.error(`\n❌ Phase 0a failed: ${tablesResult.message}`);
+    process.exit(1);
   }
-  
-  const dryRun = args.includes('--dry-run') || args.includes('-d');
-  const verbose = args.includes('--verbose') || args.includes('-v');
-  
-  let target: GaiaOptions['target'] = 'all';
-  let targetValue: string | null = null;
-  
-  const deityArg = args.find(a => a.startsWith('--deity='));
-  if (deityArg) {
-    target = 'deity';
-    targetValue = deityArg.split('=')[1];
+  console.log(`   ${tablesResult.message}`);
+
+  // ── Phase 0b: Enum Helpers ──
+  console.log('\n📦 Phase 0b: Generate enums.ts');
+  const enumsResult = await generateEnumsFile(foundationWriteOptions);
+  if (!enumsResult.success) {
+    console.error(`\n❌ Phase 0b failed: ${enumsResult.message}`);
+    process.exit(1);
   }
-  
-  const tableArg = args.find(a => a.startsWith('--table='));
-  if (tableArg) {
-    target = 'table';
-    targetValue = tableArg.split('=')[1];
+  console.log(`   ${enumsResult.message}`);
+  if (enumsResult.enumsCount > 0) {
+    console.log(`   ${enumsResult.enumsCount} runtime enums exported`);
   }
-  
-  const viewArg = args.find(a => a.startsWith('--view='));
-  if (viewArg) {
-    target = 'view';
-    targetValue = viewArg.split('=')[1];
+
+  // ── Phase 0c: Enum Mapping ──
+  console.log('\n📦 Phase 0c: Generate enum_mapping.ts');
+  const enumMappingResult = await generateEnumMappingFile(foundationWriteOptions);
+  if (!enumMappingResult.success) {
+    console.error(`\n❌ Phase 0c failed: ${enumMappingResult.message}`);
+    process.exit(1);
   }
-  
-  const functionArg = args.find(a => a.startsWith('--function='));
-  if (functionArg) {
-    target = 'function';
-    targetValue = functionArg.split('=')[1];
+  console.log(`   ${enumMappingResult.message}`);
+  if (enumMappingResult.mappingCount > 0) {
+    console.log(`   ${enumMappingResult.mappingCount} enums mapped`);
   }
-  
-  return { dryRun, verbose, force, target, targetValue, interactive: false };
+
+  // ── Summary ──
+  console.log('\n' + '─'.repeat(60));
+  console.log('✅ Phase 0 complete');
+  console.log(`   database.helpers.ts: ${tablesResult.action}`);
+  console.log(`   enums.ts:            ${enumsResult.action}`);
+  console.log(`   enum_mapping.ts:     ${enumMappingResult.action}`);
 }
 
 // ============================================================================
-// FILTERING
+// PHASE 1: DISCOVERY
 // ============================================================================
 
-interface FilteredObjects {
-  tableNames: PublicTableNames[];
-  viewNames: PublicViewNames[];
-  functionNames: string[];
-  runtimeEnums: Array<{ name: string; values: string[] }>;
+async function runPhase1(): Promise<GaiaSchema> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔍 GAIA v2 - Phase 1 (Discovery)');
+  console.log('═'.repeat(60));
+
+  // Read source file
+  const fileResult = readDatabaseTypes();
+  if (!fileResult.success) {
+    throw new Error(`Failed to read database.types.ts: ${fileResult.error}`);
+  }
+
+  const lines = fileResult.content.split('\n');
+  console.log(`\n📖 Read ${lines.length} lines from database.types.ts`);
+
+  // Find markers and closing braces
+  const markers = findMarkers(lines, { verbose: true });
+  const markersWithBraces = findAllClosingBraces(lines, markers, { verbose: true });
+
+  // Extract names
+  const names = extractAllNames(lines, markersWithBraces, { verbose: true });
+  console.log(`\n🎯 Found:`);
+  console.log(`   ${names.tables.length} tables`);
+  console.log(`   ${names.views.length} views`);
+  console.log(`   ${names.functions.length} functions`);
+  console.log(`   ${names.typeEnums.length} type enums`);
+  console.log(`   ${names.compositeTypes.length} composite types`);
+
+  // Extract full table bodies
+  const tables = await extractTables(
+    lines,
+    markersWithBraces.tablesLine,
+    markersWithBraces.tablesEndLine,
+    { verbose: true }
+  );
+
+  // Extract function signatures
+  const functions = await extractFunctions(
+    lines,
+    markersWithBraces.functionsLine,
+    markersWithBraces.functionsEndLine,
+    { verbose: true }
+  );
+
+  // Extract runtime enum values
+  const runtimeEnums = await extractRuntimeEnums(
+    lines,
+    markersWithBraces.constantsEnumsLine,
+    markersWithBraces.constantsEnumsEndLine,
+    { verbose: true }
+  );
+
+  const schema: GaiaSchema = {
+    sourcePath: 'src/types/supabase/database.types.ts',
+    tables,
+    views: names.views,
+    functions,
+    typeEnums: names.typeEnums,
+    compositeTypes: names.compositeTypes,
+    runtimeEnums,
+  };
+
+  console.log(`\n📊 Extracted:`);
+  console.log(`   ${schema.tables.length} tables with full bodies`);
+  console.log(`   ${schema.functions.length} function signatures`);
+  console.log(`   ${schema.runtimeEnums.length} runtime enums with values`);
+
+  return schema;
 }
 
-function filterObjects(
-  allTables: PublicTableNames[],
-  allViews: PublicViewNames[],
-  allFunctions: string[],
-  allRuntimeEnums: Array<{ name: string; values: string[] }>,
-  options: GaiaOptions
-): FilteredObjects {
-  const { target, targetValue } = options;
-  
-  if (target === 'all') {
-    return {
-      tableNames: allTables,
-      viewNames: allViews,
-      functionNames: allFunctions,
-      runtimeEnums: allRuntimeEnums,
-    };
+// ============================================================================
+// PHASE 2: ENRICHMENT
+// ============================================================================
+
+async function runPhase2(schema: GaiaSchema): Promise<EnrichedSchema> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('⚙️  GAIA v2 - Phase 2 (Enrichment)');
+  console.log('═'.repeat(60));
+
+  // Build table lookup map
+  const tableInfoMap = new Map(schema.tables.map(t => [t.name, t]));
+
+  // Enrich all objects
+  const enriched = await enrichAll(
+    schema.tables.map(t => t.name as PublicTableNames),
+    tableInfoMap,
+    schema.views as PublicViewNames[],
+    schema.functions.map(f => f.name),
+    schema.runtimeEnums.map(e => ({ name: e.name, values: e.values })),
+    { verbose: true }
+  );
+
+  console.log(`\n📊 Enriched:`);
+  console.log(`   ${enriched.tables.length} tables`);
+  console.log(`   ${enriched.views.length} views`);
+  console.log(`   ${enriched.functions.length} functions`);
+  console.log(`   ${enriched.runtimeEnums.length} runtime enums`);
+
+  // Generation flag summary
+  const tablesWithTypes = enriched.tables.filter(t => t.shouldGenerateTypes).length;
+  const tablesWithValidators = enriched.tables.filter(t => t.shouldGenerateValidators).length;
+  const tablesWithApi = enriched.tables.filter(t => t.shouldGenerateApiRoutes).length;
+  const tablesWithHooks = enriched.tables.filter(t => t.shouldGenerateHooks).length;
+  const tablesWithUtils = enriched.tables.filter(t => t.shouldGenerateUtils).length;
+  const enumsWithConstants = enriched.runtimeEnums.filter(e => e.shouldGenerateConstants).length;
+
+  console.log(`\n🎯 Full generation plan (before filtering):`);
+  console.log(`   ${tablesWithTypes} table type files`);
+  console.log(`   ${tablesWithValidators} validator files`);
+  console.log(`   ${tablesWithApi} table API route pairs`);
+  console.log(`   ${tablesWithHooks} hook files`);
+  console.log(`   ${tablesWithUtils} util files`);
+  console.log(`   ${enumsWithConstants} runtime enum constant files`);
+
+  return enriched;
+}
+
+// ============================================================================
+// GENERATION GATE
+// ============================================================================
+
+async function runGenerationGate(
+  enriched: EnrichedSchema,
+  cliPlan: GenerationOptions | null
+): Promise<GenerationOptions> {
+  const plan = cliPlan ?? (await promptForGenerationPlan(enriched));
+
+  console.log('\n' + '─'.repeat(60));
+  console.log(cliPlan ? '📝 Generation options from CLI flags:' : '📝 Generation gate response:');
+  console.log(`   Target: ${plan.target}${plan.targetValue ? ` = ${plan.targetValue}` : ''}`);
+  console.log(`   Force:  ${plan.force ? 'yes' : 'no'}`);
+  console.log(`   Verbose: ${plan.verbose ? 'yes' : 'no'}`);
+  console.log('─'.repeat(60));
+
+  return plan;
+}
+
+// ============================================================================
+// PHASE 3a: RUNTIME ENUM CONSTANTS
+// ============================================================================
+
+function filterEnumsForTarget(
+  enums: EnrichedRuntimeEnum[],
+  plan: GenerationOptions,
+  tables: EnrichedTable[]
+): EnrichedRuntimeEnum[] {
+  if (plan.target === 'all') {
+    return enums;
   }
-  
-  if (target === 'deity' && targetValue) {
-    const deityGroup = DEITY_GROUPS.find(
-      g => g.folderName === targetValue || g.name === targetValue
-    );
-    
-    if (!deityGroup) {
-      logWarning(`Deity "${targetValue}" not found`);
-      return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
-    }
-    
-    return {
-      tableNames: deityGroup.tables,
-      viewNames: deityGroup.views || [],
-      functionNames: allFunctions.filter(f => {
-        for (const table of deityGroup.tables) {
-          if (f.includes(table) || table.includes(f)) return true;
+
+  if (plan.target === 'deity' && plan.targetValue) {
+    return enums.filter(e => e.deityFolder === plan.targetValue);
+  }
+
+  if (plan.target === 'table' && plan.targetValue) {
+    const targetTable = tables.find(t => t.name === plan.targetValue);
+    if (!targetTable) return [];
+    return enums.filter(e => targetTable.enumRefs.includes(e.name));
+  }
+
+  return enums;
+}
+
+async function runPhase3a(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔢 GAIA v2 - Phase 3a (Runtime Enum Constants)');
+  console.log('═'.repeat(60));
+
+  const enumsToGenerate = filterEnumsForTarget(
+    enriched.runtimeEnums.filter(e => e.shouldGenerateConstants),
+    plan,
+    enriched.tables
+  );
+
+  if (enumsToGenerate.length === 0) {
+    console.log('\n⏭️  No runtime enum constants to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${enumsToGenerate.length} runtime enum constant file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const enum_ of enumsToGenerate) {
+    try {
+      const runtimeEnumInfo: RuntimeEnumInfo = {
+        name: enum_.name,
+        values: enum_.values,
+        content: '',
+        startLine: 0,
+        endLine: 0,
+        type: 'runtime_enum',
+      };
+
+      const result = generateConstant(runtimeEnumInfo, enum_.deityFolder, {
+        verbose: plan.verbose,
+      });
+
+      if (!result) {
+        skipped++;
+        continue;
+      }
+
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`RuntimeEnum:${enum_.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
         }
-        return false;
-      }),
-      runtimeEnums: allRuntimeEnums.filter(e => {
-        const { getEnumFolder } = require('@/config/enum_mapping.js');
-        return getEnumFolder(e.name) === deityGroup.folderName;
-      }),
-    };
-  }
-  
-  if (target === 'table' && targetValue) {
-    if (allTables.includes(targetValue as PublicTableNames)) {
-      return {
-        tableNames: [targetValue as PublicTableNames],
-        viewNames: [],
-        functionNames: [],
-        runtimeEnums: [],
-      };
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${enum_.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
     }
-    logWarning(`Table "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
   }
-  
-  if (target === 'view' && targetValue) {
-    if (allViews.includes(targetValue as PublicViewNames)) {
-      return {
-        tableNames: [],
-        viewNames: [targetValue as PublicViewNames],
-        functionNames: [],
-        runtimeEnums: [],
-      };
-    }
-    logWarning(`View "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
-  }
-  
-  if (target === 'function' && targetValue) {
-    if (allFunctions.includes(targetValue)) {
-      return {
-        tableNames: [],
-        viewNames: [],
-        functionNames: [targetValue],
-        runtimeEnums: [],
-      };
-    }
-    logWarning(`Function "${targetValue}" not found`);
-    return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
-  }
-  
-  return { tableNames: [], viewNames: [], functionNames: [], runtimeEnums: [] };
+
+  console.log(`\n📊 Phase 3a summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
 }
 
 // ============================================================================
-// GENERATION PLAN CALCULATION
+// PHASE 3b: TYPES
 // ============================================================================
 
-function calculateGenerationPlan(
+function filterTablesAndViewsForTarget(
   tables: EnrichedTable[],
   views: EnrichedView[],
-  functions: EnrichedFunction[],
-  runtimeEnums: EnrichedRuntimeEnum[]
-): GenerationPlan {
-  let typeFiles = 0;
-  let validatorFiles = 0;
-  let constantFiles = 0;
-  let apiRouteFiles = 0;
-  let hookFiles = 0;
-  let utilFiles = 0;
-  
+  plan: GenerationOptions
+): { tables: EnrichedTable[]; views: EnrichedView[] } {
+  if (plan.target === 'all') {
+    return { tables, views };
+  }
+
+  if (plan.target === 'deity' && plan.targetValue) {
+    return {
+      tables: tables.filter(t => t.deityFolder === plan.targetValue),
+      views: views.filter(v => v.deityFolder === plan.targetValue),
+    };
+  }
+
+  if (plan.target === 'table' && plan.targetValue) {
+    return {
+      tables: tables.filter(t => t.name === plan.targetValue),
+      views: [],
+    };
+  }
+
+  return { tables: [], views: [] };
+}
+
+async function runPhase3b(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('📝 GAIA v2 - Phase 3b (Types)');
+  console.log('═'.repeat(60));
+
+  const { tables, views } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateTypes),
+    enriched.views.filter(v => v.shouldGenerateTypes),
+    plan
+  );
+
+  const total = tables.length + views.length;
+  if (total === 0) {
+    console.log('\n⏭️  No type files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${total} type file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
   // Tables
   for (const table of tables) {
-    if (table.shouldGenerateTypes) typeFiles++;
-    if (table.shouldGenerateValidators) validatorFiles++;
-    if (table.shouldGenerateApiRoutes) apiRouteFiles += 2;
-    if (table.shouldGenerateHooks) hookFiles++;
-    if (table.shouldGenerateUtils) utilFiles++;
+    try {
+      const object: ExtractedObjectWithDetails = {
+        name: table.name,
+        type: 'table',
+        content: '',
+        startLine: 0,
+        endLine: 0,
+        rowContent: table.rowContent,
+        insertContent: table.insertContent,
+        updateContent: table.updateContent,
+        enumRefs: table.enumRefs,
+        hasJson: table.hasJson,
+      };
+
+      const formatted = formatObjectTypes(object, table.category, {
+        deityGroup: table.deityFolder,
+        outputFolder: `generated/${table.deityFolder}`,
+        verbose: plan.verbose,
+      });
+
+      const filePath = `src/types/generated/${table.deityFolder}/${table.name}.ts`;
+      const writeResult = await writeGeneratedFile(
+        filePath,
+        formatted.fullContent,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
   }
-  
+
   // Views
   for (const view of views) {
-    if (view.shouldGenerateTypes) typeFiles++;
-    if (view.shouldGenerateViewApiRoutes) apiRouteFiles += 2;
-  }
-  
-  // Functions
-  for (const fn of functions) {
-    if (fn.shouldGenerateApiRoutes) apiRouteFiles += 1;
-  }
-  
-  // Runtime Enums
-  for (const enum_ of runtimeEnums) {
-    if (enum_.shouldGenerateConstants) constantFiles++;
-  }
-  
-  const totalFiles = typeFiles + validatorFiles + constantFiles + apiRouteFiles + hookFiles + utilFiles;
-  
-  return {
-    tables: tables.length,
-    views: views.length,
-    functions: functions.length,
-    runtimeEnums: runtimeEnums.length,
-    typeFiles,
-    validatorFiles,
-    constantFiles,
-    apiRouteFiles,
-    hookFiles,
-    utilFiles,
-    totalFiles,
-  };
-}
-
-// ============================================================================
-// GENERATION PLAN DISPLAY
-// ============================================================================
-
-async function showGenerationPlan(
-  plan: GenerationPlan,
-  options: GaiaOptions
-): Promise<boolean> {
-  console.log('\n');
-  logSeparator('═', 60);
-  logHeader('📋 GENERATION PLAN');
-  logSeparator('═', 60);
-  console.log('');
-  
-  logInfo(`📊 OBJECTS TO PROCESS:`);
-  console.log(`     Tables:       ${plan.tables}`);
-  console.log(`     Views:        ${plan.views}`);
-  console.log(`     Functions:    ${plan.functions}`);
-  console.log(`     Runtime Enums: ${plan.runtimeEnums}`);
-  console.log('');
-  
-  logInfo(`📁 FILES TO GENERATE:`);
-  console.log(`     Type files:      ${plan.typeFiles}`);
-  console.log(`     Validator files: ${plan.validatorFiles}`);
-  console.log(`     Constant files:  ${plan.constantFiles}`);
-  console.log(`     API route files: ${plan.apiRouteFiles}`);
-  console.log(`     Hook files:      ${plan.hookFiles}`);
-  console.log(`     Util files:      ${plan.utilFiles}`);
-  console.log(`     ────────────────────────────`);
-  console.log(`     TOTAL FILES:     ${plan.totalFiles}`);
-  console.log('');
-  
-  if (options.dryRun) {
-    logWarning('DRY RUN MODE - No files will be written');
-    console.log('');
-  }
-  
-  logSeparator('─', 40);
-  console.log('');
-  console.log('Options:');
-  console.log(`  [c] Continue - proceed with generation`);
-  console.log(`  [n] Cancel - exit without generating`);
-  console.log(`  [o] Cancel with notes - save notes and exit`);
-  console.log('');
-  
-  const response = await askUser('Choose (c/n/o): ');
-  
-  if (response.toLowerCase() === 'c') return true;
-  
-  if (response.toLowerCase() === 'o') {
-    console.log('\n📝 Enter your notes (press Enter twice to finish):');
-    const notes: string[] = [];
-    while (true) {
-      const line = await askUser('');
-      if (line === '') break;
-      notes.push(line);
-    }
-    if (notes.length > 0) {
-      const notesPath = `./gaia-notes-${Date.now()}.txt`;
-      fs.writeFileSync(notesPath, notes.join('\n'));
-      logInfo(`Notes saved to: ${notesPath}`);
-    }
-  }
-  
-  console.log('\n❌ Generation cancelled.');
-  process.exit(0);
-}
-
-// ============================================================================
-// ARTIFACT GENERATION
-// ============================================================================
-
-// In index.ts - This is the correct, aligned version
-
-async function generateTableArtifacts(
-  table: EnrichedTable,
-  writeOptions: WriteOptions,
-  stats: GenerationStats,
-  logger: SystemLogger,
-  lines: string[],
-  markersWithBraces: any
-): Promise<void> {
-  const { name: tableName, deityFolder } = table;
-  
-  if (writeOptions.verbose) {
-    logDebug(`\n  📦 Table: ${tableName} -> ${deityFolder}`);
-  }
-  
-// ====================================================
-// TYPES
-// ====================================================
-if (table.shouldGenerateTypes) {
-  try {
-    // Build ExtractedObjectWithDetails from TableInfo
-    const object: ExtractedObjectWithDetails = {
-      name: table.name,
-      type: 'table',
-      content: '',
-      startLine: 0,
-      endLine: 0,
-      rowContent: table.rowContent,
-      insertContent: table.insertContent,
-      updateContent: table.updateContent,
-      enumRefs: table.enumRefs,
-      hasJson: table.hasJson,
-    };
-
-    const formatted = formatObjectTypes(object, table.category, {
-      deityGroup: table.deityFolder,
-      outputFolder: `generated/${table.deityFolder}`,
-    });
-    
-    // ✅ Build the file path separately
-    const filePath = `src/types/generated/${table.deityFolder}/${table.name}.ts`;
-    
-    const writeResult = await writeGeneratedFile(
-      filePath,
-      formatted.fullContent,  // ✅ Use fullContent, not result.content
-      [`EnrichedTable:${tableName}`],
-      writeOptions
-    );
-    
-    if (writeResult.success && writeResult.action !== 'skipped') {
-      stats.filesWritten.push(writeResult.filePath);
-      logger.addGeneratedFile(writeResult.filePath);
-      if (writeOptions.verbose) logSuccess(`      ✓ types: ${filePath}`);
-    } else if (writeResult.action === 'skipped') {
-      stats.filesSkipped.push(writeResult.filePath);
-    }
-  } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    stats.errors.push({ object: tableName, error: `types: ${msg}` });
-    logError(`      ✗ types: ${msg}`);
-  }
-}
-  
-  // ====================================================
-  // API ROUTES
-  // ====================================================
-  if (table.shouldGenerateApiRoutes) {
-    try {
-      const routes = generateTableApiRoutes(table);
-      for (const route of routes) {
-        const writeResult = await writeGeneratedFile(
-          route.filePath,
-          route.content,
-          [`EnrichedTable:${tableName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ api: ${route.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
-        }
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: tableName, error: `api: ${msg}` });
-      logError(`      ✗ api: ${msg}`);
-    }
-  }
-  
-  // ====================================================
-  // HOOKS
-  // ====================================================
-  if (table.shouldGenerateHooks) {
-    try {
-      const result = generateHooks(table);
-      if (result) {
-        const writeResult = await writeGeneratedFile(
-          result.filePath,
-          result.content,
-          [`EnrichedTable:${tableName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ hooks: ${result.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
-        }
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: tableName, error: `hooks: ${msg}` });
-      logError(`      ✗ hooks: ${msg}`);
-    }
-  }
-  
-  // ====================================================
-  // UTILS
-  // ====================================================
-  if (table.shouldGenerateUtils) {
-    try {
-      const result = generateUtils(table);
-      if (result) {
-        const writeResult = await writeGeneratedFile(
-          result.filePath,
-          result.content,
-          [`EnrichedTable:${tableName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ utils: ${result.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
-        }
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: tableName, error: `utils: ${msg}` });
-      logError(`      ✗ utils: ${msg}`);
-    }
-  }
-  
-  stats.tablesProcessed++;
-}
-
-async function generateViewArtifacts(
-  view: EnrichedView,
-  writeOptions: WriteOptions,
-  stats: GenerationStats,
-  logger: SystemLogger
-): Promise<void> {
-  const { name: viewName, deityFolder } = view;
-  
-  if (writeOptions.verbose) {
-    logDebug(`\n  👁️  View: ${viewName} -> ${deityFolder}`);
-  }
-  
-  // Types
-  if (view.shouldGenerateTypes) {
     try {
       const result = generateViewTypes(view);
       const writeResult = await writeGeneratedFile(
         result.filePath,
         result.content,
-        [`EnrichedView:${viewName}`],
+        [`EnrichedView:${view.name}`],
         writeOptions
       );
-      
+
       if (writeResult.success && writeResult.action !== 'skipped') {
-        stats.filesWritten.push(writeResult.filePath);
-        logger.addGeneratedFile(writeResult.filePath);
-        if (writeOptions.verbose) logSuccess(`      ✓ types: ${result.filePath}`);
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
       } else if (writeResult.action === 'skipped') {
-        stats.filesSkipped.push(writeResult.filePath);
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: viewName, error: `types: ${msg}` });
-      logError(`      ✗ types: ${msg}`);
-    }
-  }
-  
-  // API Routes
-  if (view.shouldGenerateViewApiRoutes) {
-    try {
-      const routes = generateViewApiRoutes(view);
-      for (const route of routes) {
-        const writeResult = await writeGeneratedFile(
-          route.filePath,
-          route.content,
-          [`EnrichedView:${viewName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ api: ${route.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
         }
       }
     } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: viewName, error: `api: ${msg}` });
-      logError(`      ✗ api: ${msg}`);
-    }
-  }
-  
-  stats.viewsProcessed++;
-}
-
-async function generateFunctionArtifacts(
-  fn: EnrichedFunction,
-  writeOptions: WriteOptions,
-  stats: GenerationStats,
-  logger: SystemLogger
-): Promise<void> {
-  const { name: functionName, deityFolder } = fn;
-  
-  if (writeOptions.verbose) {
-    logDebug(`\n  ⚡ Function: ${functionName} -> ${deityFolder}`);
-  }
-  
-  // API Route
-  if (fn.shouldGenerateApiRoutes) {
-    try {
-      const route = generateFunctionApiRoute(fn);
-      if (route) {
-        const writeResult = await writeGeneratedFile(
-          route.filePath,
-          route.content,
-          [`EnrichedFunction:${functionName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ api: ${route.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
-        }
-      }
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: functionName, error: `api: ${msg}` });
-      logError(`      ✗ api: ${msg}`);
-    }
-  }
-  
-  stats.functionsProcessed++;
-}
-
-async function generateRuntimeEnumArtifacts(
-  enum_: EnrichedRuntimeEnum,
-  writeOptions: WriteOptions,
-  stats: GenerationStats,
-  logger: SystemLogger
-): Promise<void> {
-  const { name: enumName, deityFolder, values } = enum_;
-  
-  if (writeOptions.verbose) {
-    logDebug(`\n  🔢 Runtime Enum: ${enumName} -> ${deityFolder}`);
-  }
-  
-  if (enum_.shouldGenerateConstants) {
-    try {
-      const result = generateConstant(
-        { name: enumName, values, content: '', startLine: 0, endLine: 0, type: 'runtime_enum' },
-        deityFolder
+      errors++;
+      console.error(
+        `   ❌ ${view.name}: ${error instanceof Error ? error.message : String(error)}`
       );
-      
-      if (result) {
-        const writeResult = await writeGeneratedFile(
-          result.filePath,
-          result.content,
-          [`RuntimeEnum:${enumName}`],
-          writeOptions
-        );
-        
-        if (writeResult.success && writeResult.action !== 'skipped') {
-          stats.filesWritten.push(writeResult.filePath);
-          logger.addGeneratedFile(writeResult.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ constants: ${result.filePath}`);
-        } else if (writeResult.action === 'skipped') {
-          stats.filesSkipped.push(writeResult.filePath);
+    }
+  }
+
+  console.log(`\n📊 Phase 3b summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
+// PHASE 3c: VALIDATORS
+// ============================================================================
+
+async function runPhase3c(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔒 GAIA v2 - Phase 3c (Validators)');
+  console.log('═'.repeat(60));
+
+  // Validators are tables-only — views are read-only and get no Zod schemas,
+  // so the view half of the shared filter is passed empty and ignored.
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateValidators),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No validator files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} validator file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      // Phase 1 already split Row/Insert/Update and resolved enum references;
+      // enrichment carried them through. Nothing is re-parsed here.
+      if (!table.rowContent && !table.insertContent) {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped (no Row/Insert content): ${table.name}`);
+        }
+        continue;
+      }
+
+      const content = generateValidatorContent(
+        table.name,
+        table.rowContent,
+        table.insertContent,
+        table.updateContent
+      );
+
+      const filePath = `src/lib/validators/generated/${table.deityFolder}/${table.name}.ts`;
+      const writeResult = await writeGeneratedFile(
+        filePath,
+        content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
         }
       }
     } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error);
-      stats.errors.push({ object: enumName, error: `constants: ${msg}` });
-      logError(`      ✗ constants: ${msg}`);
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
     }
   }
-  
-  stats.runtimeEnumsProcessed++;
+
+  console.log(`\n📊 Phase 3c summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
 }
 
 // ============================================================================
-// SUMMARY DISPLAY
+// PHASE 3d: API ROUTES
 // ============================================================================
 
-function displaySummary(stats: GenerationStats, dryRun: boolean): void {
-  console.log('\n');
-  logSeparator('═', 60);
-  logHeader('📊 GENERATION SUMMARY');
-  logSeparator('═', 60);
-  console.log('');
-  
-  const duration = stats.endTime.getTime() - stats.startTime.getTime();
-  
-  console.log(`  Objects Processed:`);
-  console.log(`    Tables:       ${stats.tablesProcessed}`);
-  console.log(`    Views:        ${stats.viewsProcessed}`);
-  console.log(`    Functions:    ${stats.functionsProcessed}`);
-  console.log(`    Runtime Enums: ${stats.runtimeEnumsProcessed}`);
-  console.log('');
-  
-  console.log(`  Files:`);
-  console.log(`    Written:  ${stats.filesWritten.length}`);
-  console.log(`    Skipped:  ${stats.filesSkipped.length}`);
-  console.log(`    Errors:   ${stats.errors.length}`);
-  console.log('');
-  
-  console.log(`  Duration: ${(duration / 1000).toFixed(2)} seconds`);
-  
-  if (dryRun) {
-    console.log('');
-    logWarning('  DRY RUN - No files were actually written');
+/**
+ * Functions have no link back to a single table, so a --table target has
+ * nothing to select them by. 'all' takes every function, 'deity' takes the
+ * ones resolved to that folder, 'table' takes none.
+ */
+function filterFunctionsForTarget(
+  functions: EnrichedFunction[],
+  plan: GenerationOptions
+): EnrichedFunction[] {
+  if (plan.target === 'all') {
+    return functions;
   }
-  
-  if (stats.errors.length > 0) {
-    console.log('');
-    logError('  Errors encountered:');
-    for (const err of stats.errors.slice(0, 10)) {
-      console.log(`    - ${err.object}: ${err.error}`);
-    }
-    if (stats.errors.length > 10) {
-      console.log(`    ... and ${stats.errors.length - 10} more`);
-    }
+
+  if (plan.target === 'deity' && plan.targetValue) {
+    return functions.filter(f => f.deityFolder === plan.targetValue);
   }
-  
-  console.log('');
-  logSeparator('═', 60);
+
+  return [];
 }
 
-// ============================================================================
-// MAIN ORCHESTRATOR
-// ============================================================================
+async function runPhase3d(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🛣️  GAIA v2 - Phase 3d (API Routes)');
+  console.log('═'.repeat(60));
 
-async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
-  const { dryRun, verbose, force, target, targetValue } = options;
-  
-  // Initialize
-  const logger = new SystemLogger('GAIA');
-  logger.startRun();
-  
-  const stats: GenerationStats = {
-    tablesProcessed: 0,
-    viewsProcessed: 0,
-    functionsProcessed: 0,
-    runtimeEnumsProcessed: 0,
-    filesWritten: [],
-    filesSkipped: [],
-    errors: [],
-    startTime: new Date(),
-    endTime: new Date(),
+  const { tables, views } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateApiRoutes),
+    enriched.views.filter(v => v.shouldGenerateViewApiRoutes),
+    plan
+  );
+  const functions = filterFunctionsForTarget(
+    enriched.functions.filter(f => f.shouldGenerateApiRoutes),
+    plan
+  );
+
+  const totalObjects = tables.length + views.length + functions.length;
+  if (totalObjects === 0) {
+    console.log('\n⏭️  No API routes to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(
+    `\n📦 Generating API routes for ${totalObjects} object(s) ` +
+    `(${tables.length} tables, ${views.length} views, ${functions.length} functions)...`
+  );
+  console.log('   A table or view yields up to two files: the list route and the [id] route.');
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
   };
-  
-  const writeOptions: WriteOptions = { dryRun, force, verbose, logger };
-  
-  // Banner
-  logSeparator('═', 60);
-  logHeader('🌍 GAIA - Type-First Generator');
-  logSeparator('═', 60);
-  logInfo(`Mode: ${dryRun ? 'DRY RUN (preview only)' : 'WRITE MODE'}`);
-  if (target === 'deity') logInfo(`Target: deity = ${targetValue}`);
-  if (target === 'table') logInfo(`Target: table = ${targetValue}`);
-  if (target === 'view') logInfo(`Target: view = ${targetValue}`);
-  if (target === 'function') logInfo(`Target: function = ${targetValue}`);
-  if (target === 'all') logInfo(`Target: ALL objects`);
-  logSeparator('═', 60);
-  console.log('');
-  
-  // ===== PHASE 1: DISCOVERY =====
-  logStep('📖 Phase 1: Discovery');
-  
-  const { content, success } = readDatabaseTypes();
-  if (!success) throw new Error('Failed to read database.types.ts');
-  
-  const lines = content.split('\n');
-  logSuccess(`Read ${lines.length} lines`);
-  
-  const markers = findMarkers(lines, { verbose });
-  const markersWithBraces = findAllClosingBraces(lines, markers, { verbose });
-  
-  const names = extractAllNames(lines, markersWithBraces, { verbose });
-  logSuccess(`Found: ${names.tables.length} tables, ${names.views.length} views, ${names.functions.length} functions`);
-  
-  const runtimeEnums = await extractRuntimeEnums(
-    lines,
-    markersWithBraces.constantsEnumsLine,
-    markersWithBraces.constantsEnumsEndLine,
-    { verbose }
-  );
-  logSuccess(`Found ${runtimeEnums.length} runtime enums`);
-  
-  const functions = await extractFunctions(
-    lines,
-    markersWithBraces.functionsLine,
-    markersWithBraces.functionsEndLine,
-    { verbose }
-  );
-  
-  // ===== PHASE 2: FILTER =====
-  logStep('\n🎯 Phase 2: Filtering');
-  
-  const filtered = filterObjects(
-    names.tables as PublicTableNames[],
-    names.views as PublicViewNames[],
-    names.functions,
-    runtimeEnums.map(e => ({ name: e.name, values: e.values })),
-    options
-  );
-  
-  logInfo(`After filtering: ${filtered.tableNames.length} tables, ${filtered.viewNames.length} views, ${filtered.functionNames.length} functions`);
-  
-  if (filtered.tableNames.length === 0 && filtered.viewNames.length === 0 && filtered.functionNames.length === 0) {
-    logWarning('No objects to process');
-    logger.endRun('success');
-    return stats;
-  }
-  
-  // ===== PHASE 3: ENRICH =====
-  logStep('\n⚙️  Phase 3: Enrichment');
-  
-  const extractedTables = await extractTables(
-    lines,
-    markersWithBraces.tablesLine,
-    markersWithBraces.tablesEndLine,
-    { verbose }
-  );
-  const tableInfoMap = new Map(extractedTables.map(t => [t.name, t]));
 
-  const enriched = await enrichAll(
-    filtered.tableNames,
-    tableInfoMap,
-    filtered.viewNames,
-    filtered.functionNames,
-    filtered.runtimeEnums,
-    { verbose }
-  );
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
 
-  logSuccess(`Enriched: ${enriched.tables.length} tables, ${enriched.views.length} views, ${enriched.functions.length} functions`);  
-  
-  // ===== PHASE 4: PLAN =====
-  logStep('\n📋 Phase 4: Generation Plan');
+  // One route file at a time, so a single bad object can't sink the phase.
+  const writeRoute = async (
+    route: { filePath: string; content: string },
+    sourceTag: string
+  ): Promise<void> => {
+    const writeResult = await writeGeneratedFile(
+      route.filePath,
+      route.content,
+      [sourceTag],
+      writeOptions
+    );
 
-  const plan = calculateGenerationPlan(
-    enriched.tables,
-    enriched.views,
-    enriched.functions,
-    enriched.runtimeEnums
-  );
-
-  const shouldProceed = await showGenerationPlan(plan, options);
-  if (!shouldProceed) {
-    logger.endRun('success');
-    return stats;
-  }
-  
-  // ===== PHASE 5: DIRECTORIES =====
-  logStep('\n📁 Phase 5: Directory Setup');
-  
-  if (!dryRun) {
-    ensureAllDirectories({ verbose });
-    logSuccess('Directories ensured');
-  } else {
-    logInfo('[DRY RUN] Would ensure directories');
-  }
-  
-  // ===== PHASE 6: GENERATION (Tables, Views, Functions, Enums) =====
-  logStep('\n🚀 Phase 6: Generation');
-  logSeparator('─', 40);
-
-  // Tables
-  for (const table of enriched.tables) {
-    await generateTableArtifacts(table, writeOptions, stats, logger, lines, markersWithBraces);
-  }
-
-  // Views
-  for (const view of enriched.views) {
-    await generateViewArtifacts(view, writeOptions, stats, logger);
-  }
-
-  // Functions
-  for (const fn of enriched.functions) {
-    await generateFunctionArtifacts(fn, writeOptions, stats, logger);
-  }
-
-  // Runtime Enums
-  for (const enum_ of enriched.runtimeEnums) {
-    await generateRuntimeEnumArtifacts(enum_, writeOptions, stats, logger);
-  }
-
-  // ===== PHASE 7: VALIDATORS (After all types exist) =====
-  logStep('\n🔒 Phase 7: Validator Generation');
-  logSeparator('─', 40);
-
-  for (const table of enriched.tables) {
-    if (table.shouldGenerateValidators) {
-      try {
-        // Build the full table content from extracted sections
-        const tableContent = `{
-    Row: {
-  ${table.rowContent}
-    }
-    Insert: {
-  ${table.insertContent}
-    }
-    Update: {
-  ${table.updateContent}
-    }
-  }`;
-        
-        const result = await generateValidatorForTable(
-          table.name,
-          tableContent,
-          { 
-            verbose: writeOptions.verbose, 
-            dryRun: writeOptions.dryRun, 
-            forceOverwrite: writeOptions.force,
-            outputBase: `lib/validators/generated/${table.deityFolder}`
-          }
-        );
-        
-        if (result.success && result.action !== 'skipped' && result.action !== 'staged') {
-          stats.filesWritten.push(result.filePath);
-          logger.addGeneratedFile(result.filePath);
-          if (writeOptions.verbose) logSuccess(`      ✓ validator: ${result.filePath} (${result.action})`);
-        } else if (result.action === 'skipped') {
-          stats.filesSkipped.push(result.filePath);
-          if (writeOptions.verbose) logDebug(`      ⏭️ validator skipped: ${result.filePath}`);
-        } else if (result.action === 'staged') {
-          stats.filesWritten.push(result.filePath);
-          if (writeOptions.verbose) logWarning(`      📝 validator staged: ${result.filePath}`);
-        } else if (!result.success) {
-          stats.errors.push({ object: table.name, error: `validator: ${result.message}` });
-          logError(`      ✗ validator: ${result.message}`);
-        }
-      } catch (error) {
-        const msg = error instanceof Error ? error.message : String(error);
-        stats.errors.push({ object: table.name, error: `validator: ${msg}` });
-        logError(`      ✗ validator: ${msg}`);
+    if (writeResult.success && writeResult.action !== 'skipped') {
+      generated++;
+      if (plan.verbose) {
+        console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+      }
+    } else if (writeResult.action === 'skipped') {
+      skipped++;
+      if (plan.verbose) {
+        console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
       }
     }
+  };
+
+  // Tables — list route and [id] route
+  for (const table of tables) {
+    try {
+      for (const route of generateTableApiRoutes(table, { verbose: plan.verbose })) {
+        await writeRoute(route, `EnrichedTable:${table.name}`);
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
   }
 
-  // ===== PHASE 8: SUMMARY =====
-  stats.endTime = new Date();
-  
-  const runStatus = stats.errors.length === 0 ? 'success' : 'partial';
-  logger.endRun(runStatus);
-  
-  displaySummary(stats, dryRun);
-  
-  return stats;
+  // Views — read-only, GET routes only
+  for (const view of views) {
+    try {
+      for (const route of generateViewApiRoutes(view, { verbose: plan.verbose })) {
+        await writeRoute(route, `EnrichedView:${view.name}`);
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${view.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  // Functions — a single invoke route each
+  for (const fn of functions) {
+    try {
+      const route = generateFunctionApiRoute(fn, { verbose: plan.verbose });
+      if (!route) {
+        skipped++;
+        continue;
+      }
+      await writeRoute(route, `EnrichedFunction:${fn.name}`);
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${fn.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3d summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
 }
 
 // ============================================================================
-// MAIN ENTRY
+// PHASE 3e: HOOKS
+// ============================================================================
+
+async function runPhase3e(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🪝 GAIA v2 - Phase 3e (Hooks)');
+  console.log('═'.repeat(60));
+
+  // Hooks are tables-only — the generated file imports the table's Row/Insert/
+  // Update types from src/types/generated (phase 3b).
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateHooks),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No hook files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} hook file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      const result = generateHooks(table, { verbose: plan.verbose });
+
+      if (!result) {
+        skipped++;
+        continue;
+      }
+
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3e summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
+// PHASE 3f: UTILS
+// ============================================================================
+
+async function runPhase3f(
+  enriched: EnrichedSchema,
+  plan: GenerationOptions,
+  dryRun: boolean
+): Promise<{ generated: number; skipped: number; errors: number }> {
+  console.log('\n' + '═'.repeat(60));
+  console.log('🔧 GAIA v2 - Phase 3f (Utils)');
+  console.log('═'.repeat(60));
+
+  // Utils are tables-only, and the generated file imports from BOTH earlier
+  // phases: Row/Insert/Update types (3b) and the Insert/Update Zod schemas
+  // (3c). Running 3f against a target those phases skipped leaves dangling
+  // imports — generate the same target through 3b and 3c first.
+  const { tables } = filterTablesAndViewsForTarget(
+    enriched.tables.filter(t => t.shouldGenerateUtils),
+    [],
+    plan
+  );
+
+  if (tables.length === 0) {
+    console.log('\n⏭️  No util files to generate for this target.');
+    return { generated: 0, skipped: 0, errors: 0 };
+  }
+
+  console.log(`\n📦 Generating ${tables.length} util file(s)...`);
+
+  const writeOptions: WriteOptions = {
+    dryRun,
+    force: plan.force,
+    verbose: plan.verbose,
+  };
+
+  let generated = 0;
+  let skipped = 0;
+  let errors = 0;
+
+  for (const table of tables) {
+    try {
+      const result = generateUtils(table, { verbose: plan.verbose });
+
+      if (!result) {
+        skipped++;
+        continue;
+      }
+
+      const writeResult = await writeGeneratedFile(
+        result.filePath,
+        result.content,
+        [`EnrichedTable:${table.name}`],
+        writeOptions
+      );
+
+      if (writeResult.success && writeResult.action !== 'skipped') {
+        generated++;
+        if (plan.verbose) {
+          console.log(`   ✅ ${writeResult.action}: ${writeResult.filePath}`);
+        }
+      } else if (writeResult.action === 'skipped') {
+        skipped++;
+        if (plan.verbose) {
+          console.log(`   ⏭️  skipped: ${writeResult.filePath}`);
+        }
+      }
+    } catch (error) {
+      errors++;
+      console.error(
+        `   ❌ ${table.name}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  console.log(`\n📊 Phase 3f summary:`);
+  console.log(`   Generated: ${generated}`);
+  console.log(`   Skipped:   ${skipped}`);
+  console.log(`   Errors:    ${errors}`);
+
+  return { generated, skipped, errors };
+}
+
+// ============================================================================
+// ENTRY POINT
 // ============================================================================
 
 async function main() {
-  let options: GaiaOptions;
-  
-  // Check if interactive mode is requested via CLI
-  const args = process.argv.slice(2);
-  const interactiveFlag = args.includes('--interactive') || args.includes('-i');
-  
-  if (interactiveFlag || args.length === 0) {
-    // ALWAYS show interactive prompt if no arguments or --interactive
-    options = await getInteractiveOptions();
-  } else {
-    // Parse CLI options only if arguments provided and not interactive
-    options = parseOptions();
-  }
-  
+  const { foundation, generation } = parseArgs();
+
   try {
-    await runGaia(options);
+    await runPhase0(foundation);
+    const schema = await runPhase1();
+    const enriched = await runPhase2(schema);
+    const plan = await runGenerationGate(enriched, generation);
+    const phase3aStats = await runPhase3a(enriched, plan, foundation.dryRun);
+    const phase3bStats = await runPhase3b(enriched, plan, foundation.dryRun);
+    const phase3cStats = await runPhase3c(enriched, plan, foundation.dryRun);
+    const phase3dStats = await runPhase3d(enriched, plan, foundation.dryRun);
+    const phase3eStats = await runPhase3e(enriched, plan, foundation.dryRun);
+    const phase3fStats = await runPhase3f(enriched, plan, foundation.dryRun);
+
+    console.log('\n' + '═'.repeat(60));
+    console.log('✅ GAIA v2 Phases 0, 1, 2, 3a, 3b, 3c, 3d, 3e, and 3f complete');
+    console.log(`   Tables: ${enriched.tables.length}`);
+    console.log(`   Views:  ${enriched.views.length}`);
+    console.log(`   Functions: ${enriched.functions.length}`);
+    console.log(`   Runtime Enums: ${enriched.runtimeEnums.length}`);
+    console.log(`\n   Phase 3a constants: ${phase3aStats.generated} generated, ${phase3aStats.skipped} skipped, ${phase3aStats.errors} errors`);
+    console.log(`   Phase 3b types:     ${phase3bStats.generated} generated, ${phase3bStats.skipped} skipped, ${phase3bStats.errors} errors`);
+    console.log(`   Phase 3c validators: ${phase3cStats.generated} generated, ${phase3cStats.skipped} skipped, ${phase3cStats.errors} errors`);
+    console.log(`   Phase 3d api routes: ${phase3dStats.generated} generated, ${phase3dStats.skipped} skipped, ${phase3dStats.errors} errors`);
+    console.log(`   Phase 3e hooks:      ${phase3eStats.generated} generated, ${phase3eStats.skipped} skipped, ${phase3eStats.errors} errors`);
+    console.log(`   Phase 3f utils:      ${phase3fStats.generated} generated, ${phase3fStats.skipped} skipped, ${phase3fStats.errors} errors`);
+    console.log('═'.repeat(60) + '\n');
   } catch (error) {
-    logError(`GAIA failed: ${error instanceof Error ? error.message : String(error)}`);
+    console.error(
+      `\n❌ GAIA v2 failed: ${error instanceof Error ? error.message : String(error)}`
+    );
     process.exit(1);
   }
 }
 
 main().catch(console.error);
-
-export { runGaia, type GaiaOptions, type GenerationStats };

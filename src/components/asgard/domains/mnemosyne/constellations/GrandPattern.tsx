@@ -16,15 +16,23 @@ export function GrandPattern() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/generated/hestia-core/profiles?limit=1').then(r => r.json()),
-      fetch('/api/generated/plutus-economics/products?is_published=true&active=true&limit=1').then(r => r.json()),
-      fetch('/api/generated/athena-gamification/badges?is_active=true&limit=1').then(r => r.json()),
-      fetch('/api/generated/plutus-economics/contributions?limit=1').then(r => r.json()),
-    ]).then(([profilesRes, productsRes, badgesRes, contribRes]) => {
+      // profiles -> community_profiles in the settle
+      fetch('/api/generated/hestia-core/community_profiles?limit=1').then(r => r.json()),
+      // products -> wares; is_published/active booleans folded into one content_status enum
+      fetch('/api/generated/plutus-economics/wares?status=published&limit=1').then(r => r.json()),
+      // badges route is gone — GAIA now emits sigils
+      fetch('/api/generated/athena-gamification/sigils?status=published&limit=1').then(r => r.json()),
+      // MEND-LAW 2026-07-20: contributions table is gone. Nearest verified living
+      // shape in the plutus family is ware_participants — the record of a vessel's
+      // contributor/collaborator role on a ware. Narrower than the old ledger-style
+      // "contributions" count may have been, but it is a real, verifiable table
+      // (not invented) rather than guessing at an unverifiable ledger.entry_type value.
+      fetch('/api/generated/plutus-economics/ware_participants?limit=1').then(r => r.json()),
+    ]).then(([profilesRes, productsRes, sigilsRes, contribRes]) => {
       const s: StatCard[] = [];
       if (profilesRes.success) s.push({ label: 'Sovereign Souls', value: profilesRes.data?.pagination?.total || 0, icon: Users, color: 'text-neurospark' });
       if (productsRes.success) s.push({ label: 'Creations Woven', value: productsRes.data?.pagination?.total || 0, icon: Package, color: 'text-purple-400' });
-      if (badgesRes.success) s.push({ label: 'Honors Earned', value: badgesRes.data?.pagination?.total || 0, icon: Award, color: 'text-amber-400' });
+      if (sigilsRes.success) s.push({ label: 'Honors Earned', value: sigilsRes.data?.pagination?.total || 0, icon: Award, color: 'text-amber-400' });
       if (contribRes.success) s.push({ label: 'Contributions Made', value: contribRes.data?.pagination?.total || 0, icon: HandCoins, color: 'text-emerald-400' });
       setStats(s);
     }).catch(() => {}).finally(() => setLoading(false));

@@ -9,12 +9,13 @@ import { Form, FormActions } from "@/components/forging/Form";
 import { FormField } from "@/components/forging/FormField";
 import { Alert } from "@/components/seidr/Alert";
 import { Button } from "@/components/yggdrasil/Button";
+import { AUTH_ROUTES } from "@/lib/constants/components/asgard/auth/auth.constants";
 
 interface LoginFormProps {
   redirectTo?: string;
 }
 
-export default function LoginForm({ redirectTo = "/dashboard" }: LoginFormProps) {
+export default function LoginForm({ redirectTo = AUTH_ROUTES.DASHBOARD }: LoginFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { signIn } = useAuth();
