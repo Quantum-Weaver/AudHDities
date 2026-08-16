@@ -1,4 +1,4 @@
-// app/middleware.ts — the session-refresh gate.
+// app/proxy.ts — the session-refresh gate. Next 16's proxy convention:
 // Trued 2026-08-14 at KP's word (the March file guarded rooms that no
 // longer exist: /creator, /vendor, /admin, /profile/edit). The import is
 // RELATIVE on purpose: Vercel's Edge bundling failed to resolve the "@/"
@@ -7,7 +7,7 @@
 import { type NextRequest } from 'next/server';
 import { updateSession } from './src/lib/supabase/middleware';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   return await updateSession(request);
 }
 
