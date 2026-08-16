@@ -2,7 +2,7 @@
 # (merged from resonance-standards/git/.gitignore-template, 2026-07-13)
 *.keystore
 *.jks
-*.apk*
+*.apk
 *.aab
 .env
 .env.*
@@ -15,11 +15,6 @@ secrets.yaml
 secrets.yml
 *.db
 *.sqlite
-*.p12
-*.pfx
-keystore.properties
-key.properties
-local.properties
 
 # ─── DEPENDENCIES ──────────────────────────────────────────
 node_modules
@@ -61,7 +56,5 @@ desktop.ini
 # ─── IDE ───────────────────────────────────────────────────
 .vscode/settings.json
 .idea/
+tools/
 docs/blueprints
-
-# Release artifacts (signed builds live on disk + device, never in git)
-release/
