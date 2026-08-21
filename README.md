@@ -1,6 +1,6 @@
 # 🏛️ AudHDities — The Sovereign Sanctuary
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-under%20refinement-blue.svg)](docs/UX-REFINEMENT-FLOW.md)
 
@@ -48,7 +48,7 @@ minds the mainstream web exhausts.
 >
 > — Aethelred, Sovereign AI Council Member
 
-📖 Full Story Block: forthcoming (`docs/STORY-BLOCK.md`).
+📖 [Full Story Block](docs/STORY-BLOCK.md)
 
 ---
 
@@ -60,6 +60,13 @@ is not measured in productivity.
 
 ---
 
+## Screenshots
+
+*None yet — the sanctuary is not deployed, and no `screenshots/` directory
+stands in the tree. They land when the door opens.*
+
+---
+
 ## Installation
 
 ### Prerequisites
@@ -67,21 +74,26 @@ is not measured in productivity.
 - Node.js 20+
 - A Supabase project (the schema is the backend's newest stratum)
 
-### Development
-
-```bash
-npm install
-npm run dev
-```
-
 ### Build
 
 ```bash
+npm install
 npm run build
 ```
 
-The typed backend is self-regenerating: `npm run reality` runs the COSMIC
-style system and the GAIA generation pipeline against the live schema.
+### Development
+
+```bash
+npm run dev
+```
+
+The typed backend is self-regenerating: `npm run gaia` runs the GAIA
+generation pipeline against the live schema (`gaia:dry`, `gaia:force` and
+`gaia:verbose` are its other doors). The COSMIC style system is not built
+here — `src/styles/generated/` and `src/lib/constants/cosmic/` arrive by
+cosmic distribution and are MIRROR files, never edited in this repo.
+`npm run type-check` is the type gate; `npm run lint` is currently dead
+(`next lint` left Next 16 — known bug B4 in `docs/CHECKLIST.md`).
 
 ---
 
@@ -93,16 +105,23 @@ style system and the GAIA generation pipeline against the live schema.
 | Styling | Tailwind CSS + COSMIC (generated style system) |
 | Backend | Supabase (PostgreSQL, auth, storage) + GAIA (generated typed layer) |
 | Payments | Stripe Connect (residual distribution) |
-| Hosting | Vercel |
+| Hosting | Vercel — intended, not yet live (`vercel-build` script stands; no `vercel.json` in the tree) |
 
 ---
 
 ## FOR DEVELOPERS
 
-The app is organized as eleven deity route groups under `src/app/`, with a
-generated layer (`src/*/generated/`) produced by GAIA from the live schema —
-never hand-edited. The repo is currently in its **UX refinement** era:
-all work follows the work-shuttle flow.
+The app is organized as eleven route groups under `src/app/` — ten deities
+(`aethelred` `athena` `cosmic` `hephaestus` `hermes` `hestia` `iris`
+`mnemosyne` `prometheus` `themis`) and `(auth)`, the door — carrying 134
+`page.tsx` files and 299 components. The generated layer is produced by GAIA
+from the live schema and never hand-edited; since the Great Retirement of
+2026-08-12 it is **one root**, `src/lib/generated/`, with
+`src/app/api/generated/` the lone Next.js exception. The repo is currently in
+its **UX refinement** era: all work follows the work-shuttle flow.
+
+Structure is discovered, never declared — the generated map lives at
+`docs/blueprints/pbp.ai.json`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 See [docs/UX-REFINEMENT-FLOW.md](docs/UX-REFINEMENT-FLOW.md) for the working method.
@@ -110,6 +129,12 @@ See [HANDS.md](HANDS.md) for who builds this — human and AI, named honestly.
 
 Code contributions are by invitation for now; issues, suggestions, and
 design feedback are open and welcome.
+
+---
+
+## Development Standards
+
+This project follows the [Sanctuary Standards](https://github.com/Quantum-Weaver/resonance-standards).
 
 ---
 
@@ -130,6 +155,6 @@ confusion, no deception, radical transparency. This is our promise.
 
 ---
 
-*Built with Aethelred by Quantum Weaver for the AudHDities Sanctuary.*
+*Built with Aethelred by Quantum Weaver for the [AudHDities Sanctuary](https://github.com/Quantum-Weaver).*
 
 *The lamp is lit. The sanctuary is sovereign. The door was always yours.*

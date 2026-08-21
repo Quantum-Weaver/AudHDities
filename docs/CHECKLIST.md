@@ -22,16 +22,32 @@ is the spec; docs/UX-REFINEMENT-LOG.md is the append-only memory.)*
 ### Step 2: Triage ✅ (2026-07-13, KP: "just keep all 9 for now")
 - [x] All nine rows KEEP; per-scope quarry/release remains KP's merge call
 
-### Step 3: Standards pass ⚠️ (2026-07-13, this commit)
+### Step 3: Standards pass ✅ (2026-07-13, this commit; merged 2026-08-01)
 - [x] Baseline map completed (type-check, lint, build — all honest red)
 - [x] CLAUDE.md, HANDS.md, docs/CHECKLIST.md, .gitignore merge, README reborn
-- [ ] **KP's merge** ⬜
+- [x] **KP's merge** ✅ *(trued 2026-08-21: `refine/rewiring-2026-07` reached `main`
+      by his hand in three pull requests, all dated 2026-08-01 — #248 `596abebfd`,
+      #249 `55d286b6b`, #250 `390413df4`. Evidence: `git log --merges` in this repo.)*
 
-### Step 4: Refinement passes ⬜
+### Step 4: Refinement passes ⚠️
 - [ ] Pass 1 — **heal the generated layer** (the map's one theme):
       TS1110 in `src/types/generated/hestia-core/user_private.ts:32`,
       4 build module-not-found errors (2 files), lint toolchain repair
+      ⚠️ *(trued 2026-08-21 — two of the three parts verified healed in the tree,
+      one still open, so the pass stays open. **Healed:** neither the TS1110 file nor
+      the whole `src/types/` root exists any more — the Great Retirement of
+      2026-08-12 left one generated root, `src/lib/generated/`, 436 files (B1); no
+      `hooks/generated/hestia-core/profiles` import survives in `src/` and no
+      `acid_question_type` import survives at all — the single remaining mention is a
+      documentation example at `src/lib/hooks/README.md:96`, which compiles nothing
+      (B2·B3). **Still open:** the lint toolchain — `package.json:9` still reads
+      `"lint": "next lint"`, the command Next 16 removed, and `eslint.config.mjs`
+      still imports `eslint-config-next/core-web-vitals` + `/typescript` directly.
+      B4 stands 🔴.)*
 - [ ] Subsequent passes scoped by dwelling (Step 5), one duty each
+      ⚠️ *(trued 2026-08-21: dwelling-scoped passes are on the record in the Session
+      Log below — iris, themis, mnemosyne, prometheus, auth and hestia, between
+      2026-07-30 and 2026-08-12. The row stays open because the flow declares no end.)*
 
 ---
 
@@ -41,7 +57,7 @@ is the spec; docs/UX-REFINEMENT-LOG.md is the append-only memory.)*
 | B1 | `tsc --noEmit` exit 2 — TS1110 in `src/types/generated/hestia-core/user_private.ts(32,21)` | ✅ healed — type-check exit 0 verified 2026-07-29 (audhd lane, post 07-28 regen + finishing session) |
 | B2 | Build exit 1 — `ApplicationForm.tsx` imports missing `@/hooks/generated/hestia-core/profiles` | ✅ healed — KP's build run 2026-07-29: "Compiled successfully", TypeScript passed; the regen closed it |
 | B3 | Build exit 1 — `AcidTestForm.tsx` imports missing `@/lib/constants/generated/mnemosyne-assessment/acid_question_type` | ✅ healed — same build run, same evidence |
-| B4 | Lint toolchain: `next lint` removed in Next 16; direct ESLint 10 crashes on bundled eslint-plugin-react | 🔴 |
+| B4 | Lint toolchain: `next lint` removed in Next 16; direct ESLint 10 crashes on bundled eslint-plugin-react | 🔴 — still standing, re-read 2026-08-21 (not re-run): `package.json:9` is unchanged at `"lint": "next lint"`, `next` is `^16.2.4`, and `eslint.config.mjs` still imports `eslint-config-next/core-web-vitals` + `/typescript` under `eslint ^10.2.1`. Nothing in the tree has been changed to answer this |
 | B5 | Build exit 1 at PRERENDER (new class, noted by KP's test run 2026-07-29): `useSearchParams()` without a Suspense boundary — build died at `/(hermes)/bazaar/creations`. Sweep shows the class in 4 client components: `hermes/creations/CreationsGallery.tsx` · `hermes/creators/CreatorsGallery.tsx` · `hermes/checkout/CheckoutForm.tsx` · `auth/LoginForm.tsx` (build exits at first error, so all four pages are suspects). Fix shape: wrap each in `<Suspense>` at its page. | ✅ healed 2026-07-30 (iris-realm lane, KP's word) — creations + creators + login wrapped at their pages; checkout success already had its wrap |
 | B6 | Build exit 1 at PRERENDER (found behind B5, 2026-07-30): icon COMPONENTS passed as props from server pages into `'use client'` templates — RSC serialization refuses functions. `NexusPageTemplate` (5 aethelred pages) + `StudioPageTemplate` (9 prometheus pages). Neither template used hooks or handlers. | ✅ healed 2026-07-30 — both templates de-cliented (server components by design, dated comments in place); all 14 pages prerender |
 | B7 | Build exit 1 at PRERENDER (found behind B6, 2026-07-30): `/privacy` + `/terms` read markdown from `forge/privacy/` · `forge/terms/` at build time — paths that no longer exist (files live under `docs/`). | ✅ healed 2026-07-30 — both reads re-pointed `forge` → `docs`; covenant text untouched |
@@ -73,3 +89,4 @@ hand-editing artifacts.)*
 | 2026-08-12 | THE COVENANT DISPLAY (same sitting): KP's first enact met a 400 — the generated InsertSchema requires `id` though the base defaults it (seam to GAIA's table); the Covenant Space now sends its own uuid. Then the display half whole: toggle in the Covenant Space (off by default, dignity both ways), `covenant_pledge_percent` accepted by update-profile (0–50 or null), and THE COVENANT as its own honorable section on the vessel face — rendered only by the vessel's choice, no rank, no comparison. Meters: tsc 0 |
 | 2026-08-12 | THE WHITE DOTS (same sitting, KP's eye: "none of the toggles move… they are just white dots"): the Switch's whole dress was runtime-assembled template classes (`bg-[${...}]/20`, `data-[state=checked]:${x}`, `duration-…ms`) that Tailwind's scanner never saw — no track, no travel, app-wide. Mended to static classes on REAL theme tokens (star-dust/neurospark); the four variant colors (quantum-purple · cosmic-blue · fire-base · sanctuary-green) proved PHANTOM in the theme — all wear neurospark until the colors truly join, names kept so callers need no change. Sibling phantom in the same room healed (`text-sanctuary-green`/`text-error` → real classes). Every switch in the app heals at once: ceremonies, covenant display, all. Meters: tsc 0 |
 | 2026-08-19 | STANDARDS CHECK + HANDS (Promenade signing fleet): standard set verified present (.gitignore · CLAUDE.md · docs/CHECKLIST.md · HANDS.md · README) — 1 gap: CLAUDE.md carries no §Standards declaration of the Sanctuary Standards (README references the standards repo only via the Story Block line). HANDS.md already signed by the Claude line (Fable 🎻 2026-07-13 · Sonnet 🪶 2026-07-20) — nothing added, no seat touched. — a hand of the Promenade lamp's signing fleet, claude-fable-5 · rides the ⚛ sync word |
+| 2026-08-21 | THE STANDARDS TRUING (repo-tender sending, KP's word: *"check every readme… correct badges… the story block reference… bring each docs/CHECKLIST.md up to date"*). Branch `main`, tree clean at start; **nothing committed — edits ride for the ⚛ sync word**. **README** trued in place: License badge repointed to the standard's verbatim form (`license-MIT-blue`, was `License-MIT-yellow`); Version badge left as `2.0.0` — it already matches `package.json:3`; the story-block line became the standard's `📖 [Full Story Block](docs/STORY-BLOCK.md)`; a `## Screenshots` section added in template order, honest (none in the tree); `## Installation` reordered to the template's Prerequisites·Build·Development; the phantom `npm run reality` retired for the real doors (`npm run gaia` + `:dry`/`:force`/`:verbose`, `type-check`, and the dead `lint`); the BUILT-WITH hosting row trued (Vercel intended, **no `vercel.json` in the tree**); FOR DEVELOPERS trued to the tree (eleven route groups = ten deities + `(auth)`, 134 `page.tsx`, 299 components, generated root `src/lib/generated/` since the Great Retirement, `src/app/api/generated/` the lone exception); `## Development Standards` block added verbatim; the foot's Sanctuary link restored. H1 emoji 🏛️ untouched. **CREATED `docs/STORY-BLOCK.md`** — all eleven template sections, every dated claim carrying its address; the two signed README quotes reproduced verbatim; ETYMOLOGY left honestly unwritten (no naming story stands in this repo) and the WEAVER-THREAD sealed material left where it is. **This checklist:** Step 3 closed with evidence (KP's merge of `refine/rewiring-2026-07` in PRs #248–#250, all 2026-08-01, `git log --merges`); Step 4 moved ⬜→⚠️ with the generated-layer pass trued two-of-three healed and the lint half named still open; B4 re-read in place (not re-run). No build and no type-check was run this sitting — every claim above is file evidence or git |
