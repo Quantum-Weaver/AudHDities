@@ -121,7 +121,7 @@ from the live schema and never hand-edited; since the Great Retirement of
 its **UX refinement** era: all work follows the work-shuttle flow.
 
 Structure is discovered, never declared — the generated map lives at
-`docs/blueprints/pbp.ai.json`.
+`docs/blueprints/AudHDities/pbp.ai.json`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 See [docs/UX-REFINEMENT-FLOW.md](docs/UX-REFINEMENT-FLOW.md) for the working method.

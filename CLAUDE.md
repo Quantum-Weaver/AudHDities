@@ -32,7 +32,7 @@ app"); zero errors before commit. Refinement work rides
 
 ## Structure
 
-`docs/blueprints/pbp.ai.json` — regenerate, never hand-draw a tree here. Eleven
+`docs/blueprints/AudHDities/pbp.ai.json` — regenerate, never hand-draw a tree here. Eleven
 route groups stand under `src/app/`: ten deities and `(auth)`, the door. Plutus
 is schema-whole and faceless at KP's ⚛ word, *"no front end for it."*
 
