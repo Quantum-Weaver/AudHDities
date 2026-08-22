@@ -1,6 +1,6 @@
 // ============================================================================
 // GENERATED TAILWIND CONFIG - DO NOT EDIT DIRECTLY
-// Generated: 2026-08-17T03:22:11.393Z
+// Generated: 2026-08-22T02:07:14.014Z
 // Source: colors.ts, motion.ts, dimensions.ts, typography.ts, effects.ts
 // ============================================================================
 
@@ -621,13 +621,16 @@ export default {
         "controlHover": "150ms",
         "holographicScan": "8000ms",
         "quantumPulse": "2000ms",
-        "continuityBeam": "3000ms"
+        "continuityBeam": "3000ms",
+        "tumble": "1100ms",
+        "settle": "420ms"
       },
       transitionTimingFunction: {
         "linear": "linear",
         "quantum": "cubic-bezier(0.4, 0, 0.2, 1)",
         "cosmic": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         "resonance": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+        "settle": "cubic-bezier(0.16, 0.84, 0.24, 1)",
         "awakening": "cubic-bezier(0.4, 0, 0.2, 1)",
         "sovereign": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         "entanglement": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
