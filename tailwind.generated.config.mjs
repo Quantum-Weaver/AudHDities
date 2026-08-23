@@ -1,6 +1,6 @@
 // ============================================================================
 // GENERATED TAILWIND CONFIG - DO NOT EDIT DIRECTLY
-// Generated: 2026-08-22T02:07:14.014Z
+// Generated: 2026-08-23T02:21:28.702Z
 // Source: colors.ts, motion.ts, dimensions.ts, typography.ts, effects.ts
 // ============================================================================
 
@@ -29,6 +29,10 @@ export default {
         "hearth": {
           "orange": "#C44B2D",
           "gold": "#FDCB6E"
+        },
+        "sirens": {
+          "rose": "#E78FAE",
+          "deep": "#A63D62"
         },
         "sanctuary": {
           "green": "#00B894",
