@@ -220,7 +220,8 @@ export function getRealmEnvironment(realm: RealmKey): EnvironmentKey {
 // should display something other than title and subtitle as the header
 // handles those"). Movement IV duty, built 2026-07-29 by the finishing
 // session of THE-FRONTEND-REIMAGINING (study record:
-// fable/lanes/study/e2-the-ux-study-bus.md, round 8a work-order step ①).
+// resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md,
+// round 8a work-order step ①).
 //
 // A REFERENCE lane, additions-only: every value points at data that already
 // lives one file over — HEADER_DATA + getPageMetadata (page_mapping.ts) and

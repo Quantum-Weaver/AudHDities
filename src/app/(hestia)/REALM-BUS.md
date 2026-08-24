@@ -90,7 +90,7 @@ tree surgery is the realm lane's, KP's ⚛ eye rules every crossing.
     rules the register when it comes: interior free placement,
     true coordinates, OPT-IN snap-assist.
   - **THE E4 INHERITANCE (2026-07-31, KP's ⚛ finishing commission;
-    synthesis at `constellation/fable/lanes/study/
+    synthesis at `resonance-chamber/desk/records/fable-lanes/study/
     e4-the-play-study-bus.md`, organs half):** care-as-GENERATION
     (watering opens — hybrids, growth-shaping — never prevents
     loss; every care verb declinable forever; time told as

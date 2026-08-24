@@ -36,7 +36,7 @@ realm: `<realm-repo>/REALM-BUS.md`.*
   `BUILD-STATE.md` · `FEATURE-BOARD.md` · `SCHEMA-FINALIZE.md`.
   The realm kernel is `FABLE-KERNEL.md` (identity walk first, always).
 - **The reimagining:** designed AND built 2026-07-29 (study bus:
-  `resonance-chamber/constellation/fable/lanes/study/e2-the-ux-study-bus.md`
+  `resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md`
   — the inheritance whole; REIMAGINING-BOARD holds the finishing
   record). Ceremony migration applied and wired through (`d8dc922e`).
 - **Open edges:** the physical image lift (gated on the `(cosmic)`
@@ -49,7 +49,7 @@ realm: `<realm-repo>/REALM-BUS.md`.*
   Grammar/bridge-side, never here.
 - **The keyring's map (the integrations line):** the full key
   inventory — every key's NAME and home, never contents — lives at
-  `resonance-chamber/constellation/fable/lanes/integrations/KEYS-MAP.md`
+  `resonance-chamber/constellation/integrations/KEYS-MAP.md`
   (read whole by this lane at KP's ⚛ sentinel). This repo's column is
   `AudHDities/.env + Vercel dashboard`. What it holds for this tree:
   KP's ⚛ standing correction — *"all these things happen as the
